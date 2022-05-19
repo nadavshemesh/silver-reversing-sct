@@ -228,15 +228,23 @@ param_pattern* init_pp_integer() {
     pp->type = INTEGER;
     pp->bin_token_num = 4;
     pp->bin_var_num = 1;
+    pp->asm_token_num = 2;
+    pp->asm_var_num = 1;
 
     int bin_tokens[4] = { 0xfffffffd, 1, 2, VAR };
     int bin_var_pos[1] = { 3 };
+    char* asm_tokens[2] = { "int", S_VAR };
+    int asm_var_pos[1] = { 1 };
 
-    pp->bin_tokens = w_malloc(sizeof(bin_tokens)*sizeof(int*));
-    pp->bin_var_pos = w_malloc(sizeof(bin_var_pos)*sizeof(int*));
+    pp->bin_tokens = w_malloc(pp->bin_token_num*sizeof(int*));
+    pp->bin_var_pos = w_malloc(pp->bin_var_num*sizeof(int*));
+    pp->asm_tokens = w_malloc(pp->asm_token_num*sizeof(char*));
+    pp->asm_var_pos = w_malloc(pp->asm_var_num*sizeof(int*));
 
     memcpy(pp->bin_tokens, bin_tokens, pp->bin_token_num*sizeof(int*));
     memcpy(pp->bin_var_pos, bin_var_pos, pp->bin_var_num*sizeof(int*));
+    memcpy(pp->asm_tokens, asm_tokens, pp->asm_token_num*sizeof(char*));
+    memcpy(pp->asm_var_pos, asm_var_pos, pp->asm_var_num*sizeof(int*));
 
     return pp;
 }
@@ -249,12 +257,18 @@ param_pattern* init_pp_data_ptr() {
 
     int bin_tokens[5] = { 0xfffffffd, 1, 0, 7, VAR };
     int bin_var_pos[1] = { 4 };
+    char* asm_tokens[2] = { "const", S_VAR };
+    int asm_var_pos[1] = { 1 };
 
-    pp->bin_tokens = w_malloc(sizeof(bin_tokens)*sizeof(int*));
-    pp->bin_var_pos = w_malloc(sizeof(bin_var_pos)*sizeof(int*));
+    pp->bin_tokens = w_malloc(pp->bin_token_num*sizeof(int*));
+    pp->bin_var_pos = w_malloc(pp->bin_var_num*sizeof(int*));
+    pp->asm_tokens = w_malloc(pp->asm_token_num*sizeof(char*));
+    pp->asm_var_pos = w_malloc(pp->asm_var_num*sizeof(int*));
 
     memcpy(pp->bin_tokens, bin_tokens, pp->bin_token_num*sizeof(int*));
     memcpy(pp->bin_var_pos, bin_var_pos, pp->bin_var_num*sizeof(int*));
+    memcpy(pp->asm_tokens, asm_tokens, pp->asm_token_num*sizeof(char*));
+    memcpy(pp->asm_var_pos, asm_var_pos, pp->asm_var_num*sizeof(int*));
 
     return pp;
 }
@@ -267,12 +281,18 @@ param_pattern* init_pp_var_ptr() {
 
     int bin_tokens[5] = { 0xfffffffd, 1, 0, 6, VAR };
     int bin_var_pos[1] = { 4 };
+    char* asm_tokens[2] = { "var", S_VAR };
+    int asm_var_pos[1] = { 1 };
 
-    pp->bin_tokens = w_malloc(sizeof(bin_tokens)*sizeof(int*));
-    pp->bin_var_pos = w_malloc(sizeof(bin_var_pos)*sizeof(int*));
+    pp->bin_tokens = w_malloc(pp->bin_token_num*sizeof(int*));
+    pp->bin_var_pos = w_malloc(pp->bin_var_num*sizeof(int*));
+    pp->asm_tokens = w_malloc(pp->asm_token_num*sizeof(char*));
+    pp->asm_var_pos = w_malloc(pp->asm_var_num*sizeof(int*));
 
     memcpy(pp->bin_tokens, bin_tokens, pp->bin_token_num*sizeof(int*));
     memcpy(pp->bin_var_pos, bin_var_pos, pp->bin_var_num*sizeof(int*));
+    memcpy(pp->asm_tokens, asm_tokens, pp->asm_token_num*sizeof(char*));
+    memcpy(pp->asm_var_pos, asm_var_pos, pp->asm_var_num*sizeof(int*));
 
     return pp;
 }

@@ -94,16 +94,33 @@ bool cmp_token(void* a_token_ptr, void* b_token_ptr, mode m) {
     return false;
 }
 
+bool is_var_pos_pp(void* pattern, mode m, int index) {
+    param_pattern* p = (param_pattern*) pattern;        
+
+    int var_num = (m == MODE_BIN) ? p->bin_var_num : p->asm_var_num;
+    int* var_pos = (m == MODE_BIN) ? p->bin_var_pos : p->asm_var_pos;
+
+    // printf("vpos: %d\n", *var_pos);
+    for(int k=0; k < var_num; k++) {
+        // printf("var_pos: %d, index: %d\n", var_pos[k], index);
+        if(var_pos[k] == index) {
+            return true;
+        }
+    }
+    return false;
+}
+
 bool is_var_pos(void* pattern, p_type pattern_type, mode m, int index) {
     code_pattern* p = (code_pattern*) pattern;        
 
     if(pattern_type == PARAM_TYPE) {
-        param_pattern* p = (param_pattern*) pattern;        
+        return is_var_pos_pp(pattern, m, index);
     }
 
     int var_num = (m == MODE_BIN) ? p->bin_var_num : p->asm_var_num;
     int* var_pos = (m == MODE_BIN) ? p->bin_var_pos : p->asm_var_pos;
 
+    // printf("vpos: %d\n", *var_pos);
     for(int k=0; k < var_num; k++) {
         // printf("var_pos: %d, index: %d\n", var_pos[k], index);
         if(var_pos[k] == index) {
@@ -139,18 +156,19 @@ cp_cmp_result identify_cp(void* tokens_start, mode m) {
                    }
                     eq_tokens++;
                 } else {
-                    if(m == MODE_BIN) { vars[var_i] = *((int*) token); }
-                    else if(m == MODE_ASM) {  vars[var_i] = *((char**) token); }
+                    if(m == MODE_BIN) { printf("var found: %08x\n", *((int*)token)); vars[var_i] = *((int*) token); }
+                    else if(m == MODE_ASM) {  vars[var_i] = *((char**) tokens); }
                     var_i++;
                 }
-                tokens += 1;
-                token += 1;
+                tokens += sizeof(int);
+                token += sizeof(int);
            }
            if(eq_tokens == eq_goal) {
                 res.is_identified = true;
                 res.match = cp;
                 res.tokens_pos = token;
-                res.vars = vars;
+                res.vars = w_malloc(var_num*sizeof(int));
+                memcpy(res.vars, vars, var_num*sizeof(int));
                 return res;
            }
        }
@@ -181,7 +199,7 @@ pp_cmp_result identify_pp(void* tokens_start, mode m) {
            // compare const tokens
            for(int j=0; j < token_num; j++) {
                if(!is_var_pos(pp, PARAM_TYPE, m, j)) {
-                   if(cmp_token(tokens, token, m))  {
+                   if(!cmp_token(tokens, token, m))  {
                        break; // not a match
                    }
                     eq_tokens++;
@@ -190,14 +208,15 @@ pp_cmp_result identify_pp(void* tokens_start, mode m) {
                     else if(m == MODE_ASM) {  vars[var_i] = *((char**) token); }
                     var_i++;
                 }
-                tokens += 1;
-                token += 1;
+                tokens += sizeof(int);
+                token += sizeof(int);
            }
            if(eq_tokens == eq_goal) {
                 res.is_identified = true;
                 res.match = pp;
                 res.tokens_pos = token;
-                res.vars = vars;
+                res.vars = w_malloc(var_num*sizeof(int));
+                memcpy(res.vars, vars, var_num*sizeof(int));
                 return res;
            }
        }
@@ -206,18 +225,28 @@ pp_cmp_result identify_pp(void* tokens_start, mode m) {
     return res;
 }
 
-param_obj* create_param_obj(param_pattern* pp, int vars[]) {
-    param_obj* po = w_malloc(sizeof(param_obj));
 
+param_obj* create_param_obj(param_pattern* pp, void* vars, mode m, sct_f* sf) {
+    param_obj* po = w_malloc(sizeof(param_obj));
+    int var_num = (m == MODE_BIN) ? pp->bin_var_num : pp->asm_var_num; // always 1?
+    if(m == MODE_BIN) {
+        int data_id = ((int*)vars)[0];
+        po->bin_vars = w_malloc(var_num*sizeof(int*));
+        po->asm_vars = w_malloc(var_num*sizeof(int*));
+        memcpy(po->bin_vars, vars, var_num*sizeof(int*));
+        data_obj* data = get_data_obj_by_id(data_id, sf);
+        po->pp = pp;
+        po->data = data;
+    }
 
     return po;
 }
 
-code_obj* create_code_obj(code_pattern* cp, void* vars, mode m, void* tokens_pos) {
+code_obj* create_code_obj(code_pattern* cp, void* vars, mode m, void* tokens_pos, sct_f* sf) {
     code_obj* c_obj = w_malloc(sizeof(code_obj));
 
     switch(cp->type) {
-        case IF:
+        case IF_STATEMENT:
             break;
         case SWITCH:
             break;
@@ -225,18 +254,29 @@ code_obj* create_code_obj(code_pattern* cp, void* vars, mode m, void* tokens_pos
             if(m == MODE_BIN) {
                 int func_num = ((int*) vars)[0];
                 int params_num = ((int*) vars)[1];
+                // printf("game_func: %x, params_num: %d\n", func_num, params_num);
 
                 game_fun* gf = game_functions[func_num];
                 if(gf == NULL) { printf("ERROR, game func %d not found.\n", func_num); exit(-1); }
+                c_obj->cp = cp;
+                c_obj->bin_vars = w_malloc(2*sizeof(int));
+                c_obj->asm_vars = w_malloc(2*sizeof(char*));
+                memcpy(c_obj->bin_vars, vars, sizeof(c_obj->bin_vars));
+                param_obj params[params_num];
                 // Read params
                 for(int i=0; i < params_num; i++) {
                     pp_cmp_result res = identify_pp(tokens_pos, m);
                     if(res.is_identified) {
-                        // tokens_pos = res.tokens_pos;
-                        param_obj* po = create_param_obj(res.match, res.vars);
-
-                    }
+                        tokens_pos = res.tokens_pos;
+                        param_obj* po = create_param_obj(res.match, res.vars, m, sf);
+                        params[i] = *po;
+                    } else { print_err_and_exit("unidentified param.", -4); }
                 }
+                c_obj->params_num = params_num;
+                c_obj->params = w_malloc(params_num*sizeof(param_obj));
+                memcpy(c_obj->params, params, params_num*sizeof(param_obj));
+
+                return c_obj;
             }
 
             break;
@@ -265,8 +305,9 @@ int disasm_script(int script_offset, sct_f* sf) {
     cp_cmp_result res = identify_cp(bin_tokens, MODE_BIN);
     if(res.is_identified) {
         printf("Found pattern.\n");
-        print_code_pattern(res.match);
-        //create_code_obj(res.match, res.vars, MODE_BIN, res.tokens_pos);
+        // print_code_pattern(res.match);
+        code_obj* co = create_code_obj(res.match, res.vars, MODE_BIN, res.tokens_pos, sf);
+        print_code_obj(co);
     }
     // print_tokens(&tokens[0], script_len);
 
@@ -277,12 +318,14 @@ int disasm_file(char* filepath) {
     backup_file_gcc(filepath);
     FILE* file = fopen(filepath, "r");
     
-    sct_f* sct_file = malloc(sizeof(sct_file));
+    sct_f* sct_file = malloc(sizeof(sct_f));
     // TODO: validate structure
     sct_file->file = file;
     sct_file->structure = form_structure(file);
     print_sct_struct(sct_file);
     
+    build_data_from_link_table(sct_file);
+
     int script1 = get_script_off(0, sct_file);
     disasm_script(script1, sct_file);
 }

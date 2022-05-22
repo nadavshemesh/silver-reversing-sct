@@ -17,3 +17,12 @@ char *aapts(char* str) {
 
     return alloc_str;
 }
+
+void print_err(char* err, int err_code) {
+    printf("%s\n", err);
+}
+
+void print_err_and_exit(char* err, int err_code) {
+    printf("%s", err);
+    exit(err_code);
+}

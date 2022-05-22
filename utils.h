@@ -12,3 +12,5 @@ typedef struct s_array {
 
 void *w_malloc(size_t size);
 char *aapts(char* str);
+void print_err(char* err, int err_code);
+void print_err_and_exit(char* err, int err_code);

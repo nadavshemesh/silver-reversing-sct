@@ -17,6 +17,7 @@ const int MAX_FUNC_NAME = 256;
 const int MAX_TOKENS_PER_EXPRESSION = 50;
 
 typedef enum mode { MODE_BIN, MODE_ASM } mode;
+typedef enum o_type { OBJ_CODE, OBJ_DATA, OBJ_PARAM } o_type;
 typedef enum pattern_type { CODE_TYPE, PARAM_TYPE } p_type;
 typedef enum code_type { IF_STATEMENT, SWITCH, FUNCTION_CALL, SCRIPT_CALL, ASSIGNMENT, VAR_INC, VAR_DEC, TIMER } c_type;
 typedef enum param_type { INTEGER, DATA_PTR, VAR_PTR } param_type;
@@ -94,9 +95,15 @@ typedef struct code_object {
     param_obj* params;
 } code_obj;
 
-game_fun* game_functions[GAME_FUNCTIONS_NUM];
-code_pattern* code_patterns[CODE_PATTERNS_NUM];
-param_pattern* param_patterns[PARAM_PATTERNS_NUM];
+typedef struct obj_and_token_ptr {
+    void* obj;
+    o_type type;
+    void* token_ptr;
+} obj_and_token_ptr;
+
+typedef struct script {
+    code_obj* code_objs;
+} script;
 
 typedef unsigned char BYTE;
 
@@ -115,10 +122,14 @@ typedef struct sct_file {
     FILE* file;
     sct_s* structure;
     int code_objs_size;
-    code_obj* code_section;
+    script* scripts;
     int data_objs_size;
     data_obj* data_section;
 } sct_f;
+
+game_fun* game_functions[GAME_FUNCTIONS_NUM];
+code_pattern* code_patterns[CODE_PATTERNS_NUM];
+param_pattern* param_patterns[PARAM_PATTERNS_NUM];
 
 sct_s* form_structure(FILE* sctfile);
 void print_sct_struct(sct_f* sf);
@@ -423,7 +434,8 @@ void init_game_functions() {
         char* num = w_malloc(4);
         char* prefix = "func_";
 
-        c_itoa(i,num);
+        // c_itoa(i,num);
+        sprintf(num, "%x", i);
         strncat(name, prefix, strlen(prefix));
         strcat(name, num);
         gf->name = name;
@@ -585,6 +597,7 @@ void print_code_obj(code_obj* co) {
     for(int i=0; i < co->cp->bin_var_num; i++) { 
         printf(" %08x ", co->bin_vars[i]);
     }
+    printf("params num: %d\n", co->params_num);
     for(int i=0; i < co->params_num; i++) {
         param_obj* param = &(co->params)[i];
         print_param_obj(param, true);

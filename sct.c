@@ -73,6 +73,18 @@ void print_bin_tokens(int* tokens, int length) {
     }
 }
 
+void print_bin_token_seg(int* tokens, int from_row, int to_row, int cols) {
+    int* token = tokens;
+    for(int i=from_row*cols; i < to_row*cols; i++) {
+        if(i != from_row*cols && i%cols == 0) printf("\n");
+        if(&(tokens[i]) == token)
+            printf(ANSI_COLOR_RED "%08x " ANSI_COLOR_RESET, tokens[i]);
+        else
+            printf("%8.8x ", tokens[i]);
+    }
+    printf("\n");
+}
+
 bool cmp_token(void* a_token_ptr, void* b_token_ptr, mode m) {
     if(m == MODE_BIN) {
         int* a_token = (int*) a_token_ptr;
@@ -137,13 +149,16 @@ void print_token_area_details(void* token_pos, mode m) {
     if(token_pos != NULL) {
         if(m == MODE_BIN) {
             int* token = (int*) token_pos;
-            printf(ANSI_COLOR_YELLOW "[ %08x %08x %08x %08x ]" ANSI_COLOR_RESET "\n", token-2, token-1, token, token+1);
-            printf(ANSI_COLOR_RED "  % 9c % 9c ~~~~~~~~ % 8c  " ANSI_COLOR_RESET "\n", NULL, NULL, NULL);
+            print_bin_token_seg(token, -2, 2, 5);
+            // printf(ANSI_COLOR_YELLOW "[ %08x %08x %08x %08x %08x %08x ]" ANSI_COLOR_RESET "\n", \
+            //  token[-2], token[-1], token[0], token[1], token[2], token[3]);
+            // printf(ANSI_COLOR_RED "  % 9c % 9c ~~~~~~~~ % 8c  " ANSI_COLOR_RESET "\n", NULL, NULL, NULL);
         } else {
             char** token = (char**) token_pos;
             printf("[ %s %s %s %s ]\n", token-2, token-1, token, token+1);
         }
     }
+    exit(1);
 }
 
 cp_cmp_result identify_cp(void* tokens_start, mode m) {
@@ -153,9 +168,9 @@ cp_cmp_result identify_cp(void* tokens_start, mode m) {
     // compare each pattern with tokens
     for(int i=0; i < CODE_PATTERNS_NUM; i++) {
         code_pattern* cp = code_patterns[i];
+        token = tokens_start;
 
         if(cp != NULL) {
-           token = tokens_start;
            int token_num = (m == MODE_BIN) ? cp->bin_token_num : cp->asm_token_num;
            int var_num = (m == MODE_BIN) ? cp->bin_var_num : cp->asm_var_num;
            void* tokens = (m == MODE_BIN) ? (void*) cp->bin_tokens : (void*) cp->asm_tokens;
@@ -168,6 +183,7 @@ cp_cmp_result identify_cp(void* tokens_start, mode m) {
            for(int j=0; j < token_num; j++) {
                if(!is_var_pos(cp, CODE_TYPE, m, j)) {
                    if(!cmp_token(tokens, token, m))  {
+                       printf("no match\n");
                        break; // not a match
                    }
                     eq_tokens++;
@@ -250,14 +266,41 @@ param_obj* create_param_obj(param_pattern* pp, void* vars, mode m, sct_f* sf) {
     int bin_var_num = pp->bin_var_num;
     int asm_var_num = pp->asm_var_num;
     if(m == MODE_BIN) {
-        int data_id = ((int*)vars)[0];
+        int data_var = ((int*)vars)[0];
+        data_obj* data;
 
         po->bin_vars = w_malloc(bin_var_num*sizeof(int*));
         memcpy(po->bin_vars, vars, bin_var_num*sizeof(int*));
 
-        data_obj* data = get_data_obj_by_id(data_id, sf);
-        char* asm_vars = { data->name };
+        switch(pp->type) {
+            case INTEGER:
+                char c[10];
+                int i[1] = { data_var };
+                sprintf(c, "%d", data_var);
+                data = w_malloc(sizeof(data_obj));
+                data->name = w_malloc(10);
+                data->byte_size = 4;
+                data->references = 0;
+                data->bin_data = w_malloc(sizeof(int*));
+                data->asm_data = w_malloc(sizeof(char*));
+                memcpy(data->name, &c, sizeof(data->name));
+                memcpy(data->asm_data, &c, sizeof(data->asm_data));
+                memcpy(data->bin_data, i, sizeof(data->bin_data));
+                break;
 
+            case DATA_PTR:
+                data = get_data_obj_by_id(data_var, sf);
+                break;
+
+            case VAR_PTR:
+                data = get_data_obj_by_id(data_var, sf);
+                break;
+        
+        default:
+            break;
+        }
+
+        char* asm_vars = { data->name };
         po->asm_vars = w_malloc(asm_var_num*sizeof(char*));
         memcpy(po->asm_vars, &asm_vars, asm_var_num*sizeof(int*));
 
@@ -268,7 +311,7 @@ param_obj* create_param_obj(param_pattern* pp, void* vars, mode m, sct_f* sf) {
     return po;
 }
 
-code_obj* create_code_obj(code_pattern* cp, void* vars, mode m, void* tokens_pos, sct_f* sf) {
+obj_and_token_ptr create_code_obj(code_pattern* cp, void* vars, mode m, void* tokens_pos, sct_f* sf) {
     code_obj* c_obj = w_malloc(sizeof(code_obj));
 
     switch(cp->type) {
@@ -280,7 +323,7 @@ code_obj* create_code_obj(code_pattern* cp, void* vars, mode m, void* tokens_pos
             if(m == MODE_BIN) {
                 int func_num = ((int*) vars)[0];
                 int params_num = ((int*) vars)[1];
-                // printf("game_func: %x, params_num: %d\n", func_num, params_num);
+                printf("game_func: %x, params_num: %d\n", func_num, params_num);
 
                 game_fun* gf = game_functions[func_num];
                 if(gf == NULL) { 
@@ -308,7 +351,7 @@ code_obj* create_code_obj(code_pattern* cp, void* vars, mode m, void* tokens_pos
                 c_obj->params = w_malloc(params_num*sizeof(param_obj));
                 memcpy(c_obj->params, params, params_num*sizeof(param_obj));
 
-                return c_obj;
+                // return c_obj;
             }
 
             break;
@@ -320,7 +363,8 @@ code_obj* create_code_obj(code_pattern* cp, void* vars, mode m, void* tokens_pos
             break;
     }
 
-    return c_obj;
+    obj_and_token_ptr oatp = { .obj = c_obj, .type = OBJ_CODE, .token_ptr = tokens_pos };
+    return oatp;
 }
 
 void print_asm_code_obj(code_obj* co) {
@@ -340,13 +384,14 @@ void print_asm_code_obj(code_obj* co) {
     if(co->params_num > 0) {
         printf("(");
         for(int i=0; i < co->params_num; i++) {
-            param_obj* po = co->params;
+            param_obj* po = &(co->params)[i];
             param_pattern* pp = po->pp;
             
             for(int k=0, l=0; k < pp->asm_token_num; k++) {
                 if(is_var_pos_pp(pp, MODE_ASM, k)) {
                     printf("%s", po->asm_vars[l]);
                     l++;
+                    if(i+1 < co->params_num) { printf(", "); }
                 } else {
                     printf(ANSI_COLOR_CYAN "%s" ANSI_COLOR_RESET, pp->asm_tokens[k]);
                 }
@@ -366,17 +411,24 @@ int disasm_script(int script_offset, sct_f* sf) {
     printf("script_offset: %x, script_len: %x (%x bytes)\n", script_offset, script_len, script_len*4);
 
     int bin_tokens[script_len];
+    int* tokens = bin_tokens;
     fread(&bin_tokens, 4, script_len, sf->file);
 
-    cp_cmp_result res = identify_cp(bin_tokens, MODE_BIN);
-    if(res.is_identified) {
-        char msg[256];
-        sprintf(msg, "Found pattern '%s'.\n", res.match->name);
-        print_success(msg);
-        // print_code_pattern(res.match);
-        code_obj* co = create_code_obj(res.match, res.vars, MODE_BIN, res.tokens_pos, sf);
-        print_code_obj(co);
-        print_asm_code_obj(co);
+    while(tokens != NULL) {
+        cp_cmp_result res = identify_cp(tokens, MODE_BIN);
+        if(res.is_identified) {
+            char msg[256];
+            sprintf(msg, "Found pattern '%s'.\n", res.match->name);
+            print_success(msg);
+            // print_code_pattern(res.match);
+            obj_and_token_ptr oatp = create_code_obj(res.match, res.vars, MODE_BIN, res.tokens_pos, sf);
+            if(oatp.type == OBJ_CODE) {
+                code_obj* co = (code_obj*) oatp.obj;
+                print_code_obj(co);
+                print_asm_code_obj(co);
+            }
+            tokens = (int*)oatp.token_ptr;
+        }
     }
     // print_tokens(&tokens[0], script_len);
 

@@ -40,10 +40,13 @@ sct_s* form_structure(FILE* sctfile) {
 
 void print_sct_struct(sct_f* sf) {
     sct_s s = *(sf->structure);
+    print_title("SCT_INFO");
+    printf(ANSI_COLOR_BLUE);
     printf("number of scripts: %x\nmain script: %x\nscripts: %x (size:%x)\ndata section: %x (size:%x)\nlink section: %x (size: %x)\n",
                                                         s.num_of_scripts, s.main_script_off, s.script_table_off,
                                                         s.script_table_size, s.data_sec_off, s.data_sec_size, s.link_table_off,
                                                         s.link_table_size);
+    printf(ANSI_COLOR_RESET);
     }
 
 int get_script_off(int script_num, sct_f* sf) {
@@ -130,13 +133,26 @@ bool is_var_pos(void* pattern, p_type pattern_type, mode m, int index) {
     return false;
 }
 
+void print_token_area_details(void* token_pos, mode m) {
+    if(token_pos != NULL) {
+        if(m == MODE_BIN) {
+            int* token = (int*) token_pos;
+            printf(ANSI_COLOR_YELLOW "[ %08x %08x %08x %08x ]" ANSI_COLOR_RESET "\n", token-2, token-1, token, token+1);
+            printf(ANSI_COLOR_RED "  % 9c % 9c ~~~~~~~~ % 8c  " ANSI_COLOR_RESET "\n", NULL, NULL, NULL);
+        } else {
+            char** token = (char**) token_pos;
+            printf("[ %s %s %s %s ]\n", token-2, token-1, token, token+1);
+        }
+    }
+}
+
 cp_cmp_result identify_cp(void* tokens_start, mode m) {
     cp_cmp_result res = { .is_identified = false, .match = NULL};
+    void* token;
 
     // compare each pattern with tokens
     for(int i=0; i < CODE_PATTERNS_NUM; i++) {
         code_pattern* cp = code_patterns[i];
-        void* token;
 
         if(cp != NULL) {
            token = tokens_start;
@@ -173,17 +189,19 @@ cp_cmp_result identify_cp(void* tokens_start, mode m) {
            }
        }
     }
-    printf("Error, code pattern not recognized at %d.\n", tokens_start);
+    print_err("Error, code pattern not recognized.", 2);
+    print_token_area_details(token, m);
+
     return res;
 }
 
 pp_cmp_result identify_pp(void* tokens_start, mode m) {
     pp_cmp_result res = { .is_identified = false, .match = NULL};
+    void* token;
 
     // compare each pattern with tokens
     for(int i=0; i < PARAM_PATTERNS_NUM; i++) {
         param_pattern* pp = param_patterns[i];
-        void* token;
 
         if(pp != NULL) {
            token = tokens_start;
@@ -221,20 +239,28 @@ pp_cmp_result identify_pp(void* tokens_start, mode m) {
            }
        }
     }
-    printf("Error, parameter pattern not recognized at %d.\n", tokens_start);
+    print_err("Error, param pattern not recognized.", 2);
+    print_token_area_details(token, m);
     return res;
 }
 
 
 param_obj* create_param_obj(param_pattern* pp, void* vars, mode m, sct_f* sf) {
     param_obj* po = w_malloc(sizeof(param_obj));
-    int var_num = (m == MODE_BIN) ? pp->bin_var_num : pp->asm_var_num; // always 1?
+    int bin_var_num = pp->bin_var_num;
+    int asm_var_num = pp->asm_var_num;
     if(m == MODE_BIN) {
         int data_id = ((int*)vars)[0];
-        po->bin_vars = w_malloc(var_num*sizeof(int*));
-        po->asm_vars = w_malloc(var_num*sizeof(int*));
-        memcpy(po->bin_vars, vars, var_num*sizeof(int*));
+
+        po->bin_vars = w_malloc(bin_var_num*sizeof(int*));
+        memcpy(po->bin_vars, vars, bin_var_num*sizeof(int*));
+
         data_obj* data = get_data_obj_by_id(data_id, sf);
+        char* asm_vars = { data->name };
+
+        po->asm_vars = w_malloc(asm_var_num*sizeof(char*));
+        memcpy(po->asm_vars, &asm_vars, asm_var_num*sizeof(int*));
+
         po->pp = pp;
         po->data = data;
     }
@@ -257,11 +283,17 @@ code_obj* create_code_obj(code_pattern* cp, void* vars, mode m, void* tokens_pos
                 // printf("game_func: %x, params_num: %d\n", func_num, params_num);
 
                 game_fun* gf = game_functions[func_num];
-                if(gf == NULL) { printf("ERROR, game func %d not found.\n", func_num); exit(-1); }
+                if(gf == NULL) { 
+                    char err[256];
+                    sprintf(err, "ERROR, game func %d not found.\n", func_num);
+                    print_err(err, -3);
+                }
+                char* asm_vars = { gf->name };
                 c_obj->cp = cp;
-                c_obj->bin_vars = w_malloc(2*sizeof(int));
-                c_obj->asm_vars = w_malloc(2*sizeof(char*));
+                c_obj->bin_vars = w_malloc(cp->bin_var_num*sizeof(int));
+                c_obj->asm_vars = w_malloc(cp->asm_var_num*MAX_FUNC_NAME);
                 memcpy(c_obj->bin_vars, vars, sizeof(c_obj->bin_vars));
+                memcpy(c_obj->asm_vars, &asm_vars, sizeof(c_obj->asm_vars));
                 param_obj params[params_num];
                 // Read params
                 for(int i=0; i < params_num; i++) {
@@ -291,6 +323,40 @@ code_obj* create_code_obj(code_pattern* cp, void* vars, mode m, void* tokens_pos
     return c_obj;
 }
 
+void print_asm_code_obj(code_obj* co) {
+    print_title("_ASM_");
+    code_pattern* cp = co->cp;
+    // print code structure
+    for(int i=0, j=0; i < cp->asm_token_num; i++) {
+        if(is_var_pos(cp, CODE_TYPE, MODE_ASM, i)) {
+            printf("%s", co->asm_vars[j]);
+            j++;
+        } else {
+            printf(ANSI_COLOR_YELLOW "%s" ANSI_COLOR_RESET, cp->asm_tokens[i]);
+        }
+        if(i+1 != cp->asm_token_num) { printf(" "); }
+    }
+    // print params
+    if(co->params_num > 0) {
+        printf("(");
+        for(int i=0; i < co->params_num; i++) {
+            param_obj* po = co->params;
+            param_pattern* pp = po->pp;
+            
+            for(int k=0, l=0; k < pp->asm_token_num; k++) {
+                if(is_var_pos_pp(pp, MODE_ASM, k)) {
+                    printf("%s", po->asm_vars[l]);
+                    l++;
+                } else {
+                    printf(ANSI_COLOR_CYAN "%s" ANSI_COLOR_RESET, pp->asm_tokens[k]);
+                }
+                if(k+1 != pp->asm_token_num) { printf(" "); }
+            }
+        }
+        printf(")\n");
+    }
+}
+
 int disasm_script(int script_offset, sct_f* sf) {
     fseek(sf->file, script_offset+8, SEEK_SET);
 
@@ -304,10 +370,13 @@ int disasm_script(int script_offset, sct_f* sf) {
 
     cp_cmp_result res = identify_cp(bin_tokens, MODE_BIN);
     if(res.is_identified) {
-        printf("Found pattern.\n");
+        char msg[256];
+        sprintf(msg, "Found pattern '%s'.\n", res.match->name);
+        print_success(msg);
         // print_code_pattern(res.match);
         code_obj* co = create_code_obj(res.match, res.vars, MODE_BIN, res.tokens_pos, sf);
         print_code_obj(co);
+        print_asm_code_obj(co);
     }
     // print_tokens(&tokens[0], script_len);
 
@@ -335,7 +404,7 @@ bool is_filepath_valid(char* filepath) {
     regmatch_t match[1];
 
     if (regcomp(&reg, ".*\\.sct", REG_EXTENDED) == -1) {
-        printf("ERROR, regex could not compile.");
+        print_err_and_exit("ERROR, regex could not compile.", -1);
         return false;
     }
 
@@ -354,7 +423,7 @@ int main(int argc, char* argv[]) {
 
     char* filepath = argv[2];
     if(!is_filepath_valid(filepath)) {
-        printf("ERROR, filepath is invalid.");
+        print_err_and_exit("ERROR, filepath is invalid.", -1);
         return 1;
     }
 

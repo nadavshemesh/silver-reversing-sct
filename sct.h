@@ -302,8 +302,11 @@ void print_param_pattern(param_pattern* pp) {
     printf("num_of_vars: %d - positions:", pp->bin_var_num);
     for(int i=0; i < pp->bin_var_num; i++) { printf(" %d ", pp->bin_var_pos[i]); }
     printf("\n");
-    printf("pp_tokens:");
+    printf("bin_tokens:");
     for(int i=0; i < pp->bin_token_num; i++) { printf(" %08x ", pp->bin_tokens[i]); }
+    printf("\n");
+    printf("asm_tokens:");
+    for(int i=0; i < pp->asm_token_num; i++) { printf(" %s ", pp->asm_tokens[i]); }
     printf("\n");
 }
 
@@ -337,7 +340,9 @@ param_pattern* init_pp_data_ptr() {
     param_pattern* pp = w_malloc(sizeof(param_pattern));
     pp->type = DATA_PTR;
     pp->bin_token_num = 5;
+    pp->asm_token_num = 2;
     pp->bin_var_num = 1;
+    pp->asm_var_num = 1;
 
     int bin_tokens[5] = { 0xfffffffd, 1, 0, 7, VAR };
     int bin_var_pos[1] = { 4 };
@@ -346,12 +351,12 @@ param_pattern* init_pp_data_ptr() {
 
     pp->bin_tokens = w_malloc(pp->bin_token_num*sizeof(int*));
     pp->bin_var_pos = w_malloc(pp->bin_var_num*sizeof(int*));
-    pp->asm_tokens = w_malloc(pp->asm_token_num*sizeof(char*));
+    pp->asm_tokens = w_malloc(pp->asm_token_num*sizeof(int*));
     pp->asm_var_pos = w_malloc(pp->asm_var_num*sizeof(int*));
 
     memcpy(pp->bin_tokens, bin_tokens, pp->bin_token_num*sizeof(int*));
     memcpy(pp->bin_var_pos, bin_var_pos, pp->bin_var_num*sizeof(int*));
-    memcpy(pp->asm_tokens, asm_tokens, pp->asm_token_num*sizeof(char*));
+    memcpy(pp->asm_tokens, asm_tokens, sizeof(pp->asm_tokens));
     memcpy(pp->asm_var_pos, asm_var_pos, pp->asm_var_num*sizeof(int*));
 
     return pp;
@@ -362,6 +367,8 @@ param_pattern* init_pp_var_ptr() {
     pp->type = VAR_PTR;
     pp->bin_token_num = 5;
     pp->bin_var_num = 1;
+    pp->asm_token_num = 2;
+    pp->asm_var_num = 1;
 
     int bin_tokens[5] = { 0xfffffffd, 1, 0, 6, VAR };
     int bin_var_pos[1] = { 4 };
@@ -404,7 +411,7 @@ void print_game_function(game_fun gf) {
 
 void print_game_function_i(int num) {
     game_fun* gf = game_functions[num];
-    if(gf == NULL) { printf("error - game_functions uninitialized.\n"); }
+    if(gf == NULL) { print_err_and_exit("error - game_functions uninitialized.\n", -2); }
     else print_game_function(*gf);
 }
 
@@ -525,6 +532,7 @@ void build_data_from_link_table(sct_f* sct) {
         fread(&data, 1, byte_size, sct->file);
         // printf("%08x\n", data[0]);
 
+        //TODO: ASM DATA
         char prefix[] = "VAR_";
         char name[sizeof(prefix)+4];
         sprintf(name, "%s%d", prefix, data_arr[i].id);
@@ -532,6 +540,7 @@ void build_data_from_link_table(sct_f* sct) {
         data_arr[i].bin_data = w_malloc(byte_size);
         memset(data_arr[i].bin_data, 0, byte_size);
         memcpy(data_arr[i].bin_data, data, byte_size);
+        // memcpy(data_arr[i].asm_data, asm_data, byte_size);
     }
 
     data_obj* data_objs = w_malloc(data_ref_size*sizeof(data_obj));
@@ -552,12 +561,21 @@ data_obj* get_data_obj_by_id(int id, sct_f* sf) {
 }
 
 void print_param_obj(param_obj* po, bool with_pattern) {
+    print_title("PARAM_OBJ");
     if(with_pattern)
         print_param_pattern(po->pp);
+
+    printf("bin_vars: ");
+    for(int i=0; i < po->pp->bin_var_num; i++) { printf(" %08x ", po->bin_vars[i]); }
+    printf("asm_vars: ");
+    for(int i=0; i < po->pp->asm_var_num; i++) { printf(" %s ", po->asm_vars[i]); }
+    printf("\n");
+
     print_data_obj(po->data);
 }
 
 void print_code_obj(code_obj* co) {
+    print_title("CODE_OBJ");
     print_code_pattern(co->cp);
     printf("asm vars:");
     for(int i=0; i < co->cp->asm_var_num; i++) { 

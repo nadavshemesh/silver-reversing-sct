@@ -1,6 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
+#include "utils.h"
 
  void *w_malloc(size_t size) {
     void* res = malloc(size);
@@ -18,11 +19,27 @@ char *aapts(char* str) {
     return alloc_str;
 }
 
+void print_title(char* msg) {
+    printf(ANSI_COLOR_MAGENTA "\n\t -%s- \t" ANSI_COLOR_RESET "\n", msg);
+}
+
+void print_info(char* msg) {
+    printf(ANSI_COLOR_CYAN "%s" ANSI_COLOR_RESET "\n", msg);
+}
+
+void print_success(char* msg) {
+    printf(ANSI_COLOR_GREEN "%s" ANSI_COLOR_RESET "\n", msg);
+}
+
+void print_warn(char* warning, int warning_code) {
+    printf(ANSI_COLOR_YELLOW "%s" ANSI_COLOR_RESET "\n", warning);
+}
+
 void print_err(char* err, int err_code) {
-    printf("%s\n", err);
+    printf(ANSI_COLOR_RED "%s" ANSI_COLOR_RESET "\n", err);
 }
 
 void print_err_and_exit(char* err, int err_code) {
-    printf("%s", err);
+    printf(ANSI_COLOR_RED "%s" ANSI_COLOR_RESET "\n", err);
     exit(err_code);
 }

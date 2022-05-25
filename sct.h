@@ -2,18 +2,18 @@
 #include<stdlib.h>
 
 #include "utils.h"
+#include "fileutils.h"
+#include "gamefunc.h"
 
 #define VAR -9
 #define S_VAR "-9"
 #define CODE_PATTERNS_NUM 11
 #define PARAM_PATTERNS_NUM 3
-#define GAME_FUNCTIONS_NUM  0x134
 
 const int MAX_FILENAME = 64;
 const int MAX_PATH = 512;
 const int MAX_DIR_PATH = 216;
 const int MAX_VAR_NAME = 20;
-const int MAX_FUNC_NAME = 256;
 const int MAX_TOKENS_PER_EXPRESSION = 50;
 
 typedef enum mode { MODE_BIN, MODE_ASM } mode;
@@ -22,12 +22,6 @@ typedef enum pattern_type { CODE_TYPE, PARAM_TYPE } p_type;
 typedef enum code_type { IF_STATEMENT, SWITCH, FUNCTION_CALL, SCRIPT_CALL, ASSIGNMENT, VAR_INC, VAR_DEC, TIMER, CODE_BLOCK } c_type;
 typedef enum param_type { INTEGER, DATA_PTR, VAR_PTR } param_type;
 
-typedef struct game_function {
-    int id;
-    int params;
-    char* desc;
-    char* name;
-} game_fun;
 
 typedef struct code_pattern {
     c_type type;
@@ -137,7 +131,6 @@ typedef struct sct_file {
     data_obj* data_section;
 } sct_f;
 
-game_fun* game_functions[GAME_FUNCTIONS_NUM];
 code_pattern* code_patterns[CODE_PATTERNS_NUM];
 param_pattern* param_patterns[PARAM_PATTERNS_NUM];
 
@@ -422,47 +415,6 @@ void init_param_patterns() {
     param_patterns[1] = pp_data_ptr;
     param_patterns[2] = pp_var_ptr;
     // print_param_pattern(pp_int);
-}
-
-void print_game_function(game_fun gf) {
-    printf("func_name: %s\n", gf.name);
-    printf("func_params: %d\n", gf.params);
-    printf("func_description: %s\n", gf.desc);
-}
-
-void print_game_function_i(int num) {
-    game_fun* gf = game_functions[num];
-    if(gf == NULL) { print_err_and_exit("error - game_functions uninitialized.\n", -2); }
-    else print_game_function(*gf);
-}
-
-void init_game_functions() {
-    for(int i=0; i<sizeof(game_functions)/8; i++) {
-        game_fun* gf = w_malloc(sizeof(game_fun));
-        gf->id = i;
-        char* name = w_malloc(MAX_FUNC_NAME);
-        char* num = w_malloc(4);
-        char* prefix = "func_";
-
-        // c_itoa(i,num);
-        sprintf(num, "%x", i);
-        strncat(name, prefix, strlen(prefix));
-        strcat(name, num);
-        gf->name = name;
-        game_functions[i] = gf;
-    }
-
-    game_functions[0x97]->name = aapts("create_enemy");
-    game_functions[0x97]->params = 4;
-    game_functions[0x97]->desc = aapts("(type, id, position_ptr, -)");
-    game_functions[0x06]->name = aapts("put_item_in_char_inv");
-    game_functions[0x06]->params = 4;
-    game_functions[0x06]->desc = aapts("(is_equiped, is_dropped, item, character)");
-}
-void free_game_functions() {
-    for(int i=0; i<sizeof(game_functions); i++) {
-        free(game_functions[i]);
-    }
 }
 
 void print_data_obj(data_obj* data_o) {

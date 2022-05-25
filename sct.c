@@ -5,8 +5,8 @@
 #include<regex.h>
 
 #include "sct.h"
-#include "fileutils.h"
 
+game_fun** game_functions;
 const bool debug = false;
 long read_offset = 0;
 
@@ -507,7 +507,8 @@ int main(int argc, char* argv[]) {
         return 1;
     }
 
-    init_game_functions();
+    game_functions = w_malloc(GAME_FUNCTIONS_NUM*sizeof(game_fun*));
+    init_game_functions(game_functions);
     init_code_patterns();
     init_param_patterns();
 

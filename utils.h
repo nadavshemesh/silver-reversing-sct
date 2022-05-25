@@ -1,3 +1,7 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+
 #define ANSI_COLOR_RED     "\x1b[31m"
 #define ANSI_COLOR_GREEN   "\x1b[32m"
 #define ANSI_COLOR_YELLOW  "\x1b[33m"
@@ -6,6 +10,7 @@
 #define ANSI_COLOR_CYAN    "\x1b[36m"
 #define ANSI_COLOR_RESET   "\x1b[0m"
 #define MAX_LOCAL_ARR 1024
+
 /* to be used for local var arrays */
 typedef struct i_array {
     int arr[MAX_LOCAL_ARR];
@@ -18,6 +23,7 @@ typedef struct s_array {
 
 void *w_malloc(size_t size);
 char *aapts(char* str);
+char* c_itoa(int num, char *str);
 void print_title(char* msg);
 void print_info(char* msg);
 void print_success(char* msg);

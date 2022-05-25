@@ -1,6 +1,3 @@
-#include<stdio.h>
-#include<stdlib.h>
-#include<string.h>
 #include "utils.h"
 
  void *w_malloc(size_t size) {
@@ -17,6 +14,14 @@ char *aapts(char* str) {
     strncpy(alloc_str, str, strlen(str));
 
     return alloc_str;
+}
+
+char* c_itoa(int num, char *str) {
+    if(str == NULL) {
+        return NULL;
+    }
+    sprintf(str, "%d", num);
+    return str;
 }
 
 void print_title(char* msg) {

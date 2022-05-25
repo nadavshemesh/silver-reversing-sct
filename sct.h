@@ -19,7 +19,7 @@ const int MAX_TOKENS_PER_EXPRESSION = 50;
 typedef enum mode { MODE_BIN, MODE_ASM } mode;
 typedef enum o_type { OBJ_CODE, OBJ_DATA, OBJ_PARAM } o_type;
 typedef enum pattern_type { CODE_TYPE, PARAM_TYPE } p_type;
-typedef enum code_type { IF_STATEMENT, SWITCH, FUNCTION_CALL, SCRIPT_CALL, ASSIGNMENT, VAR_INC, VAR_DEC, TIMER } c_type;
+typedef enum code_type { IF_STATEMENT, SWITCH, FUNCTION_CALL, SCRIPT_CALL, ASSIGNMENT, VAR_INC, VAR_DEC, TIMER, CODE_BLOCK } c_type;
 typedef enum param_type { INTEGER, DATA_PTR, VAR_PTR } param_type;
 
 typedef struct game_function {
@@ -93,6 +93,7 @@ typedef struct code_object {
     char** asm_vars;
     int params_num;
     param_obj* params;
+    struct code_object* nested_code_objs;
 } code_obj;
 
 typedef struct obj_and_token_ptr {
@@ -101,8 +102,17 @@ typedef struct obj_and_token_ptr {
     void* token_ptr;
 } obj_and_token_ptr;
 
+// typedef struct code_block {
+//     int size_in_words;
+//     code_obj* code_objs;
+// } code_block;
+
 typedef struct script {
+    int size_in_words;
+    void** script_code_ptr;
+    int code_obj_num;
     code_obj* code_objs;
+    // code_block* code_blocks;
 } script;
 
 typedef unsigned char BYTE;

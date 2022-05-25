@@ -183,7 +183,6 @@ cp_cmp_result identify_cp(void* tokens_start, mode m) {
            for(int j=0; j < token_num; j++) {
                if(!is_var_pos(cp, CODE_TYPE, m, j)) {
                    if(!cmp_token(tokens, token, m))  {
-                       printf("no match\n");
                        break; // not a match
                    }
                     eq_tokens++;
@@ -311,49 +310,66 @@ param_obj* create_param_obj(param_pattern* pp, void* vars, mode m, sct_f* sf) {
     return po;
 }
 
-obj_and_token_ptr create_code_obj(code_pattern* cp, void* vars, mode m, void* tokens_pos, sct_f* sf) {
+code_obj* read_code_block(code_pattern* cp, void* vars, mode m, void* tokens_pos, sct_f* sf) {
+    code_obj* c_obj = w_malloc(sizeof(code_obj));
+    if(m == MODE_BIN) {
+
+    }
+
+    return c_obj;
+}
+
+code_obj* read_function_call(code_pattern* cp, void* vars, mode m, void** tokens_pos_ptr, sct_f* sf) {
     code_obj* c_obj = w_malloc(sizeof(code_obj));
 
+    if(m == MODE_BIN) {
+        int func_num = ((int*) vars)[0];
+        int params_num = ((int*) vars)[1];
+        printf("game_func: %x, params_num: %d\n", func_num, params_num);
+
+        game_fun* gf = game_functions[func_num];
+        if(gf == NULL) { 
+            char err[256];
+            sprintf(err, "ERROR, game func %d not found.\n", func_num);
+            print_err(err, -3);
+        }
+        char* asm_vars = { gf->name };
+        c_obj->cp = cp;
+        c_obj->bin_vars = w_malloc(cp->bin_var_num*sizeof(int));
+        c_obj->asm_vars = w_malloc(cp->asm_var_num*MAX_FUNC_NAME);
+        memcpy(c_obj->bin_vars, vars, sizeof(c_obj->bin_vars));
+        memcpy(c_obj->asm_vars, &asm_vars, sizeof(c_obj->asm_vars));
+        param_obj params[params_num];
+        // Read params
+        for(int i=0; i < params_num; i++) {
+            pp_cmp_result res = identify_pp(*tokens_pos_ptr, m);
+            if(res.is_identified) {
+                *tokens_pos_ptr = res.tokens_pos;
+                param_obj* po = create_param_obj(res.match, res.vars, m, sf);
+                params[i] = *po;
+            } else { print_err_and_exit("unidentified param.", -4); }
+        }
+        c_obj->params_num = params_num;
+        c_obj->params = w_malloc(params_num*sizeof(param_obj));
+        memcpy(c_obj->params, params, params_num*sizeof(param_obj));
+    }
+
+    return c_obj;
+}
+
+obj_and_token_ptr create_code_obj(code_pattern* cp, void* vars, mode m, void* tokens_pos, sct_f* sf) {
+    code_obj* c_obj;
+
     switch(cp->type) {
+        case CODE_BLOCK:
+            
+            break;
         case IF_STATEMENT:
             break;
         case SWITCH:
             break;
         case FUNCTION_CALL:
-            if(m == MODE_BIN) {
-                int func_num = ((int*) vars)[0];
-                int params_num = ((int*) vars)[1];
-                printf("game_func: %x, params_num: %d\n", func_num, params_num);
-
-                game_fun* gf = game_functions[func_num];
-                if(gf == NULL) { 
-                    char err[256];
-                    sprintf(err, "ERROR, game func %d not found.\n", func_num);
-                    print_err(err, -3);
-                }
-                char* asm_vars = { gf->name };
-                c_obj->cp = cp;
-                c_obj->bin_vars = w_malloc(cp->bin_var_num*sizeof(int));
-                c_obj->asm_vars = w_malloc(cp->asm_var_num*MAX_FUNC_NAME);
-                memcpy(c_obj->bin_vars, vars, sizeof(c_obj->bin_vars));
-                memcpy(c_obj->asm_vars, &asm_vars, sizeof(c_obj->asm_vars));
-                param_obj params[params_num];
-                // Read params
-                for(int i=0; i < params_num; i++) {
-                    pp_cmp_result res = identify_pp(tokens_pos, m);
-                    if(res.is_identified) {
-                        tokens_pos = res.tokens_pos;
-                        param_obj* po = create_param_obj(res.match, res.vars, m, sf);
-                        params[i] = *po;
-                    } else { print_err_and_exit("unidentified param.", -4); }
-                }
-                c_obj->params_num = params_num;
-                c_obj->params = w_malloc(params_num*sizeof(param_obj));
-                memcpy(c_obj->params, params, params_num*sizeof(param_obj));
-
-                // return c_obj;
-            }
-
+            c_obj = read_function_call(cp, vars, m, &tokens_pos, sf);
             break;
         case SCRIPT_CALL:
             break;
@@ -368,7 +384,6 @@ obj_and_token_ptr create_code_obj(code_pattern* cp, void* vars, mode m, void* to
 }
 
 void print_asm_code_obj(code_obj* co) {
-    print_title("_ASM_");
     code_pattern* cp = co->cp;
     // print code structure
     for(int i=0, j=0; i < cp->asm_token_num; i++) {
@@ -402,32 +417,45 @@ void print_asm_code_obj(code_obj* co) {
     }
 }
 
+void print_asm_code_objs(code_obj* co, int code_obj_num) {
+    print_title("_ASM_");
+    for(int i=0; i < code_obj_num; i++) {
+        print_asm_code_obj(&(co)[i]);
+    }
+}
+
+void print_asm_script(script* script) {
+    print_asm_code_objs(script->code_objs, script->code_obj_num);
+}
+
 int disasm_script(int script_offset, sct_f* sf) {
     fseek(sf->file, script_offset+8, SEEK_SET);
 
+    script* script = w_malloc(sizeof(script));
     int script_len;
     fread(&script_len, 4, 1, sf->file);
     script_len -= 2;
+    script->size_in_words = script_len;
     printf("script_offset: %x, script_len: %x (%x bytes)\n", script_offset, script_len, script_len*4);
 
     int bin_tokens[script_len];
-    int* tokens = bin_tokens;
+    script->script_code_ptr = w_malloc(sizeof(void*));
+    *script->script_code_ptr = bin_tokens;
     fread(&bin_tokens, 4, script_len, sf->file);
 
-    while(tokens != NULL) {
-        cp_cmp_result res = identify_cp(tokens, MODE_BIN);
+    while(*script->script_code_ptr != NULL) {
+        cp_cmp_result res = identify_cp(*script->script_code_ptr, MODE_BIN);
         if(res.is_identified) {
             char msg[256];
             sprintf(msg, "Found pattern '%s'.\n", res.match->name);
             print_success(msg);
-            // print_code_pattern(res.match);
             obj_and_token_ptr oatp = create_code_obj(res.match, res.vars, MODE_BIN, res.tokens_pos, sf);
             if(oatp.type == OBJ_CODE) {
                 code_obj* co = (code_obj*) oatp.obj;
                 print_code_obj(co);
                 print_asm_code_obj(co);
             }
-            tokens = (int*)oatp.token_ptr;
+            *script->script_code_ptr = oatp.token_ptr;
         }
     }
     // print_tokens(&tokens[0], script_len);

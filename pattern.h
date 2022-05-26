@@ -15,15 +15,15 @@ typedef enum param_type { INTEGER, DATA_PTR, VAR_PTR } param_type;
 
 typedef struct code_pattern {
     c_type type;
+    int asm_var_num;
+    int bin_var_num;
+    int bin_token_num;
+    int asm_token_num;
     char* name;
     char** var_names;
-    int bin_var_num;
     int* bin_var_pos;
-    int bin_token_num;
     int* bin_tokens;
-    int asm_var_num;
     int* asm_var_pos;
-    int asm_token_num;
     char** asm_tokens;
 } code_pattern;
 
@@ -31,27 +31,27 @@ typedef struct parameter_pattern {
     param_type type;
     int bin_var_num;
     int bin_token_num;
+    int asm_var_num;
+    int asm_token_num;
     int* bin_var_pos;
     int* bin_tokens;
-    int asm_var_num;
     int* asm_var_pos;
-    int asm_token_num;
     char** asm_tokens;
 } param_pattern;
 
 typedef struct cp_cmp_result {
     bool is_identified;
+    int var_num;
     code_pattern *match;
     void* tokens_pos;
-    int var_num;
     void* vars;
 } cp_cmp_result;
 
 typedef struct pp_cmp_result {
     bool is_identified;
+    int var_num;
     param_pattern *match;
     void* tokens_pos;
-    int var_num;
     void* vars;
 } pp_cmp_result;
 

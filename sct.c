@@ -161,14 +161,14 @@ void print_token_area_details(void* token_pos, mode m) {
     exit(1);
 }
 
-cp_cmp_result identify_cp(void* tokens_start, mode m) {
+cp_cmp_result identify_cp(void** token_pos_ptr, mode m) {
     cp_cmp_result res = { .is_identified = false, .match = NULL};
     void* token;
 
     // compare each pattern with tokens
     for(int i=0; i < CODE_PATTERNS_NUM; i++) {
         code_pattern* cp = code_patterns[i];
-        token = tokens_start;
+        token = *token_pos_ptr;
 
         if(cp != NULL) {
            int token_num = (m == MODE_BIN) ? cp->bin_token_num : cp->asm_token_num;
@@ -198,6 +198,7 @@ cp_cmp_result identify_cp(void* tokens_start, mode m) {
                 res.is_identified = true;
                 res.match = cp;
                 res.tokens_pos = token;
+                *token_pos_ptr = token;
                 res.vars = w_malloc(var_num*sizeof(int));
                 memcpy(res.vars, vars, var_num*sizeof(int));
                 return res;
@@ -210,7 +211,7 @@ cp_cmp_result identify_cp(void* tokens_start, mode m) {
     return res;
 }
 
-pp_cmp_result identify_pp(void* tokens_start, mode m) {
+pp_cmp_result identify_pp(void** token_pos_ptr, mode m) {
     pp_cmp_result res = { .is_identified = false, .match = NULL};
     void* token;
 
@@ -219,7 +220,7 @@ pp_cmp_result identify_pp(void* tokens_start, mode m) {
         param_pattern* pp = param_patterns[i];
 
         if(pp != NULL) {
-           token = tokens_start;
+           token = *token_pos_ptr;
            int token_num = (m == MODE_BIN) ? pp->bin_token_num : pp->asm_token_num;
            int var_num = (m == MODE_BIN) ? pp->bin_var_num : pp->asm_var_num;
            void* tokens = (m == MODE_BIN) ? (void*) pp->bin_tokens : (void*) pp->asm_tokens;
@@ -248,6 +249,7 @@ pp_cmp_result identify_pp(void* tokens_start, mode m) {
                 res.is_identified = true;
                 res.match = pp;
                 res.tokens_pos = token;
+                *token_pos_ptr = token;
                 res.vars = w_malloc(var_num*sizeof(int));
                 memcpy(res.vars, vars, var_num*sizeof(int));
                 return res;
@@ -310,10 +312,45 @@ param_obj* create_param_obj(param_pattern* pp, void* vars, mode m, sct_f* sf) {
     return po;
 }
 
-code_obj* read_code_block(code_pattern* cp, void* vars, mode m, void* tokens_pos, sct_f* sf) {
+code_obj* read_code_block(code_pattern* cp, void* vars, mode m, void** token_pos_ptr, sct_f* sf) {
     code_obj* c_obj = w_malloc(sizeof(code_obj));
     if(m == MODE_BIN) {
+        c_obj->bin_vars = w_malloc(sizeof(int));
+        c_obj->code_nodes = w_malloc(sizeof(node*));
+        *c_obj->code_nodes = w_malloc(sizeof(node));
+        c_obj->code_nodes_num = 0;
+        int size_in_words = ((int*)vars)[0];
+        int bin_vars[1] = { size_in_words };
+        memcpy(c_obj->bin_vars, bin_vars, sizeof(c_obj->bin_vars));
 
+        int* token_ptr = *token_pos_ptr;
+        int* block_token_pos_ptr = *token_pos_ptr;
+        int tokens_read = (block_token_pos_ptr - token_ptr);
+        while(tokens_read < size_in_words) {
+            printf("Block tokens read: %d\n", tokens_read);
+            cp_cmp_result res = identify_cp(token_pos_ptr, MODE_BIN);
+            if(res.is_identified) {
+                char msg[256];
+                sprintf(msg, "Found pattern '%s'.\n", res.match->name);
+                print_success(msg);
+                obj_and_token_ptr oatp = create_code_obj(res.match, res.vars, MODE_BIN, token_pos_ptr, sf);
+                if(oatp.type == OBJ_CODE) {
+                    code_obj* co = (code_obj*) oatp.obj;
+                    // print_code_obj(co);
+                    // print_asm_code_obj(co);
+                    node* code_node = create_node(co);
+                    if(c_obj->code_nodes_num == 0){
+                        *c_obj->code_nodes = code_node;
+                    } else {
+                        insert_node(c_obj->code_nodes, create_node(co));
+                    }
+                    c_obj->code_nodes_num++;
+                }
+                *token_pos_ptr = oatp.token_ptr;
+                block_token_pos_ptr = *token_pos_ptr;
+                tokens_read = (block_token_pos_ptr - token_ptr);
+            }
+        }
     }
 
     return c_obj;
@@ -342,7 +379,7 @@ code_obj* read_function_call(code_pattern* cp, void* vars, mode m, void** tokens
         param_obj params[params_num];
         // Read params
         for(int i=0; i < params_num; i++) {
-            pp_cmp_result res = identify_pp(*tokens_pos_ptr, m);
+            pp_cmp_result res = identify_pp(tokens_pos_ptr, m);
             if(res.is_identified) {
                 *tokens_pos_ptr = res.tokens_pos;
                 param_obj* po = create_param_obj(res.match, res.vars, m, sf);
@@ -357,19 +394,19 @@ code_obj* read_function_call(code_pattern* cp, void* vars, mode m, void** tokens
     return c_obj;
 }
 
-obj_and_token_ptr create_code_obj(code_pattern* cp, void* vars, mode m, void* tokens_pos, sct_f* sf) {
+obj_and_token_ptr create_code_obj(code_pattern* cp, void* vars, mode m, void** token_pos_ptr, sct_f* sf) {
     code_obj* c_obj;
 
     switch(cp->type) {
         case CODE_BLOCK:
-            
+            c_obj = read_code_block(cp, vars, m, token_pos_ptr, sf);
             break;
         case IF_STATEMENT:
             break;
         case SWITCH:
             break;
         case FUNCTION_CALL:
-            c_obj = read_function_call(cp, vars, m, &tokens_pos, sf);
+            c_obj = read_function_call(cp, vars, m, token_pos_ptr, sf);
             break;
         case SCRIPT_CALL:
             break;
@@ -379,7 +416,8 @@ obj_and_token_ptr create_code_obj(code_pattern* cp, void* vars, mode m, void* to
             break;
     }
 
-    obj_and_token_ptr oatp = { .obj = c_obj, .type = OBJ_CODE, .token_ptr = tokens_pos };
+    void* token_ptr = *token_pos_ptr;
+    obj_and_token_ptr oatp = { .obj = c_obj, .type = OBJ_CODE, .token_ptr = token_ptr };
     return oatp;
 }
 
@@ -424,14 +462,41 @@ void print_asm_code_objs(code_obj* co, int code_obj_num) {
     }
 }
 
-void print_asm_script(script* script) {
-    print_asm_code_objs(script->code_objs, script->code_obj_num);
+void print_asm_code_nodes(node* head) {
+    node* node = head;
+    if(node == NULL) return;
+    while(node != NULL) {
+        code_obj* co = (code_obj*) node->item;
+        print_asm_code_obj(co);
+        node = node->next;
+    }
 }
 
-int disasm_script(int script_offset, sct_f* sf) {
+void print_asm_script(script* script) {
+    char script_name[256];
+    sprintf(script_name, "_ASM_SCRIPT_%d", script->number);
+    print_title(script_name);
+    print_asm_code_nodes(*script->code_nodes);
+}
+
+void print_script(script* script) {
+    printf("script_name: %s\n", script->name);
+    printf("script_num: %d\n", script->number);
+    printf("script_size_in_words: %d\n", script->size_in_words);
+    printf("script_code_ptr: %d\n", script->script_code_ptr);
+    printf("script_code_nodes_num: %d\n", script->code_nodes_num);
+}
+
+script* disasm_script(int script_offset, sct_f* sf) {
     fseek(sf->file, script_offset+8, SEEK_SET);
 
     script* script = w_malloc(sizeof(script));
+    script->code_nodes_num = 0;
+    script->code_nodes = w_malloc(sizeof(node*));
+    *script->code_nodes = w_malloc(sizeof(node));
+    printf("node ptr: %08x\n", script->code_nodes);
+    script->script_code_ptr = w_malloc(sizeof(void*));
+
     int script_len;
     fread(&script_len, 4, 1, sf->file);
     script_len -= 2;
@@ -439,28 +504,42 @@ int disasm_script(int script_offset, sct_f* sf) {
     printf("script_offset: %x, script_len: %x (%x bytes)\n", script_offset, script_len, script_len*4);
 
     int bin_tokens[script_len];
-    script->script_code_ptr = w_malloc(sizeof(void*));
     *script->script_code_ptr = bin_tokens;
     fread(&bin_tokens, 4, script_len, sf->file);
 
-    while(*script->script_code_ptr != NULL) {
-        cp_cmp_result res = identify_cp(*script->script_code_ptr, MODE_BIN);
+    int* token_ptr = *(script->script_code_ptr);
+    int tokens_read = token_ptr - bin_tokens;
+    while(tokens_read < script_len) {
+        printf("Tokens read: %d\n", tokens_read);
+        cp_cmp_result res = identify_cp(script->script_code_ptr, MODE_BIN);
         if(res.is_identified) {
             char msg[256];
             sprintf(msg, "Found pattern '%s'.\n", res.match->name);
             print_success(msg);
-            obj_and_token_ptr oatp = create_code_obj(res.match, res.vars, MODE_BIN, res.tokens_pos, sf);
+            obj_and_token_ptr oatp = create_code_obj(res.match, res.vars, MODE_BIN, script->script_code_ptr, sf);
             if(oatp.type == OBJ_CODE) {
                 code_obj* co = (code_obj*) oatp.obj;
-                print_code_obj(co);
-                print_asm_code_obj(co);
+                // print_code_obj(co);
+                // print_asm_code_obj(co);
+
+                node* code_node = create_node(co);
+                if(script->code_nodes_num == 0) {
+                    *(script->code_nodes) = code_node;
+                } else {
+                    insert_node(script->code_nodes, code_node);
+                }
+                // print_code_obj((*script->code_nodes)->item);
+                script->code_nodes_num++;
+                print_asm_script(script);
             }
             *script->script_code_ptr = oatp.token_ptr;
+            token_ptr = *script->script_code_ptr;
+            tokens_read = token_ptr - bin_tokens;
         }
     }
     // print_tokens(&tokens[0], script_len);
 
-    return 0;
+    return script;
 }
 
 int disasm_file(char* filepath) {

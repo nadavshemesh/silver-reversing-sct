@@ -48,3 +48,90 @@ void print_err_and_exit(char* err, int err_code) {
     printf(ANSI_COLOR_RED "%s" ANSI_COLOR_RESET "\n", err);
     exit(err_code);
 }
+
+node* init_node_list(void* item) {
+    node* node = w_malloc(sizeof(node));
+    node->id = 231;
+    node->item = item;
+    node->next = NULL;
+
+    return node;
+}
+
+node* create_node(void* item) {
+    node* n = w_malloc(sizeof(node));
+    n->id = 231;
+    n->item = item;
+    n->next = NULL;
+
+    return n;
+}
+
+int count_node_list(node** head) {
+    if(head == NULL) return 0;
+    node* cur_node = *head;
+    int i = 0;
+    while(cur_node != NULL) { i++; }
+    return i;
+}
+
+node* get_node(node** head, int pos) {
+    if(pos == 0) return *head;
+    node* cur_node = *head;
+    int i = 1;
+    while(cur_node->next != NULL && i != pos) {
+        cur_node = cur_node->next;
+        i++;
+    }
+
+    return cur_node;
+}
+
+void insert_node(node** head, node* new) {
+    if(head == NULL) return;
+    node* cur_node = *head;
+    while(cur_node->next != NULL) {
+        cur_node = cur_node->next;
+    }
+    cur_node->next = new;
+}
+
+void remove_node(node** head, int pos) {
+    if(head == NULL) return;
+    if(pos == 0) *head = (*head)->next;
+    
+    int i = 1;
+    node* prev = *head;
+    node* cur_node = (*head)->next;
+    while(cur_node != NULL && i != pos) {
+        prev = cur_node;
+        cur_node = cur_node->next;
+    }
+
+    if(i == pos) {
+        if(cur_node->next == NULL) {
+            prev->next = NULL;
+            free(cur_node);
+            return;
+        }
+        prev->next = cur_node->next;
+        free(cur_node);
+    }
+}
+
+void link_node(node** head, node* link_node, int pos) {
+    if(head == NULL) return;
+    if(pos == 0) {
+        link_node->next = *head;
+        *head = link_node;
+        return;
+    }
+    int i = 1;
+    node* cur_node = *head;
+    while(cur_node != NULL && i != pos) {
+        cur_node = cur_node->next;
+        i++;
+    }
+    if(i == pos)
+        cur_node = link_node;
+}

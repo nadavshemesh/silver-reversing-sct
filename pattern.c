@@ -131,6 +131,21 @@ code_pattern* init_cp_var_dec() {
     return cp_dec;
 }
 
+code_pattern* init_cp_code_block() {
+    code_pattern* cp_cblock = (code_pattern*) malloc(sizeof(code_pattern));
+
+    cp_cblock->name = aapts("code block");
+    i_arr bin_tokens = { .arr = { 0xfffffffc, VAR }, .len = 2 };
+    i_arr bin_var_pos = { .arr = { 1 }, .len = 1 };
+    s_arr asm_tokens = { .arr = { "{" }, .len = 1 };
+    i_arr asm_var_pos = { .arr = { 1 }, .len = 1 };
+    s_arr var_names = { .arr = {"size_in_words"}, .len = 1 };
+    
+    init_cp(cp_cblock, CODE_BLOCK, bin_tokens, bin_var_pos, var_names, asm_tokens, asm_var_pos);
+
+    return cp_cblock;
+}
+
 void init_code_patterns(code_pattern** code_patterns) {
     for(int i=0; i < CODE_PATTERNS_NUM; i++){
         code_patterns[i] = NULL;
@@ -141,6 +156,7 @@ void init_code_patterns(code_pattern** code_patterns) {
     code_pattern* cp_if_var_var = init_cp_if_var_var();
     code_pattern* cp_var_inc = init_cp_var_inc();
     code_pattern* cp_var_dec = init_cp_var_dec();
+    code_pattern* cp_cblock = init_cp_code_block();
 
     code_patterns[0] = cp_var_inc;
     code_patterns[1] = cp_var_dec;
@@ -148,6 +164,7 @@ void init_code_patterns(code_pattern** code_patterns) {
     code_patterns[3] = cp_fc;
     code_patterns[4] = cp_if_gf_int;
     code_patterns[5] = cp_if_var_var;
+    code_patterns[6] = cp_cblock;
     // print_code_pattern(cp_fc);
 }
 void free_code_patterns(code_pattern** code_patterns) {

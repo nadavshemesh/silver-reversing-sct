@@ -21,18 +21,26 @@ int compare_data_obj_ids(const void* a, const void* b) {
      else return 1;
 }
 
-void print_param_obj(param_obj* po, bool with_pattern) {
-    print_title("PARAM_OBJ");
+void print_expr_obj(expr_obj* exp_o, bool with_pattern) {
+    print_title("expr_obj");
     if(with_pattern)
-        print_param_pattern(po->pp);
+        print_expr_pattern(exp_o->expr_p);
 
     printf("bin_vars: ");
-    for(int i=0; i < po->pp->bin_var_num; i++) { printf(" %08x ", po->bin_vars[i]); }
+    for(int i=0; i < exp_o->expr_p->bin_var_num; i++) { printf(" %08x ", exp_o->bin_vars[i]); }
     printf("asm_vars: ");
-    for(int i=0; i < po->pp->asm_var_num; i++) { printf(" %s ", po->asm_vars[i]); }
+    for(int i=0; i < exp_o->expr_p->asm_var_num; i++) { printf(" %s ", exp_o->asm_vars[i]); }
     printf("\n");
 
-    print_data_obj(po->data);
+    if(exp_o->data != NULL)
+        print_data_obj(exp_o->data);
+}
+
+void print_expression(expression* exp) {
+    for(int i=0; i < exp->expr_objs_len; i++) {
+        expr_obj* expr_o = &(exp->expr_objs)[i];
+        print_expr_obj(expr_o, true);
+    }
 }
 
 void print_code_obj(code_obj* co) {
@@ -46,9 +54,12 @@ void print_code_obj(code_obj* co) {
     for(int i=0; i < co->cp->bin_var_num; i++) { 
         printf(" %08x ", co->bin_vars[i]);
     }
-    printf("params num: %d\n", co->params_num);
-    for(int i=0; i < co->params_num; i++) {
-        param_obj* param = &(co->params)[i];
-        print_param_obj(param, true);
+    printf("expr nodes: %d\n", co->expression_node_num);
+    if(co->expression_node_num > 0) {
+        node* exp_node = *co->expression_nodes;
+        while(exp_node != NULL) {
+            print_expression(exp_node->item);
+            exp_node = exp_node->next;
+        }
     }
 }

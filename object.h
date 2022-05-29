@@ -1,6 +1,6 @@
 #include "pattern.h"
 
-typedef enum o_type { OBJ_CODE, OBJ_DATA, OBJ_PARAM } o_type;
+typedef enum o_type { OBJ_CODE, OBJ_DATA, OBJ_EXPR } o_type;
 typedef struct data_object {
     int id;
     int references;
@@ -10,20 +10,25 @@ typedef struct data_object {
     char** asm_data;
 } data_obj;
 
-typedef struct parameter_object {
-    param_pattern* pp;
+typedef struct expression_object {
+    expr_pattern* expr_p;
     int* bin_vars;
     char** asm_vars;
     data_obj* data;
-} param_obj;
+} expr_obj;
+
+typedef struct expression {
+    int expr_objs_len;
+    expr_obj* expr_objs;
+} expression;
 
 typedef struct code_object {
     int code_nodes_num;
-    int params_num;
+    int expression_node_num;
     code_pattern* cp;
     int* bin_vars;
-    param_obj* params;
     char** asm_vars;
+    node** expression_nodes; 
     node** code_nodes; 
 } code_obj;
 
@@ -36,5 +41,6 @@ typedef struct obj_and_token_ptr {
 
 void print_data_obj(data_obj* data_o);
 int compare_data_obj_ids(const void* a, const void* b);
-void print_param_obj(param_obj* po, bool with_pattern);
+void print_expr_obj(expr_obj* exp_o, bool with_pattern);
+void print_expression(expression* exp);
 void print_code_obj(code_obj* co);

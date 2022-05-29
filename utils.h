@@ -22,7 +22,6 @@ typedef struct s_array {
 } s_arr;
 
 typedef struct node {
-    int id;
     void* item;
     struct node* next;
 } node;

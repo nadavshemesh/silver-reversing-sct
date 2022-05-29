@@ -51,7 +51,6 @@ void print_err_and_exit(char* err, int err_code) {
 
 node* init_node_list(void* item) {
     node* node = w_malloc(sizeof(node));
-    node->id = 231;
     node->item = item;
     node->next = NULL;
 
@@ -60,7 +59,6 @@ node* init_node_list(void* item) {
 
 node* create_node(void* item) {
     node* n = w_malloc(sizeof(node));
-    n->id = 231;
     n->item = item;
     n->next = NULL;
 

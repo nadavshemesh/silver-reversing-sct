@@ -7,14 +7,13 @@
 #define VAR -9
 #define S_VAR "-9"
 #define CODE_PATTERNS_NUM 11
-#define PARAM_PATTERNS_NUM 3
+#define EXPR_PATTERNS_NUM 18
 
-typedef enum pattern_type { CODE_TYPE, EXPRESSION_TYPE, PARAM_TYPE } p_type;
-typedef enum code_type { IF_STATEMENT, IF_TRUE_FALSE, SWITCH, FUNCTION_CALL, SCRIPT_CALL, 
-            ASSIGNMENT, VAR_INC, VAR_DEC, TIMER, INTERVAL_BLOCK, CODE_BLOCK } c_type;
+typedef enum pattern_type { CODE_TYPE, EXPRESSION_TYPE } p_type; // needed?
+typedef enum code_type { EXPRESSION, IF_STATEMENT, SWITCH, FUNCTION_CALL, SCRIPT_CALL, 
+            ASSIGNMENT, VAR_INC, VAR_DEC, CODE_BLOCK } c_type;
 typedef enum expr_type { OPERATOR, INTEGER, DATA_PTR, VAR_PTR, FUNCTION, GAME_VAR } expr_type;
 typedef enum operator_type { BINARY_OP, UNARY_OP} operator_type;
-typedef enum param_type { INTEGER, DATA_PTR, VAR_PTR } param_type;
 
 typedef struct code_pattern {
     c_type type;
@@ -30,8 +29,8 @@ typedef struct code_pattern {
     char** asm_tokens;
 } code_pattern;
 
-typedef struct parameter_pattern {
-    param_type type;
+typedef struct expr_pattern {
+    expr_type type;
     int bin_var_num;
     int bin_token_num;
     int asm_var_num;
@@ -40,7 +39,7 @@ typedef struct parameter_pattern {
     int* bin_tokens;
     int* asm_var_pos;
     char** asm_tokens;
-} param_pattern;
+} expr_pattern;
 
 typedef struct cp_cmp_result {
     bool is_identified;
@@ -50,28 +49,19 @@ typedef struct cp_cmp_result {
     void* vars;
 } cp_cmp_result;
 
-typedef struct pp_cmp_result {
+typedef struct expr_cmp_result {
     bool is_identified;
     int var_num;
-    param_pattern *match;
+    expr_pattern *match;
     void* tokens_pos;
     void* vars;
-} pp_cmp_result;
+} expr_cmp_result;
 
 
 void print_code_pattern(code_pattern* cp);
 void init_cp(code_pattern* cp, c_type type, i_arr bin_tokens, i_arr bin_var_pos, s_arr var_names,
                                             s_arr asm_tokens, i_arr asm_var_pos);
-code_pattern* init_cp_func_call();
-code_pattern* init_cp_if_game_var_int();
-code_pattern* init_cp_if_var_int();
-code_pattern* init_cp_if_var_var();
-code_pattern* init_cp_var_inc();
-code_pattern* init_cp_var_dec();
 void init_code_patterns(code_pattern** code_patterns);
 void free_code_patterns(code_pattern** code_patterns);
-void print_param_pattern(param_pattern* pp);
-param_pattern* init_pp_integer();
-param_pattern* init_pp_data_ptr();
-param_pattern* init_pp_var_ptr();
-void init_param_patterns(param_pattern** param_patterns);
+void print_expr_pattern(expr_pattern* exp);
+void init_expr_patterns(expr_pattern** expr_patterns);

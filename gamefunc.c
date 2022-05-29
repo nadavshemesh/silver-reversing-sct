@@ -39,6 +39,12 @@ void init_game_functions(game_fun** functions_arr) {
     functions_arr[0x06]->name = aapts("put_item_in_char_inv");
     functions_arr[0x06]->params = 4;
     functions_arr[0x06]->desc = aapts("(is_equiped, is_dropped, item, character)");
+    functions_arr[0xA2]->name = aapts("play_loaded_sound");
+    functions_arr[0xA2]->params = 4;
+    functions_arr[0xA2]->desc = aapts("(sound_offset, mode, id, unknown)");
+    functions_arr[0xD3]->name = aapts("randomize_int");
+    functions_arr[0xD3]->params = 2;
+    functions_arr[0xD3]->desc = aapts("(from, to)");
 }
 
 void free_game_functions(game_fun** functions_arr) {

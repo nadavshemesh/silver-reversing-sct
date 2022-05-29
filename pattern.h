@@ -9,8 +9,11 @@
 #define CODE_PATTERNS_NUM 11
 #define PARAM_PATTERNS_NUM 3
 
-typedef enum pattern_type { CODE_TYPE, PARAM_TYPE } p_type;
-typedef enum code_type { IF_STATEMENT, SWITCH, FUNCTION_CALL, SCRIPT_CALL, ASSIGNMENT, VAR_INC, VAR_DEC, TIMER, CODE_BLOCK } c_type;
+typedef enum pattern_type { CODE_TYPE, EXPRESSION_TYPE, PARAM_TYPE } p_type;
+typedef enum code_type { IF_STATEMENT, IF_TRUE_FALSE, SWITCH, FUNCTION_CALL, SCRIPT_CALL, 
+            ASSIGNMENT, VAR_INC, VAR_DEC, TIMER, INTERVAL_BLOCK, CODE_BLOCK } c_type;
+typedef enum expr_type { OPERATOR, INTEGER, DATA_PTR, VAR_PTR, FUNCTION, GAME_VAR } expr_type;
+typedef enum operator_type { BINARY_OP, UNARY_OP} operator_type;
 typedef enum param_type { INTEGER, DATA_PTR, VAR_PTR } param_type;
 
 typedef struct code_pattern {

@@ -22,8 +22,8 @@ typedef struct code_object {
     int params_num;
     code_pattern* cp;
     int* bin_vars;
-    char** asm_vars;
     param_obj* params;
+    char** asm_vars;
     node** code_nodes; 
 } code_obj;
 

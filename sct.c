@@ -356,6 +356,31 @@ code_obj* read_code_block(code_pattern* cp, void* vars, mode m, void** token_pos
     return c_obj;
 }
 
+code_obj* read_if_true_false(code_pattern* cp, void* vars, mode m, void** tokens_pos_ptr, sct_f* sf) {
+    code_obj* c_obj = w_malloc(sizeof(code_obj));
+
+    if(m == MODE_BIN) {
+        int var = ((int*) vars)[0];
+        int boolean = (var == 0x04) ? 1 : 0;
+        char boolstring[5];
+        sprintf(boolstring, "%d", boolean);
+        int bin_vars[1] = { var };
+        char* asm_vars[1] = { aapts(boolstring) };
+
+        c_obj->cp = cp;
+        c_obj->params = NULL;
+        c_obj->params_num = 0;
+        c_obj->code_nodes_num = 0;
+        c_obj->code_nodes = NULL;
+        c_obj->bin_vars = w_malloc(cp->bin_var_num*sizeof(int));
+        c_obj->asm_vars = w_malloc(cp->asm_var_num*sizeof(char*));
+        memcpy(c_obj->bin_vars, bin_vars, sizeof(c_obj->bin_vars));
+        memcpy(c_obj->asm_vars, &asm_vars, sizeof(c_obj->asm_vars));
+    }
+
+    return c_obj;
+}
+
 code_obj* read_function_call(code_pattern* cp, void* vars, mode m, void** tokens_pos_ptr, sct_f* sf) {
     code_obj* c_obj = w_malloc(sizeof(code_obj));
 
@@ -403,6 +428,9 @@ obj_and_token_ptr create_code_obj(code_pattern* cp, void* vars, mode m, void** t
             break;
         case IF_STATEMENT:
             break;
+        case IF_TRUE_FALSE:
+            c_obj = read_if_true_false(cp, vars, m, token_pos_ptr, sf);
+            break;
         case SWITCH:
             break;
         case FUNCTION_CALL:
@@ -431,7 +459,7 @@ void print_asm_code_obj(code_obj* co) {
         } else {
             printf(ANSI_COLOR_YELLOW "%s" ANSI_COLOR_RESET, cp->asm_tokens[i]);
         }
-        if(i+1 != cp->asm_token_num) { printf(" "); }
+        // if(i+1 != cp->asm_token_num) { printf(" "); }
     }
     // print params
     if(co->params_num > 0) {

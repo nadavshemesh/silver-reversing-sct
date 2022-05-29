@@ -47,7 +47,7 @@ code_pattern* init_cp_func_call() {
     cp_func_call->name = aapts("call_game_function");
     i_arr bin_tokens = { .arr = {0, 3, VAR, VAR}, .len = 4 };
     i_arr bin_var_pos = { .arr = {2, 3}, .len = 2 };
-    s_arr asm_tokens = { .arr = { "call", S_VAR }, .len = 2 };
+    s_arr asm_tokens = { .arr = { "call ", S_VAR }, .len = 2 };
     i_arr asm_var_pos = { .arr = { 1 }, .len = 1 };
     s_arr var_names = { .arr = {"func_name", "num_of_params"}, .len = 2 };
     
@@ -137,11 +137,71 @@ code_pattern* init_cp_code_block() {
     cp_cblock->name = aapts("code block");
     i_arr bin_tokens = { .arr = { 0xfffffffc, VAR }, .len = 2 };
     i_arr bin_var_pos = { .arr = { 1 }, .len = 1 };
-    s_arr asm_tokens = { .arr = { "{" }, .len = 1 };
+    s_arr asm_tokens = { .arr = { "{", S_VAR, "}" }, .len = 3 };
     i_arr asm_var_pos = { .arr = { 1 }, .len = 1 };
     s_arr var_names = { .arr = {"size_in_words"}, .len = 1 };
     
     init_cp(cp_cblock, CODE_BLOCK, bin_tokens, bin_var_pos, var_names, asm_tokens, asm_var_pos);
+
+    return cp_cblock;
+}
+
+code_pattern* init_cp_if_cleared_room_flag() {
+    code_pattern* cp_if_cleared = (code_pattern*) malloc(sizeof(code_pattern));
+
+    cp_if_cleared->name = aapts("if room_cleared set to 1 or to 0");
+    i_arr bin_tokens = { .arr = { 1, 0, 0xfffffffd, 1, 0, VAR, 9, 0x2c, 4 }, .len = 9 };
+    i_arr bin_var_pos = { .arr = { 5 }, .len = 1 };
+    s_arr asm_tokens = { .arr = { "if", "(", "ROOM_CLEARED", " == ", S_VAR, ")" }, .len = 6 };
+    i_arr asm_var_pos = { .arr = { 4 }, .len = 1 };
+    s_arr var_names = { .arr = {"1 or 0"}, .len = 1 };
+    
+    init_cp(cp_if_cleared, IF_TRUE_FALSE, bin_tokens, bin_var_pos, var_names, asm_tokens, asm_var_pos);
+
+    return cp_if_cleared;
+}
+
+code_pattern* init_cp_define_interval_block() {
+    code_pattern* cp_inter_block = (code_pattern*) malloc(sizeof(code_pattern));
+
+    cp_inter_block->name = aapts("define interval block");
+    i_arr bin_tokens = { .arr = { 1, 0, 0xfffffffd, 3, 0, 2, 0, 0x5b, 4, 4, 5, 0, 6, VAR }, .len = 14 };
+    i_arr bin_var_pos = { .arr = { 13 }, .len = 1 };
+    s_arr asm_tokens = { .arr = { "using ", S_VAR, " do" }, .len = 3 };
+    i_arr asm_var_pos = { .arr = { 4 }, .len = 1 };
+    s_arr var_names = { .arr = { "timer_var" }, .len = 1 };
+    
+    init_cp(cp_inter_block, INTERVAL_BLOCK, bin_tokens, bin_var_pos, var_names, asm_tokens, asm_var_pos);
+
+    return cp_inter_block;
+}
+
+code_pattern* init_cp_set_timer() {
+    code_pattern* cp_timer = (code_pattern*) malloc(sizeof(code_pattern));
+
+    cp_timer->name = aapts("set timer");
+    i_arr bin_tokens = { .arr = { 0xfffffffd, 5, 0, 2, 0, 0x5b, 4, 3, 1, 2, VAR }, .len = 11 };
+    i_arr bin_var_pos = { .arr = { 10 }, .len = 1 };
+    s_arr asm_tokens = { .arr = { "timer", "(", S_VAR, ")" }, .len = 4 };
+    i_arr asm_var_pos = { .arr = { 2 }, .len = 1 };
+    s_arr var_names = { .arr = { "update_interval" }, .len = 1 };
+    
+    init_cp(cp_timer, TIMER, bin_tokens, bin_var_pos, var_names, asm_tokens, asm_var_pos);
+
+    return cp_timer;
+}
+
+code_pattern* init_cp_script_call() {
+    code_pattern* cp_cblock = (code_pattern*) malloc(sizeof(code_pattern));
+
+    cp_cblock->name = aapts("call_script");
+    i_arr bin_tokens = { .arr = { 0, 1, VAR }, .len = 3 };
+    i_arr bin_var_pos = { .arr = { 2 }, .len = 1 };
+    s_arr asm_tokens = { .arr = { "execute", S_VAR }, .len = 2 };
+    i_arr asm_var_pos = { .arr = { 1 }, .len = 1 };
+    s_arr var_names = { .arr = {"script id"}, .len = 1 };
+    
+    init_cp(cp_cblock, SCRIPT_CALL, bin_tokens, bin_var_pos, var_names, asm_tokens, asm_var_pos);
 
     return cp_cblock;
 }
@@ -157,6 +217,7 @@ void init_code_patterns(code_pattern** code_patterns) {
     code_pattern* cp_var_inc = init_cp_var_inc();
     code_pattern* cp_var_dec = init_cp_var_dec();
     code_pattern* cp_cblock = init_cp_code_block();
+    code_pattern* cp_if_cleared_room_flag = init_cp_if_cleared_room_flag();
 
     code_patterns[0] = cp_var_inc;
     code_patterns[1] = cp_var_dec;
@@ -165,6 +226,7 @@ void init_code_patterns(code_pattern** code_patterns) {
     code_patterns[4] = cp_if_gf_int;
     code_patterns[5] = cp_if_var_var;
     code_patterns[6] = cp_cblock;
+    code_patterns[7] = cp_if_cleared_room_flag;
     // print_code_pattern(cp_fc);
 }
 void free_code_patterns(code_pattern** code_patterns) {

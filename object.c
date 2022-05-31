@@ -1,5 +1,36 @@
 #include "object.h"
 
+void init_code_obj(code_obj* c_obj) {
+    c_obj->cp = NULL;
+    c_obj->bin_vars = NULL;
+    c_obj->asm_vars = NULL;
+    c_obj->code_nodes_num = 0;
+    c_obj->code_nodes = NULL;
+    c_obj->expression_node_num = 0;
+    c_obj->expression_nodes = NULL; 
+}
+
+code_obj* create_and_init_c_obj() {
+    code_obj* c_obj = w_malloc(sizeof(code_obj));
+    init_code_obj(c_obj);
+
+    return c_obj;
+}
+
+void init_expr_obj(expr_obj* e_obj) {
+    e_obj->expr_p = NULL;
+    e_obj->bin_vars = NULL;
+    e_obj->asm_vars = NULL;
+    e_obj->data = 0;
+}
+
+expr_obj* create_and_init_expr_obj() {
+    expr_obj* e_obj = w_malloc(sizeof(expr_obj));
+    init_expr_obj(e_obj);
+
+    return e_obj;
+}
+
 void print_data_obj(data_obj* data_o) {
     printf("data_obj id: %d\n", data_o->id);
     printf("references: %d\n", data_o->references);
@@ -54,6 +85,7 @@ void print_code_obj(code_obj* co) {
     for(int i=0; i < co->cp->bin_var_num; i++) { 
         printf(" %08x ", co->bin_vars[i]);
     }
+    printf("\ncode nodes: %d\n", co->code_nodes_num);
     printf("expr nodes: %d\n", co->expression_node_num);
     if(co->expression_node_num > 0) {
         node* exp_node = *co->expression_nodes;

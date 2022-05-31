@@ -49,7 +49,7 @@ void print_err_and_exit(char* err, int err_code) {
     exit(err_code);
 }
 
-node* init_node_list(void* item) {
+node* init_node(void* item) {
     node* node = w_malloc(sizeof(node));
     node->item = item;
     node->next = NULL;
@@ -132,4 +132,23 @@ void link_node(node** head, node* link_node, int pos) {
     }
     if(i == pos)
         cur_node = link_node;
+}
+
+void free_node_to_end(node* n) {
+    if(n->next == NULL) {
+        free(n);
+        return;
+    }
+    free_node_to_end(n->next);
+    free(n);
+}
+
+void free_list(node** head) {
+    free_node_to_end(*head);
+}
+node** init_node_list() {
+    node** head = w_malloc(sizeof(node*));
+    *head = w_malloc(sizeof(node));
+
+    return head;
 }

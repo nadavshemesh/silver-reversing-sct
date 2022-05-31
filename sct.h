@@ -48,7 +48,7 @@ typedef struct sct_file {
 sct_s* form_structure(FILE* sctfile);
 void print_sct_struct(sct_f* sf);
 void print_asm_script(script* script);
-void print_asm_code_obj(code_obj* co);
+void print_asm_code_obj(code_obj* co, int indentation_lvl);
 void print_asm_code_objs(code_obj* co, int code_obj_num);
 int get_script_off(int script_num, sct_f* sf);
 void print_tokens(int* bin_tokens, int length);

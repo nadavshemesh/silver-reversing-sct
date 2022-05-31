@@ -8,10 +8,11 @@
 #define S_VAR "-9"
 #define CODE_PATTERNS_NUM 11
 #define EXPR_PATTERNS_NUM 18
+#define UNINIT_TYPE 111
 
 typedef enum pattern_type { CODE_TYPE, EXPRESSION_TYPE } p_type; // needed?
-typedef enum code_type { EXPRESSION, IF_STATEMENT, SWITCH, FUNCTION_CALL, SCRIPT_CALL, 
-            ASSIGNMENT, VAR_INC, VAR_DEC, CODE_BLOCK } c_type;
+typedef enum code_type { EXPRESSION, IF_STATEMENT, ELSE_STATEMENT, SWITCH, BREAK, FUNCTION_CALL, SCRIPT_CALL, 
+            ASSIGNMENT, VAR_INC, VAR_DEC, CODE_BLOCK, CODE_BLOCK_CASES, CASE_AID } c_type;
 typedef enum expr_type { OPERATOR, INTEGER, DATA_PTR, VAR_PTR, FUNCTION, GAME_VAR } expr_type;
 typedef enum operator_type { BINARY_OP, UNARY_OP} operator_type;
 
@@ -65,3 +66,8 @@ void init_code_patterns(code_pattern** code_patterns);
 void free_code_patterns(code_pattern** code_patterns);
 void print_expr_pattern(expr_pattern* exp);
 void init_expr_patterns(expr_pattern** expr_patterns);
+void init_code_pattern(code_pattern* c_pattern);
+code_pattern* create_and_init_code_pattern();
+void init_expr_pattern(expr_pattern* e_pattern);
+expr_pattern* create_and_init_expr_pattern();
+code_pattern* init_aid_cp_case();

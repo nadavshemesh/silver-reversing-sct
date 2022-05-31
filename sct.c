@@ -162,6 +162,7 @@ void print_token_area_details(void* token_pos, mode m) {
 }
 
 cp_cmp_result identify_cp(void** token_pos_ptr, mode m) {
+    printf("identifying cp..\n");
     cp_cmp_result res = { .is_identified = false, .match = NULL};
     void* token;
 
@@ -263,7 +264,8 @@ expr_cmp_result identify_expr(void** token_pos_ptr, mode m) {
 
 
 expr_obj* create_expr_obj(expr_pattern* expr, void* vars, mode m, sct_f* sf) {
-    expr_obj* eo = w_malloc(sizeof(expr_obj));
+    expr_obj* eo = create_and_init_expr_obj();
+
     int bin_var_num = expr->bin_var_num;
     int asm_var_num = expr->asm_var_num;
     if(m == MODE_BIN) {
@@ -315,15 +317,17 @@ expr_obj* create_expr_obj(expr_pattern* expr, void* vars, mode m, sct_f* sf) {
 }
 
 code_obj* read_code_block(code_pattern* cp, void* vars, mode m, void** token_pos_ptr, sct_f* sf) {
-    code_obj* c_obj = w_malloc(sizeof(code_obj));
+    code_obj* c_obj = create_and_init_c_obj();
+
     if(m == MODE_BIN) {
-        c_obj->bin_vars = w_malloc(sizeof(int));
+        c_obj->cp = cp;
+        c_obj->bin_vars = w_malloc(cp->bin_var_num*sizeof(int));
         c_obj->code_nodes = w_malloc(sizeof(node*));
         *c_obj->code_nodes = w_malloc(sizeof(node));
-        c_obj->code_nodes_num = 0;
-        int size_in_words = ((int*)vars)[0];
+
+        int size_in_words = ((int*)vars)[0]-2;
         int bin_vars[1] = { size_in_words };
-        memcpy(c_obj->bin_vars, bin_vars, sizeof(c_obj->bin_vars));
+        memcpy(c_obj->bin_vars, bin_vars, cp->bin_var_num*sizeof(int));
 
         int* token_ptr = *token_pos_ptr;
         int* block_token_pos_ptr = *token_pos_ptr;
@@ -351,6 +355,92 @@ code_obj* read_code_block(code_pattern* cp, void* vars, mode m, void** token_pos
                 *token_pos_ptr = oatp.token_ptr;
                 block_token_pos_ptr = *token_pos_ptr;
                 tokens_read = (block_token_pos_ptr - token_ptr);
+            }
+        }
+    }
+
+    return c_obj;
+}
+
+code_obj* read_code_block_cases(code_pattern* cp, void* vars, int* cases, int cases_num, mode m, void** token_pos_ptr, sct_f* sf) {
+    code_obj* c_obj = create_and_init_c_obj();
+
+    if(m == MODE_BIN) {
+        c_obj->cp = cp;
+        c_obj->bin_vars = w_malloc(cp->bin_var_num*sizeof(int));
+        c_obj->code_nodes = w_malloc(sizeof(node*));
+        *c_obj->code_nodes = w_malloc(sizeof(node));
+
+        int size_in_words = ((int*)vars)[0]-2;
+        int bin_vars[1] = { size_in_words };
+        memcpy(c_obj->bin_vars, bin_vars, cp->bin_var_num*sizeof(int));
+
+        int* token_ptr = *token_pos_ptr;
+        int* block_token_pos_ptr = *token_pos_ptr;
+        int tokens_read = (block_token_pos_ptr - token_ptr);
+
+        int case_index = 0;
+        // init current case (first case)
+        code_obj* current_case = create_and_init_c_obj();
+        code_pattern* case_cp = init_aid_cp_case();
+        current_case->cp = case_cp;
+
+        char num_s[30];
+        sprintf(num_s, " %d", cases[case_index]);
+        char* asm_vars[1] = { aapts(num_s) };
+        current_case->asm_vars = w_malloc((current_case->cp->asm_var_num)*sizeof(char*));
+        memcpy(current_case->asm_vars, &asm_vars, sizeof(current_case->asm_vars));
+
+        printf("testttL: %s\n", *(current_case->asm_vars));
+
+        current_case->code_nodes = w_malloc(sizeof(node*));
+        *current_case->code_nodes = w_malloc(sizeof(node));
+
+        while(tokens_read < size_in_words) {
+            printf("Block tokens read: %d\n", tokens_read);
+            cp_cmp_result res = identify_cp(token_pos_ptr, MODE_BIN);
+            if(res.is_identified) {
+                char msg[256];
+                sprintf(msg, "Found pattern '%s'.\n", res.match->name);
+                print_success(msg);
+                obj_and_token_ptr oatp = create_code_obj(res.match, res.vars, MODE_BIN, token_pos_ptr, sf);
+                if(oatp.type == OBJ_CODE) {
+                    code_obj* co = (code_obj*) oatp.obj;
+                    // print_code_obj(co);
+                    // print_asm_code_obj(co);
+                    node* code_node = create_node(co);
+                    if(current_case->code_nodes_num == 0){
+                        *current_case->code_nodes = code_node;
+                    } else {
+                        insert_node(current_case->code_nodes, create_node(co));
+                    }
+                    current_case->code_nodes_num++;
+                }
+                *token_pos_ptr = oatp.token_ptr;
+                block_token_pos_ptr = *token_pos_ptr;
+                tokens_read = (block_token_pos_ptr - token_ptr);
+                // After break add case code_obj to main block
+                if(res.match->type == BREAK && case_index < cases_num) {
+                    node* code_node = create_node(current_case);
+                    if(c_obj->code_nodes_num == 0){
+                        *c_obj->code_nodes = code_node;
+                    } else {
+                        insert_node(c_obj->code_nodes, create_node(current_case));
+                    }
+                    c_obj->code_nodes_num++;
+                    // init current case (next case)
+                    current_case = create_and_init_c_obj();
+                    current_case->cp = case_cp;
+                    char num_s[30];
+                    sprintf(num_s, " %d", cases[case_index]);
+                    char* asm_vars[1] = { aapts(num_s) };
+                    current_case->asm_vars = w_malloc((current_case->cp->asm_var_num)*sizeof(char**));
+                    memcpy(current_case->asm_vars, asm_vars, sizeof(current_case->asm_vars));
+                    printf("testttL: %s\n", *(current_case->asm_vars));
+                    current_case->code_nodes = w_malloc(sizeof(node*));
+                    *current_case->code_nodes = w_malloc(sizeof(node));
+                    case_index++;
+                }
             }
         }
     }
@@ -401,7 +491,7 @@ expression* read_expression(void** tokens_pos_ptr, mode m, bool with_prologue, s
 }
 
 code_obj* read_function_call(code_pattern* cp, void* vars, mode m, void** tokens_pos_ptr, sct_f* sf) {
-    code_obj* c_obj = w_malloc(sizeof(code_obj));
+    code_obj* c_obj = create_and_init_c_obj();
 
     if(m == MODE_BIN) {
         int func_num = ((int*) vars)[0];
@@ -445,14 +535,31 @@ code_obj* read_function_call(code_pattern* cp, void* vars, mode m, void** tokens
 }
 
 code_obj* read_if_statement(code_pattern* cp, void* vars, mode m, void** token_pos_ptr, sct_f* sf) {
-    code_obj* c_obj = w_malloc(sizeof(code_obj));
+    code_obj* c_obj = create_and_init_c_obj();
 
     if(m == MODE_BIN) {
         expression* exp = read_expression(token_pos_ptr, m, false, sf);
         c_obj->cp = cp;
 
-        c_obj->code_nodes_num = 0;
-        c_obj->code_nodes = NULL;
+        code_obj* code_block_obj;
+        cp_cmp_result res = identify_cp(token_pos_ptr, m);
+        if(res.is_identified && res.match->type == CODE_BLOCK) {
+            *token_pos_ptr = res.tokens_pos;
+            obj_and_token_ptr oatp = create_code_obj(res.match, res.vars, m, token_pos_ptr, sf);
+            code_block_obj = oatp.obj;
+            *token_pos_ptr = oatp.token_ptr;
+        } else {
+            print_err_and_exit("Error, no code_block after if statement.", -2);
+        }
+
+        node* c_block_node = create_node(code_block_obj);
+        c_obj->code_nodes = w_malloc(sizeof(node*));
+        *c_obj->code_nodes = w_malloc(sizeof(node));
+        *c_obj->code_nodes = c_block_node;
+        // print_code_obj(code_block_obj);
+        // print_code_obj(c_block_node->item);
+        c_obj->code_nodes_num = 1;
+
         c_obj->asm_vars = NULL;
         c_obj->bin_vars = NULL;
 
@@ -467,8 +574,41 @@ code_obj* read_if_statement(code_pattern* cp, void* vars, mode m, void** token_p
     return c_obj;
 }
 
+code_obj* read_else_statement(code_pattern* cp, void* vars, mode m, void** token_pos_ptr, sct_f* sf) {
+    code_obj* c_obj = create_and_init_c_obj();
+
+    if(m == MODE_BIN) {
+        c_obj->cp = cp;
+
+        code_obj* code_block_obj;
+        *token_pos_ptr -= 4; // move back before -0xfffffffc
+        cp_cmp_result res = identify_cp(token_pos_ptr, m);
+        if(res.is_identified && res.match->type == CODE_BLOCK) {
+            *token_pos_ptr = res.tokens_pos;
+            obj_and_token_ptr oatp = create_code_obj(res.match, res.vars, m, token_pos_ptr, sf);
+            code_block_obj = oatp.obj;
+            *token_pos_ptr = oatp.token_ptr;
+        } else {
+            print_err_and_exit("Error, no code_block after if statement.", -2);
+        }
+
+        node* c_block_node = create_node(code_block_obj);
+        c_obj->code_nodes = w_malloc(sizeof(node*));
+        *c_obj->code_nodes = w_malloc(sizeof(node));
+        *c_obj->code_nodes = c_block_node;
+        // print_code_obj(code_block_obj);
+        // print_code_obj(c_block_node->item);
+        c_obj->code_nodes_num = 1;
+
+        c_obj->asm_vars = NULL;
+        c_obj->bin_vars = NULL;
+    }
+
+    return c_obj;
+}
+
 code_obj* read_assignment(code_pattern* cp, void* vars, mode m, void** token_pos_ptr, sct_f* sf) {
-    code_obj* c_obj = w_malloc(sizeof(code_obj));
+    code_obj* c_obj = create_and_init_c_obj();
 
     if(m == MODE_BIN) {
         expression* exp = read_expression(token_pos_ptr, m, false, sf);
@@ -481,6 +621,115 @@ code_obj* read_assignment(code_pattern* cp, void* vars, mode m, void** token_pos
 
         c_obj->expression_node_num = 1;
         *c_obj->expression_nodes = create_node(exp);
+    }
+
+    return c_obj;
+}
+
+code_obj* read_script_call(code_pattern* cp, void* vars, mode m, void** token_pos_ptr, sct_f* sf) {
+    code_obj* c_obj = create_and_init_c_obj();
+
+    if(m == MODE_BIN) {
+        c_obj->cp = cp;
+        int script_number = ((int*)vars)[0];
+        char name[MAX_FUNC_NAME];
+        sprintf(name, "SCRIPT_%d", script_number);
+
+        int bin_var_num = cp->bin_var_num;
+        int asm_var_num = cp->asm_var_num;
+        char* asm_vars[1] = { aapts(name) };
+        int bin_vars[1] = { script_number };
+        c_obj->asm_vars = w_malloc(asm_var_num*sizeof(char*));
+        c_obj->bin_vars = w_malloc(bin_var_num*sizeof(int));
+
+        c_obj->code_nodes_num = 0;
+        c_obj->code_nodes = NULL;
+        
+        memcpy(c_obj->asm_vars, asm_vars, sizeof(c_obj->asm_vars));
+        memcpy(c_obj->bin_vars, bin_vars, sizeof(c_obj->bin_vars));
+
+        c_obj->expression_node_num = 0;
+        c_obj->expression_nodes = NULL;
+    }
+
+    return c_obj;
+}
+
+code_obj* read_switch_case(code_pattern* cp, void* vars, mode m, void** token_pos_ptr, sct_f* sf) {
+    code_obj* c_obj = w_malloc(sizeof(code_obj));
+
+    if(m == MODE_BIN) {
+        c_obj->cp = cp;
+        int cases_num = ((int*)vars)[0];
+        if(cases_num <= 0) print_err_and_exit("Error, switch without cases.", -2);
+        int padding_to_block_ptrs = 69;
+        int padding_to_block = 133;
+
+        // read cases values
+        int* token_pos = *token_pos_ptr;
+        int cases[cases_num];
+        int case_ptrs[cases_num];
+        memcpy(cases, token_pos, cases_num*sizeof(int));
+
+        // for(int i=0; i < cases_num; i++) {
+        //     printf("%d ", cases[i]);
+        // }
+        // printf("\n");
+
+        // read case blocks (no need in bin_mode)
+        // token_pos += padding_to_block_ptrs-cases_num;
+
+        // read expression
+        token_pos += (padding_to_block-cases_num)+1;
+        // print_token_area_details(token_pos, m);
+        *token_pos_ptr = token_pos;
+        expression* exp = read_expression(token_pos_ptr, m, false, sf);
+        c_obj->expression_node_num = 1;
+        node** exp_nodes = w_malloc(sizeof(node*));
+        *exp_nodes = w_malloc(sizeof(node));
+        node* new_node = create_node(exp);
+        *exp_nodes = new_node;
+        c_obj->expression_nodes = exp_nodes;
+
+        // copy bin & asm vars (cases values)
+        // int bin_var_num = cases_num;
+        // int asm_var_num = cases_num;
+        // cp->bin_var_num = cases_num;
+        char* asm_vars[cases_num];
+        for(int i=0; i < cases_num; i++) {
+            char str[10];
+            sprintf(str, "%d", cases[i]);
+            asm_vars[i] = str;
+        }
+        // c_obj->asm_vars = w_malloc(asm_var_num*sizeof(char*));
+        // c_obj->bin_vars = w_malloc(cases_num*sizeof(int));
+
+        // memcpy(c_obj->asm_vars, asm_vars, sizeof(c_obj->asm_vars));
+        // memcpy(c_obj->bin_vars, cases, cases_num*sizeof(int));
+        // for(int i=0; i < cases_num; i++) {
+        //     printf("%d ", (c_obj->bin_vars)[i]);
+        // }
+        // printf("\n");
+
+        // read code block
+        code_obj* code_block_obj;
+        cp_cmp_result res = identify_cp(token_pos_ptr, m);
+        if(res.is_identified && res.match->type == CODE_BLOCK) {
+            *token_pos_ptr = res.tokens_pos;
+            code_obj* c_obj;
+            code_block_obj = read_code_block_cases(res.match, res.vars, cases, cases_num, m, token_pos_ptr, sf);
+            print_code_obj((*code_block_obj->code_nodes)->item);
+        } else {
+            print_err_and_exit("Error, no code_block after switch-case.", -2);
+        }
+
+        node* c_block_node = create_node(code_block_obj);
+        c_obj->code_nodes = w_malloc(sizeof(node*));
+        *c_obj->code_nodes = w_malloc(sizeof(node));
+        *c_obj->code_nodes = c_block_node;
+        // print_code_obj(c_block_node->item);
+        c_obj->code_nodes_num = 1;
+
     }
 
     return c_obj;
@@ -514,12 +763,17 @@ obj_and_token_ptr create_code_obj(code_pattern* cp, void* vars, mode m, void** t
         case IF_STATEMENT:
             c_obj = read_if_statement(cp, vars, m, token_pos_ptr, sf);
             break;
+        case ELSE_STATEMENT:
+            c_obj = read_else_statement(cp, vars, m, token_pos_ptr, sf);
+            break;
         case SWITCH:
+            c_obj = read_switch_case(cp, vars, m, token_pos_ptr, sf);
             break;
         case FUNCTION_CALL:
             c_obj = read_function_call(cp, vars, m, token_pos_ptr, sf);
             break;
         case SCRIPT_CALL:
+            c_obj = read_script_call(cp, vars, m, token_pos_ptr, sf);
             break;
         case ASSIGNMENT:
             c_obj = read_assignment(cp, vars, m, token_pos_ptr, sf);
@@ -552,24 +806,46 @@ void print_asm_expr(expression* expr) {
     }
 }
 
-void print_asm_code_obj(code_obj* co) {
+void indent(int indentation_lvl) {
+    for(int i=0; i < indentation_lvl; i++) {
+        printf("\t");
+    }
+}
+
+bool is_paranth_type1(c_type type) {
+    if(type == FUNCTION_CALL || type == IF_STATEMENT || type == SWITCH) {
+        return true;
+    }
+    return false;
+}
+
+bool is_paranth_type2(c_type type) {
+    if(type == IF_STATEMENT || type == ELSE_STATEMENT || type == SWITCH) {
+        return true;
+    }
+    return false;
+}
+
+void print_asm_code_obj(code_obj* co, int indentation_lvl) {
     code_pattern* cp = co->cp;
+
     // print code structure
     for(int i=0, j=0; i < cp->asm_token_num; i++) {
         if(is_var_pos(cp, CODE_TYPE, MODE_ASM, i)) {
             printf("%s", co->asm_vars[j]);
             j++;
         } else {
+            indent(indentation_lvl);
             printf(ANSI_COLOR_YELLOW "%s" ANSI_COLOR_RESET, cp->asm_tokens[i]);
         }
-        // if(i+1 != cp->asm_token_num) { printf(" "); }
+        if(i == cp->asm_token_num-1 && co->expression_node_num == 0) { printf("\n"); }
     }
     // print exprs
     int exp_num = co->expression_node_num;
     if(exp_num > 0) {
         node* exp_node = *co->expression_nodes; 
         c_type type = co->cp->type;
-        if(type == FUNCTION || type == IF_STATEMENT) {
+        if(is_paranth_type1(type)) {
             printf("(");
         }
         while(exp_node != NULL && exp_node->item != NULL) {
@@ -577,26 +853,50 @@ void print_asm_code_obj(code_obj* co) {
             exp_node = exp_node->next;
             if(exp_node != NULL) printf(", ");
         }
-        if(type == FUNCTION || type == IF_STATEMENT) {
+        if(is_paranth_type1(type)) {
             printf(")");
         }
         printf("\n");
+    }
+
+    // print nested blocks
+    int code_nodes_num = co->code_nodes_num;
+    int cases_num = 0;
+    int cases[cases_num];
+    int cases_index = 0;
+    if(code_nodes_num > 0) {
+        indentation_lvl++;
+        c_type type = co->cp->type;
+        if(is_paranth_type2(type)) { 
+            if(indentation_lvl > 0) indent(indentation_lvl-1);
+            printf(" {\n");
+        }
+        node* code_n = *co->code_nodes;
+        while(code_n != NULL && code_n->item != NULL) {
+            print_asm_code_obj(code_n->item, indentation_lvl);
+            code_n = code_n->next;
+        }
+        if(is_paranth_type2(type)) { 
+            printf("\n");
+            if(indentation_lvl > 0) indent(indentation_lvl-1);
+            printf("}\n");
+        }
     }
 }
 
 void print_asm_code_objs(code_obj* co, int code_obj_num) {
     print_title("_ASM_");
     for(int i=0; i < code_obj_num; i++) {
-        print_asm_code_obj(&(co)[i]);
+        print_asm_code_obj(&(co)[i], 0);
     }
 }
 
 void print_asm_code_nodes(node* head) {
     node* node = head;
     if(node == NULL) return;
-    while(node != NULL) {
+    while(node != NULL && node->item != NULL) {
         code_obj* co = (code_obj*) node->item;
-        print_asm_code_obj(co);
+        print_asm_code_obj(co, 0);
         node = node->next;
     }
 }
@@ -616,10 +916,12 @@ void print_script(script* script) {
     printf("script_code_nodes_num: %d\n", script->code_nodes_num);
 }
 
-script* disasm_script(int script_offset, sct_f* sf) {
+script* disasm_script(int script_num, sct_f* sf) {
+    int script_offset = get_script_off(script_num, sf);
     fseek(sf->file, script_offset+8, SEEK_SET);
 
     script* script = w_malloc(sizeof(script));
+    script->number = script_num;
     script->code_nodes_num = 0;
     script->code_nodes = w_malloc(sizeof(node*));
     *script->code_nodes = w_malloc(sizeof(node));
@@ -666,7 +968,6 @@ script* disasm_script(int script_offset, sct_f* sf) {
             tokens_read = token_ptr - bin_tokens;
         }
     }
-    // print_tokens(&tokens[0], script_len);
 
     return script;
 }
@@ -683,8 +984,13 @@ int disasm_file(char* filepath) {
     
     build_data_from_link_table(sct_file);
 
-    int script1 = get_script_off(0, sct_file);
-    disasm_script(script1, sct_file);
+    // disasdemble file's scripts
+    int scripts_num = sct_file->structure->num_of_scripts;
+    sct_file->scripts = w_malloc(scripts_num*sizeof(script));
+    for(int i=0; i < scripts_num; i++) {
+        script* s = disasm_script(i, sct_file);
+        (&sct_file->scripts)[i] = s;
+    }
 }
 
 bool is_filepath_valid(char* filepath) {

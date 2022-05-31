@@ -44,3 +44,7 @@ int compare_data_obj_ids(const void* a, const void* b);
 void print_expr_obj(expr_obj* exp_o, bool with_pattern);
 void print_expression(expression* exp);
 void print_code_obj(code_obj* co);
+void init_code_obj(code_obj* c_obj);
+code_obj* create_and_init_c_obj();
+void init_expr_obj(expr_obj* e_obj);
+expr_obj* create_and_init_expr_obj();

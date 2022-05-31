@@ -1,5 +1,45 @@
 #include "pattern.h"
 
+void init_code_pattern(code_pattern* c_pattern) {
+    c_pattern->asm_token_num = 0;
+    c_pattern->bin_token_num = 0;
+    c_pattern->asm_var_num = 0;
+    c_pattern->bin_var_num = 0;
+    c_pattern->asm_tokens = NULL;
+    c_pattern->bin_tokens = NULL;
+    c_pattern->asm_var_pos = NULL;
+    c_pattern->bin_var_pos = NULL;
+    c_pattern->var_names = NULL;
+    c_pattern->name = NULL;
+    c_pattern->type = UNINIT_TYPE;
+}
+
+code_pattern* create_and_init_code_pattern() {
+    code_pattern* c_pattern = w_malloc(sizeof(code_pattern));
+    init_code_pattern(c_pattern);
+
+    return c_pattern;
+}
+
+void init_expr_pattern(expr_pattern* e_pattern) {
+    e_pattern->asm_token_num = 0;
+    e_pattern->bin_token_num = 0;
+    e_pattern->asm_var_num = 0;
+    e_pattern->bin_var_num = 0;
+    e_pattern->asm_tokens = NULL;
+    e_pattern->bin_tokens = NULL;
+    e_pattern->asm_var_pos = NULL;
+    e_pattern->bin_var_pos = NULL;
+    e_pattern->type = UNINIT_TYPE;
+}
+
+expr_pattern* create_and_init_expr_pattern() {
+    expr_pattern* e_pattern = w_malloc(sizeof(expr_pattern));
+    init_expr_pattern(e_pattern);
+
+    return e_pattern;
+}
+
 void print_code_pattern(code_pattern* cp) {
     printf("cp_name: %s\n", cp->name);
     printf("bin_vars: %d - positions:", cp->bin_var_num);
@@ -107,8 +147,8 @@ code_pattern* init_cp_code_block() {
     cp_cblock->name = aapts("code block");
     i_arr bin_tokens = { .arr = { 0xfffffffc, VAR }, .len = 2 };
     i_arr bin_var_pos = { .arr = { 1 }, .len = 1 };
-    s_arr asm_tokens = { .arr = { "{", S_VAR, "}" }, .len = 3 };
-    i_arr asm_var_pos = { .arr = { 1 }, .len = 1 };
+    s_arr asm_tokens = { .arr = { }, .len = 0 };
+    i_arr asm_var_pos = { .arr = { }, .len = 0 };
     s_arr var_names = { .arr = {"size_in_words"}, .len = 1 };
     
     init_cp(cp_cblock, CODE_BLOCK, bin_tokens, bin_var_pos, var_names, asm_tokens, asm_var_pos);
@@ -117,18 +157,78 @@ code_pattern* init_cp_code_block() {
 }
 
 code_pattern* init_cp_script_call() {
-    code_pattern* cp_cblock = (code_pattern*) malloc(sizeof(code_pattern));
+    code_pattern* cp_scall = (code_pattern*) malloc(sizeof(code_pattern));
 
-    cp_cblock->name = aapts("call_script");
+    cp_scall->name = aapts("call_script");
     i_arr bin_tokens = { .arr = { 0, 1, VAR }, .len = 3 };
     i_arr bin_var_pos = { .arr = { 2 }, .len = 1 };
-    s_arr asm_tokens = { .arr = { "execute", S_VAR }, .len = 2 };
+    s_arr asm_tokens = { .arr = { "execute ", S_VAR }, .len = 2 };
     i_arr asm_var_pos = { .arr = { 1 }, .len = 1 };
-    s_arr var_names = { .arr = {"script id"}, .len = 1 };
+    s_arr var_names = { .arr = {"script_index"}, .len = 1 };
     
-    init_cp(cp_cblock, SCRIPT_CALL, bin_tokens, bin_var_pos, var_names, asm_tokens, asm_var_pos);
+    init_cp(cp_scall, SCRIPT_CALL, bin_tokens, bin_var_pos, var_names, asm_tokens, asm_var_pos);
 
-    return cp_cblock;
+    return cp_scall;
+}
+
+code_pattern* init_cp_switch_case() {
+    code_pattern* cp_switch = (code_pattern*) malloc(sizeof(code_pattern));
+
+    cp_switch->name = aapts("switch_case");
+    i_arr bin_tokens = { .arr = { 1, 9, VAR }, .len = 3 };
+    i_arr bin_var_pos = { .arr = { 2 }, .len = 1 };
+    s_arr asm_tokens = { .arr = { "switch" }, .len = 1 };
+    i_arr asm_var_pos = { .arr = { }, .len = 0 };
+    s_arr var_names = { .arr = {"num_of_cases"}, .len = 1 };
+    
+    init_cp(cp_switch, SWITCH, bin_tokens, bin_var_pos, var_names, asm_tokens, asm_var_pos);
+
+    return cp_switch;
+}
+
+code_pattern* init_cp_break() {
+    code_pattern* cp_break = (code_pattern*) malloc(sizeof(code_pattern));
+
+    cp_break->name = aapts("break");
+    i_arr bin_tokens = { .arr = { 1, 8 }, .len = 2 };
+    i_arr bin_var_pos = { .arr = { }, .len = 0 };
+    s_arr asm_tokens = { .arr = { "break" }, .len = 1 };
+    i_arr asm_var_pos = { .arr = { }, .len = 0 };
+    s_arr var_names = { .arr = { }, .len = 0 };
+    
+    init_cp(cp_break, BREAK, bin_tokens, bin_var_pos, var_names, asm_tokens, asm_var_pos);
+
+    return cp_break;
+}
+
+code_pattern* init_aid_cp_case() {
+    code_pattern* cp_case = (code_pattern*) malloc(sizeof(code_pattern));
+
+    cp_case->name = aapts("case");
+    i_arr bin_tokens = { .arr = { }, .len = 0 };
+    i_arr bin_var_pos = { .arr = { }, .len = 0 };
+    s_arr asm_tokens = { .arr = { "case", S_VAR }, .len = 2 };
+    i_arr asm_var_pos = { .arr = { 1 }, .len = 1 };
+    s_arr var_names = { .arr = { "case_value" }, .len = 1 };
+    
+    init_cp(cp_case, CASE_AID, bin_tokens, bin_var_pos, var_names, asm_tokens, asm_var_pos);
+
+    return cp_case;
+}
+
+code_pattern* init_cp_else() {
+    code_pattern* cp_else = (code_pattern*) malloc(sizeof(code_pattern));
+
+    cp_else->name = aapts("else_block");
+    i_arr bin_tokens = { .arr = { 1, 1, 0xfffffffc }, .len = 3 };
+    i_arr bin_var_pos = { .arr = { }, .len = 0 };
+    s_arr asm_tokens = { .arr = { "else" }, .len = 1 };
+    i_arr asm_var_pos = { .arr = { }, .len = 0 };
+    s_arr var_names = { .arr = { }, .len = 0 };
+    
+    init_cp(cp_else, ELSE_STATEMENT, bin_tokens, bin_var_pos, var_names, asm_tokens, asm_var_pos);
+
+    return cp_else;
 }
 
 void init_code_patterns(code_pattern** code_patterns) {
@@ -141,6 +241,10 @@ void init_code_patterns(code_pattern** code_patterns) {
     code_patterns[2] = init_cp_func_call();
     code_patterns[3] = init_cp_code_block();
     code_patterns[4] = init_cp_if();
+    code_patterns[5] = init_cp_else();
+    code_patterns[6] = init_cp_script_call();
+    code_patterns[7] = init_cp_switch_case();
+    code_patterns[8] = init_cp_break();
     // print_code_pattern(cp_fc);
 }
 void free_code_patterns(code_pattern** code_patterns) {

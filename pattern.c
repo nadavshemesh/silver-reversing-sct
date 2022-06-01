@@ -111,6 +111,21 @@ code_pattern* init_cp_if() {
     return cp_if;
 }
 
+code_pattern* init_cp_var() {
+    code_pattern* cp_inc = (code_pattern*) malloc(sizeof(code_pattern));
+
+    cp_inc->name = aapts("var reference from data table");
+    i_arr bin_tokens = { .arr = { 0, 6, VAR}, .len = 3 };
+    i_arr bin_var_pos = { .arr = { 2 }, .len = 1 };
+    s_arr asm_tokens = { .arr = { ANSI_COLOR_CYAN "var " ANSI_COLOR_RESET, S_VAR }, .len = 2 };
+    i_arr asm_var_pos = { .arr = { 1 }, .len = 1 };
+    s_arr var_names = { .arr = { "var_id" }, .len = 1 };
+    
+    init_cp(cp_inc, VAR_INC, bin_tokens, bin_var_pos, var_names, asm_tokens, asm_var_pos);
+
+    return cp_inc;
+}
+
 code_pattern* init_cp_var_inc() {
     code_pattern* cp_inc = (code_pattern*) malloc(sizeof(code_pattern));
 
@@ -277,6 +292,7 @@ void init_code_patterns(code_pattern** code_patterns) {
     code_patterns[8] = init_cp_break();
     code_patterns[9] = init_cp_structure_ptr();
     code_patterns[10] = init_cp_var_assignment();
+    code_patterns[11] = init_cp_var();
     // print_code_pattern(cp_fc);
 }
 void free_code_patterns(code_pattern** code_patterns) {
@@ -317,6 +333,7 @@ void init_expr(expr_pattern* expr, i_arr bin_tokens, i_arr bin_var_pos, s_arr as
 expr_pattern* init_expr_func_call() {
     expr_pattern* expr_func_call = (expr_pattern*) malloc(sizeof(code_pattern));
     expr_func_call->type = FUNCTION;
+    expr_func_call->name = aapts("func expr call");
 
     i_arr bin_tokens = { .arr = {0, 3, VAR, VAR}, .len = 4 };
     i_arr bin_var_pos = { .arr = {2, 3}, .len = 2 };
@@ -332,6 +349,7 @@ expr_pattern* init_expr_func_call() {
 expr_pattern* init_expr_room_timer() {
     expr_pattern* expr = w_malloc(sizeof(expr_pattern));
     expr->type = GAME_VAR;
+    expr->name = aapts("room timer var");
 
     i_arr bin_tokens = { .arr = { 0, 2, 0, 0x5b, 4 }, .len = 5 };
     i_arr bin_var_pos = { .arr = { }, .len = 0 };
@@ -346,6 +364,7 @@ expr_pattern* init_expr_room_timer() {
 expr_pattern* init_expr_room_cleared() {
     expr_pattern* expr = w_malloc(sizeof(expr_pattern));
     expr->type = GAME_VAR;
+    expr->name = aapts("room cleared flag");
 
     i_arr bin_tokens = { .arr = { 0, 4, 9, 0x2c, 4 }, .len = 5 };
     i_arr bin_var_pos = { .arr = { }, .len = 0 };
@@ -360,6 +379,7 @@ expr_pattern* init_expr_room_cleared() {
 expr_pattern* init_expr_room_not_cleared() {
     expr_pattern* expr = w_malloc(sizeof(expr_pattern));
     expr->type = GAME_VAR;
+    expr->name = aapts("room not cleared flag");
 
     i_arr bin_tokens = { .arr = { 0, 0x20000004, 9, 0x2c, 4 }, .len = 5 };
     i_arr bin_var_pos = { .arr = { }, .len = 0 };
@@ -374,6 +394,7 @@ expr_pattern* init_expr_room_not_cleared() {
 expr_pattern* init_expr_room_state() {
     expr_pattern* expr = w_malloc(sizeof(expr_pattern));
     expr->type = GAME_VAR;
+    expr->name = aapts("room state var");
 
     i_arr bin_tokens = { .arr = { 0, 4, 9, 8, 4 }, .len = 5 };
     i_arr bin_var_pos = { .arr = { }, .len = 0 };
@@ -388,6 +409,7 @@ expr_pattern* init_expr_room_state() {
 expr_pattern* init_expr_plus_op() {
     expr_pattern* expr = w_malloc(sizeof(expr_pattern));
     expr->type = OPERATOR;
+    expr->name = aapts("plus operator");
 
     i_arr bin_tokens = { .arr = { 3, 1 }, .len = 2 };
     i_arr bin_var_pos = { .arr = { }, .len = 0 };
@@ -402,6 +424,7 @@ expr_pattern* init_expr_plus_op() {
 expr_pattern* init_expr_minus_op() {
     expr_pattern* expr = w_malloc(sizeof(expr_pattern));
     expr->type = OPERATOR;
+    expr->name = aapts("minus operator");
 
     i_arr bin_tokens = { .arr = { 3, 2 }, .len = 2 };
     i_arr bin_var_pos = { .arr = { }, .len = 0 };
@@ -416,6 +439,7 @@ expr_pattern* init_expr_minus_op() {
 expr_pattern* init_expr_times_op() {
     expr_pattern* expr = w_malloc(sizeof(expr_pattern));
     expr->type = OPERATOR;
+    expr->name = aapts("multiply operator");
 
     i_arr bin_tokens = { .arr = { 3, 3 }, .len = 2 };
     i_arr bin_var_pos = { .arr = { }, .len = 0 };
@@ -430,6 +454,8 @@ expr_pattern* init_expr_times_op() {
 expr_pattern* init_expr_division_op() {
     expr_pattern* expr = w_malloc(sizeof(expr_pattern));
     expr->type = OPERATOR;
+    expr->name = aapts("division operator");
+
 
     i_arr bin_tokens = { .arr = { 3, 4 }, .len = 2 };
     i_arr bin_var_pos = { .arr = { }, .len = 0 };
@@ -444,6 +470,7 @@ expr_pattern* init_expr_division_op() {
 expr_pattern* init_expr_modulo_op() {
     expr_pattern* expr = w_malloc(sizeof(expr_pattern));
     expr->type = OPERATOR;
+    expr->name = aapts("modulo operator");
 
     i_arr bin_tokens = { .arr = { 3, 5 }, .len = 2 };
     i_arr bin_var_pos = { .arr = { }, .len = 0 };
@@ -458,6 +485,7 @@ expr_pattern* init_expr_modulo_op() {
 expr_pattern* init_expr_eq_op() {
     expr_pattern* expr = w_malloc(sizeof(expr_pattern));
     expr->type = OPERATOR;
+    expr->name = aapts("equals operator");
 
     i_arr bin_tokens = { .arr = { 4, 2 }, .len = 2 };
     i_arr bin_var_pos = { .arr = { }, .len = 0 };
@@ -472,6 +500,7 @@ expr_pattern* init_expr_eq_op() {
 expr_pattern* init_expr_ne_op() {
     expr_pattern* expr = w_malloc(sizeof(expr_pattern));
     expr->type = OPERATOR;
+    expr->name = aapts("not equals operator");
 
     i_arr bin_tokens = { .arr = { 4, 3 }, .len = 2 };
     i_arr bin_var_pos = { .arr = { }, .len = 0 };
@@ -486,6 +515,7 @@ expr_pattern* init_expr_ne_op() {
 expr_pattern* init_expr_lt_op() {
     expr_pattern* expr = w_malloc(sizeof(expr_pattern));
     expr->type = OPERATOR;
+    expr->name = aapts("less than operator");
 
     i_arr bin_tokens = { .arr = { 4, 4 }, .len = 2 };
     i_arr bin_var_pos = { .arr = { }, .len = 0 };
@@ -500,10 +530,11 @@ expr_pattern* init_expr_lt_op() {
 expr_pattern* init_expr_gt_op() {
     expr_pattern* expr = w_malloc(sizeof(expr_pattern));
     expr->type = OPERATOR;
+    expr->name = aapts("greater than operator");
 
     i_arr bin_tokens = { .arr = { 4, 5 }, .len = 2 };
     i_arr bin_var_pos = { .arr = { }, .len = 0 };
-    s_arr asm_tokens = { .arr = { ">" }, .len = 1 };
+    s_arr asm_tokens = { .arr = { ANSI_COLOR_RED " > " ANSI_COLOR_RESET }, .len = 1 };
     i_arr asm_var_pos = { .arr = { }, .len = 0 };
 
     init_expr(expr, bin_tokens, bin_var_pos, asm_tokens, asm_var_pos);
@@ -514,10 +545,11 @@ expr_pattern* init_expr_gt_op() {
 expr_pattern* init_expr_ge_op() {
     expr_pattern* expr = w_malloc(sizeof(expr_pattern));
     expr->type = OPERATOR;
+    expr->name = aapts(">= operator");
 
     i_arr bin_tokens = { .arr = { 4, 1 }, .len = 2 };
     i_arr bin_var_pos = { .arr = { }, .len = 0 };
-    s_arr asm_tokens = { .arr = { ">=" }, .len = 1 };
+    s_arr asm_tokens = { .arr = { ANSI_COLOR_RED " >= " ANSI_COLOR_RESET }, .len = 1 };
     i_arr asm_var_pos = { .arr = { }, .len = 0 };
 
     init_expr(expr, bin_tokens, bin_var_pos, asm_tokens, asm_var_pos);
@@ -528,10 +560,11 @@ expr_pattern* init_expr_ge_op() {
 expr_pattern* init_expr_le_op() {
     expr_pattern* expr = w_malloc(sizeof(expr_pattern));
     expr->type = OPERATOR;
+    expr->name = aapts("<= operator");
 
     i_arr bin_tokens = { .arr = { 4, 0 }, .len = 2 };
     i_arr bin_var_pos = { .arr = { }, .len = 0 };
-    s_arr asm_tokens = { .arr = { "<=" }, .len = 1 };
+    s_arr asm_tokens = { .arr = { ANSI_COLOR_RED " <= " ANSI_COLOR_RESET }, .len = 1 };
     i_arr asm_var_pos = { .arr = { }, .len = 0 };
 
     init_expr(expr, bin_tokens, bin_var_pos, asm_tokens, asm_var_pos);
@@ -542,6 +575,7 @@ expr_pattern* init_expr_le_op() {
 expr_pattern* init_expr_var_ptr() {
     expr_pattern* expr = w_malloc(sizeof(expr_pattern));
     expr->type = VAR_PTR;
+    expr->name = aapts("var ptr");
 
     i_arr bin_tokens = { .arr = { 0, 6, VAR }, .len = 3 };
     i_arr bin_var_pos = { .arr = { 2 }, .len = 1 };
@@ -556,6 +590,7 @@ expr_pattern* init_expr_var_ptr() {
 expr_pattern* init_expr_data_ptr() {
     expr_pattern* expr = w_malloc(sizeof(expr_pattern));
     expr->type = DATA_PTR;
+    expr->name = aapts("const ptr");
 
     i_arr bin_tokens = { .arr = { 0, 7, VAR }, .len = 3 };
     i_arr bin_var_pos = { .arr = { 2 }, .len = 1 };
@@ -570,6 +605,7 @@ expr_pattern* init_expr_data_ptr() {
 expr_pattern* init_expr_int() {
     expr_pattern* expr = w_malloc(sizeof(expr_pattern));
     expr->type = INTEGER;
+    expr->name = aapts("integer");
 
     i_arr bin_tokens = { .arr = { 2, VAR }, .len = 2 };
     i_arr bin_var_pos = { .arr = { 1 }, .len = 1 };

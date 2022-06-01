@@ -21,7 +21,9 @@ void init_expr_obj(expr_obj* e_obj) {
     e_obj->expr_p = NULL;
     e_obj->bin_vars = NULL;
     e_obj->asm_vars = NULL;
+    e_obj->expression_nodes = NULL;
     e_obj->data = 0;
+    e_obj->expression_node_num = 0;
 }
 
 expr_obj* create_and_init_expr_obj() {
@@ -64,6 +66,14 @@ void print_expr_obj(expr_obj* exp_o, bool with_pattern) {
     printf("asm_vars: ");
     for(int i=0; i < exp_o->expr_p->asm_var_num; i++) { printf(" %s ", exp_o->asm_vars[i]); }
     printf("\n");
+    printf("sub expr nodes: %d\n", exp_o->expression_node_num);
+    // if(exp_o->expression_node_num > 0) {
+    //     node* exp_node = *exp_o->expression_nodes;
+    //     while(exp_node != NULL) {
+    //         print_expression(exp_node->item);
+    //         exp_node = exp_node->next;
+    //     }
+    // }
 
     if(exp_o->data != NULL)
         print_data_obj(exp_o->data);

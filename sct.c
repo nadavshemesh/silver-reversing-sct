@@ -262,8 +262,98 @@ expr_cmp_result identify_expr(void** token_pos_ptr, mode m) {
     return res;
 }
 
+int read_expression_size(void** tokens_pos_ptr, mode m, bool with_prologue) { 
+    if(m == MODE_BIN) {
+        int* token = *tokens_pos_ptr; 
+        if(!with_prologue || *token == 0xfffffffd) {
+            int size = (with_prologue) ? *(token+1) : *token;
+            if(size > 0) {
+                *tokens_pos_ptr += (with_prologue) ? 8 : 4;
+                return size;
+            }
+            print_err("Error, No expr obj declaration and size.", -2);
+            print_token_area_details(*tokens_pos_ptr, m);
+        } 
 
-expr_obj* create_expr_obj(expr_pattern* expr, void* vars, mode m, sct_f* sf) {
+        print_err("Error, No expr obj declaration and size.", -2);
+        print_token_area_details(*tokens_pos_ptr, m);
+    }
+}
+
+expression* read_expression(void** tokens_pos_ptr, mode m, bool with_prologue, sct_f* sf) {
+    expression* exp = w_malloc(sizeof(expression));
+
+    if(m == MODE_BIN) {
+        int exprs_num = read_expression_size(tokens_pos_ptr, m, with_prologue);
+        // printf("expr size: %d\n", exprs_num);
+        expr_obj exprs[exprs_num];
+        // Read exprs
+        for(int i=0; i < exprs_num; i++) {
+            expr_cmp_result res = identify_expr(tokens_pos_ptr, m);
+            if(res.is_identified) {
+                char msg[256];
+                sprintf(msg, "Found expr pattern '%s'.", res.match->name);
+                print_success(msg);
+                *tokens_pos_ptr = res.tokens_pos;
+                expr_obj* eo = create_expr_obj(res.match, res.vars, m, tokens_pos_ptr, sf);
+                exprs[i] = *eo;
+            } else { print_err_and_exit("unidentified expression.", -4); }
+        }
+        exp->expr_objs_len = exprs_num;
+        exp->expr_objs = w_malloc(exprs_num*sizeof(expr_obj));
+        memcpy(exp->expr_objs, exprs, exprs_num*sizeof(expr_obj));
+    }
+
+    return exp;
+}
+
+expr_obj* read_function_call_expr(expr_pattern* expr_p, void* vars, mode m, void** tokens_pos_ptr, sct_f* sf) {
+    expr_obj* e_obj = create_and_init_expr_obj();
+
+    if(m == MODE_BIN) {
+        int func_num = ((int*) vars)[0];
+        int params_num = ((int*) vars)[1];
+        printf("game_func: %x, params_num(exprs): %d\n", func_num, params_num);
+
+        game_fun* gf = game_functions[func_num];
+        if(gf == NULL) { 
+            char err[256];
+            sprintf(err, "ERROR, game func %d not found.\n", func_num);
+            print_err(err, -3);
+        }
+        int exp_nodes_len = 0;
+        node** exp_nodes = w_malloc(sizeof(node*));
+        *exp_nodes = w_malloc(sizeof(node));
+        for(int i=0; i < params_num; i++) {
+            expression* exp;
+            exp = read_expression(tokens_pos_ptr, m, true, sf);
+            node* new_node = create_node(exp);
+            if(exp_nodes_len == 0) {
+                *exp_nodes = new_node;
+            } else {
+                insert_node(exp_nodes, new_node);
+            }
+            exp_nodes_len++;
+        }
+
+        e_obj->expression_nodes = w_malloc(sizeof(node*));
+        *e_obj->expression_nodes = w_malloc(sizeof(node));
+        e_obj->expression_node_num = exp_nodes_len;
+        e_obj->expression_nodes = exp_nodes;
+        // print_expression((*exp_nodes)->item);
+
+        char* asm_vars = { gf->name };
+        e_obj->expr_p = expr_p;
+        e_obj->bin_vars = w_malloc(expr_p->bin_var_num*sizeof(int));
+        e_obj->asm_vars = w_malloc(expr_p->asm_var_num*MAX_FUNC_NAME);
+        memcpy(e_obj->bin_vars, vars, sizeof(e_obj->bin_vars));
+        memcpy(e_obj->asm_vars, &asm_vars, sizeof(e_obj->asm_vars));
+    }
+
+    return e_obj;
+}
+
+expr_obj* create_expr_obj(expr_pattern* expr, void* vars, mode m, void** token_pos_ptr, sct_f* sf) {
     expr_obj* eo = create_and_init_expr_obj();
 
     int bin_var_num = expr->bin_var_num;
@@ -296,8 +386,11 @@ expr_obj* create_expr_obj(expr_pattern* expr, void* vars, mode m, sct_f* sf) {
                 break;
 
             case VAR_PTR:
-            printf("data var: %d\n", data_var);
                 data = get_data_obj_by_id(data_var, sf);
+                break;
+            case FUNCTION:
+                expr_obj* exp_func = read_function_call_expr(expr, vars, m, token_pos_ptr, sf);
+                return exp_func;
                 break;
         
         default:
@@ -447,47 +540,6 @@ code_obj* read_code_block_cases(code_pattern* cp, void* vars, int* cases, int ca
     return c_obj;
 }
 
-int read_expression_size(void** tokens_pos_ptr, mode m, bool with_prologue) { 
-    if(m == MODE_BIN) {
-        int* token = *tokens_pos_ptr; 
-        if(!with_prologue || *token == 0xfffffffd) {
-            int size = (with_prologue) ? *(token+1) : *token;
-            if(size > 0) {
-                *tokens_pos_ptr += (with_prologue) ? 8 : 4;
-                return size;
-            }
-            print_err("Error, No expr obj declaration and size.", -2);
-            print_token_area_details(*tokens_pos_ptr, m);
-        } 
-
-        print_err("Error, No expr obj declaration and size.", -2);
-        print_token_area_details(*tokens_pos_ptr, m);
-    }
-}
-
-expression* read_expression(void** tokens_pos_ptr, mode m, bool with_prologue, sct_f* sf) {
-    expression* exp = w_malloc(sizeof(expression));
-
-    if(m == MODE_BIN) {
-        int exprs_num = read_expression_size(tokens_pos_ptr, m, with_prologue);
-        // printf("expr size: %d\n", exprs_num);
-        expr_obj exprs[exprs_num];
-        // Read exprs
-        for(int i=0; i < exprs_num; i++) {
-            expr_cmp_result res = identify_expr(tokens_pos_ptr, m);
-            if(res.is_identified) {
-                *tokens_pos_ptr = res.tokens_pos;
-                expr_obj* eo = create_expr_obj(res.match, res.vars, m, sf);
-                exprs[i] = *eo;
-            } else { print_err_and_exit("unidentified expression.", -4); }
-        }
-        exp->expr_objs_len = exprs_num;
-        exp->expr_objs = w_malloc(exprs_num*sizeof(expr_obj));
-        memcpy(exp->expr_objs, exprs, exprs_num*sizeof(expr_obj));
-    }
-
-    return exp;
-}
 
 code_obj* read_function_call(code_pattern* cp, void* vars, mode m, void** tokens_pos_ptr, sct_f* sf) {
     code_obj* c_obj = create_and_init_c_obj();

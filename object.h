@@ -11,10 +11,12 @@ typedef struct data_object {
 } data_obj;
 
 typedef struct expression_object {
+    int expression_node_num;
     expr_pattern* expr_p;
     int* bin_vars;
     char** asm_vars;
     data_obj* data;
+    node** expression_nodes; 
 } expr_obj;
 
 typedef struct expression {

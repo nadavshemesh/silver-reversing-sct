@@ -7,7 +7,7 @@
 #define VAR -9
 #define S_VAR "-9"
 #define CODE_PATTERNS_NUM 14
-#define EXPR_PATTERNS_NUM 18
+#define EXPR_PATTERNS_NUM 19
 #define UNINIT_TYPE 111
 
 typedef enum pattern_type { CODE_TYPE, EXPRESSION_TYPE } p_type; // needed?
@@ -36,6 +36,7 @@ typedef struct expr_pattern {
     int bin_token_num;
     int asm_var_num;
     int asm_token_num;
+    char* name;
     int* bin_var_pos;
     int* bin_tokens;
     int* asm_var_pos;

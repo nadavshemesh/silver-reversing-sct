@@ -269,7 +269,7 @@ expr_obj* create_expr_obj(expr_pattern* expr, void* vars, mode m, sct_f* sf) {
     int bin_var_num = expr->bin_var_num;
     int asm_var_num = expr->asm_var_num;
     if(m == MODE_BIN) {
-        int data_var = ((int*)vars)[0];
+        int data_var = (vars == NULL) ? 0 : ((int*)vars)[0];
         data_obj* data;
 
         eo->bin_vars = w_malloc(bin_var_num*sizeof(int*));
@@ -296,12 +296,12 @@ expr_obj* create_expr_obj(expr_pattern* expr, void* vars, mode m, sct_f* sf) {
                 break;
 
             case VAR_PTR:
+            printf("data var: %d\n", data_var);
                 data = get_data_obj_by_id(data_var, sf);
                 break;
         
         default:
             data = NULL;
-            break;
         }
 
         char* name = (data != NULL) ? data->name : "";
@@ -391,8 +391,6 @@ code_obj* read_code_block_cases(code_pattern* cp, void* vars, int* cases, int ca
         current_case->asm_vars = w_malloc((current_case->cp->asm_var_num)*sizeof(char*));
         memcpy(current_case->asm_vars, &asm_vars, sizeof(current_case->asm_vars));
 
-        printf("testttL: %s\n", *(current_case->asm_vars));
-
         current_case->code_nodes = w_malloc(sizeof(node*));
         *current_case->code_nodes = w_malloc(sizeof(node));
 
@@ -428,18 +426,19 @@ code_obj* read_code_block_cases(code_pattern* cp, void* vars, int* cases, int ca
                         insert_node(c_obj->code_nodes, create_node(current_case));
                     }
                     c_obj->code_nodes_num++;
+
                     // init current case (next case)
+                    case_index++;
                     current_case = create_and_init_c_obj();
                     current_case->cp = case_cp;
-                    char num_s[30];
+
                     sprintf(num_s, " %d", cases[case_index]);
                     char* asm_vars[1] = { aapts(num_s) };
                     current_case->asm_vars = w_malloc((current_case->cp->asm_var_num)*sizeof(char**));
                     memcpy(current_case->asm_vars, asm_vars, sizeof(current_case->asm_vars));
-                    printf("testttL: %s\n", *(current_case->asm_vars));
+                    
                     current_case->code_nodes = w_malloc(sizeof(node*));
                     *current_case->code_nodes = w_malloc(sizeof(node));
-                    case_index++;
                 }
             }
         }
@@ -458,11 +457,11 @@ int read_expression_size(void** tokens_pos_ptr, mode m, bool with_prologue) {
                 return size;
             }
             print_err("Error, No expr obj declaration and size.", -2);
-            print_token_area_details(tokens_pos_ptr, m);
+            print_token_area_details(*tokens_pos_ptr, m);
         } 
 
         print_err("Error, No expr obj declaration and size.", -2);
-        print_token_area_details(tokens_pos_ptr, m);
+        print_token_area_details(*tokens_pos_ptr, m);
     }
 }
 
@@ -611,7 +610,7 @@ code_obj* read_assignment(code_pattern* cp, void* vars, mode m, void** token_pos
     code_obj* c_obj = create_and_init_c_obj();
 
     if(m == MODE_BIN) {
-        expression* exp = read_expression(token_pos_ptr, m, false, sf);
+        expression* exp = read_expression(token_pos_ptr, m, true, sf);
         c_obj->cp = cp;
 
         c_obj->code_nodes_num = 0;
@@ -619,8 +618,57 @@ code_obj* read_assignment(code_pattern* cp, void* vars, mode m, void** token_pos
         c_obj->asm_vars = NULL;
         c_obj->bin_vars = NULL;
 
+        node** exp_nodes = w_malloc(sizeof(node*));
+        *exp_nodes = w_malloc(sizeof(node));
+        node* new_node = create_node(exp);
+        *exp_nodes = new_node;
+        c_obj->expression_nodes = exp_nodes;
         c_obj->expression_node_num = 1;
-        *c_obj->expression_nodes = create_node(exp);
+    }
+
+    return c_obj;
+}
+
+char* determine_room_var_ptr(int first_offset, int second_offset) {
+        switch(first_offset) {
+            case 9: // ptr to room flags
+                switch(second_offset) {
+                    case 0x08:  // Room state
+                        return aapts("room_state");
+                    break;
+                    case 0x2c:  // Room cleared flag
+                        return aapts("is_room_cleared");
+                    break;
+                
+                default:
+                    break;
+                }
+                break;
+            // case 00 - ptr to last game object 
+            // cases 00-07 - ptr to last game object data attribute
+            // case 10 - ptr to last game object data 
+        }
+        char str[50];
+        sprintf(str, "game_var_%02x_%02x", first_offset, second_offset);
+        return aapts(str);
+}
+
+code_obj* read_room_var_ptr(code_pattern* cp, void* vars, mode m, void** token_pos_ptr, sct_f* sf) {
+    code_obj* c_obj = create_and_init_c_obj();
+
+    if(m == MODE_BIN) {
+        c_obj->cp = cp;
+
+        int first_offset = (((int*)vars))[0];
+        int second_offset = ((int*)(vars))[1];
+        char* asm_vars[1] = { determine_room_var_ptr(first_offset, second_offset) };
+        int bin_vars[2] = { first_offset, second_offset };
+
+        c_obj->asm_vars = w_malloc(cp->asm_var_num*sizeof(char*));
+        c_obj->bin_vars = w_malloc(cp->bin_var_num*sizeof(int));
+
+        memcpy(c_obj->asm_vars, asm_vars, sizeof(c_obj->asm_vars));
+        memcpy(c_obj->bin_vars, bin_vars, sizeof(c_obj->bin_vars));
     }
 
     return c_obj;
@@ -667,6 +715,7 @@ code_obj* read_switch_case(code_pattern* cp, void* vars, mode m, void** token_po
 
         // read cases values
         int* token_pos = *token_pos_ptr;
+        token_pos += 1;
         int cases[cases_num];
         int case_ptrs[cases_num];
         memcpy(cases, token_pos, cases_num*sizeof(int));
@@ -680,7 +729,7 @@ code_obj* read_switch_case(code_pattern* cp, void* vars, mode m, void** token_po
         // token_pos += padding_to_block_ptrs-cases_num;
 
         // read expression
-        token_pos += (padding_to_block-cases_num)+1;
+        token_pos += (padding_to_block-cases_num);
         // print_token_area_details(token_pos, m);
         *token_pos_ptr = token_pos;
         expression* exp = read_expression(token_pos_ptr, m, false, sf);
@@ -718,7 +767,6 @@ code_obj* read_switch_case(code_pattern* cp, void* vars, mode m, void** token_po
             *token_pos_ptr = res.tokens_pos;
             code_obj* c_obj;
             code_block_obj = read_code_block_cases(res.match, res.vars, cases, cases_num, m, token_pos_ptr, sf);
-            print_code_obj((*code_block_obj->code_nodes)->item);
         } else {
             print_err_and_exit("Error, no code_block after switch-case.", -2);
         }
@@ -775,6 +823,9 @@ obj_and_token_ptr create_code_obj(code_pattern* cp, void* vars, mode m, void** t
         case SCRIPT_CALL:
             c_obj = read_script_call(cp, vars, m, token_pos_ptr, sf);
             break;
+        case ROOM_VAR_PTR:
+            c_obj = read_room_var_ptr(cp, vars, m, token_pos_ptr, sf);
+            break;
         case ASSIGNMENT:
             c_obj = read_assignment(cp, vars, m, token_pos_ptr, sf);
             break;
@@ -826,6 +877,18 @@ bool is_paranth_type2(c_type type) {
     return false;
 }
 
+bool is_same_line(code_pattern* cp) {
+    if(cp->type == GAME_VAR || cp->type == ROOM_VAR_PTR)
+        return true;
+    return false;
+}
+
+bool should_indent(code_pattern* cp) {
+    if(cp->type == VAR_DEC || cp->type == VAR_INC || cp->type == ASSIGNMENT)
+        return false;
+    return true;
+}
+
 void print_asm_code_obj(code_obj* co, int indentation_lvl) {
     code_pattern* cp = co->cp;
 
@@ -835,10 +898,11 @@ void print_asm_code_obj(code_obj* co, int indentation_lvl) {
             printf("%s", co->asm_vars[j]);
             j++;
         } else {
-            indent(indentation_lvl);
+            if(should_indent(cp)) indent(indentation_lvl);
             printf(ANSI_COLOR_YELLOW "%s" ANSI_COLOR_RESET, cp->asm_tokens[i]);
         }
-        if(i == cp->asm_token_num-1 && co->expression_node_num == 0) { printf("\n"); }
+        if(i == cp->asm_token_num-1 && co->expression_node_num == 0
+         && !is_same_line(cp)) { printf("\n"); }
     }
     // print exprs
     int exp_num = co->expression_node_num;
@@ -916,6 +980,16 @@ void print_script(script* script) {
     printf("script_code_nodes_num: %d\n", script->code_nodes_num);
 }
 
+void print_data_section(sct_f* sf) {
+    int size = sf->data_objs_size;
+    data_obj* section = *sf->data_section;
+    for(int i=0; i < size; i++) {
+        data_obj data_o = section[i];
+        print_data_obj(&data_o);
+    }
+}
+
+
 script* disasm_script(int script_num, sct_f* sf) {
     int script_offset = get_script_off(script_num, sf);
     fseek(sf->file, script_offset+8, SEEK_SET);
@@ -983,13 +1057,15 @@ int disasm_file(char* filepath) {
     print_sct_struct(sct_file);
     
     build_data_from_link_table(sct_file);
+    // print_data_section(sct_file);
 
-    // disasdemble file's scripts
+    // disassemble file's scripts
     int scripts_num = sct_file->structure->num_of_scripts;
-    sct_file->scripts = w_malloc(scripts_num*sizeof(script));
+    sct_file->scripts = w_malloc(sizeof(script*));
+    *sct_file->scripts = w_malloc(scripts_num*sizeof(script));
     for(int i=0; i < scripts_num; i++) {
         script* s = disasm_script(i, sct_file);
-        (&sct_file->scripts)[i] = s;
+        sct_file->scripts[i] = s;
     }
 }
 
@@ -1010,7 +1086,7 @@ bool is_filepath_valid(char* filepath) {
 }
 
 void build_data_from_link_table(sct_f* sct) {
-    int offset = (sct->structure->link_table_off)+4;
+    int link_offset = (sct->structure->link_table_off)+4;
     int links_num = ((sct->structure->link_table_size)/4);
     // printf("links num: %d\n", links_num);
     int data_ref_size = 0;
@@ -1018,7 +1094,7 @@ void build_data_from_link_table(sct_f* sct) {
     int ref_count[links_num];
     int refs[links_num];
 
-    fseek(sct->file, offset, SEEK_SET);
+    fseek(sct->file, link_offset, SEEK_SET);
     fread(&refs, 4, links_num, sct->file);
 
     for(int i=0; i < links_num; i++) { ref_is_data[i] = 0; ref_count[i] = 0; }
@@ -1065,10 +1141,16 @@ void build_data_from_link_table(sct_f* sct) {
     qsort(data_arr, data_ref_size, sizeof(data_obj), compare_data_obj_ids);
 
     // calculate data obj size and data
-    for(int i=0; i < data_ref_size-1; i++) {
+    for(int i=0; i < data_ref_size; i++) {
         int data_section_offset = (sct->structure->data_sec_off) + 4;
         int data_offset = data_section_offset + data_arr[i].id*4;
-        int byte_size = (data_arr[i+1].id - data_arr[i].id)*4;
+        int byte_size = 0;
+
+        if(i == data_ref_size-1) { // last item
+            byte_size = ((link_offset)-data_offset);
+        } else {
+            byte_size = (data_arr[i+1].id - data_arr[i].id)*4;
+        }
 
         data_arr[i].byte_size = byte_size;
         int data[byte_size];
@@ -1088,21 +1170,37 @@ void build_data_from_link_table(sct_f* sct) {
         // memcpy(data_arr[i].asm_data, asm_data, byte_size);
     }
 
-    data_obj* data_objs = w_malloc(data_ref_size*sizeof(data_obj));
-    memcpy(data_objs, data_arr, data_ref_size*sizeof(data_obj));
+    sct->data_objs_size = data_ref_size;
+    sct->data_section = w_malloc(sizeof(data_obj*));
+    *sct->data_section = w_malloc(data_ref_size*sizeof(data_obj));
+    memcpy(*sct->data_section, data_arr, data_ref_size*sizeof(data_obj));
     // print_data_obj((&data_objs[5]));
 
-    sct->data_objs_size = data_ref_size;
-    sct->data_section = data_objs;
     // print_data_obj(&(sct->data_section)[5]);
 }
 
-data_obj* get_data_obj_by_id(int id, sct_f* sf) {
-    data_obj* ds = sf->data_section;
-    if(ds == NULL) { print_err_and_exit("called get_data with no data section.", -3); }
-    if((&ds)[id]->bin_data == NULL) { print_err_and_exit("called get_data with no data.", -3); }
+data_obj* inefficient_search_data_id(int id, sct_f* sf) {
+    int ds_size = sf->data_objs_size;
+    data_obj** ds = sf->data_section;
+    data_obj* data_o = NULL;
+    for(int i=0; i < ds_size; i++) {
+        data_obj* cur_data_o = *ds + i;
+        if(cur_data_o->id == id)
+            return cur_data_o;
+    }
 
-    return &(ds)[id];
+    return data_o;
+}
+
+data_obj* get_data_obj_by_id(int id, sct_f* sf) {
+    data_obj** ds = sf->data_section;
+
+    if(ds == NULL) { print_err_and_exit("called get_data with no data section.", -3); }
+
+    data_obj* data_o = inefficient_search_data_id(id, sf);
+    if(data_o == NULL) { print_err_and_exit("called get_data with no data.", -3); }
+
+    return data_o;
 }
 
 

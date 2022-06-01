@@ -115,11 +115,11 @@ code_pattern* init_cp_var_inc() {
     code_pattern* cp_inc = (code_pattern*) malloc(sizeof(code_pattern));
 
     cp_inc->name = aapts("increment variable by 1");
-    i_arr bin_tokens = { .arr = { 0, 6, VAR, 7, 0}, .len = 5 };
-    i_arr bin_var_pos = { .arr = { 2 }, .len = 1 };
-    s_arr asm_tokens = { .arr = { S_VAR, "++" }, .len = 2 };
-    i_arr asm_var_pos = { .arr = { 1 }, .len = 1 };
-    s_arr var_names = { .arr = {"var_ptr"}, .len = 1 };
+    i_arr bin_tokens = { .arr = { 7, 0}, .len = 2 };
+    i_arr bin_var_pos = { .arr = { }, .len = 0 };
+    s_arr asm_tokens = { .arr = { ANSI_COLOR_GREEN "++" ANSI_COLOR_RESET }, .len = 1 };
+    i_arr asm_var_pos = { .arr = {  }, .len = 0 };
+    s_arr var_names = { .arr = { }, .len = 0 };
     
     init_cp(cp_inc, VAR_INC, bin_tokens, bin_var_pos, var_names, asm_tokens, asm_var_pos);
 
@@ -130,15 +130,30 @@ code_pattern* init_cp_var_dec() {
     code_pattern* cp_dec = (code_pattern*) malloc(sizeof(code_pattern));
 
     cp_dec->name = aapts("decrement variable by 1");
-    i_arr bin_tokens = { .arr = { 0, 6, VAR, 7, 1}, .len = 5 };
-    i_arr bin_var_pos = { .arr = { 2 }, .len = 1 };
-    s_arr asm_tokens = { .arr = { S_VAR, "--" }, .len = 2 };
-    i_arr asm_var_pos = { .arr = { 1 }, .len = 1 };
-    s_arr var_names = { .arr = {"var_ptr"}, .len = 1 };
+    i_arr bin_tokens = { .arr = { 7, 1}, .len = 2 };
+    i_arr bin_var_pos = { .arr = { 0 }, .len = 0 };
+    s_arr asm_tokens = { .arr = { ANSI_COLOR_GREEN "--" ANSI_COLOR_RESET }, .len = 1 };
+    i_arr asm_var_pos = { .arr = { 0 }, .len = 0 };
+    s_arr var_names = { .arr = {}, .len = 0 };
     
     init_cp(cp_dec, VAR_DEC, bin_tokens, bin_var_pos, var_names, asm_tokens, asm_var_pos);
 
     return cp_dec;
+}
+
+code_pattern* init_cp_var_assignment() {
+    code_pattern* cp_assign = (code_pattern*) malloc(sizeof(code_pattern));
+
+    cp_assign->name = aapts("assign var an expression.");
+    i_arr bin_tokens = { .arr = { 7, 2}, .len = 2 };
+    i_arr bin_var_pos = { .arr = { 0 }, .len = 0 };
+    s_arr asm_tokens = { .arr = { ANSI_COLOR_GREEN " = " ANSI_COLOR_RESET}, .len = 1 };
+    i_arr asm_var_pos = { .arr = { 0 }, .len = 0 };
+    s_arr var_names = { .arr = {}, .len = 0 };
+    
+    init_cp(cp_assign, ASSIGNMENT, bin_tokens, bin_var_pos, var_names, asm_tokens, asm_var_pos);
+
+    return cp_assign;
 }
 
 code_pattern* init_cp_code_block() {
@@ -169,6 +184,21 @@ code_pattern* init_cp_script_call() {
     init_cp(cp_scall, SCRIPT_CALL, bin_tokens, bin_var_pos, var_names, asm_tokens, asm_var_pos);
 
     return cp_scall;
+}
+
+code_pattern* init_cp_structure_ptr() {
+    code_pattern* cp = (code_pattern*) malloc(sizeof(code_pattern));
+
+    cp->name = aapts("struct ptr");
+    i_arr bin_tokens = { .arr = { 0, 4, VAR, VAR, 4 }, .len = 5 };
+    i_arr bin_var_pos = { .arr = { 2, 3 }, .len = 2 };
+    s_arr asm_tokens = { .arr = { "gamevar ", S_VAR }, .len = 2 };
+    i_arr asm_var_pos = { .arr = { 1 }, .len = 1 };
+    s_arr var_names = { .arr = {"first offset", "second offset"}, .len = 2 };
+    
+    init_cp(cp, ROOM_VAR_PTR, bin_tokens, bin_var_pos, var_names, asm_tokens, asm_var_pos);
+
+    return cp;
 }
 
 code_pattern* init_cp_switch_case() {
@@ -245,6 +275,8 @@ void init_code_patterns(code_pattern** code_patterns) {
     code_patterns[6] = init_cp_script_call();
     code_patterns[7] = init_cp_switch_case();
     code_patterns[8] = init_cp_break();
+    code_patterns[9] = init_cp_structure_ptr();
+    code_patterns[10] = init_cp_var_assignment();
     // print_code_pattern(cp_fc);
 }
 void free_code_patterns(code_pattern** code_patterns) {
@@ -318,6 +350,20 @@ expr_pattern* init_expr_room_cleared() {
     i_arr bin_tokens = { .arr = { 0, 4, 9, 0x2c, 4 }, .len = 5 };
     i_arr bin_var_pos = { .arr = { }, .len = 0 };
     s_arr asm_tokens = { .arr = { "IS_ROOM_CLEARED" }, .len = 1 };
+    i_arr asm_var_pos = { .arr = { }, .len = 0 };
+
+    init_expr(expr, bin_tokens, bin_var_pos, asm_tokens, asm_var_pos);
+
+    return expr;
+}
+
+expr_pattern* init_expr_room_not_cleared() {
+    expr_pattern* expr = w_malloc(sizeof(expr_pattern));
+    expr->type = GAME_VAR;
+
+    i_arr bin_tokens = { .arr = { 0, 0x20000004, 9, 0x2c, 4 }, .len = 5 };
+    i_arr bin_var_pos = { .arr = { }, .len = 0 };
+    s_arr asm_tokens = { .arr = { ANSI_COLOR_RED"!" ANSI_COLOR_RESET "IS_ROOM_CLEARED" }, .len = 1 };
     i_arr asm_var_pos = { .arr = { }, .len = 0 };
 
     init_expr(expr, bin_tokens, bin_var_pos, asm_tokens, asm_var_pos);
@@ -559,7 +605,8 @@ void init_expr_patterns(expr_pattern** expr_patterns) {
     expr_patterns[13] = init_expr_ne_op();
     // game
     expr_patterns[14] = init_expr_room_cleared();
-    expr_patterns[15] = init_expr_room_state();
-    expr_patterns[16] = init_expr_room_timer();
-    expr_patterns[17] = init_expr_func_call();
+    expr_patterns[15] = init_expr_room_not_cleared();
+    expr_patterns[16] = init_expr_room_state();
+    expr_patterns[17] = init_expr_room_timer();
+    expr_patterns[18] = init_expr_func_call();
 }

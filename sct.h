@@ -41,8 +41,8 @@ typedef struct sct_file {
     int data_objs_size;
     FILE* file;
     sct_s* structure;
-    script* scripts;
-    data_obj* data_section;
+    script** scripts;
+    data_obj** data_section;
 } sct_f;
 
 sct_s* form_structure(FILE* sctfile);

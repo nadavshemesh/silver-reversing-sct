@@ -63,3 +63,4 @@ expr_obj* create_expr_obj(expr_pattern* expr, void* vars, mode m, void** token_p
 code_obj* read_code_block(code_pattern* cp, void* vars, mode m, void** token_pos_ptr, sct_f* sf);
 code_obj* read_function_call(code_pattern* cp, void* vars, mode m, void** tokens_pos_ptr, sct_f* sf);
 obj_and_token_ptr create_code_obj(code_pattern* cp, void* vars, mode m, void** token_pos_ptr, sct_f* sf);
+void print_asm_expression(node** expression_nodes, c_type t);

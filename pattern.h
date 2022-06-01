@@ -12,7 +12,7 @@
 
 typedef enum pattern_type { CODE_TYPE, EXPRESSION_TYPE } p_type; // needed?
 typedef enum code_type { EXPRESSION, IF_STATEMENT, ELSE_STATEMENT, SWITCH, BREAK, FUNCTION_CALL, SCRIPT_CALL, 
-            ASSIGNMENT, VAR_INC, VAR_DEC, CODE_BLOCK, CODE_BLOCK_CASES, CASE_AID, ROOM_VAR_PTR } c_type;
+            ASSIGNMENT, VAR_INC, VAR_DEC, CODE_BLOCK, CODE_BLOCK_CASES, CASE_AID, ROOM_VAR_PTR, CP_VAR_PTR } c_type;
 typedef enum expr_type { OPERATOR, INTEGER, DATA_PTR, VAR_PTR, FUNCTION, GAME_VAR } expr_type;
 typedef enum operator_type { BINARY_OP, UNARY_OP} operator_type;
 

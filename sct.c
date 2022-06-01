@@ -726,6 +726,29 @@ code_obj* read_room_var_ptr(code_pattern* cp, void* vars, mode m, void** token_p
     return c_obj;
 }
 
+code_obj* read_var_ptr(code_pattern* cp, void* vars, mode m, void** token_pos_ptr, sct_f* sf) {
+    code_obj* c_obj = create_and_init_c_obj();
+
+    if(m == MODE_BIN) {
+        c_obj->cp = cp;
+                
+        int data_var = (((int*)vars))[0];
+        data_obj* data;
+        data = get_data_obj_by_id(data_var, sf);
+        char* name = (data != NULL) ? data->name : "";
+        char* asm_vars = { name };
+        int bin_vars[1] = { data_var };
+        c_obj->asm_vars = w_malloc(cp->asm_var_num*sizeof(char*));
+        c_obj->bin_vars = w_malloc(cp->bin_var_num*sizeof(int));
+
+        c_obj->data = data;
+        memcpy(c_obj->asm_vars, &asm_vars, sizeof(c_obj->asm_vars));
+        memcpy(c_obj->bin_vars, bin_vars, sizeof(c_obj->bin_vars));
+    }
+
+    return c_obj;
+}
+
 code_obj* read_script_call(code_pattern* cp, void* vars, mode m, void** token_pos_ptr, sct_f* sf) {
     code_obj* c_obj = create_and_init_c_obj();
 
@@ -878,6 +901,9 @@ obj_and_token_ptr create_code_obj(code_pattern* cp, void* vars, mode m, void** t
         case ROOM_VAR_PTR:
             c_obj = read_room_var_ptr(cp, vars, m, token_pos_ptr, sf);
             break;
+        case CP_VAR_PTR:
+            c_obj = read_var_ptr(cp, vars, m, token_pos_ptr, sf);
+            break;
         case ASSIGNMENT:
             c_obj = read_assignment(cp, vars, m, token_pos_ptr, sf);
             break;
@@ -906,6 +932,9 @@ void print_asm_expr(expression* expr) {
             }
             if(k+1 != expr_p->asm_token_num) { printf(" "); }
         }
+        if(expr_o->expression_node_num > 0) {
+            print_asm_expression(expr_o->expression_nodes, FUNCTION_CALL);
+        }
     }
 }
 
@@ -915,14 +944,21 @@ void indent(int indentation_lvl) {
     }
 }
 
-bool is_paranth_type1(c_type type) {
+bool is_cp_paranth_type1(c_type type) {
     if(type == FUNCTION_CALL || type == IF_STATEMENT || type == SWITCH) {
         return true;
     }
     return false;
 }
 
-bool is_paranth_type2(c_type type) {
+bool is_ep_paranth_type1(expr_type type) {
+    if(type == FUNCTION) {
+        return true;
+    }
+    return false;
+}
+
+bool is_cp_paranth_type2(c_type type) {
     if(type == IF_STATEMENT || type == ELSE_STATEMENT || type == SWITCH) {
         return true;
     }
@@ -930,7 +966,8 @@ bool is_paranth_type2(c_type type) {
 }
 
 bool is_same_line(code_pattern* cp) {
-    if(cp->type == GAME_VAR || cp->type == ROOM_VAR_PTR)
+    if(cp->type == GAME_VAR || cp->type == ROOM_VAR_PTR || cp->type == CP_VAR_PTR
+         || (cp->type == FUNCTION_CALL))
         return true;
     return false;
 }
@@ -939,6 +976,24 @@ bool should_indent(code_pattern* cp) {
     if(cp->type == VAR_DEC || cp->type == VAR_INC || cp->type == ASSIGNMENT)
         return false;
     return true;
+}
+
+void print_asm_expression(node** expression_nodes, c_type t) {
+    node* exp_node = *expression_nodes; 
+    c_type type = t;
+    if(is_cp_paranth_type1(type)) {
+        printf("(");
+    }
+    while(exp_node != NULL && exp_node->item != NULL) {
+        expression* obj = exp_node->item;
+        print_asm_expr(obj);
+        exp_node = exp_node->next;
+        if(exp_node != NULL) printf(", ");
+    }
+    if(is_cp_paranth_type1(type)) {
+        printf(")");
+    }
+    printf("\n");
 }
 
 void print_asm_code_obj(code_obj* co, int indentation_lvl) {
@@ -956,23 +1011,11 @@ void print_asm_code_obj(code_obj* co, int indentation_lvl) {
         if(i == cp->asm_token_num-1 && co->expression_node_num == 0
          && !is_same_line(cp)) { printf("\n"); }
     }
-    // print exprs
+    
+    // print code exprs
     int exp_num = co->expression_node_num;
     if(exp_num > 0) {
-        node* exp_node = *co->expression_nodes; 
-        c_type type = co->cp->type;
-        if(is_paranth_type1(type)) {
-            printf("(");
-        }
-        while(exp_node != NULL && exp_node->item != NULL) {
-            print_asm_expr(exp_node->item);
-            exp_node = exp_node->next;
-            if(exp_node != NULL) printf(", ");
-        }
-        if(is_paranth_type1(type)) {
-            printf(")");
-        }
-        printf("\n");
+        print_asm_expression(co->expression_nodes, co->cp->type);
     }
 
     // print nested blocks
@@ -983,7 +1026,7 @@ void print_asm_code_obj(code_obj* co, int indentation_lvl) {
     if(code_nodes_num > 0) {
         indentation_lvl++;
         c_type type = co->cp->type;
-        if(is_paranth_type2(type)) { 
+        if(is_cp_paranth_type2(type)) { 
             if(indentation_lvl > 0) indent(indentation_lvl-1);
             printf(" {\n");
         }
@@ -992,7 +1035,7 @@ void print_asm_code_obj(code_obj* co, int indentation_lvl) {
             print_asm_code_obj(code_n->item, indentation_lvl);
             code_n = code_n->next;
         }
-        if(is_paranth_type2(type)) { 
+        if(is_cp_paranth_type2(type)) { 
             printf("\n");
             if(indentation_lvl > 0) indent(indentation_lvl-1);
             printf("}\n");

@@ -413,7 +413,7 @@ expr_pattern* init_expr_plus_op() {
 
     i_arr bin_tokens = { .arr = { 3, 1 }, .len = 2 };
     i_arr bin_var_pos = { .arr = { }, .len = 0 };
-    s_arr asm_tokens = { .arr = { "+" }, .len = 1 };
+    s_arr asm_tokens = { .arr = { ANSI_COLOR_GREEN " + " ANSI_COLOR_RESET }, .len = 1 };
     i_arr asm_var_pos = { .arr = { }, .len = 0 };
 
     init_expr(expr, bin_tokens, bin_var_pos, asm_tokens, asm_var_pos);
@@ -428,7 +428,7 @@ expr_pattern* init_expr_minus_op() {
 
     i_arr bin_tokens = { .arr = { 3, 2 }, .len = 2 };
     i_arr bin_var_pos = { .arr = { }, .len = 0 };
-    s_arr asm_tokens = { .arr = { "-" }, .len = 1 };
+    s_arr asm_tokens = { .arr = { ANSI_COLOR_GREEN " - " ANSI_COLOR_RESET }, .len = 1 };
     i_arr asm_var_pos = { .arr = { }, .len = 0 };
 
     init_expr(expr, bin_tokens, bin_var_pos, asm_tokens, asm_var_pos);
@@ -443,7 +443,7 @@ expr_pattern* init_expr_times_op() {
 
     i_arr bin_tokens = { .arr = { 3, 3 }, .len = 2 };
     i_arr bin_var_pos = { .arr = { }, .len = 0 };
-    s_arr asm_tokens = { .arr = { "*" }, .len = 1 };
+    s_arr asm_tokens = { .arr = { ANSI_COLOR_GREEN " * " ANSI_COLOR_RESET }, .len = 1 };
     i_arr asm_var_pos = { .arr = { }, .len = 0 };
 
     init_expr(expr, bin_tokens, bin_var_pos, asm_tokens, asm_var_pos);
@@ -459,7 +459,7 @@ expr_pattern* init_expr_division_op() {
 
     i_arr bin_tokens = { .arr = { 3, 4 }, .len = 2 };
     i_arr bin_var_pos = { .arr = { }, .len = 0 };
-    s_arr asm_tokens = { .arr = { "/" }, .len = 1 };
+    s_arr asm_tokens = { .arr = { ANSI_COLOR_GREEN " / " ANSI_COLOR_RESET }, .len = 1 };
     i_arr asm_var_pos = { .arr = { }, .len = 0 };
 
     init_expr(expr, bin_tokens, bin_var_pos, asm_tokens, asm_var_pos);
@@ -474,7 +474,7 @@ expr_pattern* init_expr_modulo_op() {
 
     i_arr bin_tokens = { .arr = { 3, 5 }, .len = 2 };
     i_arr bin_var_pos = { .arr = { }, .len = 0 };
-    s_arr asm_tokens = { .arr = { "\%" }, .len = 1 };
+    s_arr asm_tokens = { .arr = { ANSI_COLOR_GREEN " \% " ANSI_COLOR_RESET }, .len = 1 };
     i_arr asm_var_pos = { .arr = { }, .len = 0 };
 
     init_expr(expr, bin_tokens, bin_var_pos, asm_tokens, asm_var_pos);

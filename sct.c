@@ -285,7 +285,7 @@ expression* read_expression(void** tokens_pos_ptr, mode m, bool with_prologue, s
 
     if(m == MODE_BIN) {
         int exprs_num = read_expression_size(tokens_pos_ptr, m, with_prologue);
-        // printf("expr size: %d\n", exprs_num);
+        printf("expr size: %d\n", exprs_num);
         expr_obj exprs[exprs_num];
         // Read exprs
         for(int i=0; i < exprs_num; i++) {
@@ -786,7 +786,7 @@ code_obj* read_switch_case(code_pattern* cp, void* vars, mode m, void** token_po
         int cases_num = ((int*)vars)[0];
         if(cases_num <= 0) print_err_and_exit("Error, switch without cases.", -2);
         int padding_to_block_ptrs = 69;
-        int padding_to_block = 133;
+        int padding_to_block = 129;
 
         // read cases values
         int* token_pos = *token_pos_ptr;
@@ -804,7 +804,8 @@ code_obj* read_switch_case(code_pattern* cp, void* vars, mode m, void** token_po
         // token_pos += padding_to_block_ptrs-cases_num;
 
         // read expression
-        token_pos += (padding_to_block-cases_num);
+        // token_pos += (padding_to_block-cases_num);
+        token_pos += padding_to_block;
         // print_token_area_details(token_pos, m);
         *token_pos_ptr = token_pos;
         expression* exp = read_expression(token_pos_ptr, m, false, sf);
@@ -933,7 +934,7 @@ void print_asm_expr(expression* expr) {
             if(k+1 != expr_p->asm_token_num) { printf(" "); }
         }
         if(expr_o->expression_node_num > 0) {
-            print_asm_expression(expr_o->expression_nodes, FUNCTION_CALL);
+            print_asm_expression(expr_o->expression_nodes, FUNCTION_CALL, true);
         }
     }
 }
@@ -978,7 +979,7 @@ bool should_indent(code_pattern* cp) {
     return true;
 }
 
-void print_asm_expression(node** expression_nodes, c_type t) {
+void print_asm_expression(node** expression_nodes, c_type t, bool nested) {
     node* exp_node = *expression_nodes; 
     c_type type = t;
     if(is_cp_paranth_type1(type)) {
@@ -993,7 +994,7 @@ void print_asm_expression(node** expression_nodes, c_type t) {
     if(is_cp_paranth_type1(type)) {
         printf(")");
     }
-    printf("\n");
+    if(!nested) printf("\n");
 }
 
 void print_asm_code_obj(code_obj* co, int indentation_lvl) {
@@ -1015,7 +1016,7 @@ void print_asm_code_obj(code_obj* co, int indentation_lvl) {
     // print code exprs
     int exp_num = co->expression_node_num;
     if(exp_num > 0) {
-        print_asm_expression(co->expression_nodes, co->cp->type);
+        print_asm_expression(co->expression_nodes, co->cp->type, false);
     }
 
     // print nested blocks
@@ -1065,6 +1066,12 @@ void print_asm_script(script* script) {
     sprintf(script_name, "_ASM_SCRIPT_%d", script->number);
     print_title(script_name);
     print_asm_code_nodes(*script->code_nodes);
+}
+
+void print_asm_file(sct_f* sf) {
+    for(int i=0; i < sf->structure->num_of_scripts; i++) {
+        print_asm_script(sf->scripts[i]);
+    }
 }
 
 void print_script(script* script) {
@@ -1130,7 +1137,7 @@ script* disasm_script(int script_num, sct_f* sf) {
                 }
                 // print_code_obj((*script->code_nodes)->item);
                 script->code_nodes_num++;
-                print_asm_script(script);
+                // print_asm_script(script);
             }
             *script->script_code_ptr = oatp.token_ptr;
             token_ptr = *script->script_code_ptr;
@@ -1141,7 +1148,7 @@ script* disasm_script(int script_num, sct_f* sf) {
     return script;
 }
 
-int disasm_file(char* filepath) {
+sct_f* disasm_file(char* filepath) {
     backup_file_gcc(filepath);
     FILE* file = fopen(filepath, "r");
     
@@ -1162,6 +1169,8 @@ int disasm_file(char* filepath) {
         script* s = disasm_script(i, sct_file);
         sct_file->scripts[i] = s;
     }
+
+    return sct_file;
 }
 
 bool is_filepath_valid(char* filepath) {
@@ -1319,9 +1328,11 @@ int main(int argc, char* argv[]) {
     init_expr_patterns(expr_patterns);
 
     int op = atoi(argv[1]);
+    sct_f* sct_file;
     switch(op) {
         case 0:
-            disasm_file(filepath);
+            sct_file = disasm_file(filepath);
+            print_asm_file(sct_file);
             break;
 
         case 1:

@@ -646,3 +646,39 @@ void init_expr_patterns(expr_pattern** expr_patterns) {
     expr_patterns[17] = init_expr_room_timer();
     expr_patterns[18] = init_expr_func_call();
 }
+
+bool is_var_pos_expr(void* pattern, mode m, int index) {
+    expr_pattern* p = (expr_pattern*) pattern;        
+
+    int var_num = (m == MODE_BIN) ? p->bin_var_num : p->asm_var_num;
+    int* var_pos = (m == MODE_BIN) ? p->bin_var_pos : p->asm_var_pos;
+
+    // printf("vpos: %d\n", *var_pos);
+    for(int k=0; k < var_num; k++) {
+        // printf("var_pos: %d, index: %d\n", var_pos[k], index);
+        if(var_pos[k] == index) {
+            return true;
+        }
+    }
+    return false;
+}
+
+bool is_var_pos(void* pattern, p_type pattern_type, mode m, int index) {
+    code_pattern* p = (code_pattern*) pattern;        
+
+    if(pattern_type == EXPRESSION_TYPE) {
+        return is_var_pos_expr(pattern, m, index);
+    }
+
+    int var_num = (m == MODE_BIN) ? p->bin_var_num : p->asm_var_num;
+    int* var_pos = (m == MODE_BIN) ? p->bin_var_pos : p->asm_var_pos;
+
+    // printf("vpos: %d\n", *var_pos);
+    for(int k=0; k < var_num; k++) {
+        // printf("var_pos: %d, index: %d\n", var_pos[k], index);
+        if(var_pos[k] == index) {
+            return true;
+        }
+    }
+    return false;
+}

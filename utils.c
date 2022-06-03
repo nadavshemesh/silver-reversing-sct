@@ -25,7 +25,7 @@ char* c_itoa(int num, char *str) {
 }
 
 void print_title(char* msg) {
-    printf(ANSI_COLOR_MAGENTA "\n\t -%s- \t" ANSI_COLOR_RESET "\n", msg);
+    printf(ANSI_COLOR_MAGENTA "\n\t .%s \t" ANSI_COLOR_RESET "\n", msg);
 }
 
 void print_info(char* msg) {
@@ -151,4 +151,18 @@ node** init_node_list() {
     *head = w_malloc(sizeof(node));
 
     return head;
+}
+
+bool is_printable_ascii(char ch) { 
+    return ((ch & ~0x7f) == 0 ) && (isprint(ch) || isspace(ch));
+}
+
+bool is_string(char* str, int len) {
+    for(int i=0; i < len; i++) {
+        char ch = *str+i;
+        if(!is_printable_ascii(ch))
+            return false;
+    }
+
+    return true;
 }

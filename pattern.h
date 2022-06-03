@@ -10,6 +10,8 @@
 #define EXPR_PATTERNS_NUM 19
 #define UNINIT_TYPE 111
 
+typedef enum mode { MODE_BIN, MODE_ASM } mode;
+
 typedef enum pattern_type { CODE_TYPE, EXPRESSION_TYPE } p_type; // needed?
 typedef enum code_type { EXPRESSION, IF_STATEMENT, ELSE_STATEMENT, SWITCH, BREAK, FUNCTION_CALL, SCRIPT_CALL, 
             ASSIGNMENT, VAR_INC, VAR_DEC, CODE_BLOCK, CODE_BLOCK_CASES, CASE_AID, ROOM_VAR_PTR, CP_VAR_PTR } c_type;
@@ -72,3 +74,5 @@ code_pattern* create_and_init_code_pattern();
 void init_expr_pattern(expr_pattern* e_pattern);
 expr_pattern* create_and_init_expr_pattern();
 code_pattern* init_aid_cp_case();
+bool is_var_pos_expr(void* pattern, mode m, int index);
+bool is_var_pos(void* pattern, p_type pattern_type, mode m, int index);

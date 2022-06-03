@@ -1,6 +1,8 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
+#include<stdbool.h>
+#include<ctype.h>
 
 // #define ANSI_COLOR_RED     "\x1b[31m"
 // #define ANSI_COLOR_GREEN   "\x1b[32m"
@@ -55,3 +57,5 @@ void remove_node(node** head, int pos);
 void free_node_to_end(node* n);
 void free_list(node** head);
 node** init_node_list();
+bool is_printable_ascii(char ch);
+bool is_string(char* str, int len);

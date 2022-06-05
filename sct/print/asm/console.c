@@ -1,4 +1,35 @@
-#include "sctprint.h"
+#include "sct\print\asm\console.h"
+
+void print_bin_tokens(int* tokens, int length) {
+    for(int i=0; i<length; i++) {
+        printf("%08x\n", tokens[i]);
+    }
+}
+
+void print_bin_token_seg(int* tokens, int from_row, int to_row, int cols) {
+    int* token = tokens;
+    for(int i=from_row*cols; i < to_row*cols; i++) {
+        if(i != from_row*cols && i%cols == 0) printf("\n");
+        if(&(tokens[i]) == token)
+            printf(ANSI_COLOR_RED "%08x " ANSI_COLOR_RESET, tokens[i]);
+        else
+            printf("%8.8x ", tokens[i]);
+    }
+    printf("\n");
+}
+
+void print_token_area_details(void* token_pos, mode m) {
+    if(token_pos != NULL) {
+        if(m == MODE_BIN) {
+            int* token = (int*) token_pos;
+            print_bin_token_seg(token, -2, 2, 5);
+        } else {
+            char** token = (char**) token_pos;
+            printf("[ %s %s %s %s ]\n", token-2, token-1, token, token+1);
+        }
+    }
+    exit(1);
+}
 
 void indent(int indentation_lvl) {
     for(int i=0; i < indentation_lvl; i++) {
@@ -120,7 +151,6 @@ void print_asm_code_obj(code_obj* co, int indentation_lvl) {
             code_n = code_n->next;
         }
         if(is_cp_paranth_type2(type)) { 
-            printf("\n");
             if(indentation_lvl > 0) indent(indentation_lvl-1);
             printf("}\n");
         }

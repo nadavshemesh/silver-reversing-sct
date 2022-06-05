@@ -1,4 +1,4 @@
-#include "sct.h"
+#include "sct\sct.h"
 
 bool is_filepath_valid(char* filepath) {
     regex_t reg;

@@ -1,4 +1,4 @@
-#include "pattern.h"
+#include "sct\structure\pattern.h"
 
 void init_code_pattern(code_pattern* c_pattern) {
     c_pattern->asm_token_num = 0;

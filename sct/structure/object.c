@@ -1,4 +1,4 @@
-#include "object.h"
+#include "sct\structure\object.h"
 
 void init_code_obj(code_obj* c_obj) {
     c_obj->cp = NULL;

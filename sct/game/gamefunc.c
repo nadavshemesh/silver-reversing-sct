@@ -3,7 +3,7 @@
 #include<string.h>
 
 #include "utils.h"
-#include "gamefunc.h"
+#include "sct\game\gamefunc.h"
 
 void print_game_function(game_fun* gf) {
     printf("func_name: %s\n", gf->name);

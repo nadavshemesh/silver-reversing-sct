@@ -5,12 +5,16 @@
 #include<stdlib.h>
 #include<regex.h>
 
-#include "fileutils.h"
-#include "gamefunc.h"
-#include "object.h"
+#include "file\fileutils.h"
+#include "sct\game\gamefunc.h"
+#include "sct\structure\object.h"
 
 #define MAX_VAR_NAME 20;
 #define MAX_TOKENS_PER_EXPRESSION 50;
+
+extern game_fun** game_functions;
+extern code_pattern** code_patterns;
+extern expr_pattern** expr_patterns;
 
 typedef struct script {
     int number;

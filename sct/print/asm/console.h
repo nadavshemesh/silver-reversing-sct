@@ -1,9 +1,15 @@
+#ifndef FILE_ASM_CONS
+#define FILE_ASM_CONS
+
 #include<stdio.h>
 #include<stdbool.h>
 
-#include "sct.h"
+#include "sct\sct.h"
 
 
+void print_bin_tokens(int* tokens, int length);
+void print_bin_token_seg(int* tokens, int from_row, int to_row, int cols);
+void print_token_area_details(void* token_pos, mode m);
 void indent(int indentation_lvl);
 bool is_cp_paranth_type1(c_type type);
 bool is_ep_paranth_type1(expr_type type);
@@ -19,3 +25,5 @@ void print_asm_script(script* script);
 void print_asm_file(sct_f* sf);
 void print_asm_data_object(data_obj* data_o);
 void print_asm_data_section(sct_f* sf);
+
+#endif

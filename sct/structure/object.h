@@ -1,4 +1,4 @@
-#include "pattern.h"
+#include "sct\structure\pattern.h"
 
 typedef enum o_type { OBJ_CODE, OBJ_DATA, OBJ_EXPR } o_type;
 typedef struct data_object {

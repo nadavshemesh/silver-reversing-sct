@@ -1,13 +1,16 @@
 #include "sct\structure\pattern.h"
 
+typedef unsigned char byte;
 typedef enum o_type { OBJ_CODE, OBJ_DATA, OBJ_EXPR } o_type;
+
 typedef struct data_object {
     int id;
     int references;
     int byte_size;
     char* name;
-    int* bin_data;
-    char** asm_data;
+    byte* data;
+    // int* bin_data;
+    // char** asm_data;
 } data_obj;
 
 typedef struct expression_object {
@@ -51,3 +54,4 @@ void init_code_obj(code_obj* c_obj);
 code_obj* create_and_init_c_obj();
 void init_expr_obj(expr_obj* e_obj);
 expr_obj* create_and_init_expr_obj();
+data_obj* create_and_init_data_obj();

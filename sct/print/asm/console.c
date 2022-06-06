@@ -24,8 +24,9 @@ void print_token_area_details(void* token_pos, mode m) {
             int* token = (int*) token_pos;
             print_bin_token_seg(token, -2, 2, 5);
         } else {
-            char** token = (char**) token_pos;
-            printf("[ %s %s %s %s ]\n", token-2, token-1, token, token+1);
+            char*** token_pos_asm = (char***) token_pos;
+            char** token = (char**) *token_pos_asm;
+            printf("[ %s %s "ANSI_COLOR_RED "%s" ANSI_COLOR_RESET " %s ]\n", token[-2], token[-1], token[0], token[1]);
         }
     }
     exit(1);
@@ -190,13 +191,14 @@ void print_asm_file(sct_f* sf) {
 void print_asm_data_object(data_obj* data_o) {
     printf("%s\t", data_o->name);
     
-    if(is_string((char*)data_o->bin_data, data_o->byte_size)) {
-        printf("'%s'", data_o->bin_data);
+    if(is_string((char*)data_o->data, data_o->byte_size)) {
+        printf("'%s'", data_o->data);
     } else {
         int size_in_words = data_o->byte_size / 4;
         if(size_in_words > 1) printf("{ ");
         for(int i=0; i < size_in_words; i++) {
-            int num = *data_o->bin_data + i;
+            // int num = *data_o->bin_data + i;
+            int num = *((int*)(data_o->data + i*sizeof(int)));
             printf("%d", num);
             if(i < size_in_words-1) printf(", ");
         }

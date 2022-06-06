@@ -17,6 +17,23 @@ code_obj* create_and_init_c_obj() {
     return c_obj;
 }
 
+void init_data_obj(data_obj* d_obj) {
+    d_obj->id = -1;
+    d_obj->references = 0;
+    d_obj->byte_size = 0;
+    d_obj->name = NULL;
+    // d_obj->asm_data = NULL;
+    // d_obj->bin_data = NULL;
+    d_obj->data = NULL;
+}
+
+data_obj* create_and_init_data_obj() {
+    data_obj* d_obj = w_malloc(sizeof(data_obj));
+    init_data_obj(d_obj);
+
+    return d_obj;
+}
+
 void init_expr_obj(expr_obj* e_obj) {
     e_obj->expr_p = NULL;
     e_obj->bin_vars = NULL;
@@ -39,12 +56,20 @@ void print_data_obj(data_obj* data_o) {
     printf("data_obj id: %d (Hex: %02x)\n", data_o->id, data_o->id);
     printf("references: %d\n", data_o->references);
     printf("size in bytes: %d\n", data_o->byte_size);
-    printf("bin_data: ");
-    for(int i=0; i < data_o->byte_size/4; i++) {
-        printf(" %08x ", *(data_o->bin_data+i));
+    printf("data: ");
+    for(int i=0; i < data_o->byte_size; i++) {
+        printf(" %02x ", *(data_o->data+i));
     }
-    printf(" [%s] ", data_o->bin_data);
-    printf("\n");
+    // printf("\nbin_data: ");
+    // for(int i=0; i < data_o->byte_size/4; i++) {
+    //     printf(" %08x ", *(data_o->bin_data+i));
+    // }
+    // printf(" [%s] ", data_o->bin_data);
+    // printf("\n");
+    // if(data_o->asm_data != NULL) {
+    //     printf("asm_data: ");
+    //     printf("%s\n", *(data_o->asm_data));
+    // }
 }
 
 int compare_data_obj_ids(const void* a, const void* b) {

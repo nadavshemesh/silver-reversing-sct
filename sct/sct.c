@@ -4,7 +4,7 @@ bool is_filepath_valid(char* filepath) {
     regex_t reg;
     regmatch_t match[1];
 
-    if (regcomp(&reg, ".*\\.sct", REG_EXTENDED) == -1) {
+    if (regcomp(&reg, ".*\\.t?sct", REG_EXTENDED) == -1) {
         print_err_and_exit("ERROR, regex could not compile.", -1);
         return false;
     }

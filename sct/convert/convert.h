@@ -4,6 +4,7 @@
 #include<stdbool.h>
 
 #include "sct\convert\bin\sctbin.h"
+#include "sct\convert\asm\sctasm.h"
 
 int get_script_off(int script_num, sct_f* sf);
 sct_f* disasm_file(char* filepath);

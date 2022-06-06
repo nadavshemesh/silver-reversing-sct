@@ -56,7 +56,7 @@ void build_data_from_link_table(sct_f* sct) {
     qsort(data_arr, data_ref_size, sizeof(data_obj), compare_data_obj_ids);
 
     // calculate data obj size and data
-    for(int i=0; i < data_ref_size; i++) {
+    for(int i=0, j=0; i < data_ref_size; i++, j++) {
         int data_section_offset = (sct->structure->data_sec_off) + 4;
         int data_offset = data_section_offset + data_arr[i].id*4;
         int byte_size = 0;
@@ -68,7 +68,7 @@ void build_data_from_link_table(sct_f* sct) {
         }
 
         data_arr[i].byte_size = byte_size;
-        int data[byte_size];
+        byte data[byte_size];
 
         fseek(sct->file, data_offset, SEEK_SET);
         fread(&data, 1, byte_size, sct->file);
@@ -77,11 +77,14 @@ void build_data_from_link_table(sct_f* sct) {
         //TODO: ASM DATA
         char prefix[] = "VAR_";
         char name[sizeof(prefix)+4];
-        sprintf(name, "%s%d", prefix, data_arr[i].id);
+        sprintf(name, "%s%d", prefix, j);
         data_arr[i].name = aapts(name);
-        data_arr[i].bin_data = w_malloc(byte_size);
-        memset(data_arr[i].bin_data, 0, byte_size);
-        memcpy(data_arr[i].bin_data, data, byte_size);
+        // data_arr[i].bin_data = w_malloc(byte_size);
+        data_arr[i].data = w_malloc(byte_size);
+        memset(data_arr[i].data, 0, byte_size);
+        // memset(data_arr[i].bin_data, 0, byte_size);
+        // memcpy(data_arr[i].bin_data, data, byte_size);
+        memcpy(data_arr[i].data, data, byte_size);
         // memcpy(data_arr[i].asm_data, asm_data, byte_size);
     }
 
@@ -377,11 +380,13 @@ expr_obj* bin_create_expr_obj(expr_pattern* expr, void* vars, void** token_pos_p
             data->name = w_malloc(10);
             data->byte_size = 4;
             data->references = 0;
-            data->bin_data = w_malloc(sizeof(int*));
-            data->asm_data = w_malloc(sizeof(char*));
+            data->data = w_malloc(sizeof(int));
+            // data->bin_data = w_malloc(sizeof(int*));
+            // data->asm_data = w_malloc(sizeof(char*));
             memcpy(data->name, &c, sizeof(data->name));
-            memcpy(data->asm_data, &c, sizeof(data->asm_data));
-            memcpy(data->bin_data, i, sizeof(data->bin_data));
+            memcpy(data->data, i, sizeof(data->data));
+            // memcpy(data->asm_data, &c, sizeof(data->asm_data));
+            // memcpy(data->bin_data, i, sizeof(data->bin_data));
             break;
 
         case DATA_PTR:

@@ -9,8 +9,6 @@ typedef struct data_object {
     int byte_size;
     char* name;
     byte* data;
-    // int* bin_data;
-    // char** asm_data;
 } data_obj;
 
 typedef struct expression_object {

@@ -84,9 +84,11 @@ void print_asm_expr(expression* expr) {
                 l++;
                 // if(i+1 < exprs_num) { printf(", "); }
             } else {
+                if(expr_p->type == OPERATOR) printf(" ");
                 printf(ANSI_COLOR_CYAN "%s" ANSI_COLOR_RESET, expr_p->asm_tokens[k]);
+                if(expr_p->type == OPERATOR) printf(" ");
             }
-            if(k+1 != expr_p->asm_token_num) { printf(" "); }
+            if(k < expr_p->asm_token_num-1) { printf(" "); }
         }
         if(expr_o->expression_node_num > 0) {
             print_asm_expression(expr_o->expression_nodes, FUNCTION_CALL, true);
@@ -112,6 +114,14 @@ void print_asm_expression(node** expression_nodes, c_type t, bool nested) {
     if(!nested) printf("\n");
 }
 
+bool is_control_statement(code_pattern* cp) {
+    c_type type = cp->type;
+    if(type == IF_STATEMENT || type == SWITCH || type == ELSE_STATEMENT) {
+        return true;
+    }
+    return false;
+}
+
 void print_asm_code_obj(code_obj* co, int indentation_lvl) {
     code_pattern* cp = co->cp;
 
@@ -119,10 +129,12 @@ void print_asm_code_obj(code_obj* co, int indentation_lvl) {
     for(int i=0, j=0; i < cp->asm_token_num; i++) {
         if(is_var_pos(cp, CODE_TYPE, MODE_ASM, i)) {
             printf("%s", co->asm_vars[j]);
+            if(cp->type == CP_VAR_PTR) printf(" ");
             j++;
         } else {
             if(should_indent(cp)) indent(indentation_lvl);
             printf(ANSI_COLOR_YELLOW "%s" ANSI_COLOR_RESET, cp->asm_tokens[i]);
+            if(i < cp->asm_token_num && !is_control_statement(cp)) printf(" ");
         }
         if(i == cp->asm_token_num-1 && co->expression_node_num == 0
          && !is_same_line(cp)) { printf("\n"); }
@@ -136,9 +148,6 @@ void print_asm_code_obj(code_obj* co, int indentation_lvl) {
 
     // print nested blocks
     int code_nodes_num = co->code_nodes_num;
-    int cases_num = 0;
-    int cases[cases_num];
-    int cases_index = 0;
     if(code_nodes_num > 0) {
         indentation_lvl++;
         c_type type = co->cp->type;

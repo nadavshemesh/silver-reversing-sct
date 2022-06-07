@@ -122,22 +122,6 @@ bool bin_is_var_pos_expr(void* pattern, int index) {
     return false;
 }
 
-bool asm_is_var_pos_expr(void* pattern, int index) {
-    expr_pattern* p = (expr_pattern*) pattern;        
-
-    int var_num = p->asm_var_num;
-    int* var_pos = p->asm_var_pos;
-
-    // printf("vpos: %d\n", *var_pos);
-    for(int k=0; k < var_num; k++) {
-        // printf("var_pos: %d, index: %d\n", var_pos[k], index);
-        if(var_pos[k] == index) {
-            return true;
-        }
-    }
-    return false;
-}
-
 bool bin_is_var_pos(void* pattern, p_type pattern_type, int index) {
     code_pattern* p = (code_pattern*) pattern;        
 
@@ -147,26 +131,6 @@ bool bin_is_var_pos(void* pattern, p_type pattern_type, int index) {
 
     int var_num = p->bin_var_num;
     int* var_pos = p->bin_var_pos;
-
-    // printf("vpos: %d\n", *var_pos);
-    for(int k=0; k < var_num; k++) {
-        // printf("var_pos: %d, index: %d\n", var_pos[k], index);
-        if(var_pos[k] == index) {
-            return true;
-        }
-    }
-    return false;
-}
-
-bool asm_is_var_pos(void* pattern, p_type pattern_type, int index) {
-    code_pattern* p = (code_pattern*) pattern;        
-
-    if(pattern_type == EXPRESSION_TYPE) {
-        return asm_is_var_pos_expr(pattern, index);
-    }
-
-    int var_num = p->asm_var_num;
-    int* var_pos = p->asm_var_pos;
 
     // printf("vpos: %d\n", *var_pos);
     for(int k=0; k < var_num; k++) {
@@ -483,7 +447,7 @@ code_obj* bin_read_code_block_cases(code_pattern* cp, void* vars, int* cases, in
     current_case->cp = case_cp;
 
     char num_s[30];
-    sprintf(num_s, " %d", cases[case_index]);
+    sprintf(num_s, "%d", cases[case_index]);
     char* asm_vars[1] = { aapts(num_s) };
     current_case->asm_vars = w_malloc((current_case->cp->asm_var_num)*sizeof(char*));
     memcpy(current_case->asm_vars, &asm_vars, sizeof(current_case->asm_vars));
@@ -529,7 +493,7 @@ code_obj* bin_read_code_block_cases(code_pattern* cp, void* vars, int* cases, in
                 current_case = create_and_init_c_obj();
                 current_case->cp = case_cp;
 
-                sprintf(num_s, " %d", cases[case_index]);
+                sprintf(num_s, "%d", cases[case_index]);
                 char* asm_vars[1] = { aapts(num_s) };
                 current_case->asm_vars = w_malloc((current_case->cp->asm_var_num)*sizeof(char**));
                 memcpy(current_case->asm_vars, asm_vars, sizeof(current_case->asm_vars));

@@ -87,7 +87,7 @@ code_pattern* init_cp_func_call() {
     cp_func_call->name = aapts("call_game_function");
     i_arr bin_tokens = { .arr = {0, 3, VAR, VAR}, .len = 4 };
     i_arr bin_var_pos = { .arr = {2, 3}, .len = 2 };
-    s_arr asm_tokens = { .arr = { "call ", S_VAR }, .len = 2 };
+    s_arr asm_tokens = { .arr = { "call", S_VAR }, .len = 2 };
     i_arr asm_var_pos = { .arr = { 1 }, .len = 1 };
     s_arr var_names = { .arr = {"func_name", "num_of_params"}, .len = 2 };
     
@@ -117,7 +117,7 @@ code_pattern* init_cp_var() {
     cp_var->name = aapts("var reference from data table");
     i_arr bin_tokens = { .arr = { 0, 6, VAR}, .len = 3 };
     i_arr bin_var_pos = { .arr = { 2 }, .len = 1 };
-    s_arr asm_tokens = { .arr = { ANSI_COLOR_CYAN "var " ANSI_COLOR_RESET, S_VAR }, .len = 2 };
+    s_arr asm_tokens = { .arr = { ANSI_COLOR_CYAN "var" ANSI_COLOR_RESET, S_VAR }, .len = 2 };
     i_arr asm_var_pos = { .arr = { 1 }, .len = 1 };
     s_arr var_names = { .arr = { "var_id" }, .len = 1 };
     
@@ -162,7 +162,7 @@ code_pattern* init_cp_var_assignment() {
     cp_assign->name = aapts("assign var an expression.");
     i_arr bin_tokens = { .arr = { 7, 2}, .len = 2 };
     i_arr bin_var_pos = { .arr = { 0 }, .len = 0 };
-    s_arr asm_tokens = { .arr = { ANSI_COLOR_GREEN " = " ANSI_COLOR_RESET}, .len = 1 };
+    s_arr asm_tokens = { .arr = { ANSI_COLOR_GREEN "=" ANSI_COLOR_RESET}, .len = 1 };
     i_arr asm_var_pos = { .arr = { 0 }, .len = 0 };
     s_arr var_names = { .arr = {}, .len = 0 };
     
@@ -192,7 +192,7 @@ code_pattern* init_cp_script_call() {
     cp_scall->name = aapts("call_script");
     i_arr bin_tokens = { .arr = { 0, 1, VAR }, .len = 3 };
     i_arr bin_var_pos = { .arr = { 2 }, .len = 1 };
-    s_arr asm_tokens = { .arr = { "execute ", S_VAR }, .len = 2 };
+    s_arr asm_tokens = { .arr = { "execute", S_VAR }, .len = 2 };
     i_arr asm_var_pos = { .arr = { 1 }, .len = 1 };
     s_arr var_names = { .arr = {"script_index"}, .len = 1 };
     
@@ -207,7 +207,7 @@ code_pattern* init_cp_structure_ptr() {
     cp->name = aapts("struct ptr");
     i_arr bin_tokens = { .arr = { 0, 4, VAR, VAR, 4 }, .len = 5 };
     i_arr bin_var_pos = { .arr = { 2, 3 }, .len = 2 };
-    s_arr asm_tokens = { .arr = { "gamevar ", S_VAR }, .len = 2 };
+    s_arr asm_tokens = { .arr = { "gamevar", S_VAR }, .len = 2 };
     i_arr asm_var_pos = { .arr = { 1 }, .len = 1 };
     s_arr var_names = { .arr = {"first offset", "second offset"}, .len = 2 };
     
@@ -413,7 +413,7 @@ expr_pattern* init_expr_plus_op() {
 
     i_arr bin_tokens = { .arr = { 3, 1 }, .len = 2 };
     i_arr bin_var_pos = { .arr = { }, .len = 0 };
-    s_arr asm_tokens = { .arr = { ANSI_COLOR_GREEN " + " ANSI_COLOR_RESET }, .len = 1 };
+    s_arr asm_tokens = { .arr = { ANSI_COLOR_GREEN "+" ANSI_COLOR_RESET }, .len = 1 };
     i_arr asm_var_pos = { .arr = { }, .len = 0 };
 
     init_expr(expr, bin_tokens, bin_var_pos, asm_tokens, asm_var_pos);
@@ -428,7 +428,7 @@ expr_pattern* init_expr_minus_op() {
 
     i_arr bin_tokens = { .arr = { 3, 2 }, .len = 2 };
     i_arr bin_var_pos = { .arr = { }, .len = 0 };
-    s_arr asm_tokens = { .arr = { ANSI_COLOR_GREEN " - " ANSI_COLOR_RESET }, .len = 1 };
+    s_arr asm_tokens = { .arr = { ANSI_COLOR_GREEN "-" ANSI_COLOR_RESET }, .len = 1 };
     i_arr asm_var_pos = { .arr = { }, .len = 0 };
 
     init_expr(expr, bin_tokens, bin_var_pos, asm_tokens, asm_var_pos);
@@ -443,7 +443,7 @@ expr_pattern* init_expr_times_op() {
 
     i_arr bin_tokens = { .arr = { 3, 3 }, .len = 2 };
     i_arr bin_var_pos = { .arr = { }, .len = 0 };
-    s_arr asm_tokens = { .arr = { ANSI_COLOR_GREEN " * " ANSI_COLOR_RESET }, .len = 1 };
+    s_arr asm_tokens = { .arr = { ANSI_COLOR_GREEN "*" ANSI_COLOR_RESET }, .len = 1 };
     i_arr asm_var_pos = { .arr = { }, .len = 0 };
 
     init_expr(expr, bin_tokens, bin_var_pos, asm_tokens, asm_var_pos);
@@ -459,7 +459,7 @@ expr_pattern* init_expr_division_op() {
 
     i_arr bin_tokens = { .arr = { 3, 4 }, .len = 2 };
     i_arr bin_var_pos = { .arr = { }, .len = 0 };
-    s_arr asm_tokens = { .arr = { ANSI_COLOR_GREEN " / " ANSI_COLOR_RESET }, .len = 1 };
+    s_arr asm_tokens = { .arr = { ANSI_COLOR_GREEN "/" ANSI_COLOR_RESET }, .len = 1 };
     i_arr asm_var_pos = { .arr = { }, .len = 0 };
 
     init_expr(expr, bin_tokens, bin_var_pos, asm_tokens, asm_var_pos);
@@ -474,7 +474,7 @@ expr_pattern* init_expr_modulo_op() {
 
     i_arr bin_tokens = { .arr = { 3, 5 }, .len = 2 };
     i_arr bin_var_pos = { .arr = { }, .len = 0 };
-    s_arr asm_tokens = { .arr = { ANSI_COLOR_GREEN " \% " ANSI_COLOR_RESET }, .len = 1 };
+    s_arr asm_tokens = { .arr = { ANSI_COLOR_GREEN "\%" ANSI_COLOR_RESET }, .len = 1 };
     i_arr asm_var_pos = { .arr = { }, .len = 0 };
 
     init_expr(expr, bin_tokens, bin_var_pos, asm_tokens, asm_var_pos);
@@ -489,7 +489,7 @@ expr_pattern* init_expr_eq_op() {
 
     i_arr bin_tokens = { .arr = { 4, 2 }, .len = 2 };
     i_arr bin_var_pos = { .arr = { }, .len = 0 };
-    s_arr asm_tokens = { .arr = {ANSI_COLOR_GREEN " == " ANSI_COLOR_RESET}, .len = 1 };
+    s_arr asm_tokens = { .arr = {ANSI_COLOR_GREEN "==" ANSI_COLOR_RESET}, .len = 1 };
     i_arr asm_var_pos = { .arr = { }, .len = 0 };
 
     init_expr(expr, bin_tokens, bin_var_pos, asm_tokens, asm_var_pos);
@@ -504,7 +504,7 @@ expr_pattern* init_expr_ne_op() {
 
     i_arr bin_tokens = { .arr = { 4, 3 }, .len = 2 };
     i_arr bin_var_pos = { .arr = { }, .len = 0 };
-    s_arr asm_tokens = { .arr = { ANSI_COLOR_GREEN " != " ANSI_COLOR_RESET }, .len = 1 };
+    s_arr asm_tokens = { .arr = { ANSI_COLOR_GREEN "!=" ANSI_COLOR_RESET }, .len = 1 };
     i_arr asm_var_pos = { .arr = { }, .len = 0 };
 
     init_expr(expr, bin_tokens, bin_var_pos, asm_tokens, asm_var_pos);
@@ -519,7 +519,7 @@ expr_pattern* init_expr_lt_op() {
 
     i_arr bin_tokens = { .arr = { 4, 4 }, .len = 2 };
     i_arr bin_var_pos = { .arr = { }, .len = 0 };
-    s_arr asm_tokens = { .arr = { ANSI_COLOR_GREEN " < " ANSI_COLOR_RESET }, .len = 1 };
+    s_arr asm_tokens = { .arr = { ANSI_COLOR_GREEN "<" ANSI_COLOR_RESET }, .len = 1 };
     i_arr asm_var_pos = { .arr = { }, .len = 0 };
 
     init_expr(expr, bin_tokens, bin_var_pos, asm_tokens, asm_var_pos);
@@ -534,7 +534,7 @@ expr_pattern* init_expr_gt_op() {
 
     i_arr bin_tokens = { .arr = { 4, 5 }, .len = 2 };
     i_arr bin_var_pos = { .arr = { }, .len = 0 };
-    s_arr asm_tokens = { .arr = { ANSI_COLOR_GREEN " > " ANSI_COLOR_RESET }, .len = 1 };
+    s_arr asm_tokens = { .arr = { ANSI_COLOR_GREEN ">" ANSI_COLOR_RESET }, .len = 1 };
     i_arr asm_var_pos = { .arr = { }, .len = 0 };
 
     init_expr(expr, bin_tokens, bin_var_pos, asm_tokens, asm_var_pos);
@@ -549,7 +549,7 @@ expr_pattern* init_expr_ge_op() {
 
     i_arr bin_tokens = { .arr = { 4, 1 }, .len = 2 };
     i_arr bin_var_pos = { .arr = { }, .len = 0 };
-    s_arr asm_tokens = { .arr = { ANSI_COLOR_GREEN " >= " ANSI_COLOR_RESET }, .len = 1 };
+    s_arr asm_tokens = { .arr = { ANSI_COLOR_GREEN ">=" ANSI_COLOR_RESET }, .len = 1 };
     i_arr asm_var_pos = { .arr = { }, .len = 0 };
 
     init_expr(expr, bin_tokens, bin_var_pos, asm_tokens, asm_var_pos);
@@ -564,7 +564,7 @@ expr_pattern* init_expr_le_op() {
 
     i_arr bin_tokens = { .arr = { 4, 0 }, .len = 2 };
     i_arr bin_var_pos = { .arr = { }, .len = 0 };
-    s_arr asm_tokens = { .arr = { ANSI_COLOR_GREEN " <= " ANSI_COLOR_RESET }, .len = 1 };
+    s_arr asm_tokens = { .arr = { ANSI_COLOR_GREEN "<=" ANSI_COLOR_RESET }, .len = 1 };
     i_arr asm_var_pos = { .arr = { }, .len = 0 };
 
     init_expr(expr, bin_tokens, bin_var_pos, asm_tokens, asm_var_pos);

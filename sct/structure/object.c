@@ -60,19 +60,16 @@ void print_data_obj(data_obj* data_o) {
     for(int i=0; i < data_o->byte_size; i++) {
         printf(" %02x ", *(data_o->data+i));
     }
-    printf("\n [ %s ] \n", data_o->data);
-    // printf("\nbin_data: ");
-    printf("[");
-    for(int i=0; i < data_o->byte_size/4; i++) {
-        printf(" %08x ", *((int*)(data_o->data+i*sizeof(int))));
+    if(is_string(data_o->data, data_o->byte_size)) {
+        printf("\n [ %s ] \n", data_o->data);
+    } else {
+        printf("[");
+        for(int i=0; i < data_o->byte_size/4; i++) {
+            printf(" %08x ", *((int*)(data_o->data+i*sizeof(int))));
+        }
+        printf("]");
+        printf("\n");
     }
-    printf("]");
-    printf("\n");
-    // printf(" [%s] ", data_o->bin_data);
-    // if(data_o->asm_data != NULL) {
-    //     printf("asm_data: ");
-    //     printf("%s\n", *(data_o->asm_data));
-    // }
 }
 
 int compare_data_obj_ids(const void* a, const void* b) {

@@ -83,10 +83,10 @@ void print_script(script* script) {
 
 void print_data_section(sct_f* sf) {
     int size = sf->data_objs_size;
-    data_obj* section = *sf->data_section;
+    data_obj** section = sf->data_section;
     for(int i=0; i < size; i++) {
-        data_obj data_o = section[i];
-        print_data_obj(&data_o);
+        data_obj* data_o = section[i];
+        print_data_obj(data_o);
     }
 }
 

@@ -298,14 +298,14 @@ char** tokenize_section(char* section_title, sct_f* sf) {
 
     int tokens_len = count_text_words_until_string(sf->file, "._");
     printf("tokens until next section: %d.\n", tokens_len);
-    char** tokens = w_malloc((tokens_len+1)*sizeof(char*));
+    char** tokens = w_malloc((tokens_len)*sizeof(char*));
     fseek(sf->file, section_pos, SEEK_SET);
     for(int i=0; i < tokens_len; i++) {
         char token[MAX_ASM_TOKEN_LEN];
         read_word(sf->file, token);
         tokens[i] = aapts(token);
     }
-    // print_asm_tokens(tokens, tokens_len);
+    // print_asm_tokens(*tokens_ptr, tokens_len);
     return tokens;
 }
 
@@ -330,7 +330,7 @@ int copy_token_chars_from_to(char* token, char* dest, char from, char to) {
             dest[j] = 0;
             return 0;
         }
-        if(copy && !is_special_char(token[i])) { 
+        if(copy) { 
             dest[j] = token[i];
             j++;
         }
@@ -355,9 +355,10 @@ int count_tokens_from_to(char** tokens_ptr, char* from, char* to) {
 
 data_obj* asm_create_data_obj(char*** tokens_pos_ptr, int index) {
     char** token_ptr = *tokens_pos_ptr;
+    if(*token_ptr == NULL)
+        print_err_and_exit("Error, data obj ptr is null.", -4);
     char* name = *token_ptr;
     token_ptr++;
-    // printf("name: %s.\n", name);
 
     char* token = *token_ptr;
     data_obj* data_o = create_and_init_data_obj();
@@ -371,13 +372,16 @@ data_obj* asm_create_data_obj(char*** tokens_pos_ptr, int index) {
             // todo: validate structure
             token_ptr++;
             int integers_num = len - (len/2);
-            printf("array len: %d.\n", integers_num);
+            // printf("array len: %d.\n", integers_num);
             int integers[integers_num];
-            for(int i=0, j=0; i < integers_num+2; i+=2, j++) {
+            for(int i=0, j=0; i < len; i+=2, j++) {
                 int num = atoi(*(token_ptr+i));
                 integers[j] = num;
             }
             token_ptr+=len;
+            // for(int i=0; i < integers_num; i++) {
+            //     printf("%08x\n", integers[i]);
+            // }
 
             data_o->id = index;
             data_o->byte_size = integers_num*sizeof(int);
@@ -393,7 +397,7 @@ data_obj* asm_create_data_obj(char*** tokens_pos_ptr, int index) {
                 print_err("Error, invalid string", -4); 
                 print_token_area_details(&token_ptr, MODE_ASM);
             }
-            printf("found string. len: %d\n", len);
+            // printf("found string. len: %d\n", len);
             char str[len];
             copy_token_chars_from_to(token, str, '\'', '\'');
             // printf("string: %s\n", str);
@@ -427,13 +431,12 @@ data_obj* asm_create_data_obj(char*** tokens_pos_ptr, int index) {
 
             // memcpy(data_o->asm_data, &asm_data, sizeof(data_o->asm_data));
             memcpy(data_o->data, data, sizeof(data_o->data));
-            printf("check\n");
         }
     }
     token_ptr++;
     *tokens_pos_ptr = token_ptr;
 
-    print_data_obj(data_o);
+    // print_data_obj(data_o);
     return data_o;
 }
 
@@ -444,12 +447,30 @@ void build_data_section(sct_f* sf) {
     tokens_pos_ptr = &tokens;
 
     int i = 0;
-    while(tokens != NULL) {
-        asm_create_data_obj(tokens_pos_ptr, i);
+    node* data_next = NULL;
+    node* data_nodes;
+    while(**tokens_pos_ptr != NULL) {
+        data_obj* data_o = asm_create_data_obj(tokens_pos_ptr, i);
+        node* n = create_node(data_o);
+        if(data_next == NULL) { 
+            data_next = n;
+            data_nodes = data_next;
+        } else {
+            data_next->next = n;
+            data_next = n;
+        }
         i++;
     }
-    printf("end\n");
-    // print_asm_tokens(tokens, 277);
+
+    sf->data_objs_size = i;
+    sf->data_section = w_malloc(i*sizeof(data_obj));
+    data_next = data_nodes; // point to start again
+    int j = 0;
+    while(data_next != NULL) {
+        sf->data_section[j] = data_next->item;
+        data_next = data_next->next;
+        j++;
+    }
 }
 
 sct_f* asm_file(char* filepath) {

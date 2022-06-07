@@ -60,12 +60,15 @@ void print_data_obj(data_obj* data_o) {
     for(int i=0; i < data_o->byte_size; i++) {
         printf(" %02x ", *(data_o->data+i));
     }
+    printf("\n [ %s ] \n", data_o->data);
     // printf("\nbin_data: ");
-    // for(int i=0; i < data_o->byte_size/4; i++) {
-    //     printf(" %08x ", *(data_o->bin_data+i));
-    // }
+    printf("[");
+    for(int i=0; i < data_o->byte_size/4; i++) {
+        printf(" %08x ", *((int*)(data_o->data+i*sizeof(int))));
+    }
+    printf("]");
+    printf("\n");
     // printf(" [%s] ", data_o->bin_data);
-    // printf("\n");
     // if(data_o->asm_data != NULL) {
     //     printf("asm_data: ");
     //     printf("%s\n", *(data_o->asm_data));

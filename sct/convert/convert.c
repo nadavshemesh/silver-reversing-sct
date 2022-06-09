@@ -98,21 +98,17 @@ sct_f* asm_file(char* filepath) {
     
     int sections_num = count_file_sections(sct_file);
     printf("num of sections: %d\n", sections_num);
+
+    build_scripts_lables_and_order(sct_file);
     build_data_section(sct_file);
 
     char*** tokens_pos_ptr;
-    // for(int i=0; i < sections_num-1; i++) {
     for(int i=0; i < 1; i++) {
+        int block_tokens_size = count_next_section_tokens(sct_file);
         char** tokens = tokenize_next_section(sct_file);
         tokens_pos_ptr = &tokens;
-        cp_cmp_result res = asm_identify_cp(tokens_pos_ptr);
-        if(res.is_identified) {
-            char msg[256];
-            sprintf(msg, "Found pattern '%s'.\n", res.match->name);
-            print_success(msg);
-            code_pattern* cp = res.match;
-            print_code_pattern(cp);
-        }
+
+        code_obj* co = asm_read_code_block(block_tokens_size, tokens_pos_ptr, sct_file);
     }
 
     fclose(file);

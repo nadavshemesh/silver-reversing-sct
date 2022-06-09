@@ -3,6 +3,7 @@
 void init_code_pattern(code_pattern* c_pattern) {
     c_pattern->asm_token_num = 0;
     c_pattern->bin_token_num = 0;
+    c_pattern->bin_extra_token_num = 0;
     c_pattern->asm_var_num = 0;
     c_pattern->bin_var_num = 0;
     c_pattern->asm_tokens = NULL;
@@ -100,6 +101,7 @@ code_pattern* init_cp_if() {
     code_pattern* cp_if = (code_pattern*) malloc(sizeof(code_pattern));
 
     cp_if->name = aapts("if(expression) then code_block");
+    cp_if->bin_extra_token_num = 1; // 0xfffffffd is extra for recognition
     i_arr bin_tokens = { .arr = {1, 0, 0xfffffffd}, .len = 3 };
     i_arr bin_var_pos = { .arr = { }, .len = 0 };
     s_arr asm_tokens = { .arr = { "if" }, .len = 1 };
@@ -265,6 +267,7 @@ code_pattern* init_cp_else() {
     code_pattern* cp_else = (code_pattern*) malloc(sizeof(code_pattern));
 
     cp_else->name = aapts("else_block");
+    cp_else->bin_extra_token_num = 1; // 0xfffffffc is extra for recognition
     i_arr bin_tokens = { .arr = { 1, 1, 0xfffffffc }, .len = 3 };
     i_arr bin_var_pos = { .arr = { }, .len = 0 };
     s_arr asm_tokens = { .arr = { "else" }, .len = 1 };
@@ -626,13 +629,13 @@ void init_expr_patterns(expr_pattern** expr_patterns) {
     expr_patterns[0] = init_expr_int();
     expr_patterns[1] = init_expr_data_ptr();
     expr_patterns[2] = init_expr_var_ptr();
-    // math ops
+    // math ops(binary)
     expr_patterns[3] = init_expr_plus_op();
     expr_patterns[4] = init_expr_minus_op();
     expr_patterns[5] = init_expr_times_op();
     expr_patterns[6] = init_expr_division_op();
     expr_patterns[7] = init_expr_modulo_op();
-    // control op
+    // control op(binary)
     expr_patterns[8] = init_expr_eq_op();
     expr_patterns[9] = init_expr_ge_op();
     expr_patterns[10] = init_expr_gt_op();

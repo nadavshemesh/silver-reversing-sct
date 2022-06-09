@@ -35,14 +35,16 @@ typedef struct sct_struct {
     int data_sec_size;
     int link_table_off;
     int link_table_size;
+    int code_section_word_size;
 } sct_s;
 
 typedef struct sct_file {
-    int code_objs_size;
-    int data_objs_size;
+    int scripts_num;
+    int data_objs_num;
     FILE* file;
     sct_s* structure;
     script** scripts;
+    char** scripts_labels;
     data_obj** data_section;
 } sct_f;
 
@@ -55,6 +57,7 @@ void print_script(script* script);
 void print_data_section(sct_f* sf);
 data_obj* inefficient_search_data_id(int id, sct_f* sf);
 data_obj* get_data_obj_by_id(int id, sct_f* sf);
+data_obj* get_data_obj_by_name(char* name, sct_f* sf);
 
 
 #endif /* !FILE_SCT_INCL */

@@ -88,7 +88,7 @@ void build_data_from_link_table(sct_f* sct) {
         // memcpy(data_arr[i].asm_data, asm_data, byte_size);
     }
 
-    sct->data_objs_size = data_ref_size;
+    sct->data_objs_num = data_ref_size;
     sct->data_section = w_malloc(sizeof(data_obj*));
     *sct->data_section = w_malloc(data_ref_size*sizeof(data_obj));
     memcpy(*sct->data_section, data_arr, data_ref_size*sizeof(data_obj));

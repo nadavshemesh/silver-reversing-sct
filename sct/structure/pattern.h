@@ -23,6 +23,7 @@ typedef struct code_pattern {
     int asm_var_num;
     int bin_var_num;
     int bin_token_num;
+    int bin_extra_token_num;
     int asm_token_num;
     char* name;
     char** var_names;

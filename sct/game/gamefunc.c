@@ -5,6 +5,8 @@
 #include "utils.h"
 #include "sct\game\gamefunc.h"
 
+bool game_functions_initialized = false;
+
 void print_game_function(game_fun* gf) {
     printf("func_name: %s\n", gf->name);
     printf("func_params: %d\n", gf->params);
@@ -51,10 +53,24 @@ void init_game_functions(game_fun** functions_arr) {
     functions_arr[0xD3]->name = aapts("randomize_int");
     functions_arr[0xD3]->params = 2;
     functions_arr[0xD3]->desc = aapts("(from, to)");
+
+    game_functions_initialized = true;
 }
 
 void free_game_functions(game_fun** functions_arr) {
     for(int i=0; i<GAME_FUNCTIONS_NUM; i++) {
         free(functions_arr[i]);
     }
+}
+
+game_fun* get_game_func_by_name(char* name) {
+    if(game_functions_initialized) {
+        for(int i=0; i<GAME_FUNCTIONS_NUM; i++) {
+            game_fun* gf = game_functions[i];
+            if(strlen(name) == strlen(gf->name) && strcmp(gf->name, name) == 0) {
+                return gf;
+            }
+        }
+        return NULL; // not found.
+    } else print_err_and_exit("Game functions uninitialized.", -4);
 }

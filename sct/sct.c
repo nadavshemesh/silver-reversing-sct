@@ -82,7 +82,7 @@ void print_script(script* script) {
 }
 
 void print_data_section(sct_f* sf) {
-    int size = sf->data_objs_size;
+    int size = sf->data_objs_num;
     data_obj** section = sf->data_section;
     for(int i=0; i < size; i++) {
         data_obj* data_o = section[i];
@@ -91,12 +91,25 @@ void print_data_section(sct_f* sf) {
 }
 
 data_obj* inefficient_search_data_id(int id, sct_f* sf) {
-    int ds_size = sf->data_objs_size;
+    int ds_size = sf->data_objs_num;
     data_obj** ds = sf->data_section;
     data_obj* data_o = NULL;
     for(int i=0; i < ds_size; i++) {
         data_obj* cur_data_o = *ds + i;
         if(cur_data_o->id == id)
+            return cur_data_o;
+    }
+
+    return data_o;
+}
+
+data_obj* search_data_by_name(char* name, sct_f* sf) {
+    int ds_size = sf->data_objs_num;
+    data_obj** ds = sf->data_section;
+    data_obj* data_o = NULL;
+    for(int i=0; i < ds_size; i++) {
+        data_obj* cur_data_o = ds[i];
+        if(strlen(cur_data_o->name) == strlen(cur_data_o->name) && strcmp(cur_data_o->name, name) == 0)
             return cur_data_o;
     }
 
@@ -109,6 +122,17 @@ data_obj* get_data_obj_by_id(int id, sct_f* sf) {
     if(ds == NULL) { print_err_and_exit("called get_data with no data section.", -3); }
 
     data_obj* data_o = inefficient_search_data_id(id, sf);
+    if(data_o == NULL) { print_err_and_exit("called get_data with no data.", -3); }
+
+    return data_o;
+}
+
+data_obj* get_data_obj_by_name(char* name, sct_f* sf) {
+    data_obj** ds = sf->data_section;
+
+    if(ds == NULL) { print_err_and_exit("called get_data with no data section.", -3); }
+
+    data_obj* data_o = search_data_by_name(name, sf);
     if(data_o == NULL) { print_err_and_exit("called get_data with no data.", -3); }
 
     return data_o;

@@ -17,6 +17,18 @@ code_obj* create_and_init_c_obj() {
     return c_obj;
 }
 
+void init_expression(expression* exp) {
+    exp->expr_objs_len = 0;
+    exp->expr_objs = NULL;
+}
+
+expression* create_and_init_expression() {
+    expression* exp = w_malloc(sizeof(expression));
+    init_expression(exp);
+
+    return exp;
+}
+
 void init_data_obj(data_obj* d_obj) {
     d_obj->id = -1;
     d_obj->references = 0;

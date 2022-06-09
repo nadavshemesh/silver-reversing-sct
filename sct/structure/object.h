@@ -53,3 +53,4 @@ code_obj* create_and_init_c_obj();
 void init_expr_obj(expr_obj* e_obj);
 expr_obj* create_and_init_expr_obj();
 data_obj* create_and_init_data_obj();
+expression* create_and_init_expression();

@@ -6,14 +6,14 @@ void print_bin_tokens(int* tokens, int length) {
     }
 }
 
-void print_bin_token_seg(int* tokens, int from_row, int to_row, int cols) {
-    int* token = tokens;
+void print_asm_token_seg(char** tokens, int from_row, int to_row, int cols) {
+    char* token = *tokens;
     for(int i=from_row*cols; i < to_row*cols; i++) {
         if(i != from_row*cols && i%cols == 0) printf("\n");
-        if(&(tokens[i]) == token)
-            printf(ANSI_COLOR_RED "%08x " ANSI_COLOR_RESET, tokens[i]);
+        if(tokens[i] == token)
+            printf(ANSI_COLOR_RED "%20.20s " ANSI_COLOR_RESET, tokens[i]);
         else
-            printf("%8.8x ", tokens[i]);
+            printf("%20.20s ", tokens[i]);
     }
     printf("\n");
 }
@@ -24,9 +24,8 @@ void print_token_area_details(void* token_pos, mode m) {
             int* token = (int*) token_pos;
             print_bin_token_seg(token, -2, 2, 5);
         } else {
-            char*** token_pos_asm = (char***) token_pos;
-            char** token = (char**) *token_pos_asm;
-            printf("[ %s %s "ANSI_COLOR_RED "%s" ANSI_COLOR_RESET " %s ]\n", token[-2], token[-1], token[0], token[1]);
+            char** token_pos_asm = (char**) token_pos;
+            print_asm_token_seg(token_pos_asm, -3, 2, 5);
         }
     }
     exit(1);
@@ -186,7 +185,7 @@ void print_asm_code_nodes(node* head) {
 
 void print_asm_script(script* script) {
     char script_name[256];
-    sprintf(script_name, "_ASM_SCRIPT_%d", script->number);
+    sprintf(script_name, "SCRIPT_%d", script->number);
     print_title(script_name);
     print_asm_code_nodes(*script->code_nodes);
 }
@@ -217,7 +216,7 @@ void print_asm_data_object(data_obj* data_o) {
 
 void print_asm_data_section(sct_f* sf) {
     print_title("_DATA");
-    int size = sf->data_objs_size;
+    int size = sf->data_objs_num;
     data_obj* section = *sf->data_section;
     for(int i=0; i < size; i++) {
         data_obj data_o = section[i];

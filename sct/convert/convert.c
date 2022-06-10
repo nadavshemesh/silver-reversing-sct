@@ -95,6 +95,10 @@ sct_f* asm_file(char* filepath) {
     
     sct_f* sct_file = w_malloc(sizeof(sct_f));
     sct_file->file = file;
+    sct_file->structure = w_malloc(sizeof(sct_s));
+    sct_file->structure->code_section_word_size = 0;
+    sct_file->structure->link_table_size = 0;
+    sct_file->data_link_table = w_malloc(sizeof(node*));
     
     int sections_num = count_file_sections(sct_file);
     printf("num of sections: %d\n", sections_num);

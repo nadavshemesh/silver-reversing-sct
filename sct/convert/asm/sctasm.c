@@ -566,6 +566,24 @@ bool is_expr_token_binary_op(char** token) {
     return false;
 }
 
+void create_data_link(sct_f* sf) {
+    node** link_nodes = sf->data_link_table;
+    if(link_nodes == NULL) {  print_err_and_exit("Error, data link table undefined.", -4); }
+
+    int* offset = w_malloc(sizeof(int));
+    *offset = sf->structure->code_section_word_size-1;
+    *offset |= 0x40000000;
+
+    node* link_node = *link_nodes;
+    node* new_link_node = create_node(offset); 
+    if(sf->structure->link_table_size == 0 || link_node == NULL) {
+        *sf->data_link_table = new_link_node;
+    } else {
+        insert_node(link_nodes, new_link_node);
+    }
+    sf->structure->link_table_size++;
+}
+
 expr_obj* asm_create_expr_obj(expr_pattern* expr_p, char** vars, char*** token_pos_ptr, sct_f* sf) {
     expr_obj* eo = create_and_init_expr_obj();
 
@@ -592,6 +610,8 @@ expr_obj* asm_create_expr_obj(expr_pattern* expr_p, char** vars, char*** token_p
 
         case VAR_PTR:
         case DATA_PTR: {
+            create_data_link(sf);
+            print_bin_link_table(sf);
             char* data_name = vars[0];
             data_obj* data_o = get_data_obj_by_name(data_name, sf);
             eo->data = data_o;
@@ -618,6 +638,7 @@ expr_obj* asm_create_expr_obj(expr_pattern* expr_p, char** vars, char*** token_p
 expression* asm_read_expression(char*** token_pos_ptr, sct_f* sf) {
     expression* exp = create_and_init_expression();
     
+    sf->structure->code_section_word_size += 2; // prologue
     node** expr_nodes = w_malloc(sizeof(node*));
     int expr_nodes_num = 0;
     int exprs_to_read = 1;
@@ -627,6 +648,11 @@ expression* asm_read_expression(char*** token_pos_ptr, sct_f* sf) {
             char msg[256];
             sprintf(msg, "Found expr pattern '%s'.", res.match->name);
             print_success(msg);
+
+            expr_pattern* ep = (expr_pattern*) res.match;
+            int bin_tokens = ep->bin_token_num;
+            sf->structure->code_section_word_size += bin_tokens;
+
             expr_obj* eo = asm_create_expr_obj(res.match, (char**)res.vars, token_pos_ptr, sf);
             node* expr_node = create_node(eo);
             if(expr_nodes_num == 0) {
@@ -903,6 +929,7 @@ code_obj* asm_read_code_block(int tokens_to_read, char*** tokens_pos_ptr, sct_f*
     
     code_pattern* cp = code_patterns[3]; //code_block cp
     c_obj->cp = cp; 
+    sf->structure->code_section_word_size += cp->bin_token_num;
 
     int start_token_addr = (int) *tokens_pos_ptr;
     int end_token_addr = (start_token_addr + tokens_to_read*sizeof(char*));
@@ -915,12 +942,17 @@ code_obj* asm_read_code_block(int tokens_to_read, char*** tokens_pos_ptr, sct_f*
             char msg[256];
             sprintf(msg, "Found pattern '%s'.\n", res.match->name);
             print_success(msg);
-            print_code_pattern(res.match);
-            obj_and_token_ptr oatp = asm_create_code_obj(res.match, (char**) res.vars, tokens_pos_ptr, sf);
+
+            code_pattern* cp = (code_pattern*) res.match;
+            int bin_tokens = cp->bin_token_num - cp->bin_extra_token_num;
+            sf->structure->code_section_word_size += bin_tokens;
+
+            print_code_pattern(cp);
+            obj_and_token_ptr oatp = asm_create_code_obj(cp, (char**) res.vars, tokens_pos_ptr, sf);
 
             code_obj* co = (code_obj*) oatp.obj;
-            int bin_tokens_num = count_code_obj_bin_tokens(co);
-            block_word_size += bin_tokens_num;
+            int bin_tokens_num = count_code_obj_bin_tokens(co); // very inefficient way to count every time
+            block_word_size = bin_tokens_num;
 
             node* code_node = create_node(oatp.obj);
             if(code_nodes_num == 0) {
@@ -930,7 +962,9 @@ code_obj* asm_read_code_block(int tokens_to_read, char*** tokens_pos_ptr, sct_f*
             }
             code_nodes_num++;
             // print_asm_tokens(*tokens_pos_ptr, 5);
+            // printf("\n");
             // print_bin_code_obj(oatp.obj);
+            // printf("\n");
         }
     }
     printf("bin tokens in code block [%08x]: %d\n", start_token_addr, block_word_size);
@@ -938,7 +972,8 @@ code_obj* asm_read_code_block(int tokens_to_read, char*** tokens_pos_ptr, sct_f*
     c_obj->code_nodes_num = code_nodes_num;
     c_obj->code_nodes = code_nodes;
 
-    int bin_vars[2] = { 0xfffffffc, block_word_size+2 }; // +2 for the prologue [0xfffffffc size]
+    printf("block_word_size: %d\n", block_word_size);
+    int bin_vars[1] = { block_word_size+2 }; // +2 for the prologue [0xfffffffc size]
     c_obj->bin_vars = w_malloc(c_obj->cp->bin_var_num*sizeof(int));
 
     memcpy(c_obj->bin_vars, bin_vars, sizeof(c_obj->bin_vars));

@@ -43,7 +43,9 @@ void print_bin_expression(expression* exp) {
 
 void print_bin_code_obj(code_obj* co) {
     code_pattern* cp = co->cp;
-    for(int i=0, j=0; i < cp->bin_token_num-cp->bin_extra_token_num; i++) {
+    int bin_tokens_len = cp->bin_token_num-cp->bin_extra_token_num;
+    printf("%s (%d tokens)\n", co->cp->name, bin_tokens_len);
+    for(int i=0, j=0; i < bin_tokens_len; i++) {
         if(is_var_pos(cp, CODE_TYPE, MODE_BIN, i)) {
             printf("%08x", co->bin_vars[j]);
             j++;

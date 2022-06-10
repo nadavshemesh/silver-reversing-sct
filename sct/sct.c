@@ -90,6 +90,19 @@ void print_data_section(sct_f* sf) {
     }
 }
 
+void print_bin_link_table(sct_f* sf) {
+    print_title("LINK_TABLE");
+    node** link_nodes = sf->data_link_table;
+    if(link_nodes == NULL) {  print_err_and_exit("Error, data link table undefined.", -4); }
+    node* link_node = *link_nodes;
+
+    while(link_node != NULL) {
+        printf("%08x", *((int*)link_node->item));
+        link_node = link_node->next;
+    }
+    printf("\n");
+}
+
 data_obj* inefficient_search_data_id(int id, sct_f* sf) {
     int ds_size = sf->data_objs_num;
     data_obj** ds = sf->data_section;

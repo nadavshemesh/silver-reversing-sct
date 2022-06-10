@@ -90,6 +90,15 @@ void print_data_section(sct_f* sf) {
     }
 }
 
+void print_bin_script_table(sct_f* sf) {
+    int* st = sf->script_table;
+    if(sf->script_table == NULL) { print_err_and_exit("Error, script table undefined.", -4); }
+
+    for(int i=0; i < sf->scripts_num; i++) {
+        printf("%08x", sf->script_table[i]);
+    }
+}
+
 void print_bin_link_table(sct_f* sf) {
     print_title("LINK_TABLE");
     node** link_nodes = sf->data_link_table;

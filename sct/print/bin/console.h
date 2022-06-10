@@ -10,5 +10,6 @@
 void print_bin_code_obj(code_obj* co);
 void print_bin_expression(expression* exp);
 void print_bin_expr_obj(expr_obj* expr);
+void print_bin_switch_code_obj(code_obj* co);
 
 #endif

@@ -4,6 +4,8 @@ void init_code_obj(code_obj* c_obj) {
     c_obj->cp = NULL;
     c_obj->bin_vars = NULL;
     c_obj->asm_vars = NULL;
+    c_obj->bin_var_num = 0;
+    c_obj->asm_var_num = 0;
     c_obj->code_nodes_num = 0;
     c_obj->code_nodes = NULL;
     c_obj->expression_node_num = 0;

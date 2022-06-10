@@ -102,12 +102,16 @@ sct_f* asm_file(char* filepath) {
     
     int sections_num = count_file_sections(sct_file);
     printf("num of sections: %d\n", sections_num);
+    sct_file->scripts_num = sections_num-1;
+    sct_file->script_table = w_malloc(sct_file->scripts_num*sizeof(int));
 
     build_scripts_lables_and_order(sct_file);
     build_data_section(sct_file);
+    
 
     char*** tokens_pos_ptr;
-    for(int i=0; i < 1; i++) {
+    for(int i=0; i < sct_file->scripts_num; i++) {
+        sct_file->script_table[i] = 0x08 + sct_file->structure->code_section_word_size;
         int block_tokens_size = count_next_section_tokens(sct_file);
         char** tokens = tokenize_next_section(sct_file);
         tokens_pos_ptr = &tokens;

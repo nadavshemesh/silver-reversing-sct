@@ -26,6 +26,8 @@ typedef struct expression {
 } expression;
 
 typedef struct code_object {
+    int bin_var_num;
+    int asm_var_num;
     int code_nodes_num;
     int expression_node_num;
     data_obj* data;

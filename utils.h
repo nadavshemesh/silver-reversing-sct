@@ -1,3 +1,6 @@
+#ifndef UTILS_INCL
+#define UTILS_INCL
+
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
@@ -59,3 +62,5 @@ void free_list(node** head);
 node** init_node_list();
 bool is_printable_ascii(char ch);
 bool is_string(char* str, int len);
+
+#endif

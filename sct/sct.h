@@ -6,6 +6,7 @@
 #include<regex.h>
 
 #include "file\fileutils.h"
+#include "sct\game\gamevar.h"
 #include "sct\game\gamefunc.h"
 #include "sct\structure\object.h"
 

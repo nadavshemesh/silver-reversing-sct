@@ -25,7 +25,7 @@ char* c_itoa(int num, char *str) {
 }
 
 void print_title(char* msg) {
-    printf(ANSI_COLOR_MAGENTA "\n\t .%s" ANSI_COLOR_RESET "\n", msg);
+    printf(ANSI_COLOR_MAGENTA "\n\t %s" ANSI_COLOR_RESET "\n", msg);
 }
 
 void print_info(char* msg) {

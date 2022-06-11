@@ -9,11 +9,14 @@ void print_bin_tokens(int* tokens, int length) {
 void print_asm_token_seg(char** tokens, int from_row, int to_row, int cols) {
     char* token = *tokens;
     for(int i=from_row*cols; i < to_row*cols; i++) {
-        if(i != from_row*cols && i%cols == 0) printf("\n");
-        if(tokens[i] == token)
-            printf(ANSI_COLOR_RED "%20.20s " ANSI_COLOR_RESET, tokens[i]);
-        else
-            printf("%20.20s ", tokens[i]);
+        if((tokens+i) != NULL && *(tokens+i) != 0 && abs(*(tokens+i) - token) < 1000) {
+            if(i != from_row*cols && i%cols == 0) printf("\n");
+            if(tokens[i] == token) { // cmp by addr
+                printf(ANSI_COLOR_RED "%20.20s " ANSI_COLOR_RESET, tokens[i]);
+            } else {
+                printf("%20.20s ", tokens[i]);
+            }
+        }
     }
     printf("\n");
 }
@@ -91,6 +94,8 @@ void print_asm_expr(expression* expr) {
         }
         if(expr_o->expression_node_num > 0) {
             print_asm_expression(expr_o->expression_nodes, FUNCTION_CALL, true);
+        } else {
+            if(expr_o->expr_p->type == FUNCTION) { printf("()"); }
         }
     }
 }
@@ -143,6 +148,8 @@ void print_asm_code_obj(code_obj* co, int indentation_lvl) {
     int exp_num = co->expression_node_num;
     if(exp_num > 0) {
         print_asm_expression(co->expression_nodes, co->cp->type, false);
+    } else {
+        if(co->cp->type == FUNCTION_CALL) { printf("()"); }
     }
 
     // print nested blocks
@@ -185,7 +192,7 @@ void print_asm_code_nodes(node* head) {
 
 void print_asm_script(script* script) {
     char script_name[256];
-    sprintf(script_name, "SCRIPT_%d", script->number);
+    sprintf(script_name, "._SCRIPT_%d", script->number);
     print_title(script_name);
     print_asm_code_nodes(*script->code_nodes);
 }
@@ -215,7 +222,7 @@ void print_asm_data_object(data_obj* data_o) {
 }
 
 void print_asm_data_section(sct_f* sf) {
-    print_title("_DATA");
+    print_title("._DATA");
     int size = sf->data_objs_num;
     data_obj* section = *sf->data_section;
     for(int i=0; i < size; i++) {

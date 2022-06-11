@@ -1,5 +1,6 @@
 #include "sct\convert\convert.h"
 
+game_var** game_vars;
 game_fun** game_functions;
 code_pattern** code_patterns;
 expr_pattern** expr_patterns;
@@ -135,9 +136,11 @@ int main(int argc, char* argv[]) {
         return 1;
     }
 
+    game_vars = w_malloc(GAME_VARS_NUM*sizeof(game_var*));
     game_functions = w_malloc(GAME_FUNCTIONS_NUM*sizeof(game_fun*));
     code_patterns = w_malloc(CODE_PATTERNS_NUM*sizeof(code_pattern*));
     expr_patterns = w_malloc(EXPR_PATTERNS_NUM*sizeof(code_pattern*));
+    init_game_vars(game_vars);
     init_game_functions(game_functions);
     init_code_patterns(code_patterns);
     init_expr_patterns(expr_patterns);

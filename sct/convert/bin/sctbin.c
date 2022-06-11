@@ -640,27 +640,13 @@ code_obj* bin_read_assignment(code_pattern* cp, void* vars, void** token_pos_ptr
 }
 
 char* determine_room_var_ptr(int first_offset, int second_offset) {
-        switch(first_offset) {
-            case 9: // ptr to room flags
-                switch(second_offset) {
-                    case 0x08:  // Room state
-                        return aapts("room_state");
-                    break;
-                    case 0x2c:  // Room cleared flag
-                        return aapts("is_room_cleared");
-                    break;
-                
-                default:
-                    break;
-                }
-                break;
-            // case 00 - ptr to last game object 
-            // cases 00-07 - ptr to last game object data attribute
-            // case 10 - ptr to last game object data 
-        }
-        char str[50];
-        sprintf(str, "game_var_%02x_%02x", first_offset, second_offset);
-        return aapts(str);
+    game_var* gv = get_game_var_by_offsets(first_offset, second_offset);
+    if(gv != NULL) {
+        return gv->name;
+    }
+    char str[50];
+    sprintf(str, "game_var_%02x_%02x", first_offset, second_offset);
+    return aapts(str);
 }
 
 code_obj* bin_read_room_var_ptr(code_pattern* cp, void* vars, void** token_pos_ptr, sct_f* sf) {

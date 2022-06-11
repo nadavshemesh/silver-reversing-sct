@@ -15,6 +15,7 @@ void print_asm_tokens(char** tokens, int tokens_len);
 int count_next_section_tokens(sct_f* sf);
 int count_expr_bin_tokens(expr_obj* expr);
 int count_expression_bin_tokens(expression* exp);
+expr_obj* asm_read_function_expr(expr_obj* e_obj, char** vars, char*** token_pos_ptr, sct_f* sf);
 int count_code_obj_bin_tokens(code_obj* co);
 code_obj* asm_read_code_block(int tokens_to_read, char*** token_pos_ptr, sct_f* sf);
 int count_file_sections(sct_f* sf);

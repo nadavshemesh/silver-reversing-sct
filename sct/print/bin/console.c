@@ -21,7 +21,7 @@ void print_bin_switch_code_obj(code_obj* co) {
     // print tokens
     code_pattern* cp = co->cp;
     int bin_tokens_len = cp->bin_token_num-cp->bin_extra_token_num;
-    printf("%s (%d tokens)\n", co->cp->name, bin_tokens_len);
+    // printf("%s (%d tokens)\n", co->cp->name, bin_tokens_len);
     for(int i=0, j=0; i < bin_tokens_len; i++) {
         if(is_var_pos(cp, CODE_TYPE, MODE_BIN, i)) {
             printf("%08x", co->bin_vars[j]);
@@ -122,5 +122,42 @@ void print_bin_code_obj(code_obj* co) {
                 code_node = code_node->next;
             }
         }
+    }
+}
+
+void print_bin_data_obj(data_obj* data_o) {
+    for(int i=0; i < data_o->byte_size; i++) {
+        printf("%02x", (&data_o->data)[i]);
+    }
+}
+
+void print_bin_data_section(sct_f* sf) {
+    data_obj** ds = sf->data_section;
+    if(ds == NULL) { print_err_and_exit("Error, data section is undefined.", -4); }
+
+    for(int i=0; i < sf->data_objs_num; i++) {
+        data_obj* data_o = ds[i];
+        print_bin_data_obj(data_o);
+    }
+}
+
+void print_bin_code_nodes(node* head) {
+    printf("check\n");
+    node* node = head;
+    if(node == NULL) return;
+    while(node != NULL && node->item != NULL) {
+        code_obj* co = (code_obj*) node->item;
+        print_bin_code_obj(co);
+        node = node->next;
+    }
+}
+
+void print_bin_script(script* script) {
+    print_bin_code_nodes(*script->code_nodes);
+}
+
+void print_bin_file(sct_f* sf) {
+    for(int i=0; i < sf->scripts_num; i++) {
+        print_bin_script(sf->scripts[i]);
     }
 }

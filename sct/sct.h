@@ -21,7 +21,7 @@ typedef struct script {
     int number;
     int size_in_words;
     int code_nodes_num;
-    char** name;
+    char* name;
     void** script_code_ptr;
     node** code_nodes;
     // code_block* code_blocks;
@@ -36,7 +36,7 @@ typedef struct sct_struct {
     int data_sec_size;
     int link_table_off;
     int link_table_size;
-    int code_section_word_size;
+    unsigned long code_section_word_counter;
 } sct_s;
 
 typedef struct sct_file {

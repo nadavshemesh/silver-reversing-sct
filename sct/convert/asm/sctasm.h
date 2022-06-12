@@ -8,8 +8,9 @@
 #define MAX_ASM_TOKEN_LEN 256
 
 
+unsigned long get_sct_code_word_count(sct_f* sf);
 void build_data_section(sct_f* sf);
-cp_cmp_result asm_identify_cp(char*** token_pos_ptr);
+cp_cmp_result asm_identify_cp(char*** token_pos_ptr, sct_f* sf);
 obj_and_token_ptr asm_create_code_obj(code_pattern* cp, char** vars, char*** token_pos_ptr, sct_f* sf);
 void print_asm_tokens(char** tokens, int tokens_len);
 int count_next_section_tokens(sct_f* sf);
@@ -20,3 +21,4 @@ int count_code_obj_bin_tokens(code_obj* co);
 code_obj* asm_read_code_block(int tokens_to_read, char*** token_pos_ptr, sct_f* sf);
 int count_file_sections(sct_f* sf);
 void build_scripts_lables_and_order(sct_f* sf);
+char* get_script_label_by_id(int id, sct_f* sf);

@@ -101,7 +101,7 @@ code_pattern* init_cp_if() {
     code_pattern* cp_if = (code_pattern*) malloc(sizeof(code_pattern));
 
     cp_if->name = aapts("if(expression) then code_block");
-    cp_if->bin_extra_token_num = 1; // 0xfffffffd is extra for recognition
+    cp_if->bin_extra_token_num = -1; // 0xfffffffd is extra for recognition
     i_arr bin_tokens = { .arr = {1, 0, 0xfffffffd}, .len = 3 };
     i_arr bin_var_pos = { .arr = { }, .len = 0 };
     s_arr asm_tokens = { .arr = { "if" }, .len = 1 };
@@ -267,7 +267,7 @@ code_pattern* init_cp_else() {
     code_pattern* cp_else = (code_pattern*) malloc(sizeof(code_pattern));
 
     cp_else->name = aapts("else_block");
-    cp_else->bin_extra_token_num = 1; // 0xfffffffc is extra for recognition
+    cp_else->bin_extra_token_num = -1; // 0xfffffffc is extra for recognition
     i_arr bin_tokens = { .arr = { 1, 1, 0xfffffffc }, .len = 3 };
     i_arr bin_var_pos = { .arr = { }, .len = 0 };
     s_arr asm_tokens = { .arr = { "else" }, .len = 1 };

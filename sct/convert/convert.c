@@ -97,7 +97,7 @@ sct_f* asm_file(char* filepath) {
     sct_f* sct_file = w_malloc(sizeof(sct_f));
     sct_file->file = file;
     sct_file->structure = w_malloc(sizeof(sct_s));
-    sct_file->structure->code_section_word_size = 0;
+    sct_file->structure->code_section_word_counter = 0;
     sct_file->structure->link_table_size = 0;
     sct_file->data_link_table = w_malloc(sizeof(node*));
     
@@ -110,16 +110,35 @@ sct_f* asm_file(char* filepath) {
     build_data_section(sct_file);
     
 
+    // sct_file->scripts = w_malloc(sizeof(script*));
+    sct_file->scripts = w_malloc((sections_num-1)*sizeof(script*));
+
     char*** tokens_pos_ptr;
     for(int i=0; i < sct_file->scripts_num; i++) {
-        sct_file->script_table[i] = 0x08 + sct_file->structure->code_section_word_size;
+    // for(int i=0; i < 2; i++) {
+        script* sc = w_malloc(sizeof(script));
+        sc->code_nodes = w_malloc(sizeof(node*));
+        sc->code_nodes_num = 0;
+        sc->number = i;
+        sc->name = aapts(get_script_label_by_id(i, sct_file));
+
+        sct_file->script_table[i] = 0x08 + get_sct_code_word_count(sct_file);
         int block_tokens_size = count_next_section_tokens(sct_file);
         char** tokens = tokenize_next_section(sct_file);
         tokens_pos_ptr = &tokens;
 
         code_obj* co = asm_read_code_block(block_tokens_size, tokens_pos_ptr, sct_file);
+        node* code_node = create_node(co);
+        if(sc->code_nodes_num == 0) {
+            *sc->code_nodes = code_node;
+        } else {
+            insert_node(sc->code_nodes, code_node);
+        }
+
+        sct_file->scripts[i] = sc;
     }
 
+exit(0);
     fclose(file);
     return sct_file;
 }
@@ -156,6 +175,8 @@ int main(int argc, char* argv[]) {
 
         case 1:
             sct_file = asm_file(filepath);
+            // print_bin_data_section(sct_file);
+            print_bin_file(sct_file);
             break;
     }
 

@@ -268,6 +268,16 @@ int get_script_id_by_label(char* label, sct_f* sf) {
     return -1; // not found
 }
 
+char* get_script_label_by_id(int id, sct_f* sf) {
+    char** script_labels = sf->scripts_labels;
+    if(script_labels == NULL) print_err_and_exit("Error, no script lables found.", -4);
+    char* script_label = script_labels[id];
+    if(script_label != NULL && script_label != 0) {
+        return script_label;
+    }
+    return NULL; // not found
+}
+
 int count_token_from_to(char** tokens_ptr, char* token, char* from, char* to) {
     bool count = false;
     int counter = 0;
@@ -288,6 +298,22 @@ int count_token_from_to(char** tokens_ptr, char* token, char* from, char* to) {
         tokens_ptr++;
     }
     return -1;
+}
+
+unsigned long get_sct_code_word_count(sct_f* sf) {
+    return sf->structure->code_section_word_counter;
+}
+
+void add_sct_bin_words(int bin_words_num, sct_f* sf) {
+    sf->structure->code_section_word_counter += bin_words_num;
+}
+
+void add_sct_bin_words_prologue(sct_f* sf) {
+    sf->structure->code_section_word_counter += 2;
+}
+
+void add_sct_bin_words_switch_body(sct_f* sf) {
+    sf->structure->code_section_word_counter += 0x81;
 }
 
 data_obj* asm_create_data_obj(char*** tokens_pos_ptr, int index) {
@@ -492,7 +518,7 @@ bool asm_cmp_token(char** a_token_ptr, char** b_token_ptr) {
     return false;
 }
 
-cp_cmp_result asm_identify_cp(char*** token_pos_ptr) {
+cp_cmp_result asm_identify_cp(char*** token_pos_ptr, sct_f* sf) {
     cp_cmp_result res = { .is_identified = false, .match = NULL};
     char** token;
 
@@ -525,6 +551,9 @@ cp_cmp_result asm_identify_cp(char*** token_pos_ptr) {
                 token++;
            }
            if(eq_tokens == eq_goal) {
+                int bin_tokens_num = cp->bin_token_num + cp->bin_extra_token_num;
+                add_sct_bin_words(bin_tokens_num, sf);
+                printf("Added %02x tokens for '%s'.\n", bin_tokens_num, cp->name);
                 res.is_identified = true;
                 res.match = cp;
                 res.tokens_pos = token;
@@ -541,7 +570,7 @@ cp_cmp_result asm_identify_cp(char*** token_pos_ptr) {
     return res;
 }
 
-expr_cmp_result asm_identify_expr(char*** token_pos_ptr) {
+expr_cmp_result asm_identify_expr(char*** token_pos_ptr, sct_f* sf) {
     expr_cmp_result res = { .is_identified = false, .match = NULL};
     char** token;
 
@@ -575,6 +604,9 @@ expr_cmp_result asm_identify_expr(char*** token_pos_ptr) {
            }
            if(eq_tokens == eq_goal && var_i == var_num) {
             //    printf("last token: %s\n", *token);
+                int bin_tokens_num = expr->bin_token_num;
+                add_sct_bin_words(bin_tokens_num, sf);
+                printf("Added %02x tokens for '%s'.\n", bin_tokens_num, expr->name);
                 res.is_identified = true;
                 res.match = expr;
                 res.tokens_pos = token;
@@ -610,7 +642,7 @@ void create_data_link(sct_f* sf) {
     if(link_nodes == NULL) {  print_err_and_exit("Error, data link table undefined.", -4); }
 
     int* offset = w_malloc(sizeof(int));
-    *offset = sf->structure->code_section_word_size-1;
+    *offset = sf->structure->code_section_word_counter-1;
     *offset |= 0x40000000;
 
     node* link_node = *link_nodes;
@@ -682,21 +714,23 @@ expr_obj* asm_create_expr_obj(expr_pattern* expr_p, char** vars, char*** token_p
 expression* asm_read_expression(char*** token_pos_ptr, sct_f* sf) {
     expression* exp = create_and_init_expression();
     
-    sf->structure->code_section_word_size += 2; // prologue
+    // sf->structure->code_section_word_counter += 2; // prologue
     node** expr_nodes = w_malloc(sizeof(node*));
+
+    add_sct_bin_words_prologue(sf);
 
     int expr_nodes_num = 0;
     int exprs_to_read = 1;
     while(exprs_to_read > 0) {
-        expr_cmp_result res = asm_identify_expr(token_pos_ptr);
+        expr_cmp_result res = asm_identify_expr(token_pos_ptr, sf);
         if(res.is_identified) {
             char msg[256];
             sprintf(msg, "Found expr pattern '%s'.", res.match->name);
             print_success(msg);
 
             expr_pattern* ep = (expr_pattern*) res.match;
-            int bin_tokens = ep->bin_token_num;
-            sf->structure->code_section_word_size += bin_tokens;
+            // int bin_tokens = ep->bin_token_num;
+            // sf->structure->code_section_word_counter += bin_tokens;
 
             expr_obj* eo = asm_create_expr_obj(res.match, (char**)res.vars, token_pos_ptr, sf);
             // print_expr_obj(eo, true);
@@ -753,7 +787,7 @@ code_obj* asm_read_if_statement(code_pattern* cp, char** vars, char*** token_pos
     }
 
     int code_block_tokens_num = count_tokens_in_code_block(token_pos_ptr);
-    printf("code_block_tokens to read: %d\n", code_block_tokens_num);
+    // printf("code_block_tokens to read: %d\n", code_block_tokens_num);
     // *token_pos_ptr += 1; // block opening paranthesis
     code_obj* c_block = asm_read_code_block(code_block_tokens_num, token_pos_ptr, sf);
     // printf("after block\n");
@@ -797,6 +831,9 @@ code_obj* asm_read_switch_case(code_pattern* cp, char** vars, char*** tokens_pos
 
     switch_c_obj->cp = cp;
     *tokens_pos_ptr += 1; // opening exp paranthesis
+
+    add_sct_bin_words_switch_body(sf);
+
     // read expression
     expression* exp = asm_read_expression(tokens_pos_ptr, sf);
     node* exp_node = create_node(exp);
@@ -829,12 +866,17 @@ code_obj* asm_read_switch_case(code_pattern* cp, char** vars, char*** tokens_pos
     
     code_pattern* switch_block_cp = code_patterns[3]; //code_block cp
     switch_block->cp = switch_block_cp; 
-    sf->structure->code_section_word_size += switch_block_cp->bin_token_num;
-    int prev_case_pos = sf->structure->code_section_word_size;
+    
+    // sf->structure->code_section_word_counter += switch_block_cp->bin_token_num;
+    int prev_case_pos = sf->structure->code_section_word_counter;
 
     int start_token_addr = (int) *tokens_pos_ptr;
     int end_token_addr = (start_token_addr + tokens_to_read*sizeof(char*));
     // printf("end at token: %s\n", ((char*)end_token_addr));
+
+    unsigned long before_block_code_word_count = get_sct_code_word_count(sf);
+    add_sct_bin_words_prologue(sf);
+
     int block_word_size = 0;
     node** code_nodes = w_malloc(sizeof(node*));
     int code_nodes_num = 0;
@@ -845,29 +887,32 @@ code_obj* asm_read_switch_case(code_pattern* cp, char** vars, char*** tokens_pos
             *tokens_pos_ptr += 1; // "case"
             // todo: validate integer
             int case_int = atoi(**tokens_pos_ptr);
-            int offset = (first_case_offset + (sf->structure->code_section_word_size - prev_case_pos)*4);
+            int offset = (first_case_offset + (sf->structure->code_section_word_counter - prev_case_pos)*4);
             cases[cases_index] = case_int;
             cases_offsets[cases_index] = offset;
             cases_index++;
             *tokens_pos_ptr += 1; // value
             printf("identified case: %d, offset: %08x\n", case_int, offset);
         } else {
-            cp_cmp_result res = asm_identify_cp(tokens_pos_ptr);
+            cp_cmp_result res = asm_identify_cp(tokens_pos_ptr, sf);
             if(res.is_identified) {
                 char msg[256];
                 sprintf(msg, "Found pattern '%s'.\n", res.match->name);
                 print_success(msg);
 
                 code_pattern* cp = (code_pattern*) res.match;
-                int bin_tokens = cp->bin_token_num - cp->bin_extra_token_num;
-                sf->structure->code_section_word_size += bin_tokens;
+                // int bin_tokens = cp->bin_token_num - cp->bin_extra_token_num;
+                // sf->structure->code_section_word_counter += bin_tokens;
 
-                print_code_pattern(cp);
+                // print_code_pattern(cp);
                 obj_and_token_ptr oatp = asm_create_code_obj(cp, (char**) res.vars, tokens_pos_ptr, sf);
 
                 code_obj* co = (code_obj*) oatp.obj;
-                int bin_tokens_num = count_code_obj_bin_tokens(co); // very inefficient way to count every time
-                block_word_size += bin_tokens_num;
+                // int bin_tokens_num = count_code_obj_bin_tokens(co); // very inefficient way to count every time
+                // block_word_size += bin_tokens_num;
+                // if(cp->type == SWITCH){
+                //     block_word_size += 0x85;
+                // }
 
                 node* code_node = create_node(oatp.obj);
                 if(code_nodes_num == 0) {
@@ -888,8 +933,10 @@ code_obj* asm_read_switch_case(code_pattern* cp, char** vars, char*** tokens_pos
     switch_block->code_nodes_num = code_nodes_num;
     switch_block->code_nodes = code_nodes;
 
-    printf("block_word_size: %d\n", block_word_size);
-    int bin_vars[1] = { block_word_size+2 }; // +2 for the prologue [0xfffffffc size]
+    unsigned long after_block_code_word_count = get_sct_code_word_count(sf);
+    block_word_size = (int) (after_block_code_word_count - before_block_code_word_count);
+    printf("block_word_size: %d (%04x)\n", block_word_size, block_word_size);
+    int bin_vars[1] = { block_word_size }; // +2 for the prologue [0xfffffffc size]
     switch_block->bin_vars = w_malloc(switch_block->cp->bin_var_num*sizeof(int));
 
     memcpy(switch_block->bin_vars, bin_vars, sizeof(switch_block->bin_vars));
@@ -1127,9 +1174,6 @@ obj_and_token_ptr asm_create_code_obj(code_pattern* cp, char** vars, char*** tok
     code_obj* c_obj;
 
     switch(cp->type) {
-        case CODE_BLOCK:
-            // c_obj = bin_read_code_block(cp, vars, token_pos_ptr, sf);
-            break;
         case IF_STATEMENT:
             c_obj = asm_read_if_statement(cp, vars, token_pos_ptr, sf);
             break;
@@ -1223,9 +1267,13 @@ code_obj* asm_read_code_block(int tokens_to_read, char*** tokens_pos_ptr, sct_f*
     
     code_pattern* cp = code_patterns[3]; //code_block cp
     c_obj->cp = cp; 
+
+    
+    unsigned long before_block_code_word_count = get_sct_code_word_count(sf);
+    add_sct_bin_words_prologue(sf);
     int block_word_size = 0;
     if(tokens_to_read > 0) {
-        sf->structure->code_section_word_size += cp->bin_token_num;
+        // sf->structure->code_section_word_counter += cp->bin_token_num;
 
         if(strlen(**tokens_pos_ptr) == 1 && strncmp(**tokens_pos_ptr, "{", 1) == 0) {
             *tokens_pos_ptr += 1; // block opening paranthesis
@@ -1235,22 +1283,25 @@ code_obj* asm_read_code_block(int tokens_to_read, char*** tokens_pos_ptr, sct_f*
         node** code_nodes = w_malloc(sizeof(node*));
         int code_nodes_num = 0;
         while(*tokens_pos_ptr != NULL && ((int)*tokens_pos_ptr) < end_token_addr) {
-            cp_cmp_result res = asm_identify_cp(tokens_pos_ptr);
+            cp_cmp_result res = asm_identify_cp(tokens_pos_ptr, sf);
             if(res.is_identified) {
                 char msg[256];
                 sprintf(msg, "Found pattern '%s'.\n", res.match->name);
                 print_success(msg);
 
                 code_pattern* cp = (code_pattern*) res.match;
-                int bin_tokens = cp->bin_token_num - cp->bin_extra_token_num;
-                sf->structure->code_section_word_size += bin_tokens;
+                // int bin_tokens = cp->bin_token_num - cp->bin_extra_token_num;
+                // sf->structure->code_section_word_counter += bin_tokens;
 
-                print_code_pattern(cp);
+                // print_code_pattern(cp);
                 obj_and_token_ptr oatp = asm_create_code_obj(cp, (char**) res.vars, tokens_pos_ptr, sf);
 
                 code_obj* co = (code_obj*) oatp.obj;
-                int bin_tokens_num = count_code_obj_bin_tokens(co); // very inefficient way to count every time
-                block_word_size += bin_tokens_num;
+                // int bin_tokens_num = count_code_obj_bin_tokens(co); // very inefficient way to count every time
+                // block_word_size += bin_tokens_num;
+                // if(cp->type == SWITCH){
+                //     block_word_size += 0x85;
+                // }
 
                 node* code_node = create_node(oatp.obj);
                 if(code_nodes_num == 0) {
@@ -1276,8 +1327,11 @@ code_obj* asm_read_code_block(int tokens_to_read, char*** tokens_pos_ptr, sct_f*
         c_obj->code_nodes_num = code_nodes_num;
         c_obj->code_nodes = code_nodes;
     }
-    printf("block_word_size: %d\n", block_word_size+2);
-    int bin_vars[1] = { block_word_size+2 }; // +2 for the prologue [0xfffffffc size]
+
+    unsigned long after_block_code_word_count = get_sct_code_word_count(sf);
+    block_word_size = (int) (after_block_code_word_count - before_block_code_word_count);
+    printf("block_word_size: %d (%04x)\n", block_word_size, block_word_size);
+    int bin_vars[1] = { block_word_size }; // +2 for the prologue [0xfffffffc size]
     c_obj->bin_vars = w_malloc(c_obj->cp->bin_var_num*sizeof(int));
 
     memcpy(c_obj->bin_vars, bin_vars, sizeof(c_obj->bin_vars));

@@ -404,6 +404,7 @@ data_obj* asm_create_data_obj(char*** tokens_pos_ptr, int index) {
 }
 
 void build_data_section(sct_f* sf) {
+    sf->structure->data_sec_size = 0;
     char** tokens;
     char*** tokens_pos_ptr;
     tokens = tokenize_section("._DATA", sf);
@@ -414,6 +415,7 @@ void build_data_section(sct_f* sf) {
     node* data_nodes;
     while(**tokens_pos_ptr != NULL) {
         data_obj* data_o = asm_create_data_obj(tokens_pos_ptr, i);
+        sf->structure->data_sec_size += data_o->byte_size;
         node* n = create_node(data_o);
         if(data_next == NULL) { 
             data_next = n;
@@ -553,7 +555,7 @@ cp_cmp_result asm_identify_cp(char*** token_pos_ptr, sct_f* sf) {
            if(eq_tokens == eq_goal) {
                 int bin_tokens_num = cp->bin_token_num + cp->bin_extra_token_num;
                 add_sct_bin_words(bin_tokens_num, sf);
-                printf("Added %02x tokens for '%s'.\n", bin_tokens_num, cp->name);
+                // printf("Added %02x tokens for '%s'.\n", bin_tokens_num, cp->name);
                 res.is_identified = true;
                 res.match = cp;
                 res.tokens_pos = token;
@@ -606,7 +608,7 @@ expr_cmp_result asm_identify_expr(char*** token_pos_ptr, sct_f* sf) {
             //    printf("last token: %s\n", *token);
                 int bin_tokens_num = expr->bin_token_num;
                 add_sct_bin_words(bin_tokens_num, sf);
-                printf("Added %02x tokens for '%s'.\n", bin_tokens_num, expr->name);
+                // printf("Added %02x tokens for '%s'.\n", bin_tokens_num, expr->name);
                 res.is_identified = true;
                 res.match = expr;
                 res.tokens_pos = token;
@@ -682,7 +684,7 @@ expr_obj* asm_create_expr_obj(expr_pattern* expr_p, char** vars, char*** token_p
         case VAR_PTR:
         case DATA_PTR: {
             create_data_link(sf);
-            print_bin_link_table(sf);
+            // print_bin_link_table(sf);
             char* data_name = vars[0];
             data_obj* data_o = get_data_obj_by_name(data_name, sf);
             eo->data = data_o;
@@ -718,6 +720,7 @@ expression* asm_read_expression(char*** token_pos_ptr, sct_f* sf) {
     node** expr_nodes = w_malloc(sizeof(node*));
 
     add_sct_bin_words_prologue(sf);
+    printf("Added 02 tokens for prologue\n");
 
     int expr_nodes_num = 0;
     int exprs_to_read = 1;
@@ -746,7 +749,7 @@ expression* asm_read_expression(char*** token_pos_ptr, sct_f* sf) {
         // char** next_token = *token_pos_ptr+1;
         // size is calculated dynamically looking for binary operators
         if(is_expr_token_binary_op(*token_pos_ptr)) { 
-            printf("found binary op: %s\n", **token_pos_ptr);
+            // printf("found binary op: %s\n", **token_pos_ptr);
             exprs_to_read += 2; 
         }
     }
@@ -813,7 +816,7 @@ code_obj* asm_read_else_statement(code_pattern* cp, char** vars, char*** token_p
     }
 
     int code_block_tokens_num = count_tokens_in_code_block(token_pos_ptr);
-    printf("code_block_tokens_num: %d\n", code_block_tokens_num);
+    // printf("code_block_tokens_num: %d\n", code_block_tokens_num);
     // *token_pos_ptr += 1; // block opening paranthesis
     code_obj* c_block = asm_read_code_block(code_block_tokens_num, token_pos_ptr, sf);
     // *token_pos_ptr += 1; // closing paranthesis
@@ -851,8 +854,8 @@ code_obj* asm_read_switch_case(code_pattern* cp, char** vars, char*** tokens_pos
 
     int tokens_to_read = count_tokens_in_code_block(tokens_pos_ptr);
     int cases_num = count_token_from_to(*tokens_pos_ptr, "case", "{", "}");
-    printf("switch_block_tokens to read: %d\n", tokens_to_read);
-    printf("cases to read: %d\n", cases_num);
+    // printf("switch_block_tokens to read: %d\n", tokens_to_read);
+    // printf("cases to read: %d\n", cases_num);
     *tokens_pos_ptr += 1; // block opening paranthesis
     
     // CODE BLOCK
@@ -876,6 +879,7 @@ code_obj* asm_read_switch_case(code_pattern* cp, char** vars, char*** tokens_pos
 
     unsigned long before_block_code_word_count = get_sct_code_word_count(sf);
     add_sct_bin_words_prologue(sf);
+    // printf("Added 02 tokens for prologue\n");
 
     int block_word_size = 0;
     node** code_nodes = w_malloc(sizeof(node*));
@@ -928,7 +932,7 @@ code_obj* asm_read_switch_case(code_pattern* cp, char** vars, char*** tokens_pos
             }
         } 
     }
-    printf("bin tokens in code switch_block [%08x]: %d\n", start_token_addr, block_word_size);
+    // printf("bin tokens in code switch_block [%08x]: %d\n", start_token_addr, block_word_size);
     // printf("token_pos_addr: %08x, end_token_addr: %08x\n", *tokens_pos_ptr, end_token_addr);
     switch_block->code_nodes_num = code_nodes_num;
     switch_block->code_nodes = code_nodes;
@@ -943,7 +947,7 @@ code_obj* asm_read_switch_case(code_pattern* cp, char** vars, char*** tokens_pos
 
     // END OF CODE BLOCK
 
-    printf("after block\n");
+    // printf("after block\n");
     *tokens_pos_ptr += 1; // closing paranthesis
     node* code_node = create_node(switch_block);
 
@@ -1143,7 +1147,7 @@ code_obj* asm_read_var_ptr(code_pattern* cp, char** vars, char*** token_pos_ptr,
 
     c_obj->cp = cp;
     create_data_link(sf);
-    print_bin_link_table(sf);
+    // print_bin_link_table(sf);
     char* data_name = vars[0];
     data_obj* data_o = get_data_obj_by_name(data_name, sf);
     c_obj->data = data_o;
@@ -1271,6 +1275,7 @@ code_obj* asm_read_code_block(int tokens_to_read, char*** tokens_pos_ptr, sct_f*
     
     unsigned long before_block_code_word_count = get_sct_code_word_count(sf);
     add_sct_bin_words_prologue(sf);
+    // printf("Added 02 tokens for prologue\n");
     int block_word_size = 0;
     if(tokens_to_read > 0) {
         // sf->structure->code_section_word_counter += cp->bin_token_num;

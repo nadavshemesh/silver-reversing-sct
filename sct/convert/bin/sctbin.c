@@ -1,4 +1,20 @@
-#include "\sct\convert\bin\sctbin.h"
+#include "sct\convert\bin\sctbin.h"
+
+void build_scripts_order(sct_f* sf) {
+    unsigned long f_pos = ftell(sf->file);
+
+    int scripts_num = sf->structure->num_of_scripts;
+    int script_table = sf->structure->script_table_off+4;
+    int scripts[scripts_num];
+
+    fseek(sf->file, script_table, SEEK_SET);
+    fread(scripts, scripts_num, sizeof(int), sf->file);
+
+    sf->script_table = w_malloc(scripts_num*sizeof(int));
+    memcpy(sf->script_table, scripts, scripts_num*sizeof(int));
+    
+    fseek(sf->file, f_pos, SEEK_SET);
+}
 
 void build_data_from_link_table(sct_f* sct) {
     int link_offset = (sct->structure->link_table_off)+4;
@@ -424,7 +440,8 @@ code_obj* bin_read_code_block(code_pattern* cp, void* vars, void** token_pos_ptr
     return c_obj;
 }
 
-code_obj* bin_read_code_block_cases(code_pattern* cp, void* vars, int* cases, int cases_num, void** token_pos_ptr, sct_f* sf) {
+code_obj* bin_read_code_block_cases(code_pattern* cp, void* vars, int* cases, int* case_ptrs,
+         int cases_num, void** token_pos_ptr, sct_f* sf) {
     code_obj* c_obj = create_and_init_c_obj();
 
     c_obj->cp = cp;
@@ -454,7 +471,12 @@ code_obj* bin_read_code_block_cases(code_pattern* cp, void* vars, int* cases, in
 
     current_case->code_nodes = w_malloc(sizeof(node*));
     *current_case->code_nodes = w_malloc(sizeof(node));
+    // for(int i=0; i < cases_num; i++) {
+    //     printf("case addr: %08x\n", case_ptrs[i]);
+    // }
 
+    int case_tokens_num = (case_ptrs[case_index+1]-case_ptrs[case_index])/4;
+    printf("case tokens num: %d\n", case_tokens_num);
     while(tokens_read < size_in_words) {
         printf("Block tokens read: %d\n", tokens_read);
         cp_cmp_result res = bin_identify_cp(token_pos_ptr);
@@ -478,8 +500,11 @@ code_obj* bin_read_code_block_cases(code_pattern* cp, void* vars, int* cases, in
             *token_pos_ptr = oatp.token_ptr;
             block_token_pos_ptr = *token_pos_ptr;
             tokens_read = (block_token_pos_ptr - token_ptr);
+
+            printf("tokens read: %d\n", tokens_read);
             // After break add case code_obj to main block
-            if(res.match->type == BREAK && case_index < cases_num) {
+            if((tokens_read == case_tokens_num) && case_index < cases_num) {
+                printf("case %d\n", cases[case_index]);
                 node* code_node = create_node(current_case);
                 if(c_obj->code_nodes_num == 0){
                     *c_obj->code_nodes = code_node;
@@ -490,10 +515,17 @@ code_obj* bin_read_code_block_cases(code_pattern* cp, void* vars, int* cases, in
 
                 // init current case (next case)
                 case_index++;
+                if(case_index < cases_num-1) {
+                    case_tokens_num += (case_ptrs[case_index+1]-case_ptrs[case_index])/4;
+                } else {
+                    case_tokens_num = size_in_words;
+                }
+                printf("case tokens num: %d\n", case_tokens_num);
                 current_case = create_and_init_c_obj();
                 current_case->cp = case_cp;
 
                 sprintf(num_s, "%d", cases[case_index]);
+                printf("next case %d\n", cases[case_index]);
                 char* asm_vars[1] = { aapts(num_s) };
                 current_case->asm_vars = w_malloc((current_case->cp->asm_var_num)*sizeof(char**));
                 memcpy(current_case->asm_vars, asm_vars, sizeof(current_case->asm_vars));
@@ -722,8 +754,8 @@ code_obj* bin_read_switch_case(code_pattern* cp, void* vars, void** token_pos_pt
     c_obj->cp = cp;
     int cases_num = ((int*)vars)[0];
     if(cases_num <= 0) print_err_and_exit("Error, switch without cases.", -2);
-    int padding_to_block_ptrs = 69;
-    int padding_to_block = 129;
+    int padding_from_vars_to_block = 0x80;
+    int padding_from_vars_to_ptrs = 0x40;
 
     // read cases values
     int* token_pos = *token_pos_ptr;
@@ -732,20 +764,18 @@ code_obj* bin_read_switch_case(code_pattern* cp, void* vars, void** token_pos_pt
     int case_ptrs[cases_num];
     memcpy(cases, token_pos, cases_num*sizeof(int));
 
+    // read case addrs
+    token_pos += padding_from_vars_to_ptrs;
+    memcpy(case_ptrs, token_pos, cases_num*sizeof(int));
     // for(int i=0; i < cases_num; i++) {
-    //     printf("%d ", cases[i]);
+    //     printf("case addr: %08x\n", case_ptrs[i]);
     // }
-    // printf("\n");
-
-    // read case blocks (no need in bin_mode)
-    // token_pos += padding_to_block_ptrs-cases_num;
 
     // read expression
-    // token_pos += (padding_to_block-cases_num);
-    token_pos += padding_to_block;
-    // print_token_area_details(token_pos, m);
+    token_pos += padding_from_vars_to_block-padding_from_vars_to_ptrs;
+    // token_pos += padding_to_block;
     *token_pos_ptr = token_pos;
-    expression* exp = bin_read_expression(token_pos_ptr, false, sf);
+    expression* exp = bin_read_expression(token_pos_ptr, true, sf);
     c_obj->expression_node_num = 1;
     node** exp_nodes = w_malloc(sizeof(node*));
     *exp_nodes = w_malloc(sizeof(node));
@@ -753,25 +783,12 @@ code_obj* bin_read_switch_case(code_pattern* cp, void* vars, void** token_pos_pt
     *exp_nodes = new_node;
     c_obj->expression_nodes = exp_nodes;
 
-    // copy bin & asm vars (cases values)
-    // int bin_var_num = cases_num;
-    // int asm_var_num = cases_num;
-    // cp->bin_var_num = cases_num;
     char* asm_vars[cases_num];
     for(int i=0; i < cases_num; i++) {
         char str[10];
         sprintf(str, "%d", cases[i]);
         asm_vars[i] = str;
     }
-    // c_obj->asm_vars = w_malloc(asm_var_num*sizeof(char*));
-    // c_obj->bin_vars = w_malloc(cases_num*sizeof(int));
-
-    // memcpy(c_obj->asm_vars, asm_vars, sizeof(c_obj->asm_vars));
-    // memcpy(c_obj->bin_vars, cases, cases_num*sizeof(int));
-    // for(int i=0; i < cases_num; i++) {
-    //     printf("%d ", (c_obj->bin_vars)[i]);
-    // }
-    // printf("\n");
 
     // read code block
     code_obj* code_block_obj;
@@ -779,7 +796,7 @@ code_obj* bin_read_switch_case(code_pattern* cp, void* vars, void** token_pos_pt
     if(res.is_identified && res.match->type == CODE_BLOCK) {
         *token_pos_ptr = res.tokens_pos;
         code_obj* c_obj;
-        code_block_obj = bin_read_code_block_cases(res.match, res.vars, cases, cases_num, token_pos_ptr, sf);
+        code_block_obj = bin_read_code_block_cases(res.match, res.vars, cases, case_ptrs, cases_num, token_pos_ptr, sf);
     } else {
         print_err_and_exit("Error, no code_block after switch-case.", -2);
     }

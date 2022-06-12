@@ -34,6 +34,44 @@ int get_script_off(int script_num, sct_f* sf) {
     return script_offset*4+0x20;
 }
 
+int get_script_offset(int script_num, sct_f* sf) {
+    if(script_num >= sf->structure->num_of_scripts) {
+        printf("script #%d does'nt exist, there are %d scripts.\n", script_num, sf->structure->num_of_scripts);
+        return -2;
+    }
+    int* script_table = sf->script_table;
+    if(script_table == NULL) print_err_and_exit("Error, script table is undefined.", -4);
+    int script_offset = script_table[script_num];
+
+    return script_offset*4+0x20;
+}
+
+int cmp_nums (const void * a, const void * b) {
+   return ( *(int*)a - *(int*)b );
+}
+
+int get_script_offset_sorted(int script_num, sct_f* sf) {
+    int num_of_scripts = sf->structure->num_of_scripts;
+    if(script_num >= num_of_scripts) {
+        printf("script #%d does'nt exist, there are %d scripts.\n", script_num, sf->structure->num_of_scripts);
+        return -2;
+    }
+    int script_table[num_of_scripts];
+    if(sf->script_table == NULL) print_err_and_exit("Error, script table is undefined.", -4);
+
+    memcpy(script_table, sf->script_table, num_of_scripts*sizeof(int));
+    qsort(script_table, num_of_scripts, sizeof(int), cmp_nums);
+    
+    int script_offset = script_table[script_num];
+    return script_offset*4+0x20;
+}
+
+void print_script_table_offsets(sct_f* sf) {
+    for(int i=0; i < sf->scripts_num; i++) {
+        printf("script offset: %08x\n", sf->script_table[i]);
+    }
+}
+
 sct_s* form_structure(FILE* sctfile) {
     sct_s* structure = malloc(sizeof(sct_s));
     fseek(sctfile, 0x4, SEEK_SET);

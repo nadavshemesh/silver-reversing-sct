@@ -55,6 +55,9 @@ typedef struct sct_file {
 bool is_filepath_valid(char* filepath);
 sct_s* form_structure(FILE* sctfile);
 int get_script_off(int script_num, sct_f* sf);
+int get_script_offset(int script_num, sct_f* sf);
+int get_script_offset_sorted(int script_num, sct_f* sf);
+void print_script_table_offsets(sct_f* sf);
 void print_sct_struct(sct_f* sf);
 void print_script(script* script);
 void print_data_section(sct_f* sf);

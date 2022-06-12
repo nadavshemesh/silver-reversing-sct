@@ -7,7 +7,8 @@ expr_pattern** expr_patterns;
 
 
 script* disasm_script(int script_num, sct_f* sf) {
-    int script_offset = get_script_off(script_num, sf);
+    // int script_offset = get_script_off(script_num, sf);
+    int script_offset = get_script_offset_sorted(script_num, sf);
     fseek(sf->file, script_offset+8, SEEK_SET);
 
     script* script = w_malloc(sizeof(script));
@@ -73,6 +74,7 @@ sct_f* disasm_file(char* filepath) {
     sct_file->structure = form_structure(file);
     
     // disassemble file's data section
+    build_scripts_order(sct_file);
     build_data_from_link_table(sct_file);
 
     // disassemble file's scripts
@@ -115,14 +117,13 @@ sct_f* asm_file(char* filepath) {
 
     char*** tokens_pos_ptr;
     for(int i=0; i < sct_file->scripts_num; i++) {
-    // for(int i=0; i < 2; i++) {
         script* sc = w_malloc(sizeof(script));
         sc->code_nodes = w_malloc(sizeof(node*));
         sc->code_nodes_num = 0;
         sc->number = i;
         sc->name = aapts(get_script_label_by_id(i, sct_file));
 
-        sct_file->script_table[i] = 0x08 + get_sct_code_word_count(sct_file);
+        sct_file->script_table[i] = get_sct_code_word_count(sct_file);
         int block_tokens_size = count_next_section_tokens(sct_file);
         char** tokens = tokenize_next_section(sct_file);
         tokens_pos_ptr = &tokens;
@@ -138,7 +139,15 @@ sct_f* asm_file(char* filepath) {
         sct_file->scripts[i] = sc;
     }
 
-exit(0);
+    // printf("data section size: %08x\n", sct_file->structure->data_sec_size);
+    // print_script_table_offsets(sct_file);
+    sct_file->structure->num_of_scripts = sct_file->scripts_num;
+    sct_file->structure->script_table_off = 0x20 + sct_file->structure->code_section_word_counter*4;
+    sct_file->structure->script_table_size = sct_file->scripts_num*4;
+    sct_file->structure->data_sec_off = sct_file->structure->script_table_off + sct_file->structure->script_table_size;
+    sct_file->structure->link_table_off = sct_file->structure->data_sec_off + sct_file->structure->data_sec_size;
+    print_sct_struct(sct_file);
+
     fclose(file);
     return sct_file;
 }
@@ -176,7 +185,7 @@ int main(int argc, char* argv[]) {
         case 1:
             sct_file = asm_file(filepath);
             // print_bin_data_section(sct_file);
-            print_bin_file(sct_file);
+            // print_bin_file(sct_file);
             break;
     }
 

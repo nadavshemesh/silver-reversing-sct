@@ -20,7 +20,7 @@ void print_bin_switch_code_obj(code_obj* co) {
 
     // print tokens
     code_pattern* cp = co->cp;
-    int bin_tokens_len = cp->bin_token_num-cp->bin_extra_token_num;
+    int bin_tokens_len = cp->bin_token_num;
     // printf("%s (%d tokens)\n", co->cp->name, bin_tokens_len);
     for(int i=0, j=0; i < bin_tokens_len; i++) {
         if(is_var_pos(cp, CODE_TYPE, MODE_BIN, i)) {
@@ -85,7 +85,7 @@ void print_bin_expr_obj(expr_obj* expr) {
 
 void print_bin_expression(expression* exp) {
     for(int i=0; i < exp->expr_objs_len; i++) {
-        expr_obj* eo = (&exp->expr_objs)[i];
+        expr_obj* eo = exp->expr_objs+i;
         printf("%08x%08x", 0xfffffffd, exp->expr_objs_len);
         print_bin_expr_obj(eo);
     }
@@ -96,7 +96,8 @@ void print_bin_code_obj(code_obj* co) {
     if(cp->type == SWITCH) {
         print_bin_switch_code_obj(co);
     } else {
-        int bin_tokens_len = cp->bin_token_num-cp->bin_extra_token_num;
+        int bin_tokens_len = cp->bin_token_num+cp->bin_extra_token_num;
+        // print_code_obj(co);
         // printf("%s (%d tokens)\n", co->cp->name, bin_tokens_len);
         for(int i=0, j=0; i < bin_tokens_len; i++) {
             if(is_var_pos(cp, CODE_TYPE, MODE_BIN, i)) {
@@ -142,7 +143,6 @@ void print_bin_data_section(sct_f* sf) {
 }
 
 void print_bin_code_nodes(node* head) {
-    printf("check\n");
     node* node = head;
     if(node == NULL) return;
     while(node != NULL && node->item != NULL) {

@@ -369,7 +369,7 @@ data_obj* asm_create_data_obj(char*** tokens_pos_ptr, int index) {
             byte* data = (byte*) aapts(str);
 
             data_o->id = index;
-            data_o->byte_size = len;
+            data_o->byte_size = len+1; // +1 for null byte
             data_o->name = aapts(name);
 
             // data_o->asm_data = w_malloc(sizeof(char*));
@@ -865,13 +865,12 @@ code_obj* asm_read_switch_case(code_pattern* cp, char** vars, char*** tokens_pos
     int cases_index = 0;
     int cases[cases_num];
     int cases_offsets[cases_num];
-    int first_case_offset = 564;
+    int first_case_offset = 0x0234;
     
     code_pattern* switch_block_cp = code_patterns[3]; //code_block cp
     switch_block->cp = switch_block_cp; 
     
     // sf->structure->code_section_word_counter += switch_block_cp->bin_token_num;
-    int prev_case_pos = sf->structure->code_section_word_counter;
 
     int start_token_addr = (int) *tokens_pos_ptr;
     int end_token_addr = (start_token_addr + tokens_to_read*sizeof(char*));
@@ -879,6 +878,7 @@ code_obj* asm_read_switch_case(code_pattern* cp, char** vars, char*** tokens_pos
 
     unsigned long before_block_code_word_count = get_sct_code_word_count(sf);
     add_sct_bin_words_prologue(sf);
+    int prev_case_pos = sf->structure->code_section_word_counter;
     // printf("Added 02 tokens for prologue\n");
 
     int block_word_size = 0;

@@ -4,6 +4,7 @@
 #include "sct\sct.h"
 #include "sct\print\asm\console.h"
 #include "sct\print\bin\console.h"
+#include "sct\print\bin\file.h"
 
 #define MAX_ASM_TOKEN_LEN 256
 

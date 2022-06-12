@@ -43,6 +43,7 @@ typedef struct sct_file {
     int scripts_num;
     int data_objs_num;
     FILE* file;
+    FILE* out_file;
     sct_s* structure;
     script** scripts;
     char** scripts_labels;

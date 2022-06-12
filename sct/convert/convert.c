@@ -152,6 +152,21 @@ sct_f* asm_file(char* filepath) {
     return sct_file;
 }
 
+void write_sct_bin_file(char* filepath, sct_f* sf) {
+    // FILE* f = fopen(filepath, "wb");
+    FILE* f = fopen("./veranda.sct", "wb");
+    sf->out_file = w_malloc(sizeof(FILE));
+    sf->out_file = f;
+
+    write_sct_header(sf);
+    write_bin_code_section(sf);
+    write_bin_script_table(sf);
+    write_bin_data_section(sf);
+    write_bin_link_table(sf);
+
+    fclose(f);
+}
+
 int main(int argc, char* argv[]) {
     if(argc < 3) {
         printf("Usage: [op] [file]\n");
@@ -184,6 +199,7 @@ int main(int argc, char* argv[]) {
 
         case 1:
             sct_file = asm_file(filepath);
+            write_sct_bin_file(filepath, sct_file);
             // print_bin_data_section(sct_file);
             // print_bin_file(sct_file);
             break;

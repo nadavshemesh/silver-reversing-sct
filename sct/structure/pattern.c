@@ -83,7 +83,7 @@ void init_cp(code_pattern* cp, c_type type, i_arr bin_tokens, i_arr bin_var_pos,
 }
 
 code_pattern* init_cp_func_call() {
-    code_pattern* cp_func_call = (code_pattern*) malloc(sizeof(code_pattern));
+    code_pattern* cp_func_call = create_and_init_code_pattern();
 
     cp_func_call->name = aapts("call_game_function");
     i_arr bin_tokens = { .arr = {0, 3, VAR, VAR}, .len = 4 };
@@ -98,7 +98,7 @@ code_pattern* init_cp_func_call() {
 }
 
 code_pattern* init_cp_if() {
-    code_pattern* cp_if = (code_pattern*) malloc(sizeof(code_pattern));
+    code_pattern* cp_if = create_and_init_code_pattern();
 
     cp_if->name = aapts("if(expression) then code_block");
     cp_if->bin_extra_token_num = -1; // 0xfffffffd is extra for recognition
@@ -114,7 +114,7 @@ code_pattern* init_cp_if() {
 }
 
 code_pattern* init_cp_var() {
-    code_pattern* cp_var = (code_pattern*) malloc(sizeof(code_pattern));
+    code_pattern* cp_var = create_and_init_code_pattern();
 
     cp_var->name = aapts("var reference from data table");
     i_arr bin_tokens = { .arr = { 0, 6, VAR}, .len = 3 };
@@ -129,7 +129,7 @@ code_pattern* init_cp_var() {
 }
 
 code_pattern* init_cp_var_inc() {
-    code_pattern* cp_inc = (code_pattern*) malloc(sizeof(code_pattern));
+    code_pattern* cp_inc = create_and_init_code_pattern();
 
     cp_inc->name = aapts("increment variable by 1");
     i_arr bin_tokens = { .arr = { 7, 0}, .len = 2 };
@@ -144,7 +144,7 @@ code_pattern* init_cp_var_inc() {
 }
 
 code_pattern* init_cp_var_dec() {
-    code_pattern* cp_dec = (code_pattern*) malloc(sizeof(code_pattern));
+    code_pattern* cp_dec = create_and_init_code_pattern();
 
     cp_dec->name = aapts("decrement variable by 1");
     i_arr bin_tokens = { .arr = { 7, 1}, .len = 2 };
@@ -159,7 +159,7 @@ code_pattern* init_cp_var_dec() {
 }
 
 code_pattern* init_cp_var_assignment() {
-    code_pattern* cp_assign = (code_pattern*) malloc(sizeof(code_pattern));
+    code_pattern* cp_assign = create_and_init_code_pattern();
 
     cp_assign->name = aapts("assign var an expression.");
     i_arr bin_tokens = { .arr = { 7, 2}, .len = 2 };
@@ -174,7 +174,7 @@ code_pattern* init_cp_var_assignment() {
 }
 
 code_pattern* init_cp_code_block() {
-    code_pattern* cp_cblock = (code_pattern*) malloc(sizeof(code_pattern));
+    code_pattern* cp_cblock = create_and_init_code_pattern();
 
     cp_cblock->name = aapts("code block");
     i_arr bin_tokens = { .arr = { 0xfffffffc, VAR }, .len = 2 };
@@ -189,7 +189,7 @@ code_pattern* init_cp_code_block() {
 }
 
 code_pattern* init_cp_script_call() {
-    code_pattern* cp_scall = (code_pattern*) malloc(sizeof(code_pattern));
+    code_pattern* cp_scall = create_and_init_code_pattern();
 
     cp_scall->name = aapts("call_script");
     i_arr bin_tokens = { .arr = { 0, 1, VAR }, .len = 3 };
@@ -204,7 +204,7 @@ code_pattern* init_cp_script_call() {
 }
 
 code_pattern* init_cp_structure_ptr() {
-    code_pattern* cp = (code_pattern*) malloc(sizeof(code_pattern));
+    code_pattern* cp = create_and_init_code_pattern();
 
     cp->name = aapts("struct ptr");
     i_arr bin_tokens = { .arr = { 0, 4, VAR, VAR, 4 }, .len = 5 };
@@ -219,7 +219,7 @@ code_pattern* init_cp_structure_ptr() {
 }
 
 code_pattern* init_cp_switch_case() {
-    code_pattern* cp_switch = (code_pattern*) malloc(sizeof(code_pattern));
+    code_pattern* cp_switch = create_and_init_code_pattern();
 
     cp_switch->name = aapts("switch_case");
     i_arr bin_tokens = { .arr = { 1, 9, VAR }, .len = 3 };
@@ -234,7 +234,7 @@ code_pattern* init_cp_switch_case() {
 }
 
 code_pattern* init_cp_break() {
-    code_pattern* cp_break = (code_pattern*) malloc(sizeof(code_pattern));
+    code_pattern* cp_break = create_and_init_code_pattern();
 
     cp_break->name = aapts("break");
     i_arr bin_tokens = { .arr = { 1, 8 }, .len = 2 };
@@ -249,7 +249,7 @@ code_pattern* init_cp_break() {
 }
 
 code_pattern* init_aid_cp_case() {
-    code_pattern* cp_case = (code_pattern*) malloc(sizeof(code_pattern));
+    code_pattern* cp_case = create_and_init_code_pattern();
 
     cp_case->name = aapts("case");
     i_arr bin_tokens = { .arr = { }, .len = 0 };
@@ -264,7 +264,7 @@ code_pattern* init_aid_cp_case() {
 }
 
 code_pattern* init_cp_else() {
-    code_pattern* cp_else = (code_pattern*) malloc(sizeof(code_pattern));
+    code_pattern* cp_else = create_and_init_code_pattern();
 
     cp_else->name = aapts("else_block");
     cp_else->bin_extra_token_num = -1; // 0xfffffffc is extra for recognition

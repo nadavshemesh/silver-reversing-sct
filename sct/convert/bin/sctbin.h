@@ -3,6 +3,7 @@
 
 #include "sct\sct.h"
 #include "sct\print\asm\console.h"
+#include "sct\print\asm\file.h"
 
 void build_data_from_link_table(sct_f* sct);
 expr_obj* bin_create_expr_obj(expr_pattern* expr, void* vars, void** token_pos_ptr, sct_f* sf);

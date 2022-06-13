@@ -118,8 +118,6 @@ sct_f* asm_file(char* filepath) {
 
     build_scripts_lables_and_order(sct_file);
     build_data_section(sct_file);
-    print_data_section(sct_file);
-    // exit(0);
 
     // sct_file->scripts = w_malloc(sizeof(script*));
     sct_file->scripts = w_malloc((sections_num-1)*sizeof(script*));
@@ -159,6 +157,24 @@ sct_f* asm_file(char* filepath) {
 
     fclose(file);
     return sct_file;
+}
+
+void write_tsct_asm_file(char* filepath, sct_f* sf) {
+    char* dir = getDir(filepath);
+    char* filename = getFilenameNoExt(filepath);
+    char ext[] = ".tsct";
+
+    int str_path_size = strlen(dir)+strlen(filename)+strlen(ext)+1;
+    char fullpath[str_path_size];
+    snprintf(fullpath, str_path_size, "%s%s%s", dir, filename, ext);
+
+    FILE* f = fopen(fullpath, "wb");
+    sf->out_file = w_malloc(sizeof(FILE));
+    sf->out_file = f;
+
+    write_asm_file(sf);
+
+    fclose(f);
 }
 
 void write_sct_bin_file(char* filepath, sct_f* sf) {
@@ -209,16 +225,12 @@ int main(int argc, char* argv[]) {
     switch(op) {
         case 0:
             sct_file = disasm_file(filepath);
-            // print_data_section(sct_file);
-            print_asm_data_section(sct_file);
-            print_asm_file(sct_file);
+            write_tsct_asm_file(filepath, sct_file);
             break;
 
         case 1:
             sct_file = asm_file(filepath);
             write_sct_bin_file(filepath, sct_file);
-            // print_bin_data_section(sct_file);
-            // print_bin_file(sct_file);
             break;
     }
 

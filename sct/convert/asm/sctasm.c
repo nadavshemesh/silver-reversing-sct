@@ -316,7 +316,7 @@ void add_sct_bin_words_switch_body(sct_f* sf) {
     sf->structure->code_section_word_counter += 0x81;
 }
 
-data_obj* asm_create_data_obj(char*** tokens_pos_ptr, int index) {
+data_obj* asm_create_data_obj(char*** tokens_pos_ptr, int id) {
     char** token_ptr = *tokens_pos_ptr;
     if(*token_ptr == NULL)
         print_err_and_exit("Error, data obj ptr is null.", -4);
@@ -346,7 +346,7 @@ data_obj* asm_create_data_obj(char*** tokens_pos_ptr, int index) {
             //     printf("%08x\n", integers[i]);
             // }
 
-            data_o->id = index;
+            data_o->id = id;
             data_o->byte_size = integers_num*sizeof(int);
             data_o->name = aapts(name);
 
@@ -368,8 +368,10 @@ data_obj* asm_create_data_obj(char*** tokens_pos_ptr, int index) {
             // char* asm_data = { aapts(token) };
             byte* data = (byte*) aapts(str);
 
-            data_o->id = index;
-            data_o->byte_size = len+1; // +1 for null byte
+            data_o->id = id;
+            len += 1; // +1 for null byte
+            len += len % 4; // padding
+            data_o->byte_size = len; 
             data_o->name = aapts(name);
 
             // data_o->asm_data = w_malloc(sizeof(char*));
@@ -385,7 +387,7 @@ data_obj* asm_create_data_obj(char*** tokens_pos_ptr, int index) {
             char* asm_data[1] = { aapts(token) };
             int data[1] = { atoi(token) };
 
-            data_o->id = index;
+            data_o->id = id;
             data_o->byte_size = 4;
             data_o->name = aapts(name);
 
@@ -414,7 +416,10 @@ void build_data_section(sct_f* sf) {
     node* data_next = NULL;
     node* data_nodes;
     while(**tokens_pos_ptr != NULL) {
-        data_obj* data_o = asm_create_data_obj(tokens_pos_ptr, i);
+        int ds_size = sf->structure->data_sec_size;
+        int id = (ds_size % 4 == 0) ? ds_size/4 : (ds_size/4+1);
+        // printf("id: %08x\n", id);
+        data_obj* data_o = asm_create_data_obj(tokens_pos_ptr, id);
         sf->structure->data_sec_size += data_o->byte_size;
         node* n = create_node(data_o);
         if(data_next == NULL) { 
@@ -426,7 +431,6 @@ void build_data_section(sct_f* sf) {
         }
         i++;
     }
-
     sf->data_objs_num = i;
     sf->data_section = w_malloc(i*sizeof(data_obj));
     data_next = data_nodes; // point to start again
@@ -865,7 +869,8 @@ code_obj* asm_read_switch_case(code_pattern* cp, char** vars, char*** tokens_pos
     int cases_index = 0;
     int cases[cases_num];
     int cases_offsets[cases_num];
-    int first_case_offset = 0x0234;
+    int exp_token_bytes_len = exp->expr_objs[0].expr_p->bin_token_num*4;
+    int first_case_offset = 0x0210+0x10+exp_token_bytes_len;
     
     code_pattern* switch_block_cp = code_patterns[3]; //code_block cp
     switch_block->cp = switch_block_cp; 

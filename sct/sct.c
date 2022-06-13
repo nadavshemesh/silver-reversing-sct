@@ -46,6 +46,17 @@ int get_script_offset(int script_num, sct_f* sf) {
     return script_offset*4+0x20;
 }
 
+int get_script_num_by_offset(int offset, sct_f* sf) {
+    for(int i=0; i < sf->structure->num_of_scripts; i++) {
+        int s_offset = sf->script_table[i];
+        if(s_offset*4+0x20 == offset) {
+            return i;
+        }
+    }
+
+    return -1;
+}
+
 int cmp_nums (const void * a, const void * b) {
    return ( *(int*)a - *(int*)b );
 }

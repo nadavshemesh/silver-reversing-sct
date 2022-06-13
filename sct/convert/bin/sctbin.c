@@ -39,6 +39,7 @@ void build_data_from_link_table(sct_f* sct) {
         }
     } 
 
+    for(int i=0; i < links_num; i++) { ref_count[i] = 0; } 
     // count refs to data by id
     for(int i=0, j=0; i < links_num; i++) {
         if(ref_is_data[i] > 0) {
@@ -54,7 +55,8 @@ void build_data_from_link_table(sct_f* sct) {
     }
 
     // count distinct refs
-    for(int i=0; i < links_num; i++) { if(ref_count[i] > 0) data_ref_size++; } 
+    // for(int i=0; i < links_num; i++) { printf("ref %d: %d\n", i, ref_count[i]); } 
+    for(int i=0; i < links_num; i++) { if(ref_count[i] > 0) {data_ref_size++;} } 
     // printf("data_ref_size: %08x\n", data_ref_size);
 
     // create data objects
@@ -62,7 +64,7 @@ void build_data_from_link_table(sct_f* sct) {
     for(int i=0, j=0; i < links_num; i++) {
         if(ref_count[i] > 0) {
             data_arr[j].id = i;
-            // printf("data id: %d\n", i);
+            // printf("data id: %08x\n", i);
             data_arr[j].references = ref_count[i];
             // printf("ref count: %d\n", ref_count[i]);
             j++;
@@ -90,7 +92,6 @@ void build_data_from_link_table(sct_f* sct) {
         fread(&data, 1, byte_size, sct->file);
         // printf("%08x\n", data[0]);
 
-        //TODO: ASM DATA
         char prefix[] = "VAR_";
         char name[sizeof(prefix)+4];
         sprintf(name, "%s%d", prefix, j);
@@ -102,6 +103,7 @@ void build_data_from_link_table(sct_f* sct) {
         // memcpy(data_arr[i].bin_data, data, byte_size);
         memcpy(data_arr[i].data, data, byte_size);
         // memcpy(data_arr[i].asm_data, asm_data, byte_size);
+        // print_data_obj(&data_arr[i]);
     }
 
     sct->data_objs_num = data_ref_size;

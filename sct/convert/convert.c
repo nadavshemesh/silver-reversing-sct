@@ -9,10 +9,17 @@ expr_pattern** expr_patterns;
 script* disasm_script(int script_num, sct_f* sf) {
     // int script_offset = get_script_off(script_num, sf);
     int script_offset = get_script_offset_sorted(script_num, sf);
+    int script_original_offset = get_script_offset(script_num, sf); 
+    // printf("of: %08x\n", script_original_offset);
+    // exit(0);
     fseek(sf->file, script_offset+8, SEEK_SET);
 
     script* script = w_malloc(sizeof(script));
-    script->number = script_num;
+    script->number = get_script_num_by_offset(script_offset, sf);
+    char script_name[256];
+    sprintf(script_name, "._SCRIPT_%d", script->number);
+    script->name = w_malloc(sizeof(char*));
+    memcpy(script->name, script_name, strlen(script_name)+1);
     script->code_nodes_num = 0;
     script->code_nodes = w_malloc(sizeof(node*));
     *script->code_nodes = w_malloc(sizeof(node));
@@ -110,7 +117,8 @@ sct_f* asm_file(char* filepath) {
 
     build_scripts_lables_and_order(sct_file);
     build_data_section(sct_file);
-    
+    print_data_section(sct_file);
+    // exit(0);
 
     // sct_file->scripts = w_malloc(sizeof(script*));
     sct_file->scripts = w_malloc((sections_num-1)*sizeof(script*));
@@ -193,6 +201,7 @@ int main(int argc, char* argv[]) {
     switch(op) {
         case 0:
             sct_file = disasm_file(filepath);
+            // print_data_section(sct_file);
             print_asm_data_section(sct_file);
             print_asm_file(sct_file);
             break;

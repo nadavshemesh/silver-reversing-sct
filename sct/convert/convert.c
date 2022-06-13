@@ -99,6 +99,7 @@ sct_f* disasm_file(char* filepath) {
 
 sct_f* asm_file(char* filepath) {
     backup_file_gcc(filepath);
+
     FILE* file = fopen(filepath, "r");
 
     if(file == NULL) perror("Error ");
@@ -161,8 +162,15 @@ sct_f* asm_file(char* filepath) {
 }
 
 void write_sct_bin_file(char* filepath, sct_f* sf) {
-    // FILE* f = fopen(filepath, "wb");
-    FILE* f = fopen("./veranda.sct", "wb");
+    char* dir = getDir(filepath);
+    char* filename = getFilenameNoExt(filepath);
+    char ext[] = ".sct";
+
+    int str_path_size = strlen(dir)+strlen(filename)+strlen(ext)+1;
+    char fullpath[str_path_size];
+    snprintf(fullpath, str_path_size, "%s%s%s", dir, filename, ext);
+
+    FILE* f = fopen(fullpath, "wb");
     sf->out_file = w_malloc(sizeof(FILE));
     sf->out_file = f;
 

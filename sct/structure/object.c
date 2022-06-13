@@ -66,7 +66,8 @@ expr_obj* create_and_init_expr_obj() {
 
 void print_data_obj(data_obj* data_o) {
     print_title("DATA_OBJ");
-    printf("data_obj name: %s\n", data_o->name);
+    if(data_o->name != NULL)
+        printf("data_obj name: %s\n", data_o->name);
     printf("data_obj id: %d (Hex: %02x)\n", data_o->id, data_o->id);
     printf("references: %d\n", data_o->references);
     printf("size in bytes: %d\n", data_o->byte_size);

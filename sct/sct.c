@@ -134,7 +134,7 @@ void print_data_section(sct_f* sf) {
     int size = sf->data_objs_num;
     data_obj** section = sf->data_section;
     for(int i=0; i < size; i++) {
-        data_obj* data_o = section[i];
+        data_obj* data_o = *section+i;
         print_data_obj(data_o);
     }
 }
@@ -193,7 +193,11 @@ data_obj* get_data_obj_by_id(int id, sct_f* sf) {
     if(ds == NULL) { print_err_and_exit("called get_data with no data section.", -3); }
 
     data_obj* data_o = inefficient_search_data_id(id, sf);
-    if(data_o == NULL) { print_err_and_exit("called get_data with no data.", -3); }
+    if(data_o == NULL) { 
+        print_data_section(sf);
+        printf("data id: %d\n", id);
+        print_err_and_exit("called get_data with no data.", -3);
+    }
 
     return data_o;
 }

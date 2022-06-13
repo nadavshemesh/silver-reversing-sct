@@ -58,6 +58,16 @@ int read_word(FILE* f, char* dest) {
     }
     // make word
     int i = 0;
+    while(c == '/' && peek_next_char(f) == '/') {
+        printf("found comment\n");
+        while(c != '\n') {
+            c = getc(f);
+        }
+        c = getc(f);
+        while(c == '\t' || c == '\n' || c == '\r' || c == ' ') {
+            c = getc(f);
+        }
+    }
     while(c != EOF && !is_separator_char(c)) {
         dest[i] = c;
         c = getc(f);

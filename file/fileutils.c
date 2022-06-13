@@ -91,6 +91,50 @@ char* getFilename(char* filepath) {
 	return filename;
 }
 
+char* getFilenameNoExt(char* filepath) {
+	regex_t reg;
+    regmatch_t m[1];
+	char* fullfilename = getFilename(filepath);
+	char* filename = (char*) malloc(strlen(filepath)+100);
+    int val;
+    
+    if(regcomp(&reg, ".*\\.", REG_EXTENDED)) {
+        printf("could not compile regex.");
+    }
+    val = regexec(&reg, fullfilename, 1, m, REG_EXTENDED);
+    
+    if(val == 0) {
+        memcpy(filename, fullfilename, m[0].rm_eo-1);
+        *(filename+m[0].rm_eo-1) = 0;
+    } else {
+		printf("Error, filename regex not found.\n");
+	}
+
+	return filename;
+}
+
+char* getFilenameExt(char* filepath) {
+	regex_t reg;
+    regmatch_t m[1];
+	char* fullfilename = getFilename(filepath);
+	char* filename = (char*) malloc(strlen(filepath)+100);
+    int val;
+    
+    if(regcomp(&reg, "\\..*", REG_EXTENDED)) {
+        printf("could not compile regex.");
+    }
+    val = regexec(&reg, fullfilename, 1, m, REG_EXTENDED);
+    
+    if(val == 0) {
+        memcpy(filename, fullfilename+m[0].rm_so, strlen(fullfilename)-m[0].rm_so);
+        *(filename+(strlen(fullfilename)-m[0].rm_so)) = 0;
+    } else {
+		printf("Error, filename regex not found.\n");
+	}
+
+	return filename;
+}
+
 int backup_file_gcc(char* filepath) {
     FILE* f = fopen(filepath, "r");
 	struct stat st = {0};

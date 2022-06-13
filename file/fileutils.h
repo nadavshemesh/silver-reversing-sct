@@ -15,3 +15,5 @@ char* getDir(char* filepath);
 char* getFilename(char* filepath);
 long getFileSize(FILE* f);
 int backup_file_gcc(char* filepath);
+char* getFilenameNoExt(char* filepath);
+char* getFilenameExt(char* filepath);

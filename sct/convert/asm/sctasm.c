@@ -35,18 +35,22 @@ int read_word(FILE* f, char* dest) {
     }
 
     // handle string
-    // if(c == '\'') {
-    //     int i = 0;
-    //     while(c != EOF && c != '\'') {
-    //         dest[i] = c;
-    //         c = getc(f);
-    //         // printf("%d ", c);
-    //         i++;
-    //     }
-    //     dest[i] = 0;
-    //     fseek(f, ftell(f)-1, SEEK_SET);
-    //     return 0;
-    // }
+    if(c == '\'') {
+        dest[0] = c;
+        c = getc(f);
+        int i = 1;
+        while(c != EOF && c != '\'' && i < MAX_ASM_TOKEN_LEN) {
+            // printf("%c ", c);
+            dest[i] = c;
+            c = getc(f);
+            i++;
+        }
+        dest[i] = c;
+        dest[i+1] = 0;
+        c = getc(f);
+        fseek(f, ftell(f)-1, SEEK_SET);
+        return 0;
+    }
 
     if(is_special_char(c)) {
         int index = 0;
@@ -449,7 +453,7 @@ void build_data_section(sct_f* sf) {
         i++;
     }
     sf->data_objs_num = i;
-    sf->data_section = w_malloc(i*sizeof(data_obj));
+    sf->data_section = w_malloc(i*sizeof(data_obj*));
     data_next = data_nodes; // point to start again
     int j = 0;
     while(data_next != NULL) {

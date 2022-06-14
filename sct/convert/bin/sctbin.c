@@ -113,11 +113,15 @@ void build_data_from_link_table(sct_f* sct) {
     }
 
     sct->data_objs_num = data_ref_size;
-    sct->data_section = w_malloc(sizeof(data_obj*));
-    *sct->data_section = w_malloc(data_ref_size*sizeof(data_obj));
-    memcpy(*sct->data_section, data_arr, data_ref_size*sizeof(data_obj));
+    sct->data_section = w_malloc(data_ref_size*sizeof(data_obj*));
+    // *sct->data_section = w_malloc(data_ref_size*sizeof(data_obj));
+    // memcpy(*sct->data_section, data_arr, data_ref_size*sizeof(data_obj));
+    for(int i=0; i < sct->data_objs_num; i++) {
+        data_obj* data_o = w_malloc(sizeof(data_obj));
+        memcpy(data_o, &(data_arr[i]), sizeof(data_obj));
+        sct->data_section[i] = data_o;
+    }
     // print_data_obj((&data_objs[5]));
-    // exit(0);
 
     // print_data_obj(&(sct->data_section)[5]);
 }
@@ -365,7 +369,7 @@ expr_obj* bin_create_expr_obj(expr_pattern* expr, void* vars, void** token_pos_p
             char c[10];
             int i[1] = { data_var };
             sprintf(c, "%d", data_var);
-            data = w_malloc(sizeof(data_obj));
+            data = create_and_init_data_obj();
             data->name = w_malloc(10);
             data->byte_size = 4;
             data->references = 0;
@@ -401,7 +405,6 @@ expr_obj* bin_create_expr_obj(expr_pattern* expr, void* vars, void** token_pos_p
 
     eo->expr_p = expr;
     eo->data = data;
-
     return eo;
 }
 

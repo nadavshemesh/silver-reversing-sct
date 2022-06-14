@@ -197,10 +197,10 @@ void write_asm_data_object(data_obj* data_o, sct_f* sf) {
 void write_asm_data_section(sct_f* sf) {
     fprintf(sf->out_file, "._DATA\n");
     int size = sf->data_objs_num;
-    data_obj* section = *sf->data_section;
+    data_obj** section = sf->data_section;
     for(int i=0; i < size; i++) {
-        data_obj data_o = section[i];
-        write_asm_data_object(&data_o, sf);
+        data_obj* data_o = section[i];
+        write_asm_data_object(data_o, sf);
         if(i < size-1) fprintf(sf->out_file, "\t");
         if(i%1 == 0) fprintf(sf->out_file, "\n");
     }

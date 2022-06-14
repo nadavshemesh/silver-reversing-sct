@@ -134,7 +134,7 @@ void print_data_section(sct_f* sf) {
     int size = sf->data_objs_num;
     data_obj** section = sf->data_section;
     for(int i=0; i < size; i++) {
-        data_obj* data_o = *section+i;
+        data_obj* data_o = section[i];
         print_data_obj(data_o);
     }
 }
@@ -166,7 +166,7 @@ data_obj* inefficient_search_data_id(int id, sct_f* sf) {
     data_obj** ds = sf->data_section;
     data_obj* data_o = NULL;
     for(int i=0; i < ds_size; i++) {
-        data_obj* cur_data_o = *ds + i;
+        data_obj* cur_data_o = ds[i];
         if(cur_data_o->id == id)
             return cur_data_o;
     }

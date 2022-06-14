@@ -86,8 +86,7 @@ sct_f* disasm_file(char* filepath) {
 
     // disassemble file's scripts
     int scripts_num = sct_file->structure->num_of_scripts;
-    sct_file->scripts = w_malloc(sizeof(script*));
-    *sct_file->scripts = w_malloc(scripts_num*sizeof(script));
+    sct_file->scripts = w_malloc(scripts_num*sizeof(script*));
     for(int i=0; i < scripts_num; i++) {
         script* s = disasm_script(i, sct_file);
         sct_file->scripts[i] = s;

@@ -172,9 +172,15 @@ void write_asm_file(sct_f* sf) {
 
 void write_asm_data_object(data_obj* data_o, sct_f* sf) {
     fprintf(sf->out_file, "%s\t", data_o->name);
-    
-    if(is_string((char*)data_o->data, data_o->byte_size)) {
-        fprintf(sf->out_file, "'%s'", data_o->data);
+    if(is_string((byte*)data_o->data, data_o->byte_size)) {    
+        fprintf(sf->out_file, "\'");
+        for(int i=0; i < data_o->byte_size; i++) {
+            char b = *((char*)(data_o->data+i)); 
+            if(isprint(b) && b != '@') {
+                fprintf(sf->out_file, "%c", b);
+            }
+        }
+        fprintf(sf->out_file, "\'");
     } else {
         int size_in_words = data_o->byte_size / 4;
         if(size_in_words > 1) fprintf(sf->out_file, "{ ");

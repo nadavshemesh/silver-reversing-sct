@@ -169,10 +169,19 @@ void write_tsct_asm_file(char* filepath, sct_f* sf) {
     snprintf(fullpath, str_path_size, "%s%s%s", dir, filename, ext);
 
     FILE* f = fopen(fullpath, "wb");
+
+    char err[256];
+    sprintf(err, "Error, file %s, could not be opened.", fullpath);
+    if(f == NULL) print_err_and_exit(err, -4);
+
     sf->out_file = w_malloc(sizeof(FILE));
     sf->out_file = f;
 
     write_asm_file(sf);
+
+    char msg[256];
+    sprintf(msg, "successfully written to %s.", fullpath);
+    print_success(msg);
 
     fclose(f);
 }
@@ -187,6 +196,11 @@ void write_sct_bin_file(char* filepath, sct_f* sf) {
     snprintf(fullpath, str_path_size, "%s%s%s", dir, filename, ext);
 
     FILE* f = fopen(fullpath, "wb");
+
+    char err[256];
+    sprintf(err, "Error, file %s, could not be opened.", fullpath);
+    if(f == NULL) print_err_and_exit(err, -4);
+
     sf->out_file = w_malloc(sizeof(FILE));
     sf->out_file = f;
 
@@ -196,6 +210,9 @@ void write_sct_bin_file(char* filepath, sct_f* sf) {
     write_bin_data_section(sf);
     write_bin_link_table(sf);
 
+    char msg[256];
+    sprintf(msg, "successfully written to %s.", fullpath);
+    print_success(msg);
     fclose(f);
 }
 

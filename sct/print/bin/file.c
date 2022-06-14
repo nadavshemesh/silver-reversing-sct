@@ -36,7 +36,6 @@ void write_bin_switch_code_obj(code_obj* co, sct_f* sf) {
     }
 
     // workaround - print unknown number
-    // printf("%08x", -1);
     int workaround = -1;
     fwrite(&(workaround), sizeof(int), 1, sf->out_file);
 

@@ -164,14 +164,18 @@ bool is_printable_ascii(char ch) {
     // return (ch >= 32 && ch <= 126);
 }
 
-bool is_string(char* str, int len) {
+bool is_string(byte* str, int len) {
     int null_counter = 0;
-    for(int i=0; i < len-1; i++) {
+    int row_nulls = 0;
+    int non_printable = 0;
+    for(int i=0; i < len; i++) {
         char ch = *(str+i);
-        if(ch == 0) null_counter++;
+        if(ch == 0) { null_counter++; row_nulls++; } else { row_nulls = 0; }
+        if(row_nulls >= 4) return false;
         if(!is_printable_ascii(ch) && !is_exception_char(ch))
-            return false;
+            non_printable++;
     }
-    if(null_counter >= len-1) return false;
+    if(non_printable >= (len/2)) return false;
+    if(null_counter >= len/2) return false;
     return true;
 }

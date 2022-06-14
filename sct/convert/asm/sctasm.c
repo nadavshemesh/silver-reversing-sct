@@ -29,6 +29,25 @@ bool is_char_paranth(char c) {
 int read_word(FILE* f, char* dest) {
     int c = getc(f);
 
+    // if separator, get next non-separator char.
+    if(is_separator_char(c)) {
+        while(c != EOF && is_separator_char(c) && !is_special_char(c)) { c = getc(f); }
+    }
+
+    // handle string
+    // if(c == '\'') {
+    //     int i = 0;
+    //     while(c != EOF && c != '\'') {
+    //         dest[i] = c;
+    //         c = getc(f);
+    //         // printf("%d ", c);
+    //         i++;
+    //     }
+    //     dest[i] = 0;
+    //     fseek(f, ftell(f)-1, SEEK_SET);
+    //     return 0;
+    // }
+
     if(is_special_char(c)) {
         int index = 0;
         if(is_special_char(peek_next_char(f)) && !is_char_paranth(c)) { // such as (ie: ++, --, ==, >=)
@@ -41,25 +60,9 @@ int read_word(FILE* f, char* dest) {
         return 0;
     }
 
-    // if separator, get next non-separator char.
-    if(is_separator_char(c)) {
-        while(c != EOF && is_separator_char(c) && !is_special_char(c)) { c = getc(f); }
-        if(is_special_char(c)) {
-            int index = 0;
-            if(is_special_char(peek_next_char(f))  && !is_char_paranth(c)) { // such as (ie: ++, --, ==, >=)
-                dest[index] = c;
-                index++;
-                c = getc(f);
-            } 
-            dest[index] = c;
-            dest[index+1] = 0;
-            return 0;
-        }
-    }
-    // make word
-    int i = 0;
+    // ignore one line comments
     while(c == '/' && peek_next_char(f) == '/') {
-        printf("found comment\n");
+        // printf("found comment\n");
         while(c != '\n') {
             c = getc(f);
         }
@@ -68,6 +71,8 @@ int read_word(FILE* f, char* dest) {
             c = getc(f);
         }
     }
+    // make word
+    int i = 0;
     while(c != EOF && !is_separator_char(c)) {
         dest[i] = c;
         c = getc(f);
@@ -90,7 +95,7 @@ void file_seek_word_from_beginning(char* section_title, FILE* f) {
     while(scan != -1) {
         // printf("word: %s\n", token);
         if(strlen(token) == strlen(section_title) && strncmp(token, section_title, strlen(token)) == 0) {
-            printf("Found title: %s\n", token);
+            // printf("Found title: %s\n", token);
             return;
         }
         scan = read_word(f, token);
@@ -157,7 +162,7 @@ char** tokenize_section(char* section_title, sct_f* sf) {
     file_seek_word_from_beginning(section_title, sf->file);
 
     int tokens_len = count_text_words_until_string(sf->file, "._");
-    printf("tokens until next section: %d.\n", tokens_len);
+    // printf("tokens until next section: %d.\n", tokens_len);
     char** tokens = w_malloc((tokens_len+5)*sizeof(char*)); // +5 for padding 
     for(int i=0; i < tokens_len; i++) {
         char token[MAX_ASM_TOKEN_LEN];
@@ -380,7 +385,9 @@ data_obj* asm_create_data_obj(char*** tokens_pos_ptr, int id) {
 
             data_o->id = id;
             len += 1; // +1 for null byte
-            len += len % 4; // padding
+            // printf("len: %d\n", len);
+            if(len % 4 != 0) len += 4-(len % 4); // padding
+            // printf("len with padding: %d\n", len);
             data_o->byte_size = len; 
             data_o->name = aapts(name);
 
@@ -388,7 +395,7 @@ data_obj* asm_create_data_obj(char*** tokens_pos_ptr, int id) {
             data_o->data = w_malloc(len);
 
             // memcpy(data_o->asm_data, &asm_data, sizeof(data_o->asm_data));
-            memcpy(data_o->data, data, sizeof(data_o->data));
+            memcpy(data_o->data, data, len);
             break;
         }
 
@@ -560,7 +567,7 @@ cp_cmp_result asm_identify_cp(char*** token_pos_ptr, sct_f* sf) {
                     eq_tokens++;
                 } else {
                     vars[var_i] = aapts(*token);
-                    printf("found var: %s\n", *token);
+                    // printf("found var: %s\n", *token);
                     var_i++;
                 }
                 tokens++;
@@ -641,7 +648,7 @@ expr_cmp_result asm_identify_expr(char*** token_pos_ptr, sct_f* sf) {
 
 bool is_expr_token_binary_op(char** token) {
     if(token == NULL || *token == NULL) return false;
-    printf("checking binary op: %s\n", *token);
+    // printf("checking binary op: %s\n", *token);
     for(int i=0; i < EXPR_PATTERNS_NUM; i++) {
         expr_pattern* pattern = expr_patterns[i];
         if(pattern->type == OPERATOR && 
@@ -734,7 +741,7 @@ expression* asm_read_expression(char*** token_pos_ptr, sct_f* sf) {
     node** expr_nodes = w_malloc(sizeof(node*));
 
     add_sct_bin_words_prologue(sf);
-    printf("Added 02 tokens for prologue\n");
+    // printf("Added 02 tokens for prologue\n");
 
     int expr_nodes_num = 0;
     int exprs_to_read = 1;
@@ -743,7 +750,7 @@ expression* asm_read_expression(char*** token_pos_ptr, sct_f* sf) {
         if(res.is_identified) {
             char msg[256];
             sprintf(msg, "Found expr pattern '%s'.", res.match->name);
-            print_success(msg);
+            // print_success(msg);
 
             expr_pattern* ep = (expr_pattern*) res.match;
             // int bin_tokens = ep->bin_token_num;
@@ -911,13 +918,13 @@ code_obj* asm_read_switch_case(code_pattern* cp, char** vars, char*** tokens_pos
             cases_offsets[cases_index] = offset;
             cases_index++;
             *tokens_pos_ptr += 1; // value
-            printf("identified case: %d, offset: %08x\n", case_int, offset);
+            // printf("identified case: %d, offset: %08x\n", case_int, offset);
         } else {
             cp_cmp_result res = asm_identify_cp(tokens_pos_ptr, sf);
             if(res.is_identified) {
                 char msg[256];
                 sprintf(msg, "Found pattern '%s'.\n", res.match->name);
-                print_success(msg);
+                // print_success(msg);
 
                 code_pattern* cp = (code_pattern*) res.match;
                 // int bin_tokens = cp->bin_token_num - cp->bin_extra_token_num;
@@ -954,7 +961,7 @@ code_obj* asm_read_switch_case(code_pattern* cp, char** vars, char*** tokens_pos
 
     unsigned long after_block_code_word_count = get_sct_code_word_count(sf);
     block_word_size = (int) (after_block_code_word_count - before_block_code_word_count);
-    printf("block_word_size: %d (%04x)\n", block_word_size, block_word_size);
+    // printf("block_word_size: %d (%04x)\n", block_word_size, block_word_size);
     int bin_vars[1] = { block_word_size }; // +2 for the prologue [0xfffffffc size]
     switch_block->bin_vars = w_malloc(switch_block->cp->bin_var_num*sizeof(int));
 
@@ -1068,7 +1075,7 @@ expr_obj* asm_read_function_expr(expr_obj* e_obj, char** vars, char*** token_pos
     memcpy(e_obj->asm_vars, asm_vars, sizeof(e_obj->asm_vars));
     memcpy(e_obj->bin_vars, bin_vars, sizeof(e_obj->bin_vars));
 
-    printf("params_num: %d\n", params_num);
+    // printf("params_num: %d\n", params_num);
     if(strlen(**token_pos_ptr) == 1 && strcmp(**token_pos_ptr, "(") == 0)
         *token_pos_ptr += 1; //paranthesis
     // read param expressions
@@ -1107,7 +1114,7 @@ code_obj* asm_read_script_call(code_pattern* cp, char** vars, char*** token_pos_
         sprintf(err, "Error, script '%s' not found.", script_label);
         print_err_and_exit(err, -4);
     }
-    printf("script id: %d\n", script_id);
+    // printf("script id: %d\n", script_id);
 
     char* asm_vars[1] = { aapts(script_label) };
     int bin_vars[1] = { script_id };
@@ -1307,7 +1314,7 @@ code_obj* asm_read_code_block(int tokens_to_read, char*** tokens_pos_ptr, sct_f*
             if(res.is_identified) {
                 char msg[256];
                 sprintf(msg, "Found pattern '%s'.\n", res.match->name);
-                print_success(msg);
+                // print_success(msg);
 
                 code_pattern* cp = (code_pattern*) res.match;
                 // int bin_tokens = cp->bin_token_num - cp->bin_extra_token_num;
@@ -1342,7 +1349,7 @@ code_obj* asm_read_code_block(int tokens_to_read, char*** tokens_pos_ptr, sct_f*
             *tokens_pos_ptr += 1; // closing paranthesis
         }
 
-        printf("bin tokens in code block [%08x]: %d\n", start_token_addr, block_word_size);
+        // printf("bin tokens in code block [%08x]: %d\n", start_token_addr, block_word_size);
         // printf("token_pos_addr: %08x, end_token_addr: %08x\n", *tokens_pos_ptr, end_token_addr);
         c_obj->code_nodes_num = code_nodes_num;
         c_obj->code_nodes = code_nodes;
@@ -1350,7 +1357,7 @@ code_obj* asm_read_code_block(int tokens_to_read, char*** tokens_pos_ptr, sct_f*
 
     unsigned long after_block_code_word_count = get_sct_code_word_count(sf);
     block_word_size = (int) (after_block_code_word_count - before_block_code_word_count);
-    printf("block_word_size: %d (%04x)\n", block_word_size, block_word_size);
+    // printf("block_word_size: %d (%04x)\n", block_word_size, block_word_size);
     int bin_vars[1] = { block_word_size }; // +2 for the prologue [0xfffffffc size]
     c_obj->bin_vars = w_malloc(c_obj->cp->bin_var_num*sizeof(int));
 

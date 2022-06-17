@@ -726,6 +726,24 @@ expr_obj* asm_create_expr_obj(expr_pattern* expr_p, char** vars, char*** token_p
             break;
         }
 
+        case GAME_VAR:{
+            char* name = vars[0];
+            game_var* gv = get_game_var_by_name(name);
+            if(gv == NULL) { 
+                print_err("Error, gamevar not found.", -2);
+                print_token_area_details(*token_pos_ptr, MODE_BIN);
+            }
+            
+            int first_off = (*name == '~') ? ((gv->first_offset)|0x20000000) : gv->first_offset;
+            int bin_vars[3] = { first_off, gv->second_offset, gv->third_offset };
+            char* asm_vars[1] = { aapts(name) };
+            eo->bin_vars = w_malloc(expr_p->bin_var_num*sizeof(int));
+            eo->asm_vars = w_malloc(expr_p->asm_var_num*sizeof(char*));
+            memcpy(eo->bin_vars, bin_vars, expr_p->bin_var_num*sizeof(int));
+            memcpy(eo->asm_vars, asm_vars, expr_p->asm_var_num*sizeof(char*));
+            break; 
+        }
+
         case FUNCTION: {
             asm_read_function_expr(eo, vars, token_pos_ptr, sf);
             break;
@@ -1136,21 +1154,20 @@ code_obj* asm_read_room_var_ptr(code_pattern* cp, char** vars, char*** token_pos
     code_obj* c_obj = create_and_init_c_obj();
 
     c_obj->cp = cp;
-    char* var_name = vars[0];
-    game_var* gv = get_game_var_by_name(var_name);
+    char* name = vars[0];
+    game_var* gv = get_game_var_by_name(name);
     if(gv == NULL) {
         char err[256];
-        sprintf(err, "Error, game_var '%s' not found.", var_name);
+        sprintf(err, "Error, game_var '%s' not found.", name);
         print_err_and_exit(err, -4);
     }
-
+    int first_off = (*name == '~') ? ((gv->first_offset)|0x20000000) : gv->first_offset;
+    int bin_vars[3] = { first_off, gv->second_offset, gv->third_offset };
     char* asm_vars[1] = { aapts(gv->name) };
-    int bin_vars[2] = { gv->first_offset, gv->second_offset };
-
-    c_obj->asm_vars = w_malloc(cp->asm_var_num*sizeof(char*));
-    c_obj->bin_vars = w_malloc(cp->bin_var_num*sizeof(int));
-    memcpy(c_obj->asm_vars, asm_vars, sizeof(c_obj->asm_vars));
-    memcpy(c_obj->bin_vars, bin_vars, sizeof(c_obj->bin_vars));
+    c_obj->bin_vars = w_malloc(c_obj->cp->bin_var_num*sizeof(int));
+    c_obj->asm_vars = w_malloc(c_obj->cp->asm_var_num*sizeof(char*));
+    memcpy(c_obj->bin_vars, bin_vars, c_obj->cp->bin_var_num*sizeof(int));
+    memcpy(c_obj->asm_vars, asm_vars, c_obj->cp->asm_var_num*sizeof(char*));
 
     return c_obj;
 }

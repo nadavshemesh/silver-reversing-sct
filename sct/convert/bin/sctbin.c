@@ -309,7 +309,7 @@ expression* bin_read_expression(void** tokens_pos_ptr, bool with_prologue, sct_f
     return exp;
 }
 
-expr_obj* bin_read_function_call_expr(expr_pattern* expr_p, void* vars, void** tokens_pos_ptr, sct_f* sf) {
+expr_obj* bin_read_function_call_expr(expr_pattern* expr_p, int* vars, void** tokens_pos_ptr, sct_f* sf) {
     expr_obj* e_obj = create_and_init_expr_obj();
 
     int func_num = ((int*) vars)[0];
@@ -353,7 +353,7 @@ expr_obj* bin_read_function_call_expr(expr_pattern* expr_p, void* vars, void** t
     return e_obj;
 }
 
-expr_obj* bin_create_expr_obj(expr_pattern* expr, void* vars, void** token_pos_ptr, sct_f* sf) {
+expr_obj* bin_create_expr_obj(expr_pattern* expr, int* vars, void** token_pos_ptr, sct_f* sf) {
     expr_obj* eo = create_and_init_expr_obj();
 
     int bin_var_num = expr->bin_var_num;
@@ -389,6 +389,30 @@ expr_obj* bin_create_expr_obj(expr_pattern* expr, void* vars, void** token_pos_p
         case VAR_PTR:
             data = get_data_obj_by_id(data_var, sf);
             break;
+        case GAME_VAR: {
+            game_var* gv = get_game_var_by_offsets(vars[0], vars[1], vars[2]);
+            if(gv == NULL) { 
+                print_err("Error, gamevar not found.", -2);
+                print_token_area_details(*token_pos_ptr, MODE_BIN);
+            }
+            byte* neg_byte = (byte*) &(vars[0]);
+            char* gv_name = gv->name;
+            if(*(neg_byte+3) == 0x20) {
+                gv_name = w_malloc(strlen(gv->name)+1);
+                sprintf(gv_name, "~%s", gv->name);
+            }
+            int bin_vars[3] = { vars[0], gv->second_offset, gv->third_offset };
+            char* asm_vars[1] = { gv_name };
+            eo->bin_vars = w_malloc(expr->bin_var_num*sizeof(int));
+            eo->asm_vars = w_malloc(expr->asm_var_num*sizeof(char*));
+            memcpy(eo->bin_vars, bin_vars, expr->bin_var_num*sizeof(int));
+            memcpy(eo->asm_vars, asm_vars, expr->asm_var_num*sizeof(char*));
+            data = NULL;
+            eo->expr_p = expr;
+            eo->data = data;
+            return eo;
+            break;
+        }
         case FUNCTION:
             expr_obj* exp_func = bin_read_function_call_expr(expr, vars, token_pos_ptr, sf);
             return exp_func;
@@ -401,14 +425,14 @@ expr_obj* bin_create_expr_obj(expr_pattern* expr, void* vars, void** token_pos_p
     char* name = (data != NULL) ? data->name : "";
     char* asm_vars = { name };
     eo->asm_vars = w_malloc(asm_var_num*sizeof(char*));
-    memcpy(eo->asm_vars, &asm_vars, asm_var_num*sizeof(int*));
+    memcpy(eo->asm_vars, &asm_vars, asm_var_num*sizeof(char*));
 
     eo->expr_p = expr;
     eo->data = data;
     return eo;
 }
 
-code_obj* bin_read_code_block(code_pattern* cp, void* vars, void** token_pos_ptr, sct_f* sf) {
+code_obj* bin_read_code_block(code_pattern* cp, int* vars, void** token_pos_ptr, sct_f* sf) {
     code_obj* c_obj = create_and_init_c_obj();
 
     c_obj->cp = cp;
@@ -452,7 +476,7 @@ code_obj* bin_read_code_block(code_pattern* cp, void* vars, void** token_pos_ptr
     return c_obj;
 }
 
-code_obj* bin_read_code_block_cases(code_pattern* cp, void* vars, int* cases, int* case_ptrs,
+code_obj* bin_read_code_block_cases(code_pattern* cp, int* vars, int* cases, int* case_ptrs,
          int cases_num, void** token_pos_ptr, sct_f* sf) {
     code_obj* c_obj = create_and_init_c_obj();
 
@@ -551,7 +575,7 @@ code_obj* bin_read_code_block_cases(code_pattern* cp, void* vars, int* cases, in
     return c_obj;
 }
 
-code_obj* bin_read_function_call(code_pattern* cp, void* vars, void** tokens_pos_ptr, sct_f* sf) {
+code_obj* bin_read_function_call(code_pattern* cp, int* vars, void** tokens_pos_ptr, sct_f* sf) {
     code_obj* c_obj = create_and_init_c_obj();
 
     int func_num = ((int*) vars)[0];
@@ -593,7 +617,7 @@ code_obj* bin_read_function_call(code_pattern* cp, void* vars, void** tokens_pos
     return c_obj;
 }
 
-code_obj* bin_read_if_statement(code_pattern* cp, void* vars, void** token_pos_ptr, sct_f* sf) {
+code_obj* bin_read_if_statement(code_pattern* cp, int* vars, void** token_pos_ptr, sct_f* sf) {
     code_obj* c_obj = create_and_init_c_obj();
 
     expression* exp = bin_read_expression(token_pos_ptr, false, sf);
@@ -631,7 +655,7 @@ code_obj* bin_read_if_statement(code_pattern* cp, void* vars, void** token_pos_p
     return c_obj;
 }
 
-code_obj* bin_read_else_statement(code_pattern* cp, void* vars, void** token_pos_ptr, sct_f* sf) {
+code_obj* bin_read_else_statement(code_pattern* cp, int* vars, void** token_pos_ptr, sct_f* sf) {
     code_obj* c_obj = create_and_init_c_obj();
 
     c_obj->cp = cp;
@@ -662,7 +686,7 @@ code_obj* bin_read_else_statement(code_pattern* cp, void* vars, void** token_pos
     return c_obj;
 }
 
-code_obj* bin_read_assignment(code_pattern* cp, void* vars, void** token_pos_ptr, sct_f* sf) {
+code_obj* bin_read_assignment(code_pattern* cp, int* vars, void** token_pos_ptr, sct_f* sf) {
     code_obj* c_obj = create_and_init_c_obj();
 
     expression* exp = bin_read_expression(token_pos_ptr, true, sf);
@@ -683,25 +707,32 @@ code_obj* bin_read_assignment(code_pattern* cp, void* vars, void** token_pos_ptr
     return c_obj;
 }
 
-char* determine_room_var_ptr(int first_offset, int second_offset) {
-    game_var* gv = get_game_var_by_offsets(first_offset, second_offset);
+char* determine_room_var_ptr(int first_offset, int second_offset, int third_offset) {
+    game_var* gv = get_game_var_by_offsets(first_offset, second_offset, third_offset);
     if(gv != NULL) {
         return gv->name;
     }
     char str[50];
-    sprintf(str, "game_var_%02x_%02x", first_offset, second_offset);
+    sprintf(str, "game_var_%02x_%02x_%02x", first_offset, second_offset, third_offset);
     return aapts(str);
 }
 
-code_obj* bin_read_room_var_ptr(code_pattern* cp, void* vars, void** token_pos_ptr, sct_f* sf) {
+code_obj* bin_read_room_var_ptr(code_pattern* cp, int* vars, void** token_pos_ptr, sct_f* sf) {
     code_obj* c_obj = create_and_init_c_obj();
 
     c_obj->cp = cp;
 
-    int first_offset = (((int*)vars))[0];
-    int second_offset = ((int*)(vars))[1];
-    char* asm_vars[1] = { determine_room_var_ptr(first_offset, second_offset) };
-    int bin_vars[2] = { first_offset, second_offset };
+    int first_offset = vars[0];
+    int second_offset = vars[1];
+    int third_offset = vars[2];
+    // char* asm_vars[1] = { determine_room_var_ptr(first_offset, second_offset, third_offset) };
+    game_var* gv = get_game_var_by_offsets(first_offset, second_offset, third_offset);
+    if(gv == NULL) { 
+        print_err("Error, gamevar not found.", -2);
+        print_token_area_details(*token_pos_ptr, MODE_BIN);
+    }
+    char* asm_vars[1] = { gv->name };
+    int bin_vars[3] = { first_offset, second_offset, third_offset };
 
     c_obj->asm_vars = w_malloc(cp->asm_var_num*sizeof(char*));
     c_obj->bin_vars = w_malloc(cp->bin_var_num*sizeof(int));
@@ -712,7 +743,7 @@ code_obj* bin_read_room_var_ptr(code_pattern* cp, void* vars, void** token_pos_p
     return c_obj;
 }
 
-code_obj* bin_read_var_ptr(code_pattern* cp, void* vars, void** token_pos_ptr, sct_f* sf) {
+code_obj* bin_read_var_ptr(code_pattern* cp, int* vars, void** token_pos_ptr, sct_f* sf) {
     code_obj* c_obj = create_and_init_c_obj();
 
     c_obj->cp = cp;
@@ -733,7 +764,7 @@ code_obj* bin_read_var_ptr(code_pattern* cp, void* vars, void** token_pos_ptr, s
     return c_obj;
 }
 
-code_obj* bin_read_script_call(code_pattern* cp, void* vars, void** token_pos_ptr, sct_f* sf) {
+code_obj* bin_read_script_call(code_pattern* cp, int* vars, void** token_pos_ptr, sct_f* sf) {
     code_obj* c_obj = create_and_init_c_obj();
 
     c_obj->cp = cp;
@@ -760,7 +791,7 @@ code_obj* bin_read_script_call(code_pattern* cp, void* vars, void** token_pos_pt
     return c_obj;
 }
 
-code_obj* bin_read_switch_case(code_pattern* cp, void* vars, void** token_pos_ptr, sct_f* sf) {
+code_obj* bin_read_switch_case(code_pattern* cp, int* vars, void** token_pos_ptr, sct_f* sf) {
     code_obj* c_obj = w_malloc(sizeof(code_obj));
 
     c_obj->cp = cp;
@@ -823,7 +854,7 @@ code_obj* bin_read_switch_case(code_pattern* cp, void* vars, void** token_pos_pt
     return c_obj;
 }
 
-code_obj* bin_read_default(code_pattern* cp, void* vars, void** token_pos_ptr, sct_f* sf) {
+code_obj* bin_read_default(code_pattern* cp, int* vars, void** token_pos_ptr, sct_f* sf) {
     code_obj* c_obj = w_malloc(sizeof(code_obj));
 
     c_obj->cp = cp;
@@ -839,7 +870,7 @@ code_obj* bin_read_default(code_pattern* cp, void* vars, void** token_pos_ptr, s
     return c_obj;
 }
 
-obj_and_token_ptr bin_create_code_obj(code_pattern* cp, void* vars, void** token_pos_ptr, sct_f* sf) {
+obj_and_token_ptr bin_create_code_obj(code_pattern* cp, int* vars, void** token_pos_ptr, sct_f* sf) {
     code_obj* c_obj;
 
     switch(cp->type) {

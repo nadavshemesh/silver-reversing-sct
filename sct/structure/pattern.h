@@ -7,7 +7,7 @@
 #define VAR -9
 #define S_VAR "-9"
 #define CODE_PATTERNS_NUM 14
-#define EXPR_PATTERNS_NUM 19
+#define EXPR_PATTERNS_NUM 16
 #define UNINIT_TYPE 111
 
 typedef enum mode { MODE_BIN, MODE_ASM } mode;

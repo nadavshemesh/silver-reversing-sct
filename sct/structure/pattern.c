@@ -207,11 +207,11 @@ code_pattern* init_cp_structure_ptr() {
     code_pattern* cp = create_and_init_code_pattern();
 
     cp->name = aapts("struct ptr");
-    i_arr bin_tokens = { .arr = { 0, 4, VAR, VAR, 4 }, .len = 5 };
-    i_arr bin_var_pos = { .arr = { 2, 3 }, .len = 2 };
+    i_arr bin_tokens = { .arr = { 0, VAR, VAR, VAR, 4 }, .len = 5 };
+    i_arr bin_var_pos = { .arr = { 1, 2, 3 }, .len = 3 };
     s_arr asm_tokens = { .arr = { "gamevar", S_VAR }, .len = 2 };
     i_arr asm_var_pos = { .arr = { 1 }, .len = 1 };
-    s_arr var_names = { .arr = {"first offset", "second offset"}, .len = 2 };
+    s_arr var_names = { .arr = {"first offset", "second offset", "third_offset"}, .len = 3 };
     
     init_cp(cp, ROOM_VAR_PTR, bin_tokens, bin_var_pos, var_names, asm_tokens, asm_var_pos);
 
@@ -296,7 +296,6 @@ void init_code_patterns(code_pattern** code_patterns) {
     code_patterns[9] = init_cp_structure_ptr();
     code_patterns[10] = init_cp_var_assignment();
     code_patterns[11] = init_cp_var();
-    // print_code_pattern(cp_fc);
 }
 void free_code_patterns(code_pattern** code_patterns) {
     for(int i=0; i<sizeof(code_patterns); i++) {
@@ -349,60 +348,15 @@ expr_pattern* init_expr_func_call() {
     return expr_func_call;
 }
 
-expr_pattern* init_expr_room_timer() {
+expr_pattern* init_expr_gamevar() {
     expr_pattern* expr = w_malloc(sizeof(expr_pattern));
     expr->type = GAME_VAR;
-    expr->name = aapts("room timer var");
+    expr->name = aapts("game variable");
 
-    i_arr bin_tokens = { .arr = { 0, 2, 0, 0x5b, 4 }, .len = 5 };
-    i_arr bin_var_pos = { .arr = { }, .len = 0 };
-    s_arr asm_tokens = { .arr = { "ROOM_TIMER" }, .len = 1 };
-    i_arr asm_var_pos = { .arr = { }, .len = 0 };
-
-    init_expr(expr, bin_tokens, bin_var_pos, asm_tokens, asm_var_pos);
-
-    return expr;
-}
-
-expr_pattern* init_expr_room_cleared() {
-    expr_pattern* expr = w_malloc(sizeof(expr_pattern));
-    expr->type = GAME_VAR;
-    expr->name = aapts("room cleared flag");
-
-    i_arr bin_tokens = { .arr = { 0, 4, 9, 0x2c, 4 }, .len = 5 };
-    i_arr bin_var_pos = { .arr = { }, .len = 0 };
-    s_arr asm_tokens = { .arr = { "IS_ROOM_CLEARED" }, .len = 1 };
-    i_arr asm_var_pos = { .arr = { }, .len = 0 };
-
-    init_expr(expr, bin_tokens, bin_var_pos, asm_tokens, asm_var_pos);
-
-    return expr;
-}
-
-expr_pattern* init_expr_room_not_cleared() {
-    expr_pattern* expr = w_malloc(sizeof(expr_pattern));
-    expr->type = GAME_VAR;
-    expr->name = aapts("room not cleared flag");
-
-    i_arr bin_tokens = { .arr = { 0, 0x20000004, 9, 0x2c, 4 }, .len = 5 };
-    i_arr bin_var_pos = { .arr = { }, .len = 0 };
-    s_arr asm_tokens = { .arr = { "!", "IS_ROOM_CLEARED" }, .len = 2 };
-    i_arr asm_var_pos = { .arr = { }, .len = 0 };
-
-    init_expr(expr, bin_tokens, bin_var_pos, asm_tokens, asm_var_pos);
-
-    return expr;
-}
-
-expr_pattern* init_expr_room_state() {
-    expr_pattern* expr = w_malloc(sizeof(expr_pattern));
-    expr->type = GAME_VAR;
-    expr->name = aapts("room state var");
-
-    i_arr bin_tokens = { .arr = { 0, 4, 9, 8, 4 }, .len = 5 };
-    i_arr bin_var_pos = { .arr = { }, .len = 0 };
-    s_arr asm_tokens = { .arr = { "ROOM_STATE" }, .len = 1 };
-    i_arr asm_var_pos = { .arr = { }, .len = 0 };
+    i_arr bin_tokens = { .arr = { 0, VAR, VAR, VAR, 4 }, .len = 5 };
+    i_arr bin_var_pos = { .arr = { 1, 2, 3 }, .len = 3 };
+    s_arr asm_tokens = { .arr = { "gamevar", S_VAR }, .len = 2 };
+    i_arr asm_var_pos = { .arr = { 1 }, .len = 1 };
 
     init_expr(expr, bin_tokens, bin_var_pos, asm_tokens, asm_var_pos);
 
@@ -643,11 +597,8 @@ void init_expr_patterns(expr_pattern** expr_patterns) {
     expr_patterns[12] = init_expr_lt_op();
     expr_patterns[13] = init_expr_ne_op();
     // game
-    expr_patterns[14] = init_expr_room_cleared();
-    expr_patterns[15] = init_expr_room_not_cleared();
-    expr_patterns[16] = init_expr_room_state();
-    expr_patterns[17] = init_expr_room_timer();
-    expr_patterns[18] = init_expr_func_call();
+    expr_patterns[14] = init_expr_func_call();
+    expr_patterns[15] = init_expr_gamevar();
 }
 
 bool is_var_pos_expr(void* pattern, mode m, int index) {

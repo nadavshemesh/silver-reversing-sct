@@ -96,6 +96,11 @@ int compare_data_obj_ids(const void* a, const void* b) {
      else return 1;
 }
 
+expr_obj* get_last_expr_obj(expression* exp) {
+    if(exp->expr_objs == NULL) { print_err_and_exit("Error, get_last_expr_obj on an empty expression.", -2); }
+    return &(exp->expr_objs[exp->expr_objs_len-1]);
+}
+
 void print_expr_obj(expr_obj* exp_o, bool with_pattern) {
     print_title("expr_obj");
     if(with_pattern)

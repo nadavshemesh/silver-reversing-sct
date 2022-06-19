@@ -164,18 +164,25 @@ bool is_printable_ascii(char ch) {
     // return (ch >= 32 && ch <= 126);
 }
 
+bool is_letter(char ch) {
+    return (ch >= 65 && ch <= 90) || (ch >= 97 && ch <=122) || (ch >= 48 && ch <= 57);
+}
+
 bool is_string(byte* str, int len) {
     int null_counter = 0;
     int row_nulls = 0;
     int non_printable = 0;
+    int letters = 0;
     for(int i=0; i < len; i++) {
         char ch = *(str+i);
         if(ch == 0) { null_counter++; row_nulls++; } else { row_nulls = 0; }
         if(row_nulls >= 4) return false;
+        if(is_letter(ch)) letters++;
         if(!is_printable_ascii(ch) && !is_exception_char(ch))
             non_printable++;
     }
     if(non_printable >= (len/2)) return false;
     if(null_counter >= len/2) return false;
+    if(letters <= (len-null_counter)/2) return false;
     return true;
 }

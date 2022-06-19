@@ -17,7 +17,7 @@ void write_sct_header(sct_f* sf) {
 
 void write_bin_switch_code_obj(code_obj* co, sct_f* sf) {
     int cases_num = co->bin_vars[0];
-    int padding_to_ptrs = 0x41 - (cases_num);
+    int padding_to_ptrs = 0x40 - (cases_num);
     int padding_to_exp = 0x40 - (cases_num);
 
     // print tokens
@@ -40,7 +40,7 @@ void write_bin_switch_code_obj(code_obj* co, sct_f* sf) {
     fwrite(&(workaround), sizeof(int), 1, sf->out_file);
 
     // print cases values
-    for(int i=1; i < (co->bin_var_num/2); i++) {
+    for(int i=1; i < ((co->bin_var_num-1)/2)+1; i++) {
         // printf("%08x", co->bin_vars[i]);
         fwrite(&(co->bin_vars[i]), sizeof(int), 1, sf->out_file);
     }
@@ -53,7 +53,7 @@ void write_bin_switch_code_obj(code_obj* co, sct_f* sf) {
     }
 
     // print offsets
-    for(int i=(co->bin_var_num/2)+1; i < co->bin_var_num; i++) {
+    for(int i=((co->bin_var_num-1)/2)+1; i < co->bin_var_num; i++) {
         // printf("%08x", co->bin_vars[i]);
         fwrite(&(co->bin_vars[i]), sizeof(int), 1, sf->out_file);
     }

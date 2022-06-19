@@ -208,7 +208,11 @@ data_obj* get_data_obj_by_name(char* name, sct_f* sf) {
     if(ds == NULL) { print_err_and_exit("called get_data with no data section.", -3); }
 
     data_obj* data_o = search_data_by_name(name, sf);
-    if(data_o == NULL) { print_err_and_exit("called get_data with no data.", -3); }
+    if(data_o == NULL) { 
+        print_data_section(sf);
+        printf("data name: %s\n", name);
+        print_err_and_exit("called get_data with no data.", -3);
+    }
 
     return data_o;
 }

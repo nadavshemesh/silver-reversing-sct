@@ -399,7 +399,7 @@ expr_obj* bin_create_expr_obj(expr_pattern* expr, int* vars, void** token_pos_pt
             char* gv_name = gv->name;
             if(*(neg_byte+3) == 0x20) {
                 gv_name = w_malloc(strlen(gv->name)+1);
-                sprintf(gv_name, "~%s", gv->name);
+                sprintf(gv_name, "!%s", gv->name);
             }
             int bin_vars[3] = { vars[0], gv->second_offset, gv->third_offset };
             char* asm_vars[1] = { gv_name };
@@ -620,7 +620,29 @@ code_obj* bin_read_function_call(code_pattern* cp, int* vars, void** tokens_pos_
 code_obj* bin_read_if_statement(code_pattern* cp, int* vars, void** token_pos_ptr, sct_f* sf) {
     code_obj* c_obj = create_and_init_c_obj();
 
-    expression* exp = bin_read_expression(token_pos_ptr, false, sf);
+    c_obj->expression_node_num = 0;
+    c_obj->expression_nodes = w_malloc(sizeof(node*));
+    bool read_prologue = false;
+    int expressions_to_read = 1;
+    while(expressions_to_read > 0) {
+        expression* exp = bin_read_expression(token_pos_ptr, read_prologue, sf);
+        read_prologue = false;
+        expressions_to_read--;
+
+        node* exp_node = create_node(exp);
+        if(c_obj->expression_node_num == 0) {
+            *c_obj->expression_nodes = exp_node;
+            c_obj->expression_node_num = 1;
+        } else {
+            insert_node(c_obj->expression_nodes, exp_node);
+            c_obj->expression_node_num++;
+        }
+        // check for ops such as &&, ||
+        if(get_last_expr_obj(exp)->expr_p->type == MUL_EXP_OP) {
+            expressions_to_read++;
+            read_prologue = true;
+        }
+    }
     c_obj->cp = cp;
 
     code_obj* code_block_obj;
@@ -644,13 +666,6 @@ code_obj* bin_read_if_statement(code_pattern* cp, int* vars, void** token_pos_pt
 
     c_obj->asm_vars = NULL;
     c_obj->bin_vars = NULL;
-
-    node** exp_nodes = w_malloc(sizeof(node*));
-    *exp_nodes = w_malloc(sizeof(node));
-    node* new_node = create_node(exp);
-    *exp_nodes = new_node;
-    c_obj->expression_nodes = exp_nodes;
-    c_obj->expression_node_num = 1;
 
     return c_obj;
 }

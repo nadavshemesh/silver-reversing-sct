@@ -1,15 +1,15 @@
 #include "sct\convert\asm\sctasm.h"
 
 bool is_separator_char(char ch) {
-    if(ch == ' ' || ch == '\t' || ch == '\n' || ch == '\r'
+    if(ch == ' ' || ch == '\t' || ch == '\n' || ch == '\r' || ch == '|' || ch == '&'
          || ch == '\0' || ch == '(' || ch == ')' || ch == ',' || ch == '+' || ch == '=')
         return true;
     return false;
 }
 
 bool is_special_char(char ch) {
-    if(ch == '(' || ch == ')' || ch == ',' || ch == '{' || ch == '!' ||
-        ch == '}' || ch == '+' || ch == '>' || ch == '<' || ch == '=')
+    if(ch == '(' || ch == ')' || ch == ',' || ch == '{' || ch == '!' || ch == '|' ||
+        ch == '}' || ch == '+' || ch == '>' || ch == '<' || ch == '=' || ch == '&')
         return true;
     return false;
 }
@@ -664,6 +664,20 @@ bool is_expr_token_binary_op(char** token) {
     return false;
 }
 
+bool is_expr_token_multi_op(char** token) {
+    if(token == NULL || *token == NULL) return false;
+    // printf("checking binary op: %s\n", *token);
+    for(int i=0; i < EXPR_PATTERNS_NUM; i++) {
+        expr_pattern* pattern = expr_patterns[i];
+        if(pattern->type == MUL_EXP_OP && 
+            strlen(*pattern->asm_tokens) == strlen(*token) && 
+            strcmp(*pattern->asm_tokens, *token) == 0) {
+                return true;
+            }
+    }
+    return false;
+}
+
 void create_data_link(sct_f* sf) {
     node** link_nodes = sf->data_link_table;
     if(link_nodes == NULL) {  print_err_and_exit("Error, data link table undefined.", -4); }
@@ -728,13 +742,22 @@ expr_obj* asm_create_expr_obj(expr_pattern* expr_p, char** vars, char*** token_p
 
         case GAME_VAR:{
             char* name = vars[0];
+            bool is_negated = false;
+            if(strlen(name) == 1 && strcmp(name, "!") == 0) {
+                is_negated = true;
+                name = **token_pos_ptr;
+                *token_pos_ptr += 1;
+            }
             game_var* gv = get_game_var_by_name(name);
             if(gv == NULL) { 
                 print_err("Error, gamevar not found.", -2);
-                print_token_area_details(*token_pos_ptr, MODE_BIN);
+                print_token_area_details(*token_pos_ptr, MODE_ASM);
             }
             
-            int first_off = (*name == '~') ? ((gv->first_offset)|0x20000000) : gv->first_offset;
+            int first_off = gv->first_offset;
+            if(is_negated) {
+                first_off = ((gv->first_offset)|0x20000000);
+            }
             int bin_vars[3] = { first_off, gv->second_offset, gv->third_offset };
             char* asm_vars[1] = { aapts(name) };
             eo->bin_vars = w_malloc(expr_p->bin_var_num*sizeof(int));
@@ -791,6 +814,9 @@ expression* asm_read_expression(char*** token_pos_ptr, sct_f* sf) {
         }
         // char** next_token = *token_pos_ptr+1;
         // size is calculated dynamically looking for binary operators
+        if(is_expr_token_multi_op(*token_pos_ptr)) { 
+            exprs_to_read++; 
+        }
         if(is_expr_token_binary_op(*token_pos_ptr)) { 
             // printf("found binary op: %s\n", **token_pos_ptr);
             exprs_to_read += 2; 
@@ -817,13 +843,28 @@ code_obj* asm_read_if_statement(code_pattern* cp, char** vars, char*** token_pos
 
     c_obj->cp = cp;
     *token_pos_ptr += 1; //paranthesis
-    // read expression
-    expression* exp = asm_read_expression(token_pos_ptr, sf);
-    node* exp_node = create_node(exp);
 
-    c_obj->expression_node_num = 1;
+    // read expressions
     c_obj->expression_nodes = w_malloc(sizeof(node*));
-    *c_obj->expression_nodes = exp_node;
+    c_obj->expression_node_num = 0;
+
+    int expressions_to_read = 1;
+    while(expressions_to_read > 0) {
+        expression* exp = asm_read_expression(token_pos_ptr, sf);
+        node* exp_node = create_node(exp);
+        expressions_to_read--;
+
+        if(get_last_expr_obj(exp)->expr_p->type == MUL_EXP_OP) {
+            expressions_to_read++;
+        }
+
+        if(c_obj->expression_node_num == 0) {
+            *c_obj->expression_nodes = exp_node;
+        } else {
+            insert_node(c_obj->expression_nodes, exp_node);
+        }
+        c_obj->expression_node_num++;
+    }
 
     // read code block
     *token_pos_ptr += 1; // closing paranthesis
@@ -996,12 +1037,16 @@ code_obj* asm_read_switch_case(code_pattern* cp, char** vars, char*** tokens_pos
     node* code_node = create_node(switch_block);
 
     // copy cases to switch code obj 
+    // printf("cases num: %d\n", cases_num);
     switch_c_obj->bin_var_num = 1+(cases_num*2); // cases_num + cases + cases_offsets
     switch_c_obj->bin_vars = w_malloc(1+(cases_num*2)*sizeof(int));
     memcpy(switch_c_obj->bin_vars, &cases_num, sizeof(int)); // cases_num
     memcpy((switch_c_obj->bin_vars + 1), cases, cases_num*sizeof(int)); // cases
     memcpy((switch_c_obj->bin_vars + 1 + cases_num), cases_offsets, cases_num*sizeof(int)); // offsets
 
+    // for(int i=1; i < cases_num+1; i++) { 
+    //     printf("case: %d\n", switch_c_obj->bin_vars[i]);
+    // }
     switch_c_obj->code_nodes_num = 1;
     switch_c_obj->code_nodes = w_malloc(sizeof(node*));
     *switch_c_obj->code_nodes = code_node;

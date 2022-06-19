@@ -279,6 +279,21 @@ code_pattern* init_cp_else() {
     return cp_else;
 }
 
+code_pattern* init_cp_unknown() {
+    code_pattern* cp_else = create_and_init_code_pattern();
+
+    cp_else->name = aapts("unknown");
+    i_arr bin_tokens = { .arr = { 1, 2 }, .len = 2 };
+    i_arr bin_var_pos = { .arr = { }, .len = 0 };
+    s_arr asm_tokens = { .arr = { "unknown" }, .len = 1 };
+    i_arr asm_var_pos = { .arr = { }, .len = 0 };
+    s_arr var_names = { .arr = { }, .len = 0 };
+    
+    init_cp(cp_else, UNKNOWN, bin_tokens, bin_var_pos, var_names, asm_tokens, asm_var_pos);
+
+    return cp_else;
+}
+
 void init_code_patterns(code_pattern** code_patterns) {
     for(int i=0; i < CODE_PATTERNS_NUM; i++){
         code_patterns[i] = NULL;
@@ -296,6 +311,7 @@ void init_code_patterns(code_pattern** code_patterns) {
     code_patterns[9] = init_cp_structure_ptr();
     code_patterns[10] = init_cp_var_assignment();
     code_patterns[11] = init_cp_var();
+    code_patterns[12] = init_cp_unknown();
 }
 void free_code_patterns(code_pattern** code_patterns) {
     for(int i=0; i<sizeof(code_patterns); i++) {
@@ -341,6 +357,22 @@ expr_pattern* init_expr_func_call() {
     i_arr bin_var_pos = { .arr = {2, 3}, .len = 2 };
     s_arr asm_tokens = { .arr = { "call", S_VAR }, .len = 2 };
     i_arr asm_var_pos = { .arr = { 1 }, .len = 1 };
+    s_arr var_names = { .arr = {"func_name", "num_of_params"}, .len = 2 };
+    
+    init_expr(expr_func_call, bin_tokens, bin_var_pos, asm_tokens, asm_var_pos);
+
+    return expr_func_call;
+}
+
+expr_pattern* init_expr_neg_func_call() {
+    expr_pattern* expr_func_call = (expr_pattern*) malloc(sizeof(code_pattern));
+    expr_func_call->type = FUNCTION;
+    expr_func_call->name = aapts("func expr call with negated return value");
+
+    i_arr bin_tokens = { .arr = {0, 0x20000003, VAR, VAR}, .len = 4 };
+    i_arr bin_var_pos = { .arr = {2, 3}, .len = 2 };
+    s_arr asm_tokens = { .arr = { "call", "!", S_VAR }, .len = 3 };
+    i_arr asm_var_pos = { .arr = { 2 }, .len = 1 };
     s_arr var_names = { .arr = {"func_name", "num_of_params"}, .len = 2 };
     
     init_expr(expr_func_call, bin_tokens, bin_var_pos, asm_tokens, asm_var_pos);
@@ -529,6 +561,21 @@ expr_pattern* init_expr_le_op() {
     return expr;
 }
 
+expr_pattern* init_expr_and_op() {
+    expr_pattern* expr = w_malloc(sizeof(expr_pattern));
+    expr->type = MUL_EXP_OP;
+    expr->name = aapts("&& operator");
+
+    i_arr bin_tokens = { .arr = { 6, 0 }, .len = 2 };
+    i_arr bin_var_pos = { .arr = { }, .len = 0 };
+    s_arr asm_tokens = { .arr = {  "&&"  }, .len = 1 };
+    i_arr asm_var_pos = { .arr = { }, .len = 0 };
+
+    init_expr(expr, bin_tokens, bin_var_pos, asm_tokens, asm_var_pos);
+
+    return expr;
+}
+
 expr_pattern* init_expr_var_ptr() {
     expr_pattern* expr = w_malloc(sizeof(expr_pattern));
     expr->type = VAR_PTR;
@@ -597,8 +644,11 @@ void init_expr_patterns(expr_pattern** expr_patterns) {
     expr_patterns[12] = init_expr_lt_op();
     expr_patterns[13] = init_expr_ne_op();
     // game
-    expr_patterns[14] = init_expr_func_call();
-    expr_patterns[15] = init_expr_gamevar();
+    expr_patterns[14] = init_expr_neg_func_call();
+    expr_patterns[15] = init_expr_func_call();
+    expr_patterns[16] = init_expr_gamevar();
+    // special operators
+    expr_patterns[17] = init_expr_and_op();
 }
 
 bool is_var_pos_expr(void* pattern, mode m, int index) {

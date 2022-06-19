@@ -7,15 +7,16 @@
 #define VAR -9
 #define S_VAR "-9"
 #define CODE_PATTERNS_NUM 14
-#define EXPR_PATTERNS_NUM 16
+#define EXPR_PATTERNS_NUM 18
 #define UNINIT_TYPE 111
 
 typedef enum mode { MODE_BIN, MODE_ASM } mode;
 
 typedef enum pattern_type { CODE_TYPE, EXPRESSION_TYPE } p_type; // needed?
 typedef enum code_type { EXPRESSION, IF_STATEMENT, ELSE_STATEMENT, SWITCH, BREAK, FUNCTION_CALL, SCRIPT_CALL, 
-            ASSIGNMENT, VAR_INC, VAR_DEC, CODE_BLOCK, CODE_BLOCK_CASES, CASE_AID, ROOM_VAR_PTR, CP_VAR_PTR } c_type;
-typedef enum expr_type { OPERATOR, INTEGER, DATA_PTR, VAR_PTR, FUNCTION, GAME_VAR } expr_type;
+            ASSIGNMENT, VAR_INC, VAR_DEC, CODE_BLOCK, CODE_BLOCK_CASES, CASE_AID, ROOM_VAR_PTR, CP_VAR_PTR,
+            UNKNOWN } c_type;
+typedef enum expr_type { OPERATOR, INTEGER, DATA_PTR, VAR_PTR, FUNCTION, GAME_VAR, MUL_EXP_OP } expr_type;
 typedef enum operator_type { BINARY_OP, UNARY_OP} operator_type;
 
 typedef struct code_pattern {

@@ -77,7 +77,8 @@ void write_asm_expression(node** expression_nodes, c_type t, bool nested, sct_f*
         expression* obj = exp_node->item;
         write_asm_expr(obj, sf);
         exp_node = exp_node->next;
-        if(exp_node != NULL) fprintf(sf->out_file, ", ");
+        expr_obj* last = &(obj->expr_objs[obj->expr_objs_len-1]);
+        if(exp_node != NULL && last->expr_p->type != MUL_EXP_OP) fprintf(sf->out_file, ", ");
     }
     if(f_is_cp_paranth_type1(type)) {
         fprintf(sf->out_file, ")");

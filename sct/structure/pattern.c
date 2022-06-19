@@ -263,6 +263,21 @@ code_pattern* init_aid_cp_case() {
     return cp_case;
 }
 
+code_pattern* init_aid_cp_default_case() {
+    code_pattern* cp_case = create_and_init_code_pattern();
+
+    cp_case->name = aapts("default case");
+    i_arr bin_tokens = { .arr = { }, .len = 0 };
+    i_arr bin_var_pos = { .arr = { }, .len = 0 };
+    s_arr asm_tokens = { .arr = { "default" }, .len = 1 };
+    i_arr asm_var_pos = { .arr = { }, .len = 0 };
+    s_arr var_names = { .arr = { }, .len = 0 };
+    
+    init_cp(cp_case, CASE_AID, bin_tokens, bin_var_pos, var_names, asm_tokens, asm_var_pos);
+
+    return cp_case;
+}
+
 code_pattern* init_cp_else() {
     code_pattern* cp_else = create_and_init_code_pattern();
 

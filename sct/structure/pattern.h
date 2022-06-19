@@ -76,5 +76,6 @@ code_pattern* create_and_init_code_pattern();
 void init_expr_pattern(expr_pattern* e_pattern);
 expr_pattern* create_and_init_expr_pattern();
 code_pattern* init_aid_cp_case();
+code_pattern* init_aid_cp_default_case();
 bool is_var_pos_expr(void* pattern, mode m, int index);
 bool is_var_pos(void* pattern, p_type pattern_type, mode m, int index);

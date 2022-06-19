@@ -35,12 +35,11 @@ void write_bin_switch_code_obj(code_obj* co, sct_f* sf) {
         }
     }
 
-    // workaround - print unknown number
-    int workaround = -1;
-    fwrite(&(workaround), sizeof(int), 1, sf->out_file);
+    // print default case
+    fwrite(&(co->bin_vars[1]), sizeof(int), 1, sf->out_file);
 
     // print cases values
-    for(int i=1; i < ((co->bin_var_num-1)/2)+1; i++) {
+    for(int i=2; i < ((co->bin_var_num-2)/2)+2; i++) {
         // printf("%08x", co->bin_vars[i]);
         fwrite(&(co->bin_vars[i]), sizeof(int), 1, sf->out_file);
     }
@@ -53,7 +52,7 @@ void write_bin_switch_code_obj(code_obj* co, sct_f* sf) {
     }
 
     // print offsets
-    for(int i=((co->bin_var_num-1)/2)+1; i < co->bin_var_num; i++) {
+    for(int i=((co->bin_var_num-2)/2)+2; i < co->bin_var_num; i++) {
         // printf("%08x", co->bin_vars[i]);
         fwrite(&(co->bin_vars[i]), sizeof(int), 1, sf->out_file);
     }

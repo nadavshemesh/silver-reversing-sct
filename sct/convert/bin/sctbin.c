@@ -497,6 +497,7 @@ code_obj* bin_read_code_block_cases(code_pattern* cp, int* vars, int* cases, int
     // init current case (first case)
     code_obj* current_case = create_and_init_c_obj();
     code_pattern* case_cp = init_aid_cp_case();
+    code_pattern* default_case_cp = init_aid_cp_default_case();
     current_case->cp = case_cp;
 
     char num_s[30];
@@ -558,7 +559,12 @@ code_obj* bin_read_code_block_cases(code_pattern* cp, int* vars, int* cases, int
                 }
                 printf("case tokens num: %d\n", case_tokens_num);
                 current_case = create_and_init_c_obj();
-                current_case->cp = case_cp;
+                if(cases[case_index] == DEFAULT_CASE) {
+                    current_case->cp = default_case_cp;
+                } else {
+                    current_case->cp = case_cp;
+                }
+
 
                 sprintf(num_s, "%d", cases[case_index]);
                 printf("next case %d\n", cases[case_index]);
@@ -816,7 +822,10 @@ code_obj* bin_read_switch_case(code_pattern* cp, int* vars, void** token_pos_ptr
     int padding_from_vars_to_ptrs = 0x40;
 
     // read cases values
+    bool has_default = false;
     int* token_pos = *token_pos_ptr;
+    int default_case_addr = *token_pos;
+    if(default_case_addr != -1) { has_default = true; cases_num+=1; }
     token_pos += 1;
     int cases[cases_num];
     int case_ptrs[cases_num];
@@ -828,6 +837,10 @@ code_obj* bin_read_switch_case(code_pattern* cp, int* vars, void** token_pos_ptr
     // for(int i=0; i < cases_num; i++) {
     //     printf("case addr: %08x\n", case_ptrs[i]);
     // }
+    if(has_default) {
+        case_ptrs[cases_num-1] = default_case_addr;
+        cases[cases_num-1] = DEFAULT_CASE;
+    }
 
     // read expression
     token_pos += padding_from_vars_to_block-padding_from_vars_to_ptrs;

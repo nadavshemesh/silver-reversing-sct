@@ -10,8 +10,9 @@
 #include "sct\game\gamefunc.h"
 #include "sct\structure\object.h"
 
-#define MAX_VAR_NAME 20;
-#define MAX_TOKENS_PER_EXPRESSION 50;
+#define MAX_VAR_NAME 20
+#define MAX_TOKENS_PER_EXPRESSION 50
+#define DEFAULT_CASE 0x10203040
 
 extern game_fun** game_functions;
 extern code_pattern** code_patterns;

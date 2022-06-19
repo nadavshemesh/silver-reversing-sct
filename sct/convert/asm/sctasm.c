@@ -938,6 +938,8 @@ code_obj* asm_read_switch_case(code_pattern* cp, char** vars, char*** tokens_pos
 
     int tokens_to_read = count_tokens_in_code_block(tokens_pos_ptr);
     int cases_num = count_token_from_to(*tokens_pos_ptr, "case", "{", "}");
+    int default_num = count_token_from_to(*tokens_pos_ptr, "default", "{", "}");
+    if(default_num > 1) { print_err_and_exit("Error, more than one default cases.", -4); }
     // printf("switch_block_tokens to read: %d\n", tokens_to_read);
     // printf("cases to read: %d\n", cases_num);
     *tokens_pos_ptr += 1; // block opening paranthesis
@@ -945,7 +947,10 @@ code_obj* asm_read_switch_case(code_pattern* cp, char** vars, char*** tokens_pos
     // CODE BLOCK
     code_obj* switch_block = create_and_init_c_obj();
     code_pattern* case_p = init_aid_cp_case();
+    code_pattern* default_case_p = init_aid_cp_default_case();
     char* case_token = case_p->asm_tokens[0];
+    char* default_case_token = default_case_p->asm_tokens[0];
+    int default_addr = -1;
     int cases_index = 0;
     int cases[cases_num];
     int cases_offsets[cases_num];
@@ -972,7 +977,11 @@ code_obj* asm_read_switch_case(code_pattern* cp, char** vars, char*** tokens_pos
     while(*tokens_pos_ptr != NULL && ((int)*tokens_pos_ptr) < end_token_addr) {
         // Check for case
         char** token_ptr = *tokens_pos_ptr;
-        if(strlen(*token_ptr) == strlen(case_token) && strcmp(*token_ptr, case_token) == 0) {
+        if(strlen(*token_ptr) == strlen(default_case_token) && strcmp(*token_ptr, default_case_token) == 0) {
+            *tokens_pos_ptr += 1; // default
+            int offset = (first_case_offset + (sf->structure->code_section_word_counter - prev_case_pos)*4);
+            default_addr = offset;
+        } else if((strlen(*token_ptr) == strlen(case_token) && strcmp(*token_ptr, case_token) == 0)) {
             *tokens_pos_ptr += 1; // "case"
             // todo: validate integer
             int case_int = atoi(**tokens_pos_ptr);
@@ -1038,11 +1047,12 @@ code_obj* asm_read_switch_case(code_pattern* cp, char** vars, char*** tokens_pos
 
     // copy cases to switch code obj 
     // printf("cases num: %d\n", cases_num);
-    switch_c_obj->bin_var_num = 1+(cases_num*2); // cases_num + cases + cases_offsets
-    switch_c_obj->bin_vars = w_malloc(1+(cases_num*2)*sizeof(int));
+    switch_c_obj->bin_var_num = 1+1+(cases_num*2); // cases_num + default_case + cases + cases_offsets
+    switch_c_obj->bin_vars = w_malloc(1+1+(cases_num*2)*sizeof(int));
     memcpy(switch_c_obj->bin_vars, &cases_num, sizeof(int)); // cases_num
-    memcpy((switch_c_obj->bin_vars + 1), cases, cases_num*sizeof(int)); // cases
-    memcpy((switch_c_obj->bin_vars + 1 + cases_num), cases_offsets, cases_num*sizeof(int)); // offsets
+    memcpy(switch_c_obj->bin_vars+1, &default_addr, sizeof(int)); // cases_num
+    memcpy((switch_c_obj->bin_vars + 2), cases, cases_num*sizeof(int)); // cases
+    memcpy((switch_c_obj->bin_vars + 2 + cases_num), cases_offsets, cases_num*sizeof(int)); // offsets
 
     // for(int i=1; i < cases_num+1; i++) { 
     //     printf("case: %d\n", switch_c_obj->bin_vars[i]);

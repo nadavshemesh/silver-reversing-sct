@@ -62,6 +62,7 @@ void free_node_to_end(node* n);
 void free_list(node** head);
 node** init_node_list();
 bool is_printable_ascii(char ch);
+bool is_letter(char ch);
 bool is_string(byte* str, int len);
 
 #endif

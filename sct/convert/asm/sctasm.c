@@ -335,7 +335,7 @@ void add_sct_bin_words_switch_body(sct_f* sf) {
     sf->structure->code_section_word_counter += 0x81;
 }
 
-data_obj* asm_create_data_obj(char*** tokens_pos_ptr, int id) {
+data_obj* asm_create_data_obj(char*** tokens_pos_ptr, int id, node* data_nodes, sct_f* sf) {
     char** token_ptr = *tokens_pos_ptr;
     if(*token_ptr == NULL)
         print_err_and_exit("Error, data obj ptr is null.", -4);
@@ -357,8 +357,34 @@ data_obj* asm_create_data_obj(char*** tokens_pos_ptr, int id) {
             // printf("array len: %d.\n", integers_num);
             int integers[integers_num];
             for(int i=0, j=0; i < len; i+=2, j++) {
-                int num = atoi(*(token_ptr+i));
-                integers[j] = num;
+                // check for memory reference (data ref)
+                char* str = *(token_ptr+i);
+                if(is_letter(*str)) {
+                    // printf("%c\n", *str);
+                    // printf("memory ref: %s\n", str);
+                    node* data_node = data_nodes;
+                    bool found = false;
+                    while(data_node != NULL && !found) {
+                        data_obj* data_o = data_node->item;
+                        if(strlen(str) == strlen(data_o->name) && strcmp(data_o->name, str) == 0) {
+                            found = true;
+                            int num = data_o->id;
+                            int num_id = id+j;
+                            integers[j] = num;
+                            // printf("offset: %08x\n", id+j);
+                            create_data_data_link(num_id, sf);
+                        }
+                        data_node = data_node->next;
+                    }
+                    if(!found) { 
+                        char err[256];
+                        sprintf(err, "Error, %s var was not found.", str);
+                        print_err_and_exit(err, -4); 
+                    }
+                } else {
+                    int num = atoi(*(token_ptr+i));
+                    integers[j] = num;
+                }
             }
             token_ptr+=len;
             // for(int i=0; i < integers_num; i++) {
@@ -440,7 +466,7 @@ void build_data_section(sct_f* sf) {
         int ds_size = sf->structure->data_sec_size;
         int id = (ds_size % 4 == 0) ? ds_size/4 : (ds_size/4+1);
         // printf("id: %08x\n", id);
-        data_obj* data_o = asm_create_data_obj(tokens_pos_ptr, id);
+        data_obj* data_o = asm_create_data_obj(tokens_pos_ptr, id, data_nodes, sf);
         sf->structure->data_sec_size += data_o->byte_size;
         node* n = create_node(data_o);
         if(data_next == NULL) { 
@@ -678,13 +704,31 @@ bool is_expr_token_multi_op(char** token) {
     return false;
 }
 
-void create_data_link(sct_f* sf) {
+void create_data_code_link(sct_f* sf) {
     node** link_nodes = sf->data_link_table;
     if(link_nodes == NULL) {  print_err_and_exit("Error, data link table undefined.", -4); }
 
     int* offset = w_malloc(sizeof(int));
     *offset = sf->structure->code_section_word_counter-1;
     *offset |= 0x40000000;
+
+    node* link_node = *link_nodes;
+    node* new_link_node = create_node(offset); 
+    if(sf->structure->link_table_size == 0 || link_node == NULL) {
+        *sf->data_link_table = new_link_node;
+    } else {
+        insert_node(link_nodes, new_link_node);
+    }
+    sf->structure->link_table_size++;
+}
+
+void create_data_data_link(int data_offset, sct_f* sf) {
+    node** link_nodes = sf->data_link_table;
+    if(link_nodes == NULL) {  print_err_and_exit("Error, data link table undefined.", -4); }
+
+    int* offset = w_malloc(sizeof(int));
+    *offset = data_offset;
+    *offset |= 0xC0000000;
 
     node* link_node = *link_nodes;
     node* new_link_node = create_node(offset); 
@@ -722,7 +766,7 @@ expr_obj* asm_create_expr_obj(expr_pattern* expr_p, char** vars, char*** token_p
 
         case VAR_PTR:
         case DATA_PTR: {
-            create_data_link(sf);
+            create_data_code_link(sf);
             // print_bin_link_table(sf);
             char* data_name = vars[0];
             data_obj* data_o = get_data_obj_by_name(data_name, sf);
@@ -1244,7 +1288,7 @@ code_obj* asm_read_var_ptr(code_pattern* cp, char** vars, char*** token_pos_ptr,
     code_obj* c_obj = create_and_init_c_obj();
 
     c_obj->cp = cp;
-    create_data_link(sf);
+    create_data_code_link(sf);
     // print_bin_link_table(sf);
     char* data_name = vars[0];
     data_obj* data_o = get_data_obj_by_name(data_name, sf);

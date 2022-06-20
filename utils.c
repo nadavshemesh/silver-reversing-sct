@@ -164,8 +164,12 @@ bool is_printable_ascii(char ch) {
     // return (ch >= 32 && ch <= 126);
 }
 
-bool is_letter(char ch) {
+bool is_letter_or_number(char ch) {
     return (ch >= 65 && ch <= 90) || (ch >= 97 && ch <=122) || (ch >= 48 && ch <= 57);
+}
+
+bool is_letter(char ch) {
+    return (ch >= 65 && ch <= 90) || (ch >= 97 && ch <=122);
 }
 
 bool is_string(byte* str, int len) {
@@ -177,7 +181,7 @@ bool is_string(byte* str, int len) {
         char ch = *(str+i);
         if(ch == 0) { null_counter++; row_nulls++; } else { row_nulls = 0; }
         if(row_nulls >= 4) return false;
-        if(is_letter(ch)) letters++;
+        if(is_letter_or_number(ch)) letters++;
         if(!is_printable_ascii(ch) && !is_exception_char(ch))
             non_printable++;
     }

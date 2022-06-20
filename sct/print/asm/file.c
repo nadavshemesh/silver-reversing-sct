@@ -188,7 +188,13 @@ void write_asm_data_object(data_obj* data_o, sct_f* sf) {
         for(int i=0; i < size_in_words; i++) {
             // int num = *data_o->bin_data + i;
             int num = *((int*)(data_o->data + i*sizeof(int)));
-            fprintf(sf->out_file, "%d", num);
+            if((num & 0xFF000000) == 0xC0000000) {
+                int id = num & 0x00FFFFFF;
+                data_obj* dao = get_data_obj_by_id(id, sf);
+                fprintf(sf->out_file, "%s", dao->name);
+            } else {
+                fprintf(sf->out_file, "%d", num);
+            }
             if(i < size_in_words-1) fprintf(sf->out_file, ", ");
         }
         if(size_in_words > 1) fprintf(sf->out_file, " }");

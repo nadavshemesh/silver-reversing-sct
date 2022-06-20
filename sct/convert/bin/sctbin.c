@@ -16,43 +16,89 @@ void build_scripts_order(sct_f* sf) {
     fseek(sf->file, f_pos, SEEK_SET);
 }
 
+void replace_data_word_in_data_obj_by_offset(int word, int word_offest_from_ds, sct_f* sf) {
+    data_obj** ds = sf->data_section;
+    int data_objs_num = sf->data_objs_num;
+    int word_counter = 0;
+    for(int i=0; i < data_objs_num; i++) {
+        data_obj* data_o = ds[i];
+        if(word_counter+(data_o->byte_size/4) > word_offest_from_ds) {
+            int byte_num = (word_offest_from_ds - word_counter)*4;
+            print_data_obj(data_o);
+            printf("word_counter: %04x, byte_num: %04x, data word to replace: %08x\n", word_counter, byte_num, *(data_o->data+byte_num));
+            *((int*)(data_o->data+byte_num)) = word;
+            return;
+        } else {
+            word_counter += data_o->byte_size/4;
+        }
+    }
+}
+
 void build_data_from_link_table(sct_f* sct) {
     int link_offset = (sct->structure->link_table_off)+4;
+    int data_offset = (sct->structure->data_sec_off)+4;
     int links_num = ((sct->structure->link_table_size)/4);
     int ds_size = sct->structure->data_sec_size;
     // printf("links num: %d, ds size: %d\n", links_num, ds_size);
     int data_ref_size = 0;
+    int ref_is_valid[ds_size];
     int ref_is_data[ds_size];
+    int ref_is_code[ds_size];
     int ref_count[ds_size];
     int refs[ds_size];
+    int data_to_replace[ds_size];
+    int data_should_replace[ds_size];
 
     fseek(sct->file, link_offset, SEEK_SET);
     fread(&refs, 4, links_num, sct->file);
 
-    for(int i=0; i < ds_size; i++) { ref_is_data[i] = 0; ref_count[i] = 0; }
+    for(int i=0; i < ds_size; i++) { 
+        ref_is_valid[i] = 0; ref_is_data[i] = 0; ref_is_code[i] = 0; ref_count[i] = 0;
+        data_to_replace[i] = 0; data_should_replace[i] = 0; }
     // check and convert to data offset
     for(int i=0; i < links_num; i++) {
         // printf("type: %03x\n", refs[i] & 0xFF000000);
-        if((refs[i] & 0xFF000000) == 0x40000000) {
+        int prefix = (refs[i] & 0xFF000000);
+        if(( prefix == 0x40000000) || ( prefix == 0xC0000000)) {
+            if( prefix == 0xC0000000) {
+                // printf("data_ref: %08x\n", refs[i]);
+                ref_is_data[i]++;
+            } else { 
+                ref_is_code[i]++;
+            }
             refs[i] &= 0x00FFFFFF;
             // printf("addr: %06x\n", refs[i]);
-            ref_is_data[i]++;
+            ref_is_valid[i]++;
         }
     } 
 
     for(int i=0; i < links_num; i++) { ref_count[i] = 0; } 
     // count refs to data by id
     for(int i=0, j=0; i < links_num; i++) {
-        if(ref_is_data[i] > 0) {
-            int in_code_offset = refs[i]*4+0x24;
-            // printf("addr: %06x\n", in_code_offset);
+        if(ref_is_valid[i] > 0) {
+            int in_file_offset = 0;
+            if(ref_is_data[i]) {
+                in_file_offset = refs[i]*4+data_offset;
+            } else if(ref_is_code[i]) {
+                in_file_offset = refs[i]*4+0x24;
+            }
+            // printf("addr: %06x\n", in_file_offset);
             int data_id;
-            fseek(sct->file, in_code_offset, SEEK_SET);
+            fseek(sct->file, in_file_offset, SEEK_SET);
             fread(&data_id, 4, 1, sct->file);
 
+            if(ref_is_data[i]) {
+                int data_mark = data_id;
+                data_mark |= 0xC0000000;
+                data_to_replace[i] = data_mark; // refs[i] will hold the word offset in data section
+                data_should_replace[i]++;
+                // printf("data_mark: %08x\n", data_mark);
+                // fseek(sct->file, in_file_offset, SEEK_SET);
+                // fwrite(&data_mark, 4, 1, sct->file);
+            }
             // printf("data id: %d\n", data_id);
             ref_count[data_id]++;
-        }
+        } else { print_err_and_exit("Error, unknown data ref.", -2); }
     }
 
     // count distinct refs
@@ -111,7 +157,7 @@ void build_data_from_link_table(sct_f* sct) {
         // memcpy(data_arr[i].asm_data, asm_data, byte_size);
         // print_data_obj(&data_arr[i]);
     }
-
+    
     sct->data_objs_num = data_ref_size;
     sct->data_section = w_malloc(data_ref_size*sizeof(data_obj*));
     // *sct->data_section = w_malloc(data_ref_size*sizeof(data_obj));
@@ -121,9 +167,18 @@ void build_data_from_link_table(sct_f* sct) {
         memcpy(data_o, &(data_arr[i]), sizeof(data_obj));
         sct->data_section[i] = data_o;
     }
-    // print_data_obj((&data_objs[5]));
-
     // print_data_obj(&(sct->data_section)[5]);
+
+    // replace data 
+    for(int i=0; i < ds_size; i++) {
+        if(data_should_replace[i]) {
+            int word_offset = refs[i];
+            int word_replacement = data_to_replace[i];
+            // printf("replacement: word_off: %08x, word: %08x\n", word_offset, word_replacement);
+            replace_data_word_in_data_obj_by_offset(word_replacement, word_offset, sct);
+        }
+    }
+
 }
 
 bool bin_cmp_token(int* a_token_ptr, int* b_token_ptr) {

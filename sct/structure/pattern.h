@@ -79,3 +79,4 @@ code_pattern* init_aid_cp_case();
 code_pattern* init_aid_cp_default_case();
 bool is_var_pos_expr(void* pattern, mode m, int index);
 bool is_var_pos(void* pattern, p_type pattern_type, mode m, int index);
+expr_pattern* init_expr_neg_var_ptr();

@@ -769,9 +769,19 @@ expr_obj* asm_create_expr_obj(expr_pattern* expr_p, char** vars, char*** token_p
             create_data_code_link(sf);
             // print_bin_link_table(sf);
             char* data_name = vars[0];
+            bool is_negated = false;
+            if(strlen(data_name) == 1 && strcmp(data_name, "!") == 0) {
+                is_negated = true;
+                data_name = **token_pos_ptr;
+                *token_pos_ptr += 1;
+            }
             data_obj* data_o = get_data_obj_by_name(data_name, sf);
             eo->data = data_o;
             data_o->references++;
+            if(is_negated) {
+                expr_pattern* neg_var_p = init_expr_neg_var_ptr();
+                eo->expr_p = neg_var_p;
+            }
 
             char* asm_vars[1] = { aapts(data_name) };
             int bin_vars[1] = { data_o->id }; 

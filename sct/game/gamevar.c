@@ -252,24 +252,24 @@ void init_game_vars(game_var** game_vars) {
     game_vars[0] = init_gv_room_cleared();
     game_vars[1] = init_gv_room_state();
     game_vars[2] = init_gv_room_timer();
-    game_vars[3] = init_gv_unknown25();
-    game_vars[4] = init_gv_unknown44();
-    game_vars[5] = init_gv_unknown53();
-    game_vars[6] = init_gv_unknown45c();
-    game_vars[7] = init_gv_unknown4510();
-    game_vars[8] = init_gv_unknown4514();
-    game_vars[9] = init_gv_unknown51();
-    game_vars[10] = init_gv_unknown55();
-    game_vars[11] = init_gv_unknown20();
-    game_vars[12] = init_gv_unknown40();
-    game_vars[13] = init_gv_unknown16();
-    game_vars[14] = init_gv_unknown17();
-    game_vars[15] = init_gv_unknown45f0();
-    game_vars[16] = init_gv_unknown45e4();
-    game_vars[17] = init_gv_unknown45e8();
-    game_vars[18] = init_gv_unknown45ec();
-    game_vars[19] = init_gv_unknown433c();
-    game_vars[20] = init_gv_unknown202e();
+    // game_vars[3] = init_gv_unknown25();
+    // game_vars[4] = init_gv_unknown44();
+    // game_vars[5] = init_gv_unknown53();
+    // game_vars[6] = init_gv_unknown45c();
+    // game_vars[7] = init_gv_unknown4510();
+    // game_vars[8] = init_gv_unknown4514();
+    // game_vars[9] = init_gv_unknown51();
+    // game_vars[10] = init_gv_unknown55();
+    // game_vars[11] = init_gv_unknown20();
+    // game_vars[12] = init_gv_unknown40();
+    // game_vars[13] = init_gv_unknown16();
+    // game_vars[14] = init_gv_unknown17();
+    // game_vars[15] = init_gv_unknown45f0();
+    // game_vars[16] = init_gv_unknown45e4();
+    // game_vars[17] = init_gv_unknown45e8();
+    // game_vars[18] = init_gv_unknown45ec();
+    // game_vars[19] = init_gv_unknown433c();
+    // game_vars[20] = init_gv_unknown202e();
 }
 
 game_var* get_game_var_by_offsets(int first_offset, int second_offset, int third_offset) {
@@ -282,8 +282,12 @@ game_var* get_game_var_by_offsets(int first_offset, int second_offset, int third
             return gv;
         }
     }
+    char name[256];
+    sprintf(name, "unknown_%02x_%02x_%02x", first_offset, second_offset, third_offset);
+    game_var* gv = init_gv(0, name, "", first_offset, second_offset, third_offset);
+    return gv;
 
-    return NULL;
+    // return NULL;
 }
 
 game_var* get_game_var_by_name(char* name) {
@@ -296,5 +300,9 @@ game_var* get_game_var_by_name(char* name) {
         }
     }
 
-    return NULL;
+    int fo, so, to;
+    sscanf(name, "unknown_%02x_%02x_%02x",&fo, &so, &to);
+    game_var* gv = init_gv(0, name, "", fo, so, to);
+    return gv;
+    // return NULL;
 }

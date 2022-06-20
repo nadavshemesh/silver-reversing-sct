@@ -9,7 +9,7 @@ bool is_separator_char(char ch) {
 
 bool is_special_char(char ch) {
     if(ch == '(' || ch == ')' || ch == ',' || ch == '{' || ch == '!' || ch == '|' ||
-        ch == '}' || ch == '+' || ch == '>' || ch == '<' || ch == '=' || ch == '&')
+        ch == '}' || ch == '+' || ch == '>' || ch == '<' || ch == '=' || ch == '&' || ch == '%')
         return true;
     return false;
 }

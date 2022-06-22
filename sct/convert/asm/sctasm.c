@@ -44,11 +44,11 @@ int read_word(FILE* f, char* dest) {
     }
 
     // handle string
-    if(c == '\'') {
+    if(c == '\"') {
         dest[0] = c;
         c = getc(f);
         int i = 1;
-        while(c != EOF && c != '\'' && i < MAX_ASM_TOKEN_LEN) {
+        while(c != EOF && c != '\"' && i < MAX_ASM_TOKEN_LEN) {
             // printf("%c ", c);
             dest[i] = c;
             c = getc(f);
@@ -408,15 +408,15 @@ data_obj* asm_create_data_obj(char*** tokens_pos_ptr, int id, node* data_nodes, 
             memcpy(data_o->data, integers, integers_num*sizeof(int));
             break;
         } 
-        case '\'': {
-            int len = count_token_chars_from_to(token, '\'', '\'');
+        case '\"': {
+            int len = count_token_chars_from_to(token, '\"', '\"');
             if(len == -1) {
                 print_err("Error, invalid string", -4); 
                 print_token_area_details(token_ptr, MODE_ASM);
             }
             // printf("found string. len: %d\n", len);
             char str[len];
-            copy_token_chars_from_to(token, str, '\'', '\'');
+            copy_token_chars_from_to(token, str, '\"', '\"');
             // printf("string: %s\n", str);
 
             // char* asm_data = { aapts(token) };
@@ -1478,12 +1478,14 @@ code_obj* asm_read_code_block(int tokens_to_read, char*** tokens_pos_ptr, sct_f*
     add_sct_bin_words_prologue(sf);
     // printf("Added 02 tokens for prologue\n");
     int block_word_size = 0;
+    if(tokens_pos_ptr != NULL && *tokens_pos_ptr != NULL && **tokens_pos_ptr != 0 
+        &&strlen(**tokens_pos_ptr) == 1 && strncmp(**tokens_pos_ptr, "{", 1) == 0) {
+        *tokens_pos_ptr += 1; // block opening paranthesis
+    }
+
     if(tokens_to_read > 0) {
         // sf->structure->code_section_word_counter += cp->bin_token_num;
 
-        if(strlen(**tokens_pos_ptr) == 1 && strncmp(**tokens_pos_ptr, "{", 1) == 0) {
-            *tokens_pos_ptr += 1; // block opening paranthesis
-        }
         int start_token_addr = (int) *tokens_pos_ptr;
         int end_token_addr = (start_token_addr + tokens_to_read*sizeof(char*));
         node** code_nodes = w_malloc(sizeof(node*));
@@ -1523,15 +1525,15 @@ code_obj* asm_read_code_block(int tokens_to_read, char*** tokens_pos_ptr, sct_f*
             }
         }
 
-        if(tokens_pos_ptr != NULL && *tokens_pos_ptr != NULL && **tokens_pos_ptr != 0 &&
-            strlen(**tokens_pos_ptr) == 1 && strncmp(**tokens_pos_ptr, "}", 1) == 0) {
-            *tokens_pos_ptr += 1; // closing paranthesis
-        }
-
         // printf("bin tokens in code block [%08x]: %d\n", start_token_addr, block_word_size);
         // printf("token_pos_addr: %08x, end_token_addr: %08x\n", *tokens_pos_ptr, end_token_addr);
         c_obj->code_nodes_num = code_nodes_num;
         c_obj->code_nodes = code_nodes;
+    }
+
+    if(tokens_pos_ptr != NULL && *tokens_pos_ptr != NULL && **tokens_pos_ptr != 0 &&
+        strlen(**tokens_pos_ptr) == 1 && strncmp(**tokens_pos_ptr, "}", 1) == 0) {
+        *tokens_pos_ptr += 1; // closing paranthesis
     }
 
     unsigned long after_block_code_word_count = get_sct_code_word_count(sf);

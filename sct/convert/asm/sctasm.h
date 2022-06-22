@@ -24,3 +24,4 @@ int count_file_sections(sct_f* sf);
 void build_scripts_lables_and_order(sct_f* sf);
 char* get_script_label_by_id(int id, sct_f* sf);
 void create_data_data_link(int data_offset, sct_f* sf);
+expression* asm_read_expression(char*** token_pos_ptr, sct_f* sf);

@@ -437,13 +437,18 @@ expr_obj* bin_create_expr_obj(expr_pattern* expr, int* vars, void** token_pos_pt
             // memcpy(data->bin_data, i, sizeof(data->bin_data));
             break;
 
+        case DATA_INDEX_PTR:
+        case VAR_PTR:
         case DATA_PTR:
             data = get_data_obj_by_id(data_var, sf);
+            if(expr->type == DATA_INDEX_PTR) {
+                expression* exp = bin_read_expression(token_pos_ptr, true, sf);
+                eo->expression_node_num = 1;
+                eo->expression_nodes = w_malloc(sizeof(node*));
+                *eo->expression_nodes = create_node(exp);
+            }
             break;
 
-        case VAR_PTR:
-            data = get_data_obj_by_id(data_var, sf);
-            break;
         case GAME_VAR: {
             game_var* gv = get_game_var_by_offsets(vars[0], vars[1], vars[2]);
             if(gv == NULL) { 
@@ -835,7 +840,14 @@ code_obj* bin_read_var_ptr(code_pattern* cp, int* vars, void** token_pos_ptr, sc
 
     c_obj->data = data;
     memcpy(c_obj->asm_vars, &asm_vars, sizeof(c_obj->asm_vars));
+
     memcpy(c_obj->bin_vars, bin_vars, sizeof(c_obj->bin_vars));
+    if(cp->type == CP_DATA_INDEX_PTR) {
+        expression* exp = bin_read_expression(token_pos_ptr, true, sf);
+        c_obj->expression_node_num = 1;
+        c_obj->expression_nodes = w_malloc(sizeof(node*));
+        *c_obj->expression_nodes = create_node(exp);
+    }
 
     return c_obj;
 }
@@ -978,6 +990,7 @@ obj_and_token_ptr bin_create_code_obj(code_pattern* cp, int* vars, void** token_
         case ROOM_VAR_PTR:
             c_obj = bin_read_room_var_ptr(cp, vars, token_pos_ptr, sf);
             break;
+        case CP_DATA_INDEX_PTR:
         case CP_VAR_PTR:
             c_obj = bin_read_var_ptr(cp, vars, token_pos_ptr, sf);
             break;

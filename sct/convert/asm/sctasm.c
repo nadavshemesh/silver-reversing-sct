@@ -1,15 +1,15 @@
 #include "sct\convert\asm\sctasm.h"
 
 bool is_separator_char(char ch) {
-    if(ch == ' ' || ch == '\t' || ch == '\n' || ch == '\r' || ch == '|' || ch == '&'
-         || ch == '\0' || ch == '(' || ch == ')' || ch == ',' || ch == '+' || ch == '=')
+    if(ch == ' ' || ch == '\t' || ch == '\n' || ch == '\r' || ch == '|' || ch == '&' || ch == '@' || ch == ']'
+         || ch == '[' || ch == '\0' || ch == '(' || ch == ')' || ch == ',' || ch == '+' || ch == '=')
         return true;
     return false;
 }
 
 bool is_special_char(char ch) {
-    if(ch == '(' || ch == ')' || ch == ',' || ch == '{' || ch == '!' || ch == '|' ||
-        ch == '}' || ch == '+' || ch == '>' || ch == '<' || ch == '=' || ch == '&' || ch == '%')
+    if(ch == '(' || ch == ')' || ch == ',' || ch == '{' || ch == '!' || ch == '|' || ch == '@' ||
+       ch == '[' || ch == ']' || ch == '}' || ch == '+' || ch == '>' || ch == '<' || ch == '=' || ch == '&' || ch == '%')
         return true;
     return false;
 }
@@ -23,7 +23,7 @@ char peek_next_char(FILE* f) {
 }
 
 bool is_char_paranth(char c) {
-    return (c == '(' || c == ')');
+    return (c == '(' || c == ')' || c == '[' || c == ']');
 }
 
 int read_word(FILE* f, char* dest) {
@@ -32,6 +32,15 @@ int read_word(FILE* f, char* dest) {
     // if separator, get next non-separator char.
     if(is_separator_char(c)) {
         while(c != EOF && is_separator_char(c) && !is_special_char(c)) { c = getc(f); }
+    }
+
+    // private case "-=" workaround
+    if((c == '-' || c == '/') && peek_next_char(f) == '=') {
+        dest[0] = c;
+        getc(f);
+        dest[1] = '=';
+        dest[2] = 0;
+        return 0;
     }
 
     // handle string
@@ -764,6 +773,7 @@ expr_obj* asm_create_expr_obj(expr_pattern* expr_p, char** vars, char*** token_p
             memcpy(eo->bin_vars, bin_vars, sizeof(eo->bin_vars));
             break;
 
+        case DATA_INDEX_PTR:
         case VAR_PTR:
         case DATA_PTR: {
             create_data_code_link(sf);
@@ -791,6 +801,25 @@ expr_obj* asm_create_expr_obj(expr_pattern* expr_p, char** vars, char*** token_p
 
             memcpy(eo->asm_vars, asm_vars, sizeof(eo->asm_vars));
             memcpy(eo->bin_vars, bin_vars, sizeof(eo->bin_vars));
+
+            if(expr_p->type == DATA_INDEX_PTR) {
+                char* token = **token_pos_ptr;
+                if(strlen(token) == 1 && strcmp(token, "[") == 0) {
+                    *token_pos_ptr += 1;
+                } else { print_err("Error, missing '[' at data index pointer.", -4);
+                            print_token_area_details(*token_pos_ptr, MODE_ASM); }
+
+                expression* exp = asm_read_expression(token_pos_ptr, sf);
+                eo->expression_node_num = 1;
+                eo->expression_nodes = w_malloc(sizeof(node*));
+                *eo->expression_nodes = create_node(exp);
+
+                token = **token_pos_ptr;
+                if(strlen(token) == 1 && strcmp(token, "]") == 0) {
+                    *token_pos_ptr += 1;
+                } else { print_err("Error, missing ']' at data index pointer.", -4); 
+                        print_token_area_details(*token_pos_ptr, MODE_ASM); }
+            }
             break;
         }
 
@@ -1314,6 +1343,25 @@ code_obj* asm_read_var_ptr(code_pattern* cp, char** vars, char*** token_pos_ptr,
     memcpy(c_obj->asm_vars, asm_vars, sizeof(c_obj->asm_vars));
     memcpy(c_obj->bin_vars, bin_vars, sizeof(c_obj->bin_vars));
 
+    if(cp->type == CP_DATA_INDEX_PTR) {
+        char* token = **token_pos_ptr;
+        if(strlen(token) == 1 && strcmp(token, "[") == 0) {
+            *token_pos_ptr += 1;
+        } else { print_err("Error, missing '[' at data index pointer.", -4);
+                    print_token_area_details(*token_pos_ptr, MODE_ASM); }
+
+        expression* exp = asm_read_expression(token_pos_ptr, sf);
+        c_obj->expression_node_num = 1;
+        c_obj->expression_nodes = w_malloc(sizeof(node*));
+        *c_obj->expression_nodes = create_node(exp);
+
+        token = **token_pos_ptr;
+        if(strlen(token) == 1 && strcmp(token, "]") == 0) {
+            *token_pos_ptr += 1;
+        } else { print_err("Error, missing ']' at data index pointer.", -4); 
+                print_token_area_details(*token_pos_ptr, MODE_ASM); }
+    }
+
     return c_obj;
 }
 
@@ -1348,6 +1396,7 @@ obj_and_token_ptr asm_create_code_obj(code_pattern* cp, char** vars, char*** tok
         case ROOM_VAR_PTR:
             c_obj = asm_read_room_var_ptr(cp, vars, token_pos_ptr, sf);
             break;
+        case CP_DATA_INDEX_PTR:
         case CP_VAR_PTR:
             c_obj = asm_read_var_ptr(cp, vars, token_pos_ptr, sf);
             break;

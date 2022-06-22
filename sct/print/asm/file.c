@@ -29,9 +29,10 @@ bool f_is_cp_paranth_type2(c_type type) {
 }
 
 bool f_is_same_line(code_pattern* cp) {
-    if(cp->type == GAME_VAR || cp->type == ROOM_VAR_PTR || cp->type == CP_VAR_PTR
-         || (cp->type == FUNCTION_CALL))
+    if(cp->type == ROOM_VAR_PTR || cp->type == CP_VAR_PTR 
+        || cp->type == FUNCTION_CALL) {
         return true;
+    }
     return false;
 }
 
@@ -46,23 +47,31 @@ void write_asm_expr(expression* expr, sct_f* sf) {
     for(int i=0, j=0; i < exprs_num; i++) {
         expr_obj* expr_o = &(expr->expr_objs)[i];
         expr_pattern* expr_p = expr_o->expr_p;
-        
-        for(int k=0, l=0; k < expr_p->asm_token_num; k++) {
-            if(is_var_pos_expr(expr_p, MODE_ASM, k)) {
-                fprintf(sf->out_file, "%s", expr_o->asm_vars[l]);
-                l++;
-                // if(i+1 < exprs_num) { fprintf(sf->out_file, ", "); }
-            } else {
-                if(expr_p->type == OPERATOR) fprintf(sf->out_file, " ");
-                fprintf(sf->out_file, "%s", expr_p->asm_tokens[k]);
-                if(expr_p->type == OPERATOR) fprintf(sf->out_file, " ");
+
+        switch(expr_p->type) {
+            default: {
+                for(int k=0, l=0; k < expr_p->asm_token_num; k++) {
+                    if(is_var_pos_expr(expr_p, MODE_ASM, k)) {
+                        fprintf(sf->out_file, "%s", expr_o->asm_vars[l]);
+                        l++;
+                        // if(i+1 < exprs_num) { fprintf(sf->out_file, ", "); }
+                    } else {
+                        if(expr_p->type == OPERATOR) fprintf(sf->out_file, " ");
+                        fprintf(sf->out_file, "%s", expr_p->asm_tokens[k]);
+                        if(expr_p->type == OPERATOR) fprintf(sf->out_file, " ");
+                    }
+                    if(k < expr_p->asm_token_num-1 
+                        && expr_p->type != DATA_INDEX_PTR) { fprintf(sf->out_file, " "); }
+                }
+                if(expr_o->expression_node_num > 0) {
+                    c_type type = FUNCTION_CALL; 
+                    if(expr_p->type == DATA_INDEX_PTR) { fprintf(sf->out_file, "["); type = CP_VAR_PTR; }
+                    write_asm_expression(expr_o->expression_nodes, type, true, sf);
+                    if(expr_p->type == DATA_INDEX_PTR) { fprintf(sf->out_file, "]"); }
+                } else {
+                    if(expr_o->expr_p->type == FUNCTION) { fprintf(sf->out_file, "()"); }
+                }
             }
-            if(k < expr_p->asm_token_num-1) { fprintf(sf->out_file, " "); }
-        }
-        if(expr_o->expression_node_num > 0) {
-            write_asm_expression(expr_o->expression_nodes, FUNCTION_CALL, true, sf);
-        } else {
-            if(expr_o->expr_p->type == FUNCTION) { fprintf(sf->out_file, "()"); }
         }
     }
 }
@@ -94,6 +103,11 @@ bool f_is_control_statement(code_pattern* cp) {
     return false;
 }
 
+bool f_is_var_type(code_pattern* cp) {
+    c_type type = cp->type;
+    return (type == CP_VAR_PTR || type == ROOM_VAR_PTR);
+}
+
 void write_asm_code_obj(code_obj* co, int indentation_lvl, sct_f* sf) {
     code_pattern* cp = co->cp;
 
@@ -101,12 +115,13 @@ void write_asm_code_obj(code_obj* co, int indentation_lvl, sct_f* sf) {
     for(int i=0, j=0; i < cp->asm_token_num; i++) {
         if(is_var_pos(cp, CODE_TYPE, MODE_ASM, i)) {
             fprintf(sf->out_file, "%s", co->asm_vars[j]);
-            if(cp->type == CP_VAR_PTR) fprintf(sf->out_file, " ");
+            if(f_is_var_type(cp)) fprintf(sf->out_file, " ");
             j++;
         } else {
             if(should_f_indent(cp)) f_indent(indentation_lvl, sf);
             fprintf(sf->out_file, "%s", cp->asm_tokens[i]);
-            if(i < cp->asm_token_num && !f_is_control_statement(cp)) fprintf(sf->out_file, " ");
+            if(i < cp->asm_token_num && !f_is_control_statement(cp) 
+                && cp->type != CP_DATA_INDEX_PTR) fprintf(sf->out_file, " ");
         }
         if(i == cp->asm_token_num-1 && co->expression_node_num == 0
          && !f_is_same_line(cp)) { fprintf(sf->out_file, "\n"); }
@@ -114,8 +129,11 @@ void write_asm_code_obj(code_obj* co, int indentation_lvl, sct_f* sf) {
     
     // write code exprs
     int exp_num = co->expression_node_num;
+    bool nested = false;
     if(exp_num > 0) {
-        write_asm_expression(co->expression_nodes, co->cp->type, false, sf);
+        if(cp->type == CP_DATA_INDEX_PTR) { fprintf(sf->out_file, "["); nested = true; } 
+        write_asm_expression(co->expression_nodes, co->cp->type, nested, sf);
+        if(cp->type == CP_DATA_INDEX_PTR) { fprintf(sf->out_file, "]"); nested = false; }
     } else {
         if(co->cp->type == FUNCTION_CALL) { fprintf(sf->out_file, "()"); }
     }

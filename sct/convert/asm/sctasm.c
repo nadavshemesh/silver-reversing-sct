@@ -344,7 +344,8 @@ void add_sct_bin_words_switch_body(sct_f* sf) {
     sf->structure->code_section_word_counter += 0x81;
 }
 
-data_obj* asm_create_data_obj(char*** tokens_pos_ptr, int id, node* data_nodes, sct_f* sf) {
+data_obj* asm_create_data_obj(char*** tokens_pos_ptr, int id, node* data_nodes, 
+        int* unfound_var_ids, char** unfound_var_names, int* unfound_var_index, sct_f* sf) {
     char** token_ptr = *tokens_pos_ptr;
     if(*token_ptr == NULL)
         print_err_and_exit("Error, data obj ptr is null.", -4);
@@ -386,11 +387,18 @@ data_obj* asm_create_data_obj(char*** tokens_pos_ptr, int id, node* data_nodes, 
                         data_node = data_node->next;
                     }
                     if(!found) { 
-                        char err[256];
-                        sprintf(err, "Error, %s var was not found.", str);
-                        print_err_and_exit(err, -4); 
+                        // char err[256];
+                        // sprintf(err, "Error, %s var was not found.", str);
+                        // print_err_and_exit(err, -4); 
+                        int num_id = id+j;
+                        int num = -9;
+                        integers[j] = num;
+                        unfound_var_ids[*unfound_var_index] = num_id;
+                        unfound_var_names[*unfound_var_index] = aapts(str);
+                        *unfound_var_index += 1;
+                        create_data_data_link(num_id, sf);
                     }
-                } else {
+                } else { // not a letter, assuming it is an int, todo: validate
                     int num = atoi(*(token_ptr+i));
                     integers[j] = num;
                 }
@@ -469,13 +477,19 @@ void build_data_section(sct_f* sf) {
     tokens_pos_ptr = &tokens;
 
     int i = 0;
+    char** unfound_var_names = w_malloc(sizeof(char*));
+    int* unfound_var_ids = w_malloc(sizeof(int));
+    int unfound_var_index = 0;
     node* data_next = NULL;
     node* data_nodes;
     while(**tokens_pos_ptr != NULL) {
         int ds_size = sf->structure->data_sec_size;
         int id = (ds_size % 4 == 0) ? ds_size/4 : (ds_size/4+1);
+        unfound_var_names = realloc(unfound_var_names, (i+1)*sizeof(char*));
+        unfound_var_ids = realloc(unfound_var_ids, (i+1)*sizeof(int));
         // printf("id: %08x\n", id);
-        data_obj* data_o = asm_create_data_obj(tokens_pos_ptr, id, data_nodes, sf);
+        data_obj* data_o = asm_create_data_obj(tokens_pos_ptr, id, data_nodes, 
+                            unfound_var_ids, unfound_var_names, &unfound_var_index, sf);
         sf->structure->data_sec_size += data_o->byte_size;
         node* n = create_node(data_o);
         if(data_next == NULL) { 
@@ -487,6 +501,7 @@ void build_data_section(sct_f* sf) {
         }
         i++;
     }
+
     sf->data_objs_num = i;
     sf->data_section = w_malloc(i*sizeof(data_obj*));
     data_next = data_nodes; // point to start again
@@ -495,6 +510,29 @@ void build_data_section(sct_f* sf) {
         sf->data_section[j] = data_next->item;
         data_next = data_next->next;
         j++;
+    }
+
+    // attempt to find prev unfound var names
+    for(int k=0; k < unfound_var_index; k++) {
+        if(unfound_var_names[k] != NULL) {
+            char* unfound_name = unfound_var_names[k];
+            int byte_id = unfound_var_ids[k];
+            node* data_node = data_nodes;
+            while(data_node->next != NULL) {
+                data_obj* data_o = data_node->item;
+                data_obj* next_data_o = data_node->next->item;
+                if(byte_id >= data_o->id && byte_id <= next_data_o->id) {
+                    int byte_num = (byte_id - data_o->id);
+                    // byte_num = (byte_num == 0)? byte_num : byte_num-1;
+                    data_obj* ref_obj = get_data_obj_by_name(unfound_name, sf);
+                    if(*((int*) data_o->data+byte_num) != -9) break;
+                    // printf("Found %s, byte_num: %d(val: %d), ref_id: %d\n", unfound_name,
+                            //  byte_num, *((int*) data_o->data+byte_num), ref_obj->id);
+                    *((int*) data_o->data+byte_num) = ref_obj->id;
+                }
+                data_node = data_node->next;
+            }
+        }
     }
 }
 

@@ -423,12 +423,14 @@ data_obj* asm_create_data_obj(char*** tokens_pos_ptr, int id, node* data_nodes,
                 print_token_area_details(token_ptr, MODE_ASM);
             }
             // printf("found string. len: %d\n", len);
-            char str[len];
+            char str[len+1];
             copy_token_chars_from_to(token, str, '\"', '\"');
+            str[len] = 0;
             // printf("string: %s\n", str);
 
             // char* asm_data = { aapts(token) };
             byte* data = (byte*) aapts(str);
+            // printf("string: %s\n", (char*) data);
 
             data_o->id = id;
             len += 1; // +1 for null byte
@@ -439,7 +441,7 @@ data_obj* asm_create_data_obj(char*** tokens_pos_ptr, int id, node* data_nodes,
             data_o->name = aapts(name);
 
             // data_o->asm_data = w_malloc(sizeof(char*));
-            data_o->data = w_malloc(len);
+            data_o->data = w_calloc(len);
 
             // memcpy(data_o->asm_data, &asm_data, sizeof(data_o->asm_data));
             memcpy(data_o->data, data, len);

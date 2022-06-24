@@ -43,6 +43,7 @@ typedef struct node {
 } node;
 
 void *w_malloc(size_t size);
+ void *w_calloc(size_t size);
 char *aapts(char* str);
 char* c_itoa(int num, char *str);
 void print_title(char* msg);

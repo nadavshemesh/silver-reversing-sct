@@ -9,9 +9,19 @@
     return res;
 }
 
+ void *w_calloc(size_t size) {
+    void* res = calloc(size, 1);
+    if(res == NULL) {
+        printf("calloc error.\n");
+        exit(-1);
+    }
+    return res;
+}
+
 char *aapts(char* str) {
-    char* alloc_str = w_malloc(strlen(str));
+    char* alloc_str = w_malloc(strlen(str)+1);
     strncpy(alloc_str, str, strlen(str));
+    *(alloc_str+strlen(str)) = 0;
 
     return alloc_str;
 }

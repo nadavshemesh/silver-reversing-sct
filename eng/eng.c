@@ -4,24 +4,16 @@
 #include<stdbool.h>
 #include<unistd.h>
 
-#include "fileutils.h"
+#include "file\fileutils.h"
 const bool debug = false;
 
 int xor_file(char* filepath, int op) {
 	int xor_val = 0x52;
-	char filepath_cpy[strlen(filepath)-4];
-	strncpy(filepath_cpy, filepath, strlen(filepath)-4);
-	filepath_cpy[sizeof(filepath_cpy)] = 0;
-	char* filepath_out = &filepath_cpy[0];
-
-	switch(op) {
-		case 0:
-			strcat(filepath_out, ".dec\0");
-			break;
-	 	case 1:
-			strcat(filepath_out, ".eng\0");
-			break;
-	 }
+	char* dir = getDir(filepath);
+	char* filename = getFilenameNoExt(filepath);
+	char* ext = (op == 0)? ".dec" : ".eng";
+	char filepath_out[strlen(dir)+strlen(filename)+strlen(ext)];
+	sprintf(filepath_out, "%s%s%s", dir, filename, ext);
 
 	FILE* f = fopen(filepath, "r");
 	if(f == NULL) { printf("Error opening file %s, exiting...", filepath); return -1; }

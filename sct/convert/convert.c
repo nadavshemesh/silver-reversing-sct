@@ -7,8 +7,8 @@ expr_pattern** expr_patterns;
 
 
 script* disasm_script(int script_num, sct_f* sf) {
-    // int script_offset = get_script_off(script_num, sf);
-    int script_offset = get_script_offset_sorted(script_num, sf);
+    int script_offset = get_script_off(script_num, sf);
+    // int script_offset = get_script_offset_sorted(script_num, sf);
     int script_original_offset = get_script_offset(script_num, sf); 
     // printf("of: %08x\n", script_original_offset);
     // exit(0);

@@ -16,6 +16,31 @@ Currently. This tool can:
 1. Translate most .sct files to a .tsct text file (it’s structure and rules are explained in the docs)
 2. Translate .tsct script file back to .sct format that can be executed by the game’s engine.
 
+## Examples
+Example .tsct files can be found inside the ./out folder.
+[davhouse.tsct](./out/davhouse.tsct), [courtyrd.tsct](./out/courtyrd.tsct)
+
+
+## Usage
+### Note:
+The files generated will overwrite the file so you definately should backup you files first!
+- The 0 command is from .sct to .tsct
+- the 1 command is from .tsct to .sct
+```
+Usage: ./sct.exe [operation (ie 1 or 0)] [full_path_to_sct/tsct file]
+```
+for instance:
+In order to translate veranda.sct file, We can use the command:
+```
+.\sct.exe 0 "D:\SteamLibrary\steamapps\common\Silver\silver\levels\gno\veranda\veranda.sct"
+```
+The above command will generate a veranda.tsct file in the same directory as the path.
+
+In order to translate veranda.tsct back to veranda.sct we use:
+```
+.\sct.exe 1 "D:\SteamLibrary\steamapps\common\Silver\silver\levels\gno\veranda\veranda.tsct"
+```
+
 ## Building
 
 Using gcc, while in this readme.md directory:

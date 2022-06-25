@@ -22,10 +22,9 @@ Example .tsct files can be found inside the ./out folder.
 
 
 ## Usage
-### Note:
-The files generated will **overwrite** the file so you definately should **backup** your files first!
-- The 0 command is from .sct to .tsct
-- the 1 command is from .tsct to .sct
+**Note:** The files generated will **overwrite** the file so you definately should **backup** your files first!
+- The 0 command is used to convert from .sct to .tsct
+- the 1 command is used to convert from .tsct to .sct
 ```
 Usage: ./sct.exe [operation (ie 1 or 0)] [full_path_to_sct/tsct file]
 ```

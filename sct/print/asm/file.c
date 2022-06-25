@@ -54,14 +54,16 @@ void write_asm_expr(expression* expr, sct_f* sf) {
                     if(is_var_pos_expr(expr_p, MODE_ASM, k)) {
                         fprintf(sf->out_file, "%s", expr_o->asm_vars[l]);
                         l++;
-                        // if(i+1 < exprs_num) { fprintf(sf->out_file, ", "); }
                     } else {
                         if(expr_p->type == OPERATOR) fprintf(sf->out_file, " ");
                         fprintf(sf->out_file, "%s", expr_p->asm_tokens[k]);
                         if(expr_p->type == OPERATOR) fprintf(sf->out_file, " ");
                     }
                     if(k < expr_p->asm_token_num-1 
-                        && expr_p->type != DATA_INDEX_PTR) { fprintf(sf->out_file, " "); }
+                        && expr_p->type != DATA_INDEX_PTR) {
+                            if(!(expr_p->type == ADDROF_VAR_PTR && k == 1))
+                                fprintf(sf->out_file, " "); 
+                        }
                 }
                 if(expr_o->expression_node_num > 0) {
                     c_type type = FUNCTION_CALL; 
@@ -69,7 +71,9 @@ void write_asm_expr(expression* expr, sct_f* sf) {
                     write_asm_expression(expr_o->expression_nodes, type, true, sf);
                     if(expr_p->type == DATA_INDEX_PTR) { fprintf(sf->out_file, "]"); }
                 } else {
-                    if(expr_o->expr_p->type == FUNCTION) { fprintf(sf->out_file, "()"); }
+                    if(expr_o->expr_p->type == FUNCTION) { 
+                        fprintf(sf->out_file, "()");
+                    }
                 }
             }
         }
@@ -135,7 +139,9 @@ void write_asm_code_obj(code_obj* co, int indentation_lvl, sct_f* sf) {
         write_asm_expression(co->expression_nodes, co->cp->type, nested, sf);
         if(cp->type == CP_DATA_INDEX_PTR) { fprintf(sf->out_file, "]"); nested = false; }
     } else {
-        if(co->cp->type == FUNCTION_CALL) { fprintf(sf->out_file, "()"); }
+        if(co->cp->type == FUNCTION_CALL) { 
+            fprintf(sf->out_file, "()\n");
+        }
     }
 
     // write nested blocks

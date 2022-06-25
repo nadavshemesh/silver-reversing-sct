@@ -439,7 +439,7 @@ expr_obj* bin_create_expr_obj(expr_pattern* expr, int* vars, void** token_pos_pt
 
         case DATA_INDEX_PTR:
         case VAR_PTR:
-        case DATA_PTR:
+        case ADDROF_VAR_PTR:
             data = get_data_obj_by_id(data_var, sf);
             if(expr->type == DATA_INDEX_PTR) {
                 expression* exp = bin_read_expression(token_pos_ptr, true, sf);

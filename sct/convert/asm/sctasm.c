@@ -815,7 +815,7 @@ expr_obj* asm_create_expr_obj(expr_pattern* expr_p, char** vars, char*** token_p
 
         case DATA_INDEX_PTR:
         case VAR_PTR:
-        case DATA_PTR: {
+        case ADDROF_VAR_PTR: {
             create_data_code_link(sf);
             // print_bin_link_table(sf);
             char* data_name = vars[0];

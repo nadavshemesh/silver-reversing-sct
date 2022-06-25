@@ -793,15 +793,15 @@ expr_pattern* init_expr_neg_var_ptr() {
     return expr;
 }
 
-expr_pattern* init_expr_data_ptr() {
+expr_pattern* init_expr_addr_of_var_ptr() {
     expr_pattern* expr = w_malloc(sizeof(expr_pattern));
-    expr->type = DATA_PTR;
-    expr->name = aapts("const ptr");
+    expr->type = ADDROF_VAR_PTR;
+    expr->name = aapts("address of var ptr");
 
     i_arr bin_tokens = { .arr = { 0, 7, VAR }, .len = 3 };
     i_arr bin_var_pos = { .arr = { 2 }, .len = 1 };
-    s_arr asm_tokens = { .arr = { "const", S_VAR }, .len = 2 };
-    i_arr asm_var_pos = { .arr = { 1 }, .len = 1 };
+    s_arr asm_tokens = { .arr = { "var", "&", S_VAR }, .len = 3 };
+    i_arr asm_var_pos = { .arr = { 2 }, .len = 1 };
 
     init_expr(expr, bin_tokens, bin_var_pos, asm_tokens, asm_var_pos);
 
@@ -830,7 +830,7 @@ void init_expr_patterns(expr_pattern** expr_patterns) {
 
     // data types
     expr_patterns[0] = init_expr_int();
-    expr_patterns[1] = init_expr_data_ptr();
+    expr_patterns[1] = init_expr_addr_of_var_ptr();
     expr_patterns[2] = init_expr_var_ptr();
     expr_patterns[3] = init_expr_data_index_ptr();
     expr_patterns[4] = init_expr_data_neg_index_ptr();

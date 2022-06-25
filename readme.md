@@ -39,6 +39,10 @@ In order to translate veranda.tsct back to veranda.sct we use:
 ```
 .\sct.exe 1 "D:\SteamLibrary\steamapps\common\Silver\silver\levels\gno\veranda\veranda.tsct"
 ```
+Some important basic info about .sct execution:
+1. the top script is the main script to be called on load.
+2. the second one below it will always be run as infinite loop.
+3. the third one from the top is executed when the player exits the room.
 
 ## Building
 

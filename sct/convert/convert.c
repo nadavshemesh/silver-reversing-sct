@@ -23,14 +23,14 @@ script* disasm_script(int script_num, sct_f* sf) {
     script->code_nodes_num = 0;
     script->code_nodes = w_malloc(sizeof(node*));
     *script->code_nodes = w_malloc(sizeof(node));
-    printf("node ptr: %08x\n", script->code_nodes);
+    // printf("node ptr: %08x\n", script->code_nodes);
     script->script_code_ptr = w_malloc(sizeof(void*));
 
     int script_len;
     fread(&script_len, 4, 1, sf->file);
     script_len -= 2;
     script->size_in_words = script_len;
-    printf("script_offset: %x, script_len: %x (%x bytes)\n", script_offset, script_len, script_len*4);
+    // printf("script_offset: %x, script_len: %x (%x bytes)\n", script_offset, script_len, script_len*4);
 
     int bin_tokens[script_len];
     *script->script_code_ptr = bin_tokens;
@@ -39,12 +39,12 @@ script* disasm_script(int script_num, sct_f* sf) {
     int* token_ptr = *(script->script_code_ptr);
     int tokens_read = token_ptr - bin_tokens;
     while(tokens_read < script_len) {
-        printf("Tokens read: %d\n", tokens_read);
+        // printf("Tokens read: %d\n", tokens_read);
         cp_cmp_result res = bin_identify_cp(script->script_code_ptr);
         if(res.is_identified) {
             char msg[256];
             sprintf(msg, "Found pattern '%s'.\n", res.match->name);
-            print_success(msg);
+            // print_success(msg);
             obj_and_token_ptr oatp = bin_create_code_obj(res.match, res.vars, script->script_code_ptr, sf);
             if(oatp.type == OBJ_CODE) {
                 code_obj* co = (code_obj*) oatp.obj;
@@ -79,6 +79,7 @@ sct_f* disasm_file(char* filepath) {
     // TODO: validate structure
     sct_file->file = file;
     sct_file->structure = form_structure(file);
+    print_sct_struct(sct_file);
     
     // disassemble file's data section
     build_scripts_order(sct_file);
@@ -158,8 +159,8 @@ sct_f* asm_file(char* filepath) {
     return sct_file;
 }
 
-void write_tsct_asm_file(char* filepath, sct_f* sf) {
-    char* dir = getDir(filepath);
+void write_tsct_asm_file(char* filepath, bool write_to_out_dir, sct_f* sf) {
+    char* dir = (write_to_out_dir) ? aapts("./out/") : getDir(filepath);
     char* filename = getFilenameNoExt(filepath);
     char ext[] = ".tsct";
 
@@ -241,7 +242,9 @@ int main(int argc, char* argv[]) {
     switch(op) {
         case 0:
             sct_file = disasm_file(filepath);
-            write_tsct_asm_file(filepath, sct_file);
+            write_tsct_asm_file(filepath, false, sct_file);
+            // also write to ./out/
+            write_tsct_asm_file(filepath, true, sct_file);
             break;
 
         case 1:

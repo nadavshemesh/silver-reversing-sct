@@ -24,8 +24,8 @@ void replace_data_word_in_data_obj_by_offset(int word, int word_offest_from_ds, 
         data_obj* data_o = ds[i];
         if(word_counter+(data_o->byte_size/4) > word_offest_from_ds) {
             int byte_num = (word_offest_from_ds - word_counter)*4;
-            print_data_obj(data_o);
-            printf("word_counter: %04x, byte_num: %04x, data word to replace: %08x\n", word_counter, byte_num, *(data_o->data+byte_num));
+            // print_data_obj(data_o);
+            // printf("word_counter: %04x, byte_num: %04x, data word to replace: %08x\n", word_counter, byte_num, *(data_o->data+byte_num));
             *((int*)(data_o->data+byte_num)) = word;
             return;
         } else {
@@ -109,7 +109,7 @@ void build_data_from_link_table(sct_f* sct) {
             data_ref_size++;
         } 
     } 
-    printf("data_ref_size: %08x\n", data_ref_size);
+    // printf("data_ref_size: %08x\n", data_ref_size);
 
     // create data objects
     data_obj data_arr[data_ref_size];
@@ -251,7 +251,7 @@ cp_cmp_result bin_identify_cp(void** token_pos_ptr) {
                    }
                     eq_tokens++;
                 } else {
-                    printf("var found: %08x\n", *((int*)token));
+                    // printf("var found: %08x\n", *((int*)token));
                     vars[var_i] = *((int*) token);
                     var_i++;
                 }
@@ -343,7 +343,7 @@ int bin_read_expression_size(void** tokens_pos_ptr, bool with_prologue) {
 expression* bin_read_expression(void** tokens_pos_ptr, bool with_prologue, sct_f* sf) {
     expression* exp = w_malloc(sizeof(expression));
     int exprs_num = bin_read_expression_size(tokens_pos_ptr, with_prologue);
-    printf("expr size: %d\n", exprs_num);
+    // printf("expr size: %d\n", exprs_num);
     expr_obj exprs[exprs_num];
     // Read exprs
     for(int i=0; i < exprs_num; i++) {
@@ -351,7 +351,7 @@ expression* bin_read_expression(void** tokens_pos_ptr, bool with_prologue, sct_f
         if(res.is_identified) {
             char msg[256];
             sprintf(msg, "Found expr pattern '%s'.", res.match->name);
-            print_success(msg);
+            // print_success(msg);
             *tokens_pos_ptr = res.tokens_pos;
             expr_obj* eo = bin_create_expr_obj(res.match, res.vars, tokens_pos_ptr, sf);
             exprs[i] = *eo;
@@ -369,7 +369,7 @@ expr_obj* bin_read_function_call_expr(expr_pattern* expr_p, int* vars, void** to
 
     int func_num = ((int*) vars)[0];
     int params_num = ((int*) vars)[1];
-    printf("game_func: %x, params_num(exprs): %d\n", func_num, params_num);
+    // printf("game_func: %x, params_num(exprs): %d\n", func_num, params_num);
 
     game_fun* gf = game_functions[func_num];
     if(gf == NULL) { 
@@ -508,12 +508,12 @@ code_obj* bin_read_code_block(code_pattern* cp, int* vars, void** token_pos_ptr,
     int* block_token_pos_ptr = *token_pos_ptr;
     int tokens_read = (block_token_pos_ptr - token_ptr);
     while(tokens_read < size_in_words) {
-        printf("Block tokens read: %d\n", tokens_read);
+        // printf("Block tokens read: %d\n", tokens_read);
         cp_cmp_result res = bin_identify_cp(token_pos_ptr);
         if(res.is_identified) {
             char msg[256];
             sprintf(msg, "Found pattern '%s'.\n", res.match->name);
-            print_success(msg);
+            // print_success(msg);
             obj_and_token_ptr oatp = bin_create_code_obj(res.match, res.vars, token_pos_ptr, sf);
             if(oatp.type == OBJ_CODE) {
                 code_obj* co = (code_obj*) oatp.obj;
@@ -573,14 +573,14 @@ code_obj* bin_read_code_block_cases(code_pattern* cp, int* vars, int* cases, int
     // }
 
     int case_tokens_num = (case_ptrs[case_index+1]-case_ptrs[case_index])/4;
-    printf("case tokens num: %d\n", case_tokens_num);
+    // printf("case tokens num: %d\n", case_tokens_num);
     while(tokens_read < size_in_words) {
-        printf("Block tokens read: %d\n", tokens_read);
+        // printf("Block tokens read: %d\n", tokens_read);
         cp_cmp_result res = bin_identify_cp(token_pos_ptr);
         if(res.is_identified) {
             char msg[256];
             sprintf(msg, "Found pattern '%s'.\n", res.match->name);
-            print_success(msg);
+            // print_success(msg);
             obj_and_token_ptr oatp = bin_create_code_obj(res.match, res.vars, token_pos_ptr, sf);
             if(oatp.type == OBJ_CODE) {
                 code_obj* co = (code_obj*) oatp.obj;
@@ -598,10 +598,10 @@ code_obj* bin_read_code_block_cases(code_pattern* cp, int* vars, int* cases, int
             block_token_pos_ptr = *token_pos_ptr;
             tokens_read = (block_token_pos_ptr - token_ptr);
 
-            printf("tokens read: %d\n", tokens_read);
+            // printf("tokens read: %d\n", tokens_read);
             // After break add case code_obj to main block
             if((tokens_read == case_tokens_num) && case_index < cases_num) {
-                printf("case %d\n", cases[case_index]);
+                // printf("case %d\n", cases[case_index]);
                 node* code_node = create_node(current_case);
                 if(c_obj->code_nodes_num == 0){
                     *c_obj->code_nodes = code_node;
@@ -617,7 +617,7 @@ code_obj* bin_read_code_block_cases(code_pattern* cp, int* vars, int* cases, int
                 } else {
                     case_tokens_num = size_in_words;
                 }
-                printf("case tokens num: %d\n", case_tokens_num);
+                // printf("case tokens num: %d\n", case_tokens_num);
                 current_case = create_and_init_c_obj();
                 if(cases[case_index] == DEFAULT_CASE) {
                     current_case->cp = default_case_cp;
@@ -627,7 +627,7 @@ code_obj* bin_read_code_block_cases(code_pattern* cp, int* vars, int* cases, int
 
 
                 sprintf(num_s, "%d", cases[case_index]);
-                printf("next case %d\n", cases[case_index]);
+                // printf("next case %d\n", cases[case_index]);
                 char* asm_vars[1] = { aapts(num_s) };
                 current_case->asm_vars = w_malloc((current_case->cp->asm_var_num)*sizeof(char**));
                 memcpy(current_case->asm_vars, asm_vars, sizeof(current_case->asm_vars));
@@ -646,7 +646,7 @@ code_obj* bin_read_function_call(code_pattern* cp, int* vars, void** tokens_pos_
 
     int func_num = ((int*) vars)[0];
     int params_num = ((int*) vars)[1];
-    printf("game_func: %x, params_num(exprs): %d\n", func_num, params_num);
+    // printf("game_func: %x, params_num(exprs): %d\n", func_num, params_num);
 
     game_fun* gf = game_functions[func_num];
     if(gf == NULL) { 

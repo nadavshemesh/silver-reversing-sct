@@ -18,7 +18,7 @@ Currently, This tool can:
 
 ## Examples
 Example .tsct files can be found inside the ./out folder.
-[davhouse.tsct](./out/davhouse.tsct), [courtyrd.tsct](./out/courtyrd.tsct)
+[veranda.tsct](./out/veranda.tsct), [gnolib2.tsct](./out/gnolib2.tsct), [davhouse.tsct](./out/davhouse.tsct), [courtyrd.tsct](./out/courtyrd.tsct)
 
 
 ## Usage

@@ -9,9 +9,9 @@ A tool created to read and modify an in-game scripting language of a game called
 
 ## Introduction
 
-This tool’s purpose is to translate the game’s .sct files to a readable file format (a somewhat arbitrary scripting language I came up with to make sense of it’s binary format). and to translate it back into .sct format that the game’s engine can read. This tool was created to further investigate the game’s inner workings.
+This tool’s purpose is to translate the game’s .sct files to a readable file format (a somewhat arbitrary scripting language I came up with to make sense of it’s binary format) and to translate it back into .sct format that the game’s engine can read. This tool was created to further investigate the game’s inner workings.
 
-Currently. This tool can: 
+Currently, This tool can: 
 
 1. Translate most .sct files to a .tsct text file (it’s structure and rules are explained in the docs)
 2. Translate .tsct script file back to .sct format that can be executed by the game’s engine.
@@ -23,7 +23,7 @@ Example .tsct files can be found inside the ./out folder.
 
 ## Usage
 ### Note:
-The files generated will overwrite the file so you definately should backup you files first!
+The files generated will **overwrite** the file so you definately should **backup** your files first!
 - The 0 command is from .sct to .tsct
 - the 1 command is from .tsct to .sct
 ```

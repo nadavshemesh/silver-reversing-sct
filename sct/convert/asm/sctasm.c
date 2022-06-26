@@ -483,7 +483,7 @@ void build_data_section(sct_f* sf) {
     int* unfound_var_ids = w_malloc(sizeof(int));
     int unfound_var_index = 0;
     node* data_next = NULL;
-    node* data_nodes;
+    node* data_nodes = NULL;
     while(**tokens_pos_ptr != NULL) {
         int ds_size = sf->structure->data_sec_size;
         int id = (ds_size % 4 == 0) ? ds_size/4 : (ds_size/4+1);

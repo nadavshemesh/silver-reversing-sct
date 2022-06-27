@@ -3,7 +3,7 @@ Welcome to the docs, here i'll attempt to record all the nessicary information t
 the tool in an effective way.
 
 
-## Table of content:
+## Table of contents:
 
 ### The .sct format
 

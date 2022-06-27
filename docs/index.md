@@ -13,3 +13,4 @@ the tool in an effective way.
 + [Items catalog](./catalog/items.md)
 + [Enemies catalog](./catalog/enemies.md)
 + [Characters catalog](./catalog/characters.md)
++ [Sound Effects catalog](./catalog/sound.md)

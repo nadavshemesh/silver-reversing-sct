@@ -873,4 +873,4 @@ please note that you should first call a function to load the set before playing
 | 1 | "telelift" |
 | 2 | "telestop"	|
 
-_this table was based on sfxdefs.sct.
+_this table was based on sfxdefs.sct._

@@ -3,7 +3,7 @@
 
 # Silver .sct reverse engineering & modding tool
 
-A tool created to read and modify internal scripts of a game called '[Silver](http//en.wikipedia.org/wiki/Silver_(video_game))' - an action RPG from 1999 developed by Spiral House and published by Infogrames.
+A tool created to read and modify internal scripts of a game called '[Silver]("http://en.wikipedia.org/wiki/Silver_(video_game)")' - an action RPG from 1999 developed by Spiral House and published by Infogrames.
 
 ### *This tool is work in progress, so it’s unstable, buggy and has missing features.*
 
@@ -43,6 +43,9 @@ Some important basic info about .sct execution:
 1. the top script is the main script to be called on load.
 2. the second one below it will always be run as infinite loop.
 3. the third one from the top is executed when the player exits the room.
+
+## Docs
+Further information can be found [here](./docs/index.md).
 
 ## Building
 

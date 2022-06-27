@@ -5,7 +5,6 @@
 
 A tool created to read and modify internal scripts of a game called '[Silver](https://en.wikipedia.org/wiki/Silver_(video_game))' - an action RPG from 1999 developed by Spiral House and published by Infogrames.
 
-### *This tool is work in progress, so it’s unstable, buggy and has missing features.*
 
 ## Introduction
 
@@ -54,3 +53,5 @@ Using gcc, while in this readme.md directory:
 ```
 gcc -I .\ .\utils.c .\sct\sct.c .\sct\structure\object.c .\sct\structure\pattern.c .\sct\print\asm\console.c .\sct\game\gamefunc.c .\sct\convert\convert.c .\sct\convert\asm\sctasm.c .\sct\convert\bin\sctbin.c .\file\fileutils.c .\sct\print\bin\console.c .\sct\game\gamevar.c .\sct\print\bin\file.c .\sct\print\asm\file.c .\eng\eng.c -o .\sct.exe
 ```
+
+_This tool is work in progress, so it’s unstable, buggy and has missing features._

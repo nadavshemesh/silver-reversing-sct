@@ -3,7 +3,7 @@
 
 # Silver .sct reverse engineering & modding tool
 
-A tool created to read and modify internal scripts of a game called '[Silver]("http://en.wikipedia.org/wiki/Silver_(video_game)")' - an action RPG from 1999 developed by Spiral House and published by Infogrames.
+A tool created to read and modify internal scripts of a game called '[Silver](https://en.wikipedia.org/wiki/Silver_(video_game))' - an action RPG from 1999 developed by Spiral House and published by Infogrames.
 
 ### *This tool is work in progress, so it’s unstable, buggy and has missing features.*
 

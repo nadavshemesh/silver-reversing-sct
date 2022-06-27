@@ -7,17 +7,17 @@ VAR_4	0
 VAR_5	0	
 VAR_6	0	
 VAR_7	"DVDCHR"	
-VAR_8	{ 1280070990, 0 }	
+VAR_8	"NULL"	
 VAR_9	"SEKCHR"	
-VAR_10	{ 1280070990, 0 }	
+VAR_10	"NULL"	
 VAR_11	"CAGCHR"	
-VAR_12	{ 1280070990, 0 }	
+VAR_12	"NULL"	
 VAR_13	"JUGCHR"	
-VAR_14	{ 1280070990, 0 }	
+VAR_14	"NULL"	
 VAR_15	"CHICHR"	
-VAR_16	{ 1280070990, 0 }	
+VAR_16	"NULL"	
 VAR_17	"VIVCHR"	
-VAR_18	{ 1280070990, 0 }	
+VAR_18	"NULL"	
 VAR_19	0	
 VAR_20	{ 0, 0, -1 }	
 VAR_21	0	
@@ -29,22 +29,22 @@ VAR_26	"game saved"
 VAR_27	"game not saved"	
 VAR_28	0	
 VAR_29	"DVDCHR"	
-VAR_30	{ 1280070990, 0 }	
+VAR_30	"NULL"	
 VAR_31	"SEKCHR"	
-VAR_32	{ 1280070990, 0 }	
+VAR_32	"NULL"	
 VAR_33	"CAGCHR"	
-VAR_34	{ 1280070990, 0 }	
+VAR_34	"NULL"	
 VAR_35	"JUGCHR"	
-VAR_36	{ 1280070990, 0 }	
+VAR_36	"NULL"	
 VAR_37	"CHICHR"	
-VAR_38	{ 1280070990, 0 }	
+VAR_38	"NULL"	
 VAR_39	"VIVCHR"	
-VAR_40	{ 1280070990, 0 }	
+VAR_40	"NULL"	
 VAR_41	0	
 VAR_42	100	
 VAR_43	{ -6460, 16, 1048 }	
 VAR_44	0	
-VAR_45	"courtyrdG"	
+VAR_45	"courtyrd"	
 VAR_46	0	
 VAR_47	"imphorn"	
 VAR_48	0	
@@ -65,7 +65,7 @@ VAR_62	{ -2873, -10, 3883 }
 VAR_63	{ -5979, -13, 2846 }	
 VAR_64	{ -6107, -15, 2691 }	
 VAR_65	0	
-VAR_66	{ 1313429318, 1347242311, 0 }	
+VAR_66	"FWINGIMP"	
 VAR_67	"FIMP1"	
 VAR_68	"FIMP2"	
 VAR_69	"FIMP3"	
@@ -73,7 +73,7 @@ VAR_70	"FIMP4"
 VAR_71	"FIMP5"	
 VAR_72	"FIMP6"	
 VAR_73	"FIMP7"	
-VAR_74	{ 1869768803, 1818454382, 0 }	
+VAR_74	"chronicl"	
 VAR_75	{ -6165, 40, 1380 }	
 VAR_76	{ -6165, 30, 2150 }	
 VAR_77	{ -6866, 40, 1298 }	
@@ -82,7 +82,7 @@ VAR_79	0
 VAR_80	-1	
 VAR_81	0	
 VAR_82	"TERIMP"	
-VAR_83	{ 1280070990, 0 }	
+VAR_83	"NULL"	
 VAR_84	{ -5720, 32, 660 }	
 VAR_85	0	
 VAR_86	0	
@@ -114,20 +114,17 @@ VAR_111	0
 VAR_112	0	
 VAR_113	{ -4255, -14, 1671 }	
 VAR_114	"DVDTER"	
-VAR_115	{ 1280070990, 0 }	
+VAR_115	"NULL"	
 VAR_116	0	
 VAR_117	0	
 VAR_118	0	
 VAR_119	0	
-VAR_120	{ 1163088449, 0 }	
+VAR_120	"ARSE"	
 VAR_121	0	
 VAR_122	0	
-VAR_123	0	
-VAR_124	{ 1146242390, 1163152961, 0 }
+VAR_123	0
 
 ._SCRIPT_0
-gamevar room_state = int 1
-call play_bgm(var &VAR_124)
 call load_sound(int 11)
 call load_sound(int 62)
 call func_ec(int 1, int -1, int 11, int 0)
@@ -135,6 +132,7 @@ call func_ec(int 7, int -1, int 11, var &VAR_43)
 execute SCRIPT_4
 execute SCRIPT_27
 var VAR_0 = int 1
+call func_58(int 1)
 if(gamevar is_room_cleared)
  {
 		execute SCRIPT_26

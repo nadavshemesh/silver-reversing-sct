@@ -244,7 +244,7 @@ int main(int argc, char* argv[]) {
             sct_file = disasm_file(filepath);
             write_tsct_asm_file(filepath, false, sct_file);
             // also write to ./out/
-            write_tsct_asm_file(filepath, true, sct_file);
+            // write_tsct_asm_file(filepath, true, sct_file);
             break;
 
         case 1:

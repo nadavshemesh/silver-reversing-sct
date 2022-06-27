@@ -1,12 +1,10 @@
 
-# Items Catalog
+# Items Catalog [^1]
+### Description
+Item number ids are often used in functions to indicate the type of item to use or equip.
+[^1]: This table is based on weapons.sct.
 
-
-
-> Item number ids are often used in functions to indicate the type of item to use or equip.
- 
- 
- 
+ #
 
 | Item id  | Item name | String ID |
 | --- | --------- | --------- |

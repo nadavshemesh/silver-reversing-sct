@@ -1,16 +1,22 @@
 
-# Characters Catalog
+# Characters Catalog [^1]
+### Description
+Characters string ids are often used in functions and in dialog files (.eng files) to indicate the type of character.
+[^1]: this table is based on charstat.sct.
+# 
 
-
-
-> Characters string ids are often used in functions and in dialog files (.eng files) to indicate the type of character.
- 
- 
- #### If you use a function that identifies a character by its string ID then the first letter indicates its type:
+### Prefix [^2]
+#### If you use a function that identifies a character by its string ID then the first letter indicates its type:
  
   **'h'** - ``he becomes playable``, **'f'** - ``he is a foe``, **'n'** - ``he is neutral``
  
  If it starts with **'h'** but ends with **'.'** ``he is a friend but unplayable.``
+
+ [^2]: _Adding such prefix (if it isn't there already) is mendatory_
+#
+ _NOTE: not all chars in this list can be used in all functions, some chars may produce an error_
+
+ _** numbering in this list is not an id but simply the order of this list_
 
 | #  | Dialog ID | String ID |
 | --- | --------- | --------- |
@@ -48,7 +54,7 @@
 | 31 | MUR | MURPHY |
 | 32 | TER | TYRONIS |
 | 33 | WIT | WHITTLE |
-| 34 | CHE | TCHESTf |
+| 34 | CHE | TCHEST |
 | 35 | BST | TBEAST |
 | 36 | MIN | MOONMINE |
 | 37 | MON | MONEYBAG |
@@ -56,7 +62,7 @@
 | 39 | GRA | GRANDAD |
 | 40 | CAG | CAGEN |
 | 41 | VIV | VIVIENNE |
-| 42 | CHI | CHIAROr |
+| 42 | CHI | CHIARO |
 | 43 | SIL | SILVER |
 | 44 | SYS | SYSTEM |
 | 45 | FIR | FIRE |

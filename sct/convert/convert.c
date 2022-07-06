@@ -131,8 +131,8 @@ sct_f* asm_file(char* filepath) {
         sc->name = aapts(get_script_label_by_id(i, sct_file));
 
         sct_file->script_table[i] = get_sct_code_word_count(sct_file);
-        int block_tokens_size = count_next_section_tokens(sct_file);
         char** tokens = tokenize_next_section(sct_file);
+        int block_tokens_size = count_tokens(tokens);
         tokens_pos_ptr = &tokens;
 
         code_obj* co = asm_read_code_block(block_tokens_size, tokens_pos_ptr, sct_file);

@@ -140,15 +140,15 @@ if(gamevar !is_room_cleared)
 }
 
 ._SCRIPT_3
-if(gamevar room_timer > var VAR_54)
+if(gamevar script_time > var VAR_54)
  {
-		var VAR_54 = gamevar room_timer + int 300 + call randomize_int(int 0, int 200)
+		var VAR_54 = gamevar script_time + int 300 + call randomize_int(int 0, int 200)
 		var VAR_52 = int 2 + call randomize_int(int 0, int 3)
 		call play_loaded_sound(var VAR_52, int 0, int 63, int 0)
 }
-if(gamevar room_timer > var VAR_53)
+if(gamevar script_time > var VAR_53)
  {
-		var VAR_53 = gamevar room_timer + int 60 + call randomize_int(int 0, int 40)
+		var VAR_53 = gamevar script_time + int 60 + call randomize_int(int 0, int 40)
 		var VAR_52 = int 2 + call randomize_int(int 0, int 5)
 		call play_loaded_sound(var VAR_52, int 0, int 62, int 0)
 }

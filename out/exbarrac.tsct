@@ -123,7 +123,7 @@ call load_sound(int 6)
 call play_loaded_sound(int 13, int -1, int 6, int 0)
 var VAR_1 = call play_loaded_sound(int 198, int -1, int 0, int 0)
 call func_11c(var VAR_1, int 20)
-if(gamevar unknown_04_09_04 == int 1)
+if(gamevar *scene_info_p+1 == int 1)
  {
 		call play_loaded_sound(int 12, int -1, int 6, int 0)
 }
@@ -167,7 +167,7 @@ switch(gamevar room_state)
 }
 
 ._SCRIPT_3
-gamevar unknown_02_00_25 = var VAR_0
+gamevar script_object = var VAR_0
 if(gamevar unknown_04_0c_04)
  {
 		if(call ! randomize_int(int 0, int 10))
@@ -176,17 +176,17 @@ if(gamevar unknown_04_0c_04)
 				call func_11c(var VAR_1, int 15)
 		}
 }
-if(gamevar room_timer > var VAR_116)
+if(gamevar script_time > var VAR_116)
  {
-		var VAR_116 = gamevar room_timer + int 60 + call randomize_int(int 0, int 40)
+		var VAR_116 = gamevar script_time + int 60 + call randomize_int(int 0, int 40)
 		var VAR_115 = int 1 + call randomize_int(int 0, int 5)
 		call play_loaded_sound(var VAR_115, int 0, int 6, int 0)
 }
-if(gamevar unknown_04_09_04 == int 1)
+if(gamevar *scene_info_p+1 == int 1)
  {
-		if(gamevar room_timer > var VAR_117)
+		if(gamevar script_time > var VAR_117)
 		 {
-				var VAR_117 = gamevar room_timer + int 80 + call randomize_int(int 0, int 40)
+				var VAR_117 = gamevar script_time + int 80 + call randomize_int(int 0, int 40)
 				var VAR_115 = int 6 + call randomize_int(int 0, int 6)
 				call play_loaded_sound(var VAR_115, int 0, int 6, int 0)
 		}
@@ -219,8 +219,8 @@ call func_106(var VAR_10, int 1, int 0, int 3)
 call func_50(var VAR_10, int 131)
 call func_106(var VAR_12, int 1, int 0, int 3)
 call func_50(var VAR_12, int 131)
-gamevar unknown_02_00_33 = int 1
-gamevar unknown_02_00_34 = int 1
+gamevar play_sting = int 1
+gamevar play_battle_music = int 1
 execute SCRIPT_6
 call func_d5()
 
@@ -238,8 +238,8 @@ switch(var VAR_24)
 			 {
 					if(call func_16(int 4128773))
 					 {
-							gamevar unknown_02_00_25 = var VAR_14
-							if(gamevar unknown_04_04_04 == int 0)
+							gamevar script_object = var VAR_14
+							if(gamevar *character_combat_p+1 == int 0)
 							 {
 									if(call func_37(var VAR_22, int 6))
 									 {
@@ -254,8 +254,8 @@ switch(var VAR_24)
 					}
 					if(call func_16(int 4128774))
 					 {
-							gamevar unknown_02_00_25 = var VAR_16
-							if(gamevar unknown_04_04_04 == int 0)
+							gamevar script_object = var VAR_16
+							if(gamevar *character_combat_p+1 == int 0)
 							 {
 									if(call func_37(var VAR_22, int 6))
 									 {
@@ -276,8 +276,8 @@ switch(var VAR_24)
 			 {
 					if(call func_16(int 4128775))
 					 {
-							gamevar unknown_02_00_25 = var VAR_18
-							if(gamevar unknown_04_04_04 == int 0)
+							gamevar script_object = var VAR_18
+							if(gamevar *character_combat_p+1 == int 0)
 							 {
 									if(call func_37(var VAR_22, int 6))
 									 {
@@ -292,8 +292,8 @@ switch(var VAR_24)
 					}
 					if(call func_16(int 4128776))
 					 {
-							gamevar unknown_02_00_25 = var VAR_20
-							if(gamevar unknown_04_04_04 == int 0)
+							gamevar script_object = var VAR_20
+							if(gamevar *character_combat_p+1 == int 0)
 							 {
 									if(call func_37(var VAR_22, int 6))
 									 {
@@ -314,8 +314,8 @@ switch(var VAR_24)
 			 {
 					if(call func_16(int 4128771))
 					 {
-							gamevar unknown_02_00_25 = var VAR_10
-							if(gamevar unknown_04_04_04 == int 0)
+							gamevar script_object = var VAR_10
+							if(gamevar *character_combat_p+1 == int 0)
 							 {
 									if(call func_37(var VAR_22, int 6))
 									 {
@@ -330,8 +330,8 @@ switch(var VAR_24)
 					}
 					if(call func_16(int 4128772))
 					 {
-							gamevar unknown_02_00_25 = var VAR_12
-							if(gamevar unknown_04_04_04 == int 0)
+							gamevar script_object = var VAR_12
+							if(gamevar *character_combat_p+1 == int 0)
 							 {
 									if(call func_37(var VAR_22, int 6))
 									 {
@@ -376,19 +376,19 @@ call func_d5()
 ._SCRIPT_8
 
 ._SCRIPT_9
-if(gamevar unknown_04_09_04 == int 1)
+if(gamevar *scene_info_p+1 == int 1)
  {
-		gamevar unknown_02_00_16 = int 272
-		gamevar unknown_02_00_17 = int 168
+		gamevar SMACKER_X = int 272
+		gamevar SMACKER_Y = int 168
 		call func_a0(var &VAR_2, int 1, int 1, int 0)
-		gamevar unknown_02_00_16 = int 248
-		gamevar unknown_02_00_17 = int 416
+		gamevar SMACKER_X = int 248
+		gamevar SMACKER_Y = int 416
 		call func_a0(var &VAR_3, int 1, int 1, int 0)
-		gamevar unknown_02_00_16 = int 544
-		gamevar unknown_02_00_17 = int 280
+		gamevar SMACKER_X = int 544
+		gamevar SMACKER_Y = int 280
 		call func_a0(var &VAR_4, int 1, int 1, int 0)
-		gamevar unknown_02_00_16 = int 656
-		gamevar unknown_02_00_17 = int 192
+		gamevar SMACKER_X = int 656
+		gamevar SMACKER_Y = int 192
 		call func_a0(var &VAR_5, int 1, int 1, int 0)
 }
 
@@ -398,7 +398,7 @@ call put_item_in_char_inv(var VAR_25, int 40, int 0, int 0)
 call put_item_in_char_inv(var VAR_25, int 41, int 0, int 0)
 call put_item_in_char_inv(var VAR_25, int 42, int 0, int 0)
 call put_item_in_char_inv(var VAR_25, int 43, int 0, int 0)
-if(call func_bf(int 333, gamevar unknown_02_00_00, gamevar unknown_02_00_01))
+if(call func_bf(int 333, gamevar CURRENT_LEVEL, gamevar CURRENT_SCENE))
  {
 		call func_cd(var &VAR_64)
 		call func_d8(int 333, var &VAR_59)
@@ -413,7 +413,7 @@ else
 		var VAR_47 = @VAR_50[gamevar room_state - int 2]
 }
 call func_10c(var VAR_25, var VAR_47)
-if(call func_bf(int 448, gamevar unknown_02_00_00, gamevar unknown_02_00_01))
+if(call func_bf(int 448, gamevar CURRENT_LEVEL, gamevar CURRENT_SCENE))
  {
 		call func_d8(int 448, var &VAR_59)
 		switch(var VAR_60)
@@ -469,7 +469,7 @@ switch(var VAR_65)
 		case 3
 			if(call get_input_sys() != int 4)
 			 {
-					if(gamevar unknown_02_00_4f)
+					if(gamevar items_bought)
 					 {
 							call start_dialog(var &VAR_70, var VAR_47)
 					}
@@ -517,12 +517,12 @@ if(var VAR_25)
 
 ._SCRIPT_13
 var VAR_26 = call create_char(var &VAR_77, var &VAR_91, int 40, int 13)
-if(call func_bf(int 222, gamevar unknown_02_00_00, gamevar unknown_02_00_01))
+if(call func_bf(int 222, gamevar CURRENT_LEVEL, gamevar CURRENT_SCENE))
  {
 		call func_d8(int 222, var &VAR_59)
 		var VAR_90 = var VAR_60
 }
-if(call ! func_bf(int 111, gamevar unknown_02_00_00, gamevar unknown_02_00_01))
+if(call ! func_bf(int 111, gamevar CURRENT_LEVEL, gamevar CURRENT_SCENE))
  {
 		call func_cd(var &VAR_92)
 		var VAR_78 = int 0
@@ -540,7 +540,7 @@ else
 		 {
 				var VAR_79 = @VAR_82[var VAR_90]
 		}
-		if(gamevar unknown_02_00_44)
+		if(gamevar control_char_p)
 		 {
 				if(var VAR_60 != int 2)
 				 {
@@ -610,12 +610,12 @@ switch(var VAR_94)
 		case 3
 			if(call get_input_sys() != int 4)
 			 {
-					if(gamevar unknown_02_00_4f)
+					if(gamevar items_bought)
 					 {
 							if(var VAR_79 == var VAR_83)
 							 {
 									call func_cd(var &VAR_101)
-									var VAR_97 = call func_66(gamevar unknown_02_00_44)
+									var VAR_97 = call func_66(gamevar control_char_p)
 									switch(var VAR_97)
 									 {
 											case 65536

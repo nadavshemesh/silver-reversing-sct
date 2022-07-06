@@ -122,21 +122,21 @@ if(gamevar !is_room_cleared)
 }
 
 ._SCRIPT_3
-if(gamevar room_timer > var VAR_58)
+if(gamevar script_time > var VAR_58)
  {
-		var VAR_58 = gamevar room_timer + int 600 + call randomize_int(int 0, int 400)
+		var VAR_58 = gamevar script_time + int 600 + call randomize_int(int 0, int 400)
 		var VAR_56 = int 5 + call randomize_int(int 0, int 4)
 		call play_loaded_sound(var VAR_56, int 0, int 63, int 0)
 }
-if(gamevar room_timer > var VAR_59)
+if(gamevar script_time > var VAR_59)
  {
-		var VAR_59 = gamevar room_timer + int 250 + call randomize_int(int 0, int 150)
+		var VAR_59 = gamevar script_time + int 250 + call randomize_int(int 0, int 150)
 		var VAR_56 = int 9 + call randomize_int(int 0, int 4)
 		call play_loaded_sound(var VAR_56, int 0, int 63, int 0)
 }
-if(gamevar room_timer > var VAR_57)
+if(gamevar script_time > var VAR_57)
  {
-		var VAR_57 = gamevar room_timer + int 300 + call randomize_int(int 0, int 200)
+		var VAR_57 = gamevar script_time + int 300 + call randomize_int(int 0, int 200)
 		var VAR_56 = int 2 + call randomize_int(int 0, int 3)
 		call play_loaded_sound(var VAR_56, int 0, int 63, int 0)
 }
@@ -154,10 +154,10 @@ call put_item_in_char_inv(var VAR_9, int 8, int 1, int 0)
 var VAR_8 = call create_enemy(int 104, int 9, var &VAR_15, int 0)
 call func_10f(var VAR_8, int 2)
 var VAR_7 = call create_char(var &VAR_17, var &VAR_45, int 150, int 13)
-gamevar unknown_02_00_25 = var VAR_7
-gamevar unknown_04_05_f0 = int 1
-gamevar unknown_04_05_d4 = int 0
-gamevar unknown_04_03_38 = int 106000
+gamevar script_object = var VAR_7
+gamevar *character_movement_p+60# = int 1
+gamevar *character_movement_p+53# = int 0
+gamevar *character_stats_p+14 = int 106000
 call func_111(int 2)
 var VAR_0 = call get_char_handle(int 65536)
 call freeze_enemy(var VAR_9)
@@ -191,19 +191,19 @@ call func_107(var VAR_24, var &VAR_42)
 switch(var VAR_11)
  {
 		case 0
-			if(gamevar unknown_02_00_1d > int 150)
+			if(gamevar scene_counter > int 150)
 			 {
 					call func_100(call func_6a(var VAR_7))
 					var VAR_11 ++ 
-					gamevar unknown_02_00_1d = int 0
+					gamevar scene_counter = int 0
 			}
 			break 
 		case 1
-			if(gamevar unknown_02_00_1d > int 240)
+			if(gamevar scene_counter > int 240)
 			 {
 					call func_100(call func_6a(var VAR_3))
 					var VAR_11 ++ 
-					gamevar unknown_02_00_1d = int 0
+					gamevar scene_counter = int 0
 					call func_111(int 1)
 			}
 			break 
@@ -306,12 +306,12 @@ switch(var VAR_46)
 		case 0
 			if(var VAR_11 == int 2)
 			 {
-					gamevar unknown_02_00_1d = int 0
+					gamevar scene_counter = int 0
 					var VAR_46 ++ 
 			}
 			break 
 		case 1
-			if(gamevar unknown_02_00_1d > var VAR_13)
+			if(gamevar scene_counter > var VAR_13)
 			 {
 					if(var VAR_12 == int 1)
 					 {
@@ -321,7 +321,7 @@ switch(var VAR_46)
 					 {
 							call func_1c(var VAR_8, var VAR_3)
 							var VAR_12 ++ 
-							gamevar unknown_02_00_1d = int 0
+							gamevar scene_counter = int 0
 							var VAR_13 = int 240
 					}
 					else
@@ -332,7 +332,7 @@ switch(var VAR_46)
 							call func_106(var VAR_8, int 9, int 5, var &VAR_16)
 							call func_106(var VAR_8, int 9, int 6, int 1)
 							var VAR_46 ++ 
-							gamevar unknown_02_00_1d = int 0
+							gamevar scene_counter = int 0
 					}
 			}
 			break 
@@ -348,8 +348,8 @@ switch(var VAR_46)
 }
 
 ._SCRIPT_9
-gamevar unknown_02_00_25 = var VAR_0
-if(gamevar unknown_04_07_14 == int 6&&var ! VAR_48)
+gamevar script_object = var VAR_0
+if(gamevar *object_p+5 == int 6&&var ! VAR_48)
  {
 		call func_29(var VAR_8)
 		var VAR_48 = int 1
@@ -401,8 +401,8 @@ var VAR_53 ++
 
 ._SCRIPT_13
 var VAR_3 = call create_char(var &VAR_4, var &VAR_5, int 90, int 13)
-gamevar unknown_02_00_25 = var VAR_3
-gamevar unknown_04_07_18 |= int 67108864
+gamevar script_object = var VAR_3
+gamevar *object_p+6 |= int 67108864
 if(call func_16(int 393216))
  {
 		var VAR_1 = call get_char_handle(int 393216)

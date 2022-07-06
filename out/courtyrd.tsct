@@ -204,15 +204,15 @@ if(gamevar !is_room_cleared)
 }
 
 ._SCRIPT_3
-if(gamevar room_timer > var VAR_122)
+if(gamevar script_time > var VAR_122)
  {
-		var VAR_122 = gamevar room_timer + int 60 + call randomize_int(int 0, int 40)
+		var VAR_122 = gamevar script_time + int 60 + call randomize_int(int 0, int 40)
 		var VAR_121 = int 2 + call randomize_int(int 0, int 5)
 		call play_loaded_sound(var VAR_121, int 0, int 62, int 0)
 }
-if(gamevar room_timer > var VAR_123)
+if(gamevar script_time > var VAR_123)
  {
-		var VAR_123 = gamevar room_timer + int 100 + call randomize_int(int 0, int 100)
+		var VAR_123 = gamevar script_time + int 100 + call randomize_int(int 0, int 100)
 		if(call get_num_of_enemies())
 		 {
 				call play_loaded_sound(int 8, int 0, int 62, int 0)
@@ -220,8 +220,8 @@ if(gamevar room_timer > var VAR_123)
 }
 
 ._SCRIPT_4
-gamevar unknown_02_00_16 = int 480
-gamevar unknown_02_00_17 = int 200
+gamevar SMACKER_X = int 480
+gamevar SMACKER_Y = int 200
 call func_a0(var &VAR_45, int 1, int 1, var &VAR_0)
 
 ._SCRIPT_5
@@ -249,8 +249,8 @@ execute SCRIPT_11
 execute SCRIPT_12
 execute SCRIPT_17
 call put_item_in_char_inv(var VAR_53, int 87, int 0, int 1)
-gamevar unknown_02_00_25 = var VAR_53
-gamevar unknown_04_05_f0 = int 1
+gamevar script_object = var VAR_53
+gamevar *character_movement_p+60# = int 1
 call put_item_in_char_inv(var VAR_51, int 8, int 0, int 1)
 var VAR_56 = call get_char_handle(int 2031616)
 var VAR_44 = call get_char_handle(int 65536)
@@ -397,10 +397,10 @@ var VAR_112 ++
 call func_4f(var VAR_52, int 11)
 call func_4f(var VAR_52, int 0)
 call func_4f(var VAR_52, int 7)
-gamevar unknown_02_00_25 = var VAR_52
-gamevar unknown_04_05_e4 = int 55
-gamevar unknown_04_05_e8 = int 5
-gamevar unknown_04_05_ec = int 1
+gamevar script_object = var VAR_52
+gamevar *character_movement_p+57# = int 55
+gamevar *character_movement_p+58# = int 5
+gamevar *character_movement_p+59# = int 1
 
 ._SCRIPT_12
 call func_c7(var VAR_54, var VAR_55)
@@ -462,10 +462,10 @@ var VAR_91 ++
 var VAR_46 = call load_anim(var &VAR_47)
 
 ._SCRIPT_15
-gamevar unknown_02_00_2e = int 0
+gamevar compile_init_character = int 0
 var VAR_99 = call create_char(var &VAR_101, var &VAR_103, int 348, int 13)
 var VAR_98 = call create_char(var &VAR_100, var &VAR_104, int 348, int 13)
-gamevar unknown_02_00_2e = int 1
+gamevar compile_init_character = int 1
 call func_4f(var VAR_99, int 0)
 call func_4f(var VAR_99, int 7)
 call func_4f(var VAR_98, int 0)
@@ -478,10 +478,10 @@ call func_20(var VAR_98)
 var VAR_65 = call get_num_of_enemies()
 
 ._SCRIPT_16
-gamevar unknown_02_00_2e = int 0
+gamevar compile_init_character = int 0
 var VAR_106 = call create_char(var &VAR_108, var &VAR_109, int 348, int 13)
 var VAR_105 = call create_char(var &VAR_107, var &VAR_110, int 348, int 13)
-gamevar unknown_02_00_2e = int 1
+gamevar compile_init_character = int 1
 call func_4f(var VAR_106, int 0)
 call func_4f(var VAR_106, int 7)
 call func_4f(var VAR_105, int 0)
@@ -503,8 +503,8 @@ call func_10(var VAR_48, int 5)
 call func_10(var VAR_48, int 6)
 call func_4f(var VAR_48, int 10)
 call func_106(var VAR_48, int 10, int 0, int 3)
-gamevar unknown_02_00_25 = var VAR_48
-gamevar unknown_04_03_3c = int 1000
+gamevar script_object = var VAR_48
+gamevar *character_stats_p+15 = int 1000
 
 ._SCRIPT_18
 if(var VAR_116 == int 0)
@@ -624,14 +624,14 @@ if(var VAR_25 != var VAR_19)
 switch(var VAR_19)
  {
 		case 0
-			if(gamevar unknown_02_00_53 != int -1)
+			if(gamevar chronicler_variation != int -1)
 			 {
 					execute SCRIPT_30
 			}
-			gamevar unknown_02_00_25 = var VAR_3
-			var VAR_22 = gamevar unknown_04_05_0c
-			var VAR_23 = gamevar unknown_04_05_10
-			var VAR_24 = gamevar unknown_04_05_14
+			gamevar script_object = var VAR_3
+			var VAR_22 = gamevar *character_movement_p+3
+			var VAR_23 = gamevar *character_movement_p+4
+			var VAR_24 = gamevar *character_movement_p+5
 			var VAR_5 = int 0
 			call func_10c(var VAR_3, int 0)
 			var VAR_19 ++ 
@@ -640,7 +640,7 @@ switch(var VAR_19)
 		case 1
 			if(call func_127(var VAR_3))
 			 {
-					var VAR_21 = gamevar unknown_02_00_51
+					var VAR_21 = gamevar saved_games_count
 					var VAR_5 = int 1
 					var VAR_19 ++ 
 					var VAR_20 = int 0
@@ -665,7 +665,7 @@ switch(var VAR_19)
 		case 4
 			if(var VAR_20 > int 10)
 			 {
-					if(gamevar !unknown_02_00_55)
+					if(gamevar !current_menu_level_p)
 					 {
 							var VAR_19 ++ 
 							var VAR_20 = int 0
@@ -673,7 +673,7 @@ switch(var VAR_19)
 			}
 			break 
 		case 5
-			if(var VAR_21 != gamevar unknown_02_00_51)
+			if(var VAR_21 != gamevar saved_games_count)
 			 {
 					call func_cd(var &VAR_26)
 					call func_11d()
@@ -685,7 +685,7 @@ switch(var VAR_19)
 					call func_cd(var &VAR_27)
 					call func_2a(var VAR_3, var &VAR_22)
 					execute SCRIPT_31
-					gamevar unknown_02_00_53 = var VAR_4
+					gamevar chronicler_variation = var VAR_4
 					var VAR_19 ++ 
 					var VAR_20 = int 0
 			}
@@ -694,7 +694,7 @@ switch(var VAR_19)
 			if(var VAR_20 > int 30)
 			 {
 					call func_111(int 1)
-					gamevar unknown_02_00_20 = int 0
+					gamevar clicked_character = int 0
 					var VAR_5 = int 0
 					var VAR_19 = int 1
 					var VAR_20 = int 0
@@ -703,9 +703,9 @@ switch(var VAR_19)
 		case 7
 			if(var VAR_20 > int 40)
 			 {
-					call func_f6(gamevar unknown_02_00_40, int 8, int 0, var VAR_3)
+					call func_f6(gamevar char_gen_fx_scripts, int 8, int 0, var VAR_3)
 					execute SCRIPT_31
-					gamevar unknown_02_00_53 = var VAR_4
+					gamevar chronicler_variation = var VAR_4
 					var VAR_19 ++ 
 					var VAR_20 = int 0
 			}
@@ -734,31 +734,31 @@ if(call func_16(int 6291456))
 }
 
 ._SCRIPT_30
-var VAR_6 = call func_66(gamevar unknown_02_00_44)
+var VAR_6 = call func_66(gamevar control_char_p)
 switch(var VAR_6)
  {
 		case 65536
-			call func_10d(var &VAR_7, var &VAR_8, gamevar unknown_02_00_53)
+			call func_10d(var &VAR_7, var &VAR_8, gamevar chronicler_variation)
 			break 
 		case 786432
-			call func_10d(var &VAR_9, var &VAR_10, gamevar unknown_02_00_53)
+			call func_10d(var &VAR_9, var &VAR_10, gamevar chronicler_variation)
 			break 
 		case 262144
-			call func_10d(var &VAR_11, var &VAR_12, gamevar unknown_02_00_53)
+			call func_10d(var &VAR_11, var &VAR_12, gamevar chronicler_variation)
 			break 
 		case 327680
-			call func_10d(var &VAR_13, var &VAR_14, gamevar unknown_02_00_53)
+			call func_10d(var &VAR_13, var &VAR_14, gamevar chronicler_variation)
 			break 
 		case 131072
-			call func_10d(var &VAR_15, var &VAR_16, gamevar unknown_02_00_53)
+			call func_10d(var &VAR_15, var &VAR_16, gamevar chronicler_variation)
 			break 
 		case 196608
-			call func_10d(var &VAR_17, var &VAR_18, gamevar unknown_02_00_53)
+			call func_10d(var &VAR_17, var &VAR_18, gamevar chronicler_variation)
 			break 
 }
 
 ._SCRIPT_31
-var VAR_28 = call func_66(gamevar unknown_02_00_44)
+var VAR_28 = call func_66(gamevar control_char_p)
 switch(var VAR_28)
  {
 		case 65536

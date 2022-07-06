@@ -200,8 +200,8 @@ if(gamevar room_state > int 4)
 				call func_5a(int -1)
 		}
 }
-gamevar unknown_02_00_16 = int 64
-gamevar unknown_02_00_17 = int 184
+gamevar SMACKER_X = int 64
+gamevar SMACKER_Y = int 184
 call func_a0(var &VAR_6, int 1, int 0, int 0)
 call load_sound(int 2)
 execute SCRIPT_20
@@ -295,7 +295,7 @@ switch(gamevar room_state)
 
 ._SCRIPT_3
 call func_cd(var &VAR_13)
-gamevar unknown_02_00_2a = var &VAR_2
+gamevar door_restriction_p = var &VAR_2
 var VAR_7 = call create_char(var &VAR_8, var &VAR_14, int 75, int 13)
 var VAR_0 = call create_enemy(int 98, int 0, var &VAR_9, int 125)
 call func_1(var VAR_0, int -1)
@@ -306,18 +306,18 @@ call play_bgm(var &VAR_16)
 call func_22(var VAR_7)
 call func_18(var VAR_7, int 1799, int 785, int -6568)
 call func_10c(var VAR_0, var &VAR_17)
-gamevar unknown_02_00_33 = int 0
+gamevar play_sting = int 0
 call func_111(int 2)
 
 ._SCRIPT_4
 if(var VAR_4 == int 0)
  {
-		gamevar unknown_02_00_1d = int 0
+		gamevar scene_counter = int 0
 		var VAR_4 = int 1
 }
 if(var VAR_4 == int 1)
  {
-		if(gamevar unknown_02_00_1d > int 10)
+		if(gamevar scene_counter > int 10)
 		 {
 				var VAR_4 = int 2
 				call func_d5()
@@ -385,19 +385,19 @@ execute SCRIPT_5
 ._SCRIPT_5
 if(var VAR_21 == int 0)
  {
-		if(gamevar unknown_02_00_1d > int 10)
+		if(gamevar scene_counter > int 10)
 		 {
-				var VAR_23 = gamevar unknown_02_00_36
+				var VAR_23 = gamevar time
 				var VAR_21 = int 1
 		}
 }
 if(var VAR_21 == int 1)
  {
-		var VAR_24 = gamevar unknown_02_00_36 - var VAR_23
+		var VAR_24 = gamevar time - var VAR_23
 		if(var VAR_24 >= int 100)
 		 {
 				var VAR_21 = int 2
-				var VAR_23 = gamevar unknown_02_00_36
+				var VAR_23 = gamevar time
 		}
 }
 if(var VAR_21 == int 2)
@@ -406,102 +406,102 @@ if(var VAR_21 == int 2)
 		 {
 				call func_d(var VAR_0, int 28, var &VAR_18, int 0)
 				var VAR_22 ++ 
-				var VAR_23 = gamevar unknown_02_00_36
+				var VAR_23 = gamevar time
 		}
 		else
 		 {
 				if(var VAR_22 == int 1)
 				 {
-						var VAR_24 = gamevar unknown_02_00_36 - var VAR_23
+						var VAR_24 = gamevar time - var VAR_23
 						if(var VAR_24 >= int 10)
 						 {
 								call func_d(var VAR_0, int 31, var &VAR_18, int 0)
 								var VAR_22 ++ 
-								var VAR_23 = gamevar unknown_02_00_36
+								var VAR_23 = gamevar time
 						}
 				}
 				else
 				 {
 						if(var VAR_22 == int 2)
 						 {
-								var VAR_24 = gamevar unknown_02_00_36 - var VAR_23
+								var VAR_24 = gamevar time - var VAR_23
 								if(var VAR_24 >= int 10)
 								 {
 										call func_13(var VAR_0)
 										var VAR_22 ++ 
-										var VAR_23 = gamevar unknown_02_00_36
+										var VAR_23 = gamevar time
 								}
 						}
 						else
 						 {
 								if(var VAR_22 == int 3)
 								 {
-										var VAR_24 = gamevar unknown_02_00_36 - var VAR_23
+										var VAR_24 = gamevar time - var VAR_23
 										if(var VAR_24 >= int 15)
 										 {
 												call func_d(var VAR_0, int 30, var &VAR_18, int 0)
 												var VAR_22 ++ 
-												var VAR_23 = gamevar unknown_02_00_36
+												var VAR_23 = gamevar time
 										}
 								}
 								else
 								 {
 										if(var VAR_22 == int 4)
 										 {
-												var VAR_24 = gamevar unknown_02_00_36 - var VAR_23
+												var VAR_24 = gamevar time - var VAR_23
 												if(var VAR_24 >= int 10)
 												 {
 														call func_2f(var VAR_0)
 														var VAR_22 ++ 
-														var VAR_23 = gamevar unknown_02_00_36
+														var VAR_23 = gamevar time
 												}
 										}
 										else
 										 {
 												if(var VAR_22 == int 5)
 												 {
-														var VAR_24 = gamevar unknown_02_00_36 - var VAR_23
+														var VAR_24 = gamevar time - var VAR_23
 														if(var VAR_24 >= int 10)
 														 {
 																call func_d(var VAR_0, int 31, var &VAR_18, int 0)
 																var VAR_22 ++ 
-																var VAR_23 = gamevar unknown_02_00_36
+																var VAR_23 = gamevar time
 														}
 												}
 												else
 												 {
 														if(var VAR_22 == int 6)
 														 {
-																var VAR_24 = gamevar unknown_02_00_36 - var VAR_23
+																var VAR_24 = gamevar time - var VAR_23
 																if(var VAR_24 >= int 20)
 																 {
 																		call func_13(var VAR_0)
 																		var VAR_22 ++ 
-																		var VAR_23 = gamevar unknown_02_00_36
+																		var VAR_23 = gamevar time
 																}
 														}
 														else
 														 {
 																if(var VAR_22 == int 7)
 																 {
-																		var VAR_24 = gamevar unknown_02_00_36 - var VAR_23
+																		var VAR_24 = gamevar time - var VAR_23
 																		if(var VAR_24 >= int 10)
 																		 {
 																				call func_d(var VAR_0, int 30, var &VAR_18, int 0)
 																				var VAR_22 ++ 
-																				var VAR_23 = gamevar unknown_02_00_36
+																				var VAR_23 = gamevar time
 																		}
 																}
 																else
 																 {
 																		if(var VAR_22 == int 8)
 																		 {
-																				var VAR_24 = gamevar unknown_02_00_36 - var VAR_23
+																				var VAR_24 = gamevar time - var VAR_23
 																				if(var VAR_24 >= int 20)
 																				 {
 																						call func_35(var VAR_0, call func_67(var VAR_7))
 																						var VAR_22 ++ 
-																						var VAR_23 = gamevar unknown_02_00_36
+																						var VAR_23 = gamevar time
 																				}
 																		}
 																}
@@ -519,16 +519,16 @@ if(var VAR_21 == int 2)
 
 ._SCRIPT_6
 call func_cd(var &VAR_43)
-gamevar unknown_02_00_2a = var &VAR_2
+gamevar door_restriction_p = var &VAR_2
 var VAR_7 = call get_char_handle(int 65536)
 var VAR_0 = call create_enemy(int 98, int 0, var &VAR_30, int 300)
 call func_1(var VAR_0, int -1)
 var VAR_1 = call func_30(int 16)
 var VAR_31 = call create_enemy(int 96, int 0, var &VAR_32, int 33)
-gamevar unknown_02_00_25 = var VAR_31
-gamevar unknown_04_07_20 |= int 13421772
-gamevar unknown_02_00_25 = var VAR_31
-gamevar unknown_04_05_f0 = int 1
+gamevar script_object = var VAR_31
+gamevar *object_p+8 |= int 13421772
+gamevar script_object = var VAR_31
+gamevar *character_movement_p+60# = int 1
 call func_bc(var &VAR_44)
 call func_bc(var &VAR_45)
 call func_10c(var VAR_0, var &VAR_46)
@@ -539,20 +539,20 @@ var VAR_28 = call load_anim(var &VAR_50)
 var VAR_29 = call load_anim(var &VAR_51)
 var VAR_21 = int 0
 var VAR_22 = int 0
-gamevar unknown_02_00_1d = int 0
-gamevar unknown_04_09_14 = int 2
-gamevar unknown_02_00_33 = int 1
+gamevar scene_counter = int 0
+gamevar *scene_info_p+5 = int 2
+gamevar play_sting = int 1
 call func_111(int 2)
 
 ._SCRIPT_7
 if(var VAR_4 == int 0)
  {
-		gamevar unknown_02_00_1d = int 0
+		gamevar scene_counter = int 0
 		var VAR_4 = int 1
 }
 if(var VAR_4 == int 1)
  {
-		if(gamevar unknown_02_00_1d > int 10)
+		if(gamevar scene_counter > int 10)
 		 {
 				var VAR_4 = int 2
 				call func_d5()
@@ -567,7 +567,7 @@ if(var VAR_4 == int 2)
 				 {
 						if(call func_ae(var VAR_7, int 16))
 						 {
-								var VAR_23 = gamevar unknown_02_00_36
+								var VAR_23 = gamevar time
 								var VAR_22 = int 0
 								var VAR_4 = int 4
 						}
@@ -591,9 +591,9 @@ if(var VAR_4 == int 3)
 		if(call get_input_sys() != int 4)
 		 {
 				call func_111(int 1)
-				var VAR_23 = gamevar unknown_02_00_36
+				var VAR_23 = gamevar time
 				var VAR_22 = int 0
-				gamevar unknown_02_00_1d = int 0
+				gamevar scene_counter = int 0
 				var VAR_21 = int 2
 				var VAR_55 = int 5
 				var VAR_4 = int 5
@@ -608,7 +608,7 @@ if(var VAR_4 == int 5)
 						if(call get_input_sys() != int 4)
 						 {
 								call func_111(int 1)
-								var VAR_23 = gamevar unknown_02_00_36
+								var VAR_23 = gamevar time
 								var VAR_22 = int 0
 								var VAR_4 = int 4
 								unknown 
@@ -631,7 +631,7 @@ if(var VAR_4 == int 5)
 				 {
 						call func_18(var VAR_0, int 2268, int 785, int -6754)
 						var VAR_22 ++ 
-						var VAR_23 = gamevar unknown_02_00_36
+						var VAR_23 = gamevar time
 				}
 		}
 		if(var VAR_22 == int 11)
@@ -640,7 +640,7 @@ if(var VAR_4 == int 5)
 				 {
 						var VAR_4 = int 3
 						var VAR_22 ++ 
-						var VAR_23 = gamevar unknown_02_00_36
+						var VAR_23 = gamevar time
 				}
 		}
 		execute SCRIPT_10
@@ -650,9 +650,9 @@ if(var VAR_4 == int 4)
 		call func_18(var VAR_7, int 1891, int 785, int -6421)
 		call func_18(var VAR_0, int 2443, int 785, int -6934)
 		call func_111(int 2)
-		gamevar unknown_04_09_14 = int 16
+		gamevar *scene_info_p+5 = int 16
 		call func_116(var &VAR_66, var &VAR_67, int 3)
-		gamevar unknown_02_00_37 = int 1
+		gamevar disable_scroll = int 1
 		var VAR_4 = int 20
 		var VAR_55 = int 28
 }
@@ -688,7 +688,7 @@ if(var VAR_4 == int 7)
 				 {
 						call func_111(int 1)
 						var VAR_4 = int 5
-						var VAR_23 = gamevar unknown_02_00_36
+						var VAR_23 = gamevar time
 						var VAR_22 = int 10
 				}
 		}
@@ -752,7 +752,7 @@ if(var VAR_4 == int 31)
  {
 		if(call get_input_sys() != int 4)
 		 {
-				if(gamevar unknown_02_00_60)
+				if(gamevar left_handed)
 				 {
 						call start_dialog(var &VAR_72, var &VAR_73)
 				}
@@ -770,8 +770,8 @@ if(var VAR_4 == int 26)
 		execute SCRIPT_10
 		if(call func_37(var VAR_7, int 3))
 		 {
-				gamevar unknown_02_00_25 = var VAR_7
-				var VAR_52 = gamevar unknown_04_04_2c
+				gamevar script_object = var VAR_7
+				var VAR_52 = gamevar *character_combat_p+11
 				var VAR_4 = int 27
 				call func_d5()
 		}
@@ -881,7 +881,7 @@ if(var VAR_4 == int 14)
  {
 		if(call func_129(int 20))
 		 {
-				if(gamevar unknown_02_00_60)
+				if(gamevar left_handed)
 				 {
 						call start_dialog(var &VAR_82, var &VAR_83)
 				}
@@ -899,8 +899,8 @@ if(var VAR_4 == int 15)
 		execute SCRIPT_10
 		if(call func_37(var VAR_7, int 3))
 		 {
-				gamevar unknown_02_00_25 = var VAR_7
-				var VAR_52 = gamevar unknown_04_04_2c
+				gamevar script_object = var VAR_7
+				var VAR_52 = gamevar *character_combat_p+11
 				var VAR_4 = int 16
 				call func_d5()
 		}
@@ -1010,7 +1010,7 @@ if(var VAR_4 == int 48)
  {
 		if(call func_129(int 20))
 		 {
-				if(gamevar unknown_02_00_60)
+				if(gamevar left_handed)
 				 {
 						call start_dialog(var &VAR_92, var &VAR_93)
 				}
@@ -1028,8 +1028,8 @@ if(var VAR_4 == int 49)
 		execute SCRIPT_10
 		if(call func_37(var VAR_7, int 3))
 		 {
-				gamevar unknown_02_00_25 = var VAR_7
-				var VAR_52 = gamevar unknown_04_04_2c
+				gamevar script_object = var VAR_7
+				var VAR_52 = gamevar *character_combat_p+11
 				var VAR_4 = int 50
 				call func_d5()
 		}
@@ -1139,7 +1139,7 @@ if(var VAR_4 == int 37)
  {
 		if(call func_129(int 20))
 		 {
-				if(gamevar unknown_02_00_60)
+				if(gamevar left_handed)
 				 {
 						call start_dialog(var &VAR_102, var &VAR_103)
 				}
@@ -1157,8 +1157,8 @@ if(var VAR_4 == int 38)
 		execute SCRIPT_10
 		if(call func_37(var VAR_7, int 3))
 		 {
-				gamevar unknown_02_00_25 = var VAR_7
-				var VAR_52 = gamevar unknown_04_04_2c
+				gamevar script_object = var VAR_7
+				var VAR_52 = gamevar *character_combat_p+11
 				var VAR_4 = int 39
 				call func_d5()
 		}
@@ -1277,7 +1277,7 @@ if(var VAR_4 == int 65)
  {
 		if(call get_input_sys() != int 4)
 		 {
-				if(gamevar unknown_02_00_60)
+				if(gamevar left_handed)
 				 {
 						call start_dialog(var &VAR_112, var &VAR_113)
 				}
@@ -1295,8 +1295,8 @@ if(var VAR_4 == int 60)
 		execute SCRIPT_10
 		if(call func_37(var VAR_7, int 3))
 		 {
-				gamevar unknown_02_00_25 = var VAR_7
-				var VAR_52 = gamevar unknown_04_04_2c
+				gamevar script_object = var VAR_7
+				var VAR_52 = gamevar *character_combat_p+11
 				var VAR_4 = int 61
 				call func_d5()
 		}
@@ -1422,7 +1422,7 @@ if(var VAR_4 == int 71)
  {
 		if(call func_129(int 20))
 		 {
-				if(gamevar unknown_02_00_60)
+				if(gamevar left_handed)
 				 {
 						call start_dialog(var &VAR_122, var &VAR_123)
 				}
@@ -1447,8 +1447,8 @@ if(var VAR_4 == int 72)
 		}
 		if(call func_37(var VAR_7, int 3))
 		 {
-				gamevar unknown_02_00_25 = var VAR_7
-				var VAR_52 = gamevar unknown_04_04_2c
+				gamevar script_object = var VAR_7
+				var VAR_52 = gamevar *character_combat_p+11
 				var VAR_4 = int 73
 				call func_d5()
 		}
@@ -1546,7 +1546,7 @@ if(var VAR_4 == int 82)
  {
 		if(call func_129(int 20))
 		 {
-				if(gamevar unknown_02_00_60)
+				if(gamevar left_handed)
 				 {
 						call start_dialog(var &VAR_132, var &VAR_133)
 				}
@@ -1580,8 +1580,8 @@ if(var VAR_4 == int 83)
 		}
 		if(call func_37(var VAR_7, int 3))
 		 {
-				gamevar unknown_02_00_25 = var VAR_7
-				var VAR_52 = gamevar unknown_04_04_2c
+				gamevar script_object = var VAR_7
+				var VAR_52 = gamevar *character_combat_p+11
 				var VAR_4 = int 84
 				call func_d5()
 		}
@@ -1674,13 +1674,13 @@ if(var VAR_4 == int 90)
 				call func_1(var VAR_41, int -1)
 				call func_1(var VAR_33, int -1)
 				call put_item_in_char_inv(var VAR_41, int 40, int 1, int 0)
-				gamevar unknown_02_00_25 = var VAR_33
-				gamevar unknown_04_05_f0 = int 1
-				gamevar unknown_02_00_25 = var VAR_35
-				gamevar unknown_04_05_f0 = int 1
-				gamevar unknown_02_00_25 = var VAR_37
-				gamevar unknown_04_05_f0 = int 1
-				gamevar unknown_02_00_37 = int 0
+				gamevar script_object = var VAR_33
+				gamevar *character_movement_p+60# = int 1
+				gamevar script_object = var VAR_35
+				gamevar *character_movement_p+60# = int 1
+				gamevar script_object = var VAR_37
+				gamevar *character_movement_p+60# = int 1
+				gamevar disable_scroll = int 0
 				call func_f(var VAR_0, int 67108872)
 				call func_f(var VAR_7, int 67108868)
 				call func_c7(var VAR_0, var VAR_7)
@@ -1696,17 +1696,17 @@ if(var VAR_4 == int 91)
 				call func_18(var VAR_0, int 2268, int 785, int -6754)
 				var VAR_4 = int 92
 		}
-		gamevar unknown_02_00_25 = var VAR_0
-		if(gamevar unknown_04_04_3c)
+		gamevar script_object = var VAR_0
+		if(gamevar *character_combat_p+15)
 		 {
 				var VAR_56 ++ 
-				gamevar unknown_04_04_3c = int 0
+				gamevar *character_combat_p+15 = int 0
 		}
-		gamevar unknown_02_00_25 = var VAR_7
-		if(gamevar unknown_04_04_3c)
+		gamevar script_object = var VAR_7
+		if(gamevar *character_combat_p+15)
 		 {
 				var VAR_57 ++ 
-				gamevar unknown_04_04_3c = int 0
+				gamevar *character_combat_p+15 = int 0
 		}
 		if(var VAR_56 + var VAR_57 >= int 5)
 		 {
@@ -1921,7 +1921,7 @@ if(var VAR_4 == int 120)
 				call func_18(var VAR_41, int 608, int 785, int -7202)
 				call func_18(var VAR_39, int 322, int 785, int -6780)
 				call start_dialog(var &VAR_151, var &VAR_152)
-				gamevar unknown_02_00_1d = int 0
+				gamevar scene_counter = int 0
 				var VAR_4 = int 122
 		}
 }
@@ -1935,7 +1935,7 @@ if(var VAR_4 == int 122)
 }
 if(var VAR_4 == int 121)
  {
-		if(gamevar unknown_02_00_1d > int 50)
+		if(gamevar scene_counter > int 50)
 		 {
 				call func_20(var VAR_7)
 				call func_18(var VAR_7, int 1665, int 813, int -6821)
@@ -1947,7 +1947,7 @@ if(var VAR_4 == int 123)
 		if(call func_6d() == int 1)
 		 {
 				call play_char_anim(var VAR_7, var VAR_29, int 0)
-				gamevar unknown_02_00_1d = int 0
+				gamevar scene_counter = int 0
 				var VAR_4 = int 138
 		}
 }
@@ -1958,13 +1958,13 @@ if(var VAR_4 == int 138)
 				call func_35(var VAR_7, call func_67(var VAR_33))
 				call func_df()
 				call func_17(var VAR_39, var VAR_31)
-				gamevar unknown_02_00_1d = int 0
+				gamevar scene_counter = int 0
 				var VAR_4 = int 124
 		}
 }
 if(var VAR_4 == int 124)
  {
-		if(gamevar unknown_02_00_1d > int 40)
+		if(gamevar scene_counter > int 40)
 		 {
 				call play_char_anim(var VAR_39, var VAR_25, int 0)
 				var VAR_4 = int 125
@@ -1976,17 +1976,17 @@ if(var VAR_4 == int 125)
 		 {
 				call func_20(var VAR_7)
 				call func_18(var VAR_7, int 1109, int 917, int -7199)
-				gamevar unknown_02_00_1d = int 0
+				gamevar scene_counter = int 0
 				var VAR_4 = int 139
 		}
 }
 if(var VAR_4 == int 139)
  {
-		if(gamevar unknown_02_00_1d > int 25)
+		if(gamevar scene_counter > int 25)
 		 {
 				call func_20(var VAR_0)
 				call func_18(var VAR_0, int 1321, int 931, int -7111)
-				gamevar unknown_02_00_1d = int 0
+				gamevar scene_counter = int 0
 				var VAR_4 = int 256
 		}
 }
@@ -2015,16 +2015,16 @@ if(var VAR_4 == int 126)
 }
 if(var VAR_4 == int 127)
  {
-		if(gamevar unknown_02_00_1d > int 10)
+		if(gamevar scene_counter > int 10)
 		 {
 				call func_18(var VAR_31, int -173, int 785, int -7566)
-				gamevar unknown_02_00_1d = int 0
+				gamevar scene_counter = int 0
 				var VAR_4 = int 128
 		}
 }
 if(var VAR_4 == int 128)
  {
-		if(gamevar unknown_02_00_1d > int 20)
+		if(gamevar scene_counter > int 20)
 		 {
 				call func_22(var VAR_37)
 				call func_18(var VAR_37, int -80, int 785, int -7814)
@@ -2036,13 +2036,13 @@ if(var VAR_4 == int 129)
 		if(call is_char_standing(var VAR_31))
 		 {
 				call func_17(var VAR_31, var VAR_7)
-				gamevar unknown_02_00_1d = int 0
+				gamevar scene_counter = int 0
 				var VAR_4 = int 130
 		}
 }
 if(var VAR_4 == int 130)
  {
-		if(gamevar unknown_02_00_1d > int 40)
+		if(gamevar scene_counter > int 40)
 		 {
 				call func_df()
 				call func_17(var VAR_37, var VAR_31)
@@ -2054,35 +2054,35 @@ if(var VAR_4 == int 131)
 		if(call get_input_sys() != int 4)
 		 {
 				call play_char_anim(var VAR_37, var VAR_25, int 0)
-				gamevar unknown_02_00_1d = int 0
+				gamevar scene_counter = int 0
 				var VAR_4 = int 132
 		}
 }
 if(var VAR_4 == int 132)
  {
-		if(gamevar unknown_02_00_1d > int 40)
+		if(gamevar scene_counter > int 40)
 		 {
 				call func_18(var VAR_31, int -1598, int 785, int -8455)
-				gamevar unknown_02_00_1d = int 0
+				gamevar scene_counter = int 0
 				var VAR_4 = int 133
 		}
 }
 if(var VAR_4 == int 133)
  {
-		if(gamevar unknown_02_00_1d > int 20)
+		if(gamevar scene_counter > int 20)
 		 {
 				call func_18(var VAR_37, int -1410, int 785, int -8370)
-				gamevar unknown_02_00_1d = int 0
+				gamevar scene_counter = int 0
 				var VAR_4 = int 134
 		}
 }
 if(var VAR_4 == int 134)
  {
-		if(gamevar unknown_02_00_1d > int 140)
+		if(gamevar scene_counter > int 140)
 		 {
 				call func_18(var VAR_33, int -953, int 785, int -8097)
 				call func_58(int 1)
-				gamevar unknown_02_00_1d = int 0
+				gamevar scene_counter = int 0
 				var VAR_4 = int 135
 		}
 }
@@ -2112,8 +2112,8 @@ if(var VAR_4 == int 10000)
 		if(call ! func_16(int 4128768)&&call ! func_16(int 4128771))
 		 {
 				gamevar room_state = int 3
-				gamevar unknown_04_09_14 = int 2
-				gamevar unknown_02_00_2a = var &VAR_3
+				gamevar *scene_info_p+5 = int 2
+				gamevar door_restriction_p = var &VAR_3
 				var VAR_4 = int 20000
 		}
 }
@@ -2124,12 +2124,12 @@ if(var VAR_53 == int 103)
 		if(call is_char_standing(var VAR_31))
 		 {
 				var VAR_53 = int 104
-				var VAR_155 = gamevar unknown_02_00_36
+				var VAR_155 = gamevar time
 		}
 }
 if(var VAR_53 == int 104)
  {
-		var VAR_156 = gamevar unknown_02_00_36 - var VAR_155
+		var VAR_156 = gamevar time - var VAR_155
 		if(var VAR_156 > int 10)
 		 {
 				call play_char_anim(var VAR_31, var VAR_26, int 0)
@@ -2141,13 +2141,13 @@ if(var VAR_53 == int 105)
 		if(call func_5c(var VAR_31))
 		 {
 				call play_char_anim(var VAR_31, var VAR_27, int 0)
-				var VAR_155 = gamevar unknown_02_00_36
+				var VAR_155 = gamevar time
 				var VAR_53 = int 106
 		}
 }
 if(var VAR_53 == int 106)
  {
-		var VAR_156 = gamevar unknown_02_00_36 - var VAR_155
+		var VAR_156 = gamevar time - var VAR_155
 		if(var VAR_156 > int 50)
 		 {
 				call func_d6(var VAR_7)
@@ -2158,7 +2158,7 @@ if(var VAR_53 == int 106)
 				call func_2(var VAR_0)
 				call func_f(var VAR_7, int 4)
 				call func_11f(var &VAR_154, int 32768)
-				gamevar unknown_02_00_5c = int 16
+				gamevar accel_window_width = int 16
 				var VAR_4 = int 108
 				var VAR_53 = int 107
 		}
@@ -2168,56 +2168,56 @@ if(var VAR_53 == int 106)
 if(var VAR_4 == int 110)
  {
 		call play_bgm(var &VAR_159)
-		var VAR_157 = gamevar unknown_02_00_36
+		var VAR_157 = gamevar time
 }
 if(var VAR_4 == int 111)
  {
 		call func_20(var VAR_33)
 		call func_18(var VAR_33, int 110, int 785, int -7302)
-		var VAR_157 = gamevar unknown_02_00_36
+		var VAR_157 = gamevar time
 		var VAR_54 = int 115
 }
 if(var VAR_54 == int 115)
  {
-		var VAR_158 = gamevar unknown_02_00_36 - var VAR_157
+		var VAR_158 = gamevar time - var VAR_157
 		if(var VAR_158 > int 4)
 		 {
 				call func_20(var VAR_35)
 				call func_18(var VAR_35, int -56, int 785, int -6935)
-				var VAR_157 = gamevar unknown_02_00_36
+				var VAR_157 = gamevar time
 				var VAR_54 = int 116
 		}
 }
 if(var VAR_54 == int 116)
  {
-		var VAR_158 = gamevar unknown_02_00_36 - var VAR_157
+		var VAR_158 = gamevar time - var VAR_157
 		if(var VAR_158 > int 5)
 		 {
 				call func_20(var VAR_41)
 				call func_18(var VAR_41, int 274, int 785, int -7688)
-				var VAR_157 = gamevar unknown_02_00_36
+				var VAR_157 = gamevar time
 				var VAR_54 = int 117
 		}
 }
 if(var VAR_54 == int 117)
  {
-		var VAR_158 = gamevar unknown_02_00_36 - var VAR_157
+		var VAR_158 = gamevar time - var VAR_157
 		if(var VAR_158 > int 3)
 		 {
 				call func_20(var VAR_39)
 				call func_18(var VAR_39, int -291, int 785, int -7249)
-				var VAR_157 = gamevar unknown_02_00_36
+				var VAR_157 = gamevar time
 				var VAR_54 = int 118
 		}
 }
 if(var VAR_54 == int 118)
  {
-		var VAR_158 = gamevar unknown_02_00_36 - var VAR_157
+		var VAR_158 = gamevar time - var VAR_157
 		if(var VAR_158 > int 5)
 		 {
 				call func_20(var VAR_37)
 				call func_18(var VAR_37, int -26, int 785, int -7738)
-				var VAR_157 = gamevar unknown_02_00_36
+				var VAR_157 = gamevar time
 				var VAR_54 = int 119
 		}
 }
@@ -2252,7 +2252,7 @@ if(var VAR_160)
 
 ._SCRIPT_11
 call func_cd(var &VAR_168)
-gamevar unknown_02_00_2a = var &VAR_3
+gamevar door_restriction_p = var &VAR_3
 
 ._SCRIPT_12
 

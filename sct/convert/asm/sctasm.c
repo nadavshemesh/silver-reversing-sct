@@ -1,16 +1,29 @@
 #include "sct\convert\asm\sctasm.h"
 
 bool is_separator_char(char ch) {
-    if(ch == ' ' || ch == '\t' || ch == '\n' || ch == '\r' || ch == '|' || ch == '&' || ch == '@' || ch == ']'
-         || ch == '[' || ch == '\0' || ch == '(' || ch == ')' || ch == ',' || ch == '+' || ch == '=')
+    if(ch == ' ' || ch == '\t' || ch == '\n' || ch == '\r' || ch == '|' || ch == '&' || ch == '@' || ch == ']' || ch == '-'
+         || ch == '[' || ch == '\0' || ch == '(' || ch == ')' || ch == ',' || ch == '+' || ch == '=' || ch == '*' || ch == '%')
         return true;
     return false;
 }
 
 bool is_special_char(char ch) {
-    if(ch == '(' || ch == ')' || ch == ',' || ch == '{' || ch == '!' || ch == '|' || ch == '@' ||
+    if(ch == '(' || ch == ')' || ch == ',' || ch == '{' || ch == '!' || ch == '|' || ch == '@' || ch == '*' || ch == '-' ||
        ch == '[' || ch == ']' || ch == '}' || ch == '+' || ch == '>' || ch == '<' || ch == '=' || ch == '&' || ch == '%')
         return true;
+    return false;
+}
+
+bool is_keyword(char* str) {
+    char* keywords[] = { "var", "gamevar", "call", "int" };
+    int len = 4;
+
+    for(int i=0; i < len; i++) {
+        char* keyword = keywords[i];
+        if(strlen(str) == strlen(keyword) && strcmp(str, keyword) == 0) {
+            return true;
+        }
+    }
     return false;
 }
 
@@ -159,16 +172,139 @@ void print_asm_tokens(char** tokens, int tokens_len) {
     }
 }
 
-int count_next_section_tokens(sct_f* sf) {
-    int num = 0;
-    unsigned long f_pos = ftell(sf->file);
+// int count_next_section_tokens_old(sct_f* sf) {
+//     int num = 0;
+//     unsigned long f_pos = ftell(sf->file);
 
-    file_seek_part_of_word("._", sf->file);
-    num = count_text_words_until_string(sf->file, "._");
+//     file_seek_part_of_word("._", sf->file);
+//     num = count_text_words_until_string(sf->file, "._");
 
-    fseek(sf->file, f_pos, SEEK_SET);
+//     fseek(sf->file, f_pos, SEEK_SET);
 
-    return num;
+//     return num;
+// }
+
+int count_tokens(char** tokens) {
+    if(tokens == NULL) return 0;
+    int i = 0;
+    char** token_ptr = tokens;
+    char* token = *token_ptr;
+    while(token != NULL) {
+        i++;
+        token_ptr += 1;
+        if(token_ptr == NULL) break;
+        token = *token_ptr;
+    }
+
+    return i;
+}
+
+// int count_next_section_tokens(sct_f* sf) {
+//     unsigned long f_pos = ftell(sf->file);
+
+//     file_seek_part_of_word("._", sf->file);
+//     int tokens_len = count_text_words_until_string(sf->file, "._");
+//     char** tokens = tokenize_next_section(sf);
+//     tokens_len = count_tokens(tokens);
+//     printf("tokens_len: %d\n", tokens_len);
+
+//     fseek(sf->file, f_pos, SEEK_SET);
+
+//     return tokens_len;
+// }
+
+// char** join_tokens_until_space_eq_keyword(char** tokens) {
+//     char** token_ptr = tokens;
+//     int until_space = count_tokens_from_to(token_ptr, *token_ptr, " ");
+//     int until_eq = count_tokens_from_to(token_ptr, *token_ptr, "=");
+//     int len = (until_eq > until_space)? until_space : until_eq;
+
+//     for(int i=0; i < len; i++) {
+//         if(is_keyword(*token_ptr)) {
+
+//         }
+//     }
+// }
+bool strs_identical(char* str1, char* str2) {
+    if(strlen(str1) == strlen(str2) && strcmp(str1, str2) == 0)
+        return true;
+    return false;
+}
+
+char* merge_tokens(char** tokens, int num_to_join) {
+    char** token_ptr = tokens;
+    char* prev_token = *token_ptr;
+    token_ptr += 1;
+
+    for(int i=1; i < num_to_join; i++) {
+        int size = strlen(prev_token) + strlen(*token_ptr)+1;
+        char* new_token = calloc(size, size); 
+        strncat(new_token, prev_token, strlen(prev_token));
+        strncat(new_token, *token_ptr, strlen(*token_ptr));
+        new_token[size-1] = 0;
+        prev_token = new_token;
+        token_ptr += 1;
+    }
+
+    return prev_token;
+}
+
+char* peek_next_token(char** tokens_ptr) {
+    if((tokens_ptr+1) == NULL || *(tokens_ptr+1) == NULL)
+        return 0;
+    return *(tokens_ptr+1);
+}
+
+char* peek_prev_token(char** tokens_ptr) {
+    if((tokens_ptr-1) == NULL || *(tokens_ptr-1) == NULL)
+        return 0;
+    return *(tokens_ptr-1);
+}
+
+bool is_string_ascii_digits(char* str) {
+    for(int i=0; i < strlen(str); i++) {
+        int ch = (int) str[i];
+        if(!(ch >= 48 && ch <= 57)) {
+            return false;
+        }
+    }
+    return true;
+}
+
+char** join_tokens_by_rules(char** tokens, int tokens_len) {
+    char** new_tokens = w_malloc((tokens_len+5)*sizeof(char*)); // +5 for padding 
+    char** token_ptr = tokens;
+    int new_len = tokens_len;
+
+    for(int i=0; i < new_len; i++) {
+        if(token_ptr == NULL || *token_ptr == NULL){
+            new_len = (i==0)?i:i-1;
+            break;
+        }
+        char* new_token = aapts(*token_ptr);
+        if(i > 0 && token_ptr != NULL && strs_identical(peek_prev_token(token_ptr), "gamevar")
+             && strs_identical(*token_ptr, "*")) {
+            free(new_token);
+            new_token = merge_tokens(token_ptr, 4); // * , name, +, number
+            token_ptr += 3;
+            new_len -= 3;
+        } else if(token_ptr != NULL && strs_identical(*token_ptr, "-") && is_string_ascii_digits(peek_next_token(token_ptr))) {
+            free(new_token);
+            new_token = merge_tokens(token_ptr, 2); // -, number
+            token_ptr += 1;
+            new_len -= 1;
+        }
+
+        new_tokens[i] = new_token;
+        // free(*token_ptr);
+        token_ptr += 1;
+    }
+
+    // print_asm_tokens(new_tokens, new_len);
+    // free old tokens
+    free(tokens);
+
+    return new_tokens;
 }
 
 char** tokenize_section(char* section_title, sct_f* sf) {
@@ -183,6 +319,8 @@ char** tokenize_section(char* section_title, sct_f* sf) {
         tokens[i] = aapts(token);
     }
     // print_asm_tokens(*tokens_ptr, tokens_len);
+    // return tokens;
+    tokens = join_tokens_by_rules(tokens, tokens_len);
     return tokens;
 }
 

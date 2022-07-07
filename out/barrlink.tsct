@@ -66,7 +66,7 @@ gamevar SMACKER_Y = int 0
 call func_a0(var &VAR_47, int 1, int 1, int 0)
 execute SCRIPT_7
 execute SCRIPT_11
-switch(gamevar *room_state+0)
+switch(gamevar room_state)
  {
 		case 1
 			execute SCRIPT_4
@@ -80,7 +80,7 @@ switch(gamevar *room_state+0)
 execute SCRIPT_8
 var VAR_7 = int 20
 execute SCRIPT_12
-switch(gamevar *room_state+0)
+switch(gamevar room_state)
  {
 		case 1
 			execute SCRIPT_3
@@ -92,15 +92,15 @@ switch(gamevar *room_state+0)
 
 ._SCRIPT_2
 execute SCRIPT_13
-switch(gamevar *room_state+0)
+switch(gamevar room_state)
  {
 		case 1
-			gamevar *room_state+0 = int 2
+			gamevar room_state = int 2
 			break 
 		case 2
 			break 
 		case 20
-			gamevar *room_state+0 = int 2
+			gamevar room_state = int 2
 			break 
 }
 

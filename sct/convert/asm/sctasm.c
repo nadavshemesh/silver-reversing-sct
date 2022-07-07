@@ -528,6 +528,7 @@ data_obj* asm_create_data_obj(char*** tokens_pos_ptr, int id, node* data_nodes,
                         // char err[256];
                         // sprintf(err, "Error, %s var was not found.", str);
                         // print_err_and_exit(err, -4); 
+                        // printf("%s var was not found.\n", str);
                         int num_id = id+j;
                         int num = -9;
                         integers[j] = num;
@@ -657,17 +658,20 @@ void build_data_section(sct_f* sf) {
         if(unfound_var_names[k] != NULL) {
             char* unfound_name = unfound_var_names[k];
             int byte_id = unfound_var_ids[k];
+            // printf("unfound_name: %s, byte_id: %d\n", unfound_name, byte_id);
             node* data_node = data_nodes;
             while(data_node->next != NULL) {
                 data_obj* data_o = data_node->item;
                 data_obj* next_data_o = data_node->next->item;
-                if(byte_id >= data_o->id && byte_id <= next_data_o->id) {
+                if(byte_id >= data_o->id && byte_id < next_data_o->id) {
                     int byte_num = (byte_id - data_o->id);
+                    // print_data_obj(data_o);
+                    // printf("byte_num: %d\n", byte_num);
                     // byte_num = (byte_num == 0)? byte_num : byte_num-1;
                     data_obj* ref_obj = get_data_obj_by_name(unfound_name, sf);
                     if(*((int*) data_o->data+byte_num) != -9) break;
                     // printf("Found %s, byte_num: %d(val: %d), ref_id: %d\n", unfound_name,
-                            //  byte_num, *((int*) data_o->data+byte_num), ref_obj->id);
+                    //          byte_num, *((int*) data_o->data+byte_num), ref_obj->id);
                     *((int*) data_o->data+byte_num) = ref_obj->id;
                 }
                 data_node = data_node->next;

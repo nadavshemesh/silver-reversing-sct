@@ -2,7 +2,7 @@
 
 game_var* init_gv(int id, char* name, char* desc, int first_off, int second_off, int third_off, int len) {
     game_var* gv = w_malloc(sizeof(game_var));
-    gv->name = w_malloc(strlen(name)*sizeof(char));
+    gv->name = w_malloc(strlen(name)*sizeof(char)+1);
     gv->desc = w_malloc(strlen(desc)*sizeof(char));
 
     gv->id = id;
@@ -179,6 +179,12 @@ game_var* get_game_var_by_offsets(int first_offset, int second_offset, int third
     for(int i=0; i < GAME_VARS_NUM; i++) {
         game_var* gv = game_vars[i];
         if(gv->first_offset == first_offset && gv->second_offset == second_offset && gv->third_offset == third_offset) {
+            if(gv->first_offset == 0x04 && gv->len > 4) {
+                char name[256];
+                sprintf(name, "*%s+0", gv->name); // add star to pointer
+                game_var* gv_mod = init_gv(gv->id, name, "-", first_offset, second_offset, third_offset, gv->len);
+                return gv_mod;
+            }
             return gv;
         } 
     }
@@ -186,7 +192,7 @@ game_var* get_game_var_by_offsets(int first_offset, int second_offset, int third
     for(int i=0; i < GAME_VARS_NUM; i++) {
         game_var* gv = game_vars[i];
         if(gv->first_offset == 0x04 && gv->first_offset == first_offset && gv->second_offset == second_offset) {
-            // in cases of 0x04 + offset (double ptr) without category
+            // in cases of 0x04 + offset without category
             char name[256];
             sprintf(name, "*%s+%d", gv->name, third_offset/4);
             game_var* gv_new = init_gv(0, name, "-", first_offset, second_offset, third_offset, gv->len);

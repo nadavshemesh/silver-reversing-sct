@@ -192,7 +192,7 @@ VAR_189	"sekune talks to david"
 VAR_190	{ 913597281, 0 }
 
 ._SCRIPT_0
-if(gamevar room_state > int 4)
+if(gamevar *room_state+0 > int 4)
  {
 		if(call play_bgm(var &VAR_5))
 		 {
@@ -205,7 +205,7 @@ gamevar SMACKER_Y = int 184
 call func_a0(var &VAR_6, int 1, int 0, int 0)
 call load_sound(int 2)
 execute SCRIPT_20
-switch(gamevar room_state)
+switch(gamevar *room_state+0)
  {
 		case 1
 			execute SCRIPT_3
@@ -229,7 +229,7 @@ switch(gamevar room_state)
 
 ._SCRIPT_1
 execute SCRIPT_19
-switch(gamevar room_state)
+switch(gamevar *room_state+0)
  {
 		case 1
 			execute SCRIPT_4
@@ -252,7 +252,7 @@ switch(gamevar room_state)
 }
 
 ._SCRIPT_2
-switch(gamevar room_state)
+switch(gamevar *room_state+0)
  {
 		case 1
 			if(var VAR_0)
@@ -263,7 +263,7 @@ switch(gamevar room_state)
 							call func_b5(var VAR_1)
 					}
 			}
-			gamevar room_state = int 2
+			gamevar *room_state+0 = int 2
 			break 
 		case 2
 			if(var VAR_4 < int 10)
@@ -279,7 +279,7 @@ switch(gamevar room_state)
 			}
 			else
 			 {
-					gamevar room_state = int 3
+					gamevar *room_state+0 = int 3
 			}
 			break 
 		case 3
@@ -287,7 +287,7 @@ switch(gamevar room_state)
 		case 4
 			break 
 		case 5
-			gamevar room_state = int 6
+			gamevar *room_state+0 = int 6
 			break 
 		case 6
 			break 
@@ -528,7 +528,7 @@ var VAR_31 = call create_enemy(int 96, int 0, var &VAR_32, int 33)
 gamevar script_object = var VAR_31
 gamevar *object_p+8 |= int 13421772
 gamevar script_object = var VAR_31
-gamevar *character_movement_p+60# = int 1
+gamevar *character_movement_p+60 = int 1
 call func_bc(var &VAR_44)
 call func_bc(var &VAR_45)
 call func_10c(var VAR_0, var &VAR_46)
@@ -1675,11 +1675,11 @@ if(var VAR_4 == int 90)
 				call func_1(var VAR_33, int -1)
 				call put_item_in_char_inv(var VAR_41, int 40, int 1, int 0)
 				gamevar script_object = var VAR_33
-				gamevar *character_movement_p+60# = int 1
+				gamevar *character_movement_p+60 = int 1
 				gamevar script_object = var VAR_35
-				gamevar *character_movement_p+60# = int 1
+				gamevar *character_movement_p+60 = int 1
 				gamevar script_object = var VAR_37
-				gamevar *character_movement_p+60# = int 1
+				gamevar *character_movement_p+60 = int 1
 				gamevar disable_scroll = int 0
 				call func_f(var VAR_0, int 67108872)
 				call func_f(var VAR_7, int 67108868)
@@ -2111,7 +2111,7 @@ if(var VAR_4 == int 10000)
  {
 		if(call ! func_16(int 4128768)&&call ! func_16(int 4128771))
 		 {
-				gamevar room_state = int 3
+				gamevar *room_state+0 = int 3
 				gamevar *scene_info_p+5 = int 2
 				gamevar door_restriction_p = var &VAR_3
 				var VAR_4 = int 20000

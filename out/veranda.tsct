@@ -62,13 +62,13 @@ call load_sound(int 63)
 call play_loaded_sound(int 1, int -1, int 63, int 0)
 call play_loaded_sound(int 1, int -1, int 62, int 0)
 call play_loaded_sound(int 7, int -1, int 62, int 0)
-if(gamevar is_room_cleared)
+if(gamevar *is_room_cleared+0)
  {
 		execute SCRIPT_15
 }
 else
  {
-		switch(gamevar room_state)
+		switch(gamevar *room_state+0)
 		 {
 				case 1
 					execute SCRIPT_5
@@ -86,9 +86,9 @@ else
 
 ._SCRIPT_1
 execute SCRIPT_3
-if(gamevar !is_room_cleared)
+if(gamevar !*is_room_cleared+0)
  {
-		switch(gamevar room_state)
+		switch(gamevar *room_state+0)
 		 {
 				case 1
 					execute SCRIPT_6
@@ -105,36 +105,36 @@ if(gamevar !is_room_cleared)
 }
 
 ._SCRIPT_2
-if(gamevar !is_room_cleared)
+if(gamevar !*is_room_cleared+0)
  {
-		switch(gamevar room_state)
+		switch(gamevar *room_state+0)
 		 {
 				case 1
 					if(var VAR_3)
 					 {
 							execute SCRIPT_10
-							gamevar room_state ++ 
+							gamevar *room_state+0 ++ 
 					}
 					else
 					 {
-							gamevar room_state = int 3
+							gamevar *room_state+0 = int 3
 					}
 					break 
 				case 2
-					gamevar room_state = int 4
-					gamevar is_room_cleared = int 1
+					gamevar *room_state+0 = int 4
+					gamevar *is_room_cleared+0 = int 1
 					break 
 				case 3
 					if(var VAR_3)
 					 {
 							execute SCRIPT_10
-							gamevar room_state = int 2
+							gamevar *room_state+0 = int 2
 					}
 					break 
 				case 0
 					break 
 				default 
-					gamevar room_state = int 0
+					gamevar *room_state+0 = int 0
 					break 
 		}
 }

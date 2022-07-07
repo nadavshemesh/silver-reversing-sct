@@ -19,13 +19,13 @@ VAR_14	0
 call play_bgm(var &VAR_0)
 call load_sound(int 63)
 call play_loaded_sound(int 1, int -1, int 63, int 0)
-if(gamevar is_room_cleared)
+if(gamevar *is_room_cleared+0)
  {
 		execute SCRIPT_4
 }
 else
  {
-		switch(gamevar room_state)
+		switch(gamevar *room_state+0)
 		 {
 				case 1
 					execute SCRIPT_5
@@ -40,9 +40,9 @@ else
 
 ._SCRIPT_1
 execute SCRIPT_3
-if(gamevar !is_room_cleared)
+if(gamevar !*is_room_cleared+0)
  {
-		switch(gamevar room_state)
+		switch(gamevar *room_state+0)
 		 {
 				case 1
 					execute SCRIPT_6
@@ -56,9 +56,9 @@ if(gamevar !is_room_cleared)
 }
 
 ._SCRIPT_2
-if(gamevar !is_room_cleared)
+if(gamevar !*is_room_cleared+0)
  {
-		switch(gamevar room_state)
+		switch(gamevar *room_state+0)
 		 {
 				case 1
 					var VAR_1 = call func_6e(var &VAR_2, var &VAR_3)
@@ -67,17 +67,17 @@ if(gamevar !is_room_cleared)
 							call func_cd(var &VAR_4)
 							call func_10d(var &VAR_5, var &VAR_6, int 1)
 					}
-					gamevar room_state ++ 
-					gamevar is_room_cleared = int 1
+					gamevar *room_state+0 ++ 
+					gamevar *is_room_cleared+0 = int 1
 					break 
 				case 2
-					gamevar room_state ++ 
-					gamevar is_room_cleared = int 1
+					gamevar *room_state+0 ++ 
+					gamevar *is_room_cleared+0 = int 1
 					break 
 				case 0
 					break 
 				default 
-					gamevar room_state = int 0
+					gamevar *room_state+0 = int 0
 					break 
 		}
 }

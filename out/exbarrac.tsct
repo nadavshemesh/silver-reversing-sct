@@ -131,7 +131,7 @@ call func_58(int 1)
 execute SCRIPT_9
 execute SCRIPT_10
 execute SCRIPT_13
-switch(gamevar room_state)
+switch(gamevar *room_state+0)
  {
 		case 1
 			execute SCRIPT_4
@@ -145,7 +145,7 @@ switch(gamevar room_state)
 execute SCRIPT_3
 execute SCRIPT_11
 execute SCRIPT_14
-switch(gamevar room_state)
+switch(gamevar *room_state+0)
  {
 		case 1
 			execute SCRIPT_5
@@ -158,7 +158,7 @@ switch(gamevar room_state)
 ._SCRIPT_2
 execute SCRIPT_15
 execute SCRIPT_12
-switch(gamevar room_state)
+switch(gamevar *room_state+0)
  {
 		case 1
 			break 
@@ -347,7 +347,7 @@ switch(var VAR_24)
 			}
 			if(call ! func_16(int 4128769)&&call ! func_16(int 4128770)&&call ! func_16(int 4128771)&&call ! func_16(int 4128772)&&call ! func_16(int 4128773)&&call ! func_16(int 4128774)&&call ! func_16(int 4128775)&&call ! func_16(int 4128776))
 			 {
-					gamevar room_state = int 2
+					gamevar *room_state+0 = int 2
 					call func_d5()
 					var VAR_24 = int 0
 			}
@@ -410,7 +410,7 @@ if(var VAR_58 == int -1)
 }
 else
  {
-		var VAR_47 = @VAR_50[gamevar room_state - int 2]
+		var VAR_47 = @VAR_50[gamevar *room_state+0 - int 2]
 }
 call func_10c(var VAR_25, var VAR_47)
 if(call func_bf(int 448, gamevar CURRENT_LEVEL, gamevar CURRENT_SCENE))

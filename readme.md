@@ -16,7 +16,7 @@ Currently, This tool can:
 2. Translate .tsct script file back to .sct format that can be executed by the game’s engine.
 
 ## Examples
-Example .tsct files can be found inside the ./out folder.
+Example .tsct files can be found inside the [./out](./out) folder.
 [veranda.tsct](./out/veranda.tsct), [gnolib2.tsct](./out/gnolib2.tsct), [davhouse.tsct](./out/davhouse.tsct), [courtyrd.tsct](./out/courtyrd.tsct)
 
 

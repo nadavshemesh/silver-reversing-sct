@@ -385,19 +385,19 @@ code_pattern* init_cp_else() {
     return cp_else;
 }
 
-code_pattern* init_cp_unknown() {
-    code_pattern* cp_else = create_and_init_code_pattern();
+code_pattern* init_cp_return() {
+    code_pattern* cp_ret = create_and_init_code_pattern();
 
-    cp_else->name = aapts("unknown");
+    cp_ret->name = aapts("exit script");
     i_arr bin_tokens = { .arr = { 1, 2 }, .len = 2 };
     i_arr bin_var_pos = { .arr = { }, .len = 0 };
-    s_arr asm_tokens = { .arr = { "unknown" }, .len = 1 };
+    s_arr asm_tokens = { .arr = { "exit_script" }, .len = 1 };
     i_arr asm_var_pos = { .arr = { }, .len = 0 };
     s_arr var_names = { .arr = { }, .len = 0 };
     
-    init_cp(cp_else, UNKNOWN, bin_tokens, bin_var_pos, var_names, asm_tokens, asm_var_pos);
+    init_cp(cp_ret, RET, bin_tokens, bin_var_pos, var_names, asm_tokens, asm_var_pos);
 
-    return cp_else;
+    return cp_ret;
 }
 
 void init_code_patterns(code_pattern** code_patterns) {
@@ -422,7 +422,7 @@ void init_code_patterns(code_pattern** code_patterns) {
     code_patterns[14] = init_cp_var_assignment_and();
     code_patterns[15] = init_cp_var();
     code_patterns[16] = init_cp_structure_ptr();
-    code_patterns[17] = init_cp_unknown();
+    code_patterns[17] = init_cp_return();
     code_patterns[18] = init_cp_data_index_ptr();
 }
 

@@ -14,3 +14,4 @@ the tool in an effective way.
 + [Enemies catalog](./catalog/enemies.md)
 + [Characters catalog](./catalog/characters.md)
 + [Sound Effects catalog](./catalog/sound.md)
++ [Game Variables catalog](./catalog/gamevars.md)

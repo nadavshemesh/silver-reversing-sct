@@ -1,0 +1,142 @@
+._DATA
+VAR_0	0	
+VAR_1	0	
+VAR_2	0	
+VAR_3	0	
+VAR_4	{ 0, 0 }	
+VAR_5	{ 0, 0, 0 }	
+VAR_6	0	
+VAR_7	0	
+VAR_8	0	
+VAR_9	0	
+VAR_10	0	
+VAR_11	{ -3366, -639, 86 }	
+VAR_12	{ -2868, -639, -11 }	
+VAR_13	{ -3330, -639, -574 }	
+VAR_14	{ -3644, 500, 1365 }	
+VAR_15	{ -2623, 500, 1365 }	
+VAR_16	{ -3644, 57, 1365 }	
+VAR_17	{ -2623, 57, 1365 }	
+VAR_18	{ 0, 0, 0, -1, 8, 1, 1, 2, 55, 55, -1, 10, 45, -1, 4, 0, 9, 0, 5, 1, 50, 150, 7, 1, 2, -1 }	
+VAR_19	"SEWERPT1"	
+VAR_20	"fix"	
+VAR_21	"raybell"	
+VAR_22	"gate"	
+VAR_23	"ratrptr"	
+VAR_24	"skaven"	
+VAR_25	"skavenb"	
+VAR_26	"bell hit while ringing"	
+VAR_27	0
+
+._SCRIPT_0
+call load_sound(int 38)
+call load_sound(int 34)
+call play_bgm(var &VAR_19)
+call func_114(int 64)
+switch(gamevar room_state)
+ {
+		case 1
+			var VAR_1 = int 0
+			execute SCRIPT_3
+			break 
+		case 2
+			var VAR_1 = int 0
+			break 
+}
+if(var VAR_1)
+ {
+		gamevar SMACKER_X = int 196
+		gamevar SMACKER_Y = int 52
+		call func_a0(var &VAR_20, int -2147483, int 1, var &VAR_3)
+}
+else
+ {
+		gamevar SMACKER_X = int 192
+		gamevar SMACKER_Y = int 56
+		call func_a0(var &VAR_21, int -2147483, int 1, var &VAR_3)
+		gamevar SMACKER_X = int 128
+		gamevar SMACKER_Y = int 128
+		call func_a0(var &VAR_22, int -2147483, int 1, var &VAR_5)
+		call func_bc(var &VAR_23)
+		call func_bc(var &VAR_24)
+		call func_bc(var &VAR_25)
+}
+
+._SCRIPT_1
+execute SCRIPT_5
+if(var ! VAR_1)
+ {
+		gamevar *scene_info_p+4 &= int -3
+}
+if(var ! VAR_0)
+ {
+		if(gamevar global_collision_type == int 18)
+		 {
+				call play_loaded_sound(int 1, int 0, int 34, int 0)
+				var VAR_3 = int 1
+				var VAR_2 = int 0
+				var VAR_0 = int 1
+				gamevar global_collision_type = int 0
+		}
+}
+else
+ {
+		var VAR_2 ++ 
+		if(gamevar global_collision_type == int 18)
+		 {
+				call func_cd(var &VAR_26)
+				call play_loaded_sound(int 1, int 0, int 34, int 0)
+				gamevar global_collision_type = int 0
+		}
+		if(var VAR_4 >= int 29&&var VAR_2 > int 10)
+		 {
+				var VAR_0 = int 0
+				var VAR_3 = int 0
+				if(var ! VAR_1)
+				 {
+						call play_loaded_sound(int 2, int 0, int 34, int 0)
+						var VAR_5 = int 1
+						var VAR_1 = int 1
+						execute SCRIPT_4
+				}
+		}
+}
+
+._SCRIPT_2
+switch(gamevar room_state)
+ {
+}
+
+._SCRIPT_3
+var VAR_8 = call create_enemy(int 46, int 0, var &VAR_11, int 150)
+var VAR_9 = call create_enemy(int 46, int 1, var &VAR_12, int 205)
+var VAR_10 = call create_enemy(int 46, int 2, var &VAR_13, int 30)
+gamevar script_object = var VAR_8
+gamevar *character_stats_p+15 = int 5000
+gamevar script_object = var VAR_9
+gamevar *character_stats_p+15 = int 5000
+gamevar script_object = var VAR_10
+gamevar *character_stats_p+15 = int 5000
+call put_item_in_char_inv(var VAR_8, int 21, int 1, int 0)
+call put_item_in_char_inv(var VAR_9, int 43, int 1, int 0)
+call func_17(var VAR_8, call func_72())
+call func_17(var VAR_9, call func_72())
+call func_17(var VAR_10, call func_72())
+
+._SCRIPT_4
+var VAR_6 = call create_enemy(int 113, int 0, var &VAR_14, int 165)
+var VAR_7 = call create_enemy(int 113, int 1, var &VAR_15, int 235)
+gamevar script_object = var VAR_6
+gamevar *character_stats_p+15 = int 10000
+gamevar script_object = var VAR_7
+gamevar *character_stats_p+15 = int 10000
+call func_106(var VAR_6, int 9, int 5, var &VAR_16)
+call func_106(var VAR_7, int 9, int 5, var &VAR_17)
+call eval(var &VAR_18, int 200)
+
+._SCRIPT_5
+if(gamevar script_time > var VAR_27)
+ {
+		var VAR_27 = gamevar script_time + int 50 + call randomize_int(int 0, int 70)
+		call play_loaded_sound(int 1, int 0, int 38, int 0)
+}

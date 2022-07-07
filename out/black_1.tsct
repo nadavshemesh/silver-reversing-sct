@@ -1,0 +1,222 @@
+._DATA
+VAR_0	0	
+VAR_1	0	
+VAR_2	0	
+VAR_3	0	
+VAR_4	0	
+VAR_5	-1	
+VAR_6	"btreasure9"	
+VAR_7	{ -10742, 2348, -1476 }	
+VAR_8	"METALON"	
+VAR_9	"black_2"	
+VAR_10	"black_1"	
+VAR_11	0	
+VAR_12	0	
+VAR_13	0	
+VAR_14	"S_SekSil"	
+VAR_15	"NULL"	
+VAR_16	"S_JugSil"	
+VAR_17	"NULL"	
+VAR_18	"S_VivSil"	
+VAR_19	"NULL"	
+VAR_20	"S_ChiSil"	
+VAR_21	"NULL"	
+VAR_22	"S_CagSil"	
+VAR_23	"NULL"	
+VAR_24	"we'll never get here"	
+VAR_25	"Not started dialog"	
+VAR_26	"sekune dialog"	
+VAR_27	"Jug dialog"	
+VAR_28	"Vivienne dialog"	
+VAR_29	"Chiaro dialog"	
+VAR_30	"Cagen dialog"	
+VAR_31	0	
+VAR_32	0	
+VAR_33	0
+
+._SCRIPT_0
+var VAR_1 = var &VAR_7
+var VAR_2 = int 240
+execute SCRIPT_8
+var VAR_3 = int 109
+execute SCRIPT_9
+var VAR_3 = int 55
+execute SCRIPT_9
+call play_bgm(var &VAR_8)
+call load_sound(int 72)
+call load_sound(int 64)
+call play_loaded_sound(int 1, int -1, int 64, int 0)
+call load_sound(int 65)
+call play_loaded_sound(int 1, int -1, int 65, int 0)
+gamevar SMACKER_X = int 140
+gamevar SMACKER_Y = int 0
+call func_a0(var &VAR_9, int 1, int 1, int 0)
+gamevar SMACKER_X = int 416
+gamevar SMACKER_Y = int 0
+call func_a0(var &VAR_10, int 1, int 0, int 0)
+switch(gamevar room_state)
+ {
+		case 1
+			execute SCRIPT_5
+			break 
+		case 2
+			execute SCRIPT_7
+			break 
+		case 0
+			break 
+}
+
+._SCRIPT_1
+execute SCRIPT_3
+switch(gamevar room_state)
+ {
+		case 1
+			execute SCRIPT_4
+			break 
+		case 2
+			execute SCRIPT_6
+			break 
+		case 0
+			break 
+}
+
+._SCRIPT_2
+switch(gamevar room_state)
+ {
+		case 1
+			gamevar room_state ++ 
+			break 
+		case 2
+			gamevar room_state ++ 
+			break 
+		case 0
+			break 
+		default 
+			gamevar room_state = int 0
+			break 
+}
+
+._SCRIPT_3
+if(gamevar script_time > var VAR_32)
+ {
+		var VAR_32 = gamevar script_time + int 70 + call randomize_int(int 0, int 110)
+		call play_loaded_sound(int 8, int 0, int 72, int 0)
+}
+if(gamevar script_time > var VAR_33)
+ {
+		var VAR_33 = gamevar script_time + int 60 + call randomize_int(int 0, int 60)
+		var VAR_31 = call play_loaded_sound(int 2, int 0, int 65, int 0)
+		call func_11c(var VAR_31, int 30)
+}
+
+._SCRIPT_4
+switch(var VAR_13)
+ {
+		case 0
+			var VAR_11 = call func_70()
+			while(var VAR_11)
+			 {
+					var VAR_12 = call func_66(var VAR_11)
+					if(var VAR_12 == int 65536)
+					 {
+							var VAR_11 = call func_7e()
+					}
+					else
+					 {
+							switch(var VAR_12)
+							 {
+									case 786432
+										call start_dialog(var &VAR_14, var &VAR_15)
+										var VAR_13 = int 5
+										break 
+									case 327680
+										call start_dialog(var &VAR_16, var &VAR_17)
+										var VAR_13 = int 6
+										break 
+									case 196608
+										call start_dialog(var &VAR_18, var &VAR_19)
+										var VAR_13 = int 7
+										break 
+									case 131072
+										call start_dialog(var &VAR_20, var &VAR_21)
+										var VAR_13 = int 8
+										break 
+									case 262144
+										call start_dialog(var &VAR_22, var &VAR_23)
+										var VAR_13 = int 9
+										break 
+									default 
+										var VAR_13 = int 4
+										break 
+							}
+							var VAR_11 = int 0
+					}
+			}
+			break 
+		case 1
+			call func_cd(var &VAR_24)
+			break 
+		case 4
+			call func_cd(var &VAR_25)
+			break 
+		case 5
+			call func_cd(var &VAR_26)
+			var VAR_13 = int 10
+			break 
+		case 6
+			call func_cd(var &VAR_27)
+			var VAR_13 = int 10
+			break 
+		case 7
+			call func_cd(var &VAR_28)
+			var VAR_13 = int 10
+			break 
+		case 8
+			call func_cd(var &VAR_29)
+			var VAR_13 = int 10
+			break 
+		case 9
+			call func_cd(var &VAR_30)
+			var VAR_13 ++ 
+			break 
+}
+
+._SCRIPT_5
+
+._SCRIPT_6
+
+._SCRIPT_7
+
+._SCRIPT_8
+var VAR_0 = call func_16(int 1507337)
+if(var ! VAR_0)
+ {
+		var VAR_0 = call create_char(var VAR_1, var &VAR_6, var VAR_2, int 14)
+		call func_aa(var VAR_0)
+}
+else
+ {
+		var VAR_4 = int 1
+		gamevar script_object = var VAR_0
+		if(gamevar *object_p+7 == int 4194304)
+		 {
+				call func_aa(var VAR_0)
+		}
+}
+
+._SCRIPT_9
+if(var VAR_3 != int -1)
+ {
+		if(var ! VAR_4)
+		 {
+				if(var VAR_5 != int -1)
+				 {
+						call put_item_in_char_inv(var VAR_0, int 85, var VAR_5, int 0)
+				}
+				else
+				 {
+						call put_item_in_char_inv(var VAR_0, var VAR_3, int 1, int 0)
+				}
+		}
+}
+var VAR_5 = int -1

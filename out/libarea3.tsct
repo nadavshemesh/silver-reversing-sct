@@ -1,0 +1,388 @@
+._DATA
+VAR_0	0	
+VAR_1	{ -8499, 2894, -16052 }	
+VAR_2	{ 0, 0, 1, 0, -1, 8, 1, 4, 0, 9, 0, 1, 4, 102, 103, -1, 2, 4, 3, 2, 5, 0, 50, 6, 1, 7, 1, 4, -1 }	
+VAR_3	{ 11, 200, 300, 0, -8499, 2894, -16552, 11, 200, 300, 0, -8499, 2894, -16052, 11, 200, 300, 0, -8499, 2894, -15552, 7, 8 }	
+VAR_4	"GNO"	
+VAR_5	0	
+VAR_6	{ 0, 0 }	
+VAR_7	0	
+VAR_8	0	
+VAR_9	0	
+VAR_10	0	
+VAR_11	"pfew"	
+VAR_12	"startle"	
+VAR_13	0	
+VAR_14	0	
+VAR_15	{ -8546, 2931, -16112, 0, 0 }	
+VAR_16	"horn imp jump down - david is dead"	
+VAR_17	"Findpath to edge..."	
+VAR_18	"Put horn away..."	
+VAR_19	"Turn imp..."	
+VAR_20	"Jump little imp..."	
+VAR_21	"Start hand_to_hand ai..."	
+VAR_22	{ -8540, 2969, -15233, -8499, 2898, -16791, -8499, 2898, -16791 }	
+VAR_23	{ -8714, 1201, -16178 }	
+VAR_24	"nyelimp"	
+VAR_25	0	
+VAR_26	0	
+VAR_27	0	
+VAR_28	0	
+VAR_29	"drop imp jump down - david is dead"	
+VAR_30	0	
+VAR_31	0	
+VAR_32	"bug1205"	
+VAR_33	0	
+VAR_34	0	
+VAR_35	0	
+VAR_36	0
+
+._SCRIPT_0
+call play_bgm(var &VAR_4)
+call load_sound(int 63)
+call play_loaded_sound(int 1, int -1, int 63, int 0)
+if(gamevar is_room_cleared)
+ {
+		execute SCRIPT_17
+}
+else
+ {
+		switch(gamevar room_state)
+		 {
+				case 1
+					execute SCRIPT_4
+					break 
+				case 2
+					execute SCRIPT_15
+					break 
+				case 0
+					break 
+		}
+}
+
+._SCRIPT_1
+execute SCRIPT_3
+if(gamevar !is_room_cleared)
+ {
+		switch(gamevar room_state)
+		 {
+				case 1
+					execute SCRIPT_5
+					break 
+				case 2
+					execute SCRIPT_16
+					break 
+				case 0
+					break 
+		}
+}
+
+._SCRIPT_2
+if(gamevar !is_room_cleared)
+ {
+		switch(gamevar room_state)
+		 {
+				case 1
+					gamevar room_state ++ 
+					gamevar is_room_cleared = int 1
+					break 
+				case 2
+					gamevar room_state ++ 
+					gamevar is_room_cleared = int 1
+					break 
+				case 3
+					gamevar room_state ++ 
+					gamevar is_room_cleared = int 1
+					break 
+				case 0
+					break 
+				default 
+					gamevar room_state = int 0
+					break 
+		}
+}
+
+._SCRIPT_3
+if(gamevar script_time > var VAR_35)
+ {
+		var VAR_35 = gamevar script_time + int 600 + call randomize_int(int 0, int 400)
+		var VAR_33 = int 5 + call randomize_int(int 0, int 4)
+		call play_loaded_sound(var VAR_33, int 0, int 63, int 0)
+}
+if(gamevar script_time > var VAR_36)
+ {
+		var VAR_36 = gamevar script_time + int 250 + call randomize_int(int 0, int 150)
+		var VAR_33 = int 9 + call randomize_int(int 0, int 4)
+		call play_loaded_sound(var VAR_33, int 0, int 63, int 0)
+}
+if(gamevar script_time > var VAR_34)
+ {
+		var VAR_34 = gamevar script_time + int 300 + call randomize_int(int 0, int 200)
+		var VAR_33 = int 2 + call randomize_int(int 0, int 3)
+		call play_loaded_sound(var VAR_33, int 0, int 63, int 0)
+}
+
+._SCRIPT_4
+var VAR_8 = call load_anim(var &VAR_11)
+var VAR_9 = call load_anim(var &VAR_12)
+execute SCRIPT_7
+execute SCRIPT_8
+call func_111(int 2)
+var VAR_0 = call get_char_handle(int 65536)
+
+._SCRIPT_5
+if(call func_16(int 1769472))
+ {
+		execute SCRIPT_11
+}
+else
+ {
+		if(call func_16(int 917505))
+		 {
+				execute SCRIPT_12
+		}
+		else
+		 {
+				if(call func_16(int 917507))
+				 {
+						if(call get_num_of_enemies() == int 1)
+						 {
+								call func_106(var VAR_6, int 3, int 1, var &VAR_2)
+						}
+				}
+		}
+		if(call func_16(int 917507))
+		 {
+				execute SCRIPT_14
+		}
+}
+
+._SCRIPT_6
+var VAR_6 = call create_enemy(int 108, int 3, var &VAR_1, int 270)
+call freeze_enemy(var VAR_6)
+call func_50(var VAR_6, int 10249)
+call func_107(var VAR_6, var &VAR_3)
+call func_10f(var VAR_6, int 2)
+
+._SCRIPT_7
+execute SCRIPT_6
+execute SCRIPT_9
+
+._SCRIPT_8
+var VAR_7 = call create_char(var &VAR_23, var &VAR_24, int 60, int 13)
+gamevar script_object = var VAR_7
+gamevar *character_movement_p+60 = int 1
+gamevar *character_movement_p+53 = int 0
+
+._SCRIPT_9
+var VAR_5 = call create_enemy(int 103, int 1, var &VAR_22, int 270)
+call freeze_enemy(var VAR_5)
+call func_10f(var VAR_5, int 2)
+
+._SCRIPT_10
+
+._SCRIPT_11
+switch(var VAR_25)
+ {
+		case 0
+			var VAR_25 ++ 
+			var VAR_26 = int 0
+			break 
+		case 1
+			if(var VAR_26 > int 10)
+			 {
+					call play_char_anim(var VAR_7, var VAR_8, int 0)
+					var VAR_25 ++ 
+					var VAR_26 = int 0
+			}
+			break 
+		case 2
+			if(var VAR_26 > int 200)
+			 {
+					call play_char_anim(var VAR_7, var VAR_9, int 0)
+					call func_95(var VAR_7, int 5, int 0)
+					var VAR_25 ++ 
+					var VAR_26 = int 0
+					call func_111(int 1)
+			}
+			break 
+		case 3
+			if(call func_5c(var VAR_7))
+			 {
+					var VAR_10 = call func_41(var VAR_7, int 0)
+					gamevar script_object = var VAR_7
+					gamevar *character_stats_p+14 = int 106000
+					call func_20(var VAR_7)
+					call func_18(var VAR_7, int -9053, int 1201, int -17898)
+					var VAR_26 = int 0
+					var VAR_25 ++ 
+			}
+			break 
+		case 4
+			if(call is_char_standing(var VAR_7))
+			 {
+					call func_12f(var VAR_10)
+					call play_char_anim(var VAR_7, var VAR_8, int 0)
+					var VAR_26 = int 0
+					var VAR_25 ++ 
+			}
+			break 
+		case 5
+			if(var VAR_26 > int 100)
+			 {
+					var VAR_10 = call func_41(var VAR_7, int 0)
+					call func_2b(var VAR_7, int 0)
+					var VAR_26 = int 0
+					var VAR_25 ++ 
+			}
+			break 
+		case 6
+			if(call is_char_standing(var VAR_7))
+			 {
+					call func_12f(var VAR_10)
+					call remove_char(var VAR_7)
+					var VAR_26 = int 0
+					var VAR_25 ++ 
+					if(call func_16(int 917507))
+					 {
+							call func_106(var VAR_6, int 3, int 1, var &VAR_2)
+					}
+			}
+			break 
+}
+var VAR_26 ++ 
+
+._SCRIPT_12
+switch(var VAR_27)
+ {
+		case 0
+			if(call func_16(int 917507))
+			 {
+					if(call ! func_a7(var VAR_6, int 3))
+					 {
+							var VAR_27 ++ 
+							var VAR_28 = int 0
+					}
+					else
+					 {
+							gamevar script_object = var VAR_0
+							if(gamevar *object_p+5 == int 6)
+							 {
+									call func_cd(var &VAR_29)
+									var VAR_27 ++ 
+									var VAR_28 = int 0
+							}
+					}
+			}
+			else
+			 {
+					var VAR_27 ++ 
+					var VAR_28 = int 0
+			}
+			break 
+		case 1
+			if(var VAR_28 > int 60)
+			 {
+					call func_29(var VAR_5)
+					var VAR_27 ++ 
+					var VAR_28 = int 0
+			}
+			break 
+		case 2
+			if(var VAR_28 > int 180)
+			 {
+					call func_f(var VAR_5, int 8)
+					call set_char_behav(var VAR_5, int 103)
+					var VAR_27 ++ 
+					var VAR_28 = int 0
+			}
+			break 
+}
+var VAR_28 ++ 
+
+._SCRIPT_13
+if(var VAR_30 == int 0)
+ {
+		var VAR_30 ++ 
+		var VAR_31 = int 0
+}
+var VAR_31 ++ 
+
+._SCRIPT_14
+switch(var VAR_13)
+ {
+		case 0
+			if(call ! func_16(int 917505))
+			 {
+					var VAR_13 = int 20
+					var VAR_14 = int 0
+			}
+			else
+			 {
+					gamevar script_object = var VAR_0
+					if(gamevar *object_p+5 == int 6)
+					 {
+							call func_cd(var &VAR_16)
+							var VAR_13 = int 20
+							var VAR_14 = int 0
+					}
+			}
+			break 
+		case 20
+			if(var VAR_14 > int 180)
+			 {
+					call freeze_enemy(var VAR_6)
+					call func_cd(var &VAR_17)
+					call char_walk_to_pos(var VAR_6, var &VAR_15)
+					var VAR_13 ++ 
+					var VAR_14 = int 0
+			}
+			break 
+		case 21
+			if(call is_char_standing(var VAR_6))
+			 {
+					call func_cd(var &VAR_18)
+					call func_132(var VAR_6, int 87)
+					var VAR_13 ++ 
+					var VAR_14 = int 0
+			}
+			break 
+		case 22
+			if(var VAR_14 > int 120)
+			 {
+					call func_cd(var &VAR_19)
+					call func_36(var VAR_6, int -8770, int 1201, int -16052)
+					var VAR_13 ++ 
+					var VAR_14 = int 0
+			}
+			break 
+		case 23
+			if(var VAR_14 > int 120)
+			 {
+					call func_cd(var &VAR_20)
+					call func_29(var VAR_6)
+					var VAR_13 ++ 
+					var VAR_14 = int 0
+			}
+			break 
+		case 24
+			if(var VAR_14 > int 180)
+			 {
+					call func_cd(var &VAR_21)
+					call func_50(var VAR_6, int 129)
+					var VAR_13 ++ 
+					var VAR_14 = int 0
+			}
+			break 
+}
+var VAR_14 ++ 
+
+._SCRIPT_15
+
+._SCRIPT_16
+
+._SCRIPT_17
+if(gamevar is_room_cleared == int 2)
+ {
+		call func_108(var &VAR_32)
+}

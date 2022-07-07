@@ -1,0 +1,160 @@
+._DATA
+VAR_0	0	
+VAR_1	0	
+VAR_2	0	
+VAR_3	0	
+VAR_4	0	
+VAR_5	-1	
+VAR_6	"btreasure9"	
+VAR_7	{ 8, 625, 4952 }	
+VAR_8	"GNOCVP1"	
+VAR_9	"gno"	
+VAR_10	"screen3"	
+VAR_11	"screen7"	
+VAR_12	"screen7b"	
+VAR_13	{ 0, 0, 0, 0 }	
+VAR_14	{ -323, 625, 5560 }
+
+._SCRIPT_0
+var VAR_1 = var &VAR_7
+var VAR_2 = int 335
+execute SCRIPT_10
+var VAR_3 = int 32
+execute SCRIPT_11
+var VAR_3 = int 33
+execute SCRIPT_11
+var VAR_3 = int 38
+execute SCRIPT_11
+call play_bgm(var &VAR_8)
+execute SCRIPT_3
+call load_sound(int 64)
+call play_loaded_sound(int 1, int -1, int 64, int 0)
+call load_sound(int 30)
+call play_loaded_sound(int 1, int -1, int 30, int 0)
+if(gamevar is_room_cleared)
+ {
+		execute SCRIPT_4
+}
+else
+ {
+		switch(gamevar room_state)
+		 {
+				case 1
+					execute SCRIPT_9
+					execute SCRIPT_5
+					break 
+				case 2
+					execute SCRIPT_7
+					break 
+				case 0
+					break 
+		}
+}
+
+._SCRIPT_1
+if(gamevar !is_room_cleared)
+ {
+		switch(gamevar room_state)
+		 {
+				case 1
+					execute SCRIPT_6
+					break 
+				case 2
+					execute SCRIPT_8
+					break 
+				case 0
+					break 
+		}
+}
+
+._SCRIPT_2
+if(gamevar !is_room_cleared)
+ {
+		switch(gamevar room_state)
+		 {
+				case 1
+					if(call ! func_af(int 34))
+					 {
+							call func_7(int 606, int 1, int 0, int 0)
+					}
+					gamevar room_state ++ 
+					gamevar is_room_cleared = int 1
+					call func_116(var &VAR_9, var &VAR_10, int 3)
+					break 
+				case 2
+					gamevar room_state ++ 
+					gamevar is_room_cleared = int 1
+					break 
+				case 0
+					break 
+				default 
+					gamevar room_state = int 0
+					break 
+		}
+}
+
+._SCRIPT_3
+gamevar SMACKER_X = int 180
+gamevar SMACKER_Y = int 132
+call func_a0(var &VAR_11, int 1, int 1, int 0)
+gamevar SMACKER_X = int 312
+gamevar SMACKER_Y = int 140
+call func_a0(var &VAR_12, int 1, int 1, int 0)
+
+._SCRIPT_4
+
+._SCRIPT_5
+
+._SCRIPT_6
+
+._SCRIPT_7
+if(call func_bf(int 606, gamevar CURRENT_LEVEL, gamevar CURRENT_SCENE))
+ {
+		call func_d8(int 606, var &VAR_13)
+}
+else
+ {
+		execute SCRIPT_9
+}
+
+._SCRIPT_8
+
+._SCRIPT_9
+if(call ! func_af(int 34))
+ {
+		call func_9a(var &VAR_14, int 38, int 0, int 0)
+}
+
+._SCRIPT_10
+var VAR_0 = call func_16(int 1507337)
+if(var ! VAR_0)
+ {
+		var VAR_0 = call create_char(var VAR_1, var &VAR_6, var VAR_2, int 14)
+		call func_aa(var VAR_0)
+}
+else
+ {
+		var VAR_4 = int 1
+		gamevar script_object = var VAR_0
+		if(gamevar *object_p+7 == int 4194304)
+		 {
+				call func_aa(var VAR_0)
+		}
+}
+
+._SCRIPT_11
+if(var VAR_3 != int -1)
+ {
+		if(var ! VAR_4)
+		 {
+				if(var VAR_5 != int -1)
+				 {
+						call put_item_in_char_inv(var VAR_0, int 85, var VAR_5, int 0)
+				}
+				else
+				 {
+						call put_item_in_char_inv(var VAR_0, var VAR_3, int 1, int 0)
+				}
+		}
+}
+var VAR_5 = int -1

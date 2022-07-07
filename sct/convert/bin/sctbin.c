@@ -183,10 +183,10 @@ void build_data_from_link_table(sct_f* sct) {
 
 bool bin_cmp_token(int* a_token_ptr, int* b_token_ptr) {
     if(*a_token_ptr == *b_token_ptr) {
-        // printf("%08x == %08x\n", *a_token, *b_token);
+        // printf("%08x == %08x\n", *a_token_ptr, *b_token_ptr);
         return true;
     }
-    // printf("%08x != %08x\n", *a_token, *b_token);
+    // printf("%08x != %08x\n", *a_token, *b_token_ptr);
     return false;
 }
 

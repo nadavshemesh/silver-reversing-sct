@@ -1,0 +1,156 @@
+._DATA
+VAR_0	"METALON"	
+VAR_1	"water"	
+VAR_2	"sarcher"	
+VAR_3	"sguard"	
+VAR_4	0	
+VAR_5	0	
+VAR_6	0	
+VAR_7	0	
+VAR_8	{ 1180, 334, 115, -2873, 1334, -1161 }	
+VAR_9	{ 2779, 654, 115, -2519, 554, -1466, -3579, 947, -2185, -4173, 755, -1040, -3585, 755, -560, -2367, 655, -804 }	
+VAR_10	{ 13, 6, VAR_9, 0, 7, 8 }	
+VAR_11	{ 13, 6, VAR_9, 0, 7, 8 }	
+VAR_12	0	
+VAR_13	{ -1143, 55, -1158 }	
+VAR_14	0	
+VAR_15	{ -1166, 54, -1765 }	
+VAR_16	"fsguard"	
+VAR_17	"fsguard1"	
+VAR_18	{ 0, -3756, 55, -1166, 0, -1143, 55, -1158, 7, 8 }	
+VAR_19	{ 0, -3737, 54, -1761, 0, -1166, 54, -1765, 7, 8, -979, 55, -1019 }	
+VAR_20	{ -3769, 55, -1882, -3785, 55, -477 }	
+VAR_21	0	
+VAR_22	{ -3520, 55, -776, -3493, 54, -1686, -818, 54, -1602, -827, 55, -747, -2441, 54, -1665, -2444, 55, -830 }	
+VAR_23	{ 0, 1, 5, VAR_22, 8, 2, 4, 0, 9, 1, 1, 3, 33, 33, -1, 5, 1, 15, 60, 6, 1, 7, 1, 2, -1 }	
+VAR_24	{ -1508, 55, -600, -1502, 55, -994, -1479, 55, -1666 }	
+VAR_25	{ 0, 1, 3, VAR_24, 8, 1, 4, 0, 9, 1, 1, 1, 35, 35, 35, -1, 5, 1, 15, 60, 6, 1, 7, 1, 2, 10, 45, 47, -1, -1 }	
+VAR_26	"wave2"	
+VAR_27	"wave2"	
+VAR_28	0	
+VAR_29	0	
+VAR_30	0
+
+._SCRIPT_0
+call play_bgm(var &VAR_0)
+gamevar SMACKER_X = int 536
+gamevar SMACKER_Y = int 280
+call func_a0(var &VAR_1, int 1, int 1, int 0)
+call load_sound(int 72)
+call play_loaded_sound(int 4, int -1, int 72, int 0)
+call load_sound(int 64)
+call play_loaded_sound(int 1, int -1, int 64, int 0)
+call load_sound(int 65)
+call play_loaded_sound(int 5, int -1, int 65, int 0)
+switch(gamevar room_state)
+ {
+		case 1
+			execute SCRIPT_5
+			break 
+		case 2
+			execute SCRIPT_7
+			break 
+		case 0
+			break 
+}
+
+._SCRIPT_1
+execute SCRIPT_3
+switch(gamevar room_state)
+ {
+		case 1
+			execute SCRIPT_4
+			break 
+		case 2
+			execute SCRIPT_6
+			break 
+		case 0
+			break 
+}
+
+._SCRIPT_2
+switch(gamevar room_state)
+ {
+		case 1
+			gamevar room_state ++ 
+			break 
+		case 2
+			gamevar room_state ++ 
+			break 
+		case 0
+			break 
+		default 
+			gamevar room_state = int 0
+			break 
+}
+
+._SCRIPT_3
+if(gamevar script_time > var VAR_28)
+ {
+		var VAR_28 = gamevar script_time + int 70 + call randomize_int(int 0, int 110)
+		call play_loaded_sound(int 8, int 0, int 72, int 0)
+}
+if(gamevar script_time > var VAR_29)
+ {
+		var VAR_29 = gamevar script_time + int 70 + call randomize_int(int 0, int 110)
+		call play_loaded_sound(int 7, int 0, int 72, int 0)
+}
+if(gamevar script_time > var VAR_30)
+ {
+		var VAR_30 = gamevar script_time + int 100 + call randomize_int(int 0, int 50)
+		call play_loaded_sound(int 6, int 0, int 65, int 0)
+}
+
+._SCRIPT_4
+if(var VAR_4 == int 0)
+ {
+		var VAR_21 = call eval(var &VAR_23, int 10)
+		call func_cd(var &VAR_26)
+		var VAR_4 ++ 
+		var VAR_5 = int 0
+}
+if(var VAR_4 == int 1)
+ {
+		if(call func_122(var VAR_21) == int 0)
+		 {
+				if(call func_8a(var &VAR_20))
+				 {
+						var VAR_21 = call eval(var &VAR_25, int 10)
+						call func_cd(var &VAR_27)
+						var VAR_4 ++ 
+						var VAR_5 = int 0
+				}
+				else
+				 {
+						if(call get_num_of_enemies() == int 0)
+						 {
+								var VAR_21 = call eval(var &VAR_25, int 10)
+								var VAR_4 ++ 
+						}
+				}
+		}
+}
+
+._SCRIPT_5
+call func_bc(var &VAR_2)
+call func_bc(var &VAR_3)
+var VAR_6 = call create_enemy(int 47, int 0, var &VAR_8, int 33)
+var VAR_7 = call create_enemy(int 47, int 1, var &VAR_8, int 33)
+call func_50(var VAR_6, int 8192)
+call func_107(var VAR_6, var &VAR_10)
+call func_50(var VAR_7, int 8192)
+call func_107(var VAR_7, var &VAR_11)
+var VAR_12 = call create_char(var &VAR_13, var &VAR_16, int 240, int 13)
+call put_item_in_char_inv(var VAR_12, int 22, int 0, int 1)
+var VAR_14 = call create_char(var &VAR_15, var &VAR_17, int 240, int 13)
+call put_item_in_char_inv(var VAR_14, int 22, int 0, int 1)
+call func_106(var VAR_12, int 1, int 0, int 1)
+call func_50(var VAR_12, int 8323)
+call func_107(var VAR_12, var &VAR_18)
+call func_106(var VAR_14, int 1, int 0, int 1)
+call func_50(var VAR_14, int 8323)
+call func_107(var VAR_14, var &VAR_19)
+
+._SCRIPT_6
+
+._SCRIPT_7

@@ -224,9 +224,9 @@ code_pattern* init_cp_var_assignment_plus() {
 
     cp_assign->name = aapts(" += assign var an expression.");
     i_arr bin_tokens = { .arr = { 7, 3}, .len = 2 };
-    i_arr bin_var_pos = { .arr = { 0 }, .len = 0 };
+    i_arr bin_var_pos = { .arr = { }, .len = 0 };
     s_arr asm_tokens = { .arr = {  "+=" }, .len = 1 };
-    i_arr asm_var_pos = { .arr = { 0 }, .len = 0 };
+    i_arr asm_var_pos = { .arr = { }, .len = 0 };
     s_arr var_names = { .arr = {}, .len = 0 };
     
     init_cp(cp_assign, ASSIGNMENT, bin_tokens, bin_var_pos, var_names, asm_tokens, asm_var_pos);
@@ -238,10 +238,10 @@ code_pattern* init_cp_var_assignment_minus() {
     code_pattern* cp_assign = create_and_init_code_pattern();
 
     cp_assign->name = aapts(" -= assign var an expression.");
-    i_arr bin_tokens = { .arr = { 7, 4}, .len = 2 };
-    i_arr bin_var_pos = { .arr = { 0 }, .len = 0 };
+    i_arr bin_tokens = { .arr = { 7, 4 }, .len = 2 };
+    i_arr bin_var_pos = { .arr = { }, .len = 0 };
     s_arr asm_tokens = { .arr = {  "-=" }, .len = 1 };
-    i_arr asm_var_pos = { .arr = { 0 }, .len = 0 };
+    i_arr asm_var_pos = { .arr = { }, .len = 0 };
     s_arr var_names = { .arr = {}, .len = 0 };
     
     init_cp(cp_assign, ASSIGNMENT, bin_tokens, bin_var_pos, var_names, asm_tokens, asm_var_pos);
@@ -254,9 +254,9 @@ code_pattern* init_cp_var_assignment_and() {
 
     cp_assign->name = aapts(" &= assign var an expression.");
     i_arr bin_tokens = { .arr = { 7, 6}, .len = 2 };
-    i_arr bin_var_pos = { .arr = { 0 }, .len = 0 };
+    i_arr bin_var_pos = { .arr = { }, .len = 0 };
     s_arr asm_tokens = { .arr = {  "&=" }, .len = 1 };
-    i_arr asm_var_pos = { .arr = { 0 }, .len = 0 };
+    i_arr asm_var_pos = { .arr = { }, .len = 0 };
     s_arr var_names = { .arr = {}, .len = 0 };
     
     init_cp(cp_assign, ASSIGNMENT, bin_tokens, bin_var_pos, var_names, asm_tokens, asm_var_pos);
@@ -415,16 +415,17 @@ void init_code_patterns(code_pattern** code_patterns) {
     code_patterns[7] = init_cp_script_call();
     code_patterns[8] = init_cp_switch_case();
     code_patterns[9] = init_cp_break();
-    code_patterns[10] = init_cp_structure_ptr();
-    code_patterns[11] = init_cp_var_assignment();
-    code_patterns[12] = init_cp_var_assignment_or();
-    code_patterns[13] = init_cp_var_assignment_minus();
-    code_patterns[14] = init_cp_var_assignment_plus();
-    code_patterns[15] = init_cp_var_assignment_and();
-    code_patterns[16] = init_cp_var();
+    code_patterns[10] = init_cp_var_assignment();
+    code_patterns[11] = init_cp_var_assignment_or();
+    code_patterns[12] = init_cp_var_assignment_minus();
+    code_patterns[13] = init_cp_var_assignment_plus();
+    code_patterns[14] = init_cp_var_assignment_and();
+    code_patterns[15] = init_cp_var();
+    code_patterns[16] = init_cp_structure_ptr();
     code_patterns[17] = init_cp_unknown();
     code_patterns[18] = init_cp_data_index_ptr();
 }
+
 void free_code_patterns(code_pattern** code_patterns) {
     for(int i=0; i<sizeof(code_patterns); i++) {
         free(code_patterns[i]);

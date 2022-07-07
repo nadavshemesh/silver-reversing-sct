@@ -1,0 +1,301 @@
+._DATA
+VAR_0	0	
+VAR_1	0	
+VAR_2	0	
+VAR_3	0	
+VAR_4	0	
+VAR_5	1	
+VAR_6	0	
+VAR_7	0	
+VAR_8	0	
+VAR_9	{ 0, 0 }	
+VAR_10	0	
+VAR_11	0	
+VAR_12	0	
+VAR_13	0	
+VAR_14	{ 3021, 85, -4985 }	
+VAR_15	{ 3422, 85, -5222 }	
+VAR_16	{ 2991, 85, -5497 }	
+VAR_17	{ 3258, 85, -5426 }	
+VAR_18	{ 3017, 85, -5105 }	
+VAR_19	{ 2758, 85, -5137 }	
+VAR_20	{ 2731, 85, -5356 }	
+VAR_21	{ 19, 4, VAR_8, 4, VAR_6, 20, 8 }	
+VAR_22	{ 19, 5, 120, 16, VAR_9, 1, 4, VAR_7, 20, 4, VAR_5, 16, VAR_8, 1, 8 }	
+VAR_23	{ 19, 5, 120, 16, VAR_9, 1, 4, VAR_7, 20, 5, 30, 16, VAR_8, 1, 8 }	
+VAR_24	{ VAR_25, 0, 0, 1, 0, 0 }	
+VAR_25	"wivwheel"	
+VAR_26	{ VAR_27, 0, 0, 0, 0, 0 }	
+VAR_27	"stdstill"	
+VAR_28	{ VAR_29, 0, 0, 0, 0, 0 }	
+VAR_29	"stdstill"	
+VAR_30	{ VAR_31, 0, 0, 0, 0, 0 }	
+VAR_31	"stdstill"	
+VAR_32	"nglass"	
+VAR_33	"nduke"	
+VAR_34	"nlongjohn"	
+VAR_35	"nnemesis"	
+VAR_36	0	
+VAR_37	0	
+VAR_38	"e_onship"	
+VAR_39	0	
+VAR_40	0	
+VAR_41	0	
+VAR_42	"OUT2.AVI"	
+VAR_43	"S_GLADVD"	
+VAR_44	"NULL"	
+VAR_45	"OUTCOMP.AVI"	
+VAR_46	0	
+VAR_47	0	
+VAR_48	0	
+VAR_49	0	
+VAR_50	0	
+VAR_51	0	
+VAR_52	0
+
+._SCRIPT_0
+call load_sound(int 75)
+if(gamevar room_state == int 0)
+ {
+		unknown 
+}
+if(gamevar room_state == int 1)
+ {
+		execute SCRIPT_3
+}
+if(gamevar room_state == int 2)
+ {
+		execute SCRIPT_10
+}
+
+._SCRIPT_1
+if(gamevar room_state == int 0)
+ {
+		unknown 
+}
+if(gamevar room_state == int 1)
+ {
+		execute SCRIPT_5
+}
+if(gamevar room_state == int 2)
+ {
+		execute SCRIPT_11
+}
+
+._SCRIPT_2
+if(gamevar room_state == int 0)
+ {
+		unknown 
+}
+gamevar room_state ++ 
+if(gamevar room_state > int 2)
+ {
+		gamevar room_state = int 0
+}
+
+._SCRIPT_3
+call load_sound(int 4)
+call func_111(int 2)
+var VAR_10 = call create_char(var &VAR_15, var &VAR_32, int 280, int 13)
+var VAR_11 = call create_char(var &VAR_16, var &VAR_33, int 340, int 13)
+var VAR_13 = call create_char(var &VAR_14, var &VAR_34, int 345, int 13)
+var VAR_12 = call create_char(var &VAR_17, var &VAR_35, int 285, int 13)
+execute SCRIPT_7
+call func_bb(var VAR_13, var &VAR_24)
+call func_bb(var VAR_12, var &VAR_30)
+call func_bb(var VAR_0, var &VAR_28)
+call func_bb(var VAR_11, var &VAR_26)
+if(var VAR_2)
+ {
+}
+gamevar outro_active = int 1
+
+._SCRIPT_4
+gamevar SMACKER_X = int 0
+gamevar SMACKER_Y = int 128
+call func_a0(var &VAR_38, int 1, int 0, int 0)
+
+._SCRIPT_5
+if(var VAR_39)
+ {
+		execute SCRIPT_9
+		execute SCRIPT_8
+}
+switch(var VAR_37)
+ {
+		case 0
+			if(var VAR_36 == int 2)
+			 {
+					var VAR_41 = var VAR_36
+					var VAR_37 ++ 
+					call func_cc(var &VAR_42)
+			}
+			break 
+		case 1
+			if(var VAR_41 != var VAR_36)
+			 {
+					execute SCRIPT_4
+					var VAR_39 = int 1
+					call func_115(var VAR_0, var &VAR_21)
+					call func_115(var VAR_1, var &VAR_22)
+					call func_50(var VAR_0, int 8192)
+					call func_50(var VAR_1, int 8192)
+					call func_f6(gamevar char_gen_fx_scripts, int 18, int 0, var VAR_12)
+					if(var VAR_2)
+					 {
+							call func_115(var VAR_2, var &VAR_23)
+							call func_50(var VAR_2, int 8192)
+					}
+					var VAR_37 ++ 
+					var VAR_36 = int 0
+			}
+			break 
+		case 2
+			if(var VAR_9)
+			 {
+					call func_10b(var VAR_1, var &VAR_19, int 100)
+					call char_stop(var VAR_1)
+					if(var VAR_2)
+					 {
+							call func_10b(var VAR_2, var &VAR_20, int 75)
+							call char_stop(var VAR_2)
+					}
+					var VAR_36 = int 0
+					var VAR_37 ++ 
+			}
+			break 
+		case 3
+			if(var VAR_36 > int 30)
+			 {
+					var VAR_40 = call play_loaded_sound(int 32, int -1, int 75, int 0)
+					var VAR_36 = int 0
+					var VAR_37 ++ 
+					var VAR_7 = int 1
+			}
+			break 
+		case 4
+			if(var VAR_8)
+			 {
+					var VAR_37 ++ 
+					call func_10b(var VAR_0, var &VAR_18, int 135)
+					call char_stop(var VAR_0)
+					var VAR_36 = int 0
+			}
+			break 
+		case 5
+			if(var VAR_36 > int 40)
+			 {
+					var VAR_36 = int 0
+					var VAR_6 = int 1
+					var VAR_37 ++ 
+			}
+			break 
+		case 6
+			if(var VAR_36 > int 160)
+			 {
+					var VAR_36 = int 0
+					var VAR_37 ++ 
+					call start_dialog(var &VAR_43, var &VAR_44)
+			}
+			break 
+		case 7
+			if(call get_input_sys() != int 4)
+			 {
+					var VAR_37 ++ 
+					var VAR_36 = int 0
+			}
+			break 
+		case 8
+			if(var VAR_36 > int 100)
+			 {
+					var VAR_37 ++ 
+					var VAR_39 = int 0
+					call func_125(var VAR_40)
+					call func_cc(var &VAR_45)
+			}
+			break 
+		case 9
+			var VAR_36 = int 0
+			var VAR_37 ++ 
+			break 
+		case 10
+			if(var VAR_36 > int 1)
+			 {
+					call func_26()
+					var VAR_37 ++ 
+			}
+			break 
+}
+var VAR_36 ++ 
+
+._SCRIPT_6
+
+._SCRIPT_7
+var VAR_3 = call func_70()
+while(var VAR_3)
+ {
+		var VAR_4 = call func_66(var VAR_3)
+		if(var VAR_4 == int 65536)
+		 {
+				var VAR_0 = var VAR_3
+				var VAR_3 = call func_7e()
+		}
+		else
+		 {
+				if(var ! VAR_1)
+				 {
+						var VAR_1 = var VAR_3
+				}
+				else
+				 {
+						if(var ! VAR_2)
+						 {
+								var VAR_2 = var VAR_3
+								var VAR_5 = int 0
+						}
+				}
+				var VAR_3 = call func_7e()
+		}
+}
+
+._SCRIPT_8
+if(gamevar script_time > var VAR_49)
+ {
+		var VAR_49 = gamevar script_time + int 60 + call randomize_int(int 0, int 40)
+		var VAR_48 = int 5 + call randomize_int(int 0, int 6)
+		call play_loaded_sound(var VAR_48, int 0, int 4, int 0)
+}
+if(gamevar script_time > var VAR_51)
+ {
+		var VAR_51 = gamevar script_time + int 80 + call randomize_int(int 0, int 40)
+		var VAR_48 = int 1 + call randomize_int(int 0, int 2)
+		call play_loaded_sound(var VAR_48, int 0, int 4, int 0)
+}
+if(gamevar script_time > var VAR_52)
+ {
+		var VAR_52 = gamevar script_time + int 400 + call randomize_int(int 0, int 500)
+		call play_loaded_sound(int 3, int 0, int 4, int 0)
+}
+if(gamevar script_time > var VAR_50)
+ {
+		var VAR_50 = gamevar script_time + int 100 + call randomize_int(int 0, int 50)
+		var VAR_48 = int 18 + call randomize_int(int 0, int 3)
+		call play_loaded_sound(var VAR_48, int 0, int 4, int 0)
+}
+
+._SCRIPT_9
+if(var ! VAR_46)
+ {
+		call play_loaded_sound(int 11 + var VAR_47, int 0, int 4, int 0)
+		var VAR_47 ++ 
+		if(var VAR_47 == int 4)
+		 {
+				var VAR_47 = int 0
+		}
+		var VAR_46 = int 800 + call randomize_int(int 0, int 101)
+}
+var VAR_46 -- 
+
+._SCRIPT_10
+
+._SCRIPT_11

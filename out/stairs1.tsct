@@ -1,0 +1,246 @@
+._DATA
+VAR_0	{ 1710, -400, -517 }	
+VAR_1	"HAVNBPT1"	
+VAR_2	0	
+VAR_3	{ 0, 0 }	
+VAR_4	0	
+VAR_5	0	
+VAR_6	0	
+VAR_7	0	
+VAR_8	{ 0, 0 }	
+VAR_9	{ 0, 0, 0 }	
+VAR_10	{ 0, 1 }	
+VAR_11	0	
+VAR_12	0	
+VAR_13	0	
+VAR_14	0	
+VAR_15	{ 3823, 200, 432, 2478, 200, 1530 }	
+VAR_16	{ 3362, 350, -965, 2460, 350, -976 }	
+VAR_17	"Init trigger zones"	
+VAR_18	0	
+VAR_19	{ 2209, 200, 955 }	
+VAR_20	{ 4259, 1715, 778, 3801, 1715, 841, 3821, 1715, 1184, 3247, 1715, 1700, 3287, 1715, 1732, 3526, 1715, 1187 }	
+VAR_21	{ 2565, 1715, 867, 2286, 1715, 690, 2175, 1715, 444, 2670, 1515, -503, 2971, 1515, -406, 3461, 1515, -497 }	
+VAR_22	{ 3671, 1515, -1894, 3528, 1515, -1703, 3211, 1515, -1738, 3023, 1515, -1832, 2896, 1515, -2007, 3073, 1515, -1194 }	
+VAR_23	{ 0, 1, 6, VAR_20, 8, 2, 4, 0, 9, 2, 1, 1, 142, 95, 142, -1, 5, 0, 0, 7, 1, 2, 6, 1, 10, 40, 40, -1, -1 }	
+VAR_24	{ 0, 1, 6, VAR_21, 8, 2, 4, 0, 9, 2, 1, 1, 95, 139, 95, -1, 5, 0, 0, 7, 1, 2, 10, 41, 40, -1, 6, 1, -1 }	
+VAR_25	{ 0, 1, 6, VAR_22, 8, 2, 4, 0, 9, 2, 1, 1, 141, 142, 95, -1, 5, 0, 0, 7, 1, 2, 6, 1, 10, 109, -1, -1 }	
+VAR_26	{ 1969712240, 1852140901, 0 }	
+VAR_27	4	
+VAR_28	0	
+VAR_29	0	
+VAR_30	0	
+VAR_31	0	
+VAR_32	0
+
+._SCRIPT_0
+call load_sound(int 12)
+call play_loaded_sound(int 8, int -1, int 12, int 0)
+call load_sound(int 37)
+call func_ec(int 2, int -1, int 37, var &VAR_0)
+if(call play_bgm(var &VAR_1))
+ {
+		call func_114(int 1)
+		call func_5a(int -1)
+}
+if(gamevar is_room_cleared)
+ {
+		execute SCRIPT_13
+}
+else
+ {
+		switch(gamevar room_state)
+		 {
+				case 1
+					execute SCRIPT_5
+					break 
+				case 2
+					execute SCRIPT_12
+					break 
+				case 0
+					break 
+		}
+}
+
+._SCRIPT_1
+if(gamevar !is_room_cleared)
+ {
+		switch(gamevar room_state)
+		 {
+				case 1
+					execute SCRIPT_4
+					break 
+				case 2
+					execute SCRIPT_11
+					break 
+				case 0
+					break 
+		}
+}
+execute SCRIPT_14
+
+._SCRIPT_2
+if(gamevar !is_room_cleared)
+ {
+		switch(gamevar room_state)
+		 {
+				case 1
+					gamevar room_state ++ 
+					gamevar is_room_cleared = int 1
+					break 
+				case 2
+					gamevar room_state ++ 
+					gamevar is_room_cleared = int 1
+					break 
+				case 0
+					break 
+				default 
+					gamevar room_state = int 0
+					break 
+		}
+}
+
+._SCRIPT_3
+var VAR_4 = call func_70()
+var VAR_5 = call func_7e()
+var VAR_6 = call func_7e()
+var VAR_7 = call func_7e()
+execute SCRIPT_6
+call func_cd(var &VAR_17)
+
+._SCRIPT_4
+execute SCRIPT_7
+switch(var VAR_29)
+ {
+		case 0
+			if(call get_num_of_enemies() < int 1)
+			 {
+					var VAR_29 ++ 
+					var VAR_30 = int 0
+			}
+			break 
+		case 1
+			if(var VAR_28 < var VAR_27)
+			 {
+					switch(var VAR_13)
+					 {
+							case 0
+								var VAR_28 ++ 
+								var VAR_31 = call eval(var &VAR_23, int 0)
+								var VAR_29 ++ 
+								var VAR_30 = int 0
+								break 
+							case 1
+								var VAR_28 ++ 
+								var VAR_31 = call eval(var &VAR_24, int 0)
+								var VAR_29 ++ 
+								var VAR_30 = int 0
+								break 
+							case 2
+								var VAR_28 ++ 
+								var VAR_31 = call eval(var &VAR_25, int 0)
+								var VAR_29 ++ 
+								var VAR_30 = int 0
+								break 
+							default 
+								break 
+					}
+			}
+			else
+			 {
+					var VAR_29 = int 3
+					var VAR_30 = int 0
+			}
+			break 
+		case 2
+			if(call func_9(var VAR_31))
+			 {
+					var VAR_29 = int 1
+					var VAR_30 = int 0
+			}
+			break 
+}
+
+._SCRIPT_5
+var VAR_18 = call create_enemy(int 49, int 0, var &VAR_19, int 71)
+call func_bc(var &VAR_26)
+execute SCRIPT_3
+
+._SCRIPT_6
+var VAR_14 = int 0
+while(@VAR_4[var VAR_14])
+ {
+		@VAR_8[var VAR_14]= var VAR_32
+		@VAR_9[var VAR_14]= var VAR_32
+		var VAR_14 ++ 
+}
+
+._SCRIPT_7
+var VAR_14 = int 0
+while(@VAR_4[var VAR_14])
+ {
+		var VAR_12 = @VAR_4[var VAR_14]
+		execute SCRIPT_8
+		@VAR_8[var VAR_14]= var VAR_11
+		var VAR_14 ++ 
+}
+execute SCRIPT_10
+if(var VAR_13 == int -1)
+ {
+		if(gamevar CLICKED_DOOR != int -1)
+		 {
+				execute SCRIPT_9
+		}
+}
+
+._SCRIPT_8
+if(call ! func_12b(var VAR_12, var &VAR_15))
+ {
+		var VAR_11 = int 0
+		unknown 
+}
+if(call ! func_12b(var VAR_12, var &VAR_16))
+ {
+		var VAR_11 = int 1
+		unknown 
+}
+call func_ce(var VAR_11)
+var VAR_11 = int 2
+
+._SCRIPT_9
+var VAR_14 = int 0
+while(@VAR_4[var VAR_14])
+ {
+		if(@VAR_8[var VAR_14] == @VAR_10[gamevar CLICKED_DOOR])
+		 {
+				var VAR_13 = @VAR_8[var VAR_14]
+		}
+		var VAR_14 ++ 
+}
+
+._SCRIPT_10
+var VAR_13 = int -1
+var VAR_14 = int 0
+while(@VAR_4[var VAR_14])
+ {
+		if(@VAR_8[var VAR_14] != @VAR_9[var VAR_14])
+		 {
+				var VAR_13 = @VAR_8[var VAR_14]
+				@VAR_9[var VAR_14]= @VAR_8[var VAR_14]
+		}
+		var VAR_14 ++ 
+}
+
+._SCRIPT_11
+
+._SCRIPT_12
+
+._SCRIPT_13
+
+._SCRIPT_14
+if(gamevar script_time > var VAR_3)
+ {
+		var VAR_3 = gamevar script_time + int 80 + call randomize_int(int 0, int 60)
+		var VAR_2 = int 2 + call randomize_int(int 0, int 6)
+		call play_loaded_sound(var VAR_2, int 0, int 12, int 0)
+}

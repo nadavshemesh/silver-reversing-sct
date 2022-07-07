@@ -1,0 +1,193 @@
+._DATA
+VAR_0	0	
+VAR_1	0	
+VAR_2	{ 1741, 780, -5140 }	
+VAR_3	"NVIVIENNE"	
+VAR_4	0	
+VAR_5	0	
+VAR_6	0	
+VAR_7	0	
+VAR_8	{ 1780, 780, -6340 }	
+VAR_9	-1	
+VAR_10	"V_DVDSEK"	
+VAR_11	"NULL"	
+VAR_12	"V_DVDJUG"	
+VAR_13	"NULL"	
+VAR_14	"V_DVDCHI"	
+VAR_15	"NULL"	
+VAR_16	"V_DVDCAG"	
+VAR_17	"NULL"	
+VAR_18	"VERDANTE"	
+VAR_19	"VIVHOUSE"	
+VAR_20	"VERDANTE"	
+VAR_21	"VIVHOUSE"	
+VAR_22	"Wandering monsters"	
+VAR_23	0	
+VAR_24	10	
+VAR_25	2	
+VAR_26	0
+
+._SCRIPT_0
+call func_58(int 1)
+if(gamevar is_room_cleared)
+ {
+		execute SCRIPT_5
+}
+else
+ {
+		if(gamevar room_state == int 1)
+		 {
+				execute SCRIPT_4
+		}
+}
+call load_sound(int 3)
+execute SCRIPT_7
+
+._SCRIPT_1
+execute SCRIPT_6
+if(gamevar !is_room_cleared)
+ {
+		if(gamevar room_state == int 1)
+		 {
+				execute SCRIPT_3
+		}
+}
+
+._SCRIPT_2
+if(gamevar !is_room_cleared)
+ {
+		if(gamevar room_state == int 1)
+		 {
+				gamevar room_state ++ 
+				gamevar is_room_cleared = int 1
+		}
+}
+
+._SCRIPT_3
+if(var VAR_9 != var VAR_4)
+ {
+		var VAR_9 = var VAR_4
+		call func_ce(var VAR_4)
+}
+switch(var VAR_4)
+ {
+		case 0
+			var VAR_4 ++ 
+			var VAR_5 = int 0
+			break 
+		case 1
+			if(var VAR_5 > int 50)
+			 {
+					call func_18(var VAR_1, int 1835, int 780, int -5225)
+					var VAR_4 ++ 
+					var VAR_5 = int 0
+			}
+			break 
+		case 2
+			if(call is_char_standing(var VAR_1))
+			 {
+					var VAR_4 ++ 
+					var VAR_5 = int 0
+			}
+			break 
+		case 3
+			var VAR_6 = call func_70()
+			while(var VAR_6)
+			 {
+					if(var VAR_6 != var VAR_1)
+					 {
+							var VAR_7 = call func_66(var VAR_6)
+							switch(var VAR_7)
+							 {
+									case 786432
+										call start_dialog(var &VAR_10, var &VAR_11)
+										break 
+									case 327680
+										call start_dialog(var &VAR_12, var &VAR_13)
+										break 
+									case 131072
+										call start_dialog(var &VAR_14, var &VAR_15)
+										break 
+									case 262144
+										call start_dialog(var &VAR_16, var &VAR_17)
+										break 
+							}
+							var VAR_6 = int 0
+					}
+					else
+					 {
+							var VAR_6 = call func_7e()
+					}
+			}
+			var VAR_4 ++ 
+			var VAR_5 = int 0
+			break 
+		case 4
+			if(call func_6d() == int 12)
+			 {
+					var VAR_4 ++ 
+					var VAR_5 = int 0
+					call func_d(var VAR_0, int 16, call func_67(var VAR_1), int 0)
+					if(call func_80(var VAR_1) == int 1)
+					 {
+							call func_2f(var VAR_1)
+					}
+					else
+					 {
+							call func_13(var VAR_1)
+					}
+			}
+			break 
+		case 5
+			if(call func_5c(var VAR_0))
+			 {
+					call func_35(var VAR_1, call func_67(var VAR_0))
+					call func_35(var VAR_0, call func_67(var VAR_1))
+					call func_df()
+					var VAR_4 ++ 
+					var VAR_5 = int 0
+			}
+			break 
+		case 6
+			if(call get_input_sys() != int 4)
+			 {
+					var VAR_4 ++ 
+					var VAR_5 = int 0
+					call func_117(var &VAR_18, var &VAR_19, int 0)
+					call func_e6(var &VAR_20, var &VAR_21, var &VAR_8, int 2)
+			}
+			break 
+}
+var VAR_5 ++ 
+
+._SCRIPT_4
+var VAR_0 = call create_char(var &VAR_2, var &VAR_3, int 290, int 13)
+call put_item_in_char_inv(var VAR_0, int 17, int 0, int 1)
+var VAR_1 = call get_char_handle(int 65536)
+call func_111(int 2)
+
+._SCRIPT_5
+call func_cd(var &VAR_22)
+
+._SCRIPT_6
+if(var VAR_23 > var VAR_24)
+ {
+		var VAR_26 = var VAR_25
+		var VAR_25 = int 2 + call randomize_int(int 0, int 5)
+		if(var VAR_25 == var VAR_26)
+		 {
+				var VAR_25 ++ 
+				if(var VAR_25 > int 6)
+				 {
+						var VAR_25 = int 2
+				}
+		}
+		call play_loaded_sound(var VAR_25, int 0, int 3, int 0)
+		var VAR_24 = call randomize_int(int 0, int 151) + int 250
+		var VAR_23 = int 0
+}
+var VAR_23 ++ 
+
+._SCRIPT_7
+call play_loaded_sound(int 1, int -1, int 3, int 0)
+call play_loaded_sound(int 2, int 0, int 3, int 0)

@@ -237,17 +237,38 @@ int main(int argc, char* argv[]) {
     init_code_patterns(code_patterns);
     init_expr_patterns(expr_patterns);
 
+    bool save_to_out = false;
+    for(int i=0; i < argc; i++) {
+        char* arg = argv[i];
+        if(strs_identical(arg, "-s")) {
+            save_to_out = true;
+        }
+    }
+
     int op = atoi(argv[1]);
     sct_f* sct_file;
+    char* ext;
     switch(op) {
         case 0:
+            ext = getFilenameExt(filepath);
+            if(!strs_identical(ext, ".sct")) {
+                print_err_and_exit("Wrong extension. should be an .sct file", -2);
+            }
+
             sct_file = disasm_file(filepath);
             write_tsct_asm_file(filepath, false, sct_file);
             // also write to ./out/
-            // write_tsct_asm_file(filepath, true, sct_file);
+            if(save_to_out) {
+                write_tsct_asm_file(filepath, true, sct_file);
+            }
             break;
 
         case 1:
+            ext = getFilenameExt(filepath);
+            if(!strs_identical(ext, ".tsct")) {
+                print_err_and_exit("Wrong extension. should be an .tsct file", -4);
+            }
+
             sct_file = asm_file(filepath);
             write_sct_bin_file(filepath, sct_file);
             break;

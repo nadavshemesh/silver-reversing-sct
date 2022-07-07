@@ -1,0 +1,225 @@
+._DATA
+VAR_0	0	
+VAR_1	0	
+VAR_2	0	
+VAR_3	{ 0, 0, 0 }	
+VAR_4	"jack2"	
+VAR_5	"ogre"	
+VAR_6	"orc"	
+VAR_7	{ 0, 0, 0 }	
+VAR_8	0	
+VAR_9	{ 1683, 2585, 11405 }	
+VAR_10	{ 3, VAR_11, 0, 3, VAR_12, 0, 5, 30, 24, 129, 8 }	
+VAR_11	"lookout"	
+VAR_12	{ 1953718630, 3160113, -485, 3286, 10789 }	
+VAR_13	{ 0, 0, 1, -1, 8, 0, 4, 0, 9, 1, 1, 1, 81, 81, 78, -1, 5, 1, 5, 40, 6, 2, 7, 1, 1, 10, 40, 42, -1, -1 }	
+VAR_14	{ 0, 0, 2, -1, 8, 0, 4, 0, 9, 1, 1, 1, 81, 81, -1, 5, 1, 5, 40, 6, 1, 7, 1, 1, 10, 41, -1, -1 }	
+VAR_15	0	
+VAR_16	0	
+VAR_17	0	
+VAR_18	"open door"	
+VAR_19	0	
+VAR_20	0	
+VAR_21	"orc"	
+VAR_22	{ 0, 0, 2, -1, 8, 0, 4, 0, 9, 1, 1, 1, 81, 81, -1, 5, 1, 5, 40, 6, 1, 7, 1, 1, 10, 40, -1, -1 }	
+VAR_23	"open door"	
+VAR_24	"orc"	
+VAR_25	"ogre"	
+VAR_26	"ronnie"	
+VAR_27	{ 0, 0, 0, 1, 2, -1, 8, 0, 12, 78, 78, 76, 77, -1, 13, 1, 14, 0, 1, 2, 5, 0, 100, 18, 30, -1, 0 }	
+VAR_28	0
+
+._SCRIPT_0
+call load_sound(int 9)
+call load_sound(int 65)
+call play_loaded_sound(int 5, int -1, int 65, int 0)
+call load_sound(int 25)
+var VAR_1 = call play_loaded_sound(int 3, int -1, int 25, int 0)
+call func_11c(var VAR_1, int 25)
+var VAR_2 = call play_loaded_sound(int 1, int -1, int 25, int 0)
+call func_11c(var VAR_2, int 12)
+if(gamevar is_room_cleared)
+ {
+		execute SCRIPT_8
+}
+else
+ {
+		gamevar SMACKER_X = int 412
+		gamevar SMACKER_Y = int 80
+		call func_a0(var &VAR_4, int 0, int 0, var &VAR_3)
+		switch(gamevar room_state)
+		 {
+				case 1
+					execute SCRIPT_5
+					break 
+				case 2
+					execute SCRIPT_7
+					break 
+				case 0
+					break 
+		}
+}
+
+._SCRIPT_1
+execute SCRIPT_3
+if(gamevar !is_room_cleared)
+ {
+		switch(gamevar room_state)
+		 {
+				case 1
+					execute SCRIPT_4
+					break 
+				case 2
+					execute SCRIPT_6
+					break 
+				case 0
+					break 
+		}
+}
+
+._SCRIPT_2
+if(var VAR_0)
+ {
+		gamevar is_room_cleared = int 1
+}
+if(gamevar !is_room_cleared)
+ {
+		switch(gamevar room_state)
+		 {
+				case 1
+					gamevar room_state ++ 
+					break 
+				case 2
+					break 
+				case 0
+					break 
+				default 
+					gamevar room_state = int 0
+					break 
+		}
+}
+
+._SCRIPT_3
+if(gamevar script_time > var VAR_28)
+ {
+		var VAR_28 = gamevar script_time + int 100 + call randomize_int(int 0, int 50)
+		call play_loaded_sound(int 6, int 0, int 65, int 0)
+}
+
+._SCRIPT_4
+if(var ! VAR_0)
+ {
+		if(gamevar *scene_info_p+5 & int 1)
+		 {
+		}
+		else
+		 {
+				call func_cd(var &VAR_18)
+				var VAR_3 = int 1
+				call play_loaded_sound(int 10, int 0, int 9, int 0)
+				var VAR_0 = int 1
+		}
+}
+switch(var VAR_15)
+ {
+		case 0
+			if(var VAR_16 > int 120)
+			 {
+					var VAR_17 = call eval(var &VAR_13, int 10)
+					var VAR_16 = int 0
+					var VAR_15 ++ 
+			}
+			break 
+		case 1
+			if(var VAR_0)
+			 {
+					var VAR_16 = int 0
+					var VAR_15 ++ 
+					var VAR_8 = call func_40(int 2, int 3, int 0, int -1)
+					call func_111(int 2)
+			}
+			break 
+		case 2
+			if(var VAR_16 == int 100)
+			 {
+					var VAR_17 = call eval(var &VAR_14, int 10)
+			}
+			if(var VAR_16 > int 200)
+			 {
+					call func_b4(var VAR_8)
+					call func_111(int 1)
+					var VAR_16 = int 0
+					var VAR_15 ++ 
+			}
+			break 
+}
+var VAR_16 ++ 
+
+._SCRIPT_5
+call func_bc(var &VAR_5)
+call func_bc(var &VAR_6)
+var VAR_7 = call create_enemy(int 77, int 0, var &VAR_9, int 260)
+call put_item_in_char_inv(var VAR_7, int 85, int 1638913, int 0)
+gamevar script_object = var VAR_7
+gamevar *character_stats_p+15 = int 3000
+call func_106(var VAR_7, int 1, int 0, int 1)
+call func_50(var VAR_7, int 130)
+call func_4f(var VAR_7, int 13)
+call func_107(var VAR_7, var &VAR_10)
+
+._SCRIPT_6
+if(var ! VAR_0)
+ {
+		if(gamevar *scene_info_p+5 & int 1)
+		 {
+		}
+		else
+		 {
+				call func_cd(var &VAR_23)
+				var VAR_3 = int 1
+				call play_loaded_sound(int 10, int 0, int 9, int 0)
+				var VAR_0 = int 1
+		}
+}
+switch(var VAR_19)
+ {
+		case 0
+			if(var VAR_20 > int 120)
+			 {
+					var VAR_20 = int 0
+					var VAR_19 ++ 
+			}
+			break 
+		case 1
+			if(var VAR_0)
+			 {
+					var VAR_20 = int 0
+					var VAR_19 ++ 
+					var VAR_8 = call func_40(int 2, int 3, int 0, int -1)
+					call func_111(int 2)
+			}
+			break 
+		case 2
+			if(var VAR_20 == int 100)
+			 {
+					var VAR_17 = call eval(var &VAR_22, int 10)
+			}
+			if(var VAR_20 > int 200)
+			 {
+					call func_b4(var VAR_8)
+					call func_111(int 1)
+					var VAR_20 = int 0
+					var VAR_19 ++ 
+			}
+			break 
+}
+var VAR_20 ++ 
+
+._SCRIPT_7
+call func_bc(var &VAR_21)
+
+._SCRIPT_8
+call func_bc(var &VAR_24)
+call func_bc(var &VAR_25)
+call func_bc(var &VAR_26)
+call func_a5(var &VAR_27, int 100)

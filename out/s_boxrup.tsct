@@ -1,0 +1,180 @@
+._DATA
+VAR_0	0	
+VAR_1	0	
+VAR_2	0	
+VAR_3	0	
+VAR_4	0	
+VAR_5	-1	
+VAR_6	"btreasure9"	
+VAR_7	{ 1301, -1100, -3612 }	
+VAR_8	{ 1868717939, 1886745208, 0 }	
+VAR_9	{ 1801, -1100, -2024 }	
+VAR_10	0	
+VAR_11	0	
+VAR_12	0	
+VAR_13	{ 1216, -1100, -3146 }	
+VAR_14	{ 1414, -1100, -3573, 2317, -1100, -2799, 1516, -1100, -1894, 673, -1100, -2738 }	
+VAR_15	{ 14, 17, 4, VAR_14, 1, 17, 4, VAR_14, 1, 30, 143, 29, VAR_12, 11, 100, 200, 7, 8 }	
+VAR_16	"btreasure"	
+VAR_17	0	
+VAR_18	0	
+VAR_19	0	
+VAR_20	{ 1151672320, -997621760, -991494144 }	
+VAR_21	{ 1151369216, -997621760, -983363584 }	
+VAR_22	{ 1158852608, -997621760, -986918912 }	
+VAR_23	{ VAR_20, VAR_21, VAR_22 }
+
+._SCRIPT_0
+var VAR_1 = var &VAR_7
+var VAR_2 = int 355
+execute SCRIPT_10
+var VAR_3 = int 13
+execute SCRIPT_11
+var VAR_3 = int 13
+execute SCRIPT_11
+var VAR_3 = int 13
+execute SCRIPT_11
+var VAR_3 = int 36
+execute SCRIPT_11
+var VAR_3 = int 36
+execute SCRIPT_11
+var VAR_3 = int 34
+execute SCRIPT_11
+var VAR_3 = int 55
+execute SCRIPT_11
+execute SCRIPT_9
+call load_sound(int 46)
+call play_loaded_sound(int 4, int -1, int 46, int 0)
+if(gamevar is_room_cleared)
+ {
+		execute SCRIPT_8
+}
+else
+ {
+		switch(gamevar room_state)
+		 {
+				case 1
+					execute SCRIPT_5
+					break 
+				case 2
+					execute SCRIPT_7
+					break 
+				case 0
+					break 
+		}
+}
+
+._SCRIPT_1
+execute SCRIPT_3
+if(gamevar !is_room_cleared)
+ {
+		switch(gamevar room_state)
+		 {
+				case 1
+					execute SCRIPT_4
+					break 
+				case 2
+					execute SCRIPT_6
+					break 
+				case 0
+					break 
+		}
+}
+
+._SCRIPT_2
+if(gamevar !is_room_cleared)
+ {
+		switch(gamevar room_state)
+		 {
+				case 1
+					gamevar room_state ++ 
+					gamevar is_room_cleared = int 1
+					break 
+				case 2
+					gamevar room_state ++ 
+					gamevar is_room_cleared = int 1
+					break 
+				case 0
+					break 
+				default 
+					gamevar room_state = int 0
+					break 
+		}
+}
+
+._SCRIPT_3
+if(gamevar script_time > var VAR_17)
+ {
+		var VAR_17 = gamevar script_time + int 70 + call randomize_int(int 0, int 110)
+		var VAR_19 = call randomize_int(int 0, int 3)
+		call play_loaded_sound(int 5, int 0, int 46, @VAR_23[var VAR_19])
+}
+if(gamevar script_time > var VAR_18)
+ {
+		var VAR_18 = gamevar script_time + int 100 + call randomize_int(int 0, int 200)
+		var VAR_19 = call randomize_int(int 0, int 3)
+		call play_loaded_sound(int 6, int 0, int 46, @VAR_23[var VAR_19])
+}
+
+._SCRIPT_4
+
+._SCRIPT_5
+var VAR_11 = call create_enemy(int 143, int 0, var &VAR_13, int 103)
+gamevar script_object = var VAR_11
+gamevar *character_stats_p+15 = int 2000
+call freeze_enemy(var VAR_11)
+call func_50(var VAR_11, int 8192)
+call func_107(var VAR_11, var &VAR_15)
+var VAR_12 = call get_char_handle(int 65536)
+var VAR_10 = call create_char(var &VAR_9, var &VAR_16, int 215, int 14)
+call put_item_in_char_inv(var VAR_10, int 72, int 1, int 0)
+call put_item_in_char_inv(var VAR_10, int 38, int 1, int 0)
+call put_item_in_char_inv(var VAR_10, int 32, int 1, int 0)
+call put_item_in_char_inv(var VAR_10, int 32, int 1, int 0)
+call put_item_in_char_inv(var VAR_10, int 35, int 1, int 0)
+call put_item_in_char_inv(var VAR_10, int 35, int 1, int 0)
+
+._SCRIPT_6
+
+._SCRIPT_7
+
+._SCRIPT_8
+
+._SCRIPT_9
+gamevar SMACKER_X = int 280
+gamevar SMACKER_Y = int 200
+call func_a0(var &VAR_8, int 1, int 0, int 0)
+
+._SCRIPT_10
+var VAR_0 = call func_16(int 1507337)
+if(var ! VAR_0)
+ {
+		var VAR_0 = call create_char(var VAR_1, var &VAR_6, var VAR_2, int 14)
+		call func_aa(var VAR_0)
+}
+else
+ {
+		var VAR_4 = int 1
+		gamevar script_object = var VAR_0
+		if(gamevar *object_p+7 == int 4194304)
+		 {
+				call func_aa(var VAR_0)
+		}
+}
+
+._SCRIPT_11
+if(var VAR_3 != int -1)
+ {
+		if(var ! VAR_4)
+		 {
+				if(var VAR_5 != int -1)
+				 {
+						call put_item_in_char_inv(var VAR_0, int 85, var VAR_5, int 0)
+				}
+				else
+				 {
+						call put_item_in_char_inv(var VAR_0, var VAR_3, int 1, int 0)
+				}
+		}
+}
+var VAR_5 = int -1

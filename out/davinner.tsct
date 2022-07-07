@@ -1,0 +1,202 @@
+._DATA
+VAR_0	{ 16, 1, 48, 1, -1 }	
+VAR_1	"verdante"	
+VAR_2	"davhouse"	
+VAR_3	{ 1869, 672, -4318 }	
+VAR_4	{ 928, 1347, -5117 }	
+VAR_5	{ VAR_6, 0, 0, 5, 0, 0 }	
+VAR_6	"stdstill"	
+VAR_7	0	
+VAR_8	0	
+VAR_9	{ 1356, 672, -4791 }	
+VAR_10	"NJENNIFER"	
+VAR_11	"iapple"	
+VAR_12	"btreasure"	
+VAR_13	0	
+VAR_14	"S_DvdJen"	
+VAR_15	"null"	
+VAR_16	"SWORD"	
+VAR_17	"NJENNIFER"	
+VAR_18	"SWORD"	
+VAR_19	"SWORD"	
+VAR_20	"SWORD"	
+VAR_21	0	
+VAR_22	10	
+VAR_23	2	
+VAR_24	0	
+VAR_25	0	
+VAR_26	0	
+VAR_27	0
+
+._SCRIPT_0
+call func_10e()
+if(gamevar room_state == int 0)
+ {
+		unknown 
+}
+if(gamevar room_state == int 1)
+ {
+		execute SCRIPT_3
+}
+if(gamevar room_state == int 2)
+ {
+		execute SCRIPT_5
+}
+if(gamevar room_state == int 3)
+ {
+		execute SCRIPT_7
+}
+call load_sound(int 3)
+execute SCRIPT_10
+
+._SCRIPT_1
+if(gamevar room_state == int 0)
+ {
+		unknown 
+}
+if(gamevar room_state == int 1)
+ {
+		execute SCRIPT_4
+}
+if(gamevar room_state == int 2)
+ {
+		execute SCRIPT_6
+}
+if(gamevar room_state == int 3)
+ {
+		execute SCRIPT_8
+}
+execute SCRIPT_9
+
+._SCRIPT_2
+call func_3d()
+if(gamevar room_state == int 1)
+ {
+		gamevar room_state ++ 
+		call func_116(var &VAR_1, var &VAR_2, int 2)
+		unknown 
+}
+if(gamevar room_state == int 2)
+ {
+		unknown 
+}
+if(gamevar room_state == int 3)
+ {
+		gamevar room_state ++ 
+		unknown 
+}
+if(gamevar room_state == int 4)
+ {
+		gamevar room_state = int 0
+		unknown 
+}
+
+._SCRIPT_3
+var VAR_8 = call create_char(var &VAR_9, var &VAR_10, int 120, int 13)
+var VAR_7 = call get_char_handle(int 65536)
+call create_char(var &VAR_3, var &VAR_11, int 0, int 13)
+gamevar global_inventory_p = var &VAR_0
+call create_char(var &VAR_4, var &VAR_12, int 55, int 14)
+call func_bb(var VAR_7, var &VAR_5)
+call func_111(int 2)
+
+._SCRIPT_4
+if(var VAR_13 == int 0)
+ {
+		if(gamevar scene_counter > int 10)
+		 {
+				var VAR_13 = int 1
+				call func_d5()
+		}
+}
+if(var VAR_13 == int 1)
+ {
+		if(call func_129(int 20))
+		 {
+				call func_35(var VAR_8, call func_67(var VAR_7))
+				call func_111(int 1)
+				call start_dialog(var &VAR_14, var &VAR_15)
+				var VAR_13 = int 2
+				call func_d5()
+		}
+}
+if(var VAR_13 == int 2)
+ {
+		if(call get_input_sys() != int 4)
+		 {
+				var VAR_13 = int 3
+		}
+}
+if(var VAR_13 == int 3)
+ {
+		if(call func_af(int 16))
+		 {
+				call func_10c(var VAR_8, var &VAR_16)
+				var VAR_13 = int 4
+		}
+}
+if(var VAR_13 == int 4)
+ {
+}
+
+._SCRIPT_5
+var VAR_8 = call create_char(var &VAR_9, var &VAR_17, int 120, int 13)
+var VAR_7 = call get_char_handle(int 65536)
+var VAR_13 = int 3
+if(call func_af(int 16))
+ {
+		call func_10c(var VAR_8, var &VAR_18)
+		var VAR_13 = int 4
+}
+else
+ {
+		if(call func_30(int 16))
+		 {
+				call func_10c(var VAR_8, var &VAR_19)
+				var VAR_13 = int 4
+		}
+}
+
+._SCRIPT_6
+if(var VAR_13 == int 3)
+ {
+		if(call func_af(int 16))
+		 {
+				call func_10c(var VAR_8, var &VAR_20)
+				var VAR_13 = int 4
+		}
+}
+if(var VAR_13 == int 4)
+ {
+}
+
+._SCRIPT_7
+
+._SCRIPT_8
+
+._SCRIPT_9
+if(var VAR_21 > var VAR_22)
+ {
+		var VAR_24 = var VAR_23
+		var VAR_23 = int 2 + call randomize_int(int 0, int 5)
+		if(var VAR_23 == var VAR_24)
+		 {
+				var VAR_23 ++ 
+				if(var VAR_23 > int 6)
+				 {
+						var VAR_23 = int 2
+				}
+		}
+		var VAR_25 = call play_loaded_sound(var VAR_23, int 0, int 3, int 0)
+		call func_11c(var VAR_25, int 10)
+		var VAR_22 = call randomize_int(int 0, int 151) + int 250
+		var VAR_21 = int 0
+}
+var VAR_21 ++ 
+
+._SCRIPT_10
+var VAR_26 = call play_loaded_sound(int 1, int -1, int 3, int 0)
+call func_11c(var VAR_26, int 25)
+var VAR_27 = call play_loaded_sound(int 7, int -1, int 3, int 0)
+call func_11c(var VAR_27, int 5)
+call play_loaded_sound(int 2, int 0, int 3, int 0)

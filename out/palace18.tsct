@@ -1,0 +1,219 @@
+._DATA
+VAR_0	0	
+VAR_1	0	
+VAR_2	0	
+VAR_3	0	
+VAR_4	0	
+VAR_5	{ -2149, 1625, 1233 }	
+VAR_6	{ -2212, 1625, 2166, -1708, 1625, 1709 }	
+VAR_7	0	
+VAR_8	0	
+VAR_9	0	
+VAR_10	0	
+VAR_11	"WPALPT1"	
+VAR_12	{ 1701670755, -1431655936, 0 }	
+VAR_13	0	
+VAR_14	0
+
+._SCRIPT_0
+call load_sound(int 66)
+call play_loaded_sound(int 7, int -1, int 66, int 0)
+call play_loaded_sound(int 1, int -1, int 66, int 0)
+var VAR_2 = call func_70()
+var VAR_3 = call func_7e()
+var VAR_4 = call func_7e()
+call play_bgm(var &VAR_11)
+if(gamevar room_state == int 1)
+ {
+		execute SCRIPT_5
+}
+if(gamevar room_state == int 2)
+ {
+		execute SCRIPT_7
+}
+if(gamevar room_state == int 3)
+ {
+		execute SCRIPT_9
+}
+
+._SCRIPT_1
+execute SCRIPT_3
+if(gamevar room_state == int 1)
+ {
+		execute SCRIPT_4
+}
+if(gamevar room_state == int 2)
+ {
+		execute SCRIPT_6
+}
+if(gamevar room_state == int 3)
+ {
+		execute SCRIPT_8
+}
+
+._SCRIPT_2
+if(gamevar room_state == int 2)
+ {
+		gamevar room_state ++ 
+}
+if(gamevar room_state == int 1)
+ {
+		gamevar room_state ++ 
+}
+
+._SCRIPT_3
+if(gamevar script_time > var VAR_14)
+ {
+		var VAR_14 = gamevar script_time + int 100 + call randomize_int(int 0, int 50)
+		call play_loaded_sound(int 6, int 0, int 66, int 0)
+}
+if(gamevar script_time > var VAR_13)
+ {
+		var VAR_13 = gamevar script_time + int 80 + call randomize_int(int 0, int 40)
+		call play_loaded_sound(int 2, int 0, int 66, int 0)
+}
+
+._SCRIPT_4
+if(var VAR_1)
+ {
+		if(call ! func_129(var VAR_1))
+		 {
+				unknown 
+		}
+		var VAR_1 = int 0
+}
+if(var VAR_0 == int 0)
+ {
+		call func_113(int 0, int 100)
+		call func_d5()
+		var VAR_1 = int 10
+		var VAR_0 = int 1
+		unknown 
+}
+if(var VAR_0 == int 1)
+ {
+		if(call ! func_8b())
+		 {
+				unknown 
+		}
+		call func_35(var VAR_8, call func_67(call func_70()))
+		var VAR_1 = int 7
+		var VAR_0 = int 2
+		call func_d5()
+		unknown 
+}
+if(var VAR_0 == int 2)
+ {
+		call play_char_anim(var VAR_8, var VAR_10, int 0)
+		var VAR_0 = int 3
+		var VAR_1 = int 8
+		call func_d5()
+		unknown 
+}
+if(var VAR_0 == int 3)
+ {
+		var VAR_9 = call func_96(int 66, int 0, int 1, int 0)
+		call func_1(var VAR_9, int -1)
+		call func_18(var VAR_9, int -1708, int 1625, int 1709)
+		call func_20(var VAR_9)
+		var VAR_1 = int 10
+		call func_d5()
+		var VAR_0 = int 4
+		unknown 
+}
+if(var VAR_0 == int 4)
+ {
+		if(call ! is_char_standing(var VAR_9))
+		 {
+				unknown 
+		}
+		var VAR_1 = int 3
+		call func_d5()
+		var VAR_0 = int 5
+		unknown 
+}
+if(var VAR_0 == int 5)
+ {
+		var VAR_1 = int 5
+		call func_d5()
+		call func_35(var VAR_8, call func_67(call func_70()))
+		call func_35(var VAR_9, call func_67(call func_70()))
+		var VAR_0 = int 6
+}
+if(var VAR_0 == int 6)
+ {
+		call func_2(var VAR_7)
+		call func_2(var VAR_8)
+		call func_2(var VAR_9)
+		call func_106(var VAR_7, int 1, int 0, int 1)
+		call func_106(var VAR_8, int 1, int 0, int 1)
+		call func_106(var VAR_9, int 1, int 0, int 1)
+		call func_4f(var VAR_7, int 1)
+		call func_4f(var VAR_8, int 1)
+		call func_4f(var VAR_9, int 1)
+		gamevar script_object = var VAR_7
+		gamevar *character_stats_p+16 = int 500
+		gamevar *character_stats_p+15 = int 3000
+		gamevar script_object = var VAR_8
+		gamevar *character_stats_p+16 = int 500
+		gamevar *character_stats_p+15 = int 3000
+		call func_c7(var VAR_7, var VAR_2)
+		if(var VAR_3)
+		 {
+				call func_c7(var VAR_8, var VAR_3)
+		}
+		else
+		 {
+				call func_c7(var VAR_8, var VAR_2)
+		}
+		if(var VAR_4)
+		 {
+				call func_c7(var VAR_9, var VAR_4)
+		}
+		else
+		 {
+				call func_c7(var VAR_9, var VAR_2)
+		}
+		var VAR_0 = int 7
+		call func_111(int 1)
+		unknown 
+}
+
+._SCRIPT_5
+var VAR_7 = call create_enemy(int 66, int 0, var &VAR_5, int 45)
+var VAR_8 = call create_enemy(int 66, int 0, var &VAR_6, int 100)
+call func_1(var VAR_7, int -1)
+call func_1(var VAR_8, int -1)
+var VAR_10 = call load_anim(var &VAR_12)
+call func_111(int 2)
+call func_d5()
+var VAR_1 = int 5
+var VAR_0 = int 0
+
+._SCRIPT_6
+if(var VAR_1)
+ {
+		if(call ! func_129(var VAR_1))
+		 {
+				unknown 
+		}
+		var VAR_1 = int 0
+}
+
+._SCRIPT_7
+var VAR_1 = int 0
+var VAR_0 = int 1
+
+._SCRIPT_8
+if(var VAR_1)
+ {
+		if(call ! func_129(var VAR_1))
+		 {
+				unknown 
+		}
+		var VAR_1 = int 0
+}
+
+._SCRIPT_9
+var VAR_1 = int 0
+var VAR_0 = int 1

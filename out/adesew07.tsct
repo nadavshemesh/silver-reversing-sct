@@ -1,0 +1,142 @@
+._DATA
+VAR_0	0	
+VAR_1	0	
+VAR_2	0	
+VAR_3	0	
+VAR_4	0	
+VAR_5	0	
+VAR_6	0	
+VAR_7	{ 2145, -1857, -1243 }	
+VAR_8	{ -280, -1857, -1378 }	
+VAR_9	{ 1851, -1857, -1449 }	
+VAR_10	{ -31, -1857, -1437 }	
+VAR_11	{ -360, -1857, -1126 }	
+VAR_12	{ 0, 0, 0, 1, -1, 8, 1, 1, 6, 55, 55, -1, 4, 0, 9, 1, 5, 1, 50, 150, 7, 1, 4, -1 }	
+VAR_13	{ 0, 2, 300, 300, 8, 1, 1, 6, 189, 189, -1, 4, 0, 9, 1, 5, 1, 50, 150, 7, 1, 4, -1 }	
+VAR_14	"SEWERPT1"	
+VAR_15	"spider"	
+VAR_16	"ratrptr"	
+VAR_17	0
+
+._SCRIPT_0
+call play_bgm(var &VAR_14)
+call load_sound(int 38)
+switch(gamevar room_state)
+ {
+		case 1
+			execute SCRIPT_4
+			break 
+		default 
+			break 
+}
+
+._SCRIPT_1
+execute SCRIPT_3
+switch(gamevar room_state)
+ {
+		case 1
+			execute SCRIPT_5
+			break 
+		default 
+			break 
+}
+
+._SCRIPT_2
+switch(gamevar room_state)
+ {
+		case 1
+			gamevar room_state = int 0
+			break 
+		default 
+			break 
+}
+
+._SCRIPT_3
+if(gamevar script_time > var VAR_17)
+ {
+		var VAR_17 = gamevar script_time + int 50 + call randomize_int(int 0, int 70)
+		call play_loaded_sound(int 1, int 0, int 38, int 0)
+}
+
+._SCRIPT_4
+call func_bc(var &VAR_15)
+call func_bc(var &VAR_16)
+var VAR_2 = call create_enemy(int 45, int 0, var &VAR_7, int 290)
+var VAR_3 = call create_enemy(int 45, int 1, var &VAR_8, int 40)
+call func_106(var VAR_2, int 9, int 5, var &VAR_7)
+call func_106(var VAR_3, int 9, int 5, var &VAR_8)
+call func_4f(var VAR_2, int 3)
+call func_4f(var VAR_3, int 3)
+call func_106(var VAR_2, int 3, int 1, var &VAR_12)
+call func_106(var VAR_3, int 3, int 1, var &VAR_13)
+var VAR_4 = call create_enemy(int 46, int 0, var &VAR_9, int 310)
+var VAR_5 = call create_enemy(int 46, int 1, var &VAR_10, int 50)
+var VAR_6 = call create_enemy(int 46, int 2, var &VAR_11, int 40)
+call put_item_in_char_inv(var VAR_4, int 45, int 1, int 0)
+call put_item_in_char_inv(var VAR_6, int 43, int 1, int 0)
+call func_106(var VAR_4, int 1, int 0, int 1)
+call func_106(var VAR_5, int 1, int 0, int 1)
+call func_106(var VAR_6, int 1, int 0, int 1)
+call func_4f(var VAR_4, int 1)
+call func_4f(var VAR_5, int 1)
+call func_4f(var VAR_6, int 1)
+call func_1(var VAR_4, int -1)
+call func_1(var VAR_5, int -1)
+call func_1(var VAR_6, int -1)
+gamevar script_object = var VAR_4
+gamevar *character_stats_p+16 = int 850
+call func_106(var VAR_4, int 0, int 3, int 80)
+var VAR_0 = int 0
+var VAR_1 = int 150
+
+._SCRIPT_5
+switch(var VAR_0)
+ {
+		case 0
+			if(var VAR_1)
+			 {
+					var VAR_1 -- 
+			}
+			else
+			 {
+					if(call func_16(int 10551296))
+					 {
+							call func_29(var VAR_4)
+					}
+					if(call func_16(int 10551297))
+					 {
+							call func_29(var VAR_5)
+					}
+					if(call func_16(int 10551298))
+					 {
+							call func_29(var VAR_6)
+					}
+					var VAR_1 = int 20
+					var VAR_0 ++ 
+			}
+			break 
+		case 1
+			if(var VAR_1)
+			 {
+					var VAR_1 -- 
+			}
+			else
+			 {
+					if(call func_16(int 10551296))
+					 {
+							call func_2(var VAR_4)
+					}
+					if(call func_16(int 10551297))
+					 {
+							call func_2(var VAR_5)
+					}
+					if(call func_16(int 10551298))
+					 {
+							call func_2(var VAR_6)
+					}
+					var VAR_0 ++ 
+			}
+			break 
+		default 
+			break 
+}

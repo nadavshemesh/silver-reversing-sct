@@ -1,0 +1,204 @@
+._DATA
+VAR_0	{ -735, -480, 1047 }	
+VAR_1	0	
+VAR_2	0	
+VAR_3	"NJANITOR"	
+VAR_4	0	
+VAR_5	"jangive"	
+VAR_6	0	
+VAR_7	0	
+VAR_8	0	
+VAR_9	"S_DvdJan"	
+VAR_10	"NULL"	
+VAR_11	0	
+VAR_12	0	
+VAR_13	"DVDJAN"	
+VAR_14	"ACT2"	
+VAR_15	0	
+VAR_16	0	
+VAR_17	"DVDJAN"	
+VAR_18	"ACT3"	
+VAR_19	{ 0, 0, 0, 0, 0 }	
+VAR_20	0
+
+._SCRIPT_0
+call load_sound(int 64)
+call play_loaded_sound(int 2, int -1, int 64, int 0)
+call func_124()
+execute SCRIPT_4
+if(gamevar is_room_cleared)
+ {
+		execute SCRIPT_11
+}
+else
+ {
+		switch(gamevar room_state)
+		 {
+				case 1
+					execute SCRIPT_5
+					break 
+				case 2
+					execute SCRIPT_7
+					break 
+				case 3
+					execute SCRIPT_10
+					break 
+				case 0
+					break 
+		}
+}
+
+._SCRIPT_1
+execute SCRIPT_3
+if(gamevar !is_room_cleared)
+ {
+		switch(gamevar room_state)
+		 {
+				case 1
+					execute SCRIPT_6
+					break 
+				case 2
+					execute SCRIPT_8
+					break 
+				case 3
+					execute SCRIPT_9
+					break 
+				case 0
+					break 
+		}
+}
+
+._SCRIPT_2
+if(gamevar !is_room_cleared)
+ {
+		switch(gamevar room_state)
+		 {
+				case 1
+					gamevar room_state ++ 
+					break 
+				case 2
+					gamevar room_state ++ 
+					break 
+				case 3
+					break 
+				case 0
+					break 
+				default 
+					gamevar room_state = int 0
+					break 
+		}
+}
+
+._SCRIPT_3
+if(gamevar script_time > var VAR_20)
+ {
+		var VAR_20 = gamevar script_time + int 100 + call randomize_int(int 0, int 100)
+		call play_loaded_sound(int 4, int 0, int 64, int 0)
+}
+
+._SCRIPT_4
+var VAR_2 = call create_char(var &VAR_0, var &VAR_3, int -90, int 13)
+var VAR_1 = call get_char_handle(int 65536)
+call func_b8(int 57)
+
+._SCRIPT_5
+var VAR_4 = call load_anim(var &VAR_5)
+call func_111(int 2)
+
+._SCRIPT_6
+if(var VAR_7 == int 0)
+ {
+		if(var VAR_6 > int 100)
+		 {
+				call start_dialog(var &VAR_9, var &VAR_10)
+				var VAR_7 ++ 
+				var VAR_6 = int 0
+		}
+}
+if(var VAR_7 == int 1)
+ {
+		if(call func_6d() == int 1)
+		 {
+				call play_char_anim(var VAR_2, var VAR_4, int 0)
+				var VAR_7 ++ 
+				var VAR_6 = int 0
+		}
+}
+if(var VAR_7 == int 2)
+ {
+		if(call func_5c(var VAR_2))
+		 {
+				var VAR_8 = call put_item_in_char_inv(var VAR_1, int 57, int 0, int 0)
+				call func_f9(var VAR_8, int 100)
+				call func_df()
+				call func_7(int 101, int 1, int 0, int 0)
+				var VAR_7 ++ 
+				var VAR_6 = int 0
+		}
+}
+if(var VAR_7 == int 3)
+ {
+		if(call get_input_sys() != int 4)
+		 {
+				call char_exit_door(var VAR_1, int 0)
+				var VAR_7 ++ 
+				var VAR_6 = int 0
+		}
+}
+var VAR_6 ++ 
+
+._SCRIPT_7
+call func_111(int 2)
+
+._SCRIPT_8
+switch(var VAR_11)
+ {
+		case 0
+			if(var VAR_12 > int 60)
+			 {
+					call start_dialog(var &VAR_13, var &VAR_14)
+					var VAR_11 ++ 
+					var VAR_12 = int 0
+			}
+			break 
+		case 1
+			if(call get_input_sys() != int 4)
+			 {
+					call char_exit_door(var VAR_1, int 0)
+					var VAR_11 ++ 
+					var VAR_12 = int 0
+			}
+			break 
+}
+var VAR_12 ++ 
+
+._SCRIPT_9
+switch(var VAR_15)
+ {
+		case 0
+			if(var VAR_16 > int 60)
+			 {
+					call start_dialog(var &VAR_17, var &VAR_18)
+					var VAR_15 ++ 
+					var VAR_16 = int 0
+			}
+			break 
+		case 1
+			if(call get_input_sys() != int 4)
+			 {
+					call char_exit_door(var VAR_1, int 0)
+					var VAR_15 ++ 
+					var VAR_16 = int 0
+			}
+			break 
+}
+var VAR_16 ++ 
+
+._SCRIPT_10
+call func_111(int 2)
+
+._SCRIPT_11
+if(call func_c0(int 101, gamevar CURRENT_LEVEL, gamevar CURRENT_SCENE))
+ {
+		call func_d8(int 101, var &VAR_19)
+}

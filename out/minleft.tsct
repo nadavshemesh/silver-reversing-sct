@@ -1,0 +1,157 @@
+._DATA
+VAR_0	0	
+VAR_1	"minleft"	
+VAR_2	{ 0, 0, 1, 0, -1, 8, 1, 4, 0, 9, 2, 1, 3, 75, 75, -1, 5, 0, 50, 6, 1, 7, 1, 1, 10, 42, 43, 40, -1, -1 }	
+VAR_3	"fastmonk"	
+VAR_4	"mystmonk"	
+VAR_5	{ -3291, 800, -1207 }	
+VAR_6	{ -1728, 800, -1869 }	
+VAR_7	{ -2114, 800, -903 }	
+VAR_8	{ -2705, 800, -2272 }	
+VAR_9	0	
+VAR_10	0	
+VAR_11	0	
+VAR_12	0	
+VAR_13	0	
+VAR_14	0	
+VAR_15	{ -2738, -395, -2611, -2019, -395, -752 }	
+VAR_16	0	
+VAR_17	0	
+VAR_18	0	
+VAR_19	{ -1, 0 }	
+VAR_20	0
+
+._SCRIPT_0
+call load_sound(int 30)
+call play_loaded_sound(int 1, int -1, int 30, int 0)
+call load_sound(int 65)
+call play_loaded_sound(int 3, int -1, int 65, int 0)
+execute SCRIPT_4
+if(gamevar is_room_cleared)
+ {
+		execute SCRIPT_9
+}
+else
+ {
+		switch(gamevar room_state)
+		 {
+				case 1
+					execute SCRIPT_6
+					break 
+				case 2
+					execute SCRIPT_8
+					break 
+				case 0
+					break 
+		}
+}
+
+._SCRIPT_1
+execute SCRIPT_10
+if(gamevar !is_room_cleared)
+ {
+		switch(gamevar room_state)
+		 {
+				case 1
+					execute SCRIPT_5
+					break 
+				case 2
+					execute SCRIPT_7
+					break 
+				case 0
+					break 
+		}
+}
+
+._SCRIPT_2
+if(gamevar !is_room_cleared)
+ {
+		switch(gamevar room_state)
+		 {
+				case 1
+					if(var VAR_0)
+					 {
+							gamevar room_state ++ 
+							gamevar is_room_cleared = int 1
+					}
+					break 
+				case 2
+					gamevar room_state ++ 
+					gamevar is_room_cleared = int 1
+					break 
+				case 0
+					break 
+				default 
+					gamevar room_state = int 0
+					break 
+		}
+}
+
+._SCRIPT_3
+gamevar compile_init_character = int 0
+var VAR_9 = call create_enemy(int 85, int 1, var &VAR_5, int 90)
+var VAR_10 = call create_enemy(int 85, int 2, var &VAR_7, int 180)
+var VAR_11 = call create_enemy(int 85, int 3, var &VAR_6, int 270)
+var VAR_12 = call create_enemy(int 85, int 4, var &VAR_8, int 0)
+gamevar compile_init_character = int 1
+
+._SCRIPT_4
+gamevar SMACKER_X = int 312
+gamevar SMACKER_Y = int 40
+call func_a0(var &VAR_1, int 1, int 0, int 0)
+
+._SCRIPT_5
+if(var VAR_19 != var VAR_13)
+ {
+		var VAR_19 = var VAR_13
+		call func_ce(var VAR_13)
+}
+switch(var VAR_13)
+ {
+		case 0
+			if(call func_8a(var &VAR_15))
+			 {
+					execute SCRIPT_3
+					var VAR_0 = int 1
+					var VAR_13 ++ 
+					var VAR_14 = int 0
+			}
+			break 
+		case 1
+			if(call get_num_of_enemies() == int 0)
+			 {
+					var VAR_16 = call eval(var &VAR_2, int 10)
+					var VAR_13 ++ 
+					var VAR_14 = int 0
+			}
+			break 
+		case 2
+			if(call func_9(var VAR_16))
+			 {
+					gamevar compile_init_character = int 0
+					var VAR_17 = call create_enemy(int 91, int 1, var &VAR_5, int 90)
+					var VAR_18 = call create_enemy(int 91, int 2, var &VAR_6, int 270)
+					gamevar compile_init_character = int 1
+					var VAR_13 ++ 
+					var VAR_14 = int 0
+			}
+			break 
+}
+var VAR_14 ++ 
+
+._SCRIPT_6
+call func_bc(var &VAR_3)
+call func_bc(var &VAR_4)
+
+._SCRIPT_7
+
+._SCRIPT_8
+
+._SCRIPT_9
+
+._SCRIPT_10
+if(gamevar script_time > var VAR_20)
+ {
+		var VAR_20 = gamevar script_time + int 150 + call randomize_int(int 0, int 80)
+		call play_loaded_sound(int 4, int 0, int 65, int 0)
+}

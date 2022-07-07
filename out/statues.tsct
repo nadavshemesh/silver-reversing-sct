@@ -1,0 +1,281 @@
+._DATA
+VAR_0	"ice1"	
+VAR_1	"ice2"	
+VAR_2	"ice3"	
+VAR_3	{ -5570, 1370, 692 }	
+VAR_4	{ 2036, 1370, -6603 }	
+VAR_5	"SNOW"	
+VAR_6	{ 0, 0, 1, -1, 8, 0, 1, 1, 56, 56, -1, 4, 0, 9, 0, 5, 1, 50, 100, 6, 1, 7, 1, 2, 10, 43, 42, -1, -1 }	
+VAR_7	0	
+VAR_8	0	
+VAR_9	0	
+VAR_10	0	
+VAR_11	0	
+VAR_12	0	
+VAR_13	0	
+VAR_14	0	
+VAR_15	{ 577, -1199, 3296 }	
+VAR_16	{ 1556, -1199, 3269 }	
+VAR_17	{ 927, -1199, 2982 }	
+VAR_18	{ 1167, -1199, 2944 }	
+VAR_19	{ 1206, -1199, 4601 }	
+VAR_20	{ 1002, -1199, 4617 }	
+VAR_21	"Fsentry1"	
+VAR_22	"Fsentry2"	
+VAR_23	"Fsentry3"	
+VAR_24	"Fsentry4"	
+VAR_25	"Fsentry5"	
+VAR_26	"Fsentry6"	
+VAR_27	{ 0, 1556, -1199, 3591, 0, 577, -1199, 3296, 7, 8 }	
+VAR_28	{ 0, 577, -1199, 3317, 0, 1556, -1199, 3269, 7, 8 }	
+VAR_29	{ 0, 899, -1199, 1108, 0, 927, -1199, 2944, 7, 8 }	
+VAR_30	{ 0, 1212, -1199, 1108, 0, 1167, -1199, 2944, 7, 8 }	
+VAR_31	{ 0, 1252, -1199, 2944, 0, 1206, -1199, 4601, 7, 8 }	
+VAR_32	{ 0, 946, -1199, 2944, 0, 1002, -1199, 4601, 7, 8 }	
+VAR_33	-1	
+VAR_34	"sentry4_dead"	
+VAR_35	"regen_sentrys"	
+VAR_36	"wamper"	
+VAR_37	"wyvern"	
+VAR_38	"sentry"	
+VAR_39	"leopard"	
+VAR_40	0	
+VAR_41	0	
+VAR_42	0	
+VAR_43	{ 1147, -1200, 2418, 1433, -1200, 2731, 1027, -1200, 3012, 949, -1200, 3293, 1101, -1200, 3526, 896, -1200, 3730, 862, -1200, 3974, 1173, -1200, 4008, 890, -1200, 4248, 1051, -1200, 3214, 1179, -1200, 1311, 1020, -1200, 1227, 872, -1200, 2018, 1006, -1200, 2483 }	
+VAR_44	{ 860, -1200, 5699, 1046, -1200, 5378, 1250, -1200, 5089, 822, -1200, 5173, 964, -1200, 4816, 1370, -1200, 4332, 803, -1200, 4551, 972, -1200, 4643, 922, -1200, 4289, 1082, -1200, 3621, 1005, -1200, 3071, 1253, -1200, 3800, 835, -1200, 3904, 977, -1200, 3408 }	
+VAR_45	{ 0, 1, 14, VAR_43, 8, 2, 1, 1, 5, 5, -1, 4, 0, 9, 0, 5, 1, 50, 200, 6, 1, 7, 1, 1, 10, 47, -1, -1 }	
+VAR_46	{ 0, 0, 1, -1, 8, 0, 1, 1, 56, -1, 4, 0, 9, 0, 5, 1, 50, 200, 6, 1, 7, 1, 1, 10, 40, -1, -1 }	
+VAR_47	{ 0, 1, 14, VAR_44, 8, 2, 1, 1, 5, -1, 4, 0, 9, 0, 5, 1, 50, 200, 6, 1, 7, 1, 1, 10, 43, -1, -1 }	
+VAR_48	{ 0, 0, 0, -1, 8, 0, 1, 1, 56, 72, -1, 4, 0, 9, 0, 5, 1, 50, 200, 6, 1, 7, 1, 1, 10, 42, -1, -1 }	
+VAR_49	{ VAR_45, VAR_46 }	
+VAR_50	{ VAR_47, VAR_48, 0 }	
+VAR_51	0	
+VAR_52	0	
+VAR_53	0
+
+._SCRIPT_0
+call load_sound(int 65)
+call play_loaded_sound(int 7, int -1, int 65, int 0)
+execute SCRIPT_5
+gamevar SMACKER_X = int 64
+gamevar SMACKER_Y = int 176
+call func_a0(var &VAR_0, int 1, int 1, int 0)
+gamevar SMACKER_X = int 160
+gamevar SMACKER_Y = int 144
+call func_a0(var &VAR_1, int 1, int 1, int 0)
+gamevar SMACKER_X = int 296
+gamevar SMACKER_Y = int 352
+call func_a0(var &VAR_2, int 1, int 1, int 0)
+if(gamevar is_room_cleared)
+ {
+		execute SCRIPT_10
+}
+else
+ {
+		switch(gamevar room_state)
+		 {
+				case 1
+					execute SCRIPT_7
+					break 
+				case 2
+					execute SCRIPT_9
+					break 
+				case 0
+					break 
+		}
+}
+
+._SCRIPT_1
+execute SCRIPT_3
+if(gamevar !is_room_cleared)
+ {
+		switch(gamevar room_state)
+		 {
+				case 1
+					execute SCRIPT_6
+					break 
+				case 2
+					execute SCRIPT_8
+					break 
+				case 0
+					break 
+		}
+}
+
+._SCRIPT_2
+if(gamevar !is_room_cleared)
+ {
+		switch(gamevar room_state)
+		 {
+				case 1
+					gamevar room_state ++ 
+					gamevar is_room_cleared = int 1
+					break 
+				case 2
+					gamevar room_state ++ 
+					gamevar is_room_cleared = int 1
+					break 
+				case 0
+					break 
+				default 
+					gamevar room_state = int 0
+					break 
+		}
+}
+
+._SCRIPT_3
+if(gamevar script_time > var VAR_53)
+ {
+		var VAR_53 = gamevar script_time + int 30 + call randomize_int(int 0, int 30)
+		call play_loaded_sound(int 9, int 0, int 65, int 0)
+}
+if(gamevar script_time > var VAR_52)
+ {
+		var VAR_52 = gamevar script_time + int 300 + call randomize_int(int 0, int 300)
+		call play_loaded_sound(int 8, int 0, int 65, int 0)
+}
+if(gamevar script_time > var VAR_51)
+ {
+		var VAR_51 = gamevar script_time + int 60 + call randomize_int(int 0, int 60)
+		call play_loaded_sound(int 2, int 0, int 65, int 0)
+}
+
+._SCRIPT_4
+
+._SCRIPT_5
+call func_f4(var &VAR_5, var &VAR_3, var &VAR_4, int 0)
+
+._SCRIPT_6
+if(var VAR_33 != var VAR_7)
+ {
+		var VAR_33 = var VAR_7
+		call func_ce(var VAR_7)
+}
+execute SCRIPT_4
+if(var VAR_7 == int 0)
+ {
+		if(call func_16(int 2752516))
+		 {
+				if(call func_88(var VAR_12))
+				 {
+						if(call func_16(int 2752516))
+						 {
+								call func_46(var VAR_12, int 13)
+								call func_107(var VAR_12, var &VAR_30)
+								call func_47(var VAR_12, int 131)
+								call func_20(var VAR_12)
+								call func_2b(var VAR_12, int 1)
+						}
+						if(call func_16(int 2752513))
+						 {
+								call func_46(var VAR_9, int 13)
+						}
+						if(call func_16(int 2752514))
+						 {
+								call func_46(var VAR_10, int 13)
+						}
+						if(call func_16(int 2752515))
+						 {
+								call func_46(var VAR_11, int 13)
+						}
+						if(call func_16(int 2752517))
+						 {
+								call func_46(var VAR_13, int 13)
+						}
+						if(call func_16(int 2752518))
+						 {
+								call func_46(var VAR_14, int 13)
+						}
+						var VAR_7 ++ 
+						var VAR_8 = int 0
+				}
+		}
+}
+if(var VAR_7 == int 1)
+ {
+		if(call func_16(int 2752516))
+		 {
+				if(call is_char_standing(var VAR_12))
+				 {
+						call remove_char(var VAR_12)
+						call func_cd(var &VAR_34)
+						var VAR_7 ++ 
+						var VAR_8 = int 0
+				}
+		}
+		else
+		 {
+				var VAR_7 ++ 
+				var VAR_8 = int 0
+		}
+}
+if(var VAR_7 == int 2)
+ {
+		call func_cd(var &VAR_35)
+		call eval(var &VAR_6, int 1)
+		var VAR_7 ++ 
+		var VAR_8 = int 0
+}
+
+._SCRIPT_7
+var VAR_9 = call create_char(var &VAR_15, var &VAR_21, int 65, int 13)
+call put_item_in_char_inv(var VAR_9, int 20, int 0, int 1)
+var VAR_10 = call create_char(var &VAR_16, var &VAR_22, int 265, int 13)
+call put_item_in_char_inv(var VAR_10, int 20, int 0, int 1)
+var VAR_11 = call create_char(var &VAR_17, var &VAR_23, int 150, int 13)
+call put_item_in_char_inv(var VAR_11, int 20, int 0, int 1)
+var VAR_12 = call create_char(var &VAR_18, var &VAR_24, int 140, int 13)
+call put_item_in_char_inv(var VAR_12, int 20, int 0, int 1)
+var VAR_13 = call create_char(var &VAR_19, var &VAR_25, int 135, int 13)
+call put_item_in_char_inv(var VAR_13, int 16, int 0, int 1)
+var VAR_14 = call create_char(var &VAR_20, var &VAR_26, int 130, int 13)
+call put_item_in_char_inv(var VAR_14, int 16, int 0, int 1)
+call func_4f(var VAR_9, int 13)
+call func_107(var VAR_9, var &VAR_27)
+call func_106(var VAR_9, int 1, int 0, int 1)
+call func_50(var VAR_9, int 131)
+call func_4f(var VAR_10, int 13)
+call func_107(var VAR_10, var &VAR_28)
+call func_106(var VAR_10, int 1, int 0, int 1)
+call func_50(var VAR_10, int 131)
+call func_4f(var VAR_11, int 13)
+call func_107(var VAR_11, var &VAR_29)
+call func_106(var VAR_11, int 1, int 0, int 1)
+call func_50(var VAR_11, int 131)
+call func_4f(var VAR_12, int 13)
+call func_107(var VAR_12, var &VAR_30)
+call func_106(var VAR_12, int 1, int 0, int 1)
+call func_50(var VAR_12, int 131)
+call func_4f(var VAR_13, int 13)
+call func_107(var VAR_13, var &VAR_31)
+call func_106(var VAR_13, int 1, int 0, int 1)
+call func_50(var VAR_13, int 131)
+call func_4f(var VAR_14, int 13)
+call func_107(var VAR_14, var &VAR_32)
+call func_106(var VAR_14, int 1, int 0, int 1)
+call func_50(var VAR_14, int 131)
+
+._SCRIPT_8
+
+._SCRIPT_9
+
+._SCRIPT_10
+call func_bc(var &VAR_36)
+call func_bc(var &VAR_37)
+call func_bc(var &VAR_38)
+call func_bc(var &VAR_39)
+var VAR_40 = call func_6f()
+var VAR_41 = call randomize_int(int 0, int 4)
+if(var ! VAR_41)
+ {
+		var VAR_42 = call randomize_int(int 0, int 2)
+		if(var VAR_40 == int 0)
+		 {
+				call eval(@VAR_49[var VAR_42], int 200)
+		}
+		else
+		 {
+				call eval(@VAR_50[var VAR_42], int 200)
+		}
+}

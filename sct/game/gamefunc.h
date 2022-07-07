@@ -1,4 +1,4 @@
-#define GAME_FUNCTIONS_NUM  0x134
+#define GAME_FUNCTIONS_NUM  0x139
 #define MAX_FUNC_NAME 256
 
 

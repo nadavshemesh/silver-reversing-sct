@@ -1,0 +1,164 @@
+._DATA
+VAR_0	"METALON"	
+VAR_1	"boar"	
+VAR_2	{ 0, 0, 0 }	
+VAR_3	"sguard"	
+VAR_4	"sarcher"	
+VAR_5	{ -555, -118, -55 }	
+VAR_6	0	
+VAR_7	{ 1701999714, 1920299873, -1431699355, 978, -118, 420 }	
+VAR_8	{ 689, -118, -184, 403, -118, 996 }	
+VAR_9	{ 53, -118, -196, -206, -118, 990 }	
+VAR_10	{ -568, -118, -202, -587, -118, 989, -1004, -118, -185, -1098, -118, 999, -1482, -118, -217, -1484, -118, 939, -1958, -118, -193, -1891, -118, 747 }	
+VAR_11	0	
+VAR_12	{ -224, -118, 828, -86, -118, 190 }	
+VAR_13	{ -1585, -118, 80, -1337, -118, 721 }	
+VAR_14	{ 0, 0, 0, 1, -1, 8, 2, 4, 0, 9, 1, 1, 2, 34, 36, -1, 5, 1, 15, 60, 6, 1, 7, 1, 4, -1 }	
+VAR_15	{ 0, 1, 2, VAR_12, 8, 2, 4, 0, 9, 1, 1, 2, 33, 33, -1, 5, 1, 15, 60, 6, 1, 7, 1, 2, -1 }	
+VAR_16	{ 0, 1, 2, VAR_13, 8, 2, 4, 0, 9, 1, 1, 2, 33, 33, -1, 5, 1, 15, 60, 6, 1, 7, 1, 2, -1 }	
+VAR_17	{ 0, 0, 1, -1, 8, 0, 4, 0, 9, 1, 1, 2, 34, 36, -1, 5, 1, 40, 100, 6, 1, 7, 1, 4, -1 }	
+VAR_18	"trigger_tripwire 1 "	
+VAR_19	"trigger_tripwire 2 "	
+VAR_20	"trigger_tripwire 3 "	
+VAR_21	0	
+VAR_22	0	
+VAR_23	0
+
+._SCRIPT_0
+call play_bgm(var &VAR_0)
+execute SCRIPT_8
+call load_sound(int 72)
+call play_loaded_sound(int 4, int -1, int 72, int 0)
+call load_sound(int 64)
+call play_loaded_sound(int 1, int -1, int 64, int 0)
+call load_sound(int 65)
+call play_loaded_sound(int 5, int -1, int 65, int 0)
+if(gamevar room_state == int 0)
+ {
+		unknown 
+}
+if(gamevar room_state == int 1)
+ {
+		execute SCRIPT_5
+}
+if(gamevar room_state == int 2)
+ {
+		execute SCRIPT_7
+}
+
+._SCRIPT_1
+execute SCRIPT_3
+if(gamevar room_state == int 0)
+ {
+		unknown 
+}
+if(gamevar room_state == int 1)
+ {
+		execute SCRIPT_4
+}
+if(gamevar room_state == int 2)
+ {
+		execute SCRIPT_6
+}
+
+._SCRIPT_2
+if(gamevar room_state == int 0)
+ {
+		unknown 
+}
+gamevar room_state ++ 
+if(gamevar room_state > int 2)
+ {
+		gamevar room_state = int 0
+}
+
+._SCRIPT_3
+if(gamevar script_time > var VAR_21)
+ {
+		var VAR_21 = gamevar script_time + int 70 + call randomize_int(int 0, int 110)
+		call play_loaded_sound(int 8, int 0, int 72, int 0)
+}
+if(gamevar script_time > var VAR_22)
+ {
+		var VAR_22 = gamevar script_time + int 70 + call randomize_int(int 0, int 110)
+		call play_loaded_sound(int 7, int 0, int 72, int 0)
+}
+if(gamevar script_time > var VAR_23)
+ {
+		var VAR_23 = gamevar script_time + int 100 + call randomize_int(int 0, int 50)
+		call play_loaded_sound(int 6, int 0, int 65, int 0)
+}
+
+._SCRIPT_4
+if(var VAR_2 == int 0)
+ {
+		if(call func_8a(var &VAR_8))
+		 {
+				var VAR_11 = call eval(var &VAR_14, int 10)
+				call func_cd(var &VAR_18)
+				var VAR_2 ++ 
+		}
+		else
+		 {
+				if(call get_num_of_enemies() == int 0)
+				 {
+						var VAR_11 = call eval(var &VAR_17, int 30)
+						var VAR_2 ++ 
+				}
+		}
+}
+if(var VAR_2 == int 1)
+ {
+		if(call func_8a(var &VAR_9))
+		 {
+				var VAR_11 = call eval(var &VAR_15, int 220)
+				call func_cd(var &VAR_19)
+				var VAR_2 ++ 
+		}
+		else
+		 {
+				if(call get_num_of_enemies() == int 0)
+				 {
+						var VAR_11 = call eval(var &VAR_15, int 10)
+						var VAR_2 ++ 
+				}
+		}
+}
+if(var VAR_2 == int 2)
+ {
+		if(call func_8a(var &VAR_10))
+		 {
+				var VAR_11 = call eval(var &VAR_16, int 10)
+				call func_cd(var &VAR_20)
+				var VAR_2 ++ 
+		}
+		else
+		 {
+				if(call get_num_of_enemies() == int 0)
+				 {
+						var VAR_11 = call eval(var &VAR_16, int 10)
+						var VAR_2 ++ 
+				}
+		}
+}
+
+._SCRIPT_5
+call func_bc(var &VAR_3)
+call func_bc(var &VAR_4)
+var VAR_6 = call create_char(var &VAR_5, var &VAR_7, int 360, int 14)
+call put_item_in_char_inv(var VAR_6, int 83, int 1, int 0)
+call put_item_in_char_inv(var VAR_6, int 83, int 1, int 0)
+call put_item_in_char_inv(var VAR_6, int 46, int 1, int 0)
+call put_item_in_char_inv(var VAR_6, int 45, int 1, int 0)
+call put_item_in_char_inv(var VAR_6, int 45, int 1, int 0)
+call put_item_in_char_inv(var VAR_6, int 40, int 1, int 0)
+call put_item_in_char_inv(var VAR_6, int 40, int 1, int 0)
+
+._SCRIPT_6
+
+._SCRIPT_7
+
+._SCRIPT_8
+gamevar SMACKER_X = int 144
+gamevar SMACKER_Y = int 356
+call func_a0(var &VAR_1, int 1, int 1, int 0)

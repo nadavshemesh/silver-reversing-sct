@@ -1,0 +1,156 @@
+._DATA
+VAR_0	0	
+VAR_1	0	
+VAR_2	0	
+VAR_3	0	
+VAR_4	0	
+VAR_5	-1	
+VAR_6	"btreasure9"	
+VAR_7	0	
+VAR_8	0	
+VAR_9	0	
+VAR_10	{ -239, 0, 2564 }	
+VAR_11	{ 85, 6554113, 45, 1, 46, 1, 47, 1, 40, 1, 41, 1, 42, 1, -1 }	
+VAR_12	{ -285, 160, 2050 }	
+VAR_13	{ -784, 0, 2742 }	
+VAR_14	"rope"	
+VAR_15	"glowfire"	
+VAR_16	"FIRE"	
+VAR_17	"btreasure1"
+
+._SCRIPT_0
+call func_10e()
+var VAR_1 = var &VAR_13
+var VAR_2 = int 184
+execute SCRIPT_10
+var VAR_3 = int 109
+execute SCRIPT_11
+var VAR_3 = int 34
+execute SCRIPT_11
+var VAR_3 = int 34
+execute SCRIPT_11
+gamevar SMACKER_X = int 0
+gamevar SMACKER_Y = int 148
+call func_a0(var &VAR_14, int 1, int 1, int 0)
+gamevar SMACKER_X = int 92
+gamevar SMACKER_Y = int 312
+call func_a0(var &VAR_15, int 1, int 1, int 0)
+var VAR_9 = call func_f4(var &VAR_16, var &VAR_12, int 0, int 0)
+if(gamevar room_state == int 1)
+ {
+		execute SCRIPT_4
+}
+if(gamevar room_state == int 2)
+ {
+		execute SCRIPT_6
+}
+if(gamevar room_state == int 3)
+ {
+		execute SCRIPT_8
+}
+call play_loaded_sound(int 198, int -1, int 0, int 0)
+
+._SCRIPT_1
+execute SCRIPT_9
+if(gamevar room_state == int 1)
+ {
+		execute SCRIPT_3
+}
+if(gamevar room_state == int 2)
+ {
+		execute SCRIPT_5
+}
+if(gamevar room_state == int 3)
+ {
+		execute SCRIPT_7
+}
+
+._SCRIPT_2
+call func_3d()
+if(gamevar room_state == int 1)
+ {
+		gamevar room_state ++ 
+}
+if(gamevar room_state == int 2)
+ {
+		gamevar room_state ++ 
+}
+
+._SCRIPT_3
+if(var VAR_8)
+ {
+		var VAR_8 -- 
+		unknown 
+}
+
+._SCRIPT_4
+gamevar global_inventory_p = var &VAR_11
+call create_char(var &VAR_10, var &VAR_17, int 225, int 14)
+var VAR_8 = int 0
+var VAR_7 = int 1
+
+._SCRIPT_5
+if(var VAR_8)
+ {
+		var VAR_8 -- 
+		unknown 
+}
+
+._SCRIPT_6
+var VAR_8 = int 0
+var VAR_7 = int 1
+
+._SCRIPT_7
+if(var VAR_8)
+ {
+		var VAR_8 -- 
+		unknown 
+}
+
+._SCRIPT_8
+var VAR_8 = int 0
+var VAR_7 = int 1
+
+._SCRIPT_9
+gamevar script_object = var VAR_9
+if(gamevar *psys_p+1)
+ {
+		if(call ! randomize_int(int 0, int 5))
+		 {
+				call play_loaded_sound(int 197, int 0, int 0, int 0)
+		}
+}
+
+._SCRIPT_10
+var VAR_0 = call func_16(int 1507337)
+if(var ! VAR_0)
+ {
+		var VAR_0 = call create_char(var VAR_1, var &VAR_6, var VAR_2, int 14)
+		call func_aa(var VAR_0)
+}
+else
+ {
+		var VAR_4 = int 1
+		gamevar script_object = var VAR_0
+		if(gamevar *object_p+7 == int 4194304)
+		 {
+				call func_aa(var VAR_0)
+		}
+}
+
+._SCRIPT_11
+if(var VAR_3 != int -1)
+ {
+		if(var ! VAR_4)
+		 {
+				if(var VAR_5 != int -1)
+				 {
+						call put_item_in_char_inv(var VAR_0, int 85, var VAR_5, int 0)
+				}
+				else
+				 {
+						call put_item_in_char_inv(var VAR_0, var VAR_3, int 1, int 0)
+				}
+		}
+}
+var VAR_5 = int -1

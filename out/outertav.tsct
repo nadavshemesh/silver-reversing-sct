@@ -1,0 +1,642 @@
+._DATA
+VAR_0	0	
+VAR_1	0	
+VAR_2	0	
+VAR_3	0	
+VAR_4	0	
+VAR_5	0	
+VAR_6	0	
+VAR_7	0	
+VAR_8	0	
+VAR_9	0	
+VAR_10	0	
+VAR_11	0	
+VAR_12	0	
+VAR_13	{ -401, -1417, -397 }	
+VAR_14	0	
+VAR_15	{ -647, -1417, -281 }	
+VAR_16	{ 9, VAR_14, 7, 8 }	
+VAR_17	{ 7, 8 }	
+VAR_18	{ 0, 0, 0, -1, 1, 2, 30, 32, -1, 7, 1, 3, 5, 1, 100, 150, 8, 1, 4, 0, 9, 1, 10, 42, 43, -1, -1 }	
+VAR_19	0	
+VAR_20	0	
+VAR_21	0	
+VAR_22	0	
+VAR_23	0	
+VAR_24	0	
+VAR_25	0	
+VAR_26	0	
+VAR_27	"random_rain_fx: Rain SFX not initialised! See Marc"	
+VAR_28	0	
+VAR_29	0	
+VAR_30	0	
+VAR_31	0	
+VAR_32	0	
+VAR_33	0	
+VAR_34	0	
+VAR_35	0	
+VAR_36	{ 0, 0 }	
+VAR_37	"RainPt1"	
+VAR_38	"it's_raining"	
+VAR_39	{ -1700, 1000, 550 }	
+VAR_40	{ 2650, 1000, -1150 }	
+VAR_41	"RAIN"	
+VAR_42	"muscles"	
+VAR_43	"finnegan"	
+VAR_44	"longjohn"	
+VAR_45	"dick"	
+VAR_46	"S_DVDENT"	
+VAR_47	"NULL"	
+VAR_48	0	
+VAR_49	0	
+VAR_50	0	
+VAR_51	0	
+VAR_52	0	
+VAR_53	{ -1234, -1417, 717 }	
+VAR_54	{ -1196, -1417, 454 }	
+VAR_55	{ -652, -1417, -241 }	
+VAR_56	{ -374, -1417, -208 }	
+VAR_57	"standoff"	
+VAR_58	"longjohn"	
+VAR_59	"muscles"	
+VAR_60	"dick"	
+VAR_61	"finnegan"
+
+._SCRIPT_0
+execute SCRIPT_9
+call play_bgm(var &VAR_37)
+call func_b8(int 93)
+call func_b8(int 91)
+call load_sound(int 32)
+call play_loaded_sound(int 1, int -1, int 32, int 0)
+switch(gamevar room_state)
+ {
+		case 1
+			execute SCRIPT_3
+			break 
+		case 2
+			execute SCRIPT_6
+		default 
+			break 
+}
+
+._SCRIPT_1
+execute SCRIPT_11
+switch(gamevar room_state)
+ {
+		case 1
+			execute SCRIPT_4
+			break 
+		case 2
+			execute SCRIPT_7
+			break 
+		default 
+			break 
+}
+
+._SCRIPT_2
+switch(gamevar room_state)
+ {
+		case 1
+			execute SCRIPT_5
+			if(var VAR_2)
+			 {
+					gamevar room_state ++ 
+			}
+			break 
+		case 2
+			execute SCRIPT_8
+			if(var VAR_3 >= int 0)
+			 {
+					gamevar room_state ++ 
+			}
+			break 
+		default 
+			break 
+}
+
+._SCRIPT_3
+call func_bc(var &VAR_42)
+call func_bc(var &VAR_43)
+call func_bc(var &VAR_44)
+call func_bc(var &VAR_45)
+var VAR_12 = call create_enemy(int 29, int 0, var &VAR_13, int 295)
+call func_109(var VAR_12, int 3)
+var VAR_14 = call create_enemy(int 31, int 0, var &VAR_15, int 115)
+call func_46(var VAR_12, int 0)
+call func_46(var VAR_14, int 0)
+call func_fe(var VAR_12)
+call func_fe(var VAR_14)
+call func_f(var VAR_12, int 131072)
+call func_f(var VAR_14, int 131072)
+if(call func_16(int 65536))
+ {
+		var VAR_5 = call get_char_handle(int 65536)
+}
+else
+ {
+		var VAR_5 = int 0
+}
+if(call func_16(int 786432))
+ {
+		var VAR_6 = call get_char_handle(int 786432)
+}
+else
+ {
+		var VAR_6 = int 0
+}
+if(call func_16(int 196608))
+ {
+		var VAR_7 = call get_char_handle(int 196608)
+}
+else
+ {
+		var VAR_7 = int 0
+}
+var VAR_2 = int 0
+var VAR_0 = int 0
+var VAR_1 = int 5
+
+._SCRIPT_4
+if(call ! func_16(int 6356992))
+ {
+		var VAR_12 = int 0
+}
+if(call ! func_16(int 6422528))
+ {
+		var VAR_14 = int 0
+}
+switch(var VAR_0)
+ {
+		case 0
+			if(var VAR_1)
+			 {
+					var VAR_1 -- 
+					unknown 
+			}
+			else
+			 {
+					call func_4f(var VAR_12, int 13)
+					call func_4f(var VAR_14, int 13)
+					call func_107(var VAR_12, var &VAR_16)
+					call func_107(var VAR_14, var &VAR_17)
+					var VAR_0 ++ 
+			}
+			break 
+		case 1
+			var VAR_11 = int 0
+			if(var VAR_5)
+			 {
+					var VAR_11 = call is_char_at_pos(var VAR_5, var &VAR_13, int 400)
+			}
+			if(var VAR_6&&var ! VAR_11)
+			 {
+					var VAR_11 = call is_char_at_pos(var VAR_6, var &VAR_13, int 400)
+			}
+			if(var VAR_7&&var ! VAR_11)
+			 {
+					var VAR_11 = call is_char_at_pos(var VAR_7, var &VAR_13, int 400)
+			}
+			if(var VAR_11)
+			 {
+					if(call ! func_16(int 6356992))
+					 {
+							var VAR_12 = int 0
+					}
+					if(call ! func_16(int 6422528))
+					 {
+							var VAR_14 = int 0
+					}
+					if(var VAR_5)
+					 {
+							call char_stop(var VAR_5)
+					}
+					if(var VAR_6)
+					 {
+							call char_stop(var VAR_6)
+					}
+					if(var VAR_7)
+					 {
+							call char_stop(var VAR_7)
+					}
+					var VAR_8 = call func_72()
+					if(var VAR_12)
+					 {
+							call func_17(var VAR_8, var VAR_12)
+					}
+					if(var VAR_12)
+					 {
+							call func_17(var VAR_12, var VAR_8)
+					}
+					if(var VAR_14)
+					 {
+							call func_17(var VAR_14, var VAR_8)
+					}
+					if(var VAR_12)
+					 {
+							call func_46(var VAR_12, int 13)
+					}
+					if(var VAR_14)
+					 {
+							call func_46(var VAR_14, int 13)
+					}
+					call start_dialog(var &VAR_46, var &VAR_47)
+					var VAR_2 = int 1
+					var VAR_1 = int 30
+					var VAR_0 ++ 
+			}
+			else
+			 {
+					if(call func_d0())
+					 {
+							var VAR_8 = call func_72()
+							if(var VAR_12)
+							 {
+									call func_17(var VAR_12, var VAR_8)
+							}
+							if(var VAR_14)
+							 {
+									call func_17(var VAR_14, var VAR_8)
+							}
+							if(var VAR_12)
+							 {
+									call func_46(var VAR_12, int 13)
+							}
+							if(var VAR_14)
+							 {
+									call func_46(var VAR_14, int 13)
+							}
+							var VAR_2 = int 1
+							var VAR_1 = int 0
+							var VAR_0 ++ 
+					}
+			}
+			break 
+		case 2
+			if(var VAR_1 > int 0)
+			 {
+					var VAR_1 -- 
+			}
+			if(var VAR_1 == int 0||call get_input_sys() != int 4)
+			 {
+					if(var VAR_14)
+					 {
+							call func_55(var VAR_14, int 93)
+					}
+					var VAR_1 = int -1
+			}
+			if(call get_input_sys() != int 4)
+			 {
+					if(var VAR_12)
+					 {
+							call func_f(var VAR_12, int 8)
+					}
+					if(var VAR_14)
+					 {
+							call func_f(var VAR_14, int 8)
+					}
+					if(var VAR_12)
+					 {
+							call func_55(var VAR_12, int 93)
+					}
+					if(var VAR_12)
+					 {
+							call func_4f(var VAR_12, int 0)
+					}
+					if(var VAR_14)
+					 {
+							call func_4f(var VAR_14, int 0)
+					}
+					call eval(var &VAR_18, int 600)
+					var VAR_0 ++ 
+			}
+			break 
+		case 3
+			break 
+}
+
+._SCRIPT_5
+
+._SCRIPT_6
+var VAR_3 = int 0
+var VAR_4 = int 0
+if(call func_6f() != int 0)
+ {
+		var VAR_3 = int -5537800
+		unknown 
+}
+var VAR_52 = call load_anim(var &VAR_57)
+call func_bc(var &VAR_58)
+call func_bc(var &VAR_59)
+call func_bc(var &VAR_60)
+call func_bc(var &VAR_61)
+var VAR_48 = call create_enemy(int 31, int 0, var &VAR_53, int 175)
+var VAR_49 = call create_enemy(int 32, int 0, var &VAR_54, int 335)
+call func_46(var VAR_48, int 0)
+call func_46(var VAR_49, int 0)
+call func_111(int 2)
+
+._SCRIPT_7
+if(var VAR_4)
+ {
+		var VAR_4 -- 
+		unknown 
+}
+switch(var VAR_3)
+ {
+		case 0
+			var VAR_8 = call func_70()
+			var VAR_9 = call func_7e()
+			var VAR_10 = call func_7e()
+			call func_20(var VAR_8)
+			call func_18(var VAR_8, int -427, int -1417, int 382)
+			call func_20(var VAR_9)
+			call func_18(var VAR_9, int -313, int -1417, int 177)
+			if(var VAR_10)
+			 {
+					call func_20(var VAR_10)
+					call func_18(var VAR_10, int -664, int -1417, int 190)
+			}
+			var VAR_3 ++ 
+			break 
+		case 1
+			if(call is_char_standing(var VAR_8)&&call is_char_standing(var VAR_9))
+			 {
+					call func_17(var VAR_8, var VAR_48)
+					call func_17(var VAR_48, var VAR_8)
+					call func_17(var VAR_9, var VAR_49)
+					call func_17(var VAR_49, var VAR_9)
+					var VAR_4 = int 30
+					var VAR_3 ++ 
+			}
+			break 
+		case 2
+			var VAR_50 = call func_96(int 28, int 0, int 0, int 0)
+			var VAR_51 = call func_96(int 30, int 0, int 0, int 0)
+			call func_46(var VAR_50, int 0)
+			call func_46(var VAR_51, int 0)
+			call char_walk_to_pos(var VAR_50, var &VAR_55)
+			call char_walk_to_pos(var VAR_51, var &VAR_56)
+			var VAR_4 = int 60
+			var VAR_3 ++ 
+			break 
+		case 3
+			call play_char_anim(var VAR_48, var VAR_52, int 0)
+			var VAR_4 = int 30
+			var VAR_3 ++ 
+			break 
+		case 4
+			call func_17(var VAR_9, var VAR_51)
+			var VAR_4 = int 60
+			var VAR_3 ++ 
+			break 
+		case 5
+			call func_4f(var VAR_51, int 0)
+			call func_20(var VAR_51)
+			call func_19(var VAR_51, var VAR_8)
+			call func_111(int 1)
+			var VAR_4 = int 60
+			var VAR_3 ++ 
+			break 
+		case 6
+			call func_4f(var VAR_50, int 0)
+			call func_4f(var VAR_48, int 0)
+			call func_4f(var VAR_49, int 0)
+			var VAR_3 ++ 
+		case 7
+			if(call get_num_of_enemies() <= int 2)
+			 {
+					var VAR_3 ++ 
+			}
+			break 
+		case 8
+			if(call ! func_16(int 6160384))
+			 {
+					var VAR_50 = call func_96(int 28, int 0, int 1, int 0)
+					call func_20(var VAR_50)
+					call func_19(var VAR_50, var VAR_8)
+			}
+			if(call ! func_16(int 2490368))
+			 {
+					var VAR_51 = call func_96(int 30, int 0, int 1, int 0)
+					call func_20(var VAR_51)
+					call func_19(var VAR_51, var VAR_9)
+			}
+			if(call ! func_16(int 5767168))
+			 {
+					var VAR_49 = call func_96(int 32, int 0, int 1, int 0)
+					call func_20(var VAR_49)
+					call func_19(var VAR_49, var VAR_8)
+			}
+			if(call ! func_16(int 6422528))
+			 {
+					var VAR_48 = call func_96(int 31, int 0, int 1, int 0)
+					call func_20(var VAR_48)
+					call func_19(var VAR_48, var VAR_9)
+			}
+			var VAR_3 ++ 
+			break 
+		case 9
+			if(call get_num_of_enemies() <= int 2)
+			 {
+					var VAR_3 ++ 
+			}
+			break 
+		case 10
+			if(call ! func_16(int 6160384))
+			 {
+					var VAR_50 = call func_96(int 28, int 0, int 2, int 0)
+					call func_20(var VAR_50)
+					call func_19(var VAR_50, var VAR_8)
+			}
+			if(call ! func_16(int 2490368))
+			 {
+					var VAR_51 = call func_96(int 30, int 0, int 2, int 0)
+					call func_20(var VAR_51)
+					call func_19(var VAR_51, var VAR_9)
+			}
+			if(call ! func_16(int 5767168))
+			 {
+					var VAR_49 = call func_96(int 32, int 0, int 2, int 0)
+					call func_20(var VAR_49)
+					call func_19(var VAR_49, var VAR_8)
+			}
+			if(call ! func_16(int 6422528))
+			 {
+					var VAR_48 = call func_96(int 31, int 0, int 2, int 0)
+					call func_20(var VAR_48)
+					call func_19(var VAR_48, var VAR_9)
+			}
+			var VAR_3 ++ 
+			break 
+		default 
+			break 
+}
+
+._SCRIPT_8
+
+._SCRIPT_9
+call func_cd(var &VAR_38)
+call func_f4(var &VAR_41, var &VAR_39, var &VAR_40, int 0)
+execute SCRIPT_10
+
+._SCRIPT_10
+call load_sound(int 25)
+call play_loaded_sound(int 1, int -1, int 25, int 0)
+var VAR_21 = call play_loaded_sound(int 3, int -1, int 25, int 0)
+var VAR_20 = int 70
+call func_11c(var VAR_21, var VAR_20)
+var VAR_19 = int 1
+
+._SCRIPT_11
+if(var ! VAR_19)
+ {
+		call func_cd(var &VAR_27)
+		unknown 
+}
+switch(var VAR_23)
+ {
+		case 0
+			if(var VAR_22)
+			 {
+					var VAR_25 = int 1
+					var VAR_23 ++ 
+					var VAR_24 = int 0
+			}
+			break 
+		case 1
+			if(var VAR_20 < int 200)
+			 {
+					var VAR_26 = var VAR_24 % int 2
+					if(var VAR_26 == int 0)
+					 {
+							var VAR_20 += var VAR_25
+							call func_11c(var VAR_21, var VAR_20)
+					}
+			}
+			else
+			 {
+					var VAR_23 ++ 
+					var VAR_24 = int 0
+			}
+			break 
+		case 2
+			if(var VAR_24 > int 150)
+			 {
+					var VAR_23 ++ 
+					var VAR_24 = int 0
+			}
+			break 
+		case 3
+			if(var VAR_20 > int 70)
+			 {
+					var VAR_26 = var VAR_24 % int 2
+					if(var VAR_26)
+					 {
+							var VAR_20 -= var VAR_25
+							call func_11c(var VAR_21, var VAR_20)
+					}
+			}
+			else
+			 {
+					var VAR_22 = int 0
+					var VAR_23 = int 0
+					var VAR_24 = int 0
+			}
+			break 
+}
+execute SCRIPT_12
+execute SCRIPT_13
+var VAR_24 ++ 
+
+._SCRIPT_12
+switch(var VAR_28)
+ {
+		case 0
+			var VAR_29 = int 0
+			var VAR_30 = call randomize_int(int 1200, int 1801)
+			var VAR_28 ++ 
+			break 
+		case 1
+			if(var VAR_29 > var VAR_30)
+			 {
+					var VAR_31 = call play_loaded_sound(int 4, int 0, int 25, int 0)
+					call func_11c(var VAR_31, call randomize_int(int 100, int 201))
+					call func_11a(var VAR_31, call randomize_int(int 0, int 128))
+					if(var ! VAR_22)
+					 {
+							var VAR_22 = int 1
+					}
+					var VAR_28 ++ 
+					var VAR_29 = int 0
+			}
+			break 
+		case 2
+			if(var VAR_29 > int 200)
+			 {
+					var VAR_28 = int 0
+					var VAR_29 = int 0
+			}
+			break 
+}
+var VAR_29 ++ 
+
+._SCRIPT_13
+switch(var VAR_32)
+ {
+		case 0
+			if(gamevar scene_counter > int 600)
+			 {
+					var VAR_32 ++ 
+			}
+			break 
+		case 1
+			var VAR_33 = int 0
+			call func_d5()
+			var VAR_35 = call randomize_int(int 400, int 601)
+			var VAR_32 ++ 
+			break 
+		case 2
+			if(call func_129(var VAR_35))
+			 {
+					call func_f6(gamevar misc_fx_scripts, int 6, int 0, int 0)
+					call func_d5()
+					var VAR_36 = int 255
+					var VAR_35 = call randomize_int(int 1, int 31)
+					var VAR_33 = int 0
+					var VAR_32 ++ 
+			}
+			break 
+		case 3
+			if(call func_129(var VAR_35))
+			 {
+					var VAR_36 -= int 4 * var VAR_35
+					var VAR_34 = call play_loaded_sound(int 5, int 0, int 25, int 0)
+					call func_11c(var VAR_34, var VAR_36)
+					var VAR_35 = int 255 - var VAR_36
+					var VAR_33 = int 0
+					var VAR_32 ++ 
+			}
+			break 
+		case 4
+			if(var VAR_33 > var VAR_35)
+			 {
+					var VAR_34 = call play_loaded_sound(int 4, int 0, int 25, int 0)
+					call func_11c(var VAR_34, var VAR_36)
+					if(var ! VAR_22)
+					 {
+							var VAR_22 = int 1
+					}
+					var VAR_32 ++ 
+					var VAR_33 = int 0
+			}
+			break 
+		case 5
+			if(var VAR_33 > int 100)
+			 {
+					var VAR_32 = int 1
+					var VAR_33 = int 0
+			}
+			break 
+}
+var VAR_33 ++ 

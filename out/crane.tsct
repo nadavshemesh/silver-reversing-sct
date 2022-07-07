@@ -1,0 +1,129 @@
+._DATA
+VAR_0	"HAVNBPT1"	
+VAR_1	0	
+VAR_2	0	
+VAR_3	{ 0, 0, 0, 0 }	
+VAR_4	"crane"	
+VAR_5	{ 1851880035, -1442827675, 0, 0, 0 }	
+VAR_6	{ 3648, 125, -2456 }	
+VAR_7	0	
+VAR_8	"btreasure"	
+VAR_9	{ 2637, 125, -2787 }	
+VAR_10	{ 0, 1, 1, VAR_9, 8, 2, 4, 0, 9, 1, 1, 1, 30, 30, 30, -1, 5, 1, 40, 70, 7, 1, 2, 6, 1, -1 }	
+VAR_11	{ 5005, 1125, -6011, 3781, 125, -2080 }	
+VAR_12	{ 2, 11110, 125, -2080, 11, 100, 100, 6, 1, 0, 8 }	
+VAR_13	{ 2, 3077, 125, -2591, 11, 100, 200, 0, 2201, 125, -2468, 2, 2155, 125, -2633, 11, 100, 200, 0, 2196, -200, -84, 2, 2201, -200, -138, 11, 100, 200, 0, 3781, 125, -2080, 2, 3077, 125, -2591, 6, 1, 0, 8 }	
+VAR_14	{ 0, 1, 2, VAR_11, 8, 1, 12, 28, 30, -1, 14, 1, 2, 13, 0, 15, VAR_12, VAR_13, -1, 16, 0, 17, 3, 0, 300, -1, 18, 100, 6, 1, 11, -1 }	
+VAR_15	{ 3900, 124, -2598, 0, 1, 1, VAR_15, 8, 1, 12, 7, -1, 14, 1, 1, 13, 0, 17, 1, 3699, 125, -2746, 200, 1, 3877, 125, -3252, 200, 1, 4049, 125, -3519, 200, 1, 3557, 125, -2711, 200, 1, 4050, 125, -2142, 120, -1, 18, 100, 11, 6, 1, -1, 5005, 1125, -6011, 3781, 125, -2080, 0 }	
+VAR_16	0	
+VAR_17	{ 0, 0 }	
+VAR_18	"muscles"	
+VAR_19	"longjohn"	
+VAR_20	"bear"	
+VAR_21	0	
+VAR_22	0	
+VAR_23	0	
+VAR_24	"bear"	
+VAR_25	0
+
+._SCRIPT_0
+execute SCRIPT_3
+call load_sound(int 77)
+call load_sound(int 59)
+call play_loaded_sound(int 2, int -1, int 59, int 0)
+if(call play_bgm(var &VAR_0))
+ {
+		call func_114(int 1)
+		call func_5a(int -1)
+}
+switch(gamevar room_state)
+ {
+		case 1
+			execute SCRIPT_9
+			execute SCRIPT_6
+			break 
+		case 2
+			execute SCRIPT_8
+			break 
+		case 0
+			break 
+}
+
+._SCRIPT_1
+switch(gamevar room_state)
+ {
+		case 1
+			execute SCRIPT_5
+			break 
+		case 2
+			execute SCRIPT_7
+			break 
+		case 0
+			break 
+}
+
+._SCRIPT_2
+switch(gamevar room_state)
+ {
+		case 1
+			if(var VAR_1)
+			 {
+					gamevar room_state = int 3
+			}
+			else
+			 {
+					gamevar room_state = int 2
+			}
+			break 
+		case 2
+			if(var VAR_1)
+			 {
+					gamevar room_state ++ 
+			}
+			break 
+		case 0
+			break 
+		default 
+			gamevar room_state = int 0
+			break 
+}
+
+._SCRIPT_3
+gamevar SMACKER_X = int 0
+gamevar SMACKER_Y = int 152
+var VAR_2 = call func_a0(var &VAR_4, int 1, int 1, int 0)
+gamevar SMACKER_X = int 0
+gamevar SMACKER_Y = int 296
+var VAR_3 = call func_a0(var &VAR_5, int 1, int 1, int 0)
+
+._SCRIPT_4
+
+._SCRIPT_5
+switch(var VAR_21)
+ {
+}
+
+._SCRIPT_6
+call func_bc(var &VAR_18)
+call func_bc(var &VAR_19)
+call func_bc(var &VAR_20)
+var VAR_16 = call func_a5(var &VAR_14, int 1)
+var VAR_17 = call eval(var &VAR_10, int 10)
+
+._SCRIPT_7
+switch(var VAR_25)
+ {
+}
+
+._SCRIPT_8
+call func_bc(var &VAR_24)
+
+._SCRIPT_9
+var VAR_7 = call create_char(var &VAR_6, var &VAR_8, int 300, int 14)
+call put_item_in_char_inv(var VAR_7, int 11, int 1, int 0)
+call put_item_in_char_inv(var VAR_7, int 108, int 1, int 0)
+
+._SCRIPT_10
+switch(var VAR_22)
+ {
+}

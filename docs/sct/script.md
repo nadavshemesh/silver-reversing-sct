@@ -5,7 +5,7 @@
 This section is relatively straightforward, every 4 bytes is an offset to the beginning of a script ([code block](./code.md#code-block)).
 this offset is calculated from the start of the code section (0x24) and is denoting the number of integers from that point onward.
 
-Let's take a look inside veranda.sct's scripts table (using a Hex editor):
+Let's take a look inside [veranda.sct](./veranda.sct) scripts table (using a Hex editor):
 
 <img src="../img/sct_st.png" />
 

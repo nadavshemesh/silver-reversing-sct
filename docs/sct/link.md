@@ -8,7 +8,7 @@ how? for instance by replacing a reference to variable number 5 (meaning the 5th
 
 Each link is 4 bytes long (surprising, i know.) and is simply composed of 3 bytes for the offset where the link should be (meaning: where the number should be replaced with it's actual address) and one byte to denote the type of link to be made.
 
-Let's take a look at the veranda.sct link table:
+Let's take a look at the [veranda.sct](./veranda.sct) link table:
 <img src="../img/sct_link_table.png" />
 
 ### there are two types of links:

@@ -33,7 +33,7 @@ A code block is a collection of instructions, these are grouped together by deno
 
 a code block is declared in the binary file using the Integer 0xFFFFFFFC (In hex) followed by another 4 bytes denoting I'ts size.
 
-for instance: (the main script of veranda.sct is declared like so)
+for instance: (the main script of [veranda.sct](./veranda.sct) is declared like so)
 <img src="../img/sct_cs_codeblock.png" />
 
 
@@ -212,7 +212,7 @@ Second Type  0x00000000 0x00000004
 
 ```
 
-Let's take a look at veranda.sct again for an example:
+Let's take a look at [veranda.sct](./veranda.sct) again for an example:
 
 <img src="../img/sct_cs_var2.png" />
 

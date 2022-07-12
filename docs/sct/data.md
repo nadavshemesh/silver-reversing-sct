@@ -18,6 +18,6 @@ A *pointer* to another data is also easy to recognize since it is recorded in th
 
 We are left with *integer* and an *array of integers*. The way I tell them apart is by checking out all the refernces to the data section via the [link table](./link.md), I calculate the distance between two consecutive references, if it's more than 4 bytes then I assume this is an array and divide the distance by 4 to get the number of integers in it. otherwise I assume it's an integer.
 
-Here's how the data section of veranda.sct looks like inside a Hex editor:
+Here's how the data section of [veranda.sct](./veranda.sct) looks like inside a Hex editor:
 
 <img src="../img/sct_ds.png" />

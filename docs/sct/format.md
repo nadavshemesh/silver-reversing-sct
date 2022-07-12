@@ -7,7 +7,7 @@ These files typically contain information about characters, items, game events a
 An sct file is mainly composed of a code section and a data section that together tell the game's engine what game functions to call and when to call them, all interpreted by the game's engine in real time.
 
 ### Real example file
-Here's [veranda.sct](./veranda.sct) file if you want to follow along.
+Here's [veranda.sct](./veranda.sct) file if you want to follow along.  (and here it is [fully reversed](../../out/veranda.tsct))
 
 _veranda is a level inside the GNO library if you know the game :), if you don't know the game, I obviously recommend getting it on steam_
 

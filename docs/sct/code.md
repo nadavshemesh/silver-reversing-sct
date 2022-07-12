@@ -170,13 +170,24 @@ There are two types of variables:
 2. game variable (as can be seen [here](../catalog/gamevars.md))
 
 ### Data variable
-The data variable are simply pointers to a location in the script's data section, 
-The game variable is referencing variables outside any .sct file but rather gives access to the game's data.
+A data variable is simply a pointer to a location in the script's data section, (via the [link table](./link.md)) 
 
-In binary a variable look like so:
+A game variable is referencing variables outside .sct files. instead, it gives read/ write access to some of the game's data.
+
+In sct binary, a variable look like so:
 ```
-Variable number is denoting how many integers from the beginning of the data section the var is located.
 0x00000000 0x00000006 [Variable number]
+Variable number is denoting how many integers from the beginning of the data section the var is located.
+
+So, to reference the first integer/ string/ integer array in the data section (to use it as variable), we'll write:
+0x00000000 0x00000006 0x00000000
+
+And if we want the 8 bytes after that?
+it's offset in the data section is 0x0C (0x08 + 0x04) so it is 3 integers from the start (0x0C / 0x04, because an integer is 4 bytes):
+0x00000000 0x00000006 0x0000003
+
+
+Combined with other code structures, its usage becomes much more clear.
 
 ```
 

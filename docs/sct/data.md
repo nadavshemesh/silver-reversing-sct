@@ -10,6 +10,15 @@ As the name implies, this section holds all the data.
 3. String
 4. Pointer to data
 
+Note:
+
+The data section is 4 Byte aligned,
+meaning that if you have data other than integers (which are 4 byte aligned due to their size)
+like a string (in sct it probably always just a string that won't be aligned), extra bytes will be added to align it.
+(sometimes youl'll see 0xAA, other times it can be 0x00 or some random bytes).
+
+Back to the types:
+
 How will we know which one we're dealing with?
 
 well, a *string* is made of ascii characters terminated with a nullbyte and is probably recognizable in any hex editor thus making it easy to tell. 

@@ -8,6 +8,7 @@ An sct file is mainly composed of a code section and a data section that togethe
 
 ### Real example file
 Here's [veranda.sct](./veranda.sct) file if you want to follow along.
+
 _veranda is a level inside the GNO library if you know the game :), if you don't know the game, I obviously recommend getting it on steam_
 
 ### Making sense of the .sct binary file

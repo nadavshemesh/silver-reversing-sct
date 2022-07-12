@@ -1,4 +1,4 @@
-#define GAME_VARS_NUM  115
+#define GAME_VARS_NUM  116
 #define MAX_GAME_VAR_NAME 256
 
 #include "utils.h"

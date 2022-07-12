@@ -225,11 +225,6 @@ int count_tokens(char** tokens) {
 //         }
 //     }
 // }
-bool strs_identical(char* str1, char* str2) {
-    if(strlen(str1) == strlen(str2) && strcmp(str1, str2) == 0)
-        return true;
-    return false;
-}
 
 char* merge_tokens(char** tokens, int num_to_join) {
     char** token_ptr = tokens;

@@ -26,6 +26,12 @@ char *aapts(char* str) {
     return alloc_str;
 }
 
+bool strs_identical(char* str1, char* str2) {
+    if(strlen(str1) == strlen(str2) && strcmp(str1, str2) == 0)
+        return true;
+    return false;
+}
+
 char* c_itoa(int num, char *str) {
     if(str == NULL) {
         return NULL;

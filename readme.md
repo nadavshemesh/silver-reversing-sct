@@ -19,7 +19,6 @@ Currently, This tool can:
 Example .tsct files can be found inside the [./out](./out) folder.
 [veranda.tsct](./out/veranda.tsct), [gnolib2.tsct](./out/gnolib2.tsct), [davhouse.tsct](./out/davhouse.tsct), [courtyrd.tsct](./out/courtyrd.tsct)
 
-
 ## Usage
 **Note:** The files generated will **overwrite** the file so you definately should **backup** your files first!
 - The 0 command is used to convert from .sct to .tsct

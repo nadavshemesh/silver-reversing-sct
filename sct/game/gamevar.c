@@ -167,9 +167,10 @@ void init_game_vars(game_var** game_vars) {
     game_vars[110] = init_gv(110, "character_ai_data_p", "-", 0x04, 0x0A, 0x00, 0x04);
     game_vars[111] = init_gv(111, "smack_object_p", "-", 0x04, 0x0B, 0x00, 0x20);
     game_vars[112] = init_gv(112, "psys_p", "-", 0x04, 0x0C, 0x00, 0x04);
+    game_vars[113] = init_gv(113, "chr_body_p", "-", 0x04, 0x01, 0x00, 0x18);
 
-    game_vars[113] = init_gv_room_state();
-    game_vars[114] = init_gv_room_cleared();
+    game_vars[114] = init_gv_room_state();
+    game_vars[115] = init_gv_room_cleared();
 }
 
 game_var* get_game_var_by_offsets(int first_offset, int second_offset, int third_offset) {

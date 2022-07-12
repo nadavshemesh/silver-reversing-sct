@@ -1,7 +1,7 @@
 [<- Back to the Docs](../index.md)
 
 # The .sct format (from a binary standpoint)
-The .sct file format is a level scripting file format designed for the 1999 game 'Silver'.
+The .sct file format is a level scripting file format designed for the 1999 game '[Silver](https://en.wikipedia.org/wiki/Silver_(video_game))'.
 
 These files typically contain information about characters, items, game events and game variables.
 An sct file is mainly composed of a code section and a data section that together tell the game's engine what game functions to call and when to call them, all interpreted by the game's engine in real time.

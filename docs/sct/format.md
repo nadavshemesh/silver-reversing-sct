@@ -11,6 +11,11 @@ Here's [veranda.sct](./veranda.sct) file if you want to follow along.
 
 _veranda is a level inside the GNO library if you know the game :), if you don't know the game, I obviously recommend getting it on steam_
 
+<img src="../img/veranda_img.png" />
+
+### Using this information I managed to get all the game's .sct files (except 2) reversed automatically
+You're welcome to take a look at them [Here](../../out/).
+
 ### Making sense of the .sct binary file
 The information presented here is my findings upon investigating the .sct file format (mainly using a Hex editor), trying to make sense of it by guessing, testing and staring at it. Please be aware that some parts are likely to be inaccurate or plain wrong.
 

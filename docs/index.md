@@ -17,6 +17,7 @@ These catalogs are essential if you wish to understand what some numbers or stri
 + [Items catalog](./catalog/items.md)
 + [Enemies catalog](./catalog/enemies.md)
 + [Characters catalog](./catalog/characters.md)
++ [Levels catalog](./catalog/levels.md)
 + [Sound Effects catalog](./catalog/sound.md)
 + [Game Variables catalog](./catalog/gamevars.md)
 + Game functions catalog (Incomplete)

@@ -1435,7 +1435,7 @@ expr_obj* asm_read_function_expr(expr_obj* e_obj, char** vars, char*** token_pos
     memcpy(e_obj->asm_vars, asm_vars, sizeof(e_obj->asm_vars));
     memcpy(e_obj->bin_vars, bin_vars, sizeof(e_obj->bin_vars));
 
-    printf("params_num: %d\n", params_num);
+    // printf("params_num: %d\n", params_num);
     if(strlen(**token_pos_ptr) == 1 && strcmp(**token_pos_ptr, "(") == 0)
         *token_pos_ptr += 1; //paranthesis
     // read param expressions

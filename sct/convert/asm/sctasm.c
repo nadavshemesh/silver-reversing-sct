@@ -461,6 +461,29 @@ int count_token_from_to(char** tokens_ptr, char* token, char* from, char* to) {
     return -1;
 }
 
+int count_token_from_to_no_nesting(char** tokens_ptr, char* token, char* from, char* to) {
+    bool count = false;
+    int counter = 0;
+    int matches = 0;
+    while(*tokens_ptr != NULL) {
+        if(count && strlen(*tokens_ptr) == strlen(to) && strcmp(*tokens_ptr, to) == 0) {
+            matches--;
+            if(matches == 0)
+                return counter;
+        }
+        if(count && strlen(*tokens_ptr) == strlen(token) && strcmp(*tokens_ptr, token) == 0) {
+            if(matches == 1)
+                counter++;
+        }
+        if(strlen(*tokens_ptr) == strlen(from) && strcmp(*tokens_ptr, from) == 0) {
+            count = true;
+            matches++;
+        }
+        tokens_ptr++;
+    }
+    return -1;
+}
+
 unsigned long get_sct_code_word_count(sct_f* sf) {
     return sf->structure->code_section_word_counter;
 }
@@ -1395,7 +1418,7 @@ expr_obj* asm_read_function_expr(expr_obj* e_obj, char** vars, char*** token_pos
 
     // count params(exprs)
     int params_num = 0;
-    int commas_num = count_token_from_to(*token_pos_ptr, ",", "(", ")");
+    int commas_num = count_token_from_to_no_nesting(*token_pos_ptr, ",", "(", ")");
     if(commas_num == 0){
         int tokens_in_parenth = count_tokens_from_to(*token_pos_ptr, "(", ")");
         if(tokens_in_parenth > 0) params_num = 1;
@@ -1412,7 +1435,7 @@ expr_obj* asm_read_function_expr(expr_obj* e_obj, char** vars, char*** token_pos
     memcpy(e_obj->asm_vars, asm_vars, sizeof(e_obj->asm_vars));
     memcpy(e_obj->bin_vars, bin_vars, sizeof(e_obj->bin_vars));
 
-    // printf("params_num: %d\n", params_num);
+    printf("params_num: %d\n", params_num);
     if(strlen(**token_pos_ptr) == 1 && strcmp(**token_pos_ptr, "(") == 0)
         *token_pos_ptr += 1; //paranthesis
     // read param expressions

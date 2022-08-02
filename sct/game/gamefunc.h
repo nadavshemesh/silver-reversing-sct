@@ -6,6 +6,7 @@ typedef struct game_function {
     int id;
     int params;
     char* desc;
+    char* default_name;
     char* name;
 } game_fun;
 

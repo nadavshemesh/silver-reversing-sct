@@ -24,18 +24,14 @@ void init_game_functions(game_fun** functions_arr) {
         game_fun* gf = w_malloc(sizeof(game_fun));
         gf->id = i;
         char* name = w_malloc(MAX_FUNC_NAME);
-        char* num = w_malloc(50);
         char* prefix = "func_";
 
         // c_itoa(i,num);
-        sprintf(num, "%x", i);
-        strncat(name, prefix, strlen(prefix));
-        strcat(name, num);
+        sprintf(name, "%s%x", prefix, i);
         gf->name = name;
+        gf->default_name = name;
         functions_arr[i] = gf;
     }
-
-    // todo: free prev names
 
     functions_arr[0x97]->name = aapts("create_enemy");
     functions_arr[0x97]->params = 4;
@@ -112,6 +108,18 @@ void init_game_functions(game_fun** functions_arr) {
     functions_arr[0xd3]->name = aapts("randomize_int");
     functions_arr[0xd3]->params = 2;
     functions_arr[0xd3]->desc = aapts("(int from, int to)");
+    functions_arr[0xcd]->name = aapts("log");
+    functions_arr[0xcd]->params = 1;
+    functions_arr[0xcd]->desc = aapts("(var string_ptr)");
+    functions_arr[0x4f]->name = aapts("set_char_init_state");
+    functions_arr[0x4f]->params = 1;
+    functions_arr[0x4f]->desc = aapts("(int init_state)");
+    functions_arr[0x107]->name = aapts("set_char_anim_seq");
+    functions_arr[0x107]->params = 2;
+    functions_arr[0x107]->desc = aapts("(var char_ptr, var anim_table_ptr)");
+    functions_arr[0xa0]->name = aapts("play_2d_anim");
+    functions_arr[0xa0]->params = 4;
+    functions_arr[0xa0]->desc = aapts("(var anim_name_ptr, int on_repeat, unknown but always 1, var play_flag_ptr or 0 to always play)");
 
     game_functions_initialized = true;
 }
@@ -127,6 +135,9 @@ game_fun* get_game_func_by_name(char* name) {
         for(int i=0; i<GAME_FUNCTIONS_NUM; i++) {
             game_fun* gf = game_functions[i];
             if(strlen(name) == strlen(gf->name) && strcmp(gf->name, name) == 0) {
+                return gf;
+            }
+            if(strlen(name) == strlen(gf->default_name) && strcmp(gf->default_name, name) == 0) {
                 return gf;
             }
         }

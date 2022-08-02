@@ -1,5 +1,8 @@
 
-<img src="./docs/img/silver_logo.png" height="150" width="300" />
+
+<p align="center">
+    <img align="center" src="./docs/img/silver_alpha.png" height="230" width="260" />
+</p>
 
 # Silver .sct reverse engineering & modding tool
 
@@ -16,6 +19,16 @@ Currently, This tool can:
 2. Translate .tsct script file back to .sct format that can be executed by the game’s engine.
 
 ## Examples
+
+#### Mods:
+The first mod created using this tool is thanks to a steam user @theruler, 
+it simply makes Rain's "bell code" puzzle to work as it was originally designed. 
+
+[Towngate Mod](./out/mods/easier_bell_pwd)  ( [tsct](./out/mods/easier_bell_pwd/towngate.tsct) | [sct](./out/mods/easier_bell_pwd/towngate.sct) | [readme](./out/mods/easier_bell_pwd/how%20to%20use.txt) )
+
+_(on modern operating systems the 'bell code' timer got messed up thus the puzzle became near impossible to complete without help)_
+
+#### Reversed .sct files:
 Example .tsct files can be found inside the [./out](./out) folder.
 [veranda.tsct](./out/veranda.tsct), [gnolib2.tsct](./out/gnolib2.tsct), [davhouse.tsct](./out/davhouse.tsct), [courtyrd.tsct](./out/courtyrd.tsct)
 
@@ -26,6 +39,7 @@ Further information can be found [here](./docs/index.md).
 **Note:** The files generated will **overwrite** the file so you definately should **backup** your files first!
 - The 0 command is used to convert from .sct to .tsct
 - the 1 command is used to convert from .tsct to .sct
+
 ```
 Usage: ./sct.exe [operation (ie 1 or 0)] [full_path_to_sct/tsct file]
 ```
@@ -54,3 +68,9 @@ gcc -I .\ .\utils.c .\sct\sct.c .\sct\structure\object.c .\sct\structure\pattern
 ```
 
 _This tool is work in progress, so it’s unstable, buggy and has missing features._
+
+## Related projects
+### Silver Hacks
+While working on this project, I made a few hacks that helped testing silver mods/ scripts easier, plus theyre fun to use!
+
+[Silver hacks github page](https://github.com/nadavshemesh/silver-hacks)

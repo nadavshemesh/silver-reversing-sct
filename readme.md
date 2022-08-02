@@ -1,10 +1,8 @@
 
 
-<p align="center">
-    <img align="center" src="./docs/img/silver_alpha.png" height="230" width="260" />
-</p>
-
 # Silver .sct reverse engineering & modding tool
+
+<img align="left" src="./docs/img/silver_alpha.png" height="270" width="300" />
 
 A tool created to read and modify internal scripts of a game called '[Silver](https://en.wikipedia.org/wiki/Silver_(video_game))' - an action RPG from 1999 developed by Spiral House and published by Infogrames.
 
@@ -12,6 +10,8 @@ A tool created to read and modify internal scripts of a game called '[Silver](ht
 ## Introduction
 
 This tool’s purpose is to translate the game’s .sct files to a readable file format (a somewhat arbitrary scripting language I came up with to make sense of it’s binary format) and to translate it back into .sct format that the game’s engine can read. This tool was created to further investigate the game’s inner workings.
+
+# 
 
 Currently, This tool can: 
 

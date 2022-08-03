@@ -256,7 +256,7 @@ VAR_107	"walked to bell"
 	if(var password_phase == int 0) {
 			// if bell is not ringing and character is far from it
 			if(gamevar global_zone_type == int 18) {
-					var selected_hero = call func_72()
+					var selected_hero = call get_selected_hero()
 					if(call is_char_at_pos(var selected_hero, var &near_bell_position, int 160)) {
 							var num_of_rings_made = int 1
 							var current_pwd_part = int 0
@@ -465,7 +465,7 @@ VAR_107	"walked to bell"
 	if(var bell_step == int 0) {
 			// if bell is clicked
 			if(gamevar global_zone_type == int 18) {
-					var selected_hero = call func_72()
+					var selected_hero = call get_selected_hero()
 					// if selected character near bell, ring
 					if(call is_char_at_pos(var selected_hero, var &near_bell_position, int 160)) {
 							var is_bell_ring_animation_played = int 1

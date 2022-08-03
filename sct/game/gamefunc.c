@@ -93,6 +93,9 @@ void init_game_functions(game_fun** functions_arr) {
     functions_arr[0x1a]->name = aapts("char_walk_to_pos");
     functions_arr[0x1a]->params = 2;
     functions_arr[0x1a]->desc = aapts("(var char_ptr, var position_ptr)");
+    functions_arr[0x72]->name = aapts("get_selected_hero");
+    functions_arr[0x72]->params = 0;
+    functions_arr[0x72]->desc = aapts("()");
     functions_arr[0x81]->name = aapts("get_num_of_enemies");
     functions_arr[0x81]->params = 0;
     functions_arr[0x81]->desc = aapts("()");

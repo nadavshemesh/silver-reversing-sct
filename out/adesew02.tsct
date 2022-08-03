@@ -168,7 +168,7 @@ switch(var VAR_15)
 							if(var ! VAR_16)
 							 {
 									call play_loaded_sound(int 102, int 0, int 0, int 0)
-									call play_char_anim(call func_72(), var VAR_24, int 0)
+									call play_char_anim(call get_selected_hero(), var VAR_24, int 0)
 									var VAR_16 = int 60
 							}
 					}
@@ -188,7 +188,7 @@ switch(var VAR_15)
 			if(gamevar global_zone_type == int 18)
 			 {
 					gamevar global_zone_type = int 0
-					var VAR_14 = call func_72()
+					var VAR_14 = call get_selected_hero()
 					call set_input_system(int 2)
 					call func_55(var VAR_14, int 98)
 					call play_char_anim_seq(var VAR_14)
@@ -363,15 +363,15 @@ switch(var VAR_18)
 		case 1
 			if(call is_char_exist(int 10551296))
 			 {
-					call func_17(var VAR_27, call func_72())
+					call func_17(var VAR_27, call get_selected_hero())
 			}
 			if(call is_char_exist(int 10551297))
 			 {
-					call func_17(var VAR_28, call func_72())
+					call func_17(var VAR_28, call get_selected_hero())
 			}
 			if(call is_char_exist(int 10485760))
 			 {
-					call func_17(var VAR_29, call func_72())
+					call func_17(var VAR_29, call get_selected_hero())
 			}
 			call eval(var &VAR_38, int 500)
 			var VAR_18 ++ 

@@ -119,9 +119,9 @@ gamevar script_object = var VAR_10
 gamevar *character_stats_p+15 = int 5000
 call put_item_in_char_inv(var VAR_8, int 21, int 1, int 0)
 call put_item_in_char_inv(var VAR_9, int 43, int 1, int 0)
-call func_17(var VAR_8, call func_72())
-call func_17(var VAR_9, call func_72())
-call func_17(var VAR_10, call func_72())
+call func_17(var VAR_8, call get_selected_hero())
+call func_17(var VAR_9, call get_selected_hero())
+call func_17(var VAR_10, call get_selected_hero())
 
 ._SCRIPT_4
 var VAR_6 = call create_enemy(int 113, int 0, var &VAR_14, int 165)

@@ -107,7 +107,7 @@ call play_3d_fx(var &VAR_22, var &VAR_20, var &VAR_21, int 0)
 execute SCRIPT_9
 
 ._SCRIPT_4
-call func_bc(var &VAR_23)
+call reload_char(var &VAR_23)
 var VAR_26 = call create_enemy(int 18, int 1, var &VAR_29, int 45)
 gamevar script_object = var VAR_26
 gamevar *character_stats_p+16 = int 1400
@@ -258,13 +258,13 @@ if(var VAR_24 == int 2)
 switch(gamevar is_room_cleared)
  {
 		case 1
-			call func_bc(var &VAR_39)
+			call reload_char(var &VAR_39)
 			call func_a5(var &VAR_38, int 100)
 			break 
 		case 2
-			call func_bc(var &VAR_40)
-			call func_bc(var &VAR_41)
-			call func_bc(var &VAR_42)
+			call reload_char(var &VAR_40)
+			call reload_char(var &VAR_41)
+			call reload_char(var &VAR_42)
 			call func_b8(int 91)
 			call func_b8(int 93)
 			call func_a5(var &VAR_37, int 100)

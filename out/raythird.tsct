@@ -92,9 +92,9 @@ switch(gamevar room_state)
 }
 
 ._SCRIPT_3
-call func_bc(var &VAR_38)
-call func_bc(var &VAR_39)
-call func_bc(var &VAR_40)
+call reload_char(var &VAR_38)
+call reload_char(var &VAR_39)
+call reload_char(var &VAR_40)
 var VAR_2 = call create_enemy(int 45, int 0, var &VAR_8, int 105)
 var VAR_3 = call create_enemy(int 46, int 0, var &VAR_9, int 260)
 var VAR_4 = call create_enemy(int 55, int 0, var &VAR_10, int 355)
@@ -210,8 +210,8 @@ switch(var VAR_0)
 
 ._SCRIPT_5
 var VAR_0 = int 0
-call func_bc(var &VAR_42)
-call func_bc(var &VAR_43)
+call reload_char(var &VAR_42)
+call reload_char(var &VAR_43)
 if(call ! func_bf(int 0, gamevar CURRENT_LEVEL, gamevar CURRENT_SCENE))
  {
 		call func_9a(var &VAR_17, int 45, int 0, int 0)

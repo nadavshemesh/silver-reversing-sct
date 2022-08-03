@@ -267,10 +267,10 @@ if(gamevar !is_room_cleared)
 }
 
 ._SCRIPT_3
-call func_bc(var &VAR_42)
-call func_bc(var &VAR_43)
-call func_bc(var &VAR_44)
-call func_bc(var &VAR_45)
+call reload_char(var &VAR_42)
+call reload_char(var &VAR_43)
+call reload_char(var &VAR_44)
+call reload_char(var &VAR_45)
 var VAR_46 = call create_enemy(int 192, int 0, var &VAR_54, int 260)
 var VAR_47 = call create_enemy(int 192, int 1, var &VAR_55, int 215)
 var VAR_48 = call create_enemy(int 190, int 2, var &VAR_56, int 190)
@@ -347,11 +347,11 @@ call set_char_anim_seq(var VAR_79, var &VAR_81)
 call play_char_anim_seq(var VAR_79)
 
 ._SCRIPT_7
-call func_bc(var &VAR_105)
-call func_bc(var &VAR_106)
-call func_bc(var &VAR_107)
-call func_bc(var &VAR_108)
-call func_bc(var &VAR_109)
+call reload_char(var &VAR_105)
+call reload_char(var &VAR_106)
+call reload_char(var &VAR_107)
+call reload_char(var &VAR_108)
+call reload_char(var &VAR_109)
 
 ._SCRIPT_8
 if(var VAR_111 == int 0)
@@ -640,11 +640,11 @@ if(var VAR_110 == int 5)
 var VAR_112 ++ 
 
 ._SCRIPT_14
-call func_bc(var &VAR_120)
-call func_bc(var &VAR_121)
-call func_bc(var &VAR_122)
-call func_bc(var &VAR_123)
-call func_bc(var &VAR_124)
+call reload_char(var &VAR_120)
+call reload_char(var &VAR_121)
+call reload_char(var &VAR_122)
+call reload_char(var &VAR_123)
+call reload_char(var &VAR_124)
 
 ._SCRIPT_15
 if(var VAR_125 == int 0)
@@ -687,7 +687,7 @@ if(gamevar *psys_p+1)
 ._SCRIPT_17
 gamevar global_inventory_p = var &VAR_126
 call create_char(var &VAR_38, var &VAR_127, int 125, int 14)
-call func_bc(var &VAR_137)
+call reload_char(var &VAR_137)
 
 ._SCRIPT_18
 if(call func_ed(int 63))
@@ -742,10 +742,10 @@ var VAR_24 = int 15
 execute SCRIPT_23
 
 ._SCRIPT_21
-call func_bc(var &VAR_146)
-call func_bc(var &VAR_147)
-call func_bc(var &VAR_148)
-call func_bc(var &VAR_149)
+call reload_char(var &VAR_146)
+call reload_char(var &VAR_147)
+call reload_char(var &VAR_148)
+call reload_char(var &VAR_149)
 call log(var &VAR_150)
 var VAR_151 = call func_6f()
 if(var VAR_151 == int 0)
@@ -820,7 +820,7 @@ gamevar *character_stats_p+15 = int 30000
 gamevar script_object = var VAR_19
 gamevar *character_stats_p+16 = int 30000
 var VAR_16 = call randomize_int(int 0, int 6)
-call func_bc(var &VAR_28)
+call reload_char(var &VAR_28)
 switch(var VAR_23)
  {
 		case 0

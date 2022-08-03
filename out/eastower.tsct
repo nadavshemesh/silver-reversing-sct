@@ -85,7 +85,7 @@ switch(gamevar room_state)
 			execute SCRIPT_9
 			break 
 }
-call func_bc(var &VAR_42)
+call reload_char(var &VAR_42)
 
 ._SCRIPT_1
 execute SCRIPT_3
@@ -211,7 +211,7 @@ var VAR_45 = call load_anim(var &VAR_61)
 var VAR_0 = call get_char_handle(int 65536)
 var VAR_1 = call get_char_handle(int 393216)
 call func_108(var &VAR_62)
-call func_bc(var &VAR_63)
+call reload_char(var &VAR_63)
 
 ._SCRIPT_8
 
@@ -367,22 +367,22 @@ var VAR_6 = call func_66(gamevar control_char_p)
 switch(var VAR_6)
  {
 		case 65536
-			call func_10d(var &VAR_7, var &VAR_8, gamevar chronicler_variation)
+			call load_dialog_by_number(var &VAR_7, var &VAR_8, gamevar chronicler_variation)
 			break 
 		case 786432
-			call func_10d(var &VAR_9, var &VAR_10, gamevar chronicler_variation)
+			call load_dialog_by_number(var &VAR_9, var &VAR_10, gamevar chronicler_variation)
 			break 
 		case 262144
-			call func_10d(var &VAR_11, var &VAR_12, gamevar chronicler_variation)
+			call load_dialog_by_number(var &VAR_11, var &VAR_12, gamevar chronicler_variation)
 			break 
 		case 327680
-			call func_10d(var &VAR_13, var &VAR_14, gamevar chronicler_variation)
+			call load_dialog_by_number(var &VAR_13, var &VAR_14, gamevar chronicler_variation)
 			break 
 		case 131072
-			call func_10d(var &VAR_15, var &VAR_16, gamevar chronicler_variation)
+			call load_dialog_by_number(var &VAR_15, var &VAR_16, gamevar chronicler_variation)
 			break 
 		case 196608
-			call func_10d(var &VAR_17, var &VAR_18, gamevar chronicler_variation)
+			call load_dialog_by_number(var &VAR_17, var &VAR_18, gamevar chronicler_variation)
 			break 
 }
 
@@ -391,21 +391,21 @@ var VAR_28 = call func_66(gamevar control_char_p)
 switch(var VAR_28)
  {
 		case 65536
-			var VAR_4 = call func_6e(var &VAR_29, var &VAR_30)
+			var VAR_4 = call load_next_dialog(var &VAR_29, var &VAR_30)
 			break 
 		case 786432
-			var VAR_4 = call func_6e(var &VAR_31, var &VAR_32)
+			var VAR_4 = call load_next_dialog(var &VAR_31, var &VAR_32)
 			break 
 		case 262144
-			var VAR_4 = call func_6e(var &VAR_33, var &VAR_34)
+			var VAR_4 = call load_next_dialog(var &VAR_33, var &VAR_34)
 			break 
 		case 327680
-			var VAR_4 = call func_6e(var &VAR_35, var &VAR_36)
+			var VAR_4 = call load_next_dialog(var &VAR_35, var &VAR_36)
 			break 
 		case 131072
-			var VAR_4 = call func_6e(var &VAR_37, var &VAR_38)
+			var VAR_4 = call load_next_dialog(var &VAR_37, var &VAR_38)
 			break 
 		case 196608
-			var VAR_4 = call func_6e(var &VAR_39, var &VAR_40)
+			var VAR_4 = call load_next_dialog(var &VAR_39, var &VAR_40)
 			break 
 }

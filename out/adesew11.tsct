@@ -64,7 +64,7 @@ call load_sound(int 33)
 call play_loaded_sound(int 1, int -1, int 30, int 0)
 var VAR_4 = call play_loaded_sound(int 2, int -1, int 33, int 0)
 call set_sound_volume(var VAR_4, int 32)
-call func_bc(var &VAR_31)
+call reload_char(var &VAR_31)
 switch(gamevar room_state)
  {
 		case 1
@@ -112,7 +112,7 @@ switch(gamevar room_state)
 }
 
 ._SCRIPT_3
-call func_bc(var &VAR_32)
+call reload_char(var &VAR_32)
 
 ._SCRIPT_4
 if(var ! VAR_13&&call func_8a(var &VAR_6))

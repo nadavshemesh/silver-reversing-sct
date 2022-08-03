@@ -322,7 +322,7 @@ switch(var VAR_39)
 			gamevar *object_p+6 |= int 8388608
 			var VAR_86 = call get_char_handle(int 65536)
 			gamevar script_object = var VAR_86
-			var VAR_85 = gamevar *character_stats_p+1
+			var VAR_85 = gamevar LEVEL
 			call func_10a(var VAR_21, var VAR_85)
 			var VAR_22 = call create_char(var &VAR_30, var &VAR_88, int 80, int 13)
 			gamevar script_object = var VAR_22
@@ -471,9 +471,9 @@ switch(var VAR_39)
 			gamevar script_object = var VAR_24
 			gamevar *object_p+8 |= int 4194304
 			gamevar script_object = var VAR_23
-			gamevar *character_stats_p+3 = gamevar *character_stats_p+3 * int 4
+			gamevar DEXTERITY = gamevar DEXTERITY * int 4
 			gamevar script_object = var VAR_24
-			gamevar *character_stats_p+3 = gamevar *character_stats_p+3 * int 4
+			gamevar DEXTERITY = gamevar DEXTERITY * int 4
 			call func_3e(var VAR_13)
 			execute SCRIPT_15
 			call func_c7(var VAR_23, var VAR_13)
@@ -1232,62 +1232,62 @@ if(var VAR_15 == call get_selected_hero()&&var VAR_15)
 
 ._SCRIPT_15
 gamevar script_object = var VAR_13
-var VAR_187 = gamevar *character_stats_p+7
-var VAR_191 = gamevar *character_stats_p+3
-gamevar *character_stats_p+3 = gamevar *character_stats_p+3 * int 4
+var VAR_187 = gamevar HP
+var VAR_191 = gamevar DEXTERITY
+gamevar DEXTERITY = gamevar DEXTERITY * int 4
 gamevar script_object = var VAR_14
-var VAR_188 = gamevar *character_stats_p+7
-var VAR_192 = gamevar *character_stats_p+3
-gamevar *character_stats_p+3 = gamevar *character_stats_p+3 * int 4
+var VAR_188 = gamevar HP
+var VAR_192 = gamevar DEXTERITY
+gamevar DEXTERITY = gamevar DEXTERITY * int 4
 if(var VAR_15)
  {
 		gamevar script_object = var VAR_15
-		var VAR_189 = gamevar *character_stats_p+7
-		var VAR_193 = gamevar *character_stats_p+3
+		var VAR_189 = gamevar HP
+		var VAR_193 = gamevar DEXTERITY
 }
-gamevar *character_stats_p+3 = gamevar *character_stats_p+3 * int 4
+gamevar DEXTERITY = gamevar DEXTERITY * int 4
 gamevar script_object = var VAR_21
-var VAR_190 = gamevar *character_stats_p+7
-var VAR_194 = gamevar *character_stats_p+3
-gamevar *character_stats_p+3 = gamevar *character_stats_p+3 * int 4
+var VAR_190 = gamevar HP
+var VAR_194 = gamevar DEXTERITY
+gamevar DEXTERITY = gamevar DEXTERITY * int 4
 
 ._SCRIPT_16
 gamevar script_object = var VAR_13
-gamevar *character_stats_p+7 = int 100000
+gamevar HP = int 100000
 gamevar script_object = var VAR_14
-gamevar *character_stats_p+7 = int 100000
+gamevar HP = int 100000
 if(var VAR_15)
  {
 		gamevar script_object = var VAR_15
-		gamevar *character_stats_p+7 = int 100000
+		gamevar HP = int 100000
 }
 gamevar script_object = var VAR_23
-gamevar *character_stats_p+7 = int 100000
+gamevar HP = int 100000
 gamevar script_object = var VAR_24
-gamevar *character_stats_p+7 = int 100000
+gamevar HP = int 100000
 gamevar script_object = var VAR_21
-gamevar *character_stats_p+7 = int 100000
+gamevar HP = int 100000
 
 ._SCRIPT_17
 gamevar script_object = var VAR_13
-gamevar *character_stats_p+7 = var VAR_187
-gamevar *character_stats_p+3 = var VAR_191
+gamevar HP = var VAR_187
+gamevar DEXTERITY = var VAR_191
 gamevar script_object = var VAR_14
-gamevar *character_stats_p+7 = var VAR_188
-gamevar *character_stats_p+3 = var VAR_192
+gamevar HP = var VAR_188
+gamevar DEXTERITY = var VAR_192
 if(var VAR_15)
  {
 		gamevar script_object = var VAR_15
-		gamevar *character_stats_p+7 = var VAR_189
-		gamevar *character_stats_p+3 = var VAR_193
+		gamevar HP = var VAR_189
+		gamevar DEXTERITY = var VAR_193
 }
 gamevar script_object = var VAR_21
-gamevar *character_stats_p+7 = var VAR_190
-gamevar *character_stats_p+3 = var VAR_194
+gamevar HP = var VAR_190
+gamevar DEXTERITY = var VAR_194
 gamevar script_object = var VAR_23
-gamevar *character_stats_p+7 = int 100000
+gamevar HP = int 100000
 gamevar script_object = var VAR_24
-gamevar *character_stats_p+7 = int 100000
+gamevar HP = int 100000
 
 ._SCRIPT_18
 var VAR_195 = call func_66(var VAR_13)

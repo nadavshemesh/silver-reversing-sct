@@ -213,8 +213,8 @@ switch(var VAR_71)
 					if(var VAR_54)
 					 {
 							gamevar script_object = var VAR_54
-							var VAR_73 = gamevar *character_stats_p+7
-							gamevar *character_stats_p+7 = int 1
+							var VAR_73 = gamevar HP
+							gamevar HP = int 1
 							call func_1e(var VAR_59, var VAR_54)
 					}
 			}
@@ -227,8 +227,8 @@ switch(var VAR_71)
 					if(var VAR_55)
 					 {
 							gamevar script_object = var VAR_55
-							var VAR_74 = gamevar *character_stats_p+7
-							gamevar *character_stats_p+7 = int 1
+							var VAR_74 = gamevar HP
+							gamevar HP = int 1
 							call func_1e(var VAR_59, var VAR_55)
 					}
 					var VAR_72 = int 0
@@ -304,7 +304,7 @@ switch(var VAR_71)
 					if(var VAR_54)
 					 {
 							gamevar script_object = var VAR_54
-							gamevar *character_stats_p+7 = var VAR_73
+							gamevar HP = var VAR_73
 							gamevar *character_stats_p+27 &= int -5
 							gamevar script_object = var VAR_54
 							gamevar *object_p+6 &= int -6710681
@@ -312,7 +312,7 @@ switch(var VAR_71)
 					if(var VAR_55)
 					 {
 							gamevar script_object = var VAR_55
-							gamevar *character_stats_p+7 = var VAR_74
+							gamevar HP = var VAR_74
 							gamevar *character_stats_p+27 &= int -5
 							gamevar script_object = var VAR_55
 							gamevar *object_p+6 &= int -6710681
@@ -334,7 +334,7 @@ switch(var VAR_71)
 							call play_char_anim(var VAR_55, var VAR_65, int 5)
 					}
 					gamevar script_object = var VAR_57
-					var VAR_82 = gamevar *character_stats_p+1
+					var VAR_82 = gamevar LEVEL
 					var VAR_0 = var VAR_82 + int 1
 					execute SCRIPT_11
 					call play_bgm(var &VAR_88)

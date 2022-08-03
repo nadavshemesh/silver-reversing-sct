@@ -169,8 +169,19 @@ void init_game_vars(game_var** game_vars) {
     game_vars[112] = init_gv(112, "psys_p", "-", 0x04, 0x0C, 0x00, 0x04);
     game_vars[113] = init_gv(113, "chr_body_p", "-", 0x04, 0x01, 0x00, 0x18);
 
-    game_vars[114] = init_gv_room_state();
-    game_vars[115] = init_gv_room_cleared();
+    // naming char attributes
+    game_vars[114] = init_gv(114, "STRENGTH", "-", 0x04, 0x03, 0x08, 0x04);
+    game_vars[115] = init_gv(115, "DEXTERITY", "-", 0x04, 0x03, 0x0c, 0x04);
+    game_vars[116] = init_gv(116, "RANGED", "-", 0x04, 0x03, 0x10, 0x04);
+    game_vars[117] = init_gv(117, "WISDOM", "-", 0x04, 0x03, 0x14, 0x04);
+    game_vars[118] = init_gv(118, "CONSTITUTION", "-", 0x04, 0x03, 0x18, 0x04);
+    game_vars[119] = init_gv(119, "HP", "-", 0x04, 0x03, 0x1c, 0x04);
+    game_vars[120] = init_gv(120, "MAGIC", "-", 0x04, 0x03, 0x20, 0x04);
+    game_vars[121] = init_gv(121, "ARMOUR_CLASS", "-", 0x04, 0x03, 0x2c, 0x04);
+    game_vars[122] = init_gv(122, "LEVEL", "-", 0x04, 0x03, 0x04, 0x04);
+
+    game_vars[123] = init_gv_room_state();
+    game_vars[124] = init_gv_room_cleared();
 }
 
 game_var* get_game_var_by_offsets(int first_offset, int second_offset, int third_offset) {

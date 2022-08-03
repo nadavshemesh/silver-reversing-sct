@@ -104,9 +104,9 @@ VAR_101	"init imp sound"
 
 ._SCRIPT_0
 call func_124()
-call load_sound(int 64)
+call load_sound_set(int 64)
 call play_loaded_sound(int 1, int -1, int 64, int 0)
-call load_sound(int 39)
+call load_sound_set(int 39)
 if(gamevar is_room_cleared)
  {
 		execute SCRIPT_18
@@ -403,7 +403,7 @@ var VAR_75 = call load_anim(var &VAR_82)
 var VAR_76 = call load_anim(var &VAR_83)
 execute SCRIPT_17
 gamevar *scene_info_p+4 |= int 16
-call load_sound(int 52)
+call load_sound_set(int 52)
 execute SCRIPT_3
 
 ._SCRIPT_15

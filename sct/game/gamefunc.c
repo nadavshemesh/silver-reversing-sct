@@ -72,7 +72,7 @@ void init_game_functions(game_fun** functions_arr) {
     functions_arr[0xb7]->name = aapts("load_anim");
     functions_arr[0xb7]->params = 1;
     functions_arr[0xb7]->desc = aapts("(var anim_name_ptr)");
-    functions_arr[0xbd]->name = aapts("load_sound");
+    functions_arr[0xbd]->name = aapts("load_sound_set");
     functions_arr[0xbd]->params = 1;
     functions_arr[0xbd]->desc = aapts("(int sound_num)");
     functions_arr[0xc8]->name = aapts("play_bgm");
@@ -110,7 +110,7 @@ void init_game_functions(game_fun** functions_arr) {
     functions_arr[0x81]->desc = aapts("()");
     functions_arr[0x06]->name = aapts("put_item_in_char_inv");
     functions_arr[0x06]->params = 4;
-    functions_arr[0x06]->desc = aapts("(int is_equiped, int is_dropped, int item_type, var char_ptr)");
+    functions_arr[0x06]->desc = aapts("(var char_ptr, int item_type, int is_equiped, int is_dropped)");
     functions_arr[0xa4]->name = aapts("eval");
     functions_arr[0xa4]->params = 2;
     functions_arr[0xa4]->desc = aapts("(var runtime_script_ptr , int unknown)");

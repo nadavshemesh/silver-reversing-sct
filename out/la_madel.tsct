@@ -75,15 +75,15 @@ VAR_72	0
 
 ._SCRIPT_0
 execute SCRIPT_9
-call load_sound(int 30)
+call load_sound_set(int 30)
 call play_loaded_sound(int 1, int -1, int 30, int 0)
-call load_sound(int 64)
+call load_sound_set(int 64)
 var VAR_40 = call play_loaded_sound(int 1, int -1, int 64, int 0)
 if(var VAR_40)
  {
 		call set_sound_volume(var VAR_40, int 14)
 }
-call load_sound(int 65)
+call load_sound_set(int 65)
 call play_loaded_sound(int 5, int -1, int 65, int 0)
 call func_b8(int 94)
 if(gamevar is_room_cleared)
@@ -203,7 +203,7 @@ switch(var VAR_42)
 var VAR_43 ++ 
 
 ._SCRIPT_4
-call load_sound(int 1)
+call load_sound_set(int 1)
 var VAR_44 = call func_6f()
 gamevar SMACKER_X = int 364
 gamevar SMACKER_Y = int 60

@@ -131,18 +131,18 @@ var VAR_1 = call create_char(var &VAR_18, var &VAR_19, int 240, int 13)
 gamevar script_object = var VAR_1
 gamevar *object_p+6 |= int 8388608
 call func_50(var VAR_1, int 8192)
-call func_107(var VAR_1, var &VAR_2)
+call set_char_anim_seq(var VAR_1, var &VAR_2)
 
 ._SCRIPT_4
 switch(var VAR_33)
  {
 		case 0
-			call func_111(int 2)
+			call set_input_system(int 2)
 			var VAR_45 = int 0
 			var VAR_44 = call func_70()
 			while(var VAR_44)
 			 {
-					call func_20(var VAR_44)
+					call play_char_anim_seq(var VAR_44)
 					call char_walk_to_pos(var VAR_44, @VAR_49[var VAR_45])
 					var VAR_44 = call func_7e()
 					var VAR_45 ++ 
@@ -156,7 +156,7 @@ switch(var VAR_33)
 		case 2
 			if(var VAR_35)
 			 {
-					call func_111(int 1)
+					call set_input_system(int 1)
 					var VAR_33 ++ 
 			}
 			break 
@@ -178,7 +178,7 @@ var VAR_34 = call create_enemy(int 58, int 0, var &VAR_36, int 35)
 call put_item_in_char_inv(var VAR_34, int 34, int 1, int 0)
 call freeze_enemy(var VAR_34)
 call func_50(var VAR_34, int 8192)
-call func_107(var VAR_34, var &VAR_39)
+call set_char_anim_seq(var VAR_34, var &VAR_39)
 gamevar script_object = var VAR_34
 gamevar *character_stats_p+15 = int 8000
 gamevar script_object = var VAR_34
@@ -199,7 +199,7 @@ var VAR_60 = call randomize_int(int 0, int 3)
 if(var ! VAR_60)
  {
 		var VAR_61 = call randomize_int(int 0, int 3)
-		call func_cd(var &VAR_62)
+		call log(var &VAR_62)
 		switch(var VAR_61)
 		 {
 				case 0
@@ -215,7 +215,7 @@ if(var ! VAR_60)
 }
 else
  {
-		call func_cd(var &VAR_63)
+		call log(var &VAR_63)
 }
 
 ._SCRIPT_9
@@ -234,9 +234,9 @@ call func_3f()
 var VAR_20 = call create_char(var &VAR_21, var &VAR_26, int 200, int 16)
 var VAR_22 = call create_char(var &VAR_23, var &VAR_27, int 75, int 16)
 var VAR_24 = call create_char(var &VAR_25, var &VAR_28, int 75, int 16)
-call func_4f(var VAR_20, int 13)
-call func_107(var VAR_20, var &VAR_29)
-call func_4f(var VAR_22, int 13)
-call func_107(var VAR_22, var &VAR_30)
-call func_4f(var VAR_24, int 13)
-call func_107(var VAR_24, var &VAR_31)
+call set_char_init_state(var VAR_20, int 13)
+call set_char_anim_seq(var VAR_20, var &VAR_29)
+call set_char_init_state(var VAR_22, int 13)
+call set_char_anim_seq(var VAR_22, var &VAR_30)
+call set_char_init_state(var VAR_24, int 13)
+call set_char_anim_seq(var VAR_24, var &VAR_31)

@@ -99,14 +99,14 @@ if(gamevar !is_room_cleared)
 					}
 					else
 					 {
-							if(call func_16(int 1507328))
+							if(call is_char_exist(int 1507328))
 							 {
 									if(var VAR_1)
 									 {
 											call remove_char(var VAR_1)
 									}
 							}
-							if(call func_16(int 1507330))
+							if(call is_char_exist(int 1507330))
 							 {
 									if(var VAR_2)
 									 {
@@ -128,7 +128,7 @@ if(gamevar !is_room_cleared)
 }
 
 ._SCRIPT_3
-call func_f4(var &VAR_5, var &VAR_3, var &VAR_4, int 0)
+call play_3d_fx(var &VAR_5, var &VAR_3, var &VAR_4, int 0)
 
 ._SCRIPT_4
 var VAR_6 = call func_70()
@@ -136,7 +136,7 @@ var VAR_7 = call func_7e()
 var VAR_8 = call func_7e()
 var VAR_9 = call func_7e()
 execute SCRIPT_9
-call func_cd(var &VAR_19)
+call log(var &VAR_19)
 
 ._SCRIPT_5
 if(gamevar script_time > var VAR_45)
@@ -162,11 +162,11 @@ switch(var VAR_38)
 					call func_f6(gamevar char_gen_fx_scripts, int 10, int 0, var VAR_2)
 					var VAR_40 = call eval(var &VAR_30, int 1)
 					var VAR_38 = int 2
-					call func_d5()
+					call reset_local_timer()
 			}
 			break 
 		case 2
-			if(call func_129(int 20))
+			if(call is_local_timer_greater_than(int 20))
 			 {
 					call remove_char(var VAR_1)
 					call remove_char(var VAR_2)
@@ -311,4 +311,4 @@ while(@VAR_6[var VAR_16])
 ._SCRIPT_15
 
 ._SCRIPT_16
-call func_cd(var &VAR_43)
+call log(var &VAR_43)

@@ -43,7 +43,7 @@ call load_sound(int 64)
 var VAR_0 = call play_loaded_sound(int 1, int -1, int 64, int 0)
 if(var VAR_0)
  {
-		call func_11c(var VAR_0, int 14)
+		call set_sound_volume(var VAR_0, int 14)
 }
 call load_sound(int 65)
 call play_loaded_sound(int 5, int -1, int 65, int 0)
@@ -68,10 +68,10 @@ else
 }
 gamevar SMACKER_X = int 192
 gamevar SMACKER_Y = int 80
-call func_a0(var &VAR_1, int 1, int 1, int 0)
+call play_2d_anim(var &VAR_1, int 1, int 1, int 0)
 gamevar SMACKER_X = int 672
 gamevar SMACKER_Y = int 88
-call func_a0(var &VAR_2, int 1, int 1, int 0)
+call play_2d_anim(var &VAR_2, int 1, int 1, int 0)
 call load_sound(int 30)
 call play_loaded_sound(int 1, int -1, int 30, int 0)
 

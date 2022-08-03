@@ -57,7 +57,7 @@ call load_sound(int 64)
 var VAR_0 = call play_loaded_sound(int 1, int -1, int 64, int 0)
 if(var VAR_0)
  {
-		call func_11c(var VAR_0, int 14)
+		call set_sound_volume(var VAR_0, int 14)
 }
 call load_sound(int 65)
 call play_loaded_sound(int 5, int -1, int 65, int 0)
@@ -125,19 +125,19 @@ if(gamevar !is_room_cleared)
 ._SCRIPT_3
 gamevar SMACKER_X = int 144
 gamevar SMACKER_Y = int 288
-call func_a0(var &VAR_2, int 1, int 1, int 0)
+call play_2d_anim(var &VAR_2, int 1, int 1, int 0)
 gamevar SMACKER_X = int 192
 gamevar SMACKER_Y = int 120
-call func_a0(var &VAR_3, int 1, int 1, int 0)
+call play_2d_anim(var &VAR_3, int 1, int 1, int 0)
 gamevar SMACKER_X = int 312
 gamevar SMACKER_Y = int 80
-call func_a0(var &VAR_4, int 1, int 1, int 0)
+call play_2d_anim(var &VAR_4, int 1, int 1, int 0)
 gamevar SMACKER_X = int 432
 gamevar SMACKER_Y = int 120
-call func_a0(var &VAR_5, int 1, int 1, int 0)
+call play_2d_anim(var &VAR_5, int 1, int 1, int 0)
 gamevar SMACKER_X = int 528
 gamevar SMACKER_Y = int 160
-call func_a0(var &VAR_6, int 1, int 1, int 0)
+call play_2d_anim(var &VAR_6, int 1, int 1, int 0)
 
 ._SCRIPT_4
 switch(var VAR_35)
@@ -231,8 +231,8 @@ call func_bc(var &VAR_9)
 var VAR_12 = call create_enemy(int 148, int 0, var &VAR_13, int 80)
 call freeze_enemy(var VAR_12)
 call func_50(var VAR_12, int 8193)
-call func_107(var VAR_12, var &VAR_14)
-call func_20(var VAR_12)
+call set_char_anim_seq(var VAR_12, var &VAR_14)
+call play_char_anim_seq(var VAR_12)
 execute SCRIPT_6
 call func_b8(int 69)
 
@@ -253,7 +253,7 @@ call put_item_in_char_inv(var VAR_33, int 43, int 1, int 0)
 ._SCRIPT_9
 
 ._SCRIPT_10
-call func_cd(var &VAR_38)
+call log(var &VAR_38)
 call func_bc(var &VAR_39)
 call func_bc(var &VAR_40)
 if(call func_6f() == int 0)

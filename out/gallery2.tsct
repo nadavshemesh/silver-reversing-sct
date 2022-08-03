@@ -53,10 +53,10 @@ VAR_48	"gallery1"
 call load_sound(int 71)
 call load_sound(int 46)
 var VAR_2 = call play_loaded_sound(int 3, int -1, int 46, int 0)
-call func_11c(var VAR_2, int 4)
+call set_sound_volume(var VAR_2, int 4)
 gamevar SMACKER_X = int 200
 gamevar SMACKER_Y = int 312
-call func_a0(var &VAR_4, int 0, int 1, var &VAR_3)
+call play_2d_anim(var &VAR_4, int 0, int 1, var &VAR_3)
 switch(gamevar room_state)
  {
 		case 1
@@ -107,16 +107,16 @@ switch(var VAR_6)
 			var VAR_5 ++ 
 			if(var VAR_5 > int 50)
 			 {
-					call func_cd(var &VAR_37)
-					call func_cd(var &VAR_38)
+					call log(var &VAR_37)
+					call log(var &VAR_38)
 					var VAR_6 ++ 
 					call func_46(var VAR_17, int 13)
 					call func_f6(gamevar misc_fx_scripts, int 7, int 0, int 0)
 					call func_b3(var VAR_17, var &VAR_16)
 					var VAR_3 = int 1
 					call func_ec(int 1, int -1, int 71, var &VAR_0)
-					call func_f4(var &VAR_39, var &VAR_0, int 0, int 0)
-					call func_f4(var &VAR_40, var &VAR_1, int 0, int 0)
+					call play_3d_fx(var &VAR_39, var &VAR_0, int 0, int 0)
+					call play_3d_fx(var &VAR_40, var &VAR_1, int 0, int 0)
 			}
 			break 
 		case 2
@@ -127,7 +127,7 @@ switch(var VAR_6)
 					 {
 							call func_18(var VAR_19, int -1905, int -825, int 475)
 							var VAR_6 ++ 
-							call func_111(int 1)
+							call set_input_system(int 1)
 					}
 			}
 			break 
@@ -157,7 +157,7 @@ call func_f1(var VAR_9, int 5)
 gamevar script_object = var VAR_9
 gamevar *object_p+6 |= int 1
 call func_49()
-call func_111(int 2)
+call set_input_system(int 2)
 var VAR_12 = call create_char(var &VAR_13, var &VAR_21, int 85, int 13)
 gamevar script_object = var VAR_12
 gamevar *object_p+6 |= int 1
@@ -171,14 +171,14 @@ gamevar *object_p+6 |= int 1
 var VAR_17 = call create_char(var &VAR_18, var &VAR_24, int 0, int 13)
 var VAR_25 = call load_anim(var &VAR_26)
 var VAR_19 = call create_char(var &VAR_20, var &VAR_27, int 180, int 13)
-call func_4f(var VAR_14, int 13)
-call func_107(var VAR_14, var &VAR_28)
-call func_4f(var VAR_12, int 13)
-call func_107(var VAR_12, var &VAR_31)
-call func_4f(var VAR_10, int 13)
-call func_107(var VAR_10, var &VAR_32)
-call func_4f(var VAR_17, int 13)
-call func_107(var VAR_17, var &VAR_33)
+call set_char_init_state(var VAR_14, int 13)
+call set_char_anim_seq(var VAR_14, var &VAR_28)
+call set_char_init_state(var VAR_12, int 13)
+call set_char_anim_seq(var VAR_12, var &VAR_31)
+call set_char_init_state(var VAR_10, int 13)
+call set_char_anim_seq(var VAR_10, var &VAR_32)
+call set_char_init_state(var VAR_17, int 13)
+call set_char_anim_seq(var VAR_17, var &VAR_33)
 var VAR_34 = call put_item_in_char_inv(var VAR_17, int 61, int 1, int 0)
 
 ._SCRIPT_5

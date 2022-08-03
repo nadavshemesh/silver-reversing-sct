@@ -32,7 +32,7 @@ call load_sound(int 65)
 call play_loaded_sound(int 5, int -1, int 65, int 0)
 gamevar SMACKER_X = int 224
 gamevar SMACKER_Y = int 188
-call func_a0(var &VAR_3, int 1, int 1, int 0)
+call play_2d_anim(var &VAR_3, int 1, int 1, int 0)
 switch(gamevar room_state)
  {
 		case 1
@@ -117,7 +117,7 @@ if(var VAR_16 == int 0)
  {
 		if(call func_8a(var &VAR_11))
 		 {
-				call func_cd(var &VAR_17)
+				call log(var &VAR_17)
 				var VAR_4 = call eval(var &VAR_6, int 10)
 				call func_a5(var &VAR_10, int 5)
 				var VAR_2 = int 1
@@ -130,7 +130,7 @@ if(var VAR_16 == int 1)
 		if(call func_122(var VAR_4) == int 0&&call get_num_of_enemies() < int 3&&var VAR_15 > int 100)
 		 {
 				var VAR_4 = call eval(var &VAR_7, int 1)
-				call func_cd(var &VAR_18)
+				call log(var &VAR_18)
 				var VAR_16 ++ 
 				var VAR_15 = int 0
 		}

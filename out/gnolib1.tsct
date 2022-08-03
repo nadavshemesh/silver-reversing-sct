@@ -158,7 +158,7 @@ gamevar script_object = var VAR_7
 gamevar *character_movement_p+60 = int 1
 gamevar *character_movement_p+53 = int 0
 gamevar *character_stats_p+14 = int 106000
-call func_111(int 2)
+call set_input_system(int 2)
 var VAR_0 = call get_char_handle(int 65536)
 call freeze_enemy(var VAR_9)
 call freeze_enemy(var VAR_8)
@@ -180,12 +180,12 @@ call func_50(var VAR_21, int 8192)
 call func_50(var VAR_22, int 8192)
 call func_50(var VAR_23, int 8192)
 call func_50(var VAR_24, int 8192)
-call func_107(var VAR_19, var &VAR_32)
-call func_107(var VAR_20, var &VAR_34)
-call func_107(var VAR_21, var &VAR_36)
-call func_107(var VAR_22, var &VAR_38)
-call func_107(var VAR_23, var &VAR_40)
-call func_107(var VAR_24, var &VAR_42)
+call set_char_anim_seq(var VAR_19, var &VAR_32)
+call set_char_anim_seq(var VAR_20, var &VAR_34)
+call set_char_anim_seq(var VAR_21, var &VAR_36)
+call set_char_anim_seq(var VAR_22, var &VAR_38)
+call set_char_anim_seq(var VAR_23, var &VAR_40)
+call set_char_anim_seq(var VAR_24, var &VAR_42)
 
 ._SCRIPT_6
 switch(var VAR_11)
@@ -204,19 +204,19 @@ switch(var VAR_11)
 					call func_100(call func_6a(var VAR_3))
 					var VAR_11 ++ 
 					gamevar scene_counter = int 0
-					call func_111(int 1)
+					call set_input_system(int 1)
 			}
 			break 
 }
-if(call func_16(int 917512))
+if(call is_char_exist(int 917512))
  {
 		execute SCRIPT_8
 }
-if(call func_16(int 917513))
+if(call is_char_exist(int 917513))
  {
 		execute SCRIPT_9
 }
-if(call func_16(int 1769472))
+if(call is_char_exist(int 1769472))
  {
 		execute SCRIPT_7
 }
@@ -232,7 +232,7 @@ switch(var VAR_49)
 		case 1
 			if(var VAR_50 > int 20)
 			 {
-					call func_20(var VAR_7)
+					call play_char_anim_seq(var VAR_7)
 					call func_18(var VAR_7, int -3340, int -397, int -8485)
 					var VAR_50 = int 0
 					var VAR_49 ++ 
@@ -250,7 +250,7 @@ switch(var VAR_49)
 		case 3
 			if(var VAR_50 > int 200)
 			 {
-					call func_20(var VAR_7)
+					call play_char_anim_seq(var VAR_7)
 					call func_2b(var VAR_7, int 0)
 					var VAR_50 = int 0
 					var VAR_49 ++ 
@@ -269,27 +269,27 @@ switch(var VAR_49)
 			 {
 					call func_12f(var VAR_51)
 					call remove_char(var VAR_7)
-					if(call func_16(int 917505))
+					if(call is_char_exist(int 917505))
 					 {
 							call set_char_behav(var VAR_19, int 102)
 					}
-					if(call func_16(int 917506))
+					if(call is_char_exist(int 917506))
 					 {
 							call set_char_behav(var VAR_20, int 102)
 					}
-					if(call func_16(int 917507))
+					if(call is_char_exist(int 917507))
 					 {
 							call set_char_behav(var VAR_21, int 101)
 					}
-					if(call func_16(int 917508))
+					if(call is_char_exist(int 917508))
 					 {
 							call set_char_behav(var VAR_22, int 101)
 					}
-					if(call func_16(int 917509))
+					if(call is_char_exist(int 917509))
 					 {
 							call set_char_behav(var VAR_23, int 100)
 					}
-					if(call func_16(int 917510))
+					if(call is_char_exist(int 917510))
 					 {
 							call set_char_behav(var VAR_24, int 100)
 					}
@@ -326,7 +326,7 @@ switch(var VAR_46)
 					}
 					else
 					 {
-							call func_20(var VAR_9)
+							call play_char_anim_seq(var VAR_9)
 							call char_walk_to_pos(var VAR_9, var &VAR_47)
 							call set_char_behav(var VAR_8, int 104)
 							call func_106(var VAR_8, int 9, int 5, var &VAR_16)
@@ -366,11 +366,11 @@ switch(var VAR_52)
 			}
 			else
 			 {
-					if(call func_16(int 393216))
+					if(call is_char_exist(int 393216))
 					 {
 							if(call func_127(var VAR_1))
 							 {
-									call func_35(var VAR_3, call func_67(var VAR_1))
+									call char_turn_to_pos(var VAR_3, call func_67(var VAR_1))
 									var VAR_52 ++ 
 									var VAR_53 = int 0
 							}
@@ -380,7 +380,7 @@ switch(var VAR_52)
 		case 1
 			if(call get_input_sys() != int 4)
 			 {
-					call func_35(var VAR_3, var &VAR_54)
+					call char_turn_to_pos(var VAR_3, var &VAR_54)
 					var VAR_52 ++ 
 					var VAR_53 = int 0
 			}
@@ -403,7 +403,7 @@ var VAR_53 ++
 var VAR_3 = call create_char(var &VAR_4, var &VAR_5, int 90, int 13)
 gamevar script_object = var VAR_3
 gamevar *object_p+6 |= int 67108864
-if(call func_16(int 393216))
+if(call is_char_exist(int 393216))
  {
 		var VAR_1 = call get_char_handle(int 393216)
 }

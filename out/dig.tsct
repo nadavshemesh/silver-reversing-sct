@@ -129,7 +129,7 @@ if(gamevar !is_room_cleared)
 }
 
 ._SCRIPT_3
-var VAR_21 = call func_f4(var &VAR_22, var &VAR_20, int 0, int 0)
+var VAR_21 = call play_3d_fx(var &VAR_22, var &VAR_20, int 0, int 0)
 call func_e(var &VAR_20)
 call play_loaded_sound(int 198, int -1, int 0, var &VAR_20)
 
@@ -168,7 +168,7 @@ switch(var VAR_27)
 			 {
 					if(call func_30(int 6))
 					 {
-							call func_111(int 2)
+							call set_input_system(int 2)
 							var VAR_19 = int 1
 							var VAR_29 = call get_char_handle(int 65536)
 							var VAR_30 = call func_70()
@@ -183,7 +183,7 @@ switch(var VAR_27)
 							}
 							else
 							 {
-									call func_20(var VAR_29)
+									call play_char_anim_seq(var VAR_29)
 									call func_23(var VAR_29, var VAR_30, int 200)
 									var VAR_27 ++ 
 									var VAR_28 = int 0
@@ -200,8 +200,8 @@ switch(var VAR_27)
 			break 
 		case 2
 			execute SCRIPT_13
-			call func_35(var VAR_29, call func_67(var VAR_30))
-			call func_35(var VAR_30, call func_67(var VAR_29))
+			call char_turn_to_pos(var VAR_29, call func_67(var VAR_30))
+			call char_turn_to_pos(var VAR_30, call func_67(var VAR_29))
 			if(var VAR_0)
 			 {
 					call start_dialog(var &VAR_32, var &VAR_33)
@@ -216,7 +216,7 @@ switch(var VAR_27)
 		case 3
 			if(call get_input_sys() != int 4)
 			 {
-					call func_111(int 1)
+					call set_input_system(int 1)
 					var VAR_27 ++ 
 					var VAR_28 = int 0
 			}
@@ -253,15 +253,15 @@ if(var VAR_1 == int 8)
 		call func_117(var &VAR_5, var &VAR_6, int 0)
 		call func_118(var &VAR_7, var &VAR_8, int 1)
 		var VAR_0 = int 1
-		call func_cd(var &VAR_9)
+		call log(var &VAR_9)
 }
 else
  {
-		call func_cd(var &VAR_10)
+		call log(var &VAR_10)
 }
 
 ._SCRIPT_14
-var VAR_11 = call func_16(int 1507337)
+var VAR_11 = call is_char_exist(int 1507337)
 if(var ! VAR_11)
  {
 		var VAR_11 = call create_char(var VAR_12, var &VAR_17, var VAR_13, int 14)

@@ -111,14 +111,14 @@ var VAR_14 = call create_enemy(int 152, int 0, var &VAR_5, int 250)
 var VAR_15 = call create_enemy(int 65, int 0, var &VAR_6, int 230)
 call put_item_in_char_inv(var VAR_14, int 85, int 3277313, int 0)
 call create_enemy(int 152, int 0, var &VAR_7, int 265)
-call func_d5()
+call reset_local_timer()
 var VAR_1 = int 30
 var VAR_0 = int 1
 
 ._SCRIPT_6
 if(var VAR_1)
  {
-		if(call ! func_129(var VAR_1))
+		if(call ! is_local_timer_greater_than(var VAR_1))
 		 {
 				exit_script 
 		}
@@ -132,7 +132,7 @@ var VAR_0 = int 1
 ._SCRIPT_8
 if(var VAR_1)
  {
-		if(call ! func_129(var VAR_1))
+		if(call ! is_local_timer_greater_than(var VAR_1))
 		 {
 				exit_script 
 		}

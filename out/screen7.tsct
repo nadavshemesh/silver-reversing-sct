@@ -96,10 +96,10 @@ if(gamevar !is_room_cleared)
 ._SCRIPT_3
 gamevar SMACKER_X = int 180
 gamevar SMACKER_Y = int 132
-call func_a0(var &VAR_11, int 1, int 1, int 0)
+call play_2d_anim(var &VAR_11, int 1, int 1, int 0)
 gamevar SMACKER_X = int 312
 gamevar SMACKER_Y = int 140
-call func_a0(var &VAR_12, int 1, int 1, int 0)
+call play_2d_anim(var &VAR_12, int 1, int 1, int 0)
 
 ._SCRIPT_4
 
@@ -126,7 +126,7 @@ if(call ! func_af(int 34))
 }
 
 ._SCRIPT_10
-var VAR_0 = call func_16(int 1507337)
+var VAR_0 = call is_char_exist(int 1507337)
 if(var ! VAR_0)
  {
 		var VAR_0 = call create_char(var VAR_1, var &VAR_6, var VAR_2, int 14)

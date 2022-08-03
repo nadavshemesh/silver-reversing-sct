@@ -96,12 +96,12 @@ if(var VAR_1)
 		}
 		else
 		 {
-				call func_cd(var &VAR_7)
+				call log(var &VAR_7)
 				call func_b4(var VAR_3)
 				var VAR_1 = int 0
 				if(var VAR_5 == int 1)
 				 {
-						call func_125(var VAR_6)
+						call stop_playing_sound(var VAR_6)
 				}
 				var VAR_5 -- 
 		}
@@ -113,12 +113,12 @@ if(var VAR_2)
 		}
 		else
 		 {
-				call func_cd(var &VAR_8)
+				call log(var &VAR_8)
 				call func_b4(var VAR_4)
 				var VAR_2 = int 0
 				if(var VAR_5 == int 1)
 				 {
-						call func_125(var VAR_6)
+						call stop_playing_sound(var VAR_6)
 				}
 				var VAR_5 -- 
 		}
@@ -151,10 +151,10 @@ if(gamevar !is_room_cleared)
 ._SCRIPT_3
 gamevar SMACKER_X = int 176
 gamevar SMACKER_Y = int 80
-call func_a0(var &VAR_9, int 1, int 1, int 0)
+call play_2d_anim(var &VAR_9, int 1, int 1, int 0)
 gamevar SMACKER_X = int 552
 gamevar SMACKER_Y = int 188
-call func_a0(var &VAR_10, int 1, int 1, int 0)
+call play_2d_anim(var &VAR_10, int 1, int 1, int 0)
 
 ._SCRIPT_4
 if(gamevar script_time > var VAR_25)
@@ -189,7 +189,7 @@ switch(var VAR_23)
 		case 1
 			if(var VAR_24 > int 100)
 			 {
-					if(call ! func_16(int 12648448))
+					if(call ! is_char_exist(int 12648448))
 					 {
 							var VAR_15 = call func_96(int 171, int 0, int 2, int 2)
 							call func_106(var VAR_15, int 2, int 1, var &VAR_20)

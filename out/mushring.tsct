@@ -63,7 +63,7 @@ call load_sound(int 65)
 var VAR_0 = call play_loaded_sound(int 7, int -1, int 65, int 0)
 if(var VAR_0)
  {
-		call func_11c(var VAR_0, int 5)
+		call set_sound_volume(var VAR_0, int 5)
 }
 call load_sound(int 68)
 call play_loaded_sound(int 1, int -1, int 68, var &VAR_2)
@@ -131,7 +131,7 @@ if(gamevar script_time > var VAR_49)
 		var VAR_50 = call play_loaded_sound(int 2, int 0, int 65, int 0)
 		if(var VAR_50)
 		 {
-				call func_11c(var VAR_50, int 7)
+				call set_sound_volume(var VAR_50, int 7)
 		}
 }
 
@@ -142,12 +142,12 @@ switch(var VAR_11)
 			if(gamevar room_state == int 1)
 			 {
 					var VAR_12 = int 1
-					call func_cd(var &VAR_20)
+					call log(var &VAR_20)
 			}
 			else
 			 {
 					var VAR_12 = int 0
-					call func_cd(var &VAR_21)
+					call log(var &VAR_21)
 			}
 			var VAR_11 ++ 
 			var VAR_10 = int 0
@@ -156,11 +156,11 @@ switch(var VAR_11)
 			call func_d8(int 0, var &VAR_13)
 			call func_7(int 0, var VAR_14, var VAR_15, var VAR_16)
 			var VAR_17 = var VAR_14
-			call func_cd(var &VAR_22)
-			call func_cd(var &VAR_23)
+			call log(var &VAR_22)
+			call log(var &VAR_23)
 			call func_ce(var VAR_17)
-			call func_cd(var &VAR_24)
-			call func_cd(var &VAR_25)
+			call log(var &VAR_24)
+			call log(var &VAR_25)
 			var VAR_11 ++ 
 			var VAR_10 = int 0
 			break 
@@ -168,8 +168,8 @@ switch(var VAR_11)
 			var VAR_18 = gamevar script_time - var VAR_17
 			if(var VAR_18 >= int 7200)
 			 {
-					call func_cd(var &VAR_26)
-					var VAR_1 = call func_f4(var &VAR_27, var &VAR_4, var &VAR_4, int 0)
+					call log(var &VAR_26)
+					var VAR_1 = call play_3d_fx(var &VAR_27, var &VAR_4, var &VAR_4, int 0)
 					var VAR_11 ++ 
 					var VAR_10 = int 0
 					break 
@@ -179,8 +179,8 @@ switch(var VAR_11)
 					var VAR_12 = int 0
 					var VAR_11 ++ 
 					var VAR_10 = int 0
-					var VAR_1 = call func_f4(var &VAR_28, var &VAR_4, var &VAR_4, int 0)
-					call func_cd(var &VAR_29)
+					var VAR_1 = call play_3d_fx(var &VAR_28, var &VAR_4, var &VAR_4, int 0)
+					call log(var &VAR_29)
 			}
 			break 
 		case 3
@@ -194,12 +194,12 @@ switch(var VAR_11)
 					}
 					if(gamevar *character_stats_p+7 < gamevar *character_stats_p+9)
 					 {
-							call func_cd(var &VAR_30)
-							call func_cd(var &VAR_31)
+							call log(var &VAR_30)
+							call log(var &VAR_31)
 							call func_ce(var VAR_18)
-							call func_cd(var &VAR_32)
-							call func_cd(var &VAR_33)
-							call func_111(int 2)
+							call log(var &VAR_32)
+							call log(var &VAR_33)
+							call set_input_system(int 2)
 							call char_walk_to_pos(var VAR_9, var &VAR_4)
 							var VAR_11 ++ 
 							var VAR_10 = int 0
@@ -207,12 +207,12 @@ switch(var VAR_11)
 					}
 					if(gamevar *character_stats_p+8 < gamevar *character_stats_p+10)
 					 {
-							call func_cd(var &VAR_34)
-							call func_cd(var &VAR_35)
+							call log(var &VAR_34)
+							call log(var &VAR_35)
 							call func_ce(var VAR_18)
-							call func_cd(var &VAR_36)
-							call func_cd(var &VAR_37)
-							call func_111(int 2)
+							call log(var &VAR_36)
+							call log(var &VAR_37)
+							call set_input_system(int 2)
 							call char_walk_to_pos(var VAR_9, var &VAR_4)
 							var VAR_11 ++ 
 							var VAR_10 = int 0
@@ -223,7 +223,7 @@ switch(var VAR_11)
 		case 4
 			if(call is_char_standing(var VAR_9))
 			 {
-					call func_35(var VAR_9, var &VAR_19)
+					call char_turn_to_pos(var VAR_9, var &VAR_19)
 					var VAR_11 ++ 
 					var VAR_10 = int 0
 			}
@@ -233,13 +233,13 @@ switch(var VAR_11)
 			 {
 					call play_bgm(var &VAR_38)
 					call func_7(int 0, gamevar script_time, int 0, int 0)
-					call func_cd(var &VAR_39)
-					call func_cd(var &VAR_40)
+					call log(var &VAR_39)
+					call log(var &VAR_40)
 					call func_ce(gamevar script_time)
-					call func_cd(var &VAR_41)
-					call func_cd(var &VAR_42)
+					call log(var &VAR_41)
+					call log(var &VAR_42)
 					call play_char_anim(var VAR_9, var VAR_3, int 0)
-					call func_f4(var &VAR_43, var &VAR_4, var &VAR_4, var VAR_9)
+					call play_3d_fx(var &VAR_43, var &VAR_4, var &VAR_4, var VAR_9)
 					call func_12f(var VAR_1)
 					var VAR_1 = int 0
 					var VAR_11 ++ 
@@ -258,7 +258,7 @@ switch(var VAR_11)
 		case 7
 			if(var VAR_10 == int 60)
 			 {
-					call func_111(int 1)
+					call set_input_system(int 1)
 					call func_12(var VAR_9)
 					var VAR_11 = int 1
 					var VAR_10 = int 0
@@ -269,9 +269,9 @@ var VAR_10 ++
 
 ._SCRIPT_5
 var VAR_3 = call load_anim(var &VAR_5)
-call func_f4(var &VAR_6, var &VAR_4, var &VAR_4, int 0)
+call play_3d_fx(var &VAR_6, var &VAR_4, var &VAR_4, int 0)
 call func_7(int 0, int 0, int 0, int 0)
 
 ._SCRIPT_6
 var VAR_3 = call load_anim(var &VAR_7)
-call func_f4(var &VAR_8, var &VAR_4, var &VAR_4, int 0)
+call play_3d_fx(var &VAR_8, var &VAR_4, var &VAR_4, int 0)

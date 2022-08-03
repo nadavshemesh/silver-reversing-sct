@@ -98,7 +98,7 @@ call play_loaded_sound(int 1, int -1, int 30, int 0)
 ._SCRIPT_5
 gamevar SMACKER_X = int 200
 gamevar SMACKER_Y = int 104
-call func_a0(var &VAR_8, int 1, int 1, int 0)
+call play_2d_anim(var &VAR_8, int 1, int 1, int 0)
 
 ._SCRIPT_6
 execute SCRIPT_11
@@ -107,22 +107,22 @@ switch(var VAR_36)
 		case 0
 			if(call func_d1(var &VAR_37)||call func_8a(var &VAR_37))
 			 {
-					if(call func_16(int 7667714))
+					if(call is_char_exist(int 7667714))
 					 {
 							call set_char_behav(var VAR_24, int 130)
 					}
-					if(call func_16(int 7667715))
+					if(call is_char_exist(int 7667715))
 					 {
 							call set_char_behav(var VAR_26, int 130)
 					}
-					if(call func_16(int 7667716))
+					if(call is_char_exist(int 7667716))
 					 {
 							call set_char_behav(var VAR_28, int 130)
 					}
-					if(call func_16(int 11862017))
+					if(call is_char_exist(int 11862017))
 					 {
 							call func_50(var VAR_22, int 8192)
-							call func_107(var VAR_22, var &VAR_33)
+							call set_char_anim_seq(var VAR_22, var &VAR_33)
 					}
 					var VAR_36 ++ 
 					var VAR_35 = int 0
@@ -150,7 +150,7 @@ call eval(var &VAR_30, int 0)
 ._SCRIPT_8
 
 ._SCRIPT_9
-var VAR_0 = call func_16(int 1507337)
+var VAR_0 = call is_char_exist(int 1507337)
 if(var ! VAR_0)
  {
 		var VAR_0 = call create_char(var VAR_1, var &VAR_6, var VAR_2, int 14)

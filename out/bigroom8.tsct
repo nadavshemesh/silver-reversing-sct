@@ -106,7 +106,7 @@ if(gamevar !is_room_cleared)
 ._SCRIPT_3
 if(var VAR_25 == int 0)
  {
-		call func_cd(var &VAR_27)
+		call log(var &VAR_27)
 		execute SCRIPT_5
 		var VAR_25 ++ 
 		var VAR_26 = int 0
@@ -117,7 +117,7 @@ if(var VAR_25 == int 1)
 		 {
 				call remove_char(var VAR_6)
 				var VAR_18 = call func_a5(var &VAR_22, int 1)
-				call func_cd(var &VAR_28)
+				call log(var &VAR_28)
 				execute SCRIPT_6
 				var VAR_26 = int 0
 				var VAR_25 ++ 
@@ -127,7 +127,7 @@ if(var VAR_25 == int 2)
  {
 		if(call func_8a(var &VAR_20))
 		 {
-				call func_cd(var &VAR_29)
+				call log(var &VAR_29)
 				execute SCRIPT_7
 				var VAR_25 ++ 
 		}
@@ -138,7 +138,7 @@ if(var VAR_25 == int 3)
 		var VAR_18 = call func_a5(var &VAR_24, int 1)
 		if(call func_8a(var &VAR_20))
 		 {
-				call func_cd(var &VAR_30)
+				call log(var &VAR_30)
 				var VAR_25 ++ 
 		}
 }
@@ -182,11 +182,11 @@ call put_item_in_char_inv(var VAR_10, int 37, int 1, int 0)
 ._SCRIPT_13
 gamevar SMACKER_X = int 660
 gamevar SMACKER_Y = int 152
-call func_a0(var &VAR_2, int 1, int 1, int 0)
+call play_2d_anim(var &VAR_2, int 1, int 1, int 0)
 gamevar SMACKER_X = int 876
 gamevar SMACKER_Y = int 140
-call func_a0(var &VAR_3, int 1, int 1, int 0)
-var VAR_4 = call func_f4(var &VAR_5, var &VAR_1, int 0, int 0)
+call play_2d_anim(var &VAR_3, int 1, int 1, int 0)
+var VAR_4 = call play_3d_fx(var &VAR_5, var &VAR_1, int 0, int 0)
 call func_ec(int 198, int -1, int 0, var &VAR_1)
 
 ._SCRIPT_14

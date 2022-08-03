@@ -75,7 +75,7 @@ if(gamevar script_time > var VAR_16)
 ._SCRIPT_4
 if(var VAR_1)
  {
-		if(call ! func_129(var VAR_1))
+		if(call ! is_local_timer_greater_than(var VAR_1))
 		 {
 				exit_script 
 		}
@@ -114,7 +114,7 @@ if(var VAR_0 == int 4)
 		call eval(var &VAR_8, int 10)
 		var VAR_0 = int 5
 		var VAR_1 = int 30
-		call func_d5()
+		call reset_local_timer()
 		exit_script 
 }
 if(var VAR_0 == int 5)
@@ -126,7 +126,7 @@ if(var VAR_0 == int 5)
 		call eval(var &VAR_9, int 10)
 		var VAR_0 = int 6
 		var VAR_1 = int 30
-		call func_d5()
+		call reset_local_timer()
 		exit_script 
 }
 if(var VAR_0 == int 6)
@@ -138,31 +138,31 @@ if(var VAR_0 == int 6)
 		var VAR_7 = call func_96(int 65, int 0, int 1, int 0)
 		call func_18(var VAR_7, int 837, int 3425, int 691)
 		var VAR_0 = int 7
-		call func_d5()
+		call reset_local_timer()
 		var VAR_1 = int 30
 		exit_script 
 }
 if(var VAR_0 == int 7)
  {
-		if(call func_16(int 8454144))
+		if(call is_char_exist(int 8454144))
 		 {
 				if(call ! is_char_standing(var VAR_7))
 				 {
 						exit_script 
 				}
 		}
-		call func_d5()
+		call reset_local_timer()
 		var VAR_1 = int 30
 		var VAR_0 = int 8
 		exit_script 
 }
 if(var VAR_0 == int 8)
  {
-		if(call func_16(int 8454144))
+		if(call is_char_exist(int 8454144))
 		 {
 				call play_char_anim(var VAR_7, var VAR_11, int 0)
 		}
-		call func_d5()
+		call reset_local_timer()
 		var VAR_1 = int 30
 		var VAR_0 = int 9
 		exit_script 
@@ -170,7 +170,7 @@ if(var VAR_0 == int 8)
 if(var VAR_0 == int 9)
  {
 		call eval(var &VAR_10, int 10)
-		call func_d5()
+		call reset_local_timer()
 		var VAR_1 = int 30
 		var VAR_0 = int 10
 		exit_script 
@@ -180,14 +180,14 @@ if(var VAR_0 == int 9)
 call func_bc(var &VAR_13)
 call func_bc(var &VAR_14)
 var VAR_11 = call load_anim(var &VAR_15)
-call func_d5()
+call reset_local_timer()
 var VAR_1 = int 30
 var VAR_0 = int 1
 
 ._SCRIPT_6
 if(var VAR_1)
  {
-		if(call ! func_129(var VAR_1))
+		if(call ! is_local_timer_greater_than(var VAR_1))
 		 {
 				exit_script 
 		}
@@ -201,7 +201,7 @@ var VAR_0 = int 1
 ._SCRIPT_8
 if(var VAR_1)
  {
-		if(call ! func_129(var VAR_1))
+		if(call ! is_local_timer_greater_than(var VAR_1))
 		 {
 				exit_script 
 		}

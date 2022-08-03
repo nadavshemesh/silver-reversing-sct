@@ -52,7 +52,7 @@ call play_loaded_sound(int 5, int -1, int 65, int 0)
 execute SCRIPT_4
 gamevar SMACKER_X = int 0
 gamevar SMACKER_Y = int 660
-call func_a0(var &VAR_1, int 1, int 1, int 0)
+call play_2d_anim(var &VAR_1, int 1, int 1, int 0)
 switch(gamevar room_state)
  {
 		case 1
@@ -131,8 +131,8 @@ switch(var VAR_5)
 call func_bc(var &VAR_7)
 var VAR_11 = call create_enemy(int 34, int 0, var &VAR_12, int 200)
 call func_106(var VAR_11, int 1, int 0, int 1)
-call func_4f(var VAR_11, int 13)
-call func_107(var VAR_11, var &VAR_13)
+call set_char_init_state(var VAR_11, int 13)
+call set_char_anim_seq(var VAR_11, var &VAR_13)
 gamevar script_object = var VAR_11
 gamevar *character_stats_p+15 = int 1000
 
@@ -142,7 +142,7 @@ if(var VAR_15 == int 0)
 		var VAR_25 = call func_70()
 		if(call is_char_at_pos(var VAR_25, var &VAR_16, int 320))
 		 {
-				call func_111(int 2)
+				call set_input_system(int 2)
 				var VAR_15 ++ 
 				while(var VAR_25)
 				 {
@@ -169,7 +169,7 @@ if(var VAR_15 == int 2)
 		var VAR_25 = call func_70()
 		while(var VAR_25)
 		 {
-				call func_20(var VAR_25)
+				call play_char_anim_seq(var VAR_25)
 				call char_walk_to_pos(var VAR_25, @VAR_21[var VAR_26])
 				var VAR_26 ++ 
 				var VAR_25 = call func_7e()
@@ -184,7 +184,7 @@ if(var VAR_15 == int 3)
 		 {
 				var VAR_14 = int 0
 				var VAR_15 ++ 
-				call func_111(int 1)
+				call set_input_system(int 1)
 				var VAR_26 = int 0
 		}
 }
@@ -193,11 +193,11 @@ if(var VAR_15 == int 4)
 		var VAR_25 = call func_72()
 		if(call is_char_at_pos(var VAR_25, var &VAR_16, int 240))
 		 {
-				call func_111(int 2)
+				call set_input_system(int 2)
 				var VAR_25 = call func_70()
 				while(var VAR_25)
 				 {
-						call func_20(var VAR_25)
+						call play_char_anim_seq(var VAR_25)
 						call char_walk_to_pos(var VAR_25, @VAR_24[var VAR_26])
 						var VAR_26 ++ 
 						var VAR_27 = var VAR_26

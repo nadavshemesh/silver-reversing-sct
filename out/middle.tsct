@@ -148,7 +148,7 @@ var VAR_1 = call create_char(var &VAR_14, var &VAR_28, int -130, int 13)
 gamevar script_object = var VAR_1
 gamevar *character_movement_p+60 = int 1
 var VAR_3 = call load_anim(var &VAR_29)
-call func_111(int 2)
+call set_input_system(int 2)
 call freeze_enemy(var VAR_6)
 call freeze_enemy(var VAR_7)
 call freeze_enemy(var VAR_8)
@@ -183,10 +183,10 @@ switch(var VAR_2)
 			 {
 					gamevar script_object = var VAR_1
 					gamevar *character_stats_p+14 = int 106000
-					call func_20(var VAR_1)
+					call play_char_anim_seq(var VAR_1)
 					call func_2b(var VAR_1, int 3)
 					var VAR_4 = call func_41(var VAR_1, int 0)
-					call func_111(int 1)
+					call set_input_system(int 1)
 					gamevar scene_counter = int 0
 					var VAR_2 ++ 
 			}

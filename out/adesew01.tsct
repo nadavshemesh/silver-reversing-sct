@@ -106,7 +106,7 @@ var VAR_0 = int 0
 switch(var VAR_0)
  {
 		case 0
-			if(call func_16(int 10551298))
+			if(call is_char_exist(int 10551298))
 			 {
 					if(call func_88(var VAR_7))
 					 {
@@ -114,10 +114,10 @@ switch(var VAR_0)
 							var VAR_9 = call create_enemy(int 182, int 4, var &VAR_21, int 90)
 							call freeze_enemy(var VAR_8)
 							call freeze_enemy(var VAR_9)
-							call func_107(var VAR_8, var &VAR_29)
-							call func_107(var VAR_9, var &VAR_30)
-							call func_4f(var VAR_8, int 13)
-							call func_4f(var VAR_9, int 13)
+							call set_char_anim_seq(var VAR_8, var &VAR_29)
+							call set_char_anim_seq(var VAR_9, var &VAR_30)
+							call set_char_init_state(var VAR_8, int 13)
+							call set_char_init_state(var VAR_9, int 13)
 							var VAR_0 ++ 
 					}
 			}
@@ -127,7 +127,7 @@ switch(var VAR_0)
 			}
 			break 
 		case 1
-			if(call ! func_16(int 10551296)&&call ! func_16(int 10551297)&&call ! func_16(int 10551298)&&call ! func_16(int 10551299)&&call ! func_16(int 10551300))
+			if(call ! is_char_exist(int 10551296)&&call ! is_char_exist(int 10551297)&&call ! is_char_exist(int 10551298)&&call ! is_char_exist(int 10551299)&&call ! is_char_exist(int 10551300))
 			 {
 					var VAR_10 = call create_enemy(int 70, int 0, var &VAR_22, int 120)
 					var VAR_11 = call create_enemy(int 70, int 1, var &VAR_23, int 80)
@@ -141,7 +141,7 @@ switch(var VAR_0)
 		case 2
 			if(call get_num_of_enemies() < int 3)
 			 {
-					if(call ! func_16(int 10485760)&&call ! func_16(int 10485761))
+					if(call ! is_char_exist(int 10485760)&&call ! is_char_exist(int 10485761))
 					 {
 							var VAR_14 = call create_enemy(int 113, int 3, var &VAR_26, int 194)
 							call func_106(var VAR_14, int 9, int 5, var &VAR_28)

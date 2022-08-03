@@ -133,8 +133,8 @@ var VAR_18 = call create_enemy(int 30, int 0, var &VAR_54, int 342)
 var VAR_19 = call create_enemy(int 31, int 0, var &VAR_55, int 350)
 call func_46(var VAR_18, int 0)
 call func_46(var VAR_19, int 0)
-call func_4f(var VAR_17, int 13)
-call func_107(var VAR_17, var &VAR_21)
+call set_char_init_state(var VAR_17, int 13)
+call set_char_anim_seq(var VAR_17, var &VAR_21)
 call put_item_in_char_inv(var VAR_19, int 42, int 1, int 0)
 gamevar script_object = var VAR_17
 gamevar *character_movement_p+60 = int 1
@@ -145,7 +145,7 @@ gamevar *object_p+6 |= int 67108864
 switch(var VAR_56)
  {
 		case 0
-			call func_111(int 2)
+			call set_input_system(int 2)
 			execute SCRIPT_6
 			var VAR_57 = int 80
 			var VAR_56 ++ 
@@ -158,10 +158,10 @@ switch(var VAR_56)
 			}
 			else
 			 {
-					call func_4f(var VAR_18, int 13)
-					call func_4f(var VAR_19, int 13)
-					call func_107(var VAR_18, var &VAR_28)
-					call func_107(var VAR_19, var &VAR_25)
+					call set_char_init_state(var VAR_18, int 13)
+					call set_char_init_state(var VAR_19, int 13)
+					call set_char_anim_seq(var VAR_18, var &VAR_28)
+					call set_char_anim_seq(var VAR_19, var &VAR_25)
 					var VAR_56 ++ 
 			}
 			break 
@@ -174,8 +174,8 @@ switch(var VAR_56)
 			 {
 					if(var VAR_4)
 					 {
-							call func_111(int 1)
-							if(call func_16(int 2097152))
+							call set_input_system(int 1)
+							if(call is_char_exist(int 2097152))
 							 {
 									call func_115(var VAR_17, var &VAR_24)
 							}
@@ -192,7 +192,7 @@ switch(var VAR_56)
 			else
 			 {
 					var VAR_20 = call func_96(int 28, int 0, int 1, int 0)
-					call func_20(var VAR_20)
+					call play_char_anim_seq(var VAR_20)
 					call func_19(var VAR_20, call func_72())
 					var VAR_56 ++ 
 			}
@@ -245,8 +245,8 @@ else
 ._SCRIPT_9
 
 ._SCRIPT_10
-call func_cd(var &VAR_49)
-call func_f4(var &VAR_52, var &VAR_50, var &VAR_51, int 0)
+call log(var &VAR_49)
+call play_3d_fx(var &VAR_52, var &VAR_50, var &VAR_51, int 0)
 execute SCRIPT_11
 
 ._SCRIPT_11
@@ -254,13 +254,13 @@ call load_sound(int 25)
 call play_loaded_sound(int 1, int -1, int 25, int 0)
 var VAR_33 = call play_loaded_sound(int 3, int -1, int 25, int 0)
 var VAR_32 = int 70
-call func_11c(var VAR_33, var VAR_32)
+call set_sound_volume(var VAR_33, var VAR_32)
 var VAR_31 = int 1
 
 ._SCRIPT_12
 if(var ! VAR_31)
  {
-		call func_cd(var &VAR_39)
+		call log(var &VAR_39)
 		exit_script 
 }
 switch(var VAR_35)
@@ -280,7 +280,7 @@ switch(var VAR_35)
 					if(var VAR_38 == int 0)
 					 {
 							var VAR_32 += var VAR_37
-							call func_11c(var VAR_33, var VAR_32)
+							call set_sound_volume(var VAR_33, var VAR_32)
 					}
 			}
 			else
@@ -303,7 +303,7 @@ switch(var VAR_35)
 					if(var VAR_38)
 					 {
 							var VAR_32 -= var VAR_37
-							call func_11c(var VAR_33, var VAR_32)
+							call set_sound_volume(var VAR_33, var VAR_32)
 					}
 			}
 			else
@@ -330,7 +330,7 @@ switch(var VAR_40)
 			if(var VAR_41 > var VAR_42)
 			 {
 					var VAR_43 = call play_loaded_sound(int 4, int 0, int 25, int 0)
-					call func_11c(var VAR_43, call randomize_int(int 100, int 201))
+					call set_sound_volume(var VAR_43, call randomize_int(int 100, int 201))
 					call func_11a(var VAR_43, call randomize_int(int 0, int 128))
 					if(var ! VAR_34)
 					 {
@@ -361,15 +361,15 @@ switch(var VAR_44)
 			break 
 		case 1
 			var VAR_45 = int 0
-			call func_d5()
+			call reset_local_timer()
 			var VAR_47 = call randomize_int(int 400, int 601)
 			var VAR_44 ++ 
 			break 
 		case 2
-			if(call func_129(var VAR_47))
+			if(call is_local_timer_greater_than(var VAR_47))
 			 {
 					call func_f6(gamevar misc_fx_scripts, int 6, int 0, int 0)
-					call func_d5()
+					call reset_local_timer()
 					var VAR_48 = int 255
 					var VAR_47 = call randomize_int(int 1, int 31)
 					var VAR_45 = int 0
@@ -377,11 +377,11 @@ switch(var VAR_44)
 			}
 			break 
 		case 3
-			if(call func_129(var VAR_47))
+			if(call is_local_timer_greater_than(var VAR_47))
 			 {
 					var VAR_48 -= int 4 * var VAR_47
 					var VAR_46 = call play_loaded_sound(int 5, int 0, int 25, int 0)
-					call func_11c(var VAR_46, var VAR_48)
+					call set_sound_volume(var VAR_46, var VAR_48)
 					var VAR_47 = int 255 - var VAR_48
 					var VAR_45 = int 0
 					var VAR_44 ++ 
@@ -391,7 +391,7 @@ switch(var VAR_44)
 			if(var VAR_45 > var VAR_47)
 			 {
 					var VAR_46 = call play_loaded_sound(int 4, int 0, int 25, int 0)
-					call func_11c(var VAR_46, var VAR_48)
+					call set_sound_volume(var VAR_46, var VAR_48)
 					if(var ! VAR_34)
 					 {
 							var VAR_34 = int 1

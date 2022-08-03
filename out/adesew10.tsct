@@ -37,7 +37,7 @@ call load_sound(int 36)
 call play_loaded_sound(int 2, int -1, int 36, int 0)
 gamevar SMACKER_X = int 272
 gamevar SMACKER_Y = int 72
-var VAR_3 = call func_a0(var &VAR_26, int 1, int 1, var &VAR_5)
+var VAR_3 = call play_2d_anim(var &VAR_26, int 1, int 1, var &VAR_5)
 if(call func_bf(int 0, gamevar CURRENT_LEVEL, gamevar CURRENT_SCENE))
  {
 		var VAR_1 = int 1
@@ -52,7 +52,7 @@ if(var VAR_1)
 		call func_4e(int 0)
 		if(var VAR_8 == int 1)
 		 {
-				call func_111(int 2)
+				call set_input_system(int 2)
 				execute SCRIPT_6
 				var VAR_7 = int 30
 		}
@@ -64,7 +64,7 @@ if(var VAR_1)
 		var VAR_4 = int 1
 		gamevar SMACKER_X = int 328
 		gamevar SMACKER_Y = int 368
-		var VAR_2 = call func_a0(var &VAR_27, int 0, int 1, var &VAR_4)
+		var VAR_2 = call play_2d_anim(var &VAR_27, int 0, int 1, var &VAR_4)
 }
 else
  {
@@ -72,7 +72,7 @@ else
 		var VAR_4 = int 0
 		gamevar SMACKER_X = int 328
 		gamevar SMACKER_Y = int 368
-		var VAR_2 = call func_a0(var &VAR_28, int -2147483, int 1, var &VAR_4)
+		var VAR_2 = call play_2d_anim(var &VAR_28, int -2147483, int 1, var &VAR_4)
 }
 if(var VAR_8 == int 1)
  {
@@ -101,7 +101,7 @@ if(var VAR_7 > int 1)
 }
 if(var VAR_7 == int 1)
  {
-		call func_111(int 1)
+		call set_input_system(int 1)
 		execute SCRIPT_7
 		call play_loaded_sound(int 1, int 0, int 36, int 0)
 		var VAR_7 = int 0
@@ -127,8 +127,8 @@ if(var VAR_8 == int 0)
  {
 		var VAR_9 = call func_96(int 45, int 0, int 2, int 0)
 		var VAR_12 = call func_96(int 45, int 1, int 2, int 0)
-		call func_20(var VAR_9)
-		call func_20(var VAR_12)
+		call play_char_anim_seq(var VAR_9)
+		call play_char_anim_seq(var VAR_12)
 		call func_106(var VAR_9, int 9, int 5, var &VAR_10)
 		call func_106(var VAR_12, int 9, int 5, var &VAR_13)
 		call char_walk_to_pos(var VAR_9, var &VAR_10)
@@ -143,8 +143,8 @@ else
  {
 		var VAR_9 = call func_96(int 45, int 0, int 0, int 0)
 		var VAR_12 = call func_96(int 45, int 1, int 0, int 0)
-		call func_20(var VAR_9)
-		call func_20(var VAR_12)
+		call play_char_anim_seq(var VAR_9)
+		call play_char_anim_seq(var VAR_12)
 		call func_106(var VAR_9, int 9, int 5, var &VAR_11)
 		call func_106(var VAR_12, int 9, int 5, var &VAR_14)
 		call char_walk_to_pos(var VAR_9, var &VAR_11)
@@ -160,7 +160,7 @@ call func_1(var VAR_9, int 1)
 call func_1(var VAR_12, int 1)
 
 ._SCRIPT_4
-if(call ! func_16(int 10485760))
+if(call ! is_char_exist(int 10485760))
  {
 		var VAR_9 = int 0
 }
@@ -172,7 +172,7 @@ if(var VAR_9)
 				var VAR_9 = int 0
 		}
 }
-if(call ! func_16(int 10485761))
+if(call ! is_char_exist(int 10485761))
  {
 		var VAR_12 = int 0
 }

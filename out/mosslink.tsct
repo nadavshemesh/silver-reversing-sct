@@ -112,7 +112,7 @@ switch(var VAR_13)
 					var VAR_19 = call create_enemy(int 39, int 1, var &VAR_26, int 226)
 					call freeze_enemy(var VAR_19)
 					call func_50(var VAR_19, int 8192)
-					call func_107(var VAR_19, var &VAR_23)
+					call set_char_anim_seq(var VAR_19, var &VAR_23)
 					call func_106(var VAR_19, int 9, int 5, var &VAR_22)
 					call func_106(var VAR_19, int 9, int 6, int 6)
 					gamevar script_object = var VAR_19
@@ -128,7 +128,7 @@ switch(var VAR_13)
 					var VAR_20 = call create_enemy(int 39, int 2, var &VAR_26, int 226)
 					call freeze_enemy(var VAR_20)
 					call func_50(var VAR_20, int 8192)
-					call func_107(var VAR_20, var &VAR_24)
+					call set_char_anim_seq(var VAR_20, var &VAR_24)
 					call func_106(var VAR_20, int 9, int 5, var &VAR_22)
 					call func_106(var VAR_20, int 9, int 6, int 6)
 					gamevar script_object = var VAR_20
@@ -140,7 +140,7 @@ switch(var VAR_13)
 					var VAR_21 = call create_enemy(int 39, int 3, var &VAR_26, int 226)
 					call freeze_enemy(var VAR_21)
 					call func_50(var VAR_21, int 8192)
-					call func_107(var VAR_21, var &VAR_25)
+					call set_char_anim_seq(var VAR_21, var &VAR_25)
 					call func_106(var VAR_21, int 9, int 5, var &VAR_22)
 					call func_106(var VAR_21, int 9, int 6, int 6)
 					gamevar script_object = var VAR_21
@@ -159,8 +159,8 @@ var VAR_5 = call create_enemy(int 40, int 0, var &VAR_7, int 60)
 call put_item_in_char_inv(var VAR_4, int 62, int 1, int 0)
 call func_50(var VAR_4, int 8192)
 call func_50(var VAR_5, int 8192)
-call func_107(var VAR_4, var &VAR_8)
-call func_107(var VAR_5, var &VAR_9)
+call set_char_anim_seq(var VAR_4, var &VAR_8)
+call set_char_anim_seq(var VAR_5, var &VAR_9)
 call func_106(var VAR_4, int 3, int 1, var &VAR_10)
 call func_bc(var &VAR_11)
 call func_bc(var &VAR_12)
@@ -180,16 +180,16 @@ if(gamevar room_state != int 1)
  {
 		gamevar SMACKER_X = int 360
 		gamevar SMACKER_Y = int 216
-		call func_a0(var &VAR_0, int 0, int 1, int 0)
+		call play_2d_anim(var &VAR_0, int 0, int 1, int 0)
 }
 gamevar SMACKER_X = int 140
 gamevar SMACKER_Y = int 196
-call func_a0(var &VAR_1, int 1, int 1, int 0)
+call play_2d_anim(var &VAR_1, int 1, int 1, int 0)
 gamevar SMACKER_X = int 444
 gamevar SMACKER_Y = int 200
-call func_a0(var &VAR_2, int 1, int 1, int 0)
+call play_2d_anim(var &VAR_2, int 1, int 1, int 0)
 gamevar SMACKER_X = int 156
 gamevar SMACKER_Y = int 0
-call func_a0(var &VAR_3, int 1, int 1, int 0)
+call play_2d_anim(var &VAR_3, int 1, int 1, int 0)
 call load_sound(int 30)
 call play_loaded_sound(int 1, int -1, int 30, int 0)

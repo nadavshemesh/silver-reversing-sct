@@ -64,16 +64,16 @@ else
 }
 gamevar SMACKER_X = int 208
 gamevar SMACKER_Y = int 64
-call func_a0(var &VAR_1, int 1, int 1, int 0)
+call play_2d_anim(var &VAR_1, int 1, int 1, int 0)
 gamevar SMACKER_X = int 288
 gamevar SMACKER_Y = int 40
-call func_a0(var &VAR_2, int 1, int 1, int 0)
+call play_2d_anim(var &VAR_2, int 1, int 1, int 0)
 gamevar SMACKER_X = int 264
 gamevar SMACKER_Y = int 312
-call func_a0(var &VAR_3, int 1, int 1, int 0)
+call play_2d_anim(var &VAR_3, int 1, int 1, int 0)
 call load_sound(int 30)
 var VAR_4 = call play_loaded_sound(int 1, int -1, int 30, int 0)
-call func_11c(var VAR_4, int 60)
+call set_sound_volume(var VAR_4, int 60)
 
 ._SCRIPT_1
 if(gamevar !is_room_cleared)
@@ -119,7 +119,7 @@ switch(var VAR_17)
 			var VAR_18 ++ 
 			if(var VAR_18 > int 30)
 			 {
-					if(call func_16(int 5439488))
+					if(call is_char_exist(int 5439488))
 					 {
 							call func_18(var VAR_5, int -2740, int -1746, int 4452)
 					}
@@ -128,11 +128,11 @@ switch(var VAR_17)
 			}
 			break 
 		case 1
-			if(call func_16(int 5439488))
+			if(call is_char_exist(int 5439488))
 			 {
 					if(call is_char_standing(var VAR_5))
 					 {
-							call func_cd(var &VAR_19)
+							call log(var &VAR_19)
 							call func_36(var VAR_5, int -4340, int -2100, int 3540)
 							var VAR_17 ++ 
 					}
@@ -153,10 +153,10 @@ switch(var VAR_17)
 
 ._SCRIPT_4
 var VAR_5 = call create_enemy(int 61, int 0, var &VAR_6, int 220)
-call func_20(var VAR_5)
+call play_char_anim_seq(var VAR_5)
 call func_106(var VAR_5, int 1, int 0, int 3)
 call func_104(var VAR_5, int 1, int 4)
-call func_4f(var VAR_5, int 1)
+call set_char_init_state(var VAR_5, int 1)
 gamevar script_object = var VAR_5
 gamevar *character_stats_p+15 = int 1400
 gamevar *character_stats_p+16 = int 1400
@@ -164,12 +164,12 @@ var VAR_7 = call create_enemy(int 58, int 0, var &VAR_8, int 140)
 var VAR_9 = call create_enemy(int 58, int 0, var &VAR_10, int 60)
 gamevar script_object = var VAR_7
 gamevar *character_stats_p+15 = int 1200
-call func_4f(var VAR_7, int 13)
-call func_107(var VAR_7, var &VAR_11)
+call set_char_init_state(var VAR_7, int 13)
+call set_char_anim_seq(var VAR_7, var &VAR_11)
 gamevar script_object = var VAR_9
 gamevar *character_stats_p+15 = int 1000
-call func_4f(var VAR_9, int 13)
-call func_107(var VAR_9, var &VAR_12)
+call set_char_init_state(var VAR_9, int 13)
+call set_char_anim_seq(var VAR_9, var &VAR_12)
 call func_106(var VAR_7, int 1, int 0, int 3)
 call func_106(var VAR_9, int 1, int 0, int 3)
 call func_50(var VAR_7, int 3)

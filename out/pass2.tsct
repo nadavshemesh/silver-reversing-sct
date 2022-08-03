@@ -103,7 +103,7 @@ if(gamevar !is_room_cleared)
 }
 
 ._SCRIPT_3
-call func_f4(var &VAR_2, var &VAR_0, var &VAR_1, int 0)
+call play_3d_fx(var &VAR_2, var &VAR_0, var &VAR_1, int 0)
 
 ._SCRIPT_4
 if(gamevar script_time > var VAR_40)
@@ -128,7 +128,7 @@ if(var VAR_5 == int 0)
 		var VAR_6 ++ 
 		if(var VAR_6 > int 100)
 		 {
-				call func_111(int 2)
+				call set_input_system(int 2)
 				execute SCRIPT_7
 				call func_f(var VAR_3, int 131072)
 				var VAR_6 = int 0
@@ -140,7 +140,7 @@ if(var VAR_5 == int 1)
 		var VAR_6 ++ 
 		if(var VAR_6 > int 100)
 		 {
-				call func_cd(var &VAR_20)
+				call log(var &VAR_20)
 				call func_c7(var VAR_7, var VAR_3)
 				call func_c7(var VAR_8, var VAR_3)
 				call func_c7(var VAR_9, var VAR_3)
@@ -150,13 +150,13 @@ if(var VAR_5 == int 1)
 }
 if(var VAR_5 == int 2)
  {
-		if(call func_16(int 11403264))
+		if(call is_char_exist(int 11403264))
 		 {
 				if(var VAR_17 == int 0)
 				 {
 						if(call func_87(var VAR_7))
 						 {
-								call func_cd(var &VAR_21)
+								call log(var &VAR_21)
 								call func_36(var VAR_7, int -1233, int -1825, int 347)
 								gamevar script_object = var VAR_7
 								gamevar *character_stats_p+15 = int 3000
@@ -168,13 +168,13 @@ if(var VAR_5 == int 2)
 						}
 				}
 		}
-		if(call func_16(int 11403265))
+		if(call is_char_exist(int 11403265))
 		 {
 				if(var VAR_18 == int 0)
 				 {
 						if(call func_87(var VAR_8))
 						 {
-								call func_cd(var &VAR_22)
+								call log(var &VAR_22)
 								call func_36(var VAR_8, int -1233, int -1825, int 347)
 								gamevar script_object = var VAR_8
 								gamevar *character_stats_p+15 = int 3000
@@ -186,13 +186,13 @@ if(var VAR_5 == int 2)
 						}
 				}
 		}
-		if(call func_16(int 11403266))
+		if(call is_char_exist(int 11403266))
 		 {
 				if(var VAR_19 == int 0)
 				 {
 						if(call func_87(var VAR_9))
 						 {
-								call func_cd(var &VAR_23)
+								call log(var &VAR_23)
 								call func_36(var VAR_9, int -1233, int -1825, int 347)
 								gamevar script_object = var VAR_9
 								gamevar *character_stats_p+15 = int 3000
@@ -205,17 +205,17 @@ if(var VAR_5 == int 2)
 		}
 		if(var VAR_17 == int 1&&var VAR_18 == int 1&&var VAR_19 == int 1)
 		 {
-				call func_111(int 1)
+				call set_input_system(int 1)
 				var VAR_5 ++ 
 		}
 }
 if(var VAR_5 == int 3)
  {
-		if(call ! func_16(int 11403264)||call ! func_16(int 11403265)||call ! func_16(int 11403266))
+		if(call ! is_char_exist(int 11403264)||call ! is_char_exist(int 11403265)||call ! is_char_exist(int 11403266))
 		 {
-				if(call func_16(int 2752512))
+				if(call is_char_exist(int 2752512))
 				 {
-						call func_cd(var &VAR_24)
+						call log(var &VAR_24)
 						gamevar script_object = var VAR_10
 						gamevar *character_stats_p+15 = int 3000
 						call func_106(var VAR_10, int 1, int 0, int 1)
@@ -224,9 +224,9 @@ if(var VAR_5 == int 3)
 				}
 		}
 }
-if(call func_16(int 10420224))
+if(call is_char_exist(int 10420224))
  {
-		call func_cd(var &VAR_25)
+		call log(var &VAR_25)
 		gamevar script_object = var VAR_3
 		if(gamevar *object_p+5 == int 6)
 		 {

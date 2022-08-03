@@ -202,7 +202,7 @@ if(gamevar room_state > int 4)
 }
 gamevar SMACKER_X = int 64
 gamevar SMACKER_Y = int 184
-call func_a0(var &VAR_6, int 1, int 0, int 0)
+call play_2d_anim(var &VAR_6, int 1, int 0, int 0)
 call load_sound(int 2)
 execute SCRIPT_20
 switch(gamevar room_state)
@@ -294,7 +294,7 @@ switch(gamevar room_state)
 }
 
 ._SCRIPT_3
-call func_cd(var &VAR_13)
+call log(var &VAR_13)
 gamevar door_restriction_p = var &VAR_2
 var VAR_7 = call create_char(var &VAR_8, var &VAR_14, int 75, int 13)
 var VAR_0 = call create_enemy(int 98, int 0, var &VAR_9, int 125)
@@ -307,7 +307,7 @@ call func_22(var VAR_7)
 call func_18(var VAR_7, int 1799, int 785, int -6568)
 call func_10c(var VAR_0, var &VAR_17)
 gamevar play_sting = int 0
-call func_111(int 2)
+call set_input_system(int 2)
 
 ._SCRIPT_4
 if(var VAR_4 == int 0)
@@ -320,34 +320,34 @@ if(var VAR_4 == int 1)
 		if(gamevar scene_counter > int 10)
 		 {
 				var VAR_4 = int 2
-				call func_d5()
+				call reset_local_timer()
 		}
 }
 if(var VAR_4 == int 2)
  {
-		if(call func_129(int 30))
+		if(call is_local_timer_greater_than(int 30))
 		 {
 				call func_120(call func_6a(var VAR_0), int 32768)
 				var VAR_4 = int 3
-				call func_d5()
+				call reset_local_timer()
 		}
 }
 if(var VAR_4 == int 3)
  {
-		if(call func_129(int 90))
+		if(call is_local_timer_greater_than(int 90))
 		 {
 				var VAR_4 = int 4
-				call func_d5()
+				call reset_local_timer()
 		}
 }
 if(var VAR_4 == int 4)
  {
-		if(call func_129(int 20))
+		if(call is_local_timer_greater_than(int 20))
 		 {
-				call func_20(var VAR_7)
+				call play_char_anim_seq(var VAR_7)
 				call func_18(var VAR_7, int 1799, int 785, int -6568)
 				var VAR_4 = int 5
-				call func_d5()
+				call reset_local_timer()
 		}
 }
 if(var VAR_4 == int 5)
@@ -356,12 +356,12 @@ if(var VAR_4 == int 5)
 		 {
 				call play_char_anim(var VAR_7, var VAR_10, int 0)
 				var VAR_4 = int 6
-				call func_d5()
+				call reset_local_timer()
 		}
 }
 if(var VAR_4 == int 6)
  {
-		if(call func_129(int 20))
+		if(call is_local_timer_greater_than(int 20))
 		 {
 				call func_c2(var VAR_7, int 65536)
 				call char_stop(var VAR_7)
@@ -373,7 +373,7 @@ if(var VAR_4 == int 7)
  {
 		if(call get_input_sys() != int 4)
 		 {
-				call func_111(int 1)
+				call set_input_system(int 1)
 				var VAR_4 = int 8
 		}
 }
@@ -499,7 +499,7 @@ if(var VAR_21 == int 2)
 																				var VAR_24 = gamevar time - var VAR_23
 																				if(var VAR_24 >= int 20)
 																				 {
-																						call func_35(var VAR_0, call func_67(var VAR_7))
+																						call char_turn_to_pos(var VAR_0, call func_67(var VAR_7))
 																						var VAR_22 ++ 
 																						var VAR_23 = gamevar time
 																				}
@@ -518,7 +518,7 @@ if(var VAR_21 == int 2)
 }
 
 ._SCRIPT_6
-call func_cd(var &VAR_43)
+call log(var &VAR_43)
 gamevar door_restriction_p = var &VAR_2
 var VAR_7 = call get_char_handle(int 65536)
 var VAR_0 = call create_enemy(int 98, int 0, var &VAR_30, int 300)
@@ -542,7 +542,7 @@ var VAR_22 = int 0
 gamevar scene_counter = int 0
 gamevar *scene_info_p+5 = int 2
 gamevar play_sting = int 1
-call func_111(int 2)
+call set_input_system(int 2)
 
 ._SCRIPT_7
 if(var VAR_4 == int 0)
@@ -555,14 +555,14 @@ if(var VAR_4 == int 1)
 		if(gamevar scene_counter > int 10)
 		 {
 				var VAR_4 = int 2
-				call func_d5()
+				call reset_local_timer()
 		}
 }
 if(var VAR_4 == int 2)
  {
-		if(call func_129(int 20))
+		if(call is_local_timer_greater_than(int 20))
 		 {
-				call func_35(var VAR_7, call func_67(var VAR_0))
+				call char_turn_to_pos(var VAR_7, call func_67(var VAR_0))
 				if(call func_30(int 16))
 				 {
 						if(call func_ae(var VAR_7, int 16))
@@ -590,7 +590,7 @@ if(var VAR_4 == int 3)
  {
 		if(call get_input_sys() != int 4)
 		 {
-				call func_111(int 1)
+				call set_input_system(int 1)
 				var VAR_23 = gamevar time
 				var VAR_22 = int 0
 				gamevar scene_counter = int 0
@@ -607,7 +607,7 @@ if(var VAR_4 == int 5)
 				 {
 						if(call get_input_sys() != int 4)
 						 {
-								call func_111(int 1)
+								call set_input_system(int 1)
 								var VAR_23 = gamevar time
 								var VAR_22 = int 0
 								var VAR_4 = int 4
@@ -649,7 +649,7 @@ if(var VAR_4 == int 4)
  {
 		call func_18(var VAR_7, int 1891, int 785, int -6421)
 		call func_18(var VAR_0, int 2443, int 785, int -6934)
-		call func_111(int 2)
+		call set_input_system(int 2)
 		gamevar *scene_info_p+5 = int 16
 		call func_116(var &VAR_66, var &VAR_67, int 3)
 		gamevar disable_scroll = int 1
@@ -660,7 +660,7 @@ if(var VAR_4 == int 6)
  {
 		if(call func_5e())
 		 {
-				call func_35(var VAR_0, call func_67(var VAR_7))
+				call char_turn_to_pos(var VAR_0, call func_67(var VAR_7))
 				call start_dialog(var &VAR_68, var &VAR_69)
 				var VAR_4 = int 8
 		}
@@ -669,8 +669,8 @@ if(var VAR_4 == int 8)
  {
 		if(call get_input_sys() != int 4)
 		 {
-				call func_111(int 2)
-				call func_20(var VAR_7)
+				call set_input_system(int 2)
+				call play_char_anim_seq(var VAR_7)
 				call func_18(var VAR_7, int 1891, int 785, int -6421)
 				var VAR_4 = int 7
 		}
@@ -686,7 +686,7 @@ if(var VAR_4 == int 7)
 				}
 				else
 				 {
-						call func_111(int 1)
+						call set_input_system(int 1)
 						var VAR_4 = int 5
 						var VAR_23 = gamevar time
 						var VAR_22 = int 10
@@ -699,15 +699,15 @@ if(var VAR_4 == int 20)
 		 {
 				if(call is_char_standing(var VAR_7))
 				 {
-						call func_35(var VAR_0, call func_67(var VAR_7))
-						call func_d5()
+						call char_turn_to_pos(var VAR_0, call func_67(var VAR_7))
+						call reset_local_timer()
 						var VAR_4 = int 21
 				}
 		}
 }
 if(var VAR_4 == int 21)
  {
-		if(call func_129(int 10))
+		if(call is_local_timer_greater_than(int 10))
 		 {
 				call start_dialog(var &VAR_70, var &VAR_71)
 				var VAR_4 = int 22
@@ -718,7 +718,7 @@ if(var VAR_4 == int 22)
 		if(call get_input_sys() != int 4)
 		 {
 				call func_18(var VAR_0, int 2443, int 785, int -6934)
-				call func_111(int 2)
+				call set_input_system(int 2)
 				var VAR_4 = int 23
 		}
 }
@@ -726,23 +726,23 @@ if(var VAR_4 == int 23)
  {
 		if(call is_char_standing(var VAR_0))
 		 {
-				call func_35(var VAR_0, call func_67(var VAR_7))
-				call func_d5()
+				call char_turn_to_pos(var VAR_0, call func_67(var VAR_7))
+				call reset_local_timer()
 				var VAR_4 = int 24
 		}
 }
 if(var VAR_4 == int 24)
  {
-		if(call func_129(int 10))
+		if(call is_local_timer_greater_than(int 10))
 		 {
 				call func_d(var VAR_0, int 28, call func_67(var VAR_7), int 0)
-				call func_d5()
+				call reset_local_timer()
 				var VAR_4 = int 25
 		}
 }
 if(var VAR_4 == int 25)
  {
-		if(call func_129(int 20))
+		if(call is_local_timer_greater_than(int 20))
 		 {
 				call func_df()
 				var VAR_4 = int 31
@@ -760,8 +760,8 @@ if(var VAR_4 == int 31)
 				 {
 						call start_dialog(var &VAR_74, var &VAR_75)
 				}
-				call func_111(int 1)
-				call func_d5()
+				call set_input_system(int 1)
+				call reset_local_timer()
 				var VAR_4 = int 26
 		}
 }
@@ -773,26 +773,26 @@ if(var VAR_4 == int 26)
 				gamevar script_object = var VAR_7
 				var VAR_52 = gamevar *character_combat_p+11
 				var VAR_4 = int 27
-				call func_d5()
+				call reset_local_timer()
 		}
 }
 if(var VAR_4 == int 27)
  {
 		execute SCRIPT_10
-		if(call func_129(int 5))
+		if(call is_local_timer_greater_than(int 5))
 		 {
 				if(call func_5c(var VAR_7))
 				 {
 						call func_d2()
 						if(var VAR_52 == int 28)
 						 {
-								call func_35(var VAR_7, call func_67(var VAR_0))
+								call char_turn_to_pos(var VAR_7, call func_67(var VAR_0))
 								call start_dialog(var &VAR_76, var &VAR_77)
 								var VAR_4 = int 30
 						}
 						else
 						 {
-								call func_35(var VAR_7, call func_67(var VAR_0))
+								call char_turn_to_pos(var VAR_7, call func_67(var VAR_0))
 								call start_dialog(var &VAR_78, var &VAR_79)
 								var VAR_4 = int 28
 						}
@@ -803,7 +803,7 @@ if(var VAR_4 == int 28)
  {
 		if(call get_input_sys() != int 4)
 		 {
-				call func_111(int 2)
+				call set_input_system(int 2)
 				call func_18(var VAR_0, int 2443, int 785, int -6934)
 				call func_18(var VAR_7, int 1891, int 785, int -6421)
 				var VAR_4 = int 29
@@ -815,9 +815,9 @@ if(var VAR_4 == int 29)
 		 {
 				if(call is_char_standing(var VAR_7))
 				 {
-						call func_35(var VAR_7, call func_67(var VAR_0))
-						call func_35(var VAR_0, call func_67(var VAR_7))
-						call func_d5()
+						call char_turn_to_pos(var VAR_7, call func_67(var VAR_0))
+						call char_turn_to_pos(var VAR_0, call func_67(var VAR_7))
+						call reset_local_timer()
 						var VAR_4 = int 24
 				}
 		}
@@ -827,7 +827,7 @@ if(var VAR_4 == int 30)
 		execute SCRIPT_10
 		if(call get_input_sys() != int 4)
 		 {
-				call func_111(int 2)
+				call set_input_system(int 2)
 				call func_18(var VAR_7, int 1891, int 785, int -6421)
 				var VAR_4 = int 9
 				var VAR_55 = int 17
@@ -837,14 +837,14 @@ if(var VAR_4 == int 9)
  {
 		if(call is_char_standing(var VAR_7))
 		 {
-				call func_35(var VAR_7, call func_67(var VAR_0))
-				call func_d5()
+				call char_turn_to_pos(var VAR_7, call func_67(var VAR_0))
+				call reset_local_timer()
 				var VAR_4 = int 10
 		}
 }
 if(var VAR_4 == int 10)
  {
-		if(call func_129(int 10))
+		if(call is_local_timer_greater_than(int 10))
 		 {
 				call start_dialog(var &VAR_80, var &VAR_81)
 				var VAR_4 = int 11
@@ -855,7 +855,7 @@ if(var VAR_4 == int 11)
 		if(call get_input_sys() != int 4)
 		 {
 				call func_18(var VAR_0, int 2443, int 785, int -6934)
-				call func_111(int 2)
+				call set_input_system(int 2)
 				var VAR_4 = int 12
 		}
 }
@@ -863,23 +863,23 @@ if(var VAR_4 == int 12)
  {
 		if(call is_char_standing(var VAR_0))
 		 {
-				call func_35(var VAR_0, call func_67(var VAR_7))
-				call func_d5()
+				call char_turn_to_pos(var VAR_0, call func_67(var VAR_7))
+				call reset_local_timer()
 				var VAR_4 = int 13
 		}
 }
 if(var VAR_4 == int 13)
  {
-		if(call func_129(int 10))
+		if(call is_local_timer_greater_than(int 10))
 		 {
 				call func_d(var VAR_0, int 29, var &VAR_18, int 0)
-				call func_d5()
+				call reset_local_timer()
 				var VAR_4 = int 14
 		}
 }
 if(var VAR_4 == int 14)
  {
-		if(call func_129(int 20))
+		if(call is_local_timer_greater_than(int 20))
 		 {
 				if(gamevar left_handed)
 				 {
@@ -889,8 +889,8 @@ if(var VAR_4 == int 14)
 				 {
 						call start_dialog(var &VAR_84, var &VAR_85)
 				}
-				call func_111(int 1)
-				call func_d5()
+				call set_input_system(int 1)
+				call reset_local_timer()
 				var VAR_4 = int 15
 		}
 }
@@ -902,26 +902,26 @@ if(var VAR_4 == int 15)
 				gamevar script_object = var VAR_7
 				var VAR_52 = gamevar *character_combat_p+11
 				var VAR_4 = int 16
-				call func_d5()
+				call reset_local_timer()
 		}
 }
 if(var VAR_4 == int 16)
  {
 		execute SCRIPT_10
-		if(call func_129(int 10))
+		if(call is_local_timer_greater_than(int 10))
 		 {
 				if(call func_5c(var VAR_7))
 				 {
 						call func_d2()
 						if(var VAR_52 == int 29)
 						 {
-								call func_35(var VAR_7, call func_67(var VAR_0))
+								call char_turn_to_pos(var VAR_7, call func_67(var VAR_0))
 								call start_dialog(var &VAR_86, var &VAR_87)
 								var VAR_4 = int 19
 						}
 						else
 						 {
-								call func_35(var VAR_7, call func_67(var VAR_0))
+								call char_turn_to_pos(var VAR_7, call func_67(var VAR_0))
 								call start_dialog(var &VAR_88, var &VAR_89)
 								var VAR_4 = int 17
 						}
@@ -932,7 +932,7 @@ if(var VAR_4 == int 17)
  {
 		if(call get_input_sys() != int 4)
 		 {
-				call func_111(int 2)
+				call set_input_system(int 2)
 				call func_18(var VAR_0, int 2443, int 785, int -6934)
 				call func_18(var VAR_7, int 1891, int 785, int -6421)
 				var VAR_4 = int 18
@@ -944,9 +944,9 @@ if(var VAR_4 == int 18)
 		 {
 				if(call is_char_standing(var VAR_7))
 				 {
-						call func_35(var VAR_7, call func_67(var VAR_0))
-						call func_35(var VAR_0, call func_67(var VAR_7))
-						call func_d5()
+						call char_turn_to_pos(var VAR_7, call func_67(var VAR_0))
+						call char_turn_to_pos(var VAR_0, call func_67(var VAR_7))
+						call reset_local_timer()
 						var VAR_4 = int 13
 				}
 		}
@@ -956,7 +956,7 @@ if(var VAR_4 == int 19)
 		execute SCRIPT_10
 		if(call get_input_sys() != int 4)
 		 {
-				call func_111(int 2)
+				call set_input_system(int 2)
 				call func_18(var VAR_7, int 1891, int 785, int -6421)
 				var VAR_4 = int 43
 				var VAR_55 = int 51
@@ -966,14 +966,14 @@ if(var VAR_4 == int 43)
  {
 		if(call is_char_standing(var VAR_7))
 		 {
-				call func_35(var VAR_7, call func_67(var VAR_0))
-				call func_d5()
+				call char_turn_to_pos(var VAR_7, call func_67(var VAR_0))
+				call reset_local_timer()
 				var VAR_4 = int 44
 		}
 }
 if(var VAR_4 == int 44)
  {
-		if(call func_129(int 10))
+		if(call is_local_timer_greater_than(int 10))
 		 {
 				call start_dialog(var &VAR_90, var &VAR_91)
 				var VAR_4 = int 45
@@ -984,7 +984,7 @@ if(var VAR_4 == int 45)
 		if(call get_input_sys() != int 4)
 		 {
 				call func_18(var VAR_0, int 2443, int 785, int -6934)
-				call func_111(int 2)
+				call set_input_system(int 2)
 				var VAR_4 = int 46
 		}
 }
@@ -992,23 +992,23 @@ if(var VAR_4 == int 46)
  {
 		if(call is_char_standing(var VAR_0))
 		 {
-				call func_35(var VAR_0, call func_67(var VAR_7))
-				call func_d5()
+				call char_turn_to_pos(var VAR_0, call func_67(var VAR_7))
+				call reset_local_timer()
 				var VAR_4 = int 47
 		}
 }
 if(var VAR_4 == int 47)
  {
-		if(call func_129(int 10))
+		if(call is_local_timer_greater_than(int 10))
 		 {
 				call func_d(var VAR_0, int 31, var &VAR_18, int 0)
-				call func_d5()
+				call reset_local_timer()
 				var VAR_4 = int 48
 		}
 }
 if(var VAR_4 == int 48)
  {
-		if(call func_129(int 20))
+		if(call is_local_timer_greater_than(int 20))
 		 {
 				if(gamevar left_handed)
 				 {
@@ -1018,8 +1018,8 @@ if(var VAR_4 == int 48)
 				 {
 						call start_dialog(var &VAR_94, var &VAR_95)
 				}
-				call func_111(int 1)
-				call func_d5()
+				call set_input_system(int 1)
+				call reset_local_timer()
 				var VAR_4 = int 49
 		}
 }
@@ -1031,26 +1031,26 @@ if(var VAR_4 == int 49)
 				gamevar script_object = var VAR_7
 				var VAR_52 = gamevar *character_combat_p+11
 				var VAR_4 = int 50
-				call func_d5()
+				call reset_local_timer()
 		}
 }
 if(var VAR_4 == int 50)
  {
 		execute SCRIPT_10
-		if(call func_129(int 10))
+		if(call is_local_timer_greater_than(int 10))
 		 {
 				if(call func_5c(var VAR_7))
 				 {
 						call func_d2()
 						if(var VAR_52 == int 31)
 						 {
-								call func_35(var VAR_7, call func_67(var VAR_0))
+								call char_turn_to_pos(var VAR_7, call func_67(var VAR_0))
 								call start_dialog(var &VAR_96, var &VAR_97)
 								var VAR_4 = int 53
 						}
 						else
 						 {
-								call func_35(var VAR_7, call func_67(var VAR_0))
+								call char_turn_to_pos(var VAR_7, call func_67(var VAR_0))
 								call start_dialog(var &VAR_98, var &VAR_99)
 								var VAR_4 = int 51
 						}
@@ -1061,7 +1061,7 @@ if(var VAR_4 == int 51)
  {
 		if(call get_input_sys() != int 4)
 		 {
-				call func_111(int 2)
+				call set_input_system(int 2)
 				call func_18(var VAR_0, int 2443, int 785, int -6934)
 				call func_18(var VAR_7, int 1891, int 785, int -6421)
 				var VAR_4 = int 52
@@ -1073,9 +1073,9 @@ if(var VAR_4 == int 52)
 		 {
 				if(call is_char_standing(var VAR_7))
 				 {
-						call func_35(var VAR_7, call func_67(var VAR_0))
-						call func_35(var VAR_0, call func_67(var VAR_7))
-						call func_d5()
+						call char_turn_to_pos(var VAR_7, call func_67(var VAR_0))
+						call char_turn_to_pos(var VAR_0, call func_67(var VAR_7))
+						call reset_local_timer()
 						var VAR_4 = int 47
 				}
 		}
@@ -1085,7 +1085,7 @@ if(var VAR_4 == int 53)
 		execute SCRIPT_10
 		if(call get_input_sys() != int 4)
 		 {
-				call func_111(int 2)
+				call set_input_system(int 2)
 				call func_18(var VAR_7, int 1891, int 785, int -6421)
 				var VAR_4 = int 32
 				var VAR_55 = int 40
@@ -1095,14 +1095,14 @@ if(var VAR_4 == int 32)
  {
 		if(call is_char_standing(var VAR_7))
 		 {
-				call func_35(var VAR_7, call func_67(var VAR_0))
-				call func_d5()
+				call char_turn_to_pos(var VAR_7, call func_67(var VAR_0))
+				call reset_local_timer()
 				var VAR_4 = int 33
 		}
 }
 if(var VAR_4 == int 33)
  {
-		if(call func_129(int 10))
+		if(call is_local_timer_greater_than(int 10))
 		 {
 				call start_dialog(var &VAR_100, var &VAR_101)
 				var VAR_4 = int 34
@@ -1113,7 +1113,7 @@ if(var VAR_4 == int 34)
 		if(call get_input_sys() != int 4)
 		 {
 				call func_18(var VAR_0, int 2443, int 785, int -6934)
-				call func_111(int 2)
+				call set_input_system(int 2)
 				var VAR_4 = int 35
 		}
 }
@@ -1121,23 +1121,23 @@ if(var VAR_4 == int 35)
  {
 		if(call is_char_standing(var VAR_0))
 		 {
-				call func_35(var VAR_0, call func_67(var VAR_7))
-				call func_d5()
+				call char_turn_to_pos(var VAR_0, call func_67(var VAR_7))
+				call reset_local_timer()
 				var VAR_4 = int 36
 		}
 }
 if(var VAR_4 == int 36)
  {
-		if(call func_129(int 10))
+		if(call is_local_timer_greater_than(int 10))
 		 {
 				call func_d(var VAR_0, int 30, var &VAR_18, int 0)
-				call func_d5()
+				call reset_local_timer()
 				var VAR_4 = int 37
 		}
 }
 if(var VAR_4 == int 37)
  {
-		if(call func_129(int 20))
+		if(call is_local_timer_greater_than(int 20))
 		 {
 				if(gamevar left_handed)
 				 {
@@ -1147,8 +1147,8 @@ if(var VAR_4 == int 37)
 				 {
 						call start_dialog(var &VAR_104, var &VAR_105)
 				}
-				call func_111(int 1)
-				call func_d5()
+				call set_input_system(int 1)
+				call reset_local_timer()
 				var VAR_4 = int 38
 		}
 }
@@ -1160,26 +1160,26 @@ if(var VAR_4 == int 38)
 				gamevar script_object = var VAR_7
 				var VAR_52 = gamevar *character_combat_p+11
 				var VAR_4 = int 39
-				call func_d5()
+				call reset_local_timer()
 		}
 }
 if(var VAR_4 == int 39)
  {
 		execute SCRIPT_10
-		if(call func_129(int 10))
+		if(call is_local_timer_greater_than(int 10))
 		 {
 				if(call func_5c(var VAR_7))
 				 {
 						call func_d2()
 						if(var VAR_52 == int 30)
 						 {
-								call func_35(var VAR_7, call func_67(var VAR_0))
+								call char_turn_to_pos(var VAR_7, call func_67(var VAR_0))
 								call start_dialog(var &VAR_106, var &VAR_107)
 								var VAR_4 = int 42
 						}
 						else
 						 {
-								call func_35(var VAR_7, call func_67(var VAR_0))
+								call char_turn_to_pos(var VAR_7, call func_67(var VAR_0))
 								call start_dialog(var &VAR_108, var &VAR_109)
 								var VAR_4 = int 40
 						}
@@ -1190,7 +1190,7 @@ if(var VAR_4 == int 40)
  {
 		if(call get_input_sys() != int 4)
 		 {
-				call func_111(int 2)
+				call set_input_system(int 2)
 				call func_18(var VAR_0, int 2443, int 785, int -6934)
 				call func_18(var VAR_7, int 1891, int 785, int -6421)
 				var VAR_4 = int 41
@@ -1202,9 +1202,9 @@ if(var VAR_4 == int 41)
 		 {
 				if(call is_char_standing(var VAR_7))
 				 {
-						call func_35(var VAR_7, call func_67(var VAR_0))
-						call func_35(var VAR_0, call func_67(var VAR_7))
-						call func_d5()
+						call char_turn_to_pos(var VAR_7, call func_67(var VAR_0))
+						call char_turn_to_pos(var VAR_0, call func_67(var VAR_7))
+						call reset_local_timer()
 						var VAR_4 = int 36
 				}
 		}
@@ -1214,7 +1214,7 @@ if(var VAR_4 == int 42)
 		execute SCRIPT_10
 		if(call get_input_sys() != int 4)
 		 {
-				call func_111(int 2)
+				call set_input_system(int 2)
 				call func_18(var VAR_7, int 1891, int 785, int -6421)
 				var VAR_4 = int 54
 				var VAR_55 = int 62
@@ -1224,14 +1224,14 @@ if(var VAR_4 == int 54)
  {
 		if(call is_char_standing(var VAR_7))
 		 {
-				call func_35(var VAR_7, call func_67(var VAR_0))
-				call func_d5()
+				call char_turn_to_pos(var VAR_7, call func_67(var VAR_0))
+				call reset_local_timer()
 				var VAR_4 = int 55
 		}
 }
 if(var VAR_4 == int 55)
  {
-		if(call func_129(int 10))
+		if(call is_local_timer_greater_than(int 10))
 		 {
 				call start_dialog(var &VAR_110, var &VAR_111)
 				var VAR_4 = int 56
@@ -1242,7 +1242,7 @@ if(var VAR_4 == int 56)
 		if(call get_input_sys() != int 4)
 		 {
 				call func_18(var VAR_0, int 2443, int 785, int -6934)
-				call func_111(int 2)
+				call set_input_system(int 2)
 				var VAR_4 = int 57
 		}
 }
@@ -1250,25 +1250,25 @@ if(var VAR_4 == int 57)
  {
 		if(call is_char_standing(var VAR_0))
 		 {
-				call func_35(var VAR_0, call func_67(var VAR_7))
-				call func_d5()
+				call char_turn_to_pos(var VAR_0, call func_67(var VAR_7))
+				call reset_local_timer()
 				var VAR_4 = int 58
 		}
 }
 if(var VAR_4 == int 58)
  {
-		if(call func_129(int 10))
+		if(call is_local_timer_greater_than(int 10))
 		 {
 				call func_d(var VAR_0, int 16, var &VAR_18, int 0)
-				call func_d5()
+				call reset_local_timer()
 				var VAR_4 = int 59
 		}
 }
 if(var VAR_4 == int 59)
  {
-		if(call func_129(int 20))
+		if(call is_local_timer_greater_than(int 20))
 		 {
-				call func_35(var VAR_0, call func_67(var VAR_7))
+				call char_turn_to_pos(var VAR_0, call func_67(var VAR_7))
 				call func_df()
 				var VAR_4 = int 65
 		}
@@ -1285,8 +1285,8 @@ if(var VAR_4 == int 65)
 				 {
 						call start_dialog(var &VAR_114, var &VAR_115)
 				}
-				call func_111(int 1)
-				call func_d5()
+				call set_input_system(int 1)
+				call reset_local_timer()
 				var VAR_4 = int 60
 		}
 }
@@ -1298,26 +1298,26 @@ if(var VAR_4 == int 60)
 				gamevar script_object = var VAR_7
 				var VAR_52 = gamevar *character_combat_p+11
 				var VAR_4 = int 61
-				call func_d5()
+				call reset_local_timer()
 		}
 }
 if(var VAR_4 == int 61)
  {
 		execute SCRIPT_10
-		if(call func_129(int 10))
+		if(call is_local_timer_greater_than(int 10))
 		 {
 				if(call func_5c(var VAR_7))
 				 {
 						call func_d2()
 						if(var VAR_52 == int 16||var VAR_52 == int 17)
 						 {
-								call func_35(var VAR_7, call func_67(var VAR_0))
+								call char_turn_to_pos(var VAR_7, call func_67(var VAR_0))
 								call start_dialog(var &VAR_116, var &VAR_117)
 								var VAR_4 = int 64
 						}
 						else
 						 {
-								call func_35(var VAR_7, call func_67(var VAR_0))
+								call char_turn_to_pos(var VAR_7, call func_67(var VAR_0))
 								call start_dialog(var &VAR_118, var &VAR_119)
 								var VAR_4 = int 62
 						}
@@ -1328,7 +1328,7 @@ if(var VAR_4 == int 62)
  {
 		if(call get_input_sys() != int 4)
 		 {
-				call func_111(int 2)
+				call set_input_system(int 2)
 				call func_18(var VAR_0, int 2443, int 785, int -6934)
 				call func_18(var VAR_7, int 1891, int 785, int -6421)
 				var VAR_4 = int 63
@@ -1340,9 +1340,9 @@ if(var VAR_4 == int 63)
 		 {
 				if(call is_char_standing(var VAR_7))
 				 {
-						call func_35(var VAR_7, call func_67(var VAR_0))
-						call func_35(var VAR_0, var &VAR_18)
-						call func_d5()
+						call char_turn_to_pos(var VAR_7, call func_67(var VAR_0))
+						call char_turn_to_pos(var VAR_0, var &VAR_18)
+						call reset_local_timer()
 						var VAR_4 = int 58
 				}
 		}
@@ -1352,7 +1352,7 @@ if(var VAR_4 == int 64)
 		execute SCRIPT_10
 		if(call get_input_sys() != int 4)
 		 {
-				call func_111(int 2)
+				call set_input_system(int 2)
 				call func_18(var VAR_7, int 1891, int 785, int -6421)
 				if(call func_30(int 48))
 				 {
@@ -1378,15 +1378,15 @@ if(var VAR_4 == int 66)
  {
 		if(call is_char_standing(var VAR_7))
 		 {
-				call func_d5()
+				call reset_local_timer()
 				var VAR_4 = int 67
 		}
 }
 if(var VAR_4 == int 67)
  {
-		if(call func_129(int 10))
+		if(call is_local_timer_greater_than(int 10))
 		 {
-				call func_35(var VAR_7, call func_67(var VAR_0))
+				call char_turn_to_pos(var VAR_7, call func_67(var VAR_0))
 				call start_dialog(var &VAR_120, var &VAR_121)
 				var VAR_4 = int 68
 		}
@@ -1396,7 +1396,7 @@ if(var VAR_4 == int 68)
 		if(call get_input_sys() != int 4)
 		 {
 				call func_18(var VAR_0, int 2268, int 785, int -6754)
-				call func_111(int 2)
+				call set_input_system(int 2)
 				var VAR_4 = int 69
 		}
 }
@@ -1404,23 +1404,23 @@ if(var VAR_4 == int 69)
  {
 		if(call is_char_standing(var VAR_0))
 		 {
-				call func_35(var VAR_0, call func_67(var VAR_7))
-				call func_d5()
+				call char_turn_to_pos(var VAR_0, call func_67(var VAR_7))
+				call reset_local_timer()
 				var VAR_4 = int 70
 		}
 }
 if(var VAR_4 == int 70)
  {
-		if(call func_129(int 10))
+		if(call is_local_timer_greater_than(int 10))
 		 {
 				call func_13(var VAR_0)
-				call func_d5()
+				call reset_local_timer()
 				var VAR_4 = int 71
 		}
 }
 if(var VAR_4 == int 71)
  {
-		if(call func_129(int 20))
+		if(call is_local_timer_greater_than(int 20))
 		 {
 				if(gamevar left_handed)
 				 {
@@ -1430,9 +1430,9 @@ if(var VAR_4 == int 71)
 				 {
 						call start_dialog(var &VAR_124, var &VAR_125)
 				}
-				call func_35(var VAR_0, call func_67(var VAR_7))
-				call func_111(int 1)
-				call func_d5()
+				call char_turn_to_pos(var VAR_0, call func_67(var VAR_7))
+				call set_input_system(int 1)
+				call reset_local_timer()
 				var VAR_4 = int 72
 		}
 }
@@ -1443,20 +1443,20 @@ if(var VAR_4 == int 72)
 		 {
 				var VAR_52 = int 26
 				var VAR_4 = int 73
-				call func_d5()
+				call reset_local_timer()
 		}
 		if(call func_37(var VAR_7, int 3))
 		 {
 				gamevar script_object = var VAR_7
 				var VAR_52 = gamevar *character_combat_p+11
 				var VAR_4 = int 73
-				call func_d5()
+				call reset_local_timer()
 		}
 }
 if(var VAR_4 == int 73)
  {
 		execute SCRIPT_10
-		if(call func_129(int 5))
+		if(call is_local_timer_greater_than(int 5))
 		 {
 				if(call func_5c(var VAR_7))
 				 {
@@ -1478,7 +1478,7 @@ if(var VAR_4 == int 74)
  {
 		if(call get_input_sys() != int 4)
 		 {
-				call func_111(int 2)
+				call set_input_system(int 2)
 				call func_18(var VAR_0, int 2268, int 785, int -6754)
 				call func_18(var VAR_7, int 1891, int 785, int -6421)
 				var VAR_4 = int 75
@@ -1490,9 +1490,9 @@ if(var VAR_4 == int 75)
 		 {
 				if(call is_char_standing(var VAR_7))
 				 {
-						call func_35(var VAR_7, call func_67(var VAR_0))
-						call func_35(var VAR_0, var &VAR_18)
-						call func_d5()
+						call char_turn_to_pos(var VAR_7, call func_67(var VAR_0))
+						call char_turn_to_pos(var VAR_0, var &VAR_18)
+						call reset_local_timer()
 						var VAR_4 = int 70
 				}
 		}
@@ -1502,7 +1502,7 @@ if(var VAR_4 == int 76)
 		execute SCRIPT_10
 		if(call get_input_sys() != int 4)
 		 {
-				call func_d5()
+				call reset_local_timer()
 				var VAR_4 = int 88
 		}
 }
@@ -1510,16 +1510,16 @@ if(var VAR_4 == int 77)
  {
 		if(call is_char_standing(var VAR_7))
 		 {
-				call func_d5()
+				call reset_local_timer()
 				var VAR_4 = int 78
 		}
 }
 if(var VAR_4 == int 78)
  {
-		if(call func_129(int 10))
+		if(call is_local_timer_greater_than(int 10))
 		 {
-				call func_35(var VAR_7, call func_67(var VAR_0))
-				call func_111(int 1)
+				call char_turn_to_pos(var VAR_7, call func_67(var VAR_0))
+				call set_input_system(int 1)
 				call start_dialog(var &VAR_130, var &VAR_131)
 				var VAR_4 = int 79
 		}
@@ -1529,7 +1529,7 @@ if(var VAR_4 == int 79)
 		if(call get_input_sys() != int 4)
 		 {
 				call func_18(var VAR_0, int 2268, int 785, int -6754)
-				call func_111(int 2)
+				call set_input_system(int 2)
 				var VAR_4 = int 80
 		}
 }
@@ -1537,14 +1537,14 @@ if(var VAR_4 == int 80)
  {
 		if(call is_char_standing(var VAR_0))
 		 {
-				call func_35(var VAR_0, call func_67(var VAR_7))
-				call func_d5()
+				call char_turn_to_pos(var VAR_0, call func_67(var VAR_7))
+				call reset_local_timer()
 				var VAR_4 = int 82
 		}
 }
 if(var VAR_4 == int 82)
  {
-		if(call func_129(int 20))
+		if(call is_local_timer_greater_than(int 20))
 		 {
 				if(gamevar left_handed)
 				 {
@@ -1554,9 +1554,9 @@ if(var VAR_4 == int 82)
 				 {
 						call start_dialog(var &VAR_134, var &VAR_135)
 				}
-				call func_35(var VAR_0, call func_67(var VAR_7))
-				call func_111(int 1)
-				call func_d5()
+				call char_turn_to_pos(var VAR_0, call func_67(var VAR_7))
+				call set_input_system(int 1)
+				call reset_local_timer()
 				var VAR_4 = int 83
 		}
 }
@@ -1571,7 +1571,7 @@ if(var VAR_4 == int 83)
 						var VAR_52 = int 24
 						var VAR_4 = int 84
 						var VAR_59 = int 0
-						call func_d5()
+						call reset_local_timer()
 				}
 		}
 		else
@@ -1583,20 +1583,20 @@ if(var VAR_4 == int 83)
 				gamevar script_object = var VAR_7
 				var VAR_52 = gamevar *character_combat_p+11
 				var VAR_4 = int 84
-				call func_d5()
+				call reset_local_timer()
 		}
 }
 if(var VAR_4 == int 84)
  {
 		execute SCRIPT_10
-		if(call func_129(int 5))
+		if(call is_local_timer_greater_than(int 5))
 		 {
 				if(call ! func_37(var VAR_7, int 24))
 				 {
 						call func_d2()
 						if(var VAR_52 == int 24)
 						 {
-								call func_35(var VAR_7, call func_67(var VAR_0))
+								call char_turn_to_pos(var VAR_7, call func_67(var VAR_0))
 								call start_dialog(var &VAR_136, var &VAR_137)
 								var VAR_4 = int 87
 						}
@@ -1612,7 +1612,7 @@ if(var VAR_4 == int 85)
  {
 		if(call get_input_sys() != int 4)
 		 {
-				call func_111(int 2)
+				call set_input_system(int 2)
 				call func_18(var VAR_0, int 2268, int 785, int -6754)
 				call func_18(var VAR_7, int 1891, int 785, int -6421)
 				var VAR_4 = int 86
@@ -1624,9 +1624,9 @@ if(var VAR_4 == int 86)
 		 {
 				if(call is_char_standing(var VAR_7))
 				 {
-						call func_35(var VAR_7, call func_67(var VAR_0))
-						call func_35(var VAR_0, var &VAR_18)
-						call func_d5()
+						call char_turn_to_pos(var VAR_7, call func_67(var VAR_0))
+						call char_turn_to_pos(var VAR_0, var &VAR_18)
+						call reset_local_timer()
 						var VAR_4 = int 82
 				}
 		}
@@ -1636,16 +1636,16 @@ if(var VAR_4 == int 87)
 		execute SCRIPT_10
 		if(call get_input_sys() != int 4)
 		 {
-				call func_d5()
+				call reset_local_timer()
 				var VAR_4 = int 88
 		}
 }
 if(var VAR_4 == int 88)
  {
-		if(call func_129(int 10))
+		if(call is_local_timer_greater_than(int 10))
 		 {
 				call start_dialog(var &VAR_140, var &VAR_141)
-				call func_35(var VAR_0, call func_67(var VAR_7))
+				call char_turn_to_pos(var VAR_0, call func_67(var VAR_7))
 				var VAR_4 = int 89
 		}
 }
@@ -1661,7 +1661,7 @@ if(var VAR_4 == int 90)
  {
 		if(call get_input_sys() != int 4)
 		 {
-				call func_111(int 1)
+				call set_input_system(int 1)
 				call func_18(var VAR_31, int 1773, int 785, int -5862)
 				var VAR_33 = call create_enemy(int 97, int 0, var &VAR_34, int 45)
 				var VAR_35 = call create_enemy(int 156, int 0, var &VAR_36, int 45)
@@ -1692,7 +1692,7 @@ if(var VAR_4 == int 91)
 		if(call is_char_at_pos(var VAR_0, var &VAR_30, int 1000) == int 0)
 		 {
 				call func_d6(var VAR_0)
-				call func_20(var VAR_0)
+				call play_char_anim_seq(var VAR_0)
 				call func_18(var VAR_0, int 2268, int 785, int -6754)
 				var VAR_4 = int 92
 		}
@@ -1712,7 +1712,7 @@ if(var VAR_4 == int 91)
 		 {
 				call func_d6(var VAR_7)
 				call func_d6(var VAR_0)
-				call func_35(var VAR_31, call func_67(var VAR_7))
+				call char_turn_to_pos(var VAR_31, call func_67(var VAR_7))
 				if(var VAR_56 > var VAR_57)
 				 {
 						call start_dialog(var &VAR_142, var &VAR_143)
@@ -1721,7 +1721,7 @@ if(var VAR_4 == int 91)
 				 {
 						call start_dialog(var &VAR_144, var &VAR_145)
 				}
-				call func_d5()
+				call reset_local_timer()
 				var VAR_4 = int 95
 		}
 }
@@ -1731,8 +1731,8 @@ if(var VAR_4 == int 92)
 		 {
 				if(call is_char_at_pos(var VAR_7, var &VAR_30, int 1000) == int 0)
 				 {
-						call func_35(var VAR_0, call func_67(var VAR_7))
-						call func_d5()
+						call char_turn_to_pos(var VAR_0, call func_67(var VAR_7))
+						call reset_local_timer()
 						var VAR_4 = int 93
 				}
 				else
@@ -1745,10 +1745,10 @@ if(var VAR_4 == int 92)
 }
 if(var VAR_4 == int 93)
  {
-		if(call func_129(int 10))
+		if(call is_local_timer_greater_than(int 10))
 		 {
 				call play_char_anim(var VAR_0, var VAR_25, int 0)
-				call func_d5()
+				call reset_local_timer()
 				var VAR_4 = int 94
 		}
 		if(call is_char_at_pos(var VAR_7, var &VAR_30, int 1000) == int 1)
@@ -1760,10 +1760,10 @@ if(var VAR_4 == int 93)
 }
 if(var VAR_4 == int 94)
  {
-		if(call func_129(int 40))
+		if(call is_local_timer_greater_than(int 40))
 		 {
-				call func_35(var VAR_0, call func_67(var VAR_7))
-				call func_d5()
+				call char_turn_to_pos(var VAR_0, call func_67(var VAR_7))
+				call reset_local_timer()
 				var VAR_4 = int 93
 		}
 		if(call is_char_at_pos(var VAR_7, var &VAR_30, int 1000) == int 1)
@@ -1775,9 +1775,9 @@ if(var VAR_4 == int 94)
 }
 if(var VAR_4 == int 95)
  {
-		if(call func_129(int 20))
+		if(call is_local_timer_greater_than(int 20))
 		 {
-				call func_35(var VAR_7, call func_67(var VAR_31))
+				call char_turn_to_pos(var VAR_7, call func_67(var VAR_31))
 				var VAR_4 = int 96
 		}
 }
@@ -1788,7 +1788,7 @@ if(var VAR_4 == int 96)
 				call func_18(var VAR_31, int 463, int 785, int -6855)
 				var VAR_53 = int 103
 				call func_10a(var VAR_0, int 5)
-				call func_cd(var &VAR_146)
+				call log(var &VAR_146)
 				call func_22(var VAR_0)
 				call func_c7(var VAR_0, var VAR_7)
 				var VAR_4 = int 97
@@ -1796,24 +1796,24 @@ if(var VAR_4 == int 96)
 }
 if(var VAR_4 == int 97)
  {
-		call func_cd(var &VAR_147)
+		call log(var &VAR_147)
 		if(call is_char_at_pos(var VAR_0, var &VAR_30, int 1000) == int 0)
 		 {
 				call func_d6(var VAR_0)
-				call func_20(var VAR_0)
+				call play_char_anim_seq(var VAR_0)
 				call func_18(var VAR_0, int 2268, int 785, int -6754)
 				var VAR_4 = int 98
 		}
 }
 if(var VAR_4 == int 98)
  {
-		call func_cd(var &VAR_148)
+		call log(var &VAR_148)
 		if(call is_char_standing(var VAR_0))
 		 {
 				if(call is_char_at_pos(var VAR_7, var &VAR_30, int 1000) == int 0)
 				 {
-						call func_35(var VAR_0, call func_67(var VAR_7))
-						call func_d5()
+						call char_turn_to_pos(var VAR_0, call func_67(var VAR_7))
+						call reset_local_timer()
 						var VAR_4 = int 99
 				}
 				else
@@ -1826,11 +1826,11 @@ if(var VAR_4 == int 98)
 }
 if(var VAR_4 == int 99)
  {
-		call func_cd(var &VAR_149)
-		if(call func_129(int 10))
+		call log(var &VAR_149)
+		if(call is_local_timer_greater_than(int 10))
 		 {
 				call play_char_anim(var VAR_0, var VAR_25, int 0)
-				call func_d5()
+				call reset_local_timer()
 				var VAR_4 = int 100
 		}
 		if(call is_char_at_pos(var VAR_7, var &VAR_30, int 1000) == int 1)
@@ -1842,11 +1842,11 @@ if(var VAR_4 == int 99)
 }
 if(var VAR_4 == int 100)
  {
-		call func_cd(var &VAR_150)
-		if(call func_129(int 40))
+		call log(var &VAR_150)
+		if(call is_local_timer_greater_than(int 40))
 		 {
-				call func_35(var VAR_0, call func_67(var VAR_7))
-				call func_d5()
+				call char_turn_to_pos(var VAR_0, call func_67(var VAR_7))
+				call reset_local_timer()
 				var VAR_4 = int 99
 		}
 		if(call is_char_at_pos(var VAR_7, var &VAR_30, int 1000) == int 1)
@@ -1858,9 +1858,9 @@ if(var VAR_4 == int 100)
 }
 if(var VAR_4 == int 108)
  {
-		if(call func_129(int 10))
+		if(call is_local_timer_greater_than(int 10))
 		 {
-				call func_20(var VAR_0)
+				call play_char_anim_seq(var VAR_0)
 				call func_18(var VAR_0, int 2268, int 785, int -6754)
 				var VAR_4 = int 109
 		}
@@ -1869,25 +1869,25 @@ if(var VAR_4 == int 109)
  {
 		if(call is_char_standing(var VAR_0))
 		 {
-				call func_35(var VAR_0, call func_67(var VAR_7))
-				call func_d5()
+				call char_turn_to_pos(var VAR_0, call func_67(var VAR_7))
+				call reset_local_timer()
 				var VAR_4 = int 110
 		}
 }
 if(var VAR_4 == int 110)
  {
-		if(call func_129(int 10))
+		if(call is_local_timer_greater_than(int 10))
 		 {
 				call play_char_anim(var VAR_0, var VAR_25, int 0)
-				call func_d5()
+				call reset_local_timer()
 				var VAR_4 = int 111
 		}
 }
 if(var VAR_4 == int 111)
  {
-		if(call func_129(int 10))
+		if(call is_local_timer_greater_than(int 10))
 		 {
-				call func_20(var VAR_7)
+				call play_char_anim_seq(var VAR_7)
 				call func_19(var VAR_7, var VAR_0)
 				var VAR_4 = int 112
 		}
@@ -1937,7 +1937,7 @@ if(var VAR_4 == int 121)
  {
 		if(gamevar scene_counter > int 50)
 		 {
-				call func_20(var VAR_7)
+				call play_char_anim_seq(var VAR_7)
 				call func_18(var VAR_7, int 1665, int 813, int -6821)
 				var VAR_4 = int 123
 		}
@@ -1955,7 +1955,7 @@ if(var VAR_4 == int 138)
  {
 		if(call func_5c(var VAR_7))
 		 {
-				call func_35(var VAR_7, call func_67(var VAR_33))
+				call char_turn_to_pos(var VAR_7, call func_67(var VAR_33))
 				call func_df()
 				call func_17(var VAR_39, var VAR_31)
 				gamevar scene_counter = int 0
@@ -1974,7 +1974,7 @@ if(var VAR_4 == int 125)
  {
 		if(call func_6d() == int 2)
 		 {
-				call func_20(var VAR_7)
+				call play_char_anim_seq(var VAR_7)
 				call func_18(var VAR_7, int 1109, int 917, int -7199)
 				gamevar scene_counter = int 0
 				var VAR_4 = int 139
@@ -1984,7 +1984,7 @@ if(var VAR_4 == int 139)
  {
 		if(gamevar scene_counter > int 25)
 		 {
-				call func_20(var VAR_0)
+				call play_char_anim_seq(var VAR_0)
 				call func_18(var VAR_0, int 1321, int 931, int -7111)
 				gamevar scene_counter = int 0
 				var VAR_4 = int 256
@@ -1992,7 +1992,7 @@ if(var VAR_4 == int 139)
 }
 if(var VAR_4 == int 256&&call is_char_standing(var VAR_0)&&call is_char_standing(var VAR_7))
  {
-		call func_35(var VAR_7, call func_67(var VAR_33))
+		call char_turn_to_pos(var VAR_7, call func_67(var VAR_33))
 		call func_df()
 		var VAR_4 = int 140
 }
@@ -2097,9 +2097,9 @@ if(var VAR_4 == int 135)
 				call remove_char(var VAR_39)
 				call func_2(var VAR_35)
 				call func_2(var VAR_41)
-				call func_35(var VAR_35, call func_67(var VAR_7))
-				call func_35(var VAR_41, call func_67(var VAR_7))
-				call func_111(int 1)
+				call char_turn_to_pos(var VAR_35, call func_67(var VAR_7))
+				call char_turn_to_pos(var VAR_41, call func_67(var VAR_7))
+				call set_input_system(int 1)
 				call func_10c(var VAR_0, int 0)
 				var VAR_4 = int 10000
 		}
@@ -2109,7 +2109,7 @@ execute SCRIPT_8
 execute SCRIPT_9
 if(var VAR_4 == int 10000)
  {
-		if(call ! func_16(int 4128768)&&call ! func_16(int 4128771))
+		if(call ! is_char_exist(int 4128768)&&call ! is_char_exist(int 4128771))
 		 {
 				gamevar room_state = int 3
 				gamevar *scene_info_p+5 = int 2
@@ -2152,8 +2152,8 @@ if(var VAR_53 == int 106)
 		 {
 				call func_d6(var VAR_7)
 				call func_d6(var VAR_0)
-				call func_111(int 2)
-				call func_d5()
+				call set_input_system(int 2)
+				call reset_local_timer()
 				call func_f(var VAR_0, int 6422532)
 				call func_2(var VAR_0)
 				call func_f(var VAR_7, int 4)
@@ -2172,7 +2172,7 @@ if(var VAR_4 == int 110)
 }
 if(var VAR_4 == int 111)
  {
-		call func_20(var VAR_33)
+		call play_char_anim_seq(var VAR_33)
 		call func_18(var VAR_33, int 110, int 785, int -7302)
 		var VAR_157 = gamevar time
 		var VAR_54 = int 115
@@ -2182,7 +2182,7 @@ if(var VAR_54 == int 115)
 		var VAR_158 = gamevar time - var VAR_157
 		if(var VAR_158 > int 4)
 		 {
-				call func_20(var VAR_35)
+				call play_char_anim_seq(var VAR_35)
 				call func_18(var VAR_35, int -56, int 785, int -6935)
 				var VAR_157 = gamevar time
 				var VAR_54 = int 116
@@ -2193,7 +2193,7 @@ if(var VAR_54 == int 116)
 		var VAR_158 = gamevar time - var VAR_157
 		if(var VAR_158 > int 5)
 		 {
-				call func_20(var VAR_41)
+				call play_char_anim_seq(var VAR_41)
 				call func_18(var VAR_41, int 274, int 785, int -7688)
 				var VAR_157 = gamevar time
 				var VAR_54 = int 117
@@ -2204,7 +2204,7 @@ if(var VAR_54 == int 117)
 		var VAR_158 = gamevar time - var VAR_157
 		if(var VAR_158 > int 3)
 		 {
-				call func_20(var VAR_39)
+				call play_char_anim_seq(var VAR_39)
 				call func_18(var VAR_39, int -291, int 785, int -7249)
 				var VAR_157 = gamevar time
 				var VAR_54 = int 118
@@ -2215,7 +2215,7 @@ if(var VAR_54 == int 118)
 		var VAR_158 = gamevar time - var VAR_157
 		if(var VAR_158 > int 5)
 		 {
-				call func_20(var VAR_37)
+				call play_char_anim_seq(var VAR_37)
 				call func_18(var VAR_37, int -26, int 785, int -7738)
 				var VAR_157 = gamevar time
 				var VAR_54 = int 119
@@ -2237,7 +2237,7 @@ if(var VAR_160)
 		if(call get_input_sys() != int 4)
 		 {
 				call func_d2()
-				call func_35(var VAR_7, call func_67(var VAR_0))
+				call char_turn_to_pos(var VAR_7, call func_67(var VAR_0))
 				call func_100(call func_6a(var VAR_0))
 				if(call func_30(int 16))
 				 {
@@ -2251,20 +2251,20 @@ if(var VAR_160)
 }
 
 ._SCRIPT_11
-call func_cd(var &VAR_168)
+call log(var &VAR_168)
 gamevar door_restriction_p = var &VAR_3
 
 ._SCRIPT_12
 
 ._SCRIPT_13
-call func_cd(var &VAR_169)
+call log(var &VAR_169)
 
 ._SCRIPT_14
 
 ._SCRIPT_15
-call func_cd(var &VAR_177)
+call log(var &VAR_177)
 var VAR_173 = call get_char_handle(int 786432)
-call func_111(int 2)
+call set_input_system(int 2)
 call func_ff(var &VAR_175)
 call func_bc(var &VAR_184)
 call func_58(int 1)
@@ -2292,7 +2292,7 @@ switch(var VAR_170)
 			 {
 					if(call func_6d() == int 13)
 					 {
-							call func_cd(var &VAR_189)
+							call log(var &VAR_189)
 							call func_df()
 							var VAR_170 = int 8
 							var VAR_171 = int 0
@@ -2312,19 +2312,19 @@ switch(var VAR_170)
 			if(var VAR_171 == int 20)
 			 {
 					var VAR_185 = call func_ec(int 8, int 0, int 2, int 0)
-					call func_11c(var VAR_185, int 70)
+					call set_sound_volume(var VAR_185, int 70)
 					var VAR_172 = call func_a5(var &VAR_180, int 40)
 					var VAR_172 = call eval(var &VAR_182, int 10)
 			}
 			if(var VAR_171 == int 40)
 			 {
 					var VAR_185 = call func_ec(int 8, int 0, int 2, int 0)
-					call func_11c(var VAR_185, int 70)
+					call set_sound_volume(var VAR_185, int 70)
 			}
 			if(var VAR_171 == int 60)
 			 {
 					var VAR_185 = call func_ec(int 9, int 0, int 2, int 0)
-					call func_11c(var VAR_185, int 70)
+					call set_sound_volume(var VAR_185, int 70)
 					call func_df()
 					var VAR_170 ++ 
 					var VAR_171 = int 0
@@ -2333,7 +2333,7 @@ switch(var VAR_170)
 		case 10
 			if(call get_input_sys() != int 4)
 			 {
-					call func_111(int 1)
+					call set_input_system(int 1)
 					call func_9f(var VAR_183, int 50)
 					var VAR_170 ++ 
 					var VAR_171 = int 0
@@ -2349,7 +2349,7 @@ switch(var VAR_170)
 }
 
 ._SCRIPT_17
-call func_cd(var &VAR_190)
+call log(var &VAR_190)
 
 ._SCRIPT_18
 

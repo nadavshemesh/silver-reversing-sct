@@ -87,7 +87,7 @@ if(gamevar !is_room_cleared)
 		switch(gamevar room_state)
 		 {
 				case 1
-					if(call func_16(int 4194304))
+					if(call is_char_exist(int 4194304))
 					 {
 							gamevar room_state ++ 
 					}
@@ -103,7 +103,7 @@ if(gamevar !is_room_cleared)
 					}
 					else
 					 {
-							if(call ! func_16(int 4194304))
+							if(call ! is_char_exist(int 4194304))
 							 {
 									gamevar room_state = int 0
 							}
@@ -132,7 +132,7 @@ if(gamevar script_time > var VAR_29)
 }
 
 ._SCRIPT_4
-if(call func_16(int 65536))
+if(call is_char_exist(int 65536))
  {
 		var VAR_5 = call get_char_handle(int 65536)
 }
@@ -156,7 +156,7 @@ call put_item_in_char_inv(var VAR_4, int 40, int 1, int 0)
 call put_item_in_char_inv(var VAR_4, int 41, int 1, int 0)
 var VAR_7 = call create_char(var &VAR_10, var &VAR_16, int -90, int 13)
 call func_50(var VAR_7, int 8192)
-call func_107(var VAR_7, var &VAR_12)
+call set_char_anim_seq(var VAR_7, var &VAR_12)
 execute SCRIPT_4
 
 ._SCRIPT_7
@@ -193,7 +193,7 @@ var VAR_18 ++
 ._SCRIPT_8
 var VAR_7 = call create_enemy(int 129, int 0, var &VAR_10, int -90)
 call func_50(var VAR_7, int 8192)
-call func_107(var VAR_7, var &VAR_21)
+call set_char_anim_seq(var VAR_7, var &VAR_21)
 execute SCRIPT_4
 call func_bc(var &VAR_23)
 call func_108(var &VAR_24)
@@ -216,7 +216,7 @@ switch(var VAR_25)
 		case 1
 			if(var VAR_26 > int 100)
 			 {
-					if(call func_16(int 4194304))
+					if(call is_char_exist(int 4194304))
 					 {
 							call func_106(var VAR_7, int 3, int 1, var &VAR_22)
 					}

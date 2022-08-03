@@ -327,11 +327,11 @@ gamevar *character_movement_p+60 = int 1
 gamevar script_object = var VAR_84
 gamevar *character_movement_p+60 = int 1
 call func_50(var VAR_82, int 8193)
-call func_107(var VAR_82, var &VAR_86)
-call func_20(var VAR_82)
+call set_char_anim_seq(var VAR_82, var &VAR_86)
+call play_char_anim_seq(var VAR_82)
 call func_50(var VAR_84, int 8193)
-call func_107(var VAR_84, var &VAR_87)
-call func_20(var VAR_84)
+call set_char_anim_seq(var VAR_84, var &VAR_87)
+call play_char_anim_seq(var VAR_84)
 
 ._SCRIPT_6
 var VAR_79 = call create_enemy(int 192, int 0, var &VAR_80, int 80)
@@ -343,8 +343,8 @@ call freeze_enemy(var VAR_79)
 gamevar script_object = var VAR_79
 gamevar *character_movement_p+60 = int 1
 call func_50(var VAR_79, int 8193)
-call func_107(var VAR_79, var &VAR_81)
-call func_20(var VAR_79)
+call set_char_anim_seq(var VAR_79, var &VAR_81)
+call play_char_anim_seq(var VAR_79)
 
 ._SCRIPT_7
 call func_bc(var &VAR_105)
@@ -390,7 +390,7 @@ var VAR_116 = call create_char(var &VAR_117, var &VAR_119, int 0, int 13)
 ._SCRIPT_10
 
 ._SCRIPT_11
-var VAR_90 = call func_f4(var &VAR_91, var &VAR_89, int 0, int 0)
+var VAR_90 = call play_3d_fx(var &VAR_91, var &VAR_89, int 0, int 0)
 call func_e(var &VAR_89)
 call play_loaded_sound(int 198, int -1, int 0, var &VAR_89)
 
@@ -421,7 +421,7 @@ if(var VAR_110 == int 0)
 		call func_106(var VAR_92, int 7, int 5, int 1)
 		call func_106(var VAR_92, int 1, int 0, int 0)
 		call func_19(var VAR_92, var VAR_39)
-		call func_20(var VAR_92)
+		call play_char_anim_seq(var VAR_92)
 		var VAR_112 = int 0
 		var VAR_110 ++ 
 }
@@ -440,7 +440,7 @@ if(var VAR_110 == int 1)
 				call func_50(var VAR_93, int 131)
 				call func_106(var VAR_93, int 1, int 0, int 0)
 				call func_19(var VAR_93, var VAR_39)
-				call func_20(var VAR_93)
+				call play_char_anim_seq(var VAR_93)
 				var VAR_112 = int 0
 				var VAR_110 ++ 
 		}
@@ -467,7 +467,7 @@ if(var VAR_110 == int 2)
 				call func_106(var VAR_94, int 1, int 0, int 0)
 				call func_106(var VAR_94, int 6, int 1, int 3)
 				call func_19(var VAR_94, var VAR_39)
-				call func_20(var VAR_94)
+				call play_char_anim_seq(var VAR_94)
 				var VAR_112 = int 0
 				var VAR_110 ++ 
 		}
@@ -487,7 +487,7 @@ if(var VAR_110 == int 3)
 				call func_50(var VAR_95, int 131)
 				call func_106(var VAR_95, int 1, int 0, int 0)
 				call func_19(var VAR_95, var VAR_39)
-				call func_20(var VAR_95)
+				call play_char_anim_seq(var VAR_95)
 				var VAR_112 = int 0
 				var VAR_110 ++ 
 		}
@@ -511,7 +511,7 @@ if(var VAR_110 == int 4)
 				call func_50(var VAR_96, int 131)
 				call func_106(var VAR_96, int 1, int 0, int 0)
 				call func_19(var VAR_96, var VAR_39)
-				call func_20(var VAR_96)
+				call play_char_anim_seq(var VAR_96)
 				var VAR_112 = int 0
 				var VAR_110 ++ 
 		}
@@ -544,7 +544,7 @@ if(var VAR_110 == int 0)
 		call func_104(var VAR_92, int 7, int 1)
 		call func_106(var VAR_92, int 1, int 0, int 0)
 		call func_19(var VAR_92, var VAR_39)
-		call func_20(var VAR_92)
+		call play_char_anim_seq(var VAR_92)
 		var VAR_112 = int 0
 		var VAR_110 ++ 
 }
@@ -563,7 +563,7 @@ if(var VAR_110 == int 1)
 				call func_50(var VAR_93, int 131)
 				call func_106(var VAR_93, int 1, int 0, int 0)
 				call func_19(var VAR_93, var VAR_39)
-				call func_20(var VAR_93)
+				call play_char_anim_seq(var VAR_93)
 				var VAR_112 = int 0
 				var VAR_110 ++ 
 		}
@@ -583,7 +583,7 @@ if(var VAR_110 == int 2)
 				call func_50(var VAR_94, int 131)
 				call func_106(var VAR_94, int 1, int 0, int 0)
 				call func_19(var VAR_94, var VAR_39)
-				call func_20(var VAR_94)
+				call play_char_anim_seq(var VAR_94)
 				var VAR_112 = int 0
 				var VAR_110 ++ 
 		}
@@ -603,7 +603,7 @@ if(var VAR_110 == int 3)
 				call func_50(var VAR_95, int 131)
 				call func_106(var VAR_95, int 1, int 0, int 0)
 				call func_19(var VAR_95, var VAR_39)
-				call func_20(var VAR_95)
+				call play_char_anim_seq(var VAR_95)
 				var VAR_112 = int 0
 				var VAR_110 ++ 
 		}
@@ -627,7 +627,7 @@ if(var VAR_110 == int 4)
 				call func_50(var VAR_96, int 131)
 				call func_106(var VAR_96, int 1, int 0, int 0)
 				call func_19(var VAR_96, var VAR_39)
-				call func_20(var VAR_96)
+				call play_char_anim_seq(var VAR_96)
 				var VAR_112 = int 0
 				var VAR_110 ++ 
 		}
@@ -697,9 +697,9 @@ if(call func_ed(int 63))
 				gamevar compile_init_character = int 0
 				var VAR_140 = call func_92(int 1, var &VAR_141, int 0, int 13)
 				gamevar compile_init_character = int 1
-				call func_4f(var VAR_140, int 0)
-				call func_4f(var VAR_140, int 7)
-				call func_4f(var VAR_140, int 11)
+				call set_char_init_state(var VAR_140, int 0)
+				call set_char_init_state(var VAR_140, int 7)
+				call set_char_init_state(var VAR_140, int 11)
 				call func_106(var VAR_140, int 7, int 7, int 2)
 				call put_item_in_char_inv(var VAR_140, int 16, int 0, int 1)
 		}
@@ -716,9 +716,9 @@ if(call func_ed(int 64))
 				gamevar compile_init_character = int 0
 				var VAR_140 = call func_92(int 1, var &VAR_142, int 0, int 13)
 				gamevar compile_init_character = int 1
-				call func_4f(var VAR_140, int 0)
-				call func_4f(var VAR_140, int 7)
-				call func_4f(var VAR_140, int 11)
+				call set_char_init_state(var VAR_140, int 0)
+				call set_char_init_state(var VAR_140, int 7)
+				call set_char_init_state(var VAR_140, int 11)
 				call func_106(var VAR_140, int 7, int 7, int 2)
 				call put_item_in_char_inv(var VAR_140, int 16, int 0, int 1)
 				call func_10a(var VAR_140, int 3)
@@ -746,25 +746,25 @@ call func_bc(var &VAR_146)
 call func_bc(var &VAR_147)
 call func_bc(var &VAR_148)
 call func_bc(var &VAR_149)
-call func_cd(var &VAR_150)
+call log(var &VAR_150)
 var VAR_151 = call func_6f()
 if(var VAR_151 == int 0)
  {
 		var VAR_62 = call func_a5(var &VAR_162, int 10)
-		call func_cd(var &VAR_170)
+		call log(var &VAR_170)
 }
 else
  {
 		if(var VAR_151 == int 1)
 		 {
-				call func_cd(var &VAR_171)
+				call log(var &VAR_171)
 		}
 		else
 		 {
 				if(var VAR_151 == int 2)
 				 {
 						var VAR_62 = call func_a5(var &VAR_160, int 10)
-						call func_cd(var &VAR_172)
+						call log(var &VAR_172)
 				}
 				else
 				 {
@@ -772,13 +772,13 @@ else
 						 {
 								var VAR_62 = call func_a5(var &VAR_169, int 1)
 								var VAR_62 = call func_a5(var &VAR_167, int 10)
-								call func_cd(var &VAR_173)
+								call log(var &VAR_173)
 						}
 						else
 						 {
 								if(var VAR_151 == int 4)
 								 {
-										call func_cd(var &VAR_174)
+										call log(var &VAR_174)
 								}
 						}
 				}
@@ -838,17 +838,17 @@ switch(var VAR_23)
 			call func_104(var VAR_19, int 7, int 1)
 			break 
 		case 1
-			call func_4f(var VAR_17, int 6)
+			call set_char_init_state(var VAR_17, int 6)
 			call func_106(var VAR_17, int 6, int 0, int 18)
 			call func_106(var VAR_17, int 6, int 1, int 3)
 			call func_106(var VAR_17, int 6, int 6, int 600)
 			call func_106(var VAR_17, int 6, int 7, int 75)
-			call func_4f(var VAR_18, int 6)
+			call set_char_init_state(var VAR_18, int 6)
 			call func_106(var VAR_18, int 6, int 0, int 22)
 			call func_106(var VAR_18, int 6, int 1, int 3)
 			call func_106(var VAR_18, int 6, int 6, int 700)
 			call func_106(var VAR_18, int 6, int 7, int 75)
-			call func_4f(var VAR_19, int 6)
+			call set_char_init_state(var VAR_19, int 6)
 			call func_106(var VAR_19, int 6, int 0, int 16)
 			call func_106(var VAR_19, int 6, int 1, int 3)
 			call func_106(var VAR_19, int 6, int 6, int 800)
@@ -867,23 +867,23 @@ var VAR_30 ++
 switch(var VAR_35)
  {
 		case 0
-			call func_d5()
+			call reset_local_timer()
 			var VAR_35 ++ 
 			break 
 		case 1
-			if(call func_129(int 10))
+			if(call is_local_timer_greater_than(int 10))
 			 {
-					if(call func_16(int 65536))
+					if(call is_char_exist(int 65536))
 					 {
 							gamevar script_object = var VAR_17
 							gamevar *character_stats_p+7 = int 10000
 					}
-					if(call func_16(int 327680))
+					if(call is_char_exist(int 327680))
 					 {
 							gamevar script_object = var VAR_18
 							gamevar *character_stats_p+7 = int 10000
 					}
-					if(call func_16(int 196608))
+					if(call is_char_exist(int 196608))
 					 {
 							gamevar script_object = var VAR_19
 							gamevar *character_stats_p+7 = int 10000

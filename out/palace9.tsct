@@ -64,13 +64,13 @@ if(gamevar script_time > var VAR_13)
  {
 		var VAR_13 = gamevar script_time + int 100 + call randomize_int(int 0, int 50)
 		var VAR_12 = call play_loaded_sound(int 6, int 0, int 66, int 0)
-		call func_11c(var VAR_12, int 30)
+		call set_sound_volume(var VAR_12, int 30)
 }
 
 ._SCRIPT_4
 if(var VAR_1)
  {
-		if(call ! func_129(var VAR_1))
+		if(call ! is_local_timer_greater_than(var VAR_1))
 		 {
 				exit_script 
 		}
@@ -94,7 +94,7 @@ call put_item_in_char_inv(var VAR_9, int 49, int 0, int 0)
 ._SCRIPT_6
 if(var VAR_1)
  {
-		if(call ! func_129(var VAR_1))
+		if(call ! is_local_timer_greater_than(var VAR_1))
 		 {
 				exit_script 
 		}
@@ -108,7 +108,7 @@ var VAR_0 = int 1
 ._SCRIPT_8
 if(var VAR_1)
  {
-		if(call ! func_129(var VAR_1))
+		if(call ! is_local_timer_greater_than(var VAR_1))
 		 {
 				exit_script 
 		}

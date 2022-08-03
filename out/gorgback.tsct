@@ -46,9 +46,9 @@ call load_sound(int 68)
 call play_loaded_sound(int 1, int -1, int 68, var &VAR_1)
 gamevar SMACKER_X = int 72
 gamevar SMACKER_Y = int 336
-call func_a0(var &VAR_4, int 1, int 1, int 0)
+call play_2d_anim(var &VAR_4, int 1, int 1, int 0)
 var VAR_2 = call play_loaded_sound(int 2, int -1, int 17, int 0)
-call func_11c(var VAR_2, int 14)
+call set_sound_volume(var VAR_2, int 14)
 if(gamevar is_room_cleared)
  {
 		execute SCRIPT_5

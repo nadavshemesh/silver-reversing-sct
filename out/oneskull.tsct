@@ -114,10 +114,10 @@ else
 }
 gamevar SMACKER_X = int 48
 gamevar SMACKER_Y = int 280
-call func_a0(var &VAR_10, int 1, int 1, int 0)
+call play_2d_anim(var &VAR_10, int 1, int 1, int 0)
 gamevar SMACKER_X = int 56
 gamevar SMACKER_Y = int 392
-call func_a0(var &VAR_11, int 1, int 1, int 0)
+call play_2d_anim(var &VAR_11, int 1, int 1, int 0)
 call load_sound(int 20)
 
 ._SCRIPT_1
@@ -166,13 +166,13 @@ switch(var VAR_24)
 			if(call func_d1(var &VAR_56))
 			 {
 					call func_18(var VAR_38, int 502, int -2075, int 7102)
-					call func_cd(var &VAR_74)
+					call log(var &VAR_74)
 					var VAR_71 = int 1
 			}
 			if(call func_8a(var &VAR_55))
 			 {
 					call func_18(var VAR_38, int 502, int -2075, int 7102)
-					call func_cd(var &VAR_75)
+					call log(var &VAR_75)
 					var VAR_71 = int 1
 			}
 			if(var VAR_71)
@@ -214,20 +214,20 @@ switch(var VAR_24)
 			if(var VAR_25 == int 20)
 			 {
 					call func_18(var VAR_38, int 113, int -2275, int 7465)
-					if(call func_16(int 8126464))
+					if(call is_char_exist(int 8126464))
 					 {
 							call func_46(var VAR_43, int 13)
-							call func_20(var VAR_43)
+							call play_char_anim_seq(var VAR_43)
 					}
-					if(call func_16(int 8126465))
+					if(call is_char_exist(int 8126465))
 					 {
 							call func_46(var VAR_45, int 13)
-							call func_20(var VAR_45)
+							call play_char_anim_seq(var VAR_45)
 					}
 			}
 			if(var VAR_25 == int 50)
 			 {
-					if(call func_16(int 8126464))
+					if(call is_char_exist(int 8126464))
 					 {
 							call func_18(var VAR_43, int 813, int -2275, int 7433)
 					}
@@ -238,21 +238,21 @@ switch(var VAR_24)
 					var VAR_24 ++ 
 					var VAR_7 = int 1
 					var VAR_37 = var VAR_38
-					if(call func_16(int 8126465))
+					if(call is_char_exist(int 8126465))
 					 {
 							call func_18(var VAR_45, int 303, int -2075, int 7151)
 					}
 					var VAR_47 = call func_96(int 58, int 3, int 1, int 90)
-					call func_20(var VAR_47)
+					call play_char_anim_seq(var VAR_47)
 					call func_106(var VAR_47, int 1, int 0, int 3)
-					call func_4f(var VAR_47, int 1)
+					call set_char_init_state(var VAR_47, int 1)
 			}
 			break 
 		case 5
 			var VAR_25 ++ 
 			if(var VAR_25 > int 180)
 			 {
-					if(call func_16(int 8126467))
+					if(call is_char_exist(int 8126467))
 					 {
 							call func_18(var VAR_47, int 606, int -2275, int 7745)
 					}
@@ -283,7 +283,7 @@ switch(var VAR_24)
 					gamevar script_object = var VAR_38
 					gamevar *object_p+6 |= int 8388608
 					var VAR_25 = int 0
-					call func_20(var VAR_38)
+					call play_char_anim_seq(var VAR_38)
 					var VAR_24 ++ 
 			}
 			break 
@@ -368,21 +368,21 @@ var VAR_31 = call load_anim(var &VAR_32)
 var VAR_33 = call load_anim(var &VAR_34)
 var VAR_35 = call load_anim(var &VAR_36)
 var VAR_38 = call create_char(var &VAR_39, var &VAR_40, int 90, int 13)
-call func_20(var VAR_38)
+call play_char_anim_seq(var VAR_38)
 gamevar script_object = var VAR_38
 gamevar *object_p+6 |= int 8388608
 var VAR_43 = call create_enemy(int 58, int 0, var &VAR_44, int 200)
 call func_106(var VAR_43, int 1, int 0, int 3)
-call func_4f(var VAR_43, int 1)
+call set_char_init_state(var VAR_43, int 1)
 var VAR_45 = call create_enemy(int 58, int 1, var &VAR_46, int 20)
 call func_106(var VAR_45, int 1, int 0, int 3)
-call func_4f(var VAR_45, int 1)
-call func_4f(var VAR_43, int 13)
-call func_107(var VAR_43, var &VAR_48)
+call set_char_init_state(var VAR_45, int 1)
+call set_char_init_state(var VAR_43, int 13)
+call set_char_anim_seq(var VAR_43, var &VAR_48)
 gamevar script_object = var VAR_43
 gamevar *character_stats_p+15 = int 1000
-call func_4f(var VAR_45, int 13)
-call func_107(var VAR_45, var &VAR_51)
+call set_char_init_state(var VAR_45, int 13)
+call set_char_anim_seq(var VAR_45, var &VAR_51)
 gamevar script_object = var VAR_45
 gamevar *character_stats_p+15 = int 1000
 
@@ -406,7 +406,7 @@ if(var VAR_9 == int 16)
 ._SCRIPT_7
 
 ._SCRIPT_8
-call func_cd(var &VAR_77)
+call log(var &VAR_77)
 var VAR_76 = call randomize_int(int 0, int 2)
 if(var ! VAR_76)
  {
@@ -446,19 +446,19 @@ var VAR_86 --
 ._SCRIPT_10
 gamevar SMACKER_X = int 328
 gamevar SMACKER_Y = int 232
-call func_a0(var &VAR_19, int 1, int 1, var &VAR_0)
+call play_2d_anim(var &VAR_19, int 1, int 1, var &VAR_0)
 gamevar SMACKER_X = int 464
 gamevar SMACKER_Y = int 80
-call func_a0(var &VAR_20, int 1, int 1, int 0)
+call play_2d_anim(var &VAR_20, int 1, int 1, int 0)
 gamevar SMACKER_X = int 528
 gamevar SMACKER_Y = int 80
-call func_a0(var &VAR_21, int 1, int 1, int 0)
+call play_2d_anim(var &VAR_21, int 1, int 1, int 0)
 gamevar SMACKER_X = int 592
 gamevar SMACKER_Y = int 80
-call func_a0(var &VAR_22, int 1, int 1, int 0)
+call play_2d_anim(var &VAR_22, int 1, int 1, int 0)
 gamevar SMACKER_X = int 544
 gamevar SMACKER_Y = int 304
-call func_a0(var &VAR_23, int 1, int 1, int 0)
+call play_2d_anim(var &VAR_23, int 1, int 1, int 0)
 
 ._SCRIPT_11
 if(var VAR_13 == int 99&&var VAR_2 != int 0)
@@ -471,7 +471,7 @@ if(var VAR_14)
 		if(var VAR_13 == int 1)
 		 {
 				var VAR_0 = int 0
-				call func_cd(var &VAR_17)
+				call log(var &VAR_17)
 				var VAR_14 = int 0
 		}
 }
@@ -480,7 +480,7 @@ var VAR_13 = var VAR_1
 if(gamevar global_collision_type == int 18)
  {
 		gamevar global_collision_type = int 0
-		call func_cd(var &VAR_18)
+		call log(var &VAR_18)
 		call play_loaded_sound(int 3, int 0, int 20, int 0)
 		var VAR_12 = call randomize_int(int 0, int 2)
 		if(call get_num_of_enemies() == int 0)

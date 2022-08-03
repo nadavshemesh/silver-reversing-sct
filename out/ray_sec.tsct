@@ -47,16 +47,16 @@ if(var VAR_1)
  {
 		gamevar SMACKER_X = int 196
 		gamevar SMACKER_Y = int 52
-		call func_a0(var &VAR_20, int -2147483, int 1, var &VAR_3)
+		call play_2d_anim(var &VAR_20, int -2147483, int 1, var &VAR_3)
 }
 else
  {
 		gamevar SMACKER_X = int 192
 		gamevar SMACKER_Y = int 56
-		call func_a0(var &VAR_21, int -2147483, int 1, var &VAR_3)
+		call play_2d_anim(var &VAR_21, int -2147483, int 1, var &VAR_3)
 		gamevar SMACKER_X = int 128
 		gamevar SMACKER_Y = int 128
-		call func_a0(var &VAR_22, int -2147483, int 1, var &VAR_5)
+		call play_2d_anim(var &VAR_22, int -2147483, int 1, var &VAR_5)
 		call func_bc(var &VAR_23)
 		call func_bc(var &VAR_24)
 		call func_bc(var &VAR_25)
@@ -84,7 +84,7 @@ else
 		var VAR_2 ++ 
 		if(gamevar global_collision_type == int 18)
 		 {
-				call func_cd(var &VAR_26)
+				call log(var &VAR_26)
 				call play_loaded_sound(int 1, int 0, int 34, int 0)
 				gamevar global_collision_type = int 0
 		}

@@ -51,9 +51,9 @@ VAR_47	0
 ._SCRIPT_0
 call load_sound(int 75)
 var VAR_3 = call play_loaded_sound(int 1, int -1, int 75, int 0)
-call func_11c(var VAR_3, int 120)
+call set_sound_volume(var VAR_3, int 120)
 var VAR_4 = call play_loaded_sound(int 2, int -1, int 75, int 0)
-call func_11c(var VAR_4, int 120)
+call set_sound_volume(var VAR_4, int 120)
 if(gamevar room_state == int 0)
  {
 		exit_script 
@@ -94,7 +94,7 @@ if(gamevar room_state > int 2)
 }
 
 ._SCRIPT_3
-call func_111(int 2)
+call set_input_system(int 2)
 execute SCRIPT_8
 call func_113(int 8, int 8)
 execute SCRIPT_4
@@ -105,7 +105,7 @@ var VAR_19 = call create_char(var &VAR_21, var &VAR_25, int 180, int 13)
 ._SCRIPT_4
 gamevar SMACKER_X = int 0
 gamevar SMACKER_Y = int 128
-call func_a0(var &VAR_26, int 0, int 0, var &VAR_0)
+call play_2d_anim(var &VAR_26, int 0, int 0, var &VAR_0)
 var VAR_0 = int 1
 
 ._SCRIPT_5
@@ -218,23 +218,23 @@ if(var VAR_28 != var VAR_27)
 		 {
 				case 30
 					var VAR_29 = call play_loaded_sound(int 22, int 0, int 75, int 0)
-					call func_11c(var VAR_29, var VAR_30)
+					call set_sound_volume(var VAR_29, var VAR_30)
 					break 
 				case 31
 					var VAR_29 = call play_loaded_sound(int 8, int 0, int 75, int 0)
-					call func_11c(var VAR_29, var VAR_30)
+					call set_sound_volume(var VAR_29, var VAR_30)
 					break 
 				case 107
 					var VAR_29 = call play_loaded_sound(int 13, int 0, int 75, int 0)
-					call func_11c(var VAR_29, var VAR_30)
+					call set_sound_volume(var VAR_29, var VAR_30)
 					break 
 				case 120
 					var VAR_29 = call play_loaded_sound(int 4, int 0, int 75, int 0)
-					call func_11c(var VAR_29, var VAR_30)
+					call set_sound_volume(var VAR_29, var VAR_30)
 					break 
 				case 171
 					var VAR_29 = call play_loaded_sound(int 12, int 0, int 75, int 0)
-					call func_11c(var VAR_29, int 100)
+					call set_sound_volume(var VAR_29, int 100)
 					break 
 		}
 }
@@ -242,12 +242,12 @@ if(var VAR_28 != var VAR_27)
 ._SCRIPT_6
 
 ._SCRIPT_7
-if(call func_129(var VAR_43))
+if(call is_local_timer_greater_than(var VAR_43))
  {
 		var VAR_41 = call randomize_int(int 0, var VAR_42 + int 1)
 		var VAR_43 = call randomize_int(int 1, var VAR_44 + int 1)
 		gamevar scroll_x_shake = var VAR_41
-		call func_d5()
+		call reset_local_timer()
 }
 
 ._SCRIPT_8
@@ -283,7 +283,7 @@ if(gamevar script_time > var VAR_47)
 		var VAR_47 = gamevar script_time + int 10 + call randomize_int(int 0, int 15)
 		var VAR_46 = int 3 + call randomize_int(int 0, int 25)
 		var VAR_45 = call play_loaded_sound(var VAR_46, int 0, int 75, int 0)
-		call func_11c(var VAR_45, int 50 + call randomize_int(int 0, int 20))
+		call set_sound_volume(var VAR_45, int 50 + call randomize_int(int 0, int 20))
 }
 
 ._SCRIPT_10

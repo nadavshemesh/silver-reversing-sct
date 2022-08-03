@@ -44,7 +44,7 @@ VAR_41	0
 VAR_42	0
 
 ._SCRIPT_0
-var VAR_1 = call func_16(int 393216)
+var VAR_1 = call is_char_exist(int 393216)
 if(var VAR_1)
  {
 		if(call func_6f() == int 2)
@@ -164,9 +164,9 @@ execute SCRIPT_8
 switch(var VAR_9)
  {
 		case 0
-			call func_111(int 2)
-			call func_20(var VAR_0)
-			call func_20(var VAR_1)
+			call set_input_system(int 2)
+			call play_char_anim_seq(var VAR_0)
+			call play_char_anim_seq(var VAR_1)
 			var VAR_16 = call func_62()
 			call func_4(var VAR_16, var VAR_0)
 			switch(var VAR_15)
@@ -202,7 +202,7 @@ switch(var VAR_9)
 								var VAR_14 = call func_41(var VAR_1, int 0)
 								break 
 							default 
-								call func_35(var VAR_1, call func_67(var VAR_0))
+								call char_turn_to_pos(var VAR_1, call func_67(var VAR_0))
 								break 
 					}
 					call func_63(var VAR_16, var &VAR_12)
@@ -242,9 +242,9 @@ switch(var VAR_9)
 		case 3
 			if(call get_input_sys() != int 4)
 			 {
-					call func_111(int 1)
+					call set_input_system(int 1)
 					var VAR_8 = int 0
-					call func_35(var VAR_1, call func_67(var VAR_0))
+					call char_turn_to_pos(var VAR_1, call func_67(var VAR_0))
 					var VAR_2 = int 1
 					var VAR_9 = int 0
 					var VAR_10 = int 0
@@ -254,7 +254,7 @@ switch(var VAR_9)
 		case 10
 			if(call func_5c(var VAR_1))
 			 {
-					call func_111(int 1)
+					call set_input_system(int 1)
 					var VAR_8 = int 0
 					var VAR_2 = int 1
 					call func_2(var VAR_1)
@@ -311,9 +311,9 @@ switch(var VAR_24)
 			}
 			else
 			 {
-					call func_111(int 2)
-					call func_20(var VAR_0)
-					call func_20(var VAR_1)
+					call set_input_system(int 2)
+					call play_char_anim_seq(var VAR_0)
+					call play_char_anim_seq(var VAR_1)
 					var VAR_28 = call func_62()
 					call func_4(var VAR_28, var VAR_0)
 					if(var ! VAR_2)
@@ -349,7 +349,7 @@ switch(var VAR_24)
 					}
 					else
 					 {
-							call func_35(var VAR_1, call func_67(var VAR_0))
+							call char_turn_to_pos(var VAR_1, call func_67(var VAR_0))
 					}
 					call func_63(var VAR_28, var &VAR_27)
 					var VAR_24 ++ 
@@ -393,10 +393,10 @@ switch(var VAR_24)
 		case 3
 			if(call get_input_sys() != int 4)
 			 {
-					call func_111(int 1)
+					call set_input_system(int 1)
 					var VAR_23 = int 0
 					call func_2(var VAR_1)
-					call func_35(var VAR_1, call func_67(var VAR_0))
+					call char_turn_to_pos(var VAR_1, call func_67(var VAR_0))
 					var VAR_2 = int 1
 					var VAR_24 = int 0
 					var VAR_25 = int 0
@@ -406,9 +406,9 @@ switch(var VAR_24)
 		case 10
 			if(call func_5c(var VAR_1))
 			 {
-					call func_111(int 1)
+					call set_input_system(int 1)
 					var VAR_23 = int 0
-					call func_35(var VAR_1, call func_67(var VAR_0))
+					call char_turn_to_pos(var VAR_1, call func_67(var VAR_0))
 					var VAR_2 = int 1
 					call func_2(var VAR_1)
 					var VAR_24 = int 0

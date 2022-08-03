@@ -107,10 +107,10 @@ if(gamevar !is_room_cleared)
 ._SCRIPT_3
 gamevar SMACKER_X = int 24
 gamevar SMACKER_Y = int 0
-call func_a0(var &VAR_10, int 1, int 1, int 0)
+call play_2d_anim(var &VAR_10, int 1, int 1, int 0)
 gamevar SMACKER_X = int 376
 gamevar SMACKER_Y = int 0
-call func_a0(var &VAR_11, int 1, int 1, int 0)
+call play_2d_anim(var &VAR_11, int 1, int 1, int 0)
 
 ._SCRIPT_4
 call func_e(var &VAR_12)
@@ -140,7 +140,7 @@ if(var VAR_14 > var VAR_15)
 var VAR_14 ++ 
 
 ._SCRIPT_6
-call func_111(int 2)
+call set_input_system(int 2)
 var VAR_18 = call get_char_handle(int 65536)
 
 ._SCRIPT_7
@@ -157,9 +157,9 @@ switch(var VAR_19)
 					 {
 							var VAR_21 = var VAR_22
 					}
-					if(call func_16(int 786432)&&call func_16(int 196608))
+					if(call is_char_exist(int 786432)&&call is_char_exist(int 196608))
 					 {
-							call func_cd(var &VAR_29)
+							call log(var &VAR_29)
 							call start_dialog(var &VAR_30, var VAR_21)
 					}
 					else
@@ -201,7 +201,7 @@ switch(var VAR_19)
 		case 1
 			if(call get_input_sys() != int 4)
 			 {
-					call func_111(int 1)
+					call set_input_system(int 1)
 					var VAR_19 ++ 
 					var VAR_20 = int 0
 			}
@@ -226,14 +226,14 @@ if(gamevar *scene_info_p+3 & int 1)
  {
 		gamevar SMACKER_X = int 532
 		gamevar SMACKER_Y = int 40
-		call func_a0(var &VAR_6, int 0, int 1, var &VAR_5)
+		call play_2d_anim(var &VAR_6, int 0, int 1, var &VAR_5)
 }
 else
  {
 		var VAR_4 = int 1
 		gamevar SMACKER_X = int 532
 		gamevar SMACKER_Y = int 40
-		call func_a0(var &VAR_7, int 0, int 1, int 0)
+		call play_2d_anim(var &VAR_7, int 0, int 1, int 0)
 }
 
 ._SCRIPT_13

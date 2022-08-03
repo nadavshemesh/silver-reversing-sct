@@ -52,7 +52,7 @@ VAR_49	0
 
 ._SCRIPT_0
 var VAR_39 = call func_6f()
-call func_cd(var &VAR_40)
+call log(var &VAR_40)
 call func_ce(var VAR_39)
 call play_bgm(var &VAR_41)
 call load_sound(int 30)
@@ -60,16 +60,16 @@ call play_loaded_sound(int 1, int -1, int 30, int 0)
 call load_sound(int 38)
 gamevar SMACKER_X = int 320
 gamevar SMACKER_Y = int 392
-call func_a0(var &VAR_42, int 1, int 1, var &VAR_0)
+call play_2d_anim(var &VAR_42, int 1, int 1, var &VAR_0)
 gamevar SMACKER_X = int 584
 gamevar SMACKER_Y = int 376
-call func_a0(var &VAR_43, int 1, int 1, var &VAR_1)
+call play_2d_anim(var &VAR_43, int 1, int 1, var &VAR_1)
 gamevar SMACKER_X = int 352
 gamevar SMACKER_Y = int 624
-call func_a0(var &VAR_44, int 1, int 1, var &VAR_2)
+call play_2d_anim(var &VAR_44, int 1, int 1, var &VAR_2)
 gamevar SMACKER_X = int 816
 gamevar SMACKER_Y = int 544
-call func_a0(var &VAR_45, int 1, int 1, var &VAR_3)
+call play_2d_anim(var &VAR_45, int 1, int 1, var &VAR_3)
 switch(gamevar room_state)
  {
 		case 1
@@ -118,7 +118,7 @@ switch(gamevar room_state)
 }
 
 ._SCRIPT_3
-call func_111(int 2)
+call set_input_system(int 2)
 call func_bc(var &VAR_46)
 call func_bc(var &VAR_47)
 call func_9a(var &VAR_18, int 43, int 0, int 0)
@@ -160,7 +160,7 @@ switch(var VAR_4)
 			switch(var VAR_5)
 			 {
 					case 1
-						call func_20(var VAR_10)
+						call play_char_anim_seq(var VAR_10)
 						call char_walk_to_pos(var VAR_10, var &VAR_22)
 						break 
 					case 80
@@ -170,9 +170,9 @@ switch(var VAR_4)
 						call func_29(var VAR_13)
 						break 
 					case 150
-						call func_20(var VAR_15)
-						call func_20(var VAR_16)
-						call func_20(var VAR_17)
+						call play_char_anim_seq(var VAR_15)
+						call play_char_anim_seq(var VAR_16)
+						call play_char_anim_seq(var VAR_17)
 						call char_walk_to_pos(var VAR_15, var &VAR_30)
 						call char_walk_to_pos(var VAR_16, var &VAR_31)
 						call char_walk_to_pos(var VAR_17, var &VAR_32)
@@ -195,7 +195,7 @@ switch(var VAR_4)
 						call func_2(var VAR_17)
 						call func_19(var VAR_13, var VAR_6)
 						call func_19(var VAR_14, var VAR_6)
-						call func_111(int 1)
+						call set_input_system(int 1)
 						var VAR_4 ++ 
 						break 
 			}

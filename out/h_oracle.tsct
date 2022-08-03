@@ -67,7 +67,7 @@ call load_sound(int 78)
 call load_sound(int 8)
 call load_sound(int 12)
 var VAR_4 = call play_loaded_sound(int 8, int -1, int 12, int 0)
-call func_11c(var VAR_4, int 25)
+call set_sound_volume(var VAR_4, int 25)
 call func_58(int 1)
 switch(gamevar room_state)
  {
@@ -242,7 +242,7 @@ switch(var VAR_41)
 			if(var VAR_42 > int 20)
 			 {
 					call func_9b(var VAR_43, var &VAR_47, int 10863247)
-					var VAR_52 = call func_f4(var &VAR_57, int 0, int 0, var VAR_43)
+					var VAR_52 = call play_3d_fx(var &VAR_57, int 0, int 0, var VAR_43)
 					var VAR_41 ++ 
 					var VAR_42 = int 0
 			}
@@ -269,7 +269,7 @@ switch(var VAR_41)
 					call func_12f(var VAR_52)
 					call func_22(var VAR_0)
 					call func_ca(var VAR_0, var VAR_43, int 0)
-					call func_35(var VAR_5, var &VAR_44)
+					call char_turn_to_pos(var VAR_5, var &VAR_44)
 					var VAR_41 ++ 
 					var VAR_42 = int 0
 			}
@@ -323,7 +323,7 @@ var VAR_18 = int 0
 var VAR_19 = int 0
 call func_4d(int 111, var &VAR_16, var &VAR_23, var &VAR_24)
 call func_b8(int 99)
-call func_111(int 2)
+call set_input_system(int 2)
 
 ._SCRIPT_5
 var VAR_25 = call load_anim(var &VAR_28)
@@ -333,13 +333,13 @@ var VAR_27 = call load_anim(var &VAR_30)
 ._SCRIPT_6
 gamevar SMACKER_X = int 160
 gamevar SMACKER_Y = int 0
-call func_a0(var &VAR_38, int 0, int 0, var &VAR_31)
+call play_2d_anim(var &VAR_38, int 0, int 0, var &VAR_31)
 gamevar SMACKER_X = int 300
 gamevar SMACKER_Y = int 196
-var VAR_36 = call func_a0(var &VAR_39, int 10737418, int 1, var &VAR_33)
+var VAR_36 = call play_2d_anim(var &VAR_39, int 10737418, int 1, var &VAR_33)
 gamevar SMACKER_X = int 300
 gamevar SMACKER_Y = int 188
-var VAR_37 = call func_a0(var &VAR_40, int 10737418, int 1, var &VAR_35)
+var VAR_37 = call play_2d_anim(var &VAR_40, int 10737418, int 1, var &VAR_35)
 
 ._SCRIPT_7
 if(gamevar script_time > var VAR_61)

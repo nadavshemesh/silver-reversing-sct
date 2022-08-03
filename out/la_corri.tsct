@@ -41,7 +41,7 @@ call load_sound(int 64)
 var VAR_8 = call play_loaded_sound(int 1, int -1, int 64, int 0)
 if(var VAR_8)
  {
-		call func_11c(var VAR_8, int 14)
+		call set_sound_volume(var VAR_8, int 14)
 }
 call load_sound(int 65)
 call play_loaded_sound(int 5, int -1, int 65, int 0)
@@ -135,7 +135,7 @@ if(gamevar script_time > var VAR_23)
 }
 
 ._SCRIPT_9
-var VAR_0 = call func_16(int 1507337)
+var VAR_0 = call is_char_exist(int 1507337)
 if(var ! VAR_0)
  {
 		var VAR_0 = call create_char(var VAR_1, var &VAR_6, var VAR_2, int 14)

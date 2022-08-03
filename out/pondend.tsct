@@ -116,13 +116,13 @@ if(gamevar *scene_info_p+1)
  {
 		gamevar SMACKER_X = int 184
 		gamevar SMACKER_Y = int 216
-		call func_a0(var &VAR_2, int 1, int 1, int 0)
+		call play_2d_anim(var &VAR_2, int 1, int 1, int 0)
 }
 else
  {
 		gamevar SMACKER_X = int 176
 		gamevar SMACKER_Y = int 216
-		call func_a0(var &VAR_3, int 1, int 1, int 0)
+		call play_2d_anim(var &VAR_3, int 1, int 1, int 0)
 }
 
 ._SCRIPT_4
@@ -146,7 +146,7 @@ switch(var VAR_27)
 			var VAR_15 = gamevar control_char_p
 			if(var VAR_15)
 			 {
-					call func_20(var VAR_15)
+					call play_char_anim_seq(var VAR_15)
 					call char_walk_to_pos(var VAR_15, var &VAR_28)
 					var VAR_27 ++ 
 					var VAR_26 = int 0
@@ -206,7 +206,7 @@ switch(var VAR_27)
 		case 7
 			if(var VAR_23 == int -1)
 			 {
-					call func_111(int 1)
+					call set_input_system(int 1)
 					var VAR_27 ++ 
 					var VAR_26 = int 0
 			}
@@ -216,8 +216,8 @@ switch(var VAR_27)
 ._SCRIPT_9
 gamevar SMACKER_X = int 392
 gamevar SMACKER_Y = int 312
-var VAR_22 = call func_a0(var &VAR_25, int 0, int 1, var &VAR_23)
-call func_111(int 2)
+var VAR_22 = call play_2d_anim(var &VAR_25, int 0, int 1, var &VAR_23)
+call set_input_system(int 2)
 
 ._SCRIPT_10
 
@@ -239,7 +239,7 @@ switch(var VAR_18)
 		case 0
 			if(call get_num_of_enemies() > int 0)
 			 {
-					call func_cd(var &VAR_21)
+					call log(var &VAR_21)
 					var VAR_20 = call play_loaded_sound(int 1, int -1, int 77, int 0)
 					call func_7f(var VAR_20, int 100)
 					var VAR_18 ++ 

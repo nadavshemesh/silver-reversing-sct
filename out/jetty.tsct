@@ -37,13 +37,13 @@ switch(gamevar room_state)
 }
 gamevar SMACKER_X = int 64
 gamevar SMACKER_Y = int 48
-call func_a0(var &VAR_2, int 1, int 1, int 0)
+call play_2d_anim(var &VAR_2, int 1, int 1, int 0)
 gamevar SMACKER_X = int 256
 gamevar SMACKER_Y = int 48
-call func_a0(var &VAR_3, int 1, int 1, int 0)
+call play_2d_anim(var &VAR_3, int 1, int 1, int 0)
 call load_sound(int 30)
 var VAR_4 = call play_loaded_sound(int 1, int -1, int 30, int 0)
-call func_11c(var VAR_4, int 60)
+call set_sound_volume(var VAR_4, int 60)
 
 ._SCRIPT_1
 switch(gamevar room_state)
@@ -109,8 +109,8 @@ call func_106(var VAR_10, int 5, int 1, var VAR_8)
 call func_106(var VAR_10, int 5, int 2, int 700)
 call func_106(var VAR_10, int 5, int 3, int 150)
 call func_106(var VAR_8, int 3, int 1, var &VAR_18)
-call func_20(var VAR_10)
-call func_20(var VAR_9)
+call play_char_anim_seq(var VAR_10)
+call play_char_anim_seq(var VAR_9)
 
 ._SCRIPT_5
 

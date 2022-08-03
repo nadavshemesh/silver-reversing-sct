@@ -84,13 +84,13 @@ if(gamevar room_state > int 2)
 
 ._SCRIPT_3
 call func_113(int 8, int 8)
-call func_111(int 2)
+call set_input_system(int 2)
 execute SCRIPT_8
 
 ._SCRIPT_4
 gamevar SMACKER_X = int 0
 gamevar SMACKER_Y = int 128
-call func_a0(var &VAR_2, int 0, int 0, var &VAR_0)
+call play_2d_anim(var &VAR_2, int 0, int 0, var &VAR_0)
 
 ._SCRIPT_5
 switch(var VAR_8)
@@ -128,17 +128,17 @@ switch(var VAR_8)
 		case 2
 			if(var VAR_9 > int 10)
 			 {
-					call func_20(var VAR_3)
+					call play_char_anim_seq(var VAR_3)
 					call func_115(var VAR_3, var &VAR_19)
 					call func_50(var VAR_3, int 8192)
-					call func_20(var VAR_4)
+					call play_char_anim_seq(var VAR_4)
 					call func_115(var VAR_4, var &VAR_23)
 					call func_50(var VAR_4, int 8192)
 					if(var VAR_5)
 					 {
 							call func_115(var VAR_5, var &VAR_25)
 							call func_50(var VAR_5, int 8192)
-							call func_20(var VAR_5)
+							call play_char_anim_seq(var VAR_5)
 					}
 					var VAR_9 = int 0
 					var VAR_8 ++ 
@@ -179,12 +179,12 @@ execute SCRIPT_11
 ._SCRIPT_6
 
 ._SCRIPT_7
-if(call func_129(var VAR_37))
+if(call is_local_timer_greater_than(var VAR_37))
  {
 		var VAR_35 = call randomize_int(int 0, var VAR_36 + int 1)
 		var VAR_37 = call randomize_int(int 1, var VAR_38 + int 1)
 		gamevar scroll_x_shake = var VAR_35
-		call func_d5()
+		call reset_local_timer()
 }
 
 ._SCRIPT_8
@@ -225,5 +225,5 @@ if(gamevar script_time > var VAR_41)
 		var VAR_41 = gamevar script_time + int 10 + call randomize_int(int 0, int 15)
 		var VAR_40 = int 3 + call randomize_int(int 0, int 25)
 		var VAR_39 = call play_loaded_sound(var VAR_40, int 0, int 75, int 0)
-		call func_11c(var VAR_39, int 100 + call randomize_int(int 0, int 40))
+		call set_sound_volume(var VAR_39, int 100 + call randomize_int(int 0, int 40))
 }

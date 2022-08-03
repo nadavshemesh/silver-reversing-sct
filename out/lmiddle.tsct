@@ -96,21 +96,21 @@ switch(var VAR_6)
 			 {
 					var VAR_7 = call create_enemy(int 210, int 0, var &VAR_8, int 295)
 					gamevar *character_movement_p+60 = int 1
-					call func_d5()
+					call reset_local_timer()
 					var VAR_6 ++ 
 			}
 			break 
 		case 1
-			if(call func_129(int 30))
+			if(call is_local_timer_greater_than(int 30))
 			 {
-					call func_35(var VAR_0, call func_67(var VAR_7))
+					call char_turn_to_pos(var VAR_0, call func_67(var VAR_7))
 					if(var VAR_1)
 					 {
-							call func_35(var VAR_1, call func_67(var VAR_7))
+							call char_turn_to_pos(var VAR_1, call func_67(var VAR_7))
 					}
 					if(var VAR_2)
 					 {
-							call func_35(var VAR_2, call func_67(var VAR_7))
+							call char_turn_to_pos(var VAR_2, call func_67(var VAR_7))
 					}
 					call func_11f(var &VAR_12, int 61440)
 					call func_18(var VAR_7, int -1416, int -111, int 2218)
@@ -131,13 +131,13 @@ switch(var VAR_6)
 		case 4
 			if(call get_input_sys() != int 4)
 			 {
-					if(call func_16(int 1179648))
+					if(call is_char_exist(int 1179648))
 					 {
 							call func_18(var VAR_9, int -701, int 178, int 1444)
 							call func_50(var VAR_9, int 129)
 					}
 					var VAR_10 = call eval(var &VAR_11, int 10)
-					call func_111(int 1)
+					call set_input_system(int 1)
 					var VAR_6 ++ 
 			}
 			break 
@@ -146,7 +146,7 @@ switch(var VAR_6)
 }
 
 ._SCRIPT_5
-call func_111(int 2)
+call set_input_system(int 2)
 var VAR_9 = call func_92(int 1, var &VAR_13, int 295, int 13)
 call put_item_in_char_inv(var VAR_9, int 22, int 0, int 1)
 call func_bc(var &VAR_14)
@@ -162,7 +162,7 @@ var VAR_1 = call func_7e()
 var VAR_2 = call func_7e()
 gamevar SMACKER_X = int 160
 gamevar SMACKER_Y = int 488
-call func_a0(var &VAR_4, int 1, int 1, int 0)
+call play_2d_anim(var &VAR_4, int 1, int 1, int 0)
 gamevar SMACKER_X = int 452
 gamevar SMACKER_Y = int 624
-call func_a0(var &VAR_5, int 1, int 1, int 0)
+call play_2d_anim(var &VAR_5, int 1, int 1, int 0)

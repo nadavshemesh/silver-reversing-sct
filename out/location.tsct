@@ -120,32 +120,32 @@ while(var VAR_12)
 		switch(var VAR_13)
 		 {
 				case 65536
-					call func_cd(var &VAR_14)
+					call log(var &VAR_14)
 					var VAR_0 = var VAR_12
 					break 
 				case 786432
-					call func_cd(var &VAR_15)
+					call log(var &VAR_15)
 					var VAR_2 = var VAR_12
 					break 
 				case 327680
-					call func_cd(var &VAR_16)
+					call log(var &VAR_16)
 					var VAR_1 = var VAR_12
 					break 
 				case 196608
-					call func_cd(var &VAR_17)
+					call log(var &VAR_17)
 					var VAR_3 = var VAR_12
 					break 
 				case 131072
-					call func_cd(var &VAR_18)
+					call log(var &VAR_18)
 					var VAR_4 = var VAR_12
 					break 
 				case 262144
-					call func_cd(var &VAR_19)
+					call log(var &VAR_19)
 					var VAR_5 = var VAR_12
 					break 
 				default 
-					call func_cd(var &VAR_20)
-					call func_cd(var &VAR_21)
+					call log(var &VAR_20)
+					call log(var &VAR_21)
 					break 
 		}
 		var VAR_12 = call func_7e()
@@ -154,7 +154,7 @@ while(var VAR_12)
 ._SCRIPT_4
 gamevar SMACKER_X = int 96
 gamevar SMACKER_Y = int 272
-call func_a0(var &VAR_11, int 1, int 0, int 0)
+call play_2d_anim(var &VAR_11, int 1, int 0, int 0)
 
 ._SCRIPT_5
 switch(var VAR_26)
@@ -198,7 +198,7 @@ switch(var VAR_26)
 					}
 					else
 					 {
-							call func_111(int 1)
+							call set_input_system(int 1)
 							var VAR_26 = int -1
 					}
 					var VAR_27 = int 0
@@ -241,7 +241,7 @@ switch(var VAR_26)
 					if(var ! VAR_29&&var ! VAR_30&&var ! VAR_31&&var ! VAR_28)
 					 {
 							var VAR_26 = int -1
-							call func_111(int 1)
+							call set_input_system(int 1)
 					}
 					else
 					 {
@@ -253,7 +253,7 @@ switch(var VAR_26)
 		case 5
 			if(call get_input_sys() != int 4)
 			 {
-					call func_111(int 1)
+					call set_input_system(int 1)
 					call func_102(int 3)
 					var VAR_26 ++ 
 					var VAR_27 = int 0
@@ -268,7 +268,7 @@ var VAR_23 = call get_char_handle(int 65536)
 gamevar script_object = var VAR_23
 var VAR_24 = gamevar *character_stats_p+1
 call func_10a(var VAR_5, var VAR_24)
-call func_111(int 2)
+call set_input_system(int 2)
 
 ._SCRIPT_7
 

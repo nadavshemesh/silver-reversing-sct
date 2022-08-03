@@ -82,7 +82,7 @@ call load_sound(int 68)
 call load_sound(int 77)
 var VAR_1 = call play_loaded_sound(int 2, int -1, int 17, int 0)
 call play_loaded_sound(int 1, int -1, int 68, var &VAR_2)
-call func_11c(var VAR_1, int 5)
+call set_sound_volume(var VAR_1, int 5)
 if(gamevar is_room_cleared)
  {
 		execute SCRIPT_7
@@ -125,14 +125,14 @@ var VAR_30 ++
 switch(var VAR_34)
  {
 		case 0
-			call func_111(int 2)
+			call set_input_system(int 2)
 			var VAR_35 = int 0
 			var VAR_34 ++ 
 			break 
 		case 1
 			if(var VAR_10 == int 1)
 			 {
-					call func_111(int 1)
+					call set_input_system(int 1)
 					if(var VAR_4)
 					 {
 							call char_stop(var VAR_4)
@@ -179,8 +179,8 @@ switch(var VAR_34)
 		case 3
 			if(call func_ab(int 200, var &VAR_11))
 			 {
-					call func_cd(var &VAR_47)
-					if(call func_16(int 10092544))
+					call log(var &VAR_47)
+					if(call is_char_exist(int 10092544))
 					 {
 							call func_46(var VAR_8, int 13)
 							call set_char_behav(var VAR_8, int 7)
@@ -192,8 +192,8 @@ switch(var VAR_34)
 		case 4
 			if(call func_ab(int 200, var &VAR_12))
 			 {
-					call func_cd(var &VAR_48)
-					if(call func_16(int 10092545))
+					call log(var &VAR_48)
+					if(call is_char_exist(int 10092545))
 					 {
 							call func_46(var VAR_9, int 13)
 							call set_char_behav(var VAR_9, int 7)
@@ -211,19 +211,19 @@ execute SCRIPT_4
 execute SCRIPT_9
 
 ._SCRIPT_6
-var VAR_3 = call func_16(int 65536)
-var VAR_4 = call func_16(int 786432)
-var VAR_5 = call func_16(int 327680)
-var VAR_6 = call func_16(int 131072)
+var VAR_3 = call is_char_exist(int 65536)
+var VAR_4 = call is_char_exist(int 786432)
+var VAR_5 = call is_char_exist(int 327680)
+var VAR_6 = call is_char_exist(int 131072)
 call func_bc(var &VAR_20)
 var VAR_8 = call create_enemy(int 7, int 0, var &VAR_18, int 0)
 call freeze_enemy(var VAR_8)
-call func_4f(var VAR_8, int 13)
-call func_107(var VAR_8, var &VAR_13)
+call set_char_init_state(var VAR_8, int 13)
+call set_char_anim_seq(var VAR_8, var &VAR_13)
 var VAR_9 = call create_enemy(int 7, int 1, var &VAR_19, int 0)
 call freeze_enemy(var VAR_9)
-call func_4f(var VAR_9, int 13)
-call func_107(var VAR_9, var &VAR_14)
+call set_char_init_state(var VAR_9, int 13)
+call set_char_anim_seq(var VAR_9, var &VAR_14)
 var VAR_23 = call create_enemy(int 8, int 1, var &VAR_24, int 80)
 var VAR_25 = call create_enemy(int 8, int 2, var &VAR_26, int 80)
 call freeze_enemy(var VAR_23)
@@ -233,9 +233,9 @@ gamevar *character_movement_p+60 = int 1
 gamevar script_object = var VAR_25
 gamevar *character_movement_p+60 = int 1
 call func_50(var VAR_23, int 8192)
-call func_107(var VAR_23, var &VAR_27)
+call set_char_anim_seq(var VAR_23, var &VAR_27)
 call func_50(var VAR_25, int 8192)
-call func_107(var VAR_25, var &VAR_29)
+call set_char_anim_seq(var VAR_25, var &VAR_29)
 
 ._SCRIPT_7
 
@@ -265,7 +265,7 @@ switch(var VAR_49)
 		case 0
 			if(var VAR_38 == int 1)
 			 {
-					call func_cd(var &VAR_53)
+					call log(var &VAR_53)
 					var VAR_51 = call play_loaded_sound(int 1, int -1, int 77, int 0)
 					call func_7f(var VAR_51, int 100)
 					var VAR_49 ++ 

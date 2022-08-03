@@ -76,7 +76,7 @@ if(gamevar script_time > var VAR_13)
 ._SCRIPT_4
 if(var VAR_1)
  {
-		if(call ! func_129(var VAR_1))
+		if(call ! is_local_timer_greater_than(var VAR_1))
 		 {
 				exit_script 
 		}
@@ -85,7 +85,7 @@ if(var VAR_1)
 if(var VAR_0 == int 0)
  {
 		call func_113(int 0, int 100)
-		call func_d5()
+		call reset_local_timer()
 		var VAR_1 = int 10
 		var VAR_0 = int 1
 		exit_script 
@@ -96,10 +96,10 @@ if(var VAR_0 == int 1)
 		 {
 				exit_script 
 		}
-		call func_35(var VAR_8, call func_67(call func_70()))
+		call char_turn_to_pos(var VAR_8, call func_67(call func_70()))
 		var VAR_1 = int 7
 		var VAR_0 = int 2
-		call func_d5()
+		call reset_local_timer()
 		exit_script 
 }
 if(var VAR_0 == int 2)
@@ -107,7 +107,7 @@ if(var VAR_0 == int 2)
 		call play_char_anim(var VAR_8, var VAR_10, int 0)
 		var VAR_0 = int 3
 		var VAR_1 = int 8
-		call func_d5()
+		call reset_local_timer()
 		exit_script 
 }
 if(var VAR_0 == int 3)
@@ -115,9 +115,9 @@ if(var VAR_0 == int 3)
 		var VAR_9 = call func_96(int 66, int 0, int 1, int 0)
 		call func_1(var VAR_9, int -1)
 		call func_18(var VAR_9, int -1708, int 1625, int 1709)
-		call func_20(var VAR_9)
+		call play_char_anim_seq(var VAR_9)
 		var VAR_1 = int 10
-		call func_d5()
+		call reset_local_timer()
 		var VAR_0 = int 4
 		exit_script 
 }
@@ -128,16 +128,16 @@ if(var VAR_0 == int 4)
 				exit_script 
 		}
 		var VAR_1 = int 3
-		call func_d5()
+		call reset_local_timer()
 		var VAR_0 = int 5
 		exit_script 
 }
 if(var VAR_0 == int 5)
  {
 		var VAR_1 = int 5
-		call func_d5()
-		call func_35(var VAR_8, call func_67(call func_70()))
-		call func_35(var VAR_9, call func_67(call func_70()))
+		call reset_local_timer()
+		call char_turn_to_pos(var VAR_8, call func_67(call func_70()))
+		call char_turn_to_pos(var VAR_9, call func_67(call func_70()))
 		var VAR_0 = int 6
 }
 if(var VAR_0 == int 6)
@@ -148,9 +148,9 @@ if(var VAR_0 == int 6)
 		call func_106(var VAR_7, int 1, int 0, int 1)
 		call func_106(var VAR_8, int 1, int 0, int 1)
 		call func_106(var VAR_9, int 1, int 0, int 1)
-		call func_4f(var VAR_7, int 1)
-		call func_4f(var VAR_8, int 1)
-		call func_4f(var VAR_9, int 1)
+		call set_char_init_state(var VAR_7, int 1)
+		call set_char_init_state(var VAR_8, int 1)
+		call set_char_init_state(var VAR_9, int 1)
 		gamevar script_object = var VAR_7
 		gamevar *character_stats_p+16 = int 500
 		gamevar *character_stats_p+15 = int 3000
@@ -175,7 +175,7 @@ if(var VAR_0 == int 6)
 				call func_c7(var VAR_9, var VAR_2)
 		}
 		var VAR_0 = int 7
-		call func_111(int 1)
+		call set_input_system(int 1)
 		exit_script 
 }
 
@@ -185,15 +185,15 @@ var VAR_8 = call create_enemy(int 66, int 0, var &VAR_6, int 100)
 call func_1(var VAR_7, int -1)
 call func_1(var VAR_8, int -1)
 var VAR_10 = call load_anim(var &VAR_12)
-call func_111(int 2)
-call func_d5()
+call set_input_system(int 2)
+call reset_local_timer()
 var VAR_1 = int 5
 var VAR_0 = int 0
 
 ._SCRIPT_6
 if(var VAR_1)
  {
-		if(call ! func_129(var VAR_1))
+		if(call ! is_local_timer_greater_than(var VAR_1))
 		 {
 				exit_script 
 		}
@@ -207,7 +207,7 @@ var VAR_0 = int 1
 ._SCRIPT_8
 if(var VAR_1)
  {
-		if(call ! func_129(var VAR_1))
+		if(call ! is_local_timer_greater_than(var VAR_1))
 		 {
 				exit_script 
 		}

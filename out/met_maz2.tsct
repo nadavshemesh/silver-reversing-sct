@@ -82,7 +82,7 @@ call load_sound(int 65)
 call play_loaded_sound(int 5, int -1, int 65, int 0)
 gamevar SMACKER_X = int 236
 gamevar SMACKER_Y = int 356
-call func_a0(var &VAR_37, int 1, int 1, int 0)
+call play_2d_anim(var &VAR_37, int 1, int 1, int 0)
 switch(gamevar room_state)
  {
 		case 1
@@ -182,7 +182,7 @@ if(var VAR_40 == int 2)
 		if(call func_122(var VAR_60) == int 0)
 		 {
 				var VAR_60 = call eval(var &VAR_64, int 10)
-				call func_cd(var &VAR_65)
+				call log(var &VAR_65)
 				var VAR_40 ++ 
 				var VAR_41 = int 0
 		}
@@ -201,11 +201,11 @@ var VAR_44 = call create_enemy(int 47, int 2, var &VAR_45, int 33)
 gamevar script_object = var VAR_44
 gamevar *character_stats_p+14 = int 140750
 call func_50(var VAR_42, int 8192)
-call func_107(var VAR_42, var &VAR_47)
+call set_char_anim_seq(var VAR_42, var &VAR_47)
 call func_50(var VAR_43, int 8192)
-call func_107(var VAR_43, var &VAR_48)
+call set_char_anim_seq(var VAR_43, var &VAR_48)
 call func_50(var VAR_44, int 8192)
-call func_107(var VAR_44, var &VAR_49)
+call set_char_anim_seq(var VAR_44, var &VAR_49)
 var VAR_51 = call create_char(var &VAR_54, var &VAR_57, int 220, int 13)
 var VAR_52 = call create_char(var &VAR_55, var &VAR_58, int 220, int 13)
 var VAR_53 = call create_char(var &VAR_56, var &VAR_59, int 220, int 13)
@@ -284,17 +284,17 @@ switch(var VAR_23)
 			call func_104(var VAR_19, int 7, int 1)
 			break 
 		case 1
-			call func_4f(var VAR_17, int 6)
+			call set_char_init_state(var VAR_17, int 6)
 			call func_106(var VAR_17, int 6, int 0, int 18)
 			call func_106(var VAR_17, int 6, int 1, int 3)
 			call func_106(var VAR_17, int 6, int 6, int 600)
 			call func_106(var VAR_17, int 6, int 7, int 75)
-			call func_4f(var VAR_18, int 6)
+			call set_char_init_state(var VAR_18, int 6)
 			call func_106(var VAR_18, int 6, int 0, int 22)
 			call func_106(var VAR_18, int 6, int 1, int 3)
 			call func_106(var VAR_18, int 6, int 6, int 700)
 			call func_106(var VAR_18, int 6, int 7, int 75)
-			call func_4f(var VAR_19, int 6)
+			call set_char_init_state(var VAR_19, int 6)
 			call func_106(var VAR_19, int 6, int 0, int 16)
 			call func_106(var VAR_19, int 6, int 1, int 3)
 			call func_106(var VAR_19, int 6, int 6, int 800)
@@ -313,23 +313,23 @@ var VAR_30 ++
 switch(var VAR_35)
  {
 		case 0
-			call func_d5()
+			call reset_local_timer()
 			var VAR_35 ++ 
 			break 
 		case 1
-			if(call func_129(int 10))
+			if(call is_local_timer_greater_than(int 10))
 			 {
-					if(call func_16(int 65536))
+					if(call is_char_exist(int 65536))
 					 {
 							gamevar script_object = var VAR_17
 							gamevar *character_stats_p+7 = int 10000
 					}
-					if(call func_16(int 327680))
+					if(call is_char_exist(int 327680))
 					 {
 							gamevar script_object = var VAR_18
 							gamevar *character_stats_p+7 = int 10000
 					}
-					if(call func_16(int 196608))
+					if(call is_char_exist(int 196608))
 					 {
 							gamevar script_object = var VAR_19
 							gamevar *character_stats_p+7 = int 10000

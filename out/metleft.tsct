@@ -113,7 +113,7 @@ switch(var VAR_1)
 			 {
 					var VAR_13 = call eval(var &VAR_16, int 1)
 					var VAR_13 = call eval(var &VAR_17, int 10)
-					call func_cd(var &VAR_22)
+					call log(var &VAR_22)
 					var VAR_1 ++ 
 					var VAR_2 = int 0
 			}
@@ -123,7 +123,7 @@ switch(var VAR_1)
 					 {
 							var VAR_13 = call eval(var &VAR_16, int 1)
 							var VAR_13 = call eval(var &VAR_17, int 10)
-							call func_cd(var &VAR_23)
+							call log(var &VAR_23)
 							var VAR_1 ++ 
 							var VAR_2 = int 0
 					}
@@ -133,7 +133,7 @@ switch(var VAR_1)
 			if(call func_122(var VAR_13) == int 0)
 			 {
 					var VAR_13 = call eval(var &VAR_18, int 10)
-					call func_cd(var &VAR_24)
+					call log(var &VAR_24)
 					var VAR_1 ++ 
 					var VAR_2 = int 0
 			}
@@ -141,14 +141,14 @@ switch(var VAR_1)
 		case 2
 			if(call func_122(var VAR_13) == int 0)
 			 {
-					if(call func_16(int 7536640))
+					if(call is_char_exist(int 7536640))
 					 {
 							call func_f(var VAR_10, int 8)
 							call func_46(var VAR_10, int 13)
 							call func_36(var VAR_10, int -6275, int -366, int -1603)
 							call set_char_behav(var VAR_10, int 47)
 					}
-					call func_cd(var &VAR_25)
+					call log(var &VAR_25)
 					var VAR_13 = call eval(var &VAR_20, int 10)
 					var VAR_1 ++ 
 					var VAR_2 = int 0
@@ -157,7 +157,7 @@ switch(var VAR_1)
 		case 3
 			if(call func_122(var VAR_13) == int 0)
 			 {
-					call func_cd(var &VAR_26)
+					call log(var &VAR_26)
 					var VAR_13 = call eval(var &VAR_16, int 10)
 					var VAR_1 ++ 
 					var VAR_2 = int 0
@@ -166,7 +166,7 @@ switch(var VAR_1)
 		case 4
 			if(call get_num_of_enemies() < int 2)
 			 {
-					call func_cd(var &VAR_27)
+					call log(var &VAR_27)
 					var VAR_13 = call eval(var &VAR_17, int 10)
 					var VAR_1 ++ 
 					var VAR_2 = int 0
@@ -202,7 +202,7 @@ gamevar script_object = var VAR_10
 gamevar *character_movement_p+60 = int 1
 call freeze_enemy(var VAR_10)
 call func_50(var VAR_10, int 8192)
-call func_107(var VAR_10, var &VAR_12)
+call set_char_anim_seq(var VAR_10, var &VAR_12)
 gamevar script_object = var VAR_10
 gamevar *character_stats_p+14 = int 91750
 

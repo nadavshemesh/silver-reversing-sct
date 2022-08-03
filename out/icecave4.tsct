@@ -147,18 +147,18 @@ switch(var VAR_10)
 			 {
 					gamevar *scene_info_p+3 = int 16
 					gamevar *scene_info_p+4 = int 16
-					call func_111(int 2)
+					call set_input_system(int 2)
 					call func_ff(var &VAR_20)
 					gamevar *scene_info_p+4 = int 16
 					gamevar CLICKED_DOOR = int -1
 					call func_3b(var VAR_2)
-					call func_20(var VAR_2)
+					call play_char_anim_seq(var VAR_2)
 					call char_walk_to_pos(var VAR_2, var &VAR_16)
 					var VAR_13 = int 0
 					if(var VAR_5)
 					 {
 							call func_3b(var VAR_5)
-							call func_20(var VAR_5)
+							call play_char_anim_seq(var VAR_5)
 							call char_walk_to_pos(var VAR_5, var &VAR_17)
 							var VAR_14 = int 0
 					}
@@ -169,7 +169,7 @@ switch(var VAR_10)
 					if(var VAR_6)
 					 {
 							call func_3b(var VAR_6)
-							call func_20(var VAR_6)
+							call play_char_anim_seq(var VAR_6)
 							call char_walk_to_pos(var VAR_6, var &VAR_18)
 							var VAR_15 = int 0
 					}
@@ -183,14 +183,14 @@ switch(var VAR_10)
 		case 3
 			if(call is_char_standing(var VAR_2)&&var ! VAR_13)
 			 {
-					call func_35(var VAR_2, var &VAR_19)
+					call char_turn_to_pos(var VAR_2, var &VAR_19)
 					var VAR_13 = int 1
 			}
 			if(var VAR_5)
 			 {
 					if(call is_char_standing(var VAR_5)&&var ! VAR_14)
 					 {
-							call func_35(var VAR_5, var &VAR_19)
+							call char_turn_to_pos(var VAR_5, var &VAR_19)
 							var VAR_14 = int 1
 					}
 			}
@@ -198,18 +198,18 @@ switch(var VAR_10)
 			 {
 					if(call is_char_standing(var VAR_6)&&var ! VAR_15)
 					 {
-							call func_35(var VAR_6, var &VAR_19)
+							call char_turn_to_pos(var VAR_6, var &VAR_19)
 							var VAR_15 = int 1
 					}
 			}
 			if(var VAR_13&&var VAR_14&&var VAR_15)
 			 {
-					call func_d5()
+					call reset_local_timer()
 					var VAR_10 = int 4
 			}
 			break 
 		case 4
-			if(call func_129(int 10))
+			if(call is_local_timer_greater_than(int 10))
 			 {
 					call play_loaded_sound(int 1, int 0, int 1, var &VAR_7)
 					var VAR_25 = int 40
@@ -258,7 +258,7 @@ switch(var VAR_10)
 					var VAR_25 = int 0
 					var VAR_24 = int 1
 					call func_27(var VAR_2)
-					call func_d5()
+					call reset_local_timer()
 					var VAR_10 = int 8
 			}
 			break 
@@ -277,7 +277,7 @@ switch(var VAR_10)
 							call play_char_anim(var VAR_6, var VAR_12, int 0)
 					}
 			}
-			if(call func_129(int 5))
+			if(call is_local_timer_greater_than(int 5))
 			 {
 					if(var VAR_5)
 					 {
@@ -293,15 +293,15 @@ switch(var VAR_10)
 		case 9
 			if(call func_37(var VAR_2, int 13))
 			 {
-					call func_111(int 1)
+					call set_input_system(int 1)
 					gamevar *scene_info_p+5 = int 12
 					var VAR_10 = int 10
 			}
 			break 
 		case 10
-			if(call ! func_16(int 8650752))
+			if(call ! is_char_exist(int 8650752))
 			 {
-					call func_111(int 2)
+					call set_input_system(int 2)
 					call func_85()
 					var VAR_10 = int 11
 			}
@@ -309,12 +309,12 @@ switch(var VAR_10)
 		case 11
 			if(call ! get_num_of_enemies())
 			 {
-					call func_d5()
+					call reset_local_timer()
 					var VAR_10 = int 12
 			}
 			break 
 		case 12
-			if(call func_129(int 20))
+			if(call is_local_timer_greater_than(int 20))
 			 {
 					gamevar script_object = var VAR_2
 					var VAR_46 = gamevar *character_stats_p+1
@@ -338,7 +338,7 @@ switch(var VAR_10)
 					var VAR_30 = int 1
 					var VAR_29 = int 1
 					var VAR_10 = int 13
-					call func_111(int 1)
+					call set_input_system(int 1)
 			}
 			break 
 		case 13
@@ -381,10 +381,10 @@ var VAR_37 = call load_anim(var &VAR_42)
 var VAR_2 = call get_char_handle(int 65536)
 gamevar SMACKER_X = int 400
 gamevar SMACKER_Y = int 380
-var VAR_26 = call func_a0(var &VAR_43, int -2147483, int 1, var &VAR_27)
+var VAR_26 = call play_2d_anim(var &VAR_43, int -2147483, int 1, var &VAR_27)
 gamevar SMACKER_X = int 152
 gamevar SMACKER_Y = int 440
-var VAR_31 = call func_a0(var &VAR_44, int -2147483, int 1, var &VAR_32)
+var VAR_31 = call play_2d_anim(var &VAR_44, int -2147483, int 1, var &VAR_32)
 gamevar CLICKED_DOOR = int -1
 gamevar *scene_info_p+5 = int 8
 

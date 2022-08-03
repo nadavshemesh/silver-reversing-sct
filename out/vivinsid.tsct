@@ -141,8 +141,8 @@ switch(var VAR_4)
 		case 5
 			if(call func_5c(var VAR_0))
 			 {
-					call func_35(var VAR_1, call func_67(var VAR_0))
-					call func_35(var VAR_0, call func_67(var VAR_1))
+					call char_turn_to_pos(var VAR_1, call func_67(var VAR_0))
+					call char_turn_to_pos(var VAR_0, call func_67(var VAR_1))
 					call func_df()
 					var VAR_4 ++ 
 					var VAR_5 = int 0
@@ -164,10 +164,10 @@ var VAR_5 ++
 var VAR_0 = call create_char(var &VAR_2, var &VAR_3, int 290, int 13)
 call put_item_in_char_inv(var VAR_0, int 17, int 0, int 1)
 var VAR_1 = call get_char_handle(int 65536)
-call func_111(int 2)
+call set_input_system(int 2)
 
 ._SCRIPT_5
-call func_cd(var &VAR_22)
+call log(var &VAR_22)
 
 ._SCRIPT_6
 if(var VAR_23 > var VAR_24)

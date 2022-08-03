@@ -39,7 +39,7 @@ call load_sound(int 38)
 call play_loaded_sound(int 3, int -1, int 38, int 0)
 gamevar SMACKER_X = int 0
 gamevar SMACKER_Y = int 328
-call func_a0(var &VAR_14, int 1, int 0, int 0)
+call play_2d_anim(var &VAR_14, int 1, int 0, int 0)
 switch(gamevar room_state)
  {
 		case 1
@@ -84,8 +84,8 @@ switch(var VAR_8)
 			 {
 					var VAR_9 = call func_96(int 86, int 0, int 0, int 0)
 					var VAR_10 = call func_96(int 86, int 1, int 0, int 0)
-					call func_20(var VAR_9)
-					call func_20(var VAR_10)
+					call play_char_anim_seq(var VAR_9)
+					call play_char_anim_seq(var VAR_10)
 					call func_19(var VAR_9, call func_72())
 					call func_19(var VAR_10, call func_72())
 					call create_enemy(int 132, int 0, var &VAR_17, int 30)
@@ -123,7 +123,7 @@ if(gamevar script_time > var VAR_20)
 }
 
 ._SCRIPT_6
-var VAR_0 = call func_16(int 1507337)
+var VAR_0 = call is_char_exist(int 1507337)
 if(var ! VAR_0)
  {
 		var VAR_0 = call create_char(var VAR_1, var &VAR_6, var VAR_2, int 14)

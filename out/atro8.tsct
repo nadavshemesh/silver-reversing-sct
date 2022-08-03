@@ -111,15 +111,15 @@ if(gamevar !is_room_cleared)
 switch(var VAR_4)
  {
 		case 0
-			if(call ! func_16(int 10354688))
+			if(call ! is_char_exist(int 10354688))
 			 {
-					call func_111(int 2)
-					call func_d5()
+					call set_input_system(int 2)
+					call reset_local_timer()
 					var VAR_4 = int 1
 			}
 			break 
 		case 1
-			if(call func_129(int 20))
+			if(call is_local_timer_greater_than(int 20))
 			 {
 					call play_bgm(var &VAR_20)
 					call func_134()
@@ -164,7 +164,7 @@ call func_106(var VAR_10, int 9, int 5, var &VAR_14)
 call func_106(var VAR_10, int 9, int 6, int 4)
 gamevar SMACKER_X = int 376
 gamevar SMACKER_Y = int 156
-call func_a0(var &VAR_16, int 0, int 1, var &VAR_2)
+call play_2d_anim(var &VAR_16, int 0, int 1, var &VAR_2)
 call play_bgm(var &VAR_17)
 var VAR_15 = call load_anim(var &VAR_18)
 
@@ -183,7 +183,7 @@ if(gamevar room_state != int 1)
  {
 		gamevar SMACKER_X = int 376
 		gamevar SMACKER_Y = int 156
-		call func_a0(var &VAR_5, int 0, int 1, int 0)
+		call play_2d_anim(var &VAR_5, int 0, int 1, int 0)
 }
 
 ._SCRIPT_11
@@ -194,7 +194,7 @@ switch(var VAR_6)
 			if(gamevar *scene_info_p+3 & int 2&&gamevar room_state == int 1)
 			 {
 					var VAR_6 ++ 
-					call func_111(int 2)
+					call set_input_system(int 2)
 					call func_ff(var &VAR_7)
 			}
 			break 
@@ -209,8 +209,8 @@ switch(var VAR_6)
 		case 3
 			if(var VAR_8 > int 200)
 			 {
-					call func_cd(var &VAR_9)
-					call func_111(int 1)
+					call log(var &VAR_9)
+					call set_input_system(int 1)
 					var VAR_6 ++ 
 			}
 			break 

@@ -63,7 +63,7 @@ VAR_60	100
 
 ._SCRIPT_0
 call load_sound(int 79)
-call func_cd(var &VAR_29)
+call log(var &VAR_29)
 call func_ce(gamevar room_state)
 switch(gamevar room_state)
  {
@@ -99,7 +99,7 @@ switch(gamevar room_state)
 }
 
 ._SCRIPT_2
-call func_cd(var &VAR_30)
+call log(var &VAR_30)
 call func_ce(gamevar room_state)
 switch(gamevar room_state)
  {
@@ -120,7 +120,7 @@ switch(gamevar room_state)
 call func_12e(int 2)
 
 ._SCRIPT_4
-call func_cd(var &VAR_32)
+call log(var &VAR_32)
 call func_8f(var &VAR_33)
 var VAR_31 = call func_70()
 call func_61(var VAR_31)
@@ -131,7 +131,7 @@ call put_item_in_char_inv(var VAR_31, int 114, int 0, int 1)
 
 ._SCRIPT_5
 call func_49()
-call func_111(int 2)
+call set_input_system(int 2)
 call func_bc(var &VAR_42)
 var VAR_31 = call func_70()
 call func_10a(var VAR_31, int 14)
@@ -142,23 +142,23 @@ var VAR_40 = call load_anim(var &VAR_43)
 var VAR_41 = call load_anim(var &VAR_44)
 gamevar SMACKER_X = int 128
 gamevar SMACKER_Y = int 328
-call func_a0(var &VAR_45, int 1, int 1, int 0)
+call play_2d_anim(var &VAR_45, int 1, int 1, int 0)
 call func_ec(int 1, int 0, int 79, int 0)
-call func_cd(var &VAR_46)
+call log(var &VAR_46)
 var VAR_0 = int 0
 
 ._SCRIPT_6
 switch(var VAR_0)
  {
 		case 0
-			call func_d5()
+			call reset_local_timer()
 			var VAR_0 = int 1
 			call put_item_in_char_inv(var VAR_31, int 28, int 0, int 1)
 			var VAR_34 = call create_enemy(int 197, int 0, var &VAR_35, int 240)
 			call func_1(var VAR_34, int -1)
 			break 
 		case 1
-			if(call func_129(int 50))
+			if(call is_local_timer_greater_than(int 50))
 			 {
 					var VAR_3 = int 1
 					call func_11f(var &VAR_37, int 32768)
@@ -168,49 +168,49 @@ switch(var VAR_0)
 		case 2
 			if(call func_5e())
 			 {
-					call func_d5()
+					call reset_local_timer()
 					var VAR_0 = int 3
 			}
 			break 
 		case 3
-			if(call func_129(int 10))
+			if(call is_local_timer_greater_than(int 10))
 			 {
-					call func_d5()
+					call reset_local_timer()
 					var VAR_0 = int 4
 			}
 			break 
 		case 4
-			if(call func_129(int 30))
+			if(call is_local_timer_greater_than(int 30))
 			 {
 					call func_f6(gamevar char_gen_fx_scripts, int 10, int 0, var VAR_31)
-					call func_d5()
+					call reset_local_timer()
 					var VAR_36 = call func_e8(var &VAR_37, int 0)
 					var VAR_0 = int 5
 			}
 			break 
 		case 5
-			if(call func_129(int 15))
+			if(call is_local_timer_greater_than(int 15))
 			 {
 					call func_10b(var VAR_31, var &VAR_37, int 182)
 					call func_f6(gamevar char_gen_fx_scripts, int 18, int 0, var VAR_31)
-					call func_d5()
+					call reset_local_timer()
 					var VAR_0 = int 6
 			}
 			break 
 		case 6
-			if(call func_129(int 10))
+			if(call is_local_timer_greater_than(int 10))
 			 {
 					call func_22(var VAR_31)
 					call char_walk_to_pos(var VAR_31, var &VAR_38)
 					call func_11f(var &VAR_39, int 32768)
-					call func_d5()
+					call reset_local_timer()
 					var VAR_0 = int 7
 			}
 			break 
 		case 7
 			if(var VAR_36)
 			 {
-					if(call func_129(int 10))
+					if(call is_local_timer_greater_than(int 10))
 					 {
 							call func_11e(var VAR_36)
 							var VAR_36 = int 0
@@ -220,12 +220,12 @@ switch(var VAR_0)
 			 {
 					var VAR_3 = int 0
 					call play_char_anim(var VAR_31, var VAR_40, int 0)
-					call func_d5()
+					call reset_local_timer()
 					var VAR_0 = int 8
 			}
 			break 
 		case 8
-			if(call func_129(int 30))
+			if(call is_local_timer_greater_than(int 30))
 			 {
 					call start_dialog(var &VAR_47, var &VAR_48)
 					var VAR_0 = int 9
@@ -255,18 +255,18 @@ switch(var VAR_0)
 					var VAR_4 = int 1
 					var VAR_1 = int 0
 					var VAR_0 = int 12
-					call func_111(int 2)
+					call set_input_system(int 2)
 			}
 			break 
 		case 12
 			switch(var VAR_1)
 			 {
 					case 0
-						call func_d5()
+						call reset_local_timer()
 						var VAR_1 ++ 
 						break 
 					case 1
-						if(call func_129(int 10))
+						if(call is_local_timer_greater_than(int 10))
 						 {
 								call func_22(var VAR_31)
 								call char_walk_to_pos(var VAR_31, var &VAR_38)
@@ -284,20 +284,20 @@ switch(var VAR_0)
 					case 3
 						if(call func_5c(var VAR_31))
 						 {
-								call func_d5()
+								call reset_local_timer()
 								var VAR_1 ++ 
 						}
 						break 
 					case 4
-						if(call func_129(int 10))
+						if(call is_local_timer_greater_than(int 10))
 						 {
 								call play_char_anim(var VAR_31, var VAR_41, int 0)
-								call func_d5()
+								call reset_local_timer()
 								var VAR_1 ++ 
 						}
 						break 
 					case 5
-						if(call func_129(int 60))
+						if(call is_local_timer_greater_than(int 60))
 						 {
 								var VAR_1 ++ 
 						}
@@ -313,21 +313,21 @@ switch(var VAR_0)
 			 {
 					case 0
 						call func_11f(var &VAR_37, int 32768)
-						call func_d5()
+						call reset_local_timer()
 						var VAR_1 ++ 
 						break 
 					case 1
-						if(call func_129(int 30))
+						if(call is_local_timer_greater_than(int 30))
 						 {
-								call func_20(var VAR_31)
+								call play_char_anim_seq(var VAR_31)
 								var VAR_36 = call func_e8(var &VAR_37, int 0)
-								call func_35(var VAR_31, var &VAR_37)
-								call func_d5()
+								call char_turn_to_pos(var VAR_31, var &VAR_37)
+								call reset_local_timer()
 								var VAR_1 ++ 
 						}
 						break 
 					case 2
-						if(call func_129(int 10))
+						if(call is_local_timer_greater_than(int 10))
 						 {
 								call char_walk_to_pos(var VAR_31, var &VAR_37)
 								var VAR_1 ++ 
@@ -336,36 +336,36 @@ switch(var VAR_0)
 					case 3
 						if(call is_char_standing(var VAR_31))
 						 {
-								call func_d5()
+								call reset_local_timer()
 								var VAR_1 ++ 
 						}
 						break 
 					case 4
-						if(call func_129(int 10))
+						if(call is_local_timer_greater_than(int 10))
 						 {
-								call func_d5()
+								call reset_local_timer()
 								call func_f6(gamevar char_gen_fx_scripts, int 10, int 0, var VAR_31)
 								var VAR_1 ++ 
 						}
 						break 
 					case 5
-						if(call func_129(int 10))
+						if(call is_local_timer_greater_than(int 10))
 						 {
 								call func_10b(var VAR_31, var &VAR_35, int 0)
-								call func_d5()
+								call reset_local_timer()
 								var VAR_1 ++ 
 						}
 						break 
 					case 6
-						if(call func_129(int 20))
+						if(call is_local_timer_greater_than(int 20))
 						 {
 								call func_11e(var VAR_36)
-								call func_d5()
+								call reset_local_timer()
 								var VAR_1 ++ 
 						}
 						break 
 					case 7
-						if(call func_129(int 30))
+						if(call is_local_timer_greater_than(int 30))
 						 {
 								var VAR_1 ++ 
 						}
@@ -424,11 +424,11 @@ switch(var VAR_56)
 					var VAR_58 = call play_loaded_sound(int 2, int 0, int 79, int 0)
 					if(var VAR_59 == int 1)
 					 {
-							call func_11c(var VAR_58, call randomize_int(int 140, int 181))
+							call set_sound_volume(var VAR_58, call randomize_int(int 140, int 181))
 					}
 					else
 					 {
-							call func_11c(var VAR_58, call randomize_int(int 80, int 101))
+							call set_sound_volume(var VAR_58, call randomize_int(int 80, int 101))
 					}
 					if(var VAR_3)
 					 {

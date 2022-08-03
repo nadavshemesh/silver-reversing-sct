@@ -97,7 +97,7 @@ switch(var VAR_14)
 			}
 			else
 			 {
-					call func_111(int 2)
+					call set_input_system(int 2)
 					var VAR_14 ++ 
 					var VAR_15 ++ 
 					var VAR_0 = int 1
@@ -122,7 +122,7 @@ switch(var VAR_14)
 			if(var VAR_15 > int 200)
 			 {
 					gamevar *scene_info_p+4 &= int -17
-					call func_111(int 1)
+					call set_input_system(int 1)
 					call func_96(int 1, int 0, int 0, int 0)
 					var VAR_14 ++ 
 					var VAR_15 = int 0
@@ -131,11 +131,11 @@ switch(var VAR_14)
 		case 3
 			if(call get_num_of_enemies() == int 0)
 			 {
-					call func_111(int 2)
+					call set_input_system(int 2)
 					gamevar compile_init_character = int 0
 					var VAR_16 = call func_92(int 0, var &VAR_23, int 0, int 13)
 					gamevar compile_init_character = int 1
-					call func_20(var VAR_16)
+					call play_char_anim_seq(var VAR_16)
 					var VAR_17 = call func_70()
 					call char_walk_to_pos(var VAR_16, call func_67(var VAR_17))
 					var VAR_14 ++ 
@@ -145,8 +145,8 @@ switch(var VAR_14)
 		case 4
 			if(call is_char_standing(var VAR_16))
 			 {
-					call func_35(var VAR_16, call func_67(var VAR_17))
-					call func_35(var VAR_17, call func_67(var VAR_16))
+					call char_turn_to_pos(var VAR_16, call func_67(var VAR_17))
+					call char_turn_to_pos(var VAR_17, call func_67(var VAR_16))
 					var VAR_14 ++ 
 					var VAR_15 = int 0
 			}
@@ -168,7 +168,7 @@ switch(var VAR_14)
 			if(call get_input_sys() != int 4)
 			 {
 					call func_2b(var VAR_16, int 0)
-					call func_111(int 1)
+					call set_input_system(int 1)
 					var VAR_14 ++ 
 					var VAR_15 = int 0
 			}
@@ -187,11 +187,11 @@ var VAR_15 ++
 ._SCRIPT_4
 gamevar SMACKER_X = int 168
 gamevar SMACKER_Y = int 32
-var VAR_4 = call func_a0(var &VAR_10, int 1, int 1, var &VAR_7)
+var VAR_4 = call play_2d_anim(var &VAR_10, int 1, int 1, var &VAR_7)
 var VAR_7 ++ 
 gamevar SMACKER_X = int 168
 gamevar SMACKER_Y = int 32
-var VAR_5 = call func_a0(var &VAR_11, int 10737418, int 1, var &VAR_9)
+var VAR_5 = call play_2d_anim(var &VAR_11, int 10737418, int 1, var &VAR_9)
 call func_bc(var &VAR_12)
 call func_bc(var &VAR_13)
 call load_sound(int 70)
@@ -203,14 +203,14 @@ call func_4e(int 0)
 ._SCRIPT_6
 gamevar SMACKER_X = int 168
 gamevar SMACKER_Y = int 32
-call func_a0(var &VAR_3, int 0, int 1, int 0)
+call play_2d_anim(var &VAR_3, int 0, int 1, int 0)
 
 ._SCRIPT_7
 if(var VAR_34 == int 0)
  {
 		var VAR_35 = call randomize_int(int 0, int 4)
 		var VAR_33 = call func_ec(int 5, int 0, int 22, @VAR_32[var VAR_35])
-		call func_11c(var VAR_33, int 6)
+		call set_sound_volume(var VAR_33, int 6)
 		var VAR_34 = call randomize_int(int 200, int 401)
 }
 var VAR_34 -- 
@@ -221,16 +221,16 @@ if(var VAR_36 == int 0)
 		var VAR_37 = call randomize_int(int 0, int 6)
 		var VAR_38 = int 2 + call randomize_int(int 0, int 3)
 		var VAR_39 = call func_ec(var VAR_38, int 0, int 22, @VAR_46[var VAR_37])
-		call func_11c(var VAR_39, int 3)
+		call set_sound_volume(var VAR_39, int 3)
 		var VAR_36 = call randomize_int(int 500, int 701)
 }
 var VAR_36 -- 
 
 ._SCRIPT_9
 var VAR_47 = call play_loaded_sound(int 1, int -1, int 22, int 0)
-call func_11c(var VAR_47, int 3)
+call set_sound_volume(var VAR_47, int 3)
 var VAR_48 = call play_loaded_sound(int 3, int -1, int 46, int 0)
-call func_11c(var VAR_48, int 19)
+call set_sound_volume(var VAR_48, int 19)
 
 ._SCRIPT_10
 execute SCRIPT_7

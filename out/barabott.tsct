@@ -156,7 +156,7 @@ call func_1(var VAR_19, int -1)
 execute SCRIPT_6
 execute SCRIPT_7
 execute SCRIPT_8
-if(call ! func_16(int 4128770)&&call ! func_16(int 4128771)&&call ! func_16(int 4128772))
+if(call ! is_char_exist(int 4128770)&&call ! is_char_exist(int 4128771)&&call ! is_char_exist(int 4128772))
  {
 		gamevar room_state = int 2
 		gamevar door_restriction_p = var &VAR_0
@@ -174,7 +174,7 @@ if(var VAR_27 == int 1)
  {
 		if(var VAR_26 > int 150)
 		 {
-				call func_35(var VAR_9, var &VAR_28)
+				call char_turn_to_pos(var VAR_9, var &VAR_28)
 				var VAR_27 ++ 
 				var VAR_26 = int 0
 		}
@@ -192,7 +192,7 @@ if(var VAR_27 == int 3)
  {
 		if(call func_5c(var VAR_9))
 		 {
-				call func_20(var VAR_9)
+				call play_char_anim_seq(var VAR_9)
 				call char_walk_to_pos(var VAR_9, var &VAR_22)
 				var VAR_27 ++ 
 				var VAR_26 = int 0
@@ -216,7 +216,7 @@ if(var VAR_27 == int 5)
 		 {
 				var VAR_21 = call create_enemy(int 99, int 4, var &VAR_22, int 90)
 				call put_item_in_char_inv(var VAR_21, int 85, int 3277313, int 0)
-				call func_20(var VAR_21)
+				call play_char_anim_seq(var VAR_21)
 				call char_walk_to_pos(var VAR_21, var &VAR_31)
 				var VAR_27 ++ 
 				var VAR_26 = int 0
@@ -226,7 +226,7 @@ if(var VAR_27 == int 6)
  {
 		if(call is_char_standing(var VAR_21))
 		 {
-				call func_35(var VAR_21, call func_67(var VAR_7))
+				call char_turn_to_pos(var VAR_21, call func_67(var VAR_7))
 				var VAR_27 ++ 
 				var VAR_26 = int 0
 		}
@@ -239,7 +239,7 @@ if(var VAR_33 == int 0)
 		if(var VAR_32 > int 140)
 		 {
 				call char_walk_to_pos(var VAR_17, var &VAR_36)
-				call func_20(var VAR_17)
+				call play_char_anim_seq(var VAR_17)
 				var VAR_33 ++ 
 				var VAR_32 = int 0
 		}
@@ -249,7 +249,7 @@ if(var VAR_35 == int 0)
 		if(var VAR_34 > int 200)
 		 {
 				call char_walk_to_pos(var VAR_19, var &VAR_37)
-				call func_20(var VAR_19)
+				call play_char_anim_seq(var VAR_19)
 				var VAR_35 ++ 
 				var VAR_34 = int 0
 		}
@@ -258,7 +258,7 @@ if(var VAR_33 == int 1)
  {
 		if(call is_char_standing(var VAR_17))
 		 {
-				call func_35(var VAR_17, call func_67(var VAR_7))
+				call char_turn_to_pos(var VAR_17, call func_67(var VAR_7))
 				call func_2(var VAR_17)
 				call func_2(var VAR_19)
 				var VAR_33 ++ 
@@ -272,7 +272,7 @@ var VAR_34 ++
 if(var VAR_39 == int 0)
  {
 		call char_walk_to_pos(var VAR_11, var &VAR_25)
-		call func_20(var VAR_11)
+		call play_char_anim_seq(var VAR_11)
 		var VAR_39 ++ 
 		var VAR_38 = int 0
 }
@@ -281,9 +281,9 @@ if(var VAR_39 == int 1)
 		if(var VAR_38 > int 5)
 		 {
 				call char_walk_to_pos(var VAR_13, var &VAR_23)
-				call func_20(var VAR_13)
+				call play_char_anim_seq(var VAR_13)
 				call char_walk_to_pos(var VAR_15, var &VAR_24)
-				call func_20(var VAR_15)
+				call play_char_anim_seq(var VAR_15)
 				var VAR_39 ++ 
 				var VAR_38 = int 0
 		}
@@ -314,31 +314,31 @@ call func_50(var VAR_19, int 2)
 call put_item_in_char_inv(var VAR_19, int 32, int 1, int 0)
 var VAR_8 = call get_char_handle(int 393216)
 call func_10c(var VAR_8, var &VAR_44)
-call func_d5()
+call reset_local_timer()
 
 ._SCRIPT_12
 if(var VAR_45 == int 0)
  {
-		if(call func_129(int 10))
+		if(call is_local_timer_greater_than(int 10))
 		 {
-				call func_20(var VAR_13)
+				call play_char_anim_seq(var VAR_13)
 				call char_walk_to_pos(var VAR_13, var &VAR_46)
-				call func_20(var VAR_15)
+				call play_char_anim_seq(var VAR_15)
 				call char_walk_to_pos(var VAR_15, var &VAR_47)
 				var VAR_45 = int 1
-				call func_d5()
+				call reset_local_timer()
 		}
 }
 if(var VAR_45 == int 1)
  {
-		if(call func_16(int 4128769))
+		if(call is_char_exist(int 4128769))
 		 {
 				if(call is_char_standing(var VAR_15))
 				 {
-						call func_35(var VAR_13, call func_67(var VAR_7))
-						call func_35(var VAR_15, call func_67(var VAR_7))
+						call char_turn_to_pos(var VAR_13, call func_67(var VAR_7))
+						call char_turn_to_pos(var VAR_15, call func_67(var VAR_7))
 						var VAR_45 = int 2
-						call func_cd(var &VAR_48)
+						call log(var &VAR_48)
 						gamevar room_state = int 4
 						gamevar door_restriction_p = var &VAR_1
 				}

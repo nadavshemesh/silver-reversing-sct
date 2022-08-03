@@ -49,21 +49,21 @@ execute SCRIPT_8
 call play_bgm(var &VAR_26)
 gamevar SMACKER_X = int 128
 gamevar SMACKER_Y = int 0
-call func_a0(var &VAR_27, int 1, int 1, var &VAR_0)
+call play_2d_anim(var &VAR_27, int 1, int 1, var &VAR_0)
 gamevar SMACKER_X = int 368
 gamevar SMACKER_Y = int 0
-call func_a0(var &VAR_28, int 1, int 1, var &VAR_1)
+call play_2d_anim(var &VAR_28, int 1, int 1, var &VAR_1)
 gamevar SMACKER_X = int 0
 gamevar SMACKER_Y = int 168
-call func_a0(var &VAR_29, int 1, int 1, var &VAR_2)
+call play_2d_anim(var &VAR_29, int 1, int 1, var &VAR_2)
 gamevar SMACKER_X = int 344
 gamevar SMACKER_Y = int 184
-call func_a0(var &VAR_30, int 1, int 1, var &VAR_3)
+call play_2d_anim(var &VAR_30, int 1, int 1, var &VAR_3)
 call load_sound(int 30)
 call load_sound(int 33)
 call play_loaded_sound(int 1, int -1, int 30, int 0)
 var VAR_4 = call play_loaded_sound(int 2, int -1, int 33, int 0)
-call func_11c(var VAR_4, int 32)
+call set_sound_volume(var VAR_4, int 32)
 call func_bc(var &VAR_31)
 switch(gamevar room_state)
  {
@@ -162,7 +162,7 @@ if(var ! VAR_16&&gamevar *object_p+5 == int 11)
 }
 
 ._SCRIPT_7
-var VAR_18 = call func_16(int 1507337)
+var VAR_18 = call is_char_exist(int 1507337)
 if(var ! VAR_18)
  {
 		var VAR_18 = call create_char(var VAR_19, var &VAR_24, var VAR_20, int 14)

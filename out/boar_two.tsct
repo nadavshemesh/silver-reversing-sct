@@ -109,9 +109,9 @@ if(var VAR_21 == int 0)
 		 {
 				var VAR_6 = call eval(var &VAR_8, int 1)
 				var VAR_21 ++ 
-				if(call func_16(int 4128768))
+				if(call is_char_exist(int 4128768))
 				 {
-						call func_4f(var VAR_4, int 0)
+						call set_char_init_state(var VAR_4, int 0)
 						call func_46(var VAR_4, int 13)
 				}
 		}
@@ -143,8 +143,8 @@ call func_bc(var &VAR_11)
 call func_bc(var &VAR_12)
 var VAR_13 = call load_anim(var &VAR_15)
 var VAR_14 = call load_anim(var &VAR_16)
-call func_4f(var VAR_4, int 13)
-call func_107(var VAR_4, var &VAR_17)
+call set_char_init_state(var VAR_4, int 13)
+call set_char_anim_seq(var VAR_4, var &VAR_17)
 
 ._SCRIPT_6
 
@@ -153,7 +153,7 @@ call func_107(var VAR_4, var &VAR_17)
 ._SCRIPT_8
 gamevar SMACKER_X = int 0
 gamevar SMACKER_Y = int 244
-call func_a0(var &VAR_1, int 1, int 1, int 0)
+call play_2d_anim(var &VAR_1, int 1, int 1, int 0)
 gamevar SMACKER_X = int 428
 gamevar SMACKER_Y = int 244
-call func_a0(var &VAR_2, int 1, int 1, int 0)
+call play_2d_anim(var &VAR_2, int 1, int 1, int 0)

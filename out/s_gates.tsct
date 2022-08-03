@@ -100,11 +100,11 @@ if(gamevar !is_room_cleared)
 ._SCRIPT_3
 gamevar SMACKER_X = int 196
 gamevar SMACKER_Y = int 60
-call func_a0(var &VAR_6, int 1, int 0, var &VAR_3)
-call func_a0(var &VAR_7, int -2147483, int 1, var &VAR_1)
+call play_2d_anim(var &VAR_6, int 1, int 0, var &VAR_3)
+call play_2d_anim(var &VAR_7, int -2147483, int 1, var &VAR_1)
 gamevar SMACKER_X = int 260
 gamevar SMACKER_Y = int 132
-call func_a0(var &VAR_8, int -2147483, int 0, var &VAR_4)
+call play_2d_anim(var &VAR_8, int -2147483, int 0, var &VAR_4)
 
 ._SCRIPT_4
 if(gamevar script_time > var VAR_34)
@@ -124,11 +124,11 @@ switch(var VAR_18)
 		case 0
 			if(call func_8a(var &VAR_17))
 			 {
-					if(call func_16(int 1179648))
+					if(call is_char_exist(int 1179648))
 					 {
 							call func_50(var VAR_11, int 129)
 					}
-					if(call func_16(int 1179649))
+					if(call is_char_exist(int 1179649))
 					 {
 							call func_50(var VAR_13, int 129)
 					}
@@ -136,11 +136,11 @@ switch(var VAR_18)
 			}
 			if(call func_d1(var &VAR_17))
 			 {
-					if(call func_16(int 1179648))
+					if(call is_char_exist(int 1179648))
 					 {
 							call func_50(var VAR_11, int 129)
 					}
-					if(call func_16(int 1179649))
+					if(call is_char_exist(int 1179649))
 					 {
 							call func_50(var VAR_13, int 129)
 					}
@@ -157,7 +157,7 @@ switch(var VAR_18)
 		case 2
 			if(call func_122(var VAR_19) == int 0&&call get_num_of_enemies() < int 1)
 			 {
-					call func_111(int 2)
+					call set_input_system(int 2)
 					var VAR_18 ++ 
 					var VAR_32 = int 0
 			}
@@ -207,7 +207,7 @@ switch(var VAR_18)
 			if(var VAR_20 == int 50)
 			 {
 					gamevar *scene_info_p+3 = int 2
-					call func_111(int 1)
+					call set_input_system(int 1)
 					var VAR_18 ++ 
 			}
 			break 
@@ -221,11 +221,11 @@ if(var VAR_1)
 		 {
 				var VAR_10 = int 0
 		}
-		call func_11c(var VAR_9, var VAR_10)
+		call set_sound_volume(var VAR_9, var VAR_10)
 		if(var VAR_20 == int 19)
 		 {
 				var VAR_1 = int 0
-				call func_125(var VAR_9)
+				call stop_playing_sound(var VAR_9)
 				var VAR_4 = int 1
 				call play_loaded_sound(int 1, int 0, int 46, int 0)
 				call func_4e(int 0)

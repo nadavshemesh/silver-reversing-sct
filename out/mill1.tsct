@@ -150,7 +150,7 @@ execute SCRIPT_14
 ._SCRIPT_3
 gamevar SMACKER_X = int 100
 gamevar SMACKER_Y = int 0
-call func_a0(var &VAR_28, int 1, int 1, int 0)
+call play_2d_anim(var &VAR_28, int 1, int 1, int 0)
 
 ._SCRIPT_4
 call load_sound(int 18)
@@ -193,32 +193,32 @@ while(var VAR_29)
 		switch(var VAR_30)
 		 {
 				case 65536
-					call func_cd(var &VAR_31)
+					call log(var &VAR_31)
 					var VAR_19 = var VAR_29
 					break 
 				case 786432
-					call func_cd(var &VAR_32)
+					call log(var &VAR_32)
 					var VAR_21 = var VAR_29
 					break 
 				case 327680
-					call func_cd(var &VAR_33)
+					call log(var &VAR_33)
 					var VAR_20 = var VAR_29
 					break 
 				case 196608
-					call func_cd(var &VAR_34)
+					call log(var &VAR_34)
 					var VAR_22 = var VAR_29
 					break 
 				case 131072
-					call func_cd(var &VAR_35)
+					call log(var &VAR_35)
 					var VAR_23 = var VAR_29
 					break 
 				case 262144
-					call func_cd(var &VAR_36)
+					call log(var &VAR_36)
 					var VAR_24 = var VAR_29
 					break 
 				default 
-					call func_cd(var &VAR_37)
-					call func_cd(var &VAR_38)
+					call log(var &VAR_37)
+					call log(var &VAR_38)
 					break 
 		}
 		var VAR_29 = call func_7e()
@@ -251,7 +251,7 @@ switch(var VAR_46)
 		case 2
 			if(call ! func_af(int 3))
 			 {
-					call func_111(int 2)
+					call set_input_system(int 2)
 					var VAR_44 += call func_42(var VAR_19, int 0)
 					var VAR_44 += call func_42(var VAR_19, int 1)
 					var VAR_44 += call func_42(var VAR_19, int 2)
@@ -260,7 +260,7 @@ switch(var VAR_46)
 					var VAR_44 += call func_42(var VAR_19, int 5)
 					var VAR_44 += call func_42(var VAR_19, int 6)
 					var VAR_44 += call func_42(var VAR_19, int 7)
-					call func_cd(var &VAR_49)
+					call log(var &VAR_49)
 					call func_ce(var VAR_44)
 					if(var VAR_21)
 					 {
@@ -301,8 +301,8 @@ switch(var VAR_46)
 					}
 					else
 					 {
-							call func_111(int 1)
-							call func_cd(var &VAR_50)
+							call set_input_system(int 1)
+							call log(var &VAR_50)
 							var VAR_46 = int -1
 							var VAR_47 = int 0
 					}
@@ -314,8 +314,8 @@ switch(var VAR_46)
 					if(var VAR_44 >= int 8)
 					 {
 							call start_dialog(var &VAR_51, var &VAR_52)
-							call func_35(gamevar control_char_p, call func_67(var VAR_45))
-							call func_35(var VAR_45, call func_67(gamevar control_char_p))
+							call char_turn_to_pos(gamevar control_char_p, call func_67(var VAR_45))
+							call char_turn_to_pos(var VAR_45, call func_67(gamevar control_char_p))
 					}
 					else
 					 {
@@ -324,14 +324,14 @@ switch(var VAR_46)
 									if(var VAR_23)
 									 {
 											call start_dialog(var &VAR_53, var &VAR_54)
-											call func_35(gamevar control_char_p, call func_67(var VAR_23))
-											call func_35(var VAR_23, call func_67(gamevar control_char_p))
+											call char_turn_to_pos(gamevar control_char_p, call func_67(var VAR_23))
+											call char_turn_to_pos(var VAR_23, call func_67(gamevar control_char_p))
 									}
 									else
 									 {
 											call start_dialog(var &VAR_55, var &VAR_56)
-											call func_35(gamevar control_char_p, call func_67(var VAR_45))
-											call func_35(var VAR_45, call func_67(gamevar control_char_p))
+											call char_turn_to_pos(gamevar control_char_p, call func_67(var VAR_45))
+											call char_turn_to_pos(var VAR_45, call func_67(gamevar control_char_p))
 									}
 							}
 							else
@@ -339,14 +339,14 @@ switch(var VAR_46)
 									if(var VAR_23)
 									 {
 											call start_dialog(var &VAR_57, var &VAR_58)
-											call func_35(gamevar control_char_p, call func_67(var VAR_23))
-											call func_35(var VAR_23, call func_67(gamevar control_char_p))
+											call char_turn_to_pos(gamevar control_char_p, call func_67(var VAR_23))
+											call char_turn_to_pos(var VAR_23, call func_67(gamevar control_char_p))
 									}
 									else
 									 {
 											call start_dialog(var &VAR_59, var &VAR_60)
-											call func_35(gamevar control_char_p, call func_67(var VAR_19))
-											call func_35(var VAR_19, call func_67(gamevar control_char_p))
+											call char_turn_to_pos(gamevar control_char_p, call func_67(var VAR_19))
+											call char_turn_to_pos(var VAR_19, call func_67(gamevar control_char_p))
 									}
 							}
 					}
@@ -357,7 +357,7 @@ switch(var VAR_46)
 		case 4
 			if(call get_input_sys() != int 4)
 			 {
-					call func_111(int 1)
+					call set_input_system(int 1)
 					var VAR_26 = int 1
 					var VAR_46 ++ 
 					var VAR_47 = int 0
@@ -402,15 +402,15 @@ if(var VAR_1 == int 8)
 		call func_117(var &VAR_5, var &VAR_6, int 0)
 		call func_118(var &VAR_7, var &VAR_8, int 1)
 		var VAR_0 = int 1
-		call func_cd(var &VAR_9)
+		call log(var &VAR_9)
 }
 else
  {
-		call func_cd(var &VAR_10)
+		call log(var &VAR_10)
 }
 
 ._SCRIPT_15
-var VAR_11 = call func_16(int 1507337)
+var VAR_11 = call is_char_exist(int 1507337)
 if(var ! VAR_11)
  {
 		var VAR_11 = call create_char(var VAR_12, var &VAR_17, var VAR_13, int 14)

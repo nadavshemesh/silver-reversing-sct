@@ -124,7 +124,7 @@ gamevar script_object = var VAR_11
 gamevar *character_stats_p+15 = int 2000
 call freeze_enemy(var VAR_11)
 call func_50(var VAR_11, int 8192)
-call func_107(var VAR_11, var &VAR_15)
+call set_char_anim_seq(var VAR_11, var &VAR_15)
 var VAR_12 = call get_char_handle(int 65536)
 var VAR_10 = call create_char(var &VAR_9, var &VAR_16, int 215, int 14)
 call put_item_in_char_inv(var VAR_10, int 72, int 1, int 0)
@@ -143,10 +143,10 @@ call put_item_in_char_inv(var VAR_10, int 35, int 1, int 0)
 ._SCRIPT_9
 gamevar SMACKER_X = int 280
 gamevar SMACKER_Y = int 200
-call func_a0(var &VAR_8, int 1, int 0, int 0)
+call play_2d_anim(var &VAR_8, int 1, int 0, int 0)
 
 ._SCRIPT_10
-var VAR_0 = call func_16(int 1507337)
+var VAR_0 = call is_char_exist(int 1507337)
 if(var ! VAR_0)
  {
 		var VAR_0 = call create_char(var VAR_1, var &VAR_6, var VAR_2, int 14)

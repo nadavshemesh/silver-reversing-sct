@@ -160,7 +160,7 @@ if(gamevar script_time > var VAR_73)
 ._SCRIPT_4
 gamevar SMACKER_X = int 204
 gamevar SMACKER_Y = int 0
-call func_a0(var &VAR_43, int 1, int 1, var &VAR_41)
+call play_2d_anim(var &VAR_43, int 1, int 1, var &VAR_41)
 call load_sound(int 8)
 call play_loaded_sound(int 1, int -1, int 8, int 0)
 
@@ -232,7 +232,7 @@ switch(var VAR_55)
 		case 0
 			if(var VAR_56 == int 5)
 			 {
-					call func_111(int 2)
+					call set_input_system(int 2)
 			}
 			if(var VAR_56 > int 60)
 			 {
@@ -247,7 +247,7 @@ switch(var VAR_55)
 			 {
 					call play_char_anim(var VAR_51, var VAR_46, int 0)
 					var VAR_58 = call play_loaded_sound(int 3, int 0, int 8, int 0)
-					call func_11c(var VAR_58, int 100)
+					call set_sound_volume(var VAR_58, int 100)
 					var VAR_55 ++ 
 					var VAR_56 = int 0
 			}
@@ -256,7 +256,7 @@ switch(var VAR_55)
 			if(var VAR_56 > int 35)
 			 {
 					var VAR_58 = call play_loaded_sound(int 3, int 0, int 8, int 0)
-					call func_11c(var VAR_58, int 100)
+					call set_sound_volume(var VAR_58, int 100)
 					var VAR_55 ++ 
 					var VAR_56 = int 0
 			}
@@ -275,8 +275,8 @@ switch(var VAR_55)
 		case 4
 			if(var VAR_56 > int 70)
 			 {
-					call func_35(var VAR_40, call func_67(var VAR_51))
-					call func_35(var VAR_39, call func_67(var VAR_51))
+					call char_turn_to_pos(var VAR_40, call func_67(var VAR_51))
+					call char_turn_to_pos(var VAR_39, call func_67(var VAR_51))
 					call start_dialog(var &VAR_66, var &VAR_67)
 					var VAR_55 ++ 
 					var VAR_56 = int 0
@@ -285,7 +285,7 @@ switch(var VAR_55)
 		case 5
 			if(call func_6d() == int 1)
 			 {
-					call func_20(var VAR_51)
+					call play_char_anim_seq(var VAR_51)
 					call func_2b(var VAR_51, int 1)
 					var VAR_55 ++ 
 					var VAR_56 = int 0
@@ -294,11 +294,11 @@ switch(var VAR_55)
 		case 6
 			if(var VAR_56 == int 70)
 			 {
-					call func_35(var VAR_40, var &VAR_64)
+					call char_turn_to_pos(var VAR_40, var &VAR_64)
 			}
 			if(var VAR_56 == int 75)
 			 {
-					call func_35(var VAR_39, var &VAR_64)
+					call char_turn_to_pos(var VAR_39, var &VAR_64)
 			}
 			if(call is_char_standing(var VAR_51))
 			 {
@@ -310,7 +310,7 @@ switch(var VAR_55)
 			if(call get_input_sys() != int 4)
 			 {
 					call remove_char(var VAR_51)
-					call func_111(int 1)
+					call set_input_system(int 1)
 					var VAR_1 = call create_enemy(int 178, int 0, var &VAR_59, int 5)
 					call func_116(var &VAR_68, var &VAR_69, int 3)
 					call func_117(var &VAR_70, var &VAR_71, int 1)
@@ -336,7 +336,7 @@ var VAR_47 = call load_anim(var &VAR_49)
 ._SCRIPT_14
 
 ._SCRIPT_15
-if(call ! func_16(int 6291456))
+if(call ! is_char_exist(int 6291456))
  {
 		exit_script 
 }
@@ -349,7 +349,7 @@ else
 }
 
 ._SCRIPT_16
-if(call ! func_16(int 6291456))
+if(call ! is_char_exist(int 6291456))
  {
 		exit_script 
 }
@@ -393,7 +393,7 @@ switch(var VAR_17)
 		case 2
 			if(call get_input_sys() != int 4)
 			 {
-					call func_111(int 2)
+					call set_input_system(int 2)
 					var VAR_17 ++ 
 					var VAR_18 = int 0
 			}
@@ -419,14 +419,14 @@ switch(var VAR_17)
 		case 5
 			if(var VAR_19 != gamevar saved_games_count)
 			 {
-					call func_cd(var &VAR_24)
+					call log(var &VAR_24)
 					call func_11d()
 					var VAR_17 = int 7
 					var VAR_18 = int 0
 			}
 			else
 			 {
-					call func_cd(var &VAR_25)
+					call log(var &VAR_25)
 					call func_2a(var VAR_1, var &VAR_20)
 					execute SCRIPT_19
 					gamevar chronicler_variation = var VAR_2
@@ -437,7 +437,7 @@ switch(var VAR_17)
 		case 6
 			if(var VAR_18 > int 30)
 			 {
-					call func_111(int 1)
+					call set_input_system(int 1)
 					gamevar clicked_character = int 0
 					var VAR_3 = int 0
 					var VAR_17 = int 1
@@ -458,7 +458,7 @@ switch(var VAR_17)
 			if(var VAR_18 > int 100)
 			 {
 					call remove_char(var VAR_1)
-					call func_111(int 1)
+					call set_input_system(int 1)
 					var VAR_3 = int 0
 					var VAR_17 ++ 
 					var VAR_18 = int 0
@@ -468,7 +468,7 @@ switch(var VAR_17)
 var VAR_18 ++ 
 
 ._SCRIPT_17
-if(call func_16(int 6291456))
+if(call is_char_exist(int 6291456))
  {
 		if(var VAR_1 == int 0)
 		 {

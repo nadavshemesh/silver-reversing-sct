@@ -79,16 +79,16 @@ call load_sound(int 38)
 var VAR_8 = call play_loaded_sound(int 1, int -1, int 30, int 0)
 gamevar SMACKER_X = int 544
 gamevar SMACKER_Y = int 96
-var VAR_1 = call func_a0(var &VAR_40, int 0, int 1, var &VAR_5)
+var VAR_1 = call play_2d_anim(var &VAR_40, int 0, int 1, var &VAR_5)
 gamevar SMACKER_X = int 544
 gamevar SMACKER_Y = int 96
-var VAR_2 = call func_a0(var &VAR_41, int -1073741, int 1, var &VAR_7)
+var VAR_2 = call play_2d_anim(var &VAR_41, int -1073741, int 1, var &VAR_7)
 gamevar SMACKER_X = int 320
 gamevar SMACKER_Y = int 408
-call func_a0(var &VAR_42, int 1, int 1, var &VAR_3)
+call play_2d_anim(var &VAR_42, int 1, int 1, var &VAR_3)
 gamevar SMACKER_X = int 592
 gamevar SMACKER_Y = int 456
-call func_a0(var &VAR_43, int 1, int 1, var &VAR_4)
+call play_2d_anim(var &VAR_43, int 1, int 1, var &VAR_4)
 var VAR_24 = call load_anim(var &VAR_44)
 switch(gamevar room_state)
  {
@@ -189,9 +189,9 @@ switch(var VAR_15)
 			 {
 					gamevar global_zone_type = int 0
 					var VAR_14 = call func_72()
-					call func_111(int 2)
+					call set_input_system(int 2)
 					call func_55(var VAR_14, int 98)
-					call func_20(var VAR_14)
+					call play_char_anim_seq(var VAR_14)
 					call char_walk_to_pos(var VAR_14, var &VAR_26)
 					var VAR_15 = int 3
 			}
@@ -231,7 +231,7 @@ switch(var VAR_15)
 					call func_132(var VAR_14, int 98)
 					var VAR_9 = call play_loaded_sound(int 1, int -1, int 35, int 0)
 					var VAR_10 = call play_loaded_sound(int 2, int -1, int 35, int 0)
-					call func_11c(var VAR_10, int 0)
+					call set_sound_volume(var VAR_10, int 0)
 					var VAR_11 = int 0
 					var VAR_5 = int 1
 					gamevar script_object = var VAR_1
@@ -243,10 +243,10 @@ switch(var VAR_15)
 		case 6
 			if(var VAR_6 == int 149)
 			 {
-					call func_125(var VAR_9)
-					call func_125(var VAR_8)
+					call stop_playing_sound(var VAR_9)
+					call stop_playing_sound(var VAR_8)
 					call play_loaded_sound(int 3, int 0, int 35, int 0)
-					call func_f4(var &VAR_51, var &VAR_12, var &VAR_13, int 60)
+					call play_3d_fx(var &VAR_51, var &VAR_12, var &VAR_13, int 60)
 					var VAR_5 = int 0
 					gamevar script_object = var VAR_1
 					gamevar *smack_object_p+2 |= int 10737418
@@ -293,8 +293,8 @@ call func_106(var VAR_27, int 0, int 3, int 360)
 call func_106(var VAR_28, int 0, int 3, int 360)
 call func_106(var VAR_27, int 1, int 0, int 1)
 call func_106(var VAR_28, int 1, int 0, int 1)
-call func_4f(var VAR_27, int 1)
-call func_4f(var VAR_28, int 1)
+call set_char_init_state(var VAR_27, int 1)
+call set_char_init_state(var VAR_28, int 1)
 call put_item_in_char_inv(var VAR_27, int 43, int 1, int 0)
 call put_item_in_char_inv(var VAR_28, int 45, int 1, int 0)
 var VAR_36 = call eval(var &VAR_37, int 400)
@@ -328,19 +328,19 @@ switch(var VAR_18)
 					switch(call randomize_int(int 0, int 3))
 					 {
 							case 0
-								if(call func_16(int 10551296))
+								if(call is_char_exist(int 10551296))
 								 {
 										call play_char_anim(var VAR_27, var VAR_23, int 0)
 										break 
 								}
 							case 1
-								if(call func_16(int 10551297))
+								if(call is_char_exist(int 10551297))
 								 {
 										call play_char_anim(var VAR_28, var VAR_23, int 0)
 										break 
 								}
 							case 2
-								if(call func_16(int 10485760))
+								if(call is_char_exist(int 10485760))
 								 {
 										call play_char_anim(var VAR_29, var VAR_23, int 0)
 								}
@@ -348,7 +348,7 @@ switch(var VAR_18)
 					}
 					var VAR_19 = call randomize_int(int 250, int 401)
 			}
-			if(call ! func_16(int 10551296)||call ! func_16(int 10551297)||call ! func_16(int 10485760))
+			if(call ! is_char_exist(int 10551296)||call ! is_char_exist(int 10551297)||call ! is_char_exist(int 10485760))
 			 {
 					var VAR_18 ++ 
 			}
@@ -361,15 +361,15 @@ switch(var VAR_18)
 			}
 			break 
 		case 1
-			if(call func_16(int 10551296))
+			if(call is_char_exist(int 10551296))
 			 {
 					call func_17(var VAR_27, call func_72())
 			}
-			if(call func_16(int 10551297))
+			if(call is_char_exist(int 10551297))
 			 {
 					call func_17(var VAR_28, call func_72())
 			}
-			if(call func_16(int 10485760))
+			if(call is_char_exist(int 10485760))
 			 {
 					call func_17(var VAR_29, call func_72())
 			}
@@ -388,7 +388,7 @@ if(var VAR_11 == int -1)
 if(var VAR_10 != int 0&&var VAR_11 < int 100)
  {
 		var VAR_11 ++ 
-		call func_11c(var VAR_10, var VAR_11)
+		call set_sound_volume(var VAR_10, var VAR_11)
 }
 
 ._SCRIPT_9

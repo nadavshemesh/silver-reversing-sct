@@ -103,12 +103,12 @@ var VAR_6 = call create_enemy(int 55, int 2, var &VAR_12, int 65)
 var VAR_7 = call create_enemy(int 55, int 3, var &VAR_13, int 85)
 call put_item_in_char_inv(var VAR_4, int 43, int 1, int 0)
 call put_item_in_char_inv(var VAR_6, int 43, int 1, int 0)
-call func_107(var VAR_3, var &VAR_24)
-call func_107(var VAR_4, var &VAR_27)
-call func_107(var VAR_5, var &VAR_30)
-call func_107(var VAR_6, var &VAR_33)
-call func_107(var VAR_7, var &VAR_36)
-call func_4f(var VAR_2, int 1)
+call set_char_anim_seq(var VAR_3, var &VAR_24)
+call set_char_anim_seq(var VAR_4, var &VAR_27)
+call set_char_anim_seq(var VAR_5, var &VAR_30)
+call set_char_anim_seq(var VAR_6, var &VAR_33)
+call set_char_anim_seq(var VAR_7, var &VAR_36)
+call set_char_init_state(var VAR_2, int 1)
 call func_50(var VAR_3, int 8194)
 call func_50(var VAR_4, int 8194)
 call func_50(var VAR_5, int 8194)
@@ -120,42 +120,42 @@ switch(var VAR_0)
  {
 		case 0
 			var VAR_41 = int 0
-			if(call func_16(int 10485760))
+			if(call is_char_exist(int 10485760))
 			 {
 					if(call func_88(var VAR_2))
 					 {
 							var VAR_41 = int 1
 					}
 			}
-			if(call func_16(int 10551296))
+			if(call is_char_exist(int 10551296))
 			 {
 					if(call func_88(var VAR_3))
 					 {
 							var VAR_41 = int 1
 					}
 			}
-			if(call func_16(int 9240576))
+			if(call is_char_exist(int 9240576))
 			 {
 					if(call func_88(var VAR_4))
 					 {
 							var VAR_41 = int 1
 					}
 			}
-			if(call func_16(int 9240577))
+			if(call is_char_exist(int 9240577))
 			 {
 					if(call func_88(var VAR_5))
 					 {
 							var VAR_41 = int 1
 					}
 			}
-			if(call func_16(int 9240578))
+			if(call is_char_exist(int 9240578))
 			 {
 					if(call func_88(var VAR_6))
 					 {
 							var VAR_41 = int 1
 					}
 			}
-			if(call func_16(int 9240579))
+			if(call is_char_exist(int 9240579))
 			 {
 					if(call func_88(var VAR_7))
 					 {
@@ -164,28 +164,28 @@ switch(var VAR_0)
 			}
 			if(var VAR_41||call func_d0())
 			 {
-					if(call func_16(int 10551296))
+					if(call is_char_exist(int 10551296))
 					 {
 							call func_29(var VAR_3)
 							call func_46(var VAR_3, int 13)
 					}
-					if(call func_16(int 10485760))
+					if(call is_char_exist(int 10485760))
 					 {
 							call func_17(var VAR_2, call func_72())
 					}
-					if(call func_16(int 9240576))
+					if(call is_char_exist(int 9240576))
 					 {
 							call func_46(var VAR_4, int 13)
 					}
-					if(call func_16(int 9240577))
+					if(call is_char_exist(int 9240577))
 					 {
 							call func_46(var VAR_5, int 13)
 					}
-					if(call func_16(int 9240578))
+					if(call is_char_exist(int 9240578))
 					 {
 							call func_46(var VAR_6, int 13)
 					}
-					if(call func_16(int 9240579))
+					if(call is_char_exist(int 9240579))
 					 {
 							call func_46(var VAR_7, int 13)
 					}
@@ -198,9 +198,9 @@ switch(var VAR_0)
 					var VAR_14 = call func_96(int 46, int 1, int 0, int 0)
 					var VAR_15 = call func_96(int 55, int 4, int 0, int 0)
 					var VAR_16 = call func_96(int 55, int 5, int 0, int 0)
-					call func_4f(var VAR_14, int 1)
-					call func_4f(var VAR_15, int 1)
-					call func_4f(var VAR_16, int 1)
+					call set_char_init_state(var VAR_14, int 1)
+					call set_char_init_state(var VAR_15, int 1)
+					call set_char_init_state(var VAR_16, int 1)
 					var VAR_0 ++ 
 			}
 			break 

@@ -90,7 +90,7 @@ if(gamevar !is_room_cleared)
 		switch(gamevar room_state)
 		 {
 				case 1
-					if(call func_16(int 2359296))
+					if(call is_char_exist(int 2359296))
 					 {
 							call func_34(var VAR_0)
 					}
@@ -98,7 +98,7 @@ if(gamevar !is_room_cleared)
 					gamevar room_state ++ 
 					break 
 				case 2
-					var VAR_0 = call func_16(int 2359296)
+					var VAR_0 = call is_char_exist(int 2359296)
 					if(var VAR_0)
 					 {
 							if(var VAR_4)
@@ -206,7 +206,7 @@ var VAR_11 = call load_anim(var &VAR_12)
 ._SCRIPT_9
 var VAR_0 = int 0
 var VAR_4 = int 0
-var VAR_0 = call func_16(int 2359296)
+var VAR_0 = call is_char_exist(int 2359296)
 if(call func_bf(int 888, gamevar CURRENT_LEVEL, gamevar CURRENT_SCENE))
  {
 		var VAR_4 = int 1
@@ -258,7 +258,7 @@ switch(var VAR_35)
 }
 
 ._SCRIPT_11
-var VAR_0 = call func_16(int 2359296)
+var VAR_0 = call is_char_exist(int 2359296)
 if(var VAR_0)
  {
 		call remove_char(var VAR_0)

@@ -129,14 +129,14 @@ var VAR_30 = call create_enemy(int 40, int 1, var &VAR_33, int 0)
 var VAR_31 = call create_enemy(int 40, int 2, var &VAR_34, int 185)
 call func_106(var VAR_29, int 9, int 5, var &VAR_25)
 call func_106(var VAR_29, int 9, int 6, int 6)
-call func_4f(var VAR_29, int 13)
-call func_107(var VAR_29, var &VAR_35)
+call set_char_init_state(var VAR_29, int 13)
+call set_char_anim_seq(var VAR_29, var &VAR_35)
 call func_106(var VAR_30, int 1, int 0, int 1)
 call func_106(var VAR_31, int 1, int 0, int 1)
 call func_50(var VAR_30, int 8194)
 call func_50(var VAR_31, int 8194)
-call func_107(var VAR_30, var &VAR_36)
-call func_107(var VAR_31, var &VAR_37)
+call set_char_anim_seq(var VAR_30, var &VAR_36)
+call set_char_anim_seq(var VAR_31, var &VAR_37)
 var VAR_43 = call create_enemy(int 191, int 1, var &VAR_47, int 70)
 var VAR_44 = call create_enemy(int 191, int 2, var &VAR_48, int 90)
 var VAR_45 = call create_enemy(int 191, int 3, var &VAR_49, int 325)
@@ -145,10 +145,10 @@ call func_50(var VAR_43, int 8192)
 call func_50(var VAR_44, int 8192)
 call func_50(var VAR_45, int 8192)
 call func_50(var VAR_46, int 8192)
-call func_107(var VAR_43, var &VAR_39)
-call func_107(var VAR_44, var &VAR_40)
-call func_107(var VAR_45, var &VAR_41)
-call func_107(var VAR_46, var &VAR_42)
+call set_char_anim_seq(var VAR_43, var &VAR_39)
+call set_char_anim_seq(var VAR_44, var &VAR_40)
+call set_char_anim_seq(var VAR_45, var &VAR_41)
+call set_char_anim_seq(var VAR_46, var &VAR_42)
 
 ._SCRIPT_5
 
@@ -163,21 +163,21 @@ call func_107(var VAR_46, var &VAR_42)
 ._SCRIPT_10
 gamevar SMACKER_X = int 48
 gamevar SMACKER_Y = int 368
-call func_a0(var &VAR_4, int 1, int 1, int 0)
+call play_2d_anim(var &VAR_4, int 1, int 1, int 0)
 gamevar SMACKER_X = int 236
 gamevar SMACKER_Y = int 332
-call func_a0(var &VAR_5, int 1, int 1, int 0)
+call play_2d_anim(var &VAR_5, int 1, int 1, int 0)
 gamevar SMACKER_X = int 340
 gamevar SMACKER_Y = int 364
-call func_a0(var &VAR_6, int 1, int 1, int 0)
+call play_2d_anim(var &VAR_6, int 1, int 1, int 0)
 if(gamevar *scene_info_p+4 & int 16)
  {
 		gamevar SMACKER_X = int 56
 		gamevar SMACKER_Y = int 240
-		call func_a0(var &VAR_7, int 0, int 1, var &VAR_1)
+		call play_2d_anim(var &VAR_7, int 0, int 1, var &VAR_1)
 		gamevar SMACKER_X = int 208
 		gamevar SMACKER_Y = int 384
-		call func_a0(var &VAR_8, int 0, int 1, var &VAR_2)
+		call play_2d_anim(var &VAR_8, int 0, int 1, var &VAR_2)
 		call func_bc(var &VAR_9)
 		call func_bc(var &VAR_10)
 		var VAR_3 = call load_anim(var &VAR_11)
@@ -248,8 +248,8 @@ switch(var VAR_13)
 					gamevar *character_stats_p+16 = int 8000
 					call func_106(var VAR_26, int 9, int 5, var &VAR_25)
 					call func_106(var VAR_26, int 9, int 6, int 6)
-					call func_4f(var VAR_26, int 13)
-					call func_107(var VAR_26, var &VAR_27)
+					call set_char_init_state(var VAR_26, int 13)
+					call set_char_anim_seq(var VAR_26, var &VAR_27)
 					call char_walk_to_pos(var VAR_26, var &VAR_25)
 					var VAR_13 ++ 
 					var VAR_14 = int 0

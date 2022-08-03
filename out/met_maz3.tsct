@@ -35,7 +35,7 @@ VAR_30	0
 call play_bgm(var &VAR_0)
 gamevar SMACKER_X = int 536
 gamevar SMACKER_Y = int 280
-call func_a0(var &VAR_1, int 1, int 1, int 0)
+call play_2d_anim(var &VAR_1, int 1, int 1, int 0)
 call load_sound(int 72)
 call play_loaded_sound(int 4, int -1, int 72, int 0)
 call load_sound(int 64)
@@ -105,7 +105,7 @@ if(gamevar script_time > var VAR_30)
 if(var VAR_4 == int 0)
  {
 		var VAR_21 = call eval(var &VAR_23, int 10)
-		call func_cd(var &VAR_26)
+		call log(var &VAR_26)
 		var VAR_4 ++ 
 		var VAR_5 = int 0
 }
@@ -116,7 +116,7 @@ if(var VAR_4 == int 1)
 				if(call func_8a(var &VAR_20))
 				 {
 						var VAR_21 = call eval(var &VAR_25, int 10)
-						call func_cd(var &VAR_27)
+						call log(var &VAR_27)
 						var VAR_4 ++ 
 						var VAR_5 = int 0
 				}
@@ -137,19 +137,19 @@ call func_bc(var &VAR_3)
 var VAR_6 = call create_enemy(int 47, int 0, var &VAR_8, int 33)
 var VAR_7 = call create_enemy(int 47, int 1, var &VAR_8, int 33)
 call func_50(var VAR_6, int 8192)
-call func_107(var VAR_6, var &VAR_10)
+call set_char_anim_seq(var VAR_6, var &VAR_10)
 call func_50(var VAR_7, int 8192)
-call func_107(var VAR_7, var &VAR_11)
+call set_char_anim_seq(var VAR_7, var &VAR_11)
 var VAR_12 = call create_char(var &VAR_13, var &VAR_16, int 240, int 13)
 call put_item_in_char_inv(var VAR_12, int 22, int 0, int 1)
 var VAR_14 = call create_char(var &VAR_15, var &VAR_17, int 240, int 13)
 call put_item_in_char_inv(var VAR_14, int 22, int 0, int 1)
 call func_106(var VAR_12, int 1, int 0, int 1)
 call func_50(var VAR_12, int 8323)
-call func_107(var VAR_12, var &VAR_18)
+call set_char_anim_seq(var VAR_12, var &VAR_18)
 call func_106(var VAR_14, int 1, int 0, int 1)
 call func_50(var VAR_14, int 8323)
-call func_107(var VAR_14, var &VAR_19)
+call set_char_anim_seq(var VAR_14, var &VAR_19)
 
 ._SCRIPT_6
 

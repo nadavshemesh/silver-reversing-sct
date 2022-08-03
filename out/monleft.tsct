@@ -46,7 +46,7 @@ call load_sound(int 68)
 execute SCRIPT_3
 gamevar SMACKER_X = int 316
 gamevar SMACKER_Y = int 132
-call func_a0(var &VAR_6, int 1, int 1, int 0)
+call play_2d_anim(var &VAR_6, int 1, int 1, int 0)
 if(gamevar is_room_cleared)
  {
 		execute SCRIPT_8
@@ -112,32 +112,32 @@ while(var VAR_7)
 		switch(var VAR_8)
 		 {
 				case 65536
-					call func_cd(var &VAR_9)
+					call log(var &VAR_9)
 					var VAR_0 = var VAR_7
 					break 
 				case 786432
-					call func_cd(var &VAR_10)
+					call log(var &VAR_10)
 					var VAR_2 = var VAR_7
 					break 
 				case 327680
-					call func_cd(var &VAR_11)
+					call log(var &VAR_11)
 					var VAR_1 = var VAR_7
 					break 
 				case 196608
-					call func_cd(var &VAR_12)
+					call log(var &VAR_12)
 					var VAR_3 = var VAR_7
 					break 
 				case 131072
-					call func_cd(var &VAR_13)
+					call log(var &VAR_13)
 					var VAR_4 = var VAR_7
 					break 
 				case 262144
-					call func_cd(var &VAR_14)
+					call log(var &VAR_14)
 					var VAR_5 = var VAR_7
 					break 
 				default 
-					call func_cd(var &VAR_15)
-					call func_cd(var &VAR_16)
+					call log(var &VAR_15)
+					call log(var &VAR_16)
 					break 
 		}
 		var VAR_7 = call func_7e()
@@ -149,7 +149,7 @@ switch(var VAR_27)
 		case 0
 			if(var VAR_17)
 			 {
-					call func_111(int 1)
+					call set_input_system(int 1)
 					var VAR_27 ++ 
 					var VAR_28 = int 0
 			}
@@ -186,8 +186,8 @@ var VAR_19 = call create_char(var &VAR_20, var &VAR_26, int 105, int 13)
 gamevar script_object = var VAR_19
 gamevar *character_movement_p+60 = int 1
 call func_50(var VAR_19, int 8192)
-call func_107(var VAR_19, var &VAR_22)
-call func_111(int 2)
+call set_char_anim_seq(var VAR_19, var &VAR_22)
+call set_input_system(int 2)
 
 ._SCRIPT_6
 
@@ -216,7 +216,7 @@ if(var VAR_32 > var VAR_33)
 		var VAR_35 = call play_loaded_sound(var VAR_31, int 0, int 68, int 0)
 		if(var VAR_35)
 		 {
-				call func_11c(var VAR_35, int 7)
+				call set_sound_volume(var VAR_35, int 7)
 		}
 		var VAR_33 = call randomize_int(int 0, int 301) + int 600
 		var VAR_32 = int 0

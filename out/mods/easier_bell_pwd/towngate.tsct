@@ -111,7 +111,7 @@ VAR_107	"walked to bell"
 
 ._main
 	execute make_it_rain
-	call load_sound(int 1)
+	call load_sound_set(int 1)
 	execute animate_gate_torch
 	execute init_bell_ring_animation
 	execute get_chronicler_if_he_already_exist
@@ -234,7 +234,7 @@ VAR_107	"walked to bell"
 	gamevar SMACKER_X = int 264
 	gamevar SMACKER_Y = int 192
 	call play_2d_anim(var &VAR_81, int 0, int 1, var &play_gate_open_animation)
-	call func_bc(var &VAR_82)
+	call reload_char(var &VAR_82)
 
 	// check tavern memory
 	if(call func_c0(int 999, var &VAR_83, var &VAR_84)) {
@@ -516,8 +516,8 @@ VAR_107	"walked to bell"
 ._do_nothing
 
 ._init_bell_ring_animation
-	call load_sound(int 14)
-	call load_sound(int 51)
+	call load_sound_set(int 14)
+	call load_sound_set(int 51)
 	gamevar SMACKER_X = int 368
 	gamevar SMACKER_Y = int 304
 	call play_2d_anim(var &VAR_74, int 1, int 1, var &is_bell_ring_animation_played)
@@ -648,22 +648,22 @@ VAR_107	"walked to bell"
 	var VAR_4 = call func_66(gamevar control_char_p)
 	switch(var VAR_4) {
 			case 65536
-				call func_10d(var &VAR_5, var &VAR_6, gamevar chronicler_variation)
+				call load_dialog_by_number(var &VAR_5, var &VAR_6, gamevar chronicler_variation)
 				break 
 			case 786432
-				call func_10d(var &VAR_7, var &VAR_8, gamevar chronicler_variation)
+				call load_dialog_by_number(var &VAR_7, var &VAR_8, gamevar chronicler_variation)
 				break 
 			case 262144
-				call func_10d(var &VAR_9, var &VAR_10, gamevar chronicler_variation)
+				call load_dialog_by_number(var &VAR_9, var &VAR_10, gamevar chronicler_variation)
 				break 
 			case 327680
-				call func_10d(var &VAR_11, var &VAR_12, gamevar chronicler_variation)
+				call load_dialog_by_number(var &VAR_11, var &VAR_12, gamevar chronicler_variation)
 				break 
 			case 131072
-				call func_10d(var &VAR_13, var &VAR_14, gamevar chronicler_variation)
+				call load_dialog_by_number(var &VAR_13, var &VAR_14, gamevar chronicler_variation)
 				break 
 			case 196608
-				call func_10d(var &VAR_15, var &VAR_16, gamevar chronicler_variation)
+				call load_dialog_by_number(var &VAR_15, var &VAR_16, gamevar chronicler_variation)
 				break 
 	}
 
@@ -672,27 +672,27 @@ VAR_107	"walked to bell"
 	var selected_char = call func_66(gamevar control_char_p)
 	switch(var selected_char) {
 			case 65536
-				var chronicler_dialog = call func_6e(var &VAR_27, var &VAR_28)
+				var chronicler_dialog = call load_next_dialog(var &VAR_27, var &VAR_28)
 				break 
 			case 786432
-				var chronicler_dialog = call func_6e(var &VAR_29, var &VAR_30)
+				var chronicler_dialog = call load_next_dialog(var &VAR_29, var &VAR_30)
 				break 
 			case 262144
-				var chronicler_dialog = call func_6e(var &VAR_31, var &VAR_32)
+				var chronicler_dialog = call load_next_dialog(var &VAR_31, var &VAR_32)
 				break 
 			case 327680
-				var chronicler_dialog = call func_6e(var &VAR_33, var &VAR_34)
+				var chronicler_dialog = call load_next_dialog(var &VAR_33, var &VAR_34)
 				break 
 			case 131072
-				var chronicler_dialog = call func_6e(var &VAR_35, var &VAR_36)
+				var chronicler_dialog = call load_next_dialog(var &VAR_35, var &VAR_36)
 				break 
 			case 196608
-				var chronicler_dialog = call func_6e(var &VAR_37, var &VAR_38)
+				var chronicler_dialog = call load_next_dialog(var &VAR_37, var &VAR_38)
 				break 
 	}
 
 ._create_rain_fx
-	call load_sound(int 25)
+	call load_sound_set(int 25)
 
 	// play sound of rain on repeat ("rain2")
 	call play_loaded_sound(int 1, int -1, int 25, int 0)

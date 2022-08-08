@@ -67,7 +67,7 @@ VAR_64	{ -1673, 806, 11903, -1863, 806, 8253 }
 VAR_65	{ 0, 1, 1, VAR_64, 8, 1, 19, -4605, 806, 9990, 12, 78, 77, 77, 78, -1, 13, 0, 14, 1, 2, 5, 0, 200, 17, 2, -4541, 806, 11272, -3916, 806, 8834, -1, 16, 0, 18, 100, -1, 0 }	
 VAR_66	0
 
-._SCRIPT_0
+._on_load
 execute SCRIPT_9
 call load_sound_set(int 65)
 call play_loaded_sound(int 5, int -1, int 65, int 0)
@@ -97,7 +97,7 @@ else
 		}
 }
 
-._SCRIPT_1
+._infinite_loop
 execute SCRIPT_12
 execute SCRIPT_3
 if(gamevar !is_room_cleared)
@@ -115,7 +115,7 @@ if(gamevar !is_room_cleared)
 		}
 }
 
-._SCRIPT_2
+._on_exit
 if(gamevar !is_room_cleared)
  {
 		switch(gamevar room_state)
@@ -149,7 +149,7 @@ switch(var VAR_48)
 		case 0
 			if(call func_8b())
 			 {
-					var VAR_50 = call func_70()
+					var VAR_50 = call get_david_char()
 					while(var VAR_50)
 					 {
 							call char_walk_to_pos(var VAR_50, @VAR_56[var VAR_51])
@@ -164,7 +164,7 @@ switch(var VAR_48)
 			 {
 					call log(var &VAR_57)
 					call start_dialog(var &VAR_58, var &VAR_59)
-					var VAR_50 = call func_70()
+					var VAR_50 = call get_david_char()
 					while(var VAR_50)
 					 {
 							call func_36(var VAR_50, int -2732, int 806, int 10090)
@@ -197,21 +197,21 @@ call set_input_system(int 2)
 call load_sound_set(int 30)
 var VAR_28 = call play_loaded_sound(int 1, int -1, int 30, int 0)
 var VAR_29 = call create_char(var &VAR_30, var &VAR_31, int 260, int 13)
-call put_item_in_char_inv(var VAR_29, int 53, int 1, int 1)
-call put_item_in_char_inv(var VAR_29, int 22, int 1, int 1)
-call put_item_in_char_inv(var VAR_29, int 85, int 6554113, int 0)
-call reload_char(var &VAR_32)
-call reload_char(var &VAR_33)
+call add_item_to_char(var VAR_29, int 53, int 1, int 1)
+call add_item_to_char(var VAR_29, int 22, int 1, int 1)
+call add_item_to_char(var VAR_29, int 85, int 6554113, int 0)
+call load_char(var &VAR_32)
+call load_char(var &VAR_33)
 var VAR_34 = call create_enemy(int 125, int 0, var &VAR_38, int 240)
 var VAR_35 = call create_enemy(int 125, int 1, var &VAR_39, int 245)
 var VAR_36 = call create_enemy(int 125, int 2, var &VAR_40, int 230)
 var VAR_37 = call create_enemy(int 125, int 3, var &VAR_41, int 240)
-call put_item_in_char_inv(var VAR_34, int 43, int 1, int 0)
-call put_item_in_char_inv(var VAR_37, int 42, int 1, int 0)
+call add_item_to_char(var VAR_34, int 43, int 1, int 0)
+call add_item_to_char(var VAR_37, int 42, int 1, int 0)
 var VAR_42 = call create_enemy(int 122, int 0, var &VAR_45, int 235)
 var VAR_43 = call create_enemy(int 122, int 1, var &VAR_46, int 235)
 var VAR_44 = call create_enemy(int 122, int 2, var &VAR_47, int 235)
-call put_item_in_char_inv(var VAR_43, int 41, int 1, int 0)
+call add_item_to_char(var VAR_43, int 41, int 1, int 0)
 call freeze_enemy(var VAR_34)
 call freeze_enemy(var VAR_35)
 call freeze_enemy(var VAR_36)
@@ -240,9 +240,9 @@ gamevar *character_stats_p+15 = int 3400
 
 ._SCRIPT_8
 call log(var &VAR_61)
-call reload_char(var &VAR_62)
-call reload_char(var &VAR_63)
-var VAR_60 = call func_a5(var &VAR_65, int 100)
+call load_char(var &VAR_62)
+call load_char(var &VAR_63)
+var VAR_60 = call run_wandering_generator(var &VAR_65, int 100)
 
 ._SCRIPT_9
 gamevar SMACKER_X = int 0
@@ -384,7 +384,7 @@ switch(var VAR_13)
 		case 2
 			if(call is_local_timer_greater_than(var VAR_16))
 			 {
-					call func_f6(gamevar misc_fx_scripts, int 6, int 0, int 0)
+					call apply_effect_on_char(gamevar misc_fx_scripts, int 6, int 0, int 0)
 					call reset_local_timer()
 					var VAR_17 = int 255
 					var VAR_16 = call randomize_int(int 1, int 31)

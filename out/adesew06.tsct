@@ -50,10 +50,10 @@ VAR_47	"ratrptr"
 VAR_48	"ratrptr"	
 VAR_49	0
 
-._SCRIPT_0
+._on_load
 var VAR_39 = call func_6f()
 call log(var &VAR_40)
-call func_ce(var VAR_39)
+call log_obj(var VAR_39)
 call play_bgm(var &VAR_41)
 call load_sound_set(int 30)
 call play_loaded_sound(int 1, int -1, int 30, int 0)
@@ -86,7 +86,7 @@ switch(gamevar room_state)
 			break 
 }
 
-._SCRIPT_1
+._infinite_loop
 execute SCRIPT_7
 switch(gamevar room_state)
  {
@@ -104,7 +104,7 @@ switch(gamevar room_state)
 			break 
 }
 
-._SCRIPT_2
+._on_exit
 switch(gamevar room_state)
  {
 		case 1
@@ -119,12 +119,12 @@ switch(gamevar room_state)
 
 ._SCRIPT_3
 call set_input_system(int 2)
-call reload_char(var &VAR_46)
-call reload_char(var &VAR_47)
+call load_char(var &VAR_46)
+call load_char(var &VAR_47)
 call func_9a(var &VAR_18, int 43, int 0, int 0)
 call func_9a(var &VAR_19, int 40, int 0, int 0)
 call func_9a(var &VAR_20, int 45, int 0, int 0)
-var VAR_6 = call func_70()
+var VAR_6 = call get_david_char()
 call char_walk_to_pos(var VAR_6, var &VAR_7)
 var VAR_6 = call func_7e()
 if(var VAR_6)
@@ -160,7 +160,7 @@ switch(var VAR_4)
 			switch(var VAR_5)
 			 {
 					case 1
-						call play_char_anim_seq(var VAR_10)
+						call set_char_running(var VAR_10)
 						call char_walk_to_pos(var VAR_10, var &VAR_22)
 						break 
 					case 80
@@ -170,9 +170,9 @@ switch(var VAR_4)
 						call func_29(var VAR_13)
 						break 
 					case 150
-						call play_char_anim_seq(var VAR_15)
-						call play_char_anim_seq(var VAR_16)
-						call play_char_anim_seq(var VAR_17)
+						call set_char_running(var VAR_15)
+						call set_char_running(var VAR_16)
+						call set_char_running(var VAR_17)
 						call char_walk_to_pos(var VAR_15, var &VAR_30)
 						call char_walk_to_pos(var VAR_16, var &VAR_31)
 						call char_walk_to_pos(var VAR_17, var &VAR_32)
@@ -203,7 +203,7 @@ switch(var VAR_4)
 		case 1
 			if(call func_ab(int 500, var &VAR_33))
 			 {
-					call eval(var &VAR_38, int 1)
+					call run_enemy_generator(var &VAR_38, int 1)
 					var VAR_5 = int 150
 					var VAR_4 ++ 
 			}
@@ -241,10 +241,10 @@ gamevar script_object = var VAR_12
 gamevar *character_stats_p+15 = int 10000
 var VAR_13 = call create_enemy(int 46, int 0, var &VAR_25, int 190)
 var VAR_14 = call create_enemy(int 46, int 1, var &VAR_26, int 320)
-call put_item_in_char_inv(var VAR_13, int 43, int 1, int 0)
-call put_item_in_char_inv(var VAR_14, int 45, int 1, int 0)
-call reload_char(var &VAR_48)
-call eval(var &VAR_38, int 500)
+call add_item_to_char(var VAR_13, int 43, int 1, int 0)
+call add_item_to_char(var VAR_14, int 45, int 1, int 0)
+call load_char(var &VAR_48)
+call run_enemy_generator(var &VAR_38, int 500)
 
 ._SCRIPT_6
 

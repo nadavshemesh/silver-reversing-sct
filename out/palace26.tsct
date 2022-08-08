@@ -13,11 +13,11 @@ VAR_10	{ 1279348823, 3232848, 0 }
 VAR_11	0	
 VAR_12	0
 
-._SCRIPT_0
+._on_load
 call load_sound_set(int 66)
 call play_loaded_sound(int 7, int -1, int 66, int 0)
 call play_loaded_sound(int 1, int -1, int 66, int 0)
-var VAR_2 = call func_70()
+var VAR_2 = call get_david_char()
 var VAR_3 = call func_7e()
 var VAR_4 = call func_7e()
 call play_bgm(var &VAR_10)
@@ -34,7 +34,7 @@ if(gamevar room_state == int 3)
 		execute SCRIPT_9
 }
 
-._SCRIPT_1
+._infinite_loop
 execute SCRIPT_3
 if(gamevar room_state == int 1)
  {
@@ -49,7 +49,7 @@ if(gamevar room_state == int 3)
 		execute SCRIPT_8
 }
 
-._SCRIPT_2
+._on_exit
 if(gamevar room_state == int 1)
  {
 		gamevar room_state ++ 
@@ -90,7 +90,7 @@ if(var VAR_0 == int 1)
 if(var VAR_0 == int 2)
  {
 		var VAR_0 = int 3
-		call eval(var &VAR_7, int 10)
+		call run_enemy_generator(var &VAR_7, int 10)
 		var VAR_1 = int 30
 		call reset_local_timer()
 		exit_script 
@@ -101,7 +101,7 @@ if(var VAR_0 == int 3)
 		 {
 				exit_script 
 		}
-		call eval(var &VAR_8, int 1)
+		call run_enemy_generator(var &VAR_8, int 1)
 		var VAR_0 = int 4
 		var VAR_1 = int 30
 		call reset_local_timer()
@@ -113,7 +113,7 @@ if(var VAR_0 == int 4)
 		 {
 				exit_script 
 		}
-		call eval(var &VAR_9, int 1)
+		call run_enemy_generator(var &VAR_9, int 1)
 		var VAR_0 = int 5
 		var VAR_1 = int 30
 		call reset_local_timer()
@@ -125,7 +125,7 @@ if(var VAR_0 == int 5)
 		 {
 				exit_script 
 		}
-		call eval(var &VAR_8, int 1)
+		call run_enemy_generator(var &VAR_8, int 1)
 		var VAR_0 = int 6
 		var VAR_1 = int 30
 		call reset_local_timer()
@@ -137,7 +137,7 @@ if(var VAR_0 == int 6)
 		 {
 				exit_script 
 		}
-		call eval(var &VAR_9, int 1)
+		call run_enemy_generator(var &VAR_9, int 1)
 		var VAR_0 = int 7
 		var VAR_1 = int 30
 		call reset_local_timer()

@@ -183,7 +183,23 @@ void write_asm_code_nodes(node* head, sct_f* sf) {
 
 void write_asm_script(script* script, sct_f* sf) {
     char script_name[256];
-    sprintf(script_name, "\n._SCRIPT_%d\n", script->number);
+    int script_number = script->number;
+
+    if(script_number > 2) {
+        sprintf(script_name, "\n._SCRIPT_%d\n", script_number);
+    } else {
+        switch(script_number) {
+            case 0:
+                sprintf(script_name, "\n._on_load\n", script_number);
+                break;
+            case 1:
+                sprintf(script_name, "\n._infinite_loop\n", script_number);
+                break;
+            case 2:
+                sprintf(script_name, "\n._on_exit\n", script_number);
+                break;
+        }
+    }
     fprintf(sf->out_file, script_name);
     write_asm_code_nodes(*script->code_nodes, sf);
 }

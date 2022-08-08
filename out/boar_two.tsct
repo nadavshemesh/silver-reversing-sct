@@ -26,7 +26,7 @@ VAR_23	0
 VAR_24	0	
 VAR_25	0
 
-._SCRIPT_0
+._on_load
 call play_bgm(var &VAR_0)
 execute SCRIPT_8
 call load_sound_set(int 72)
@@ -47,7 +47,7 @@ switch(gamevar room_state)
 			break 
 }
 
-._SCRIPT_1
+._infinite_loop
 execute SCRIPT_3
 switch(gamevar room_state)
  {
@@ -61,7 +61,7 @@ switch(gamevar room_state)
 			break 
 }
 
-._SCRIPT_2
+._on_exit
 switch(gamevar room_state)
  {
 		case 1
@@ -107,9 +107,9 @@ if(var VAR_21 == int 0)
 		}
 		if(var VAR_22)
 		 {
-				var VAR_6 = call eval(var &VAR_8, int 1)
+				var VAR_6 = call run_enemy_generator(var &VAR_8, int 1)
 				var VAR_21 ++ 
-				if(call is_char_exist(int 4128768))
+				if(call is_char_handle_in_level(int 4128768))
 				 {
 						call set_char_init_state(var VAR_4, int 0)
 						call func_46(var VAR_4, int 13)
@@ -119,7 +119,7 @@ if(var VAR_21 == int 0)
 		 {
 				if(call get_num_of_enemies() == int 0)
 				 {
-						var VAR_6 = call eval(var &VAR_8, int 1)
+						var VAR_6 = call run_enemy_generator(var &VAR_8, int 1)
 						var VAR_21 ++ 
 				}
 		}
@@ -128,7 +128,7 @@ if(var VAR_21 == int 1)
  {
 		if(call func_122(var VAR_6) == int 0)
 		 {
-				var VAR_6 = call eval(var &VAR_9, int 1)
+				var VAR_6 = call run_enemy_generator(var &VAR_9, int 1)
 				var VAR_21 ++ 
 		}
 }
@@ -137,14 +137,14 @@ if(var VAR_21 == int 1)
 call create_enemy(int 9, int 0, var &VAR_3, int 275)
 var VAR_4 = call get_char_handle(int 4128768)
 call func_46(var VAR_4, int 0)
-var VAR_5 = call put_item_in_char_inv(var VAR_4, int 83, int 1, int 0)
-call put_item_in_char_inv(var VAR_4, int 47, int 1, int 0)
-call reload_char(var &VAR_11)
-call reload_char(var &VAR_12)
+var VAR_5 = call add_item_to_char(var VAR_4, int 83, int 1, int 0)
+call add_item_to_char(var VAR_4, int 47, int 1, int 0)
+call load_char(var &VAR_11)
+call load_char(var &VAR_12)
 var VAR_13 = call load_anim(var &VAR_15)
 var VAR_14 = call load_anim(var &VAR_16)
 call set_char_init_state(var VAR_4, int 13)
-call set_char_anim_seq(var VAR_4, var &VAR_17)
+call play_char_ai_script(var VAR_4, var &VAR_17)
 
 ._SCRIPT_6
 

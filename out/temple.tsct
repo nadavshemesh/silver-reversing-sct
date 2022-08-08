@@ -115,7 +115,7 @@ VAR_112	"btreasure"
 VAR_113	"nmuscles"	
 VAR_114	0
 
-._SCRIPT_0
+._on_load
 execute SCRIPT_6
 call play_bgm(var &VAR_104)
 call load_sound_set(int 33)
@@ -136,7 +136,7 @@ switch(gamevar room_state)
 			break 
 }
 
-._SCRIPT_1
+._infinite_loop
 var VAR_0 = int 2
 execute SCRIPT_7
 execute SCRIPT_5
@@ -149,7 +149,7 @@ switch(gamevar room_state)
 			break 
 }
 
-._SCRIPT_2
+._on_exit
 execute SCRIPT_8
 switch(gamevar room_state)
  {
@@ -165,7 +165,7 @@ call load_anim(var &VAR_107)
 call load_anim(var &VAR_108)
 call load_anim(var &VAR_109)
 call load_anim(var &VAR_110)
-call reload_char(var &VAR_111)
+call load_char(var &VAR_111)
 if(call ! func_bf(int 0, gamevar CURRENT_LEVEL, gamevar CURRENT_SCENE))
  {
 		call func_7(int 0, int 1, int 1, int 1)
@@ -176,16 +176,16 @@ gamevar script_object = var VAR_43
 gamevar *object_p+6 |= int 2048
 gamevar script_object = var VAR_43
 gamevar HP = int 2
-call put_item_in_char_inv(var VAR_43, int 85, int 19661313, int 0)
+call add_item_to_char(var VAR_43, int 85, int 19661313, int 0)
 var VAR_44 = call create_enemy(int 46, int 0, var &VAR_51, int 75)
 var VAR_45 = call create_enemy(int 46, int 1, var &VAR_52, int 60)
-call put_item_in_char_inv(var VAR_44, int 21, int 1, int 0)
+call add_item_to_char(var VAR_44, int 21, int 1, int 0)
 var VAR_46 = call create_enemy(int 87, int 0, var &VAR_53, int 105)
 var VAR_47 = call create_enemy(int 87, int 1, var &VAR_54, int 50)
 var VAR_48 = call create_enemy(int 87, int 2, var &VAR_55, int 65)
 var VAR_49 = call create_enemy(int 87, int 3, var &VAR_56, int 80)
-call put_item_in_char_inv(var VAR_47, int 43, int 1, int 0)
-call put_item_in_char_inv(var VAR_48, int 43, int 1, int 0)
+call add_item_to_char(var VAR_47, int 43, int 1, int 0)
+call add_item_to_char(var VAR_48, int 43, int 1, int 0)
 call func_46(var VAR_44, int 0)
 call func_46(var VAR_45, int 0)
 call func_46(var VAR_46, int 0)
@@ -199,13 +199,13 @@ call set_char_init_state(var VAR_46, int 13)
 call set_char_init_state(var VAR_47, int 13)
 call set_char_init_state(var VAR_48, int 13)
 call set_char_init_state(var VAR_49, int 13)
-call set_char_anim_seq(var VAR_43, var &VAR_58)
-call set_char_anim_seq(var VAR_44, var &VAR_61)
-call set_char_anim_seq(var VAR_45, var &VAR_63)
-call set_char_anim_seq(var VAR_46, var &VAR_64)
-call set_char_anim_seq(var VAR_47, var &VAR_73)
-call set_char_anim_seq(var VAR_48, var &VAR_82)
-call set_char_anim_seq(var VAR_49, var &VAR_91)
+call play_char_ai_script(var VAR_43, var &VAR_58)
+call play_char_ai_script(var VAR_44, var &VAR_61)
+call play_char_ai_script(var VAR_45, var &VAR_63)
+call play_char_ai_script(var VAR_46, var &VAR_64)
+call play_char_ai_script(var VAR_47, var &VAR_73)
+call play_char_ai_script(var VAR_48, var &VAR_82)
+call play_char_ai_script(var VAR_49, var &VAR_91)
 var VAR_40 = int 0
 call set_input_system(int 2)
 
@@ -217,32 +217,32 @@ switch(var VAR_40)
 			if(gamevar HP <= int 1)
 			 {
 					call func_ea(var VAR_43)
-					if(call is_char_exist(int 10551296))
+					if(call is_char_handle_in_level(int 10551296))
 					 {
 							call func_46(var VAR_44, int 13)
 							call set_char_init_state(var VAR_44, int 0)
 					}
-					if(call is_char_exist(int 10551297))
+					if(call is_char_handle_in_level(int 10551297))
 					 {
 							call func_46(var VAR_45, int 13)
 							call set_char_init_state(var VAR_45, int 0)
 					}
-					if(call is_char_exist(int 9240576))
+					if(call is_char_handle_in_level(int 9240576))
 					 {
 							call func_46(var VAR_46, int 13)
 							call set_char_init_state(var VAR_46, int 0)
 					}
-					if(call is_char_exist(int 9240577))
+					if(call is_char_handle_in_level(int 9240577))
 					 {
 							call func_46(var VAR_47, int 13)
 							call set_char_init_state(var VAR_47, int 0)
 					}
-					if(call is_char_exist(int 9240578))
+					if(call is_char_handle_in_level(int 9240578))
 					 {
 							call func_46(var VAR_48, int 13)
 							call set_char_init_state(var VAR_48, int 0)
 					}
-					if(call is_char_exist(int 9240579))
+					if(call is_char_handle_in_level(int 9240579))
 					 {
 							call func_46(var VAR_49, int 13)
 							call set_char_init_state(var VAR_49, int 0)
@@ -257,44 +257,44 @@ switch(var VAR_40)
 			switch(var VAR_41)
 			 {
 					case 70
-						if(call is_char_exist(int 9240576))
+						if(call is_char_handle_in_level(int 9240576))
 						 {
 								call func_18(var VAR_46, int -3015, int -1650, int 1375)
 						}
 						break 
 					case 65
-						if(call is_char_exist(int 9240578))
+						if(call is_char_handle_in_level(int 9240578))
 						 {
 								call func_18(var VAR_48, int -3015, int -1650, int 1375)
 						}
 						break 
 					case 40
-						if(call is_char_exist(int 10551296))
+						if(call is_char_handle_in_level(int 10551296))
 						 {
 								call func_18(var VAR_44, int -3015, int -1650, int 1375)
 						}
 						break 
 					case 38
-						if(call is_char_exist(int 9240577))
+						if(call is_char_handle_in_level(int 9240577))
 						 {
 								call func_18(var VAR_47, int -3015, int -1650, int 1375)
 						}
 						break 
 					case 20
-						if(call is_char_exist(int 10551297))
+						if(call is_char_handle_in_level(int 10551297))
 						 {
 								call func_18(var VAR_45, int -3015, int -1650, int 1375)
 						}
 						break 
 					case 7
-						if(call is_char_exist(int 9240579))
+						if(call is_char_handle_in_level(int 9240579))
 						 {
 								call func_18(var VAR_49, int -3015, int -1650, int 1375)
 						}
 						break 
 					case 0
-						var VAR_100 = call eval(var &VAR_101, int 400)
-						var VAR_102 = call eval(var &VAR_103, int 500)
+						var VAR_100 = call run_enemy_generator(var &VAR_101, int 400)
+						var VAR_102 = call run_enemy_generator(var &VAR_103, int 500)
 						call set_input_system(int 1)
 						var VAR_40 ++ 
 						break 
@@ -321,7 +321,7 @@ if(gamevar script_time > var VAR_114)
 }
 
 ._SCRIPT_6
-if(call ! is_char_exist(int 6291456))
+if(call ! is_char_handle_in_level(int 6291456))
  {
 		exit_script 
 }
@@ -334,7 +334,7 @@ else
 }
 
 ._SCRIPT_7
-if(call ! is_char_exist(int 6291456))
+if(call ! is_char_handle_in_level(int 6291456))
  {
 		exit_script 
 }
@@ -348,7 +348,7 @@ else
 if(var VAR_23 != var VAR_17)
  {
 		var VAR_23 = var VAR_17
-		call func_ce(var VAR_17)
+		call log_obj(var VAR_17)
 }
 switch(var VAR_17)
  {
@@ -386,7 +386,7 @@ switch(var VAR_17)
 		case 3
 			if(var VAR_18 > int 40)
 			 {
-					call func_12e(var VAR_0)
+					call open_save_screen(var VAR_0)
 					var VAR_17 ++ 
 					var VAR_18 = int 0
 			}
@@ -432,7 +432,7 @@ switch(var VAR_17)
 		case 7
 			if(var VAR_18 > int 40)
 			 {
-					call func_f6(gamevar char_gen_fx_scripts, int 8, int 0, var VAR_1)
+					call apply_effect_on_char(gamevar char_gen_fx_scripts, int 8, int 0, var VAR_1)
 					execute SCRIPT_10
 					gamevar chronicler_variation = var VAR_2
 					var VAR_17 ++ 
@@ -453,7 +453,7 @@ switch(var VAR_17)
 var VAR_18 ++ 
 
 ._SCRIPT_8
-if(call is_char_exist(int 6291456))
+if(call is_char_handle_in_level(int 6291456))
  {
 		if(var VAR_1 == int 0)
 		 {
@@ -463,7 +463,7 @@ if(call is_char_exist(int 6291456))
 }
 
 ._SCRIPT_9
-var VAR_4 = call func_66(gamevar control_char_p)
+var VAR_4 = call get_char_handle_id(gamevar control_char_p)
 switch(var VAR_4)
  {
 		case 65536
@@ -487,7 +487,7 @@ switch(var VAR_4)
 }
 
 ._SCRIPT_10
-var VAR_26 = call func_66(gamevar control_char_p)
+var VAR_26 = call get_char_handle_id(gamevar control_char_p)
 switch(var VAR_26)
  {
 		case 65536

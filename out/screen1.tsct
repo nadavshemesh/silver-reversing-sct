@@ -53,7 +53,7 @@ VAR_50	0
 VAR_51	0	
 VAR_52	0
 
-._SCRIPT_0
+._on_load
 call play_bgm(var &VAR_39)
 call load_sound_set(int 64)
 call play_loaded_sound(int 1, int -1, int 64, int 0)
@@ -68,7 +68,7 @@ switch(gamevar room_state)
 			break 
 }
 
-._SCRIPT_1
+._infinite_loop
 execute SCRIPT_3
 var VAR_0 = int 20
 execute SCRIPT_9
@@ -82,7 +82,7 @@ switch(gamevar room_state)
 			break 
 }
 
-._SCRIPT_2
+._on_exit
 execute SCRIPT_10
 switch(gamevar room_state)
  {
@@ -120,7 +120,7 @@ call func_106(var VAR_41, int 1, int 0, int 0)
 call func_106(var VAR_42, int 1, int 0, int 0)
 call func_50(var VAR_41, int 2)
 call func_50(var VAR_42, int 2)
-call reload_char(var &VAR_48)
+call load_char(var &VAR_48)
 
 ._SCRIPT_5
 if(var VAR_47 == int 0)
@@ -137,7 +137,7 @@ if(var VAR_47 == int 0)
 ._SCRIPT_7
 
 ._SCRIPT_8
-if(call ! is_char_exist(int 6291456))
+if(call ! is_char_handle_in_level(int 6291456))
  {
 		exit_script 
 }
@@ -150,7 +150,7 @@ else
 }
 
 ._SCRIPT_9
-if(call ! is_char_exist(int 6291456))
+if(call ! is_char_handle_in_level(int 6291456))
  {
 		exit_script 
 }
@@ -164,7 +164,7 @@ else
 if(var VAR_23 != var VAR_17)
  {
 		var VAR_23 = var VAR_17
-		call func_ce(var VAR_17)
+		call log_obj(var VAR_17)
 }
 switch(var VAR_17)
  {
@@ -202,7 +202,7 @@ switch(var VAR_17)
 		case 3
 			if(var VAR_18 > int 40)
 			 {
-					call func_12e(var VAR_0)
+					call open_save_screen(var VAR_0)
 					var VAR_17 ++ 
 					var VAR_18 = int 0
 			}
@@ -248,7 +248,7 @@ switch(var VAR_17)
 		case 7
 			if(var VAR_18 > int 40)
 			 {
-					call func_f6(gamevar char_gen_fx_scripts, int 8, int 0, var VAR_1)
+					call apply_effect_on_char(gamevar char_gen_fx_scripts, int 8, int 0, var VAR_1)
 					execute SCRIPT_12
 					gamevar chronicler_variation = var VAR_2
 					var VAR_17 ++ 
@@ -269,7 +269,7 @@ switch(var VAR_17)
 var VAR_18 ++ 
 
 ._SCRIPT_10
-if(call is_char_exist(int 6291456))
+if(call is_char_handle_in_level(int 6291456))
  {
 		if(var VAR_1 == int 0)
 		 {
@@ -279,7 +279,7 @@ if(call is_char_exist(int 6291456))
 }
 
 ._SCRIPT_11
-var VAR_4 = call func_66(gamevar control_char_p)
+var VAR_4 = call get_char_handle_id(gamevar control_char_p)
 switch(var VAR_4)
  {
 		case 65536
@@ -303,7 +303,7 @@ switch(var VAR_4)
 }
 
 ._SCRIPT_12
-var VAR_26 = call func_66(gamevar control_char_p)
+var VAR_26 = call get_char_handle_id(gamevar control_char_p)
 switch(var VAR_26)
  {
 		case 65536

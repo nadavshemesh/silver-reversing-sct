@@ -35,7 +35,7 @@ VAR_32	"S_DVDVIVct2"
 VAR_33	"S_DVDJUGrin"	
 VAR_34	"S_DVDCAG---"
 
-._SCRIPT_0
+._on_load
 if(call play_bgm(var &VAR_0))
  {
 		call func_114(int 1)
@@ -65,7 +65,7 @@ else
 		}
 }
 
-._SCRIPT_1
+._infinite_loop
 execute SCRIPT_5
 execute SCRIPT_13
 if(gamevar !is_room_cleared)
@@ -83,7 +83,7 @@ if(gamevar !is_room_cleared)
 		}
 }
 
-._SCRIPT_2
+._on_exit
 if(gamevar !is_room_cleared)
  {
 		switch(gamevar room_state)
@@ -113,8 +113,8 @@ gamevar SMACKER_Y = int 0
 call play_2d_anim(var &VAR_11, int 1, int 1, int 0)
 
 ._SCRIPT_4
-call func_e(var &VAR_12)
-call func_e(var &VAR_13)
+call remove_face(var &VAR_12)
+call remove_face(var &VAR_13)
 call load_sound_set(int 17)
 call play_loaded_sound(int 1, int -1, int 17, var &VAR_12)
 call play_loaded_sound(int 2, int -1, int 17, var &VAR_13)
@@ -157,14 +157,14 @@ switch(var VAR_19)
 					 {
 							var VAR_21 = var VAR_22
 					}
-					if(call is_char_exist(int 786432)&&call is_char_exist(int 196608))
+					if(call is_char_handle_in_level(int 786432)&&call is_char_handle_in_level(int 196608))
 					 {
 							call log(var &VAR_29)
 							call start_dialog(var &VAR_30, var VAR_21)
 					}
 					else
 					 {
-							var VAR_26 = call func_70()
+							var VAR_26 = call get_david_char()
 							while(var VAR_26)
 							 {
 									if(var VAR_26 != var VAR_18)
@@ -177,7 +177,7 @@ switch(var VAR_19)
 											var VAR_26 = call func_7e()
 									}
 							}
-							var VAR_28 = call func_66(var VAR_27)
+							var VAR_28 = call get_char_handle_id(var VAR_27)
 							switch(var VAR_28)
 							 {
 									case 786432
@@ -244,7 +244,7 @@ if(var VAR_4)
 if(var VAR_9 != var VAR_8)
  {
 		var VAR_9 = var VAR_8
-		call func_ce(var VAR_8)
+		call log_obj(var VAR_8)
 }
 switch(var VAR_8)
  {

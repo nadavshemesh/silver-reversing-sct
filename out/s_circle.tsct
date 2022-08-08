@@ -20,7 +20,7 @@ VAR_17	{ 1145667584, -997621760, -981190656 }
 VAR_18	{ 1110441984, -997621760, -977018880 }	
 VAR_19	{ VAR_16, VAR_17, VAR_18 }
 
-._SCRIPT_0
+._on_load
 call load_sound_set(int 46)
 call play_loaded_sound(int 4, int -1, int 46, int 0)
 if(gamevar is_room_cleared)
@@ -48,7 +48,7 @@ call play_loaded_sound(int 1, int -1, int 50, int 0)
 call play_loaded_sound(int 2, int -1, int 50, int 0)
 call play_loaded_sound(int 3, int -1, int 50, int 0)
 
-._SCRIPT_1
+._infinite_loop
 execute SCRIPT_4
 if(gamevar !is_room_cleared)
  {
@@ -71,7 +71,7 @@ if(var VAR_3 != var VAR_4&&var VAR_3 > int 0)
 		call func_4e(var VAR_3 / int 2)
 }
 
-._SCRIPT_2
+._on_exit
 if(gamevar !is_room_cleared)
  {
 		switch(gamevar room_state)
@@ -117,7 +117,7 @@ if(var VAR_11 == int 0)
 		var VAR_12 ++ 
 		if(var VAR_12 > int 240)
 		 {
-				if(call is_char_exist(int 12386304))
+				if(call is_char_handle_in_level(int 12386304))
 				 {
 						call func_106(var VAR_9, int 3, int 1, var &VAR_7)
 				}
@@ -126,16 +126,16 @@ if(var VAR_11 == int 0)
 }
 
 ._SCRIPT_6
-call reload_char(var &VAR_5)
-call reload_char(var &VAR_6)
+call load_char(var &VAR_5)
+call load_char(var &VAR_6)
 var VAR_9 = call create_enemy(int 162, int 0, var &VAR_10, int 309)
 call func_106(var VAR_9, int 2, int 1, var &VAR_8)
 call func_106(var VAR_9, int 2, int 3, int 6)
 call func_50(var VAR_9, int 8)
-call put_item_in_char_inv(var VAR_9, int 32, int 1, int 0)
-call put_item_in_char_inv(var VAR_9, int 83, int 1, int 1)
-call put_item_in_char_inv(var VAR_9, int 32, int 1, int 0)
-call put_item_in_char_inv(var VAR_9, int 83, int 1, int 1)
+call add_item_to_char(var VAR_9, int 32, int 1, int 0)
+call add_item_to_char(var VAR_9, int 83, int 1, int 1)
+call add_item_to_char(var VAR_9, int 32, int 1, int 0)
+call add_item_to_char(var VAR_9, int 83, int 1, int 1)
 
 ._SCRIPT_7
 

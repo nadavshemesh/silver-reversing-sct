@@ -22,7 +22,7 @@ VAR_19	{ -1013743616, 0, -988631040 }
 VAR_20	{ 1149952000, 0, -997457920 }	
 VAR_21	{ VAR_18, VAR_19, VAR_20 }
 
-._SCRIPT_0
+._on_load
 execute SCRIPT_3
 call load_sound_set(int 46)
 call play_loaded_sound(int 7, int -1, int 46, int 0)
@@ -46,7 +46,7 @@ else
 		}
 }
 
-._SCRIPT_1
+._infinite_loop
 execute SCRIPT_4
 if(gamevar !is_room_cleared)
  {
@@ -63,7 +63,7 @@ if(gamevar !is_room_cleared)
 		}
 }
 
-._SCRIPT_2
+._on_exit
 if(gamevar !is_room_cleared)
  {
 		switch(gamevar room_state)
@@ -116,9 +116,9 @@ switch(var VAR_12)
 var VAR_13 ++ 
 
 ._SCRIPT_6
-call reload_char(var &VAR_3)
-call reload_char(var &VAR_4)
-call eval(var &VAR_11, int 80)
+call load_char(var &VAR_3)
+call load_char(var &VAR_4)
+call run_enemy_generator(var &VAR_11, int 80)
 
 ._SCRIPT_7
 

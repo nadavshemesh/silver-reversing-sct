@@ -29,7 +29,7 @@ VAR_26	"ronnie"
 VAR_27	{ 0, 0, 0, 1, 2, -1, 8, 0, 12, 78, 78, 76, 77, -1, 13, 1, 14, 0, 1, 2, 5, 0, 100, 18, 30, -1, 0 }	
 VAR_28	0
 
-._SCRIPT_0
+._on_load
 call load_sound_set(int 9)
 call load_sound_set(int 65)
 call play_loaded_sound(int 5, int -1, int 65, int 0)
@@ -60,7 +60,7 @@ else
 		}
 }
 
-._SCRIPT_1
+._infinite_loop
 execute SCRIPT_3
 if(gamevar !is_room_cleared)
  {
@@ -77,7 +77,7 @@ if(gamevar !is_room_cleared)
 		}
 }
 
-._SCRIPT_2
+._on_exit
 if(var VAR_0)
  {
 		gamevar is_room_cleared = int 1
@@ -125,7 +125,7 @@ switch(var VAR_15)
 		case 0
 			if(var VAR_16 > int 120)
 			 {
-					var VAR_17 = call eval(var &VAR_13, int 10)
+					var VAR_17 = call run_enemy_generator(var &VAR_13, int 10)
 					var VAR_16 = int 0
 					var VAR_15 ++ 
 			}
@@ -142,7 +142,7 @@ switch(var VAR_15)
 		case 2
 			if(var VAR_16 == int 100)
 			 {
-					var VAR_17 = call eval(var &VAR_14, int 10)
+					var VAR_17 = call run_enemy_generator(var &VAR_14, int 10)
 			}
 			if(var VAR_16 > int 200)
 			 {
@@ -156,16 +156,16 @@ switch(var VAR_15)
 var VAR_16 ++ 
 
 ._SCRIPT_5
-call reload_char(var &VAR_5)
-call reload_char(var &VAR_6)
+call load_char(var &VAR_5)
+call load_char(var &VAR_6)
 var VAR_7 = call create_enemy(int 77, int 0, var &VAR_9, int 260)
-call put_item_in_char_inv(var VAR_7, int 85, int 1638913, int 0)
+call add_item_to_char(var VAR_7, int 85, int 1638913, int 0)
 gamevar script_object = var VAR_7
 gamevar *character_stats_p+15 = int 3000
 call func_106(var VAR_7, int 1, int 0, int 1)
 call func_50(var VAR_7, int 130)
 call set_char_init_state(var VAR_7, int 13)
-call set_char_anim_seq(var VAR_7, var &VAR_10)
+call play_char_ai_script(var VAR_7, var &VAR_10)
 
 ._SCRIPT_6
 if(var ! VAR_0)
@@ -202,7 +202,7 @@ switch(var VAR_19)
 		case 2
 			if(var VAR_20 == int 100)
 			 {
-					var VAR_17 = call eval(var &VAR_22, int 10)
+					var VAR_17 = call run_enemy_generator(var &VAR_22, int 10)
 			}
 			if(var VAR_20 > int 200)
 			 {
@@ -216,10 +216,10 @@ switch(var VAR_19)
 var VAR_20 ++ 
 
 ._SCRIPT_7
-call reload_char(var &VAR_21)
+call load_char(var &VAR_21)
 
 ._SCRIPT_8
-call reload_char(var &VAR_24)
-call reload_char(var &VAR_25)
-call reload_char(var &VAR_26)
-call func_a5(var &VAR_27, int 100)
+call load_char(var &VAR_24)
+call load_char(var &VAR_25)
+call load_char(var &VAR_26)
+call run_wandering_generator(var &VAR_27, int 100)

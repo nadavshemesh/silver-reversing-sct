@@ -42,7 +42,7 @@ VAR_39	0
 VAR_40	0	
 VAR_41	0
 
-._SCRIPT_0
+._on_load
 call load_sound_set(int 75)
 if(gamevar room_state == int 0)
  {
@@ -57,7 +57,7 @@ if(gamevar room_state == int 2)
 		execute SCRIPT_9
 }
 
-._SCRIPT_1
+._infinite_loop
 if(gamevar room_state == int 0)
  {
 		exit_script 
@@ -71,7 +71,7 @@ if(gamevar room_state == int 2)
 		execute SCRIPT_10
 }
 
-._SCRIPT_2
+._on_exit
 if(gamevar room_state == int 0)
  {
 		exit_script 
@@ -101,13 +101,13 @@ switch(var VAR_8)
 					call func_113(int 8, int 8)
 					var VAR_31 = var VAR_9
 					var VAR_8 ++ 
-					call func_10b(var VAR_3, var &VAR_28, int 270)
+					call char_teleport_to_pos(var VAR_3, var &VAR_28, int 270)
 					call char_stop(var VAR_3)
-					call func_10b(var VAR_4, var &VAR_29, int 270)
+					call char_teleport_to_pos(var VAR_4, var &VAR_29, int 270)
 					call char_stop(var VAR_4)
 					if(var VAR_5)
 					 {
-							call func_10b(var VAR_5, var &VAR_30, int 270)
+							call char_teleport_to_pos(var VAR_5, var &VAR_30, int 270)
 							call char_stop(var VAR_5)
 					}
 					call func_cb(var &VAR_32)
@@ -128,17 +128,17 @@ switch(var VAR_8)
 		case 2
 			if(var VAR_9 > int 10)
 			 {
-					call play_char_anim_seq(var VAR_3)
+					call set_char_running(var VAR_3)
 					call func_115(var VAR_3, var &VAR_19)
 					call func_50(var VAR_3, int 8192)
-					call play_char_anim_seq(var VAR_4)
+					call set_char_running(var VAR_4)
 					call func_115(var VAR_4, var &VAR_23)
 					call func_50(var VAR_4, int 8192)
 					if(var VAR_5)
 					 {
 							call func_115(var VAR_5, var &VAR_25)
 							call func_50(var VAR_5, int 8192)
-							call play_char_anim_seq(var VAR_5)
+							call set_char_running(var VAR_5)
 					}
 					var VAR_9 = int 0
 					var VAR_8 ++ 
@@ -188,11 +188,11 @@ if(call is_local_timer_greater_than(var VAR_37))
 }
 
 ._SCRIPT_8
-var VAR_6 = call func_70()
+var VAR_6 = call get_david_char()
 while(var VAR_6)
  {
 		call freeze_enemy(var VAR_6)
-		var VAR_7 = call func_66(var VAR_6)
+		var VAR_7 = call get_char_handle_id(var VAR_6)
 		if(var VAR_7 == int 65536)
 		 {
 				var VAR_3 = var VAR_6

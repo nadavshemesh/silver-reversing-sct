@@ -74,7 +74,7 @@ VAR_71	0
 VAR_72	0	
 VAR_73	0
 
-._SCRIPT_0
+._on_load
 if(call play_bgm(var &VAR_0))
  {
 		call func_114(int 1)
@@ -104,7 +104,7 @@ else
 		}
 }
 
-._SCRIPT_1
+._infinite_loop
 execute SCRIPT_12
 if(gamevar !is_room_cleared)
  {
@@ -124,7 +124,7 @@ if(gamevar !is_room_cleared)
 		}
 }
 
-._SCRIPT_2
+._on_exit
 if(gamevar !is_room_cleared)
  {
 		switch(gamevar room_state)
@@ -169,19 +169,19 @@ if(gamevar !is_room_cleared)
 if(var VAR_16 != var VAR_12)
  {
 		var VAR_16 = var VAR_12
-		call func_ce(var VAR_12)
+		call log_obj(var VAR_12)
 }
 switch(var VAR_12)
  {
 		case 0
 			if(var VAR_13 > int 130)
 			 {
-					var VAR_14 = call func_70()
+					var VAR_14 = call get_david_char()
 					while(var VAR_14)
 					 {
 							if(var VAR_14 != var VAR_7)
 							 {
-									var VAR_15 = call func_66(var VAR_14)
+									var VAR_15 = call get_char_handle_id(var VAR_14)
 									switch(var VAR_15)
 									 {
 											case 262144
@@ -212,11 +212,11 @@ switch(var VAR_12)
 			if(call get_input_sys() != int 4)
 			 {
 					call set_input_system(int 1)
-					if(call is_char_exist(int 7208961))
+					if(call is_char_handle_in_level(int 7208961))
 					 {
 							call set_char_behav(var VAR_8, int 18)
 					}
-					if(call is_char_exist(int 7208962))
+					if(call is_char_handle_in_level(int 7208962))
 					 {
 							call set_char_behav(var VAR_10, int 18)
 					}
@@ -251,28 +251,28 @@ switch(var VAR_48)
 		case 0
 			if(var VAR_49 > int 10)
 			 {
-					call func_10b(var VAR_7, var &VAR_41, int 228)
+					call char_teleport_to_pos(var VAR_7, var &VAR_41, int 228)
 					if(var VAR_39)
 					 {
-							call func_10b(var VAR_39, var &VAR_42, var VAR_44)
+							call char_teleport_to_pos(var VAR_39, var &VAR_42, var VAR_44)
 							if(var VAR_38)
 							 {
-									call func_10b(var VAR_38, var &VAR_43, var VAR_45)
+									call char_teleport_to_pos(var VAR_38, var &VAR_43, var VAR_45)
 							}
 							if(var VAR_36)
 							 {
-									call func_10b(var VAR_36, var &VAR_43, var VAR_45)
+									call char_teleport_to_pos(var VAR_36, var &VAR_43, var VAR_45)
 							}
 					}
 					else
 					 {
 							if(var VAR_38)
 							 {
-									call func_10b(var VAR_38, var &VAR_42, var VAR_44)
+									call char_teleport_to_pos(var VAR_38, var &VAR_42, var VAR_44)
 							}
 							if(var VAR_36)
 							 {
-									call func_10b(var VAR_36, var &VAR_43, var VAR_45)
+									call char_teleport_to_pos(var VAR_36, var &VAR_43, var VAR_45)
 							}
 					}
 					var VAR_48 ++ 
@@ -317,7 +317,7 @@ switch(var VAR_48)
 					if(var ! VAR_50)
 					 {
 							var VAR_55 = int 0
-							var VAR_56 = call func_70()
+							var VAR_56 = call get_david_char()
 							while(var VAR_56)
 							 {
 									var VAR_55 ++ 
@@ -365,13 +365,13 @@ switch(var VAR_48)
 var VAR_49 ++ 
 
 ._SCRIPT_6
-var VAR_7 = call is_char_exist(int 65536)
-var VAR_36 = call is_char_exist(int 786432)
-var VAR_37 = call is_char_exist(int 196608)
-var VAR_38 = call is_char_exist(int 327680)
-var VAR_39 = call is_char_exist(int 131072)
+var VAR_7 = call is_char_handle_in_level(int 65536)
+var VAR_36 = call is_char_handle_in_level(int 786432)
+var VAR_37 = call is_char_handle_in_level(int 196608)
+var VAR_38 = call is_char_handle_in_level(int 327680)
+var VAR_39 = call is_char_handle_in_level(int 131072)
 var VAR_37 = call create_char(var &VAR_40, var &VAR_47, int 190, int 13)
-call put_item_in_char_inv(var VAR_37, int 17, int 0, int 1)
+call add_item_to_char(var VAR_37, int 17, int 0, int 1)
 gamevar script_object = var VAR_7
 var VAR_46 = gamevar LEVEL
 call func_10a(var VAR_37, var VAR_46)
@@ -381,7 +381,7 @@ call set_input_system(int 2)
 if(var VAR_70 != var VAR_68)
  {
 		var VAR_70 = var VAR_68
-		call func_ce(var VAR_68)
+		call log_obj(var VAR_68)
 }
 switch(var VAR_68)
  {
@@ -396,7 +396,7 @@ switch(var VAR_25)
 		case 0
 			var VAR_7 = call get_char_handle(int 65536)
 			var VAR_28 = int 0
-			var VAR_27 = call func_70()
+			var VAR_27 = call get_david_char()
 			while(var VAR_27)
 			 {
 					if(var VAR_27 != var VAR_7)
@@ -493,8 +493,8 @@ switch(var VAR_25)
 					}
 					else
 					 {
-							call char_turn_to_pos(var VAR_7, call func_67(var VAR_3))
-							call char_turn_to_pos(var VAR_2, call func_67(var VAR_3))
+							call char_turn_to_pos(var VAR_7, call get_char_pos(var VAR_3))
+							call char_turn_to_pos(var VAR_2, call get_char_pos(var VAR_3))
 							call start_dialog(var &VAR_34, var &VAR_35)
 							var VAR_25 ++ 
 							var VAR_26 = int 0
@@ -517,7 +517,7 @@ var VAR_26 ++
 ._SCRIPT_10
 
 ._SCRIPT_11
-call func_e(var &VAR_6)
+call remove_face(var &VAR_6)
 call load_sound_set(int 59)
 call play_loaded_sound(int 2, int -1, int 59, var &VAR_6)
 call play_loaded_sound(int 1, int -1, int 59, int 0)

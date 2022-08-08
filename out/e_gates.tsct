@@ -48,7 +48,7 @@ VAR_45	0
 VAR_46	0	
 VAR_47	0
 
-._SCRIPT_0
+._on_load
 call load_sound_set(int 75)
 var VAR_3 = call play_loaded_sound(int 1, int -1, int 75, int 0)
 call set_sound_volume(var VAR_3, int 120)
@@ -67,7 +67,7 @@ if(gamevar room_state == int 2)
 		execute SCRIPT_10
 }
 
-._SCRIPT_1
+._infinite_loop
 execute SCRIPT_9
 if(gamevar room_state == int 0)
  {
@@ -82,7 +82,7 @@ if(gamevar room_state == int 2)
 		execute SCRIPT_11
 }
 
-._SCRIPT_2
+._on_exit
 if(gamevar room_state == int 0)
  {
 		exit_script 
@@ -117,13 +117,13 @@ switch(var VAR_15)
 					call func_113(int 8, int 8)
 					var VAR_16 = int 0
 					var VAR_15 ++ 
-					call func_10b(var VAR_2, var &VAR_32, int 0)
+					call char_teleport_to_pos(var VAR_2, var &VAR_32, int 0)
 					call char_stop(var VAR_2)
-					call func_10b(var VAR_5, var &VAR_33, int 0)
+					call char_teleport_to_pos(var VAR_5, var &VAR_33, int 0)
 					call char_stop(var VAR_5)
 					if(var VAR_6)
 					 {
-							call func_10b(var VAR_6, var &VAR_34, int 0)
+							call char_teleport_to_pos(var VAR_6, var &VAR_34, int 0)
 							call char_stop(var VAR_6)
 					}
 			}
@@ -155,7 +155,7 @@ switch(var VAR_15)
 			 {
 					call remove_char(var VAR_18)
 					call func_47(var VAR_5, int 8192)
-					call func_10b(var VAR_5, var &VAR_37, int 117)
+					call char_teleport_to_pos(var VAR_5, var &VAR_37, int 117)
 					var VAR_15 ++ 
 					var VAR_16 = int 0
 			}
@@ -183,7 +183,7 @@ switch(var VAR_15)
 					if(var VAR_6)
 					 {
 							call func_47(var VAR_6, int 8192)
-							call func_10b(var VAR_6, var &VAR_38, int 102)
+							call char_teleport_to_pos(var VAR_6, var &VAR_38, int 102)
 					}
 					call remove_char(var VAR_19)
 					call remove_char(var VAR_17)
@@ -251,10 +251,10 @@ if(call is_local_timer_greater_than(var VAR_43))
 }
 
 ._SCRIPT_8
-var VAR_7 = call func_70()
+var VAR_7 = call get_david_char()
 while(var VAR_7)
  {
-		var VAR_8 = call func_66(var VAR_7)
+		var VAR_8 = call get_char_handle_id(var VAR_7)
 		if(var VAR_8 == int 65536)
 		 {
 				var VAR_2 = var VAR_7

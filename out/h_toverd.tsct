@@ -14,7 +14,7 @@ VAR_11	"nrebela"
 VAR_12	0	
 VAR_13	0
 
-._SCRIPT_0
+._on_load
 execute SCRIPT_7
 call load_sound_set(int 12)
 call play_loaded_sound(int 8, int -1, int 12, int 0)
@@ -31,7 +31,7 @@ switch(gamevar room_state)
 			break 
 }
 
-._SCRIPT_1
+._infinite_loop
 execute SCRIPT_8
 execute SCRIPT_9
 switch(gamevar room_state)
@@ -46,7 +46,7 @@ switch(gamevar room_state)
 			break 
 }
 
-._SCRIPT_2
+._on_exit
 switch(gamevar room_state)
  {
 		case 1
@@ -65,8 +65,8 @@ switch(gamevar room_state)
 ._SCRIPT_4
 var VAR_6 = call create_char(var &VAR_8, var &VAR_10, int 70, int 13)
 var VAR_7 = call create_char(var &VAR_9, var &VAR_11, int 70, int 13)
-call put_item_in_char_inv(var VAR_6, int 16, int 0, int 1)
-call put_item_in_char_inv(var VAR_7, int 16, int 0, int 1)
+call add_item_to_char(var VAR_6, int 16, int 0, int 1)
+call add_item_to_char(var VAR_7, int 16, int 0, int 1)
 
 ._SCRIPT_5
 

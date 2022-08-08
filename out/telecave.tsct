@@ -21,7 +21,7 @@ VAR_18	{ -180, -1925, 2395, -200, -1925, -340 }
 VAR_19	"btreasure"	
 VAR_20	"never came in door 0"
 
-._SCRIPT_0
+._on_load
 var VAR_1 = var &VAR_9
 var VAR_2 = int 190
 execute SCRIPT_8
@@ -54,7 +54,7 @@ else
 		}
 }
 
-._SCRIPT_1
+._infinite_loop
 if(gamevar !is_room_cleared)
  {
 		switch(gamevar room_state)
@@ -70,7 +70,7 @@ if(gamevar !is_room_cleared)
 		}
 }
 
-._SCRIPT_2
+._on_exit
 if(gamevar !is_room_cleared)
  {
 		switch(gamevar room_state)
@@ -100,17 +100,17 @@ switch(var VAR_11)
 }
 
 ._SCRIPT_4
-call reload_char(var &VAR_15)
-var VAR_14 = call is_char_exist(int 1507328)
+call load_char(var &VAR_15)
+var VAR_14 = call is_char_handle_in_level(int 1507328)
 if(var ! VAR_14)
  {
 		var VAR_14 = call create_char(var &VAR_13, var &VAR_19, int 270, int 14)
-		call put_item_in_char_inv(var VAR_14, int 85, int 6554113, int 0)
-		call put_item_in_char_inv(var VAR_14, int 83, int 1, int 0)
-		call put_item_in_char_inv(var VAR_14, int 43, int 1, int 0)
-		call put_item_in_char_inv(var VAR_14, int 40, int 1, int 0)
-		call put_item_in_char_inv(var VAR_14, int 40, int 1, int 0)
-		call put_item_in_char_inv(var VAR_14, int 47, int 1, int 0)
+		call add_item_to_char(var VAR_14, int 85, int 6554113, int 0)
+		call add_item_to_char(var VAR_14, int 83, int 1, int 0)
+		call add_item_to_char(var VAR_14, int 43, int 1, int 0)
+		call add_item_to_char(var VAR_14, int 40, int 1, int 0)
+		call add_item_to_char(var VAR_14, int 40, int 1, int 0)
+		call add_item_to_char(var VAR_14, int 47, int 1, int 0)
 }
 
 ._SCRIPT_5
@@ -120,7 +120,7 @@ if(var ! VAR_14)
 ._SCRIPT_7
 
 ._SCRIPT_8
-var VAR_0 = call is_char_exist(int 1507337)
+var VAR_0 = call is_char_handle_in_level(int 1507337)
 if(var ! VAR_0)
  {
 		var VAR_0 = call create_char(var VAR_1, var &VAR_6, var VAR_2, int 14)
@@ -143,11 +143,11 @@ if(var VAR_3 != int -1)
 		 {
 				if(var VAR_5 != int -1)
 				 {
-						call put_item_in_char_inv(var VAR_0, int 85, var VAR_5, int 0)
+						call add_item_to_char(var VAR_0, int 85, var VAR_5, int 0)
 				}
 				else
 				 {
-						call put_item_in_char_inv(var VAR_0, var VAR_3, int 1, int 0)
+						call add_item_to_char(var VAR_0, var VAR_3, int 1, int 0)
 				}
 		}
 }

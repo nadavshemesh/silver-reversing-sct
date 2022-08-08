@@ -29,7 +29,7 @@ VAR_26	{ 0, 0 }
 VAR_27	0	
 VAR_28	0
 
-._SCRIPT_0
+._on_load
 call load_sound_set(int 65)
 call play_loaded_sound(int 7, int -1, int 65, int 0)
 execute SCRIPT_3
@@ -52,7 +52,7 @@ else
 		}
 }
 
-._SCRIPT_1
+._infinite_loop
 execute SCRIPT_4
 if(gamevar !is_room_cleared)
  {
@@ -73,7 +73,7 @@ else
 		execute SCRIPT_7
 }
 
-._SCRIPT_2
+._on_exit
 if(gamevar !is_room_cleared)
  {
 		switch(gamevar room_state)
@@ -119,7 +119,7 @@ if(var VAR_10 == int 0)
 		if(call func_8a(var &VAR_5))
 		 {
 				var VAR_0 = int 1
-				var VAR_9 = call eval(var &VAR_6, int 0)
+				var VAR_9 = call run_enemy_generator(var &VAR_6, int 0)
 				var VAR_10 ++ 
 		}
 }
@@ -127,13 +127,13 @@ if(var VAR_10 == int 1)
  {
 		if(call func_122(var VAR_9) == int 0)
 		 {
-				var VAR_9 = call eval(var &VAR_7, int 0)
+				var VAR_9 = call run_enemy_generator(var &VAR_7, int 0)
 				var VAR_10 ++ 
 		}
 }
 
 ._SCRIPT_6
-call reload_char(var &VAR_4)
+call load_char(var &VAR_4)
 
 ._SCRIPT_7
 if(var VAR_8 == int 0)
@@ -141,7 +141,7 @@ if(var VAR_8 == int 0)
 		if(call func_8a(var &VAR_5))
 		 {
 				var VAR_0 = int 1
-				var VAR_9 = call eval(var &VAR_6, int 0)
+				var VAR_9 = call run_enemy_generator(var &VAR_6, int 0)
 				var VAR_8 ++ 
 		}
 }
@@ -149,7 +149,7 @@ if(var VAR_8 == int 1)
  {
 		if(call func_122(var VAR_9) == int 0)
 		 {
-				var VAR_9 = call eval(var &VAR_7, int 0)
+				var VAR_9 = call run_enemy_generator(var &VAR_7, int 0)
 				var VAR_8 ++ 
 		}
 }
@@ -159,12 +159,12 @@ if(var VAR_8 == int 1)
 ._SCRIPT_9
 
 ._SCRIPT_10
-call reload_char(var &VAR_11)
-call reload_char(var &VAR_12)
-call reload_char(var &VAR_13)
-call reload_char(var &VAR_14)
-call reload_char(var &VAR_15)
-call reload_char(var &VAR_16)
+call load_char(var &VAR_11)
+call load_char(var &VAR_12)
+call load_char(var &VAR_13)
+call load_char(var &VAR_14)
+call load_char(var &VAR_15)
+call load_char(var &VAR_16)
 var VAR_20 = call randomize_int(int 0, int 3)
 if(var VAR_20 == int 1)
  {
@@ -199,10 +199,10 @@ if(var ! VAR_17)
  {
 		if(var VAR_18 == int 1)
 		 {
-				call eval(var &VAR_25, int 160)
+				call run_enemy_generator(var &VAR_25, int 160)
 		}
 		else
 		 {
-				call eval(var &VAR_23, int 120)
+				call run_enemy_generator(var &VAR_23, int 120)
 		}
 }

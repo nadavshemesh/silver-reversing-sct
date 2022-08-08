@@ -39,11 +39,11 @@ VAR_36	{ 1701999714, 1920299873, -1442827931, 0 }
 VAR_37	0	
 VAR_38	0
 
-._SCRIPT_0
+._on_load
 call load_sound_set(int 66)
 call play_loaded_sound(int 7, int -1, int 66, int 0)
 call play_loaded_sound(int 1, int -1, int 66, int 0)
-var VAR_2 = call func_70()
+var VAR_2 = call get_david_char()
 var VAR_3 = call func_7e()
 var VAR_4 = call func_7e()
 call play_bgm(var &VAR_34)
@@ -60,7 +60,7 @@ if(gamevar room_state == int 3)
 		execute SCRIPT_9
 }
 
-._SCRIPT_1
+._infinite_loop
 execute SCRIPT_3
 if(gamevar room_state == int 1)
  {
@@ -75,7 +75,7 @@ if(gamevar room_state == int 3)
 		execute SCRIPT_8
 }
 
-._SCRIPT_2
+._on_exit
 if(gamevar room_state == int 2)
  {
 		gamevar room_state ++ 
@@ -119,8 +119,8 @@ if(var VAR_0 == int 1)
 ._SCRIPT_5
 gamevar global_inventory_p = var &VAR_6
 var VAR_35 = call create_char(var &VAR_5, var &VAR_36, int 10, int 14)
-call put_item_in_char_inv(var VAR_35, int 85, int 6554113, int 0)
-call put_item_in_char_inv(var VAR_35, int 20, int 1, int 0)
+call add_item_to_char(var VAR_35, int 85, int 6554113, int 0)
+call add_item_to_char(var VAR_35, int 20, int 1, int 0)
 var VAR_11 = call create_enemy(int 63, int 0, var &VAR_7, int 255)
 var VAR_12 = call create_enemy(int 63, int 1, var &VAR_8, int 215)
 var VAR_13 = call create_enemy(int 63, int 2, var &VAR_9, int 115)
@@ -137,8 +137,8 @@ gamevar *character_stats_p+15 = int 3000
 gamevar script_object = var VAR_14
 gamevar *character_stats_p+16 = int 500
 gamevar *character_stats_p+15 = int 3000
-call put_item_in_char_inv(var VAR_11, int 45, int 1, int 0)
-call put_item_in_char_inv(var VAR_13, int 40, int 1, int 0)
+call add_item_to_char(var VAR_11, int 45, int 1, int 0)
+call add_item_to_char(var VAR_13, int 40, int 1, int 0)
 call func_106(var VAR_11, int 1, int 0, int 1)
 call func_106(var VAR_12, int 1, int 0, int 1)
 call func_106(var VAR_13, int 1, int 0, int 1)
@@ -147,10 +147,10 @@ call func_50(var VAR_11, int 8194)
 call func_50(var VAR_12, int 8194)
 call func_50(var VAR_13, int 8194)
 call func_50(var VAR_14, int 8194)
-call set_char_anim_seq(var VAR_11, var &VAR_16)
-call set_char_anim_seq(var VAR_12, var &VAR_21)
-call set_char_anim_seq(var VAR_13, var &VAR_26)
-call set_char_anim_seq(var VAR_14, var &VAR_30)
+call play_char_ai_script(var VAR_11, var &VAR_16)
+call play_char_ai_script(var VAR_12, var &VAR_21)
+call play_char_ai_script(var VAR_13, var &VAR_26)
+call play_char_ai_script(var VAR_14, var &VAR_30)
 var VAR_1 = int 0
 var VAR_0 = int 1
 

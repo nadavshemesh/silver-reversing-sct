@@ -25,7 +25,7 @@ VAR_22	{ 0, 1, 5, VAR_21, 8, 2, 19, 3026, 125, 352, 12, 142, 141, 139, -1, 13, 1
 VAR_23	0	
 VAR_24	{ 0, 0 }
 
-._SCRIPT_0
+._on_load
 call load_sound_set(int 24)
 call load_sound_set(int 59)
 call play_loaded_sound(int 2, int -1, int 59, int 0)
@@ -37,8 +37,8 @@ if(call play_bgm(var &VAR_1))
 		call func_114(int 1)
 		call func_5a(int -1)
 }
-call reload_char(var &VAR_2)
-call reload_char(var &VAR_3)
+call load_char(var &VAR_2)
+call load_char(var &VAR_3)
 gamevar SMACKER_X = int 456
 gamevar SMACKER_Y = int 160
 call play_2d_anim(var &VAR_5, int 1, int 1, int 0)
@@ -67,7 +67,7 @@ else
 		}
 }
 
-._SCRIPT_1
+._infinite_loop
 if(gamevar !is_room_cleared)
  {
 		switch(gamevar room_state)
@@ -87,7 +87,7 @@ if(gamevar !is_room_cleared)
 }
 execute SCRIPT_10
 
-._SCRIPT_2
+._on_exit
 if(gamevar !is_room_cleared)
  {
 		switch(gamevar room_state)
@@ -121,8 +121,8 @@ switch(var VAR_18)
 					var VAR_11 = call create_enemy(int 141, int 0, var &VAR_12, int 320)
 					gamevar script_object = var VAR_11
 					gamevar *character_stats_p+15 = int 5000
-					call put_item_in_char_inv(var VAR_11, int 85, int 3277313, int 0)
-					call put_item_in_char_inv(var VAR_11, int 109, int 1, int 0)
+					call add_item_to_char(var VAR_11, int 85, int 3277313, int 0)
+					call add_item_to_char(var VAR_11, int 109, int 1, int 0)
 					var VAR_17 = int 0
 					var VAR_18 ++ 
 			}
@@ -134,7 +134,7 @@ switch(var VAR_18)
 					var VAR_18 ++ 
 					var VAR_4 = int 1
 					call func_ec(int 1, int 0, int 24, var &VAR_8)
-					var VAR_7 = call eval(var &VAR_10, int 120)
+					var VAR_7 = call run_enemy_generator(var &VAR_10, int 120)
 			}
 			break 
 		case 2
@@ -144,11 +144,11 @@ switch(var VAR_18)
 					 {
 							if(var VAR_0 == int 0)
 							 {
-									var VAR_7 = call eval(var &VAR_16, int 1)
+									var VAR_7 = call run_enemy_generator(var &VAR_16, int 1)
 							}
 							else
 							 {
-									var VAR_7 = call eval(var &VAR_15, int 1)
+									var VAR_7 = call run_enemy_generator(var &VAR_15, int 1)
 							}
 							var VAR_17 = int 0
 							var VAR_18 ++ 
@@ -177,7 +177,7 @@ gamevar SMACKER_X = int 328
 gamevar SMACKER_Y = int 92
 call play_2d_anim(var &VAR_19, int 0, int 1, int 0)
 call log(var &VAR_20)
-call func_a5(var &VAR_22, int 70)
+call run_wandering_generator(var &VAR_22, int 70)
 
 ._SCRIPT_10
 if(gamevar script_time > var VAR_24)

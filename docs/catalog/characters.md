@@ -18,135 +18,135 @@ Characters string ids are often used in functions and in dialog files (.eng file
 
  _** numbering in this list is not an id but simply the order of this list_
 
-| #  | Dialog ID | String ID |
-| --- | --------- | --------- |
-| 0 | VHR | VHATRED	|
-| 1 | BET | BETH |
-| 2 | FRI | FRINK |
-| 3 | TRY | TERRY |
-| 4 | MNY | MANNY |
-| 5 | PDR | PEDRO |
-| 6 | SGR | SGRUNT |
-| 7 | WIL | WILLIAM |
-| 8 | GUA | GUARD1 |
-| 9 | GUR | GUARD2 |
-| 10 | VWM | OLDWOMAN |
-| 11 | SAI | OLDSAILOR |
-| 12 | CHR | CHRONICL |
-| 13 | OWM | VILLOLDW |
-| 14 | CHA | CHANCE |
-| 15 | DBB | DEMONBLU |
-| 16 | DBR | DEMONRED |
-| 17 | PRO | PROFESS |
-| 18 | GOL | GOLEM |
-| 19 | IBN | IMPBLU |
-| 20 | IBB | IMPBLUB |
-| 21 | IBF | IMPBLUF |
-| 22 | IBS | IMPBLUS |
-| 23 | IRC | IMPREDC |
-| 24 | INR | IMPNERD |
-| 25 | IRN | IMP |
-| 26 | IRB | IMPBOSS |
-| 27 | IRF | WINGIMP |
-| 28 | IRS | IMPREDS |
-| 29 | IYN | YELIMP |
-| 30 | IYZ | YIMPBOSS |
-| 31 | MUR | MURPHY |
-| 32 | TER | TYRONIS |
-| 33 | WIT | WHITTLE |
-| 34 | CHE | TCHEST |
-| 35 | BST | TBEAST |
-| 36 | MIN | MOONMINE |
-| 37 | MON | MONEYBAG |
-| 38 | DVD | DAVID |
-| 39 | GRA | GRANDAD |
-| 40 | CAG | CAGEN |
-| 41 | VIV | VIVIENNE |
-| 42 | CHI | CHIARO |
-| 43 | SIL | SILVER |
-| 44 | SYS | SYSTEM |
-| 45 | FIR | FIRE |
-| 46 | BRD | BEARDMAN |
-| 47 | BSM | BSTUMP |
-| 48 | BUN | BUNNY |
-| 49 | DUK | DUKE |
-| 50 | FAT | FATBOB |
-| 51 | FET | FETCH |
-| 52 | FUG | FUGE |
-| 53 | GAR | GARGOYLE |
-| 54 | BEE | GBEEC |
-| 55 | GLS | GLASS  |
-| 56 | GRI | GRISTLE |
-| 57 | GRO | GROAD |
-| 58 | GUL | GULL |
-| 59 | HRN | HORN |
-| 60 | JAG | JAG |
-| 61 | JEN | JENNIFER |
-| 62 | BUZ | BUZUKI |
-| 63 | CLY | CLAY |
-| 64 | CRB | CRAB |
-| 65 | JAN | JANITOR |
-| 66 | JUG | JUG |
-| 67 | KAO | KAOS |
-| 68 | LOB | LOBSTER |
-| 69 | MAK | MACHK |
-| 70 | MIM | MIMIC |
-| 71 | MUS | MUSCLES |
-| 72 | ORC | ORC |
-| 73 | PIG | PIG |
-| 74 | PEA | PIGPEA |
-| 75 | PSM | PSTUMP |
-| 76 | REB | REBEL |
-| 77 | REA | REBELA |
-| 78 | RIC | RICHARD |
-| 79 | RIV | RIVER |
-| 80 | ROB | ROBE |
-| 81 | SEK | SEKUNE |
-| 82 | SKE | SKEL |
-| 83 | SLG | SLUG |
-| 84 | SPR | SPRAT |
-| 85 | STG | STAG |
-| 86 | STP | STUMP |
-| 87 | SUB | SUBMARINE |
-| 88 | SWA | SWAMPY |
-| 89 | TAV | TAVMAN |
-| 90 | TRE | TREESPRT |
-| 91 | VLR | VILLAGER |
-| 92 | VLB | VILLAGRBD |
-| 93 | VBY | VILLBOY |
-| 94 | VHT | VILLHAT |
-| 95 | VOM | OLDVILL |
-| 96 | VOW | VILLOW |
-| 97 | VFT | VILOWFAT |
-| 98 | WER | WEREWOLF |
-| 99 | WYV | WYVERN |
-| 100 | BAN | BANDIT |
-| 101 | MAY | MAYOR |
-| 102 | TRA | TRADER |
-| 103 | OLB | OLDBEARD |
-| 104 | JON | JOHN |
-| 105 | BEN | BEN |
-| 106 | SER | SERVANTA |
-| 107 | SVR | SERVANTB |
-| 108 | ORA | ORACLE |
-| 109 | MNK | MEDMONK |
-| 110 | OTH | OTHIAS |
-| 111 | VEL | PROF_VEL |
-| 112 | GRU | GRUMPLE |
-| 113 | FLN | FLATNOSE |
-| 114 | DRU | DRUNKWIZ |
-| 115 | CAP | CAPTAIN |
-| 116 | BOM | BOATMAN |
-| 117 | GON | GONCH |
-| 118 | RCP | RCAPTAIN |
-| 119 | GUN | JEREMIAH |
-| 120 | MOS | MOSS |
-| 121 | SCR | SCRUTTOC |
-| 122 | GAN | GANITOS |
-| 123 | PRI | PRIEST |
-| 124 | NEM | NEMESIS |
-| 125 | APO | APOCALYPSE |
-| 126 | STI | STIPE |
-| 127 | THA | THADDEUS |
-| 128 | KHA | KHAN |
-| 129 | INT | INTERUPT |
+| Dialog ID | String ID | Handle ID
+| --------- | --------- | -------- |
+| VHR | VHATRED	| 2293760 |
+| BET | BETH | 6029312 |
+| FRI | FRINK | 4390912 |
+| TRY | TERRY | 4980736 |
+| MNY | MANNY | 4915200 |
+| PDR | PEDRO | 5046272 |
+| SGR | SGRUNT | 4128768 |
+| WIL | WILLIAM | 4784128 |
+| GUA | GUARD1 | |
+| GUR | GUARD2 | |
+| VWM | OLDWOMAN | 4259840 |
+| SAI | OLDSAILOR | |
+| CHR | CHRONICL | 6291456 |
+| OWM | VILLOLDW | |
+| CHA | CHANCE | |
+| DBB | DEMONBLU | |
+| DBR | DEMONRED | |
+| PRO | PROFESS | 983040 |
+| GOL | GOLEM | 655360 |
+| IBN | IMPBLU | |
+| IBB | IMPBLUB | |
+| IBF | IMPBLUF | |
+| IBS | IMPBLUS | |
+| IRC | IMPREDC | |
+| INR | IMPNERD | 1900544 |
+| IRN | IMP | 917504 |
+| IRB | IMPBOSS | 4194304 |
+| IRF | WINGIMP | 1376256 |
+| IRS | IMPREDS | |
+| IYN | YELIMP | 1769472 |
+| IYZ | YIMPBOSS | 1703936 |
+| MUR | MURPHY | |
+| TER | TYRONIS | 2031616 |
+| WIT | WHITTLE | 2359296 |
+| CHE | TCHEST | |
+| BST | TBEAST | |
+| MIN | MOONMINE | 1572864 |
+| MON | MONEYBAG | |
+| DVD | DAVID | 65536 |
+| GRA | GRANDAD | 393216 |
+| CAG | CAGEN | 262144 |
+| VIV | VIVIENNE | 196608 |
+| CHI | CHIARO | 131072 |
+| SIL | SILVER | 1245184 |
+| SYS | SYSTEM | |
+| FIR | FIRE | |
+| BRD | BEARDMAN | 2818048 |
+| BSM | BSTUMP | 7929856 |
+| BUN | BUNNY | |
+| DUK | DUKE | 4456448 |
+| FAT | FATBOB | 1638400 |
+| FET | FETCH | 8781824 |
+| FUG | FUGE | 4063232 |
+| GAR | GARGOYLE | 3145728 |
+| BEE | GBEEC | |
+| GLS | GLASS  | 8257536 |
+| GRI | GRISTLE | |
+| GRO | GROAD | 8060928 |
+| GUL | GULL | 1966080 |
+| HRN | HORN | |
+| JAG | JAG | 3080192 |
+| JEN | JENNIFER | 1310720 |
+| BUZ | BUZUKI | 4325376 |
+| CLY | CLAY | 4718592 |
+| CRB | CRAB | |
+| JAN | JANITOR | 5832704 |
+| JUG | JUG | 327680 |
+| KAO | KAOS | |
+| LOB | LOBSTER | 9109504 |
+| MAK | MACHK | |
+| MIM | MIMIC | 1441792 |
+| MUS | MUSCLES | 2490368 |
+| ORC | ORC | 7995392 |
+| PIG | PIG | 4849664 |
+| PEA | PIGPEA | 720896 |
+| PSM | PSTUMP | |
+| REB | REBEL | 1114112 |
+| REA | REBELA | 1048576 |
+| RIC | RICHARD | 4653056 |
+| RIV | RIVER | |
+| ROB | ROBE | |
+| SEK | SEKUNE | 786432 |
+| SKE | SKEL | 8126464 |
+| SLG | SLUG | |
+| SPR | SPRAT | 9043968 |
+| STG | STAG | 8912896 |
+| STP | STUMP | |
+| SUB | SUBMARINE | |
+| SWA | SWAMPY | 7667712 |
+| TAV | TAVMAN | 2555904 |
+| TRE | TREESPRT | 9371648 |
+| VLR | VILLAGER | 2097152 |
+| VLB | VILLAGRBD | |
+| VBY | VILLBOY | 2424832 |
+| VHT | VILLHAT | 2228224 |
+| VOM | OLDVILL | 3932160 |
+| VOW | VILLOW | 2686976 |
+| VFT | VILOWFAT | 2883584 |
+| WER | WEREWOLF | 2621440 |
+| WYV | WYVERN | 851968 |
+| BAN | BANDIT | |
+| MAY | MAYOR | 8519680 |
+| TRA | TRADER | |
+| OLB | OLDBEARD | 3997696 |
+| JON | JOHN | 11599872 |
+| BEN | BEN | 4587520 |
+| SER | SERVANTA | |
+| SVR | SERVANTB | |
+| ORA | ORACLE | 10944512 |
+| MNK | MEDMONK | 11468800 |
+| OTH | OTHIAS | 9764864 |
+| VEL | PROF_VEL | 5963776 |
+| GRU | GRUMPLE | 3342336 |
+| FLN | FLATNOSE | 6815744 |
+| DRU | DRUNKWIZ | 9437184 |
+| CAP | CAPTAIN | 6356992 |
+| BOM | BOATMAN | 10158080 |
+| GON | GONCH | 8847360 |
+| RCP | RCAPTAIN | 6881280 |
+| GUN | JEREMIAH | 12255232 |
+| MOS | MOSS | 10682368 |
+| SCR | SCRUTTOC | 10813440 |
+| GAN | GANITOS | 11534336 |
+| PRI | PRIEST | 10616832 |
+| NEM | NEMESIS | 11337728 |
+| APO | APOCALYPSE | |
+| STI | STIPE | 6946816 |
+| THA | THADDEUS | 11206656 |
+| KHA | KHAN | 12058624 |
+| INT | INTERUPT | |

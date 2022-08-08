@@ -17,7 +17,7 @@ VAR_14	10
 VAR_15	0	
 VAR_16	0
 
-._SCRIPT_0
+._on_load
 var VAR_1 = var &VAR_8
 var VAR_2 = int 320
 execute SCRIPT_10
@@ -52,7 +52,7 @@ else
 		}
 }
 
-._SCRIPT_1
+._infinite_loop
 execute SCRIPT_9
 if(gamevar !is_room_cleared)
  {
@@ -69,7 +69,7 @@ if(gamevar !is_room_cleared)
 		}
 }
 
-._SCRIPT_2
+._on_exit
 if(gamevar !is_room_cleared)
  {
 		switch(gamevar room_state)
@@ -133,7 +133,7 @@ if(var VAR_13 > var VAR_14)
 var VAR_13 ++ 
 
 ._SCRIPT_10
-var VAR_0 = call is_char_exist(int 1507337)
+var VAR_0 = call is_char_handle_in_level(int 1507337)
 if(var ! VAR_0)
  {
 		var VAR_0 = call create_char(var VAR_1, var &VAR_6, var VAR_2, int 14)
@@ -156,11 +156,11 @@ if(var VAR_3 != int -1)
 		 {
 				if(var VAR_5 != int -1)
 				 {
-						call put_item_in_char_inv(var VAR_0, int 85, var VAR_5, int 0)
+						call add_item_to_char(var VAR_0, int 85, var VAR_5, int 0)
 				}
 				else
 				 {
-						call put_item_in_char_inv(var VAR_0, var VAR_3, int 1, int 0)
+						call add_item_to_char(var VAR_0, var VAR_3, int 1, int 0)
 				}
 		}
 }

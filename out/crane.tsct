@@ -26,7 +26,7 @@ VAR_23	0
 VAR_24	"bear"	
 VAR_25	0
 
-._SCRIPT_0
+._on_load
 execute SCRIPT_3
 call load_sound_set(int 77)
 call load_sound_set(int 59)
@@ -49,7 +49,7 @@ switch(gamevar room_state)
 			break 
 }
 
-._SCRIPT_1
+._infinite_loop
 switch(gamevar room_state)
  {
 		case 1
@@ -62,7 +62,7 @@ switch(gamevar room_state)
 			break 
 }
 
-._SCRIPT_2
+._on_exit
 switch(gamevar room_state)
  {
 		case 1
@@ -104,11 +104,11 @@ switch(var VAR_21)
 }
 
 ._SCRIPT_6
-call reload_char(var &VAR_18)
-call reload_char(var &VAR_19)
-call reload_char(var &VAR_20)
-var VAR_16 = call func_a5(var &VAR_14, int 1)
-var VAR_17 = call eval(var &VAR_10, int 10)
+call load_char(var &VAR_18)
+call load_char(var &VAR_19)
+call load_char(var &VAR_20)
+var VAR_16 = call run_wandering_generator(var &VAR_14, int 1)
+var VAR_17 = call run_enemy_generator(var &VAR_10, int 10)
 
 ._SCRIPT_7
 switch(var VAR_25)
@@ -116,12 +116,12 @@ switch(var VAR_25)
 }
 
 ._SCRIPT_8
-call reload_char(var &VAR_24)
+call load_char(var &VAR_24)
 
 ._SCRIPT_9
 var VAR_7 = call create_char(var &VAR_6, var &VAR_8, int 300, int 14)
-call put_item_in_char_inv(var VAR_7, int 11, int 1, int 0)
-call put_item_in_char_inv(var VAR_7, int 108, int 1, int 0)
+call add_item_to_char(var VAR_7, int 11, int 1, int 0)
+call add_item_to_char(var VAR_7, int 108, int 1, int 0)
 
 ._SCRIPT_10
 switch(var VAR_22)

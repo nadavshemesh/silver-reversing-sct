@@ -27,7 +27,7 @@ VAR_24	{ 15, 0, 4153, -1221, 596, 2, 4153, -1221, -529, 27, 5, 30, 30, 39, 8 }
 VAR_25	{ 15, 0, 4153, -1221, 596, 2, 4153, -1221, -529, 27, 5, 30, 30, 39, 8 }	
 VAR_26	{ 5044, -1221, 2150 }
 
-._SCRIPT_0
+._on_load
 execute SCRIPT_10
 if(gamevar is_room_cleared)
  {
@@ -51,7 +51,7 @@ else
 		}
 }
 
-._SCRIPT_1
+._infinite_loop
 if(gamevar !is_room_cleared)
  {
 		switch(gamevar room_state)
@@ -70,7 +70,7 @@ if(gamevar !is_room_cleared)
 		}
 }
 
-._SCRIPT_2
+._on_exit
 if(gamevar !is_room_cleared)
  {
 		switch(gamevar room_state)
@@ -101,7 +101,7 @@ switch(var VAR_13)
 		case 0
 			if(call get_num_of_enemies() == int 0)
 			 {
-					var VAR_18 = call eval(var &VAR_17, int 10)
+					var VAR_18 = call run_enemy_generator(var &VAR_17, int 10)
 					var VAR_13 ++ 
 					var VAR_14 = int 0
 			}
@@ -112,7 +112,7 @@ switch(var VAR_13)
 					var VAR_19 = call create_enemy(int 39, int 1, var &VAR_26, int 226)
 					call freeze_enemy(var VAR_19)
 					call func_50(var VAR_19, int 8192)
-					call set_char_anim_seq(var VAR_19, var &VAR_23)
+					call play_char_ai_script(var VAR_19, var &VAR_23)
 					call func_106(var VAR_19, int 9, int 5, var &VAR_22)
 					call func_106(var VAR_19, int 9, int 6, int 6)
 					gamevar script_object = var VAR_19
@@ -128,7 +128,7 @@ switch(var VAR_13)
 					var VAR_20 = call create_enemy(int 39, int 2, var &VAR_26, int 226)
 					call freeze_enemy(var VAR_20)
 					call func_50(var VAR_20, int 8192)
-					call set_char_anim_seq(var VAR_20, var &VAR_24)
+					call play_char_ai_script(var VAR_20, var &VAR_24)
 					call func_106(var VAR_20, int 9, int 5, var &VAR_22)
 					call func_106(var VAR_20, int 9, int 6, int 6)
 					gamevar script_object = var VAR_20
@@ -140,7 +140,7 @@ switch(var VAR_13)
 					var VAR_21 = call create_enemy(int 39, int 3, var &VAR_26, int 226)
 					call freeze_enemy(var VAR_21)
 					call func_50(var VAR_21, int 8192)
-					call set_char_anim_seq(var VAR_21, var &VAR_25)
+					call play_char_ai_script(var VAR_21, var &VAR_25)
 					call func_106(var VAR_21, int 9, int 5, var &VAR_22)
 					call func_106(var VAR_21, int 9, int 6, int 6)
 					gamevar script_object = var VAR_21
@@ -156,14 +156,14 @@ var VAR_14 ++
 ._SCRIPT_4
 var VAR_4 = call create_enemy(int 199, int 0, var &VAR_6, int 275)
 var VAR_5 = call create_enemy(int 40, int 0, var &VAR_7, int 60)
-call put_item_in_char_inv(var VAR_4, int 62, int 1, int 0)
+call add_item_to_char(var VAR_4, int 62, int 1, int 0)
 call func_50(var VAR_4, int 8192)
 call func_50(var VAR_5, int 8192)
-call set_char_anim_seq(var VAR_4, var &VAR_8)
-call set_char_anim_seq(var VAR_5, var &VAR_9)
+call play_char_ai_script(var VAR_4, var &VAR_8)
+call play_char_ai_script(var VAR_5, var &VAR_9)
 call func_106(var VAR_4, int 3, int 1, var &VAR_10)
-call reload_char(var &VAR_11)
-call reload_char(var &VAR_12)
+call load_char(var &VAR_11)
+call load_char(var &VAR_12)
 
 ._SCRIPT_5
 

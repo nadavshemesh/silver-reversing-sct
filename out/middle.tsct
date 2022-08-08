@@ -34,7 +34,7 @@ VAR_31	"bug1205"
 VAR_32	0	
 VAR_33	0
 
-._SCRIPT_0
+._on_load
 call play_bgm(var &VAR_0)
 call load_sound_set(int 63)
 call play_loaded_sound(int 1, int -1, int 63, int 0)
@@ -64,7 +64,7 @@ else
 		}
 }
 
-._SCRIPT_1
+._infinite_loop
 execute SCRIPT_3
 if(gamevar !is_room_cleared)
  {
@@ -81,7 +81,7 @@ if(gamevar !is_room_cleared)
 		}
 }
 
-._SCRIPT_2
+._on_exit
 if(gamevar !is_room_cleared)
  {
 		switch(gamevar room_state)
@@ -173,7 +173,7 @@ switch(var VAR_2)
 					call set_char_behav(var VAR_19, int 100)
 					call set_char_behav(var VAR_20, int 100)
 					call set_char_behav(var VAR_21, int 100)
-					var VAR_30 = call eval(var &VAR_17, int 10)
+					var VAR_30 = call run_enemy_generator(var &VAR_17, int 10)
 					gamevar scene_counter = int 0
 					var VAR_2 ++ 
 			}
@@ -183,7 +183,7 @@ switch(var VAR_2)
 			 {
 					gamevar script_object = var VAR_1
 					gamevar *character_stats_p+14 = int 106000
-					call play_char_anim_seq(var VAR_1)
+					call set_char_running(var VAR_1)
 					call func_2b(var VAR_1, int 3)
 					var VAR_4 = call func_41(var VAR_1, int 0)
 					call set_input_system(int 1)

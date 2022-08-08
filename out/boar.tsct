@@ -24,7 +24,7 @@ VAR_21	0
 VAR_22	0	
 VAR_23	0
 
-._SCRIPT_0
+._on_load
 call play_bgm(var &VAR_0)
 execute SCRIPT_8
 call load_sound_set(int 72)
@@ -46,7 +46,7 @@ if(gamevar room_state == int 2)
 		execute SCRIPT_7
 }
 
-._SCRIPT_1
+._infinite_loop
 execute SCRIPT_3
 if(gamevar room_state == int 0)
  {
@@ -61,7 +61,7 @@ if(gamevar room_state == int 2)
 		execute SCRIPT_6
 }
 
-._SCRIPT_2
+._on_exit
 if(gamevar room_state == int 0)
  {
 		exit_script 
@@ -94,7 +94,7 @@ if(var VAR_2 == int 0)
  {
 		if(call func_8a(var &VAR_8))
 		 {
-				var VAR_11 = call eval(var &VAR_14, int 10)
+				var VAR_11 = call run_enemy_generator(var &VAR_14, int 10)
 				call log(var &VAR_18)
 				var VAR_2 ++ 
 		}
@@ -102,7 +102,7 @@ if(var VAR_2 == int 0)
 		 {
 				if(call get_num_of_enemies() == int 0)
 				 {
-						var VAR_11 = call eval(var &VAR_17, int 30)
+						var VAR_11 = call run_enemy_generator(var &VAR_17, int 30)
 						var VAR_2 ++ 
 				}
 		}
@@ -111,7 +111,7 @@ if(var VAR_2 == int 1)
  {
 		if(call func_8a(var &VAR_9))
 		 {
-				var VAR_11 = call eval(var &VAR_15, int 220)
+				var VAR_11 = call run_enemy_generator(var &VAR_15, int 220)
 				call log(var &VAR_19)
 				var VAR_2 ++ 
 		}
@@ -119,7 +119,7 @@ if(var VAR_2 == int 1)
 		 {
 				if(call get_num_of_enemies() == int 0)
 				 {
-						var VAR_11 = call eval(var &VAR_15, int 10)
+						var VAR_11 = call run_enemy_generator(var &VAR_15, int 10)
 						var VAR_2 ++ 
 				}
 		}
@@ -128,7 +128,7 @@ if(var VAR_2 == int 2)
  {
 		if(call func_8a(var &VAR_10))
 		 {
-				var VAR_11 = call eval(var &VAR_16, int 10)
+				var VAR_11 = call run_enemy_generator(var &VAR_16, int 10)
 				call log(var &VAR_20)
 				var VAR_2 ++ 
 		}
@@ -136,23 +136,23 @@ if(var VAR_2 == int 2)
 		 {
 				if(call get_num_of_enemies() == int 0)
 				 {
-						var VAR_11 = call eval(var &VAR_16, int 10)
+						var VAR_11 = call run_enemy_generator(var &VAR_16, int 10)
 						var VAR_2 ++ 
 				}
 		}
 }
 
 ._SCRIPT_5
-call reload_char(var &VAR_3)
-call reload_char(var &VAR_4)
+call load_char(var &VAR_3)
+call load_char(var &VAR_4)
 var VAR_6 = call create_char(var &VAR_5, var &VAR_7, int 360, int 14)
-call put_item_in_char_inv(var VAR_6, int 83, int 1, int 0)
-call put_item_in_char_inv(var VAR_6, int 83, int 1, int 0)
-call put_item_in_char_inv(var VAR_6, int 46, int 1, int 0)
-call put_item_in_char_inv(var VAR_6, int 45, int 1, int 0)
-call put_item_in_char_inv(var VAR_6, int 45, int 1, int 0)
-call put_item_in_char_inv(var VAR_6, int 40, int 1, int 0)
-call put_item_in_char_inv(var VAR_6, int 40, int 1, int 0)
+call add_item_to_char(var VAR_6, int 83, int 1, int 0)
+call add_item_to_char(var VAR_6, int 83, int 1, int 0)
+call add_item_to_char(var VAR_6, int 46, int 1, int 0)
+call add_item_to_char(var VAR_6, int 45, int 1, int 0)
+call add_item_to_char(var VAR_6, int 45, int 1, int 0)
+call add_item_to_char(var VAR_6, int 40, int 1, int 0)
+call add_item_to_char(var VAR_6, int 40, int 1, int 0)
 
 ._SCRIPT_6
 

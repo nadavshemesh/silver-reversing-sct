@@ -31,7 +31,7 @@ VAR_28	"gate01"
 VAR_29	"skaven"	
 VAR_30	"ratrptr"
 
-._SCRIPT_0
+._on_load
 call play_bgm(var &VAR_25)
 call load_sound_set(int 36)
 call play_loaded_sound(int 2, int -1, int 36, int 0)
@@ -92,7 +92,7 @@ switch(gamevar room_state)
 			break 
 }
 
-._SCRIPT_1
+._infinite_loop
 execute SCRIPT_8
 if(var VAR_7 > int 1)
  {
@@ -110,7 +110,7 @@ switch(gamevar room_state)
  {
 }
 
-._SCRIPT_2
+._on_exit
 switch(gamevar room_state)
  {
 		case 1
@@ -121,14 +121,14 @@ switch(gamevar room_state)
 }
 
 ._SCRIPT_3
-call reload_char(var &VAR_29)
-call reload_char(var &VAR_30)
+call load_char(var &VAR_29)
+call load_char(var &VAR_30)
 if(var VAR_8 == int 0)
  {
 		var VAR_9 = call func_96(int 45, int 0, int 2, int 0)
 		var VAR_12 = call func_96(int 45, int 1, int 2, int 0)
-		call play_char_anim_seq(var VAR_9)
-		call play_char_anim_seq(var VAR_12)
+		call set_char_running(var VAR_9)
+		call set_char_running(var VAR_12)
 		call func_106(var VAR_9, int 9, int 5, var &VAR_10)
 		call func_106(var VAR_12, int 9, int 5, var &VAR_13)
 		call char_walk_to_pos(var VAR_9, var &VAR_10)
@@ -137,14 +137,14 @@ if(var VAR_8 == int 0)
 		gamevar *character_stats_p+15 = int 10000
 		gamevar script_object = var VAR_12
 		gamevar *character_stats_p+15 = int 10000
-		call eval(var &VAR_15, int 200)
+		call run_enemy_generator(var &VAR_15, int 200)
 }
 else
  {
 		var VAR_9 = call func_96(int 45, int 0, int 0, int 0)
 		var VAR_12 = call func_96(int 45, int 1, int 0, int 0)
-		call play_char_anim_seq(var VAR_9)
-		call play_char_anim_seq(var VAR_12)
+		call set_char_running(var VAR_9)
+		call set_char_running(var VAR_12)
 		call func_106(var VAR_9, int 9, int 5, var &VAR_11)
 		call func_106(var VAR_12, int 9, int 5, var &VAR_14)
 		call char_walk_to_pos(var VAR_9, var &VAR_11)
@@ -153,14 +153,14 @@ else
 		gamevar *character_stats_p+15 = int 10000
 		gamevar script_object = var VAR_12
 		gamevar *character_stats_p+15 = int 10000
-		call eval(var &VAR_16, int 200)
+		call run_enemy_generator(var &VAR_16, int 200)
 }
-call put_item_in_char_inv(var VAR_9, int 43, int 1, int 0)
+call add_item_to_char(var VAR_9, int 43, int 1, int 0)
 call func_1(var VAR_9, int 1)
 call func_1(var VAR_12, int 1)
 
 ._SCRIPT_4
-if(call ! is_char_exist(int 10485760))
+if(call ! is_char_handle_in_level(int 10485760))
  {
 		var VAR_9 = int 0
 }
@@ -172,7 +172,7 @@ if(var VAR_9)
 				var VAR_9 = int 0
 		}
 }
-if(call ! is_char_exist(int 10485761))
+if(call ! is_char_handle_in_level(int 10485761))
  {
 		var VAR_12 = int 0
 }
@@ -195,7 +195,7 @@ call func_106(var VAR_9, int 9, int 5, var &VAR_20)
 call func_106(var VAR_12, int 9, int 5, var &VAR_20)
 
 ._SCRIPT_6
-var VAR_0 = call func_70()
+var VAR_0 = call get_david_char()
 call char_stop(var VAR_0)
 var VAR_0 = call func_7e()
 if(var VAR_0)
@@ -209,7 +209,7 @@ if(var VAR_0)
 }
 
 ._SCRIPT_7
-var VAR_0 = call func_70()
+var VAR_0 = call get_david_char()
 call char_walk_to_pos(var VAR_0, var &VAR_6)
 var VAR_0 = call func_7e()
 if(var VAR_0)

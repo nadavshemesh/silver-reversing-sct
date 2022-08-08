@@ -14,7 +14,7 @@ VAR_11	"iapple"
 VAR_12	0	
 VAR_13	{ 0, 0 }
 
-._SCRIPT_0
+._on_load
 call load_sound_set(int 12)
 call play_loaded_sound(int 8, int -1, int 12, int 0)
 call load_sound_set(int 37)
@@ -36,7 +36,7 @@ switch(gamevar room_state)
 			break 
 }
 
-._SCRIPT_1
+._infinite_loop
 execute SCRIPT_3
 switch(gamevar room_state)
  {
@@ -50,7 +50,7 @@ switch(gamevar room_state)
 			break 
 }
 
-._SCRIPT_2
+._on_exit
 switch(gamevar room_state)
  {
 		case 1
@@ -83,7 +83,7 @@ call create_char(var &VAR_5, var &VAR_10, int 0, int 13)
 call create_char(var &VAR_6, var &VAR_11, int 0, int 13)
 call func_50(var VAR_2, int 8193)
 call func_53(var VAR_2, int 5)
-call set_char_anim_seq(var VAR_2, var &VAR_7)
+call play_char_ai_script(var VAR_2, var &VAR_7)
 
 ._SCRIPT_6
 

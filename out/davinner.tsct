@@ -28,7 +28,7 @@ VAR_25	0
 VAR_26	0	
 VAR_27	0
 
-._SCRIPT_0
+._on_load
 call func_10e()
 if(gamevar room_state == int 0)
  {
@@ -49,7 +49,7 @@ if(gamevar room_state == int 3)
 call load_sound_set(int 3)
 execute SCRIPT_10
 
-._SCRIPT_1
+._infinite_loop
 if(gamevar room_state == int 0)
  {
 		exit_script 
@@ -68,7 +68,7 @@ if(gamevar room_state == int 3)
 }
 execute SCRIPT_9
 
-._SCRIPT_2
+._on_exit
 call func_3d()
 if(gamevar room_state == int 1)
  {
@@ -97,7 +97,7 @@ var VAR_7 = call get_char_handle(int 65536)
 call create_char(var &VAR_3, var &VAR_11, int 0, int 13)
 gamevar global_inventory_p = var &VAR_0
 call create_char(var &VAR_4, var &VAR_12, int 55, int 14)
-call func_bb(var VAR_7, var &VAR_5)
+call load_char_anim(var VAR_7, var &VAR_5)
 call set_input_system(int 2)
 
 ._SCRIPT_4
@@ -113,7 +113,7 @@ if(var VAR_13 == int 1)
  {
 		if(call is_local_timer_greater_than(int 20))
 		 {
-				call char_turn_to_pos(var VAR_8, call func_67(var VAR_7))
+				call char_turn_to_pos(var VAR_8, call get_char_pos(var VAR_7))
 				call set_input_system(int 1)
 				call start_dialog(var &VAR_14, var &VAR_15)
 				var VAR_13 = int 2
@@ -150,7 +150,7 @@ if(call func_af(int 16))
 }
 else
  {
-		if(call func_30(int 16))
+		if(call create_item(int 16))
 		 {
 				call func_10c(var VAR_8, var &VAR_19)
 				var VAR_13 = int 4

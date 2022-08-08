@@ -21,7 +21,7 @@ VAR_18	0
 VAR_19	0	
 VAR_20	0
 
-._SCRIPT_0
+._on_load
 call load_sound_set(int 30)
 var VAR_0 = call play_loaded_sound(int 1, int -1, int 30, int 0)
 call load_sound_set(int 75)
@@ -40,7 +40,7 @@ if(gamevar room_state == int 2)
 		execute SCRIPT_9
 }
 
-._SCRIPT_1
+._infinite_loop
 if(gamevar room_state == int 0)
  {
 		exit_script 
@@ -54,7 +54,7 @@ if(gamevar room_state == int 2)
 		execute SCRIPT_10
 }
 
-._SCRIPT_2
+._on_exit
 if(gamevar room_state == int 0)
  {
 		exit_script 
@@ -90,10 +90,10 @@ switch(var VAR_9)
 			 {
 					var VAR_9 ++ 
 					var VAR_8 = int 1
-					var VAR_14 = call func_70()
+					var VAR_14 = call get_david_char()
 					while(var VAR_14)
 					 {
-							call play_char_anim_seq(var VAR_14)
+							call set_char_running(var VAR_14)
 							call func_2b(var VAR_14, int 1)
 							var VAR_14 = call func_7e()
 					}

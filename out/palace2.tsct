@@ -32,11 +32,11 @@ VAR_29	"comeDAV"
 VAR_30	0	
 VAR_31	0
 
-._SCRIPT_0
+._on_load
 call load_sound_set(int 66)
 call play_loaded_sound(int 5, int -1, int 66, int 0)
 call load_sound_set(int 0)
-var VAR_2 = call func_70()
+var VAR_2 = call get_david_char()
 var VAR_3 = call func_7e()
 var VAR_4 = call func_7e()
 call play_bgm(var &VAR_26)
@@ -60,7 +60,7 @@ if(gamevar room_state == int 3)
 		execute SCRIPT_9
 }
 
-._SCRIPT_1
+._infinite_loop
 execute SCRIPT_3
 if(var VAR_24)
  {
@@ -84,7 +84,7 @@ if(gamevar room_state == int 3)
 		execute SCRIPT_8
 }
 
-._SCRIPT_2
+._on_exit
 if(gamevar room_state < int 2)
  {
 		gamevar room_state ++ 
@@ -125,13 +125,13 @@ if(var VAR_0 == int 0)
 }
 if(var VAR_0 == int 1)
  {
-		call func_ff(call func_67(var VAR_8))
+		call func_ff(call get_char_pos(var VAR_8))
 		var VAR_0 = int 2
 		exit_script 
 }
 if(var VAR_0 == int 2)
  {
-		if(call ! func_5e())
+		if(call ! is_not_scrolling())
 		 {
 				exit_script 
 		}
@@ -153,8 +153,8 @@ if(var VAR_0 == int 4)
 		 {
 				exit_script 
 		}
-		call eval(var &VAR_14, int 10)
-		call eval(var &VAR_18, int 10)
+		call run_enemy_generator(var &VAR_14, int 10)
+		call run_enemy_generator(var &VAR_18, int 10)
 		var VAR_0 = int 5
 		exit_script 
 }
@@ -169,8 +169,8 @@ if(var VAR_0 == int 5)
 }
 if(var VAR_0 == int 6)
  {
-		call eval(var &VAR_15, int 10)
-		call eval(var &VAR_16, int 10)
+		call run_enemy_generator(var &VAR_15, int 10)
+		call run_enemy_generator(var &VAR_16, int 10)
 		var VAR_1 = int 80
 		call reset_local_timer()
 		var VAR_0 = int 7
@@ -178,7 +178,7 @@ if(var VAR_0 == int 6)
 }
 if(var VAR_0 == int 7)
  {
-		call func_ff(call func_67(var VAR_2))
+		call func_ff(call get_char_pos(var VAR_2))
 		call set_input_system(int 1)
 		var VAR_0 = int 8
 		var VAR_1 = int 30
@@ -187,15 +187,15 @@ if(var VAR_0 == int 7)
 }
 if(var VAR_0 == int 8)
  {
-		if(call is_char_exist(int 8585216))
+		if(call is_char_handle_in_level(int 8585216))
 		 {
 				call remove_char(var VAR_8)
 		}
-		if(call is_char_exist(int 8585217))
+		if(call is_char_handle_in_level(int 8585217))
 		 {
 				call remove_char(var VAR_9)
 		}
-		call eval(var &VAR_17, int 10)
+		call run_enemy_generator(var &VAR_17, int 10)
 		var VAR_0 = int 9
 		exit_script 
 }
@@ -224,7 +224,7 @@ if(var VAR_0 == int 10)
 }
 
 ._SCRIPT_5
-call reload_char(var &VAR_28)
+call load_char(var &VAR_28)
 var VAR_8 = call create_enemy(int 66, int 0, var &VAR_6, int 330)
 var VAR_9 = call create_enemy(int 66, int 1, var &VAR_7, int 320)
 var VAR_5 = call load_anim(var &VAR_29)

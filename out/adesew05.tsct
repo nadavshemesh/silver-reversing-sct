@@ -15,7 +15,7 @@ VAR_12	"ratrptr"
 VAR_13	"skavenb"	
 VAR_14	0
 
-._SCRIPT_0
+._on_load
 gamevar SMACKER_X = int 0
 gamevar SMACKER_Y = int 304
 call play_2d_anim(var &VAR_7, int 1, int 1, var &VAR_6)
@@ -32,7 +32,7 @@ switch(gamevar room_state)
 			break 
 }
 
-._SCRIPT_1
+._infinite_loop
 execute SCRIPT_5
 switch(gamevar room_state)
  {
@@ -43,7 +43,7 @@ switch(gamevar room_state)
 			break 
 }
 
-._SCRIPT_2
+._on_exit
 switch(gamevar room_state)
  {
 		case 1
@@ -54,11 +54,11 @@ switch(gamevar room_state)
 }
 
 ._SCRIPT_3
-call reload_char(var &VAR_11)
-call reload_char(var &VAR_12)
-call reload_char(var &VAR_13)
-call eval(var &VAR_4, int 0)
-call eval(var &VAR_5, int 500)
+call load_char(var &VAR_11)
+call load_char(var &VAR_12)
+call load_char(var &VAR_13)
+call run_enemy_generator(var &VAR_4, int 0)
+call run_enemy_generator(var &VAR_5, int 500)
 var VAR_0 = call create_enemy(int 45, int 0, var &VAR_2, int 170)
 var VAR_1 = call create_enemy(int 45, int 1, var &VAR_3, int 165)
 call func_106(var VAR_0, int 0, int 3, int 360)

@@ -764,6 +764,21 @@ expr_pattern* init_expr_data_index_ptr() {
     return expr;
 }
 
+expr_pattern* init_expr_func_ptr() {
+    expr_pattern* expr = w_malloc(sizeof(expr_pattern));
+    expr->type = FUNC_PTR;
+    expr->name = aapts("function ptr");
+
+    i_arr bin_tokens = { .arr = { 0, 8, VAR, 2 }, .len = 4 };
+    i_arr bin_var_pos = { .arr = { 2 }, .len = 1 };
+    s_arr asm_tokens = { .arr = { "func", S_VAR }, .len = 2 };
+    i_arr asm_var_pos = { .arr = { 1 }, .len = 1 };
+
+    init_expr(expr, bin_tokens, bin_var_pos, asm_tokens, asm_var_pos);
+
+    return expr;
+}
+
 expr_pattern* init_expr_data_neg_index_ptr() {
     expr_pattern* expr = w_malloc(sizeof(expr_pattern));
     expr->type = DATA_INDEX_PTR;
@@ -854,10 +869,11 @@ void init_expr_patterns(expr_pattern** expr_patterns) {
     // game
     expr_patterns[19] = init_expr_neg_func_call();
     expr_patterns[20] = init_expr_func_call();
-    expr_patterns[21] = init_expr_gamevar();
+    expr_patterns[21] = init_expr_func_ptr();
+    expr_patterns[22] = init_expr_gamevar();
     // special operators
-    expr_patterns[22] = init_expr_logical_and_op();
-    expr_patterns[23] = init_expr_logical_or_op();
+    expr_patterns[23] = init_expr_logical_and_op();
+    expr_patterns[24] = init_expr_logical_or_op();
 }
 
 bool is_var_pos_expr(void* pattern, mode m, int index) {

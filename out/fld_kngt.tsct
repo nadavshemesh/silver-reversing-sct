@@ -22,7 +22,7 @@ VAR_19	{ 5500, 6975, -6200 }
 VAR_20	{ -2150, 6975, 3300 }	
 VAR_21	"RAIN"
 
-._SCRIPT_0
+._on_load
 execute SCRIPT_3
 if(gamevar is_room_cleared)
  {
@@ -43,7 +43,7 @@ else
 		}
 }
 
-._SCRIPT_1
+._infinite_loop
 execute SCRIPT_10
 if(gamevar !is_room_cleared)
  {
@@ -60,7 +60,7 @@ if(gamevar !is_room_cleared)
 		}
 }
 
-._SCRIPT_2
+._on_exit
 if(gamevar !is_room_cleared)
  {
 		switch(gamevar room_state)
@@ -215,7 +215,7 @@ switch(var VAR_13)
 		case 2
 			if(call is_local_timer_greater_than(var VAR_16))
 			 {
-					call func_f6(gamevar misc_fx_scripts, int 6, int 0, int 0)
+					call apply_effect_on_char(gamevar misc_fx_scripts, int 6, int 0, int 0)
 					call reset_local_timer()
 					var VAR_17 = int 255
 					var VAR_16 = call randomize_int(int 1, int 31)

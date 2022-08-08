@@ -23,7 +23,7 @@ VAR_20	-1
 VAR_21	{ 1768843622, 1684367475, 1852401184, 1952542820, -1431699352, 0 }	
 VAR_22	0
 
-._SCRIPT_0
+._on_load
 call load_sound_set(int 66)
 call play_loaded_sound(int 5, int -1, int 66, int 0)
 call play_bgm(var &VAR_0)
@@ -46,7 +46,7 @@ else
 		}
 }
 
-._SCRIPT_1
+._infinite_loop
 execute SCRIPT_8
 if(gamevar !is_room_cleared)
  {
@@ -63,7 +63,7 @@ if(gamevar !is_room_cleared)
 		}
 }
 
-._SCRIPT_2
+._on_exit
 if(gamevar !is_room_cleared)
  {
 		switch(gamevar room_state)
@@ -92,7 +92,7 @@ if(gamevar !is_room_cleared)
 if(var VAR_20 != var VAR_15)
  {
 		var VAR_20 = var VAR_15
-		call func_ce(var VAR_15)
+		call log_obj(var VAR_15)
 }
 switch(var VAR_15)
  {
@@ -100,14 +100,14 @@ switch(var VAR_15)
 			if(call get_num_of_enemies() == int 0)
 			 {
 					var VAR_17 = call func_96(int 65, int 1, int 0, int 0)
-					call play_char_anim_seq(var VAR_17)
+					call set_char_running(var VAR_17)
 					call char_walk_to_pos(var VAR_17, var &VAR_18)
 					var VAR_15 ++ 
 					var VAR_16 = int 0
 			}
 			break 
 		case 1
-			if(call is_char_exist(int 8454145))
+			if(call is_char_handle_in_level(int 8454145))
 			 {
 					if(call is_char_standing(var VAR_17))
 					 {
@@ -140,7 +140,7 @@ var VAR_3 = call create_enemy(int 26, int 2, var &VAR_9, int 160)
 var VAR_4 = call create_enemy(int 26, int 3, var &VAR_10, int 220)
 var VAR_5 = call create_enemy(int 26, int 4, var &VAR_11, int 15)
 var VAR_6 = call create_enemy(int 26, int 5, var &VAR_12, int 20)
-call put_item_in_char_inv(var VAR_1, int 12, int 1, int 0)
+call add_item_to_char(var VAR_1, int 12, int 1, int 0)
 call func_106(var VAR_1, int 1, int 0, int 1)
 call func_106(var VAR_2, int 1, int 0, int 1)
 call func_106(var VAR_3, int 1, int 0, int 1)
@@ -153,14 +153,14 @@ call func_50(var VAR_3, int 2)
 call func_50(var VAR_4, int 2)
 call func_50(var VAR_5, int 2)
 call func_50(var VAR_6, int 2)
-call set_char_anim_seq(var VAR_1, var &VAR_13)
-call set_char_anim_seq(var VAR_2, var &VAR_14)
-call put_item_in_char_inv(var VAR_1, int 40, int 1, int 0)
-call put_item_in_char_inv(var VAR_2, int 43, int 1, int 0)
-call put_item_in_char_inv(var VAR_3, int 85, int 3277313, int 0)
-call put_item_in_char_inv(var VAR_4, int 45, int 1, int 0)
-call put_item_in_char_inv(var VAR_5, int 85, int 3277313, int 0)
-call put_item_in_char_inv(var VAR_6, int 42, int 1, int 0)
+call play_char_ai_script(var VAR_1, var &VAR_13)
+call play_char_ai_script(var VAR_2, var &VAR_14)
+call add_item_to_char(var VAR_1, int 40, int 1, int 0)
+call add_item_to_char(var VAR_2, int 43, int 1, int 0)
+call add_item_to_char(var VAR_3, int 85, int 3277313, int 0)
+call add_item_to_char(var VAR_4, int 45, int 1, int 0)
+call add_item_to_char(var VAR_5, int 85, int 3277313, int 0)
+call add_item_to_char(var VAR_6, int 42, int 1, int 0)
 
 ._SCRIPT_5
 

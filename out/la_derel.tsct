@@ -46,7 +46,7 @@ VAR_43	{ 1852404322, 1835343975, 7237408, 0 }
 VAR_44	0	
 VAR_45	0
 
-._SCRIPT_0
+._on_load
 call load_sound_set(int 64)
 var VAR_1 = call play_loaded_sound(int 1, int -1, int 64, int 0)
 if(var VAR_1)
@@ -78,7 +78,7 @@ else
 		}
 }
 
-._SCRIPT_1
+._infinite_loop
 execute SCRIPT_11
 if(gamevar !is_room_cleared)
  {
@@ -95,7 +95,7 @@ if(gamevar !is_room_cleared)
 		}
 }
 
-._SCRIPT_2
+._on_exit
 if(gamevar !is_room_cleared)
  {
 		switch(gamevar room_state)
@@ -133,7 +133,7 @@ call play_3d_fx(var &VAR_15, var &VAR_14, int 0, int 11)
 ._SCRIPT_5
 if(var VAR_33 == int 0)
  {
-		call func_ce(call func_6f())
+		call log_obj(call func_6f())
 		if(call func_6f() == int 0)
 		 {
 				var VAR_33 = int 1
@@ -149,7 +149,7 @@ if(var VAR_33 == int 1)
 		if(call func_8a(var &VAR_25))
 		 {
 				execute SCRIPT_7
-				var VAR_26 = call eval(var &VAR_28, int 100)
+				var VAR_26 = call run_enemy_generator(var &VAR_28, int 100)
 				var VAR_33 = int 4
 				var VAR_34 = int 0
 		}
@@ -160,7 +160,7 @@ if(var VAR_33 == int 3)
 		if(call func_8a(var &VAR_24))
 		 {
 				execute SCRIPT_7
-				var VAR_26 = call eval(var &VAR_28, int 100)
+				var VAR_26 = call run_enemy_generator(var &VAR_28, int 100)
 				var VAR_33 ++ 
 				var VAR_34 = int 0
 		}
@@ -171,7 +171,7 @@ if(var VAR_33 == int 4)
 		 {
 				if(call get_num_of_enemies() < int 3)
 				 {
-						var VAR_26 = call eval(var &VAR_30, int 10)
+						var VAR_26 = call run_enemy_generator(var &VAR_30, int 10)
 						var VAR_33 ++ 
 						var VAR_34 = int 0
 				}
@@ -183,7 +183,7 @@ if(var VAR_33 == int 5)
 		 {
 				if(call get_num_of_enemies() < int 4)
 				 {
-						var VAR_26 = call eval(var &VAR_32, int 10)
+						var VAR_26 = call run_enemy_generator(var &VAR_32, int 10)
 						var VAR_33 ++ 
 						var VAR_34 = int 0
 				}
@@ -191,19 +191,19 @@ if(var VAR_33 == int 5)
 }
 
 ._SCRIPT_6
-call reload_char(var &VAR_20)
-call reload_char(var &VAR_21)
-call reload_char(var &VAR_22)
-call reload_char(var &VAR_23)
+call load_char(var &VAR_20)
+call load_char(var &VAR_21)
+call load_char(var &VAR_22)
+call load_char(var &VAR_23)
 call func_b8(int 94)
 
 ._SCRIPT_7
 var VAR_18 = call create_enemy(int 136, int 0, var &VAR_19, int 91)
-call put_item_in_char_inv(var VAR_18, int 42, int 1, int 0)
-call put_item_in_char_inv(var VAR_18, int 43, int 1, int 0)
-call put_item_in_char_inv(var VAR_18, int 42, int 1, int 0)
-call put_item_in_char_inv(var VAR_18, int 43, int 1, int 0)
-call put_item_in_char_inv(var VAR_18, int 85, int 1638913, int 0)
+call add_item_to_char(var VAR_18, int 42, int 1, int 0)
+call add_item_to_char(var VAR_18, int 43, int 1, int 0)
+call add_item_to_char(var VAR_18, int 42, int 1, int 0)
+call add_item_to_char(var VAR_18, int 43, int 1, int 0)
+call add_item_to_char(var VAR_18, int 85, int 1638913, int 0)
 var VAR_0 = int 1
 
 ._SCRIPT_8
@@ -221,8 +221,8 @@ if(var VAR_41 == int 0)
 }
 
 ._SCRIPT_9
-call reload_char(var &VAR_35)
-call reload_char(var &VAR_36)
+call load_char(var &VAR_35)
+call load_char(var &VAR_36)
 
 ._SCRIPT_10
 

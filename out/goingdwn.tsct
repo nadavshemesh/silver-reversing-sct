@@ -39,7 +39,7 @@ VAR_36	"boilarea"
 VAR_37	0	
 VAR_38	0
 
-._SCRIPT_0
+._on_load
 execute SCRIPT_3
 call func_58(int 1)
 if(gamevar is_room_cleared)
@@ -60,7 +60,7 @@ else
 		}
 }
 
-._SCRIPT_1
+._infinite_loop
 execute SCRIPT_4
 if(gamevar !is_room_cleared)
  {
@@ -77,7 +77,7 @@ if(gamevar !is_room_cleared)
 		}
 }
 
-._SCRIPT_2
+._on_exit
 if(gamevar !is_room_cleared)
  {
 		switch(gamevar room_state)
@@ -160,7 +160,7 @@ if(var VAR_23 == int 2)
 }
 if(var VAR_23 == int 3&&var VAR_24 > int 2)
  {
-		call func_ff(call func_67(var VAR_19))
+		call func_ff(call get_char_pos(var VAR_19))
 		call char_turn_to_pos(var VAR_19, var &VAR_27)
 		call start_dialog(var &VAR_33, var &VAR_34)
 		var VAR_23 ++ 
@@ -180,7 +180,7 @@ if(var VAR_23 == int 5)
 		if(call is_char_standing(var VAR_19))
 		 {
 				call char_turn_to_pos(var VAR_19, var &VAR_25)
-				call func_df()
+				call resume_conversation()
 				var VAR_23 ++ 
 				var VAR_24 = int 0
 		}

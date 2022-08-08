@@ -35,7 +35,7 @@ VAR_32	0
 VAR_33	0	
 VAR_34	0
 
-._SCRIPT_0
+._on_load
 call play_bgm(var &VAR_0)
 call load_sound_set(int 62)
 call load_sound_set(int 63)
@@ -61,7 +61,7 @@ else
 		}
 }
 
-._SCRIPT_1
+._infinite_loop
 execute SCRIPT_3
 if(gamevar !is_room_cleared)
  {
@@ -78,7 +78,7 @@ if(gamevar !is_room_cleared)
 		}
 }
 
-._SCRIPT_2
+._on_exit
 if(gamevar !is_room_cleared)
  {
 		switch(gamevar room_state)
@@ -126,8 +126,8 @@ call func_50(var VAR_1, int 2)
 call func_50(var VAR_3, int 2)
 call func_50(var VAR_5, int 2)
 call freeze_enemy(var VAR_9)
-call reload_char(var &VAR_17)
-call reload_char(var &VAR_18)
+call load_char(var &VAR_17)
+call load_char(var &VAR_18)
 call set_input_system(int 2)
 var VAR_11 = call get_char_handle(int 65536)
 
@@ -135,7 +135,7 @@ var VAR_11 = call get_char_handle(int 65536)
 if(var VAR_28 != var VAR_20)
  {
 		var VAR_28 = var VAR_20
-		call func_ce(var VAR_20)
+		call log_obj(var VAR_20)
 }
 switch(var VAR_20)
  {
@@ -145,7 +145,7 @@ switch(var VAR_20)
 			var VAR_19 = int 0
 			break 
 		case 1
-			if(call func_5e())
+			if(call is_not_scrolling())
 			 {
 					var VAR_20 ++ 
 					var VAR_19 = int 0
@@ -154,13 +154,13 @@ switch(var VAR_20)
 		case 2
 			if(var VAR_19 > int 100)
 			 {
-					call func_ff(call func_67(var VAR_11))
+					call func_ff(call get_char_pos(var VAR_11))
 					var VAR_20 ++ 
 					var VAR_19 = int 0
 			}
 			break 
 		case 3
-			if(call func_5e())
+			if(call is_not_scrolling())
 			 {
 					call start_dialog(var &VAR_29, var &VAR_30)
 					var VAR_20 ++ 
@@ -182,15 +182,15 @@ switch(var VAR_20)
 			if(call get_num_of_enemies() < int 2)
 			 {
 					var VAR_21 = int 0
-					if(call is_char_exist(int 917505))
+					if(call is_char_handle_in_level(int 917505))
 					 {
 							var VAR_21 = var VAR_1
 					}
-					if(call is_char_exist(int 917506))
+					if(call is_char_handle_in_level(int 917506))
 					 {
 							var VAR_21 = var VAR_3
 					}
-					if(call is_char_exist(int 917507))
+					if(call is_char_handle_in_level(int 917507))
 					 {
 							var VAR_21 = var VAR_5
 					}
@@ -201,10 +201,10 @@ switch(var VAR_20)
 					}
 					else
 					 {
-							var VAR_23 = call func_66(var VAR_21)
+							var VAR_23 = call get_char_handle_id(var VAR_21)
 							call freeze_enemy(var VAR_21)
 							call func_50(var VAR_21, int 8192)
-							call set_char_anim_seq(var VAR_21, var &VAR_24)
+							call play_char_ai_script(var VAR_21, var &VAR_24)
 							gamevar script_object = var VAR_21
 							gamevar *character_movement_p+60 = int 1
 							gamevar *character_stats_p+14 = int 106000
@@ -220,12 +220,12 @@ switch(var VAR_20)
 					var VAR_8 = call func_96(int 129, int 2, int 1, int 325)
 					call func_106(var VAR_7, int 3, int 1, var &VAR_15)
 					call func_106(var VAR_8, int 3, int 1, var &VAR_16)
-					call play_char_anim_seq(var VAR_7)
-					call play_char_anim_seq(var VAR_8)
+					call set_char_running(var VAR_7)
+					call set_char_running(var VAR_8)
 					call func_50(var VAR_7, int 8192)
-					call set_char_anim_seq(var VAR_7, var &VAR_26)
+					call play_char_ai_script(var VAR_7, var &VAR_26)
 					call func_50(var VAR_8, int 8192)
-					call set_char_anim_seq(var VAR_8, var &VAR_27)
+					call play_char_ai_script(var VAR_8, var &VAR_27)
 					var VAR_20 ++ 
 					var VAR_19 = int 0
 			}
@@ -233,7 +233,7 @@ switch(var VAR_20)
 		case 7
 			if(var VAR_21)
 			 {
-					if(call is_char_exist(var VAR_23))
+					if(call is_char_handle_in_level(var VAR_23))
 					 {
 							if(call func_a6(var VAR_21))
 							 {

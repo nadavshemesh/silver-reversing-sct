@@ -35,7 +35,7 @@ VAR_32	0
 VAR_33	-1	
 VAR_34	0
 
-._SCRIPT_0
+._on_load
 if(gamevar is_room_cleared)
  {
 		execute SCRIPT_9
@@ -58,7 +58,7 @@ call load_sound_set(int 46)
 call play_loaded_sound(int 3, int -1, int 46, int 0)
 call play_loaded_sound(int 8, int -1, int 46, var &VAR_0)
 
-._SCRIPT_1
+._infinite_loop
 execute SCRIPT_4
 if(gamevar !is_room_cleared)
  {
@@ -75,7 +75,7 @@ if(gamevar !is_room_cleared)
 		}
 }
 
-._SCRIPT_2
+._on_exit
 if(gamevar !is_room_cleared)
  {
 		switch(gamevar room_state)
@@ -117,18 +117,18 @@ if(gamevar script_time > var VAR_34)
 if(var VAR_33 != var VAR_18)
  {
 		var VAR_33 = var VAR_18
-		call func_ce(var VAR_18)
+		call log_obj(var VAR_18)
 }
 switch(var VAR_18)
  {
 		case 0
 			if(call func_8a(var &VAR_17))
 			 {
-					if(call is_char_exist(int 1179648))
+					if(call is_char_handle_in_level(int 1179648))
 					 {
 							call func_50(var VAR_11, int 129)
 					}
-					if(call is_char_exist(int 1179649))
+					if(call is_char_handle_in_level(int 1179649))
 					 {
 							call func_50(var VAR_13, int 129)
 					}
@@ -136,11 +136,11 @@ switch(var VAR_18)
 			}
 			if(call func_d1(var &VAR_17))
 			 {
-					if(call is_char_exist(int 1179648))
+					if(call is_char_handle_in_level(int 1179648))
 					 {
 							call func_50(var VAR_11, int 129)
 					}
-					if(call is_char_exist(int 1179649))
+					if(call is_char_handle_in_level(int 1179649))
 					 {
 							call func_50(var VAR_13, int 129)
 					}
@@ -151,7 +151,7 @@ switch(var VAR_18)
 			if(call get_num_of_enemies() < int 1)
 			 {
 					var VAR_18 ++ 
-					var VAR_19 = call eval(var &VAR_16, int 10)
+					var VAR_19 = call run_enemy_generator(var &VAR_16, int 10)
 			}
 			break 
 		case 2
@@ -165,7 +165,7 @@ switch(var VAR_18)
 		case 3
 			if(var VAR_32 > int 150)
 			 {
-					var VAR_21 = call func_70()
+					var VAR_21 = call get_david_char()
 					while(var VAR_21)
 					 {
 							call char_walk_to_pos(var VAR_21, @VAR_27[var VAR_22])
@@ -177,7 +177,7 @@ switch(var VAR_18)
 			break 
 		case 4
 			var VAR_31 = int 0
-			var VAR_21 = call func_70()
+			var VAR_21 = call get_david_char()
 			while(var VAR_21)
 			 {
 					if(!VAR_28[var VAR_31])

@@ -49,7 +49,7 @@ VAR_46	{ -6242, -1265, 606 }
 VAR_47	"monarea"	
 VAR_48	"gallery1"
 
-._SCRIPT_0
+._on_load
 call load_sound_set(int 71)
 call load_sound_set(int 46)
 var VAR_2 = call play_loaded_sound(int 3, int -1, int 46, int 0)
@@ -69,7 +69,7 @@ switch(gamevar room_state)
 			break 
 }
 
-._SCRIPT_1
+._infinite_loop
 switch(gamevar room_state)
  {
 		case 1
@@ -82,7 +82,7 @@ switch(gamevar room_state)
 			break 
 }
 
-._SCRIPT_2
+._on_exit
 switch(gamevar room_state)
  {
 		case 1
@@ -111,7 +111,7 @@ switch(var VAR_6)
 					call log(var &VAR_38)
 					var VAR_6 ++ 
 					call func_46(var VAR_17, int 13)
-					call func_f6(gamevar misc_fx_scripts, int 7, int 0, int 0)
+					call apply_effect_on_char(gamevar misc_fx_scripts, int 7, int 0, int 0)
 					call func_b3(var VAR_17, var &VAR_16)
 					var VAR_3 = int 1
 					call func_ec(int 1, int -1, int 71, var &VAR_0)
@@ -152,7 +152,7 @@ switch(var VAR_36)
 }
 
 ._SCRIPT_4
-var VAR_9 = call func_70()
+var VAR_9 = call get_david_char()
 call func_f1(var VAR_9, int 5)
 gamevar script_object = var VAR_9
 gamevar *object_p+6 |= int 1
@@ -165,21 +165,21 @@ var VAR_10 = call create_char(var &VAR_11, var &VAR_22, int 95, int 13)
 gamevar script_object = var VAR_10
 gamevar *object_p+6 |= int 1
 var VAR_14 = call create_char(var &VAR_15, var &VAR_23, int 110, int 13)
-call put_item_in_char_inv(var VAR_14, int 106, int 0, int 1)
+call add_item_to_char(var VAR_14, int 106, int 0, int 1)
 gamevar script_object = var VAR_14
 gamevar *object_p+6 |= int 1
 var VAR_17 = call create_char(var &VAR_18, var &VAR_24, int 0, int 13)
 var VAR_25 = call load_anim(var &VAR_26)
 var VAR_19 = call create_char(var &VAR_20, var &VAR_27, int 180, int 13)
 call set_char_init_state(var VAR_14, int 13)
-call set_char_anim_seq(var VAR_14, var &VAR_28)
+call play_char_ai_script(var VAR_14, var &VAR_28)
 call set_char_init_state(var VAR_12, int 13)
-call set_char_anim_seq(var VAR_12, var &VAR_31)
+call play_char_ai_script(var VAR_12, var &VAR_31)
 call set_char_init_state(var VAR_10, int 13)
-call set_char_anim_seq(var VAR_10, var &VAR_32)
+call play_char_ai_script(var VAR_10, var &VAR_32)
 call set_char_init_state(var VAR_17, int 13)
-call set_char_anim_seq(var VAR_17, var &VAR_33)
-var VAR_34 = call put_item_in_char_inv(var VAR_17, int 61, int 1, int 0)
+call play_char_ai_script(var VAR_17, var &VAR_33)
+var VAR_34 = call add_item_to_char(var VAR_17, int 61, int 1, int 0)
 
 ._SCRIPT_5
 if(var VAR_45 == int 300)

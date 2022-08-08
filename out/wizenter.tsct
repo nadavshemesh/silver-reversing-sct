@@ -50,7 +50,7 @@ VAR_47	"given to fetch 4"
 VAR_48	"given to fetch 5"	
 VAR_49	0
 
-._SCRIPT_0
+._on_load
 call play_bgm(var &VAR_18)
 execute SCRIPT_3
 execute SCRIPT_4
@@ -65,7 +65,7 @@ else
 		}
 }
 
-._SCRIPT_1
+._infinite_loop
 execute SCRIPT_10
 if(gamevar !is_room_cleared)
  {
@@ -74,7 +74,7 @@ if(gamevar !is_room_cleared)
 		}
 }
 
-._SCRIPT_2
+._on_exit
 if(gamevar !is_room_cleared)
  {
 		switch(gamevar room_state)
@@ -105,11 +105,11 @@ call func_50(var VAR_25, int 8192)
 call func_50(var VAR_26, int 8192)
 call func_50(var VAR_27, int 8192)
 call func_50(var VAR_28, int 8192)
-call set_char_anim_seq(var VAR_24, var &VAR_36)
-call set_char_anim_seq(var VAR_25, var &VAR_37)
-call set_char_anim_seq(var VAR_26, var &VAR_38)
-call set_char_anim_seq(var VAR_27, var &VAR_39)
-call set_char_anim_seq(var VAR_28, var &VAR_40)
+call play_char_ai_script(var VAR_24, var &VAR_36)
+call play_char_ai_script(var VAR_25, var &VAR_37)
+call play_char_ai_script(var VAR_26, var &VAR_38)
+call play_char_ai_script(var VAR_27, var &VAR_39)
+call play_char_ai_script(var VAR_28, var &VAR_40)
 gamevar script_object = var VAR_24
 gamevar *character_stats_p+15 = int 20000
 gamevar script_object = var VAR_24
@@ -141,23 +141,23 @@ while(var VAR_41 != var VAR_43)
 				 {
 						case 0
 							call log(var &VAR_44)
-							call put_item_in_char_inv(var VAR_24, int 85, int 328193, int 0)
+							call add_item_to_char(var VAR_24, int 85, int 328193, int 0)
 							break 
 						case 1
 							call log(var &VAR_45)
-							call put_item_in_char_inv(var VAR_25, int 85, int 328193, int 0)
+							call add_item_to_char(var VAR_25, int 85, int 328193, int 0)
 							break 
 						case 2
 							call log(var &VAR_46)
-							call put_item_in_char_inv(var VAR_26, int 85, int 328193, int 0)
+							call add_item_to_char(var VAR_26, int 85, int 328193, int 0)
 							break 
 						case 3
 							call log(var &VAR_47)
-							call put_item_in_char_inv(var VAR_27, int 85, int 328193, int 0)
+							call add_item_to_char(var VAR_27, int 85, int 328193, int 0)
 							break 
 						case 4
 							call log(var &VAR_48)
-							call put_item_in_char_inv(var VAR_28, int 85, int 328193, int 0)
+							call add_item_to_char(var VAR_28, int 85, int 328193, int 0)
 							break 
 				}
 				@VAR_42[var VAR_34]= int 1
@@ -294,7 +294,7 @@ switch(var VAR_13)
 		case 2
 			if(call is_local_timer_greater_than(var VAR_16))
 			 {
-					call func_f6(gamevar misc_fx_scripts, int 6, int 0, int 0)
+					call apply_effect_on_char(gamevar misc_fx_scripts, int 6, int 0, int 0)
 					call reset_local_timer()
 					var VAR_17 = int 255
 					var VAR_16 = call randomize_int(int 1, int 31)

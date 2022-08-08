@@ -49,7 +49,7 @@ VAR_46	"torch02"
 VAR_47	{ 1, 0, 0 }	
 VAR_48	"fire01"
 
-._SCRIPT_0
+._on_load
 execute SCRIPT_6
 switch(gamevar room_state)
  {
@@ -60,8 +60,8 @@ switch(gamevar room_state)
 			var VAR_16 = call create_char(var &VAR_17, var &VAR_27, int 152, int 13)
 			call set_char_init_state(var VAR_18, int 13)
 			call set_char_init_state(var VAR_20, int 13)
-			call set_char_anim_seq(var VAR_18, var &VAR_23)
-			call set_char_anim_seq(var VAR_20, var &VAR_24)
+			call play_char_ai_script(var VAR_18, var &VAR_23)
+			call play_char_ai_script(var VAR_20, var &VAR_24)
 			var VAR_0 = int 0
 			var VAR_2 = int 0
 			var VAR_4 = call get_char_handle(int 65536)
@@ -73,7 +73,7 @@ switch(gamevar room_state)
 			break 
 }
 
-._SCRIPT_1
+._infinite_loop
 if(gamevar room_state == int 1)
  {
 		execute SCRIPT_3
@@ -81,7 +81,7 @@ if(gamevar room_state == int 1)
 }
 execute SCRIPT_5
 
-._SCRIPT_2
+._on_exit
 switch(gamevar room_state)
  {
 		case 1
@@ -95,7 +95,7 @@ switch(gamevar room_state)
 switch(var VAR_0)
  {
 		case 0
-			var VAR_5 = call func_70()
+			var VAR_5 = call get_david_char()
 			var VAR_6 = call func_7e()
 			var VAR_7 = call func_7e()
 			if(var ! VAR_6)
@@ -106,9 +106,9 @@ switch(var VAR_0)
 			 {
 					var VAR_7 = var VAR_5
 			}
-			call play_char_anim_seq(var VAR_5)
-			call play_char_anim_seq(var VAR_6)
-			call play_char_anim_seq(var VAR_7)
+			call set_char_running(var VAR_5)
+			call set_char_running(var VAR_6)
+			call set_char_running(var VAR_7)
 			call char_walk_to_pos(var VAR_7, var &VAR_10)
 			call char_walk_to_pos(var VAR_6, var &VAR_9)
 			call char_walk_to_pos(var VAR_5, var &VAR_8)
@@ -135,25 +135,25 @@ switch(var VAR_0)
 			}
 			else
 			 {
-					if(call is_char_exist(int 786432))
+					if(call is_char_handle_in_level(int 786432))
 					 {
 							call start_dialog(var &VAR_31, var &VAR_32)
 					}
 					else
 					 {
-							if(call is_char_exist(int 196608))
+							if(call is_char_handle_in_level(int 196608))
 							 {
 									call start_dialog(var &VAR_33, var &VAR_34)
 							}
 							else
 							 {
-									if(call is_char_exist(int 262144))
+									if(call is_char_handle_in_level(int 262144))
 									 {
 											call start_dialog(var &VAR_35, var &VAR_36)
 									}
 									else
 									 {
-											if(call is_char_exist(int 131072))
+											if(call is_char_handle_in_level(int 131072))
 											 {
 													call start_dialog(var &VAR_37, var &VAR_38)
 											}
@@ -170,8 +170,8 @@ switch(var VAR_0)
 		case 3
 			if(call get_input_sys() != int 4)
 			 {
-					call func_22(var VAR_18)
-					call func_22(var VAR_20)
+					call set_char_walking(var VAR_18)
+					call set_char_walking(var VAR_20)
 					call char_walk_to_pos(var VAR_18, var &VAR_11)
 					call char_walk_to_pos(var VAR_20, var &VAR_11)
 					call set_input_system(int 1)

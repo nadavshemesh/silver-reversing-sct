@@ -43,7 +43,7 @@ VAR_40	{ 1131413504, 1142931456, -994353152 }
 VAR_41	"pC DPS"	
 VAR_42	{ VAR_39, VAR_40, VAR_41 }
 
-._SCRIPT_0
+._on_load
 execute SCRIPT_3
 call load_sound_set(int 46)
 call play_loaded_sound(int 7, int -1, int 46, int 0)
@@ -67,7 +67,7 @@ else
 		}
 }
 
-._SCRIPT_1
+._infinite_loop
 execute SCRIPT_5
 if(gamevar !is_room_cleared)
  {
@@ -84,7 +84,7 @@ if(gamevar !is_room_cleared)
 		}
 }
 
-._SCRIPT_2
+._on_exit
 if(gamevar !is_room_cleared)
  {
 		switch(gamevar room_state)
@@ -120,7 +120,7 @@ gamevar SMACKER_Y = int 92
 call play_2d_anim(var &VAR_3, int 1, int 1, int 0)
 
 ._SCRIPT_4
-var VAR_4 = call func_70()
+var VAR_4 = call get_david_char()
 var VAR_5 = call func_7e()
 var VAR_6 = call func_7e()
 var VAR_7 = int 0
@@ -148,7 +148,7 @@ switch(var VAR_32)
 			if(call func_8a(var &VAR_29))
 			 {
 					var VAR_0 = int 1
-					var VAR_34 = call eval(var &VAR_23, int 0)
+					var VAR_34 = call run_enemy_generator(var &VAR_23, int 0)
 					var VAR_32 ++ 
 					var VAR_33 = int 0
 			}
@@ -167,25 +167,25 @@ switch(var VAR_32)
 					 {
 							case 0
 								var VAR_31 ++ 
-								var VAR_34 = call eval(var &VAR_24, int 1)
+								var VAR_34 = call run_enemy_generator(var &VAR_24, int 1)
 								var VAR_32 ++ 
 								var VAR_33 = int 0
 								break 
 							case 1
 								var VAR_31 ++ 
-								var VAR_34 = call eval(var &VAR_25, int 1)
+								var VAR_34 = call run_enemy_generator(var &VAR_25, int 1)
 								var VAR_32 ++ 
 								var VAR_33 = int 0
 								break 
 							case 2
 								var VAR_31 ++ 
-								var VAR_34 = call eval(var &VAR_26, int 1)
+								var VAR_34 = call run_enemy_generator(var &VAR_26, int 1)
 								var VAR_32 ++ 
 								var VAR_33 = int 0
 								break 
 							case 3
 								var VAR_31 ++ 
-								var VAR_34 = call eval(var &VAR_27, int 1)
+								var VAR_34 = call run_enemy_generator(var &VAR_27, int 1)
 								var VAR_32 ++ 
 								var VAR_33 = int 0
 								break 
@@ -215,7 +215,7 @@ var VAR_33 ++
 
 ._SCRIPT_7
 execute SCRIPT_4
-call reload_char(var &VAR_28)
+call load_char(var &VAR_28)
 
 ._SCRIPT_8
 

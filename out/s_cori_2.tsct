@@ -57,7 +57,7 @@ VAR_54	{ -1014857728, 0, -986312704 }
 VAR_55	{ 1133412352, 0, -976738304 }	
 VAR_56	{ VAR_53, VAR_54, VAR_55 }
 
-._SCRIPT_0
+._on_load
 execute SCRIPT_14
 call load_sound_set(int 46)
 call play_loaded_sound(int 7, int -1, int 46, int 0)
@@ -81,7 +81,7 @@ else
 		}
 }
 
-._SCRIPT_1
+._infinite_loop
 execute SCRIPT_4
 if(gamevar !is_room_cleared)
  {
@@ -98,7 +98,7 @@ if(gamevar !is_room_cleared)
 		}
 }
 
-._SCRIPT_2
+._on_exit
 if(gamevar !is_room_cleared)
  {
 		switch(gamevar room_state)
@@ -123,7 +123,7 @@ if(gamevar !is_room_cleared)
 }
 
 ._SCRIPT_3
-var VAR_1 = call func_70()
+var VAR_1 = call get_david_char()
 var VAR_2 = call func_7e()
 var VAR_3 = call func_7e()
 var VAR_4 = int 0
@@ -151,7 +151,7 @@ switch(var VAR_43)
 			if(call func_8a(var &VAR_36))
 			 {
 					var VAR_0 = int 1
-					var VAR_45 = call eval(var &VAR_22, int 0)
+					var VAR_45 = call run_enemy_generator(var &VAR_22, int 0)
 					var VAR_43 ++ 
 					var VAR_44 = int 0
 			}
@@ -170,13 +170,13 @@ switch(var VAR_43)
 					 {
 							case 0
 								var VAR_42 ++ 
-								var VAR_45 = call eval(var &VAR_23, int 1)
+								var VAR_45 = call run_enemy_generator(var &VAR_23, int 1)
 								var VAR_43 ++ 
 								var VAR_44 = int 0
 								break 
 							case 1
 								var VAR_42 ++ 
-								var VAR_45 = call eval(var &VAR_24, int 1)
+								var VAR_45 = call run_enemy_generator(var &VAR_24, int 1)
 								var VAR_32 = call func_96(int 171, int 0, int 1, int 320)
 								call func_106(var VAR_32, int 2, int 1, var &VAR_37)
 								call func_106(var VAR_32, int 2, int 3, int 26)
@@ -185,13 +185,13 @@ switch(var VAR_43)
 								break 
 							case 2
 								var VAR_42 ++ 
-								var VAR_45 = call eval(var &VAR_25, int 1)
+								var VAR_45 = call run_enemy_generator(var &VAR_25, int 1)
 								var VAR_43 ++ 
 								var VAR_44 = int 0
 								break 
 							case 3
 								var VAR_42 ++ 
-								var VAR_45 = call eval(var &VAR_26, int 1)
+								var VAR_45 = call run_enemy_generator(var &VAR_26, int 1)
 								var VAR_33 = call func_96(int 170, int 0, int 1, int 320)
 								call func_106(var VAR_33, int 2, int 1, var &VAR_38)
 								call func_106(var VAR_33, int 2, int 3, int 26)
@@ -200,7 +200,7 @@ switch(var VAR_43)
 								break 
 							case 4
 								var VAR_42 ++ 
-								var VAR_45 = call eval(var &VAR_27, int 1)
+								var VAR_45 = call run_enemy_generator(var &VAR_27, int 1)
 								var VAR_34 = call func_96(int 171, int 0, int 1, int 320)
 								call func_106(var VAR_34, int 2, int 1, var &VAR_39)
 								call func_106(var VAR_34, int 2, int 3, int 26)
@@ -238,9 +238,9 @@ var VAR_44 ++
 
 ._SCRIPT_6
 execute SCRIPT_3
-call reload_char(var &VAR_29)
-call reload_char(var &VAR_30)
-call reload_char(var &VAR_31)
+call load_char(var &VAR_29)
+call load_char(var &VAR_30)
+call load_char(var &VAR_31)
 
 ._SCRIPT_7
 

@@ -37,7 +37,7 @@ VAR_34	{ -2551, -525, 1108 }
 VAR_35	0	
 VAR_36	{ 0, 0 }
 
-._SCRIPT_0
+._on_load
 if(call play_bgm(var &VAR_0))
  {
 		call func_114(int 1)
@@ -67,7 +67,7 @@ switch(gamevar room_state)
 			break 
 }
 
-._SCRIPT_1
+._infinite_loop
 execute SCRIPT_13
 if(gamevar !is_room_cleared)
  {
@@ -90,7 +90,7 @@ if(gamevar !is_room_cleared)
 		}
 }
 
-._SCRIPT_2
+._on_exit
 if(gamevar !is_room_cleared)
  {
 		switch(gamevar room_state)
@@ -133,7 +133,7 @@ switch(var VAR_10)
 var VAR_11 ++ 
 
 ._SCRIPT_5
-call reload_char(var &VAR_9)
+call load_char(var &VAR_9)
 
 ._SCRIPT_6
 
@@ -146,7 +146,7 @@ switch(var VAR_27)
 			var VAR_15 = gamevar control_char_p
 			if(var VAR_15)
 			 {
-					call play_char_anim_seq(var VAR_15)
+					call set_char_running(var VAR_15)
 					call char_walk_to_pos(var VAR_15, var &VAR_28)
 					var VAR_27 ++ 
 					var VAR_26 = int 0
@@ -156,8 +156,8 @@ switch(var VAR_27)
 			if(call is_char_standing(var VAR_15))
 			 {
 					var VAR_23 = int 1
-					var VAR_29 = call func_30(int 102)
-					call func_b5(var VAR_29)
+					var VAR_29 = call create_item(int 102)
+					call remove_item_from_pie(var VAR_29)
 					call func_f8(int 102, int 100)
 					var VAR_27 ++ 
 					var VAR_26 = int 0
@@ -166,7 +166,7 @@ switch(var VAR_27)
 		case 2
 			if(var VAR_24 == int 5)
 			 {
-					call func_f6(gamevar char_gen_fx_scripts, int 11, var &VAR_30, int 0)
+					call apply_effect_on_char(gamevar char_gen_fx_scripts, int 11, var &VAR_30, int 0)
 					var VAR_27 ++ 
 					var VAR_26 = int 0
 			}
@@ -174,7 +174,7 @@ switch(var VAR_27)
 		case 3
 			if(var VAR_24 == int 10)
 			 {
-					call func_f6(gamevar char_gen_fx_scripts, int 11, var &VAR_31, int 0)
+					call apply_effect_on_char(gamevar char_gen_fx_scripts, int 11, var &VAR_31, int 0)
 					var VAR_27 ++ 
 					var VAR_26 = int 0
 			}
@@ -182,7 +182,7 @@ switch(var VAR_27)
 		case 4
 			if(var VAR_24 == int 15)
 			 {
-					call func_f6(gamevar char_gen_fx_scripts, int 11, var &VAR_32, int 0)
+					call apply_effect_on_char(gamevar char_gen_fx_scripts, int 11, var &VAR_32, int 0)
 					var VAR_27 ++ 
 					var VAR_26 = int 0
 			}
@@ -190,7 +190,7 @@ switch(var VAR_27)
 		case 5
 			if(var VAR_24 == int 20)
 			 {
-					call func_f6(gamevar char_gen_fx_scripts, int 11, var &VAR_33, int 0)
+					call apply_effect_on_char(gamevar char_gen_fx_scripts, int 11, var &VAR_33, int 0)
 					var VAR_27 ++ 
 					var VAR_26 = int 0
 			}
@@ -198,7 +198,7 @@ switch(var VAR_27)
 		case 6
 			if(var VAR_24 == int 25)
 			 {
-					call func_f6(gamevar char_gen_fx_scripts, int 11, var &VAR_34, int 0)
+					call apply_effect_on_char(gamevar char_gen_fx_scripts, int 11, var &VAR_34, int 0)
 					var VAR_27 ++ 
 					var VAR_26 = int 0
 			}

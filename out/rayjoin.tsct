@@ -24,7 +24,7 @@ VAR_21	{ 0, 1987, 2109, 13431, 2, 2874, 2109, 13479, 27, 8 }
 VAR_22	{ 0, 1, 2, VAR_19, 8, 1, 19, 2874, 2109, 13479, 12, 118, 117, -1, 13, 0, 14, 1, 2, 5, 0, 200, 17, 0, 200, -1, 15, VAR_20, VAR_21, -1, 16, 0, 18, 25, 11, -1, 0 }	
 VAR_23	0
 
-._SCRIPT_0
+._on_load
 call load_sound_set(int 65)
 call play_loaded_sound(int 5, int -1, int 65, int 0)
 if(gamevar is_room_cleared)
@@ -46,7 +46,7 @@ else
 		}
 }
 
-._SCRIPT_1
+._infinite_loop
 execute SCRIPT_3
 if(gamevar !is_room_cleared)
  {
@@ -63,7 +63,7 @@ if(gamevar !is_room_cleared)
 		}
 }
 
-._SCRIPT_2
+._on_exit
 if(gamevar !is_room_cleared)
  {
 		switch(gamevar room_state)
@@ -97,27 +97,27 @@ if(var VAR_14 == int 0)
 		if(call func_8a(var &VAR_2))
 		 {
 				call log(var &VAR_15)
-				var VAR_13 = call func_a5(var &VAR_12, int 10)
+				var VAR_13 = call run_wandering_generator(var &VAR_12, int 10)
 				var VAR_14 ++ 
 		}
 }
 
 ._SCRIPT_5
-call reload_char(var &VAR_0)
-call reload_char(var &VAR_1)
+call load_char(var &VAR_0)
+call load_char(var &VAR_1)
 call func_b8(int 96)
 call func_b8(int 92)
 var VAR_3 = call create_enemy(int 76, int 0, var &VAR_5, int 165)
 var VAR_4 = call create_enemy(int 76, int 1, var &VAR_6, int 140)
-call put_item_in_char_inv(var VAR_3, int 43, int 1, int 0)
-call put_item_in_char_inv(var VAR_4, int 42, int 1, int 0)
+call add_item_to_char(var VAR_3, int 43, int 1, int 0)
+call add_item_to_char(var VAR_4, int 42, int 1, int 0)
 
 ._SCRIPT_6
 
 ._SCRIPT_7
 
 ._SCRIPT_8
-call reload_char(var &VAR_16)
-call reload_char(var &VAR_17)
+call load_char(var &VAR_16)
+call load_char(var &VAR_17)
 call log(var &VAR_18)
-call func_a5(var &VAR_22, int 100)
+call run_wandering_generator(var &VAR_22, int 100)

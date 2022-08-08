@@ -13,7 +13,7 @@ VAR_10	"cC7D"
 VAR_11	{ -987152384, 1130102784, 1128660992 }	
 VAR_12	{ VAR_9, VAR_10, VAR_11 }
 
-._SCRIPT_0
+._on_load
 call load_sound_set(int 76)
 call play_loaded_sound(int 1, int -1, int 76, int 0)
 call play_loaded_sound(int 2, int -1, int 76, int 0)
@@ -40,7 +40,7 @@ else
 		}
 }
 
-._SCRIPT_1
+._infinite_loop
 execute SCRIPT_11
 if(gamevar !is_room_cleared)
  {
@@ -60,7 +60,7 @@ if(gamevar !is_room_cleared)
 		}
 }
 
-._SCRIPT_2
+._on_exit
 if(gamevar !is_room_cleared)
  {
 		switch(gamevar room_state)

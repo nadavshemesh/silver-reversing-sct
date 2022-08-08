@@ -20,7 +20,7 @@ VAR_17	{ 0, 0 }
 VAR_18	0	
 VAR_19	0
 
-._SCRIPT_0
+._on_load
 call func_58(int 1)
 if(gamevar is_room_cleared)
  {
@@ -42,7 +42,7 @@ else
 }
 execute SCRIPT_6
 
-._SCRIPT_1
+._infinite_loop
 execute SCRIPT_3
 if(gamevar !is_room_cleared)
  {
@@ -76,7 +76,7 @@ if(var VAR_0 < int 3)
 		var VAR_0 ++ 
 }
 
-._SCRIPT_2
+._on_exit
 if(gamevar !is_room_cleared)
  {
 		switch(gamevar room_state)
@@ -118,10 +118,10 @@ if(gamevar script_time > var VAR_16)
  {
 		var VAR_16 = gamevar script_time + int 40 + call randomize_int(int 0, int 20)
 		var VAR_13 = int 1 + call randomize_int(int 0, int 4)
-		var VAR_18 = call is_char_exist(int 1966080)
+		var VAR_18 = call is_char_handle_in_level(int 1966080)
 		if(var VAR_18)
 		 {
-				var VAR_19 = call func_6a(var VAR_18)
+				var VAR_19 = call get_char_movement_ptr(var VAR_18)
 				call play_loaded_sound(var VAR_13, int 0, int 61, var VAR_19)
 		}
 		else
@@ -136,11 +136,11 @@ if(gamevar script_time > var VAR_16)
 var VAR_3 = call create_char(var &VAR_4, var &VAR_9, int 325, int 16)
 var VAR_5 = call create_char(var &VAR_6, var &VAR_10, int 144, int 16)
 call set_char_init_state(var VAR_3, int 13)
-call set_char_anim_seq(var VAR_3, var &VAR_7)
+call play_char_ai_script(var VAR_3, var &VAR_7)
 gamevar script_object = var VAR_3
 gamevar *character_stats_p+14 = int 91750
 call set_char_init_state(var VAR_5, int 13)
-call set_char_anim_seq(var VAR_5, var &VAR_8)
+call play_char_ai_script(var VAR_5, var &VAR_8)
 
 ._SCRIPT_6
 call load_sound_set(int 61)
@@ -151,7 +151,7 @@ execute SCRIPT_5
 ._SCRIPT_7
 
 ._SCRIPT_8
-call func_117(var &VAR_11, var &VAR_12, int 0)
+call set_scene_overwrite_act(var &VAR_11, var &VAR_12, int 0)
 
 ._SCRIPT_9
 

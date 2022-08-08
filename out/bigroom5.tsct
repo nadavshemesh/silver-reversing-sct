@@ -59,7 +59,7 @@ VAR_56	{ -300, 0, -4433 }
 VAR_57	{ 248, 0, -4075, 1553, 0, -4104 }	
 VAR_58	-1
 
-._SCRIPT_0
+._on_load
 execute SCRIPT_10
 call play_bgm(var &VAR_39)
 gamevar SMACKER_X = int 0
@@ -92,7 +92,7 @@ else
 		}
 }
 
-._SCRIPT_1
+._infinite_loop
 var VAR_0 = int 20
 execute SCRIPT_11
 if(gamevar !is_room_cleared)
@@ -113,7 +113,7 @@ if(gamevar !is_room_cleared)
 		}
 }
 
-._SCRIPT_2
+._on_exit
 execute SCRIPT_12
 if(gamevar !is_room_cleared)
  {
@@ -143,21 +143,21 @@ if(gamevar !is_room_cleared)
 if(var VAR_58 != var VAR_55)
  {
 		var VAR_58 = var VAR_55
-		call func_ce(var VAR_55)
+		call log_obj(var VAR_55)
 }
 switch(var VAR_55)
  {
 		case 0
 			if(call func_8a(var &VAR_57))
 			 {
-					var VAR_45 = call func_a5(var &VAR_51, int 1)
+					var VAR_45 = call run_wandering_generator(var &VAR_51, int 1)
 					var VAR_55 ++ 
 			}
 			break 
 		case 1
 			if(call func_123(var VAR_45) == int 0)
 			 {
-					var VAR_45 = call func_a5(var &VAR_53, int 1)
+					var VAR_45 = call run_wandering_generator(var &VAR_53, int 1)
 					var VAR_55 ++ 
 			}
 			break 
@@ -171,11 +171,11 @@ switch(var VAR_55)
 }
 
 ._SCRIPT_4
-call reload_char(var &VAR_42)
-call reload_char(var &VAR_43)
-call reload_char(var &VAR_44)
-var VAR_45 = call func_a5(var &VAR_49, int 1)
-call reload_char(var &VAR_54)
+call load_char(var &VAR_42)
+call load_char(var &VAR_43)
+call load_char(var &VAR_44)
+var VAR_45 = call run_wandering_generator(var &VAR_49, int 1)
+call load_char(var &VAR_54)
 
 ._SCRIPT_5
 
@@ -188,7 +188,7 @@ call reload_char(var &VAR_54)
 ._SCRIPT_9
 
 ._SCRIPT_10
-if(call ! is_char_exist(int 6291456))
+if(call ! is_char_handle_in_level(int 6291456))
  {
 		exit_script 
 }
@@ -201,7 +201,7 @@ else
 }
 
 ._SCRIPT_11
-if(call ! is_char_exist(int 6291456))
+if(call ! is_char_handle_in_level(int 6291456))
  {
 		exit_script 
 }
@@ -215,7 +215,7 @@ else
 if(var VAR_23 != var VAR_17)
  {
 		var VAR_23 = var VAR_17
-		call func_ce(var VAR_17)
+		call log_obj(var VAR_17)
 }
 switch(var VAR_17)
  {
@@ -253,7 +253,7 @@ switch(var VAR_17)
 		case 3
 			if(var VAR_18 > int 40)
 			 {
-					call func_12e(var VAR_0)
+					call open_save_screen(var VAR_0)
 					var VAR_17 ++ 
 					var VAR_18 = int 0
 			}
@@ -299,7 +299,7 @@ switch(var VAR_17)
 		case 7
 			if(var VAR_18 > int 40)
 			 {
-					call func_f6(gamevar char_gen_fx_scripts, int 8, int 0, var VAR_1)
+					call apply_effect_on_char(gamevar char_gen_fx_scripts, int 8, int 0, var VAR_1)
 					execute SCRIPT_14
 					gamevar chronicler_variation = var VAR_2
 					var VAR_17 ++ 
@@ -320,7 +320,7 @@ switch(var VAR_17)
 var VAR_18 ++ 
 
 ._SCRIPT_12
-if(call is_char_exist(int 6291456))
+if(call is_char_handle_in_level(int 6291456))
  {
 		if(var VAR_1 == int 0)
 		 {
@@ -330,7 +330,7 @@ if(call is_char_exist(int 6291456))
 }
 
 ._SCRIPT_13
-var VAR_4 = call func_66(gamevar control_char_p)
+var VAR_4 = call get_char_handle_id(gamevar control_char_p)
 switch(var VAR_4)
  {
 		case 65536
@@ -354,7 +354,7 @@ switch(var VAR_4)
 }
 
 ._SCRIPT_14
-var VAR_26 = call func_66(gamevar control_char_p)
+var VAR_26 = call get_char_handle_id(gamevar control_char_p)
 switch(var VAR_26)
  {
 		case 65536

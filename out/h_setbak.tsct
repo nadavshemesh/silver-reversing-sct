@@ -7,7 +7,7 @@ VAR_4	0
 VAR_5	0	
 VAR_6	0
 
-._SCRIPT_0
+._on_load
 execute SCRIPT_10
 call load_sound_set(int 12)
 call play_loaded_sound(int 8, int -1, int 12, int 0)
@@ -34,7 +34,7 @@ else
 		}
 }
 
-._SCRIPT_1
+._infinite_loop
 execute SCRIPT_11
 execute SCRIPT_12
 if(gamevar !is_room_cleared)
@@ -55,7 +55,7 @@ if(gamevar !is_room_cleared)
 		}
 }
 
-._SCRIPT_2
+._on_exit
 if(gamevar !is_room_cleared)
  {
 		switch(gamevar room_state)

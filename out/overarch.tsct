@@ -33,7 +33,7 @@ VAR_30	"dick"
 VAR_31	"finnegan"	
 VAR_32	"wandering baddies"
 
-._SCRIPT_0
+._on_load
 execute SCRIPT_3
 call play_bgm(var &VAR_18)
 if(gamevar is_room_cleared)
@@ -55,7 +55,7 @@ else
 		}
 }
 
-._SCRIPT_1
+._infinite_loop
 execute SCRIPT_10
 if(gamevar !is_room_cleared)
  {
@@ -72,7 +72,7 @@ if(gamevar !is_room_cleared)
 		}
 }
 
-._SCRIPT_2
+._on_exit
 if(gamevar !is_room_cleared)
  {
 		switch(gamevar room_state)
@@ -99,13 +99,13 @@ execute SCRIPT_9
 
 ._SCRIPT_5
 var VAR_24 = call create_enemy(int 11, int 0, var &VAR_25, int 85)
-call set_char_anim_seq(var VAR_24, var &VAR_23)
+call play_char_ai_script(var VAR_24, var &VAR_23)
 call func_50(var VAR_24, int 8192)
 gamevar script_object = var VAR_24
 gamevar *character_stats_p+15 = int 500
-call put_item_in_char_inv(var VAR_24, int 108, int 1, int 0)
-call put_item_in_char_inv(var VAR_24, int 40, int 1, int 0)
-call put_item_in_char_inv(var VAR_24, int 42, int 1, int 0)
+call add_item_to_char(var VAR_24, int 108, int 1, int 0)
+call add_item_to_char(var VAR_24, int 40, int 1, int 0)
+call add_item_to_char(var VAR_24, int 42, int 1, int 0)
 
 ._SCRIPT_6
 
@@ -115,16 +115,16 @@ call put_item_in_char_inv(var VAR_24, int 42, int 1, int 0)
 switch(gamevar is_room_cleared)
  {
 		case 1
-			call reload_char(var &VAR_28)
-			call func_a5(var &VAR_27, int 100)
+			call load_char(var &VAR_28)
+			call run_wandering_generator(var &VAR_27, int 100)
 			break 
 		case 2
-			call reload_char(var &VAR_29)
-			call reload_char(var &VAR_30)
-			call reload_char(var &VAR_31)
+			call load_char(var &VAR_29)
+			call load_char(var &VAR_30)
+			call load_char(var &VAR_31)
 			call func_b8(int 91)
 			call func_b8(int 93)
-			call func_a5(var &VAR_26, int 100)
+			call run_wandering_generator(var &VAR_26, int 100)
 			break 
 }
 call log(var &VAR_32)
@@ -248,7 +248,7 @@ switch(var VAR_13)
 		case 2
 			if(call is_local_timer_greater_than(var VAR_16))
 			 {
-					call func_f6(gamevar misc_fx_scripts, int 6, int 0, int 0)
+					call apply_effect_on_char(gamevar misc_fx_scripts, int 6, int 0, int 0)
 					call reset_local_timer()
 					var VAR_17 = int 255
 					var VAR_16 = call randomize_int(int 1, int 31)

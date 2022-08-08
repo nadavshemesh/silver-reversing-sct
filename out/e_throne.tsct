@@ -64,7 +64,7 @@ VAR_61	1
 VAR_62	2	
 VAR_63	4
 
-._SCRIPT_0
+._on_load
 call func_113(int 8, int 8)
 execute SCRIPT_6
 call load_sound_set(int 75)
@@ -77,7 +77,7 @@ if(gamevar room_state == int 1)
 		execute SCRIPT_3
 }
 
-._SCRIPT_1
+._infinite_loop
 if(gamevar room_state == int 0)
  {
 		exit_script 
@@ -87,7 +87,7 @@ if(gamevar room_state == int 1)
 		execute SCRIPT_4
 }
 
-._SCRIPT_2
+._on_exit
 if(gamevar room_state == int 0)
  {
 		exit_script 
@@ -110,22 +110,22 @@ switch(var VAR_14)
 		case 0
 			if(var VAR_15 == int 5)
 			 {
-					call func_10b(var VAR_0, var &VAR_35, int 0)
+					call char_teleport_to_pos(var VAR_0, var &VAR_35, int 0)
 					call char_stop(var VAR_0)
-					call func_f6(gamevar char_gen_fx_scripts, int 18, int 0, var VAR_0)
+					call apply_effect_on_char(gamevar char_gen_fx_scripts, int 18, int 0, var VAR_0)
 					if(var VAR_9)
 					 {
 							call log(var &VAR_39)
-							call func_10b(var VAR_9, var &VAR_27, int 300)
+							call char_teleport_to_pos(var VAR_9, var &VAR_27, int 300)
 							call char_stop(var VAR_9)
-							call play_char_anim_seq(var VAR_9)
+							call set_char_running(var VAR_9)
 					}
 					if(var VAR_10)
 					 {
 							call log(var &VAR_40)
-							call func_10b(var VAR_10, var &VAR_28, int 40)
+							call char_teleport_to_pos(var VAR_10, var &VAR_28, int 40)
 							call char_stop(var VAR_10)
-							call play_char_anim_seq(var VAR_10)
+							call set_char_running(var VAR_10)
 					}
 			}
 			if(var VAR_15 == int 20)
@@ -164,8 +164,8 @@ switch(var VAR_14)
 			if(gamevar !MovieActive&&var VAR_38 != var VAR_15)
 			 {
 					call func_113(int 8, int 8)
-					call play_char_anim_seq(var VAR_16)
-					call play_char_anim_seq(var VAR_18)
+					call set_char_running(var VAR_16)
+					call set_char_running(var VAR_18)
 					if(var VAR_9)
 					 {
 							call char_walk_to_pos(var VAR_9, var &VAR_26)

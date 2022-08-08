@@ -26,7 +26,7 @@ VAR_23	{ 80, 1130, 2730 }
 VAR_24	{ 2810, 1130, 610 }	
 VAR_25	"RAIN"
 
-._SCRIPT_0
+._on_load
 call play_bgm(var &VAR_19)
 execute SCRIPT_9
 switch(gamevar room_state)
@@ -41,7 +41,7 @@ switch(gamevar room_state)
 			break 
 }
 
-._SCRIPT_1
+._infinite_loop
 execute SCRIPT_11
 switch(gamevar room_state)
  {
@@ -55,7 +55,7 @@ switch(gamevar room_state)
 			break 
 }
 
-._SCRIPT_2
+._on_exit
 switch(gamevar room_state)
  {
 		case 1
@@ -70,12 +70,12 @@ switch(gamevar room_state)
 }
 
 ._SCRIPT_3
-call reload_char(var &VAR_20)
-call reload_char(var &VAR_21)
-call reload_char(var &VAR_22)
+call load_char(var &VAR_20)
+call load_char(var &VAR_21)
+call load_char(var &VAR_22)
 call func_b8(int 93)
 call func_b8(int 91)
-call eval(var &VAR_0, int 500)
+call run_enemy_generator(var &VAR_0, int 500)
 
 ._SCRIPT_4
 
@@ -210,7 +210,7 @@ switch(var VAR_14)
 		case 2
 			if(call is_local_timer_greater_than(var VAR_17))
 			 {
-					call func_f6(gamevar misc_fx_scripts, int 6, int 0, int 0)
+					call apply_effect_on_char(gamevar misc_fx_scripts, int 6, int 0, int 0)
 					call reset_local_timer()
 					var VAR_18 = int 255
 					var VAR_17 = call randomize_int(int 1, int 31)

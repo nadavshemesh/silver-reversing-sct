@@ -27,7 +27,7 @@ VAR_24	{ -7755, 1825, 5210 }
 VAR_25	{ -3295, 1825, 3290 }	
 VAR_26	"RAIN"
 
-._SCRIPT_0
+._on_load
 call func_b8(int 93)
 call func_b8(int 91)
 execute SCRIPT_5
@@ -40,7 +40,7 @@ switch(gamevar room_state)
 			break 
 }
 
-._SCRIPT_1
+._infinite_loop
 execute SCRIPT_7
 switch(gamevar room_state)
  {
@@ -51,7 +51,7 @@ switch(gamevar room_state)
 			break 
 }
 
-._SCRIPT_2
+._on_exit
 switch(gamevar room_state)
  {
 		case 1
@@ -67,11 +67,11 @@ switch(gamevar room_state)
 var VAR_4 = call create_enemy(int 30, int 0, var &VAR_5, int 105)
 var VAR_0 = call create_enemy(int 31, int 0, var &VAR_1, int 90)
 var VAR_2 = call create_enemy(int 32, int 0, var &VAR_3, int 80)
-call put_item_in_char_inv(var VAR_2, int 43, int 1, int 0)
-call put_item_in_char_inv(var VAR_0, int 26, int 1, int 0)
-call play_char_anim_seq(var VAR_4)
-call play_char_anim_seq(var VAR_0)
-call play_char_anim_seq(var VAR_2)
+call add_item_to_char(var VAR_2, int 43, int 1, int 0)
+call add_item_to_char(var VAR_0, int 26, int 1, int 0)
+call set_char_running(var VAR_4)
+call set_char_running(var VAR_0)
+call set_char_running(var VAR_2)
 call func_19(var VAR_4, call get_selected_hero())
 call func_19(var VAR_2, call get_selected_hero())
 call func_19(var VAR_0, call get_selected_hero())
@@ -199,7 +199,7 @@ switch(var VAR_19)
 		case 2
 			if(call is_local_timer_greater_than(var VAR_22))
 			 {
-					call func_f6(gamevar misc_fx_scripts, int 6, int 0, int 0)
+					call apply_effect_on_char(gamevar misc_fx_scripts, int 6, int 0, int 0)
 					call reset_local_timer()
 					var VAR_23 = int 255
 					var VAR_22 = call randomize_int(int 1, int 31)

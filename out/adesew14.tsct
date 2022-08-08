@@ -17,7 +17,7 @@ VAR_14	"torch02"
 VAR_15	"skavenb"	
 VAR_16	"spider"
 
-._SCRIPT_0
+._on_load
 call play_bgm(var &VAR_12)
 gamevar SMACKER_X = int 232
 gamevar SMACKER_Y = int 112
@@ -36,7 +36,7 @@ switch(gamevar room_state)
 			break 
 }
 
-._SCRIPT_1
+._infinite_loop
 switch(gamevar room_state)
  {
 		case 1
@@ -46,7 +46,7 @@ switch(gamevar room_state)
 			break 
 }
 
-._SCRIPT_2
+._on_exit
 switch(gamevar room_state)
  {
 		case 1
@@ -61,8 +61,8 @@ switch(gamevar room_state)
 
 ._SCRIPT_3
 call func_9a(var &VAR_4, int 83, int 0, int 0)
-call reload_char(var &VAR_15)
-call reload_char(var &VAR_16)
+call load_char(var &VAR_15)
+call load_char(var &VAR_16)
 var VAR_2 = int 0
 
 ._SCRIPT_4
@@ -74,9 +74,9 @@ switch(var VAR_2)
 					var VAR_5 = call create_enemy(int 131, int 0, var &VAR_8, int 265)
 					var VAR_6 = call create_enemy(int 131, int 1, var &VAR_9, int 275)
 					var VAR_7 = call create_enemy(int 131, int 2, var &VAR_10, int 255)
-					call put_item_in_char_inv(var VAR_6, int 45, int 1, int 0)
-					call put_item_in_char_inv(var VAR_7, int 43, int 1, int 0)
-					call eval(var &VAR_11, int 5)
+					call add_item_to_char(var VAR_6, int 45, int 1, int 0)
+					call add_item_to_char(var VAR_7, int 43, int 1, int 0)
+					call run_enemy_generator(var &VAR_11, int 5)
 					var VAR_2 ++ 
 			}
 			break 

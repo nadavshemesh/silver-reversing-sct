@@ -33,7 +33,7 @@ VAR_30	0
 VAR_31	"LET'S GENERATE SOME BADDIES"	
 VAR_32	"NO GENERATORS THIS TIME"
 
-._SCRIPT_0
+._on_load
 call func_b8(int 93)
 var VAR_1 = call func_6f()
 call play_bgm(var &VAR_2)
@@ -65,7 +65,7 @@ call load_sound_set(int 30)
 var VAR_5 = call play_loaded_sound(int 1, int -1, int 30, int 0)
 call set_sound_volume(var VAR_5, int 60)
 
-._SCRIPT_1
+._infinite_loop
 if(gamevar !is_room_cleared)
  {
 		switch(gamevar room_state)
@@ -81,7 +81,7 @@ if(gamevar !is_room_cleared)
 		}
 }
 
-._SCRIPT_2
+._on_exit
 if(gamevar !is_room_cleared)
  {
 		switch(gamevar room_state)
@@ -108,25 +108,25 @@ switch(var VAR_19)
 }
 
 ._SCRIPT_4
-var VAR_6 = call eval(var &VAR_8, int 10)
+var VAR_6 = call run_enemy_generator(var &VAR_8, int 10)
 var VAR_10 = call create_enemy(int 61, int 0, var &VAR_11, int 190)
-var VAR_0 = call put_item_in_char_inv(var VAR_10, int 85, int 6554113, int 0)
-call reload_char(var &VAR_12)
-call reload_char(var &VAR_13)
+var VAR_0 = call add_item_to_char(var VAR_10, int 85, int 6554113, int 0)
+call load_char(var &VAR_12)
+call load_char(var &VAR_13)
 var VAR_17 = call load_anim(var &VAR_18)
 gamevar script_object = var VAR_10
 gamevar *character_stats_p+15 = int 1600
 call set_char_init_state(var VAR_10, int 13)
-call set_char_anim_seq(var VAR_10, var &VAR_14)
+call play_char_ai_script(var VAR_10, var &VAR_14)
 
 ._SCRIPT_5
 
 ._SCRIPT_6
 
 ._SCRIPT_7
-call reload_char(var &VAR_26)
-call reload_char(var &VAR_27)
-call reload_char(var &VAR_28)
+call load_char(var &VAR_26)
+call load_char(var &VAR_27)
+call load_char(var &VAR_28)
 var VAR_29 = call randomize_int(int 0, int 3)
 if(var ! VAR_29)
  {
@@ -135,13 +135,13 @@ if(var ! VAR_29)
 		switch(var VAR_30)
 		 {
 				case 0
-					call eval(var &VAR_21, int 50)
+					call run_enemy_generator(var &VAR_21, int 50)
 					break 
 				case 1
-					call eval(var &VAR_23, int 50)
+					call run_enemy_generator(var &VAR_23, int 50)
 					break 
 				case 2
-					call eval(var &VAR_25, int 50)
+					call run_enemy_generator(var &VAR_25, int 50)
 					break 
 		}
 }

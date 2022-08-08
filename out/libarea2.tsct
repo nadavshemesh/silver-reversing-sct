@@ -44,7 +44,7 @@ VAR_41	0
 VAR_42	0	
 VAR_43	0
 
-._SCRIPT_0
+._on_load
 call play_bgm(var &VAR_3)
 call load_sound_set(int 63)
 call play_loaded_sound(int 1, int -1, int 63, int 0)
@@ -67,7 +67,7 @@ else
 		}
 }
 
-._SCRIPT_1
+._infinite_loop
 execute SCRIPT_3
 if(gamevar !is_room_cleared)
  {
@@ -84,13 +84,13 @@ if(gamevar !is_room_cleared)
 		}
 }
 
-._SCRIPT_2
+._on_exit
 if(gamevar !is_room_cleared)
  {
 		switch(gamevar room_state)
 		 {
 				case 1
-					if(call is_char_exist(int 2359296))
+					if(call is_char_handle_in_level(int 2359296))
 					 {
 							call func_34(var VAR_0)
 					}
@@ -98,7 +98,7 @@ if(gamevar !is_room_cleared)
 					gamevar room_state ++ 
 					break 
 				case 2
-					var VAR_0 = call is_char_exist(int 2359296)
+					var VAR_0 = call is_char_handle_in_level(int 2359296)
 					if(var VAR_0)
 					 {
 							if(var VAR_4)
@@ -149,9 +149,9 @@ if(gamevar script_time > var VAR_43)
 }
 
 ._SCRIPT_4
-call reload_char(var &VAR_18)
-call reload_char(var &VAR_19)
-call reload_char(var &VAR_20)
+call load_char(var &VAR_18)
+call load_char(var &VAR_19)
+call load_char(var &VAR_20)
 var VAR_0 = call create_char(var &VAR_17, var &VAR_21, int 292, int 13)
 execute SCRIPT_6
 execute SCRIPT_7
@@ -176,7 +176,7 @@ switch(var VAR_23)
 			 {
 					if(call is_char_at_pos(var VAR_2, var &VAR_17, int 500))
 					 {
-							call func_e3(var VAR_2, var VAR_0)
+							call chars_face_opposite(var VAR_2, var VAR_0)
 							call start_dialog(var &VAR_25, var &VAR_26)
 							var VAR_23 ++ 
 							var VAR_24 = int 0
@@ -206,7 +206,7 @@ var VAR_11 = call load_anim(var &VAR_12)
 ._SCRIPT_9
 var VAR_0 = int 0
 var VAR_4 = int 0
-var VAR_0 = call is_char_exist(int 2359296)
+var VAR_0 = call is_char_handle_in_level(int 2359296)
 if(call func_bf(int 888, gamevar CURRENT_LEVEL, gamevar CURRENT_SCENE))
  {
 		var VAR_4 = int 1
@@ -216,7 +216,7 @@ if(call func_bf(int 888, gamevar CURRENT_LEVEL, gamevar CURRENT_SCENE))
 if(var VAR_36 != var VAR_35)
  {
 		var VAR_36 = var VAR_35
-		call func_ce(var VAR_35)
+		call log_obj(var VAR_35)
 }
 switch(var VAR_35)
  {
@@ -258,7 +258,7 @@ switch(var VAR_35)
 }
 
 ._SCRIPT_11
-var VAR_0 = call is_char_exist(int 2359296)
+var VAR_0 = call is_char_handle_in_level(int 2359296)
 if(var VAR_0)
  {
 		call remove_char(var VAR_0)

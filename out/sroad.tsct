@@ -43,7 +43,7 @@ VAR_40	"rlieuten"
 VAR_41	"muscles"	
 VAR_42	"dick"
 
-._SCRIPT_0
+._on_load
 execute SCRIPT_3
 call play_bgm(var &VAR_18)
 if(gamevar is_room_cleared)
@@ -65,7 +65,7 @@ else
 		}
 }
 
-._SCRIPT_1
+._infinite_loop
 execute SCRIPT_10
 if(gamevar !is_room_cleared)
  {
@@ -82,7 +82,7 @@ if(gamevar !is_room_cleared)
 		}
 }
 
-._SCRIPT_2
+._on_exit
 if(gamevar !is_room_cleared)
  {
 		switch(gamevar room_state)
@@ -114,9 +114,9 @@ if(var VAR_33 == int 0)
 		var VAR_36 = call get_selected_hero()
 		if(call is_char_at_pos(var VAR_36, var &VAR_35, int 800))
 		 {
-				var VAR_37 = call func_67(var VAR_36)
+				var VAR_37 = call get_char_pos(var VAR_36)
 				var VAR_28 = call create_enemy(int 11, int 3, var &VAR_29, int 145)
-				call play_char_anim_seq(var VAR_28)
+				call set_char_running(var VAR_28)
 				call char_walk_to_pos(var VAR_28, var VAR_37)
 				var VAR_19 = int 1
 				var VAR_33 ++ 
@@ -125,25 +125,25 @@ if(var VAR_33 == int 0)
 }
 if(var VAR_33 == int 1)
  {
-		var VAR_37 = call func_67(var VAR_36)
+		var VAR_37 = call get_char_pos(var VAR_36)
 		if(var VAR_34 == int 10)
 		 {
 				var VAR_30 = call create_enemy(int 11, int 4, var &VAR_31, int 150)
-				call put_item_in_char_inv(var VAR_30, int 43, int 1, int 0)
-				call play_char_anim_seq(var VAR_30)
+				call add_item_to_char(var VAR_30, int 43, int 1, int 0)
+				call set_char_running(var VAR_30)
 				call char_walk_to_pos(var VAR_30, var VAR_37)
 		}
 		if(var VAR_34 == int 90)
 		 {
 				var VAR_24 = call create_enemy(int 11, int 1, var &VAR_25, int 285)
-				call play_char_anim_seq(var VAR_24)
+				call set_char_running(var VAR_24)
 				call char_walk_to_pos(var VAR_24, var VAR_37)
 		}
 		if(var VAR_34 == int 100)
 		 {
 				var VAR_26 = call create_enemy(int 11, int 2, var &VAR_27, int 190)
-				call put_item_in_char_inv(var VAR_26, int 42, int 1, int 0)
-				call play_char_anim_seq(var VAR_26)
+				call add_item_to_char(var VAR_26, int 42, int 1, int 0)
+				call set_char_running(var VAR_26)
 				call char_walk_to_pos(var VAR_26, var VAR_37)
 				var VAR_33 ++ 
 				var VAR_34 = int 0
@@ -152,7 +152,7 @@ if(var VAR_33 == int 1)
 var VAR_34 ++ 
 
 ._SCRIPT_5
-call reload_char(var &VAR_32)
+call load_char(var &VAR_32)
 
 ._SCRIPT_6
 
@@ -162,14 +162,14 @@ call reload_char(var &VAR_32)
 switch(gamevar is_room_cleared)
  {
 		case 1
-			call reload_char(var &VAR_40)
-			call func_a5(var &VAR_39, int 100)
+			call load_char(var &VAR_40)
+			call run_wandering_generator(var &VAR_39, int 100)
 			break 
 		case 2
-			call reload_char(var &VAR_41)
-			call reload_char(var &VAR_42)
+			call load_char(var &VAR_41)
+			call load_char(var &VAR_42)
 			call func_b8(int 93)
-			call func_a5(var &VAR_38, int 100)
+			call run_wandering_generator(var &VAR_38, int 100)
 			break 
 }
 
@@ -292,7 +292,7 @@ switch(var VAR_13)
 		case 2
 			if(call is_local_timer_greater_than(var VAR_16))
 			 {
-					call func_f6(gamevar misc_fx_scripts, int 6, int 0, int 0)
+					call apply_effect_on_char(gamevar misc_fx_scripts, int 6, int 0, int 0)
 					call reset_local_timer()
 					var VAR_17 = int 255
 					var VAR_16 = call randomize_int(int 1, int 31)

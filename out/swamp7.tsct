@@ -38,7 +38,7 @@ VAR_35	0
 VAR_36	0	
 VAR_37	{ -3468, -40, 10530, -2860, -40, 9042 }
 
-._SCRIPT_0
+._on_load
 var VAR_1 = var &VAR_7
 var VAR_2 = int 210
 execute SCRIPT_9
@@ -65,7 +65,7 @@ else
 		}
 }
 
-._SCRIPT_1
+._infinite_loop
 if(gamevar !is_room_cleared)
  {
 		switch(gamevar room_state)
@@ -73,7 +73,7 @@ if(gamevar !is_room_cleared)
 		}
 }
 
-._SCRIPT_2
+._on_exit
 if(gamevar !is_room_cleared)
  {
 		switch(gamevar room_state)
@@ -107,22 +107,22 @@ switch(var VAR_36)
 		case 0
 			if(call func_d1(var &VAR_37)||call func_8a(var &VAR_37))
 			 {
-					if(call is_char_exist(int 7667714))
+					if(call is_char_handle_in_level(int 7667714))
 					 {
 							call set_char_behav(var VAR_24, int 130)
 					}
-					if(call is_char_exist(int 7667715))
+					if(call is_char_handle_in_level(int 7667715))
 					 {
 							call set_char_behav(var VAR_26, int 130)
 					}
-					if(call is_char_exist(int 7667716))
+					if(call is_char_handle_in_level(int 7667716))
 					 {
 							call set_char_behav(var VAR_28, int 130)
 					}
-					if(call is_char_exist(int 11862017))
+					if(call is_char_handle_in_level(int 11862017))
 					 {
 							call func_50(var VAR_22, int 8192)
-							call set_char_anim_seq(var VAR_22, var &VAR_33)
+							call play_char_ai_script(var VAR_22, var &VAR_33)
 					}
 					var VAR_36 ++ 
 					var VAR_35 = int 0
@@ -135,22 +135,22 @@ var VAR_35 ++
 
 ._SCRIPT_7
 var VAR_22 = call create_enemy(int 138, int 1, var &VAR_23, int 235)
-call put_item_in_char_inv(var VAR_22, int 45, int 1, int 0)
+call add_item_to_char(var VAR_22, int 45, int 1, int 0)
 var VAR_24 = call create_enemy(int 130, int 2, var &VAR_25, int 330)
 var VAR_26 = call create_enemy(int 130, int 3, var &VAR_27, int 60)
 var VAR_28 = call create_enemy(int 130, int 4, var &VAR_29, int 155)
-call put_item_in_char_inv(var VAR_28, int 45, int 1, int 0)
+call add_item_to_char(var VAR_28, int 45, int 1, int 0)
 call freeze_enemy(var VAR_22)
 call freeze_enemy(var VAR_24)
 call freeze_enemy(var VAR_26)
 call freeze_enemy(var VAR_28)
-call put_item_in_char_inv(var VAR_22, int 11, int 1, int 1)
-call eval(var &VAR_30, int 0)
+call add_item_to_char(var VAR_22, int 11, int 1, int 1)
+call run_enemy_generator(var &VAR_30, int 0)
 
 ._SCRIPT_8
 
 ._SCRIPT_9
-var VAR_0 = call is_char_exist(int 1507337)
+var VAR_0 = call is_char_handle_in_level(int 1507337)
 if(var ! VAR_0)
  {
 		var VAR_0 = call create_char(var VAR_1, var &VAR_6, var VAR_2, int 14)
@@ -173,11 +173,11 @@ if(var VAR_3 != int -1)
 		 {
 				if(var VAR_5 != int -1)
 				 {
-						call put_item_in_char_inv(var VAR_0, int 85, var VAR_5, int 0)
+						call add_item_to_char(var VAR_0, int 85, var VAR_5, int 0)
 				}
 				else
 				 {
-						call put_item_in_char_inv(var VAR_0, var VAR_3, int 1, int 0)
+						call add_item_to_char(var VAR_0, var VAR_3, int 1, int 0)
 				}
 		}
 }

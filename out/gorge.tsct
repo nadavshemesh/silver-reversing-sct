@@ -71,7 +71,7 @@ VAR_68	{ 1154514944, 1154244608, 1166637056 }
 VAR_69	{ 1154490368, 1154244608, 1167577088 }	
 VAR_70	{ VAR_59, VAR_60, VAR_61, VAR_62, VAR_63, VAR_64, VAR_65, VAR_66, VAR_67, VAR_68, VAR_69 }
 
-._SCRIPT_0
+._on_load
 if(call play_bgm(var &VAR_0))
  {
 		call func_114(int 1)
@@ -95,7 +95,7 @@ else
 		}
 }
 
-._SCRIPT_1
+._infinite_loop
 if(gamevar !is_room_cleared)
  {
 		if(gamevar room_state == int 1)
@@ -105,7 +105,7 @@ if(gamevar !is_room_cleared)
 }
 execute SCRIPT_8
 
-._SCRIPT_2
+._on_exit
 if(gamevar !is_room_cleared)
  {
 		if(gamevar room_state == int 1)
@@ -170,7 +170,7 @@ switch(var VAR_34)
 		case 2
 			if(call func_8a(var &VAR_36))
 			 {
-					var VAR_37 = call eval(var &VAR_17, int 0)
+					var VAR_37 = call run_enemy_generator(var &VAR_17, int 0)
 					var VAR_38 = int 1
 					var VAR_35 = int 0
 					var VAR_34 ++ 
@@ -180,7 +180,7 @@ switch(var VAR_34)
 			if(call func_ab(int 200, var &VAR_11))
 			 {
 					call log(var &VAR_47)
-					if(call is_char_exist(int 10092544))
+					if(call is_char_handle_in_level(int 10092544))
 					 {
 							call func_46(var VAR_8, int 13)
 							call set_char_behav(var VAR_8, int 7)
@@ -193,7 +193,7 @@ switch(var VAR_34)
 			if(call func_ab(int 200, var &VAR_12))
 			 {
 					call log(var &VAR_48)
-					if(call is_char_exist(int 10092545))
+					if(call is_char_handle_in_level(int 10092545))
 					 {
 							call func_46(var VAR_9, int 13)
 							call set_char_behav(var VAR_9, int 7)
@@ -211,19 +211,19 @@ execute SCRIPT_4
 execute SCRIPT_9
 
 ._SCRIPT_6
-var VAR_3 = call is_char_exist(int 65536)
-var VAR_4 = call is_char_exist(int 786432)
-var VAR_5 = call is_char_exist(int 327680)
-var VAR_6 = call is_char_exist(int 131072)
-call reload_char(var &VAR_20)
+var VAR_3 = call is_char_handle_in_level(int 65536)
+var VAR_4 = call is_char_handle_in_level(int 786432)
+var VAR_5 = call is_char_handle_in_level(int 327680)
+var VAR_6 = call is_char_handle_in_level(int 131072)
+call load_char(var &VAR_20)
 var VAR_8 = call create_enemy(int 7, int 0, var &VAR_18, int 0)
 call freeze_enemy(var VAR_8)
 call set_char_init_state(var VAR_8, int 13)
-call set_char_anim_seq(var VAR_8, var &VAR_13)
+call play_char_ai_script(var VAR_8, var &VAR_13)
 var VAR_9 = call create_enemy(int 7, int 1, var &VAR_19, int 0)
 call freeze_enemy(var VAR_9)
 call set_char_init_state(var VAR_9, int 13)
-call set_char_anim_seq(var VAR_9, var &VAR_14)
+call play_char_ai_script(var VAR_9, var &VAR_14)
 var VAR_23 = call create_enemy(int 8, int 1, var &VAR_24, int 80)
 var VAR_25 = call create_enemy(int 8, int 2, var &VAR_26, int 80)
 call freeze_enemy(var VAR_23)
@@ -233,9 +233,9 @@ gamevar *character_movement_p+60 = int 1
 gamevar script_object = var VAR_25
 gamevar *character_movement_p+60 = int 1
 call func_50(var VAR_23, int 8192)
-call set_char_anim_seq(var VAR_23, var &VAR_27)
+call play_char_ai_script(var VAR_23, var &VAR_27)
 call func_50(var VAR_25, int 8192)
-call set_char_anim_seq(var VAR_25, var &VAR_29)
+call play_char_ai_script(var VAR_25, var &VAR_29)
 
 ._SCRIPT_7
 

@@ -64,7 +64,7 @@ VAR_61	{ -1294, -922, -292, -982, -942, -468 }
 VAR_62	{ 0, 0 }	
 VAR_63	0
 
-._SCRIPT_0
+._on_load
 var VAR_1 = var &VAR_7
 var VAR_2 = int 65
 execute SCRIPT_10
@@ -90,7 +90,7 @@ if(gamevar room_state == int 2)
 		execute SCRIPT_9
 }
 
-._SCRIPT_1
+._infinite_loop
 execute SCRIPT_4
 if(gamevar room_state == int 0)
  {
@@ -105,7 +105,7 @@ if(gamevar room_state == int 2)
 		execute SCRIPT_8
 }
 
-._SCRIPT_2
+._on_exit
 if(gamevar room_state == int 0)
  {
 		exit_script 
@@ -129,14 +129,14 @@ if(gamevar script_time > var VAR_63)
 ._SCRIPT_5
 if(var VAR_35 == int 0)
  {
-		var VAR_37 = call eval(var &VAR_31, int 8)
+		var VAR_37 = call run_enemy_generator(var &VAR_31, int 8)
 		var VAR_35 ++ 
 }
 if(var VAR_35 == int 1)
  {
 		if(var VAR_39 == int 1)
 		 {
-				if(call is_char_exist(int 2752513))
+				if(call is_char_handle_in_level(int 2752513))
 				 {
 						if(call is_char_standing(var VAR_22))
 						 {
@@ -147,7 +147,7 @@ if(var VAR_35 == int 1)
 		}
 		if(var VAR_39 == int 2)
 		 {
-				if(call is_char_exist(int 2752514))
+				if(call is_char_handle_in_level(int 2752514))
 				 {
 						if(call is_char_standing(var VAR_24))
 						 {
@@ -158,7 +158,7 @@ if(var VAR_35 == int 1)
 		}
 		if(call func_122(var VAR_37) == int 0&&call get_num_of_enemies() < int 2)
 		 {
-				var VAR_38 = call eval(var &VAR_33, int 100)
+				var VAR_38 = call run_enemy_generator(var &VAR_33, int 100)
 				var VAR_35 ++ 
 		}
 }
@@ -174,7 +174,7 @@ if(var VAR_35 == var VAR_34)
 		var VAR_36 ++ 
 		if(var VAR_36 > int 2)
 		 {
-				if(call is_char_exist(int 2752513))
+				if(call is_char_handle_in_level(int 2752513))
 				 {
 						if(call func_88(var VAR_22))
 						 {
@@ -184,7 +184,7 @@ if(var VAR_35 == var VAR_34)
 								var VAR_35 ++ 
 						}
 				}
-				if(call is_char_exist(int 2752514))
+				if(call is_char_handle_in_level(int 2752514))
 				 {
 						if(call func_88(var VAR_24))
 						 {
@@ -201,16 +201,16 @@ if(var VAR_35 == int 11)
 		if(call get_num_of_enemies() < int 2)
 		 {
 				var VAR_36 = int 0
-				if(call is_char_exist(int 2752513))
+				if(call is_char_handle_in_level(int 2752513))
 				 {
 						call func_47(var VAR_22, int 131)
-						call play_char_anim_seq(var VAR_22)
+						call set_char_running(var VAR_22)
 						var VAR_35 = int 12
 				}
-				if(call is_char_exist(int 2752514))
+				if(call is_char_handle_in_level(int 2752514))
 				 {
 						call func_47(var VAR_24, int 131)
-						call play_char_anim_seq(var VAR_24)
+						call set_char_running(var VAR_24)
 						var VAR_35 = int 13
 				}
 		}
@@ -218,7 +218,7 @@ if(var VAR_35 == int 11)
 if(var VAR_35 == int 12)
  {
 		var VAR_36 ++ 
-		if(var VAR_36 > int 10&&call is_char_exist(int 2752513))
+		if(var VAR_36 > int 10&&call is_char_handle_in_level(int 2752513))
 		 {
 				call func_2b(var VAR_22, int 2)
 				var VAR_35 = int 0
@@ -228,7 +228,7 @@ if(var VAR_35 == int 12)
 if(var VAR_35 == int 13)
  {
 		var VAR_36 ++ 
-		if(var VAR_36 > int 10&&call is_char_exist(int 2752514))
+		if(var VAR_36 > int 10&&call is_char_handle_in_level(int 2752514))
 		 {
 				call func_2b(var VAR_24, int 2)
 				var VAR_35 = int 0
@@ -239,21 +239,21 @@ if(var VAR_35 == int 13)
 ._SCRIPT_6
 var VAR_22 = call create_enemy(int 56, int 1, var &VAR_23, int 225)
 var VAR_24 = call create_enemy(int 56, int 2, var &VAR_25, int 30)
-call reload_char(var &VAR_26)
-call reload_char(var &VAR_27)
-call put_item_in_char_inv(var VAR_22, int 16, int 0, int 1)
-call put_item_in_char_inv(var VAR_22, int 85, int 1638913, int 0)
-call put_item_in_char_inv(var VAR_22, int 43, int 1, int 0)
-call put_item_in_char_inv(var VAR_24, int 16, int 0, int 1)
-call put_item_in_char_inv(var VAR_24, int 85, int 3277313, int 0)
-call put_item_in_char_inv(var VAR_24, int 40, int 1, int 0)
+call load_char(var &VAR_26)
+call load_char(var &VAR_27)
+call add_item_to_char(var VAR_22, int 16, int 0, int 1)
+call add_item_to_char(var VAR_22, int 85, int 1638913, int 0)
+call add_item_to_char(var VAR_22, int 43, int 1, int 0)
+call add_item_to_char(var VAR_24, int 16, int 0, int 1)
+call add_item_to_char(var VAR_24, int 85, int 3277313, int 0)
+call add_item_to_char(var VAR_24, int 40, int 1, int 0)
 execute SCRIPT_7
 call set_char_init_state(var VAR_22, int 13)
-call set_char_anim_seq(var VAR_22, var &VAR_28)
+call play_char_ai_script(var VAR_22, var &VAR_28)
 call func_106(var VAR_22, int 1, int 0, int 2)
 call func_50(var VAR_22, int 131)
 call set_char_init_state(var VAR_24, int 13)
-call set_char_anim_seq(var VAR_24, var &VAR_29)
+call play_char_ai_script(var VAR_24, var &VAR_29)
 call func_106(var VAR_24, int 1, int 0, int 2)
 call func_50(var VAR_24, int 131)
 
@@ -270,7 +270,7 @@ if(var VAR_62 == int 0)
 						 {
 								var VAR_62 ++ 
 								var VAR_45 = call randomize_int(int 0, int 4)
-								call eval(@VAR_59[var VAR_45], int 100)
+								call run_enemy_generator(@VAR_59[var VAR_45], int 100)
 						}
 				}
 				else
@@ -279,22 +279,22 @@ if(var VAR_62 == int 0)
 						 {
 								var VAR_62 ++ 
 								var VAR_45 = call randomize_int(int 0, int 4)
-								call eval(@VAR_54[var VAR_45], int 100)
+								call run_enemy_generator(@VAR_54[var VAR_45], int 100)
 						}
 				}
 		}
 }
 
 ._SCRIPT_9
-call reload_char(var &VAR_40)
-call reload_char(var &VAR_41)
-call reload_char(var &VAR_42)
-call reload_char(var &VAR_43)
+call load_char(var &VAR_40)
+call load_char(var &VAR_41)
+call load_char(var &VAR_42)
+call load_char(var &VAR_43)
 var VAR_46 = call func_6f()
 var VAR_44 = call randomize_int(int 0, int 3)
 
 ._SCRIPT_10
-var VAR_0 = call is_char_exist(int 1507337)
+var VAR_0 = call is_char_handle_in_level(int 1507337)
 if(var ! VAR_0)
  {
 		var VAR_0 = call create_char(var VAR_1, var &VAR_6, var VAR_2, int 14)
@@ -317,11 +317,11 @@ if(var VAR_3 != int -1)
 		 {
 				if(var VAR_5 != int -1)
 				 {
-						call put_item_in_char_inv(var VAR_0, int 85, var VAR_5, int 0)
+						call add_item_to_char(var VAR_0, int 85, var VAR_5, int 0)
 				}
 				else
 				 {
-						call put_item_in_char_inv(var VAR_0, var VAR_3, int 1, int 0)
+						call add_item_to_char(var VAR_0, var VAR_3, int 1, int 0)
 				}
 		}
 }

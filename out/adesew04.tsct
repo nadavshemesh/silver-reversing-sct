@@ -21,7 +21,7 @@ VAR_18	"spider"
 VAR_19	"icheese"	
 VAR_20	0
 
-._SCRIPT_0
+._on_load
 call play_bgm(var &VAR_13)
 gamevar SMACKER_X = int 0
 gamevar SMACKER_Y = int 160
@@ -39,18 +39,18 @@ call play_loaded_sound(int 1, int -1, int 30, int 0)
 switch(gamevar room_state)
  {
 		case 1
-			call reload_char(var &VAR_17)
+			call load_char(var &VAR_17)
 			execute SCRIPT_3
 			break 
 		case 2
-			call reload_char(var &VAR_18)
+			call load_char(var &VAR_18)
 			var VAR_3 = int 1
 			break 
 		default 
 			break 
 }
 
-._SCRIPT_1
+._infinite_loop
 execute SCRIPT_5
 switch(gamevar room_state)
  {
@@ -64,7 +64,7 @@ switch(gamevar room_state)
 			break 
 }
 
-._SCRIPT_2
+._on_exit
 switch(gamevar room_state)
  {
 }
@@ -73,8 +73,8 @@ switch(gamevar room_state)
 var VAR_5 = call create_enemy(int 86, int 0, var &VAR_8, int 160)
 var VAR_6 = call create_enemy(int 86, int 1, var &VAR_9, int 95)
 var VAR_7 = call create_enemy(int 86, int 2, var &VAR_10, int 335)
-call put_item_in_char_inv(var VAR_5, int 45, int 1, int 0)
-call put_item_in_char_inv(var VAR_7, int 43, int 1, int 0)
+call add_item_to_char(var VAR_5, int 45, int 1, int 0)
+call add_item_to_char(var VAR_7, int 43, int 1, int 0)
 call create_char(var &VAR_11, var &VAR_19, int 0, int 13)
 var VAR_3 = int 0
 var VAR_4 = int 120
@@ -102,7 +102,7 @@ switch(var VAR_3)
 			if(call func_ab(int 400, var &VAR_11))
 			 {
 					call create_enemy(int 189, int 0, var &VAR_11, int 0)
-					call eval(var &VAR_12, int 100)
+					call run_enemy_generator(var &VAR_12, int 100)
 					var VAR_3 ++ 
 			}
 			break 

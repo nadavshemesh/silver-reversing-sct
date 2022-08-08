@@ -28,7 +28,7 @@ VAR_25	0
 VAR_26	0	
 VAR_27	0
 
-._SCRIPT_0
+._on_load
 call load_sound_set(int 22)
 execute SCRIPT_5
 if(gamevar is_room_cleared)
@@ -42,7 +42,7 @@ else
 		}
 }
 
-._SCRIPT_1
+._infinite_loop
 execute SCRIPT_6
 if(gamevar !is_room_cleared)
  {
@@ -51,7 +51,7 @@ if(gamevar !is_room_cleared)
 		}
 }
 
-._SCRIPT_2
+._on_exit
 if(gamevar !is_room_cleared)
  {
 		switch(gamevar room_state)
@@ -92,14 +92,14 @@ switch(var VAR_26)
 			if(call func_ab(int 200, var &VAR_19))
 			 {
 					var VAR_0 = int 1
-					var VAR_27 = call eval(var &VAR_21, int 0)
+					var VAR_27 = call run_enemy_generator(var &VAR_21, int 0)
 					var VAR_26 ++ 
 			}
 			break 
 		case 1
 			if(call func_9(var VAR_27))
 			 {
-					var VAR_27 = call eval(var &VAR_22, int 0)
+					var VAR_27 = call run_enemy_generator(var &VAR_22, int 0)
 					var VAR_26 ++ 
 			}
 			break 
@@ -108,7 +108,7 @@ var VAR_25 ++
 
 ._SCRIPT_8
 var VAR_1 = call func_9a(var &VAR_19, int 47, int 0, int 0)
-call reload_char(var &VAR_23)
-call reload_char(var &VAR_24)
+call load_char(var &VAR_23)
+call load_char(var &VAR_24)
 
 ._SCRIPT_9

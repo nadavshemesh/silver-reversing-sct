@@ -61,7 +61,7 @@ VAR_58	{ 0, 1, 14, VAR_57, 8, 2, 19, 3026, -2394, -1581, 12, 5, 24, 5, -1, 13, 1
 VAR_59	0	
 VAR_60	0
 
-._SCRIPT_0
+._on_load
 call load_sound_set(int 65)
 call play_loaded_sound(int 7, int -1, int 65, int 0)
 execute SCRIPT_3
@@ -85,7 +85,7 @@ else
 		}
 }
 
-._SCRIPT_1
+._infinite_loop
 execute SCRIPT_4
 if(gamevar !is_room_cleared)
  {
@@ -102,7 +102,7 @@ if(gamevar !is_room_cleared)
 		}
 }
 
-._SCRIPT_2
+._on_exit
 if(gamevar !is_room_cleared)
  {
 		switch(gamevar room_state)
@@ -158,7 +158,7 @@ if(var VAR_32 == int 1)
 }
 if(var VAR_32 == int 2)
  {
-		if(call is_char_exist(int 2752512))
+		if(call is_char_handle_in_level(int 2752512))
 		 {
 				if(call func_88(var VAR_5))
 				 {
@@ -174,7 +174,7 @@ if(var VAR_32 == int 2)
 }
 if(var VAR_32 == int 4)
  {
-		var VAR_33 = call eval(var &VAR_27, int 180)
+		var VAR_33 = call run_enemy_generator(var &VAR_27, int 180)
 		var VAR_32 ++ 
 }
 if(var VAR_32 == int 5)
@@ -183,7 +183,7 @@ if(var VAR_32 == int 5)
 		 {
 				if(call func_122(var VAR_33) == int 0)
 				 {
-						var VAR_33 = call eval(var &VAR_29, int 10)
+						var VAR_33 = call run_enemy_generator(var &VAR_29, int 10)
 						var VAR_32 ++ 
 				}
 		}
@@ -196,7 +196,7 @@ if(var VAR_32 == int 6)
 				 {
 						if(call func_122(var VAR_33) == int 0)
 						 {
-								var VAR_33 = call eval(var &VAR_31, int 10)
+								var VAR_33 = call run_enemy_generator(var &VAR_31, int 10)
 								var VAR_32 ++ 
 						}
 				}
@@ -204,18 +204,18 @@ if(var VAR_32 == int 6)
 }
 
 ._SCRIPT_6
-call reload_char(var &VAR_25)
+call load_char(var &VAR_25)
 
 ._SCRIPT_7
 
 ._SCRIPT_8
 
 ._SCRIPT_9
-call reload_char(var &VAR_4)
+call load_char(var &VAR_4)
 var VAR_5 = call create_enemy(int 56, int 0, var &VAR_11, int 165)
-call put_item_in_char_inv(var VAR_5, int 43, int 1, int 0)
+call add_item_to_char(var VAR_5, int 43, int 1, int 0)
 var VAR_6 = call create_enemy(int 56, int 1, var &VAR_12, int 165)
-call put_item_in_char_inv(var VAR_6, int 40, int 1, int 0)
+call add_item_to_char(var VAR_6, int 40, int 1, int 0)
 var VAR_7 = call create_enemy(int 56, int 2, var &VAR_13, int 150)
 var VAR_8 = call create_enemy(int 56, int 3, var &VAR_14, int 165)
 var VAR_9 = call create_enemy(int 56, int 4, var &VAR_15, int 160)
@@ -227,47 +227,47 @@ call freeze_enemy(var VAR_8)
 call freeze_enemy(var VAR_9)
 call freeze_enemy(var VAR_10)
 call set_char_init_state(var VAR_5, int 13)
-call set_char_anim_seq(var VAR_5, var &VAR_17)
+call play_char_ai_script(var VAR_5, var &VAR_17)
 call func_106(var VAR_5, int 1, int 0, int 1)
 call func_50(var VAR_5, int 131)
 call set_char_init_state(var VAR_6, int 13)
-call set_char_anim_seq(var VAR_6, var &VAR_18)
+call play_char_ai_script(var VAR_6, var &VAR_18)
 call func_106(var VAR_6, int 1, int 0, int 1)
 call func_50(var VAR_6, int 131)
 call set_char_init_state(var VAR_7, int 13)
-call set_char_anim_seq(var VAR_7, var &VAR_19)
+call play_char_ai_script(var VAR_7, var &VAR_19)
 call func_106(var VAR_7, int 1, int 0, int 1)
 call func_50(var VAR_7, int 131)
 call set_char_init_state(var VAR_8, int 13)
-call set_char_anim_seq(var VAR_8, var &VAR_20)
+call play_char_ai_script(var VAR_8, var &VAR_20)
 call func_106(var VAR_8, int 1, int 0, int 1)
 call func_50(var VAR_8, int 131)
 call set_char_init_state(var VAR_9, int 13)
-call set_char_anim_seq(var VAR_9, var &VAR_21)
+call play_char_ai_script(var VAR_9, var &VAR_21)
 call func_106(var VAR_9, int 1, int 0, int 1)
 call func_50(var VAR_9, int 131)
 call set_char_init_state(var VAR_10, int 13)
-call set_char_anim_seq(var VAR_10, var &VAR_22)
+call play_char_ai_script(var VAR_10, var &VAR_22)
 call func_106(var VAR_10, int 1, int 0, int 1)
 call func_50(var VAR_10, int 131)
 
 ._SCRIPT_10
-var VAR_35 = call func_70()
-call reload_char(var &VAR_36)
-call reload_char(var &VAR_37)
-call reload_char(var &VAR_38)
-call reload_char(var &VAR_39)
+var VAR_35 = call get_david_char()
+call load_char(var &VAR_36)
+call load_char(var &VAR_37)
+call load_char(var &VAR_38)
+call load_char(var &VAR_39)
 var VAR_40 = call func_6f()
 switch(var VAR_40)
  {
 		case 0
-			call func_a5(var &VAR_48, int 100)
+			call run_wandering_generator(var &VAR_48, int 100)
 			break 
 		case 1
-			call func_a5(var &VAR_49, int 100)
+			call run_wandering_generator(var &VAR_49, int 100)
 			break 
 		case 2
-			call func_a5(var &VAR_58, int 100)
+			call run_wandering_generator(var &VAR_58, int 100)
 			break 
 }
 var VAR_40 = int 100

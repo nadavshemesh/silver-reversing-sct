@@ -30,7 +30,7 @@ VAR_27	0
 VAR_28	0	
 VAR_29	{ 1160613888, -979460096, 1167724544 }
 
-._SCRIPT_0
+._on_load
 execute SCRIPT_3
 call load_sound_set(int 59)
 call play_loaded_sound(int 2, int -1, int 59, int 0)
@@ -55,7 +55,7 @@ else
 		}
 }
 
-._SCRIPT_1
+._infinite_loop
 execute SCRIPT_9
 if(gamevar !is_room_cleared)
  {
@@ -72,7 +72,7 @@ if(gamevar !is_room_cleared)
 		}
 }
 
-._SCRIPT_2
+._on_exit
 if(gamevar !is_room_cleared)
  {
 		switch(gamevar room_state)
@@ -93,10 +93,10 @@ if(gamevar !is_room_cleared)
 }
 
 ._SCRIPT_3
-var VAR_6 = call func_70()
+var VAR_6 = call get_david_char()
 while(var VAR_6)
  {
-		var VAR_7 = call func_66(var VAR_6)
+		var VAR_7 = call get_char_handle_id(var VAR_6)
 		switch(var VAR_7)
 		 {
 				case 65536
@@ -145,7 +145,7 @@ switch(var VAR_24)
 		case 1
 			if(var VAR_17)
 			 {
-					call eval(var &VAR_22, int 10)
+					call run_enemy_generator(var &VAR_22, int 10)
 					var VAR_24 ++ 
 					var VAR_25 = int 0
 			}
@@ -166,7 +166,7 @@ var VAR_18 = call create_char(var &VAR_19, var &VAR_23, int 205, int 13)
 gamevar script_object = var VAR_18
 gamevar *character_movement_p+60 = int 1
 call func_50(var VAR_18, int 8192)
-call set_char_anim_seq(var VAR_18, var &VAR_20)
+call play_char_ai_script(var VAR_18, var &VAR_20)
 call set_input_system(int 2)
 
 ._SCRIPT_6

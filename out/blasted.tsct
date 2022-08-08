@@ -24,7 +24,7 @@ VAR_21	"NULL"
 VAR_22	"Shit! No valid heroes - aaaaaaaarrrrrggghhh!!"	
 VAR_23	"It's all gone Pete Tong!!"
 
-._SCRIPT_0
+._on_load
 call func_58(int 1)
 call load_sound_set(int 46)
 call load_sound_set(int 68)
@@ -44,7 +44,7 @@ else
 		}
 }
 
-._SCRIPT_1
+._infinite_loop
 if(gamevar !is_room_cleared)
  {
 		if(gamevar room_state == int 1)
@@ -53,7 +53,7 @@ if(gamevar !is_room_cleared)
 		}
 }
 
-._SCRIPT_2
+._on_exit
 if(gamevar !is_room_cleared)
  {
 		if(gamevar room_state == int 1)
@@ -135,7 +135,7 @@ switch(var VAR_11)
 		case 2
 			if(call func_6d() == int 10||call func_6d() == int 11)
 			 {
-					call func_22(var VAR_12)
+					call set_char_walking(var VAR_12)
 					call char_walk_to_pos(var VAR_12, var &VAR_13)
 					var VAR_11 ++ 
 					var VAR_10 = int 0
@@ -144,7 +144,7 @@ switch(var VAR_11)
 		case 3
 			if(call is_char_standing(var VAR_12))
 			 {
-					call func_df()
+					call resume_conversation()
 					var VAR_11 ++ 
 					var VAR_10 = int 0
 			}
@@ -153,8 +153,8 @@ switch(var VAR_11)
 			if(call get_input_sys() != int 4)
 			 {
 					call set_input_system(int 1)
-					call eval(var &VAR_7, int 0)
-					call eval(var &VAR_8, int 500)
+					call run_enemy_generator(var &VAR_7, int 0)
+					call run_enemy_generator(var &VAR_8, int 500)
 					var VAR_11 ++ 
 					var VAR_10 = int 0
 			}
@@ -163,11 +163,11 @@ switch(var VAR_11)
 var VAR_10 ++ 
 
 ._SCRIPT_4
-var VAR_2 = call is_char_exist(int 65536)
-var VAR_3 = call is_char_exist(int 786432)
-var VAR_4 = call is_char_exist(int 196608)
-var VAR_5 = call is_char_exist(int 327680)
+var VAR_2 = call is_char_handle_in_level(int 65536)
+var VAR_3 = call is_char_handle_in_level(int 786432)
+var VAR_4 = call is_char_handle_in_level(int 196608)
+var VAR_5 = call is_char_handle_in_level(int 327680)
 call set_input_system(int 2)
-call reload_char(var &VAR_9)
+call load_char(var &VAR_9)
 
 ._SCRIPT_5

@@ -55,7 +55,7 @@ VAR_52	0
 VAR_53	0	
 VAR_54	0
 
-._SCRIPT_0
+._on_load
 call play_bgm(var &VAR_2)
 call load_sound_set(int 62)
 call load_sound_set(int 63)
@@ -84,7 +84,7 @@ else
 		}
 }
 
-._SCRIPT_1
+._infinite_loop
 execute SCRIPT_3
 if(gamevar !is_room_cleared)
  {
@@ -104,7 +104,7 @@ if(gamevar !is_room_cleared)
 		}
 }
 
-._SCRIPT_2
+._on_exit
 if(gamevar !is_room_cleared)
  {
 		switch(gamevar room_state)
@@ -160,8 +160,8 @@ var VAR_4 = call load_anim(var &VAR_5)
 var VAR_6 = call create_enemy(int 103, int 1, var &VAR_9, int 25)
 var VAR_7 = call create_enemy(int 103, int 2, var &VAR_10, int 330)
 var VAR_8 = call create_char(var &VAR_11, var &VAR_23, int 35, int 13)
-call play_char_anim_seq(var VAR_8)
-call put_item_in_char_inv(var VAR_8, int 87, int 1, int 1)
+call set_char_running(var VAR_8)
+call add_item_to_char(var VAR_8, int 87, int 1, int 1)
 var VAR_12 = call create_enemy(int 105, int 1, var &VAR_16, int 345)
 var VAR_13 = call create_enemy(int 105, int 2, var &VAR_17, int 305)
 var VAR_14 = call create_enemy(int 105, int 3, var &VAR_18, int 15)
@@ -230,7 +230,7 @@ if(var VAR_30 == int 1)
 		if(call is_char_standing(var VAR_8))
 		 {
 				call play_char_anim(var VAR_8, var VAR_4, int 0)
-				call play_loaded_sound(int 1, int 0, int 53, call func_6a(var VAR_8))
+				call play_loaded_sound(int 1, int 0, int 53, call get_char_movement_ptr(var VAR_8))
 				var VAR_30 ++ 
 				var VAR_37 = int 0
 		}
@@ -279,7 +279,7 @@ if(var VAR_31 == int 1)
 				call set_char_behav(var VAR_13, int 105)
 				call set_char_behav(var VAR_14, int 105)
 				call set_char_behav(var VAR_15, int 105)
-				call eval(var &VAR_22, int 10)
+				call run_enemy_generator(var &VAR_22, int 10)
 				var VAR_31 ++ 
 				var VAR_32 = int 0
 		}
@@ -287,7 +287,7 @@ if(var VAR_31 == int 1)
 var VAR_32 ++ 
 
 ._SCRIPT_10
-call func_7(int 0, call func_77(var VAR_1), call func_78(var VAR_1), call func_79(var VAR_1))
+call func_7(int 0, call get_char_x(var VAR_1), call get_char_y(var VAR_1), call func_79(var VAR_1))
 call remove_char(var VAR_1)
 
 ._SCRIPT_11
@@ -310,7 +310,7 @@ var VAR_1 = call get_char_handle(int 2031616)
 if(var VAR_49 != var VAR_48)
  {
 		var VAR_49 = var VAR_48
-		call func_ce(var VAR_48)
+		call log_obj(var VAR_48)
 }
 switch(var VAR_48)
  {

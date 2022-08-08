@@ -51,7 +51,7 @@ VAR_48	{ 2499, -720, 2544 }
 VAR_49	{ 1719, -720, 1999 }	
 VAR_50	{ 1015, -720, 2467 }
 
-._SCRIPT_0
+._on_load
 execute SCRIPT_10
 execute SCRIPT_12
 if(gamevar is_room_cleared)
@@ -76,7 +76,7 @@ else
 		}
 }
 
-._SCRIPT_1
+._infinite_loop
 execute SCRIPT_11
 if(gamevar !is_room_cleared)
  {
@@ -96,7 +96,7 @@ if(gamevar !is_room_cleared)
 		}
 }
 
-._SCRIPT_2
+._on_exit
 if(gamevar !is_room_cleared)
  {
 		switch(gamevar room_state)
@@ -130,13 +130,13 @@ var VAR_31 = call create_enemy(int 40, int 2, var &VAR_34, int 185)
 call func_106(var VAR_29, int 9, int 5, var &VAR_25)
 call func_106(var VAR_29, int 9, int 6, int 6)
 call set_char_init_state(var VAR_29, int 13)
-call set_char_anim_seq(var VAR_29, var &VAR_35)
+call play_char_ai_script(var VAR_29, var &VAR_35)
 call func_106(var VAR_30, int 1, int 0, int 1)
 call func_106(var VAR_31, int 1, int 0, int 1)
 call func_50(var VAR_30, int 8194)
 call func_50(var VAR_31, int 8194)
-call set_char_anim_seq(var VAR_30, var &VAR_36)
-call set_char_anim_seq(var VAR_31, var &VAR_37)
+call play_char_ai_script(var VAR_30, var &VAR_36)
+call play_char_ai_script(var VAR_31, var &VAR_37)
 var VAR_43 = call create_enemy(int 191, int 1, var &VAR_47, int 70)
 var VAR_44 = call create_enemy(int 191, int 2, var &VAR_48, int 90)
 var VAR_45 = call create_enemy(int 191, int 3, var &VAR_49, int 325)
@@ -145,10 +145,10 @@ call func_50(var VAR_43, int 8192)
 call func_50(var VAR_44, int 8192)
 call func_50(var VAR_45, int 8192)
 call func_50(var VAR_46, int 8192)
-call set_char_anim_seq(var VAR_43, var &VAR_39)
-call set_char_anim_seq(var VAR_44, var &VAR_40)
-call set_char_anim_seq(var VAR_45, var &VAR_41)
-call set_char_anim_seq(var VAR_46, var &VAR_42)
+call play_char_ai_script(var VAR_43, var &VAR_39)
+call play_char_ai_script(var VAR_44, var &VAR_40)
+call play_char_ai_script(var VAR_45, var &VAR_41)
+call play_char_ai_script(var VAR_46, var &VAR_42)
 
 ._SCRIPT_5
 
@@ -178,8 +178,8 @@ if(gamevar *scene_info_p+4 & int 16)
 		gamevar SMACKER_X = int 208
 		gamevar SMACKER_Y = int 384
 		call play_2d_anim(var &VAR_8, int 0, int 1, var &VAR_2)
-		call reload_char(var &VAR_9)
-		call reload_char(var &VAR_10)
+		call load_char(var &VAR_9)
+		call load_char(var &VAR_10)
 		var VAR_3 = call load_anim(var &VAR_11)
 }
 else
@@ -241,7 +241,7 @@ switch(var VAR_13)
 					gamevar *scene_info_p+4 &= int -17
 					gamevar *scene_info_p+4 |= int 2
 					call func_59(var VAR_17)
-					var VAR_28 = call eval(var &VAR_22, int 20)
+					var VAR_28 = call run_enemy_generator(var &VAR_22, int 20)
 					var VAR_26 = call create_enemy(int 39, int 1, var &VAR_24, int 0)
 					gamevar script_object = var VAR_26
 					gamevar *character_stats_p+15 = int 8000
@@ -249,7 +249,7 @@ switch(var VAR_13)
 					call func_106(var VAR_26, int 9, int 5, var &VAR_25)
 					call func_106(var VAR_26, int 9, int 6, int 6)
 					call set_char_init_state(var VAR_26, int 13)
-					call set_char_anim_seq(var VAR_26, var &VAR_27)
+					call play_char_ai_script(var VAR_26, var &VAR_27)
 					call char_walk_to_pos(var VAR_26, var &VAR_25)
 					var VAR_13 ++ 
 					var VAR_14 = int 0
@@ -259,7 +259,7 @@ switch(var VAR_13)
 			if(call func_9(var VAR_28))
 			 {
 					var VAR_0 = int 1
-					var VAR_28 = call eval(var &VAR_23, int 20)
+					var VAR_28 = call run_enemy_generator(var &VAR_23, int 20)
 					var VAR_13 ++ 
 					var VAR_14 = int 0
 			}

@@ -18,7 +18,7 @@ VAR_15	{ 1146339328, -995368960, -994009088 }
 VAR_16	{ 1152024576, -995368960, -992452608 }	
 VAR_17	{ VAR_14, VAR_15, VAR_16 }
 
-._SCRIPT_0
+._on_load
 call load_sound_set(int 46)
 call play_loaded_sound(int 4, int -1, int 46, int 0)
 if(gamevar is_room_cleared)
@@ -41,7 +41,7 @@ else
 }
 execute SCRIPT_8
 
-._SCRIPT_1
+._infinite_loop
 execute SCRIPT_3
 if(gamevar !is_room_cleared)
  {
@@ -58,7 +58,7 @@ if(gamevar !is_room_cleared)
 		}
 }
 
-._SCRIPT_2
+._on_exit
 if(gamevar !is_room_cleared)
  {
 		switch(gamevar room_state)
@@ -117,7 +117,7 @@ switch(var VAR_7)
 		case 2
 			if(var VAR_8 > int 100)
 			 {
-					var VAR_6 = call func_70()
+					var VAR_6 = call get_david_char()
 					while(var VAR_6)
 					 {
 							call char_exit_door(var VAR_6, int 0)
@@ -131,7 +131,7 @@ var VAR_8 ++
 
 ._SCRIPT_5
 var VAR_2 = call create_char(var &VAR_1, var &VAR_5, int 62, int 13)
-call func_bb(var VAR_2, var &VAR_3)
+call load_char_anim(var VAR_2, var &VAR_3)
 
 ._SCRIPT_6
 

@@ -28,7 +28,7 @@ VAR_25	"skavenb"
 VAR_26	"bell hit while ringing"	
 VAR_27	0
 
-._SCRIPT_0
+._on_load
 call load_sound_set(int 38)
 call load_sound_set(int 34)
 call play_bgm(var &VAR_19)
@@ -57,12 +57,12 @@ else
 		gamevar SMACKER_X = int 128
 		gamevar SMACKER_Y = int 128
 		call play_2d_anim(var &VAR_22, int -2147483, int 1, var &VAR_5)
-		call reload_char(var &VAR_23)
-		call reload_char(var &VAR_24)
-		call reload_char(var &VAR_25)
+		call load_char(var &VAR_23)
+		call load_char(var &VAR_24)
+		call load_char(var &VAR_25)
 }
 
-._SCRIPT_1
+._infinite_loop
 execute SCRIPT_5
 if(var ! VAR_1)
  {
@@ -102,7 +102,7 @@ else
 		}
 }
 
-._SCRIPT_2
+._on_exit
 switch(gamevar room_state)
  {
 }
@@ -117,8 +117,8 @@ gamevar script_object = var VAR_9
 gamevar *character_stats_p+15 = int 5000
 gamevar script_object = var VAR_10
 gamevar *character_stats_p+15 = int 5000
-call put_item_in_char_inv(var VAR_8, int 21, int 1, int 0)
-call put_item_in_char_inv(var VAR_9, int 43, int 1, int 0)
+call add_item_to_char(var VAR_8, int 21, int 1, int 0)
+call add_item_to_char(var VAR_9, int 43, int 1, int 0)
 call func_17(var VAR_8, call get_selected_hero())
 call func_17(var VAR_9, call get_selected_hero())
 call func_17(var VAR_10, call get_selected_hero())
@@ -132,7 +132,7 @@ gamevar script_object = var VAR_7
 gamevar *character_stats_p+15 = int 10000
 call func_106(var VAR_6, int 9, int 5, var &VAR_16)
 call func_106(var VAR_7, int 9, int 5, var &VAR_17)
-call eval(var &VAR_18, int 200)
+call run_enemy_generator(var &VAR_18, int 200)
 
 ._SCRIPT_5
 if(gamevar script_time > var VAR_27)

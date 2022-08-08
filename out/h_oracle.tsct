@@ -62,7 +62,7 @@ VAR_59	"h_orout"
 VAR_60	0	
 VAR_61	0
 
-._SCRIPT_0
+._on_load
 call load_sound_set(int 78)
 call load_sound_set(int 8)
 call load_sound_set(int 12)
@@ -81,7 +81,7 @@ switch(gamevar room_state)
 			break 
 }
 
-._SCRIPT_1
+._infinite_loop
 execute SCRIPT_7
 switch(gamevar room_state)
  {
@@ -95,7 +95,7 @@ switch(gamevar room_state)
 			break 
 }
 
-._SCRIPT_2
+._on_exit
 switch(gamevar room_state)
  {
 		case 1
@@ -115,7 +115,7 @@ switch(gamevar room_state)
 if(var VAR_53 != var VAR_41)
  {
 		var VAR_53 = var VAR_41
-		call func_ce(var VAR_41)
+		call log_obj(var VAR_41)
 }
 execute SCRIPT_10
 switch(var VAR_41)
@@ -123,7 +123,7 @@ switch(var VAR_41)
 		case 0
 			if(var VAR_42 > int 5)
 			 {
-					call func_10b(var VAR_0, var &VAR_44, int 250)
+					call char_teleport_to_pos(var VAR_0, var &VAR_44, int 250)
 					var VAR_41 ++ 
 					var VAR_42 = int 0
 			}
@@ -147,7 +147,7 @@ switch(var VAR_41)
 		case 3
 			if(call func_5c(var VAR_0))
 			 {
-					call func_df()
+					call resume_conversation()
 					var VAR_13 = int 3
 					var VAR_41 ++ 
 					var VAR_42 = int 0
@@ -198,7 +198,7 @@ switch(var VAR_41)
 					var VAR_33 = int 1
 					gamevar script_object = var VAR_36
 					gamevar *smack_object_p+2 -= int 10737418
-					call func_df()
+					call resume_conversation()
 					var VAR_41 ++ 
 					var VAR_42 = int 0
 			}
@@ -267,7 +267,7 @@ switch(var VAR_41)
 			if(call func_38(var VAR_43, int 0))
 			 {
 					call func_12f(var VAR_52)
-					call func_22(var VAR_0)
+					call set_char_walking(var VAR_0)
 					call func_ca(var VAR_0, var VAR_43, int 0)
 					call char_turn_to_pos(var VAR_5, var &VAR_44)
 					var VAR_41 ++ 
@@ -277,7 +277,7 @@ switch(var VAR_41)
 		case 13
 			if(var VAR_42 > int 20)
 			 {
-					call func_22(var VAR_6)
+					call set_char_walking(var VAR_6)
 					call func_2b(var VAR_6, int 0)
 					var VAR_41 ++ 
 					var VAR_42 = int 0
@@ -312,7 +312,7 @@ var VAR_6 = call create_char(var &VAR_9, var &VAR_21, int 35, int 13)
 var VAR_7 = call create_char(var &VAR_10, var &VAR_22, int 210, int 13)
 gamevar script_object = var VAR_7
 gamevar *character_movement_p+62 = int 1
-call put_item_in_char_inv(var VAR_5, int 16, int 0, int 1)
+call add_item_to_char(var VAR_5, int 16, int 0, int 1)
 var VAR_0 = call get_char_handle(int 65536)
 execute SCRIPT_5
 execute SCRIPT_6

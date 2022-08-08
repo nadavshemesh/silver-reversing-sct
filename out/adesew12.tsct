@@ -16,7 +16,7 @@ VAR_13	"spider"
 VAR_14	0	
 VAR_15	0
 
-._SCRIPT_0
+._on_load
 call play_bgm(var &VAR_9)
 gamevar SMACKER_X = int 248
 gamevar SMACKER_Y = int 168
@@ -40,7 +40,7 @@ switch(gamevar room_state)
 			break 
 }
 
-._SCRIPT_1
+._infinite_loop
 execute SCRIPT_5
 switch(gamevar room_state)
  {
@@ -51,7 +51,7 @@ switch(gamevar room_state)
 			break 
 }
 
-._SCRIPT_2
+._on_exit
 switch(gamevar room_state)
  {
 		case 1
@@ -62,11 +62,11 @@ switch(gamevar room_state)
 }
 
 ._SCRIPT_3
-call reload_char(var &VAR_13)
+call load_char(var &VAR_13)
 var VAR_3 = call create_enemy(int 46, int 0, var &VAR_5, int 50)
 var VAR_4 = call create_enemy(int 46, int 1, var &VAR_6, int 40)
-call put_item_in_char_inv(var VAR_3, int 43, int 1, int 0)
-call put_item_in_char_inv(var VAR_4, int 45, int 1, int 0)
+call add_item_to_char(var VAR_3, int 43, int 1, int 0)
+call add_item_to_char(var VAR_4, int 45, int 1, int 0)
 call func_104(var VAR_3, int 7, int 4)
 call func_104(var VAR_4, int 7, int 4)
 call set_char_init_state(var VAR_3, int 3)
@@ -86,11 +86,11 @@ if(var VAR_12 > int 1)
 		var VAR_12 -- 
 		exit_script 
 }
-if(call is_char_exist(int 10551296))
+if(call is_char_handle_in_level(int 10551296))
  {
 		call func_2(var VAR_3)
 }
-if(call is_char_exist(int 10551297))
+if(call is_char_handle_in_level(int 10551297))
  {
 		call func_2(var VAR_4)
 }

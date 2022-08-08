@@ -19,7 +19,7 @@ VAR_16	{ 0, 1, 2, VAR_15, 8, 1, 1, 1, 79, 79, -1, 4, 0, 9, 0, 5, 0, 25, 6, 3, 7,
 VAR_17	{ 0, 1, 2, VAR_15, 8, 1, 1, 1, 80, 78, 77, 78, -1, 4, 0, 9, 0, 5, 0, 140, 6, 3, 7, 1, 2, 10, 41, 40, -1, -1, 0 }	
 VAR_18	0
 
-._SCRIPT_0
+._on_load
 execute SCRIPT_9
 call load_sound_set(int 65)
 call play_loaded_sound(int 5, int -1, int 65, int 0)
@@ -44,7 +44,7 @@ else
 		}
 }
 
-._SCRIPT_1
+._infinite_loop
 execute SCRIPT_3
 if(gamevar !is_room_cleared)
  {
@@ -61,7 +61,7 @@ if(gamevar !is_room_cleared)
 		}
 }
 
-._SCRIPT_2
+._on_exit
 if(gamevar !is_room_cleared)
  {
 		switch(gamevar room_state)
@@ -92,7 +92,7 @@ if(gamevar script_time > var VAR_18)
 ._SCRIPT_4
 if(var VAR_5 == int 0)
  {
-		if(call is_char_exist(int 3604480))
+		if(call is_char_handle_in_level(int 3604480))
 		 {
 				if(call func_88(var VAR_6))
 				 {
@@ -102,7 +102,7 @@ if(var VAR_5 == int 0)
 						call func_46(var VAR_9, int 13)
 				}
 		}
-		if(call is_char_exist(int 3604481))
+		if(call is_char_handle_in_level(int 3604481))
 		 {
 				if(call func_88(var VAR_7))
 				 {
@@ -116,14 +116,14 @@ if(var VAR_5 == int 0)
 }
 if(var VAR_5 == int 1)
  {
-		var VAR_14 = call eval(var &VAR_17, int 10)
+		var VAR_14 = call run_enemy_generator(var &VAR_17, int 10)
 		var VAR_5 ++ 
 }
 if(var VAR_5 == int 2)
  {
 		if(call func_122(var VAR_14) == int 0)
 		 {
-				var VAR_14 = call eval(var &VAR_16, int 10)
+				var VAR_14 = call run_enemy_generator(var &VAR_16, int 10)
 				var VAR_5 ++ 
 		}
 }
@@ -138,11 +138,11 @@ gamevar script_object = var VAR_7
 gamevar *character_stats_p+16 = int 1400
 gamevar *character_stats_p+15 = int 3400
 call set_char_init_state(var VAR_6, int 13)
-call set_char_anim_seq(var VAR_6, var &VAR_12)
+call play_char_ai_script(var VAR_6, var &VAR_12)
 call func_106(var VAR_6, int 1, int 0, int 1)
 call set_char_init_state(var VAR_6, int 1)
 call set_char_init_state(var VAR_7, int 13)
-call set_char_anim_seq(var VAR_7, var &VAR_13)
+call play_char_ai_script(var VAR_7, var &VAR_13)
 call func_106(var VAR_7, int 1, int 0, int 1)
 call set_char_init_state(var VAR_7, int 1)
 
@@ -153,8 +153,8 @@ call set_char_init_state(var VAR_7, int 1)
 ._SCRIPT_8
 
 ._SCRIPT_9
-call reload_char(var &VAR_0)
-call reload_char(var &VAR_1)
+call load_char(var &VAR_0)
+call load_char(var &VAR_1)
 call func_b8(int 96)
 gamevar SMACKER_X = int 264
 gamevar SMACKER_Y = int 144

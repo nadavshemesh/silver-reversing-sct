@@ -39,7 +39,7 @@ VAR_36	0
 VAR_37	0	
 VAR_38	0
 
-._SCRIPT_0
+._on_load
 call load_sound_set(int 75)
 call play_loaded_sound(int 1, int -1, int 75, int 0)
 call play_loaded_sound(int 2, int -1, int 75, int 0)
@@ -57,7 +57,7 @@ if(gamevar room_state == int 2)
 		execute SCRIPT_9
 }
 
-._SCRIPT_1
+._infinite_loop
 execute SCRIPT_11
 if(gamevar room_state == int 0)
  {
@@ -72,7 +72,7 @@ if(gamevar room_state == int 2)
 		execute SCRIPT_10
 }
 
-._SCRIPT_2
+._on_exit
 if(gamevar room_state == int 0)
  {
 		exit_script 
@@ -89,20 +89,20 @@ call set_input_system(int 2)
 execute SCRIPT_8
 execute SCRIPT_4
 call func_50(var VAR_3, int 8192)
-call set_char_anim_seq(var VAR_3, var &VAR_17)
-call play_char_anim_seq(var VAR_3)
+call play_char_ai_script(var VAR_3, var &VAR_17)
+call set_char_running(var VAR_3)
 call func_50(var VAR_4, int 8192)
-call set_char_anim_seq(var VAR_4, var &VAR_20)
+call play_char_ai_script(var VAR_4, var &VAR_20)
 gamevar script_object = var VAR_4
 gamevar *object_p+6 |= int 1
-call play_char_anim_seq(var VAR_4)
+call set_char_running(var VAR_4)
 if(var VAR_5)
  {
 		gamevar script_object = var VAR_5
 		gamevar *object_p+6 |= int 1
 		call func_50(var VAR_5, int 8192)
-		call set_char_anim_seq(var VAR_5, var &VAR_21)
-		call play_char_anim_seq(var VAR_5)
+		call play_char_ai_script(var VAR_5, var &VAR_21)
+		call set_char_running(var VAR_5)
 }
 
 ._SCRIPT_4
@@ -123,13 +123,13 @@ switch(var VAR_25)
 					var VAR_0 = int 1
 					var VAR_26 = int 0
 					var VAR_25 ++ 
-					call func_10b(var VAR_3, var &VAR_27, int 270)
+					call char_teleport_to_pos(var VAR_3, var &VAR_27, int 270)
 					call char_stop(var VAR_3)
-					call func_10b(var VAR_4, var &VAR_28, int 270)
+					call char_teleport_to_pos(var VAR_4, var &VAR_28, int 270)
 					call char_stop(var VAR_4)
 					if(var VAR_5)
 					 {
-							call func_10b(var VAR_5, var &VAR_29, int 270)
+							call char_teleport_to_pos(var VAR_5, var &VAR_29, int 270)
 							call char_stop(var VAR_5)
 					}
 			}
@@ -226,10 +226,10 @@ if(call is_local_timer_greater_than(var VAR_34))
 }
 
 ._SCRIPT_8
-var VAR_6 = call func_70()
+var VAR_6 = call get_david_char()
 while(var VAR_6)
  {
-		var VAR_7 = call func_66(var VAR_6)
+		var VAR_7 = call get_char_handle_id(var VAR_6)
 		if(var VAR_7 == int 65536)
 		 {
 				var VAR_3 = var VAR_6

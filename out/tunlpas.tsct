@@ -69,7 +69,7 @@ VAR_66	{ 0, 0, 0 }
 VAR_67	"tunlpas"	
 VAR_68	"open door"
 
-._SCRIPT_0
+._on_load
 call load_sound_set(int 1)
 execute SCRIPT_3
 call play_bgm(var &VAR_19)
@@ -95,7 +95,7 @@ else
 		}
 }
 
-._SCRIPT_1
+._infinite_loop
 execute SCRIPT_13
 if(gamevar !is_room_cleared)
  {
@@ -115,7 +115,7 @@ if(gamevar !is_room_cleared)
 		}
 }
 
-._SCRIPT_2
+._on_exit
 if(gamevar !is_room_cleared)
  {
 		switch(gamevar room_state)
@@ -131,16 +131,16 @@ if(gamevar !is_room_cleared)
 					 {
 							gamevar room_state ++ 
 							gamevar *scene_info_p+1 = int 1
-							call func_117(var &VAR_20, var &VAR_21, int 2)
-							call func_117(var &VAR_22, var &VAR_23, int 2)
-							call func_117(var &VAR_24, var &VAR_25, int 2)
-							call func_117(var &VAR_26, var &VAR_27, int 2)
-							call func_117(var &VAR_28, var &VAR_29, int 2)
-							call func_117(var &VAR_30, var &VAR_31, int 2)
-							call func_117(var &VAR_32, var &VAR_33, int 2)
-							call func_117(var &VAR_34, var &VAR_35, int 2)
-							call func_117(var &VAR_36, var &VAR_37, int 2)
-							call func_117(var &VAR_38, var &VAR_39, int 2)
+							call set_scene_overwrite_act(var &VAR_20, var &VAR_21, int 2)
+							call set_scene_overwrite_act(var &VAR_22, var &VAR_23, int 2)
+							call set_scene_overwrite_act(var &VAR_24, var &VAR_25, int 2)
+							call set_scene_overwrite_act(var &VAR_26, var &VAR_27, int 2)
+							call set_scene_overwrite_act(var &VAR_28, var &VAR_29, int 2)
+							call set_scene_overwrite_act(var &VAR_30, var &VAR_31, int 2)
+							call set_scene_overwrite_act(var &VAR_32, var &VAR_33, int 2)
+							call set_scene_overwrite_act(var &VAR_34, var &VAR_35, int 2)
+							call set_scene_overwrite_act(var &VAR_36, var &VAR_37, int 2)
+							call set_scene_overwrite_act(var &VAR_38, var &VAR_39, int 2)
 					}
 					break 
 				case 0
@@ -165,7 +165,7 @@ call play_2d_anim(var &VAR_67, int 0, int 1, var &VAR_66)
 if(var VAR_65 != var VAR_44)
  {
 		var VAR_65 = var VAR_44
-		call func_ce(var VAR_44)
+		call log_obj(var VAR_44)
 }
 if(var VAR_44 == int 0)
  {
@@ -197,7 +197,7 @@ if(var VAR_44 == int 1)
 }
 if(var VAR_44 == int 2)
  {
-		if(call is_char_exist(int 6881280))
+		if(call is_char_handle_in_level(int 6881280))
 		 {
 				call func_106(var VAR_48, int 1, int 0, int 1)
 				call func_104(var VAR_48, int 1, int 4)
@@ -206,11 +206,11 @@ if(var VAR_44 == int 2)
 				call func_106(var VAR_48, int 3, int 1, var &VAR_64)
 				call func_50(var VAR_48, int 667)
 		}
-		if(call is_char_exist(int 7143424))
+		if(call is_char_handle_in_level(int 7143424))
 		 {
 				call func_106(var VAR_46, int 1, int 0, int 1)
 		}
-		if(call is_char_exist(int 7143425))
+		if(call is_char_handle_in_level(int 7143425))
 		 {
 				call func_106(var VAR_47, int 1, int 0, int 1)
 		}
@@ -233,11 +233,11 @@ var VAR_51 = call get_char_handle(int 65536)
 var VAR_52 = call get_char_handle(int 786432)
 var VAR_58 = call load_anim(var &VAR_59)
 call set_char_init_state(var VAR_49, int 13)
-call set_char_anim_seq(var VAR_49, var &VAR_62)
+call play_char_ai_script(var VAR_49, var &VAR_62)
 call set_char_init_state(var VAR_50, int 13)
-call set_char_anim_seq(var VAR_50, var &VAR_63)
-call put_item_in_char_inv(var VAR_48, int 108, int 1, int 0)
-call put_item_in_char_inv(var VAR_46, int 40, int 1, int 0)
+call play_char_ai_script(var VAR_50, var &VAR_63)
+call add_item_to_char(var VAR_48, int 108, int 1, int 0)
+call add_item_to_char(var VAR_46, int 40, int 1, int 0)
 
 ._SCRIPT_7
 
@@ -383,7 +383,7 @@ switch(var VAR_13)
 		case 2
 			if(call is_local_timer_greater_than(var VAR_16))
 			 {
-					call func_f6(gamevar misc_fx_scripts, int 6, int 0, int 0)
+					call apply_effect_on_char(gamevar misc_fx_scripts, int 6, int 0, int 0)
 					call reset_local_timer()
 					var VAR_17 = int 255
 					var VAR_16 = call randomize_int(int 1, int 31)

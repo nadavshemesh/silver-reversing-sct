@@ -18,7 +18,7 @@ VAR_15	"spider"
 VAR_16	"ratrptr"	
 VAR_17	0
 
-._SCRIPT_0
+._on_load
 call play_bgm(var &VAR_14)
 call load_sound_set(int 38)
 switch(gamevar room_state)
@@ -30,7 +30,7 @@ switch(gamevar room_state)
 			break 
 }
 
-._SCRIPT_1
+._infinite_loop
 execute SCRIPT_3
 switch(gamevar room_state)
  {
@@ -41,7 +41,7 @@ switch(gamevar room_state)
 			break 
 }
 
-._SCRIPT_2
+._on_exit
 switch(gamevar room_state)
  {
 		case 1
@@ -59,8 +59,8 @@ if(gamevar script_time > var VAR_17)
 }
 
 ._SCRIPT_4
-call reload_char(var &VAR_15)
-call reload_char(var &VAR_16)
+call load_char(var &VAR_15)
+call load_char(var &VAR_16)
 var VAR_2 = call create_enemy(int 45, int 0, var &VAR_7, int 290)
 var VAR_3 = call create_enemy(int 45, int 1, var &VAR_8, int 40)
 call func_106(var VAR_2, int 9, int 5, var &VAR_7)
@@ -72,8 +72,8 @@ call func_106(var VAR_3, int 3, int 1, var &VAR_13)
 var VAR_4 = call create_enemy(int 46, int 0, var &VAR_9, int 310)
 var VAR_5 = call create_enemy(int 46, int 1, var &VAR_10, int 50)
 var VAR_6 = call create_enemy(int 46, int 2, var &VAR_11, int 40)
-call put_item_in_char_inv(var VAR_4, int 45, int 1, int 0)
-call put_item_in_char_inv(var VAR_6, int 43, int 1, int 0)
+call add_item_to_char(var VAR_4, int 45, int 1, int 0)
+call add_item_to_char(var VAR_6, int 43, int 1, int 0)
 call func_106(var VAR_4, int 1, int 0, int 1)
 call func_106(var VAR_5, int 1, int 0, int 1)
 call func_106(var VAR_6, int 1, int 0, int 1)
@@ -99,15 +99,15 @@ switch(var VAR_0)
 			}
 			else
 			 {
-					if(call is_char_exist(int 10551296))
+					if(call is_char_handle_in_level(int 10551296))
 					 {
 							call func_29(var VAR_4)
 					}
-					if(call is_char_exist(int 10551297))
+					if(call is_char_handle_in_level(int 10551297))
 					 {
 							call func_29(var VAR_5)
 					}
-					if(call is_char_exist(int 10551298))
+					if(call is_char_handle_in_level(int 10551298))
 					 {
 							call func_29(var VAR_6)
 					}
@@ -122,15 +122,15 @@ switch(var VAR_0)
 			}
 			else
 			 {
-					if(call is_char_exist(int 10551296))
+					if(call is_char_handle_in_level(int 10551296))
 					 {
 							call func_2(var VAR_4)
 					}
-					if(call is_char_exist(int 10551297))
+					if(call is_char_handle_in_level(int 10551297))
 					 {
 							call func_2(var VAR_5)
 					}
-					if(call is_char_exist(int 10551298))
+					if(call is_char_handle_in_level(int 10551298))
 					 {
 							call func_2(var VAR_6)
 					}

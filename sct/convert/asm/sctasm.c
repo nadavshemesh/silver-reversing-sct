@@ -1050,6 +1050,23 @@ expr_obj* asm_create_expr_obj(expr_pattern* expr_p, char** vars, char*** token_p
             break; 
         }
 
+        case FUNC_PTR: {
+            char* name = vars[0];
+            game_fun* gf = get_game_func_by_name(name);
+            if(gf == NULL) {
+                char err[256];
+                sprintf(err, "game function %s is not found.", name);
+                print_err_and_exit(err, -4);
+            }
+            int bin_vars[1] = { gf->id };
+            char* asm_vars[1] = { aapts(name) };
+            eo->bin_vars = w_malloc(expr_p->bin_var_num*sizeof(int));
+            eo->asm_vars = w_malloc(expr_p->asm_var_num*sizeof(char*));
+            memcpy(eo->bin_vars, bin_vars, expr_p->bin_var_num*sizeof(int));
+            memcpy(eo->asm_vars, asm_vars, expr_p->asm_var_num*sizeof(char*));
+            break;
+        }
+
         case FUNCTION: {
             asm_read_function_expr(eo, vars, token_pos_ptr, sf);
             break;

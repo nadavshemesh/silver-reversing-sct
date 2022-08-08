@@ -78,7 +78,7 @@ VAR_75	"NULL"
 VAR_76	"WOLF"	
 VAR_77	"ARSE"
 
-._SCRIPT_0
+._on_load
 execute SCRIPT_3
 if(gamevar is_room_cleared)
  {
@@ -114,7 +114,7 @@ else
 		}
 }
 
-._SCRIPT_1
+._infinite_loop
 execute SCRIPT_15
 if(gamevar !is_room_cleared)
  {
@@ -137,7 +137,7 @@ if(gamevar !is_room_cleared)
 		}
 }
 
-._SCRIPT_2
+._on_exit
 if(gamevar !is_room_cleared)
  {
 		switch(gamevar room_state)
@@ -183,7 +183,7 @@ execute SCRIPT_14
 if(var VAR_36 != var VAR_32)
  {
 		var VAR_36 = var VAR_32
-		call func_ce(var VAR_32)
+		call log_obj(var VAR_32)
 }
 switch(var VAR_32)
  {
@@ -205,7 +205,7 @@ switch(var VAR_32)
 						 {
 								call log(var &VAR_38)
 								var VAR_35 = call get_selected_hero()
-								switch(call func_66(var VAR_35))
+								switch(call get_char_handle_id(var VAR_35))
 								 {
 										case 65536
 											call start_dialog(var &VAR_39, var &VAR_40)
@@ -225,7 +225,7 @@ switch(var VAR_32)
 								}
 								var VAR_20 = int 1
 								call play_char_anim(var VAR_25, var VAR_29, int 0)
-								call put_item_in_char_inv(gamevar control_char_p, int 115, int 0, int 0)
+								call add_item_to_char(gamevar control_char_p, int 115, int 0, int 0)
 								call func_f8(int 115, int 100)
 								call func_110(var VAR_34 - int 50)
 								var VAR_32 = int 3
@@ -299,7 +299,7 @@ switch(var VAR_55)
 						 {
 								call log(var &VAR_61)
 								var VAR_58 = call get_selected_hero()
-								switch(call func_66(var VAR_58))
+								switch(call get_char_handle_id(var VAR_58))
 								 {
 										case 65536
 											call start_dialog(var &VAR_62, var &VAR_63)
@@ -319,7 +319,7 @@ switch(var VAR_55)
 								}
 								var VAR_20 = int 1
 								call play_char_anim(var VAR_25, var VAR_29, int 0)
-								call put_item_in_char_inv(gamevar control_char_p, int 115, int 0, int 0)
+								call add_item_to_char(gamevar control_char_p, int 115, int 0, int 0)
 								call func_f8(int 115, int 100)
 								call func_110(var VAR_57 - int 50)
 								var VAR_55 = int 4
@@ -377,7 +377,7 @@ call func_108(var &VAR_77)
 ._SCRIPT_12
 var VAR_25 = call create_char(var &VAR_26, var &VAR_30, int 336, int 13)
 call func_50(var VAR_25, int 8192)
-call set_char_anim_seq(var VAR_25, var &VAR_27)
+call play_char_ai_script(var VAR_25, var &VAR_27)
 var VAR_29 = call load_anim(var &VAR_31)
 
 ._SCRIPT_13
@@ -501,7 +501,7 @@ switch(var VAR_13)
 		case 2
 			if(call is_local_timer_greater_than(var VAR_16))
 			 {
-					call func_f6(gamevar misc_fx_scripts, int 6, int 0, int 0)
+					call apply_effect_on_char(gamevar misc_fx_scripts, int 6, int 0, int 0)
 					call reset_local_timer()
 					var VAR_17 = int 255
 					var VAR_16 = call randomize_int(int 1, int 31)

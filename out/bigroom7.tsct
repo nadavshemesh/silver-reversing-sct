@@ -30,7 +30,7 @@ VAR_27	-1
 VAR_28	"yup"	
 VAR_29	"yup"
 
-._SCRIPT_0
+._on_load
 call play_bgm(var &VAR_0)
 if(gamevar is_room_cleared)
  {
@@ -54,7 +54,7 @@ else
 		}
 }
 
-._SCRIPT_1
+._infinite_loop
 if(gamevar !is_room_cleared)
  {
 		switch(gamevar room_state)
@@ -73,7 +73,7 @@ if(gamevar !is_room_cleared)
 		}
 }
 
-._SCRIPT_2
+._on_exit
 if(gamevar !is_room_cleared)
  {
 		switch(gamevar room_state)
@@ -129,9 +129,9 @@ call func_50(var VAR_2, int 8194)
 call func_50(var VAR_3, int 8194)
 call func_50(var VAR_2, int 8192)
 call func_50(var VAR_3, int 8192)
-call set_char_anim_seq(var VAR_2, var &VAR_7)
-call set_char_anim_seq(var VAR_3, var &VAR_8)
-call put_item_in_char_inv(var VAR_2, int 42, int 1, int 0)
+call play_char_ai_script(var VAR_2, var &VAR_7)
+call play_char_ai_script(var VAR_3, var &VAR_8)
+call add_item_to_char(var VAR_2, int 42, int 1, int 0)
 var VAR_9 = call create_enemy(int 40, int 1, var &VAR_11, int 290)
 var VAR_10 = call create_enemy(int 40, int 2, var &VAR_12, int 175)
 gamevar script_object = var VAR_9
@@ -148,10 +148,10 @@ call func_50(var VAR_9, int 8194)
 call func_50(var VAR_10, int 8194)
 call func_50(var VAR_9, int 8192)
 call func_50(var VAR_10, int 8192)
-call set_char_anim_seq(var VAR_9, var &VAR_14)
-call set_char_anim_seq(var VAR_10, var &VAR_15)
-call put_item_in_char_inv(var VAR_9, int 45, int 1, int 0)
-call put_item_in_char_inv(var VAR_10, int 47, int 1, int 0)
+call play_char_ai_script(var VAR_9, var &VAR_14)
+call play_char_ai_script(var VAR_10, var &VAR_15)
+call add_item_to_char(var VAR_9, int 45, int 1, int 0)
+call add_item_to_char(var VAR_10, int 47, int 1, int 0)
 execute SCRIPT_11
 
 ._SCRIPT_5
@@ -169,7 +169,7 @@ execute SCRIPT_11
 if(var VAR_27 != var VAR_21)
  {
 		var VAR_27 = var VAR_21
-		call func_ce(var VAR_21)
+		call log_obj(var VAR_21)
 }
 switch(var VAR_21)
  {
@@ -177,7 +177,7 @@ switch(var VAR_21)
 			if(call func_ab(int 300, var &VAR_19))
 			 {
 					call log(var &VAR_28)
-					call eval(var &VAR_26, int 20)
+					call run_enemy_generator(var &VAR_26, int 20)
 					var VAR_21 ++ 
 			}
 			break 
@@ -185,7 +185,7 @@ switch(var VAR_21)
 			if(call func_ab(int 300, var &VAR_20))
 			 {
 					call log(var &VAR_29)
-					call eval(var &VAR_23, int 20)
+					call run_enemy_generator(var &VAR_23, int 20)
 					var VAR_21 ++ 
 			}
 			break 
@@ -194,5 +194,5 @@ switch(var VAR_21)
 }
 
 ._SCRIPT_11
-call reload_char(var &VAR_17)
-call reload_char(var &VAR_18)
+call load_char(var &VAR_17)
+call load_char(var &VAR_18)

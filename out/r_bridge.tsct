@@ -35,7 +35,7 @@ VAR_32	"ronnie"
 VAR_33	0	
 VAR_34	0
 
-._SCRIPT_0
+._on_load
 execute SCRIPT_3
 call func_58(int 1)
 if(gamevar is_room_cleared)
@@ -57,7 +57,7 @@ else
 		}
 }
 
-._SCRIPT_1
+._infinite_loop
 execute SCRIPT_10
 if(gamevar !is_room_cleared)
  {
@@ -74,7 +74,7 @@ if(gamevar !is_room_cleared)
 		}
 }
 
-._SCRIPT_2
+._on_exit
 if(gamevar !is_room_cleared)
  {
 		switch(gamevar room_state)
@@ -108,7 +108,7 @@ if(var VAR_33 == int 0)
 		 {
 				if(call func_88(var VAR_22))
 				 {
-						var VAR_28 = call eval(var &VAR_29, int 10)
+						var VAR_28 = call run_enemy_generator(var &VAR_29, int 10)
 						var VAR_33 ++ 
 				}
 		}
@@ -117,14 +117,14 @@ if(var VAR_33 == int 1)
  {
 		if(call func_122(var VAR_28) == int 0)
 		 {
-				var VAR_28 = call eval(var &VAR_30, int 10)
+				var VAR_28 = call run_enemy_generator(var &VAR_30, int 10)
 				var VAR_33 ++ 
 		}
 }
 
 ._SCRIPT_5
 var VAR_22 = call create_enemy(int 76, int 0, var &VAR_25, int 60)
-call put_item_in_char_inv(var VAR_22, int 85, int 3277313, int 0)
+call add_item_to_char(var VAR_22, int 85, int 3277313, int 0)
 gamevar script_object = var VAR_22
 gamevar *character_stats_p+15 = int 3400
 var VAR_23 = call create_enemy(int 81, int 3, var &VAR_26, int 245)
@@ -132,7 +132,7 @@ gamevar script_object = var VAR_23
 gamevar *character_stats_p+16 = int 1400
 gamevar *character_stats_p+15 = int 3400
 var VAR_24 = call create_enemy(int 78, int 4, var &VAR_27, int 53)
-call put_item_in_char_inv(var VAR_24, int 85, int 1638913, int 0)
+call add_item_to_char(var VAR_24, int 85, int 1638913, int 0)
 gamevar script_object = var VAR_24
 gamevar *character_stats_p+16 = int 1400
 gamevar *character_stats_p+15 = int 3400
@@ -144,8 +144,8 @@ call func_50(var VAR_22, int 130)
 call func_104(var VAR_22, int 1, int 4)
 call func_106(var VAR_22, int 1, int 7, int 1)
 call func_104(var VAR_22, int 7, int 4)
-call reload_char(var &VAR_31)
-call reload_char(var &VAR_32)
+call load_char(var &VAR_31)
+call load_char(var &VAR_32)
 call func_b8(int 92)
 
 ._SCRIPT_6
@@ -273,7 +273,7 @@ switch(var VAR_13)
 		case 2
 			if(call is_local_timer_greater_than(var VAR_16))
 			 {
-					call func_f6(gamevar misc_fx_scripts, int 6, int 0, int 0)
+					call apply_effect_on_char(gamevar misc_fx_scripts, int 6, int 0, int 0)
 					call reset_local_timer()
 					var VAR_17 = int 255
 					var VAR_16 = call randomize_int(int 1, int 31)

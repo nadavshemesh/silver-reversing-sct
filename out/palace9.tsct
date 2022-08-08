@@ -14,10 +14,10 @@ VAR_11	"bmimic"
 VAR_12	0	
 VAR_13	0
 
-._SCRIPT_0
+._on_load
 call load_sound_set(int 66)
 call play_loaded_sound(int 5, int -1, int 66, int 0)
-var VAR_2 = call func_70()
+var VAR_2 = call get_david_char()
 var VAR_3 = call func_7e()
 var VAR_4 = call func_7e()
 call play_bgm(var &VAR_5)
@@ -34,7 +34,7 @@ if(gamevar room_state == int 3)
 		execute SCRIPT_9
 }
 
-._SCRIPT_1
+._infinite_loop
 execute SCRIPT_3
 if(gamevar room_state == int 1)
  {
@@ -49,7 +49,7 @@ if(gamevar room_state == int 3)
 		execute SCRIPT_8
 }
 
-._SCRIPT_2
+._on_exit
 if(gamevar room_state == int 2)
  {
 		gamevar room_state ++ 
@@ -81,15 +81,15 @@ if(var VAR_1)
 var VAR_1 = int 0
 var VAR_0 = int 1
 var VAR_7 = call create_char(var &VAR_6, var &VAR_8, int 70, int 14)
-call put_item_in_char_inv(var VAR_7, int 67, int 1, int 0)
-call put_item_in_char_inv(var VAR_7, int 46, int 1, int 0)
-call put_item_in_char_inv(var VAR_7, int 40, int 1, int 0)
+call add_item_to_char(var VAR_7, int 67, int 1, int 0)
+call add_item_to_char(var VAR_7, int 46, int 1, int 0)
+call add_item_to_char(var VAR_7, int 40, int 1, int 0)
 var VAR_9 = call create_char(var &VAR_10, var &VAR_11, int 150, int 17)
-call put_item_in_char_inv(var VAR_9, int 85, int 3277313, int 0)
-call put_item_in_char_inv(var VAR_9, int 47, int 1, int 0)
-call put_item_in_char_inv(var VAR_9, int 45, int 1, int 0)
-call put_item_in_char_inv(var VAR_9, int 17, int 0, int 0)
-call put_item_in_char_inv(var VAR_9, int 49, int 0, int 0)
+call add_item_to_char(var VAR_9, int 85, int 3277313, int 0)
+call add_item_to_char(var VAR_9, int 47, int 1, int 0)
+call add_item_to_char(var VAR_9, int 45, int 1, int 0)
+call add_item_to_char(var VAR_9, int 17, int 0, int 0)
+call add_item_to_char(var VAR_9, int 49, int 0, int 0)
 
 ._SCRIPT_6
 if(var VAR_1)

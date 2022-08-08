@@ -34,7 +34,7 @@ VAR_31	{ 0, 0 }
 VAR_32	-1	
 VAR_33	"suprise attack from four groads"
 
-._SCRIPT_0
+._on_load
 call play_bgm(var &VAR_0)
 gamevar SMACKER_X = int 0
 gamevar SMACKER_Y = int 628
@@ -61,7 +61,7 @@ else
 		}
 }
 
-._SCRIPT_1
+._infinite_loop
 if(gamevar !is_room_cleared)
  {
 		switch(gamevar room_state)
@@ -80,7 +80,7 @@ if(gamevar !is_room_cleared)
 		}
 }
 
-._SCRIPT_2
+._on_exit
 if(gamevar !is_room_cleared)
  {
 		switch(gamevar room_state)
@@ -112,13 +112,13 @@ if(gamevar !is_room_cleared)
 if(var VAR_32 != var VAR_31)
  {
 		var VAR_32 = var VAR_31
-		call func_ce(var VAR_31)
+		call log_obj(var VAR_31)
 }
 if(var VAR_31 == int 0)
  {
 		if(call func_8a(var &VAR_21))
 		 {
-				var VAR_9 = call func_a5(var &VAR_11, int 10)
+				var VAR_9 = call run_wandering_generator(var &VAR_11, int 10)
 				var VAR_31 ++ 
 		}
 }
@@ -128,7 +128,7 @@ if(var VAR_31 == int 1)
 		 {
 				if(call get_num_of_enemies() < int 4)
 				 {
-						var VAR_9 = call eval(var &VAR_12, int 10)
+						var VAR_9 = call run_enemy_generator(var &VAR_12, int 10)
 						var VAR_31 ++ 
 				}
 		}
@@ -165,8 +165,8 @@ if(var VAR_31 == int 4)
 		 {
 				if(call get_num_of_enemies() < int 2)
 				 {
-						var VAR_9 = call func_a5(var &VAR_16, int 10)
-						var VAR_9 = call func_a5(var &VAR_20, int 10)
+						var VAR_9 = call run_wandering_generator(var &VAR_16, int 10)
+						var VAR_9 = call run_wandering_generator(var &VAR_20, int 10)
 						call log(var &VAR_33)
 						var VAR_31 ++ 
 				}
@@ -174,12 +174,12 @@ if(var VAR_31 == int 4)
 }
 
 ._SCRIPT_4
-call reload_char(var &VAR_3)
-call reload_char(var &VAR_4)
-call reload_char(var &VAR_5)
-call reload_char(var &VAR_6)
-call reload_char(var &VAR_7)
-call reload_char(var &VAR_8)
+call load_char(var &VAR_3)
+call load_char(var &VAR_4)
+call load_char(var &VAR_5)
+call load_char(var &VAR_6)
+call load_char(var &VAR_7)
+call load_char(var &VAR_8)
 
 ._SCRIPT_5
 switch(var VAR_29)
@@ -188,8 +188,8 @@ switch(var VAR_29)
 			if(call func_8c(int 1507328))
 			 {
 					var VAR_23 = call create_enemy(int 136, int 0, var &VAR_24, int 0)
-					call put_item_in_char_inv(var VAR_23, int 13, int 1, int 0)
-					call put_item_in_char_inv(var VAR_23, int 13, int 1, int 0)
+					call add_item_to_char(var VAR_23, int 13, int 1, int 0)
+					call add_item_to_char(var VAR_23, int 13, int 1, int 0)
 					var VAR_29 ++ 
 			}
 			break 
@@ -197,8 +197,8 @@ switch(var VAR_29)
 			if(call func_8c(int 1507328))
 			 {
 					var VAR_25 = call create_enemy(int 136, int 1, var &VAR_26, int 0)
-					call put_item_in_char_inv(var VAR_25, int 108, int 1, int 0)
-					call put_item_in_char_inv(var VAR_25, int 109, int 1, int 0)
+					call add_item_to_char(var VAR_25, int 108, int 1, int 0)
+					call add_item_to_char(var VAR_25, int 109, int 1, int 0)
 					var VAR_29 ++ 
 			}
 			break 
@@ -206,8 +206,8 @@ switch(var VAR_29)
 			if(call func_8c(int 1441792))
 			 {
 					var VAR_27 = call create_enemy(int 196, int 1, var &VAR_28, int 0)
-					call put_item_in_char_inv(var VAR_27, int 37, int 1, int 0)
-					call put_item_in_char_inv(var VAR_27, int 38, int 1, int 0)
+					call add_item_to_char(var VAR_27, int 37, int 1, int 0)
+					call add_item_to_char(var VAR_27, int 38, int 1, int 0)
 					var VAR_29 ++ 
 					var VAR_30 = int 1
 			}

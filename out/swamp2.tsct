@@ -61,7 +61,7 @@ VAR_58	0
 VAR_59	0	
 VAR_60	0
 
-._SCRIPT_0
+._on_load
 call load_sound_set(int 22)
 execute SCRIPT_5
 if(gamevar is_room_cleared)
@@ -75,7 +75,7 @@ else
 		}
 }
 
-._SCRIPT_1
+._infinite_loop
 execute SCRIPT_6
 if(gamevar !is_room_cleared)
  {
@@ -84,7 +84,7 @@ if(gamevar !is_room_cleared)
 		}
 }
 
-._SCRIPT_2
+._on_exit
 if(gamevar !is_room_cleared)
  {
 		switch(gamevar room_state)
@@ -96,7 +96,7 @@ if(gamevar !is_room_cleared)
 if(var VAR_20 == int 0)
  {
 		var VAR_21 = call randomize_int(int 0, int 15)
-		call func_f6(gamevar misc_fx_scripts, int 4, @VAR_19[var VAR_21], int 0)
+		call apply_effect_on_char(gamevar misc_fx_scripts, int 4, @VAR_19[var VAR_21], int 0)
 		var VAR_20 = call randomize_int(int 200, int 401)
 }
 var VAR_20 -- 
@@ -137,19 +137,19 @@ switch(var VAR_57)
 										break 
 									case 1
 										var VAR_3 ++ 
-										var VAR_59 = call eval(var &VAR_43, int 0)
+										var VAR_59 = call run_enemy_generator(var &VAR_43, int 0)
 										var VAR_57 ++ 
 										var VAR_58 = int 0
 										break 
 									case 2
 										var VAR_3 ++ 
-										var VAR_59 = call eval(var &VAR_44, int 0)
+										var VAR_59 = call run_enemy_generator(var &VAR_44, int 0)
 										var VAR_57 ++ 
 										var VAR_58 = int 0
 										break 
 									case 3
 										var VAR_3 ++ 
-										var VAR_59 = call eval(var &VAR_45, int 0)
+										var VAR_59 = call run_enemy_generator(var &VAR_45, int 0)
 										var VAR_57 ++ 
 										var VAR_58 = int 0
 										break 
@@ -177,8 +177,8 @@ switch(var VAR_57)
 var VAR_58 ++ 
 
 ._SCRIPT_8
-call reload_char(var &VAR_48)
-call reload_char(var &VAR_49)
+call load_char(var &VAR_48)
+call load_char(var &VAR_49)
 execute SCRIPT_16
 if(call func_bf(int 0, gamevar CURRENT_LEVEL, gamevar CURRENT_SCENE))
  {
@@ -295,7 +295,7 @@ while(@VAR_25[var VAR_35])
 ._SCRIPT_15
 
 ._SCRIPT_16
-var VAR_25 = call func_70()
+var VAR_25 = call get_david_char()
 var VAR_26 = call func_7e()
 var VAR_27 = call func_7e()
 var VAR_28 = int 0

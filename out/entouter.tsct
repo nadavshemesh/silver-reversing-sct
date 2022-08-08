@@ -64,7 +64,7 @@ VAR_61	0
 VAR_62	0	
 VAR_63	0
 
-._SCRIPT_0
+._on_load
 if(gamevar room_state == int 3)
  {
 		call play_bgm(var &VAR_0)
@@ -92,7 +92,7 @@ else
 		}
 }
 
-._SCRIPT_1
+._infinite_loop
 execute SCRIPT_3
 if(gamevar !is_room_cleared)
  {
@@ -112,7 +112,7 @@ if(gamevar !is_room_cleared)
 		}
 }
 
-._SCRIPT_2
+._on_exit
 if(gamevar !is_room_cleared)
  {
 		switch(gamevar room_state)
@@ -145,10 +145,10 @@ if(gamevar script_time > var VAR_61)
  {
 		var VAR_61 = gamevar script_time + int 60 + call randomize_int(int 0, int 40)
 		var VAR_59 = int 4 + call randomize_int(int 0, int 4)
-		var VAR_63 = call is_char_exist(int 1966080)
+		var VAR_63 = call is_char_handle_in_level(int 1966080)
 		if(var VAR_63)
 		 {
-				var VAR_62 = call func_6a(var VAR_63)
+				var VAR_62 = call get_char_movement_ptr(var VAR_63)
 				call play_loaded_sound(var VAR_59, int 0, int 9, var VAR_62)
 		}
 		else
@@ -169,12 +169,12 @@ execute SCRIPT_6
 ._SCRIPT_6
 var VAR_1 = call create_char(var &VAR_2, var &VAR_7, int 325, int 16)
 call set_char_init_state(var VAR_1, int 13)
-call set_char_anim_seq(var VAR_1, var &VAR_5)
+call play_char_ai_script(var VAR_1, var &VAR_5)
 gamevar script_object = var VAR_1
 gamevar *character_stats_p+14 = int 91750
 var VAR_3 = call create_char(var &VAR_4, var &VAR_8, int 325, int 16)
 call set_char_init_state(var VAR_3, int 13)
-call set_char_anim_seq(var VAR_3, var &VAR_6)
+call play_char_ai_script(var VAR_3, var &VAR_6)
 
 ._SCRIPT_7
 gamevar door_restriction_p = var &VAR_22
@@ -192,9 +192,9 @@ call play_2d_anim(var &VAR_25, int -2147483, int 1, var &VAR_18)
 call play_2d_anim(var &VAR_26, int 0, int 1, var &VAR_17)
 var VAR_14 = call load_anim(var &VAR_27)
 var VAR_15 = call load_anim(var &VAR_28)
-call play_char_anim_seq(var VAR_10)
+call set_char_running(var VAR_10)
 call func_18(var VAR_10, int 5362, int -996, int -828)
-call play_char_anim_seq(var VAR_11)
+call set_char_running(var VAR_11)
 call func_18(var VAR_11, int 5195, int -996, int -933)
 call set_input_system(int 2)
 call func_46(var VAR_11, int 2)
@@ -203,7 +203,7 @@ call func_46(var VAR_11, int 2)
 if(var VAR_29 != var VAR_9)
  {
 		var VAR_29 = var VAR_9
-		call func_ce(var VAR_9)
+		call log_obj(var VAR_9)
 }
 if(var VAR_9 == int 1000)
  {
@@ -224,7 +224,7 @@ if(var VAR_9 == int 1)
  {
 		if(call func_6d() == int 1)
 		 {
-				call func_100(call func_6a(var VAR_12))
+				call func_100(call get_char_movement_ptr(var VAR_12))
 				var VAR_9 = int 2
 				gamevar scene_counter = int 0
 		}
@@ -235,9 +235,9 @@ if(var VAR_9 == int 2)
 		 {
 				call log(var &VAR_32)
 				call play_loaded_sound(int 8, int 0, int 9, int 0)
-				call play_char_anim_seq(var VAR_12)
+				call set_char_running(var VAR_12)
 				call func_18(var VAR_12, int 2060, int 3, int 895)
-				call play_char_anim_seq(var VAR_13)
+				call set_char_running(var VAR_13)
 				call func_18(var VAR_13, int 1525, int 3, int 895)
 				gamevar scene_counter = int 0
 				var VAR_9 = int 3
@@ -268,15 +268,15 @@ if(var VAR_9 == int 5)
  {
 		if(gamevar scene_counter > int 30)
 		 {
-				call func_100(call func_6a(var VAR_10))
+				call func_100(call get_char_movement_ptr(var VAR_10))
 				var VAR_9 = int 6
 		}
 }
 if(var VAR_9 == int 6)
  {
-		if(call func_5e())
+		if(call is_not_scrolling())
 		 {
-				call func_df()
+				call resume_conversation()
 				var VAR_9 ++ 
 		}
 }
@@ -284,7 +284,7 @@ if(var VAR_9 == int 7)
  {
 		if(call func_6d() == int 2)
 		 {
-				call func_df()
+				call resume_conversation()
 				var VAR_9 = int 8
 		}
 }
@@ -292,7 +292,7 @@ if(var VAR_9 == int 8)
  {
 		if(call get_input_sys() != int 4)
 		 {
-				call play_char_anim_seq(var VAR_11)
+				call set_char_running(var VAR_11)
 				call func_18(var VAR_11, int 2902, int 3, int 706)
 				call func_10c(var VAR_11, var &VAR_33)
 				gamevar *scene_info_p+3 = int 16
@@ -307,29 +307,29 @@ if(var VAR_9 == int 9)
 		 {
 				call set_input_system(int 2)
 				call func_dc()
-				if(call func_78(var VAR_11) < int -20)
+				if(call get_char_y(var VAR_11) < int -20)
 				 {
-						call play_char_anim_seq(var VAR_11)
+						call set_char_running(var VAR_11)
 						call func_18(var VAR_11, int 2902, int 3, int 706)
 				}
 				call func_ff(var &VAR_19)
 				gamevar scene_counter = int 0
 				var VAR_9 = int 10
-				call play_char_anim_seq(var VAR_10)
+				call set_char_running(var VAR_10)
 				call func_18(var VAR_10, int 3578, int -196, int 795)
 				var VAR_16 = int 3
 		}
 }
 if(var VAR_9 == int 10)
  {
-		if(call func_78(var VAR_11) < int -20)
+		if(call get_char_y(var VAR_11) < int -20)
 		 {
 				gamevar scene_counter = int 0
 				exit_script 
 		}
 		if(gamevar scene_counter > int 30)
 		 {
-				if(call func_5e())
+				if(call is_not_scrolling())
 				 {
 						call play_loaded_sound(int 11, int 0, int 9, int 0)
 						call func_21(var VAR_11, var &VAR_19)
@@ -345,7 +345,7 @@ if(var VAR_9 == int 11)
 				var VAR_16 -- 
 				if(var VAR_16 == int 0)
 				 {
-						call play_char_anim_seq(var VAR_10)
+						call set_char_running(var VAR_10)
 						call func_18(var VAR_10, int 3116, int 3, int 731)
 						var VAR_9 = int 12
 				}
@@ -377,8 +377,8 @@ if(var VAR_9 == int 14)
 		if(call get_input_sys() != int 4)
 		 {
 				call set_input_system(int 2)
-				call func_22(var VAR_11)
-				call func_22(var VAR_10)
+				call set_char_walking(var VAR_11)
+				call set_char_walking(var VAR_10)
 				call func_18(var VAR_11, int 2834, int 3, int 1182)
 				call func_18(var VAR_10, int 2902, int 3, int 706)
 				var VAR_9 = int 15
@@ -451,13 +451,13 @@ call set_input_system(int 2)
 
 ._SCRIPT_12
 var VAR_45 = call create_char(var &VAR_42, var &VAR_48, int 0, int 13)
-call play_char_anim_seq(var VAR_45)
+call set_char_running(var VAR_45)
 var VAR_46 = call create_char(var &VAR_43, var &VAR_49, int 15, int 13)
-call put_item_in_char_inv(var VAR_46, int 16, int 0, int 1)
-call play_char_anim_seq(var VAR_46)
+call add_item_to_char(var VAR_46, int 16, int 0, int 1)
+call set_char_running(var VAR_46)
 var VAR_47 = call create_char(var &VAR_44, var &VAR_50, int 0, int 13)
-call put_item_in_char_inv(var VAR_47, int 16, int 0, int 1)
-call play_char_anim_seq(var VAR_47)
+call add_item_to_char(var VAR_47, int 16, int 0, int 1)
+call set_char_running(var VAR_47)
 
 ._SCRIPT_13
 var VAR_51 = call load_anim(var &VAR_54)
@@ -471,7 +471,7 @@ if(var VAR_39 == int 0)
 		 {
 				call func_18(var VAR_45, int 4516, int -596, int -85)
 				call func_18(var VAR_47, int 4432, int -796, int -785)
-				call func_100(call func_6a(var VAR_45))
+				call func_100(call get_char_movement_ptr(var VAR_45))
 		}
 		var VAR_40 ++ 
 		if(var VAR_40 == int 20)

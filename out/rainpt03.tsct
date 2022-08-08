@@ -38,7 +38,7 @@ VAR_35	{ 625, -929, -2708 }
 VAR_36	{ 1021, -929, -2789 }	
 VAR_37	{ 0, 0, 0, -1, 8, 0, 1, 1, 11, 11, 12, 13, -1, 4, 0, 9, 0, 5, 0, 100, 6, 1, 7, 1, 2, 10, 40, 41, -1, -1 }
 
-._SCRIPT_0
+._on_load
 var VAR_19 = var &VAR_25
 var VAR_20 = int 0
 execute SCRIPT_13
@@ -65,7 +65,7 @@ else
 		}
 }
 
-._SCRIPT_1
+._infinite_loop
 execute SCRIPT_10
 if(gamevar !is_room_cleared)
  {
@@ -82,7 +82,7 @@ if(gamevar !is_room_cleared)
 		}
 }
 
-._SCRIPT_2
+._on_exit
 if(gamevar !is_room_cleared)
  {
 		switch(gamevar room_state)
@@ -247,7 +247,7 @@ switch(var VAR_13)
 		case 2
 			if(call is_local_timer_greater_than(var VAR_16))
 			 {
-					call func_f6(gamevar misc_fx_scripts, int 6, int 0, int 0)
+					call apply_effect_on_char(gamevar misc_fx_scripts, int 6, int 0, int 0)
 					call reset_local_timer()
 					var VAR_17 = int 255
 					var VAR_16 = call randomize_int(int 1, int 31)
@@ -290,7 +290,7 @@ switch(var VAR_13)
 var VAR_14 ++ 
 
 ._SCRIPT_13
-var VAR_18 = call is_char_exist(int 1507337)
+var VAR_18 = call is_char_handle_in_level(int 1507337)
 if(var ! VAR_18)
  {
 		var VAR_18 = call create_char(var VAR_19, var &VAR_24, var VAR_20, int 14)
@@ -313,11 +313,11 @@ if(var VAR_21 != int -1)
 		 {
 				if(var VAR_23 != int -1)
 				 {
-						call put_item_in_char_inv(var VAR_18, int 85, var VAR_23, int 0)
+						call add_item_to_char(var VAR_18, int 85, var VAR_23, int 0)
 				}
 				else
 				 {
-						call put_item_in_char_inv(var VAR_18, var VAR_21, int 1, int 0)
+						call add_item_to_char(var VAR_18, var VAR_21, int 1, int 0)
 				}
 		}
 }

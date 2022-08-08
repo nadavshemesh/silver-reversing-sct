@@ -49,7 +49,7 @@ VAR_46	{ VAR_40, VAR_41, VAR_42, VAR_43, VAR_44, VAR_45 }
 VAR_47	0	
 VAR_48	0
 
-._SCRIPT_0
+._on_load
 call func_58(int 1)
 call load_sound_set(int 22)
 call load_sound_set(int 46)
@@ -66,7 +66,7 @@ else
 		}
 }
 
-._SCRIPT_1
+._infinite_loop
 execute SCRIPT_10
 if(gamevar !is_room_cleared)
  {
@@ -75,7 +75,7 @@ if(gamevar !is_room_cleared)
 		}
 }
 
-._SCRIPT_2
+._on_exit
 if(gamevar !is_room_cleared)
  {
 		switch(gamevar room_state)
@@ -87,7 +87,7 @@ if(gamevar !is_room_cleared)
 if(var VAR_22 != var VAR_14)
  {
 		var VAR_22 = var VAR_14
-		call func_ce(var VAR_14)
+		call log_obj(var VAR_14)
 }
 switch(var VAR_14)
  {
@@ -135,9 +135,9 @@ switch(var VAR_14)
 					gamevar compile_init_character = int 0
 					var VAR_16 = call func_92(int 0, var &VAR_23, int 0, int 13)
 					gamevar compile_init_character = int 1
-					call play_char_anim_seq(var VAR_16)
-					var VAR_17 = call func_70()
-					call char_walk_to_pos(var VAR_16, call func_67(var VAR_17))
+					call set_char_running(var VAR_16)
+					var VAR_17 = call get_david_char()
+					call char_walk_to_pos(var VAR_16, call get_char_pos(var VAR_17))
 					var VAR_14 ++ 
 					var VAR_15 = int 0
 			}
@@ -145,8 +145,8 @@ switch(var VAR_14)
 		case 4
 			if(call is_char_standing(var VAR_16))
 			 {
-					call char_turn_to_pos(var VAR_16, call func_67(var VAR_17))
-					call char_turn_to_pos(var VAR_17, call func_67(var VAR_16))
+					call char_turn_to_pos(var VAR_16, call get_char_pos(var VAR_17))
+					call char_turn_to_pos(var VAR_17, call get_char_pos(var VAR_16))
 					var VAR_14 ++ 
 					var VAR_15 = int 0
 			}
@@ -192,8 +192,8 @@ var VAR_7 ++
 gamevar SMACKER_X = int 168
 gamevar SMACKER_Y = int 32
 var VAR_5 = call play_2d_anim(var &VAR_11, int 10737418, int 1, var &VAR_9)
-call reload_char(var &VAR_12)
-call reload_char(var &VAR_13)
+call load_char(var &VAR_12)
+call load_char(var &VAR_13)
 call load_sound_set(int 70)
 var VAR_6 = call play_loaded_sound(int 1, int -1, int 70, int 0)
 

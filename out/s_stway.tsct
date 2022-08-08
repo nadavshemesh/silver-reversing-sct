@@ -32,7 +32,7 @@ VAR_29	{ 1090519040, -995368960, -980715520 }
 VAR_30	{ -997515264, -995368960, -986542080 }	
 VAR_31	{ 198, VAR_28, VAR_29 }
 
-._SCRIPT_0
+._on_load
 execute SCRIPT_3
 call load_sound_set(int 0)
 call load_sound_set(int 46)
@@ -73,7 +73,7 @@ else
 		}
 }
 
-._SCRIPT_1
+._infinite_loop
 execute SCRIPT_4
 if(gamevar !is_room_cleared)
  {
@@ -124,7 +124,7 @@ if(var VAR_2)
 		}
 }
 
-._SCRIPT_2
+._on_exit
 if(gamevar !is_room_cleared)
  {
 		switch(gamevar room_state)
@@ -189,7 +189,7 @@ switch(var VAR_23)
 		case 1
 			if(var VAR_24 > int 100)
 			 {
-					if(call ! is_char_exist(int 12648448))
+					if(call ! is_char_handle_in_level(int 12648448))
 					 {
 							var VAR_15 = call func_96(int 171, int 0, int 2, int 2)
 							call func_106(var VAR_15, int 2, int 1, var &VAR_20)
@@ -204,9 +204,9 @@ switch(var VAR_23)
 var VAR_24 ++ 
 
 ._SCRIPT_6
-call reload_char(var &VAR_11)
-call reload_char(var &VAR_12)
-call reload_char(var &VAR_13)
+call load_char(var &VAR_11)
+call load_char(var &VAR_12)
+call load_char(var &VAR_13)
 
 ._SCRIPT_7
 

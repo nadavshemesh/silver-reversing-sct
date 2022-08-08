@@ -40,7 +40,7 @@ VAR_37	"finnegan"
 VAR_38	"muscles"	
 VAR_39	"wandering baddies"
 
-._SCRIPT_0
+._on_load
 execute SCRIPT_3
 call play_bgm(var &VAR_18)
 if(gamevar is_room_cleared)
@@ -62,7 +62,7 @@ else
 		}
 }
 
-._SCRIPT_1
+._infinite_loop
 execute SCRIPT_10
 if(gamevar !is_room_cleared)
  {
@@ -79,7 +79,7 @@ if(gamevar !is_room_cleared)
 		}
 }
 
-._SCRIPT_2
+._on_exit
 if(gamevar !is_room_cleared)
  {
 		switch(gamevar room_state)
@@ -106,7 +106,7 @@ execute SCRIPT_9
 if(var VAR_33 != var VAR_24)
  {
 		var VAR_33 = var VAR_24
-		call func_ce(var VAR_24)
+		call log_obj(var VAR_24)
 }
 switch(var VAR_24)
  {
@@ -123,7 +123,7 @@ switch(var VAR_24)
 			var VAR_25 = int 0
 			break 
 		case 1
-			if(call is_char_exist(int 6881280))
+			if(call is_char_handle_in_level(int 6881280))
 			 {
 					if(call is_char_standing(var VAR_26))
 					 {
@@ -136,7 +136,7 @@ switch(var VAR_24)
 		case 2
 			if(call func_ab(int 660, var &VAR_27))
 			 {
-					if(call is_char_exist(int 6881280))
+					if(call is_char_handle_in_level(int 6881280))
 					 {
 							call func_36(var VAR_26, int 3397, int -1016, int -1045)
 					}
@@ -148,7 +148,7 @@ switch(var VAR_24)
 			var VAR_25 ++ 
 			if(var VAR_25 > int 5)
 			 {
-					if(call is_char_exist(int 6881280))
+					if(call is_char_handle_in_level(int 6881280))
 					 {
 							call play_char_anim(var VAR_26, var VAR_31, int 0)
 							var VAR_24 ++ 
@@ -161,20 +161,20 @@ switch(var VAR_24)
 			}
 			break 
 		case 4
-			if(call is_char_exist(int 6881280))
+			if(call is_char_handle_in_level(int 6881280))
 			 {
 					if(call func_5c(var VAR_26))
 					 {
-							var VAR_28 = call eval(var &VAR_29, int 1)
-							var VAR_28 = call eval(var &VAR_30, int 1)
+							var VAR_28 = call run_enemy_generator(var &VAR_29, int 1)
+							var VAR_28 = call run_enemy_generator(var &VAR_30, int 1)
 							var VAR_24 ++ 
 							var VAR_25 = int 0
 					}
 			}
 			else
 			 {
-					var VAR_28 = call eval(var &VAR_29, int 1)
-					var VAR_28 = call eval(var &VAR_30, int 1)
+					var VAR_28 = call run_enemy_generator(var &VAR_29, int 1)
+					var VAR_28 = call run_enemy_generator(var &VAR_30, int 1)
 					var VAR_24 ++ 
 					var VAR_25 = int 0
 			}
@@ -183,7 +183,7 @@ switch(var VAR_24)
 			var VAR_25 ++ 
 			if(var VAR_25 > int 80)
 			 {
-					if(call is_char_exist(int 6881280))
+					if(call is_char_handle_in_level(int 6881280))
 					 {
 							call func_106(var VAR_26, int 1, int 0, int 1)
 							call func_104(var VAR_26, int 1, int 4)
@@ -198,7 +198,7 @@ switch(var VAR_24)
 }
 
 ._SCRIPT_5
-call reload_char(var &VAR_23)
+call load_char(var &VAR_23)
 if(call func_6f() == int 1)
  {
 		var VAR_26 = call func_96(int 14, int 0, int 0, int 350)
@@ -208,7 +208,7 @@ else
 		var VAR_26 = call func_96(int 14, int 0, int 1, int 350)
 }
 call freeze_enemy(var VAR_26)
-call play_char_anim_seq(var VAR_26)
+call set_char_running(var VAR_26)
 var VAR_31 = call load_anim(var &VAR_32)
 
 ._SCRIPT_6
@@ -219,15 +219,15 @@ var VAR_31 = call load_anim(var &VAR_32)
 switch(gamevar is_room_cleared)
  {
 		case 1
-			call reload_char(var &VAR_36)
-			call func_a5(var &VAR_35, int 100)
+			call load_char(var &VAR_36)
+			call run_wandering_generator(var &VAR_35, int 100)
 			break 
 		case 2
-			call reload_char(var &VAR_37)
-			call reload_char(var &VAR_38)
+			call load_char(var &VAR_37)
+			call load_char(var &VAR_38)
 			call func_b8(int 91)
 			call func_b8(int 93)
-			call func_a5(var &VAR_34, int 100)
+			call run_wandering_generator(var &VAR_34, int 100)
 			break 
 }
 call log(var &VAR_39)
@@ -351,7 +351,7 @@ switch(var VAR_13)
 		case 2
 			if(call is_local_timer_greater_than(var VAR_16))
 			 {
-					call func_f6(gamevar misc_fx_scripts, int 6, int 0, int 0)
+					call apply_effect_on_char(gamevar misc_fx_scripts, int 6, int 0, int 0)
 					call reset_local_timer()
 					var VAR_17 = int 255
 					var VAR_16 = call randomize_int(int 1, int 31)

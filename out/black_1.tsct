@@ -34,7 +34,7 @@ VAR_31	0
 VAR_32	0	
 VAR_33	0
 
-._SCRIPT_0
+._on_load
 var VAR_1 = var &VAR_7
 var VAR_2 = int 240
 execute SCRIPT_8
@@ -66,7 +66,7 @@ switch(gamevar room_state)
 			break 
 }
 
-._SCRIPT_1
+._infinite_loop
 execute SCRIPT_3
 switch(gamevar room_state)
  {
@@ -80,7 +80,7 @@ switch(gamevar room_state)
 			break 
 }
 
-._SCRIPT_2
+._on_exit
 switch(gamevar room_state)
  {
 		case 1
@@ -113,10 +113,10 @@ if(gamevar script_time > var VAR_33)
 switch(var VAR_13)
  {
 		case 0
-			var VAR_11 = call func_70()
+			var VAR_11 = call get_david_char()
 			while(var VAR_11)
 			 {
-					var VAR_12 = call func_66(var VAR_11)
+					var VAR_12 = call get_char_handle_id(var VAR_11)
 					if(var VAR_12 == int 65536)
 					 {
 							var VAR_11 = call func_7e()
@@ -188,7 +188,7 @@ switch(var VAR_13)
 ._SCRIPT_7
 
 ._SCRIPT_8
-var VAR_0 = call is_char_exist(int 1507337)
+var VAR_0 = call is_char_handle_in_level(int 1507337)
 if(var ! VAR_0)
  {
 		var VAR_0 = call create_char(var VAR_1, var &VAR_6, var VAR_2, int 14)
@@ -211,11 +211,11 @@ if(var VAR_3 != int -1)
 		 {
 				if(var VAR_5 != int -1)
 				 {
-						call put_item_in_char_inv(var VAR_0, int 85, var VAR_5, int 0)
+						call add_item_to_char(var VAR_0, int 85, var VAR_5, int 0)
 				}
 				else
 				 {
-						call put_item_in_char_inv(var VAR_0, var VAR_3, int 1, int 0)
+						call add_item_to_char(var VAR_0, var VAR_3, int 1, int 0)
 				}
 		}
 }

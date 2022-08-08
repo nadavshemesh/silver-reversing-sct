@@ -45,7 +45,7 @@ VAR_42	"skavenb"
 VAR_43	"skaven"	
 VAR_44	0
 
-._SCRIPT_0
+._on_load
 var VAR_0 = int 0
 call play_bgm(var &VAR_22)
 call load_sound_set(int 38)
@@ -61,7 +61,7 @@ switch(gamevar room_state)
 			break 
 }
 
-._SCRIPT_1
+._infinite_loop
 execute SCRIPT_7
 switch(gamevar room_state)
  {
@@ -74,7 +74,7 @@ switch(gamevar room_state)
 			break 
 }
 
-._SCRIPT_2
+._on_exit
 switch(gamevar room_state)
  {
 		case 1
@@ -92,22 +92,22 @@ switch(gamevar room_state)
 }
 
 ._SCRIPT_3
-call reload_char(var &VAR_38)
-call reload_char(var &VAR_39)
-call reload_char(var &VAR_40)
+call load_char(var &VAR_38)
+call load_char(var &VAR_39)
+call load_char(var &VAR_40)
 var VAR_2 = call create_enemy(int 45, int 0, var &VAR_8, int 105)
 var VAR_3 = call create_enemy(int 46, int 0, var &VAR_9, int 260)
 var VAR_4 = call create_enemy(int 55, int 0, var &VAR_10, int 355)
 var VAR_5 = call create_enemy(int 55, int 1, var &VAR_11, int 20)
 var VAR_6 = call create_enemy(int 55, int 2, var &VAR_12, int 65)
 var VAR_7 = call create_enemy(int 55, int 3, var &VAR_13, int 85)
-call put_item_in_char_inv(var VAR_4, int 43, int 1, int 0)
-call put_item_in_char_inv(var VAR_6, int 43, int 1, int 0)
-call set_char_anim_seq(var VAR_3, var &VAR_24)
-call set_char_anim_seq(var VAR_4, var &VAR_27)
-call set_char_anim_seq(var VAR_5, var &VAR_30)
-call set_char_anim_seq(var VAR_6, var &VAR_33)
-call set_char_anim_seq(var VAR_7, var &VAR_36)
+call add_item_to_char(var VAR_4, int 43, int 1, int 0)
+call add_item_to_char(var VAR_6, int 43, int 1, int 0)
+call play_char_ai_script(var VAR_3, var &VAR_24)
+call play_char_ai_script(var VAR_4, var &VAR_27)
+call play_char_ai_script(var VAR_5, var &VAR_30)
+call play_char_ai_script(var VAR_6, var &VAR_33)
+call play_char_ai_script(var VAR_7, var &VAR_36)
 call set_char_init_state(var VAR_2, int 1)
 call func_50(var VAR_3, int 8194)
 call func_50(var VAR_4, int 8194)
@@ -120,42 +120,42 @@ switch(var VAR_0)
  {
 		case 0
 			var VAR_41 = int 0
-			if(call is_char_exist(int 10485760))
+			if(call is_char_handle_in_level(int 10485760))
 			 {
 					if(call func_88(var VAR_2))
 					 {
 							var VAR_41 = int 1
 					}
 			}
-			if(call is_char_exist(int 10551296))
+			if(call is_char_handle_in_level(int 10551296))
 			 {
 					if(call func_88(var VAR_3))
 					 {
 							var VAR_41 = int 1
 					}
 			}
-			if(call is_char_exist(int 9240576))
+			if(call is_char_handle_in_level(int 9240576))
 			 {
 					if(call func_88(var VAR_4))
 					 {
 							var VAR_41 = int 1
 					}
 			}
-			if(call is_char_exist(int 9240577))
+			if(call is_char_handle_in_level(int 9240577))
 			 {
 					if(call func_88(var VAR_5))
 					 {
 							var VAR_41 = int 1
 					}
 			}
-			if(call is_char_exist(int 9240578))
+			if(call is_char_handle_in_level(int 9240578))
 			 {
 					if(call func_88(var VAR_6))
 					 {
 							var VAR_41 = int 1
 					}
 			}
-			if(call is_char_exist(int 9240579))
+			if(call is_char_handle_in_level(int 9240579))
 			 {
 					if(call func_88(var VAR_7))
 					 {
@@ -164,28 +164,28 @@ switch(var VAR_0)
 			}
 			if(var VAR_41||call func_d0())
 			 {
-					if(call is_char_exist(int 10551296))
+					if(call is_char_handle_in_level(int 10551296))
 					 {
 							call func_29(var VAR_3)
 							call func_46(var VAR_3, int 13)
 					}
-					if(call is_char_exist(int 10485760))
+					if(call is_char_handle_in_level(int 10485760))
 					 {
 							call func_17(var VAR_2, call get_selected_hero())
 					}
-					if(call is_char_exist(int 9240576))
+					if(call is_char_handle_in_level(int 9240576))
 					 {
 							call func_46(var VAR_4, int 13)
 					}
-					if(call is_char_exist(int 9240577))
+					if(call is_char_handle_in_level(int 9240577))
 					 {
 							call func_46(var VAR_5, int 13)
 					}
-					if(call is_char_exist(int 9240578))
+					if(call is_char_handle_in_level(int 9240578))
 					 {
 							call func_46(var VAR_6, int 13)
 					}
-					if(call is_char_exist(int 9240579))
+					if(call is_char_handle_in_level(int 9240579))
 					 {
 							call func_46(var VAR_7, int 13)
 					}
@@ -210,8 +210,8 @@ switch(var VAR_0)
 
 ._SCRIPT_5
 var VAR_0 = int 0
-call reload_char(var &VAR_42)
-call reload_char(var &VAR_43)
+call load_char(var &VAR_42)
+call load_char(var &VAR_43)
 if(call ! func_bf(int 0, gamevar CURRENT_LEVEL, gamevar CURRENT_SCENE))
  {
 		call func_9a(var &VAR_17, int 45, int 0, int 0)

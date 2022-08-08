@@ -58,7 +58,7 @@ VAR_55	0
 VAR_56	0	
 VAR_57	0
 
-._SCRIPT_0
+._on_load
 call load_sound_set(int 30)
 call load_sound_set(int 75)
 call play_loaded_sound(int 1, int -1, int 75, int 0)
@@ -78,7 +78,7 @@ if(gamevar room_state == int 2)
 		execute SCRIPT_9
 }
 
-._SCRIPT_1
+._infinite_loop
 execute SCRIPT_11
 if(gamevar room_state == int 0)
  {
@@ -93,7 +93,7 @@ if(gamevar room_state == int 2)
 		execute SCRIPT_10
 }
 
-._SCRIPT_2
+._on_exit
 if(gamevar room_state == int 0)
  {
 		exit_script 
@@ -128,16 +128,16 @@ switch(var VAR_16)
 			 {
 					var VAR_6 = call play_loaded_sound(int 198, int -1, int 0, var &VAR_2)
 					var VAR_7 = call play_loaded_sound(int 1, int -1, int 30, var &VAR_3)
-					call play_char_anim_seq(var VAR_11)
+					call set_char_running(var VAR_11)
 					call func_115(var VAR_11, var &VAR_27)
 					call func_50(var VAR_11, int 8192)
-					call play_char_anim_seq(var VAR_12)
+					call set_char_running(var VAR_12)
 					if(var VAR_13)
 					 {
 							call func_115(var VAR_12, var &VAR_33)
 							call func_115(var VAR_13, var &VAR_45)
 							call func_50(var VAR_13, int 8192)
-							call play_char_anim_seq(var VAR_13)
+							call set_char_running(var VAR_13)
 					}
 					else
 					 {
@@ -190,11 +190,11 @@ if(call is_local_timer_greater_than(var VAR_53))
 }
 
 ._SCRIPT_8
-var VAR_14 = call func_70()
+var VAR_14 = call get_david_char()
 while(var VAR_14)
  {
 		call freeze_enemy(var VAR_14)
-		var VAR_15 = call func_66(var VAR_14)
+		var VAR_15 = call get_char_handle_id(var VAR_14)
 		if(var VAR_15 == int 65536)
 		 {
 				var VAR_11 = var VAR_14

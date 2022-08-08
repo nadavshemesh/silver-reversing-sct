@@ -21,7 +21,7 @@ VAR_18	"ACT3"
 VAR_19	{ 0, 0, 0, 0, 0 }	
 VAR_20	0
 
-._SCRIPT_0
+._on_load
 call load_sound_set(int 64)
 call play_loaded_sound(int 2, int -1, int 64, int 0)
 call func_124()
@@ -48,7 +48,7 @@ else
 		}
 }
 
-._SCRIPT_1
+._infinite_loop
 execute SCRIPT_3
 if(gamevar !is_room_cleared)
  {
@@ -68,7 +68,7 @@ if(gamevar !is_room_cleared)
 		}
 }
 
-._SCRIPT_2
+._on_exit
 if(gamevar !is_room_cleared)
  {
 		switch(gamevar room_state)
@@ -128,9 +128,9 @@ if(var VAR_7 == int 2)
  {
 		if(call func_5c(var VAR_2))
 		 {
-				var VAR_8 = call put_item_in_char_inv(var VAR_1, int 57, int 0, int 0)
+				var VAR_8 = call add_item_to_char(var VAR_1, int 57, int 0, int 0)
 				call func_f9(var VAR_8, int 100)
-				call func_df()
+				call resume_conversation()
 				call func_7(int 101, int 1, int 0, int 0)
 				var VAR_7 ++ 
 				var VAR_6 = int 0

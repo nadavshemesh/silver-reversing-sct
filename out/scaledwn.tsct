@@ -74,7 +74,7 @@ VAR_71	"Dump z-buffers"
 VAR_72	"act2"	
 VAR_73	"Start grunts"
 
-._SCRIPT_0
+._on_load
 execute SCRIPT_3
 call play_bgm(var &VAR_22)
 if(gamevar is_room_cleared)
@@ -96,7 +96,7 @@ else
 		}
 }
 
-._SCRIPT_1
+._infinite_loop
 execute SCRIPT_13
 if(gamevar !is_room_cleared)
  {
@@ -113,7 +113,7 @@ if(gamevar !is_room_cleared)
 		}
 }
 
-._SCRIPT_2
+._on_exit
 if(gamevar !is_room_cleared)
  {
 		switch(gamevar room_state)
@@ -207,8 +207,8 @@ if(var VAR_19&&var ! VAR_21)
 }
 
 ._SCRIPT_5
-call reload_char(var &VAR_37)
-call reload_char(var &VAR_38)
+call load_char(var &VAR_37)
+call load_char(var &VAR_38)
 var VAR_44 = call create_char(var &VAR_45, var &VAR_53, int 340, int 13)
 gamevar script_object = var VAR_44
 gamevar HP = int 1
@@ -218,8 +218,8 @@ var VAR_42 = call get_char_handle(int 65536)
 var VAR_41 = call get_char_handle(int 786432)
 var VAR_54 = call load_anim(var &VAR_55)
 execute SCRIPT_8
-call func_bb(var VAR_44, var &VAR_46)
-call put_item_in_char_inv(var VAR_44, int 108, int 1, int 0)
+call load_char_anim(var VAR_44, var &VAR_46)
+call add_item_to_char(var VAR_44, int 108, int 1, int 0)
 call set_input_system(int 2)
 
 ._SCRIPT_6
@@ -239,7 +239,7 @@ if(var VAR_33 == int 4)
  {
 		if(call func_ab(int 800, var &VAR_45))
 		 {
-				call func_df()
+				call resume_conversation()
 				var VAR_33 ++ 
 				var VAR_34 = int 0
 		}
@@ -258,7 +258,7 @@ if(var VAR_33 == int 5)
 if(var VAR_69 != var VAR_35)
  {
 		var VAR_69 = var VAR_35
-		call func_ce(var VAR_35)
+		call log_obj(var VAR_35)
 }
 if(var VAR_35 == int 1)
  {
@@ -297,7 +297,7 @@ if(var VAR_35 == int 3)
  {
 		call func_108(var &VAR_72)
 		call log(var &VAR_73)
-		var VAR_52 = call eval(var &VAR_56, int 40)
+		var VAR_52 = call run_enemy_generator(var &VAR_56, int 40)
 		var VAR_35 ++ 
 		var VAR_36 = int 0
 }
@@ -319,7 +319,7 @@ if(var VAR_35 == int 4)
 		}
 		if(var VAR_36 == int 100)
 		 {
-				call func_43(var VAR_44)
+				call kill_char(var VAR_44)
 				var VAR_35 ++ 
 				var VAR_36 = int 0
 		}
@@ -328,7 +328,7 @@ if(var VAR_35 == int 5)
  {
 		if(call get_num_of_enemies() < int 3)
 		 {
-				var VAR_52 = call eval(var &VAR_57, int 20)
+				var VAR_52 = call run_enemy_generator(var &VAR_57, int 20)
 				var VAR_35 ++ 
 				var VAR_36 = int 0
 		}
@@ -479,7 +479,7 @@ switch(var VAR_13)
 		case 2
 			if(call is_local_timer_greater_than(var VAR_16))
 			 {
-					call func_f6(gamevar misc_fx_scripts, int 6, int 0, int 0)
+					call apply_effect_on_char(gamevar misc_fx_scripts, int 6, int 0, int 0)
 					call reset_local_timer()
 					var VAR_17 = int 255
 					var VAR_16 = call randomize_int(int 1, int 31)

@@ -23,10 +23,10 @@ VAR_20	"tyrosumn"
 VAR_21	0	
 VAR_22	0
 
-._SCRIPT_0
+._on_load
 call load_sound_set(int 66)
 call play_loaded_sound(int 5, int -1, int 66, int 0)
-var VAR_2 = call func_70()
+var VAR_2 = call get_david_char()
 var VAR_3 = call func_7e()
 var VAR_4 = call func_7e()
 call play_bgm(var &VAR_17)
@@ -43,7 +43,7 @@ if(gamevar room_state == int 3)
 		execute SCRIPT_9
 }
 
-._SCRIPT_1
+._infinite_loop
 execute SCRIPT_3
 if(gamevar room_state == int 1)
  {
@@ -58,7 +58,7 @@ if(gamevar room_state == int 3)
 		execute SCRIPT_8
 }
 
-._SCRIPT_2
+._on_exit
 if(gamevar room_state == int 2)
  {
 		gamevar room_state ++ 
@@ -114,8 +114,8 @@ if(var VAR_0 == int 3)
 }
 if(var VAR_0 == int 4)
  {
-		call eval(var &VAR_13, int 10)
-		call eval(var &VAR_14, int 10)
+		call run_enemy_generator(var &VAR_13, int 10)
+		call run_enemy_generator(var &VAR_14, int 10)
 		var VAR_0 = int 5
 		var VAR_1 = int 50
 		call reset_local_timer()
@@ -135,15 +135,15 @@ if(var VAR_0 == int 6)
 		 {
 				exit_script 
 		}
-		if(call is_char_exist(int 8585216))
+		if(call is_char_handle_in_level(int 8585216))
 		 {
 				call remove_char(var VAR_7)
 		}
-		if(call is_char_exist(int 8585217))
+		if(call is_char_handle_in_level(int 8585217))
 		 {
 				call remove_char(var VAR_8)
 		}
-		call eval(var &VAR_15, int 10)
+		call run_enemy_generator(var &VAR_15, int 10)
 		var VAR_0 = int 7
 		var VAR_1 = int 30
 		call reset_local_timer()
@@ -155,8 +155,8 @@ if(var VAR_0 == int 7)
 		 {
 				exit_script 
 		}
-		call eval(var &VAR_13, int 10)
-		call eval(var &VAR_14, int 10)
+		call run_enemy_generator(var &VAR_13, int 10)
+		call run_enemy_generator(var &VAR_14, int 10)
 		var VAR_0 = int 8
 		var VAR_1 = int 30
 		call reset_local_timer()
@@ -168,8 +168,8 @@ if(var VAR_0 == int 8)
 		 {
 				exit_script 
 		}
-		call eval(var &VAR_13, int 10)
-		call eval(var &VAR_14, int 10)
+		call run_enemy_generator(var &VAR_13, int 10)
+		call run_enemy_generator(var &VAR_14, int 10)
 		var VAR_0 = int 9
 		var VAR_1 = int 30
 		call reset_local_timer()
@@ -182,13 +182,13 @@ if(var VAR_0 == int 9)
 				var VAR_7 = call func_96(int 145, int 0, int 0, int 0)
 				call func_106(var VAR_7, int 1, int 0, int 1)
 				call set_char_init_state(var VAR_7, int 1)
-				call put_item_in_char_inv(var VAR_7, int 20, int 1, int 0)
+				call add_item_to_char(var VAR_7, int 20, int 1, int 0)
 				var VAR_0 ++ 
 		}
 }
 
 ._SCRIPT_5
-call reload_char(var &VAR_18)
+call load_char(var &VAR_18)
 var VAR_7 = call create_enemy(int 66, int 0, var &VAR_5, int 110)
 var VAR_8 = call create_enemy(int 66, int 1, var &VAR_6, int 115)
 var VAR_9 = call load_anim(var &VAR_19)

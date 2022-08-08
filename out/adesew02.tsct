@@ -66,9 +66,9 @@ VAR_63	"skavenb"
 VAR_64	"confused"	
 VAR_65	0
 
-._SCRIPT_0
+._on_load
 call play_bgm(var &VAR_39)
-var VAR_20 = call func_30(int 98)
+var VAR_20 = call create_item(int 98)
 if(var VAR_20 != int 0)
  {
 		var VAR_21 = int 1
@@ -93,8 +93,8 @@ var VAR_24 = call load_anim(var &VAR_44)
 switch(gamevar room_state)
  {
 		case 1
-			call reload_char(var &VAR_45)
-			call reload_char(var &VAR_46)
+			call load_char(var &VAR_45)
+			call load_char(var &VAR_46)
 			gamevar use_mouse_override_sprite = int 428
 			var VAR_0 = int 0
 			var VAR_17 = int 2
@@ -128,7 +128,7 @@ switch(gamevar room_state)
 			execute SCRIPT_6
 }
 
-._SCRIPT_1
+._infinite_loop
 execute SCRIPT_3
 execute SCRIPT_8
 execute SCRIPT_9
@@ -142,7 +142,7 @@ switch(gamevar room_state)
 			break 
 }
 
-._SCRIPT_2
+._on_exit
 switch(gamevar room_state)
  {
 }
@@ -191,7 +191,7 @@ switch(var VAR_15)
 					var VAR_14 = call get_selected_hero()
 					call set_input_system(int 2)
 					call func_55(var VAR_14, int 98)
-					call play_char_anim_seq(var VAR_14)
+					call set_char_running(var VAR_14)
 					call char_walk_to_pos(var VAR_14, var &VAR_26)
 					var VAR_15 = int 3
 			}
@@ -255,11 +255,11 @@ switch(var VAR_15)
 					gamevar *smack_object_p+2 &= int -1073741
 					call func_ff(var &VAR_26)
 					var VAR_15 = int 7
-					call func_b5(var VAR_20)
+					call remove_item_from_pie(var VAR_20)
 			}
 			break 
 		case 7
-			if(call func_5e())
+			if(call is_not_scrolling())
 			 {
 					call func_116(var &VAR_52, var &VAR_53, int 4)
 					call func_116(var &VAR_54, var &VAR_55, int 6)
@@ -295,9 +295,9 @@ call func_106(var VAR_27, int 1, int 0, int 1)
 call func_106(var VAR_28, int 1, int 0, int 1)
 call set_char_init_state(var VAR_27, int 1)
 call set_char_init_state(var VAR_28, int 1)
-call put_item_in_char_inv(var VAR_27, int 43, int 1, int 0)
-call put_item_in_char_inv(var VAR_28, int 45, int 1, int 0)
-var VAR_36 = call eval(var &VAR_37, int 400)
+call add_item_to_char(var VAR_27, int 43, int 1, int 0)
+call add_item_to_char(var VAR_28, int 45, int 1, int 0)
+var VAR_36 = call run_enemy_generator(var &VAR_37, int 400)
 
 ._SCRIPT_5
 if(var ! VAR_35&&call get_num_of_enemies() == int 0&&call ! func_122(var VAR_36))
@@ -306,8 +306,8 @@ if(var ! VAR_35&&call get_num_of_enemies() == int 0&&call ! func_122(var VAR_36)
 }
 
 ._SCRIPT_6
-call reload_char(var &VAR_62)
-call reload_char(var &VAR_63)
+call load_char(var &VAR_62)
+call load_char(var &VAR_63)
 var VAR_27 = call create_enemy(int 46, int 0, var &VAR_32, int 45)
 var VAR_28 = call create_enemy(int 46, int 1, var &VAR_33, int 80)
 var VAR_29 = call create_enemy(int 45, int 0, var &VAR_34, int 60)
@@ -328,19 +328,19 @@ switch(var VAR_18)
 					switch(call randomize_int(int 0, int 3))
 					 {
 							case 0
-								if(call is_char_exist(int 10551296))
+								if(call is_char_handle_in_level(int 10551296))
 								 {
 										call play_char_anim(var VAR_27, var VAR_23, int 0)
 										break 
 								}
 							case 1
-								if(call is_char_exist(int 10551297))
+								if(call is_char_handle_in_level(int 10551297))
 								 {
 										call play_char_anim(var VAR_28, var VAR_23, int 0)
 										break 
 								}
 							case 2
-								if(call is_char_exist(int 10485760))
+								if(call is_char_handle_in_level(int 10485760))
 								 {
 										call play_char_anim(var VAR_29, var VAR_23, int 0)
 								}
@@ -348,7 +348,7 @@ switch(var VAR_18)
 					}
 					var VAR_19 = call randomize_int(int 250, int 401)
 			}
-			if(call ! is_char_exist(int 10551296)||call ! is_char_exist(int 10551297)||call ! is_char_exist(int 10485760))
+			if(call ! is_char_handle_in_level(int 10551296)||call ! is_char_handle_in_level(int 10551297)||call ! is_char_handle_in_level(int 10485760))
 			 {
 					var VAR_18 ++ 
 			}
@@ -361,19 +361,19 @@ switch(var VAR_18)
 			}
 			break 
 		case 1
-			if(call is_char_exist(int 10551296))
+			if(call is_char_handle_in_level(int 10551296))
 			 {
 					call func_17(var VAR_27, call get_selected_hero())
 			}
-			if(call is_char_exist(int 10551297))
+			if(call is_char_handle_in_level(int 10551297))
 			 {
 					call func_17(var VAR_28, call get_selected_hero())
 			}
-			if(call is_char_exist(int 10485760))
+			if(call is_char_handle_in_level(int 10485760))
 			 {
 					call func_17(var VAR_29, call get_selected_hero())
 			}
-			call eval(var &VAR_38, int 500)
+			call run_enemy_generator(var &VAR_38, int 500)
 			var VAR_18 ++ 
 			break 
 		default 

@@ -126,7 +126,7 @@ VAR_123	-1
 VAR_124	0	
 VAR_125	{ 0, 0 }
 
-._SCRIPT_0
+._on_load
 execute SCRIPT_10
 call load_sound_set(int 24)
 call load_sound_set(int 12)
@@ -164,7 +164,7 @@ else
 		}
 }
 
-._SCRIPT_1
+._infinite_loop
 var VAR_8 = int 20
 execute SCRIPT_14
 if(gamevar !is_room_cleared)
@@ -182,7 +182,7 @@ if(gamevar !is_room_cleared)
 		}
 }
 
-._SCRIPT_2
+._on_exit
 execute SCRIPT_15
 if(gamevar !is_room_cleared)
  {
@@ -228,15 +228,15 @@ switch(var VAR_57)
 					call func_106(var VAR_54, int 2, int 2, var &VAR_102)
 					call func_106(var VAR_54, int 2, int 5, int 31)
 					call func_106(var VAR_54, int 2, int 6, var &VAR_96)
-					var VAR_103 = call func_a5(var &VAR_79, int 1)
-					var VAR_104 = call func_a5(var &VAR_81, int 1)
-					var VAR_105 = call func_a5(var &VAR_83, int 1)
-					var VAR_106 = call func_a5(var &VAR_85, int 1)
-					var VAR_107 = call func_a5(var &VAR_87, int 1)
-					var VAR_108 = call func_a5(var &VAR_89, int 1)
-					var VAR_109 = call func_a5(var &VAR_91, int 1)
-					var VAR_110 = call func_a5(var &VAR_93, int 1)
-					var VAR_111 = call func_a5(var &VAR_95, int 1)
+					var VAR_103 = call run_wandering_generator(var &VAR_79, int 1)
+					var VAR_104 = call run_wandering_generator(var &VAR_81, int 1)
+					var VAR_105 = call run_wandering_generator(var &VAR_83, int 1)
+					var VAR_106 = call run_wandering_generator(var &VAR_85, int 1)
+					var VAR_107 = call run_wandering_generator(var &VAR_87, int 1)
+					var VAR_108 = call run_wandering_generator(var &VAR_89, int 1)
+					var VAR_109 = call run_wandering_generator(var &VAR_91, int 1)
+					var VAR_110 = call run_wandering_generator(var &VAR_93, int 1)
+					var VAR_111 = call run_wandering_generator(var &VAR_95, int 1)
 					var VAR_57 ++ 
 			}
 			if(var VAR_60)
@@ -254,7 +254,7 @@ switch(var VAR_57)
 			}
 			break 
 		case 1
-			if(call ! is_char_exist(int 9830400))
+			if(call ! is_char_handle_in_level(int 9830400))
 			 {
 					call set_input_system(int 2)
 					var VAR_112 = int 120
@@ -310,23 +310,23 @@ if(var VAR_57 == int 0)
 ._SCRIPT_4
 var VAR_67 = call get_char_handle(int 65536)
 var VAR_68 = call load_anim(var &VAR_69)
-call reload_char(var &VAR_70)
-call reload_char(var &VAR_71)
-call reload_char(var &VAR_72)
-call reload_char(var &VAR_73)
-call reload_char(var &VAR_74)
-call reload_char(var &VAR_75)
+call load_char(var &VAR_70)
+call load_char(var &VAR_71)
+call load_char(var &VAR_72)
+call load_char(var &VAR_73)
+call load_char(var &VAR_74)
+call load_char(var &VAR_75)
 call func_b8(int 63)
-var VAR_65 = call func_a5(var &VAR_66, int 1)
+var VAR_65 = call run_wandering_generator(var &VAR_66, int 1)
 execute SCRIPT_7
 var VAR_53 = call create_char(var &VAR_52, var &VAR_76, int 125, int 17)
-call put_item_in_char_inv(var VAR_53, int 83, int 1, int 0)
-call put_item_in_char_inv(var VAR_53, int 83, int 1, int 0)
-call put_item_in_char_inv(var VAR_53, int 85, int 8192513, int 0)
-call put_item_in_char_inv(var VAR_53, int 65, int 1, int 0)
-call put_item_in_char_inv(var VAR_53, int 79, int 1, int 0)
-call put_item_in_char_inv(var VAR_53, int 18, int 0, int 0)
-call put_item_in_char_inv(var VAR_53, int 50, int 0, int 0)
+call add_item_to_char(var VAR_53, int 83, int 1, int 0)
+call add_item_to_char(var VAR_53, int 83, int 1, int 0)
+call add_item_to_char(var VAR_53, int 85, int 8192513, int 0)
+call add_item_to_char(var VAR_53, int 65, int 1, int 0)
+call add_item_to_char(var VAR_53, int 79, int 1, int 0)
+call add_item_to_char(var VAR_53, int 18, int 0, int 0)
+call add_item_to_char(var VAR_53, int 50, int 0, int 0)
 call log(var &VAR_77)
 var VAR_57 = int 0
 
@@ -337,7 +337,7 @@ switch(var VAR_120)
 
 ._SCRIPT_6
 execute SCRIPT_7
-call reload_char(var &VAR_119)
+call load_char(var &VAR_119)
 
 ._SCRIPT_7
 gamevar SMACKER_X = int 368
@@ -358,7 +358,7 @@ if(gamevar script_time > var VAR_125)
 var VAR_67 = call get_char_handle(int 65536)
 var VAR_5 = int 0
 var VAR_6 = int 0
-var VAR_118 = call func_70()
+var VAR_118 = call get_david_char()
 var VAR_4 = int 0
 while(var VAR_118)
  {
@@ -374,7 +374,7 @@ while(var VAR_118)
 if(var VAR_123 != var VAR_121)
  {
 		var VAR_123 = var VAR_121
-		call func_ce(var VAR_121)
+		call log_obj(var VAR_121)
 }
 switch(var VAR_121)
  {
@@ -405,7 +405,7 @@ switch(var VAR_121)
 var VAR_122 ++ 
 
 ._SCRIPT_12
-var VAR_1 = call func_70()
+var VAR_1 = call get_david_char()
 while(var VAR_1)
  {
 		call func_10a(var VAR_1, var VAR_0)
@@ -413,7 +413,7 @@ while(var VAR_1)
 }
 
 ._SCRIPT_13
-if(call ! is_char_exist(int 6291456))
+if(call ! is_char_handle_in_level(int 6291456))
  {
 		exit_script 
 }
@@ -426,7 +426,7 @@ else
 }
 
 ._SCRIPT_14
-if(call ! is_char_exist(int 6291456))
+if(call ! is_char_handle_in_level(int 6291456))
  {
 		exit_script 
 }
@@ -440,7 +440,7 @@ else
 if(var VAR_31 != var VAR_25)
  {
 		var VAR_31 = var VAR_25
-		call func_ce(var VAR_25)
+		call log_obj(var VAR_25)
 }
 switch(var VAR_25)
  {
@@ -478,7 +478,7 @@ switch(var VAR_25)
 		case 3
 			if(var VAR_26 > int 40)
 			 {
-					call func_12e(var VAR_8)
+					call open_save_screen(var VAR_8)
 					var VAR_25 ++ 
 					var VAR_26 = int 0
 			}
@@ -524,7 +524,7 @@ switch(var VAR_25)
 		case 7
 			if(var VAR_26 > int 40)
 			 {
-					call func_f6(gamevar char_gen_fx_scripts, int 8, int 0, var VAR_9)
+					call apply_effect_on_char(gamevar char_gen_fx_scripts, int 8, int 0, var VAR_9)
 					execute SCRIPT_17
 					gamevar chronicler_variation = var VAR_10
 					var VAR_25 ++ 
@@ -545,7 +545,7 @@ switch(var VAR_25)
 var VAR_26 ++ 
 
 ._SCRIPT_15
-if(call is_char_exist(int 6291456))
+if(call is_char_handle_in_level(int 6291456))
  {
 		if(var VAR_9 == int 0)
 		 {
@@ -555,7 +555,7 @@ if(call is_char_exist(int 6291456))
 }
 
 ._SCRIPT_16
-var VAR_12 = call func_66(gamevar control_char_p)
+var VAR_12 = call get_char_handle_id(gamevar control_char_p)
 switch(var VAR_12)
  {
 		case 65536
@@ -579,7 +579,7 @@ switch(var VAR_12)
 }
 
 ._SCRIPT_17
-var VAR_34 = call func_66(gamevar control_char_p)
+var VAR_34 = call get_char_handle_id(gamevar control_char_p)
 switch(var VAR_34)
  {
 		case 65536

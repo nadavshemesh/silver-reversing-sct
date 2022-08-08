@@ -473,6 +473,25 @@ expr_obj* bin_create_expr_obj(expr_pattern* expr, int* vars, void** token_pos_pt
             return eo;
             break;
         }
+        case FUNC_PTR: {
+            int func_num = vars[0];
+            if(func_num < 0 || func_num > GAME_FUNCTIONS_NUM) {
+                char err[256];
+                sprintf(err, "function number %d is not found as a game function.", func_num);
+                print_err_and_exit(err, -2);
+            }
+            game_fun* gf = game_functions[func_num];
+            int bin_vars[1] = { vars[0] };
+            char* asm_vars[1] = { gf->name };
+            eo->bin_vars = w_malloc(expr->bin_var_num*sizeof(int));
+            eo->asm_vars = w_malloc(expr->asm_var_num*sizeof(char*));
+            memcpy(eo->bin_vars, bin_vars, expr->bin_var_num*sizeof(int));
+            memcpy(eo->asm_vars, asm_vars, expr->asm_var_num*sizeof(char*));
+            data = NULL;
+            eo->expr_p = expr;
+            eo->data = data;
+            return eo;
+        }
         case FUNCTION:
             expr_obj* exp_func = bin_read_function_call_expr(expr, vars, token_pos_ptr, sf);
             return exp_func;
@@ -858,7 +877,21 @@ code_obj* bin_read_script_call(code_pattern* cp, int* vars, void** token_pos_ptr
     c_obj->cp = cp;
     int script_number = ((int*)vars)[0];
     char name[MAX_FUNC_NAME];
-    sprintf(name, "SCRIPT_%d", script_number);
+    if(script_number > 2) {
+        sprintf(name, "SCRIPT_%d", script_number);
+    } else {
+        switch(script_number) {
+            case 0:
+                sprintf(name, "on_load", script_number);
+                break;
+            case 1:
+                sprintf(name, "infinite_loop", script_number);
+                break;
+            case 2:
+                sprintf(name, "on_exit", script_number);
+                break;
+        }
+    }
 
     int bin_var_num = cp->bin_var_num;
     int asm_var_num = cp->asm_var_num;

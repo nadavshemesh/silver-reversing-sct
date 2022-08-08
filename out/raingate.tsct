@@ -41,7 +41,7 @@ VAR_38	"dick's gone"
 VAR_39	"Spaz handle"	
 VAR_40	"dick's still here"
 
-._SCRIPT_0
+._on_load
 execute SCRIPT_3
 if(gamevar is_room_cleared)
  {
@@ -62,7 +62,7 @@ else
 		}
 }
 
-._SCRIPT_1
+._infinite_loop
 execute SCRIPT_10
 if(gamevar !is_room_cleared)
  {
@@ -79,7 +79,7 @@ if(gamevar !is_room_cleared)
 		}
 }
 
-._SCRIPT_2
+._on_exit
 if(gamevar !is_room_cleared)
  {
 		switch(gamevar room_state)
@@ -110,19 +110,19 @@ if(var VAR_35 == int 0)
  {
 		if(call func_d1(var &VAR_37))
 		 {
-				if(call is_char_exist(int 5767168))
+				if(call is_char_handle_in_level(int 5767168))
 				 {
 						call func_46(var VAR_23, int 13)
 						call func_106(var VAR_23, int 1, int 0, int 2)
 						call func_50(var VAR_23, int 130)
 				}
-				if(call is_char_exist(int 6160384))
+				if(call is_char_handle_in_level(int 6160384))
 				 {
 						call func_46(var VAR_24, int 13)
 						call func_106(var VAR_24, int 1, int 0, int 2)
 						call func_50(var VAR_24, int 658)
 				}
-				if(call is_char_exist(int 6422528))
+				if(call is_char_handle_in_level(int 6422528))
 				 {
 						call func_46(var VAR_22, int 13)
 				}
@@ -132,19 +132,19 @@ if(var VAR_35 == int 0)
 		 {
 				if(call func_8a(var &VAR_37))
 				 {
-						if(call is_char_exist(int 5767168))
+						if(call is_char_handle_in_level(int 5767168))
 						 {
 								call func_46(var VAR_23, int 13)
 								call func_106(var VAR_23, int 1, int 0, int 2)
 								call func_50(var VAR_23, int 130)
 						}
-						if(call is_char_exist(int 6160384))
+						if(call is_char_handle_in_level(int 6160384))
 						 {
 								call func_46(var VAR_24, int 13)
 								call func_106(var VAR_24, int 1, int 0, int 2)
 								call func_50(var VAR_24, int 658)
 						}
-						if(call is_char_exist(int 6422528))
+						if(call is_char_handle_in_level(int 6422528))
 						 {
 								call func_46(var VAR_22, int 13)
 						}
@@ -154,10 +154,10 @@ if(var VAR_35 == int 0)
 }
 if(var VAR_35 == int 1)
  {
-		if(call is_char_exist(int 6422528))
+		if(call is_char_handle_in_level(int 6422528))
 		 {
 				call freeze_enemy(var VAR_22)
-				call play_char_anim_seq(var VAR_22)
+				call set_char_running(var VAR_22)
 				call func_2b(var VAR_22, int 1)
 				var VAR_35 = int 2
 				var VAR_36 = int 0
@@ -170,11 +170,11 @@ if(var VAR_35 == int 1)
 }
 if(var VAR_35 == int 2)
  {
-		if(call is_char_exist(int 6422528))
+		if(call is_char_handle_in_level(int 6422528))
 		 {
 				if(call is_char_standing(var VAR_22))
 				 {
-						var VAR_31 = call eval(var &VAR_33, int 10)
+						var VAR_31 = call run_enemy_generator(var &VAR_33, int 10)
 						call remove_char(var VAR_22)
 						call log(var &VAR_38)
 						var VAR_35 = int 4
@@ -183,7 +183,7 @@ if(var VAR_35 == int 2)
 		}
 		else
 		 {
-				var VAR_31 = call eval(var &VAR_33, int 10)
+				var VAR_31 = call run_enemy_generator(var &VAR_33, int 10)
 				call log(var &VAR_39)
 				var VAR_35 = int 4
 				var VAR_36 = int 0
@@ -192,7 +192,7 @@ if(var VAR_35 == int 2)
 if(var VAR_35 == int 3)
  {
 		call log(var &VAR_40)
-		var VAR_31 = call eval(var &VAR_33, int 10)
+		var VAR_31 = call run_enemy_generator(var &VAR_33, int 10)
 		var VAR_35 ++ 
 		var VAR_36 = int 0
 }
@@ -213,10 +213,10 @@ call func_50(var VAR_24, int 8192)
 call func_50(var VAR_22, int 1)
 call func_50(var VAR_23, int 1)
 call func_50(var VAR_24, int 1)
-call set_char_anim_seq(var VAR_22, var &VAR_28)
-call set_char_anim_seq(var VAR_23, var &VAR_29)
-call set_char_anim_seq(var VAR_24, var &VAR_30)
-call reload_char(var &VAR_34)
+call play_char_ai_script(var VAR_22, var &VAR_28)
+call play_char_ai_script(var VAR_23, var &VAR_29)
+call play_char_ai_script(var VAR_24, var &VAR_30)
+call load_char(var &VAR_34)
 
 ._SCRIPT_6
 
@@ -343,7 +343,7 @@ switch(var VAR_13)
 		case 2
 			if(call is_local_timer_greater_than(var VAR_16))
 			 {
-					call func_f6(gamevar misc_fx_scripts, int 6, int 0, int 0)
+					call apply_effect_on_char(gamevar misc_fx_scripts, int 6, int 0, int 0)
 					call reset_local_timer()
 					var VAR_17 = int 255
 					var VAR_16 = call randomize_int(int 1, int 31)

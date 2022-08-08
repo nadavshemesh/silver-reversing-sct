@@ -70,7 +70,7 @@ VAR_67	10
 VAR_68	2	
 VAR_69	0
 
-._SCRIPT_0
+._on_load
 var VAR_7 = int 0
 execute SCRIPT_4
 execute SCRIPT_3
@@ -95,7 +95,7 @@ else
 		}
 }
 
-._SCRIPT_1
+._infinite_loop
 if(gamevar !is_room_cleared)
  {
 		switch(gamevar room_state)
@@ -112,7 +112,7 @@ if(gamevar !is_room_cleared)
 }
 execute SCRIPT_11
 
-._SCRIPT_2
+._on_exit
 if(var VAR_7 == int 1)
  {
 		call func_3d()
@@ -146,7 +146,7 @@ call play_2d_anim(var &VAR_9, int 1, int 0, int 0)
 call load_sound_set(int 18)
 call play_loaded_sound(int 1, int -1, int 18, int 0)
 call load_sound_set(int 3)
-call func_e(var &VAR_10)
+call remove_face(var &VAR_10)
 call play_loaded_sound(int 1, int -1, int 3, int 0)
 call play_loaded_sound(int 7, int -1, int 3, var &VAR_10)
 call func_ec(int 23, int -1, int 0, var &VAR_11)
@@ -158,38 +158,38 @@ gamevar script_object = var VAR_14
 var VAR_15 = gamevar LEVEL
 call func_10a(var VAR_5, var VAR_15)
 call func_50(var VAR_5, int 8192)
-call set_char_anim_seq(var VAR_5, var &VAR_13)
+call play_char_ai_script(var VAR_5, var &VAR_13)
 call set_input_system(int 2)
 
 ._SCRIPT_6
 if(var VAR_27 != var VAR_17)
  {
 		var VAR_27 = var VAR_17
-		call func_ce(var VAR_17)
+		call log_obj(var VAR_17)
 }
 switch(var VAR_17)
  {
 		case 0
 			if(call func_a6(var VAR_5))
 			 {
-					var VAR_0 = call func_70()
+					var VAR_0 = call get_david_char()
 					while(var VAR_0)
 					 {
-							var VAR_20 = call func_66(var VAR_0)
+							var VAR_20 = call get_char_handle_id(var VAR_0)
 							if(var VAR_20 == int 131072)
 							 {
 									var VAR_0 = call func_7e()
 							}
 							else
 							 {
-									call char_turn_to_pos(var VAR_0, call func_67(var VAR_5))
+									call char_turn_to_pos(var VAR_0, call get_char_pos(var VAR_5))
 									var VAR_0 = call func_7e()
 							}
 					}
-					var VAR_19 = call func_70()
+					var VAR_19 = call get_david_char()
 					while(var VAR_19)
 					 {
-							var VAR_20 = call func_66(var VAR_19)
+							var VAR_20 = call get_char_handle_id(var VAR_19)
 							if(var VAR_20 == int 65536||var VAR_20 == int 131072)
 							 {
 									var VAR_19 = call func_7e()
@@ -300,7 +300,7 @@ if(gamevar global_exit_door != var VAR_7)
  {
 		var VAR_7 = gamevar global_exit_door
 		call log(var &VAR_54)
-		call func_ce(gamevar global_exit_door)
+		call log_obj(gamevar global_exit_door)
 }
 
 ._SCRIPT_7
@@ -310,16 +310,16 @@ if(gamevar global_exit_door != var VAR_7)
  {
 		var VAR_7 = gamevar global_exit_door
 		call log(var &VAR_55)
-		call func_ce(gamevar global_exit_door)
+		call log_obj(gamevar global_exit_door)
 }
 
 ._SCRIPT_9
 
 ._SCRIPT_10
-var VAR_56 = call func_70()
+var VAR_56 = call get_david_char()
 while(var VAR_56)
  {
-		var VAR_57 = call func_66(var VAR_56)
+		var VAR_57 = call get_char_handle_id(var VAR_56)
 		switch(var VAR_57)
 		 {
 				case 65536

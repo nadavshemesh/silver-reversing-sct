@@ -97,7 +97,7 @@ VAR_94	"dick"
 VAR_95	"finnegan"	
 VAR_96	"longjohn"
 
-._SCRIPT_0
+._on_load
 execute SCRIPT_3
 call play_bgm(var &VAR_57)
 execute SCRIPT_12
@@ -111,7 +111,7 @@ switch(gamevar room_state)
 			break 
 }
 
-._SCRIPT_1
+._infinite_loop
 execute SCRIPT_9
 var VAR_18 = int 20
 execute SCRIPT_13
@@ -125,7 +125,7 @@ switch(gamevar room_state)
 			break 
 }
 
-._SCRIPT_2
+._on_exit
 execute SCRIPT_14
 switch(gamevar room_state)
  {
@@ -161,12 +161,12 @@ switch(var VAR_62)
 			}
 			break 
 		case 1
-			if(call is_char_exist(int 7143424))
+			if(call is_char_handle_in_level(int 7143424))
 			 {
 					call func_47(var VAR_66, int 8192)
 					call func_50(var VAR_66, int 131)
 			}
-			if(call is_char_exist(int 7143425))
+			if(call is_char_handle_in_level(int 7143425))
 			 {
 					call func_47(var VAR_67, int 8192)
 					call func_50(var VAR_67, int 131)
@@ -186,19 +186,19 @@ switch(var VAR_62)
 			}
 			break 
 		case 3
-			if(call is_char_exist(int 6684672))
+			if(call is_char_handle_in_level(int 6684672))
 			 {
 					call func_47(var VAR_63, int 8192)
-					call char_turn_to_pos(var VAR_63, call func_67(var VAR_68))
+					call char_turn_to_pos(var VAR_63, call get_char_pos(var VAR_68))
 					call func_104(var VAR_63, int 7, int 4)
 					call func_50(var VAR_63, int 129)
 			}
-			if(call is_char_exist(int 7208960))
+			if(call is_char_handle_in_level(int 7208960))
 			 {
 					call func_53(var VAR_64, int 5)
 					call func_50(var VAR_64, int 1)
 			}
-			if(call is_char_exist(int 7208961))
+			if(call is_char_handle_in_level(int 7208961))
 			 {
 					call func_53(var VAR_65, int 5)
 					call func_50(var VAR_65, int 1)
@@ -207,7 +207,7 @@ switch(var VAR_62)
 		case 4
 			if(call get_num_of_enemies() < int 2)
 			 {
-					if(call is_char_exist(int 6684672))
+					if(call is_char_handle_in_level(int 6684672))
 					 {
 							call func_104(var VAR_63, int 7, int 1)
 					}
@@ -229,7 +229,7 @@ if(var VAR_87 == int 0)
 ._SCRIPT_5
 var VAR_63 = call create_enemy(int 21, int 0, var &VAR_69, int 347)
 call freeze_enemy(var VAR_63)
-call put_item_in_char_inv(var VAR_63, int 41, int 1, int 0)
+call add_item_to_char(var VAR_63, int 41, int 1, int 0)
 var VAR_64 = call create_enemy(int 18, int 0, var &VAR_70, int 352)
 call freeze_enemy(var VAR_64)
 var VAR_65 = call create_enemy(int 18, int 1, var &VAR_71, int 147)
@@ -240,14 +240,14 @@ call freeze_enemy(var VAR_66)
 var VAR_67 = call create_enemy(int 11, int 1, var &VAR_73, int 148)
 call func_106(var VAR_67, int 1, int 0, int 1)
 call freeze_enemy(var VAR_67)
-call set_char_anim_seq(var VAR_66, var &VAR_74)
+call play_char_ai_script(var VAR_66, var &VAR_74)
 call func_50(var VAR_66, int 8192)
-call set_char_anim_seq(var VAR_67, var &VAR_77)
+call play_char_ai_script(var VAR_67, var &VAR_77)
 call func_50(var VAR_67, int 8192)
 call set_char_init_state(var VAR_63, int 13)
-call set_char_anim_seq(var VAR_63, var &VAR_82)
+call play_char_ai_script(var VAR_63, var &VAR_82)
 var VAR_68 = call get_char_handle(int 65536)
-call reload_char(var &VAR_83)
+call load_char(var &VAR_83)
 
 ._SCRIPT_6
 
@@ -372,7 +372,7 @@ switch(var VAR_13)
 		case 2
 			if(call is_local_timer_greater_than(var VAR_16))
 			 {
-					call func_f6(gamevar misc_fx_scripts, int 6, int 0, int 0)
+					call apply_effect_on_char(gamevar misc_fx_scripts, int 6, int 0, int 0)
 					call reset_local_timer()
 					var VAR_17 = int 255
 					var VAR_16 = call randomize_int(int 1, int 31)
@@ -415,7 +415,7 @@ switch(var VAR_13)
 var VAR_14 ++ 
 
 ._SCRIPT_12
-if(call ! is_char_exist(int 6291456))
+if(call ! is_char_handle_in_level(int 6291456))
  {
 		exit_script 
 }
@@ -428,7 +428,7 @@ else
 }
 
 ._SCRIPT_13
-if(call ! is_char_exist(int 6291456))
+if(call ! is_char_handle_in_level(int 6291456))
  {
 		exit_script 
 }
@@ -442,7 +442,7 @@ else
 if(var VAR_41 != var VAR_35)
  {
 		var VAR_41 = var VAR_35
-		call func_ce(var VAR_35)
+		call log_obj(var VAR_35)
 }
 switch(var VAR_35)
  {
@@ -480,7 +480,7 @@ switch(var VAR_35)
 		case 3
 			if(var VAR_36 > int 40)
 			 {
-					call func_12e(var VAR_18)
+					call open_save_screen(var VAR_18)
 					var VAR_35 ++ 
 					var VAR_36 = int 0
 			}
@@ -526,7 +526,7 @@ switch(var VAR_35)
 		case 7
 			if(var VAR_36 > int 40)
 			 {
-					call func_f6(gamevar char_gen_fx_scripts, int 8, int 0, var VAR_19)
+					call apply_effect_on_char(gamevar char_gen_fx_scripts, int 8, int 0, var VAR_19)
 					execute SCRIPT_16
 					gamevar chronicler_variation = var VAR_20
 					var VAR_35 ++ 
@@ -547,7 +547,7 @@ switch(var VAR_35)
 var VAR_36 ++ 
 
 ._SCRIPT_14
-if(call is_char_exist(int 6291456))
+if(call is_char_handle_in_level(int 6291456))
  {
 		if(var VAR_19 == int 0)
 		 {
@@ -557,7 +557,7 @@ if(call is_char_exist(int 6291456))
 }
 
 ._SCRIPT_15
-var VAR_22 = call func_66(gamevar control_char_p)
+var VAR_22 = call get_char_handle_id(gamevar control_char_p)
 switch(var VAR_22)
  {
 		case 65536
@@ -581,7 +581,7 @@ switch(var VAR_22)
 }
 
 ._SCRIPT_16
-var VAR_44 = call func_66(gamevar control_char_p)
+var VAR_44 = call get_char_handle_id(gamevar control_char_p)
 switch(var VAR_44)
  {
 		case 65536
@@ -608,30 +608,30 @@ switch(var VAR_44)
 switch(gamevar is_room_cleared)
  {
 		case 1
-			call reload_char(var &VAR_92)
+			call load_char(var &VAR_92)
 			if(call func_6f() == int 1)
 			 {
-					call func_a5(var &VAR_90, int 100)
+					call run_wandering_generator(var &VAR_90, int 100)
 			}
 			else
 			 {
-					call func_a5(var &VAR_91, int 100)
+					call run_wandering_generator(var &VAR_91, int 100)
 			}
 			break 
 		case 2
-			call reload_char(var &VAR_93)
-			call reload_char(var &VAR_94)
-			call reload_char(var &VAR_95)
-			call reload_char(var &VAR_96)
+			call load_char(var &VAR_93)
+			call load_char(var &VAR_94)
+			call load_char(var &VAR_95)
+			call load_char(var &VAR_96)
 			call func_b8(int 91)
 			call func_b8(int 93)
 			if(call func_6f() == int 1)
 			 {
-					call func_a5(var &VAR_88, int 100)
+					call run_wandering_generator(var &VAR_88, int 100)
 			}
 			else
 			 {
-					call func_a5(var &VAR_89, int 100)
+					call run_wandering_generator(var &VAR_89, int 100)
 			}
 			break 
 }

@@ -33,7 +33,7 @@ VAR_30	0
 VAR_31	-1431699410	
 VAR_32	"bats"
 
-._SCRIPT_0
+._on_load
 call play_bgm(var &VAR_0)
 if(gamevar is_room_cleared)
  {
@@ -57,7 +57,7 @@ else
 		}
 }
 
-._SCRIPT_1
+._infinite_loop
 if(gamevar !is_room_cleared)
  {
 		switch(gamevar room_state)
@@ -76,7 +76,7 @@ if(gamevar !is_room_cleared)
 		}
 }
 
-._SCRIPT_2
+._on_exit
 if(gamevar !is_room_cleared)
  {
 		switch(gamevar room_state)
@@ -116,7 +116,7 @@ if(var VAR_20 == int 1)
 		 {
 				if(call get_num_of_enemies() < int 2)
 				 {
-						var VAR_21 = call eval(var &VAR_12, int 10)
+						var VAR_21 = call run_enemy_generator(var &VAR_12, int 10)
 						var VAR_20 ++ 
 				}
 		}
@@ -129,7 +129,7 @@ if(var VAR_20 == int 2)
 				 {
 						if(call func_ab(int 200, var &VAR_19))
 						 {
-								var VAR_22 = call eval(var &VAR_16, int 3)
+								var VAR_22 = call run_enemy_generator(var &VAR_16, int 3)
 								var VAR_20 ++ 
 						}
 				}
@@ -137,12 +137,12 @@ if(var VAR_20 == int 2)
 }
 
 ._SCRIPT_4
-call reload_char(var &VAR_1)
-call reload_char(var &VAR_2)
-call reload_char(var &VAR_3)
-call reload_char(var &VAR_4)
-var VAR_17 = call func_a5(var &VAR_10, int 1)
-var VAR_18 = call eval(var &VAR_13, int 300)
+call load_char(var &VAR_1)
+call load_char(var &VAR_2)
+call load_char(var &VAR_3)
+call load_char(var &VAR_4)
+var VAR_17 = call run_wandering_generator(var &VAR_10, int 1)
+var VAR_18 = call run_enemy_generator(var &VAR_13, int 300)
 
 ._SCRIPT_5
 
@@ -154,14 +154,14 @@ var VAR_18 = call eval(var &VAR_13, int 300)
 
 ._SCRIPT_9
 call log(var &VAR_23)
-call reload_char(var &VAR_24)
+call load_char(var &VAR_24)
 if(var VAR_29 == int 0)
  {
 		call log(var &VAR_31)
 		if(call func_ab(int 200, var &VAR_28))
 		 {
 				call log(var &VAR_32)
-				var VAR_30 = call eval(var &VAR_27, int 3)
+				var VAR_30 = call run_enemy_generator(var &VAR_27, int 3)
 				var VAR_29 ++ 
 		}
 }

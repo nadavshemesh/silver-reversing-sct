@@ -70,7 +70,7 @@ VAR_67	0
 VAR_68	0	
 VAR_69	"DOGSEYES"
 
-._SCRIPT_0
+._on_load
 call play_bgm(var &VAR_0)
 execute SCRIPT_10
 execute SCRIPT_12
@@ -103,7 +103,7 @@ else
 		}
 }
 
-._SCRIPT_1
+._infinite_loop
 execute SCRIPT_11
 execute SCRIPT_13
 if(gamevar !is_room_cleared)
@@ -124,7 +124,7 @@ if(gamevar !is_room_cleared)
 		}
 }
 
-._SCRIPT_2
+._on_exit
 if(gamevar !is_room_cleared)
  {
 		switch(gamevar room_state)
@@ -196,10 +196,10 @@ switch(var VAR_30)
 			}
 			break 
 		case 2
-			if(call func_5e())
+			if(call is_not_scrolling())
 			 {
 					var VAR_32 = gamevar control_char_p
-					var VAR_33 = call func_66(var VAR_32)
+					var VAR_33 = call get_char_handle_id(var VAR_32)
 					switch(var VAR_33)
 					 {
 							case 65536
@@ -221,8 +221,8 @@ switch(var VAR_30)
 								call start_dialog(var &VAR_49, var &VAR_50)
 								break 
 					}
-					call char_turn_to_pos(var VAR_32, call func_67(var VAR_9))
-					call char_turn_to_pos(var VAR_9, call func_67(var VAR_32))
+					call char_turn_to_pos(var VAR_32, call get_char_pos(var VAR_9))
+					call char_turn_to_pos(var VAR_9, call get_char_pos(var VAR_32))
 					var VAR_30 ++ 
 					var VAR_31 = int 0
 			}
@@ -231,7 +231,7 @@ switch(var VAR_30)
 			if(call get_input_sys() != int 4)
 			 {
 					call func_50(var VAR_9, int 8192)
-					call set_char_anim_seq(var VAR_9, var &VAR_37)
+					call play_char_ai_script(var VAR_9, var &VAR_37)
 					call func_108(var &VAR_51)
 					var VAR_30 ++ 
 					var VAR_31 = int 0
@@ -248,7 +248,7 @@ switch(var VAR_30)
 			}
 			break 
 		case 5
-			if(call func_5e())
+			if(call is_not_scrolling())
 			 {
 					var VAR_26 = int 1
 					var VAR_30 ++ 
@@ -264,7 +264,7 @@ switch(var VAR_30)
 			}
 			break 
 		case 7
-			if(call func_5e())
+			if(call is_not_scrolling())
 			 {
 					call set_input_system(int 1)
 					var VAR_12 = int 0
@@ -281,7 +281,7 @@ var VAR_31 ++
 ._SCRIPT_4
 var VAR_24 = call create_char(var &VAR_25, var &VAR_29, int 170, int 13)
 call func_50(var VAR_24, int 8192)
-call set_char_anim_seq(var VAR_24, var &VAR_28)
+call play_char_ai_script(var VAR_24, var &VAR_28)
 call set_input_system(int 2)
 var VAR_12 = int 1
 
@@ -356,7 +356,7 @@ switch(var VAR_13)
 			 {
 					if(gamevar control_char_p)
 					 {
-							call char_turn_to_pos(var VAR_9, call func_67(gamevar control_char_p))
+							call char_turn_to_pos(var VAR_9, call get_char_pos(gamevar control_char_p))
 					}
 					var VAR_13 = int 0
 					var VAR_14 = int 0
@@ -384,7 +384,7 @@ else
 if(var VAR_64 != var VAR_52)
  {
 		var VAR_64 = var VAR_52
-		call func_ce(var VAR_52)
+		call log_obj(var VAR_52)
 }
 switch(var VAR_52)
  {
@@ -434,7 +434,7 @@ switch(var VAR_52)
 		case 3
 			if(call func_ab(int 400, var &VAR_55))
 			 {
-					var VAR_59 = call eval(var &VAR_57, int 20)
+					var VAR_59 = call run_enemy_generator(var &VAR_57, int 20)
 					var VAR_60 = call func_96(int 39, int 0, int 0, int 0)
 					call func_106(var VAR_60, int 9, int 5, var &VAR_62)
 					call func_106(var VAR_60, int 9, int 6, int 5)
@@ -449,14 +449,14 @@ switch(var VAR_52)
 			if(call func_9(var VAR_59))
 			 {
 					var VAR_61 = call func_96(int 120, int 0, int 1, int 180)
-					call put_item_in_char_inv(var VAR_61, int 56, int 1, int 0)
+					call add_item_to_char(var VAR_61, int 56, int 1, int 0)
 					var VAR_2 = int 1
 					var VAR_53 = int 0
 					var VAR_52 ++ 
 			}
 			break 
 		case 5
-			if(call get_num_of_enemies() == int 0&&call ! is_char_exist(int 458752))
+			if(call get_num_of_enemies() == int 0&&call ! is_char_handle_in_level(int 458752))
 			 {
 					call set_input_system(int 2)
 					var VAR_53 = int 0
@@ -472,15 +472,15 @@ switch(var VAR_52)
 			}
 			break 
 		case 7
-			if(call func_5e())
+			if(call is_not_scrolling())
 			 {
-					var VAR_63 = call func_70()
+					var VAR_63 = call get_david_char()
 					while(var VAR_63)
 					 {
-							call char_turn_to_pos(var VAR_63, call func_67(var VAR_9))
+							call char_turn_to_pos(var VAR_63, call get_char_pos(var VAR_9))
 							var VAR_63 = call func_7e()
 					}
-					call char_turn_to_pos(var VAR_9, call func_67(gamevar control_char_p))
+					call char_turn_to_pos(var VAR_9, call get_char_pos(gamevar control_char_p))
 					call start_dialog(var &VAR_65, var &VAR_66)
 					var VAR_53 = int 0
 					var VAR_52 ++ 
@@ -498,8 +498,8 @@ switch(var VAR_52)
 var VAR_53 ++ 
 
 ._SCRIPT_16
-call reload_char(var &VAR_21)
-call reload_char(var &VAR_22)
-call reload_char(var &VAR_23)
+call load_char(var &VAR_21)
+call load_char(var &VAR_22)
+call load_char(var &VAR_23)
 call func_b8(int 112)
 call func_b8(int 56)

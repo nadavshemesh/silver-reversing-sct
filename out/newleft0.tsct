@@ -77,7 +77,7 @@ VAR_74	"S_VBY"
 VAR_75	"NULL"	
 VAR_76	"*** sensed heroes ***"
 
-._SCRIPT_0
+._on_load
 var VAR_19 = var &VAR_25
 var VAR_20 = int 245
 execute SCRIPT_15
@@ -108,7 +108,7 @@ else
 		}
 }
 
-._SCRIPT_1
+._infinite_loop
 execute SCRIPT_12
 if(gamevar !is_room_cleared)
  {
@@ -125,7 +125,7 @@ if(gamevar !is_room_cleared)
 		}
 }
 
-._SCRIPT_2
+._on_exit
 if(gamevar !is_room_cleared)
  {
 		switch(gamevar room_state)
@@ -152,7 +152,7 @@ execute SCRIPT_11
 if(var VAR_66 != var VAR_48)
  {
 		var VAR_66 = var VAR_48
-		call func_ce(var VAR_48)
+		call log_obj(var VAR_48)
 }
 switch(var VAR_48)
  {
@@ -160,7 +160,7 @@ switch(var VAR_48)
 			if(var VAR_49 > int 100)
 			 {
 					call set_input_system(int 2)
-					var VAR_50 = call func_66(gamevar control_char_p)
+					var VAR_50 = call get_char_handle_id(gamevar control_char_p)
 					switch(var VAR_50)
 					 {
 							case 65536
@@ -173,10 +173,10 @@ switch(var VAR_48)
 								call log(var &VAR_71)
 								break 
 					}
-					var VAR_51 = call is_char_exist(int 65536)
-					var VAR_52 = call is_char_exist(int 786432)
-					call char_turn_to_pos(var VAR_51, call func_67(var VAR_31))
-					call char_turn_to_pos(var VAR_52, call func_67(var VAR_31))
+					var VAR_51 = call is_char_handle_in_level(int 65536)
+					var VAR_52 = call is_char_handle_in_level(int 786432)
+					call char_turn_to_pos(var VAR_51, call get_char_pos(var VAR_31))
+					call char_turn_to_pos(var VAR_52, call get_char_pos(var VAR_31))
 					if(gamevar control_char_p == var VAR_51)
 					 {
 							var VAR_53 = var VAR_52
@@ -203,7 +203,7 @@ switch(var VAR_48)
 			}
 			if(var VAR_49 > int 200)
 			 {
-					call func_df()
+					call resume_conversation()
 					var VAR_48 ++ 
 					var VAR_49 = int 0
 			}
@@ -220,8 +220,8 @@ switch(var VAR_48)
 		case 4
 			if(call is_char_standing(gamevar control_char_p)&&call is_char_standing(var VAR_53))
 			 {
-					call char_turn_to_pos(var VAR_51, call func_67(var VAR_31))
-					call char_turn_to_pos(var VAR_52, call func_67(var VAR_31))
+					call char_turn_to_pos(var VAR_51, call get_char_pos(var VAR_31))
+					call char_turn_to_pos(var VAR_52, call get_char_pos(var VAR_31))
 					call start_dialog(var &VAR_72, var &VAR_73)
 					var VAR_48 ++ 
 					var VAR_49 = int 0
@@ -230,7 +230,7 @@ switch(var VAR_48)
 		case 5
 			if(call get_input_sys() != int 4)
 			 {
-					call play_char_anim_seq(var VAR_31)
+					call set_char_running(var VAR_31)
 					call char_walk_to_pos(var VAR_31, var &VAR_56)
 					call char_turn_to_pos(var VAR_51, var &VAR_56)
 					call char_turn_to_pos(var VAR_52, var &VAR_56)
@@ -241,7 +241,7 @@ switch(var VAR_48)
 		case 6
 			if(call is_char_standing(var VAR_31))
 			 {
-					call char_turn_to_pos(var VAR_31, call func_67(gamevar control_char_p))
+					call char_turn_to_pos(var VAR_31, call get_char_pos(gamevar control_char_p))
 					call start_dialog(var &VAR_74, var &VAR_75)
 					var VAR_48 ++ 
 					var VAR_49 = int 0
@@ -259,33 +259,33 @@ switch(var VAR_48)
 		case 8
 			if(call is_char_standing(var VAR_31))
 			 {
-					call char_turn_to_pos(var VAR_31, call func_67(gamevar control_char_p))
+					call char_turn_to_pos(var VAR_31, call get_char_pos(gamevar control_char_p))
 					var VAR_48 ++ 
 					var VAR_49 = int 0
 			}
 			break 
 		case 9
-			if(call is_char_exist(int 6881280))
+			if(call is_char_handle_in_level(int 6881280))
 			 {
 					call func_18(var VAR_32, int -134, int 0, int -2344)
 			}
-			if(call is_char_exist(int 7143424))
+			if(call is_char_handle_in_level(int 7143424))
 			 {
 					call func_18(var VAR_33, int -290, int 0, int -2021)
 			}
-			if(call is_char_exist(int 7143425))
+			if(call is_char_handle_in_level(int 7143425))
 			 {
 					call func_18(var VAR_34, int -99, int 0, int -1953)
 			}
-			if(call is_char_exist(int 7143426))
+			if(call is_char_handle_in_level(int 7143426))
 			 {
 					call func_18(var VAR_35, int 36, int 0, int -2263)
 			}
-			if(call is_char_exist(int 7143427))
+			if(call is_char_handle_in_level(int 7143427))
 			 {
 					call func_18(var VAR_36, int 233, int 0, int -2202)
 			}
-			if(call is_char_exist(int 7143428))
+			if(call is_char_handle_in_level(int 7143428))
 			 {
 					call func_18(var VAR_37, int 109, int 0, int -1884)
 			}
@@ -295,27 +295,27 @@ switch(var VAR_48)
 		case 10
 			if(var VAR_49 > int 10)
 			 {
-					if(call is_char_exist(int 6881280))
+					if(call is_char_handle_in_level(int 6881280))
 					 {
 							call set_char_init_state(var VAR_32, int 0)
 					}
-					if(call is_char_exist(int 7143424))
+					if(call is_char_handle_in_level(int 7143424))
 					 {
 							call set_char_init_state(var VAR_33, int 0)
 					}
-					if(call is_char_exist(int 7143425))
+					if(call is_char_handle_in_level(int 7143425))
 					 {
 							call set_char_init_state(var VAR_34, int 0)
 					}
-					if(call is_char_exist(int 7143426))
+					if(call is_char_handle_in_level(int 7143426))
 					 {
 							call set_char_init_state(var VAR_35, int 0)
 					}
-					if(call is_char_exist(int 7143427))
+					if(call is_char_handle_in_level(int 7143427))
 					 {
 							call set_char_init_state(var VAR_36, int 0)
 					}
-					if(call is_char_exist(int 7143428))
+					if(call is_char_handle_in_level(int 7143428))
 					 {
 							call set_char_init_state(var VAR_37, int 0)
 					}
@@ -326,7 +326,7 @@ switch(var VAR_48)
 		case 11
 			if(var ! VAR_58)
 			 {
-					if(call is_char_exist(int 6881280))
+					if(call is_char_handle_in_level(int 6881280))
 					 {
 							if(call is_char_standing(var VAR_32))
 							 {
@@ -340,7 +340,7 @@ switch(var VAR_48)
 			}
 			if(var ! VAR_59)
 			 {
-					if(call is_char_exist(int 7143424))
+					if(call is_char_handle_in_level(int 7143424))
 					 {
 							if(call is_char_standing(var VAR_33))
 							 {
@@ -354,7 +354,7 @@ switch(var VAR_48)
 			}
 			if(var ! VAR_60)
 			 {
-					if(call is_char_exist(int 7143425))
+					if(call is_char_handle_in_level(int 7143425))
 					 {
 							if(call is_char_standing(var VAR_34))
 							 {
@@ -368,7 +368,7 @@ switch(var VAR_48)
 			}
 			if(var ! VAR_61)
 			 {
-					if(call is_char_exist(int 7143426))
+					if(call is_char_handle_in_level(int 7143426))
 					 {
 							if(call is_char_standing(var VAR_35))
 							 {
@@ -382,7 +382,7 @@ switch(var VAR_48)
 			}
 			if(var ! VAR_62)
 			 {
-					if(call is_char_exist(int 7143427))
+					if(call is_char_handle_in_level(int 7143427))
 					 {
 							if(call is_char_standing(var VAR_36))
 							 {
@@ -396,7 +396,7 @@ switch(var VAR_48)
 			}
 			if(var ! VAR_63)
 			 {
-					if(call is_char_exist(int 7143428))
+					if(call is_char_handle_in_level(int 7143428))
 					 {
 							if(call is_char_standing(var VAR_37))
 							 {
@@ -416,27 +416,27 @@ switch(var VAR_48)
 							@VAR_58[var VAR_64]= int 0
 							var VAR_64 ++ 
 					}
-					if(call is_char_exist(int 6881280))
+					if(call is_char_handle_in_level(int 6881280))
 					 {
 							call func_18(var VAR_32, int -4681, int 0, int -4057)
 					}
-					if(call is_char_exist(int 7143424))
+					if(call is_char_handle_in_level(int 7143424))
 					 {
 							call func_18(var VAR_33, int -5180, int 0, int -3990)
 					}
-					if(call is_char_exist(int 7143425))
+					if(call is_char_handle_in_level(int 7143425))
 					 {
 							call func_18(var VAR_34, int -5002, int 0, int -3973)
 					}
-					if(call is_char_exist(int 7143426))
+					if(call is_char_handle_in_level(int 7143426))
 					 {
 							call func_18(var VAR_35, int -5181, int 0, int -4199)
 					}
-					if(call is_char_exist(int 7143427))
+					if(call is_char_handle_in_level(int 7143427))
 					 {
 							call func_18(var VAR_36, int -4677, int 0, int -4035)
 					}
-					if(call is_char_exist(int 7143428))
+					if(call is_char_handle_in_level(int 7143428))
 					 {
 							call func_18(var VAR_37, int -4692, int 0, int -3581)
 					}
@@ -457,7 +457,7 @@ switch(var VAR_48)
 			 {
 					if(var ! VAR_58)
 					 {
-							if(call is_char_exist(int 6881280))
+							if(call is_char_handle_in_level(int 6881280))
 							 {
 									if(call is_char_standing(var VAR_32))
 									 {
@@ -472,7 +472,7 @@ switch(var VAR_48)
 					}
 					if(var ! VAR_59)
 					 {
-							if(call is_char_exist(int 7143424))
+							if(call is_char_handle_in_level(int 7143424))
 							 {
 									if(call is_char_standing(var VAR_33))
 									 {
@@ -487,7 +487,7 @@ switch(var VAR_48)
 					}
 					if(var ! VAR_60)
 					 {
-							if(call is_char_exist(int 7143425))
+							if(call is_char_handle_in_level(int 7143425))
 							 {
 									if(call is_char_standing(var VAR_34))
 									 {
@@ -502,7 +502,7 @@ switch(var VAR_48)
 					}
 					if(var ! VAR_61)
 					 {
-							if(call is_char_exist(int 7143426))
+							if(call is_char_handle_in_level(int 7143426))
 							 {
 									if(call is_char_standing(var VAR_35))
 									 {
@@ -517,7 +517,7 @@ switch(var VAR_48)
 					}
 					if(var ! VAR_62)
 					 {
-							if(call is_char_exist(int 7143427))
+							if(call is_char_handle_in_level(int 7143427))
 							 {
 									if(call is_char_standing(var VAR_36))
 									 {
@@ -532,7 +532,7 @@ switch(var VAR_48)
 					}
 					if(var ! VAR_63)
 					 {
-							if(call is_char_exist(int 7143428))
+							if(call is_char_handle_in_level(int 7143428))
 							 {
 									if(call is_char_standing(var VAR_37))
 									 {
@@ -608,7 +608,7 @@ gamevar *character_stats_p+16 = int 800
 var VAR_45 = call load_anim(var &VAR_47)
 
 ._SCRIPT_6
-if(call is_char_exist(int 6881280))
+if(call is_char_handle_in_level(int 6881280))
  {
 		if(call func_88(var VAR_32))
 		 {
@@ -616,7 +616,7 @@ if(call is_char_exist(int 6881280))
 				exit_script 
 		}
 }
-if(call is_char_exist(int 7143424))
+if(call is_char_handle_in_level(int 7143424))
  {
 		if(call func_88(var VAR_33))
 		 {
@@ -624,7 +624,7 @@ if(call is_char_exist(int 7143424))
 				exit_script 
 		}
 }
-if(call is_char_exist(int 7143425))
+if(call is_char_handle_in_level(int 7143425))
  {
 		if(call func_88(var VAR_34))
 		 {
@@ -632,7 +632,7 @@ if(call is_char_exist(int 7143425))
 				exit_script 
 		}
 }
-if(call is_char_exist(int 7143426))
+if(call is_char_handle_in_level(int 7143426))
  {
 		if(call func_88(var VAR_35))
 		 {
@@ -640,7 +640,7 @@ if(call is_char_exist(int 7143426))
 				exit_script 
 		}
 }
-if(call is_char_exist(int 7143427))
+if(call is_char_handle_in_level(int 7143427))
  {
 		if(call func_88(var VAR_36))
 		 {
@@ -648,7 +648,7 @@ if(call is_char_exist(int 7143427))
 				exit_script 
 		}
 }
-if(call is_char_exist(int 7143428))
+if(call is_char_handle_in_level(int 7143428))
  {
 		if(call func_88(var VAR_37))
 		 {
@@ -658,7 +658,7 @@ if(call is_char_exist(int 7143428))
 }
 
 ._SCRIPT_7
-if(call is_char_exist(int 6881280))
+if(call is_char_handle_in_level(int 6881280))
  {
 		call set_char_behav(var VAR_32, int 14)
 		call func_106(var VAR_32, int 1, int 0, int 1)
@@ -668,7 +668,7 @@ if(call is_char_exist(int 6881280))
 		gamevar script_object = var VAR_32
 		gamevar *character_stats_p+16 = int 40000
 }
-if(call is_char_exist(int 7143424))
+if(call is_char_handle_in_level(int 7143424))
  {
 		call set_char_behav(var VAR_33, int 11)
 		call func_106(var VAR_33, int 1, int 0, int 1)
@@ -678,7 +678,7 @@ if(call is_char_exist(int 7143424))
 		gamevar script_object = var VAR_33
 		gamevar *character_stats_p+16 = int 40000
 }
-if(call is_char_exist(int 7143425))
+if(call is_char_handle_in_level(int 7143425))
  {
 		call set_char_behav(var VAR_34, int 11)
 		call func_106(var VAR_34, int 1, int 0, int 1)
@@ -688,7 +688,7 @@ if(call is_char_exist(int 7143425))
 		gamevar script_object = var VAR_34
 		gamevar *character_stats_p+16 = int 40000
 }
-if(call is_char_exist(int 7143426))
+if(call is_char_handle_in_level(int 7143426))
  {
 		call set_char_behav(var VAR_35, int 11)
 		call func_106(var VAR_35, int 1, int 0, int 1)
@@ -698,7 +698,7 @@ if(call is_char_exist(int 7143426))
 		gamevar script_object = var VAR_35
 		gamevar *character_stats_p+16 = int 40000
 }
-if(call is_char_exist(int 7143427))
+if(call is_char_handle_in_level(int 7143427))
  {
 		call set_char_behav(var VAR_36, int 11)
 		call func_106(var VAR_36, int 1, int 0, int 1)
@@ -708,7 +708,7 @@ if(call is_char_exist(int 7143427))
 		gamevar script_object = var VAR_36
 		gamevar *character_stats_p+16 = int 40000
 }
-if(call is_char_exist(int 7143428))
+if(call is_char_handle_in_level(int 7143428))
  {
 		call set_char_behav(var VAR_37, int 11)
 		call func_106(var VAR_37, int 1, int 0, int 1)
@@ -844,7 +844,7 @@ switch(var VAR_13)
 		case 2
 			if(call is_local_timer_greater_than(var VAR_16))
 			 {
-					call func_f6(gamevar misc_fx_scripts, int 6, int 0, int 0)
+					call apply_effect_on_char(gamevar misc_fx_scripts, int 6, int 0, int 0)
 					call reset_local_timer()
 					var VAR_17 = int 255
 					var VAR_16 = call randomize_int(int 1, int 31)
@@ -887,7 +887,7 @@ switch(var VAR_13)
 var VAR_14 ++ 
 
 ._SCRIPT_15
-var VAR_18 = call is_char_exist(int 1507337)
+var VAR_18 = call is_char_handle_in_level(int 1507337)
 if(var ! VAR_18)
  {
 		var VAR_18 = call create_char(var VAR_19, var &VAR_24, var VAR_20, int 14)
@@ -910,11 +910,11 @@ if(var VAR_21 != int -1)
 		 {
 				if(var VAR_23 != int -1)
 				 {
-						call put_item_in_char_inv(var VAR_18, int 85, var VAR_23, int 0)
+						call add_item_to_char(var VAR_18, int 85, var VAR_23, int 0)
 				}
 				else
 				 {
-						call put_item_in_char_inv(var VAR_18, var VAR_21, int 1, int 0)
+						call add_item_to_char(var VAR_18, var VAR_21, int 1, int 0)
 				}
 		}
 }

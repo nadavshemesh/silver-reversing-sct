@@ -68,7 +68,7 @@ VAR_65	0
 VAR_66	0	
 VAR_67	0
 
-._SCRIPT_0
+._on_load
 var VAR_10 = call load_anim(var &VAR_12)
 var VAR_11 = call load_anim(var &VAR_13)
 call load_sound_set(int 30)
@@ -103,7 +103,7 @@ else
 		}
 }
 
-._SCRIPT_1
+._infinite_loop
 execute SCRIPT_3
 if(gamevar is_room_cleared)
  {
@@ -124,10 +124,10 @@ else
 		}
 }
 
-._SCRIPT_2
+._on_exit
 if(var VAR_22 == int 1)
  {
-		call func_117(var &VAR_31, var &VAR_32, int 0)
+		call set_scene_overwrite_act(var &VAR_31, var &VAR_32, int 0)
 		call func_116(var &VAR_33, var &VAR_34, int 2)
 		gamevar room_state = int 2
 }
@@ -178,11 +178,11 @@ if(gamevar !is_room_cleared&&var VAR_22 == int 0)
 			call create_enemy(int 36, int 0, var &VAR_42, int 238)
 			var VAR_43 = call get_char_handle(int 11010048)
 			call set_char_init_state(var VAR_43, int 0)
-			var VAR_44 = call put_item_in_char_inv(var VAR_43, int 46, int 1, int 0)
+			var VAR_44 = call add_item_to_char(var VAR_43, int 46, int 1, int 0)
 			call create_enemy(int 36, int 1, var &VAR_45, int 310)
 			var VAR_46 = call get_char_handle(int 11010049)
 			call set_char_init_state(var VAR_46, int 0)
-			var VAR_47 = call put_item_in_char_inv(var VAR_46, int 45, int 1, int 0)
+			var VAR_47 = call add_item_to_char(var VAR_46, int 45, int 1, int 0)
 			execute SCRIPT_4
 			var VAR_14 = call play_loaded_sound(int 1, int -1, int 30, int 0)
 			var VAR_15 = int 1
@@ -194,14 +194,14 @@ if(gamevar !is_room_cleared&&var VAR_22 == int 0)
 					if(gamevar global_zone_type == int 18)
 					 {
 							var VAR_20 = gamevar control_char_p
-							if(call func_30(int 84))
+							if(call create_item(int 84))
 							 {
 									var VAR_22 = int 1
 							}
 							if(var VAR_22)
 							 {
 									call set_input_system(int 2)
-									call play_char_anim_seq(var VAR_20)
+									call set_char_running(var VAR_20)
 									call func_18(var VAR_20, int 2126, int 4042, int -4935)
 									var VAR_48 ++ 
 									call func_ff(var &VAR_27)
@@ -245,7 +245,7 @@ if(gamevar !is_room_cleared&&var VAR_22 == int 0)
 							var VAR_35 = int 1
 							gamevar pnc_look_use_mask = int 2
 							gamevar use_mouse_override_sprite = int 131072
-							var VAR_21 = call func_30(int 84)
+							var VAR_21 = call create_item(int 84)
 							var VAR_19 = int 1
 					}
 			}
@@ -273,10 +273,10 @@ if(gamevar !is_room_cleared&&var VAR_22 == int 0)
 					if(call is_char_at_pos(var VAR_20, var &VAR_6, int 240))
 					 {
 							call set_input_system(int 2)
-							var VAR_20 = call func_70()
+							var VAR_20 = call get_david_char()
 							while(var VAR_20)
 							 {
-									call play_char_anim_seq(var VAR_20)
+									call set_char_running(var VAR_20)
 									call char_walk_to_pos(var VAR_20, @VAR_9[var VAR_25])
 									var VAR_25 ++ 
 									var VAR_26 = var VAR_25
@@ -289,7 +289,7 @@ if(gamevar !is_room_cleared&&var VAR_22 == int 0)
 			}
 			if(var VAR_48 == int 6)
 			 {
-					var VAR_20 = call func_70()
+					var VAR_20 = call get_david_char()
 					while(var VAR_20)
 					 {
 							if(call is_char_standing(var VAR_20)&&@VAR_24[var VAR_25] == int 0)
@@ -318,14 +318,14 @@ if(gamevar !is_room_cleared&&var VAR_22 == int 0)
 			var VAR_5 = call func_e8(var &VAR_6, int 0)
 			if(var VAR_52 == int 0)
 			 {
-					var VAR_20 = call func_70()
+					var VAR_20 = call get_david_char()
 					if(call is_char_at_pos(var VAR_20, var &VAR_6, int 320))
 					 {
 							call set_input_system(int 2)
 							var VAR_52 ++ 
 							while(var VAR_20)
 							 {
-									call func_f6(gamevar char_gen_fx_scripts, int 18, int 0, var VAR_20)
+									call apply_effect_on_char(gamevar char_gen_fx_scripts, int 18, int 0, var VAR_20)
 									var VAR_20 = call func_7e()
 							}
 					}
@@ -345,10 +345,10 @@ if(gamevar !is_room_cleared&&var VAR_22 == int 0)
 			}
 			if(var VAR_52 == int 2)
 			 {
-					var VAR_20 = call func_70()
+					var VAR_20 = call get_david_char()
 					while(var VAR_20)
 					 {
-							call play_char_anim_seq(var VAR_20)
+							call set_char_running(var VAR_20)
 							call char_walk_to_pos(var VAR_20, @VAR_4[var VAR_25])
 							var VAR_25 ++ 
 							var VAR_20 = call func_7e()
@@ -373,10 +373,10 @@ if(gamevar !is_room_cleared&&var VAR_22 == int 0)
 					if(call is_char_at_pos(var VAR_20, var &VAR_6, int 240))
 					 {
 							call set_input_system(int 2)
-							var VAR_20 = call func_70()
+							var VAR_20 = call get_david_char()
 							while(var VAR_20)
 							 {
-									call play_char_anim_seq(var VAR_20)
+									call set_char_running(var VAR_20)
 									call char_walk_to_pos(var VAR_20, @VAR_9[var VAR_25])
 									var VAR_25 ++ 
 									var VAR_26 = var VAR_25
@@ -389,7 +389,7 @@ if(gamevar !is_room_cleared&&var VAR_22 == int 0)
 			}
 			if(var VAR_52 == int 5)
 			 {
-					var VAR_20 = call func_70()
+					var VAR_20 = call get_david_char()
 					while(var VAR_20)
 					 {
 							if(call is_char_standing(var VAR_20)&&@VAR_24[var VAR_25] == int 0)
@@ -410,7 +410,7 @@ if(gamevar !is_room_cleared&&var VAR_22 == int 0)
 							 {
 									var VAR_52 ++ 
 									call func_e6(var &VAR_54, var &VAR_55, var &VAR_0, int 2)
-									call func_117(var &VAR_56, var &VAR_57, int 0)
+									call set_scene_overwrite_act(var &VAR_56, var &VAR_57, int 0)
 							}
 					}
 			}
@@ -428,7 +428,7 @@ if(gamevar !is_room_cleared&&var VAR_22 == int 0)
 					 {
 							call set_input_system(int 2)
 							var VAR_20 = call get_selected_hero()
-							call play_char_anim_seq(var VAR_20)
+							call set_char_running(var VAR_20)
 							call func_18(var VAR_20, int 2126, int 4042, int -4935)
 							var VAR_58 ++ 
 							gamevar global_zone_type = int 0
@@ -441,7 +441,7 @@ if(gamevar !is_room_cleared&&var VAR_22 == int 0)
 					 {
 							call func_36(var VAR_20, int 2277, int 4041, int -4940)
 							var VAR_58 ++ 
-							if(call func_30(int 84))
+							if(call create_item(int 84))
 							 {
 									var VAR_22 = int 1
 							}
@@ -482,7 +482,7 @@ if(gamevar !is_room_cleared&&var VAR_22 == int 0)
 									var VAR_35 = int 1
 									gamevar pnc_look_use_mask = int 2
 									gamevar use_mouse_override_sprite = int 131072
-									var VAR_21 = call func_30(int 84)
+									var VAR_21 = call create_item(int 84)
 									var VAR_19 = int 1
 							}
 					}
@@ -510,10 +510,10 @@ if(gamevar !is_room_cleared&&var VAR_22 == int 0)
 					if(call is_char_at_pos(var VAR_20, var &VAR_6, int 240))
 					 {
 							call set_input_system(int 2)
-							var VAR_20 = call func_70()
+							var VAR_20 = call get_david_char()
 							while(var VAR_20)
 							 {
-									call play_char_anim_seq(var VAR_20)
+									call set_char_running(var VAR_20)
 									call char_walk_to_pos(var VAR_20, @VAR_9[var VAR_25])
 									var VAR_25 ++ 
 									var VAR_26 = var VAR_25
@@ -527,7 +527,7 @@ if(gamevar !is_room_cleared&&var VAR_22 == int 0)
 			}
 			if(var VAR_58 == int 6)
 			 {
-					var VAR_20 = call func_70()
+					var VAR_20 = call get_david_char()
 					while(var VAR_20)
 					 {
 							if(call is_char_standing(var VAR_20)&&@VAR_24[var VAR_25] == int 0)
@@ -548,7 +548,7 @@ if(gamevar !is_room_cleared&&var VAR_22 == int 0)
 							 {
 									var VAR_58 ++ 
 									call func_e6(var &VAR_61, var &VAR_62, var &VAR_0, int 2)
-									call func_117(var &VAR_63, var &VAR_64, int 0)
+									call set_scene_overwrite_act(var &VAR_63, var &VAR_64, int 0)
 							}
 					}
 			}
@@ -604,14 +604,14 @@ if(var VAR_48 == int 0&&call get_num_of_enemies() == int 0)
 		if(gamevar global_zone_type == int 18)
 		 {
 				var VAR_20 = gamevar control_char_p
-				if(call func_30(int 84))
+				if(call create_item(int 84))
 				 {
 						var VAR_22 = int 1
 				}
 				if(var VAR_22)
 				 {
 						call set_input_system(int 2)
-						call play_char_anim_seq(var VAR_20)
+						call set_char_running(var VAR_20)
 						call func_18(var VAR_20, int 2126, int 4042, int -4935)
 						var VAR_48 ++ 
 						call func_ff(var &VAR_27)
@@ -655,7 +655,7 @@ if(var VAR_48 == int 3)
 				var VAR_35 = int 1
 				gamevar pnc_look_use_mask = int 2
 				gamevar use_mouse_override_sprite = int 131072
-				var VAR_21 = call func_30(int 84)
+				var VAR_21 = call create_item(int 84)
 				var VAR_19 = int 1
 		}
 }
@@ -683,10 +683,10 @@ if(var VAR_48 == int 5)
 		if(call is_char_at_pos(var VAR_20, var &VAR_6, int 240))
 		 {
 				call set_input_system(int 2)
-				var VAR_20 = call func_70()
+				var VAR_20 = call get_david_char()
 				while(var VAR_20)
 				 {
-						call play_char_anim_seq(var VAR_20)
+						call set_char_running(var VAR_20)
 						call char_walk_to_pos(var VAR_20, @VAR_9[var VAR_25])
 						var VAR_25 ++ 
 						var VAR_26 = var VAR_25
@@ -699,7 +699,7 @@ if(var VAR_48 == int 5)
 }
 if(var VAR_48 == int 6)
  {
-		var VAR_20 = call func_70()
+		var VAR_20 = call get_david_char()
 		while(var VAR_20)
 		 {
 				if(call is_char_standing(var VAR_20)&&@VAR_24[var VAR_25] == int 0)
@@ -730,11 +730,11 @@ var VAR_37 = int 1
 call create_enemy(int 36, int 0, var &VAR_42, int 238)
 var VAR_43 = call get_char_handle(int 11010048)
 call set_char_init_state(var VAR_43, int 0)
-var VAR_44 = call put_item_in_char_inv(var VAR_43, int 46, int 1, int 0)
+var VAR_44 = call add_item_to_char(var VAR_43, int 46, int 1, int 0)
 call create_enemy(int 36, int 1, var &VAR_45, int 310)
 var VAR_46 = call get_char_handle(int 11010049)
 call set_char_init_state(var VAR_46, int 0)
-var VAR_47 = call put_item_in_char_inv(var VAR_46, int 45, int 1, int 0)
+var VAR_47 = call add_item_to_char(var VAR_46, int 45, int 1, int 0)
 execute SCRIPT_4
 var VAR_14 = call play_loaded_sound(int 1, int -1, int 30, int 0)
 var VAR_15 = int 1
@@ -742,14 +742,14 @@ var VAR_15 = int 1
 ._SCRIPT_8
 if(var VAR_52 == int 0)
  {
-		var VAR_20 = call func_70()
+		var VAR_20 = call get_david_char()
 		if(call is_char_at_pos(var VAR_20, var &VAR_6, int 320))
 		 {
 				call set_input_system(int 2)
 				var VAR_52 ++ 
 				while(var VAR_20)
 				 {
-						call func_f6(gamevar char_gen_fx_scripts, int 18, int 0, var VAR_20)
+						call apply_effect_on_char(gamevar char_gen_fx_scripts, int 18, int 0, var VAR_20)
 						var VAR_20 = call func_7e()
 				}
 		}
@@ -769,10 +769,10 @@ if(var VAR_52 == int 1)
 }
 if(var VAR_52 == int 2)
  {
-		var VAR_20 = call func_70()
+		var VAR_20 = call get_david_char()
 		while(var VAR_20)
 		 {
-				call play_char_anim_seq(var VAR_20)
+				call set_char_running(var VAR_20)
 				call char_walk_to_pos(var VAR_20, @VAR_4[var VAR_25])
 				var VAR_25 ++ 
 				var VAR_20 = call func_7e()
@@ -797,10 +797,10 @@ if(var VAR_52 == int 4)
 		if(call is_char_at_pos(var VAR_20, var &VAR_6, int 240))
 		 {
 				call set_input_system(int 2)
-				var VAR_20 = call func_70()
+				var VAR_20 = call get_david_char()
 				while(var VAR_20)
 				 {
-						call play_char_anim_seq(var VAR_20)
+						call set_char_running(var VAR_20)
 						call char_walk_to_pos(var VAR_20, @VAR_9[var VAR_25])
 						var VAR_25 ++ 
 						var VAR_26 = var VAR_25
@@ -813,7 +813,7 @@ if(var VAR_52 == int 4)
 }
 if(var VAR_52 == int 5)
  {
-		var VAR_20 = call func_70()
+		var VAR_20 = call get_david_char()
 		while(var VAR_20)
 		 {
 				if(call is_char_standing(var VAR_20)&&@VAR_24[var VAR_25] == int 0)
@@ -834,7 +834,7 @@ if(var VAR_52 == int 5)
 				 {
 						var VAR_52 ++ 
 						call func_e6(var &VAR_54, var &VAR_55, var &VAR_0, int 2)
-						call func_117(var &VAR_56, var &VAR_57, int 0)
+						call set_scene_overwrite_act(var &VAR_56, var &VAR_57, int 0)
 				}
 		}
 }
@@ -860,7 +860,7 @@ if(var VAR_58 == int 0&&call get_num_of_enemies() == int 0)
 		 {
 				call set_input_system(int 2)
 				var VAR_20 = call get_selected_hero()
-				call play_char_anim_seq(var VAR_20)
+				call set_char_running(var VAR_20)
 				call func_18(var VAR_20, int 2126, int 4042, int -4935)
 				var VAR_58 ++ 
 				gamevar global_zone_type = int 0
@@ -873,7 +873,7 @@ if(var VAR_58 == int 1)
 		 {
 				call func_36(var VAR_20, int 2277, int 4041, int -4940)
 				var VAR_58 ++ 
-				if(call func_30(int 84))
+				if(call create_item(int 84))
 				 {
 						var VAR_22 = int 1
 				}
@@ -914,7 +914,7 @@ if(var VAR_58 == int 3)
 						var VAR_35 = int 1
 						gamevar pnc_look_use_mask = int 2
 						gamevar use_mouse_override_sprite = int 131072
-						var VAR_21 = call func_30(int 84)
+						var VAR_21 = call create_item(int 84)
 						var VAR_19 = int 1
 				}
 		}
@@ -942,10 +942,10 @@ if(var VAR_58 == int 5)
 		if(call is_char_at_pos(var VAR_20, var &VAR_6, int 240))
 		 {
 				call set_input_system(int 2)
-				var VAR_20 = call func_70()
+				var VAR_20 = call get_david_char()
 				while(var VAR_20)
 				 {
-						call play_char_anim_seq(var VAR_20)
+						call set_char_running(var VAR_20)
 						call char_walk_to_pos(var VAR_20, @VAR_9[var VAR_25])
 						var VAR_25 ++ 
 						var VAR_26 = var VAR_25
@@ -959,7 +959,7 @@ if(var VAR_58 == int 5)
 }
 if(var VAR_58 == int 6)
  {
-		var VAR_20 = call func_70()
+		var VAR_20 = call get_david_char()
 		while(var VAR_20)
 		 {
 				if(call is_char_standing(var VAR_20)&&@VAR_24[var VAR_25] == int 0)
@@ -980,7 +980,7 @@ if(var VAR_58 == int 6)
 				 {
 						var VAR_58 ++ 
 						call func_e6(var &VAR_61, var &VAR_62, var &VAR_0, int 2)
-						call func_117(var &VAR_63, var &VAR_64, int 0)
+						call set_scene_overwrite_act(var &VAR_63, var &VAR_64, int 0)
 				}
 		}
 }

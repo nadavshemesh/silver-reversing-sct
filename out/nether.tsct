@@ -61,10 +61,10 @@ VAR_58	0
 VAR_59	1	
 VAR_60	100
 
-._SCRIPT_0
+._on_load
 call load_sound_set(int 79)
 call log(var &VAR_29)
-call func_ce(gamevar room_state)
+call log_obj(gamevar room_state)
 switch(gamevar room_state)
  {
 		case 1
@@ -79,7 +79,7 @@ switch(gamevar room_state)
 			break 
 }
 
-._SCRIPT_1
+._infinite_loop
 switch(gamevar room_state)
  {
 		case 1
@@ -98,9 +98,9 @@ switch(gamevar room_state)
 			break 
 }
 
-._SCRIPT_2
+._on_exit
 call log(var &VAR_30)
-call func_ce(gamevar room_state)
+call log_obj(gamevar room_state)
 switch(gamevar room_state)
  {
 		case 1
@@ -117,27 +117,27 @@ switch(gamevar room_state)
 }
 
 ._SCRIPT_3
-call func_12e(int 2)
+call open_save_screen(int 2)
 
 ._SCRIPT_4
 call log(var &VAR_32)
 call func_8f(var &VAR_33)
-var VAR_31 = call func_70()
+var VAR_31 = call get_david_char()
 call func_61(var VAR_31)
 call func_8d(var VAR_31, int 12845056)
 call char_stop(var VAR_31)
-call put_item_in_char_inv(var VAR_31, int 113, int 0, int 1)
-call put_item_in_char_inv(var VAR_31, int 114, int 0, int 1)
+call add_item_to_char(var VAR_31, int 113, int 0, int 1)
+call add_item_to_char(var VAR_31, int 114, int 0, int 1)
 
 ._SCRIPT_5
 call func_49()
 call set_input_system(int 2)
-call reload_char(var &VAR_42)
-var VAR_31 = call func_70()
+call load_char(var &VAR_42)
+var VAR_31 = call get_david_char()
 call func_10a(var VAR_31, int 14)
 gamevar script_object = var VAR_31
 gamevar *object_p+6 |= int 2
-call func_22(var VAR_31)
+call set_char_walking(var VAR_31)
 var VAR_40 = call load_anim(var &VAR_43)
 var VAR_41 = call load_anim(var &VAR_44)
 gamevar SMACKER_X = int 128
@@ -153,7 +153,7 @@ switch(var VAR_0)
 		case 0
 			call reset_local_timer()
 			var VAR_0 = int 1
-			call put_item_in_char_inv(var VAR_31, int 28, int 0, int 1)
+			call add_item_to_char(var VAR_31, int 28, int 0, int 1)
 			var VAR_34 = call create_enemy(int 197, int 0, var &VAR_35, int 240)
 			call func_1(var VAR_34, int -1)
 			break 
@@ -166,7 +166,7 @@ switch(var VAR_0)
 			}
 			break 
 		case 2
-			if(call func_5e())
+			if(call is_not_scrolling())
 			 {
 					call reset_local_timer()
 					var VAR_0 = int 3
@@ -182,7 +182,7 @@ switch(var VAR_0)
 		case 4
 			if(call is_local_timer_greater_than(int 30))
 			 {
-					call func_f6(gamevar char_gen_fx_scripts, int 10, int 0, var VAR_31)
+					call apply_effect_on_char(gamevar char_gen_fx_scripts, int 10, int 0, var VAR_31)
 					call reset_local_timer()
 					var VAR_36 = call func_e8(var &VAR_37, int 0)
 					var VAR_0 = int 5
@@ -191,8 +191,8 @@ switch(var VAR_0)
 		case 5
 			if(call is_local_timer_greater_than(int 15))
 			 {
-					call func_10b(var VAR_31, var &VAR_37, int 182)
-					call func_f6(gamevar char_gen_fx_scripts, int 18, int 0, var VAR_31)
+					call char_teleport_to_pos(var VAR_31, var &VAR_37, int 182)
+					call apply_effect_on_char(gamevar char_gen_fx_scripts, int 18, int 0, var VAR_31)
 					call reset_local_timer()
 					var VAR_0 = int 6
 			}
@@ -200,7 +200,7 @@ switch(var VAR_0)
 		case 6
 			if(call is_local_timer_greater_than(int 10))
 			 {
-					call func_22(var VAR_31)
+					call set_char_walking(var VAR_31)
 					call char_walk_to_pos(var VAR_31, var &VAR_38)
 					call func_11f(var &VAR_39, int 32768)
 					call reset_local_timer()
@@ -268,7 +268,7 @@ switch(var VAR_0)
 					case 1
 						if(call is_local_timer_greater_than(int 10))
 						 {
-								call func_22(var VAR_31)
+								call set_char_walking(var VAR_31)
 								call char_walk_to_pos(var VAR_31, var &VAR_38)
 								call func_11f(var &VAR_39, int 32768)
 								var VAR_1 ++ 
@@ -319,7 +319,7 @@ switch(var VAR_0)
 					case 1
 						if(call is_local_timer_greater_than(int 30))
 						 {
-								call play_char_anim_seq(var VAR_31)
+								call set_char_running(var VAR_31)
 								var VAR_36 = call func_e8(var &VAR_37, int 0)
 								call char_turn_to_pos(var VAR_31, var &VAR_37)
 								call reset_local_timer()
@@ -344,14 +344,14 @@ switch(var VAR_0)
 						if(call is_local_timer_greater_than(int 10))
 						 {
 								call reset_local_timer()
-								call func_f6(gamevar char_gen_fx_scripts, int 10, int 0, var VAR_31)
+								call apply_effect_on_char(gamevar char_gen_fx_scripts, int 10, int 0, var VAR_31)
 								var VAR_1 ++ 
 						}
 						break 
 					case 5
 						if(call is_local_timer_greater_than(int 10))
 						 {
-								call func_10b(var VAR_31, var &VAR_35, int 0)
+								call char_teleport_to_pos(var VAR_31, var &VAR_35, int 0)
 								call reset_local_timer()
 								var VAR_1 ++ 
 						}
@@ -388,7 +388,7 @@ switch(var VAR_0)
 ._SCRIPT_8
 if(var VAR_52 == int 0)
  {
-		var VAR_31 = call func_70()
+		var VAR_31 = call get_david_char()
 		call func_8d(var VAR_31, int 12845056)
 		var VAR_52 ++ 
 }
@@ -399,14 +399,14 @@ execute SCRIPT_10
 switch(var VAR_54)
  {
 		case 0
-			var VAR_31 = call func_70()
+			var VAR_31 = call get_david_char()
 			var VAR_54 ++ 
 			break 
 		case 1
 			if(var VAR_53 == int 200)
 			 {
 					var VAR_53 = int 0
-					call func_f6(gamevar misc_fx_scripts, int 19, var &VAR_55, var VAR_31)
+					call apply_effect_on_char(gamevar misc_fx_scripts, int 19, var &VAR_55, var VAR_31)
 			}
 			break 
 }
@@ -419,8 +419,8 @@ switch(var VAR_56)
 			if(var VAR_2 == int 0)
 			 {
 					var VAR_57 = call randomize_int(int 0, int 24)
-					call func_f6(gamevar misc_fx_scripts, int 31, @VAR_28[var VAR_57], int 0)
-					call func_f6(gamevar misc_fx_scripts, int 32, @VAR_28[var VAR_57], int 0)
+					call apply_effect_on_char(gamevar misc_fx_scripts, int 31, @VAR_28[var VAR_57], int 0)
+					call apply_effect_on_char(gamevar misc_fx_scripts, int 32, @VAR_28[var VAR_57], int 0)
 					var VAR_58 = call play_loaded_sound(int 2, int 0, int 79, int 0)
 					if(var VAR_59 == int 1)
 					 {
@@ -461,7 +461,7 @@ switch(var VAR_56)
 			 {
 					if(var VAR_60 == int 0)
 					 {
-							call func_f6(gamevar misc_fx_scripts, int 34, int 0, int 0)
+							call apply_effect_on_char(gamevar misc_fx_scripts, int 34, int 0, int 0)
 							var VAR_60 = call randomize_int(int 160, int 301)
 					}
 					else

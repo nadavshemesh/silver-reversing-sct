@@ -49,9 +49,9 @@ VAR_46	"C_CAGJUG"
 VAR_47	{ 1280070990, -1431655936, 0 }	
 VAR_48	0
 
-._SCRIPT_0
+._on_load
 execute SCRIPT_4
-call func_e(var &VAR_6)
+call remove_face(var &VAR_6)
 call load_sound_set(int 59)
 call play_loaded_sound(int 2, int -1, int 59, var &VAR_6)
 call load_sound_set(int 65)
@@ -76,7 +76,7 @@ else
 		}
 }
 
-._SCRIPT_1
+._infinite_loop
 execute SCRIPT_11
 if(gamevar !is_room_cleared)
  {
@@ -93,7 +93,7 @@ if(gamevar !is_room_cleared)
 		}
 }
 
-._SCRIPT_2
+._on_exit
 if(gamevar !is_room_cleared)
  {
 		switch(gamevar room_state)
@@ -113,10 +113,10 @@ if(gamevar !is_room_cleared)
 }
 
 ._SCRIPT_3
-var VAR_12 = call func_70()
+var VAR_12 = call get_david_char()
 while(var VAR_12)
  {
-		var VAR_13 = call func_66(var VAR_12)
+		var VAR_13 = call get_char_handle_id(var VAR_12)
 		switch(var VAR_13)
 		 {
 				case 65536
@@ -162,7 +162,7 @@ switch(var VAR_26)
 		case 0
 			if(var VAR_27 == int 5)
 			 {
-					call func_22(var VAR_5)
+					call set_char_walking(var VAR_5)
 					call char_walk_to_pos(var VAR_5, var &VAR_33)
 					var VAR_26 ++ 
 					var VAR_27 = int 0

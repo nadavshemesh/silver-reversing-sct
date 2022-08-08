@@ -65,7 +65,7 @@ VAR_62	"LET'S GENERATE SOME BADDIES"
 VAR_63	{ 1193299790, 1380273733, 1380930625, 1213472851, 1411404617, 4541769, 0, 10, 18, 0 }	
 VAR_64	0
 
-._SCRIPT_0
+._on_load
 call play_bgm(var &VAR_0)
 execute SCRIPT_3
 if(gamevar is_room_cleared)
@@ -88,7 +88,7 @@ else
 }
 call load_sound_set(int 4)
 
-._SCRIPT_1
+._infinite_loop
 execute SCRIPT_9
 if(gamevar !is_room_cleared)
  {
@@ -105,7 +105,7 @@ if(gamevar !is_room_cleared)
 		}
 }
 
-._SCRIPT_2
+._on_exit
 if(gamevar !is_room_cleared)
  {
 		switch(gamevar room_state)
@@ -131,7 +131,7 @@ var VAR_1 = call create_char(var &VAR_18, var &VAR_19, int 240, int 13)
 gamevar script_object = var VAR_1
 gamevar *object_p+6 |= int 8388608
 call func_50(var VAR_1, int 8192)
-call set_char_anim_seq(var VAR_1, var &VAR_2)
+call play_char_ai_script(var VAR_1, var &VAR_2)
 
 ._SCRIPT_4
 switch(var VAR_33)
@@ -139,10 +139,10 @@ switch(var VAR_33)
 		case 0
 			call set_input_system(int 2)
 			var VAR_45 = int 0
-			var VAR_44 = call func_70()
+			var VAR_44 = call get_david_char()
 			while(var VAR_44)
 			 {
-					call play_char_anim_seq(var VAR_44)
+					call set_char_running(var VAR_44)
 					call char_walk_to_pos(var VAR_44, @VAR_49[var VAR_45])
 					var VAR_44 = call func_7e()
 					var VAR_45 ++ 
@@ -165,20 +165,20 @@ if(var VAR_42 == int 0)
  {
 		if(call func_ab(int 250, var &VAR_38))
 		 {
-				var VAR_43 = call eval(var &VAR_41, int 10)
+				var VAR_43 = call run_enemy_generator(var &VAR_41, int 10)
 				var VAR_42 = int 1
 		}
 }
 
 ._SCRIPT_5
-call reload_char(var &VAR_32)
+call load_char(var &VAR_32)
 call func_b8(int 93)
 call func_b8(int 111)
 var VAR_34 = call create_enemy(int 58, int 0, var &VAR_36, int 35)
-call put_item_in_char_inv(var VAR_34, int 34, int 1, int 0)
+call add_item_to_char(var VAR_34, int 34, int 1, int 0)
 call freeze_enemy(var VAR_34)
 call func_50(var VAR_34, int 8192)
-call set_char_anim_seq(var VAR_34, var &VAR_39)
+call play_char_ai_script(var VAR_34, var &VAR_39)
 gamevar script_object = var VAR_34
 gamevar *character_stats_p+15 = int 8000
 gamevar script_object = var VAR_34
@@ -189,10 +189,10 @@ gamevar *character_stats_p+16 = int 8000
 ._SCRIPT_7
 
 ._SCRIPT_8
-call reload_char(var &VAR_50)
-call reload_char(var &VAR_51)
-call reload_char(var &VAR_52)
-call reload_char(var &VAR_53)
+call load_char(var &VAR_50)
+call load_char(var &VAR_51)
+call load_char(var &VAR_52)
+call load_char(var &VAR_53)
 call func_b8(int 93)
 call func_b8(int 111)
 var VAR_60 = call randomize_int(int 0, int 3)
@@ -203,13 +203,13 @@ if(var ! VAR_60)
 		switch(var VAR_61)
 		 {
 				case 0
-					call func_a5(var &VAR_55, int 100)
+					call run_wandering_generator(var &VAR_55, int 100)
 					break 
 				case 1
-					call eval(var &VAR_57, int 80)
+					call run_enemy_generator(var &VAR_57, int 80)
 					break 
 				case 2
-					call eval(var &VAR_59, int 80)
+					call run_enemy_generator(var &VAR_59, int 80)
 					break 
 		}
 }
@@ -228,15 +228,15 @@ if(var ! VAR_64)
 var VAR_64 -- 
 
 ._SCRIPT_10
-call func_3f()
+call clear_char_waypoints()
 
 ._SCRIPT_11
 var VAR_20 = call create_char(var &VAR_21, var &VAR_26, int 200, int 16)
 var VAR_22 = call create_char(var &VAR_23, var &VAR_27, int 75, int 16)
 var VAR_24 = call create_char(var &VAR_25, var &VAR_28, int 75, int 16)
 call set_char_init_state(var VAR_20, int 13)
-call set_char_anim_seq(var VAR_20, var &VAR_29)
+call play_char_ai_script(var VAR_20, var &VAR_29)
 call set_char_init_state(var VAR_22, int 13)
-call set_char_anim_seq(var VAR_22, var &VAR_30)
+call play_char_ai_script(var VAR_22, var &VAR_30)
 call set_char_init_state(var VAR_24, int 13)
-call set_char_anim_seq(var VAR_24, var &VAR_31)
+call play_char_ai_script(var VAR_24, var &VAR_31)

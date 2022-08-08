@@ -58,7 +58,7 @@ VAR_55	"NDFDhE"
 VAR_56	{ 1135804416, 1145487360, 1171888128 }	
 VAR_57	{ VAR_51, VAR_52, VAR_53, VAR_54, VAR_55, VAR_56 }
 
-._SCRIPT_0
+._on_load
 call load_sound_set(int 65)
 var VAR_0 = call play_loaded_sound(int 7, int -1, int 65, int 0)
 if(var VAR_0)
@@ -81,7 +81,7 @@ if(gamevar room_state == int 2)
 		execute SCRIPT_6
 }
 
-._SCRIPT_1
+._infinite_loop
 if(gamevar room_state == int 0)
  {
 		exit_script 
@@ -89,7 +89,7 @@ if(gamevar room_state == int 0)
 execute SCRIPT_4
 execute SCRIPT_3
 
-._SCRIPT_2
+._on_exit
 if(gamevar room_state == int 0)
  {
 		exit_script 
@@ -158,7 +158,7 @@ switch(var VAR_11)
 			var VAR_17 = var VAR_14
 			call log(var &VAR_22)
 			call log(var &VAR_23)
-			call func_ce(var VAR_17)
+			call log_obj(var VAR_17)
 			call log(var &VAR_24)
 			call log(var &VAR_25)
 			var VAR_11 ++ 
@@ -196,7 +196,7 @@ switch(var VAR_11)
 					 {
 							call log(var &VAR_30)
 							call log(var &VAR_31)
-							call func_ce(var VAR_18)
+							call log_obj(var VAR_18)
 							call log(var &VAR_32)
 							call log(var &VAR_33)
 							call set_input_system(int 2)
@@ -209,7 +209,7 @@ switch(var VAR_11)
 					 {
 							call log(var &VAR_34)
 							call log(var &VAR_35)
-							call func_ce(var VAR_18)
+							call log_obj(var VAR_18)
 							call log(var &VAR_36)
 							call log(var &VAR_37)
 							call set_input_system(int 2)
@@ -235,7 +235,7 @@ switch(var VAR_11)
 					call func_7(int 0, gamevar script_time, int 0, int 0)
 					call log(var &VAR_39)
 					call log(var &VAR_40)
-					call func_ce(gamevar script_time)
+					call log_obj(gamevar script_time)
 					call log(var &VAR_41)
 					call log(var &VAR_42)
 					call play_char_anim(var VAR_9, var VAR_3, int 0)

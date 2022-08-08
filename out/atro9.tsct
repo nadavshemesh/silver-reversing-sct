@@ -35,7 +35,7 @@ VAR_32	0
 VAR_33	0	
 VAR_34	"pulse sfx"
 
-._SCRIPT_0
+._on_load
 call func_58(int 1)
 call load_sound_set(int 76)
 call load_sound_set(int 0)
@@ -65,7 +65,7 @@ else
 }
 execute SCRIPT_9
 
-._SCRIPT_1
+._infinite_loop
 execute SCRIPT_12
 if(gamevar !is_room_cleared)
  {
@@ -85,7 +85,7 @@ if(gamevar !is_room_cleared)
 		}
 }
 
-._SCRIPT_2
+._on_exit
 call func_73()
 if(gamevar !is_room_cleared)
  {
@@ -157,8 +157,8 @@ switch(var VAR_8)
 var VAR_9 ++ 
 
 ._SCRIPT_4
-call reload_char(var &VAR_6)
-call reload_char(var &VAR_7)
+call load_char(var &VAR_6)
+call load_char(var &VAR_7)
 
 ._SCRIPT_5
 

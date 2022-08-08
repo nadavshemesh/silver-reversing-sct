@@ -32,7 +32,7 @@ VAR_29	{ 0, 0, 1, -1, 8, 1, 4, 0, 9, 1, 1, 2, 30, 31, 32, 31, -1, 5, 1, 15, 80, 
 VAR_30	0	
 VAR_31	0
 
-._SCRIPT_0
+._on_load
 execute SCRIPT_3
 if(gamevar is_room_cleared)
  {
@@ -53,7 +53,7 @@ else
 		}
 }
 
-._SCRIPT_1
+._infinite_loop
 execute SCRIPT_10
 if(gamevar !is_room_cleared)
  {
@@ -70,7 +70,7 @@ if(gamevar !is_room_cleared)
 		}
 }
 
-._SCRIPT_2
+._on_exit
 if(gamevar !is_room_cleared)
  {
 		switch(gamevar room_state)
@@ -104,7 +104,7 @@ if(var VAR_30 == int 0)
  {
 		if(call func_8a(var &VAR_27))
 		 {
-				var VAR_28 = call eval(var &VAR_29, int 10)
+				var VAR_28 = call run_enemy_generator(var &VAR_29, int 10)
 				var VAR_18 = int 1
 				var VAR_30 ++ 
 				var VAR_31 = int 0
@@ -112,10 +112,10 @@ if(var VAR_30 == int 0)
 }
 
 ._SCRIPT_5
-call reload_char(var &VAR_23)
-call reload_char(var &VAR_24)
-call reload_char(var &VAR_25)
-call reload_char(var &VAR_26)
+call load_char(var &VAR_23)
+call load_char(var &VAR_24)
+call load_char(var &VAR_25)
+call load_char(var &VAR_26)
 call func_b8(int 93)
 call func_b8(int 91)
 
@@ -244,7 +244,7 @@ switch(var VAR_13)
 		case 2
 			if(call is_local_timer_greater_than(var VAR_16))
 			 {
-					call func_f6(gamevar misc_fx_scripts, int 6, int 0, int 0)
+					call apply_effect_on_char(gamevar misc_fx_scripts, int 6, int 0, int 0)
 					call reset_local_timer()
 					var VAR_17 = int 255
 					var VAR_16 = call randomize_int(int 1, int 31)

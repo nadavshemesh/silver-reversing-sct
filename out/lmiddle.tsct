@@ -20,7 +20,7 @@ VAR_17	0
 VAR_18	0	
 VAR_19	0
 
-._SCRIPT_0
+._on_load
 call play_bgm(var &VAR_3)
 call load_sound_set(int 72)
 call play_loaded_sound(int 4, int -1, int 72, int 0)
@@ -41,7 +41,7 @@ switch(gamevar room_state)
 			break 
 }
 
-._SCRIPT_1
+._infinite_loop
 execute SCRIPT_3
 switch(gamevar room_state)
  {
@@ -55,7 +55,7 @@ switch(gamevar room_state)
 			break 
 }
 
-._SCRIPT_2
+._on_exit
 switch(gamevar room_state)
  {
 		case 1
@@ -92,7 +92,7 @@ if(gamevar script_time > var VAR_19)
 switch(var VAR_6)
  {
 		case 0
-			if(call func_5e())
+			if(call is_not_scrolling())
 			 {
 					var VAR_7 = call create_enemy(int 210, int 0, var &VAR_8, int 295)
 					gamevar *character_movement_p+60 = int 1
@@ -103,14 +103,14 @@ switch(var VAR_6)
 		case 1
 			if(call is_local_timer_greater_than(int 30))
 			 {
-					call char_turn_to_pos(var VAR_0, call func_67(var VAR_7))
+					call char_turn_to_pos(var VAR_0, call get_char_pos(var VAR_7))
 					if(var VAR_1)
 					 {
-							call char_turn_to_pos(var VAR_1, call func_67(var VAR_7))
+							call char_turn_to_pos(var VAR_1, call get_char_pos(var VAR_7))
 					}
 					if(var VAR_2)
 					 {
-							call char_turn_to_pos(var VAR_2, call func_67(var VAR_7))
+							call char_turn_to_pos(var VAR_2, call get_char_pos(var VAR_7))
 					}
 					call func_11f(var &VAR_12, int 61440)
 					call func_18(var VAR_7, int -1416, int -111, int 2218)
@@ -131,12 +131,12 @@ switch(var VAR_6)
 		case 4
 			if(call get_input_sys() != int 4)
 			 {
-					if(call is_char_exist(int 1179648))
+					if(call is_char_handle_in_level(int 1179648))
 					 {
 							call func_18(var VAR_9, int -701, int 178, int 1444)
 							call func_50(var VAR_9, int 129)
 					}
-					var VAR_10 = call eval(var &VAR_11, int 10)
+					var VAR_10 = call run_enemy_generator(var &VAR_11, int 10)
 					call set_input_system(int 1)
 					var VAR_6 ++ 
 			}
@@ -148,8 +148,8 @@ switch(var VAR_6)
 ._SCRIPT_5
 call set_input_system(int 2)
 var VAR_9 = call func_92(int 1, var &VAR_13, int 295, int 13)
-call put_item_in_char_inv(var VAR_9, int 22, int 0, int 1)
-call reload_char(var &VAR_14)
+call add_item_to_char(var VAR_9, int 22, int 0, int 1)
+call load_char(var &VAR_14)
 call func_ff(var &VAR_8)
 
 ._SCRIPT_6
@@ -157,7 +157,7 @@ call func_ff(var &VAR_8)
 ._SCRIPT_7
 
 ._SCRIPT_8
-var VAR_0 = call func_70()
+var VAR_0 = call get_david_char()
 var VAR_1 = call func_7e()
 var VAR_2 = call func_7e()
 gamevar SMACKER_X = int 160

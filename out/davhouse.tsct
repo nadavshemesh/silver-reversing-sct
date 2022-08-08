@@ -191,7 +191,7 @@ VAR_188	{ 1280070990, 0 }
 VAR_189	"sekune talks to david"	
 VAR_190	{ 913597281, 0 }
 
-._SCRIPT_0
+._on_load
 if(gamevar room_state > int 4)
  {
 		if(call play_bgm(var &VAR_5))
@@ -227,7 +227,7 @@ switch(gamevar room_state)
 			break 
 }
 
-._SCRIPT_1
+._infinite_loop
 execute SCRIPT_19
 switch(gamevar room_state)
  {
@@ -251,7 +251,7 @@ switch(gamevar room_state)
 			break 
 }
 
-._SCRIPT_2
+._on_exit
 switch(gamevar room_state)
  {
 		case 1
@@ -260,7 +260,7 @@ switch(gamevar room_state)
 					call remove_char(var VAR_0)
 					if(var VAR_1)
 					 {
-							call func_b5(var VAR_1)
+							call remove_item_from_pie(var VAR_1)
 					}
 			}
 			gamevar room_state = int 2
@@ -273,7 +273,7 @@ switch(gamevar room_state)
 							call remove_char(var VAR_0)
 							if(var VAR_1)
 							 {
-									call func_b5(var VAR_1)
+									call remove_item_from_pie(var VAR_1)
 							}
 					}
 			}
@@ -299,11 +299,11 @@ gamevar door_restriction_p = var &VAR_2
 var VAR_7 = call create_char(var &VAR_8, var &VAR_14, int 75, int 13)
 var VAR_0 = call create_enemy(int 98, int 0, var &VAR_9, int 125)
 call func_1(var VAR_0, int -1)
-var VAR_1 = call func_30(int 16)
+var VAR_1 = call create_item(int 16)
 var VAR_10 = call load_anim(var &VAR_15)
-call func_bb(var VAR_7, var &VAR_11)
+call load_char_anim(var VAR_7, var &VAR_11)
 call play_bgm(var &VAR_16)
-call func_22(var VAR_7)
+call set_char_walking(var VAR_7)
 call func_18(var VAR_7, int 1799, int 785, int -6568)
 call func_10c(var VAR_0, var &VAR_17)
 gamevar play_sting = int 0
@@ -327,7 +327,7 @@ if(var VAR_4 == int 2)
  {
 		if(call is_local_timer_greater_than(int 30))
 		 {
-				call func_120(call func_6a(var VAR_0), int 32768)
+				call func_120(call get_char_movement_ptr(var VAR_0), int 32768)
 				var VAR_4 = int 3
 				call reset_local_timer()
 		}
@@ -344,7 +344,7 @@ if(var VAR_4 == int 4)
  {
 		if(call is_local_timer_greater_than(int 20))
 		 {
-				call play_char_anim_seq(var VAR_7)
+				call set_char_running(var VAR_7)
 				call func_18(var VAR_7, int 1799, int 785, int -6568)
 				var VAR_4 = int 5
 				call reset_local_timer()
@@ -404,7 +404,7 @@ if(var VAR_21 == int 2)
  {
 		if(var VAR_22 == int 0)
 		 {
-				call func_d(var VAR_0, int 28, var &VAR_18, int 0)
+				call char_play_attack_anim(var VAR_0, int 28, var &VAR_18, int 0)
 				var VAR_22 ++ 
 				var VAR_23 = gamevar time
 		}
@@ -415,7 +415,7 @@ if(var VAR_21 == int 2)
 						var VAR_24 = gamevar time - var VAR_23
 						if(var VAR_24 >= int 10)
 						 {
-								call func_d(var VAR_0, int 31, var &VAR_18, int 0)
+								call char_play_attack_anim(var VAR_0, int 31, var &VAR_18, int 0)
 								var VAR_22 ++ 
 								var VAR_23 = gamevar time
 						}
@@ -439,7 +439,7 @@ if(var VAR_21 == int 2)
 										var VAR_24 = gamevar time - var VAR_23
 										if(var VAR_24 >= int 15)
 										 {
-												call func_d(var VAR_0, int 30, var &VAR_18, int 0)
+												call char_play_attack_anim(var VAR_0, int 30, var &VAR_18, int 0)
 												var VAR_22 ++ 
 												var VAR_23 = gamevar time
 										}
@@ -463,7 +463,7 @@ if(var VAR_21 == int 2)
 														var VAR_24 = gamevar time - var VAR_23
 														if(var VAR_24 >= int 10)
 														 {
-																call func_d(var VAR_0, int 31, var &VAR_18, int 0)
+																call char_play_attack_anim(var VAR_0, int 31, var &VAR_18, int 0)
 																var VAR_22 ++ 
 																var VAR_23 = gamevar time
 														}
@@ -487,7 +487,7 @@ if(var VAR_21 == int 2)
 																		var VAR_24 = gamevar time - var VAR_23
 																		if(var VAR_24 >= int 10)
 																		 {
-																				call func_d(var VAR_0, int 30, var &VAR_18, int 0)
+																				call char_play_attack_anim(var VAR_0, int 30, var &VAR_18, int 0)
 																				var VAR_22 ++ 
 																				var VAR_23 = gamevar time
 																		}
@@ -499,7 +499,7 @@ if(var VAR_21 == int 2)
 																				var VAR_24 = gamevar time - var VAR_23
 																				if(var VAR_24 >= int 20)
 																				 {
-																						call char_turn_to_pos(var VAR_0, call func_67(var VAR_7))
+																						call char_turn_to_pos(var VAR_0, call get_char_pos(var VAR_7))
 																						var VAR_22 ++ 
 																						var VAR_23 = gamevar time
 																				}
@@ -523,14 +523,14 @@ gamevar door_restriction_p = var &VAR_2
 var VAR_7 = call get_char_handle(int 65536)
 var VAR_0 = call create_enemy(int 98, int 0, var &VAR_30, int 300)
 call func_1(var VAR_0, int -1)
-var VAR_1 = call func_30(int 16)
+var VAR_1 = call create_item(int 16)
 var VAR_31 = call create_enemy(int 96, int 0, var &VAR_32, int 33)
 gamevar script_object = var VAR_31
 gamevar *object_p+8 |= int 13421772
 gamevar script_object = var VAR_31
 gamevar *character_movement_p+60 = int 1
-call reload_char(var &VAR_44)
-call reload_char(var &VAR_45)
+call load_char(var &VAR_44)
+call load_char(var &VAR_45)
 call func_10c(var VAR_0, var &VAR_46)
 var VAR_25 = call load_anim(var &VAR_47)
 var VAR_26 = call load_anim(var &VAR_48)
@@ -562,10 +562,10 @@ if(var VAR_4 == int 2)
  {
 		if(call is_local_timer_greater_than(int 20))
 		 {
-				call char_turn_to_pos(var VAR_7, call func_67(var VAR_0))
-				if(call func_30(int 16))
+				call char_turn_to_pos(var VAR_7, call get_char_pos(var VAR_0))
+				if(call create_item(int 16))
 				 {
-						if(call func_ae(var VAR_7, int 16))
+						if(call get_char_item_if_equiped(var VAR_7, int 16))
 						 {
 								var VAR_23 = gamevar time
 								var VAR_22 = int 0
@@ -601,9 +601,9 @@ if(var VAR_4 == int 3)
 }
 if(var VAR_4 == int 5)
  {
-		if(call func_30(int 16))
+		if(call create_item(int 16))
 		 {
-				if(call func_ae(var VAR_7, int 16))
+				if(call get_char_item_if_equiped(var VAR_7, int 16))
 				 {
 						if(call get_input_sys() != int 4)
 						 {
@@ -658,9 +658,9 @@ if(var VAR_4 == int 4)
 }
 if(var VAR_4 == int 6)
  {
-		if(call func_5e())
+		if(call is_not_scrolling())
 		 {
-				call char_turn_to_pos(var VAR_0, call func_67(var VAR_7))
+				call char_turn_to_pos(var VAR_0, call get_char_pos(var VAR_7))
 				call start_dialog(var &VAR_68, var &VAR_69)
 				var VAR_4 = int 8
 		}
@@ -670,7 +670,7 @@ if(var VAR_4 == int 8)
 		if(call get_input_sys() != int 4)
 		 {
 				call set_input_system(int 2)
-				call play_char_anim_seq(var VAR_7)
+				call set_char_running(var VAR_7)
 				call func_18(var VAR_7, int 1891, int 785, int -6421)
 				var VAR_4 = int 7
 		}
@@ -679,7 +679,7 @@ if(var VAR_4 == int 7)
  {
 		if(call is_char_standing(var VAR_7))
 		 {
-				call func_22(var VAR_7)
+				call set_char_walking(var VAR_7)
 				if(var VAR_58)
 				 {
 						var VAR_4 = var VAR_55
@@ -699,7 +699,7 @@ if(var VAR_4 == int 20)
 		 {
 				if(call is_char_standing(var VAR_7))
 				 {
-						call char_turn_to_pos(var VAR_0, call func_67(var VAR_7))
+						call char_turn_to_pos(var VAR_0, call get_char_pos(var VAR_7))
 						call reset_local_timer()
 						var VAR_4 = int 21
 				}
@@ -726,7 +726,7 @@ if(var VAR_4 == int 23)
  {
 		if(call is_char_standing(var VAR_0))
 		 {
-				call char_turn_to_pos(var VAR_0, call func_67(var VAR_7))
+				call char_turn_to_pos(var VAR_0, call get_char_pos(var VAR_7))
 				call reset_local_timer()
 				var VAR_4 = int 24
 		}
@@ -735,7 +735,7 @@ if(var VAR_4 == int 24)
  {
 		if(call is_local_timer_greater_than(int 10))
 		 {
-				call func_d(var VAR_0, int 28, call func_67(var VAR_7), int 0)
+				call char_play_attack_anim(var VAR_0, int 28, call get_char_pos(var VAR_7), int 0)
 				call reset_local_timer()
 				var VAR_4 = int 25
 		}
@@ -744,7 +744,7 @@ if(var VAR_4 == int 25)
  {
 		if(call is_local_timer_greater_than(int 20))
 		 {
-				call func_df()
+				call resume_conversation()
 				var VAR_4 = int 31
 		}
 }
@@ -786,13 +786,13 @@ if(var VAR_4 == int 27)
 						call func_d2()
 						if(var VAR_52 == int 28)
 						 {
-								call char_turn_to_pos(var VAR_7, call func_67(var VAR_0))
+								call char_turn_to_pos(var VAR_7, call get_char_pos(var VAR_0))
 								call start_dialog(var &VAR_76, var &VAR_77)
 								var VAR_4 = int 30
 						}
 						else
 						 {
-								call char_turn_to_pos(var VAR_7, call func_67(var VAR_0))
+								call char_turn_to_pos(var VAR_7, call get_char_pos(var VAR_0))
 								call start_dialog(var &VAR_78, var &VAR_79)
 								var VAR_4 = int 28
 						}
@@ -815,8 +815,8 @@ if(var VAR_4 == int 29)
 		 {
 				if(call is_char_standing(var VAR_7))
 				 {
-						call char_turn_to_pos(var VAR_7, call func_67(var VAR_0))
-						call char_turn_to_pos(var VAR_0, call func_67(var VAR_7))
+						call char_turn_to_pos(var VAR_7, call get_char_pos(var VAR_0))
+						call char_turn_to_pos(var VAR_0, call get_char_pos(var VAR_7))
 						call reset_local_timer()
 						var VAR_4 = int 24
 				}
@@ -837,7 +837,7 @@ if(var VAR_4 == int 9)
  {
 		if(call is_char_standing(var VAR_7))
 		 {
-				call char_turn_to_pos(var VAR_7, call func_67(var VAR_0))
+				call char_turn_to_pos(var VAR_7, call get_char_pos(var VAR_0))
 				call reset_local_timer()
 				var VAR_4 = int 10
 		}
@@ -863,7 +863,7 @@ if(var VAR_4 == int 12)
  {
 		if(call is_char_standing(var VAR_0))
 		 {
-				call char_turn_to_pos(var VAR_0, call func_67(var VAR_7))
+				call char_turn_to_pos(var VAR_0, call get_char_pos(var VAR_7))
 				call reset_local_timer()
 				var VAR_4 = int 13
 		}
@@ -872,7 +872,7 @@ if(var VAR_4 == int 13)
  {
 		if(call is_local_timer_greater_than(int 10))
 		 {
-				call func_d(var VAR_0, int 29, var &VAR_18, int 0)
+				call char_play_attack_anim(var VAR_0, int 29, var &VAR_18, int 0)
 				call reset_local_timer()
 				var VAR_4 = int 14
 		}
@@ -915,13 +915,13 @@ if(var VAR_4 == int 16)
 						call func_d2()
 						if(var VAR_52 == int 29)
 						 {
-								call char_turn_to_pos(var VAR_7, call func_67(var VAR_0))
+								call char_turn_to_pos(var VAR_7, call get_char_pos(var VAR_0))
 								call start_dialog(var &VAR_86, var &VAR_87)
 								var VAR_4 = int 19
 						}
 						else
 						 {
-								call char_turn_to_pos(var VAR_7, call func_67(var VAR_0))
+								call char_turn_to_pos(var VAR_7, call get_char_pos(var VAR_0))
 								call start_dialog(var &VAR_88, var &VAR_89)
 								var VAR_4 = int 17
 						}
@@ -944,8 +944,8 @@ if(var VAR_4 == int 18)
 		 {
 				if(call is_char_standing(var VAR_7))
 				 {
-						call char_turn_to_pos(var VAR_7, call func_67(var VAR_0))
-						call char_turn_to_pos(var VAR_0, call func_67(var VAR_7))
+						call char_turn_to_pos(var VAR_7, call get_char_pos(var VAR_0))
+						call char_turn_to_pos(var VAR_0, call get_char_pos(var VAR_7))
 						call reset_local_timer()
 						var VAR_4 = int 13
 				}
@@ -966,7 +966,7 @@ if(var VAR_4 == int 43)
  {
 		if(call is_char_standing(var VAR_7))
 		 {
-				call char_turn_to_pos(var VAR_7, call func_67(var VAR_0))
+				call char_turn_to_pos(var VAR_7, call get_char_pos(var VAR_0))
 				call reset_local_timer()
 				var VAR_4 = int 44
 		}
@@ -992,7 +992,7 @@ if(var VAR_4 == int 46)
  {
 		if(call is_char_standing(var VAR_0))
 		 {
-				call char_turn_to_pos(var VAR_0, call func_67(var VAR_7))
+				call char_turn_to_pos(var VAR_0, call get_char_pos(var VAR_7))
 				call reset_local_timer()
 				var VAR_4 = int 47
 		}
@@ -1001,7 +1001,7 @@ if(var VAR_4 == int 47)
  {
 		if(call is_local_timer_greater_than(int 10))
 		 {
-				call func_d(var VAR_0, int 31, var &VAR_18, int 0)
+				call char_play_attack_anim(var VAR_0, int 31, var &VAR_18, int 0)
 				call reset_local_timer()
 				var VAR_4 = int 48
 		}
@@ -1044,13 +1044,13 @@ if(var VAR_4 == int 50)
 						call func_d2()
 						if(var VAR_52 == int 31)
 						 {
-								call char_turn_to_pos(var VAR_7, call func_67(var VAR_0))
+								call char_turn_to_pos(var VAR_7, call get_char_pos(var VAR_0))
 								call start_dialog(var &VAR_96, var &VAR_97)
 								var VAR_4 = int 53
 						}
 						else
 						 {
-								call char_turn_to_pos(var VAR_7, call func_67(var VAR_0))
+								call char_turn_to_pos(var VAR_7, call get_char_pos(var VAR_0))
 								call start_dialog(var &VAR_98, var &VAR_99)
 								var VAR_4 = int 51
 						}
@@ -1073,8 +1073,8 @@ if(var VAR_4 == int 52)
 		 {
 				if(call is_char_standing(var VAR_7))
 				 {
-						call char_turn_to_pos(var VAR_7, call func_67(var VAR_0))
-						call char_turn_to_pos(var VAR_0, call func_67(var VAR_7))
+						call char_turn_to_pos(var VAR_7, call get_char_pos(var VAR_0))
+						call char_turn_to_pos(var VAR_0, call get_char_pos(var VAR_7))
 						call reset_local_timer()
 						var VAR_4 = int 47
 				}
@@ -1095,7 +1095,7 @@ if(var VAR_4 == int 32)
  {
 		if(call is_char_standing(var VAR_7))
 		 {
-				call char_turn_to_pos(var VAR_7, call func_67(var VAR_0))
+				call char_turn_to_pos(var VAR_7, call get_char_pos(var VAR_0))
 				call reset_local_timer()
 				var VAR_4 = int 33
 		}
@@ -1121,7 +1121,7 @@ if(var VAR_4 == int 35)
  {
 		if(call is_char_standing(var VAR_0))
 		 {
-				call char_turn_to_pos(var VAR_0, call func_67(var VAR_7))
+				call char_turn_to_pos(var VAR_0, call get_char_pos(var VAR_7))
 				call reset_local_timer()
 				var VAR_4 = int 36
 		}
@@ -1130,7 +1130,7 @@ if(var VAR_4 == int 36)
  {
 		if(call is_local_timer_greater_than(int 10))
 		 {
-				call func_d(var VAR_0, int 30, var &VAR_18, int 0)
+				call char_play_attack_anim(var VAR_0, int 30, var &VAR_18, int 0)
 				call reset_local_timer()
 				var VAR_4 = int 37
 		}
@@ -1173,13 +1173,13 @@ if(var VAR_4 == int 39)
 						call func_d2()
 						if(var VAR_52 == int 30)
 						 {
-								call char_turn_to_pos(var VAR_7, call func_67(var VAR_0))
+								call char_turn_to_pos(var VAR_7, call get_char_pos(var VAR_0))
 								call start_dialog(var &VAR_106, var &VAR_107)
 								var VAR_4 = int 42
 						}
 						else
 						 {
-								call char_turn_to_pos(var VAR_7, call func_67(var VAR_0))
+								call char_turn_to_pos(var VAR_7, call get_char_pos(var VAR_0))
 								call start_dialog(var &VAR_108, var &VAR_109)
 								var VAR_4 = int 40
 						}
@@ -1202,8 +1202,8 @@ if(var VAR_4 == int 41)
 		 {
 				if(call is_char_standing(var VAR_7))
 				 {
-						call char_turn_to_pos(var VAR_7, call func_67(var VAR_0))
-						call char_turn_to_pos(var VAR_0, call func_67(var VAR_7))
+						call char_turn_to_pos(var VAR_7, call get_char_pos(var VAR_0))
+						call char_turn_to_pos(var VAR_0, call get_char_pos(var VAR_7))
 						call reset_local_timer()
 						var VAR_4 = int 36
 				}
@@ -1224,7 +1224,7 @@ if(var VAR_4 == int 54)
  {
 		if(call is_char_standing(var VAR_7))
 		 {
-				call char_turn_to_pos(var VAR_7, call func_67(var VAR_0))
+				call char_turn_to_pos(var VAR_7, call get_char_pos(var VAR_0))
 				call reset_local_timer()
 				var VAR_4 = int 55
 		}
@@ -1250,7 +1250,7 @@ if(var VAR_4 == int 57)
  {
 		if(call is_char_standing(var VAR_0))
 		 {
-				call char_turn_to_pos(var VAR_0, call func_67(var VAR_7))
+				call char_turn_to_pos(var VAR_0, call get_char_pos(var VAR_7))
 				call reset_local_timer()
 				var VAR_4 = int 58
 		}
@@ -1259,7 +1259,7 @@ if(var VAR_4 == int 58)
  {
 		if(call is_local_timer_greater_than(int 10))
 		 {
-				call func_d(var VAR_0, int 16, var &VAR_18, int 0)
+				call char_play_attack_anim(var VAR_0, int 16, var &VAR_18, int 0)
 				call reset_local_timer()
 				var VAR_4 = int 59
 		}
@@ -1268,8 +1268,8 @@ if(var VAR_4 == int 59)
  {
 		if(call is_local_timer_greater_than(int 20))
 		 {
-				call char_turn_to_pos(var VAR_0, call func_67(var VAR_7))
-				call func_df()
+				call char_turn_to_pos(var VAR_0, call get_char_pos(var VAR_7))
+				call resume_conversation()
 				var VAR_4 = int 65
 		}
 }
@@ -1311,13 +1311,13 @@ if(var VAR_4 == int 61)
 						call func_d2()
 						if(var VAR_52 == int 16||var VAR_52 == int 17)
 						 {
-								call char_turn_to_pos(var VAR_7, call func_67(var VAR_0))
+								call char_turn_to_pos(var VAR_7, call get_char_pos(var VAR_0))
 								call start_dialog(var &VAR_116, var &VAR_117)
 								var VAR_4 = int 64
 						}
 						else
 						 {
-								call char_turn_to_pos(var VAR_7, call func_67(var VAR_0))
+								call char_turn_to_pos(var VAR_7, call get_char_pos(var VAR_0))
 								call start_dialog(var &VAR_118, var &VAR_119)
 								var VAR_4 = int 62
 						}
@@ -1340,7 +1340,7 @@ if(var VAR_4 == int 63)
 		 {
 				if(call is_char_standing(var VAR_7))
 				 {
-						call char_turn_to_pos(var VAR_7, call func_67(var VAR_0))
+						call char_turn_to_pos(var VAR_7, call get_char_pos(var VAR_0))
 						call char_turn_to_pos(var VAR_0, var &VAR_18)
 						call reset_local_timer()
 						var VAR_4 = int 58
@@ -1354,9 +1354,9 @@ if(var VAR_4 == int 64)
 		 {
 				call set_input_system(int 2)
 				call func_18(var VAR_7, int 1891, int 785, int -6421)
-				if(call func_30(int 48))
+				if(call create_item(int 48))
 				 {
-						if(call func_ae(var VAR_7, int 48))
+						if(call get_char_item_if_equiped(var VAR_7, int 48))
 						 {
 								var VAR_4 = int 77
 								var VAR_55 = int 85
@@ -1386,7 +1386,7 @@ if(var VAR_4 == int 67)
  {
 		if(call is_local_timer_greater_than(int 10))
 		 {
-				call char_turn_to_pos(var VAR_7, call func_67(var VAR_0))
+				call char_turn_to_pos(var VAR_7, call get_char_pos(var VAR_0))
 				call start_dialog(var &VAR_120, var &VAR_121)
 				var VAR_4 = int 68
 		}
@@ -1404,7 +1404,7 @@ if(var VAR_4 == int 69)
  {
 		if(call is_char_standing(var VAR_0))
 		 {
-				call char_turn_to_pos(var VAR_0, call func_67(var VAR_7))
+				call char_turn_to_pos(var VAR_0, call get_char_pos(var VAR_7))
 				call reset_local_timer()
 				var VAR_4 = int 70
 		}
@@ -1430,7 +1430,7 @@ if(var VAR_4 == int 71)
 				 {
 						call start_dialog(var &VAR_124, var &VAR_125)
 				}
-				call char_turn_to_pos(var VAR_0, call func_67(var VAR_7))
+				call char_turn_to_pos(var VAR_0, call get_char_pos(var VAR_7))
 				call set_input_system(int 1)
 				call reset_local_timer()
 				var VAR_4 = int 72
@@ -1490,7 +1490,7 @@ if(var VAR_4 == int 75)
 		 {
 				if(call is_char_standing(var VAR_7))
 				 {
-						call char_turn_to_pos(var VAR_7, call func_67(var VAR_0))
+						call char_turn_to_pos(var VAR_7, call get_char_pos(var VAR_0))
 						call char_turn_to_pos(var VAR_0, var &VAR_18)
 						call reset_local_timer()
 						var VAR_4 = int 70
@@ -1518,7 +1518,7 @@ if(var VAR_4 == int 78)
  {
 		if(call is_local_timer_greater_than(int 10))
 		 {
-				call char_turn_to_pos(var VAR_7, call func_67(var VAR_0))
+				call char_turn_to_pos(var VAR_7, call get_char_pos(var VAR_0))
 				call set_input_system(int 1)
 				call start_dialog(var &VAR_130, var &VAR_131)
 				var VAR_4 = int 79
@@ -1537,7 +1537,7 @@ if(var VAR_4 == int 80)
  {
 		if(call is_char_standing(var VAR_0))
 		 {
-				call char_turn_to_pos(var VAR_0, call func_67(var VAR_7))
+				call char_turn_to_pos(var VAR_0, call get_char_pos(var VAR_7))
 				call reset_local_timer()
 				var VAR_4 = int 82
 		}
@@ -1554,7 +1554,7 @@ if(var VAR_4 == int 82)
 				 {
 						call start_dialog(var &VAR_134, var &VAR_135)
 				}
-				call char_turn_to_pos(var VAR_0, call func_67(var VAR_7))
+				call char_turn_to_pos(var VAR_0, call get_char_pos(var VAR_7))
 				call set_input_system(int 1)
 				call reset_local_timer()
 				var VAR_4 = int 83
@@ -1596,7 +1596,7 @@ if(var VAR_4 == int 84)
 						call func_d2()
 						if(var VAR_52 == int 24)
 						 {
-								call char_turn_to_pos(var VAR_7, call func_67(var VAR_0))
+								call char_turn_to_pos(var VAR_7, call get_char_pos(var VAR_0))
 								call start_dialog(var &VAR_136, var &VAR_137)
 								var VAR_4 = int 87
 						}
@@ -1624,7 +1624,7 @@ if(var VAR_4 == int 86)
 		 {
 				if(call is_char_standing(var VAR_7))
 				 {
-						call char_turn_to_pos(var VAR_7, call func_67(var VAR_0))
+						call char_turn_to_pos(var VAR_7, call get_char_pos(var VAR_0))
 						call char_turn_to_pos(var VAR_0, var &VAR_18)
 						call reset_local_timer()
 						var VAR_4 = int 82
@@ -1645,7 +1645,7 @@ if(var VAR_4 == int 88)
 		if(call is_local_timer_greater_than(int 10))
 		 {
 				call start_dialog(var &VAR_140, var &VAR_141)
-				call char_turn_to_pos(var VAR_0, call func_67(var VAR_7))
+				call char_turn_to_pos(var VAR_0, call get_char_pos(var VAR_7))
 				var VAR_4 = int 89
 		}
 }
@@ -1653,7 +1653,7 @@ if(var VAR_4 == int 89)
  {
 		if(call get_input_sys() != int 4)
 		 {
-				call func_df()
+				call resume_conversation()
 				var VAR_4 = int 90
 		}
 }
@@ -1673,7 +1673,7 @@ if(var VAR_4 == int 90)
 				call func_1(var VAR_39, int -1)
 				call func_1(var VAR_41, int -1)
 				call func_1(var VAR_33, int -1)
-				call put_item_in_char_inv(var VAR_41, int 40, int 1, int 0)
+				call add_item_to_char(var VAR_41, int 40, int 1, int 0)
 				gamevar script_object = var VAR_33
 				gamevar *character_movement_p+60 = int 1
 				gamevar script_object = var VAR_35
@@ -1683,7 +1683,7 @@ if(var VAR_4 == int 90)
 				gamevar disable_scroll = int 0
 				call func_f(var VAR_0, int 67108872)
 				call func_f(var VAR_7, int 67108868)
-				call func_c7(var VAR_0, var VAR_7)
+				call char_attack(var VAR_0, var VAR_7)
 				var VAR_4 = int 91
 		}
 }
@@ -1692,7 +1692,7 @@ if(var VAR_4 == int 91)
 		if(call is_char_at_pos(var VAR_0, var &VAR_30, int 1000) == int 0)
 		 {
 				call func_d6(var VAR_0)
-				call play_char_anim_seq(var VAR_0)
+				call set_char_running(var VAR_0)
 				call func_18(var VAR_0, int 2268, int 785, int -6754)
 				var VAR_4 = int 92
 		}
@@ -1712,7 +1712,7 @@ if(var VAR_4 == int 91)
 		 {
 				call func_d6(var VAR_7)
 				call func_d6(var VAR_0)
-				call char_turn_to_pos(var VAR_31, call func_67(var VAR_7))
+				call char_turn_to_pos(var VAR_31, call get_char_pos(var VAR_7))
 				if(var VAR_56 > var VAR_57)
 				 {
 						call start_dialog(var &VAR_142, var &VAR_143)
@@ -1731,14 +1731,14 @@ if(var VAR_4 == int 92)
 		 {
 				if(call is_char_at_pos(var VAR_7, var &VAR_30, int 1000) == int 0)
 				 {
-						call char_turn_to_pos(var VAR_0, call func_67(var VAR_7))
+						call char_turn_to_pos(var VAR_0, call get_char_pos(var VAR_7))
 						call reset_local_timer()
 						var VAR_4 = int 93
 				}
 				else
 				 {
-						call func_22(var VAR_0)
-						call func_c7(var VAR_0, var VAR_7)
+						call set_char_walking(var VAR_0)
+						call char_attack(var VAR_0, var VAR_7)
 						var VAR_4 = int 91
 				}
 		}
@@ -1753,8 +1753,8 @@ if(var VAR_4 == int 93)
 		}
 		if(call is_char_at_pos(var VAR_7, var &VAR_30, int 1000) == int 1)
 		 {
-				call func_22(var VAR_0)
-				call func_c7(var VAR_0, var VAR_7)
+				call set_char_walking(var VAR_0)
+				call char_attack(var VAR_0, var VAR_7)
 				var VAR_4 = int 91
 		}
 }
@@ -1762,14 +1762,14 @@ if(var VAR_4 == int 94)
  {
 		if(call is_local_timer_greater_than(int 40))
 		 {
-				call char_turn_to_pos(var VAR_0, call func_67(var VAR_7))
+				call char_turn_to_pos(var VAR_0, call get_char_pos(var VAR_7))
 				call reset_local_timer()
 				var VAR_4 = int 93
 		}
 		if(call is_char_at_pos(var VAR_7, var &VAR_30, int 1000) == int 1)
 		 {
-				call func_22(var VAR_0)
-				call func_c7(var VAR_0, var VAR_7)
+				call set_char_walking(var VAR_0)
+				call char_attack(var VAR_0, var VAR_7)
 				var VAR_4 = int 91
 		}
 }
@@ -1777,7 +1777,7 @@ if(var VAR_4 == int 95)
  {
 		if(call is_local_timer_greater_than(int 20))
 		 {
-				call char_turn_to_pos(var VAR_7, call func_67(var VAR_31))
+				call char_turn_to_pos(var VAR_7, call get_char_pos(var VAR_31))
 				var VAR_4 = int 96
 		}
 }
@@ -1789,8 +1789,8 @@ if(var VAR_4 == int 96)
 				var VAR_53 = int 103
 				call func_10a(var VAR_0, int 5)
 				call log(var &VAR_146)
-				call func_22(var VAR_0)
-				call func_c7(var VAR_0, var VAR_7)
+				call set_char_walking(var VAR_0)
+				call char_attack(var VAR_0, var VAR_7)
 				var VAR_4 = int 97
 		}
 }
@@ -1800,7 +1800,7 @@ if(var VAR_4 == int 97)
 		if(call is_char_at_pos(var VAR_0, var &VAR_30, int 1000) == int 0)
 		 {
 				call func_d6(var VAR_0)
-				call play_char_anim_seq(var VAR_0)
+				call set_char_running(var VAR_0)
 				call func_18(var VAR_0, int 2268, int 785, int -6754)
 				var VAR_4 = int 98
 		}
@@ -1812,14 +1812,14 @@ if(var VAR_4 == int 98)
 		 {
 				if(call is_char_at_pos(var VAR_7, var &VAR_30, int 1000) == int 0)
 				 {
-						call char_turn_to_pos(var VAR_0, call func_67(var VAR_7))
+						call char_turn_to_pos(var VAR_0, call get_char_pos(var VAR_7))
 						call reset_local_timer()
 						var VAR_4 = int 99
 				}
 				else
 				 {
-						call func_22(var VAR_0)
-						call func_c7(var VAR_0, var VAR_7)
+						call set_char_walking(var VAR_0)
+						call char_attack(var VAR_0, var VAR_7)
 						var VAR_4 = int 97
 				}
 		}
@@ -1835,8 +1835,8 @@ if(var VAR_4 == int 99)
 		}
 		if(call is_char_at_pos(var VAR_7, var &VAR_30, int 1000) == int 1)
 		 {
-				call func_22(var VAR_0)
-				call func_c7(var VAR_0, var VAR_7)
+				call set_char_walking(var VAR_0)
+				call char_attack(var VAR_0, var VAR_7)
 				var VAR_4 = int 97
 		}
 }
@@ -1845,14 +1845,14 @@ if(var VAR_4 == int 100)
 		call log(var &VAR_150)
 		if(call is_local_timer_greater_than(int 40))
 		 {
-				call char_turn_to_pos(var VAR_0, call func_67(var VAR_7))
+				call char_turn_to_pos(var VAR_0, call get_char_pos(var VAR_7))
 				call reset_local_timer()
 				var VAR_4 = int 99
 		}
 		if(call is_char_at_pos(var VAR_7, var &VAR_30, int 1000) == int 1)
 		 {
-				call func_22(var VAR_0)
-				call func_c7(var VAR_0, var VAR_7)
+				call set_char_walking(var VAR_0)
+				call char_attack(var VAR_0, var VAR_7)
 				var VAR_4 = int 97
 		}
 }
@@ -1860,7 +1860,7 @@ if(var VAR_4 == int 108)
  {
 		if(call is_local_timer_greater_than(int 10))
 		 {
-				call play_char_anim_seq(var VAR_0)
+				call set_char_running(var VAR_0)
 				call func_18(var VAR_0, int 2268, int 785, int -6754)
 				var VAR_4 = int 109
 		}
@@ -1869,7 +1869,7 @@ if(var VAR_4 == int 109)
  {
 		if(call is_char_standing(var VAR_0))
 		 {
-				call char_turn_to_pos(var VAR_0, call func_67(var VAR_7))
+				call char_turn_to_pos(var VAR_0, call get_char_pos(var VAR_7))
 				call reset_local_timer()
 				var VAR_4 = int 110
 		}
@@ -1887,7 +1887,7 @@ if(var VAR_4 == int 111)
  {
 		if(call is_local_timer_greater_than(int 10))
 		 {
-				call play_char_anim_seq(var VAR_7)
+				call set_char_running(var VAR_7)
 				call func_19(var VAR_7, var VAR_0)
 				var VAR_4 = int 112
 		}
@@ -1937,7 +1937,7 @@ if(var VAR_4 == int 121)
  {
 		if(gamevar scene_counter > int 50)
 		 {
-				call play_char_anim_seq(var VAR_7)
+				call set_char_running(var VAR_7)
 				call func_18(var VAR_7, int 1665, int 813, int -6821)
 				var VAR_4 = int 123
 		}
@@ -1955,8 +1955,8 @@ if(var VAR_4 == int 138)
  {
 		if(call func_5c(var VAR_7))
 		 {
-				call char_turn_to_pos(var VAR_7, call func_67(var VAR_33))
-				call func_df()
+				call char_turn_to_pos(var VAR_7, call get_char_pos(var VAR_33))
+				call resume_conversation()
 				call func_17(var VAR_39, var VAR_31)
 				gamevar scene_counter = int 0
 				var VAR_4 = int 124
@@ -1974,7 +1974,7 @@ if(var VAR_4 == int 125)
  {
 		if(call func_6d() == int 2)
 		 {
-				call play_char_anim_seq(var VAR_7)
+				call set_char_running(var VAR_7)
 				call func_18(var VAR_7, int 1109, int 917, int -7199)
 				gamevar scene_counter = int 0
 				var VAR_4 = int 139
@@ -1984,7 +1984,7 @@ if(var VAR_4 == int 139)
  {
 		if(gamevar scene_counter > int 25)
 		 {
-				call play_char_anim_seq(var VAR_0)
+				call set_char_running(var VAR_0)
 				call func_18(var VAR_0, int 1321, int 931, int -7111)
 				gamevar scene_counter = int 0
 				var VAR_4 = int 256
@@ -1992,15 +1992,15 @@ if(var VAR_4 == int 139)
 }
 if(var VAR_4 == int 256&&call is_char_standing(var VAR_0)&&call is_char_standing(var VAR_7))
  {
-		call char_turn_to_pos(var VAR_7, call func_67(var VAR_33))
-		call func_df()
+		call char_turn_to_pos(var VAR_7, call get_char_pos(var VAR_33))
+		call resume_conversation()
 		var VAR_4 = int 140
 }
 if(var VAR_4 == int 140)
  {
 		if(call func_6d() == int 3)
 		 {
-				call func_df()
+				call resume_conversation()
 				var VAR_4 = int 126
 		}
 }
@@ -2008,7 +2008,7 @@ if(var VAR_4 == int 126)
  {
 		if(call func_6d() == int 4)
 		 {
-				call func_22(var VAR_39)
+				call set_char_walking(var VAR_39)
 				call func_18(var VAR_39, int -690, int 785, int -7753)
 				var VAR_4 = int 127
 		}
@@ -2026,7 +2026,7 @@ if(var VAR_4 == int 128)
  {
 		if(gamevar scene_counter > int 20)
 		 {
-				call func_22(var VAR_37)
+				call set_char_walking(var VAR_37)
 				call func_18(var VAR_37, int -80, int 785, int -7814)
 				var VAR_4 = int 129
 		}
@@ -2044,7 +2044,7 @@ if(var VAR_4 == int 130)
  {
 		if(gamevar scene_counter > int 40)
 		 {
-				call func_df()
+				call resume_conversation()
 				call func_17(var VAR_37, var VAR_31)
 				var VAR_4 = int 131
 		}
@@ -2097,8 +2097,8 @@ if(var VAR_4 == int 135)
 				call remove_char(var VAR_39)
 				call func_2(var VAR_35)
 				call func_2(var VAR_41)
-				call char_turn_to_pos(var VAR_35, call func_67(var VAR_7))
-				call char_turn_to_pos(var VAR_41, call func_67(var VAR_7))
+				call char_turn_to_pos(var VAR_35, call get_char_pos(var VAR_7))
+				call char_turn_to_pos(var VAR_41, call get_char_pos(var VAR_7))
 				call set_input_system(int 1)
 				call func_10c(var VAR_0, int 0)
 				var VAR_4 = int 10000
@@ -2109,7 +2109,7 @@ execute SCRIPT_8
 execute SCRIPT_9
 if(var VAR_4 == int 10000)
  {
-		if(call ! is_char_exist(int 4128768)&&call ! is_char_exist(int 4128771))
+		if(call ! is_char_handle_in_level(int 4128768)&&call ! is_char_handle_in_level(int 4128771))
 		 {
 				gamevar room_state = int 3
 				gamevar *scene_info_p+5 = int 2
@@ -2172,7 +2172,7 @@ if(var VAR_4 == int 110)
 }
 if(var VAR_4 == int 111)
  {
-		call play_char_anim_seq(var VAR_33)
+		call set_char_running(var VAR_33)
 		call func_18(var VAR_33, int 110, int 785, int -7302)
 		var VAR_157 = gamevar time
 		var VAR_54 = int 115
@@ -2182,7 +2182,7 @@ if(var VAR_54 == int 115)
 		var VAR_158 = gamevar time - var VAR_157
 		if(var VAR_158 > int 4)
 		 {
-				call play_char_anim_seq(var VAR_35)
+				call set_char_running(var VAR_35)
 				call func_18(var VAR_35, int -56, int 785, int -6935)
 				var VAR_157 = gamevar time
 				var VAR_54 = int 116
@@ -2193,7 +2193,7 @@ if(var VAR_54 == int 116)
 		var VAR_158 = gamevar time - var VAR_157
 		if(var VAR_158 > int 5)
 		 {
-				call play_char_anim_seq(var VAR_41)
+				call set_char_running(var VAR_41)
 				call func_18(var VAR_41, int 274, int 785, int -7688)
 				var VAR_157 = gamevar time
 				var VAR_54 = int 117
@@ -2204,7 +2204,7 @@ if(var VAR_54 == int 117)
 		var VAR_158 = gamevar time - var VAR_157
 		if(var VAR_158 > int 3)
 		 {
-				call play_char_anim_seq(var VAR_39)
+				call set_char_running(var VAR_39)
 				call func_18(var VAR_39, int -291, int 785, int -7249)
 				var VAR_157 = gamevar time
 				var VAR_54 = int 118
@@ -2215,7 +2215,7 @@ if(var VAR_54 == int 118)
 		var VAR_158 = gamevar time - var VAR_157
 		if(var VAR_158 > int 5)
 		 {
-				call play_char_anim_seq(var VAR_37)
+				call set_char_running(var VAR_37)
 				call func_18(var VAR_37, int -26, int 785, int -7738)
 				var VAR_157 = gamevar time
 				var VAR_54 = int 119
@@ -2237,11 +2237,11 @@ if(var VAR_160)
 		if(call get_input_sys() != int 4)
 		 {
 				call func_d2()
-				call char_turn_to_pos(var VAR_7, call func_67(var VAR_0))
-				call func_100(call func_6a(var VAR_0))
-				if(call func_30(int 16))
+				call char_turn_to_pos(var VAR_7, call get_char_pos(var VAR_0))
+				call func_100(call get_char_movement_ptr(var VAR_0))
+				if(call create_item(int 16))
 				 {
-						if(call func_ae(var VAR_7, int 16))
+						if(call get_char_item_if_equiped(var VAR_7, int 16))
 						 {
 								var VAR_58 = int 1
 						}
@@ -2266,7 +2266,7 @@ call log(var &VAR_177)
 var VAR_173 = call get_char_handle(int 786432)
 call set_input_system(int 2)
 call func_ff(var &VAR_175)
-call reload_char(var &VAR_184)
+call load_char(var &VAR_184)
 call func_58(int 1)
 var VAR_183 = call func_ec(int 10, int -1, int 2, int 0)
 
@@ -2274,7 +2274,7 @@ var VAR_183 = call func_ec(int 10, int -1, int 2, int 0)
 if(var VAR_186 != var VAR_170)
  {
 		var VAR_186 = var VAR_170
-		call func_ce(var VAR_170)
+		call log_obj(var VAR_170)
 }
 switch(var VAR_170)
  {
@@ -2288,12 +2288,12 @@ switch(var VAR_170)
 			}
 			break 
 		case 1
-			if(call func_5e())
+			if(call is_not_scrolling())
 			 {
 					if(call func_6d() == int 13)
 					 {
 							call log(var &VAR_189)
-							call func_df()
+							call resume_conversation()
 							var VAR_170 = int 8
 							var VAR_171 = int 0
 					}
@@ -2313,8 +2313,8 @@ switch(var VAR_170)
 			 {
 					var VAR_185 = call func_ec(int 8, int 0, int 2, int 0)
 					call set_sound_volume(var VAR_185, int 70)
-					var VAR_172 = call func_a5(var &VAR_180, int 40)
-					var VAR_172 = call eval(var &VAR_182, int 10)
+					var VAR_172 = call run_wandering_generator(var &VAR_180, int 40)
+					var VAR_172 = call run_enemy_generator(var &VAR_182, int 10)
 			}
 			if(var VAR_171 == int 40)
 			 {
@@ -2325,7 +2325,7 @@ switch(var VAR_170)
 			 {
 					var VAR_185 = call func_ec(int 9, int 0, int 2, int 0)
 					call set_sound_volume(var VAR_185, int 70)
-					call func_df()
+					call resume_conversation()
 					var VAR_170 ++ 
 					var VAR_171 = int 0
 			}
@@ -2375,6 +2375,6 @@ if(var VAR_161 > var VAR_162)
 var VAR_161 ++ 
 
 ._SCRIPT_20
-call func_e(var &VAR_167)
+call remove_face(var &VAR_167)
 call play_loaded_sound(int 1, int -1, int 2, int 0)
 call play_loaded_sound(int 7, int -1, int 2, var &VAR_167)

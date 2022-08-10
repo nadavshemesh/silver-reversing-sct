@@ -1,8 +1,4 @@
 ._DATA
-VAR_0	"METALON"	
-VAR_1	"water"	
-VAR_2	"sarcher"	
-VAR_3	"sguard"	
 VAR_4	0	
 VAR_5	0	
 VAR_6	0	
@@ -15,8 +11,6 @@ VAR_12	0
 VAR_13	{ -1143, 55, -1158 }	
 VAR_14	0	
 VAR_15	{ -1166, 54, -1765 }	
-VAR_16	"fsguard"	
-VAR_17	"fsguard1"	
 VAR_18	{ 0, -3756, 55, -1166, 0, -1143, 55, -1158, 7, 8 }	
 VAR_19	{ 0, -3737, 54, -1761, 0, -1166, 54, -1765, 7, 8, -979, 55, -1019 }	
 VAR_20	{ -3769, 55, -1882, -3785, 55, -477 }	
@@ -25,17 +19,15 @@ VAR_22	{ -3520, 55, -776, -3493, 54, -1686, -818, 54, -1602, -827, 55, -747, -24
 VAR_23	{ 0, 1, 5, VAR_22, 8, 2, 4, 0, 9, 1, 1, 3, 33, 33, -1, 5, 1, 15, 60, 6, 1, 7, 1, 2, -1 }	
 VAR_24	{ -1508, 55, -600, -1502, 55, -994, -1479, 55, -1666 }	
 VAR_25	{ 0, 1, 3, VAR_24, 8, 1, 4, 0, 9, 1, 1, 1, 35, 35, 35, -1, 5, 1, 15, 60, 6, 1, 7, 1, 2, 10, 45, 47, -1, -1 }	
-VAR_26	"wave2"	
-VAR_27	"wave2"	
 VAR_28	0	
 VAR_29	0	
 VAR_30	0
 
 ._on_load
-call play_bgm(var &VAR_0)
+call play_bgm("METALON")
 gamevar SMACKER_X = int 536
 gamevar SMACKER_Y = int 280
-call play_2d_anim(var &VAR_1, int 1, int 1, int 0)
+call play_2d_anim("water", int 1, int 1, int 0)
 call load_sound_set(int 72)
 call play_loaded_sound(int 4, int -1, int 72, int 0)
 call load_sound_set(int 64)
@@ -105,7 +97,7 @@ if(gamevar script_time > var VAR_30)
 if(var VAR_4 == int 0)
  {
 		var VAR_21 = call run_enemy_generator(var &VAR_23, int 10)
-		call log(var &VAR_26)
+		call log("wave2")
 		var VAR_4 ++ 
 		var VAR_5 = int 0
 }
@@ -116,7 +108,7 @@ if(var VAR_4 == int 1)
 				if(call func_8a(var &VAR_20))
 				 {
 						var VAR_21 = call run_enemy_generator(var &VAR_25, int 10)
-						call log(var &VAR_27)
+						call log("wave2")
 						var VAR_4 ++ 
 						var VAR_5 = int 0
 				}
@@ -132,17 +124,17 @@ if(var VAR_4 == int 1)
 }
 
 ._SCRIPT_5
-call load_char(var &VAR_2)
-call load_char(var &VAR_3)
+call load_char("sarcher")
+call load_char("sguard")
 var VAR_6 = call create_enemy(int 47, int 0, var &VAR_8, int 33)
 var VAR_7 = call create_enemy(int 47, int 1, var &VAR_8, int 33)
 call func_50(var VAR_6, int 8192)
 call play_char_ai_script(var VAR_6, var &VAR_10)
 call func_50(var VAR_7, int 8192)
 call play_char_ai_script(var VAR_7, var &VAR_11)
-var VAR_12 = call create_char(var &VAR_13, var &VAR_16, int 240, int 13)
+var VAR_12 = call create_char(var &VAR_13, "fsguard", int 240, int 13)
 call add_item_to_char(var VAR_12, int 22, int 0, int 1)
-var VAR_14 = call create_char(var &VAR_15, var &VAR_17, int 240, int 13)
+var VAR_14 = call create_char(var &VAR_15, "fsguard1", int 240, int 13)
 call add_item_to_char(var VAR_14, int 22, int 0, int 1)
 call func_106(var VAR_12, int 1, int 0, int 1)
 call func_50(var VAR_12, int 8323)

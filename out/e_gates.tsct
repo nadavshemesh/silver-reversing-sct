@@ -22,10 +22,6 @@ VAR_19	0
 VAR_20	{ 341, -7, 723 }	
 VAR_21	{ 475, 3, 752 }	
 VAR_22	{ 604, 0, 584 }	
-VAR_23	"njennifer"	
-VAR_24	"nbeth"	
-VAR_25	"nbonnie"	
-VAR_26	"e_gates"	
 VAR_27	0	
 VAR_28	0	
 VAR_29	0	
@@ -38,7 +34,6 @@ VAR_35	0
 VAR_36	0	
 VAR_37	{ -244, -15, 1787 }	
 VAR_38	{ -389, -15, 1666 }	
-VAR_39	"OUTRO"	
 VAR_40	{ 1313824581, 1346979923, 0 }	
 VAR_41	0	
 VAR_42	1	
@@ -98,14 +93,14 @@ call set_input_system(int 2)
 execute SCRIPT_8
 call func_113(int 8, int 8)
 execute SCRIPT_4
-var VAR_17 = call create_char(var &VAR_20, var &VAR_23, int 190, int 13)
-var VAR_18 = call create_char(var &VAR_22, var &VAR_24, int 265, int 13)
-var VAR_19 = call create_char(var &VAR_21, var &VAR_25, int 180, int 13)
+var VAR_17 = call create_char(var &VAR_20, "njennifer", int 190, int 13)
+var VAR_18 = call create_char(var &VAR_22, "nbeth", int 265, int 13)
+var VAR_19 = call create_char(var &VAR_21, "nbonnie", int 180, int 13)
 
 ._SCRIPT_4
 gamevar SMACKER_X = int 0
 gamevar SMACKER_Y = int 128
-call play_2d_anim(var &VAR_26, int 0, int 0, var &VAR_0)
+call play_2d_anim("e_gates", int 0, int 0, var &VAR_0)
 var VAR_0 = int 1
 
 ._SCRIPT_5
@@ -129,13 +124,13 @@ switch(var VAR_15)
 			}
 			break 
 		case 1
-			call func_18(var VAR_2, int 330, int -11, int 412)
-			call func_18(var VAR_5, int -34, int -15, int 441)
+			call char_walk_to(var VAR_2, int 330, int -11, int 412)
+			call char_walk_to(var VAR_5, int -34, int -15, int 441)
 			var VAR_15 ++ 
 			var VAR_16 = int 0
 			if(var VAR_6)
 			 {
-					call func_18(var VAR_6, int 129, int 0, int 213)
+					call char_walk_to(var VAR_6, int 129, int 0, int 213)
 			}
 			break 
 		case 2
@@ -143,7 +138,7 @@ switch(var VAR_15)
 			 {
 					var VAR_15 ++ 
 					var VAR_16 = int 0
-					call func_18(var VAR_17, int 251, int -14, int 428)
+					call char_walk_to(var VAR_17, int 251, int -14, int 428)
 					call func_fa(var VAR_18)
 					call func_fa(var VAR_5)
 					var VAR_35 = gamevar script_time
@@ -204,7 +199,7 @@ switch(var VAR_15)
 			if(var VAR_16 > int 100)
 			 {
 					call func_47(var VAR_2, int 8192)
-					call func_e6(var &VAR_39, var &VAR_40, var &VAR_31, int 1)
+					call func_e6("OUTRO", var &VAR_40, var &VAR_31, int 1)
 					var VAR_15 ++ 
 			}
 }

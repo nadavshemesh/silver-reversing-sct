@@ -12,7 +12,6 @@ VAR_9	0
 VAR_10	0	
 VAR_11	0	
 VAR_12	0	
-VAR_13	"random_rain_fx: Rain SFX not initialised! See Marc"	
 VAR_14	0	
 VAR_15	0	
 VAR_16	0	
@@ -22,7 +21,6 @@ VAR_19	0
 VAR_20	0	
 VAR_21	0	
 VAR_22	{ 0, 0 }	
-VAR_23	"CHAINS"	
 VAR_24	0	
 VAR_25	0	
 VAR_26	0	
@@ -30,11 +28,6 @@ VAR_27	0
 VAR_28	-1	
 VAR_29	-1	
 VAR_30	-1	
-VAR_31	"groad"	
-VAR_32	"sentry"	
-VAR_33	"litl_liz"	
-VAR_34	"door"	
-VAR_35	"capstan"	
 VAR_36	0	
 VAR_37	{ -1639, 0, 172, -1664, 0, -1263 }	
 VAR_38	{ -231, 0, 270, -244, 0, -1382 }	
@@ -77,8 +70,6 @@ VAR_74	{ 85, 9830913, 46, 1, 40, 1, 43, 1, 42, 1, -1 }
 VAR_75	{ 22, 0, 48, 0, 46, 1, -1 }	
 VAR_76	{ -911, 600, -1513 }	
 VAR_77	{ 580, 600, 532 }	
-VAR_78	"btreasure"	
-VAR_79	"bmimic"	
 VAR_80	0	
 VAR_81	0	
 VAR_82	-1	
@@ -87,7 +78,6 @@ VAR_84	0
 VAR_85	0	
 VAR_86	{ 0, 0, 1, -1, 8, 2, 4, 0, 9, 0, 1, 5, 192, 192, -1, 2, 2, 3, 2, 5, 0, 100, 7, 1, 6, 6, 1, -1 }	
 VAR_87	0	
-VAR_88	"stop capstan sfx"	
 VAR_89	0	
 VAR_90	0
 
@@ -95,7 +85,7 @@ VAR_90	0
 call load_sound_set(int 28)
 call load_sound_set(int 51)
 call load_sound_set(int 1)
-call play_bgm(var &VAR_23)
+call play_bgm("CHAINS")
 execute SCRIPT_9
 if(gamevar is_room_cleared)
  {
@@ -221,9 +211,9 @@ if(var VAR_27 == int 1)
 }
 
 ._SCRIPT_4
-call load_char(var &VAR_31)
-call load_char(var &VAR_32)
-call load_char(var &VAR_33)
+call load_char("groad")
+call load_char("sentry")
+call load_char("litl_liz")
 execute SCRIPT_11
 execute SCRIPT_13
 
@@ -243,10 +233,10 @@ execute SCRIPT_19
 ._SCRIPT_11
 gamevar SMACKER_X = int 288
 gamevar SMACKER_Y = int 1088
-call play_2d_anim(var &VAR_34, int 0, int 1, var &VAR_0)
+call play_2d_anim("door", int 0, int 1, var &VAR_0)
 gamevar SMACKER_X = int 624
 gamevar SMACKER_Y = int 904
-call play_2d_anim(var &VAR_35, int 0, int 1, var &VAR_2)
+call play_2d_anim("capstan", int 0, int 1, var &VAR_2)
 gamevar *scene_info_p+4 = int 16
 
 ._SCRIPT_12
@@ -279,7 +269,7 @@ switch(var VAR_84)
 			 {
 					if(var VAR_2 == int -1)
 					 {
-							call log(var &VAR_88)
+							call log("stop capstan sfx")
 							call stop_playing_sound(var VAR_87)
 							var VAR_87 = int -999
 					}
@@ -359,12 +349,12 @@ if(call func_bf(int 1, gamevar CURRENT_LEVEL, gamevar CURRENT_SCENE))
 if(call ! is_char_handle_in_level(int 1507328))
  {
 		gamevar global_inventory_p = var &VAR_74
-		call create_char(var &VAR_76, var &VAR_78, int 355, int 14)
+		call create_char(var &VAR_76, "btreasure", int 355, int 14)
 }
 if(call ! is_char_handle_in_level(int 1441792))
  {
 		gamevar global_inventory_p = var &VAR_75
-		call create_char(var &VAR_77, var &VAR_79, int 205, int 17)
+		call create_char(var &VAR_77, "bmimic", int 205, int 17)
 }
 
 ._SCRIPT_19
@@ -379,7 +369,7 @@ var VAR_4 = int 1
 ._SCRIPT_20
 if(var ! VAR_4)
  {
-		call log(var &VAR_13)
+		call log("random_rain_fx: Rain SFX not initialised! See Marc")
 		exit_script 
 }
 switch(var VAR_9)

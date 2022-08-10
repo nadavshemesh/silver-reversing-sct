@@ -5,10 +5,8 @@ VAR_2	0
 VAR_3	0	
 VAR_4	0	
 VAR_5	-1	
-VAR_6	"btreasure9"	
 VAR_7	{ -11726, -398, 52 }	
 VAR_8	0	
-VAR_9	"fishman"	
 VAR_10	0	
 VAR_11	0	
 VAR_12	0	
@@ -17,8 +15,6 @@ VAR_14	{ -10653, -349, 812 }
 VAR_15	{ -10667, -349, 2500 }	
 VAR_16	{ -11651, 1849, 402, -11660, 1849, 2907 }	
 VAR_17	{ 0, 1, 2, VAR_16, 8, 1, 1, 1, 150, 150, -1, 4, 0, 9, 0, 5, 0, 60, 6, 3, 7, 1, 2, -1 }	
-VAR_18	"lobster"	
-VAR_19	"fishman"	
 VAR_20	{ -10189, 1852, 971, -10177, 1852, 2410 }	
 VAR_21	{ 0, 1, 2, VAR_20, 8, 1, 12, 147, 147, 150, 147, -1, 13, 1, 14, 0, 2, 2, 5, 0, 10, 18, 50, -1 }	
 VAR_22	{ 0, 0, 0, -1, 8, 0, 12, 64, 64, 64, -1, 13, 0, 14, 0, 1, 3, 5, 0, 60, 18, 33, -1, 0, 0 }	
@@ -36,7 +32,7 @@ var VAR_3 = int 35
 execute SCRIPT_10
 var VAR_5 = int 3277313
 execute SCRIPT_10
-call func_b8(int 94)
+call load_item(int 94)
 call load_sound_set(int 64)
 var VAR_8 = call play_loaded_sound(int 1, int -1, int 64, int 0)
 if(var VAR_8)
@@ -105,7 +101,7 @@ if(gamevar !is_room_cleared)
 ._SCRIPT_3
 
 ._SCRIPT_4
-call load_char(var &VAR_9)
+call load_char("fishman")
 var VAR_10 = call create_enemy(int 64, int 0, var &VAR_13, int 270)
 var VAR_11 = call create_enemy(int 64, int 1, var &VAR_14, int 320)
 var VAR_12 = call create_enemy(int 64, int 2, var &VAR_15, int 220)
@@ -122,8 +118,8 @@ call func_50(var VAR_12, int 2)
 ._SCRIPT_6
 
 ._SCRIPT_7
-call load_char(var &VAR_18)
-call load_char(var &VAR_19)
+call load_char("lobster")
+call load_char("fishman")
 call run_wandering_generator(var &VAR_21, int 1)
 call run_wandering_generator(var &VAR_22, int 300)
 
@@ -138,7 +134,7 @@ if(gamevar script_time > var VAR_23)
 var VAR_0 = call is_char_handle_in_level(int 1507337)
 if(var ! VAR_0)
  {
-		var VAR_0 = call create_char(var VAR_1, var &VAR_6, var VAR_2, int 14)
+		var VAR_0 = call create_char(var VAR_1, "btreasure9", var VAR_2, int 14)
 		call func_aa(var VAR_0)
 }
 else

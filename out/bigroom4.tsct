@@ -1,9 +1,4 @@
 ._DATA
-VAR_0	"chains"	
-VAR_1	"groad"	
-VAR_2	"lizman"	
-VAR_3	"bat"	
-VAR_4	"litl_liz"	
 VAR_5	{ -1716, -248, 1668, -2129, -248, 1399, -1325, -248, 2482, -3110, -248, 992 }	
 VAR_6	{ 2, -2307, -1001, 2021, 8 }	
 VAR_7	{ 2, -2307, -1001, 2021, 8 }	
@@ -22,8 +17,6 @@ VAR_19	{ -2362, -1051, 1879 }
 VAR_20	{ 0, 0 }	
 VAR_21	0	
 VAR_22	0	
-VAR_23	"wandering baddies"	
-VAR_24	"bat"	
 VAR_25	{ -1870, -850, 1500, -1870, -850, 1500, -1870, -850, 1500, -1870, -850, 1500, -1870, -850, 1500, -1870, -850, 1500, -1870, -850, 1500 }	
 VAR_26	{ -2515, -625, 1965, -2515, -625, 1965, -2515, -625, 1965, -2515, -625, 1965, -2515, -625, 1965, -2515, -625, 1965, -2515, -625, 1965 }	
 VAR_27	{ 0, 1, 7, VAR_25, 8, 2, 4, 2, 7, VAR_26, 9, 0, 1, 16, 47, -1, 2, 1, 5, 0, 10, 7, 1, 7, 6, 2, -1 }	
@@ -31,10 +24,9 @@ VAR_28	{ -2362, -1051, 1879 }
 VAR_29	0	
 VAR_30	0	
 VAR_31	-1431699410	
-VAR_32	"bats"
 
 ._on_load
-call play_bgm(var &VAR_0)
+call play_bgm("chains")
 if(gamevar is_room_cleared)
  {
 		execute SCRIPT_9
@@ -137,10 +129,10 @@ if(var VAR_20 == int 2)
 }
 
 ._SCRIPT_4
-call load_char(var &VAR_1)
-call load_char(var &VAR_2)
-call load_char(var &VAR_3)
-call load_char(var &VAR_4)
+call load_char("groad")
+call load_char("lizman")
+call load_char("bat")
+call load_char("litl_liz")
 var VAR_17 = call run_wandering_generator(var &VAR_10, int 1)
 var VAR_18 = call run_enemy_generator(var &VAR_13, int 300)
 
@@ -153,14 +145,14 @@ var VAR_18 = call run_enemy_generator(var &VAR_13, int 300)
 ._SCRIPT_8
 
 ._SCRIPT_9
-call log(var &VAR_23)
-call load_char(var &VAR_24)
+call log("wandering baddies")
+call load_char("bat")
 if(var VAR_29 == int 0)
  {
 		call log(var &VAR_31)
 		if(call func_ab(int 200, var &VAR_28))
 		 {
-				call log(var &VAR_32)
+				call log("bats")
 				var VAR_30 = call run_enemy_generator(var &VAR_27, int 3)
 				var VAR_29 ++ 
 		}

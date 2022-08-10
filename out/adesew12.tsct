@@ -8,22 +8,18 @@ VAR_5	{ 152, -1980, 4128 }
 VAR_6	{ -345, -1980, 5280 }	
 VAR_7	{ 0, 2, 300, 300, 8, 1, 1, 100, 189, -1, 4, 0, 9, 1, 5, 1, 250, 300, 7, 1, 5, 6, 1, -1 }	
 VAR_8	{ 0, 2, 300, 300, 8, 1, 1, 100, 189, -1, 4, 0, 9, 1, 5, 1, 250, 300, 7, 1, 5, 6, 1, -1 }	
-VAR_9	"SEWERPT1"	
-VAR_10	"smoke01"	
-VAR_11	"torch01"	
 VAR_12	200	
-VAR_13	"spider"	
 VAR_14	0	
 VAR_15	0
 
 ._on_load
-call play_bgm(var &VAR_9)
+call play_bgm("SEWERPT1")
 gamevar SMACKER_X = int 248
 gamevar SMACKER_Y = int 168
-call play_2d_anim(var &VAR_10, int 1, int 1, var &VAR_0)
+call play_2d_anim("smoke01", int 1, int 1, var &VAR_0)
 gamevar SMACKER_X = int 8
 gamevar SMACKER_Y = int 32
-call play_2d_anim(var &VAR_11, int 1, int 1, var &VAR_1)
+call play_2d_anim("torch01", int 1, int 1, var &VAR_1)
 call load_sound_set(int 30)
 var VAR_2 = call play_loaded_sound(int 1, int -1, int 30, int 0)
 call set_sound_volume(var VAR_2, int 64)
@@ -62,7 +58,7 @@ switch(gamevar room_state)
 }
 
 ._SCRIPT_3
-call load_char(var &VAR_13)
+call load_char("spider")
 var VAR_3 = call create_enemy(int 46, int 0, var &VAR_5, int 50)
 var VAR_4 = call create_enemy(int 46, int 1, var &VAR_6, int 40)
 call add_item_to_char(var VAR_3, int 43, int 1, int 0)

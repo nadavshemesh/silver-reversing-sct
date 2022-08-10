@@ -24,20 +24,14 @@ VAR_21	{ 1950, -1481, 6240 }
 VAR_22	{ 1215, -1978, 5019 }	
 VAR_23	{ 1493, -1978, 4741 }	
 VAR_24	{ 1772, -1978, 5345 }	
-VAR_25	"SEWERPT1"	
-VAR_26	"falls01"	
-VAR_27	"gate01"	
-VAR_28	"gate01"	
-VAR_29	"skaven"	
-VAR_30	"ratrptr"
 
 ._on_load
-call play_bgm(var &VAR_25)
+call play_bgm("SEWERPT1")
 call load_sound_set(int 36)
 call play_loaded_sound(int 2, int -1, int 36, int 0)
 gamevar SMACKER_X = int 272
 gamevar SMACKER_Y = int 72
-var VAR_3 = call play_2d_anim(var &VAR_26, int 1, int 1, var &VAR_5)
+var VAR_3 = call play_2d_anim("falls01", int 1, int 1, var &VAR_5)
 if(call func_bf(int 0, gamevar CURRENT_LEVEL, gamevar CURRENT_SCENE))
  {
 		var VAR_1 = int 1
@@ -64,7 +58,7 @@ if(var VAR_1)
 		var VAR_4 = int 1
 		gamevar SMACKER_X = int 328
 		gamevar SMACKER_Y = int 368
-		var VAR_2 = call play_2d_anim(var &VAR_27, int 0, int 1, var &VAR_4)
+		var VAR_2 = call play_2d_anim("gate01", int 0, int 1, var &VAR_4)
 }
 else
  {
@@ -72,7 +66,7 @@ else
 		var VAR_4 = int 0
 		gamevar SMACKER_X = int 328
 		gamevar SMACKER_Y = int 368
-		var VAR_2 = call play_2d_anim(var &VAR_28, int -2147483, int 1, var &VAR_4)
+		var VAR_2 = call play_2d_anim("gate01", int -2147483, int 1, var &VAR_4)
 }
 if(var VAR_8 == int 1)
  {
@@ -121,12 +115,12 @@ switch(gamevar room_state)
 }
 
 ._SCRIPT_3
-call load_char(var &VAR_29)
-call load_char(var &VAR_30)
+call load_char("skaven")
+call load_char("ratrptr")
 if(var VAR_8 == int 0)
  {
-		var VAR_9 = call func_96(int 45, int 0, int 2, int 0)
-		var VAR_12 = call func_96(int 45, int 1, int 2, int 0)
+		var VAR_9 = call create_enemy_through_door(int 45, int 0, int 2, int 0)
+		var VAR_12 = call create_enemy_through_door(int 45, int 1, int 2, int 0)
 		call set_char_running(var VAR_9)
 		call set_char_running(var VAR_12)
 		call func_106(var VAR_9, int 9, int 5, var &VAR_10)
@@ -141,8 +135,8 @@ if(var VAR_8 == int 0)
 }
 else
  {
-		var VAR_9 = call func_96(int 45, int 0, int 0, int 0)
-		var VAR_12 = call func_96(int 45, int 1, int 0, int 0)
+		var VAR_9 = call create_enemy_through_door(int 45, int 0, int 0, int 0)
+		var VAR_12 = call create_enemy_through_door(int 45, int 1, int 0, int 0)
 		call set_char_running(var VAR_9)
 		call set_char_running(var VAR_12)
 		call func_106(var VAR_9, int 9, int 5, var &VAR_11)

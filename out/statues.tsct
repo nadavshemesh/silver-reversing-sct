@@ -1,10 +1,6 @@
 ._DATA
-VAR_0	"ice1"	
-VAR_1	"ice2"	
-VAR_2	"ice3"	
 VAR_3	{ -5570, 1370, 692 }	
 VAR_4	{ 2036, 1370, -6603 }	
-VAR_5	"SNOW"	
 VAR_6	{ 0, 0, 1, -1, 8, 0, 1, 1, 56, 56, -1, 4, 0, 9, 0, 5, 1, 50, 100, 6, 1, 7, 1, 2, 10, 43, 42, -1, -1 }	
 VAR_7	0	
 VAR_8	0	
@@ -20,12 +16,6 @@ VAR_17	{ 927, -1199, 2982 }
 VAR_18	{ 1167, -1199, 2944 }	
 VAR_19	{ 1206, -1199, 4601 }	
 VAR_20	{ 1002, -1199, 4617 }	
-VAR_21	"Fsentry1"	
-VAR_22	"Fsentry2"	
-VAR_23	"Fsentry3"	
-VAR_24	"Fsentry4"	
-VAR_25	"Fsentry5"	
-VAR_26	"Fsentry6"	
 VAR_27	{ 0, 1556, -1199, 3591, 0, 577, -1199, 3296, 7, 8 }	
 VAR_28	{ 0, 577, -1199, 3317, 0, 1556, -1199, 3269, 7, 8 }	
 VAR_29	{ 0, 899, -1199, 1108, 0, 927, -1199, 2944, 7, 8 }	
@@ -33,12 +23,6 @@ VAR_30	{ 0, 1212, -1199, 1108, 0, 1167, -1199, 2944, 7, 8 }
 VAR_31	{ 0, 1252, -1199, 2944, 0, 1206, -1199, 4601, 7, 8 }	
 VAR_32	{ 0, 946, -1199, 2944, 0, 1002, -1199, 4601, 7, 8 }	
 VAR_33	-1	
-VAR_34	"sentry4_dead"	
-VAR_35	"regen_sentrys"	
-VAR_36	"wamper"	
-VAR_37	"wyvern"	
-VAR_38	"sentry"	
-VAR_39	"leopard"	
 VAR_40	0	
 VAR_41	0	
 VAR_42	0	
@@ -60,13 +44,13 @@ call play_loaded_sound(int 7, int -1, int 65, int 0)
 execute SCRIPT_5
 gamevar SMACKER_X = int 64
 gamevar SMACKER_Y = int 176
-call play_2d_anim(var &VAR_0, int 1, int 1, int 0)
+call play_2d_anim("ice1", int 1, int 1, int 0)
 gamevar SMACKER_X = int 160
 gamevar SMACKER_Y = int 144
-call play_2d_anim(var &VAR_1, int 1, int 1, int 0)
+call play_2d_anim("ice2", int 1, int 1, int 0)
 gamevar SMACKER_X = int 296
 gamevar SMACKER_Y = int 352
-call play_2d_anim(var &VAR_2, int 1, int 1, int 0)
+call play_2d_anim("ice3", int 1, int 1, int 0)
 if(gamevar is_room_cleared)
  {
 		execute SCRIPT_10
@@ -144,7 +128,7 @@ if(gamevar script_time > var VAR_51)
 ._SCRIPT_4
 
 ._SCRIPT_5
-call play_3d_fx(var &VAR_5, var &VAR_3, var &VAR_4, int 0)
+call play_3d_fx("SNOW", var &VAR_3, var &VAR_4, int 0)
 
 ._SCRIPT_6
 if(var VAR_33 != var VAR_7)
@@ -199,7 +183,7 @@ if(var VAR_7 == int 1)
 				if(call is_char_standing(var VAR_12))
 				 {
 						call remove_char(var VAR_12)
-						call log(var &VAR_34)
+						call log("sentry4_dead")
 						var VAR_7 ++ 
 						var VAR_8 = int 0
 				}
@@ -212,24 +196,24 @@ if(var VAR_7 == int 1)
 }
 if(var VAR_7 == int 2)
  {
-		call log(var &VAR_35)
+		call log("regen_sentrys")
 		call run_enemy_generator(var &VAR_6, int 1)
 		var VAR_7 ++ 
 		var VAR_8 = int 0
 }
 
 ._SCRIPT_7
-var VAR_9 = call create_char(var &VAR_15, var &VAR_21, int 65, int 13)
+var VAR_9 = call create_char(var &VAR_15, "Fsentry1", int 65, int 13)
 call add_item_to_char(var VAR_9, int 20, int 0, int 1)
-var VAR_10 = call create_char(var &VAR_16, var &VAR_22, int 265, int 13)
+var VAR_10 = call create_char(var &VAR_16, "Fsentry2", int 265, int 13)
 call add_item_to_char(var VAR_10, int 20, int 0, int 1)
-var VAR_11 = call create_char(var &VAR_17, var &VAR_23, int 150, int 13)
+var VAR_11 = call create_char(var &VAR_17, "Fsentry3", int 150, int 13)
 call add_item_to_char(var VAR_11, int 20, int 0, int 1)
-var VAR_12 = call create_char(var &VAR_18, var &VAR_24, int 140, int 13)
+var VAR_12 = call create_char(var &VAR_18, "Fsentry4", int 140, int 13)
 call add_item_to_char(var VAR_12, int 20, int 0, int 1)
-var VAR_13 = call create_char(var &VAR_19, var &VAR_25, int 135, int 13)
+var VAR_13 = call create_char(var &VAR_19, "Fsentry5", int 135, int 13)
 call add_item_to_char(var VAR_13, int 16, int 0, int 1)
-var VAR_14 = call create_char(var &VAR_20, var &VAR_26, int 130, int 13)
+var VAR_14 = call create_char(var &VAR_20, "Fsentry6", int 130, int 13)
 call add_item_to_char(var VAR_14, int 16, int 0, int 1)
 call set_char_init_state(var VAR_9, int 13)
 call play_char_ai_script(var VAR_9, var &VAR_27)
@@ -261,10 +245,10 @@ call func_50(var VAR_14, int 131)
 ._SCRIPT_9
 
 ._SCRIPT_10
-call load_char(var &VAR_36)
-call load_char(var &VAR_37)
-call load_char(var &VAR_38)
-call load_char(var &VAR_39)
+call load_char("wamper")
+call load_char("wyvern")
+call load_char("sentry")
+call load_char("leopard")
 var VAR_40 = call func_6f()
 var VAR_41 = call randomize_int(int 0, int 4)
 if(var ! VAR_41)

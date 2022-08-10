@@ -24,30 +24,11 @@ VAR_21	{ -866, 0, -224 }
 VAR_22	0	
 VAR_23	{ 7, 8 }	
 VAR_24	{ 9, VAR_18, 7, 8 }	
-VAR_25	"NTAVMAN"	
-VAR_26	"NSTIPE"	
-VAR_27	"NWILLIAM"	
-VAR_28	"NREBEL"	
-VAR_29	"NREBELA"	
-VAR_30	"talkslow"	
-VAR_31	"T_SekTav"	
-VAR_32	"Null"	
-VAR_33	"T_VivTav"	
-VAR_34	"Null"	
-VAR_35	"T_CagTav"	
-VAR_36	"Null"	
-VAR_37	"T_ChiTav"	
-VAR_38	"Null"	
-VAR_39	"T_JugTav"	
-VAR_40	"Null"	
 VAR_41	{ -999473152, 1124663296, -1003536384 }	
 VAR_42	{ -993263616, 1136885760, 1133608960 }	
 VAR_43	{ 1, 0, 0 }	
-VAR_44	"torch01"	
 VAR_45	{ 1, 0, 0 }	
-VAR_46	"torch02"	
 VAR_47	{ 1, 0, 0 }	
-VAR_48	"fire01"
 
 ._on_load
 execute SCRIPT_6
@@ -55,9 +36,9 @@ switch(gamevar room_state)
  {
 		case 1
 			call set_input_system(int 2)
-			var VAR_18 = call create_char(var &VAR_19, var &VAR_25, int 334, int 13)
-			var VAR_20 = call create_char(var &VAR_21, var &VAR_26, int 160, int 13)
-			var VAR_16 = call create_char(var &VAR_17, var &VAR_27, int 152, int 13)
+			var VAR_18 = call create_char(var &VAR_19, "NTAVMAN", int 334, int 13)
+			var VAR_20 = call create_char(var &VAR_21, "NSTIPE", int 160, int 13)
+			var VAR_16 = call create_char(var &VAR_17, "NWILLIAM", int 152, int 13)
 			call set_char_init_state(var VAR_18, int 13)
 			call set_char_init_state(var VAR_20, int 13)
 			call play_char_ai_script(var VAR_18, var &VAR_23)
@@ -66,9 +47,9 @@ switch(gamevar room_state)
 			var VAR_2 = int 0
 			var VAR_4 = call get_char_handle(int 65536)
 		default 
-			var VAR_12 = call create_char(var &VAR_13, var &VAR_28, int 70, int 13)
-			var VAR_14 = call create_char(var &VAR_15, var &VAR_29, int 295, int 13)
-			var VAR_22 = call load_anim(var &VAR_30)
+			var VAR_12 = call create_char(var &VAR_13, "NREBEL", int 70, int 13)
+			var VAR_14 = call create_char(var &VAR_15, "NREBELA", int 295, int 13)
+			var VAR_22 = call load_anim("talkslow")
 			var VAR_3 = int 0
 			break 
 }
@@ -137,29 +118,29 @@ switch(var VAR_0)
 			 {
 					if(call is_char_handle_in_level(int 786432))
 					 {
-							call start_dialog(var &VAR_31, var &VAR_32)
+							call start_dialog("T_SekTav", "Null")
 					}
 					else
 					 {
 							if(call is_char_handle_in_level(int 196608))
 							 {
-									call start_dialog(var &VAR_33, var &VAR_34)
+									call start_dialog("T_VivTav", "Null")
 							}
 							else
 							 {
 									if(call is_char_handle_in_level(int 262144))
 									 {
-											call start_dialog(var &VAR_35, var &VAR_36)
+											call start_dialog("T_CagTav", "Null")
 									}
 									else
 									 {
 											if(call is_char_handle_in_level(int 131072))
 											 {
-													call start_dialog(var &VAR_37, var &VAR_38)
+													call start_dialog("T_ChiTav", "Null")
 											}
 											else
 											 {
-													call start_dialog(var &VAR_39, var &VAR_40)
+													call start_dialog("T_JugTav", "Null")
 											}
 									}
 							}
@@ -260,10 +241,10 @@ call load_sound_set(int 30)
 call play_loaded_sound(int 1, int -1, int 30, var &VAR_42)
 gamevar SMACKER_X = int 248
 gamevar SMACKER_Y = int 120
-call play_2d_anim(var &VAR_44, int 1, int 1, var &VAR_43)
+call play_2d_anim("torch01", int 1, int 1, var &VAR_43)
 gamevar SMACKER_X = int 592
 gamevar SMACKER_Y = int 208
-call play_2d_anim(var &VAR_46, int 1, int 1, var &VAR_45)
+call play_2d_anim("torch02", int 1, int 1, var &VAR_45)
 gamevar SMACKER_X = int 336
 gamevar SMACKER_Y = int 272
-call play_2d_anim(var &VAR_48, int 1, int 1, var &VAR_47)
+call play_2d_anim("fire01", int 1, int 1, var &VAR_47)

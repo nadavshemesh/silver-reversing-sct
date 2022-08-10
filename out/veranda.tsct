@@ -1,10 +1,8 @@
 ._DATA
 VAR_0	0	
 VAR_1	0	
-VAR_2	"GNO"	
 VAR_3	0	
 VAR_4	0	
-VAR_5	"imphorn"	
 VAR_6	0	
 VAR_7	0	
 VAR_8	0	
@@ -22,11 +20,8 @@ VAR_19	{ -6877, 2200, -3439 }
 VAR_20	{ -5933, 2000, -3650, -5493, 2200, -3457, -6307, 2000, -3877, -6877, 2200, -3439 }	
 VAR_21	{ -5933, 400, -3650, -5493, 400, -3457, -6307, 400, -3877, -6877, 400, -3439 }	
 VAR_22	{ 0, 1, 5, VAR_20, 8, 1, 4, 2, 5, VAR_21, 9, 0, 1, 1, 105, 105, 105, 105, -1, 5, 0, 50, 6, 1, 7, 1, 1, -1 }	
-VAR_23	"NIMP3"	
 VAR_24	0	
 VAR_25	{ -3950, 0, -2604 }	
-VAR_26	"TerImp"	
-VAR_27	"NULL"	
 VAR_28	0	
 VAR_29	0	
 VAR_30	-1	
@@ -46,17 +41,14 @@ VAR_43	0
 VAR_44	0	
 VAR_45	0	
 VAR_46	0	
-VAR_47	"htyronis."	
 VAR_48	0	
 VAR_49	-1	
-VAR_50	"TerImp"	
-VAR_51	"NULL"	
 VAR_52	0	
 VAR_53	0	
 VAR_54	0
 
 ._on_load
-call play_bgm(var &VAR_2)
+call play_bgm("GNO")
 call load_sound_set(int 62)
 call load_sound_set(int 63)
 call play_loaded_sound(int 1, int -1, int 63, int 0)
@@ -154,12 +146,12 @@ if(gamevar script_time > var VAR_53)
 }
 
 ._SCRIPT_4
-var VAR_4 = call load_anim(var &VAR_5)
+var VAR_4 = call load_anim("imphorn")
 
 ._SCRIPT_5
 var VAR_6 = call create_enemy(int 103, int 1, var &VAR_9, int 25)
 var VAR_7 = call create_enemy(int 103, int 2, var &VAR_10, int 330)
-var VAR_8 = call create_char(var &VAR_11, var &VAR_23, int 35, int 13)
+var VAR_8 = call create_char(var &VAR_11, "NIMP3", int 35, int 13)
 call set_char_running(var VAR_8)
 call add_item_to_char(var VAR_8, int 87, int 1, int 1)
 var VAR_12 = call create_enemy(int 105, int 1, var &VAR_16, int 345)
@@ -192,7 +184,7 @@ if(var VAR_24 == int 1)
 		 {
 				var VAR_3 = int 1
 				call char_stop(var VAR_0)
-				call start_dialog(var &VAR_26, var &VAR_27)
+				call start_dialog("TerImp", "NULL")
 				call char_unfollow(var VAR_1)
 				var VAR_24 ++ 
 		}
@@ -275,10 +267,10 @@ if(var VAR_31 == int 1)
  {
 		if(var VAR_32 > int 150)
 		 {
-				call set_char_behav(var VAR_12, int 105)
-				call set_char_behav(var VAR_13, int 105)
-				call set_char_behav(var VAR_14, int 105)
-				call set_char_behav(var VAR_15, int 105)
+				call set_char_template(var VAR_12, int 105)
+				call set_char_template(var VAR_13, int 105)
+				call set_char_template(var VAR_14, int 105)
+				call set_char_template(var VAR_15, int 105)
 				call run_enemy_generator(var &VAR_22, int 10)
 				var VAR_31 ++ 
 				var VAR_32 = int 0
@@ -295,7 +287,7 @@ call func_d8(int 0, var &VAR_40)
 var VAR_44 = var VAR_41
 var VAR_45 = var VAR_42
 var VAR_46 = var VAR_43
-var VAR_1 = call create_char(var &VAR_44, var &VAR_47, int 90, int 13)
+var VAR_1 = call create_char(var &VAR_44, "htyronis.", int 90, int 13)
 var VAR_0 = call get_char_handle(int 65536)
 call func_53(var VAR_1, int 15)
 call char_follow_char(var VAR_1, var VAR_0)
@@ -319,7 +311,7 @@ switch(var VAR_48)
 			 {
 					var VAR_3 = int 1
 					call char_stop(var VAR_0)
-					call start_dialog(var &VAR_50, var &VAR_51)
+					call start_dialog("TerImp", "NULL")
 					call char_unfollow(var VAR_1)
 					var VAR_48 ++ 
 			}

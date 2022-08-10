@@ -5,17 +5,8 @@ VAR_2	0
 VAR_3	0	
 VAR_4	0	
 VAR_5	0	
-VAR_6	"monleft"	
 VAR_7	0	
 VAR_8	0	
-VAR_9	"david"	
-VAR_10	"sekune"	
-VAR_11	"jug"	
-VAR_12	"vivienne"	
-VAR_13	"chiaro"	
-VAR_14	"cagen"	
-VAR_15	"WARNING! Unknown hero while checking heroes"	
-VAR_16	"Get a goober -- QUICKLY!!"	
 VAR_17	0	
 VAR_18	0	
 VAR_19	0	
@@ -25,7 +16,6 @@ VAR_22	{ 15, 5, 100, 12, 1, 0, 1164, -445, 638, 3, VAR_23, 0, 16, VAR_17, 1, 0, 
 VAR_23	"tyrosumn"	
 VAR_24	"tyrosumn"	
 VAR_25	{ 0, 0, 1, 0, -1, 8, 1, 4, 0, 9, 2, 1, 2, 75, 75, -1, 5, 0, 50, 6, 1, 7, 1, 1, -1 }	
-VAR_26	"nfastmonk"	
 VAR_27	0	
 VAR_28	0	
 VAR_29	{ 0, 0 }	
@@ -46,7 +36,7 @@ call load_sound_set(int 68)
 execute SCRIPT_3
 gamevar SMACKER_X = int 316
 gamevar SMACKER_Y = int 132
-call play_2d_anim(var &VAR_6, int 1, int 1, int 0)
+call play_2d_anim("monleft", int 1, int 1, int 0)
 if(gamevar is_room_cleared)
  {
 		execute SCRIPT_8
@@ -112,32 +102,32 @@ while(var VAR_7)
 		switch(var VAR_8)
 		 {
 				case 65536
-					call log(var &VAR_9)
+					call log("david")
 					var VAR_0 = var VAR_7
 					break 
 				case 786432
-					call log(var &VAR_10)
+					call log("sekune")
 					var VAR_2 = var VAR_7
 					break 
 				case 327680
-					call log(var &VAR_11)
+					call log("jug")
 					var VAR_1 = var VAR_7
 					break 
 				case 196608
-					call log(var &VAR_12)
+					call log("vivienne")
 					var VAR_3 = var VAR_7
 					break 
 				case 131072
-					call log(var &VAR_13)
+					call log("chiaro")
 					var VAR_4 = var VAR_7
 					break 
 				case 262144
-					call log(var &VAR_14)
+					call log("cagen")
 					var VAR_5 = var VAR_7
 					break 
 				default 
-					call log(var &VAR_15)
-					call log(var &VAR_16)
+					call log("WARNING! Unknown hero while checking heroes")
+					call log("Get a goober -- QUICKLY!!")
 					break 
 		}
 		var VAR_7 = call func_7e()
@@ -182,7 +172,7 @@ switch(var VAR_27)
 var VAR_28 ++ 
 
 ._SCRIPT_5
-var VAR_19 = call create_char(var &VAR_20, var &VAR_26, int 105, int 13)
+var VAR_19 = call create_char(var &VAR_20, "nfastmonk", int 105, int 13)
 gamevar script_object = var VAR_19
 gamevar *character_movement_p+60 = int 1
 call func_50(var VAR_19, int 8192)

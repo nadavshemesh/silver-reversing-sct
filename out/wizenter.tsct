@@ -7,7 +7,6 @@ VAR_4	0
 VAR_5	0	
 VAR_6	0	
 VAR_7	0	
-VAR_8	"random_rain_fx: Rain SFX not initialised! See Marc"	
 VAR_9	0	
 VAR_10	0	
 VAR_11	0	
@@ -17,12 +16,8 @@ VAR_14	0
 VAR_15	0	
 VAR_16	0	
 VAR_17	{ 0, 0 }	
-VAR_18	"RAINPT1"	
-VAR_19	"torch01"	
-VAR_20	"it's_raining"	
 VAR_21	{ -3250, 680, 900 }	
 VAR_22	{ -2050, 680, -2450 }	
-VAR_23	"RAIN"	
 VAR_24	0	
 VAR_25	0	
 VAR_26	0	
@@ -43,15 +38,10 @@ VAR_40	{ 17, 11, VAR_35, 0, 11, 100, 200, 7, 8, 0 }
 VAR_41	0	
 VAR_42	{ 0, 0, 0, 0, 0 }	
 VAR_43	0	
-VAR_44	"given to fetch 1"	
-VAR_45	"given to fetch 2"	
-VAR_46	"given to fetch 3"	
-VAR_47	"given to fetch 4"	
-VAR_48	"given to fetch 5"	
 VAR_49	0
 
 ._on_load
-call play_bgm(var &VAR_18)
+call play_bgm("RAINPT1")
 execute SCRIPT_3
 execute SCRIPT_4
 if(gamevar is_room_cleared)
@@ -83,14 +73,14 @@ if(gamevar !is_room_cleared)
 }
 
 ._SCRIPT_3
-call log(var &VAR_20)
-call play_3d_fx(var &VAR_23, var &VAR_21, var &VAR_22, int 0)
+call log("it's_raining")
+call play_3d_fx("RAIN", var &VAR_21, var &VAR_22, int 0)
 execute SCRIPT_9
 
 ._SCRIPT_4
 gamevar SMACKER_X = int 368
 gamevar SMACKER_Y = int 144
-call play_2d_anim(var &VAR_19, int 1, int 0, int 0)
+call play_2d_anim("torch01", int 1, int 0, int 0)
 
 ._SCRIPT_5
 
@@ -140,23 +130,23 @@ while(var VAR_41 != var VAR_43)
 				switch(var VAR_34)
 				 {
 						case 0
-							call log(var &VAR_44)
+							call log("given to fetch 1")
 							call add_item_to_char(var VAR_24, int 85, int 328193, int 0)
 							break 
 						case 1
-							call log(var &VAR_45)
+							call log("given to fetch 2")
 							call add_item_to_char(var VAR_25, int 85, int 328193, int 0)
 							break 
 						case 2
-							call log(var &VAR_46)
+							call log("given to fetch 3")
 							call add_item_to_char(var VAR_26, int 85, int 328193, int 0)
 							break 
 						case 3
-							call log(var &VAR_47)
+							call log("given to fetch 4")
 							call add_item_to_char(var VAR_27, int 85, int 328193, int 0)
 							break 
 						case 4
-							call log(var &VAR_48)
+							call log("given to fetch 5")
 							call add_item_to_char(var VAR_28, int 85, int 328193, int 0)
 							break 
 				}
@@ -186,7 +176,7 @@ var VAR_0 = int 1
 ._SCRIPT_10
 if(var ! VAR_0)
  {
-		call log(var &VAR_8)
+		call log("random_rain_fx: Rain SFX not initialised! See Marc")
 		exit_script 
 }
 switch(var VAR_4)

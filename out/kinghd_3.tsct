@@ -4,17 +4,10 @@ VAR_1	0
 VAR_2	0	
 VAR_3	0	
 VAR_4	0	
-VAR_5	"DVDCHR"	
 VAR_6	{ 1280070990, 0 }	
-VAR_7	"SEKCHR"	
-VAR_8	"NULL"	
-VAR_9	"CAGCHR"	
 VAR_10	{ 1280070990, 0 }	
-VAR_11	"JUGCHR"	
 VAR_12	{ 1280070990, 0 }	
-VAR_13	"CHICHR"	
 VAR_14	{ 1280070990, 0 }	
-VAR_15	"VIVCHR"	
 VAR_16	{ 1280070990, 0 }	
 VAR_17	0	
 VAR_18	{ 0, 0, -1 }	
@@ -23,20 +16,10 @@ VAR_20	0
 VAR_21	0	
 VAR_22	0	
 VAR_23	-1	
-VAR_24	"game saved"	
-VAR_25	"game not saved"	
 VAR_26	0	
-VAR_27	"DVDCHR"	
 VAR_28	{ 1280070990, 0 }	
-VAR_29	"SEKCHR"	
-VAR_30	"NULL"	
-VAR_31	"CAGCHR"	
 VAR_32	{ 1280070990, 0 }	
-VAR_33	"JUGCHR"	
 VAR_34	{ 1280070990, 0 }	
-VAR_35	"CHICHR"	
-VAR_36	"NULL"	
-VAR_37	"VIVCHR"	
 VAR_38	{ 1280070990, 0 }	
 VAR_39	0	
 VAR_40	0	
@@ -49,22 +32,17 @@ VAR_46	{ -896, -741, 1050 }
 VAR_47	0	
 VAR_48	0	
 VAR_49	{ 0, 0 }	
-VAR_50	"switch"	
 VAR_51	0	
 VAR_52	0	
 VAR_53	{ 0, 0 }	
-VAR_54	"oilboil"	
 VAR_55	0	
 VAR_56	0	
 VAR_57	{ 0, 0 }	
 VAR_58	{ 1919905636, 0 }	
-VAR_59	"chronicl"	
 VAR_60	0	
 VAR_61	0	
 VAR_62	{ -1125, -741, 2117, -1122, -741, 93 }	
 VAR_63	0	
-VAR_64	"projectile crossed tripwire"	
-VAR_65	"hero crossed tripwire"	
 VAR_66	0	
 VAR_67	0	
 VAR_68	{ -2183, -741, 2373 }	
@@ -149,12 +127,12 @@ switch(var VAR_60)
 		case 0
 			if(call func_d1(var &VAR_62))
 			 {
-					call log(var &VAR_64)
+					call log("projectile crossed tripwire")
 					var VAR_63 = int 1
 			}
 			if(call func_8a(var &VAR_62))
 			 {
-					call log(var &VAR_65)
+					call log("hero crossed tripwire")
 					var VAR_63 = int 1
 			}
 			if(var VAR_63)
@@ -210,15 +188,15 @@ call func_1(var VAR_42, int -1)
 call func_1(var VAR_44, int -1)
 gamevar SMACKER_X = int 0
 gamevar SMACKER_Y = int 227
-var VAR_47 = call play_2d_anim(var &VAR_50, int 10737418, int 1, var &VAR_48)
+var VAR_47 = call play_2d_anim("switch", int 10737418, int 1, var &VAR_48)
 var VAR_48 ++ 
 gamevar SMACKER_X = int 216
 gamevar SMACKER_Y = int 0
-var VAR_51 = call play_2d_anim(var &VAR_54, int 10737418, int 1, var &VAR_52)
+var VAR_51 = call play_2d_anim("oilboil", int 10737418, int 1, var &VAR_52)
 gamevar SMACKER_X = int 264
 gamevar SMACKER_Y = int 152
 var VAR_55 = call play_2d_anim(var &VAR_58, int 10737418, int 1, var &VAR_56)
-call load_char(var &VAR_59)
+call load_char("chronicl")
 gamevar *scene_info_p+4 = int 16
 
 ._SCRIPT_6
@@ -528,14 +506,14 @@ switch(var VAR_17)
 		case 5
 			if(var VAR_19 != gamevar saved_games_count)
 			 {
-					call log(var &VAR_24)
+					call log("game saved")
 					call func_11d()
 					var VAR_17 = int 7
 					var VAR_18 = int 0
 			}
 			else
 			 {
-					call log(var &VAR_25)
+					call log("game not saved")
 					call func_2a(var VAR_1, var &VAR_20)
 					execute SCRIPT_14
 					gamevar chronicler_variation = var VAR_2
@@ -591,22 +569,22 @@ var VAR_4 = call get_char_handle_id(gamevar control_char_p)
 switch(var VAR_4)
  {
 		case 65536
-			call load_dialog_by_number(var &VAR_5, var &VAR_6, gamevar chronicler_variation)
+			call load_dialog_by_number("DVDCHR", var &VAR_6, gamevar chronicler_variation)
 			break 
 		case 786432
-			call load_dialog_by_number(var &VAR_7, var &VAR_8, gamevar chronicler_variation)
+			call load_dialog_by_number("SEKCHR", "NULL", gamevar chronicler_variation)
 			break 
 		case 262144
-			call load_dialog_by_number(var &VAR_9, var &VAR_10, gamevar chronicler_variation)
+			call load_dialog_by_number("CAGCHR", var &VAR_10, gamevar chronicler_variation)
 			break 
 		case 327680
-			call load_dialog_by_number(var &VAR_11, var &VAR_12, gamevar chronicler_variation)
+			call load_dialog_by_number("JUGCHR", var &VAR_12, gamevar chronicler_variation)
 			break 
 		case 131072
-			call load_dialog_by_number(var &VAR_13, var &VAR_14, gamevar chronicler_variation)
+			call load_dialog_by_number("CHICHR", var &VAR_14, gamevar chronicler_variation)
 			break 
 		case 196608
-			call load_dialog_by_number(var &VAR_15, var &VAR_16, gamevar chronicler_variation)
+			call load_dialog_by_number("VIVCHR", var &VAR_16, gamevar chronicler_variation)
 			break 
 }
 
@@ -615,21 +593,21 @@ var VAR_26 = call get_char_handle_id(gamevar control_char_p)
 switch(var VAR_26)
  {
 		case 65536
-			var VAR_2 = call load_next_dialog(var &VAR_27, var &VAR_28)
+			var VAR_2 = call load_next_dialog("DVDCHR", var &VAR_28)
 			break 
 		case 786432
-			var VAR_2 = call load_next_dialog(var &VAR_29, var &VAR_30)
+			var VAR_2 = call load_next_dialog("SEKCHR", "NULL")
 			break 
 		case 262144
-			var VAR_2 = call load_next_dialog(var &VAR_31, var &VAR_32)
+			var VAR_2 = call load_next_dialog("CAGCHR", var &VAR_32)
 			break 
 		case 327680
-			var VAR_2 = call load_next_dialog(var &VAR_33, var &VAR_34)
+			var VAR_2 = call load_next_dialog("JUGCHR", var &VAR_34)
 			break 
 		case 131072
-			var VAR_2 = call load_next_dialog(var &VAR_35, var &VAR_36)
+			var VAR_2 = call load_next_dialog("CHICHR", "NULL")
 			break 
 		case 196608
-			var VAR_2 = call load_next_dialog(var &VAR_37, var &VAR_38)
+			var VAR_2 = call load_next_dialog("VIVCHR", var &VAR_38)
 			break 
 }

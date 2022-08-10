@@ -1,13 +1,10 @@
 ._DATA
-VAR_0	"HAVNBPT1"	
 VAR_1	0	
 VAR_2	0	
 VAR_3	{ 0, 0, 0, 0 }	
-VAR_4	"crane"	
 VAR_5	{ 1851880035, -1442827675, 0, 0, 0 }	
 VAR_6	{ 3648, 125, -2456 }	
 VAR_7	0	
-VAR_8	"btreasure"	
 VAR_9	{ 2637, 125, -2787 }	
 VAR_10	{ 0, 1, 1, VAR_9, 8, 2, 4, 0, 9, 1, 1, 1, 30, 30, 30, -1, 5, 1, 40, 70, 7, 1, 2, 6, 1, -1 }	
 VAR_11	{ 5005, 1125, -6011, 3781, 125, -2080 }	
@@ -17,13 +14,9 @@ VAR_14	{ 0, 1, 2, VAR_11, 8, 1, 12, 28, 30, -1, 14, 1, 2, 13, 0, 15, VAR_12, VAR
 VAR_15	{ 3900, 124, -2598, 0, 1, 1, VAR_15, 8, 1, 12, 7, -1, 14, 1, 1, 13, 0, 17, 1, 3699, 125, -2746, 200, 1, 3877, 125, -3252, 200, 1, 4049, 125, -3519, 200, 1, 3557, 125, -2711, 200, 1, 4050, 125, -2142, 120, -1, 18, 100, 11, 6, 1, -1, 5005, 1125, -6011, 3781, 125, -2080, 0 }	
 VAR_16	0	
 VAR_17	{ 0, 0 }	
-VAR_18	"muscles"	
-VAR_19	"longjohn"	
-VAR_20	"bear"	
 VAR_21	0	
 VAR_22	0	
 VAR_23	0	
-VAR_24	"bear"	
 VAR_25	0
 
 ._on_load
@@ -31,7 +24,7 @@ execute SCRIPT_3
 call load_sound_set(int 77)
 call load_sound_set(int 59)
 call play_loaded_sound(int 2, int -1, int 59, int 0)
-if(call play_bgm(var &VAR_0))
+if(call play_bgm("HAVNBPT1"))
  {
 		call func_114(int 1)
 		call func_5a(int -1)
@@ -91,7 +84,7 @@ switch(gamevar room_state)
 ._SCRIPT_3
 gamevar SMACKER_X = int 0
 gamevar SMACKER_Y = int 152
-var VAR_2 = call play_2d_anim(var &VAR_4, int 1, int 1, int 0)
+var VAR_2 = call play_2d_anim("crane", int 1, int 1, int 0)
 gamevar SMACKER_X = int 0
 gamevar SMACKER_Y = int 296
 var VAR_3 = call play_2d_anim(var &VAR_5, int 1, int 1, int 0)
@@ -104,9 +97,9 @@ switch(var VAR_21)
 }
 
 ._SCRIPT_6
-call load_char(var &VAR_18)
-call load_char(var &VAR_19)
-call load_char(var &VAR_20)
+call load_char("muscles")
+call load_char("longjohn")
+call load_char("bear")
 var VAR_16 = call run_wandering_generator(var &VAR_14, int 1)
 var VAR_17 = call run_enemy_generator(var &VAR_10, int 10)
 
@@ -116,10 +109,10 @@ switch(var VAR_25)
 }
 
 ._SCRIPT_8
-call load_char(var &VAR_24)
+call load_char("bear")
 
 ._SCRIPT_9
-var VAR_7 = call create_char(var &VAR_6, var &VAR_8, int 300, int 14)
+var VAR_7 = call create_char(var &VAR_6, "btreasure", int 300, int 14)
 call add_item_to_char(var VAR_7, int 11, int 1, int 0)
 call add_item_to_char(var VAR_7, int 108, int 1, int 0)
 

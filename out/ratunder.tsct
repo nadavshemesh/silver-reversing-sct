@@ -4,18 +4,6 @@ VAR_1	0
 VAR_2	0	
 VAR_3	0	
 VAR_4	0	
-VAR_5	"DVDCHR"	
-VAR_6	"NULL"	
-VAR_7	"SEKCHR"	
-VAR_8	"NULL"	
-VAR_9	"CAGCHR"	
-VAR_10	"NULL"	
-VAR_11	"JUGCHR"	
-VAR_12	"NULL"	
-VAR_13	"CHICHR"	
-VAR_14	"NULL"	
-VAR_15	"VIVCHR"	
-VAR_16	"NULL"	
 VAR_17	0	
 VAR_18	{ 0, 0, -1 }	
 VAR_19	0	
@@ -23,39 +11,16 @@ VAR_20	0
 VAR_21	0	
 VAR_22	0	
 VAR_23	-1	
-VAR_24	"game saved"	
-VAR_25	"game not saved"	
 VAR_26	0	
-VAR_27	"DVDCHR"	
-VAR_28	"NULL"	
-VAR_29	"SEKCHR"	
-VAR_30	"NULL"	
-VAR_31	"CAGCHR"	
-VAR_32	"NULL"	
-VAR_33	"JUGCHR"	
-VAR_34	"NULL"	
-VAR_35	"CHICHR"	
-VAR_36	"NULL"	
-VAR_37	"VIVCHR"	
-VAR_38	"NULL"	
 VAR_39	0	
 VAR_40	0	
 VAR_41	0	
 VAR_42	0	
 VAR_43	0	
-VAR_44	"haven"	
-VAR_45	"h_camptp"	
-VAR_46	"haven"	
-VAR_47	"h_camptp"	
-VAR_48	"haven"	
-VAR_49	"h_camptp"	
-VAR_50	"all 8 orbs taken!"	
-VAR_51	"not got all orbs yet!"	
 VAR_52	0	
 VAR_53	0	
 VAR_54	0	
 VAR_55	0	
-VAR_56	"item doesn't exist"	
 VAR_57	{ 0, 4 }	
 VAR_58	0	
 VAR_59	0	
@@ -70,10 +35,8 @@ VAR_67	{ 15, 28, VAR_68, 5, 0, 5, 30, 0, -5441, -375, -168, 8 }
 VAR_68	"jenwash"	
 VAR_69	{ 15, 28, VAR_70, 5, 0, 5, 30, 0, -5441, -375, -168, 8 }	
 VAR_70	"jenwash"	
-VAR_71	"chronicl"	
 VAR_72	0	
 VAR_73	0	
-VAR_74	"victory"	
 VAR_75	0	
 VAR_76	0	
 VAR_77	0	
@@ -82,31 +45,9 @@ VAR_79	{ -2530, -1694, 227 }
 VAR_80	{ 0, 0 }	
 VAR_81	0	
 VAR_82	0	
-VAR_83	"user!"	
-VAR_84	"ievlbat1"	
-VAR_85	"rain"	
-VAR_86	"river"	
-VAR_87	"rain"	
-VAR_88	"river"	
-VAR_89	"rain"	
-VAR_90	"river"	
-VAR_91	"STING3"	
-VAR_92	"A_DVDORB"	
-VAR_93	"NULL"	
-VAR_94	"A_SEKORB"	
-VAR_95	"NULL"	
-VAR_96	"A_VIVORB"	
-VAR_97	"NULL"	
-VAR_98	"A_JUGORB"	
-VAR_99	"NULL"	
-VAR_100	"A_CAGORB"	
-VAR_101	"NULL"	
-VAR_102	"A_CHIORB"	
 VAR_103	{ 1280070990, -1431655936, 0 }	
 VAR_104	0	
 VAR_105	-1	
-VAR_106	"L_DVDORB"	
-VAR_107	"NULL"	
 VAR_108	0	
 VAR_109	0
 
@@ -135,7 +76,7 @@ else
 					}
 					else
 					 {
-							call log(var &VAR_56)
+							call log("item doesn't exist")
 							gamevar room_state = int 3
 							gamevar is_room_cleared = int 1
 					}
@@ -207,10 +148,10 @@ switch(var VAR_75)
 		case 0
 			if(var VAR_64)
 			 {
-					call log(var &VAR_83)
+					call log("user!")
 					call set_input_system(int 1)
-					call set_char_behav(var VAR_58, int 146)
-					call play_bgm(var &VAR_84)
+					call set_char_template(var VAR_58, int 146)
+					call play_bgm("ievlbat1")
 					var VAR_75 ++ 
 					var VAR_76 = int 0
 			}
@@ -253,9 +194,9 @@ switch(var VAR_75)
 		case 2
 			if(call get_num_of_enemies() == int 0)
 			 {
-					call func_116(var &VAR_85, var &VAR_86, int 2)
-					call set_scene_overwrite_act(var &VAR_87, var &VAR_88, int 0)
-					call func_118(var &VAR_89, var &VAR_90, int 1)
+					call func_116("rain", "river", int 2)
+					call set_scene_overwrite_act("rain", "river", int 0)
+					call func_118("rain", "river", int 1)
 					var VAR_1 = call create_enemy(int 178, int 0, var &VAR_79, int 95)
 					call set_input_system(int 2)
 					var VAR_75 ++ 
@@ -270,7 +211,7 @@ switch(var VAR_75)
 					var VAR_80 = gamevar LEVEL
 					var VAR_39 = var VAR_80 + int 1
 					execute SCRIPT_17
-					call play_bgm(var &VAR_91)
+					call play_bgm("STING3")
 					call func_134()
 					if(var VAR_53)
 					 {
@@ -297,22 +238,22 @@ switch(var VAR_75)
 							switch(var VAR_81)
 							 {
 									case 65536
-										call start_dialog(var &VAR_92, var &VAR_93)
+										call start_dialog("A_DVDORB", "NULL")
 										break 
 									case 786432
-										call start_dialog(var &VAR_94, var &VAR_95)
+										call start_dialog("A_SEKORB", "NULL")
 										break 
 									case 196608
-										call start_dialog(var &VAR_96, var &VAR_97)
+										call start_dialog("A_VIVORB", "NULL")
 										break 
 									case 327680
-										call start_dialog(var &VAR_98, var &VAR_99)
+										call start_dialog("A_JUGORB", "NULL")
 										break 
 									case 262144
-										call start_dialog(var &VAR_100, var &VAR_101)
+										call start_dialog("A_CAGORB", "NULL")
 										break 
 									case 131072
-										call start_dialog(var &VAR_102, var &VAR_103)
+										call start_dialog("A_CHIORB", var &VAR_103)
 										break 
 							}
 							var VAR_82 = call get_david_char()
@@ -375,8 +316,8 @@ call play_char_ai_script(var VAR_59, var &VAR_67)
 call play_char_ai_script(var VAR_60, var &VAR_69)
 var VAR_65 = call get_selected_hero()
 call set_input_system(int 2)
-call load_char(var &VAR_71)
-var VAR_73 = call load_anim(var &VAR_74)
+call load_char("chronicl")
+var VAR_73 = call load_anim("victory")
 var VAR_72 = call get_char_handle(int 65536)
 
 ._SCRIPT_5
@@ -421,7 +362,7 @@ switch(var VAR_104)
 					execute SCRIPT_18
 					if(var VAR_42 == int 8)
 					 {
-							call start_dialog(var &VAR_106, var &VAR_107)
+							call start_dialog("L_DVDORB", "NULL")
 							var VAR_104 ++ 
 					}
 					else
@@ -524,14 +465,14 @@ switch(var VAR_17)
 		case 5
 			if(var VAR_19 != gamevar saved_games_count)
 			 {
-					call log(var &VAR_24)
+					call log("game saved")
 					call func_11d()
 					var VAR_17 = int 7
 					var VAR_18 = int 0
 			}
 			else
 			 {
-					call log(var &VAR_25)
+					call log("game not saved")
 					call func_2a(var VAR_1, var &VAR_20)
 					execute SCRIPT_16
 					gamevar chronicler_variation = var VAR_2
@@ -587,22 +528,22 @@ var VAR_4 = call get_char_handle_id(gamevar control_char_p)
 switch(var VAR_4)
  {
 		case 65536
-			call load_dialog_by_number(var &VAR_5, var &VAR_6, gamevar chronicler_variation)
+			call load_dialog_by_number("DVDCHR", "NULL", gamevar chronicler_variation)
 			break 
 		case 786432
-			call load_dialog_by_number(var &VAR_7, var &VAR_8, gamevar chronicler_variation)
+			call load_dialog_by_number("SEKCHR", "NULL", gamevar chronicler_variation)
 			break 
 		case 262144
-			call load_dialog_by_number(var &VAR_9, var &VAR_10, gamevar chronicler_variation)
+			call load_dialog_by_number("CAGCHR", "NULL", gamevar chronicler_variation)
 			break 
 		case 327680
-			call load_dialog_by_number(var &VAR_11, var &VAR_12, gamevar chronicler_variation)
+			call load_dialog_by_number("JUGCHR", "NULL", gamevar chronicler_variation)
 			break 
 		case 131072
-			call load_dialog_by_number(var &VAR_13, var &VAR_14, gamevar chronicler_variation)
+			call load_dialog_by_number("CHICHR", "NULL", gamevar chronicler_variation)
 			break 
 		case 196608
-			call load_dialog_by_number(var &VAR_15, var &VAR_16, gamevar chronicler_variation)
+			call load_dialog_by_number("VIVCHR", "NULL", gamevar chronicler_variation)
 			break 
 }
 
@@ -611,22 +552,22 @@ var VAR_26 = call get_char_handle_id(gamevar control_char_p)
 switch(var VAR_26)
  {
 		case 65536
-			var VAR_2 = call load_next_dialog(var &VAR_27, var &VAR_28)
+			var VAR_2 = call load_next_dialog("DVDCHR", "NULL")
 			break 
 		case 786432
-			var VAR_2 = call load_next_dialog(var &VAR_29, var &VAR_30)
+			var VAR_2 = call load_next_dialog("SEKCHR", "NULL")
 			break 
 		case 262144
-			var VAR_2 = call load_next_dialog(var &VAR_31, var &VAR_32)
+			var VAR_2 = call load_next_dialog("CAGCHR", "NULL")
 			break 
 		case 327680
-			var VAR_2 = call load_next_dialog(var &VAR_33, var &VAR_34)
+			var VAR_2 = call load_next_dialog("JUGCHR", "NULL")
 			break 
 		case 131072
-			var VAR_2 = call load_next_dialog(var &VAR_35, var &VAR_36)
+			var VAR_2 = call load_next_dialog("CHICHR", "NULL")
 			break 
 		case 196608
-			var VAR_2 = call load_next_dialog(var &VAR_37, var &VAR_38)
+			var VAR_2 = call load_next_dialog("VIVCHR", "NULL")
 			break 
 }
 
@@ -651,13 +592,13 @@ var VAR_42 += call func_42(var VAR_43, int 6)
 var VAR_42 += call func_42(var VAR_43, int 7)
 if(var VAR_42 == int 8)
  {
-		call func_116(var &VAR_44, var &VAR_45, int 9)
-		call set_scene_overwrite_act(var &VAR_46, var &VAR_47, int 0)
-		call func_118(var &VAR_48, var &VAR_49, int 1)
+		call func_116("haven", "h_camptp", int 9)
+		call set_scene_overwrite_act("haven", "h_camptp", int 0)
+		call func_118("haven", "h_camptp", int 1)
 		var VAR_41 = int 1
-		call log(var &VAR_50)
+		call log("all 8 orbs taken!")
 }
 else
  {
-		call log(var &VAR_51)
+		call log("not got all orbs yet!")
 }

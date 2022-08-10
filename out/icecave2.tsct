@@ -5,7 +5,6 @@ VAR_2	0
 VAR_3	0	
 VAR_4	0	
 VAR_5	-1	
-VAR_6	"btreasure9"	
 VAR_7	{ -13, -1116, 947 }	
 VAR_8	{ 477, 181, 667 }	
 VAR_9	{ 235, -87, 1449 }	
@@ -25,7 +24,6 @@ VAR_22	0
 VAR_23	{ -60, -1109, 433 }	
 VAR_24	0	
 VAR_25	{ -1452, -865, -700, 900, -1124, 804, -1507, -825, -1074, 2 }	
-VAR_26	"wamper"	
 VAR_27	{ 2003791475, 1953656947, 0, 400, -1107, 1160 }	
 VAR_28	{ 0, -1507, -825, -1074, 0, 900, -1124, 804, 7, 8 }	
 VAR_29	{ 0, 900, -1124, 804, 0, -1507, -825, -1074, 7, 8 }	
@@ -39,10 +37,7 @@ VAR_36	0
 VAR_37	0	
 VAR_38	0	
 VAR_39	0	
-VAR_40	"wamper"	
 VAR_41	{ 2003791475, 1953656947, 0 }	
-VAR_42	"bstump"	
-VAR_43	"leopard"	
 VAR_44	0	
 VAR_45	0	
 VAR_46	0	
@@ -239,7 +234,7 @@ if(var VAR_35 == int 13)
 ._SCRIPT_6
 var VAR_22 = call create_enemy(int 56, int 1, var &VAR_23, int 225)
 var VAR_24 = call create_enemy(int 56, int 2, var &VAR_25, int 30)
-call load_char(var &VAR_26)
+call load_char("wamper")
 call load_char(var &VAR_27)
 call add_item_to_char(var VAR_22, int 16, int 0, int 1)
 call add_item_to_char(var VAR_22, int 85, int 1638913, int 0)
@@ -286,10 +281,10 @@ if(var VAR_62 == int 0)
 }
 
 ._SCRIPT_9
-call load_char(var &VAR_40)
+call load_char("wamper")
 call load_char(var &VAR_41)
-call load_char(var &VAR_42)
-call load_char(var &VAR_43)
+call load_char("bstump")
+call load_char("leopard")
 var VAR_46 = call func_6f()
 var VAR_44 = call randomize_int(int 0, int 3)
 
@@ -297,7 +292,7 @@ var VAR_44 = call randomize_int(int 0, int 3)
 var VAR_0 = call is_char_handle_in_level(int 1507337)
 if(var ! VAR_0)
  {
-		var VAR_0 = call create_char(var VAR_1, var &VAR_6, var VAR_2, int 14)
+		var VAR_0 = call create_char(var VAR_1, "btreasure9", var VAR_2, int 14)
 		call func_aa(var VAR_0)
 }
 else

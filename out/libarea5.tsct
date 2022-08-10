@@ -10,10 +10,8 @@ VAR_7	0
 VAR_8	0	
 VAR_9	0	
 VAR_10	0	
-VAR_11	"init_act2"	
 VAR_12	0	
 VAR_13	0	
-VAR_14	"libarea5: act3"	
 VAR_15	0	
 VAR_16	0	
 VAR_17	0	
@@ -38,13 +36,6 @@ VAR_35	"startle"
 VAR_36	"pfew"	
 VAR_37	{ 976, -997, -3636 }	
 VAR_38	{ 465, -997, -4742 }	
-VAR_39	"nyelimp*"	
-VAR_40	"pfew"	
-VAR_41	"startle"	
-VAR_42	"come"	
-VAR_43	"jestimp"	
-VAR_44	"samnimp"	
-VAR_45	"ARSE"	
 VAR_46	0	
 VAR_47	0	
 VAR_48	0	
@@ -66,47 +57,25 @@ VAR_63	0
 VAR_64	1	
 VAR_65	0	
 VAR_66	0	
-VAR_67	"ARSE"	
-VAR_68	"secret not revealed - imp dead"	
 VAR_69	0	
 VAR_70	0	
 VAR_71	{ 0, 0 }	
 VAR_72	0	
-VAR_73	"IYNhelp"	
-VAR_74	"NULL"	
-VAR_75	"marc"	
-VAR_76	"all chars killed"	
-VAR_77	"DVDIYN"	
-VAR_78	"NULL"	
-VAR_79	"NULL"	
 VAR_80	0	
 VAR_81	0	
 VAR_82	0	
 VAR_83	0	
-VAR_84	"start AI!!!"	
-VAR_85	"start AI!!!"	
-VAR_86	"start AI!!!"	
-VAR_87	"start AI!!!"	
 VAR_88	{ -1514, -997, -3199 }	
-VAR_89	"pfew"	
-VAR_90	"yibscale"	
-VAR_91	"nyelimp"	
-VAR_92	"act2"	
-VAR_93	"yimpboss"	
-VAR_94	"imp"	
 VAR_95	0	
 VAR_96	1	
 VAR_97	0	
 VAR_98	0	
 VAR_99	0	
 VAR_100	0	
-VAR_101	"STING2"	
-VAR_102	"GNO"	
 VAR_103	{ -603, -997, -4344 }	
 VAR_104	0	
 VAR_105	{ 0, 0, 0, 0, 0, 0 }	
 VAR_106	-1	
-VAR_107	"WOLFSMOKE"	
 VAR_108	0	
 VAR_109	0	
 VAR_110	0	
@@ -120,40 +89,10 @@ VAR_117	VAR_113
 VAR_118	0	
 VAR_119	{ -262, -796, -3233 }	
 VAR_120	-1	
-VAR_121	"GUDEVLP1"	
-VAR_122	"ARSE"	
 VAR_123	0	
 VAR_124	0	
 VAR_125	0	
 VAR_126	0	
-VAR_127	"gno"	
-VAR_128	"eastower"	
-VAR_129	"gno"	
-VAR_130	"eastower"	
-VAR_131	"gno"	
-VAR_132	"gnolib1"	
-VAR_133	"gno"	
-VAR_134	"gnolib1"	
-VAR_135	"gno"	
-VAR_136	"gnosnake"	
-VAR_137	"gno"	
-VAR_138	"gnosnake"	
-VAR_139	"gno"	
-VAR_140	"libarea3"	
-VAR_141	"gno"	
-VAR_142	"libarea3"	
-VAR_143	"gno"	
-VAR_144	"libarea4"	
-VAR_145	"gno"	
-VAR_146	"libarea4"	
-VAR_147	"gno"	
-VAR_148	"liblink"	
-VAR_149	"gno"	
-VAR_150	"liblink"	
-VAR_151	"gno"	
-VAR_152	"middle"	
-VAR_153	"gno"	
-VAR_154	"middle"
 
 ._on_load
 call load_sound_set(int 63)
@@ -170,7 +109,7 @@ else
 					execute SCRIPT_4
 					break 
 				case 2
-					call log(var &VAR_11)
+					call log("init_act2")
 					execute SCRIPT_18
 					break 
 				case 3
@@ -207,7 +146,7 @@ if(gamevar !is_room_cleared)
 		switch(gamevar room_state)
 		 {
 				case 1
-					call log(var &VAR_14)
+					call log("libarea5: act3")
 					gamevar room_state = int 3
 					break 
 				case 2
@@ -228,7 +167,7 @@ if(gamevar !is_room_cleared)
 ._SCRIPT_3
 
 ._SCRIPT_4
-var VAR_2 = call create_char(var &VAR_37, var &VAR_39, int 0, int 13)
+var VAR_2 = call create_char(var &VAR_37, "nyelimp*", int 0, int 13)
 gamevar script_object = var VAR_2
 gamevar *object_p+6 |= int 2048
 gamevar script_object = var VAR_2
@@ -240,14 +179,14 @@ call set_char_running(var VAR_2)
 call char_walk_to_pos(var VAR_2, var &VAR_38)
 var VAR_4 = call get_char_handle(int 65536)
 var VAR_5 = call get_char_handle(int 393216)
-var VAR_0 = call load_anim(var &VAR_40)
-var VAR_8 = call load_anim(var &VAR_41)
-var VAR_9 = call load_anim(var &VAR_42)
-var VAR_10 = call load_anim(var &VAR_43)
+var VAR_0 = call load_anim("pfew")
+var VAR_8 = call load_anim("startle")
+var VAR_9 = call load_anim("come")
+var VAR_10 = call load_anim("jestimp")
 execute SCRIPT_9
-call load_char(var &VAR_44)
-call func_b8(int 88)
-call func_108(var &VAR_45)
+call load_char("samnimp")
+call load_item(int 88)
+call func_108("ARSE")
 execute SCRIPT_16
 
 ._SCRIPT_5
@@ -282,7 +221,7 @@ if(call is_char_handle_in_level(int 1769472))
 				if(var VAR_65 > int 60)
 				 {
 						call func_f5(var VAR_2)
-						call func_108(var &VAR_67)
+						call func_108("ARSE")
 				}
 				var VAR_65 ++ 
 		}
@@ -291,7 +230,7 @@ else
  {
 		if(var ! VAR_13)
 		 {
-				call log(var &VAR_68)
+				call log("secret not revealed - imp dead")
 				var VAR_12 = int 1
 		}
 		else
@@ -315,7 +254,7 @@ switch(var VAR_69)
 					var VAR_71 = call get_char_pos(var VAR_4)
 					call func_21(var VAR_2, var VAR_71)
 					call func_95(var VAR_2, int 3, int 0)
-					call start_dialog(var &VAR_73, var &VAR_74)
+					call start_dialog("IYNhelp", "NULL")
 					var VAR_70 = int 0
 					var VAR_69 ++ 
 			}
@@ -323,41 +262,41 @@ switch(var VAR_69)
 		case 1
 			if(call get_input_sys() != int 4)
 			 {
-					call func_10c(var VAR_2, var &VAR_75)
+					call func_10c(var VAR_2, "marc")
 					var VAR_64 = int 0
 					call func_50(var VAR_2, int 8192)
 					call play_char_ai_script(var VAR_2, var &VAR_30)
 					if(call is_char_handle_in_level(int 917505))
 					 {
-							call set_char_behav(var VAR_46, int 102)
+							call set_char_template(var VAR_46, int 102)
 							call char_attack(var VAR_46, var VAR_2)
 					}
 					if(call is_char_handle_in_level(int 917506))
 					 {
-							call set_char_behav(var VAR_47, int 102)
+							call set_char_template(var VAR_47, int 102)
 							call char_attack(var VAR_47, var VAR_2)
 					}
 					if(call is_char_handle_in_level(int 917507))
 					 {
-							call set_char_behav(var VAR_48, int 102)
+							call set_char_template(var VAR_48, int 102)
 							call char_attack(var VAR_48, var VAR_2)
 					}
 					if(call is_char_handle_in_level(int 917508))
 					 {
-							call set_char_behav(var VAR_49, int 102)
+							call set_char_template(var VAR_49, int 102)
 							call char_attack(var VAR_49, var VAR_2)
 					}
 					if(call is_char_handle_in_level(int 917509))
 					 {
-							call set_char_behav(var VAR_54, int 103)
+							call set_char_template(var VAR_54, int 103)
 					}
 					if(call is_char_handle_in_level(int 4194310))
 					 {
-							call set_char_behav(var VAR_55, int 129)
+							call set_char_template(var VAR_55, int 129)
 					}
 					if(call is_char_handle_in_level(int 917511))
 					 {
-							call set_char_behav(var VAR_56, int 103)
+							call set_char_template(var VAR_56, int 103)
 					}
 					var VAR_69 = int 2
 					var VAR_70 = int 0
@@ -374,7 +313,7 @@ switch(var VAR_69)
 			}
 			break 
 		case 14
-			call log(var &VAR_76)
+			call log("all chars killed")
 			call func_10c(var VAR_2, int 0)
 			call set_input_system(int 2)
 			var VAR_70 = int 0
@@ -391,7 +330,7 @@ switch(var VAR_69)
 		case 16
 			if(call is_char_standing(var VAR_2))
 			 {
-					call start_dialog(var &VAR_77, var &VAR_78)
+					call start_dialog("DVDIYN", "NULL")
 					call char_turn_to_pos(var VAR_4, call get_char_pos(var VAR_2))
 					call char_turn_to_pos(var VAR_2, call get_char_pos(var VAR_4))
 					var VAR_70 = int 0
@@ -409,8 +348,8 @@ switch(var VAR_69)
 		case 18
 			if(call get_input_sys() != int 4)
 			 {
-					call func_108(var &VAR_79)
-					call func_18(var VAR_2, int -1107, int -997, int -3742)
+					call func_108("NULL")
+					call char_walk_to(var VAR_2, int -1107, int -997, int -3742)
 					call set_input_system(int 1)
 					var VAR_70 = int 0
 					var VAR_69 ++ 
@@ -477,7 +416,7 @@ switch(var VAR_80)
 			break 
 		case 1
 			call set_char_running(var VAR_25)
-			call func_18(var VAR_25, int 160, int 30, int -2300)
+			call char_walk_to(var VAR_25, int 160, int 30, int -2300)
 			var VAR_82 = call func_41(var VAR_25, int 0)
 			var VAR_80 ++ 
 			var VAR_81 = int 0
@@ -494,7 +433,7 @@ switch(var VAR_80)
 			}
 			break 
 		case 3
-			if(call is_not_scrolling() == int 1)
+			if(call is_not_force_scrolling() == int 1)
 			 {
 					call play_char_anim(var VAR_25, var VAR_10, int 0)
 					gamevar script_object = var VAR_25
@@ -579,7 +518,7 @@ if(var VAR_16 == int 20)
 		if(call get_char_y(var VAR_2) > int -970)
 		 {
 				call func_47(var VAR_46, int -1)
-				call func_18(var VAR_46, int -721, int -997, int -3784)
+				call char_walk_to(var VAR_46, int -721, int -997, int -3784)
 				var VAR_16 ++ 
 				var VAR_17 = int 0
 		}
@@ -606,8 +545,8 @@ if(var VAR_16 == int 23)
  {
 		if(call func_5c(var VAR_46))
 		 {
-				call log(var &VAR_84)
-				call set_char_behav(var VAR_46, int 103)
+				call log("start AI!!!")
+				call set_char_template(var VAR_46, int 103)
 				var VAR_16 ++ 
 				var VAR_17 = int 0
 		}
@@ -620,7 +559,7 @@ if(var VAR_18 == int 20)
 		if(call get_char_y(var VAR_2) > int -970)
 		 {
 				call func_47(var VAR_47, int -1)
-				call func_18(var VAR_47, int -724, int -997, int -4043)
+				call char_walk_to(var VAR_47, int -724, int -997, int -4043)
 				var VAR_18 ++ 
 				var VAR_19 = int 0
 		}
@@ -647,8 +586,8 @@ if(var VAR_18 == int 23)
  {
 		if(call func_5c(var VAR_47))
 		 {
-				call log(var &VAR_85)
-				call set_char_behav(var VAR_47, int 103)
+				call log("start AI!!!")
+				call set_char_template(var VAR_47, int 103)
 				var VAR_18 ++ 
 				var VAR_19 = int 0
 		}
@@ -661,7 +600,7 @@ if(var VAR_20 == int 20)
 		if(call get_char_y(var VAR_2) > int -970)
 		 {
 				call func_47(var VAR_48, int -1)
-				call func_18(var VAR_48, int -445, int -997, int -4150)
+				call char_walk_to(var VAR_48, int -445, int -997, int -4150)
 				var VAR_20 ++ 
 				var VAR_21 = int 0
 		}
@@ -688,8 +627,8 @@ if(var VAR_20 == int 23)
  {
 		if(call func_5c(var VAR_48))
 		 {
-				call log(var &VAR_86)
-				call set_char_behav(var VAR_48, int 103)
+				call log("start AI!!!")
+				call set_char_template(var VAR_48, int 103)
 				var VAR_20 ++ 
 				var VAR_21 = int 0
 		}
@@ -702,7 +641,7 @@ if(var VAR_22 == int 20)
 		if(call get_char_y(var VAR_2) > int -970)
 		 {
 				call func_47(var VAR_49, int -1)
-				call func_18(var VAR_49, int -891, int -997, int -4032)
+				call char_walk_to(var VAR_49, int -891, int -997, int -4032)
 				var VAR_22 ++ 
 				var VAR_23 = int 0
 		}
@@ -729,8 +668,8 @@ if(var VAR_22 == int 23)
  {
 		if(call func_5c(var VAR_49))
 		 {
-				call log(var &VAR_87)
-				call set_char_behav(var VAR_49, int 103)
+				call log("start AI!!!")
+				call set_char_template(var VAR_49, int 103)
 				var VAR_22 ++ 
 				var VAR_23 = int 0
 		}
@@ -758,29 +697,29 @@ if(gamevar script_time > var VAR_124)
 }
 
 ._SCRIPT_16
-call func_116(var &VAR_127, var &VAR_128, int 3)
-call set_scene_overwrite_act(var &VAR_129, var &VAR_130, int 2)
-call func_116(var &VAR_131, var &VAR_132, int 2)
-call set_scene_overwrite_act(var &VAR_133, var &VAR_134, int 2)
-call func_116(var &VAR_135, var &VAR_136, int 2)
-call set_scene_overwrite_act(var &VAR_137, var &VAR_138, int 2)
-call func_116(var &VAR_139, var &VAR_140, int 2)
-call set_scene_overwrite_act(var &VAR_141, var &VAR_142, int 2)
-call func_116(var &VAR_143, var &VAR_144, int 2)
-call set_scene_overwrite_act(var &VAR_145, var &VAR_146, int 2)
-call func_116(var &VAR_147, var &VAR_148, int 2)
-call set_scene_overwrite_act(var &VAR_149, var &VAR_150, int 2)
-call func_116(var &VAR_151, var &VAR_152, int 2)
-call set_scene_overwrite_act(var &VAR_153, var &VAR_154, int 2)
+call func_116("gno", "eastower", int 3)
+call set_scene_overwrite_act("gno", "eastower", int 2)
+call func_116("gno", "gnolib1", int 2)
+call set_scene_overwrite_act("gno", "gnolib1", int 2)
+call func_116("gno", "gnosnake", int 2)
+call set_scene_overwrite_act("gno", "gnosnake", int 2)
+call func_116("gno", "libarea3", int 2)
+call set_scene_overwrite_act("gno", "libarea3", int 2)
+call func_116("gno", "libarea4", int 2)
+call set_scene_overwrite_act("gno", "libarea4", int 2)
+call func_116("gno", "liblink", int 2)
+call set_scene_overwrite_act("gno", "liblink", int 2)
+call func_116("gno", "middle", int 2)
+call set_scene_overwrite_act("gno", "middle", int 2)
 
 ._SCRIPT_17
 var VAR_3 = call create_enemy(int 119, int 0, var &VAR_103, int 0)
 call func_103(var VAR_3)
 
 ._SCRIPT_18
-var VAR_0 = call load_anim(var &VAR_89)
-var VAR_1 = call load_anim(var &VAR_90)
-var VAR_2 = call create_char(var &VAR_88, var &VAR_91, int 70, int 13)
+var VAR_0 = call load_anim("pfew")
+var VAR_1 = call load_anim("yibscale")
+var VAR_2 = call create_char(var &VAR_88, "nyelimp", int 70, int 13)
 gamevar script_object = var VAR_2
 gamevar *object_p+6 |= int 2048
 gamevar script_object = var VAR_2
@@ -792,14 +731,14 @@ gamevar *character_movement_p+60 = int 1
 gamevar *character_movement_p+53 = int 0
 var VAR_6 = call add_item_to_char(var VAR_2, int 33, int 0, int 0)
 call set_char_running(var VAR_2)
-call func_18(var VAR_2, int -603, int -997, int -4344)
+call char_walk_to(var VAR_2, int -603, int -997, int -4344)
 var VAR_4 = call get_char_handle(int 65536)
 var VAR_5 = call get_char_handle(int 393216)
-call func_108(var &VAR_92)
+call func_108("act2")
 call set_input_system(int 2)
-call load_char(var &VAR_93)
-call load_char(var &VAR_94)
-call func_b8(int 86)
+call load_char("yimpboss")
+call load_char("imp")
+call load_item(int 86)
 
 ._SCRIPT_19
 switch(var VAR_99)
@@ -856,7 +795,7 @@ switch(var VAR_99)
 		case 3
 			if(var VAR_100 == int 100)
 			 {
-					call play_bgm(var &VAR_101)
+					call play_bgm("STING2")
 					gamevar scroll_x_shake = int 0
 					gamevar scroll_y_shake = int 0
 					var VAR_99 ++ 
@@ -866,7 +805,7 @@ switch(var VAR_99)
 		case 4
 			if(call func_4c())
 			 {
-					call play_bgm(var &VAR_102)
+					call play_bgm("GNO")
 					var VAR_99 ++ 
 			}
 			break 
@@ -913,7 +852,7 @@ switch(var VAR_104)
 		case 3
 			if(var VAR_105 == int 100)
 			 {
-					call play_3d_fx(var &VAR_107, call get_char_movement_ptr(var VAR_2), int 0, int 0)
+					call play_3d_fx("WOLFSMOKE", call get_char_movement_ptr(var VAR_2), int 0, int 0)
 			}
 			if(var VAR_105 > int 120)
 			 {
@@ -950,7 +889,7 @@ switch(var VAR_117)
 					call func_10a(var VAR_5, int 5)
 					call char_walk_to_pos(var VAR_5, var &VAR_119)
 					var VAR_98 = int 1
-					call play_bgm(var &VAR_121)
+					call play_bgm("GUDEVLP1")
 					var VAR_117 ++ 
 					var VAR_118 = int 0
 			}
@@ -976,7 +915,7 @@ switch(var VAR_108)
 		case 0
 			if(var VAR_109 > int 10)
 			 {
-					var VAR_110 = call func_96(int 103, int 0, int 1, int 0)
+					var VAR_110 = call create_enemy_through_door(int 103, int 0, int 1, int 0)
 					call set_char_running(var VAR_110)
 					call freeze_enemy(var VAR_110)
 					gamevar script_object = var VAR_110
@@ -1080,6 +1019,6 @@ switch(var VAR_108)
 var VAR_109 ++ 
 
 ._SCRIPT_23
-call func_108(var &VAR_122)
+call func_108("ARSE")
 
 ._SCRIPT_24

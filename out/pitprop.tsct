@@ -5,20 +5,9 @@ VAR_2	0
 VAR_3	0	
 VAR_4	0	
 VAR_5	0	
-VAR_6	"pitprop"	
-VAR_7	"pitprop1"	
-VAR_8	"pitprop2"	
-VAR_9	"pitprop3"	
 VAR_10	0	
 VAR_11	0	
-VAR_12	"david!"	
-VAR_13	"sekune"	
-VAR_14	"jug"	
 VAR_15	{ 1769367926, 1701736037, 0 }	
-VAR_16	"chiaro"	
-VAR_17	"cagen"	
-VAR_18	"WARNING! Unknown hero while checking heroes"	
-VAR_19	"Get a goober -- QUICKLY!!"	
 VAR_20	0	
 VAR_21	{ 1234, -1675, 4788, 666, -1675, 5455, 160, -1675, 6281, 1482, -2275, 6864, 1219, -2275, 7253, 946, -2275, 7544, 2306, -2075, 5781, 2738, -2075, 6133, 534, -2275, 8115, -275, -2275, 8689, -954, -2075, 8114, -735, -1875, 6983 }	
 VAR_22	{ 0, 1, 12, VAR_21, 8, 2, 4, 0, 9, 1, 1, 2, 60, 60, 60, 60, -1, 5, 0, 60, 6, 2, 7, 1, 1, -1 }	
@@ -34,11 +23,9 @@ VAR_31	{ 65, -1675, 6965 }
 VAR_32	{ 1777, -2275, 6764 }	
 VAR_33	{ 115, -1675, 6366 }	
 VAR_34	{ -1678, -2075, 7681 }	
-VAR_35	"ndeadjohn"	
 VAR_36	{ 0, 139, -1675, 5764, 0, 677, -1675, 6250, 0, 35, -1675, 6939, 0, -535, -1675, 6421, 7, 8 }	
 VAR_37	{ 0, -522, -1675, 6440, 0, 78, -1675, 5678, 0, 698, -1675, 6271, 0, 65, -1675, 6965, 7, 8 }	
 VAR_38	{ 0, 907, -2275, 7768, 0, 1777, -2275, 6764, 7, 8, 1791, -1875, 5307, 1623, -1675, -4803, 1234, -1675, 5237 }	
-VAR_39	"wraitht"	
 VAR_40	0	
 VAR_41	{ 1349, -1275, 6489 }	
 VAR_42	0	
@@ -48,16 +35,6 @@ VAR_45	{ 1583, -675, 4298 }
 VAR_46	0	
 VAR_47	{ -280, -1275, 8900 }	
 VAR_48	-1	
-VAR_49	"S_JonHer"	
-VAR_50	"NULL"	
-VAR_51	"S_HerJon"	
-VAR_52	"NULL"	
-VAR_53	"haven"	
-VAR_54	"h_camptp"	
-VAR_55	"boney"	
-VAR_56	"skel"	
-VAR_57	"death"	
-VAR_58	"wraith"	
 VAR_59	0	
 VAR_60	0	
 VAR_61	{ 0, 0, 1, -1, 8, 1, 19, 1070, -2275, 7082, 12, 58, 58, 59, -1, 13, 0, 14, 0, 1, 3, 5, 0, 60, 17, 2, 2260, -2075, 5406, 2877, -2075, 6299, -1, 18, 50, 11, -1 }	
@@ -174,13 +151,13 @@ switch(var VAR_23)
 			if(call get_num_of_enemies() < int 1)
 			 {
 					call set_input_system(int 2)
-					call func_ff(var &VAR_34)
+					call force_scroll_to_pos(var &VAR_34)
 					call set_char_running(var VAR_0)
-					call func_18(var VAR_0, int -1360, int -2075, int 7579)
+					call char_walk_to(var VAR_0, int -1360, int -2075, int 7579)
 					if(call is_char_handle_in_level(int 786432))
 					 {
 							call set_char_running(var VAR_2)
-							call func_18(var VAR_2, int -1347, int -2075, int 7855)
+							call char_walk_to(var VAR_2, int -1347, int -2075, int 7855)
 					}
 					var VAR_23 ++ 
 			}
@@ -190,12 +167,12 @@ switch(var VAR_23)
 			 {
 					if(call is_char_handle_in_level(int 786432))
 					 {
-							call start_dialog(var &VAR_49, var &VAR_50)
+							call start_dialog("S_JonHer", "NULL")
 							var VAR_23 = int 6
 					}
 					else
 					 {
-							call start_dialog(var &VAR_51, var &VAR_52)
+							call start_dialog("S_HerJon", "NULL")
 							var VAR_23 = int 6
 					}
 			}
@@ -206,8 +183,8 @@ switch(var VAR_23)
 					var VAR_20 = call run_enemy_generator(var &VAR_22, int 10)
 					call set_input_system(int 1)
 					call set_char_running(var VAR_29)
-					call func_18(var VAR_29, int -61, int -1675, int 6364)
-					call func_116(var &VAR_53, var &VAR_54, int 8)
+					call char_walk_to(var VAR_29, int -61, int -1675, int 6364)
+					call func_116("haven", "h_camptp", int 8)
 					var VAR_23 ++ 
 					var VAR_24 = int 0
 			}
@@ -237,15 +214,15 @@ while(var VAR_10)
 		switch(var VAR_11)
 		 {
 				case 65536
-					call log(var &VAR_12)
+					call log("david")
 					var VAR_0 = var VAR_10
 					break 
 				case 786432
-					call log(var &VAR_13)
+					call log("sekune")
 					var VAR_2 = var VAR_10
 					break 
 				case 327680
-					call log(var &VAR_14)
+					call log("jug")
 					var VAR_1 = var VAR_10
 					break 
 				case 196608
@@ -253,16 +230,16 @@ while(var VAR_10)
 					var VAR_3 = var VAR_10
 					break 
 				case 131072
-					call log(var &VAR_16)
+					call log("chiaro")
 					var VAR_4 = var VAR_10
 					break 
 				case 262144
-					call log(var &VAR_17)
+					call log("cagen")
 					var VAR_5 = var VAR_10
 					break 
 				default 
-					call log(var &VAR_18)
-					call log(var &VAR_19)
+					call log("WARNING! Unknown hero while checking heroes")
+					call log("Get a goober -- QUICKLY!!")
 					break 
 		}
 		var VAR_10 = call func_7e()
@@ -277,7 +254,7 @@ gamevar script_object = var VAR_26
 gamevar *character_stats_p+15 = int 1400
 gamevar script_object = var VAR_28
 gamevar *character_stats_p+15 = int 6000
-var VAR_29 = call create_char(var &VAR_34, var &VAR_35, int 50, int 13)
+var VAR_29 = call create_char(var &VAR_34, "ndeadjohn", int 50, int 13)
 call func_f1(var VAR_29, int 4)
 call set_char_init_state(var VAR_25, int 13)
 call play_char_ai_script(var VAR_25, var &VAR_36)
@@ -285,7 +262,7 @@ call set_char_init_state(var VAR_26, int 13)
 call play_char_ai_script(var VAR_26, var &VAR_37)
 call set_char_init_state(var VAR_27, int 13)
 call play_char_ai_script(var VAR_27, var &VAR_38)
-call load_char(var &VAR_39)
+call load_char("wraith")
 
 ._SCRIPT_5
 var VAR_40 = call create_enemy(int 90, int 1, var &VAR_41, int 325)
@@ -298,10 +275,10 @@ var VAR_46 = call create_enemy(int 90, int 4, var &VAR_47, int 105)
 ._SCRIPT_7
 
 ._SCRIPT_8
-call load_char(var &VAR_55)
-call load_char(var &VAR_56)
-call load_char(var &VAR_57)
-call load_char(var &VAR_58)
+call load_char("boney")
+call load_char("skel")
+call load_char("death")
+call load_char("wraith")
 var VAR_59 = call func_6f()
 var VAR_60 = call randomize_int(int 0, int 5)
 if(var ! VAR_60)
@@ -327,13 +304,13 @@ if(var VAR_60 == int 2)
 ._SCRIPT_9
 gamevar SMACKER_X = int 0
 gamevar SMACKER_Y = int 0
-call play_2d_anim(var &VAR_6, int 1, int 1, int 0)
+call play_2d_anim("pitprop", int 1, int 1, int 0)
 gamevar SMACKER_X = int 192
 gamevar SMACKER_Y = int 0
-call play_2d_anim(var &VAR_7, int 1, int 1, int 0)
+call play_2d_anim("pitprop1", int 1, int 1, int 0)
 gamevar SMACKER_X = int 784
 gamevar SMACKER_Y = int 48
-call play_2d_anim(var &VAR_8, int 1, int 1, int 0)
+call play_2d_anim("pitprop2", int 1, int 1, int 0)
 gamevar SMACKER_X = int 864
 gamevar SMACKER_Y = int 64
-call play_2d_anim(var &VAR_9, int 1, int 1, int 0)
+call play_2d_anim("pitprop3", int 1, int 1, int 0)

@@ -1,18 +1,11 @@
 ._DATA
 VAR_0	0	
-VAR_1	"haven"	
-VAR_2	"h_orout"	
-VAR_3	"oneframe"	
 VAR_4	0	
 VAR_5	0	
 VAR_6	0	
 VAR_7	0	
 VAR_8	{ 0, 0 }	
 VAR_9	{ 0, 0, 0 }	
-VAR_10	"FIRETREE"	
-VAR_11	"FIREFADE"	
-VAR_12	"firesprt"	
-VAR_13	"frink"	
 VAR_14	0	
 VAR_15	{ 0, 350, 900, 6899 }	
 VAR_16	0	
@@ -22,11 +15,6 @@ VAR_19	0
 VAR_20	0	
 VAR_21	0	
 VAR_22	-1	
-VAR_23	"nfrink"	
-VAR_24	"haven"	
-VAR_25	"h_orout"	
-VAR_26	"FRIHER"	
-VAR_27	"NULL"	
 VAR_28	{ -2124, -40, 794 }	
 VAR_29	{ -1795, -40, 1027 }	
 VAR_30	{ -1005, -40, 1284 }	
@@ -123,7 +111,7 @@ switch(var VAR_14)
 			 {
 					gamevar *scene_info_p+4 &= int -17
 					call set_input_system(int 1)
-					call func_96(int 1, int 0, int 0, int 0)
+					call create_enemy_through_door(int 1, int 0, int 0, int 0)
 					var VAR_14 ++ 
 					var VAR_15 = int 0
 			}
@@ -133,7 +121,7 @@ switch(var VAR_14)
 			 {
 					call set_input_system(int 2)
 					gamevar compile_init_character = int 0
-					var VAR_16 = call func_92(int 0, var &VAR_23, int 0, int 13)
+					var VAR_16 = call func_92(int 0, "nfrink", int 0, int 13)
 					gamevar compile_init_character = int 1
 					call set_char_running(var VAR_16)
 					var VAR_17 = call get_david_char()
@@ -158,8 +146,8 @@ switch(var VAR_14)
 					var VAR_19 = int 1
 					var VAR_20 = int 0
 					var VAR_21 = int 0
-					call func_4d(int 444, var &VAR_18, var &VAR_24, var &VAR_25)
-					call start_dialog(var &VAR_26, var &VAR_27)
+					call func_4d(int 444, var &VAR_18, "haven", "h_orout")
+					call start_dialog("FRIHER", "NULL")
 					var VAR_14 ++ 
 					var VAR_15 = int 0
 			}
@@ -187,13 +175,13 @@ var VAR_15 ++
 ._SCRIPT_4
 gamevar SMACKER_X = int 168
 gamevar SMACKER_Y = int 32
-var VAR_4 = call play_2d_anim(var &VAR_10, int 1, int 1, var &VAR_7)
+var VAR_4 = call play_2d_anim("FIRETREE", int 1, int 1, var &VAR_7)
 var VAR_7 ++ 
 gamevar SMACKER_X = int 168
 gamevar SMACKER_Y = int 32
-var VAR_5 = call play_2d_anim(var &VAR_11, int 10737418, int 1, var &VAR_9)
-call load_char(var &VAR_12)
-call load_char(var &VAR_13)
+var VAR_5 = call play_2d_anim("FIREFADE", int 10737418, int 1, var &VAR_9)
+call load_char("firesprt")
+call load_char("frink")
 call load_sound_set(int 70)
 var VAR_6 = call play_loaded_sound(int 1, int -1, int 70, int 0)
 
@@ -203,7 +191,7 @@ call func_4e(int 0)
 ._SCRIPT_6
 gamevar SMACKER_X = int 168
 gamevar SMACKER_Y = int 32
-call play_2d_anim(var &VAR_3, int 0, int 1, int 0)
+call play_2d_anim("oneframe", int 0, int 1, int 0)
 
 ._SCRIPT_7
 if(var VAR_34 == int 0)

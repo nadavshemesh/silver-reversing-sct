@@ -7,7 +7,6 @@ VAR_4	0
 VAR_5	0	
 VAR_6	0	
 VAR_7	0	
-VAR_8	"random_rain_fx: Rain SFX not initialised! See Marc"	
 VAR_9	0	
 VAR_10	0	
 VAR_11	0	
@@ -19,55 +18,8 @@ VAR_16	0
 VAR_17	{ 0, 0, 0, 0, 0, 0, 0, 0 }	
 VAR_18	0	
 VAR_19	0	
-VAR_20	"RAINPT1"	
-VAR_21	"wizwater"	
-VAR_22	"wizsmoke"	
-VAR_23	"RAIN"	
-VAR_24	"rain_loc"	
-VAR_25	"RAIN"	
-VAR_26	"to_dock"	
-VAR_27	"RAIN"	
-VAR_28	"to_gate"	
-VAR_29	"RAIN"	
-VAR_30	"scaledwn"	
-VAR_31	"RAIN"	
-VAR_32	"scaledwn"	
-VAR_33	"RAIN"	
-VAR_34	"scene30"	
-VAR_35	"RAIN"	
-VAR_36	"tunlpas"	
-VAR_37	"RAIN"	
-VAR_38	"aft2arch"	
-VAR_39	"RAIN"	
-VAR_40	"ritearch"	
-VAR_41	"RAIN"	
-VAR_42	"aftsroad"	
-VAR_43	"RAIN"	
-VAR_44	"sroad"	
-VAR_45	"RAIN"	
-VAR_46	"opparch"	
-VAR_47	"RAIN"	
-VAR_48	"overarch"	
-VAR_49	"RAIN"	
-VAR_50	"newleft0"	
-VAR_51	"RAIN"	
-VAR_52	"to_centr"	
-VAR_53	"RAIN"	
-VAR_54	"bak2gate"	
-VAR_55	"RAIN"	
-VAR_56	"rainarch"	
-VAR_57	"RAIN"	
-VAR_58	"rainpt03"	
-VAR_59	"RAIN"	
-VAR_60	"aftastep"	
-VAR_61	"RAIN"	
-VAR_62	"tree_sqr"	
-VAR_63	"rain"	
-VAR_64	"to_dock"	
-VAR_65	"it's_raining"	
 VAR_66	{ -9525, 4637, 6050 }	
 VAR_67	{ 1475, 4637, -4650 }	
-VAR_68	"RAIN"	
 VAR_69	0	
 VAR_70	0	
 VAR_71	0	
@@ -94,31 +46,13 @@ VAR_91	{ 476, -1016, -2229 }
 VAR_92	{ 672, -1016, -2980 }	
 VAR_93	{ 334, -1016, -2810 }	
 VAR_94	{ 505, -1016, -2953 }	
-VAR_95	"fsgrunt"	
-VAR_96	"nrebel!"	
-VAR_97	"nrebel1!"	
-VAR_98	"nbill"	
-VAR_99	"nben"	
-VAR_100	"nduke"	
-VAR_101	"nwilliam"	
-VAR_102	"nclay"	
-VAR_103	"nrichard"	
-VAR_104	"nfatbob"	
 VAR_105	{ 1, 0, 0 }	
 VAR_106	{ 1, 0, 0 }	
-VAR_107	"rebsleft"	
-VAR_108	"rebsrite"	
 VAR_109	{ -365, 0, 1728 }	
 VAR_110	0	
 VAR_111	0	
 VAR_112	-1	
-VAR_113	"S_DvdDuk"	
-VAR_114	"NULL"	
-VAR_115	"break9"	
-VAR_116	"haven"	
-VAR_117	"h_campbt"	
 VAR_118	0	
-VAR_119	"imphorn"	
 VAR_120	0	
 VAR_121	0	
 VAR_122	{ 6863, -1016, 596 }	
@@ -137,13 +71,13 @@ VAR_133	-1
 ._on_load
 call load_sound_set(int 0)
 execute SCRIPT_3
-call play_bgm(var &VAR_20)
+call play_bgm("RAINPT1")
 gamevar SMACKER_X = int 0
 gamevar SMACKER_Y = int 176
-call play_2d_anim(var &VAR_21, int 1, int 0, int 0)
+call play_2d_anim("wizwater", int 1, int 0, int 0)
 gamevar SMACKER_X = int 152
 gamevar SMACKER_Y = int 0
-call play_2d_anim(var &VAR_22, int 1, int 0, int 0)
+call play_2d_anim("wizsmoke", int 1, int 0, int 0)
 if(gamevar is_room_cleared)
  {
 		execute SCRIPT_9
@@ -187,27 +121,27 @@ if(gamevar !is_room_cleared)
 		 {
 				case 1
 					gamevar room_state ++ 
-					call set_scene_overwrite_act(var &VAR_23, var &VAR_24, int 1)
-					call set_scene_overwrite_act(var &VAR_25, var &VAR_26, int 1)
-					call set_scene_overwrite_act(var &VAR_27, var &VAR_28, int 1)
-					call set_scene_overwrite_act(var &VAR_29, var &VAR_30, int 1)
-					call func_116(var &VAR_31, var &VAR_32, int 2)
-					call set_scene_overwrite_act(var &VAR_33, var &VAR_34, int 1)
-					call set_scene_overwrite_act(var &VAR_35, var &VAR_36, int 1)
-					call set_scene_overwrite_act(var &VAR_37, var &VAR_38, int 1)
-					call set_scene_overwrite_act(var &VAR_39, var &VAR_40, int 1)
-					call set_scene_overwrite_act(var &VAR_41, var &VAR_42, int 1)
-					call set_scene_overwrite_act(var &VAR_43, var &VAR_44, int 1)
-					call set_scene_overwrite_act(var &VAR_45, var &VAR_46, int 1)
-					call set_scene_overwrite_act(var &VAR_47, var &VAR_48, int 1)
-					call set_scene_overwrite_act(var &VAR_49, var &VAR_50, int 1)
-					call set_scene_overwrite_act(var &VAR_51, var &VAR_52, int 1)
-					call set_scene_overwrite_act(var &VAR_53, var &VAR_54, int 1)
-					call set_scene_overwrite_act(var &VAR_55, var &VAR_56, int 1)
-					call set_scene_overwrite_act(var &VAR_57, var &VAR_58, int 1)
-					call set_scene_overwrite_act(var &VAR_59, var &VAR_60, int 1)
-					call set_scene_overwrite_act(var &VAR_61, var &VAR_62, int 1)
-					call func_71(var &VAR_63, var &VAR_64, int 0, int 2)
+					call set_scene_overwrite_act("RAIN", "rain_loc", int 1)
+					call set_scene_overwrite_act("RAIN", "to_dock", int 1)
+					call set_scene_overwrite_act("RAIN", "to_gate", int 1)
+					call set_scene_overwrite_act("RAIN", "scaledwn", int 1)
+					call func_116("RAIN", "scaledwn", int 2)
+					call set_scene_overwrite_act("RAIN", "scene30", int 1)
+					call set_scene_overwrite_act("RAIN", "tunlpas", int 1)
+					call set_scene_overwrite_act("RAIN", "aft2arch", int 1)
+					call set_scene_overwrite_act("RAIN", "ritearch", int 1)
+					call set_scene_overwrite_act("RAIN", "aftsroad", int 1)
+					call set_scene_overwrite_act("RAIN", "sroad", int 1)
+					call set_scene_overwrite_act("RAIN", "opparch", int 1)
+					call set_scene_overwrite_act("RAIN", "overarch", int 1)
+					call set_scene_overwrite_act("RAIN", "newleft0", int 1)
+					call set_scene_overwrite_act("RAIN", "to_centr", int 1)
+					call set_scene_overwrite_act("RAIN", "bak2gate", int 1)
+					call set_scene_overwrite_act("RAIN", "rainarch", int 1)
+					call set_scene_overwrite_act("RAIN", "rainpt03", int 1)
+					call set_scene_overwrite_act("RAIN", "aftastep", int 1)
+					call set_scene_overwrite_act("RAIN", "tree_sqr", int 1)
+					call func_71("rain", "to_dock", int 0, int 2)
 					gamevar *scene_info_p+1 = int 1
 					break 
 				case 2
@@ -229,8 +163,8 @@ if(gamevar !is_room_cleared)
 }
 
 ._SCRIPT_3
-call log(var &VAR_65)
-call play_3d_fx(var &VAR_68, var &VAR_66, var &VAR_67, int 0)
+call log("it's_raining")
+call play_3d_fx("RAIN", var &VAR_66, var &VAR_67, int 0)
 execute SCRIPT_10
 
 ._SCRIPT_4
@@ -243,8 +177,8 @@ if(var VAR_112 != var VAR_69)
 if(var VAR_69 == int 0)
  {
 		call set_input_system(int 2)
-		call func_18(var VAR_73, int 640, int -1016, int -2472)
-		call func_18(var VAR_74, int 352, int -1016, int -2500)
+		call char_walk_to(var VAR_73, int 640, int -1016, int -2472)
+		call char_walk_to(var VAR_74, int 352, int -1016, int -2500)
 		var VAR_69 ++ 
 		var VAR_70 = int 0
 }
@@ -257,7 +191,7 @@ if(var VAR_69 == int 1)
 						var VAR_70 ++ 
 						if(var VAR_70 > int 30)
 						 {
-								call start_dialog(var &VAR_113, var &VAR_114)
+								call start_dialog("S_DvdDuk", "NULL")
 								var VAR_69 ++ 
 								var VAR_70 = int 0
 						}
@@ -270,8 +204,8 @@ if(var VAR_69 == int 2)
 		 {
 				if(call func_6d() == int 9)
 				 {
-						call log(var &VAR_115)
-						call func_18(var VAR_78, int -1137, int -1016, int 612)
+						call log("break9")
+						call char_walk_to(var VAR_78, int -1137, int -1016, int 612)
 						var VAR_69 ++ 
 						var VAR_70 = int 0
 				}
@@ -319,14 +253,14 @@ if(var VAR_69 == int 6)
 				var VAR_70 ++ 
 				if(var VAR_70 > int 30)
 				 {
-						call func_18(var VAR_75, int -1137, int -1016, int 612)
-						call func_18(var VAR_76, int -1147, int -1016, int 612)
-						call func_18(var VAR_77, int -1157, int -1016, int 612)
-						call func_18(var VAR_79, int -1167, int -1016, int 612)
-						call func_18(var VAR_80, int -1177, int -1016, int 612)
-						call func_18(var VAR_81, int -1187, int -1016, int 612)
-						call func_18(var VAR_74, int -1197, int -1016, int 612)
-						call func_18(var VAR_73, int -1217, int -1016, int 612)
+						call char_walk_to(var VAR_75, int -1137, int -1016, int 612)
+						call char_walk_to(var VAR_76, int -1147, int -1016, int 612)
+						call char_walk_to(var VAR_77, int -1157, int -1016, int 612)
+						call char_walk_to(var VAR_79, int -1167, int -1016, int 612)
+						call char_walk_to(var VAR_80, int -1177, int -1016, int 612)
+						call char_walk_to(var VAR_81, int -1187, int -1016, int 612)
+						call char_walk_to(var VAR_74, int -1197, int -1016, int 612)
+						call char_walk_to(var VAR_73, int -1217, int -1016, int 612)
 						var VAR_69 ++ 
 						var VAR_70 = int 0
 				}
@@ -338,34 +272,34 @@ if(var VAR_69 == int 7)
 		if(var VAR_70 > int 130)
 		 {
 				call func_124()
-				call func_e6(var &VAR_116, var &VAR_117, var &VAR_109, int 3)
+				call func_e6("haven", "h_campbt", var &VAR_109, int 3)
 				var VAR_69 ++ 
 				var VAR_70 = int 0
 		}
 }
 
 ._SCRIPT_5
-var VAR_82 = call create_char(var &VAR_85, var &VAR_95, int 275, int 13)
+var VAR_82 = call create_char(var &VAR_85, "fsgrunt", int 275, int 13)
 call add_item_to_char(var VAR_82, int 16, int 0, int 1)
 gamevar script_object = var VAR_82
 gamevar HP = int 10
 gamevar script_object = var VAR_82
 gamevar *object_p+6 |= int 67108864
-var VAR_83 = call create_char(var &VAR_86, var &VAR_96, int 95, int 13)
+var VAR_83 = call create_char(var &VAR_86, "nrebel!", int 95, int 13)
 call add_item_to_char(var VAR_83, int 16, int 0, int 1)
 gamevar script_object = var VAR_83
 gamevar *object_p+6 |= int 67108864
-var VAR_84 = call create_char(var &VAR_87, var &VAR_97, int 95, int 13)
+var VAR_84 = call create_char(var &VAR_87, "nrebel1!", int 95, int 13)
 call add_item_to_char(var VAR_84, int 16, int 0, int 1)
 gamevar script_object = var VAR_84
 gamevar *object_p+6 |= int 67108864
-var VAR_75 = call create_char(var &VAR_88, var &VAR_98, int 115, int 13)
-var VAR_76 = call create_char(var &VAR_89, var &VAR_99, int 115, int 13)
-var VAR_77 = call create_char(var &VAR_90, var &VAR_100, int 60, int 13)
-var VAR_78 = call create_char(var &VAR_91, var &VAR_101, int 100, int 13)
-var VAR_79 = call create_char(var &VAR_92, var &VAR_102, int 20, int 13)
-var VAR_80 = call create_char(var &VAR_93, var &VAR_103, int 25, int 13)
-var VAR_81 = call create_char(var &VAR_94, var &VAR_104, int 0, int 13)
+var VAR_75 = call create_char(var &VAR_88, "nbill", int 115, int 13)
+var VAR_76 = call create_char(var &VAR_89, "nben", int 115, int 13)
+var VAR_77 = call create_char(var &VAR_90, "nduke", int 60, int 13)
+var VAR_78 = call create_char(var &VAR_91, "nwilliam", int 100, int 13)
+var VAR_79 = call create_char(var &VAR_92, "nclay", int 20, int 13)
+var VAR_80 = call create_char(var &VAR_93, "nrichard", int 25, int 13)
+var VAR_81 = call create_char(var &VAR_94, "nfatbob", int 0, int 13)
 call set_char_running(var VAR_82)
 call set_char_running(var VAR_83)
 call set_char_running(var VAR_84)
@@ -383,10 +317,10 @@ gamevar script_object = var VAR_78
 gamevar *character_movement_p+60 = int 1
 gamevar SMACKER_X = int 432
 gamevar SMACKER_Y = int 336
-call play_2d_anim(var &VAR_107, int 1, int 1, var &VAR_105)
+call play_2d_anim("rebsleft", int 1, int 1, var &VAR_105)
 gamevar SMACKER_X = int 528
 gamevar SMACKER_Y = int 304
-call play_2d_anim(var &VAR_108, int 1, int 1, var &VAR_106)
+call play_2d_anim("rebsrite", int 1, int 1, var &VAR_106)
 var VAR_18 = call func_40(int 0, int 8, int 1, int -1)
 var VAR_19 = call play_loaded_sound(int 228, int -1, int 0, int 0)
 
@@ -404,8 +338,8 @@ if(var VAR_71 == int 1)
 		 {
 				if(call func_87(var VAR_83))
 				 {
-						call func_18(var VAR_83, int 666, int -1016, int -3361)
-						call func_18(var VAR_84, int 481, int -1016, int -3266)
+						call char_walk_to(var VAR_83, int 666, int -1016, int -3361)
+						call char_walk_to(var VAR_84, int 481, int -1016, int -3266)
 						var VAR_110 = int 1
 						var VAR_111 = int 1
 						var VAR_71 ++ 
@@ -505,7 +439,7 @@ switch(var VAR_120)
 var VAR_121 ++ 
 
 ._SCRIPT_8
-var VAR_118 = call load_anim(var &VAR_119)
+var VAR_118 = call load_anim("imphorn")
 call load_sound_set(int 15)
 var VAR_18 = call func_40(int 0, int 8, int 1, int -1)
 var VAR_19 = call play_loaded_sound(int 228, int -1, int 0, int 0)
@@ -523,7 +457,7 @@ var VAR_0 = int 1
 ._SCRIPT_11
 if(var ! VAR_0)
  {
-		call log(var &VAR_8)
+		call log("random_rain_fx: Rain SFX not initialised! See Marc")
 		exit_script 
 }
 switch(var VAR_4)

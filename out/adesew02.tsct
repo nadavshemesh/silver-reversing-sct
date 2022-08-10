@@ -38,36 +38,12 @@ VAR_35	1
 VAR_36	0	
 VAR_37	{ 0, 0, 0, 1, 0, -1, 8, 1, 1, 2, 86, 86, 70, 70, -1, 4, 0, 9, 1, 5, 1, 50, 150, 7, 1, 4, -1 }	
 VAR_38	{ 0, 0, 0, 1, -1, 8, 1, 1, 2, 46, 45, 46, -1, 4, 0, 9, 1, 5, 1, 50, 150, 7, 1, 2, 10, 43, 45, -1, -1 }	
-VAR_39	"SEWERPT1"	
-VAR_40	"water01"	
-VAR_41	"watloop"	
-VAR_42	"torch01"	
-VAR_43	"torch02"	
-VAR_44	"no"	
-VAR_45	"spider"	
-VAR_46	"ratrptr"	
-VAR_47	"conjure"	
-VAR_48	"conjure"	
 VAR_49	{ -4, -1350, -516 }	
 VAR_50	0	
-VAR_51	"SJET"	
-VAR_52	"rain"	
-VAR_53	"wizard"	
-VAR_54	"rain"	
-VAR_55	"cld_rd_3"	
-VAR_56	"rain"	
-VAR_57	"wizard"	
-VAR_58	"rain"	
-VAR_59	"cld_rd_3"	
-VAR_60	"palace"	
-VAR_61	"s_throne"	
-VAR_62	"skaven"	
-VAR_63	"skavenb"	
-VAR_64	"confused"	
 VAR_65	0
 
 ._on_load
-call play_bgm(var &VAR_39)
+call play_bgm("SEWERPT1")
 var VAR_20 = call create_item(int 98)
 if(var VAR_20 != int 0)
  {
@@ -79,28 +55,28 @@ call load_sound_set(int 38)
 var VAR_8 = call play_loaded_sound(int 1, int -1, int 30, int 0)
 gamevar SMACKER_X = int 544
 gamevar SMACKER_Y = int 96
-var VAR_1 = call play_2d_anim(var &VAR_40, int 0, int 1, var &VAR_5)
+var VAR_1 = call play_2d_anim("water01", int 0, int 1, var &VAR_5)
 gamevar SMACKER_X = int 544
 gamevar SMACKER_Y = int 96
-var VAR_2 = call play_2d_anim(var &VAR_41, int -1073741, int 1, var &VAR_7)
+var VAR_2 = call play_2d_anim("watloop", int -1073741, int 1, var &VAR_7)
 gamevar SMACKER_X = int 320
 gamevar SMACKER_Y = int 408
-call play_2d_anim(var &VAR_42, int 1, int 1, var &VAR_3)
+call play_2d_anim("torch01", int 1, int 1, var &VAR_3)
 gamevar SMACKER_X = int 592
 gamevar SMACKER_Y = int 456
-call play_2d_anim(var &VAR_43, int 1, int 1, var &VAR_4)
-var VAR_24 = call load_anim(var &VAR_44)
+call play_2d_anim("torch02", int 1, int 1, var &VAR_4)
+var VAR_24 = call load_anim("no")
 switch(gamevar room_state)
  {
 		case 1
-			call load_char(var &VAR_45)
-			call load_char(var &VAR_46)
+			call load_char("spider")
+			call load_char("ratrptr")
 			gamevar use_mouse_override_sprite = int 428
 			var VAR_0 = int 0
 			var VAR_17 = int 2
 			if(var VAR_21)
 			 {
-					var VAR_22 = call load_anim(var &VAR_47)
+					var VAR_22 = call load_anim("conjure")
 					var VAR_16 = int 300
 					var VAR_15 = int 1
 			}
@@ -116,7 +92,7 @@ switch(gamevar room_state)
 			var VAR_17 = int 2
 			if(var VAR_21)
 			 {
-					var VAR_22 = call load_anim(var &VAR_48)
+					var VAR_22 = call load_anim("conjure")
 					var VAR_15 = int 2
 			}
 			else
@@ -246,25 +222,25 @@ switch(var VAR_15)
 					call stop_playing_sound(var VAR_9)
 					call stop_playing_sound(var VAR_8)
 					call play_loaded_sound(int 3, int 0, int 35, int 0)
-					call play_3d_fx(var &VAR_51, var &VAR_12, var &VAR_13, int 60)
+					call play_3d_fx("SJET", var &VAR_12, var &VAR_13, int 60)
 					var VAR_5 = int 0
 					gamevar script_object = var VAR_1
 					gamevar *smack_object_p+2 |= int 10737418
 					var VAR_7 = int 1
 					gamevar script_object = var VAR_2
 					gamevar *smack_object_p+2 &= int -1073741
-					call func_ff(var &VAR_26)
+					call force_scroll_to_pos(var &VAR_26)
 					var VAR_15 = int 7
 					call remove_item_from_pie(var VAR_20)
 			}
 			break 
 		case 7
-			if(call is_not_scrolling())
+			if(call is_not_force_scrolling())
 			 {
-					call func_116(var &VAR_52, var &VAR_53, int 4)
-					call func_116(var &VAR_54, var &VAR_55, int 6)
-					call func_118(var &VAR_56, var &VAR_57, int 1)
-					call func_118(var &VAR_58, var &VAR_59, int 1)
+					call func_116("rain", "wizard", int 4)
+					call func_116("rain", "cld_rd_3", int 6)
+					call func_118("rain", "wizard", int 1)
+					call func_118("rain", "cld_rd_3", int 1)
 					var VAR_15 = int 8
 					var VAR_50 = int 0
 			}
@@ -272,7 +248,7 @@ switch(var VAR_15)
 		case 8
 			if(var VAR_50 > int 250)
 			 {
-					call func_e6(var &VAR_60, var &VAR_61, var &VAR_49, int 2)
+					call func_e6("palace", "s_throne", var &VAR_49, int 2)
 					var VAR_15 = int 9
 			}
 			break 
@@ -306,12 +282,12 @@ if(var ! VAR_35&&call get_num_of_enemies() == int 0&&call ! func_122(var VAR_36)
 }
 
 ._SCRIPT_6
-call load_char(var &VAR_62)
-call load_char(var &VAR_63)
+call load_char("skaven")
+call load_char("skavenb")
 var VAR_27 = call create_enemy(int 46, int 0, var &VAR_32, int 45)
 var VAR_28 = call create_enemy(int 46, int 1, var &VAR_33, int 80)
 var VAR_29 = call create_enemy(int 45, int 0, var &VAR_34, int 60)
-var VAR_23 = call load_anim(var &VAR_64)
+var VAR_23 = call load_anim("confused")
 var VAR_18 = int 0
 var VAR_19 = int 0
 

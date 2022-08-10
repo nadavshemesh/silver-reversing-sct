@@ -1,13 +1,5 @@
 ._DATA
-VAR_0	"chains"	
-VAR_1	"lava"	
 VAR_2	0	
-VAR_3	"groad"	
-VAR_4	"lizman"	
-VAR_5	"bat"	
-VAR_6	"litl_liz"	
-VAR_7	"treasure"	
-VAR_8	"mimic"	
 VAR_9	0	
 VAR_10	{ 316, 1700, 821, 384, 1700, 1112, 355, 1700, 1506, 433, 1700, 1894, -1152, 1000, -1033, -1375, 1000, -1203 }	
 VAR_11	{ 0, 1, 6, VAR_10, 8, 1, 19, -157, 0, 3306, 12, 47, 47, 47, 47, 47, 47, 47, -1, 13, 0, 14, 1, 6, 5, 0, 0, 16, 0, 17, 2, -871, 1, 125, -985, 1, 1415, -1, 18, 100, 11, -1 }	
@@ -32,13 +24,12 @@ VAR_29	0
 VAR_30	0	
 VAR_31	{ 0, 0 }	
 VAR_32	-1	
-VAR_33	"suprise attack from four groads"
 
 ._on_load
-call play_bgm(var &VAR_0)
+call play_bgm("chains")
 gamevar SMACKER_X = int 0
 gamevar SMACKER_Y = int 628
-call play_2d_anim(var &VAR_1, int 1, int 1, int 0)
+call play_2d_anim("lava", int 1, int 1, int 0)
 if(gamevar is_room_cleared)
  {
 		execute SCRIPT_10
@@ -167,19 +158,19 @@ if(var VAR_31 == int 4)
 				 {
 						var VAR_9 = call run_wandering_generator(var &VAR_16, int 10)
 						var VAR_9 = call run_wandering_generator(var &VAR_20, int 10)
-						call log(var &VAR_33)
+						call log("suprise attack from four groads")
 						var VAR_31 ++ 
 				}
 		}
 }
 
 ._SCRIPT_4
-call load_char(var &VAR_3)
-call load_char(var &VAR_4)
-call load_char(var &VAR_5)
-call load_char(var &VAR_6)
-call load_char(var &VAR_7)
-call load_char(var &VAR_8)
+call load_char("groad")
+call load_char("lizman")
+call load_char("bat")
+call load_char("litl_liz")
+call load_char("treasure")
+call load_char("mimic")
 
 ._SCRIPT_5
 switch(var VAR_29)

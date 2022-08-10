@@ -1,15 +1,12 @@
 ._DATA
 VAR_0	1	
 VAR_1	{ 0, 0 }	
-VAR_2	"h_sentl"	
 VAR_3	0	
 VAR_4	0	
 VAR_5	0	
 VAR_6	0	
 VAR_7	{ 188, 1, -50 }	
 VAR_8	{ 194, 1, 818 }	
-VAR_9	"nrebel"	
-VAR_10	"nrebela"	
 VAR_11	0	
 VAR_12	0
 
@@ -62,8 +59,8 @@ switch(gamevar room_state)
 ._SCRIPT_3
 
 ._SCRIPT_4
-var VAR_5 = call create_char(var &VAR_7, var &VAR_9, int 80, int 13)
-var VAR_6 = call create_char(var &VAR_8, var &VAR_10, int 110, int 13)
+var VAR_5 = call create_char(var &VAR_7, "nrebel", int 80, int 13)
+var VAR_6 = call create_char(var &VAR_8, "nrebela", int 110, int 13)
 call add_item_to_char(var VAR_5, int 16, int 0, int 1)
 call add_item_to_char(var VAR_6, int 16, int 0, int 1)
 
@@ -74,7 +71,7 @@ call add_item_to_char(var VAR_6, int 16, int 0, int 1)
 ._SCRIPT_7
 gamevar SMACKER_X = int 208
 gamevar SMACKER_Y = int 92
-call play_2d_anim(var &VAR_2, int 1, int 0, var &VAR_0)
+call play_2d_anim("h_sentl", int 1, int 0, var &VAR_0)
 call load_sound_set(int 54)
 call play_loaded_sound(int 1, int -1, int 54, int 0)
 

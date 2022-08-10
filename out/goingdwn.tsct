@@ -10,18 +10,13 @@ VAR_7	{ 560, 10600, -400 }
 VAR_8	{ 1010, 10600, 1600 }	
 VAR_9	{ -820, 10600, -20 }	
 VAR_10	{ VAR_1, VAR_2, VAR_3, VAR_4, VAR_5, VAR_6, VAR_7, VAR_8, VAR_9 }	
-VAR_11	"DRIP"	
 VAR_12	{ 0, 0, 0 }	
 VAR_13	{ 0, 0, 0 }	
-VAR_14	"goingdwn"	
-VAR_15	"lever"	
 VAR_16	{ -1630, -478, -930 }	
 VAR_17	0	
 VAR_18	0	
 VAR_19	0	
 VAR_20	0	
-VAR_21	"liftdwna"	
-VAR_22	"lift"	
 VAR_23	0	
 VAR_24	0	
 VAR_25	{ -1616, 5955, -681 }	
@@ -29,13 +24,6 @@ VAR_26	{ -1643, 5955, -980 }
 VAR_27	{ 727, 5955, 591 }	
 VAR_28	{ -1609, -481, -830 }	
 VAR_29	{ -1023, 5956, -486, -1926, 5953, -482 }	
-VAR_30	"TERLIFT"	
-VAR_31	"NULL"	
-VAR_32	"David is near lift..."	
-VAR_33	"TERDVD"	
-VAR_34	"NULL"	
-VAR_35	"gno"	
-VAR_36	"boilarea"	
 VAR_37	0	
 VAR_38	0
 
@@ -102,7 +90,7 @@ if(gamevar !is_room_cleared)
 }
 
 ._SCRIPT_3
-call play_3d_fx(var &VAR_11, var &VAR_10, int 0, int 8)
+call play_3d_fx("DRIP", var &VAR_10, int 0, int 8)
 
 ._SCRIPT_4
 if(gamevar script_time > var VAR_38)
@@ -115,18 +103,18 @@ if(gamevar script_time > var VAR_38)
 ._SCRIPT_5
 gamevar SMACKER_X = int 520
 gamevar SMACKER_Y = int 0
-call play_2d_anim(var &VAR_14, int 0, int 1, var &VAR_12)
+call play_2d_anim("goingdwn", int 0, int 1, var &VAR_12)
 call load_sound_set(int 64)
 call load_sound_set(int 44)
 gamevar SMACKER_X = int 56
 gamevar SMACKER_Y = int 292
-call play_2d_anim(var &VAR_15, int 0, int 1, var &VAR_13)
+call play_2d_anim("lever", int 0, int 1, var &VAR_13)
 call play_loaded_sound(int 2, int -1, int 64, int 0)
 
 ._SCRIPT_6
 execute SCRIPT_5
-var VAR_18 = call load_anim(var &VAR_21)
-var VAR_17 = call func_9d(var &VAR_22, var &VAR_16, int 0, var VAR_18)
+var VAR_18 = call load_anim("liftdwna")
+var VAR_17 = call func_9d("lift", var &VAR_16, int 0, var VAR_18)
 var VAR_19 = call get_char_handle(int 65536)
 var VAR_20 = call get_char_handle(int 2031616)
 call char_unfollow(var VAR_20)
@@ -134,7 +122,7 @@ call char_unfollow(var VAR_20)
 ._SCRIPT_7
 if(var VAR_23 == int 0)
  {
-		call start_dialog(var &VAR_30, var &VAR_31)
+		call start_dialog("TERLIFT", "NULL")
 		var VAR_23 ++ 
 		var VAR_24 = int 0
 }
@@ -152,7 +140,7 @@ if(var VAR_23 == int 2)
 		if(call func_8a(var &VAR_29))
 		 {
 				call set_input_system(int 2)
-				call log(var &VAR_32)
+				call log("David is near lift...")
 				call char_stop(var VAR_19)
 				var VAR_23 ++ 
 				var VAR_24 = int 0
@@ -160,9 +148,9 @@ if(var VAR_23 == int 2)
 }
 if(var VAR_23 == int 3&&var VAR_24 > int 2)
  {
-		call func_ff(call get_char_pos(var VAR_19))
+		call force_scroll_to_pos(call get_char_pos(var VAR_19))
 		call char_turn_to_pos(var VAR_19, var &VAR_27)
-		call start_dialog(var &VAR_33, var &VAR_34)
+		call start_dialog("TERDVD", "NULL")
 		var VAR_23 ++ 
 		var VAR_24 = int 0
 }
@@ -211,7 +199,7 @@ if(var VAR_23 == int 8)
 		if(var VAR_24 > int 50)
 		 {
 				var VAR_0 = int 1
-				call func_e6(var &VAR_35, var &VAR_36, var &VAR_28, int 1)
+				call func_e6("gno", "boilarea", var &VAR_28, int 1)
 				gamevar *scene_info_p+1 = int 1
 				var VAR_23 ++ 
 				var VAR_24 = int 0

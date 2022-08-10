@@ -2,20 +2,12 @@
 VAR_0	0	
 VAR_1	{ -2520, 985, 4585 }	
 VAR_2	{ 5224, 985, -1763 }	
-VAR_3	"SNOW"	
-VAR_4	"wamper"	
 VAR_5	{ -883, -1825, -2058, -2506, -1825, -704 }	
 VAR_6	{ 0, 0, 1, -1, 8, 0, 4, 0, 9, 2, 1, 1, 6, 6, 6, -1, 5, 0, 10, 7, 1, 2, 6, 1, 10, 45, -1, -1 }	
 VAR_7	{ 0, 0, 1, -1, 8, 0, 4, 0, 9, 2, 1, 1, 6, 6, 6, -1, 5, 0, 10, 7, 1, 2, 6, 1, 10, 47, -1, -1, 0 }	
 VAR_8	{ 0, 0 }	
 VAR_9	0	
 VAR_10	{ 0, 0 }	
-VAR_11	"wamper"	
-VAR_12	"snowsprt"	
-VAR_13	"bstump"	
-VAR_14	"sentry"	
-VAR_15	"hound"	
-VAR_16	"leopard"	
 VAR_17	0	
 VAR_18	0	
 VAR_19	0	
@@ -99,7 +91,7 @@ if(var VAR_0 == int 1)
 }
 
 ._SCRIPT_3
-call play_3d_fx(var &VAR_3, var &VAR_1, var &VAR_2, int 0)
+call play_3d_fx("SNOW", var &VAR_1, var &VAR_2, int 0)
 
 ._SCRIPT_4
 if(gamevar script_time > var VAR_28)
@@ -133,7 +125,7 @@ if(var VAR_10 == int 1)
 }
 
 ._SCRIPT_6
-call load_char(var &VAR_4)
+call load_char("wamper")
 
 ._SCRIPT_7
 if(var VAR_8 == int 0)
@@ -159,12 +151,12 @@ if(var VAR_8 == int 1)
 ._SCRIPT_9
 
 ._SCRIPT_10
-call load_char(var &VAR_11)
-call load_char(var &VAR_12)
-call load_char(var &VAR_13)
-call load_char(var &VAR_14)
-call load_char(var &VAR_15)
-call load_char(var &VAR_16)
+call load_char("wamper")
+call load_char("snowsprt")
+call load_char("bstump")
+call load_char("sentry")
+call load_char("hound")
+call load_char("leopard")
 var VAR_20 = call randomize_int(int 0, int 3)
 if(var VAR_20 == int 1)
  {
@@ -173,19 +165,19 @@ if(var VAR_20 == int 1)
 		 {
 				case 0
 					var VAR_26 = call create_enemy(int 63, int 0, var &VAR_21, int 0)
-					call func_18(var VAR_26, int -1473, int -1825, int -1871)
+					call char_walk_to(var VAR_26, int -1473, int -1825, int -1871)
 					break 
 				case 1
 					var VAR_26 = call create_enemy(int 56, int 0, var &VAR_21, int 0)
-					call func_18(var VAR_26, int -1473, int -1825, int -1871)
+					call char_walk_to(var VAR_26, int -1473, int -1825, int -1871)
 					break 
 				case 2
 					var VAR_26 = call create_enemy(int 18, int 0, var &VAR_21, int 0)
-					call func_18(var VAR_26, int -1473, int -1825, int -1871)
+					call char_walk_to(var VAR_26, int -1473, int -1825, int -1871)
 					break 
 				case 3
 					var VAR_26 = call create_enemy(int 6, int 0, var &VAR_21, int 0)
-					call func_18(var VAR_26, int -1473, int -1825, int -1871)
+					call char_walk_to(var VAR_26, int -1473, int -1825, int -1871)
 					break 
 				case 4
 					var VAR_26 = call create_enemy(int 72, int 0, var &VAR_21, int 0)

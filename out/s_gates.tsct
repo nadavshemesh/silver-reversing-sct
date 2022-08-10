@@ -5,9 +5,6 @@ VAR_2	{ 0, 0 }
 VAR_3	{ 0, 0, 0 }	
 VAR_4	0	
 VAR_5	{ 0, 0 }	
-VAR_6	"flamloop"	
-VAR_7	"flamfade"	
-VAR_8	"s_gatops"	
 VAR_9	0	
 VAR_10	0	
 VAR_11	0	
@@ -100,11 +97,11 @@ if(gamevar !is_room_cleared)
 ._SCRIPT_3
 gamevar SMACKER_X = int 196
 gamevar SMACKER_Y = int 60
-call play_2d_anim(var &VAR_6, int 1, int 0, var &VAR_3)
-call play_2d_anim(var &VAR_7, int -2147483, int 1, var &VAR_1)
+call play_2d_anim("flamloop", int 1, int 0, var &VAR_3)
+call play_2d_anim("flamfade", int -2147483, int 1, var &VAR_1)
 gamevar SMACKER_X = int 260
 gamevar SMACKER_Y = int 132
-call play_2d_anim(var &VAR_8, int -2147483, int 0, var &VAR_4)
+call play_2d_anim("s_gatops", int -2147483, int 0, var &VAR_4)
 
 ._SCRIPT_4
 if(gamevar script_time > var VAR_34)

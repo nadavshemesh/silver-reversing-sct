@@ -1,9 +1,4 @@
 ._DATA
-VAR_0	"ogre"	
-VAR_1	"orc"	
-VAR_2	"flame01"	
-VAR_3	"flame02"	
-VAR_4	"flame03"	
 VAR_5	{ 0, 0 }	
 VAR_6	0	
 VAR_7	0	
@@ -153,15 +148,15 @@ call set_char_init_state(var VAR_7, int 1)
 ._SCRIPT_8
 
 ._SCRIPT_9
-call load_char(var &VAR_0)
-call load_char(var &VAR_1)
-call func_b8(int 96)
+call load_char("ogre")
+call load_char("orc")
+call load_item(int 96)
 gamevar SMACKER_X = int 264
 gamevar SMACKER_Y = int 144
-call play_2d_anim(var &VAR_2, int 1, int 1, int 0)
+call play_2d_anim("flame01", int 1, int 1, int 0)
 gamevar SMACKER_X = int 384
 gamevar SMACKER_Y = int 156
-call play_2d_anim(var &VAR_3, int 1, int 1, int 0)
+call play_2d_anim("flame02", int 1, int 1, int 0)
 gamevar SMACKER_X = int 492
 gamevar SMACKER_Y = int 140
-call play_2d_anim(var &VAR_4, int 1, int 1, int 0)
+call play_2d_anim("flame03", int 1, int 1, int 0)

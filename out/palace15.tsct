@@ -10,9 +10,6 @@ VAR_7	{ -6850, 1625, -5967, 0 }
 VAR_8	{ 0, 0, 1, -1, 8, 0, 4, 0, 9, 1, 6, 1, 1, 1, 65, -1, 7, 1, 8, 10, 47, -1, -1 }	
 VAR_9	{ 0, 0, 0, -1, 8, 0, 4, 0, 9, 1, 6, 1, 1, 1, 65, -1, 7, 1, 2, 10, 12, -1, -1 }	
 VAR_10	{ 0, 0, 0, -1, 8, 0, 4, 0, 9, 1, 6, 1, 1, 1, 145, -1, 7, 1, 8, 10, 46, -1, -1 }	
-VAR_11	"WPALPT1"	
-VAR_12	"vikingb"	
-VAR_13	"vikingc"	
 VAR_14	0	
 VAR_15	0	
 VAR_16	0	
@@ -27,7 +24,7 @@ call play_loaded_sound(int 3, int -1, int 66, int 0)
 var VAR_2 = call get_david_char()
 var VAR_3 = call func_7e()
 var VAR_4 = call func_7e()
-call play_bgm(var &VAR_11)
+call play_bgm("WPALPT1")
 if(gamevar room_state == int 1)
  {
 		execute SCRIPT_5
@@ -105,8 +102,8 @@ switch(var VAR_0)
 var VAR_16 ++ 
 
 ._SCRIPT_5
-call load_char(var &VAR_12)
-call load_char(var &VAR_13)
+call load_char("vikingb")
+call load_char("vikingc")
 var VAR_14 = call create_enemy(int 152, int 0, var &VAR_5, int 250)
 var VAR_15 = call create_enemy(int 65, int 0, var &VAR_6, int 230)
 call add_item_to_char(var VAR_14, int 85, int 3277313, int 0)

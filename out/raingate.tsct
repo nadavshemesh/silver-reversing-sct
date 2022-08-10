@@ -7,7 +7,6 @@ VAR_4	0
 VAR_5	0	
 VAR_6	0	
 VAR_7	0	
-VAR_8	"random_rain_fx: Rain SFX not initialised! See Marc"	
 VAR_9	0	
 VAR_10	0	
 VAR_11	0	
@@ -17,10 +16,8 @@ VAR_14	0
 VAR_15	0	
 VAR_16	0	
 VAR_17	{ 0, 0 }	
-VAR_18	"it's_raining"	
 VAR_19	{ -1448, 2211, -3270 }	
 VAR_20	{ 2024, 2211, -459 }	
-VAR_21	"RAIN"	
 VAR_22	0	
 VAR_23	0	
 VAR_24	0	
@@ -33,13 +30,9 @@ VAR_30	{ 0, 594, 433, 1672, 1, VAR_23, 9, VAR_23, 8 }
 VAR_31	0	
 VAR_32	{ -483, 433, 1521, 13, 433, 1635, 384, 433, 1573, 1031, 433, 1595, 1070, 433, 1896, 1047, 433, 2311 }	
 VAR_33	{ 0, 0, 0, 1, -1, 8, 1, 4, 2, 6, VAR_32, 9, 0, 1, 2, 31, 32, 30, -1, 2, 3, 5, 0, 10, 7, 1, 3, 6, 2, 10, 42, 43, -1, -1 }	
-VAR_34	"muscles"	
 VAR_35	0	
 VAR_36	0	
 VAR_37	{ -760, 433, 2294, -760, 433, 1645 }	
-VAR_38	"dick's gone"	
-VAR_39	"Spaz handle"	
-VAR_40	"dick's still here"
 
 ._on_load
 execute SCRIPT_3
@@ -101,8 +94,8 @@ if(gamevar !is_room_cleared)
 }
 
 ._SCRIPT_3
-call log(var &VAR_18)
-call play_3d_fx(var &VAR_21, var &VAR_19, var &VAR_20, int 0)
+call log("it's_raining")
+call play_3d_fx("RAIN", var &VAR_19, var &VAR_20, int 0)
 execute SCRIPT_9
 
 ._SCRIPT_4
@@ -176,7 +169,7 @@ if(var VAR_35 == int 2)
 				 {
 						var VAR_31 = call run_enemy_generator(var &VAR_33, int 10)
 						call remove_char(var VAR_22)
-						call log(var &VAR_38)
+						call log("dick's gone")
 						var VAR_35 = int 4
 						var VAR_36 = int 0
 				}
@@ -184,14 +177,14 @@ if(var VAR_35 == int 2)
 		else
 		 {
 				var VAR_31 = call run_enemy_generator(var &VAR_33, int 10)
-				call log(var &VAR_39)
+				call log("Spaz handle")
 				var VAR_35 = int 4
 				var VAR_36 = int 0
 		}
 }
 if(var VAR_35 == int 3)
  {
-		call log(var &VAR_40)
+		call log("dick's still here")
 		var VAR_31 = call run_enemy_generator(var &VAR_33, int 10)
 		var VAR_35 ++ 
 		var VAR_36 = int 0
@@ -216,7 +209,7 @@ call func_50(var VAR_24, int 1)
 call play_char_ai_script(var VAR_22, var &VAR_28)
 call play_char_ai_script(var VAR_23, var &VAR_29)
 call play_char_ai_script(var VAR_24, var &VAR_30)
-call load_char(var &VAR_34)
+call load_char("muscles")
 
 ._SCRIPT_6
 
@@ -235,7 +228,7 @@ var VAR_0 = int 1
 ._SCRIPT_10
 if(var ! VAR_0)
  {
-		call log(var &VAR_8)
+		call log("random_rain_fx: Rain SFX not initialised! See Marc")
 		exit_script 
 }
 switch(var VAR_4)

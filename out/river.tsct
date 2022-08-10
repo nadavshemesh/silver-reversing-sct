@@ -7,7 +7,6 @@ VAR_4	0
 VAR_5	0	
 VAR_6	0	
 VAR_7	0	
-VAR_8	"random_rain_fx: Rain SFX not initialised! See Marc"	
 VAR_9	0	
 VAR_10	0	
 VAR_11	0	
@@ -29,10 +28,6 @@ VAR_26	{ VAR_27, 0, 0, 5, 0, 0 }
 VAR_27	{ 1600351861, 1953390960, -256, 0 }	
 VAR_28	0	
 VAR_29	0	
-VAR_30	"fvillhat"	
-VAR_31	"raines"	
-VAR_32	"rayalley ba"	
-VAR_33	"got the siver off Alberts g"	
 VAR_34	0	
 VAR_35	0	
 VAR_36	0	
@@ -40,16 +35,7 @@ VAR_37	{ -315, 235, 276 }
 VAR_38	0	
 VAR_39	0	
 VAR_40	-1	
-VAR_41	"rain"	
-VAR_42	"rayalley"	
-VAR_43	"rain rayalley: talked to old man"	
-VAR_44	"S_HERMAN"	
-VAR_45	"NULL"	
-VAR_46	"rain rayalley: not talked to old man"	
-VAR_47	"S_HERVIL"	
-VAR_48	"NULL"	
 VAR_49	{ 0, 0, 0 }	
-VAR_50	"rivertwo"	
 VAR_51	0	
 VAR_52	0	
 VAR_53	{ -460, 235, 408 }	
@@ -141,15 +127,15 @@ switch(var VAR_34)
 		case 0
 			if(var VAR_35 > int 200)
 			 {
-					if(call func_82(var &VAR_41, var &VAR_42) > int 1)
+					if(call func_82("rain", "rayalley") > int 1)
 					 {
-							call log(var &VAR_43)
-							call start_dialog(var &VAR_44, var &VAR_45)
+							call log("rain rayalley: talked to old man")
+							call start_dialog("S_HERMAN", "NULL")
 					}
 					else
 					 {
-							call log(var &VAR_46)
-							call start_dialog(var &VAR_47, var &VAR_48)
+							call log("rain rayalley: not talked to old man")
+							call start_dialog("S_HERVIL", "NULL")
 					}
 					var VAR_34 ++ 
 					var VAR_35 = int 0
@@ -225,7 +211,7 @@ switch(var VAR_34)
 var VAR_35 ++ 
 
 ._SCRIPT_5
-var VAR_24 = call create_char(var &VAR_25, var &VAR_30, int 48, int 13)
+var VAR_24 = call create_char(var &VAR_25, "fvillhat", int 48, int 13)
 call load_char_anim(var VAR_24, var &VAR_26)
 gamevar script_object = var VAR_24
 gamevar *character_stats_p+15 = int 20000
@@ -235,11 +221,11 @@ var VAR_28 = call add_item_to_char(var VAR_24, int 80, int 0, int 0)
 call set_input_system(int 2)
 gamevar script_object = var VAR_24
 gamevar *character_stats_p+42 = int -2097153
-if(call func_c0(int 0, var &VAR_31, var &VAR_32))
+if(call func_c0(int 0, "rain", "rayalley"))
  {
 		gamevar script_object = var VAR_24
 		gamevar *character_stats_p+29 |= int 2097152
-		call log(var &VAR_33)
+		call log("got the siver off Albert")
 		var VAR_29 = int 1
 }
 
@@ -309,7 +295,7 @@ call set_input_system(int 2)
 ._SCRIPT_11
 gamevar SMACKER_X = int 484
 gamevar SMACKER_Y = int 304
-call play_2d_anim(var &VAR_50, int 0, int 0, var &VAR_49)
+call play_2d_anim("rivertwo", int 0, int 0, var &VAR_49)
 
 ._SCRIPT_12
 call load_sound_set(int 25)
@@ -322,7 +308,7 @@ var VAR_0 = int 1
 ._SCRIPT_13
 if(var ! VAR_0)
  {
-		call log(var &VAR_8)
+		call log("random_rain_fx: Rain SFX not initialised! See Marc")
 		exit_script 
 }
 switch(var VAR_4)

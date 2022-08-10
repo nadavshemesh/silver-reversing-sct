@@ -1,16 +1,11 @@
 ._DATA
-VAR_0	"GNOCVP1"	
 VAR_1	0	
 VAR_2	{ 0, 0, 0 }	
-VAR_3	"screen3"	
 VAR_4	0	
 VAR_5	{ 1319, 757, 5823 }	
 VAR_6	0	
-VAR_7	"FIRE"	
 VAR_8	0	
 VAR_9	0	
-VAR_10	"impread"	
-VAR_11	"dodgeb"	
 VAR_12	{ 789, 625, 5528 }	
 VAR_13	{ 660, 774, 6632 }	
 VAR_14	0	
@@ -23,41 +18,27 @@ VAR_20	"yes"
 VAR_21	"impread"	
 VAR_22	"impread"	
 VAR_23	28526	
-VAR_24	"nbuzuki"	
-VAR_25	"nfrink"	
 VAR_26	0	
 VAR_27	{ 0, 0 }	
 VAR_28	0	
 VAR_29	0	
 VAR_30	-1	
-VAR_31	"ISHBUZ"	
 VAR_32	{ 1280070990, 0 }	
 VAR_33	0	
 VAR_34	0	
 VAR_35	0	
-VAR_36	"tBDPE"	
-VAR_37	"Door opened"	
-VAR_38	"play door sound"	
 VAR_39	{ 1447321427, 1515536964, 0 }	
 VAR_40	{ 1280070990, 0 }	
 VAR_41	0	
 VAR_42	0	
-VAR_43	"BUZDVD"	
-VAR_44	"NULL05"	
-VAR_45	"nbuzuki"	
-VAR_46	"nfrink"	
-VAR_47	"RE_ENTER"	
 VAR_48	0	
 VAR_49	{ 0, 0 }	
-VAR_50	"nbuzuki"	
-VAR_51	"nfrink"	
-VAR_52	"RE_ENTER"	
 VAR_53	0	
 VAR_54	0	
 VAR_55	0
 
 ._on_load
-call play_bgm(var &VAR_0)
+call play_bgm("GNOCVP1")
 execute SCRIPT_4
 call load_sound_set(int 64)
 call play_loaded_sound(int 1, int -1, int 64, int 0)
@@ -158,7 +139,7 @@ if(gamevar script_time > var VAR_55)
 }
 
 ._SCRIPT_4
-var VAR_6 = call play_3d_fx(var &VAR_7, var &VAR_5, int 0, int 0)
+var VAR_6 = call play_3d_fx("FIRE", var &VAR_5, int 0, int 0)
 call remove_face(var &VAR_5)
 call play_loaded_sound(int 198, int -1, int 0, var &VAR_5)
 
@@ -173,15 +154,15 @@ if(gamevar *psys_p+1)
 }
 
 ._SCRIPT_6
-var VAR_8 = call load_anim(var &VAR_10)
-var VAR_9 = call load_anim(var &VAR_11)
+var VAR_8 = call load_anim("impread")
+var VAR_9 = call load_anim("dodgeb")
 
 ._SCRIPT_7
 if(gamevar *scene_info_p+4 & int 1)
  {
 		gamevar SMACKER_X = int 560
 		gamevar SMACKER_Y = int 176
-		call play_2d_anim(var &VAR_3, int 0, int 1, var &VAR_2)
+		call play_2d_anim("screen3", int 0, int 1, var &VAR_2)
 }
 else
  {
@@ -192,8 +173,8 @@ else
 
 ._SCRIPT_9
 execute SCRIPT_6
-var VAR_15 = call create_char(var &VAR_12, var &VAR_24, int 135, int 13)
-var VAR_16 = call create_char(var &VAR_13, var &VAR_25, int 60, int 13)
+var VAR_15 = call create_char(var &VAR_12, "nbuzuki", int 135, int 13)
+var VAR_16 = call create_char(var &VAR_13, "nfrink", int 60, int 13)
 var VAR_14 = call get_char_handle(int 65536)
 
 ._SCRIPT_10
@@ -207,7 +188,7 @@ if(var VAR_26 == int 0)
 		if(var VAR_27 > int 10)
 		 {
 				call set_input_system(int 2)
-				call func_18(var VAR_14, int 2244, int 625, int 6080)
+				call char_walk_to(var VAR_14, int 2244, int 625, int 6080)
 				call play_char_anim(var VAR_15, var VAR_8, int 0)
 				var VAR_26 ++ 
 				var VAR_27 = int 0
@@ -224,7 +205,7 @@ if(var VAR_26 == int 1)
 }
 if(var VAR_26 == int 2)
  {
-		call func_18(var VAR_14, int 1033, int 625, int 6512)
+		call char_walk_to(var VAR_14, int 1033, int 625, int 6512)
 		var VAR_26 ++ 
 		var VAR_27 = int 0
 }
@@ -289,7 +270,7 @@ if(var VAR_26 == int 9)
  {
 		if(var VAR_27 > int 60)
 		 {
-				call start_dialog(var &VAR_31, var &VAR_32)
+				call start_dialog("ISHBUZ", var &VAR_32)
 				var VAR_26 ++ 
 				var VAR_27 = int 0
 		}
@@ -347,10 +328,10 @@ switch(var VAR_33)
 			}
 			else
 			 {
-					call log(var &VAR_37)
+					call log("Door opened")
 					var VAR_2 = int 1
-					call log(var &VAR_38)
-					call play_loaded_sound(int 106, int 0, int 0, var &VAR_36)
+					call log("play door sound")
+					call play_loaded_sound(int 106, int 0, int 0, "")
 					call func_1(var VAR_15, int 8192)
 					call set_input_system(int 2)
 					var VAR_35 = call get_david_char()
@@ -407,7 +388,7 @@ switch(var VAR_41)
 		case 1
 			if(var VAR_42 > int 60)
 			 {
-					call start_dialog(var &VAR_43, var &VAR_44)
+					call start_dialog("BUZDVD", "NULL")
 					var VAR_41 ++ 
 					var VAR_42 = int 0
 			}
@@ -423,12 +404,12 @@ switch(var VAR_41)
 var VAR_42 ++ 
 
 ._SCRIPT_13
-var VAR_15 = call create_char(var &VAR_12, var &VAR_45, int 135, int 13)
-var VAR_16 = call create_char(var &VAR_13, var &VAR_46, int 60, int 13)
+var VAR_15 = call create_char(var &VAR_12, "nbuzuki", int 135, int 13)
+var VAR_16 = call create_char(var &VAR_13, "nfrink", int 60, int 13)
 call func_50(var VAR_15, int 8192)
 call play_char_ai_script(var VAR_15, var &VAR_17)
 var VAR_14 = call get_char_handle(int 65536)
-call func_108(var &VAR_47)
+call func_108("RE_ENTER")
 
 ._SCRIPT_14
 switch(var VAR_48)
@@ -452,12 +433,12 @@ switch(var VAR_48)
 var VAR_49 ++ 
 
 ._SCRIPT_15
-var VAR_15 = call create_char(var &VAR_12, var &VAR_50, int 135, int 13)
-var VAR_16 = call create_char(var &VAR_13, var &VAR_51, int 60, int 13)
+var VAR_15 = call create_char(var &VAR_12, "nbuzuki", int 135, int 13)
+var VAR_16 = call create_char(var &VAR_13, "nfrink", int 60, int 13)
 call func_50(var VAR_15, int 8192)
 call play_char_ai_script(var VAR_15, var &VAR_17)
 var VAR_14 = call get_char_handle(int 65536)
-call func_108(var &VAR_52)
+call func_108("RE_ENTER")
 
 ._SCRIPT_16
 

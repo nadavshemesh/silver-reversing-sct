@@ -1,7 +1,6 @@
 ._DATA
 VAR_0	0	
 VAR_1	{ 0, 0 }	
-VAR_2	"e_room_2"	
 VAR_3	0	
 VAR_4	0	
 VAR_5	0	
@@ -31,9 +30,6 @@ VAR_28	{ -80, 0, -2174 }
 VAR_29	{ -70, 0, -2479 }	
 VAR_30	{ 56, 0, -2700 }	
 VAR_31	0	
-VAR_32	"eroom3"	
-VAR_33	"outro"	
-VAR_34	"e_cori_2"	
 VAR_35	0	
 VAR_36	3	
 VAR_37	1	
@@ -90,7 +86,7 @@ execute SCRIPT_8
 ._SCRIPT_4
 gamevar SMACKER_X = int 0
 gamevar SMACKER_Y = int 128
-call play_2d_anim(var &VAR_2, int 0, int 0, var &VAR_0)
+call play_2d_anim("e_room_2", int 0, int 0, var &VAR_0)
 
 ._SCRIPT_5
 switch(var VAR_8)
@@ -110,7 +106,7 @@ switch(var VAR_8)
 							call char_teleport_to_pos(var VAR_5, var &VAR_30, int 270)
 							call char_stop(var VAR_5)
 					}
-					call func_cb(var &VAR_32)
+					call func_cb("eroom3")
 			}
 			break 
 		case 1
@@ -154,7 +150,7 @@ switch(var VAR_8)
 					 {
 							call func_47(var VAR_5, int 8192)
 					}
-					call func_e6(var &VAR_33, var &VAR_34, var &VAR_17, int 1)
+					call func_e6("outro", "e_cori_2", var &VAR_17, int 1)
 			}
 			break 
 }

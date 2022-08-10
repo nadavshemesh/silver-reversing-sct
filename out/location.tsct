@@ -10,21 +10,11 @@ VAR_7	0
 VAR_8	1	
 VAR_9	0	
 VAR_10	{ 1455, -3410, 10956, 974, -3410, 10870 }	
-VAR_11	"location"	
 VAR_12	0	
 VAR_13	0	
-VAR_14	"david"	
-VAR_15	"sekune"	
-VAR_16	"jug"	
-VAR_17	"vivienne"	
-VAR_18	"chiaro"	
-VAR_19	"cagen"	
-VAR_20	"WARNING! Unknown hero while checking heroes"	
-VAR_21	"Get a goober -- QUICKLY!!"	
 VAR_22	{ -3029, -3410, 12070 }	
 VAR_23	0	
 VAR_24	0	
-VAR_25	"ncagen"	
 VAR_26	0	
 VAR_27	{ 0, 0, 0 }	
 VAR_28	0	
@@ -33,19 +23,6 @@ VAR_30	0
 VAR_31	0	
 VAR_32	0	
 VAR_33	{ -4698, -3110, 12091 }	
-VAR_34	"C_HERCAG"	
-VAR_35	"NULL"	
-VAR_36	"C_CAGHER"	
-VAR_37	"NULL"	
-VAR_38	"C_CAGNO"	
-VAR_39	"NULL"	
-VAR_40	"C_CAGYES"	
-VAR_41	"NULL"	
-VAR_42	"C_CAGSEK"	
-VAR_43	"NULL"	
-VAR_44	"C_CAGVIV"	
-VAR_45	"NULL"	
-VAR_46	"C_CAGJUG"	
 VAR_47	{ 1280070990, -1431655936, 0 }	
 VAR_48	0
 
@@ -120,32 +97,32 @@ while(var VAR_12)
 		switch(var VAR_13)
 		 {
 				case 65536
-					call log(var &VAR_14)
+					call log("david")
 					var VAR_0 = var VAR_12
 					break 
 				case 786432
-					call log(var &VAR_15)
+					call log("sekune")
 					var VAR_2 = var VAR_12
 					break 
 				case 327680
-					call log(var &VAR_16)
+					call log("jug")
 					var VAR_1 = var VAR_12
 					break 
 				case 196608
-					call log(var &VAR_17)
+					call log("vivienne")
 					var VAR_3 = var VAR_12
 					break 
 				case 131072
-					call log(var &VAR_18)
+					call log("chiaro")
 					var VAR_4 = var VAR_12
 					break 
 				case 262144
-					call log(var &VAR_19)
+					call log("cagen")
 					var VAR_5 = var VAR_12
 					break 
 				default 
-					call log(var &VAR_20)
-					call log(var &VAR_21)
+					call log("WARNING! Unknown hero while checking heroes")
+					call log("Get a goober -- QUICKLY!!")
 					break 
 		}
 		var VAR_12 = call func_7e()
@@ -154,7 +131,7 @@ while(var VAR_12)
 ._SCRIPT_4
 gamevar SMACKER_X = int 96
 gamevar SMACKER_Y = int 272
-call play_2d_anim(var &VAR_11, int 1, int 0, int 0)
+call play_2d_anim("location", int 1, int 0, int 0)
 
 ._SCRIPT_5
 switch(var VAR_26)
@@ -173,11 +150,11 @@ switch(var VAR_26)
 			 {
 					if(var VAR_2)
 					 {
-							call start_dialog(var &VAR_34, var &VAR_35)
+							call start_dialog("C_HERCAG", "NULL")
 					}
 					else
 					 {
-							call start_dialog(var &VAR_36, var &VAR_37)
+							call start_dialog("C_CAGHER", "NULL")
 					}
 					var VAR_26 ++ 
 					var VAR_27 = int 0
@@ -207,12 +184,12 @@ switch(var VAR_26)
 		case 3
 			if(var VAR_28)
 			 {
-					call start_dialog(var &VAR_38, var &VAR_39)
+					call start_dialog("C_CAGNO", "NULL")
 					var VAR_26 = int 5
 			}
 			else
 			 {
-					call start_dialog(var &VAR_40, var &VAR_41)
+					call start_dialog("C_CAGYES", "NULL")
 					var VAR_26 ++ 
 			}
 			var VAR_27 = int 0
@@ -222,19 +199,19 @@ switch(var VAR_26)
 			 {
 					if(var VAR_29)
 					 {
-							call start_dialog(var &VAR_42, var &VAR_43)
+							call start_dialog("C_CAGSEK", "NULL")
 					}
 					else
 					 {
 							if(var VAR_30)
 							 {
-									call start_dialog(var &VAR_44, var &VAR_45)
+									call start_dialog("C_CAGVIV", "NULL")
 							}
 							else
 							 {
 									if(var VAR_31)
 									 {
-											call start_dialog(var &VAR_46, var &VAR_47)
+											call start_dialog("C_CAGJUG", var &VAR_47)
 									}
 							}
 					}
@@ -263,7 +240,7 @@ switch(var VAR_26)
 var VAR_27 ++ 
 
 ._SCRIPT_6
-var VAR_5 = call create_char(var &VAR_22, var &VAR_25, int 251, int 13)
+var VAR_5 = call create_char(var &VAR_22, "ncagen", int 251, int 13)
 var VAR_23 = call get_char_handle(int 65536)
 gamevar script_object = var VAR_23
 var VAR_24 = gamevar LEVEL

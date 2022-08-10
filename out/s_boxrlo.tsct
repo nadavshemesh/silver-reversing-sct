@@ -4,12 +4,9 @@ VAR_1	{ 1273, -1375, -1563 }
 VAR_2	0	
 VAR_3	{ VAR_4, 0, 0, 5, 0, 0 }	
 VAR_4	"stdstill"	
-VAR_5	"npriest"	
 VAR_6	0	
 VAR_7	0	
 VAR_8	0	
-VAR_9	"s_boxrlo"	
-VAR_10	"s_boxrl2"	
 VAR_11	0	
 VAR_12	0	
 VAR_13	0	
@@ -130,7 +127,7 @@ switch(var VAR_7)
 var VAR_8 ++ 
 
 ._SCRIPT_5
-var VAR_2 = call create_char(var &VAR_1, var &VAR_5, int 62, int 13)
+var VAR_2 = call create_char(var &VAR_1, "npriest", int 62, int 13)
 call load_char_anim(var VAR_2, var &VAR_3)
 
 ._SCRIPT_6
@@ -140,9 +137,9 @@ call load_char_anim(var VAR_2, var &VAR_3)
 ._SCRIPT_8
 gamevar SMACKER_X = int 396
 gamevar SMACKER_Y = int 144
-call play_2d_anim(var &VAR_9, int 1, int 0, int 0)
+call play_2d_anim("s_boxrlo", int 1, int 0, int 0)
 gamevar SMACKER_X = int 496
 gamevar SMACKER_Y = int 156
-call play_2d_anim(var &VAR_10, int 1, int 1, int 0)
+call play_2d_anim("s_boxrl2", int 1, int 1, int 0)
 
 ._SCRIPT_9

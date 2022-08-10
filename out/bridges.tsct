@@ -2,8 +2,6 @@
 VAR_0	0	
 VAR_1	{ -5541, 1978, 3772 }	
 VAR_2	{ 3737, 1978, -6150 }	
-VAR_3	"SNOW"	
-VAR_4	"sentry"	
 VAR_5	0	
 VAR_6	0	
 VAR_7	0	
@@ -24,7 +22,6 @@ VAR_21	{ 0, 809, -1200, 466, 0, 689, -1199, 3719, 7, 8 }
 VAR_22	{ 0, 416, -1200, 496, 0, 326, -1199, 3821, 7, 8 }	
 VAR_23	{ 4500, -2394, 1157, 5223, -2394, 1463 }	
 VAR_24	{ 1934, -2394, 3047, 3063, -2394, 3736 }	
-VAR_25	"wamper"	
 VAR_26	{ 4961, -2394, -1098, 2328, -2394, -1432 }	
 VAR_27	{ 0, 1, 2, VAR_26, 8, 1, 1, 1, 5, 5, -1, 4, 0, 9, 0, 5, 1, 25, 50, 6, 1, 7, 1, 1, 10, 45, 45, -1, -1 }	
 VAR_28	{ 4476, -2394, 2140, 4130, -2394, 1813, 5433, -2394, -115 }	
@@ -33,12 +30,7 @@ VAR_30	{ 2016, -2394, 4208, 2523, -2394, 4471 }
 VAR_31	{ 0, 1, 2, VAR_30, 8, 1, 1, 1, 5, 5, -1, 4, 0, 9, 0, 5, 1, 25, 50, 6, 1, 7, 1, 1, -1 }	
 VAR_32	0	
 VAR_33	0	
-VAR_34	"sentry_patrol"	
 VAR_35	0	
-VAR_36	"wamper"	
-VAR_37	"snowsprt"	
-VAR_38	"sentry"	
-VAR_39	"leopard"	
 VAR_40	{ 0, 0 }	
 VAR_41	{ 5, 60, 0, 473, -1200, -136, 1, VAR_35, 8 }	
 VAR_42	{ 5, 60, 1, VAR_35, 8 }	
@@ -124,7 +116,7 @@ if(gamevar !is_room_cleared)
 }
 
 ._SCRIPT_3
-call play_3d_fx(var &VAR_3, var &VAR_1, var &VAR_2, int 0)
+call play_3d_fx("SNOW", var &VAR_1, var &VAR_2, int 0)
 
 ._SCRIPT_4
 if(gamevar script_time > var VAR_60)
@@ -153,7 +145,7 @@ if(var VAR_32 == int 0)
 if(var VAR_32 == int 1)
  {
 		execute SCRIPT_9
-		call log(var &VAR_34)
+		call log("sentry_patrol")
 		var VAR_32 = int 2
 }
 if(var VAR_32 == int 2)
@@ -204,14 +196,14 @@ if(var VAR_32 == int 6)
 }
 
 ._SCRIPT_6
-call load_char(var &VAR_25)
+call load_char("wamper")
 
 ._SCRIPT_7
 
 ._SCRIPT_8
 
 ._SCRIPT_9
-call load_char(var &VAR_4)
+call load_char("sentry")
 var VAR_5 = call create_enemy(int 56, int 0, var &VAR_11, int 165)
 call add_item_to_char(var VAR_5, int 43, int 1, int 0)
 var VAR_6 = call create_enemy(int 56, int 1, var &VAR_12, int 165)
@@ -253,10 +245,10 @@ call func_50(var VAR_10, int 131)
 
 ._SCRIPT_10
 var VAR_35 = call get_david_char()
-call load_char(var &VAR_36)
-call load_char(var &VAR_37)
-call load_char(var &VAR_38)
-call load_char(var &VAR_39)
+call load_char("wamper")
+call load_char("snowsprt")
+call load_char("sentry")
+call load_char("leopard")
 var VAR_40 = call func_6f()
 switch(var VAR_40)
  {

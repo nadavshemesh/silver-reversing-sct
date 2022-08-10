@@ -7,7 +7,6 @@ VAR_4	0
 VAR_5	0	
 VAR_6	0	
 VAR_7	0	
-VAR_8	"random_rain_fx: Rain SFX not initialised! See Marc"	
 VAR_9	0	
 VAR_10	0	
 VAR_11	0	
@@ -17,11 +16,8 @@ VAR_14	0
 VAR_15	0	
 VAR_16	0	
 VAR_17	{ 0, 0 }	
-VAR_18	"it's_raining"	
 VAR_19	{ 3900, 4254, 7525 }	
 VAR_20	{ 6850, 4254, -8625 }	
-VAR_21	"RAIN"	
-VAR_22	"rain_loc"	
 VAR_23	{ 1, -1 }	
 VAR_24	0	
 VAR_25	0	
@@ -45,23 +41,7 @@ VAR_42	{ -4831, -1115, 1593 }
 VAR_43	{ -5035, -1115, 1980 }	
 VAR_44	{ -4850, -1115, 1443 }	
 VAR_45	{ -4933, -1115, 1783 }	
-VAR_46	"hsekune"	
-VAR_47	"njohn"	
-VAR_48	"nben"	
-VAR_49	"nduke"	
-VAR_50	"nwilliam"	
-VAR_51	"nclay"	
-VAR_52	"nrichard"	
-VAR_53	"nfatbob"	
 VAR_54	-1	
-VAR_55	"S_DukTwo"	
-VAR_56	"NULL"	
-VAR_57	"break1"	
-VAR_58	"break2"	
-VAR_59	"break3"	
-VAR_60	"break4"	
-VAR_61	"break1_conv2"	
-VAR_62	"break1_otherconv2"
 
 ._on_load
 execute SCRIPT_3
@@ -124,8 +104,8 @@ if(gamevar !is_room_cleared)
 }
 
 ._SCRIPT_3
-call log(var &VAR_18)
-call play_3d_fx(var &VAR_21, var &VAR_19, var &VAR_20, int 0)
+call log("it's_raining")
+call play_3d_fx("RAIN", var &VAR_19, var &VAR_20, int 0)
 execute SCRIPT_10
 
 ._SCRIPT_4
@@ -139,7 +119,7 @@ if(var VAR_24 == int 0)
 		var VAR_25 ++ 
 		if(var VAR_25 > int 160)
 		 {
-				call start_dialog(var &VAR_55, var &VAR_56)
+				call start_dialog("S_DukTwo", "NULL")
 				var VAR_24 ++ 
 				var VAR_25 = int 0
 		}
@@ -150,8 +130,8 @@ if(var VAR_24 == int 1)
 		 {
 				if(call func_6d() == int 1)
 				 {
-						call log(var &VAR_57)
-						call func_18(var VAR_31, int -5511, int -1115, int 1957)
+						call log("break1")
+						call char_walk_to(var VAR_31, int -5511, int -1115, int 1957)
 						call func_2b(var VAR_32, int 0)
 						call func_2b(var VAR_33, int 0)
 						call resume_conversation()
@@ -166,7 +146,7 @@ if(var VAR_24 == int 2)
 		 {
 				if(call func_6d() == int 2)
 				 {
-						call log(var &VAR_58)
+						call log("break2")
 						call func_2b(var VAR_28, int 0)
 						call func_2b(var VAR_29, int 0)
 						call resume_conversation()
@@ -181,7 +161,7 @@ if(var VAR_24 == int 3)
 		 {
 				if(call func_6d() == int 3)
 				 {
-						call log(var &VAR_59)
+						call log("break3")
 						call func_2b(var VAR_34, int 0)
 						call resume_conversation()
 						var VAR_24 ++ 
@@ -195,7 +175,7 @@ if(var VAR_24 == int 4)
 		 {
 				if(call func_6d() == int 4)
 				 {
-						call log(var &VAR_60)
+						call log("break4")
 						call set_char_running(var VAR_31)
 						call func_2b(var VAR_31, int 0)
 						call func_2b(var VAR_30, int 0)
@@ -239,7 +219,7 @@ if(var VAR_24 == int 12)
  {
 		if(call func_6d() == int 1)
 		 {
-				call log(var &VAR_61)
+				call log("break1_conv2")
 				call resume_conversation()
 				var VAR_24 ++ 
 				var VAR_25 = int 0
@@ -249,7 +229,7 @@ if(var VAR_24 == int 13)
  {
 		if(call func_6d() == int 1)
 		 {
-				call log(var &VAR_62)
+				call log("break1_otherconv2")
 				call resume_conversation()
 				var VAR_24 ++ 
 				var VAR_25 = int 0
@@ -257,7 +237,7 @@ if(var VAR_24 == int 13)
 }
 
 ._SCRIPT_5
-var VAR_27 = call create_char(var &VAR_38, var &VAR_46, int 265, int 13)
+var VAR_27 = call create_char(var &VAR_38, "hsekune", int 265, int 13)
 call add_item_to_char(var VAR_27, int 10, int 0, int 1)
 call func_15(int 1, int 10)
 call add_item_to_char(var VAR_27, int 8, int 0, int 0)
@@ -266,13 +246,13 @@ gamevar script_object = var VAR_36
 var VAR_37 = gamevar LEVEL
 call func_10a(var VAR_27, var VAR_37)
 call func_7d(var VAR_36)
-var VAR_28 = call create_char(var &VAR_39, var &VAR_47, int 197, int 13)
-var VAR_29 = call create_char(var &VAR_40, var &VAR_48, int 275, int 13)
-var VAR_30 = call create_char(var &VAR_41, var &VAR_49, int 70, int 13)
-var VAR_31 = call create_char(var &VAR_42, var &VAR_50, int 250, int 13)
-var VAR_32 = call create_char(var &VAR_43, var &VAR_51, int 204, int 13)
-var VAR_33 = call create_char(var &VAR_44, var &VAR_52, int 230, int 13)
-var VAR_34 = call create_char(var &VAR_45, var &VAR_53, int 260, int 13)
+var VAR_28 = call create_char(var &VAR_39, "njohn", int 197, int 13)
+var VAR_29 = call create_char(var &VAR_40, "nben", int 275, int 13)
+var VAR_30 = call create_char(var &VAR_41, "nduke", int 70, int 13)
+var VAR_31 = call create_char(var &VAR_42, "nwilliam", int 250, int 13)
+var VAR_32 = call create_char(var &VAR_43, "nclay", int 204, int 13)
+var VAR_33 = call create_char(var &VAR_44, "nrichard", int 230, int 13)
+var VAR_34 = call create_char(var &VAR_45, "nfatbob", int 260, int 13)
 call set_char_running(var VAR_28)
 call set_char_running(var VAR_29)
 call set_char_running(var VAR_32)
@@ -292,7 +272,7 @@ gamevar door_restriction_p = var &VAR_23
 ._SCRIPT_9
 gamevar SMACKER_X = int 336
 gamevar SMACKER_Y = int 288
-call play_2d_anim(var &VAR_22, int 1, int 1, int 0)
+call play_2d_anim("rain_loc", int 1, int 1, int 0)
 
 ._SCRIPT_10
 call load_sound_set(int 25)
@@ -305,7 +285,7 @@ var VAR_0 = int 1
 ._SCRIPT_11
 if(var ! VAR_0)
  {
-		call log(var &VAR_8)
+		call log("random_rain_fx: Rain SFX not initialised! See Marc")
 		exit_script 
 }
 switch(var VAR_4)

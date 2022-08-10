@@ -7,7 +7,6 @@ VAR_4	0
 VAR_5	0	
 VAR_6	0	
 VAR_7	0	
-VAR_8	"random_rain_fx: Rain SFX not initialised! See Marc"	
 VAR_9	0	
 VAR_10	0	
 VAR_11	0	
@@ -27,8 +26,6 @@ VAR_24	0
 VAR_25	{ -4098, -1077, 886 }	
 VAR_26	0	
 VAR_27	{ -4112, -1077, 195 }	
-VAR_28	"nsguard1"	
-VAR_29	"nsguard2"	
 VAR_30	{ 5, 120, 3, VAR_31, 0, 0, -4734, -1078, 2251, 3, VAR_32, 0, 0, -4991, -1078, 1023, 3, VAR_33, 0, 0, -4863, -1078, 632, 0, -4098, -1078, 886, 2, -4580, -1078, 579, 8 }	
 VAR_31	"lookout"	
 VAR_32	"lookout"	
@@ -104,8 +101,8 @@ if(var VAR_18)
 
 ._SCRIPT_5
 call func_49()
-var VAR_24 = call create_char(var &VAR_25, var &VAR_28, int 220, int 13)
-var VAR_26 = call create_char(var &VAR_27, var &VAR_29, int 300, int 13)
+var VAR_24 = call create_char(var &VAR_25, "nsguard1", int 220, int 13)
+var VAR_26 = call create_char(var &VAR_27, "nsguard2", int 300, int 13)
 gamevar script_object = var VAR_24
 gamevar *object_p+6 |= int 1
 gamevar script_object = var VAR_26
@@ -152,7 +149,7 @@ var VAR_0 = int 1
 ._SCRIPT_12
 if(var ! VAR_0)
  {
-		call log(var &VAR_8)
+		call log("random_rain_fx: Rain SFX not initialised! See Marc")
 		exit_script 
 }
 switch(var VAR_4)

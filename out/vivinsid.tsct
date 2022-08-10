@@ -2,26 +2,12 @@
 VAR_0	0	
 VAR_1	0	
 VAR_2	{ 1741, 780, -5140 }	
-VAR_3	"NVIVIENNE"	
 VAR_4	0	
 VAR_5	0	
 VAR_6	0	
 VAR_7	0	
 VAR_8	{ 1780, 780, -6340 }	
 VAR_9	-1	
-VAR_10	"V_DVDSEK"	
-VAR_11	"NULL"	
-VAR_12	"V_DVDJUG"	
-VAR_13	"NULL"	
-VAR_14	"V_DVDCHI"	
-VAR_15	"NULL"	
-VAR_16	"V_DVDCAG"	
-VAR_17	"NULL"	
-VAR_18	"VERDANTE"	
-VAR_19	"VIVHOUSE"	
-VAR_20	"VERDANTE"	
-VAR_21	"VIVHOUSE"	
-VAR_22	"Wandering monsters"	
 VAR_23	0	
 VAR_24	10	
 VAR_25	2	
@@ -78,7 +64,7 @@ switch(var VAR_4)
 		case 1
 			if(var VAR_5 > int 50)
 			 {
-					call func_18(var VAR_1, int 1835, int 780, int -5225)
+					call char_walk_to(var VAR_1, int 1835, int 780, int -5225)
 					var VAR_4 ++ 
 					var VAR_5 = int 0
 			}
@@ -100,16 +86,16 @@ switch(var VAR_4)
 							switch(var VAR_7)
 							 {
 									case 786432
-										call start_dialog(var &VAR_10, var &VAR_11)
+										call start_dialog("V_DVDSEK", "NULL")
 										break 
 									case 327680
-										call start_dialog(var &VAR_12, var &VAR_13)
+										call start_dialog("V_DVDJUG", "NULL")
 										break 
 									case 131072
-										call start_dialog(var &VAR_14, var &VAR_15)
+										call start_dialog("V_DVDCHI", "NULL")
 										break 
 									case 262144
-										call start_dialog(var &VAR_16, var &VAR_17)
+										call start_dialog("V_DVDCAG", "NULL")
 										break 
 							}
 							var VAR_6 = int 0
@@ -153,21 +139,21 @@ switch(var VAR_4)
 			 {
 					var VAR_4 ++ 
 					var VAR_5 = int 0
-					call set_scene_overwrite_act(var &VAR_18, var &VAR_19, int 0)
-					call func_e6(var &VAR_20, var &VAR_21, var &VAR_8, int 2)
+					call set_scene_overwrite_act("VERDANTE", "VIVHOUSE", int 0)
+					call func_e6("VERDANTE", "VIVHOUSE", var &VAR_8, int 2)
 			}
 			break 
 }
 var VAR_5 ++ 
 
 ._SCRIPT_4
-var VAR_0 = call create_char(var &VAR_2, var &VAR_3, int 290, int 13)
+var VAR_0 = call create_char(var &VAR_2, "NVIVIENNE", int 290, int 13)
 call add_item_to_char(var VAR_0, int 17, int 0, int 1)
 var VAR_1 = call get_char_handle(int 65536)
 call set_input_system(int 2)
 
 ._SCRIPT_5
-call log(var &VAR_22)
+call log("Wandering monsters")
 
 ._SCRIPT_6
 if(var VAR_23 > var VAR_24)

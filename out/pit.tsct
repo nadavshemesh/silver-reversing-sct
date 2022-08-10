@@ -1,8 +1,4 @@
 ._DATA
-VAR_0	"DeadIn1"	
-VAR_1	"pit1"	
-VAR_2	"pit2"	
-VAR_3	"pit"	
 VAR_4	0	
 VAR_5	0	
 VAR_6	{ -2255, -1450, 5430 }	
@@ -15,14 +11,8 @@ VAR_12	{ 0, -1292, -1450, 3030, 0, -2230, -1450, 2580, 0, -1270, -1450, 3100, 0,
 VAR_13	0	
 VAR_14	{ -1900, 1000, 3800, -1800, 1200, 3900 }	
 VAR_15	{ 0, 1, 2, VAR_14, 8, 2, 4, 0, 9, 1, 1, 1, 47, 47, -1, 5, 1, 5, 50, 6, 1, 7, 1, 1, -1 }	
-VAR_16	"bat"	
 VAR_17	0	
 VAR_18	0	
-VAR_19	"hit path target"	
-VAR_20	"boney"	
-VAR_21	"skel"	
-VAR_22	"death"	
-VAR_23	"wraith"	
 VAR_24	0	
 VAR_25	0	
 VAR_26	{ 0, -2230, -1450, 5128, 2, -3918, -2375, 4169, 8 }	
@@ -41,9 +31,9 @@ VAR_38	{ -2821, -1750, 2377, -2126, -1450, 2658, -3572, -2100, 2294, -2913, -175
 VAR_39	{ 0, 1, 4, VAR_38, 8, 2, 4, 0, 9, 0, 1, 3, 68, -1, 5, 1, 30, 100, 6, 1, 7, 1, 2, -1 }
 
 ._on_load
-call func_b8(int 93)
-call func_b8(int 111)
-call play_bgm(var &VAR_0)
+call load_item(int 93)
+call load_item(int 111)
+call play_bgm("DeadIn1")
 if(gamevar is_room_cleared)
  {
 		execute SCRIPT_7
@@ -64,13 +54,13 @@ else
 }
 gamevar SMACKER_X = int 208
 gamevar SMACKER_Y = int 64
-call play_2d_anim(var &VAR_1, int 1, int 1, int 0)
+call play_2d_anim("pit1", int 1, int 1, int 0)
 gamevar SMACKER_X = int 288
 gamevar SMACKER_Y = int 40
-call play_2d_anim(var &VAR_2, int 1, int 1, int 0)
+call play_2d_anim("pit2", int 1, int 1, int 0)
 gamevar SMACKER_X = int 264
 gamevar SMACKER_Y = int 312
-call play_2d_anim(var &VAR_3, int 1, int 1, int 0)
+call play_2d_anim("pit", int 1, int 1, int 0)
 call load_sound_set(int 30)
 var VAR_4 = call play_loaded_sound(int 1, int -1, int 30, int 0)
 call set_sound_volume(var VAR_4, int 60)
@@ -121,7 +111,7 @@ switch(var VAR_17)
 			 {
 					if(call is_char_handle_in_level(int 5439488))
 					 {
-							call func_18(var VAR_5, int -2740, int -1746, int 4452)
+							call char_walk_to(var VAR_5, int -2740, int -1746, int 4452)
 					}
 					var VAR_18 = int 0
 					var VAR_17 ++ 
@@ -132,7 +122,7 @@ switch(var VAR_17)
 			 {
 					if(call is_char_standing(var VAR_5))
 					 {
-							call log(var &VAR_19)
+							call log("hit path target")
 							call func_36(var VAR_5, int -4340, int -2100, int 3540)
 							var VAR_17 ++ 
 					}
@@ -174,17 +164,17 @@ call func_106(var VAR_7, int 1, int 0, int 3)
 call func_106(var VAR_9, int 1, int 0, int 3)
 call func_50(var VAR_7, int 3)
 call func_50(var VAR_9, int 3)
-call load_char(var &VAR_16)
+call load_char("bat")
 
 ._SCRIPT_5
 
 ._SCRIPT_6
 
 ._SCRIPT_7
-call load_char(var &VAR_20)
-call load_char(var &VAR_21)
-call load_char(var &VAR_22)
-call load_char(var &VAR_23)
+call load_char("boney")
+call load_char("skel")
+call load_char("death")
+call load_char("wraith")
 var VAR_24 = call func_6f()
 var VAR_25 = call randomize_int(int 0, int 3)
 if(var ! VAR_25)

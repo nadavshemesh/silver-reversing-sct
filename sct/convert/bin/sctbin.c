@@ -116,6 +116,7 @@ void build_data_from_link_table(sct_f* sct) {
     for(int i=0, j=0; i < ds_size; i++) {
         if(ref_count[i] > 0) {
             data_arr[j].id = i;
+            data_arr[j].ignore = false;
             // printf("data id: %08x\n", i);
             data_arr[j].references = ref_count[i];
             // printf("ref count: %d\n", ref_count[i]);
@@ -408,6 +409,11 @@ expr_obj* bin_read_function_call_expr(expr_pattern* expr_p, int* vars, void** to
     return e_obj;
 }
 
+void ignore_data_obj(data_obj* data_o, sct_f* sf) {
+    data_o->ignore = true;
+    sf->structure->data_sec_size -= data_o->byte_size; 
+}
+
 expr_obj* bin_create_expr_obj(expr_pattern* expr, int* vars, void** token_pos_ptr, sct_f* sf) {
     expr_obj* eo = create_and_init_expr_obj();
 
@@ -441,12 +447,32 @@ expr_obj* bin_create_expr_obj(expr_pattern* expr, int* vars, void** token_pos_pt
         case VAR_PTR:
         case ADDROF_VAR_PTR:
             data = get_data_obj_by_id(data_var, sf);
+
+            // check if can convert to inline string
+            if(is_string(data->data, data->byte_size) && data->references == 1) {
+                expr_pattern* ep = init_aid_expr_inline_data();
+                
+                eo->expr_p = ep;
+                eo->data = data;
+
+                char str[256];
+                sprintf(str, "\"%s\"", (char*) data->data);
+                char* asm_vars = { aapts(str) };
+                eo->asm_vars = w_malloc(asm_var_num*sizeof(char*));
+                memcpy(eo->asm_vars, &asm_vars, asm_var_num*sizeof(char*));
+
+                ignore_data_obj(data, sf);
+
+                return eo;
+            }
+
             if(expr->type == DATA_INDEX_PTR) {
                 expression* exp = bin_read_expression(token_pos_ptr, true, sf);
                 eo->expression_node_num = 1;
                 eo->expression_nodes = w_malloc(sizeof(node*));
                 *eo->expression_nodes = create_node(exp);
             }
+            data->references++;
             break;
 
         case GAME_VAR: {

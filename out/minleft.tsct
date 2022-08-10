@@ -1,9 +1,6 @@
 ._DATA
 VAR_0	0	
-VAR_1	"minleft"	
 VAR_2	{ 0, 0, 1, 0, -1, 8, 1, 4, 0, 9, 2, 1, 3, 75, 75, -1, 5, 0, 50, 6, 1, 7, 1, 1, 10, 42, 43, 40, -1, -1 }	
-VAR_3	"fastmonk"	
-VAR_4	"mystmonk"	
 VAR_5	{ -3291, 800, -1207 }	
 VAR_6	{ -1728, 800, -1869 }	
 VAR_7	{ -2114, 800, -903 }	
@@ -98,7 +95,7 @@ gamevar compile_init_character = int 1
 ._SCRIPT_4
 gamevar SMACKER_X = int 312
 gamevar SMACKER_Y = int 40
-call play_2d_anim(var &VAR_1, int 1, int 0, int 0)
+call play_2d_anim("minleft", int 1, int 0, int 0)
 
 ._SCRIPT_5
 if(var VAR_19 != var VAR_13)
@@ -140,8 +137,8 @@ switch(var VAR_13)
 var VAR_14 ++ 
 
 ._SCRIPT_6
-call load_char(var &VAR_3)
-call load_char(var &VAR_4)
+call load_char("fastmonk")
+call load_char("mystmonk")
 
 ._SCRIPT_7
 

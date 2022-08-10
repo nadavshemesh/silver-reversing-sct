@@ -29,16 +29,12 @@ VAR_26	0
 VAR_27	{ 2492, 4381, -4951, 0 }	
 VAR_28	0	
 VAR_29	{ 1667329122, 1802658667, 0 }	
-VAR_30	"METALON"	
-VAR_31	"lmetalon"	
 VAR_32	{ 1667329122, 1852399467, 0 }	
 VAR_33	{ 1952804204, 1852796001, 0 }	
-VAR_34	"black_3"	
 VAR_35	0	
 VAR_36	{ 0, 0 }	
 VAR_37	{ 0, 0, 0 }	
 VAR_38	{ 1667329122, 1852399467, 0 }	
-VAR_39	"blackfad"	
 VAR_40	0	
 VAR_41	{ 0, 12 }	
 VAR_42	{ 2069, 4041, -4026 }	
@@ -49,21 +45,14 @@ VAR_46	0
 VAR_47	0	
 VAR_48	0	
 VAR_49	0	
-VAR_50	"lmetalon"	
-VAR_51	"black_3"	
 VAR_52	0	
 VAR_53	0	
-VAR_54	"lmetalon"	
-VAR_55	"black_3"	
 VAR_56	{ 1952804204, 1852796001, 0 }	
 VAR_57	{ 1667329122, 1852399467, 0 }	
 VAR_58	0	
 VAR_59	0	
 VAR_60	{ 1162626388, 1414680400, 0 }	
-VAR_61	"lmetalon"	
-VAR_62	"black_3"	
 VAR_63	{ 1952804204, 1852796001, 0 }	
-VAR_64	"black_in"	
 VAR_65	0	
 VAR_66	0	
 VAR_67	0
@@ -83,7 +72,7 @@ call play_loaded_sound(int 5, int -1, int 65, int 0)
 gamevar SMACKER_X = int 204
 gamevar SMACKER_Y = int 592
 call play_2d_anim(var &VAR_29, int 1, int 1, int 0)
-call play_bgm(var &VAR_30)
+call play_bgm("METALON")
 if(gamevar is_room_cleared)
  {
 		execute SCRIPT_10
@@ -127,8 +116,8 @@ else
 ._on_exit
 if(var VAR_22 == int 1)
  {
-		call set_scene_overwrite_act(var &VAR_31, var &VAR_32, int 0)
-		call func_116(var &VAR_33, var &VAR_34, int 2)
+		call set_scene_overwrite_act("lmetalon", var &VAR_32, int 0)
+		call func_116(var &VAR_33, "black_3", int 2)
 		gamevar room_state = int 2
 }
 if(gamevar !is_room_cleared&&var VAR_22 == int 0)
@@ -157,7 +146,7 @@ if(gamevar !is_room_cleared&&var VAR_22 == int 0)
 			gamevar SMACKER_X = int 308
 			gamevar SMACKER_Y = int 324
 			call play_2d_anim(var &VAR_38, int 1, int 1, var &VAR_37)
-			call play_2d_anim(var &VAR_39, int -2147483, int 1, var &VAR_35)
+			call play_2d_anim("blackfad", int -2147483, int 1, var &VAR_35)
 			gamevar use_mouse_override_sprite = int 410
 			if(var VAR_15)
 			 {
@@ -202,9 +191,9 @@ if(gamevar !is_room_cleared&&var VAR_22 == int 0)
 							 {
 									call set_input_system(int 2)
 									call set_char_running(var VAR_20)
-									call func_18(var VAR_20, int 2126, int 4042, int -4935)
+									call char_walk_to(var VAR_20, int 2126, int 4042, int -4935)
 									var VAR_48 ++ 
-									call func_ff(var &VAR_27)
+									call force_scroll_to_pos(var &VAR_27)
 							}
 							else
 							 {
@@ -255,7 +244,7 @@ if(gamevar !is_room_cleared&&var VAR_22 == int 0)
 					if(var VAR_49 == int 160)
 					 {
 							call func_7d(var VAR_20)
-							call func_ff(var &VAR_6)
+							call force_scroll_to_pos(var &VAR_6)
 							call func_36(var VAR_20, int 1845, int 2845, int -4950)
 					}
 					if(var VAR_49 > int 300)
@@ -309,7 +298,7 @@ if(gamevar !is_room_cleared&&var VAR_22 == int 0)
 							if(var VAR_49 > int 100)
 							 {
 									var VAR_48 ++ 
-									call func_e6(var &VAR_50, var &VAR_51, var &VAR_0, int 2)
+									call func_e6("lmetalon", "black_3", var &VAR_0, int 2)
 							}
 					}
 			}
@@ -409,7 +398,7 @@ if(gamevar !is_room_cleared&&var VAR_22 == int 0)
 							if(var VAR_53 > int 100)
 							 {
 									var VAR_52 ++ 
-									call func_e6(var &VAR_54, var &VAR_55, var &VAR_0, int 2)
+									call func_e6("lmetalon", "black_3", var &VAR_0, int 2)
 									call set_scene_overwrite_act(var &VAR_56, var &VAR_57, int 0)
 							}
 					}
@@ -429,10 +418,10 @@ if(gamevar !is_room_cleared&&var VAR_22 == int 0)
 							call set_input_system(int 2)
 							var VAR_20 = call get_selected_hero()
 							call set_char_running(var VAR_20)
-							call func_18(var VAR_20, int 2126, int 4042, int -4935)
+							call char_walk_to(var VAR_20, int 2126, int 4042, int -4935)
 							var VAR_58 ++ 
 							gamevar global_zone_type = int 0
-							call func_ff(var &VAR_27)
+							call force_scroll_to_pos(var &VAR_27)
 					}
 			}
 			if(var VAR_58 == int 1)
@@ -492,7 +481,7 @@ if(gamevar !is_room_cleared&&var VAR_22 == int 0)
 					var VAR_59 ++ 
 					if(var VAR_59 == int 160)
 					 {
-							call func_ff(var &VAR_6)
+							call force_scroll_to_pos(var &VAR_6)
 							call func_36(var VAR_20, int 1845, int 2845, int -4950)
 					}
 					if(var VAR_59 > int 300)
@@ -547,8 +536,8 @@ if(gamevar !is_room_cleared&&var VAR_22 == int 0)
 							if(var VAR_59 > int 100)
 							 {
 									var VAR_58 ++ 
-									call func_e6(var &VAR_61, var &VAR_62, var &VAR_0, int 2)
-									call set_scene_overwrite_act(var &VAR_63, var &VAR_64, int 0)
+									call func_e6("lmetalon", "black_3", var &VAR_0, int 2)
+									call set_scene_overwrite_act(var &VAR_63, "black_in", int 0)
 							}
 					}
 			}
@@ -575,7 +564,7 @@ if(gamevar script_time > var VAR_67)
 gamevar SMACKER_X = int 308
 gamevar SMACKER_Y = int 324
 call play_2d_anim(var &VAR_38, int 1, int 1, var &VAR_37)
-call play_2d_anim(var &VAR_39, int -2147483, int 1, var &VAR_35)
+call play_2d_anim("blackfad", int -2147483, int 1, var &VAR_35)
 gamevar use_mouse_override_sprite = int 410
 
 ._SCRIPT_5
@@ -612,9 +601,9 @@ if(var VAR_48 == int 0&&call get_num_of_enemies() == int 0)
 				 {
 						call set_input_system(int 2)
 						call set_char_running(var VAR_20)
-						call func_18(var VAR_20, int 2126, int 4042, int -4935)
+						call char_walk_to(var VAR_20, int 2126, int 4042, int -4935)
 						var VAR_48 ++ 
-						call func_ff(var &VAR_27)
+						call force_scroll_to_pos(var &VAR_27)
 				}
 				else
 				 {
@@ -665,7 +654,7 @@ if(var VAR_48 == int 4)
 		if(var VAR_49 == int 160)
 		 {
 				call func_7d(var VAR_20)
-				call func_ff(var &VAR_6)
+				call force_scroll_to_pos(var &VAR_6)
 				call func_36(var VAR_20, int 1845, int 2845, int -4950)
 		}
 		if(var VAR_49 > int 300)
@@ -719,7 +708,7 @@ if(var VAR_48 == int 6)
 				if(var VAR_49 > int 100)
 				 {
 						var VAR_48 ++ 
-						call func_e6(var &VAR_50, var &VAR_51, var &VAR_0, int 2)
+						call func_e6("lmetalon", "black_3", var &VAR_0, int 2)
 				}
 		}
 }
@@ -833,7 +822,7 @@ if(var VAR_52 == int 5)
 				if(var VAR_53 > int 100)
 				 {
 						var VAR_52 ++ 
-						call func_e6(var &VAR_54, var &VAR_55, var &VAR_0, int 2)
+						call func_e6("lmetalon", "black_3", var &VAR_0, int 2)
 						call set_scene_overwrite_act(var &VAR_56, var &VAR_57, int 0)
 				}
 		}
@@ -861,10 +850,10 @@ if(var VAR_58 == int 0&&call get_num_of_enemies() == int 0)
 				call set_input_system(int 2)
 				var VAR_20 = call get_selected_hero()
 				call set_char_running(var VAR_20)
-				call func_18(var VAR_20, int 2126, int 4042, int -4935)
+				call char_walk_to(var VAR_20, int 2126, int 4042, int -4935)
 				var VAR_58 ++ 
 				gamevar global_zone_type = int 0
-				call func_ff(var &VAR_27)
+				call force_scroll_to_pos(var &VAR_27)
 		}
 }
 if(var VAR_58 == int 1)
@@ -924,7 +913,7 @@ if(var VAR_58 == int 4)
 		var VAR_59 ++ 
 		if(var VAR_59 == int 160)
 		 {
-				call func_ff(var &VAR_6)
+				call force_scroll_to_pos(var &VAR_6)
 				call func_36(var VAR_20, int 1845, int 2845, int -4950)
 		}
 		if(var VAR_59 > int 300)
@@ -979,8 +968,8 @@ if(var VAR_58 == int 6)
 				if(var VAR_59 > int 100)
 				 {
 						var VAR_58 ++ 
-						call func_e6(var &VAR_61, var &VAR_62, var &VAR_0, int 2)
-						call set_scene_overwrite_act(var &VAR_63, var &VAR_64, int 0)
+						call func_e6("lmetalon", "black_3", var &VAR_0, int 2)
+						call set_scene_overwrite_act(var &VAR_63, "black_in", int 0)
 				}
 		}
 }

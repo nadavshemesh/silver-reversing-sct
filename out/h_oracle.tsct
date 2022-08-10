@@ -19,17 +19,9 @@ VAR_16	0
 VAR_17	0	
 VAR_18	0	
 VAR_19	0	
-VAR_20	"nduke"	
-VAR_21	"nbuzuki"	
-VAR_22	"noracle"	
-VAR_23	"verdanteAMP"	
-VAR_24	"exbarracTP."	
 VAR_25	0	
 VAR_26	0	
 VAR_27	0	
-VAR_28	"confusedero"	
-VAR_29	"DodgeB_"	
-VAR_30	"laugh= "	
 VAR_31	0	
 VAR_32	{ 0, 0 }	
 VAR_33	0	
@@ -37,9 +29,6 @@ VAR_34	{ 0, 0 }
 VAR_35	{ 0, 0, 0 }	
 VAR_36	0	
 VAR_37	0	
-VAR_38	"h_oracle_CA"	
-VAR_39	"h_orloop41"	
-VAR_40	"h_orend"	
 VAR_41	0	
 VAR_42	0	
 VAR_43	0	
@@ -53,12 +42,6 @@ VAR_50	0
 VAR_51	0	
 VAR_52	0	
 VAR_53	-1	
-VAR_54	"S_ORACLEar"	
-VAR_55	"NULL_do"	
-VAR_56	"i1horni"	
-VAR_57	"ORACLE "	
-VAR_58	"havencr"	
-VAR_59	"h_orout"	
 VAR_60	0	
 VAR_61	0
 
@@ -131,7 +114,7 @@ switch(var VAR_41)
 		case 1
 			if(var VAR_42 > int 100)
 			 {
-					call start_dialog(var &VAR_54, var &VAR_55)
+					call start_dialog("S_ORACLE", "NULL")
 					var VAR_41 ++ 
 					var VAR_42 = int 0
 			}
@@ -232,7 +215,7 @@ switch(var VAR_41)
 			if(var VAR_42 > int 30)
 			 {
 					gamevar compile_init_character = int 0
-					var VAR_43 = call create_char(var &VAR_46, var &VAR_56, int 0, int 13)
+					var VAR_43 = call create_char(var &VAR_46, "i1horn", int 0, int 13)
 					gamevar compile_init_character = int 1
 					var VAR_41 ++ 
 					var VAR_42 = int 0
@@ -242,7 +225,7 @@ switch(var VAR_41)
 			if(var VAR_42 > int 20)
 			 {
 					call func_9b(var VAR_43, var &VAR_47, int 10863247)
-					var VAR_52 = call play_3d_fx(var &VAR_57, int 0, int 0, var VAR_43)
+					var VAR_52 = call play_3d_fx("ORACLE", int 0, int 0, var VAR_43)
 					var VAR_41 ++ 
 					var VAR_42 = int 0
 			}
@@ -298,7 +281,7 @@ switch(var VAR_41)
 		case 15
 			if(var VAR_42 > int 90)
 			 {
-					call func_e6(var &VAR_58, var &VAR_59, var &VAR_45, int 2)
+					call func_e6("haven", "h_orout", var &VAR_45, int 2)
 					var VAR_41 ++ 
 					var VAR_42 = int 0
 			}
@@ -307,9 +290,9 @@ switch(var VAR_41)
 var VAR_42 ++ 
 
 ._SCRIPT_4
-var VAR_5 = call create_char(var &VAR_8, var &VAR_20, int 275, int 13)
-var VAR_6 = call create_char(var &VAR_9, var &VAR_21, int 35, int 13)
-var VAR_7 = call create_char(var &VAR_10, var &VAR_22, int 210, int 13)
+var VAR_5 = call create_char(var &VAR_8, "nduke", int 275, int 13)
+var VAR_6 = call create_char(var &VAR_9, "nbuzuki", int 35, int 13)
+var VAR_7 = call create_char(var &VAR_10, "noracle", int 210, int 13)
 gamevar script_object = var VAR_7
 gamevar *character_movement_p+62 = int 1
 call add_item_to_char(var VAR_5, int 16, int 0, int 1)
@@ -321,25 +304,25 @@ var VAR_16 = int 111
 var VAR_17 = int 0
 var VAR_18 = int 0
 var VAR_19 = int 0
-call func_4d(int 111, var &VAR_16, var &VAR_23, var &VAR_24)
-call func_b8(int 99)
+call func_4d(int 111, var &VAR_16, "verdante", "exbarrac")
+call load_item(int 99)
 call set_input_system(int 2)
 
 ._SCRIPT_5
-var VAR_25 = call load_anim(var &VAR_28)
-var VAR_26 = call load_anim(var &VAR_29)
-var VAR_27 = call load_anim(var &VAR_30)
+var VAR_25 = call load_anim("confused")
+var VAR_26 = call load_anim("DodgeB")
+var VAR_27 = call load_anim("laugh")
 
 ._SCRIPT_6
 gamevar SMACKER_X = int 160
 gamevar SMACKER_Y = int 0
-call play_2d_anim(var &VAR_38, int 0, int 0, var &VAR_31)
+call play_2d_anim("h_oracle", int 0, int 0, var &VAR_31)
 gamevar SMACKER_X = int 300
 gamevar SMACKER_Y = int 196
-var VAR_36 = call play_2d_anim(var &VAR_39, int 10737418, int 1, var &VAR_33)
+var VAR_36 = call play_2d_anim("h_orloop", int 10737418, int 1, var &VAR_33)
 gamevar SMACKER_X = int 300
 gamevar SMACKER_Y = int 188
-var VAR_37 = call play_2d_anim(var &VAR_40, int 10737418, int 1, var &VAR_35)
+var VAR_37 = call play_2d_anim("h_orend", int 10737418, int 1, var &VAR_35)
 
 ._SCRIPT_7
 if(gamevar script_time > var VAR_61)

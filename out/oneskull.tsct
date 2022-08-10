@@ -2,44 +2,25 @@
 VAR_0	0	
 VAR_1	{ 0, 0 }	
 VAR_2	0	
-VAR_3	"DEADPT1"	
-VAR_4	"boney"	
-VAR_5	"wraith"	
 VAR_6	{ 1818585971, -1431655936, 9 }	
 VAR_7	0	
 VAR_8	0	
 VAR_9	0	
-VAR_10	"skel1"	
-VAR_11	"skel2"	
 VAR_12	0	
 VAR_13	0	
 VAR_14	{ 0, 1019, -800, 8182, 1067, -800, 6376, 1601, -800, 6926, -622, -800, 5973, 941, -800, 6576, 993, -800, 8095, 1061, -800, 7176, -622, -1675, 5973, 941, -2275, 6576, 993, -2275, 8095, 1061, -2275, 7176 }	
 VAR_15	{ 0, 0, 0, 1, -1, 8, 2, 19, 1000, -2275, 7177, 12, 61, 58, 60, 58, -1, 13, 0, 14, 0, 1, 4, 17, 0, 200, -1, 18, 100, -1 }	
 VAR_16	{ 0, 0, 0, 1, -1, 8, 2, 12, 58, 60, 60, 60, -1, 13, 0, 14, 0, 1, 4, 5, 0, 100, 18, 100, -1 }	
-VAR_17	"Gong finished"	
-VAR_18	"HIT THE GONG"	
-VAR_19	"gong"	
-VAR_20	"ban1"	
-VAR_21	"ban2"	
-VAR_22	"ban3"	
-VAR_23	"ban4"	
 VAR_24	0	
 VAR_25	{ 0, 0, 0 }	
 VAR_26	0	
 VAR_27	0	
-VAR_28	"boney"	
-VAR_29	"wraith"	
-VAR_30	"skel"	
 VAR_31	0	
-VAR_32	"rchp90a"	
 VAR_33	0	
-VAR_34	"rpunchr"	
 VAR_35	0	
-VAR_36	"lookout"	
 VAR_37	0	
 VAR_38	0	
 VAR_39	{ 1184, -2275, 7430 }	
-VAR_40	"nskel"	
 VAR_41	0	
 VAR_42	{ -578, -1675, 5967 }	
 VAR_43	0	
@@ -73,10 +54,7 @@ VAR_70	{ 0, 1, 4, VAR_69, 8, 1, 4, 0, 9, 1, 1, 1, 69, 60, 60, 68, -1, 5, 0, 100,
 VAR_71	0	
 VAR_72	0	
 VAR_73	0	
-VAR_74	"projectile sensed"	
-VAR_75	"heros crossed tripwire"	
 VAR_76	0	
-VAR_77	"wandering baddies"	
 VAR_78	{ 1019, -800, 8182, 1067, -800, 6376, 1601, -800, 6926, -622, -800, 5973, 941, -800, 6576, 993, -800, 8095, 1061, -800, 7176 }	
 VAR_79	{ -622, -1675, 5973, 941, -2275, 6576, 993, -2275, 8095, 1061, -2275, 7176 }	
 VAR_80	{ 0, 1, 4, VAR_79, 8, 2, 19, 1000, -2275, 7177, 12, 69, 60, 60, 68, -1, 13, 0, 14, 0, 1, 4, 17, 0, 200, -1, 18, 40, -1 }	
@@ -88,11 +66,11 @@ VAR_85	0
 VAR_86	0
 
 ._on_load
-call play_bgm(var &VAR_3)
+call play_bgm("DEADPT1")
 execute SCRIPT_10
-call func_b8(int 93)
-call load_char(var &VAR_4)
-call load_char(var &VAR_5)
+call load_item(int 93)
+call load_char("boney")
+call load_char("wraith")
 call load_char(var &VAR_6)
 if(gamevar is_room_cleared)
  {
@@ -114,10 +92,10 @@ else
 }
 gamevar SMACKER_X = int 48
 gamevar SMACKER_Y = int 280
-call play_2d_anim(var &VAR_10, int 1, int 1, int 0)
+call play_2d_anim("skel1", int 1, int 1, int 0)
 gamevar SMACKER_X = int 56
 gamevar SMACKER_Y = int 392
-call play_2d_anim(var &VAR_11, int 1, int 1, int 0)
+call play_2d_anim("skel2", int 1, int 1, int 0)
 call load_sound_set(int 20)
 
 ._infinite_loop
@@ -165,14 +143,14 @@ switch(var VAR_24)
 		case 0
 			if(call func_d1(var &VAR_56))
 			 {
-					call func_18(var VAR_38, int 502, int -2075, int 7102)
-					call log(var &VAR_74)
+					call char_walk_to(var VAR_38, int 502, int -2075, int 7102)
+					call log("projectile sensed")
 					var VAR_71 = int 1
 			}
 			if(call func_8a(var &VAR_55))
 			 {
-					call func_18(var VAR_38, int 502, int -2075, int 7102)
-					call log(var &VAR_75)
+					call char_walk_to(var VAR_38, int 502, int -2075, int 7102)
+					call log("heros crossed tripwire")
 					var VAR_71 = int 1
 			}
 			if(var VAR_71)
@@ -213,7 +191,7 @@ switch(var VAR_24)
 			var VAR_25 ++ 
 			if(var VAR_25 == int 20)
 			 {
-					call func_18(var VAR_38, int 113, int -2275, int 7465)
+					call char_walk_to(var VAR_38, int 113, int -2275, int 7465)
 					if(call is_char_handle_in_level(int 8126464))
 					 {
 							call func_46(var VAR_43, int 13)
@@ -229,7 +207,7 @@ switch(var VAR_24)
 			 {
 					if(call is_char_handle_in_level(int 8126464))
 					 {
-							call func_18(var VAR_43, int 813, int -2275, int 7433)
+							call char_walk_to(var VAR_43, int 813, int -2275, int 7433)
 					}
 			}
 			if(var VAR_25 > int 100)
@@ -240,9 +218,9 @@ switch(var VAR_24)
 					var VAR_37 = var VAR_38
 					if(call is_char_handle_in_level(int 8126465))
 					 {
-							call func_18(var VAR_45, int 303, int -2075, int 7151)
+							call char_walk_to(var VAR_45, int 303, int -2075, int 7151)
 					}
-					var VAR_47 = call func_96(int 58, int 3, int 1, int 90)
+					var VAR_47 = call create_enemy_through_door(int 58, int 3, int 1, int 90)
 					call set_char_running(var VAR_47)
 					call func_106(var VAR_47, int 1, int 0, int 3)
 					call set_char_init_state(var VAR_47, int 1)
@@ -254,7 +232,7 @@ switch(var VAR_24)
 			 {
 					if(call is_char_handle_in_level(int 8126467))
 					 {
-							call func_18(var VAR_47, int 606, int -2275, int 7745)
+							call char_walk_to(var VAR_47, int 606, int -2275, int 7745)
 					}
 					var VAR_25 = int 0
 					var VAR_24 ++ 
@@ -344,7 +322,7 @@ switch(var VAR_24)
 			var VAR_25 ++ 
 			if(var VAR_25 == int 60)
 			 {
-					call func_18(var VAR_38, int 113, int -2275, int 7465)
+					call char_walk_to(var VAR_38, int 113, int -2275, int 7465)
 			}
 			if(var VAR_25 == int 100)
 			 {
@@ -361,13 +339,13 @@ if(var VAR_7 == int 1)
 }
 
 ._SCRIPT_4
-call load_char(var &VAR_28)
-call load_char(var &VAR_29)
-call load_char(var &VAR_30)
-var VAR_31 = call load_anim(var &VAR_32)
-var VAR_33 = call load_anim(var &VAR_34)
-var VAR_35 = call load_anim(var &VAR_36)
-var VAR_38 = call create_char(var &VAR_39, var &VAR_40, int 90, int 13)
+call load_char("boney")
+call load_char("wraith")
+call load_char("skel")
+var VAR_31 = call load_anim("rchp90a")
+var VAR_33 = call load_anim("rpunchr")
+var VAR_35 = call load_anim("lookout")
+var VAR_38 = call create_char(var &VAR_39, "nskel", int 90, int 13)
 call set_char_running(var VAR_38)
 gamevar script_object = var VAR_38
 gamevar *object_p+6 |= int 8388608
@@ -406,7 +384,7 @@ if(var VAR_9 == int 16)
 ._SCRIPT_7
 
 ._SCRIPT_8
-call log(var &VAR_77)
+call log("wandering baddies")
 var VAR_76 = call randomize_int(int 0, int 2)
 if(var ! VAR_76)
  {
@@ -446,19 +424,19 @@ var VAR_86 --
 ._SCRIPT_10
 gamevar SMACKER_X = int 328
 gamevar SMACKER_Y = int 232
-call play_2d_anim(var &VAR_19, int 1, int 1, var &VAR_0)
+call play_2d_anim("gong", int 1, int 1, var &VAR_0)
 gamevar SMACKER_X = int 464
 gamevar SMACKER_Y = int 80
-call play_2d_anim(var &VAR_20, int 1, int 1, int 0)
+call play_2d_anim("ban1", int 1, int 1, int 0)
 gamevar SMACKER_X = int 528
 gamevar SMACKER_Y = int 80
-call play_2d_anim(var &VAR_21, int 1, int 1, int 0)
+call play_2d_anim("ban2", int 1, int 1, int 0)
 gamevar SMACKER_X = int 592
 gamevar SMACKER_Y = int 80
-call play_2d_anim(var &VAR_22, int 1, int 1, int 0)
+call play_2d_anim("ban3", int 1, int 1, int 0)
 gamevar SMACKER_X = int 544
 gamevar SMACKER_Y = int 304
-call play_2d_anim(var &VAR_23, int 1, int 1, int 0)
+call play_2d_anim("ban4", int 1, int 1, int 0)
 
 ._SCRIPT_11
 if(var VAR_13 == int 99&&var VAR_2 != int 0)
@@ -471,7 +449,7 @@ if(var VAR_14)
 		if(var VAR_13 == int 1)
 		 {
 				var VAR_0 = int 0
-				call log(var &VAR_17)
+				call log("Gong finished")
 				var VAR_14 = int 0
 		}
 }
@@ -480,7 +458,7 @@ var VAR_13 = var VAR_1
 if(gamevar global_collision_type == int 18)
  {
 		gamevar global_collision_type = int 0
-		call log(var &VAR_18)
+		call log("HIT THE GONG")
 		call play_loaded_sound(int 3, int 0, int 20, int 0)
 		var VAR_12 = call randomize_int(int 0, int 2)
 		if(call get_num_of_enemies() == int 0)

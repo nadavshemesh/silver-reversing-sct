@@ -7,7 +7,6 @@ VAR_4	0
 VAR_5	0	
 VAR_6	0	
 VAR_7	0	
-VAR_8	"random_rain_fx: Rain SFX not initialised! See Marc"	
 VAR_9	0	
 VAR_10	0	
 VAR_11	0	
@@ -17,8 +16,6 @@ VAR_14	0
 VAR_15	0	
 VAR_16	0	
 VAR_17	{ 0, 0 }	
-VAR_18	"RAINPT1"	
-VAR_19	"it's_raining"	
 VAR_20	{ -3600, 2331, -3000 }	
 VAR_21	{ 0, 2331, -6750 }	
 VAR_22	{ 1313423698, -1431655936, 0, 0, 0, 0 }	
@@ -27,15 +24,10 @@ VAR_24	{ 0, 951, 173, 4301 }
 VAR_25	{ 1954, 173, 3231 }	
 VAR_26	{ 0, 0, 0, 2, -1, 8, 1, 12, 30, 30, 31, 30, 32, -1, 13, 0, 14, 0, 1, 5, 5, 0, 60, 18, 75, -1 }	
 VAR_27	{ 0, 0, 0, 2, -1, 8, 1, 12, 11, 12, 13, 11, 12, -1, 13, 0, 14, 0, 1, 5, 5, 0, 60, 18, 75, -1 }	
-VAR_28	"rlieuten"	
-VAR_29	"muscles"	
-VAR_30	"dick"	
-VAR_31	"finnegan"	
-VAR_32	"wandering baddies"
 
 ._on_load
 execute SCRIPT_3
-call play_bgm(var &VAR_18)
+call play_bgm("RAINPT1")
 if(gamevar is_room_cleared)
  {
 		execute SCRIPT_8
@@ -91,7 +83,7 @@ if(gamevar !is_room_cleared)
 }
 
 ._SCRIPT_3
-call log(var &VAR_19)
+call log("it's_raining")
 call play_3d_fx(var &VAR_22, var &VAR_20, var &VAR_21, int 0)
 execute SCRIPT_9
 
@@ -115,19 +107,19 @@ call add_item_to_char(var VAR_24, int 42, int 1, int 0)
 switch(gamevar is_room_cleared)
  {
 		case 1
-			call load_char(var &VAR_28)
+			call load_char("rlieuten")
 			call run_wandering_generator(var &VAR_27, int 100)
 			break 
 		case 2
-			call load_char(var &VAR_29)
-			call load_char(var &VAR_30)
-			call load_char(var &VAR_31)
-			call func_b8(int 91)
-			call func_b8(int 93)
+			call load_char("muscles")
+			call load_char("dick")
+			call load_char("finnegan")
+			call load_item(int 91)
+			call load_item(int 93)
 			call run_wandering_generator(var &VAR_26, int 100)
 			break 
 }
-call log(var &VAR_32)
+call log("wandering baddies")
 
 ._SCRIPT_9
 call load_sound_set(int 25)
@@ -140,7 +132,7 @@ var VAR_0 = int 1
 ._SCRIPT_10
 if(var ! VAR_0)
  {
-		call log(var &VAR_8)
+		call log("random_rain_fx: Rain SFX not initialised! See Marc")
 		exit_script 
 }
 switch(var VAR_4)

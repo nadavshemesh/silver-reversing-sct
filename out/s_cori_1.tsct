@@ -1,8 +1,5 @@
 ._DATA
 VAR_0	0	
-VAR_1	"s_cori_1"	
-VAR_2	"s_cori1b"	
-VAR_3	"s_cori1c"	
 VAR_4	0	
 VAR_5	0	
 VAR_6	0	
@@ -27,7 +24,6 @@ VAR_24	{ 0, 1, 6, VAR_18, 8, 2, 4, 0, 9, 2, 1, 1, 163, 163, -1, 5, 1, 10, 60, 7,
 VAR_25	{ 0, 1, 6, VAR_19, 8, 2, 4, 0, 9, 2, 1, 1, 163, 163, 163, -1, 5, 0, 50, 7, 1, 2, 6, 1, -1 }	
 VAR_26	{ 0, 1, 6, VAR_20, 8, 2, 4, 0, 9, 2, 1, 1, 163, 163, -1, 5, 0, 0, 7, 1, 2, 6, 1, -1 }	
 VAR_27	{ 0, 1, 6, VAR_21, 8, 2, 4, 0, 9, 2, 1, 1, 163, 163, 163, -1, 5, 1, 20, 120, 7, 1, 2, 6, 1, -1 }	
-VAR_28	"iwarrior"	
 VAR_29	{ 162, 0, -847, -649, 0, -768 }	
 VAR_30	4	
 VAR_31	0	
@@ -111,13 +107,13 @@ if(gamevar !is_room_cleared)
 ._SCRIPT_3
 gamevar SMACKER_X = int 160
 gamevar SMACKER_Y = int 120
-call play_2d_anim(var &VAR_1, int 1, int 1, int 0)
+call play_2d_anim("s_cori_1", int 1, int 1, int 0)
 gamevar SMACKER_X = int 364
 gamevar SMACKER_Y = int 108
-call play_2d_anim(var &VAR_2, int 1, int 1, int 0)
+call play_2d_anim("s_cori1b", int 1, int 1, int 0)
 gamevar SMACKER_X = int 516
 gamevar SMACKER_Y = int 92
-call play_2d_anim(var &VAR_3, int 1, int 1, int 0)
+call play_2d_anim("s_cori1c", int 1, int 1, int 0)
 
 ._SCRIPT_4
 var VAR_4 = call get_david_char()
@@ -215,7 +211,7 @@ var VAR_33 ++
 
 ._SCRIPT_7
 execute SCRIPT_4
-call load_char(var &VAR_28)
+call load_char("iwarrior")
 
 ._SCRIPT_8
 

@@ -48,6 +48,7 @@ typedef struct sct_file {
     sct_s* structure;
     script** scripts;
     char** scripts_labels;
+    node** data_nodes;
     data_obj** data_section;
     int* script_table;
     node** data_link_table;

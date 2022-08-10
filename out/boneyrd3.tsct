@@ -7,84 +7,28 @@ VAR_4	0
 VAR_5	0	
 VAR_6	0	
 VAR_7	{ -601, -1913, -2384 }	
-VAR_8	"DEADPT1"	
 VAR_9	0	
 VAR_10	0	
 VAR_11	0	
 VAR_12	0	
 VAR_13	0	
-VAR_14	"david"	
-VAR_15	"sekune"	
-VAR_16	"jug"	
-VAR_17	"vivienne"	
-VAR_18	"chiaro"	
-VAR_19	"cagen"	
-VAR_20	"WARNING! Unknown hero while checking heroes"	
-VAR_21	"Get a goober -- QUICKLY!!"	
 VAR_22	{ -526, -1913, -2420 }	
-VAR_23	"NULL"	
-VAR_24	"NULL"	
 VAR_25	-1431699410	
-VAR_26	"sekune talks"	
-VAR_27	"S_DvdGan"	
-VAR_28	" NULL"	
-VAR_29	"jug talks"	
-VAR_30	"J_DvdGan"	
-VAR_31	" NULL"	
-VAR_32	"vivienne talks"	
-VAR_33	"V_DvdGan"	
-VAR_34	" NULL"	
-VAR_35	"cagen talks"	
-VAR_36	"C_GanDvd"	
-VAR_37	" NULL"	
-VAR_38	"chiaro talks"	
-VAR_39	"C_DvdGan"	
-VAR_40	" NULL"	
-VAR_41	"ready to run"	
-VAR_42	"david"	
-VAR_43	"sekune"	
-VAR_44	"jug"	
-VAR_45	"vivienne"	
-VAR_46	"chiaro"	
-VAR_47	"cagen"	
-VAR_48	"WARNING! Unknown hero while checking heroes"	
-VAR_49	"Get a goober -- QUICKLY!!"	
 VAR_50	0	
 VAR_51	0	
 VAR_52	{ -509, -1913, -2592 }	
 VAR_53	{ -65, -1887, -1898 }	
 VAR_54	{ -601, -1913, -2384 }	
 VAR_55	{ -434, -1913, -2284 }	
-VAR_56	"NULL"	
-VAR_57	"NULL"	
 VAR_58	0	
 VAR_59	{ 0, 0, 0, 0 }	
 VAR_60	-1	
-VAR_61	"david has hit path target"	
-VAR_62	"sekune talks"	
-VAR_63	"S_DvdGan"	
-VAR_64	"NULL"	
-VAR_65	"jug talks"	
-VAR_66	"J_DvdGan"	
-VAR_67	"NULL"	
-VAR_68	"vivienne talks"	
-VAR_69	"V_DvdGan"	
-VAR_70	"NULL"	
-VAR_71	"cagen talks"	
-VAR_72	"C_GanDvd"	
-VAR_73	"NULL"	
-VAR_74	"chiaro talks"	
-VAR_75	"C_DvdGan"	
-VAR_76	"NULL"	
-VAR_77	"ready to run"	
-VAR_78	"boney"	
-VAR_79	"skel"	
 VAR_80	0	
 VAR_81	{ 936, -1913, -626, 979, -1913, -842, 1238, -1913, -1038, 965, -1913, -1111, 1128, -1913, -1337, 665, -1888, -1296, 585, -1887, -224, 529, -1887, -114 }	
 VAR_82	{ 0, 1, 8, VAR_81, 8, 2, 4, 0, 9, 0, 1, 1, 68, 69, -1, 5, 1, 120, 300, 6, 1, 7, 1, 2, -1 }
 
 ._on_load
-call play_bgm(var &VAR_8)
+call play_bgm("DEADPT1")
 call func_40(int 1, int 5, int 0, int -1)
 call load_sound_set(int 0)
 call func_ec(int 228, int -1, int 0, var &VAR_7)
@@ -164,7 +108,7 @@ if(var VAR_58 == int 1)
 		if(call get_num_of_enemies() < int 1)
 		 {
 				call set_input_system(int 2)
-				call func_18(var VAR_13, int -601, int -1913, int -2384)
+				call char_walk_to(var VAR_13, int -601, int -1913, int -2384)
 				var VAR_58 ++ 
 		}
 }
@@ -175,32 +119,32 @@ if(var VAR_58 == int 2)
 				call func_100(var VAR_13)
 				if(call is_char_handle_in_level(int 786432))
 				 {
-						call func_18(var VAR_2, int -285, int -1913, int -2443)
+						call char_walk_to(var VAR_2, int -285, int -1913, int -2443)
 						call set_char_running(var VAR_2)
 				}
 				if(call is_char_handle_in_level(int 196608))
 				 {
-						call func_18(var VAR_3, int -285, int -1913, int -2443)
+						call char_walk_to(var VAR_3, int -285, int -1913, int -2443)
 						call set_char_running(var VAR_3)
 				}
 				if(call is_char_handle_in_level(int 327680))
 				 {
-						call func_18(var VAR_1, int -667, int -1913, int -2067)
+						call char_walk_to(var VAR_1, int -667, int -1913, int -2067)
 						call set_char_running(var VAR_1)
 				}
 				if(call is_char_handle_in_level(int 131072))
 				 {
-						call func_18(var VAR_4, int -667, int -1913, int -2067)
+						call char_walk_to(var VAR_4, int -667, int -1913, int -2067)
 						call set_char_running(var VAR_4)
 				}
 				if(call is_char_handle_in_level(int 262144))
 				 {
-						call func_18(var VAR_5, int -667, int -1913, int -2067)
+						call char_walk_to(var VAR_5, int -667, int -1913, int -2067)
 						call set_char_running(var VAR_5)
 				}
 				if(call is_char_handle_in_level(int 65536))
 				 {
-						call func_18(var VAR_0, int -434, int -1913, int -2284)
+						call char_walk_to(var VAR_0, int -434, int -1913, int -2284)
 						call set_char_running(var VAR_0)
 				}
 				var VAR_58 ++ 
@@ -214,7 +158,7 @@ if(var VAR_58 == int 3)
 		 {
 				if(call func_8b())
 				 {
-						call log(var &VAR_61)
+						call log("david has hit path target")
 						call char_turn_to_pos(var VAR_13, var &VAR_55)
 						var VAR_58 ++ 
 				}
@@ -260,32 +204,32 @@ if(var VAR_58 == int 4)
 						}
 						if(var VAR_10 == int 786432)
 						 {
-								call log(var &VAR_62)
-								call start_dialog(var &VAR_63, var &VAR_64)
+								call log("sekune talks")
+								call start_dialog("S_DvdGan", "NULL")
 								var VAR_58 = int 10
 						}
 						if(var VAR_10 == int 327680)
 						 {
-								call log(var &VAR_65)
-								call start_dialog(var &VAR_66, var &VAR_67)
+								call log("jug talks")
+								call start_dialog("J_DvdGan", "NULL")
 								var VAR_58 = int 10
 						}
 						if(var VAR_10 == int 196608)
 						 {
-								call log(var &VAR_68)
-								call start_dialog(var &VAR_69, var &VAR_70)
+								call log("vivienne talks")
+								call start_dialog("V_DvdGan", "NULL")
 								var VAR_58 = int 10
 						}
 						if(var VAR_10 == int 262144)
 						 {
-								call log(var &VAR_71)
-								call start_dialog(var &VAR_72, var &VAR_73)
+								call log("cagen talks")
+								call start_dialog("C_GanDvd", "NULL")
 								var VAR_58 = int 10
 						}
 						if(var VAR_10 == int 131072)
 						 {
-								call log(var &VAR_74)
-								call start_dialog(var &VAR_75, var &VAR_76)
+								call log("chiaro talks")
+								call start_dialog("C_DvdGan", "NULL")
 								var VAR_58 = int 10
 						}
 						var VAR_9 = int 0
@@ -297,9 +241,9 @@ if(var VAR_58 == int 10)
 		if(call get_input_sys() != int 4)
 		 {
 				call set_input_system(int 1)
-				call log(var &VAR_77)
+				call log("ready to run")
 				call set_char_running(var VAR_13)
-				call func_18(var VAR_13, int 987, int -1913, int 1070)
+				call char_walk_to(var VAR_13, int 987, int -1913, int 1070)
 				var VAR_58 ++ 
 				var VAR_59 = int 0
 		}
@@ -310,7 +254,7 @@ if(var VAR_58 == int 11)
 		if(var VAR_59 > int 80)
 		 {
 				call func_14(var VAR_13, int 64)
-				call func_18(var VAR_13, int 450, int -1887, int -1412)
+				call char_walk_to(var VAR_13, int 450, int -1887, int -1412)
 				call func_fa(var VAR_13)
 				gamevar *scene_info_p+4 = int 2
 				var VAR_58 ++ 
@@ -335,32 +279,32 @@ while(var VAR_9)
 		switch(var VAR_10)
 		 {
 				case 65536
-					call log(var &VAR_42)
+					call log("david")
 					var VAR_0 = var VAR_9
 					break 
 				case 786432
-					call log(var &VAR_43)
+					call log("sekune")
 					var VAR_2 = var VAR_9
 					break 
 				case 327680
-					call log(var &VAR_44)
+					call log("jug")
 					var VAR_1 = var VAR_9
 					break 
 				case 196608
-					call log(var &VAR_45)
+					call log("vivienne")
 					var VAR_3 = var VAR_9
 					break 
 				case 131072
-					call log(var &VAR_46)
+					call log("chiaro")
 					var VAR_4 = var VAR_9
 					break 
 				case 262144
-					call log(var &VAR_47)
+					call log("cagen")
 					var VAR_5 = var VAR_9
 					break 
 				default 
-					call log(var &VAR_48)
-					call log(var &VAR_49)
+					call log("WARNING! Unknown hero while checking heroes")
+					call log("Get a goober -- QUICKLY!!")
 					break 
 		}
 		var VAR_9 = call func_7e()
@@ -369,8 +313,8 @@ var VAR_50 = call create_enemy(int 60, int 1, var &VAR_52, int 120)
 var VAR_51 = call create_enemy(int 60, int 2, var &VAR_53, int 295)
 var VAR_13 = call create_enemy(int 74, int 0, var &VAR_22, int 0)
 call add_item_to_char(var VAR_13, int 64, int 1, int 0)
-call func_10c(var VAR_13, var &VAR_56)
-call func_108(var &VAR_57)
+call func_10c(var VAR_13, "NULL")
+call func_108("NULL")
 call freeze_enemy(var VAR_50)
 call freeze_enemy(var VAR_51)
 gamevar *scene_info_p+4 = int 16
@@ -383,38 +327,38 @@ while(var VAR_9)
 		switch(var VAR_10)
 		 {
 				case 65536
-					call log(var &VAR_14)
+					call log("david")
 					var VAR_0 = var VAR_9
 					break 
 				case 786432
-					call log(var &VAR_15)
+					call log("sekune")
 					var VAR_2 = var VAR_9
 					break 
 				case 327680
-					call log(var &VAR_16)
+					call log("jug")
 					var VAR_1 = var VAR_9
 					break 
 				case 196608
-					call log(var &VAR_17)
+					call log("vivienne")
 					var VAR_3 = var VAR_9
 					break 
 				case 131072
-					call log(var &VAR_18)
+					call log("chiaro")
 					var VAR_4 = var VAR_9
 					break 
 				case 262144
-					call log(var &VAR_19)
+					call log("cagen")
 					var VAR_5 = var VAR_9
 					break 
 				default 
-					call log(var &VAR_20)
-					call log(var &VAR_21)
+					call log("WARNING! Unknown hero while checking heroes")
+					call log("Get a goober -- QUICKLY!!")
 					break 
 		}
 		var VAR_13 = call create_enemy(int 74, int 0, var &VAR_22, int 0)
 		call add_item_to_char(var VAR_13, int 64, int 1, int 0)
-		call func_10c(var VAR_13, var &VAR_23)
-		call func_108(var &VAR_24)
+		call func_10c(var VAR_13, "NULL")
+		call func_108("NULL")
 		var VAR_9 = call func_7e()
 }
 if(var VAR_11 == int 1)
@@ -435,32 +379,32 @@ if(var VAR_11 == int 1)
 						 {
 								if(var VAR_10 == int 786432)
 								 {
-										call log(var &VAR_26)
-										call start_dialog(var &VAR_27, var &VAR_28)
+										call log("sekune talks")
+										call start_dialog("S_DvdGan", " NULL")
 										var VAR_11 = int 10
 								}
 								if(var VAR_10 == int 327680)
 								 {
-										call log(var &VAR_29)
-										call start_dialog(var &VAR_30, var &VAR_31)
+										call log("jug talks")
+										call start_dialog("J_DvdGan", " NULL")
 										var VAR_11 = int 10
 								}
 								if(var VAR_10 == int 196608)
 								 {
-										call log(var &VAR_32)
-										call start_dialog(var &VAR_33, var &VAR_34)
+										call log("vivienne talks")
+										call start_dialog("V_DvdGan", " NULL")
 										var VAR_11 = int 10
 								}
 								if(var VAR_10 == int 262144)
 								 {
-										call log(var &VAR_35)
-										call start_dialog(var &VAR_36, var &VAR_37)
+										call log("cagen talks")
+										call start_dialog("C_GanDvd", " NULL")
 										var VAR_11 = int 10
 								}
 								if(var VAR_10 == int 131072)
 								 {
-										call log(var &VAR_38)
-										call start_dialog(var &VAR_39, var &VAR_40)
+										call log("chiaro talks")
+										call start_dialog("C_DvdGan", " NULL")
 										var VAR_11 = int 10
 								}
 								var VAR_9 = int 0
@@ -472,9 +416,9 @@ if(var VAR_11 == int 10)
  {
 		if(call get_input_sys() != int 4)
 		 {
-				call log(var &VAR_41)
+				call log("ready to run")
 				call set_char_running(var VAR_13)
-				call func_18(var VAR_13, int 987, int -1913, int 1070)
+				call char_walk_to(var VAR_13, int 987, int -1913, int 1070)
 				var VAR_11 ++ 
 				var VAR_12 = int 0
 		}
@@ -485,7 +429,7 @@ if(var VAR_11 == int 11)
 		if(var VAR_12 > int 80)
 		 {
 				call func_14(var VAR_13, int 64)
-				call func_18(var VAR_13, int 450, int -1887, int -1412)
+				call char_walk_to(var VAR_13, int 450, int -1887, int -1412)
 				call func_fa(var VAR_13)
 				var VAR_11 ++ 
 		}
@@ -503,8 +447,8 @@ if(var VAR_11 == int 12)
 ._SCRIPT_6
 
 ._SCRIPT_7
-call load_char(var &VAR_78)
-call load_char(var &VAR_79)
+call load_char("boney")
+call load_char("skel")
 if(var ! VAR_80)
  {
 		call run_enemy_generator(var &VAR_82, int 200)

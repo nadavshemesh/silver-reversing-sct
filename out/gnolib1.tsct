@@ -1,11 +1,8 @@
 ._DATA
 VAR_0	0	
 VAR_1	0	
-VAR_2	"GNO"	
 VAR_3	0	
 VAR_4	{ -367, -928, -8434 }	
-VAR_5	"nimpnerd"	
-VAR_6	"DOGSEYES"	
 VAR_7	0	
 VAR_8	0	
 VAR_9	0	
@@ -43,8 +40,6 @@ VAR_40	{ 15, 17, 14, VAR_31, 0, 3, VAR_41, 0, 7, 8 }
 VAR_41	"impjump"	
 VAR_42	{ 15, 17, 14, VAR_31, 0, 3, VAR_43, 0, 7, 8 }	
 VAR_43	"impjump"	
-VAR_44	"pfew"	
-VAR_45	"nyelimp"	
 VAR_46	0	
 VAR_47	{ -1939, -998, -6708, 0 }	
 VAR_48	0	
@@ -54,14 +49,13 @@ VAR_51	0
 VAR_52	0	
 VAR_53	0	
 VAR_54	{ -238, -870, -8458 }	
-VAR_55	"bug1205"	
 VAR_56	0	
 VAR_57	0	
 VAR_58	0	
 VAR_59	0
 
 ._on_load
-call play_bgm(var &VAR_2)
+call play_bgm("GNO")
 call load_sound_set(int 63)
 call play_loaded_sound(int 1, int -1, int 63, int 0)
 if(gamevar is_room_cleared)
@@ -144,16 +138,16 @@ if(gamevar script_time > var VAR_57)
 ._SCRIPT_4
 if(gamevar is_room_cleared == int 2)
  {
-		call func_108(var &VAR_55)
+		call func_108("bug1205")
 }
 
 ._SCRIPT_5
-var VAR_10 = call load_anim(var &VAR_44)
+var VAR_10 = call load_anim("pfew")
 var VAR_9 = call create_enemy(int 104, int 8, var &VAR_14, int 90)
 call add_item_to_char(var VAR_9, int 8, int 1, int 0)
 var VAR_8 = call create_enemy(int 104, int 9, var &VAR_15, int 0)
 call func_10f(var VAR_8, int 2)
-var VAR_7 = call create_char(var &VAR_17, var &VAR_45, int 150, int 13)
+var VAR_7 = call create_char(var &VAR_17, "nyelimp", int 150, int 13)
 gamevar script_object = var VAR_7
 gamevar *character_movement_p+60 = int 1
 gamevar *character_movement_p+53 = int 0
@@ -233,7 +227,7 @@ switch(var VAR_49)
 			if(var VAR_50 > int 20)
 			 {
 					call set_char_running(var VAR_7)
-					call func_18(var VAR_7, int -3340, int -397, int -8485)
+					call char_walk_to(var VAR_7, int -3340, int -397, int -8485)
 					var VAR_50 = int 0
 					var VAR_49 ++ 
 			}
@@ -271,27 +265,27 @@ switch(var VAR_49)
 					call remove_char(var VAR_7)
 					if(call is_char_handle_in_level(int 917505))
 					 {
-							call set_char_behav(var VAR_19, int 102)
+							call set_char_template(var VAR_19, int 102)
 					}
 					if(call is_char_handle_in_level(int 917506))
 					 {
-							call set_char_behav(var VAR_20, int 102)
+							call set_char_template(var VAR_20, int 102)
 					}
 					if(call is_char_handle_in_level(int 917507))
 					 {
-							call set_char_behav(var VAR_21, int 101)
+							call set_char_template(var VAR_21, int 101)
 					}
 					if(call is_char_handle_in_level(int 917508))
 					 {
-							call set_char_behav(var VAR_22, int 101)
+							call set_char_template(var VAR_22, int 101)
 					}
 					if(call is_char_handle_in_level(int 917509))
 					 {
-							call set_char_behav(var VAR_23, int 100)
+							call set_char_template(var VAR_23, int 100)
 					}
 					if(call is_char_handle_in_level(int 917510))
 					 {
-							call set_char_behav(var VAR_24, int 100)
+							call set_char_template(var VAR_24, int 100)
 					}
 					var VAR_50 = int 0
 					var VAR_49 ++ 
@@ -328,7 +322,7 @@ switch(var VAR_46)
 					 {
 							call set_char_running(var VAR_9)
 							call char_walk_to_pos(var VAR_9, var &VAR_47)
-							call set_char_behav(var VAR_8, int 104)
+							call set_char_template(var VAR_8, int 104)
 							call func_106(var VAR_8, int 9, int 5, var &VAR_16)
 							call func_106(var VAR_8, int 9, int 6, int 1)
 							var VAR_46 ++ 
@@ -339,7 +333,7 @@ switch(var VAR_46)
 		case 2
 			if(call is_char_standing(var VAR_9))
 			 {
-					call set_char_behav(var VAR_9, int 104)
+					call set_char_template(var VAR_9, int 104)
 					call func_106(var VAR_9, int 9, int 5, var &VAR_18)
 					call func_106(var VAR_9, int 9, int 6, int 7)
 					var VAR_46 ++ 
@@ -400,7 +394,7 @@ var VAR_53 ++
 ._SCRIPT_12
 
 ._SCRIPT_13
-var VAR_3 = call create_char(var &VAR_4, var &VAR_5, int 90, int 13)
+var VAR_3 = call create_char(var &VAR_4, "nimpnerd", int 90, int 13)
 gamevar script_object = var VAR_3
 gamevar *object_p+6 |= int 67108864
 if(call is_char_handle_in_level(int 393216))
@@ -409,5 +403,5 @@ if(call is_char_handle_in_level(int 393216))
 }
 if(gamevar room_state == int 2)
  {
-		call func_10c(var VAR_3, var &VAR_6)
+		call func_10c(var VAR_3, "DOGSEYES")
 }

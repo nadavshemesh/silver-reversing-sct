@@ -7,7 +7,6 @@ VAR_4	0
 VAR_5	0	
 VAR_6	0	
 VAR_7	0	
-VAR_8	"random_rain_fx: Rain SFX not initialised! See Marc"	
 VAR_9	0	
 VAR_10	0	
 VAR_11	0	
@@ -22,18 +21,6 @@ VAR_19	0
 VAR_20	0	
 VAR_21	0	
 VAR_22	0	
-VAR_23	"DVDCHR"	
-VAR_24	"NULL"	
-VAR_25	"SEKCHR"	
-VAR_26	"NULL"	
-VAR_27	"CAGCHR"	
-VAR_28	"NULL"	
-VAR_29	"JUGCHR"	
-VAR_30	"NULL"	
-VAR_31	"CHICHR"	
-VAR_32	"NULL"	
-VAR_33	"VIVCHR"	
-VAR_34	"NULL"	
 VAR_35	0	
 VAR_36	{ 0, 0, -1 }	
 VAR_37	0	
@@ -41,26 +28,10 @@ VAR_38	0
 VAR_39	0	
 VAR_40	0	
 VAR_41	-1	
-VAR_42	"game saved"	
-VAR_43	"game not saved"	
 VAR_44	0	
-VAR_45	"DVDCHR"	
-VAR_46	"NULL"	
-VAR_47	"SEKCHR"	
-VAR_48	"NULL"	
-VAR_49	"CAGCHR"	
-VAR_50	"NULL"	
-VAR_51	"JUGCHR"	
-VAR_52	"NULL"	
-VAR_53	"CHICHR"	
-VAR_54	"NULL"	
-VAR_55	"VIVCHR"	
-VAR_56	"NULL"	
 VAR_57	{ -485, -160, 3602 }	
-VAR_58	"it's_raining"	
 VAR_59	{ -236, 1636, -4352 }	
 VAR_60	{ 2770, 1636, -1685 }	
-VAR_61	"RAIN"	
 VAR_62	0	
 VAR_63	0	
 VAR_64	0	
@@ -76,16 +47,7 @@ VAR_73	{ 0, -438, -194, 3613, 0, -1059, -194, 2948, 8 }
 VAR_74	{ 0, 0, 1, -1, 8, 0, 4, 0, 9, 1, 1, 1, 79, 79, -1, 5, 1, 5, 40, 6, 2, 7, 1, 2, 10, 41, -1, -1 }	
 VAR_75	{ 0, 0, 1, -1, 8, 0, 4, 0, 9, 1, 1, 1, 81, 81, 40, -1, 5, 1, 5, 200, 6, 3, 7, 1, 2, 10, 40, -1, -1 }	
 VAR_76	{ 0, 0, 1, -1, 8, 0, 4, 0, 9, 1, 1, 1, 40, 40, -1, 5, 1, 5, 200, 6, 2, 7, 1, 1, 10, 43, -1, -1 }	
-VAR_77	"orc"	
-VAR_78	"lizman"	
-VAR_79	"ogre"	
-VAR_80	"chronicl"	
-VAR_81	"save game point"	
 VAR_82	0	
-VAR_83	"orc"	
-VAR_84	"lizman"	
-VAR_85	"ogre"	
-VAR_86	"ronnie"	
 VAR_87	{ 0, 0, 0, -1, 8, 0, 12, 78, 78, 76, 77, -1, 13, 1, 14, 0, 1, 2, 5, 0, 100, 18, 40, -1 }	
 VAR_88	{ 0, 0, 1, -1, 8, 0, 12, 40, 78, 40, 78, -1, 13, 1, 14, 0, 1, 3, 5, 0, 100, 18, 50, -1 }
 
@@ -153,8 +115,8 @@ if(gamevar !is_room_cleared)
 }
 
 ._SCRIPT_3
-call log(var &VAR_58)
-call play_3d_fx(var &VAR_61, var &VAR_59, var &VAR_60, int 0)
+call log("it's_raining")
+call play_3d_fx("RAIN", var &VAR_59, var &VAR_60, int 0)
 execute SCRIPT_9
 
 ._SCRIPT_4
@@ -177,7 +139,7 @@ switch(var VAR_63)
 		case 2
 			if(call func_122(var VAR_64) == int 0&&call get_num_of_enemies() < int 1)
 			 {
-					call log(var &VAR_81)
+					call log("save game point")
 					var VAR_19 = call create_enemy(int 178, int 0, var &VAR_57, int 193)
 					var VAR_63 ++ 
 			}
@@ -200,10 +162,10 @@ call func_106(var VAR_65, int 1, int 0, int 1)
 call func_106(var VAR_67, int 1, int 0, int 1)
 call func_50(var VAR_65, int 3)
 call func_50(var VAR_67, int 3)
-call load_char(var &VAR_77)
-call load_char(var &VAR_78)
-call load_char(var &VAR_79)
-call load_char(var &VAR_80)
+call load_char("orc")
+call load_char("lizman")
+call load_char("ogre")
+call load_char("chronicl")
 var VAR_64 = call run_enemy_generator(var &VAR_74, int 10)
 
 ._SCRIPT_6
@@ -212,11 +174,11 @@ var VAR_64 = call run_enemy_generator(var &VAR_74, int 10)
 
 ._SCRIPT_8
 var VAR_82 = call func_6f()
-call load_char(var &VAR_83)
-call load_char(var &VAR_84)
-call load_char(var &VAR_85)
-call load_char(var &VAR_86)
-call func_b8(int 96)
+call load_char("orc")
+call load_char("lizman")
+call load_char("ogre")
+call load_char("ronnie")
+call load_item(int 96)
 if(var VAR_82 == int 1)
  {
 		call run_wandering_generator(var &VAR_87, int 100)
@@ -237,7 +199,7 @@ var VAR_0 = int 1
 ._SCRIPT_10
 if(var ! VAR_0)
  {
-		call log(var &VAR_8)
+		call log("random_rain_fx: Rain SFX not initialised! See Marc")
 		exit_script 
 }
 switch(var VAR_4)
@@ -471,14 +433,14 @@ switch(var VAR_35)
 		case 5
 			if(var VAR_37 != gamevar saved_games_count)
 			 {
-					call log(var &VAR_42)
+					call log("game saved")
 					call func_11d()
 					var VAR_35 = int 7
 					var VAR_36 = int 0
 			}
 			else
 			 {
-					call log(var &VAR_43)
+					call log("game not saved")
 					call func_2a(var VAR_19, var &VAR_38)
 					execute SCRIPT_17
 					gamevar chronicler_variation = var VAR_20
@@ -534,22 +496,22 @@ var VAR_22 = call get_char_handle_id(gamevar control_char_p)
 switch(var VAR_22)
  {
 		case 65536
-			call load_dialog_by_number(var &VAR_23, var &VAR_24, gamevar chronicler_variation)
+			call load_dialog_by_number("DVDCHR", "NULL", gamevar chronicler_variation)
 			break 
 		case 786432
-			call load_dialog_by_number(var &VAR_25, var &VAR_26, gamevar chronicler_variation)
+			call load_dialog_by_number("SEKCHR", "NULL", gamevar chronicler_variation)
 			break 
 		case 262144
-			call load_dialog_by_number(var &VAR_27, var &VAR_28, gamevar chronicler_variation)
+			call load_dialog_by_number("CAGCHR", "NULL", gamevar chronicler_variation)
 			break 
 		case 327680
-			call load_dialog_by_number(var &VAR_29, var &VAR_30, gamevar chronicler_variation)
+			call load_dialog_by_number("JUGCHR", "NULL", gamevar chronicler_variation)
 			break 
 		case 131072
-			call load_dialog_by_number(var &VAR_31, var &VAR_32, gamevar chronicler_variation)
+			call load_dialog_by_number("CHICHR", "NULL", gamevar chronicler_variation)
 			break 
 		case 196608
-			call load_dialog_by_number(var &VAR_33, var &VAR_34, gamevar chronicler_variation)
+			call load_dialog_by_number("VIVCHR", "NULL", gamevar chronicler_variation)
 			break 
 }
 
@@ -558,21 +520,21 @@ var VAR_44 = call get_char_handle_id(gamevar control_char_p)
 switch(var VAR_44)
  {
 		case 65536
-			var VAR_20 = call load_next_dialog(var &VAR_45, var &VAR_46)
+			var VAR_20 = call load_next_dialog("DVDCHR", "NULL")
 			break 
 		case 786432
-			var VAR_20 = call load_next_dialog(var &VAR_47, var &VAR_48)
+			var VAR_20 = call load_next_dialog("SEKCHR", "NULL")
 			break 
 		case 262144
-			var VAR_20 = call load_next_dialog(var &VAR_49, var &VAR_50)
+			var VAR_20 = call load_next_dialog("CAGCHR", "NULL")
 			break 
 		case 327680
-			var VAR_20 = call load_next_dialog(var &VAR_51, var &VAR_52)
+			var VAR_20 = call load_next_dialog("JUGCHR", "NULL")
 			break 
 		case 131072
-			var VAR_20 = call load_next_dialog(var &VAR_53, var &VAR_54)
+			var VAR_20 = call load_next_dialog("CHICHR", "NULL")
 			break 
 		case 196608
-			var VAR_20 = call load_next_dialog(var &VAR_55, var &VAR_56)
+			var VAR_20 = call load_next_dialog("VIVCHR", "NULL")
 			break 
 }

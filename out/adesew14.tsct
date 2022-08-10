@@ -11,20 +11,15 @@ VAR_8	{ -750, -1500, 2214 }
 VAR_9	{ -781, -1400, 1721 }	
 VAR_10	{ -570, -1700, 1941 }	
 VAR_11	{ 0, 0, 0, 0, 0, 2, 2, 2, -1, 8, 1, 1, 2, 70, 70, 70, -1, 4, 0, 9, 1, 5, 1, 50, 150, 7, 1, 4, -1 }	
-VAR_12	"SEWERPT1"	
-VAR_13	"torch01"	
-VAR_14	"torch02"	
-VAR_15	"skavenb"	
-VAR_16	"spider"
 
 ._on_load
-call play_bgm(var &VAR_12)
+call play_bgm("SEWERPT1")
 gamevar SMACKER_X = int 232
 gamevar SMACKER_Y = int 112
-call play_2d_anim(var &VAR_13, int 1, int 1, var &VAR_0)
+call play_2d_anim("torch01", int 1, int 1, var &VAR_0)
 gamevar SMACKER_X = int 832
 gamevar SMACKER_Y = int 128
-call play_2d_anim(var &VAR_14, int 1, int 1, var &VAR_1)
+call play_2d_anim("torch02", int 1, int 1, var &VAR_1)
 call load_sound_set(int 30)
 call play_loaded_sound(int 1, int -1, int 30, int 0)
 switch(gamevar room_state)
@@ -61,8 +56,8 @@ switch(gamevar room_state)
 
 ._SCRIPT_3
 call func_9a(var &VAR_4, int 83, int 0, int 0)
-call load_char(var &VAR_15)
-call load_char(var &VAR_16)
+call load_char("skavenb")
+call load_char("spider")
 var VAR_2 = int 0
 
 ._SCRIPT_4

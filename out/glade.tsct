@@ -1,16 +1,11 @@
 ._DATA
 VAR_0	{ 1149771776, 1146601472, -978208768 }	
-VAR_1	"HAVNBPT1"	
 VAR_2	0	
 VAR_3	{ 1840, 862, -4539 }	
 VAR_4	{ 2433, 863, -4409 }	
 VAR_5	{ 2217, 863, -4213 }	
 VAR_6	{ 2300, 863, -4416 }	
 VAR_7	{ 0, 1639, 863, -5381, 11, 10, 50, 0, 1142, 863, -5143, 11, 10, 50, 0, 1075, 863, -4180, 11, 10, 50, 0, 1847, 863, -4492, 11, 100, 200, 7, 8 }	
-VAR_8	"fbear"	
-VAR_9	"iapple"	
-VAR_10	"iapple"	
-VAR_11	"iapple"	
 VAR_12	0	
 VAR_13	{ 0, 0 }
 
@@ -19,7 +14,7 @@ call load_sound_set(int 12)
 call play_loaded_sound(int 8, int -1, int 12, int 0)
 call load_sound_set(int 37)
 call func_ec(int 2, int -1, int 37, var &VAR_0)
-if(call play_bgm(var &VAR_1))
+if(call play_bgm("HAVNBPT1"))
  {
 		call func_114(int 1)
 		call func_5a(int -1)
@@ -77,10 +72,10 @@ if(gamevar script_time > var VAR_13)
 ._SCRIPT_4
 
 ._SCRIPT_5
-var VAR_2 = call create_char(var &VAR_3, var &VAR_8, int 240, int 13)
-call create_char(var &VAR_4, var &VAR_9, int 0, int 13)
-call create_char(var &VAR_5, var &VAR_10, int 0, int 13)
-call create_char(var &VAR_6, var &VAR_11, int 0, int 13)
+var VAR_2 = call create_char(var &VAR_3, "fbear", int 240, int 13)
+call create_char(var &VAR_4, "iapple", int 0, int 13)
+call create_char(var &VAR_5, "iapple", int 0, int 13)
+call create_char(var &VAR_6, "iapple", int 0, int 13)
 call func_50(var VAR_2, int 8193)
 call func_53(var VAR_2, int 5)
 call play_char_ai_script(var VAR_2, var &VAR_7)

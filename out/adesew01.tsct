@@ -30,14 +30,10 @@ VAR_27	{ 1611, 1292, -1431 }
 VAR_28	{ 1465, 1292, 3288 }	
 VAR_29	{ 15, 0, -811, 1292, 3085, 2, -815, 1293, -1570, 27, 30, 46, 8 }	
 VAR_30	{ 15, 0, -1103, 1292, 3085, 2, -815, 1293, -1570, 27, 30, 46, 8 }	
-VAR_31	"SEWERPT1"	
-VAR_32	"skaven"	
-VAR_33	"skavenb"	
-VAR_34	"spider"	
 VAR_35	0
 
 ._on_load
-call play_bgm(var &VAR_31)
+call play_bgm("SEWERPT1")
 call load_sound_set(int 38)
 switch(gamevar room_state)
  {
@@ -85,9 +81,9 @@ if(gamevar script_time > var VAR_35)
 }
 
 ._SCRIPT_4
-call load_char(var &VAR_32)
-call load_char(var &VAR_33)
-call load_char(var &VAR_34)
+call load_char("skaven")
+call load_char("skavenb")
+call load_char("spider")
 var VAR_3 = call create_enemy(int 45, int 0, var &VAR_15, int 180)
 var VAR_4 = call create_enemy(int 45, int 1, var &VAR_16, int 130)
 gamevar script_object = var VAR_3

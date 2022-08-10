@@ -4,22 +4,16 @@ VAR_1	0
 VAR_2	0	
 VAR_3	{ 0, 0 }	
 VAR_4	{ 0, 601, -350, 69, -607, -350, 92 }	
-VAR_5	"at8open"	
 VAR_6	0	
 VAR_7	{ -5, -350, -418 }	
 VAR_8	0	
-VAR_9	"opened"	
 VAR_10	0	
 VAR_11	{ 9, -350, -130 }	
 VAR_12	0	
 VAR_13	0	
 VAR_14	{ 590, -350, 1087, 25, -250, 1350, -542, -350, 1165, 9, -350, -130 }	
 VAR_15	0	
-VAR_16	"atro8"	
-VAR_17	"IEVLBAT1"	
-VAR_18	"victory"	
 VAR_19	0	
-VAR_20	"STING3"	
 VAR_21	0	
 VAR_22	0	
 VAR_23	0	
@@ -121,7 +115,7 @@ switch(var VAR_4)
 		case 1
 			if(call is_local_timer_greater_than(int 20))
 			 {
-					call play_bgm(var &VAR_20)
+					call play_bgm("STING3")
 					call func_134()
 					var VAR_12 = call get_char_handle(int 65536)
 					gamevar script_object = var VAR_12
@@ -140,12 +134,12 @@ switch(var VAR_4)
 		case 2
 			if(call func_5c(var VAR_12))
 			 {
-					call func_ff(var &VAR_11)
+					call force_scroll_to_pos(var &VAR_11)
 					var VAR_4 = int 3
 			}
 			break 
 		case 3
-			if(call is_not_scrolling())
+			if(call is_not_force_scrolling())
 			 {
 					var VAR_6 = int 1
 					var VAR_4 = int 4
@@ -164,9 +158,9 @@ call func_106(var VAR_10, int 9, int 5, var &VAR_14)
 call func_106(var VAR_10, int 9, int 6, int 4)
 gamevar SMACKER_X = int 376
 gamevar SMACKER_Y = int 156
-call play_2d_anim(var &VAR_16, int 0, int 1, var &VAR_2)
-call play_bgm(var &VAR_17)
-var VAR_15 = call load_anim(var &VAR_18)
+call play_2d_anim("atro8", int 0, int 1, var &VAR_2)
+call play_bgm("IEVLBAT1")
+var VAR_15 = call load_anim("victory")
 
 ._SCRIPT_5
 
@@ -183,7 +177,7 @@ if(gamevar room_state != int 1)
  {
 		gamevar SMACKER_X = int 376
 		gamevar SMACKER_Y = int 156
-		call play_2d_anim(var &VAR_5, int 0, int 1, int 0)
+		call play_2d_anim("at8open", int 0, int 1, int 0)
 }
 
 ._SCRIPT_11
@@ -195,11 +189,11 @@ switch(var VAR_6)
 			 {
 					var VAR_6 ++ 
 					call set_input_system(int 2)
-					call func_ff(var &VAR_7)
+					call force_scroll_to_pos(var &VAR_7)
 			}
 			break 
 		case 2
-			if(call is_not_scrolling())
+			if(call is_not_force_scrolling())
 			 {
 					var VAR_2 = int 1
 					call func_ec(int 1, int 0, int 74, int 0)
@@ -209,7 +203,7 @@ switch(var VAR_6)
 		case 3
 			if(var VAR_8 > int 200)
 			 {
-					call log(var &VAR_9)
+					call log("opened")
 					call set_input_system(int 1)
 					var VAR_6 ++ 
 			}

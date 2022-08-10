@@ -6,18 +6,6 @@ VAR_3	0
 VAR_4	0	
 VAR_5	0	
 VAR_6	0	
-VAR_7	"DVDCHR"	
-VAR_8	"NULL"	
-VAR_9	"SEKCHR"	
-VAR_10	"NULL"	
-VAR_11	"CAGCHR"	
-VAR_12	"NULL"	
-VAR_13	"JUGCHR"	
-VAR_14	"NULL"	
-VAR_15	"CHICHR"	
-VAR_16	"NULL"	
-VAR_17	"VIVCHR"	
-VAR_18	"NULL"	
 VAR_19	0	
 VAR_20	{ 0, 0, -1 }	
 VAR_21	0	
@@ -25,28 +13,12 @@ VAR_22	0
 VAR_23	0	
 VAR_24	0	
 VAR_25	-1	
-VAR_26	"game saved"	
-VAR_27	"game not saved"	
 VAR_28	0	
-VAR_29	"DVDCHR"	
-VAR_30	"NULL"	
-VAR_31	"SEKCHR"	
-VAR_32	"NULL"	
-VAR_33	"CAGCHR"	
-VAR_34	"NULL"	
-VAR_35	"JUGCHR"	
-VAR_36	"NULL"	
-VAR_37	"CHICHR"	
-VAR_38	"NULL"	
-VAR_39	"VIVCHR"	
-VAR_40	"NULL"	
 VAR_41	0	
 VAR_42	100	
 VAR_43	{ -6460, 16, 1048 }	
 VAR_44	0	
-VAR_45	"courtyrd"	
 VAR_46	0	
-VAR_47	"imphorn"	
 VAR_48	0	
 VAR_49	0	
 VAR_50	0	
@@ -65,15 +37,6 @@ VAR_62	{ -2873, -10, 3883 }
 VAR_63	{ -5979, -13, 2846 }	
 VAR_64	{ -6107, -15, 2691 }	
 VAR_65	0	
-VAR_66	"FWINGIMP"	
-VAR_67	"FIMP1"	
-VAR_68	"FIMP2"	
-VAR_69	"FIMP3"	
-VAR_70	"FIMP4"	
-VAR_71	"FIMP5"	
-VAR_72	"FIMP6"	
-VAR_73	"FIMP7"	
-VAR_74	"chronicl"	
 VAR_75	{ -6165, 40, 1380 }	
 VAR_76	{ -6165, 30, 2150 }	
 VAR_77	{ -6866, 40, 1298 }	
@@ -81,8 +44,6 @@ VAR_78	0
 VAR_79	0	
 VAR_80	-1	
 VAR_81	0	
-VAR_82	"TERIMP"	
-VAR_83	"NULL"	
 VAR_84	{ -5720, 32, 660 }	
 VAR_85	0	
 VAR_86	0	
@@ -95,31 +56,22 @@ VAR_92	{ -6731, 11, 1096 }
 VAR_93	{ -6519, -1, -1862 }	
 VAR_94	{ -2873, -10, 3883 }	
 VAR_95	0	
-VAR_96	"Hornblow..."	
-VAR_97	"Sound horn..."	
 VAR_98	0	
 VAR_99	0	
 VAR_100	{ -6519, -1, -1886 }	
 VAR_101	{ -6433, 7, -2089 }	
 VAR_102	0	
-VAR_103	"FIMP8"	
-VAR_104	"FIMP9"	
 VAR_105	0	
 VAR_106	0	
 VAR_107	{ -6519, -1, -1886 }	
 VAR_108	{ -6433, 7, -2089 }	
-VAR_109	"FIMP8"	
-VAR_110	"FIMP9"	
 VAR_111	0	
 VAR_112	0	
 VAR_113	{ -4255, -14, 1671 }	
-VAR_114	"DVDTER"	
-VAR_115	"NULL"	
 VAR_116	0	
 VAR_117	0	
 VAR_118	0	
 VAR_119	0	
-VAR_120	"ARSE"	
 VAR_121	0	
 VAR_122	0	
 VAR_123	0
@@ -222,7 +174,7 @@ if(gamevar script_time > var VAR_123)
 ._SCRIPT_4
 gamevar SMACKER_X = int 480
 gamevar SMACKER_Y = int 200
-call play_2d_anim(var &VAR_45, int 1, int 1, var &VAR_0)
+call play_2d_anim("courtyrd", int 1, int 1, var &VAR_0)
 
 ._SCRIPT_5
 call clear_char_waypoints()
@@ -235,14 +187,14 @@ call create_waypoint(int -6165, int 30, int 2150)
 call create_waypoint(int -6866, int 40, int 1298)
 
 ._SCRIPT_6
-var VAR_48 = call create_char(var &VAR_57, var &VAR_66, int 200, int 16)
-var VAR_49 = call create_char(var &VAR_58, var &VAR_67, int 185, int 13)
-var VAR_50 = call create_char(var &VAR_59, var &VAR_68, int 215, int 13)
-var VAR_51 = call create_char(var &VAR_60, var &VAR_69, int 50, int 13)
-var VAR_52 = call create_char(var &VAR_61, var &VAR_70, int 340, int 13)
-var VAR_53 = call create_char(var &VAR_62, var &VAR_71, int 150, int 13)
-var VAR_54 = call create_char(var &VAR_63, var &VAR_72, int 195, int 13)
-var VAR_55 = call create_char(var &VAR_64, var &VAR_73, int 15, int 13)
+var VAR_48 = call create_char(var &VAR_57, "FWINGIMP", int 200, int 16)
+var VAR_49 = call create_char(var &VAR_58, "FIMP1", int 185, int 13)
+var VAR_50 = call create_char(var &VAR_59, "FIMP2", int 215, int 13)
+var VAR_51 = call create_char(var &VAR_60, "FIMP3", int 50, int 13)
+var VAR_52 = call create_char(var &VAR_61, "FIMP4", int 340, int 13)
+var VAR_53 = call create_char(var &VAR_62, "FIMP5", int 150, int 13)
+var VAR_54 = call create_char(var &VAR_63, "FIMP6", int 195, int 13)
+var VAR_55 = call create_char(var &VAR_64, "FIMP7", int 15, int 13)
 execute SCRIPT_5
 execute SCRIPT_8
 execute SCRIPT_11
@@ -258,7 +210,7 @@ call char_unfollow(var VAR_56)
 var VAR_65 = call get_num_of_enemies()
 execute SCRIPT_14
 call set_input_system(int 2)
-call load_char(var &VAR_74)
+call load_char("chronicl")
 
 ._SCRIPT_7
 if(call get_num_of_enemies() == int 0)
@@ -291,7 +243,7 @@ if(var VAR_78 == int 0)
  {
 		if(var VAR_79 > int 160)
 		 {
-				call start_dialog(var &VAR_82, var &VAR_83)
+				call start_dialog("TERIMP", "NULL")
 				var VAR_78 ++ 
 				var VAR_79 = int 0
 		}
@@ -357,7 +309,7 @@ switch(var VAR_111)
 			if(var VAR_112 > int 10)
 			 {
 					call set_input_system(int 2)
-					call func_ff(call get_char_pos(var VAR_44))
+					call force_scroll_to_pos(call get_char_pos(var VAR_44))
 					call char_approach_char_pos(var VAR_56, var VAR_44, int 150)
 					var VAR_111 ++ 
 					var VAR_112 = int 0
@@ -373,9 +325,9 @@ switch(var VAR_111)
 			}
 			break 
 		case 2
-			if(call is_not_scrolling())
+			if(call is_not_force_scrolling())
 			 {
-					call start_dialog(var &VAR_114, var &VAR_115)
+					call start_dialog("DVDTER", "NULL")
 					var VAR_111 ++ 
 					var VAR_112 = int 0
 			}
@@ -409,7 +361,7 @@ call char_attack(var VAR_55, var VAR_54)
 ._SCRIPT_13
 if(var VAR_80 == int 0)
  {
-		call log(var &VAR_96)
+		call log("Hornblow...")
 		call set_char_running(var VAR_53)
 		call char_walk_to_pos(var VAR_53, var &VAR_92)
 		var VAR_80 ++ 
@@ -418,7 +370,7 @@ if(var VAR_80 == int 1)
  {
 		if(call is_char_standing(var VAR_53))
 		 {
-				call log(var &VAR_97)
+				call log("Sound horn...")
 				call play_char_anim(var VAR_53, var VAR_46, int 0)
 				call play_loaded_sound(int 8, int 0, int 11, call get_char_movement_ptr(var VAR_53))
 				if(var VAR_95 == int 0)
@@ -459,12 +411,12 @@ if(var VAR_80 == int 3)
 var VAR_91 ++ 
 
 ._SCRIPT_14
-var VAR_46 = call load_anim(var &VAR_47)
+var VAR_46 = call load_anim("imphorn")
 
 ._SCRIPT_15
 gamevar compile_init_character = int 0
-var VAR_99 = call create_char(var &VAR_101, var &VAR_103, int 348, int 13)
-var VAR_98 = call create_char(var &VAR_100, var &VAR_104, int 348, int 13)
+var VAR_99 = call create_char(var &VAR_101, "FIMP8", int 348, int 13)
+var VAR_98 = call create_char(var &VAR_100, "FIMP9", int 348, int 13)
 gamevar compile_init_character = int 1
 call set_char_init_state(var VAR_99, int 0)
 call set_char_init_state(var VAR_99, int 7)
@@ -479,8 +431,8 @@ var VAR_65 = call get_num_of_enemies()
 
 ._SCRIPT_16
 gamevar compile_init_character = int 0
-var VAR_106 = call create_char(var &VAR_108, var &VAR_109, int 348, int 13)
-var VAR_105 = call create_char(var &VAR_107, var &VAR_110, int 348, int 13)
+var VAR_106 = call create_char(var &VAR_108, "FIMP8", int 348, int 13)
+var VAR_105 = call create_char(var &VAR_107, "FIMP9", int 348, int 13)
 gamevar compile_init_character = int 1
 call set_char_init_state(var VAR_106, int 0)
 call set_char_init_state(var VAR_106, int 7)
@@ -582,7 +534,7 @@ if(var VAR_90 == int 0)
 ._SCRIPT_25
 
 ._SCRIPT_26
-call func_108(var &VAR_120)
+call func_108("ARSE")
 if(call is_char_handle_in_level(int 6291456))
  {
 		if(var VAR_3)
@@ -675,14 +627,14 @@ switch(var VAR_19)
 		case 5
 			if(var VAR_21 != gamevar saved_games_count)
 			 {
-					call log(var &VAR_26)
+					call log("game saved")
 					call func_11d()
 					var VAR_19 = int 7
 					var VAR_20 = int 0
 			}
 			else
 			 {
-					call log(var &VAR_27)
+					call log("game not saved")
 					call func_2a(var VAR_3, var &VAR_22)
 					execute SCRIPT_31
 					gamevar chronicler_variation = var VAR_4
@@ -738,22 +690,22 @@ var VAR_6 = call get_char_handle_id(gamevar control_char_p)
 switch(var VAR_6)
  {
 		case 65536
-			call load_dialog_by_number(var &VAR_7, var &VAR_8, gamevar chronicler_variation)
+			call load_dialog_by_number("DVDCHR", "NULL", gamevar chronicler_variation)
 			break 
 		case 786432
-			call load_dialog_by_number(var &VAR_9, var &VAR_10, gamevar chronicler_variation)
+			call load_dialog_by_number("SEKCHR", "NULL", gamevar chronicler_variation)
 			break 
 		case 262144
-			call load_dialog_by_number(var &VAR_11, var &VAR_12, gamevar chronicler_variation)
+			call load_dialog_by_number("CAGCHR", "NULL", gamevar chronicler_variation)
 			break 
 		case 327680
-			call load_dialog_by_number(var &VAR_13, var &VAR_14, gamevar chronicler_variation)
+			call load_dialog_by_number("JUGCHR", "NULL", gamevar chronicler_variation)
 			break 
 		case 131072
-			call load_dialog_by_number(var &VAR_15, var &VAR_16, gamevar chronicler_variation)
+			call load_dialog_by_number("CHICHR", "NULL", gamevar chronicler_variation)
 			break 
 		case 196608
-			call load_dialog_by_number(var &VAR_17, var &VAR_18, gamevar chronicler_variation)
+			call load_dialog_by_number("VIVCHR", "NULL", gamevar chronicler_variation)
 			break 
 }
 
@@ -762,21 +714,21 @@ var VAR_28 = call get_char_handle_id(gamevar control_char_p)
 switch(var VAR_28)
  {
 		case 65536
-			var VAR_4 = call load_next_dialog(var &VAR_29, var &VAR_30)
+			var VAR_4 = call load_next_dialog("DVDCHR", "NULL")
 			break 
 		case 786432
-			var VAR_4 = call load_next_dialog(var &VAR_31, var &VAR_32)
+			var VAR_4 = call load_next_dialog("SEKCHR", "NULL")
 			break 
 		case 262144
-			var VAR_4 = call load_next_dialog(var &VAR_33, var &VAR_34)
+			var VAR_4 = call load_next_dialog("CAGCHR", "NULL")
 			break 
 		case 327680
-			var VAR_4 = call load_next_dialog(var &VAR_35, var &VAR_36)
+			var VAR_4 = call load_next_dialog("JUGCHR", "NULL")
 			break 
 		case 131072
-			var VAR_4 = call load_next_dialog(var &VAR_37, var &VAR_38)
+			var VAR_4 = call load_next_dialog("CHICHR", "NULL")
 			break 
 		case 196608
-			var VAR_4 = call load_next_dialog(var &VAR_39, var &VAR_40)
+			var VAR_4 = call load_next_dialog("VIVCHR", "NULL")
 			break 
 }

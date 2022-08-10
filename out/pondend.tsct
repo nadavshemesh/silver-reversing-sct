@@ -1,30 +1,23 @@
 ._DATA
 VAR_0	{ 1314275656, 827609154, 1073743104, 0 }	
 VAR_1	0	
-VAR_2	"newwater"	
-VAR_3	"pondend"	
 VAR_4	{ 1463, -50, 413, -1556, -50, 576 }	
 VAR_5	{ 601, -808, 900, 2, -999, 900, -705, -717, 900 }	
 VAR_6	{ 601, 400, 900, 2, 400, 900, -705, 400, 900 }	
 VAR_7	{ 0, 1, 3, VAR_5, 8, 2, 4, 2, 3, VAR_6, 9, 0, 1, 3, 27, 27, 27, -1, 5, 1, 50, 100, 7, 1, 3, 6, 1, -1 }	
 VAR_8	{ 0, 0, 1, -1, 8, 0, 4, 0, 9, 1, 1, 1, 27, 27, -1, 5, 1, 10, 20, 7, 1, 10, -1 }	
-VAR_9	"gbee"	
 VAR_10	0	
 VAR_11	0	
 VAR_12	0	
 VAR_13	0	
 VAR_14	{ 26, -325, 1392 }	
 VAR_15	{ 0, 0 }	
-VAR_16	"trip 1"	
-VAR_17	"trip 2"	
 VAR_18	0	
 VAR_19	0	
 VAR_20	0	
-VAR_21	"start multi_bees"	
 VAR_22	0	
 VAR_23	0	
 VAR_24	{ 0, 0 }	
-VAR_25	"newfade"	
 VAR_26	0	
 VAR_27	0	
 VAR_28	{ -1265, -50, 580 }	
@@ -116,13 +109,13 @@ if(gamevar *scene_info_p+1)
  {
 		gamevar SMACKER_X = int 184
 		gamevar SMACKER_Y = int 216
-		call play_2d_anim(var &VAR_2, int 1, int 1, int 0)
+		call play_2d_anim("newwater", int 1, int 1, int 0)
 }
 else
  {
 		gamevar SMACKER_X = int 176
 		gamevar SMACKER_Y = int 216
-		call play_2d_anim(var &VAR_3, int 1, int 1, int 0)
+		call play_2d_anim("pondend", int 1, int 1, int 0)
 }
 
 ._SCRIPT_4
@@ -133,7 +126,7 @@ switch(var VAR_10)
 var VAR_11 ++ 
 
 ._SCRIPT_5
-call load_char(var &VAR_9)
+call load_char("gbee")
 
 ._SCRIPT_6
 
@@ -216,7 +209,7 @@ switch(var VAR_27)
 ._SCRIPT_9
 gamevar SMACKER_X = int 392
 gamevar SMACKER_Y = int 312
-var VAR_22 = call play_2d_anim(var &VAR_25, int 0, int 1, var &VAR_23)
+var VAR_22 = call play_2d_anim("newfade", int 0, int 1, var &VAR_23)
 call set_input_system(int 2)
 
 ._SCRIPT_10
@@ -239,7 +232,7 @@ switch(var VAR_18)
 		case 0
 			if(call get_num_of_enemies() > int 0)
 			 {
-					call log(var &VAR_21)
+					call log("start multi_bees")
 					var VAR_20 = call play_loaded_sound(int 1, int -1, int 77, int 0)
 					call func_7f(var VAR_20, int 100)
 					var VAR_18 ++ 

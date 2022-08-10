@@ -7,7 +7,6 @@ VAR_4	0
 VAR_5	0	
 VAR_6	0	
 VAR_7	0	
-VAR_8	"random_rain_fx: Rain SFX not initialised! See Marc"	
 VAR_9	0	
 VAR_10	0	
 VAR_11	0	
@@ -17,11 +16,8 @@ VAR_14	0
 VAR_15	0	
 VAR_16	0	
 VAR_17	{ 0, 0 }	
-VAR_18	"RAINPT1"	
-VAR_19	"it's_raining"	
 VAR_20	{ -2600, 2199, -4625 }	
 VAR_21	{ 375, 2199, -7350 }	
-VAR_22	"RAIN"	
 VAR_23	0	
 VAR_24	0	
 VAR_25	0	
@@ -48,17 +44,11 @@ VAR_45	{ 0, 898, 169, 4944, 0, 1935, 169, 4296, 7, 8 }
 VAR_46	{ 0, 652, 169, 5089, 0, -34, 169, 5493, 7, 8 }	
 VAR_47	{ 848, 169, 4975 }	
 VAR_48	{ 630, 169, 5085, 1936, 35, 5384, 2183, 35, 5535 }	
-VAR_49	"gstqustn"	
-VAR_50	"no"	
-VAR_51	"yes"	
-VAR_52	"confused"	
-VAR_53	"talkfstb"	
-VAR_54	"nflatnose"	
 VAR_55	{ 287, -878, 5488, 1375, -878, 4835 }
 
 ._on_load
 execute SCRIPT_3
-call play_bgm(var &VAR_18)
+call play_bgm("RAINPT1")
 if(gamevar is_room_cleared)
  {
 		execute SCRIPT_9
@@ -114,8 +104,8 @@ if(gamevar !is_room_cleared)
 }
 
 ._SCRIPT_3
-call log(var &VAR_19)
-call play_3d_fx(var &VAR_22, var &VAR_20, var &VAR_21, int 0)
+call log("it's_raining")
+call play_3d_fx("RAIN", var &VAR_20, var &VAR_21, int 0)
 execute SCRIPT_10
 
 ._SCRIPT_4
@@ -157,11 +147,11 @@ switch(var VAR_23)
 var VAR_24 ++ 
 
 ._SCRIPT_5
-var VAR_35 = call load_anim(var &VAR_49)
-var VAR_36 = call load_anim(var &VAR_50)
-var VAR_37 = call load_anim(var &VAR_51)
-var VAR_38 = call load_anim(var &VAR_52)
-var VAR_39 = call load_anim(var &VAR_53)
+var VAR_35 = call load_anim("gstqustn")
+var VAR_36 = call load_anim("no")
+var VAR_37 = call load_anim("yes")
+var VAR_38 = call load_anim("confused")
+var VAR_39 = call load_anim("talkfstb")
 var VAR_28 = call create_enemy(int 11, int 0, var &VAR_40, int 270)
 gamevar script_object = var VAR_28
 gamevar *character_stats_p+15 = int 0
@@ -196,7 +186,7 @@ call func_106(var VAR_33, int 9, int 6, int 1)
 call func_106(var VAR_33, int 0, int 3, int 180)
 call set_char_init_state(var VAR_33, int 13)
 call play_char_ai_script(var VAR_33, var &VAR_46)
-var VAR_30 = call create_char(var &VAR_42, var &VAR_54, int 285, int 13)
+var VAR_30 = call create_char(var &VAR_42, "nflatnose", int 285, int 13)
 call set_char_running(var VAR_30)
 gamevar script_object = var VAR_30
 gamevar *character_movement_p+60 = int 1
@@ -325,7 +315,7 @@ var VAR_0 = int 1
 ._SCRIPT_11
 if(var ! VAR_0)
  {
-		call log(var &VAR_8)
+		call log("random_rain_fx: Rain SFX not initialised! See Marc")
 		exit_script 
 }
 switch(var VAR_4)

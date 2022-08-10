@@ -2,7 +2,6 @@
 VAR_0	{ 1, 2, -1 }	
 VAR_1	{ 1, -1 }	
 VAR_2	{ -3359, -90, -5151 }	
-VAR_3	"VERDANTE"	
 VAR_4	{ 1146242390, 1163152961, 0 }	
 VAR_5	0	
 VAR_6	{ 1869773172, 1852667251, 0 }	
@@ -47,7 +46,6 @@ VAR_44	{ 844383041, 0 }
 VAR_45	0	
 VAR_46	{ -1407, -90, -2591 }	
 VAR_47	{ -1416, -90, -3682 }	
-VAR_48	"act3_wait_for_heros"	
 VAR_49	{ 0, 0, 2, -1, 8, 2, 12, 156, -1, 14, 0, 1, 1, 18, 50, -1 }	
 VAR_50	0	
 VAR_51	0	
@@ -56,7 +54,7 @@ VAR_52	0
 ._on_load
 if(gamevar room_state > int 4)
  {
-		if(call play_bgm(var &VAR_3))
+		if(call play_bgm("VERDANTE"))
 		 {
 				call func_114(int 1)
 				call func_5a(int -1)
@@ -338,7 +336,7 @@ if(var VAR_45 == int 1)
 						call char_turn_to_pos(var VAR_13, call get_char_pos(var VAR_7))
 						call char_turn_to_pos(var VAR_15, call get_char_pos(var VAR_7))
 						var VAR_45 = int 2
-						call log(var &VAR_48)
+						call log("act3_wait_for_heros")
 						gamevar room_state = int 4
 						gamevar door_restriction_p = var &VAR_1
 				}

@@ -26,7 +26,6 @@ VAR_23	0
 VAR_24	0	
 VAR_25	0	
 VAR_26	0	
-VAR_27	"random_rain_fx: Rain SFX not initialised! See Marc"	
 VAR_28	0	
 VAR_29	0	
 VAR_30	0	
@@ -36,17 +35,8 @@ VAR_33	0
 VAR_34	0	
 VAR_35	0	
 VAR_36	{ 0, 0 }	
-VAR_37	"RainPt1"	
-VAR_38	"it's_raining"	
 VAR_39	{ -1700, 1000, 550 }	
 VAR_40	{ 2650, 1000, -1150 }	
-VAR_41	"RAIN"	
-VAR_42	"muscles"	
-VAR_43	"finnegan"	
-VAR_44	"longjohn"	
-VAR_45	"dick"	
-VAR_46	"S_DVDENT"	
-VAR_47	"NULL"	
 VAR_48	0	
 VAR_49	0	
 VAR_50	0	
@@ -56,17 +46,12 @@ VAR_53	{ -1234, -1417, 717 }
 VAR_54	{ -1196, -1417, 454 }	
 VAR_55	{ -652, -1417, -241 }	
 VAR_56	{ -374, -1417, -208 }	
-VAR_57	"standoff"	
-VAR_58	"longjohn"	
-VAR_59	"muscles"	
-VAR_60	"dick"	
-VAR_61	"finnegan"
 
 ._on_load
 execute SCRIPT_9
-call play_bgm(var &VAR_37)
-call func_b8(int 93)
-call func_b8(int 91)
+call play_bgm("RainPt1")
+call load_item(int 93)
+call load_item(int 91)
 call load_sound_set(int 32)
 call play_loaded_sound(int 1, int -1, int 32, int 0)
 switch(gamevar room_state)
@@ -116,10 +101,10 @@ switch(gamevar room_state)
 }
 
 ._SCRIPT_3
-call load_char(var &VAR_42)
-call load_char(var &VAR_43)
-call load_char(var &VAR_44)
-call load_char(var &VAR_45)
+call load_char("muscles")
+call load_char("finnegan")
+call load_char("longjohn")
+call load_char("dick")
 var VAR_12 = call create_enemy(int 29, int 0, var &VAR_13, int 295)
 call func_109(var VAR_12, int 3)
 var VAR_14 = call create_enemy(int 31, int 0, var &VAR_15, int 115)
@@ -240,7 +225,7 @@ switch(var VAR_0)
 					 {
 							call func_46(var VAR_14, int 13)
 					}
-					call start_dialog(var &VAR_46, var &VAR_47)
+					call start_dialog("S_DVDENT", "NULL")
 					var VAR_2 = int 1
 					var VAR_1 = int 30
 					var VAR_0 ++ 
@@ -325,11 +310,11 @@ if(call func_6f() != int 0)
 		var VAR_3 = int -5537800
 		exit_script 
 }
-var VAR_52 = call load_anim(var &VAR_57)
-call load_char(var &VAR_58)
-call load_char(var &VAR_59)
-call load_char(var &VAR_60)
-call load_char(var &VAR_61)
+var VAR_52 = call load_anim("standoff")
+call load_char("longjohn")
+call load_char("muscles")
+call load_char("dick")
+call load_char("finnegan")
 var VAR_48 = call create_enemy(int 31, int 0, var &VAR_53, int 175)
 var VAR_49 = call create_enemy(int 32, int 0, var &VAR_54, int 335)
 call func_46(var VAR_48, int 0)
@@ -349,13 +334,13 @@ switch(var VAR_3)
 			var VAR_9 = call func_7e()
 			var VAR_10 = call func_7e()
 			call set_char_running(var VAR_8)
-			call func_18(var VAR_8, int -427, int -1417, int 382)
+			call char_walk_to(var VAR_8, int -427, int -1417, int 382)
 			call set_char_running(var VAR_9)
-			call func_18(var VAR_9, int -313, int -1417, int 177)
+			call char_walk_to(var VAR_9, int -313, int -1417, int 177)
 			if(var VAR_10)
 			 {
 					call set_char_running(var VAR_10)
-					call func_18(var VAR_10, int -664, int -1417, int 190)
+					call char_walk_to(var VAR_10, int -664, int -1417, int 190)
 			}
 			var VAR_3 ++ 
 			break 
@@ -371,8 +356,8 @@ switch(var VAR_3)
 			}
 			break 
 		case 2
-			var VAR_50 = call func_96(int 28, int 0, int 0, int 0)
-			var VAR_51 = call func_96(int 30, int 0, int 0, int 0)
+			var VAR_50 = call create_enemy_through_door(int 28, int 0, int 0, int 0)
+			var VAR_51 = call create_enemy_through_door(int 30, int 0, int 0, int 0)
 			call func_46(var VAR_50, int 0)
 			call func_46(var VAR_51, int 0)
 			call char_walk_to_pos(var VAR_50, var &VAR_55)
@@ -412,25 +397,25 @@ switch(var VAR_3)
 		case 8
 			if(call ! is_char_handle_in_level(int 6160384))
 			 {
-					var VAR_50 = call func_96(int 28, int 0, int 1, int 0)
+					var VAR_50 = call create_enemy_through_door(int 28, int 0, int 1, int 0)
 					call set_char_running(var VAR_50)
 					call func_19(var VAR_50, var VAR_8)
 			}
 			if(call ! is_char_handle_in_level(int 2490368))
 			 {
-					var VAR_51 = call func_96(int 30, int 0, int 1, int 0)
+					var VAR_51 = call create_enemy_through_door(int 30, int 0, int 1, int 0)
 					call set_char_running(var VAR_51)
 					call func_19(var VAR_51, var VAR_9)
 			}
 			if(call ! is_char_handle_in_level(int 5767168))
 			 {
-					var VAR_49 = call func_96(int 32, int 0, int 1, int 0)
+					var VAR_49 = call create_enemy_through_door(int 32, int 0, int 1, int 0)
 					call set_char_running(var VAR_49)
 					call func_19(var VAR_49, var VAR_8)
 			}
 			if(call ! is_char_handle_in_level(int 6422528))
 			 {
-					var VAR_48 = call func_96(int 31, int 0, int 1, int 0)
+					var VAR_48 = call create_enemy_through_door(int 31, int 0, int 1, int 0)
 					call set_char_running(var VAR_48)
 					call func_19(var VAR_48, var VAR_9)
 			}
@@ -445,25 +430,25 @@ switch(var VAR_3)
 		case 10
 			if(call ! is_char_handle_in_level(int 6160384))
 			 {
-					var VAR_50 = call func_96(int 28, int 0, int 2, int 0)
+					var VAR_50 = call create_enemy_through_door(int 28, int 0, int 2, int 0)
 					call set_char_running(var VAR_50)
 					call func_19(var VAR_50, var VAR_8)
 			}
 			if(call ! is_char_handle_in_level(int 2490368))
 			 {
-					var VAR_51 = call func_96(int 30, int 0, int 2, int 0)
+					var VAR_51 = call create_enemy_through_door(int 30, int 0, int 2, int 0)
 					call set_char_running(var VAR_51)
 					call func_19(var VAR_51, var VAR_9)
 			}
 			if(call ! is_char_handle_in_level(int 5767168))
 			 {
-					var VAR_49 = call func_96(int 32, int 0, int 2, int 0)
+					var VAR_49 = call create_enemy_through_door(int 32, int 0, int 2, int 0)
 					call set_char_running(var VAR_49)
 					call func_19(var VAR_49, var VAR_8)
 			}
 			if(call ! is_char_handle_in_level(int 6422528))
 			 {
-					var VAR_48 = call func_96(int 31, int 0, int 2, int 0)
+					var VAR_48 = call create_enemy_through_door(int 31, int 0, int 2, int 0)
 					call set_char_running(var VAR_48)
 					call func_19(var VAR_48, var VAR_9)
 			}
@@ -476,8 +461,8 @@ switch(var VAR_3)
 ._SCRIPT_8
 
 ._SCRIPT_9
-call log(var &VAR_38)
-call play_3d_fx(var &VAR_41, var &VAR_39, var &VAR_40, int 0)
+call log("it's_raining")
+call play_3d_fx("RAIN", var &VAR_39, var &VAR_40, int 0)
 execute SCRIPT_10
 
 ._SCRIPT_10
@@ -491,7 +476,7 @@ var VAR_19 = int 1
 ._SCRIPT_11
 if(var ! VAR_19)
  {
-		call log(var &VAR_27)
+		call log("random_rain_fx: Rain SFX not initialised! See Marc")
 		exit_script 
 }
 switch(var VAR_23)

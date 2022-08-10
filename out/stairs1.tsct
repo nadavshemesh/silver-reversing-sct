@@ -1,6 +1,5 @@
 ._DATA
 VAR_0	{ 1710, -400, -517 }	
-VAR_1	"HAVNBPT1"	
 VAR_2	0	
 VAR_3	{ 0, 0 }	
 VAR_4	0	
@@ -16,7 +15,6 @@ VAR_13	0
 VAR_14	0	
 VAR_15	{ 3823, 200, 432, 2478, 200, 1530 }	
 VAR_16	{ 3362, 350, -965, 2460, 350, -976 }	
-VAR_17	"Init trigger zones"	
 VAR_18	0	
 VAR_19	{ 2209, 200, 955 }	
 VAR_20	{ 4259, 1715, 778, 3801, 1715, 841, 3821, 1715, 1184, 3247, 1715, 1700, 3287, 1715, 1732, 3526, 1715, 1187 }	
@@ -38,7 +36,7 @@ call load_sound_set(int 12)
 call play_loaded_sound(int 8, int -1, int 12, int 0)
 call load_sound_set(int 37)
 call func_ec(int 2, int -1, int 37, var &VAR_0)
-if(call play_bgm(var &VAR_1))
+if(call play_bgm("HAVNBPT1"))
  {
 		call func_114(int 1)
 		call func_5a(int -1)
@@ -106,7 +104,7 @@ var VAR_5 = call func_7e()
 var VAR_6 = call func_7e()
 var VAR_7 = call func_7e()
 execute SCRIPT_6
-call log(var &VAR_17)
+call log("Init trigger zones")
 
 ._SCRIPT_4
 execute SCRIPT_7

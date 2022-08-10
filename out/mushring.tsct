@@ -4,10 +4,6 @@ VAR_1	0
 VAR_2	{ 347, 795, 4368 }	
 VAR_3	0	
 VAR_4	{ 373, 795, 6515 }	
-VAR_5	"DREAM"	
-VAR_6	"MUSHGEN"	
-VAR_7	"DREAM"	
-VAR_8	"MUSHGEN"	
 VAR_9	0	
 VAR_10	0	
 VAR_11	0	
@@ -19,30 +15,17 @@ VAR_16	0
 VAR_17	0	
 VAR_18	0	
 VAR_19	{ 366, 795, 7012 }	
-VAR_20	"Act1 of Mushring"	
-VAR_21	"Act2+ of mushring"	
 VAR_22	{ 757935405, 757935405, 757935405, 757935405, 757935405, 757935405, 757935405, -1431655936 }	
-VAR_23	"Last time mushring was used:"	
 VAR_24	{ 757935405, 757935405, 757935405, 757935405, 757935405, 757935405, 757935405, -1431655936 }	
 VAR_25	-1431699424	
-VAR_26	"Mushring has now become useable"	
-VAR_27	"MUSHACT"	
-VAR_28	"MUSHACT"	
-VAR_29	"Mushring available due to act1"	
 VAR_30	{ 757935405, 757935405, 757935405, 757935405, -1431699411 }	
-VAR_31	"Elapsed time(HP):"	
 VAR_32	{ 757935405, 757935405, 757935405, 757935405, -1431699411 }	
 VAR_33	-1431699424	
 VAR_34	{ 757935405, 757935405, 757935405, 757935405, -1431699411 }	
-VAR_35	"Elapsed time(MP):"	
 VAR_36	{ 757935405, 757935405, 757935405, 757935405, -1431699411 }	
 VAR_37	32	
-VAR_38	"mushpt1"	
 VAR_39	{ 757935405, 757935405, 45 }	
-VAR_40	"New time:"	
 VAR_41	{ 757935405, 757935405, -1431699411 }	
-VAR_42	" RE"	
-VAR_43	"MUSH"	
 VAR_44	0	
 VAR_45	10	
 VAR_46	2	
@@ -142,12 +125,12 @@ switch(var VAR_11)
 			if(gamevar room_state == int 1)
 			 {
 					var VAR_12 = int 1
-					call log(var &VAR_20)
+					call log("Act1 of Mushring")
 			}
 			else
 			 {
 					var VAR_12 = int 0
-					call log(var &VAR_21)
+					call log("Act2+ of mushring")
 			}
 			var VAR_11 ++ 
 			var VAR_10 = int 0
@@ -157,7 +140,7 @@ switch(var VAR_11)
 			call func_7(int 0, var VAR_14, var VAR_15, var VAR_16)
 			var VAR_17 = var VAR_14
 			call log(var &VAR_22)
-			call log(var &VAR_23)
+			call log("Last time mushring was used:")
 			call log_obj(var VAR_17)
 			call log(var &VAR_24)
 			call log(var &VAR_25)
@@ -168,8 +151,8 @@ switch(var VAR_11)
 			var VAR_18 = gamevar script_time - var VAR_17
 			if(var VAR_18 >= int 7200)
 			 {
-					call log(var &VAR_26)
-					var VAR_1 = call play_3d_fx(var &VAR_27, var &VAR_4, var &VAR_4, int 0)
+					call log("Mushring has now become useable")
+					var VAR_1 = call play_3d_fx("MUSHACT", var &VAR_4, var &VAR_4, int 0)
 					var VAR_11 ++ 
 					var VAR_10 = int 0
 					break 
@@ -179,8 +162,8 @@ switch(var VAR_11)
 					var VAR_12 = int 0
 					var VAR_11 ++ 
 					var VAR_10 = int 0
-					var VAR_1 = call play_3d_fx(var &VAR_28, var &VAR_4, var &VAR_4, int 0)
-					call log(var &VAR_29)
+					var VAR_1 = call play_3d_fx("MUSHACT", var &VAR_4, var &VAR_4, int 0)
+					call log("Mushring available due to act1")
 			}
 			break 
 		case 3
@@ -195,7 +178,7 @@ switch(var VAR_11)
 					if(gamevar HP < gamevar *character_stats_p+9)
 					 {
 							call log(var &VAR_30)
-							call log(var &VAR_31)
+							call log("Elapsed time(HP):")
 							call log_obj(var VAR_18)
 							call log(var &VAR_32)
 							call log(var &VAR_33)
@@ -208,7 +191,7 @@ switch(var VAR_11)
 					if(gamevar MAGIC < gamevar *character_stats_p+10)
 					 {
 							call log(var &VAR_34)
-							call log(var &VAR_35)
+							call log("Elapsed time(MP):")
 							call log_obj(var VAR_18)
 							call log(var &VAR_36)
 							call log(var &VAR_37)
@@ -231,15 +214,15 @@ switch(var VAR_11)
 		case 5
 			if(var VAR_10 > int 60)
 			 {
-					call play_bgm(var &VAR_38)
+					call play_bgm("mushpt1")
 					call func_7(int 0, gamevar script_time, int 0, int 0)
 					call log(var &VAR_39)
-					call log(var &VAR_40)
+					call log("New time:")
 					call log_obj(gamevar script_time)
 					call log(var &VAR_41)
-					call log(var &VAR_42)
+					call log(" ")
 					call play_char_anim(var VAR_9, var VAR_3, int 0)
-					call play_3d_fx(var &VAR_43, var &VAR_4, var &VAR_4, var VAR_9)
+					call play_3d_fx("MUSH", var &VAR_4, var &VAR_4, var VAR_9)
 					call func_12f(var VAR_1)
 					var VAR_1 = int 0
 					var VAR_11 ++ 
@@ -268,10 +251,10 @@ switch(var VAR_11)
 var VAR_10 ++ 
 
 ._SCRIPT_5
-var VAR_3 = call load_anim(var &VAR_5)
-call play_3d_fx(var &VAR_6, var &VAR_4, var &VAR_4, int 0)
+var VAR_3 = call load_anim("DREAM")
+call play_3d_fx("MUSHGEN", var &VAR_4, var &VAR_4, int 0)
 call func_7(int 0, int 0, int 0, int 0)
 
 ._SCRIPT_6
-var VAR_3 = call load_anim(var &VAR_7)
-call play_3d_fx(var &VAR_8, var &VAR_4, var &VAR_4, int 0)
+var VAR_3 = call load_anim("DREAM")
+call play_3d_fx("MUSHGEN", var &VAR_4, var &VAR_4, int 0)

@@ -7,7 +7,6 @@ VAR_4	0
 VAR_5	0	
 VAR_6	0	
 VAR_7	0	
-VAR_8	"random_rain_fx: Rain SFX not initialised! See Marc"	
 VAR_9	0	
 VAR_10	0	
 VAR_11	0	
@@ -20,63 +19,22 @@ VAR_17	{ 0, 0 }
 VAR_18	{ 0, 0, 0, 0 }	
 VAR_19	0	
 VAR_20	0	
-VAR_21	"it's_raining"	
 VAR_22	{ -531, 1190, -1456 }	
 VAR_23	{ -1160, 1190, 231 }	
-VAR_24	"RAIN"	
 VAR_25	0	
 VAR_26	{ 548, 252, 322 }	
 VAR_27	{ 3, VAR_28, 0, 11, 100, 400, 7, 8 }	
 VAR_28	"taichi"	
 VAR_29	0	
-VAR_30	"noldvill"	
-VAR_31	"jangive"	
 VAR_32	0	
 VAR_33	0	
 VAR_34	0	
 VAR_35	0	
 VAR_36	-1	
-VAR_37	"talking to villager"	
-VAR_38	"yes! with money"	
-VAR_39	"O_DVDYES"	
-VAR_40	"NULL"	
-VAR_41	"O_SEKYES"	
-VAR_42	"NULL"	
-VAR_43	"O_VIVYES"	
-VAR_44	"NULL"	
-VAR_45	"O_JUGYES"	
-VAR_46	"NULL"	
-VAR_47	"shouldn't have that hero here!"	
-VAR_48	"yes! with no money"	
-VAR_49	"O_HERMON"	
-VAR_50	"NULL"	
-VAR_51	"O_HERNO"	
-VAR_52	"NULL"	
-VAR_53	"ACT_2"	
-VAR_54	"ARSE"	
 VAR_55	0	
 VAR_56	0	
 VAR_57	0	
 VAR_58	0	
-VAR_59	"ACT_2"	
-VAR_60	"talking to villager"	
-VAR_61	"yes! with money"	
-VAR_62	"O_DVDYES"	
-VAR_63	"NULL"	
-VAR_64	"O_SEKYES"	
-VAR_65	"NULL"	
-VAR_66	"O_VIVYES"	
-VAR_67	"NULL"	
-VAR_68	"O_JUGYES"	
-VAR_69	"NULL"	
-VAR_70	"shouldn't have that hero here!"	
-VAR_71	"yes! with no money"	
-VAR_72	"O_HERMON"	
-VAR_73	"NULL"	
-VAR_74	"O_HERNO"	
-VAR_75	"NULL"	
-VAR_76	"WOLF"	
-VAR_77	"ARSE"
 
 ._on_load
 execute SCRIPT_3
@@ -175,8 +133,8 @@ if(gamevar !is_room_cleared)
 }
 
 ._SCRIPT_3
-call log(var &VAR_21)
-call play_3d_fx(var &VAR_24, var &VAR_22, var &VAR_23, int 0)
+call log("it's_raining")
+call play_3d_fx("RAIN", var &VAR_22, var &VAR_23, int 0)
 execute SCRIPT_14
 
 ._SCRIPT_4
@@ -190,7 +148,7 @@ switch(var VAR_32)
 		case 0
 			if(call func_65(var VAR_25, int 13) == int 17)
 			 {
-					call log(var &VAR_37)
+					call log("talking to villager")
 					var VAR_19 = int 1
 					var VAR_32 ++ 
 					var VAR_33 = int 0
@@ -203,24 +161,24 @@ switch(var VAR_32)
 					case 1
 						if(var VAR_34 > int 50)
 						 {
-								call log(var &VAR_38)
+								call log("yes! with money")
 								var VAR_35 = call get_selected_hero()
 								switch(call get_char_handle_id(var VAR_35))
 								 {
 										case 65536
-											call start_dialog(var &VAR_39, var &VAR_40)
+											call start_dialog("O_DVDYES", "NULL")
 											break 
 										case 786432
-											call start_dialog(var &VAR_41, var &VAR_42)
+											call start_dialog("O_SEKYES", "NULL")
 											break 
 										case 196608
-											call start_dialog(var &VAR_43, var &VAR_44)
+											call start_dialog("O_VIVYES", "NULL")
 											break 
 										case 327680
-											call start_dialog(var &VAR_45, var &VAR_46)
+											call start_dialog("O_JUGYES", "NULL")
 											break 
 										default 
-											call log(var &VAR_47)
+											call log("shouldn't have that hero here!")
 											break 
 								}
 								var VAR_20 = int 1
@@ -233,15 +191,15 @@ switch(var VAR_32)
 						}
 						else
 						 {
-								call log(var &VAR_48)
-								call start_dialog(var &VAR_49, var &VAR_50)
+								call log("yes! with no money")
+								call start_dialog("O_HERMON", "NULL")
 								call func_db()
 								var VAR_32 ++ 
 								var VAR_33 = int 0
 						}
 						break 
 					case 0
-						call start_dialog(var &VAR_51, var &VAR_52)
+						call start_dialog("O_HERNO", "NULL")
 						call func_db()
 						var VAR_32 ++ 
 						var VAR_33 = int 0
@@ -251,7 +209,7 @@ switch(var VAR_32)
 		case 2
 			if(call get_input_sys() != int 4)
 			 {
-					call func_108(var &VAR_53)
+					call func_108("ACT_2")
 					var VAR_32 = int 0
 					var VAR_33 = int 0
 			}
@@ -259,7 +217,7 @@ switch(var VAR_32)
 		case 3
 			if(call get_input_sys() != int 4)
 			 {
-					call func_108(var &VAR_54)
+					call func_108("ARSE")
 					var VAR_32 ++ 
 					var VAR_33 = int 0
 			}
@@ -276,7 +234,7 @@ switch(var VAR_55)
 		case 0
 			if(var VAR_56 == int 5)
 			 {
-					call func_108(var &VAR_59)
+					call func_108("ACT_2")
 					var VAR_55 ++ 
 					var VAR_56 = int 0
 			}
@@ -284,7 +242,7 @@ switch(var VAR_55)
 		case 1
 			if(call func_65(var VAR_25, int 13) == int 17)
 			 {
-					call log(var &VAR_60)
+					call log("talking to villager")
 					var VAR_19 = int 1
 					var VAR_55 ++ 
 					var VAR_56 = int 0
@@ -297,24 +255,24 @@ switch(var VAR_55)
 					case 1
 						if(var VAR_57)
 						 {
-								call log(var &VAR_61)
+								call log("yes! with money")
 								var VAR_58 = call get_selected_hero()
 								switch(call get_char_handle_id(var VAR_58))
 								 {
 										case 65536
-											call start_dialog(var &VAR_62, var &VAR_63)
+											call start_dialog("O_DVDYES", "NULL")
 											break 
 										case 786432
-											call start_dialog(var &VAR_64, var &VAR_65)
+											call start_dialog("O_SEKYES", "NULL")
 											break 
 										case 196608
-											call start_dialog(var &VAR_66, var &VAR_67)
+											call start_dialog("O_VIVYES", "NULL")
 											break 
 										case 327680
-											call start_dialog(var &VAR_68, var &VAR_69)
+											call start_dialog("O_JUGYES", "NULL")
 											break 
 										default 
-											call log(var &VAR_70)
+											call log("shouldn't have that hero here!")
 											break 
 								}
 								var VAR_20 = int 1
@@ -327,15 +285,15 @@ switch(var VAR_55)
 						}
 						else
 						 {
-								call log(var &VAR_71)
-								call start_dialog(var &VAR_72, var &VAR_73)
+								call log("yes! with no money")
+								call start_dialog("O_HERMON", "NULL")
 								call func_db()
 								var VAR_55 ++ 
 								var VAR_56 = int 0
 						}
 						break 
 					case 0
-						call start_dialog(var &VAR_74, var &VAR_75)
+						call start_dialog("O_HERNO", "NULL")
 						call func_db()
 						var VAR_55 ++ 
 						var VAR_56 = int 0
@@ -366,19 +324,19 @@ execute SCRIPT_12
 
 ._SCRIPT_9
 execute SCRIPT_12
-call func_108(var &VAR_76)
+call func_108("WOLF")
 
 ._SCRIPT_10
 
 ._SCRIPT_11
 execute SCRIPT_12
-call func_108(var &VAR_77)
+call func_108("ARSE")
 
 ._SCRIPT_12
-var VAR_25 = call create_char(var &VAR_26, var &VAR_30, int 336, int 13)
+var VAR_25 = call create_char(var &VAR_26, "noldvill", int 336, int 13)
 call func_50(var VAR_25, int 8192)
 call play_char_ai_script(var VAR_25, var &VAR_27)
-var VAR_29 = call load_anim(var &VAR_31)
+var VAR_29 = call load_anim("jangive")
 
 ._SCRIPT_13
 
@@ -393,7 +351,7 @@ var VAR_0 = int 1
 ._SCRIPT_15
 if(var ! VAR_0)
  {
-		call log(var &VAR_8)
+		call log("random_rain_fx: Rain SFX not initialised! See Marc")
 		exit_script 
 }
 switch(var VAR_4)

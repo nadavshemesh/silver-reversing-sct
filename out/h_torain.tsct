@@ -11,24 +11,15 @@ VAR_8	0
 VAR_9	{ 1574, 0, 466 }	
 VAR_10	0	
 VAR_11	{ 224, 0, 359 }	
-VAR_12	"FSGRUNT!"	
-VAR_13	"FSGRUNT2"	
-VAR_14	"FSGRUNT3"	
-VAR_15	"FSGRUNT"	
 VAR_16	{ -89, 1277, 492 }	
 VAR_17	1	
 VAR_18	{ 0, 0 }	
-VAR_19	"h_torain"	
 VAR_20	0	
 VAR_21	0	
 VAR_22	0	
 VAR_23	0	
 VAR_24	0	
 VAR_25	0	
-VAR_26	"come"	
-VAR_27	"pfew"	
-VAR_28	"no"	
-VAR_29	"electro"	
 VAR_30	0	
 VAR_31	0	
 VAR_32	{ 78, 0, 345 }	
@@ -40,9 +31,6 @@ VAR_37	0
 VAR_38	0	
 VAR_39	0	
 VAR_40	-1	
-VAR_41	"S_DVDGRA"	
-VAR_42	"NULL"	
-VAR_43	"HAVENPT1"	
 VAR_44	0	
 VAR_45	0	
 VAR_46	{ 22, 0, 744 }	
@@ -51,8 +39,6 @@ VAR_48	{ 11, 1000, 2000, 3, VAR_49, 0, 11, 1000, 2000, 3, VAR_50, 0, 7, 8 }
 VAR_49	"confused"	
 VAR_50	"cough"	
 VAR_51	{ 0, 3887, 0, 493, 11, 1000, 2000, 0, -16, 0, 449, 9, VAR_44, 0, 363, 0, 119, 11, 400, 500, 7, 8 }	
-VAR_52	"nrebela1"	
-VAR_53	"nrebela2"	
 VAR_54	0	
 VAR_55	0	
 VAR_56	0
@@ -126,7 +112,7 @@ if(gamevar script_time > var VAR_56)
 ._SCRIPT_4
 gamevar SMACKER_X = int 0
 gamevar SMACKER_Y = int 92
-call play_2d_anim(var &VAR_19, int 1, int 1, var &VAR_17)
+call play_2d_anim("h_torain", int 1, int 1, var &VAR_17)
 call load_sound_set(int 56)
 call play_loaded_sound(int 1, int -1, int 56, int 0)
 call play_loaded_sound(int 13, int -1, int 56, int 0)
@@ -187,17 +173,17 @@ switch(var VAR_20)
 var VAR_21 ++ 
 
 ._SCRIPT_6
-var VAR_22 = call load_anim(var &VAR_26)
-var VAR_23 = call load_anim(var &VAR_27)
-var VAR_24 = call load_anim(var &VAR_28)
-var VAR_25 = call load_anim(var &VAR_29)
+var VAR_22 = call load_anim("come")
+var VAR_23 = call load_anim("pfew")
+var VAR_24 = call load_anim("no")
+var VAR_25 = call load_anim("electro")
 
 ._SCRIPT_7
 gamevar door_restriction_p = var &VAR_0
-var VAR_4 = call create_char(var &VAR_5, var &VAR_12, int 270, int 13)
-var VAR_6 = call create_char(var &VAR_7, var &VAR_13, int 230, int 13)
-var VAR_8 = call create_char(var &VAR_9, var &VAR_14, int 225, int 13)
-var VAR_10 = call create_char(var &VAR_11, var &VAR_15, int 265, int 13)
+var VAR_4 = call create_char(var &VAR_5, "FSGRUNT!", int 270, int 13)
+var VAR_6 = call create_char(var &VAR_7, "FSGRUNT2", int 230, int 13)
+var VAR_8 = call create_char(var &VAR_9, "FSGRUNT3", int 225, int 13)
+var VAR_10 = call create_char(var &VAR_11, "FSGRUNT", int 265, int 13)
 call add_item_to_char(var VAR_4, int 16, int 0, int 1)
 call add_item_to_char(var VAR_6, int 16, int 0, int 1)
 call add_item_to_char(var VAR_8, int 16, int 0, int 1)
@@ -236,7 +222,7 @@ if(var VAR_30 == int 1)
  {
 		if(call func_5c(var VAR_10))
 		 {
-				call start_dialog(var &VAR_41, var &VAR_42)
+				call start_dialog("S_DVDGRA", "NULL")
 				call char_turn_to_pos(var VAR_2, call get_char_pos(var VAR_10))
 				var VAR_30 ++ 
 				var VAR_31 = int 0
@@ -316,7 +302,7 @@ if(var VAR_30 == int 8)
 				call char_walk_to_pos(var VAR_10, var &VAR_35)
 				call char_walk_to_pos(var VAR_6, var &VAR_35)
 				call char_walk_to_pos(var VAR_8, var &VAR_35)
-				call play_bgm(var &VAR_43)
+				call play_bgm("HAVENPT1")
 				var VAR_30 ++ 
 				var VAR_31 = int 0
 		}
@@ -368,8 +354,8 @@ gamevar door_restriction_p = var &VAR_1
 ._SCRIPT_13
 
 ._SCRIPT_14
-var VAR_44 = call create_char(var &VAR_46, var &VAR_52, int 150, int 13)
-var VAR_45 = call create_char(var &VAR_47, var &VAR_53, int 345, int 13)
+var VAR_44 = call create_char(var &VAR_46, "nrebela1", int 150, int 13)
+var VAR_45 = call create_char(var &VAR_47, "nrebela2", int 345, int 13)
 call add_item_to_char(var VAR_44, int 16, int 0, int 1)
 call add_item_to_char(var VAR_45, int 16, int 0, int 1)
 call func_50(var VAR_44, int 8192)

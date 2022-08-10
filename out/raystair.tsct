@@ -7,7 +7,6 @@ VAR_4	0
 VAR_5	0	
 VAR_6	0	
 VAR_7	0	
-VAR_8	"random_rain_fx: Rain SFX not initialised! See Marc"	
 VAR_9	0	
 VAR_10	0	
 VAR_11	0	
@@ -21,18 +20,9 @@ VAR_18	0
 VAR_19	0	
 VAR_20	{ 7825, 3375, -15675 }	
 VAR_21	{ -3625, 3375, -13700 }	
-VAR_22	"MRAIN"	
-VAR_23	"flame01"	
-VAR_24	"flame02"	
-VAR_25	"flame03"	
-VAR_26	"flame04"	
-VAR_27	"flame05"	
 VAR_28	0	
 VAR_29	0	
 VAR_30	{ -2732, 806, 10090 }	
-VAR_31	"fkhan"	
-VAR_32	"scaptain"	
-VAR_33	"slieuten"	
 VAR_34	0	
 VAR_35	0	
 VAR_36	0	
@@ -56,13 +46,7 @@ VAR_53	{ -4803, 806, 10464 }
 VAR_54	{ -4587, 806, 9509 }	
 VAR_55	{ -4587, 806, 9509 }	
 VAR_56	{ VAR_52, VAR_53, VAR_54, VAR_55 }	
-VAR_57	"start_dialog"	
-VAR_58	"S_Khan"	
-VAR_59	"NULL"	
 VAR_60	0	
-VAR_61	"wandering baddies"	
-VAR_62	"orc"	
-VAR_63	"ronnie"	
 VAR_64	{ -1673, 806, 11903, -1863, 806, 8253 }	
 VAR_65	{ 0, 1, 1, VAR_64, 8, 1, 19, -4605, 806, 9990, 12, 78, 77, 77, 78, -1, 13, 0, 14, 1, 2, 5, 0, 200, 17, 2, -4541, 806, 11272, -3916, 806, 8834, -1, 16, 0, 18, 100, -1, 0 }	
 VAR_66	0
@@ -162,8 +146,8 @@ switch(var VAR_48)
 		case 1
 			if(call func_8b())
 			 {
-					call log(var &VAR_57)
-					call start_dialog(var &VAR_58, var &VAR_59)
+					call log("start_dialog")
+					call start_dialog("S_Khan", "NULL")
 					var VAR_50 = call get_david_char()
 					while(var VAR_50)
 					 {
@@ -178,13 +162,13 @@ switch(var VAR_48)
 			 {
 					call func_50(var VAR_29, int 129)
 					call func_106(var VAR_29, int 7, int 5, int 4)
-					call set_char_behav(var VAR_34, int 125)
-					call set_char_behav(var VAR_35, int 125)
-					call set_char_behav(var VAR_36, int 125)
-					call set_char_behav(var VAR_37, int 125)
-					call set_char_behav(var VAR_42, int 122)
-					call set_char_behav(var VAR_43, int 122)
-					call set_char_behav(var VAR_44, int 122)
+					call set_char_template(var VAR_34, int 125)
+					call set_char_template(var VAR_35, int 125)
+					call set_char_template(var VAR_36, int 125)
+					call set_char_template(var VAR_37, int 125)
+					call set_char_template(var VAR_42, int 122)
+					call set_char_template(var VAR_43, int 122)
+					call set_char_template(var VAR_44, int 122)
 					call set_input_system(int 1)
 					var VAR_49 = int 0
 					var VAR_48 ++ 
@@ -196,12 +180,12 @@ switch(var VAR_48)
 call set_input_system(int 2)
 call load_sound_set(int 30)
 var VAR_28 = call play_loaded_sound(int 1, int -1, int 30, int 0)
-var VAR_29 = call create_char(var &VAR_30, var &VAR_31, int 260, int 13)
+var VAR_29 = call create_char(var &VAR_30, "fkhan", int 260, int 13)
 call add_item_to_char(var VAR_29, int 53, int 1, int 1)
 call add_item_to_char(var VAR_29, int 22, int 1, int 1)
 call add_item_to_char(var VAR_29, int 85, int 6554113, int 0)
-call load_char(var &VAR_32)
-call load_char(var &VAR_33)
+call load_char("scaptain")
+call load_char("slieuten")
 var VAR_34 = call create_enemy(int 125, int 0, var &VAR_38, int 240)
 var VAR_35 = call create_enemy(int 125, int 1, var &VAR_39, int 245)
 var VAR_36 = call create_enemy(int 125, int 2, var &VAR_40, int 230)
@@ -239,30 +223,30 @@ gamevar *character_stats_p+15 = int 3400
 ._SCRIPT_7
 
 ._SCRIPT_8
-call log(var &VAR_61)
-call load_char(var &VAR_62)
-call load_char(var &VAR_63)
+call log("wandering baddies")
+call load_char("orc")
+call load_char("ronnie")
 var VAR_60 = call run_wandering_generator(var &VAR_65, int 100)
 
 ._SCRIPT_9
 gamevar SMACKER_X = int 0
 gamevar SMACKER_Y = int 64
-call play_2d_anim(var &VAR_23, int 1, int 1, int 0)
+call play_2d_anim("flame01", int 1, int 1, int 0)
 gamevar SMACKER_X = int 256
 gamevar SMACKER_Y = int 64
-call play_2d_anim(var &VAR_24, int 1, int 1, int 0)
+call play_2d_anim("flame02", int 1, int 1, int 0)
 gamevar SMACKER_X = int 516
 gamevar SMACKER_Y = int 64
-call play_2d_anim(var &VAR_25, int 1, int 1, int 0)
+call play_2d_anim("flame03", int 1, int 1, int 0)
 gamevar SMACKER_X = int 784
 gamevar SMACKER_Y = int 64
-call play_2d_anim(var &VAR_26, int 1, int 1, int 0)
+call play_2d_anim("flame04", int 1, int 1, int 0)
 gamevar SMACKER_X = int 1040
 gamevar SMACKER_Y = int 64
-call play_2d_anim(var &VAR_27, int 1, int 1, int 0)
+call play_2d_anim("flame05", int 1, int 1, int 0)
 
 ._SCRIPT_10
-call play_3d_fx(var &VAR_22, var &VAR_20, var &VAR_21, int 0)
+call play_3d_fx("MRAIN", var &VAR_20, var &VAR_21, int 0)
 execute SCRIPT_11
 
 ._SCRIPT_11
@@ -276,7 +260,7 @@ var VAR_0 = int 1
 ._SCRIPT_12
 if(var ! VAR_0)
  {
-		call log(var &VAR_8)
+		call log("random_rain_fx: Rain SFX not initialised! See Marc")
 		exit_script 
 }
 switch(var VAR_4)

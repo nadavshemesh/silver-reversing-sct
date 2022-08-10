@@ -1,6 +1,4 @@
 ._DATA
-VAR_0	"METALON"	
-VAR_1	"boarbody"	
 VAR_2	0	
 VAR_3	0	
 VAR_4	0	
@@ -17,24 +15,11 @@ VAR_14	{ -1605, -789, 22 }
 VAR_15	0	
 VAR_16	0	
 VAR_17	-1	
-VAR_18	"S_DVDREN"	
-VAR_19	"ACT_2"	
-VAR_20	"S_JUGREN"	
-VAR_21	"ACT_2"	
-VAR_22	"S_SEKREN"	
-VAR_23	"ACT_2"	
-VAR_24	"S_VIVREN"	
-VAR_25	"ACT_2"	
-VAR_26	"S_CHIREN"	
-VAR_27	"ACT_2"	
-VAR_28	"S_CAGREN"	
-VAR_29	"ACT_2"	
-VAR_30	"SHIT! SHIT! SHIT!"	
 VAR_31	0	
 VAR_32	0
 
 ._on_load
-call play_bgm(var &VAR_0)
+call play_bgm("METALON")
 execute SCRIPT_8
 call load_sound_set(int 72)
 call load_sound_set(int 64)
@@ -167,25 +152,25 @@ switch(var VAR_3)
 					switch(var VAR_6)
 					 {
 							case 65536
-								call start_dialog(var &VAR_18, var &VAR_19)
+								call start_dialog("S_DVDREN", "ACT_2")
 								break 
 							case 327680
-								call start_dialog(var &VAR_20, var &VAR_21)
+								call start_dialog("S_JUGREN", "ACT_2")
 								break 
 							case 786432
-								call start_dialog(var &VAR_22, var &VAR_23)
+								call start_dialog("S_SEKREN", "ACT_2")
 								break 
 							case 196608
-								call start_dialog(var &VAR_24, var &VAR_25)
+								call start_dialog("S_VIVREN", "ACT_2")
 								break 
 							case 131072
-								call start_dialog(var &VAR_26, var &VAR_27)
+								call start_dialog("S_CHIREN", "ACT_2")
 								break 
 							case 262144
-								call start_dialog(var &VAR_28, var &VAR_29)
+								call start_dialog("S_CAGREN", "ACT_2")
 								break 
 							default 
-								call log(var &VAR_30)
+								call log("SHIT! SHIT! SHIT!")
 								break 
 					}
 					var VAR_3 ++ 
@@ -211,5 +196,5 @@ gamevar SMACKER_X = int 100
 gamevar SMACKER_Y = int 372
 if(gamevar *scene_info_p+1 != int 1)
  {
-		call play_2d_anim(var &VAR_1, int 1, int 1, int 0)
+		call play_2d_anim("boarbody", int 1, int 1, int 0)
 }

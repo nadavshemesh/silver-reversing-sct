@@ -10,7 +10,6 @@ VAR_7	0
 VAR_8	0	
 VAR_9	0	
 VAR_10	0	
-VAR_11	"WPALPT1"	
 VAR_12	{ 1701670755, -1431655936, 0 }	
 VAR_13	0	
 VAR_14	0
@@ -22,7 +21,7 @@ call play_loaded_sound(int 1, int -1, int 66, int 0)
 var VAR_2 = call get_david_char()
 var VAR_3 = call func_7e()
 var VAR_4 = call func_7e()
-call play_bgm(var &VAR_11)
+call play_bgm("WPALPT1")
 if(gamevar room_state == int 1)
  {
 		execute SCRIPT_5
@@ -112,9 +111,9 @@ if(var VAR_0 == int 2)
 }
 if(var VAR_0 == int 3)
  {
-		var VAR_9 = call func_96(int 66, int 0, int 1, int 0)
+		var VAR_9 = call create_enemy_through_door(int 66, int 0, int 1, int 0)
 		call func_1(var VAR_9, int -1)
-		call func_18(var VAR_9, int -1708, int 1625, int 1709)
+		call char_walk_to(var VAR_9, int -1708, int 1625, int 1709)
 		call set_char_running(var VAR_9)
 		var VAR_1 = int 10
 		call reset_local_timer()

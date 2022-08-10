@@ -5,7 +5,6 @@ VAR_2	0
 VAR_3	0	
 VAR_4	0	
 VAR_5	-1	
-VAR_6	"btreasure9"	
 VAR_7	0	
 VAR_8	0	
 VAR_9	0	
@@ -14,11 +13,8 @@ VAR_11	0
 VAR_12	{ 77, 1, -1 }	
 VAR_13	{ 42, 1, 71, 1, -1 }	
 VAR_14	{ -5659, 1625, -10693 }	
-VAR_15	"WPALPT1"	
 VAR_16	{ -5981, 1625, -9502 }	
-VAR_17	"btreasure1"	
 VAR_18	{ -4485, 1625, -11010 }	
-VAR_19	"btreasure2"	
 VAR_20	0	
 VAR_21	{ -5782, 1625, -10850 }	
 VAR_22	0	
@@ -64,7 +60,7 @@ call play_loaded_sound(int 1, int -1, int 66, int 0)
 var VAR_9 = call get_david_char()
 var VAR_10 = call func_7e()
 var VAR_11 = call func_7e()
-call play_bgm(var &VAR_15)
+call play_bgm("WPALPT1")
 if(gamevar room_state == int 1)
  {
 		execute SCRIPT_5
@@ -128,9 +124,9 @@ if(var VAR_8)
 var VAR_8 = int 0
 var VAR_7 = int 1
 gamevar global_inventory_p = var &VAR_12
-call create_char(var &VAR_16, var &VAR_17, int 130, int 14)
+call create_char(var &VAR_16, "btreasure1", int 130, int 14)
 gamevar global_inventory_p = var &VAR_13
-call create_char(var &VAR_18, var &VAR_19, int 315, int 14)
+call create_char(var &VAR_18, "btreasure2", int 315, int 14)
 var VAR_20 = call create_enemy(int 66, int 0, var &VAR_21, int 0)
 call add_item_to_char(var VAR_20, int 40, int 1, int 0)
 call add_item_to_char(var VAR_20, int 85, int 6554113, int 0)
@@ -208,7 +204,7 @@ var VAR_7 = int 1
 var VAR_0 = call is_char_handle_in_level(int 1507337)
 if(var ! VAR_0)
  {
-		var VAR_0 = call create_char(var VAR_1, var &VAR_6, var VAR_2, int 14)
+		var VAR_0 = call create_char(var VAR_1, "btreasure9", var VAR_2, int 14)
 		call func_aa(var VAR_0)
 }
 else

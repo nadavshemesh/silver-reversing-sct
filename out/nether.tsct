@@ -28,11 +28,8 @@ VAR_25	{ -4858, -3103, -7414 }
 VAR_26	{ -4357, -3103, -7414 }	
 VAR_27	{ -5112, -3103, -7555 }	
 VAR_28	{ VAR_5, VAR_6, VAR_7, VAR_8, VAR_9, VAR_10, VAR_11, VAR_12, VAR_13, VAR_14, VAR_15, VAR_16, VAR_17, VAR_18, VAR_19, VAR_20, VAR_21, VAR_22, VAR_23, VAR_24, VAR_25, VAR_25, VAR_26, VAR_27 }	
-VAR_29	"init_script"	
-VAR_30	"end_script"	
 VAR_31	0	
 VAR_32	{ 1601004910, 1702256996, 0 }	
-VAR_33	"nemdave"	
 VAR_34	0	
 VAR_35	{ 45, -551, 6195, 297, -1100, -4303 }	
 VAR_36	0	
@@ -42,15 +39,9 @@ VAR_39	{ -1511, 840, -3706 }
 VAR_40	0	
 VAR_41	0	
 VAR_42	{ 1668247649, 1887005793, 0 }	
-VAR_43	"lookout"	
-VAR_44	"victory"	
-VAR_45	"nether2"	
-VAR_46	"init_act1"	
 VAR_47	{ 1447321427, 1330659652, 0 }	
 VAR_48	{ 1280070990, 0 }	
 VAR_49	{ -16, -1350, -2424 }	
-VAR_50	"OUTRO"	
-VAR_51	"E_THRONE"	
 VAR_52	0	
 VAR_53	0	
 VAR_54	{ 0, -14, 90, 2763 }	
@@ -63,7 +54,7 @@ VAR_60	100
 
 ._on_load
 call load_sound_set(int 79)
-call log(var &VAR_29)
+call log("init_script")
 call log_obj(gamevar room_state)
 switch(gamevar room_state)
  {
@@ -99,7 +90,7 @@ switch(gamevar room_state)
 }
 
 ._on_exit
-call log(var &VAR_30)
+call log("end_script")
 call log_obj(gamevar room_state)
 switch(gamevar room_state)
  {
@@ -121,7 +112,7 @@ call open_save_screen(int 2)
 
 ._SCRIPT_4
 call log(var &VAR_32)
-call func_8f(var &VAR_33)
+call func_8f("nemdave")
 var VAR_31 = call get_david_char()
 call func_61(var VAR_31)
 call func_8d(var VAR_31, int 12845056)
@@ -138,13 +129,13 @@ call func_10a(var VAR_31, int 14)
 gamevar script_object = var VAR_31
 gamevar *object_p+6 |= int 2
 call set_char_walking(var VAR_31)
-var VAR_40 = call load_anim(var &VAR_43)
-var VAR_41 = call load_anim(var &VAR_44)
+var VAR_40 = call load_anim("lookout")
+var VAR_41 = call load_anim("victory")
 gamevar SMACKER_X = int 128
 gamevar SMACKER_Y = int 328
-call play_2d_anim(var &VAR_45, int 1, int 1, int 0)
+call play_2d_anim("nether2", int 1, int 1, int 0)
 call func_ec(int 1, int 0, int 79, int 0)
-call log(var &VAR_46)
+call log("init_act1")
 var VAR_0 = int 0
 
 ._SCRIPT_6
@@ -166,7 +157,7 @@ switch(var VAR_0)
 			}
 			break 
 		case 2
-			if(call is_not_scrolling())
+			if(call is_not_force_scrolling())
 			 {
 					call reset_local_timer()
 					var VAR_0 = int 3
@@ -374,7 +365,7 @@ switch(var VAR_0)
 						call func_61(var VAR_31)
 						call func_8d(var VAR_31, int 65536)
 						gamevar outro_active = int 1
-						call func_e6(var &VAR_50, var &VAR_51, var &VAR_49, int 1)
+						call func_e6("OUTRO", "E_THRONE", var &VAR_49, int 1)
 						var VAR_0 = int 14
 						break 
 			}

@@ -25,10 +25,6 @@ VAR_22	{ 0, 0 }
 VAR_23	{ 1155948544, 1123155968, -975585280 }	
 VAR_24	0	
 VAR_25	0	
-VAR_26	"WPALPT1"	
-VAR_27	"PALACE2"	
-VAR_28	"vikingH"	
-VAR_29	"comeDAV"	
 VAR_30	0	
 VAR_31	0
 
@@ -39,12 +35,12 @@ call load_sound_set(int 0)
 var VAR_2 = call get_david_char()
 var VAR_3 = call func_7e()
 var VAR_4 = call func_7e()
-call play_bgm(var &VAR_26)
+call play_bgm("WPALPT1")
 if(gamevar *scene_info_p+4 & int 1)
  {
 		gamevar SMACKER_X = int 272
 		gamevar SMACKER_Y = int 248
-		var VAR_19 = call play_2d_anim(var &VAR_27, int 0, int 1, var &VAR_21)
+		var VAR_19 = call play_2d_anim("PALACE2", int 0, int 1, var &VAR_21)
 		var VAR_24 = int 1
 }
 if(gamevar room_state == int 1)
@@ -125,13 +121,13 @@ if(var VAR_0 == int 0)
 }
 if(var VAR_0 == int 1)
  {
-		call func_ff(call get_char_pos(var VAR_8))
+		call force_scroll_to_pos(call get_char_pos(var VAR_8))
 		var VAR_0 = int 2
 		exit_script 
 }
 if(var VAR_0 == int 2)
  {
-		if(call ! is_not_scrolling())
+		if(call ! is_not_force_scrolling())
 		 {
 				exit_script 
 		}
@@ -178,7 +174,7 @@ if(var VAR_0 == int 6)
 }
 if(var VAR_0 == int 7)
  {
-		call func_ff(call get_char_pos(var VAR_2))
+		call force_scroll_to_pos(call get_char_pos(var VAR_2))
 		call set_input_system(int 1)
 		var VAR_0 = int 8
 		var VAR_1 = int 30
@@ -224,10 +220,10 @@ if(var VAR_0 == int 10)
 }
 
 ._SCRIPT_5
-call load_char(var &VAR_28)
+call load_char("viking")
 var VAR_8 = call create_enemy(int 66, int 0, var &VAR_6, int 330)
 var VAR_9 = call create_enemy(int 66, int 1, var &VAR_7, int 320)
-var VAR_5 = call load_anim(var &VAR_29)
+var VAR_5 = call load_anim("come")
 call set_input_system(int 2)
 var VAR_1 = int 3
 call reset_local_timer()

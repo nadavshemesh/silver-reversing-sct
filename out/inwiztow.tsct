@@ -2,20 +2,7 @@
 VAR_0	0	
 VAR_1	0	
 VAR_2	0	
-VAR_3	"haven"	
-VAR_4	"h_camptp"	
-VAR_5	"haven"	
-VAR_6	"h_camptp"	
-VAR_7	"haven"	
-VAR_8	"h_camptp"	
-VAR_9	"all 8 orbs taken!"	
-VAR_10	"not got all orbs yet!"	
 VAR_11	0	
-VAR_12	"candle01"	
-VAR_13	"candle02"	
-VAR_14	"candle03"	
-VAR_15	"bubble01"	
-VAR_16	"bubble02"	
 VAR_17	0	
 VAR_18	{ -198, -767, -24 }	
 VAR_19	0	
@@ -28,10 +15,6 @@ VAR_25	{ 0, -564, -767, 46, 2, -752, -542, 57, 28, VAR_26, 2, 0, 0, -514, -767, 
 VAR_26	"impread"	
 VAR_27	"impread"	
 VAR_28	"impread"	
-VAR_29	"nothias"	
-VAR_30	"btreasure"	
-VAR_31	"dodgeb"	
-VAR_32	"cstabov"	
 VAR_33	0	
 VAR_34	{ 0, 354, -967, 926 }	
 VAR_35	{ -187, -767, 930 }	
@@ -41,22 +24,11 @@ VAR_38	0
 VAR_39	{ 314, -892, 1059 }	
 VAR_40	{ 424, -992, 991 }	
 VAR_41	{ VAR_39, VAR_40 }	
-VAR_42	"O_DVDOTH"	
-VAR_43	"NULL"	
 VAR_44	0	
 VAR_45	0	
 VAR_46	{ 0, 0 }	
-VAR_47	"S_DVDOTH"	
-VAR_48	"NULL"	
-VAR_49	"S_OTHORB"	
-VAR_50	"NULL"	
-VAR_51	"nothias"	
 VAR_52	0	
 VAR_53	0	
-VAR_54	"S_OTHRET"	
-VAR_55	"ACT_2"	
-VAR_56	"nothias"	
-VAR_57	"DOGWANK"
 
 ._on_load
 call func_58(int 1)
@@ -180,7 +152,7 @@ switch(var VAR_33)
 		case 2
 			if(var VAR_34 > int 30)
 			 {
-					call start_dialog(var &VAR_42, var &VAR_43)
+					call start_dialog("O_DVDOTH", "NULL")
 					var VAR_33 ++ 
 					var VAR_34 = int 0
 			}
@@ -296,14 +268,14 @@ switch(var VAR_33)
 var VAR_34 ++ 
 
 ._SCRIPT_4
-var VAR_17 = call create_char(var &VAR_18, var &VAR_29, int 180, int 13)
+var VAR_17 = call create_char(var &VAR_18, "nothias", int 180, int 13)
 gamevar script_object = var VAR_17
 gamevar *object_p+6 |= int 8388608
 gamevar global_inventory_p = var &VAR_21
-var VAR_19 = call create_char(var &VAR_20, var &VAR_30, int 330, int 14)
+var VAR_19 = call create_char(var &VAR_20, "btreasure", int 330, int 14)
 var VAR_22 = call get_char_handle(int 65536)
-var VAR_23 = call load_anim(var &VAR_31)
-var VAR_24 = call load_anim(var &VAR_32)
+var VAR_23 = call load_anim("dodgeb")
+var VAR_24 = call load_anim("cstabov")
 call set_input_system(int 2)
 
 ._SCRIPT_5
@@ -335,7 +307,7 @@ switch(var VAR_52)
 			 {
 					call char_turn_to_pos(var VAR_17, call get_char_pos(var VAR_22))
 					call char_turn_to_pos(var VAR_22, call get_char_pos(var VAR_17))
-					call start_dialog(var &VAR_54, var &VAR_55)
+					call start_dialog("S_OTHRET", "ACT_2")
 					var VAR_52 ++ 
 					var VAR_53 = int 0
 			}
@@ -357,7 +329,7 @@ switch(var VAR_52)
 var VAR_53 ++ 
 
 ._SCRIPT_6
-var VAR_17 = call create_char(var &VAR_18, var &VAR_51, int 180, int 13)
+var VAR_17 = call create_char(var &VAR_18, "nothias", int 180, int 13)
 gamevar script_object = var VAR_17
 gamevar *object_p+6 |= int 8388608
 var VAR_22 = call get_char_handle(int 65536)
@@ -366,31 +338,31 @@ call set_input_system(int 2)
 ._SCRIPT_7
 
 ._SCRIPT_8
-var VAR_17 = call create_char(var &VAR_18, var &VAR_56, int 180, int 13)
+var VAR_17 = call create_char(var &VAR_18, "nothias", int 180, int 13)
 gamevar script_object = var VAR_17
 gamevar *object_p+6 |= int 8388608
 call func_50(var VAR_17, int 8192)
 call play_char_ai_script(var VAR_17, var &VAR_25)
-call func_108(var &VAR_57)
+call func_108("DOGWANK")
 
 ._SCRIPT_9
 
 ._SCRIPT_10
 gamevar SMACKER_X = int 336
 gamevar SMACKER_Y = int 96
-call play_2d_anim(var &VAR_12, int 1, int 0, int 0)
+call play_2d_anim("candle01", int 1, int 0, int 0)
 gamevar SMACKER_X = int 0
 gamevar SMACKER_Y = int 104
-call play_2d_anim(var &VAR_13, int 1, int 1, int 0)
+call play_2d_anim("candle02", int 1, int 1, int 0)
 gamevar SMACKER_X = int 144
 gamevar SMACKER_Y = int 136
-call play_2d_anim(var &VAR_14, int 1, int 1, int 0)
+call play_2d_anim("candle03", int 1, int 1, int 0)
 gamevar SMACKER_X = int 488
 gamevar SMACKER_Y = int 64
-call play_2d_anim(var &VAR_15, int 1, int 1, int 0)
+call play_2d_anim("bubble01", int 1, int 1, int 0)
 gamevar SMACKER_X = int 312
 gamevar SMACKER_Y = int 224
-call play_2d_anim(var &VAR_16, int 1, int 1, int 0)
+call play_2d_anim("bubble02", int 1, int 1, int 0)
 call load_sound_set(int 47)
 call func_ec(int 1, int -1, int 47, int 0)
 
@@ -407,7 +379,7 @@ switch(var VAR_44)
 					if(gamevar *object_p+5 != int 15)
 					 {
 							call char_turn_to_pos(var VAR_17, call get_char_pos(gamevar control_char_p))
-							call start_dialog(var &VAR_47, var &VAR_48)
+							call start_dialog("S_DVDOTH", "NULL")
 							var VAR_44 ++ 
 					}
 					else
@@ -434,7 +406,7 @@ switch(var VAR_44)
 		case 10
 			if(var VAR_45 > int 30)
 			 {
-					call start_dialog(var &VAR_49, var &VAR_50)
+					call start_dialog("S_OTHORB", "NULL")
 					var VAR_44 ++ 
 					var VAR_45 = int 0
 			}
@@ -470,13 +442,13 @@ var VAR_1 += call func_42(var VAR_2, int 6)
 var VAR_1 += call func_42(var VAR_2, int 7)
 if(var VAR_1 == int 8)
  {
-		call func_116(var &VAR_3, var &VAR_4, int 9)
-		call set_scene_overwrite_act(var &VAR_5, var &VAR_6, int 0)
-		call func_118(var &VAR_7, var &VAR_8, int 1)
+		call func_116("haven", "h_camptp", int 9)
+		call set_scene_overwrite_act("haven", "h_camptp", int 0)
+		call func_118("haven", "h_camptp", int 1)
 		var VAR_0 = int 1
-		call log(var &VAR_9)
+		call log("all 8 orbs taken!")
 }
 else
  {
-		call log(var &VAR_10)
+		call log("not got all orbs yet!")
 }

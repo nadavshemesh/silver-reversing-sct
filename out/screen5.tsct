@@ -4,17 +4,9 @@ VAR_1	0
 VAR_2	0	
 VAR_3	0	
 VAR_4	0	
-VAR_5	"DVDCHR"	
-VAR_6	"NULLJ!"	
-VAR_7	"SEKCHR"	
 VAR_8	{ 1280070990, 0 }	
-VAR_9	"CAGCHR"	
 VAR_10	{ 1280070990, 0 }	
-VAR_11	"JUGCHR"	
 VAR_12	{ 1280070990, 0 }	
-VAR_13	"CHICHR"	
-VAR_14	"NULL"	
-VAR_15	"VIVCHR"	
 VAR_16	{ 1280070990, 0 }	
 VAR_17	0	
 VAR_18	{ 0, 0, -1 }	
@@ -23,28 +15,13 @@ VAR_20	0
 VAR_21	0	
 VAR_22	0	
 VAR_23	-1	
-VAR_24	"game saved"	
-VAR_25	"game not saved"	
 VAR_26	0	
-VAR_27	"DVDCHR"	
 VAR_28	{ 1280070990, 0 }	
-VAR_29	"SEKCHR"	
-VAR_30	"NULL"	
-VAR_31	"CAGCHR"	
-VAR_32	"NULL"	
-VAR_33	"JUGCHR"	
 VAR_34	{ 1280070990, 0 }	
-VAR_35	"CHICHR"	
-VAR_36	"NULL"	
-VAR_37	"VIVCHR"	
-VAR_38	"NULL"	
 VAR_39	0	
-VAR_40	"GNOCVP1"	
 VAR_41	0	
 VAR_42	0	
 VAR_43	0	
-VAR_44	"startle"	
-VAR_45	"impish"	
 VAR_46	0	
 VAR_47	0	
 VAR_48	0	
@@ -58,9 +35,6 @@ VAR_55	0
 VAR_56	0	
 VAR_57	{ 1772, 650, 5825 }	
 VAR_58	{ 1383, 649, 5930 }	
-VAR_59	"nimp1"	
-VAR_60	"nimp2"	
-VAR_61	"chronicl"	
 VAR_62	0	
 VAR_63	{ 0, 0 }	
 VAR_64	0	
@@ -74,7 +48,7 @@ VAR_70	0
 ._on_load
 call load_sound_set(int 64)
 call play_loaded_sound(int 1, int -1, int 64, int 0)
-call play_bgm(var &VAR_40)
+call play_bgm("GNOCVP1")
 execute SCRIPT_14
 if(gamevar is_room_cleared)
  {
@@ -172,8 +146,8 @@ if(gamevar script_time > var VAR_69)
 }
 
 ._SCRIPT_4
-var VAR_42 = call load_anim(var &VAR_44)
-var VAR_43 = call load_anim(var &VAR_45)
+var VAR_42 = call load_anim("startle")
+var VAR_43 = call load_anim("impish")
 
 ._SCRIPT_5
 
@@ -286,15 +260,15 @@ switch(var VAR_62)
 var VAR_63 ++ 
 
 ._SCRIPT_13
-var VAR_55 = call create_char(var &VAR_57, var &VAR_59, int 0, int 13)
-var VAR_56 = call create_char(var &VAR_58, var &VAR_60, int 330, int 13)
+var VAR_55 = call create_char(var &VAR_57, "nimp1", int 0, int 13)
+var VAR_56 = call create_char(var &VAR_58, "nimp2", int 330, int 13)
 var VAR_39 = call get_char_handle(int 65536)
 gamevar script_object = var VAR_55
 gamevar *character_movement_p+53 = int 0
 gamevar script_object = var VAR_56
 gamevar *character_movement_p+53 = int 0
 execute SCRIPT_4
-call load_char(var &VAR_61)
+call load_char("chronicl")
 
 ._SCRIPT_14
 if(call ! is_char_handle_in_level(int 6291456))
@@ -380,14 +354,14 @@ switch(var VAR_17)
 		case 5
 			if(var VAR_19 != gamevar saved_games_count)
 			 {
-					call log(var &VAR_24)
+					call log("game saved")
 					call func_11d()
 					var VAR_17 = int 7
 					var VAR_18 = int 0
 			}
 			else
 			 {
-					call log(var &VAR_25)
+					call log("game not saved")
 					call func_2a(var VAR_1, var &VAR_20)
 					execute SCRIPT_18
 					gamevar chronicler_variation = var VAR_2
@@ -443,22 +417,22 @@ var VAR_4 = call get_char_handle_id(gamevar control_char_p)
 switch(var VAR_4)
  {
 		case 65536
-			call load_dialog_by_number(var &VAR_5, var &VAR_6, gamevar chronicler_variation)
+			call load_dialog_by_number("DVDCHR", "NULL", gamevar chronicler_variation)
 			break 
 		case 786432
-			call load_dialog_by_number(var &VAR_7, var &VAR_8, gamevar chronicler_variation)
+			call load_dialog_by_number("SEKCHR", var &VAR_8, gamevar chronicler_variation)
 			break 
 		case 262144
-			call load_dialog_by_number(var &VAR_9, var &VAR_10, gamevar chronicler_variation)
+			call load_dialog_by_number("CAGCHR", var &VAR_10, gamevar chronicler_variation)
 			break 
 		case 327680
-			call load_dialog_by_number(var &VAR_11, var &VAR_12, gamevar chronicler_variation)
+			call load_dialog_by_number("JUGCHR", var &VAR_12, gamevar chronicler_variation)
 			break 
 		case 131072
-			call load_dialog_by_number(var &VAR_13, var &VAR_14, gamevar chronicler_variation)
+			call load_dialog_by_number("CHICHR", "NULL", gamevar chronicler_variation)
 			break 
 		case 196608
-			call load_dialog_by_number(var &VAR_15, var &VAR_16, gamevar chronicler_variation)
+			call load_dialog_by_number("VIVCHR", var &VAR_16, gamevar chronicler_variation)
 			break 
 }
 
@@ -467,21 +441,21 @@ var VAR_26 = call get_char_handle_id(gamevar control_char_p)
 switch(var VAR_26)
  {
 		case 65536
-			var VAR_2 = call load_next_dialog(var &VAR_27, var &VAR_28)
+			var VAR_2 = call load_next_dialog("DVDCHR", var &VAR_28)
 			break 
 		case 786432
-			var VAR_2 = call load_next_dialog(var &VAR_29, var &VAR_30)
+			var VAR_2 = call load_next_dialog("SEKCHR", "NULL")
 			break 
 		case 262144
-			var VAR_2 = call load_next_dialog(var &VAR_31, var &VAR_32)
+			var VAR_2 = call load_next_dialog("CAGCHR", "NULL")
 			break 
 		case 327680
-			var VAR_2 = call load_next_dialog(var &VAR_33, var &VAR_34)
+			var VAR_2 = call load_next_dialog("JUGCHR", var &VAR_34)
 			break 
 		case 131072
-			var VAR_2 = call load_next_dialog(var &VAR_35, var &VAR_36)
+			var VAR_2 = call load_next_dialog("CHICHR", "NULL")
 			break 
 		case 196608
-			var VAR_2 = call load_next_dialog(var &VAR_37, var &VAR_38)
+			var VAR_2 = call load_next_dialog("VIVCHR", "NULL")
 			break 
 }

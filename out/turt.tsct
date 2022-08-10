@@ -1,13 +1,10 @@
 ._DATA
-VAR_0	"water"	
 VAR_1	0	
 VAR_2	{ -587, 0, 7000 }	
 VAR_3	{ 4000, 0, -1742 }	
-VAR_4	"SNOW"	
 VAR_5	{ 0, 0, 0 }	
 VAR_6	0	
 VAR_7	0	
-VAR_8	"turt"	
 VAR_9	0	
 VAR_10	{ -1006567424, -992919552, 1101004800 }	
 VAR_11	{ -3361, -1999, 8 }	
@@ -38,7 +35,6 @@ VAR_35	1
 VAR_36	{ VAR_17, VAR_18, VAR_19, VAR_20, VAR_21, VAR_22 }	
 VAR_37	{ 341, 341, 341, 285, 285, 285 }	
 VAR_38	{ VAR_23, VAR_24, VAR_25, VAR_26, VAR_27, VAR_28 }	
-VAR_39	"wyvern"	
 VAR_40	0	
 VAR_41	0	
 VAR_42	0	
@@ -62,7 +58,7 @@ execute SCRIPT_11
 execute SCRIPT_12
 gamevar SMACKER_X = int 0
 gamevar SMACKER_Y = int 384
-call play_2d_anim(var &VAR_0, int 1, int 1, int 0)
+call play_2d_anim("water", int 1, int 1, int 0)
 if(gamevar is_room_cleared)
  {
 		execute SCRIPT_10
@@ -190,14 +186,14 @@ execute SCRIPT_18
 ._SCRIPT_10
 
 ._SCRIPT_11
-call play_3d_fx(var &VAR_4, var &VAR_2, var &VAR_3, int 0)
+call play_3d_fx("SNOW", var &VAR_2, var &VAR_3, int 0)
 
 ._SCRIPT_12
 if(gamevar *scene_info_p+4 & int 1)
  {
 		gamevar SMACKER_X = int 184
 		gamevar SMACKER_Y = int 200
-		var VAR_6 = call play_2d_anim(var &VAR_8, int 0, int 1, var &VAR_5)
+		var VAR_6 = call play_2d_anim("turt", int 0, int 1, var &VAR_5)
 }
 else
  {
@@ -264,4 +260,4 @@ if(call func_bf(int 1, gamevar CURRENT_LEVEL, gamevar CURRENT_SCENE))
 }
 
 ._SCRIPT_18
-call load_char(var &VAR_39)
+call load_char("wyvern")

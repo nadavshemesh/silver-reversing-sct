@@ -1,8 +1,5 @@
 ._DATA
 VAR_0	0	
-VAR_1	"GNO"	
-VAR_2	"DVDGRA"	
-VAR_3	"NULL"	
 VAR_4	0	
 VAR_5	0	
 VAR_6	0	
@@ -17,12 +14,7 @@ VAR_14	0
 VAR_15	0	
 VAR_16	0	
 VAR_17	0	
-VAR_18	"the end"	
-VAR_19	"impread"	
-VAR_20	"confused"	
-VAR_21	"come"	
 VAR_22	{ -11000, 1250, -12050 }	
-VAR_23	"nwhittle"	
 VAR_24	{ -9329, 1250, -15047 }	
 VAR_25	{ -8546, 1250, -14898 }	
 VAR_26	{ -8713, 1250, -15047 }	
@@ -42,10 +34,8 @@ VAR_39	"impread"
 VAR_40	"impread"	
 VAR_41	"impread"	
 VAR_42	"impread"	
-VAR_43	"nwhittle"	
 VAR_44	0	
 VAR_45	0	
-VAR_46	"ARSE"	
 VAR_47	0	
 VAR_48	0	
 VAR_49	0	
@@ -53,7 +43,7 @@ VAR_50	0
 VAR_51	0
 
 ._on_load
-call play_bgm(var &VAR_1)
+call play_bgm("GNO")
 call load_sound_set(int 63)
 call play_loaded_sound(int 1, int -1, int 63, int 0)
 if(gamevar is_room_cleared)
@@ -104,7 +94,7 @@ if(gamevar !is_room_cleared)
 		switch(gamevar room_state)
 		 {
 				case 1
-					call load_dialog_by_number(var &VAR_2, var &VAR_3, int 1)
+					call load_dialog_by_number("DVDGRA", "NULL", int 1)
 					gamevar room_state ++ 
 					gamevar is_room_cleared = int 1
 					break 
@@ -150,7 +140,7 @@ if(gamevar script_time > var VAR_51)
 }
 
 ._SCRIPT_4
-call func_108(var &VAR_46)
+call func_108("ARSE")
 
 ._SCRIPT_5
 var VAR_5 = int 0
@@ -204,7 +194,7 @@ if(var VAR_4 == int 2)
 		else
 		 {
 				call set_char_running(var VAR_14)
-				call func_18(var VAR_14, int -9740, int 1250, int -14230)
+				call char_walk_to(var VAR_14, int -9740, int 1250, int -14230)
 				var VAR_4 = int 3
 				call func_100(call get_char_movement_ptr(var VAR_14))
 		}
@@ -216,11 +206,11 @@ if(var VAR_4 == int 3)
 				var VAR_4 = int 4
 				call play_char_anim(var VAR_14, var VAR_11, int 0)
 				call set_char_running(var VAR_15)
-				call func_18(var VAR_15, int -11000, int 1250, int -12050)
+				call char_walk_to(var VAR_15, int -11000, int 1250, int -12050)
 				call set_char_running(var VAR_16)
-				call func_18(var VAR_16, int -11000, int 1250, int -12050)
+				call char_walk_to(var VAR_16, int -11000, int 1250, int -12050)
 				call set_char_running(var VAR_17)
-				call func_18(var VAR_17, int -11000, int 1250, int -12050)
+				call char_walk_to(var VAR_17, int -11000, int 1250, int -12050)
 		}
 }
 if(var VAR_4 == int 4)
@@ -228,7 +218,7 @@ if(var VAR_4 == int 4)
 		if(call func_5c(var VAR_14))
 		 {
 				call set_char_running(var VAR_14)
-				call func_18(var VAR_14, int -11000, int 1250, int -12050)
+				call char_walk_to(var VAR_14, int -11000, int 1250, int -12050)
 				call func_36(var VAR_12, int -9740, int 1250, int -14230)
 				var VAR_6 = int 60
 				var VAR_4 = int 5
@@ -241,7 +231,7 @@ if(var VAR_4 == int 5)
 		 {
 				call func_100(call get_char_movement_ptr(var VAR_12))
 				call set_char_running(var VAR_12)
-				call func_18(var VAR_12, int -13550, int 1250, int -13388)
+				call char_walk_to(var VAR_12, int -13550, int 1250, int -13388)
 				var VAR_6 = int 100
 				var VAR_4 = int 6
 		}
@@ -251,19 +241,19 @@ if(var VAR_4 == int 6)
 		var VAR_6 -- 
 		if(var VAR_6 == int 90)
 		 {
-				call func_18(var VAR_14, int -12093, int 1250, int -13444)
+				call char_walk_to(var VAR_14, int -12093, int 1250, int -13444)
 		}
 		if(var VAR_6 == int 80)
 		 {
-				call func_18(var VAR_15, int -12160, int 1250, int -13543)
+				call char_walk_to(var VAR_15, int -12160, int 1250, int -13543)
 		}
 		if(var VAR_6 == int 60)
 		 {
-				call func_18(var VAR_16, int -12017, int 1250, int -13292)
+				call char_walk_to(var VAR_16, int -12017, int 1250, int -13292)
 		}
 		if(var VAR_6 == int 40)
 		 {
-				call func_18(var VAR_17, int -12136, int 1250, int -13240)
+				call char_walk_to(var VAR_17, int -12136, int 1250, int -13240)
 		}
 		if(var VAR_6 == int 0)
 		 {
@@ -317,7 +307,7 @@ if(var VAR_4 == int 9)
 		}
 		if(var VAR_6 == int 0)
 		 {
-				call log(var &VAR_18)
+				call log("the end")
 				call remove_char(var VAR_14)
 				call remove_char(var VAR_16)
 				call remove_char(var VAR_15)
@@ -327,7 +317,7 @@ if(var VAR_4 == int 9)
 }
 
 ._SCRIPT_7
-var VAR_12 = call create_char(var &VAR_22, var &VAR_23, int 0, int 13)
+var VAR_12 = call create_char(var &VAR_22, "nwhittle", int 0, int 13)
 gamevar script_object = var VAR_12
 gamevar *character_movement_p+60 = int 1
 
@@ -364,12 +354,12 @@ call freeze_enemy(var VAR_16)
 call freeze_enemy(var VAR_17)
 
 ._SCRIPT_10
-var VAR_9 = call load_anim(var &VAR_19)
-var VAR_10 = call load_anim(var &VAR_20)
-var VAR_11 = call load_anim(var &VAR_21)
+var VAR_9 = call load_anim("impread")
+var VAR_10 = call load_anim("confused")
+var VAR_11 = call load_anim("come")
 
 ._SCRIPT_11
-var VAR_28 = call create_char(var &VAR_31, var &VAR_43, int 342, int 13)
+var VAR_28 = call create_char(var &VAR_31, "nwhittle", int 342, int 13)
 var VAR_0 = call get_char_handle(int 65536)
 call set_input_system(int 2)
 

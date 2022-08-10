@@ -7,7 +7,6 @@ VAR_4	0
 VAR_5	0	
 VAR_6	0	
 VAR_7	0	
-VAR_8	"random_rain_fx: Rain SFX not initialised! See Marc"	
 VAR_9	0	
 VAR_10	0	
 VAR_11	0	
@@ -27,18 +26,8 @@ VAR_24	0
 VAR_25	0	
 VAR_26	0	
 VAR_27	0	
-VAR_28	"david"	
-VAR_29	"sekune"	
-VAR_30	"jug"	
-VAR_31	"vivienne"	
-VAR_32	"chiaro"	
-VAR_33	"cagen"	
-VAR_34	"WARNING! Unknown hero while checking heroes"	
-VAR_35	"Get a goober -- QUICKLY!!"	
-VAR_36	"it's_raining"	
 VAR_37	{ -1818, 1557, -1056 }	
 VAR_38	{ 1876, 1557, -5693 }	
-VAR_39	"RAIN"	
 VAR_40	0	
 VAR_41	0	
 VAR_42	{ -260, -173, 1354 }	
@@ -47,22 +36,15 @@ VAR_44	{ -390, -174, 1449 }
 VAR_45	{ -189, -174, 1489 }	
 VAR_46	{ -250, -174, 1050 }	
 VAR_47	{ VAR_44, VAR_45, VAR_46 }	
-VAR_48	"nraft"	
-VAR_49	"nboatman"	
 VAR_50	{ -13, -173, 1707 }	
 VAR_51	{ -148, -173, 1439 }	
 VAR_52	{ -140, -173, 1770 }	
 VAR_53	{ -21, -173, 1785 }	
 VAR_54	{ 48, -173, 1445 }	
 VAR_55	{ VAR_52, VAR_53, VAR_54 }	
-VAR_56	"nraft"	
-VAR_57	"nboatman"	
 VAR_58	{ 0, 0, 0 }	
 VAR_59	{ 0, 0, 0 }	
 VAR_60	0	
-VAR_61	"bath_sub"	
-VAR_62	"water"	
-VAR_63	"subbob"	
 VAR_64	0	
 VAR_65	0	
 VAR_66	{ 0, 0, 0, 0 }	
@@ -70,10 +52,8 @@ VAR_67	0
 VAR_68	0	
 VAR_69	0	
 VAR_70	0	
-VAR_71	"finished smacker"	
 VAR_72	0	
 VAR_73	{ -348, 0, 2494 }	
-VAR_74	"thaddeus"	
 VAR_75	0	
 VAR_76	0	
 VAR_77	2	
@@ -91,22 +71,6 @@ VAR_88	{ -4, -1350, -516 }
 VAR_89	0	
 VAR_90	{ -348, 350, 2494 }	
 VAR_91	-1	
-VAR_92	"S_DVDTHA"	
-VAR_93	"NULL"	
-VAR_94	"V_DVDTHA"	
-VAR_95	"NULL"	
-VAR_96	"J_DVDTHA"	
-VAR_97	"NULL"	
-VAR_98	"OOps! Fuck up! Sekune, Vivienne and Jug not here!"	
-VAR_99	"haven"	
-VAR_100	"h_camptp"	
-VAR_101	"nthaddeus"	
-VAR_102	"palace"	
-VAR_103	"palace"	
-VAR_104	"s_throne"	
-VAR_105	"cld_rd_3"	
-VAR_106	"rain"	
-VAR_107	"cld_rd_3"	
 VAR_108	0	
 VAR_109	0	
 VAR_110	-1	
@@ -121,27 +85,12 @@ VAR_118	0
 VAR_119	0	
 VAR_120	{ -10001, -350, 1811 }	
 VAR_121	-1	
-VAR_122	"spires"	
-VAR_123	"spires"	
-VAR_124	"entrance"	
-VAR_125	"palace"	
-VAR_126	"palace"	
-VAR_127	"s_throne"	
-VAR_128	"cld_rd_3"	
-VAR_129	"rain"	
-VAR_130	"cld_rd_3"	
 VAR_131	0	
 VAR_132	0	
 VAR_133	{ 490, -528, 1784 }	
 VAR_134	0	
 VAR_135	{ 1101, -528, 2488 }	
-VAR_136	"wizard"	
-VAR_137	"btreasure"	
 VAR_138	0	
-VAR_139	"spires"	
-VAR_140	"entrance"	
-VAR_141	"spires"	
-VAR_142	"entrance"
 
 ._on_load
 call func_58(int 1)
@@ -220,8 +169,8 @@ switch(gamevar room_state)
 }
 
 ._SCRIPT_3
-call log(var &VAR_36)
-call play_3d_fx(var &VAR_39, var &VAR_37, var &VAR_38, int 0)
+call log("it's_raining")
+call play_3d_fx("RAIN", var &VAR_37, var &VAR_38, int 0)
 execute SCRIPT_17
 
 ._SCRIPT_4
@@ -229,14 +178,14 @@ if(gamevar room_state == int 1)
  {
 		gamevar SMACKER_X = int 336
 		gamevar SMACKER_Y = int 156
-		call play_2d_anim(var &VAR_61, int 0, int 0, var &VAR_58)
+		call play_2d_anim("bath_sub", int 0, int 0, var &VAR_58)
 }
 gamevar SMACKER_X = int 0
 gamevar SMACKER_Y = int 388
-call play_2d_anim(var &VAR_62, int 1, int 0, int 0)
+call play_2d_anim("water", int 1, int 0, int 0)
 gamevar SMACKER_X = int 392
 gamevar SMACKER_Y = int 200
-var VAR_60 = call play_2d_anim(var &VAR_63, int 10737418, int 0, var &VAR_59)
+var VAR_60 = call play_2d_anim("subbob", int 10737418, int 0, var &VAR_59)
 
 ._SCRIPT_5
 var VAR_26 = call get_david_char()
@@ -246,32 +195,32 @@ while(var VAR_26)
 		switch(var VAR_27)
 		 {
 				case 65536
-					call log(var &VAR_28)
+					call log("david")
 					var VAR_18 = var VAR_26
 					break 
 				case 786432
-					call log(var &VAR_29)
+					call log("sekune")
 					var VAR_20 = var VAR_26
 					break 
 				case 327680
-					call log(var &VAR_30)
+					call log("jug")
 					var VAR_19 = var VAR_26
 					break 
 				case 196608
-					call log(var &VAR_31)
+					call log("vivienne")
 					var VAR_21 = var VAR_26
 					break 
 				case 131072
-					call log(var &VAR_32)
+					call log("chiaro")
 					var VAR_22 = var VAR_26
 					break 
 				case 262144
-					call log(var &VAR_33)
+					call log("cagen")
 					var VAR_23 = var VAR_26
 					break 
 				default 
-					call log(var &VAR_34)
-					call log(var &VAR_35)
+					call log("WARNING! Unknown hero while checking heroes")
+					call log("Get a goober -- QUICKLY!!")
 					break 
 		}
 		var VAR_26 = call func_7e()
@@ -329,23 +278,23 @@ switch(var VAR_75)
 			 {
 					if(var VAR_20)
 					 {
-							call start_dialog(var &VAR_92, var &VAR_93)
+							call start_dialog("S_DVDTHA", "NULL")
 					}
 					else
 					 {
 							if(var VAR_21)
 							 {
-									call start_dialog(var &VAR_94, var &VAR_95)
+									call start_dialog("V_DVDTHA", "NULL")
 							}
 							else
 							 {
 									if(var VAR_19)
 									 {
-											call start_dialog(var &VAR_96, var &VAR_97)
+											call start_dialog("J_DVDTHA", "NULL")
 									}
 									else
 									 {
-											call log(var &VAR_98)
+											call log("OOps! Fuck up! Sekune, Vivienne and Jug not here!")
 									}
 							}
 					}
@@ -357,7 +306,7 @@ switch(var VAR_75)
 		case 4
 			if(call func_6d() == int 1)
 			 {
-					call func_116(var &VAR_99, var &VAR_100, int 5)
+					call func_116("haven", "h_camptp", int 5)
 					var VAR_75 ++ 
 					var VAR_76 = int 0
 			}
@@ -366,7 +315,7 @@ switch(var VAR_75)
 			if(var VAR_76 == int 120)
 			 {
 					gamevar compile_init_character = int 0
-					var VAR_72 = call create_char(var &VAR_73, var &VAR_101, int 195, int 16)
+					var VAR_72 = call create_char(var &VAR_73, "nthaddeus", int 195, int 16)
 					gamevar script_object = var VAR_72
 					gamevar *object_p+7 |= int -2147483
 					gamevar compile_init_character = int 1
@@ -505,14 +454,14 @@ switch(var VAR_75)
 			 {
 					if(var VAR_89)
 					 {
-							call log(var &VAR_102)
-							call func_e6(var &VAR_103, var &VAR_104, var &VAR_88, int 1)
+							call log("palace")
+							call func_e6("palace", "s_throne", var &VAR_88, int 1)
 							call func_7(int 123456, int 0, int 1, int 0)
 					}
 					else
 					 {
-							call log(var &VAR_105)
-							call func_e6(var &VAR_106, var &VAR_107, var &VAR_87, int 3)
+							call log("cld_rd_3")
+							call func_e6("rain", "cld_rd_3", var &VAR_87, int 3)
 							call func_7(int 123456, int 1, int 0, int 0)
 					}
 					var VAR_75 = int -1
@@ -530,7 +479,7 @@ if(call is_char_handle_in_level(int 11206656))
 var VAR_76 ++ 
 
 ._SCRIPT_7
-call load_char(var &VAR_74)
+call load_char("thaddeus")
 execute SCRIPT_9
 execute SCRIPT_4
 gamevar *scene_info_p+3 = int 2
@@ -587,8 +536,8 @@ switch(var VAR_77)
 var VAR_108 ++ 
 
 ._SCRIPT_9
-var VAR_40 = call create_char(var &VAR_42, var &VAR_48, int 0, int 13)
-var VAR_41 = call create_char(var &VAR_43, var &VAR_49, int 0, int 13)
+var VAR_40 = call create_char(var &VAR_42, "nraft", int 0, int 13)
+var VAR_41 = call create_char(var &VAR_43, "nboatman", int 0, int 13)
 call func_d9(var VAR_40)
 gamevar unknown_02_00_65 = int 1
 
@@ -761,22 +710,22 @@ switch(var VAR_116)
 					 {
 							if(var VAR_25)
 							 {
-									call log(var &VAR_122)
-									call func_e6(var &VAR_123, var &VAR_124, var &VAR_120, int 2)
+									call log("spires")
+									call func_e6("spires", "entrance", var &VAR_120, int 2)
 									call func_7(int 123456, int 0, var VAR_25, int 0)
 							}
 							else
 							 {
 									var VAR_25 = int 1
-									call log(var &VAR_125)
-									call func_e6(var &VAR_126, var &VAR_127, var &VAR_88, int 1)
+									call log("palace")
+									call func_e6("palace", "s_throne", var &VAR_88, int 1)
 							}
 							call func_7(int 123456, int 0, var VAR_25, int 0)
 					}
 					else
 					 {
-							call log(var &VAR_128)
-							call func_e6(var &VAR_129, var &VAR_130, var &VAR_87, int 3)
+							call log("cld_rd_3")
+							call func_e6("rain", "cld_rd_3", var &VAR_87, int 3)
 							call func_7(int 123456, int 1, var VAR_25, int 0)
 					}
 					var VAR_116 = int -1
@@ -816,8 +765,8 @@ call set_input_system(int 1)
 gamevar no_user_input = int 1
 
 ._SCRIPT_12
-var VAR_40 = call create_char(var &VAR_50, var &VAR_56, int 0, int 13)
-var VAR_41 = call create_char(var &VAR_51, var &VAR_57, int 0, int 13)
+var VAR_40 = call create_char(var &VAR_50, "nraft", int 0, int 13)
+var VAR_41 = call create_char(var &VAR_51, "nboatman", int 0, int 13)
 call func_d9(var VAR_40)
 gamevar unknown_02_00_65 = int 1
 
@@ -840,8 +789,8 @@ switch(var VAR_131)
 			if(var VAR_132 > int 30)
 			 {
 					var VAR_131 ++ 
-					call set_scene_overwrite_act(var &VAR_139, var &VAR_140, int 0)
-					call func_116(var &VAR_141, var &VAR_142, int 2)
+					call set_scene_overwrite_act("spires", "entrance", int 0)
+					call func_116("spires", "entrance", int 2)
 					call char_exit_door(var VAR_26, int 1)
 			}
 			break 
@@ -850,10 +799,10 @@ switch(var VAR_131)
 ._SCRIPT_14
 gamevar SMACKER_X = int 480
 gamevar SMACKER_Y = int 272
-call play_2d_anim(var &VAR_136, int 1, int 1, int 0)
+call play_2d_anim("wizard", int 1, int 1, int 0)
 if(call ! is_char_handle_in_level(int 1507328))
  {
-		var VAR_134 = call create_char(var &VAR_135, var &VAR_137, int 230, int 14)
+		var VAR_134 = call create_char(var &VAR_135, "btreasure", int 230, int 14)
 		call add_item_to_char(var VAR_134, int 109, int 1, int 0)
 		call add_item_to_char(var VAR_134, int 14, int 1, int 0)
 		call add_item_to_char(var VAR_134, int 43, int 1, int 0)
@@ -873,7 +822,7 @@ switch(var VAR_69)
 		case 1
 			if(var VAR_58 == int -1)
 			 {
-					call log(var &VAR_71)
+					call log("finished smacker")
 					var VAR_59 = int 1
 					gamevar script_object = var VAR_60
 					gamevar *smack_object_p+2 -= int 10737418
@@ -930,7 +879,7 @@ var VAR_0 = int 1
 ._SCRIPT_18
 if(var ! VAR_0)
  {
-		call log(var &VAR_8)
+		call log("random_rain_fx: Rain SFX not initialised! See Marc")
 		exit_script 
 }
 switch(var VAR_4)

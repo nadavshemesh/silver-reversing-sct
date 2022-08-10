@@ -7,7 +7,6 @@ VAR_4	0
 VAR_5	0	
 VAR_6	0	
 VAR_7	0	
-VAR_8	"random_rain_fx: Rain SFX not initialised! See Marc"	
 VAR_9	0	
 VAR_10	0	
 VAR_11	0	
@@ -17,12 +16,9 @@ VAR_14	0
 VAR_15	0	
 VAR_16	0	
 VAR_17	{ 0, 0 }	
-VAR_18	"RAINPT1"	
 VAR_19	0	
-VAR_20	"it's_raining"	
 VAR_21	{ -550, 869, 550 }	
 VAR_22	{ 2300, 869, -1525 }	
-VAR_23	"RAIN"	
 VAR_24	0	
 VAR_25	{ 555, -1000, 164 }	
 VAR_26	0	
@@ -31,7 +27,6 @@ VAR_28	0
 VAR_29	{ -4709, -1000, -338 }	
 VAR_30	0	
 VAR_31	{ -4134, -1000, -104 }	
-VAR_32	"rlieuten"	
 VAR_33	0	
 VAR_34	0	
 VAR_35	{ -1498, -1000, 124 }	
@@ -39,13 +34,10 @@ VAR_36	0
 VAR_37	0	
 VAR_38	{ 0, 0, 0, 1, -1, 8, 1, 12, 31, 30, 31, -1, 13, 0, 14, 0, 1, 3, 5, 0, 60, 18, 50, -1 }	
 VAR_39	{ 0, 0, 0, 1, -1, 8, 1, 12, 11, 12, 13, -1, 13, 0, 14, 0, 1, 3, 5, 0, 60, 18, 50, -1 }	
-VAR_40	"rlieuten"	
-VAR_41	"muscles"	
-VAR_42	"dick"
 
 ._on_load
 execute SCRIPT_3
-call play_bgm(var &VAR_18)
+call play_bgm("RAINPT1")
 if(gamevar is_room_cleared)
  {
 		execute SCRIPT_8
@@ -104,8 +96,8 @@ if(gamevar !is_room_cleared)
 }
 
 ._SCRIPT_3
-call log(var &VAR_20)
-call play_3d_fx(var &VAR_23, var &VAR_21, var &VAR_22, int 0)
+call log("it's_raining")
+call play_3d_fx("RAIN", var &VAR_21, var &VAR_22, int 0)
 execute SCRIPT_9
 
 ._SCRIPT_4
@@ -152,7 +144,7 @@ if(var VAR_33 == int 1)
 var VAR_34 ++ 
 
 ._SCRIPT_5
-call load_char(var &VAR_32)
+call load_char("rlieuten")
 
 ._SCRIPT_6
 
@@ -162,13 +154,13 @@ call load_char(var &VAR_32)
 switch(gamevar is_room_cleared)
  {
 		case 1
-			call load_char(var &VAR_40)
+			call load_char("rlieuten")
 			call run_wandering_generator(var &VAR_39, int 100)
 			break 
 		case 2
-			call load_char(var &VAR_41)
-			call load_char(var &VAR_42)
-			call func_b8(int 93)
+			call load_char("muscles")
+			call load_char("dick")
+			call load_item(int 93)
 			call run_wandering_generator(var &VAR_38, int 100)
 			break 
 }
@@ -184,7 +176,7 @@ var VAR_0 = int 1
 ._SCRIPT_10
 if(var ! VAR_0)
  {
-		call log(var &VAR_8)
+		call log("random_rain_fx: Rain SFX not initialised! See Marc")
 		exit_script 
 }
 switch(var VAR_4)

@@ -3,42 +3,30 @@ VAR_0	0
 VAR_1	{ -8499, 2894, -16052 }	
 VAR_2	{ 0, 0, 1, 0, -1, 8, 1, 4, 0, 9, 0, 1, 4, 102, 103, -1, 2, 4, 3, 2, 5, 0, 50, 6, 1, 7, 1, 4, -1 }	
 VAR_3	{ 11, 200, 300, 0, -8499, 2894, -16552, 11, 200, 300, 0, -8499, 2894, -16052, 11, 200, 300, 0, -8499, 2894, -15552, 7, 8 }	
-VAR_4	"GNO"	
 VAR_5	0	
 VAR_6	{ 0, 0 }	
 VAR_7	0	
 VAR_8	0	
 VAR_9	0	
 VAR_10	0	
-VAR_11	"pfew"	
-VAR_12	"startle"	
 VAR_13	0	
 VAR_14	0	
 VAR_15	{ -8546, 2931, -16112, 0, 0 }	
-VAR_16	"horn imp jump down - david is dead"	
-VAR_17	"Findpath to edge..."	
-VAR_18	"Put horn away..."	
-VAR_19	"Turn imp..."	
-VAR_20	"Jump little imp..."	
-VAR_21	"Start hand_to_hand ai..."	
 VAR_22	{ -8540, 2969, -15233, -8499, 2898, -16791, -8499, 2898, -16791 }	
 VAR_23	{ -8714, 1201, -16178 }	
-VAR_24	"nyelimp"	
 VAR_25	0	
 VAR_26	0	
 VAR_27	0	
 VAR_28	0	
-VAR_29	"drop imp jump down - david is dead"	
 VAR_30	0	
 VAR_31	0	
-VAR_32	"bug1205"	
 VAR_33	0	
 VAR_34	0	
 VAR_35	0	
 VAR_36	0
 
 ._on_load
-call play_bgm(var &VAR_4)
+call play_bgm("GNO")
 call load_sound_set(int 63)
 call play_loaded_sound(int 1, int -1, int 63, int 0)
 if(gamevar is_room_cleared)
@@ -123,8 +111,8 @@ if(gamevar script_time > var VAR_34)
 }
 
 ._SCRIPT_4
-var VAR_8 = call load_anim(var &VAR_11)
-var VAR_9 = call load_anim(var &VAR_12)
+var VAR_8 = call load_anim("pfew")
+var VAR_9 = call load_anim("startle")
 execute SCRIPT_7
 execute SCRIPT_8
 call set_input_system(int 2)
@@ -169,7 +157,7 @@ execute SCRIPT_6
 execute SCRIPT_9
 
 ._SCRIPT_8
-var VAR_7 = call create_char(var &VAR_23, var &VAR_24, int 60, int 13)
+var VAR_7 = call create_char(var &VAR_23, "nyelimp", int 60, int 13)
 gamevar script_object = var VAR_7
 gamevar *character_movement_p+60 = int 1
 gamevar *character_movement_p+53 = int 0
@@ -213,7 +201,7 @@ switch(var VAR_25)
 					gamevar script_object = var VAR_7
 					gamevar *character_stats_p+14 = int 106000
 					call set_char_running(var VAR_7)
-					call func_18(var VAR_7, int -9053, int 1201, int -17898)
+					call char_walk_to(var VAR_7, int -9053, int 1201, int -17898)
 					var VAR_26 = int 0
 					var VAR_25 ++ 
 			}
@@ -268,7 +256,7 @@ switch(var VAR_27)
 							gamevar script_object = var VAR_0
 							if(gamevar *object_p+5 == int 6)
 							 {
-									call log(var &VAR_29)
+									call log("drop imp jump down - david is dead")
 									var VAR_27 ++ 
 									var VAR_28 = int 0
 							}
@@ -292,7 +280,7 @@ switch(var VAR_27)
 			if(var VAR_28 > int 180)
 			 {
 					call func_f(var VAR_5, int 8)
-					call set_char_behav(var VAR_5, int 103)
+					call set_char_template(var VAR_5, int 103)
 					var VAR_27 ++ 
 					var VAR_28 = int 0
 			}
@@ -322,7 +310,7 @@ switch(var VAR_13)
 					gamevar script_object = var VAR_0
 					if(gamevar *object_p+5 == int 6)
 					 {
-							call log(var &VAR_16)
+							call log("horn imp jump down - david is dead")
 							var VAR_13 = int 20
 							var VAR_14 = int 0
 					}
@@ -332,7 +320,7 @@ switch(var VAR_13)
 			if(var VAR_14 > int 180)
 			 {
 					call freeze_enemy(var VAR_6)
-					call log(var &VAR_17)
+					call log("Findpath to edge...")
 					call char_walk_to_pos(var VAR_6, var &VAR_15)
 					var VAR_13 ++ 
 					var VAR_14 = int 0
@@ -341,7 +329,7 @@ switch(var VAR_13)
 		case 21
 			if(call is_char_standing(var VAR_6))
 			 {
-					call log(var &VAR_18)
+					call log("Put horn away...")
 					call func_132(var VAR_6, int 87)
 					var VAR_13 ++ 
 					var VAR_14 = int 0
@@ -350,7 +338,7 @@ switch(var VAR_13)
 		case 22
 			if(var VAR_14 > int 120)
 			 {
-					call log(var &VAR_19)
+					call log("Turn imp...")
 					call func_36(var VAR_6, int -8770, int 1201, int -16052)
 					var VAR_13 ++ 
 					var VAR_14 = int 0
@@ -359,7 +347,7 @@ switch(var VAR_13)
 		case 23
 			if(var VAR_14 > int 120)
 			 {
-					call log(var &VAR_20)
+					call log("Jump little imp...")
 					call func_29(var VAR_6)
 					var VAR_13 ++ 
 					var VAR_14 = int 0
@@ -368,7 +356,7 @@ switch(var VAR_13)
 		case 24
 			if(var VAR_14 > int 180)
 			 {
-					call log(var &VAR_21)
+					call log("Start hand_to_hand ai...")
 					call func_50(var VAR_6, int 129)
 					var VAR_13 ++ 
 					var VAR_14 = int 0
@@ -384,5 +372,5 @@ var VAR_14 ++
 ._SCRIPT_17
 if(gamevar is_room_cleared == int 2)
  {
-		call func_108(var &VAR_32)
+		call func_108("bug1205")
 }

@@ -6,6 +6,7 @@ typedef struct data_object {
     int id;
     int references;
     int byte_size;
+    bool ignore;
     char* name;
     byte* data;
 } data_obj;

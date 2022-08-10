@@ -11,9 +11,6 @@ VAR_8	{ 0, 0, 2, -1, 8, 0, 4, 0, 9, 1, 6, 1, 1, 1, 26, 26, 65, -1, 7, 1, 8, 10, 
 VAR_9	{ 0, 0, 1, -1, 8, 0, 4, 0, 9, 1, 6, 1, 1, 1, 26, 26, 65, -1, 7, 1, 8, 10, 46, 12, -1, -1 }	
 VAR_10	{ 0, 0, 1, -1, 8, 0, 4, 0, 9, 1, 6, 1, 1, 1, 65, 65, -1, 7, 1, 8, 10, 46, 45, -1, -1 }	
 VAR_11	0	
-VAR_12	"WPALPT1"	
-VAR_13	"viking"	
-VAR_14	"vikingb"	
 VAR_15	{ 1701670755, -1431655936, 0 }	
 VAR_16	0	
 VAR_17	0
@@ -25,7 +22,7 @@ call play_loaded_sound(int 1, int -1, int 66, int 0)
 var VAR_4 = call get_david_char()
 var VAR_5 = call func_7e()
 var VAR_6 = call func_7e()
-call play_bgm(var &VAR_12)
+call play_bgm("WPALPT1")
 if(gamevar room_state == int 1)
  {
 		execute SCRIPT_5
@@ -135,8 +132,8 @@ if(var VAR_0 == int 6)
 		 {
 				exit_script 
 		}
-		var VAR_7 = call func_96(int 65, int 0, int 1, int 0)
-		call func_18(var VAR_7, int 837, int 3425, int 691)
+		var VAR_7 = call create_enemy_through_door(int 65, int 0, int 1, int 0)
+		call char_walk_to(var VAR_7, int 837, int 3425, int 691)
 		var VAR_0 = int 7
 		call reset_local_timer()
 		var VAR_1 = int 30
@@ -177,8 +174,8 @@ if(var VAR_0 == int 9)
 }
 
 ._SCRIPT_5
-call load_char(var &VAR_13)
-call load_char(var &VAR_14)
+call load_char("viking")
+call load_char("vikingb")
 var VAR_11 = call load_anim(var &VAR_15)
 call reset_local_timer()
 var VAR_1 = int 30

@@ -3,8 +3,6 @@ VAR_0	{ 1146242390, 1163152961, -1431655936, 0 }
 VAR_1	0	
 VAR_2	0	
 VAR_3	0	
-VAR_4	"vivhouse"	
-VAR_5	"vivwater"	
 VAR_6	{ -480, -713, -4147 }	
 VAR_7	0	
 VAR_8	0	
@@ -16,14 +14,6 @@ VAR_13	0
 VAR_14	0	
 VAR_15	0	
 VAR_16	-1	
-VAR_17	"S_DVDCAG"	
-VAR_18	"NULL"	
-VAR_19	"S_DVDCHI"	
-VAR_20	"NULL"	
-VAR_21	"S_DVDJUG"	
-VAR_22	"NULL"	
-VAR_23	"S_DVDSEK"	
-VAR_24	"NULL"	
 VAR_25	0	
 VAR_26	0	
 VAR_27	0	
@@ -31,10 +21,6 @@ VAR_28	0
 VAR_29	0	
 VAR_30	{ 1748, 780, -6267 }	
 VAR_31	0	
-VAR_32	"david hit path target"	
-VAR_33	"other char hit path target"	
-VAR_34	"S_DVDGUA"	
-VAR_35	"NULL"	
 VAR_36	0	
 VAR_37	0	
 VAR_38	0	
@@ -46,7 +32,6 @@ VAR_43	{ 1860, 780, -6620 }
 VAR_44	158	
 VAR_45	253	
 VAR_46	0	
-VAR_47	"nvivienne"	
 VAR_48	0	
 VAR_49	0	
 VAR_50	0	
@@ -56,17 +41,6 @@ VAR_53	0
 VAR_54	0	
 VAR_55	0	
 VAR_56	0	
-VAR_57	"S_VIVJOI"	
-VAR_58	"NULL"	
-VAR_59	"V_VIVNO"	
-VAR_60	"NULL"	
-VAR_61	"V_VIVYES"	
-VAR_62	"NULL"	
-VAR_63	"V_HERO"	
-VAR_64	"NULL"	
-VAR_65	"L_HERO"	
-VAR_66	"NULL"	
-VAR_67	"no second dialogue triggered"	
 VAR_68	0	
 VAR_69	0	
 VAR_70	-1	
@@ -185,16 +159,16 @@ switch(var VAR_12)
 									switch(var VAR_15)
 									 {
 											case 262144
-												call start_dialog(var &VAR_17, var &VAR_18)
+												call start_dialog("S_DVDCAG", "NULL")
 												break 
 											case 131072
-												call start_dialog(var &VAR_19, var &VAR_20)
+												call start_dialog("S_DVDCHI", "NULL")
 												break 
 											case 327680
-												call start_dialog(var &VAR_21, var &VAR_22)
+												call start_dialog("S_DVDJUG", "NULL")
 												break 
 											case 786432
-												call start_dialog(var &VAR_23, var &VAR_24)
+												call start_dialog("S_DVDSEK", "NULL")
 												break 
 									}
 									var VAR_14 = int 0
@@ -214,11 +188,11 @@ switch(var VAR_12)
 					call set_input_system(int 1)
 					if(call is_char_handle_in_level(int 7208961))
 					 {
-							call set_char_behav(var VAR_8, int 18)
+							call set_char_template(var VAR_8, int 18)
 					}
 					if(call is_char_handle_in_level(int 7208962))
 					 {
-							call set_char_behav(var VAR_10, int 18)
+							call set_char_template(var VAR_10, int 18)
 					}
 					var VAR_13 = int 0
 					var VAR_12 ++ 
@@ -282,7 +256,7 @@ switch(var VAR_48)
 		case 1
 			if(var VAR_49 > int 130)
 			 {
-					call start_dialog(var &VAR_57, var &VAR_58)
+					call start_dialog("S_VIVJOI", "NULL")
 					var VAR_48 ++ 
 					var VAR_49 = int 0
 			}
@@ -302,11 +276,11 @@ switch(var VAR_48)
 			var VAR_54 = call func_ac(int 131072)
 			if(var VAR_50)
 			 {
-					call start_dialog(var &VAR_59, var &VAR_60)
+					call start_dialog("V_VIVNO", "NULL")
 			}
 			else
 			 {
-					call start_dialog(var &VAR_61, var &VAR_62)
+					call start_dialog("V_VIVYES", "NULL")
 			}
 			var VAR_48 ++ 
 			var VAR_49 = int 0
@@ -327,18 +301,18 @@ switch(var VAR_48)
 							 {
 									if(var VAR_51||var VAR_52||var VAR_54||var VAR_53)
 									 {
-											call start_dialog(var &VAR_63, var &VAR_64)
+											call start_dialog("V_HERO", "NULL")
 									}
 							}
 							else
 							 {
 									if(var VAR_51||var VAR_52||var VAR_54||var VAR_53)
 									 {
-											call start_dialog(var &VAR_65, var &VAR_66)
+											call start_dialog("L_HERO", "NULL")
 									}
 									else
 									 {
-											call log(var &VAR_67)
+											call log("no second dialogue triggered")
 											var VAR_48 = int 6
 											var VAR_49 = int 0
 									}
@@ -370,7 +344,7 @@ var VAR_36 = call is_char_handle_in_level(int 786432)
 var VAR_37 = call is_char_handle_in_level(int 196608)
 var VAR_38 = call is_char_handle_in_level(int 327680)
 var VAR_39 = call is_char_handle_in_level(int 131072)
-var VAR_37 = call create_char(var &VAR_40, var &VAR_47, int 190, int 13)
+var VAR_37 = call create_char(var &VAR_40, "nvivienne", int 190, int 13)
 call add_item_to_char(var VAR_37, int 17, int 0, int 1)
 gamevar script_object = var VAR_7
 var VAR_46 = gamevar LEVEL
@@ -433,7 +407,7 @@ switch(var VAR_25)
 			var VAR_31 = int 0
 			if(call is_char_standing(var VAR_7))
 			 {
-					call log(var &VAR_32)
+					call log("david hit path target")
 					var VAR_31 = int 1
 			}
 			else
@@ -445,7 +419,7 @@ switch(var VAR_25)
 							 {
 									if(call is_char_standing(@VAR_2[var VAR_28]))
 									 {
-											call log(var &VAR_33)
+											call log("other char hit path target")
 											var VAR_31 = int 1
 									}
 							}
@@ -495,7 +469,7 @@ switch(var VAR_25)
 					 {
 							call char_turn_to_pos(var VAR_7, call get_char_pos(var VAR_3))
 							call char_turn_to_pos(var VAR_2, call get_char_pos(var VAR_3))
-							call start_dialog(var &VAR_34, var &VAR_35)
+							call start_dialog("S_DVDGUA", "NULL")
 							var VAR_25 ++ 
 							var VAR_26 = int 0
 					}
@@ -539,7 +513,7 @@ if(gamevar script_time > var VAR_73)
 ._SCRIPT_13
 gamevar SMACKER_X = int 328
 gamevar SMACKER_Y = int 0
-call play_2d_anim(var &VAR_4, int 1, int 1, int 0)
+call play_2d_anim("vivhouse", int 1, int 1, int 0)
 gamevar SMACKER_X = int 0
 gamevar SMACKER_Y = int 332
-call play_2d_anim(var &VAR_5, int 1, int 1, int 0)
+call play_2d_anim("vivwater", int 1, int 1, int 0)

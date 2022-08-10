@@ -2,22 +2,14 @@
 VAR_0	{ -735, -480, 1047 }	
 VAR_1	0	
 VAR_2	0	
-VAR_3	"NJANITOR"	
 VAR_4	0	
-VAR_5	"jangive"	
 VAR_6	0	
 VAR_7	0	
 VAR_8	0	
-VAR_9	"S_DvdJan"	
-VAR_10	"NULL"	
 VAR_11	0	
 VAR_12	0	
-VAR_13	"DVDJAN"	
-VAR_14	"ACT2"	
 VAR_15	0	
 VAR_16	0	
-VAR_17	"DVDJAN"	
-VAR_18	"ACT3"	
 VAR_19	{ 0, 0, 0, 0, 0 }	
 VAR_20	0
 
@@ -97,12 +89,12 @@ if(gamevar script_time > var VAR_20)
 }
 
 ._SCRIPT_4
-var VAR_2 = call create_char(var &VAR_0, var &VAR_3, int -90, int 13)
+var VAR_2 = call create_char(var &VAR_0, "NJANITOR", int -90, int 13)
 var VAR_1 = call get_char_handle(int 65536)
-call func_b8(int 57)
+call load_item(int 57)
 
 ._SCRIPT_5
-var VAR_4 = call load_anim(var &VAR_5)
+var VAR_4 = call load_anim("jangive")
 call set_input_system(int 2)
 
 ._SCRIPT_6
@@ -110,7 +102,7 @@ if(var VAR_7 == int 0)
  {
 		if(var VAR_6 > int 100)
 		 {
-				call start_dialog(var &VAR_9, var &VAR_10)
+				call start_dialog("S_DvdJan", "NULL")
 				var VAR_7 ++ 
 				var VAR_6 = int 0
 		}
@@ -156,7 +148,7 @@ switch(var VAR_11)
 		case 0
 			if(var VAR_12 > int 60)
 			 {
-					call start_dialog(var &VAR_13, var &VAR_14)
+					call start_dialog("DVDJAN", "ACT2")
 					var VAR_11 ++ 
 					var VAR_12 = int 0
 			}
@@ -178,7 +170,7 @@ switch(var VAR_15)
 		case 0
 			if(var VAR_16 > int 60)
 			 {
-					call start_dialog(var &VAR_17, var &VAR_18)
+					call start_dialog("DVDJAN", "ACT3")
 					var VAR_15 ++ 
 					var VAR_16 = int 0
 			}

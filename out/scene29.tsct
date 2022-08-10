@@ -16,7 +16,6 @@ VAR_13	0
 VAR_14	0	
 VAR_15	0	
 VAR_16	0	
-VAR_17	"random_rain_fx: Rain SFX not initialised! See Marc"	
 VAR_18	0	
 VAR_19	0	
 VAR_20	0	
@@ -26,10 +25,8 @@ VAR_23	0
 VAR_24	0	
 VAR_25	0	
 VAR_26	{ 0, 0 }	
-VAR_27	"it's_raining"	
 VAR_28	{ -3830, 2300, -2210 }	
 VAR_29	{ -2165, 2300, -3895 }	
-VAR_30	"RAIN"	
 VAR_31	0	
 VAR_32	0	
 VAR_33	0	
@@ -37,8 +34,8 @@ VAR_34	-1
 
 ._on_load
 execute SCRIPT_9
-call func_b8(int 93)
-call func_b8(int 91)
+call load_item(int 93)
+call load_item(int 91)
 switch(gamevar room_state)
  {
 		case 1
@@ -165,20 +162,20 @@ switch(var VAR_31)
 			 {
 					if(call ! is_char_handle_in_level(int 2490368))
 					 {
-							var VAR_0 = call func_96(int 30, int 0, int 1, int 0)
+							var VAR_0 = call create_enemy_through_door(int 30, int 0, int 1, int 0)
 							call set_char_running(var VAR_0)
 							call func_19(var VAR_0, call get_selected_hero())
 					}
 					if(call ! is_char_handle_in_level(int 6422528))
 					 {
-							var VAR_2 = call func_96(int 31, int 0, int 1, int 0)
+							var VAR_2 = call create_enemy_through_door(int 31, int 0, int 1, int 0)
 							call set_char_running(var VAR_2)
 							call func_19(var VAR_2, call get_selected_hero())
 							call add_item_to_char(var VAR_2, int 40, int 1, int 0)
 					}
 					if(call ! is_char_handle_in_level(int 5767168))
 					 {
-							var VAR_1 = call func_96(int 32, int 0, int 1, int 0)
+							var VAR_1 = call create_enemy_through_door(int 32, int 0, int 1, int 0)
 							call set_char_running(var VAR_1)
 							call func_19(var VAR_1, call get_selected_hero())
 					}
@@ -198,8 +195,8 @@ switch(var VAR_31)
 ._SCRIPT_8
 
 ._SCRIPT_9
-call log(var &VAR_27)
-call play_3d_fx(var &VAR_30, var &VAR_28, var &VAR_29, int 0)
+call log("it's_raining")
+call play_3d_fx("RAIN", var &VAR_28, var &VAR_29, int 0)
 execute SCRIPT_10
 
 ._SCRIPT_10
@@ -213,7 +210,7 @@ var VAR_9 = int 1
 ._SCRIPT_11
 if(var ! VAR_9)
  {
-		call log(var &VAR_17)
+		call log("random_rain_fx: Rain SFX not initialised! See Marc")
 		exit_script 
 }
 switch(var VAR_13)

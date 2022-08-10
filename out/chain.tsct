@@ -6,18 +6,6 @@ VAR_3	0
 VAR_4	0	
 VAR_5	0	
 VAR_6	0	
-VAR_7	"DVDCHR"	
-VAR_8	"NULL"	
-VAR_9	"SEKCHR"	
-VAR_10	"NULL"	
-VAR_11	"CAGCHR"	
-VAR_12	"NULL"	
-VAR_13	"JUGCHR"	
-VAR_14	"NULL"	
-VAR_15	"CHICHR"	
-VAR_16	"NULL"	
-VAR_17	"VIVCHR"	
-VAR_18	"NULL"	
 VAR_19	0	
 VAR_20	{ 0, 0, -1 }	
 VAR_21	0	
@@ -25,39 +13,21 @@ VAR_22	0
 VAR_23	0	
 VAR_24	0	
 VAR_25	-1	
-VAR_26	"game saved"	
-VAR_27	"game not saved"	
 VAR_28	0	
-VAR_29	"DVDCHR"	
-VAR_30	"NULL"	
-VAR_31	"SEKCHR"	
-VAR_32	"NULL"	
-VAR_33	"CAGCHR"	
-VAR_34	"NULL"	
-VAR_35	"JUGCHR"	
-VAR_36	"NULL"	
-VAR_37	"CHICHR"	
-VAR_38	"NULL"	
-VAR_39	"VIVCHR"	
-VAR_40	"NULL"	
 VAR_41	0	
 VAR_42	0	
 VAR_43	0	
 VAR_44	0	
 VAR_45	0	
 VAR_46	-1	
-VAR_47	"btreasure9"	
 VAR_48	0	
 VAR_49	{ -381, 300, -1754 }	
-VAR_50	"chains"	
-VAR_51	"chain"	
 VAR_52	0	
 VAR_53	0	
 VAR_54	0	
 VAR_55	0	
 VAR_56	0	
 VAR_57	0	
-VAR_58	"FugeBPt1"	
 VAR_59	0	
 VAR_60	{ -1480, 299, -910 }	
 VAR_61	0	
@@ -65,11 +35,6 @@ VAR_62	0
 VAR_63	{ 1018, 300, -1051 }	
 VAR_64	{ 384, 300, -1051 }	
 VAR_65	0	
-VAR_66	"DodgeB"	
-VAR_67	"ipie"	
-VAR_68	"idrumstik"	
-VAR_69	"victory"	
-VAR_70	"chronicl"	
 VAR_71	0	
 VAR_72	{ 0, 0 }	
 VAR_73	0	
@@ -84,22 +49,6 @@ VAR_81	{ 1297, 300, -308 }
 VAR_82	0	
 VAR_83	{ 666, 300, -839 }	
 VAR_84	-1	
-VAR_85	"S_FUGDVD"	
-VAR_86	"NULL"	
-VAR_87	"Ievlbat1"	
-VAR_88	"STING3"	
-VAR_89	"S_DVDSEK"	
-VAR_90	"NULL"	
-VAR_91	"S_DVDJUG"	
-VAR_92	"NULL"	
-VAR_93	"S_DVDVIV"	
-VAR_94	"NULL"	
-VAR_95	"S_DVDCAG"	
-VAR_96	"NULL"	
-VAR_97	"S_DVDCHI"	
-VAR_98	"NULL"	
-VAR_99	"Oops! No 2nd hero. No dialog triggered!"	
-VAR_100	"chains"
 
 ._on_load
 var VAR_42 = var &VAR_49
@@ -114,14 +63,14 @@ execute SCRIPT_18
 execute SCRIPT_12
 if(gamevar room_state != int 1)
  {
-		call play_bgm(var &VAR_50)
+		call play_bgm("chains")
 }
 call load_sound_set(int 27)
 var VAR_48 = call play_loaded_sound(int 1, int -1, int 27, int 0)
 call set_sound_volume(var VAR_48, int 12)
 gamevar SMACKER_X = int 204
 gamevar SMACKER_Y = int 480
-call play_2d_anim(var &VAR_51, int 1, int 1, int 0)
+call play_2d_anim("chain", int 1, int 1, int 0)
 if(gamevar is_room_cleared)
  {
 		execute SCRIPT_9
@@ -265,10 +214,10 @@ switch(var VAR_71)
 		case 4
 			if(var VAR_72 > int 160)
 			 {
-					if(call is_not_scrolling())
+					if(call is_not_force_scrolling())
 					 {
 							call func_58(int 1)
-							call start_dialog(var &VAR_85, var &VAR_86)
+							call start_dialog("S_FUGDVD", "NULL")
 							var VAR_72 = int 0
 							var VAR_71 ++ 
 					}
@@ -278,9 +227,9 @@ switch(var VAR_71)
 			if(call get_input_sys() != int 4)
 			 {
 					call set_input_system(int 1)
-					call play_bgm(var &VAR_87)
+					call play_bgm("Ievlbat1")
 					call func_55(var VAR_59, int 23)
-					call set_char_behav(var VAR_59, int 200)
+					call set_char_template(var VAR_59, int 200)
 					call func_106(var VAR_59, int 2, int 1, var &VAR_80)
 					call func_106(var VAR_59, int 2, int 3, int 8)
 					call func_106(var VAR_59, int 9, int 5, var &VAR_80)
@@ -337,7 +286,7 @@ switch(var VAR_71)
 					var VAR_82 = gamevar LEVEL
 					var VAR_0 = var VAR_82 + int 1
 					execute SCRIPT_11
-					call play_bgm(var &VAR_88)
+					call play_bgm("STING3")
 					call func_134()
 					var VAR_72 = int 0
 					var VAR_71 ++ 
@@ -400,19 +349,19 @@ switch(var VAR_71)
 							switch(var VAR_79)
 							 {
 									case 786432
-										call start_dialog(var &VAR_89, var &VAR_90)
+										call start_dialog("S_DVDSEK", "NULL")
 										break 
 									case 327680
-										call start_dialog(var &VAR_91, var &VAR_92)
+										call start_dialog("S_DVDJUG", "NULL")
 										break 
 									case 196608
-										call start_dialog(var &VAR_93, var &VAR_94)
+										call start_dialog("S_DVDVIV", "NULL")
 										break 
 									case 262144
-										call start_dialog(var &VAR_95, var &VAR_96)
+										call start_dialog("S_DVDCAG", "NULL")
 										break 
 									case 131072
-										call start_dialog(var &VAR_97, var &VAR_98)
+										call start_dialog("S_DVDCHI", "NULL")
 										break 
 							}
 							var VAR_72 = int 0
@@ -420,7 +369,7 @@ switch(var VAR_71)
 					}
 					else
 					 {
-							call log(var &VAR_99)
+							call log("Oops! No 2nd hero. No dialog triggered!")
 							var VAR_72 = int 0
 							var VAR_71 = int -1
 					}
@@ -429,7 +378,7 @@ switch(var VAR_71)
 		case 11
 			if(call get_input_sys() != int 4)
 			 {
-					call play_bgm(var &VAR_100)
+					call play_bgm("chains")
 					call set_input_system(int 1)
 					var VAR_3 = call create_enemy(int 178, int 0, var &VAR_83, int 355)
 					var VAR_72 = int 0
@@ -440,7 +389,7 @@ switch(var VAR_71)
 var VAR_72 ++ 
 
 ._SCRIPT_4
-call play_bgm(var &VAR_58)
+call play_bgm("FugeBPt1")
 var VAR_59 = call create_enemy(int 200, int 0, var &VAR_60, int 40)
 call freeze_enemy(var VAR_59)
 var VAR_61 = call add_item_to_char(var VAR_59, int 3, int 0, int 1)
@@ -461,12 +410,12 @@ if(var VAR_55)
 		gamevar *character_stats_p+27 |= int 4
 }
 call func_a3(var VAR_57)
-var VAR_62 = call load_anim(var &VAR_66)
+var VAR_62 = call load_anim("DodgeB")
 call set_input_system(int 2)
-call create_char(var &VAR_63, var &VAR_67, int 0, int 0)
-call create_char(var &VAR_64, var &VAR_68, int 0, int 0)
-var VAR_65 = call load_anim(var &VAR_69)
-call load_char(var &VAR_70)
+call create_char(var &VAR_63, "ipie", int 0, int 0)
+call create_char(var &VAR_64, "idrumstik", int 0, int 0)
+var VAR_65 = call load_anim("victory")
+call load_char("chronicl")
 
 ._SCRIPT_5
 
@@ -585,14 +534,14 @@ switch(var VAR_19)
 		case 5
 			if(var VAR_21 != gamevar saved_games_count)
 			 {
-					call log(var &VAR_26)
+					call log("game saved")
 					call func_11d()
 					var VAR_19 = int 7
 					var VAR_20 = int 0
 			}
 			else
 			 {
-					call log(var &VAR_27)
+					call log("game not saved")
 					call func_2a(var VAR_3, var &VAR_22)
 					execute SCRIPT_16
 					gamevar chronicler_variation = var VAR_4
@@ -648,22 +597,22 @@ var VAR_6 = call get_char_handle_id(gamevar control_char_p)
 switch(var VAR_6)
  {
 		case 65536
-			call load_dialog_by_number(var &VAR_7, var &VAR_8, gamevar chronicler_variation)
+			call load_dialog_by_number("DVDCHR", "NULL", gamevar chronicler_variation)
 			break 
 		case 786432
-			call load_dialog_by_number(var &VAR_9, var &VAR_10, gamevar chronicler_variation)
+			call load_dialog_by_number("SEKCHR", "NULL", gamevar chronicler_variation)
 			break 
 		case 262144
-			call load_dialog_by_number(var &VAR_11, var &VAR_12, gamevar chronicler_variation)
+			call load_dialog_by_number("CAGCHR", "NULL", gamevar chronicler_variation)
 			break 
 		case 327680
-			call load_dialog_by_number(var &VAR_13, var &VAR_14, gamevar chronicler_variation)
+			call load_dialog_by_number("JUGCHR", "NULL", gamevar chronicler_variation)
 			break 
 		case 131072
-			call load_dialog_by_number(var &VAR_15, var &VAR_16, gamevar chronicler_variation)
+			call load_dialog_by_number("CHICHR", "NULL", gamevar chronicler_variation)
 			break 
 		case 196608
-			call load_dialog_by_number(var &VAR_17, var &VAR_18, gamevar chronicler_variation)
+			call load_dialog_by_number("VIVCHR", "NULL", gamevar chronicler_variation)
 			break 
 }
 
@@ -672,22 +621,22 @@ var VAR_28 = call get_char_handle_id(gamevar control_char_p)
 switch(var VAR_28)
  {
 		case 65536
-			var VAR_4 = call load_next_dialog(var &VAR_29, var &VAR_30)
+			var VAR_4 = call load_next_dialog("DVDCHR", "NULL")
 			break 
 		case 786432
-			var VAR_4 = call load_next_dialog(var &VAR_31, var &VAR_32)
+			var VAR_4 = call load_next_dialog("SEKCHR", "NULL")
 			break 
 		case 262144
-			var VAR_4 = call load_next_dialog(var &VAR_33, var &VAR_34)
+			var VAR_4 = call load_next_dialog("CAGCHR", "NULL")
 			break 
 		case 327680
-			var VAR_4 = call load_next_dialog(var &VAR_35, var &VAR_36)
+			var VAR_4 = call load_next_dialog("JUGCHR", "NULL")
 			break 
 		case 131072
-			var VAR_4 = call load_next_dialog(var &VAR_37, var &VAR_38)
+			var VAR_4 = call load_next_dialog("CHICHR", "NULL")
 			break 
 		case 196608
-			var VAR_4 = call load_next_dialog(var &VAR_39, var &VAR_40)
+			var VAR_4 = call load_next_dialog("VIVCHR", "NULL")
 			break 
 }
 
@@ -695,7 +644,7 @@ switch(var VAR_28)
 var VAR_41 = call is_char_handle_in_level(int 1507337)
 if(var ! VAR_41)
  {
-		var VAR_41 = call create_char(var VAR_42, var &VAR_47, var VAR_43, int 14)
+		var VAR_41 = call create_char(var VAR_42, "btreasure9", var VAR_43, int 14)
 		call func_aa(var VAR_41)
 }
 else

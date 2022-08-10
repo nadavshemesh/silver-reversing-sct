@@ -3,14 +3,6 @@ VAR_0	0
 VAR_1	{ 0, 0, 0 }	
 VAR_2	{ 0, 0, 0 }	
 VAR_3	0	
-VAR_4	"left"	
-VAR_5	"top"	
-VAR_6	"right"	
-VAR_7	"flush"	
-VAR_8	"stairs"	
-VAR_9	"groad"	
-VAR_10	"bat"	
-VAR_11	"rchop"	
 VAR_12	{ 1166563328, -1004388352, 1159737344 }	
 VAR_13	0	
 VAR_14	0	
@@ -163,24 +155,24 @@ call play_char_ai_script(var VAR_46, var &VAR_42)
 ._SCRIPT_10
 gamevar SMACKER_X = int 48
 gamevar SMACKER_Y = int 368
-call play_2d_anim(var &VAR_4, int 1, int 1, int 0)
+call play_2d_anim("left", int 1, int 1, int 0)
 gamevar SMACKER_X = int 236
 gamevar SMACKER_Y = int 332
-call play_2d_anim(var &VAR_5, int 1, int 1, int 0)
+call play_2d_anim("top", int 1, int 1, int 0)
 gamevar SMACKER_X = int 340
 gamevar SMACKER_Y = int 364
-call play_2d_anim(var &VAR_6, int 1, int 1, int 0)
+call play_2d_anim("right", int 1, int 1, int 0)
 if(gamevar *scene_info_p+4 & int 16)
  {
 		gamevar SMACKER_X = int 56
 		gamevar SMACKER_Y = int 240
-		call play_2d_anim(var &VAR_7, int 0, int 1, var &VAR_1)
+		call play_2d_anim("flush", int 0, int 1, var &VAR_1)
 		gamevar SMACKER_X = int 208
 		gamevar SMACKER_Y = int 384
-		call play_2d_anim(var &VAR_8, int 0, int 1, var &VAR_2)
-		call load_char(var &VAR_9)
-		call load_char(var &VAR_10)
-		var VAR_3 = call load_anim(var &VAR_11)
+		call play_2d_anim("stairs", int 0, int 1, var &VAR_2)
+		call load_char("groad")
+		call load_char("bat")
+		var VAR_3 = call load_anim("rchop")
 }
 else
  {

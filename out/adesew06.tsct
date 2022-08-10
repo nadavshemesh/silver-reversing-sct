@@ -39,37 +39,28 @@ VAR_36	{ 2023, -1257, -723 }
 VAR_37	{ 1949, -1257, 6341 }	
 VAR_38	{ 0, 0, 0, -1, 8, 1, 1, 2, 215, 215, 215, -1, 4, 0, 9, 1, 5, 1, 50, 150, 7, 1, 4, 10, 45, -1, -1 }	
 VAR_39	-1	
-VAR_40	"entry door num:"	
-VAR_41	"SEWERPT1"	
-VAR_42	"torch01"	
-VAR_43	"torch02"	
-VAR_44	"torch03"	
-VAR_45	"torch04"	
-VAR_46	"skaven"	
-VAR_47	"ratrptr"	
-VAR_48	"ratrptr"	
 VAR_49	0
 
 ._on_load
 var VAR_39 = call func_6f()
-call log(var &VAR_40)
+call log("entry door num:")
 call log_obj(var VAR_39)
-call play_bgm(var &VAR_41)
+call play_bgm("SEWERPT1")
 call load_sound_set(int 30)
 call play_loaded_sound(int 1, int -1, int 30, int 0)
 call load_sound_set(int 38)
 gamevar SMACKER_X = int 320
 gamevar SMACKER_Y = int 392
-call play_2d_anim(var &VAR_42, int 1, int 1, var &VAR_0)
+call play_2d_anim("torch01", int 1, int 1, var &VAR_0)
 gamevar SMACKER_X = int 584
 gamevar SMACKER_Y = int 376
-call play_2d_anim(var &VAR_43, int 1, int 1, var &VAR_1)
+call play_2d_anim("torch02", int 1, int 1, var &VAR_1)
 gamevar SMACKER_X = int 352
 gamevar SMACKER_Y = int 624
-call play_2d_anim(var &VAR_44, int 1, int 1, var &VAR_2)
+call play_2d_anim("torch03", int 1, int 1, var &VAR_2)
 gamevar SMACKER_X = int 816
 gamevar SMACKER_Y = int 544
-call play_2d_anim(var &VAR_45, int 1, int 1, var &VAR_3)
+call play_2d_anim("torch04", int 1, int 1, var &VAR_3)
 switch(gamevar room_state)
  {
 		case 1
@@ -119,8 +110,8 @@ switch(gamevar room_state)
 
 ._SCRIPT_3
 call set_input_system(int 2)
-call load_char(var &VAR_46)
-call load_char(var &VAR_47)
+call load_char("skaven")
+call load_char("ratrptr")
 call func_9a(var &VAR_18, int 43, int 0, int 0)
 call func_9a(var &VAR_19, int 40, int 0, int 0)
 call func_9a(var &VAR_20, int 45, int 0, int 0)
@@ -243,7 +234,7 @@ var VAR_13 = call create_enemy(int 46, int 0, var &VAR_25, int 190)
 var VAR_14 = call create_enemy(int 46, int 1, var &VAR_26, int 320)
 call add_item_to_char(var VAR_13, int 43, int 1, int 0)
 call add_item_to_char(var VAR_14, int 45, int 1, int 0)
-call load_char(var &VAR_48)
+call load_char("ratrptr")
 call run_enemy_generator(var &VAR_38, int 500)
 
 ._SCRIPT_6

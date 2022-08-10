@@ -5,13 +5,7 @@ VAR_2	0
 VAR_3	0	
 VAR_4	0	
 VAR_5	-1	
-VAR_6	"btreasure9"	
 VAR_7	{ 8, 625, 4952 }	
-VAR_8	"GNOCVP1"	
-VAR_9	"gno"	
-VAR_10	"screen3"	
-VAR_11	"screen7"	
-VAR_12	"screen7b"	
 VAR_13	{ 0, 0, 0, 0 }	
 VAR_14	{ -323, 625, 5560 }
 
@@ -25,7 +19,7 @@ var VAR_3 = int 33
 execute SCRIPT_11
 var VAR_3 = int 38
 execute SCRIPT_11
-call play_bgm(var &VAR_8)
+call play_bgm("GNOCVP1")
 execute SCRIPT_3
 call load_sound_set(int 64)
 call play_loaded_sound(int 1, int -1, int 64, int 0)
@@ -79,7 +73,7 @@ if(gamevar !is_room_cleared)
 					}
 					gamevar room_state ++ 
 					gamevar is_room_cleared = int 1
-					call func_116(var &VAR_9, var &VAR_10, int 3)
+					call func_116("gno", "screen3", int 3)
 					break 
 				case 2
 					gamevar room_state ++ 
@@ -96,10 +90,10 @@ if(gamevar !is_room_cleared)
 ._SCRIPT_3
 gamevar SMACKER_X = int 180
 gamevar SMACKER_Y = int 132
-call play_2d_anim(var &VAR_11, int 1, int 1, int 0)
+call play_2d_anim("screen7", int 1, int 1, int 0)
 gamevar SMACKER_X = int 312
 gamevar SMACKER_Y = int 140
-call play_2d_anim(var &VAR_12, int 1, int 1, int 0)
+call play_2d_anim("screen7b", int 1, int 1, int 0)
 
 ._SCRIPT_4
 
@@ -129,7 +123,7 @@ if(call ! func_af(int 34))
 var VAR_0 = call is_char_handle_in_level(int 1507337)
 if(var ! VAR_0)
  {
-		var VAR_0 = call create_char(var VAR_1, var &VAR_6, var VAR_2, int 14)
+		var VAR_0 = call create_char(var VAR_1, "btreasure9", var VAR_2, int 14)
 		call func_aa(var VAR_0)
 }
 else

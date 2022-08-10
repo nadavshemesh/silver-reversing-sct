@@ -4,17 +4,10 @@ VAR_1	0
 VAR_2	0	
 VAR_3	0	
 VAR_4	0	
-VAR_5	"DVDCHR"	
 VAR_6	{ 1280070990, 0 }	
-VAR_7	"SEKCHR"	
 VAR_8	{ 1280070990, 0 }	
-VAR_9	"CAGCHR"	
 VAR_10	{ 1280070990, 0 }	
-VAR_11	"JUGCHR"	
 VAR_12	{ 1280070990, 0 }	
-VAR_13	"CHICHR"	
-VAR_14	"NULL"	
-VAR_15	"VIVCHR"	
 VAR_16	{ 1280070990, 0 }	
 VAR_17	0	
 VAR_18	{ 0, 0, -1 }	
@@ -23,20 +16,11 @@ VAR_20	0
 VAR_21	0	
 VAR_22	0	
 VAR_23	-1	
-VAR_24	"game saved"	
-VAR_25	"game not saved"	
 VAR_26	0	
-VAR_27	"DVDCHR"	
-VAR_28	"NULL"	
-VAR_29	"SEKCHR"	
 VAR_30	{ 1280070990, 0 }	
-VAR_31	"CAGCHR"	
 VAR_32	{ 1280070990, 0 }	
-VAR_33	"JUGCHR"	
 VAR_34	{ 1280070990, 0 }	
-VAR_35	"CHICHR"	
 VAR_36	{ 1280070990, 0 }	
-VAR_37	"VIVCHR"	
 VAR_38	{ 1280070990, 0 }	
 VAR_39	0	
 VAR_40	0	
@@ -49,17 +33,9 @@ VAR_46	{ 0, 0, 0, 0 }
 VAR_47	0	
 VAR_48	0	
 VAR_49	0	
-VAR_50	"david"	
-VAR_51	"sekune"	
-VAR_52	"jug"	
 VAR_53	{ 1769367926, 1701736037, 0 }	
-VAR_54	"chiaro"	
-VAR_55	"cagen"	
-VAR_56	"WARNING! Unknown hero while checking heroes"	
-VAR_57	"Get a goober -- QUICKLY!!"	
 VAR_58	{ -6644, 4939, -4319 }	
 VAR_59	{ 5880, 4939, -6862 }	
-VAR_60	"SNOW"	
 VAR_61	0	
 VAR_62	0	
 VAR_63	0	
@@ -80,7 +56,6 @@ VAR_77	{ 0, -5259, -400, 6335, 2, -5304, -263, 6578, 3, VAR_78, 0, 11, 150, 300,
 VAR_78	"laugh"	
 VAR_79	{ 0, -4499, -401, 5877, 11, 50, 150, 0, 4368, -400, 6049, 11, 50, 150, 7, 8 }	
 VAR_80	{ 0, 4368, -400, 6049, 11, 50, 150, 0, -4499, -401, 5877, 11, 50, 150, 7, 8 }	
-VAR_81	"chronicl"	
 VAR_82	0	
 VAR_83	0	
 VAR_84	0	
@@ -92,25 +67,18 @@ VAR_89	{ 1280070990, 0 }
 VAR_90	VAR_91	
 VAR_91	"ACT_2B"	
 VAR_92	{ 508, -400, 5770 }	
-VAR_93	"Oops! No second_char_p!!!!"	
 VAR_94	{ 1447321427, 1262834500, 0 }	
 VAR_95	{ 1447321427, 1447646788, 0 }	
 VAR_96	{ 1447321427, 1195459396, 0 }	
 VAR_97	{ 1447321427, 1196771908, 0 }	
 VAR_98	{ 1447321427, 1229472580, 0 }	
-VAR_99	"CLIFFSA"	
 VAR_100	0	
 VAR_101	0	
 VAR_102	0	
-VAR_103	"ERROR: no second_char_p when opening door"	
 VAR_104	{ 1447321427, 1262834500, 0 }	
-VAR_105	"ACT_2A"	
 VAR_106	{ 1447321427, 1447646788, 0 }	
-VAR_107	"ACT_2A"	
 VAR_108	{ 1447321427, 1196771908, 0 }	
-VAR_109	"ACT_2A"	
 VAR_110	{ 1447321427, 1195459396, 0 }	
-VAR_111	"ACT_2A"	
 VAR_112	{ 1447321427, 1229472580, 0 }	
 VAR_113	{ 1599357761, 16690, 0 }	
 VAR_114	0	
@@ -197,7 +165,7 @@ if(gamevar !is_room_cleared)
 }
 
 ._SCRIPT_3
-call play_3d_fx(var &VAR_60, var &VAR_58, var &VAR_59, int 0)
+call play_3d_fx("SNOW", var &VAR_58, var &VAR_59, int 0)
 
 ._SCRIPT_4
 if(gamevar script_time > var VAR_115)
@@ -296,13 +264,13 @@ switch(var VAR_82)
 					 {
 							call set_char_running(var VAR_86)
 							call char_walk_to_pos(var VAR_86, call get_char_pos(var VAR_39))
-							call func_ff(call get_char_pos(var VAR_39))
+							call force_scroll_to_pos(call get_char_pos(var VAR_39))
 							var VAR_82 ++ 
 							var VAR_83 = int 0
 					}
 					else
 					 {
-							call log(var &VAR_93)
+							call log("Oops! No second_char_p!!!!")
 							call set_input_system(int 1)
 							var VAR_82 = int -1
 					}
@@ -379,7 +347,7 @@ call func_106(var VAR_66, int 2, int 0, int 0)
 call func_50(var VAR_66, int 8194)
 call play_char_ai_script(var VAR_65, var &VAR_79)
 call play_char_ai_script(var VAR_66, var &VAR_80)
-call load_char(var &VAR_81)
+call load_char("chronicl")
 
 ._SCRIPT_7
 
@@ -396,7 +364,7 @@ if(gamevar *scene_info_p+4 & int 1)
  {
 		gamevar SMACKER_X = int 776
 		gamevar SMACKER_Y = int 248
-		var VAR_45 = call play_2d_anim(var &VAR_99, int 0, int 1, var &VAR_46)
+		var VAR_45 = call play_2d_anim("CLIFFSA", int 0, int 1, var &VAR_46)
 }
 else
  {
@@ -474,7 +442,7 @@ switch(var VAR_100)
 			else
 			 {
 					var VAR_47 = int 1
-					call log(var &VAR_103)
+					call log("ERROR: no second_char_p when opening door")
 					var VAR_100 = int -1
 			}
 			break 
@@ -489,16 +457,16 @@ switch(var VAR_100)
 					switch(var VAR_49)
 					 {
 							case 786432
-								call start_dialog(var &VAR_104, var &VAR_105)
+								call start_dialog(var &VAR_104, "ACT_2A")
 								break 
 							case 196608
-								call start_dialog(var &VAR_106, var &VAR_107)
+								call start_dialog(var &VAR_106, "ACT_2A")
 								break 
 							case 327680
-								call start_dialog(var &VAR_108, var &VAR_109)
+								call start_dialog(var &VAR_108, "ACT_2A")
 								break 
 							case 262144
-								call start_dialog(var &VAR_110, var &VAR_111)
+								call start_dialog(var &VAR_110, "ACT_2A")
 								break 
 							case 131072
 								call start_dialog(var &VAR_112, var &VAR_113)
@@ -530,15 +498,15 @@ while(var VAR_48)
 		switch(var VAR_49)
 		 {
 				case 65536
-					call log(var &VAR_50)
+					call log("david")
 					var VAR_39 = var VAR_48
 					break 
 				case 786432
-					call log(var &VAR_51)
+					call log("sekune")
 					var VAR_41 = var VAR_48
 					break 
 				case 327680
-					call log(var &VAR_52)
+					call log("jug")
 					var VAR_40 = var VAR_48
 					break 
 				case 196608
@@ -546,16 +514,16 @@ while(var VAR_48)
 					var VAR_42 = var VAR_48
 					break 
 				case 131072
-					call log(var &VAR_54)
+					call log("chiaro")
 					var VAR_43 = var VAR_48
 					break 
 				case 262144
-					call log(var &VAR_55)
+					call log("cagen")
 					var VAR_44 = var VAR_48
 					break 
 				default 
-					call log(var &VAR_56)
-					call log(var &VAR_57)
+					call log("WARNING! Unknown hero while checking heroes")
+					call log("Get a goober -- QUICKLY!!")
 					break 
 		}
 		var VAR_48 = call func_7e()
@@ -645,14 +613,14 @@ switch(var VAR_17)
 		case 5
 			if(var VAR_19 != gamevar saved_games_count)
 			 {
-					call log(var &VAR_24)
+					call log("game saved")
 					call func_11d()
 					var VAR_17 = int 7
 					var VAR_18 = int 0
 			}
 			else
 			 {
-					call log(var &VAR_25)
+					call log("game not saved")
 					call func_2a(var VAR_1, var &VAR_20)
 					execute SCRIPT_19
 					gamevar chronicler_variation = var VAR_2
@@ -708,22 +676,22 @@ var VAR_4 = call get_char_handle_id(gamevar control_char_p)
 switch(var VAR_4)
  {
 		case 65536
-			call load_dialog_by_number(var &VAR_5, var &VAR_6, gamevar chronicler_variation)
+			call load_dialog_by_number("DVDCHR", var &VAR_6, gamevar chronicler_variation)
 			break 
 		case 786432
-			call load_dialog_by_number(var &VAR_7, var &VAR_8, gamevar chronicler_variation)
+			call load_dialog_by_number("SEKCHR", var &VAR_8, gamevar chronicler_variation)
 			break 
 		case 262144
-			call load_dialog_by_number(var &VAR_9, var &VAR_10, gamevar chronicler_variation)
+			call load_dialog_by_number("CAGCHR", var &VAR_10, gamevar chronicler_variation)
 			break 
 		case 327680
-			call load_dialog_by_number(var &VAR_11, var &VAR_12, gamevar chronicler_variation)
+			call load_dialog_by_number("JUGCHR", var &VAR_12, gamevar chronicler_variation)
 			break 
 		case 131072
-			call load_dialog_by_number(var &VAR_13, var &VAR_14, gamevar chronicler_variation)
+			call load_dialog_by_number("CHICHR", "NULL", gamevar chronicler_variation)
 			break 
 		case 196608
-			call load_dialog_by_number(var &VAR_15, var &VAR_16, gamevar chronicler_variation)
+			call load_dialog_by_number("VIVCHR", var &VAR_16, gamevar chronicler_variation)
 			break 
 }
 
@@ -732,21 +700,21 @@ var VAR_26 = call get_char_handle_id(gamevar control_char_p)
 switch(var VAR_26)
  {
 		case 65536
-			var VAR_2 = call load_next_dialog(var &VAR_27, var &VAR_28)
+			var VAR_2 = call load_next_dialog("DVDCHR", "NULL")
 			break 
 		case 786432
-			var VAR_2 = call load_next_dialog(var &VAR_29, var &VAR_30)
+			var VAR_2 = call load_next_dialog("SEKCHR", var &VAR_30)
 			break 
 		case 262144
-			var VAR_2 = call load_next_dialog(var &VAR_31, var &VAR_32)
+			var VAR_2 = call load_next_dialog("CAGCHR", var &VAR_32)
 			break 
 		case 327680
-			var VAR_2 = call load_next_dialog(var &VAR_33, var &VAR_34)
+			var VAR_2 = call load_next_dialog("JUGCHR", var &VAR_34)
 			break 
 		case 131072
-			var VAR_2 = call load_next_dialog(var &VAR_35, var &VAR_36)
+			var VAR_2 = call load_next_dialog("CHICHR", var &VAR_36)
 			break 
 		case 196608
-			var VAR_2 = call load_next_dialog(var &VAR_37, var &VAR_38)
+			var VAR_2 = call load_next_dialog("VIVCHR", var &VAR_38)
 			break 
 }

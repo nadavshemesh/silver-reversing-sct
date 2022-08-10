@@ -2,30 +2,19 @@
 VAR_0	0	
 VAR_1	0	
 VAR_2	{ 0, 0, 0 }	
-VAR_3	"GNO"	
 VAR_4	0	
 VAR_5	0	
 VAR_6	0	
 VAR_7	0	
 VAR_8	0	
-VAR_9	"gno"	
-VAR_10	"libarea2"	
 VAR_11	0	
-VAR_12	"cringe"	
 VAR_13	0	
 VAR_14	0	
 VAR_15	0	
 VAR_16	{ 0, 0, 0 }	
 VAR_17	{ -14901, 1202, -14300 }	
-VAR_18	"whittle"	
-VAR_19	"samnimp"	
-VAR_20	"imp"	
-VAR_21	"nwhittle!"	
-VAR_22	"BEFORE_W"	
 VAR_23	0	
 VAR_24	0	
-VAR_25	"DVDWIT"	
-VAR_26	"NULL"	
 VAR_27	0	
 VAR_28	{ -14550, 1220, -12160 }	
 VAR_29	{ -14585, 1202, -14221, -14585, 1202, -13304, -14496, 1202, -12207, -15542, 1202, -12219, -13283, 1202, -12167, -12545, 1202, -12136, -12713, 1202, -13187, -12688, 1202, -14289 }	
@@ -36,7 +25,6 @@ VAR_33	{ -14545, 1202, -12946 }
 VAR_34	{ -14545, 1202, -13803 }	
 VAR_35	0	
 VAR_36	-1	
-VAR_37	"RE_ENTER"	
 VAR_38	{ 5130566, 0 }	
 VAR_39	0	
 VAR_40	0	
@@ -45,7 +33,7 @@ VAR_42	0
 VAR_43	0
 
 ._on_load
-call play_bgm(var &VAR_3)
+call play_bgm("GNO")
 call load_sound_set(int 63)
 call play_loaded_sound(int 1, int -1, int 63, int 0)
 if(gamevar is_room_cleared)
@@ -107,7 +95,7 @@ if(gamevar !is_room_cleared)
 									var VAR_6 = var VAR_4
 									var VAR_7 = int 0
 									var VAR_8 = int 0
-									call func_4d(int 888, var &VAR_5, var &VAR_9, var &VAR_10)
+									call func_4d(int 888, var &VAR_5, "gno", "libarea2")
 							}
 							call func_34(var VAR_0)
 					}
@@ -149,15 +137,15 @@ if(gamevar script_time > var VAR_43)
 }
 
 ._SCRIPT_4
-call load_char(var &VAR_18)
-call load_char(var &VAR_19)
-call load_char(var &VAR_20)
-var VAR_0 = call create_char(var &VAR_17, var &VAR_21, int 292, int 13)
+call load_char("whittle")
+call load_char("samnimp")
+call load_char("imp")
+var VAR_0 = call create_char(var &VAR_17, "nwhittle!", int 292, int 13)
 execute SCRIPT_6
 execute SCRIPT_7
 execute SCRIPT_8
 var VAR_1 = call get_char_handle(int 393216)
-call func_10c(var VAR_1, var &VAR_22)
+call func_10c(var VAR_1, "BEFORE_W")
 var VAR_2 = call get_char_handle(int 65536)
 
 ._SCRIPT_5
@@ -177,7 +165,7 @@ switch(var VAR_23)
 					if(call is_char_at_pos(var VAR_2, var &VAR_17, int 500))
 					 {
 							call chars_face_opposite(var VAR_2, var VAR_0)
-							call start_dialog(var &VAR_25, var &VAR_26)
+							call start_dialog("DVDWIT", "NULL")
 							var VAR_23 ++ 
 							var VAR_24 = int 0
 					}
@@ -201,7 +189,7 @@ var VAR_15 = call create_enemy(int 103, int 3, var &VAR_33, int 88)
 var VAR_16 = call create_enemy(int 103, int 4, var &VAR_34, int 63)
 
 ._SCRIPT_8
-var VAR_11 = call load_anim(var &VAR_12)
+var VAR_11 = call load_anim("cringe")
 
 ._SCRIPT_9
 var VAR_0 = int 0
@@ -227,7 +215,7 @@ switch(var VAR_35)
 		case 1
 			if(gamevar scene_counter > int 20)
 			 {
-					call func_108(var &VAR_37)
+					call func_108("RE_ENTER")
 					if(var VAR_4)
 					 {
 							if(var VAR_0)

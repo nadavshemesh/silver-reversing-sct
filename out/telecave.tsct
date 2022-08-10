@@ -5,21 +5,16 @@ VAR_2	0
 VAR_3	0	
 VAR_4	0	
 VAR_5	-1	
-VAR_6	"btreasure9"	
 VAR_7	0	
 VAR_8	0	
 VAR_9	{ 863, -1924, 2239 }	
-VAR_10	"DeadIn1"	
 VAR_11	{ 0, 0 }	
 VAR_12	0	
 VAR_13	{ 440, -1485, 937 }	
 VAR_14	0	
-VAR_15	"wraith"	
 VAR_16	{ -467, -1925, 2101, -496, -1925, -18, -737, -1925, 480, -795, -1925, 1039, -651, -1925, 1506, -1007, -1925, 1020, -865, -1875, 1659, -1134, -1875, 1800, -1471, -1925, 1005, -614, -1925, -73, -599, -1925, 2235, -1550, -1925, 841, -1037, -1925, 1239, -704, -1925, 777, -464, -1925, 311, -385, -1925, 1605, -331, -1925, 1014, -616, -1925, 2036, -913, -1925, 1312, -599, -1925, 1384, -1042, -1875, 2061 }	
 VAR_17	{ 0, 1, 21, VAR_16, 8, 2, 1, 3, 60, 60, -1, 4, 0, 9, 1, 5, 1, 5, 100, 6, 2, 7, 1, 1, 10, 46, 83, 40, -1, -1 }	
 VAR_18	{ -180, -1925, 2395, -200, -1925, -340 }	
-VAR_19	"btreasure"	
-VAR_20	"never came in door 0"
 
 ._on_load
 var VAR_1 = var &VAR_9
@@ -30,7 +25,7 @@ execute SCRIPT_9
 var VAR_5 = int 3277313
 execute SCRIPT_9
 var VAR_8 = call func_6f()
-call play_bgm(var &VAR_10)
+call play_bgm("DeadIn1")
 call load_sound_set(int 0)
 call func_ec(int 228, int -1, int 0, int 0)
 call func_40(int 1, int 3, int 0, int -1)
@@ -100,11 +95,11 @@ switch(var VAR_11)
 }
 
 ._SCRIPT_4
-call load_char(var &VAR_15)
+call load_char("wraith")
 var VAR_14 = call is_char_handle_in_level(int 1507328)
 if(var ! VAR_14)
  {
-		var VAR_14 = call create_char(var &VAR_13, var &VAR_19, int 270, int 14)
+		var VAR_14 = call create_char(var &VAR_13, "btreasure", int 270, int 14)
 		call add_item_to_char(var VAR_14, int 85, int 6554113, int 0)
 		call add_item_to_char(var VAR_14, int 83, int 1, int 0)
 		call add_item_to_char(var VAR_14, int 43, int 1, int 0)
@@ -123,7 +118,7 @@ if(var ! VAR_14)
 var VAR_0 = call is_char_handle_in_level(int 1507337)
 if(var ! VAR_0)
  {
-		var VAR_0 = call create_char(var VAR_1, var &VAR_6, var VAR_2, int 14)
+		var VAR_0 = call create_char(var VAR_1, "btreasure9", var VAR_2, int 14)
 		call func_aa(var VAR_0)
 }
 else

@@ -5,17 +5,12 @@ VAR_2	0
 VAR_3	0	
 VAR_4	0	
 VAR_5	-1	
-VAR_6	"btreasure9"	
 VAR_7	{ -2051, 94, 3974 }	
 VAR_8	0	
 VAR_9	0	
 VAR_10	0	
 VAR_11	{ 0, 0, 1, 1, 0, -1, 8, 1, 1, 2, 55, 55, 55, 55, -1, 10, 43, 43, -1, 4, 0, 9, 1, 5, 1, 25, 50, 7, 1, 2, -1 }	
 VAR_12	{ 559, -256, 2741, 1, 0, 0, 1, 0, 0 }	
-VAR_13	"SEWERPT1"	
-VAR_14	"sludge"	
-VAR_15	"ratrptr"	
-VAR_16	"spider"	
 VAR_17	{ -2126, 0, 2863 }	
 VAR_18	{ -1655, 0, 2902 }	
 VAR_19	20	
@@ -33,19 +28,19 @@ var VAR_3 = int 33
 execute SCRIPT_7
 var VAR_3 = int 37
 execute SCRIPT_7
-call play_bgm(var &VAR_13)
+call play_bgm("SEWERPT1")
 call load_sound_set(int 33)
 call load_sound_set(int 38)
 call play_loaded_sound(int 3, int -1, int 38, int 0)
 gamevar SMACKER_X = int 0
 gamevar SMACKER_Y = int 328
-call play_2d_anim(var &VAR_14, int 1, int 0, int 0)
+call play_2d_anim("sludge", int 1, int 0, int 0)
 switch(gamevar room_state)
  {
 		case 1
 			var VAR_8 = int 0
-			call load_char(var &VAR_15)
-			call load_char(var &VAR_16)
+			call load_char("ratrptr")
+			call load_char("spider")
 			break 
 		default 
 			break 
@@ -82,8 +77,8 @@ switch(var VAR_8)
 		case 0
 			if(call func_ab(int 400, var &VAR_7))
 			 {
-					var VAR_9 = call func_96(int 86, int 0, int 0, int 0)
-					var VAR_10 = call func_96(int 86, int 1, int 0, int 0)
+					var VAR_9 = call create_enemy_through_door(int 86, int 0, int 0, int 0)
+					var VAR_10 = call create_enemy_through_door(int 86, int 1, int 0, int 0)
 					call set_char_running(var VAR_9)
 					call set_char_running(var VAR_10)
 					call func_19(var VAR_9, call get_selected_hero())
@@ -126,7 +121,7 @@ if(gamevar script_time > var VAR_20)
 var VAR_0 = call is_char_handle_in_level(int 1507337)
 if(var ! VAR_0)
  {
-		var VAR_0 = call create_char(var VAR_1, var &VAR_6, var VAR_2, int 14)
+		var VAR_0 = call create_char(var VAR_1, "btreasure9", var VAR_2, int 14)
 		call func_aa(var VAR_0)
 }
 else

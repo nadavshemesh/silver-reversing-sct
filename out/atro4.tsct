@@ -18,8 +18,6 @@ VAR_15	{ -2937, 2859, -2495 }
 VAR_16	{ -2767, 2859, -2772 }	
 VAR_17	{ VAR_14, VAR_15, VAR_16, VAR_16 }	
 VAR_18	{ 35, 44, 39, 0 }	
-VAR_19	"behold"	
-VAR_20	"beholdp"	
 VAR_21	0	
 VAR_22	0	
 VAR_23	0	
@@ -42,14 +40,6 @@ VAR_39	0
 VAR_40	0	
 VAR_41	0	
 VAR_42	{ -680, -1465, 1090, 0 }	
-VAR_43	"start teleport to DEADGATE"	
-VAR_44	"deadgate"	
-VAR_45	"boneyard"	
-VAR_46	"deadgate"	
-VAR_47	"boneyard"	
-VAR_48	"right"	
-VAR_49	"top"	
-VAR_50	"bottom"	
 VAR_51	0	
 VAR_52	0	
 VAR_53	0	
@@ -242,8 +232,8 @@ var VAR_22 ++
 
 ._SCRIPT_4
 var VAR_13 = call get_char_handle(int 65536)
-call load_char(var &VAR_19)
-call load_char(var &VAR_20)
+call load_char("behold")
+call load_char("beholdp")
 var VAR_9 = call func_e8(var &VAR_10, int 0)
 
 ._SCRIPT_5
@@ -264,7 +254,7 @@ switch(var VAR_30)
 			execute SCRIPT_13
 			break 
 		case 10
-			call log(var &VAR_43)
+			call log("start teleport to DEADGATE")
 			var VAR_30 ++ 
 			var VAR_39 = int 0
 			break 
@@ -273,7 +263,7 @@ switch(var VAR_30)
 			var VAR_40 = call func_ab(int 200, var &VAR_10)
 			if(var VAR_40)
 			 {
-					call func_ff(var &VAR_10)
+					call force_scroll_to_pos(var &VAR_10)
 					call set_input_system(int 2)
 					call func_fa(var VAR_40)
 					var VAR_30 ++ 
@@ -296,8 +286,8 @@ switch(var VAR_30)
 		case 12
 			if(var VAR_39 > int 60)
 			 {
-					var VAR_41 = call func_82(var &VAR_44, var &VAR_45)
-					call func_e6(var &VAR_46, var &VAR_47, var &VAR_42, var VAR_41)
+					var VAR_41 = call func_82("deadgate", "boneyard")
+					call func_e6("deadgate", "boneyard", var &VAR_42, var VAR_41)
 					var VAR_30 ++ 
 					var VAR_39 = int 0
 			}
@@ -315,14 +305,14 @@ var VAR_31 = call func_6f()
 ._SCRIPT_9
 gamevar SMACKER_X = int 848
 gamevar SMACKER_Y = int 352
-call play_2d_anim(var &VAR_48, int 1, int 0, var &VAR_0)
+call play_2d_anim("right", int 1, int 0, var &VAR_0)
 var VAR_0 = int 1
 gamevar SMACKER_X = int 128
 gamevar SMACKER_Y = int 244
-call play_2d_anim(var &VAR_49, int 1, int 1, int 0)
+call play_2d_anim("top", int 1, int 1, int 0)
 gamevar SMACKER_X = int 240
 gamevar SMACKER_Y = int 480
-call play_2d_anim(var &VAR_50, int 1, int 1, int 0)
+call play_2d_anim("bottom", int 1, int 1, int 0)
 
 ._SCRIPT_10
 

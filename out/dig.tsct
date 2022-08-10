@@ -2,39 +2,24 @@
 VAR_0	0	
 VAR_1	0	
 VAR_2	0	
-VAR_3	"haven"	
-VAR_4	"h_camptp"	
-VAR_5	"haven"	
-VAR_6	"h_camptp"	
-VAR_7	"haven"	
-VAR_8	"h_camptp"	
-VAR_9	"all 8 orbs taken!"	
-VAR_10	"not got all orbs yet!"	
 VAR_11	0	
 VAR_12	0	
 VAR_13	0	
 VAR_14	0	
 VAR_15	0	
 VAR_16	-1	
-VAR_17	"btreasure9"	
 VAR_18	{ 3681, 124, -1636 }	
 VAR_19	0	
 VAR_20	{ 2799, 185, 581 }	
 VAR_21	0	
-VAR_22	"FIRE"	
 VAR_23	{ 3134, 125, 1051 }	
 VAR_24	0	
-VAR_25	"btreasure"	
 VAR_26	0	
 VAR_27	0	
 VAR_28	0	
 VAR_29	0	
 VAR_30	0	
 VAR_31	-1	
-VAR_32	"L_DVDORB"	
-VAR_33	"NULL"	
-VAR_34	"T_DVDORB"	
-VAR_35	"NULL"	
 VAR_36	0
 
 ._on_load
@@ -129,7 +114,7 @@ if(gamevar !is_room_cleared)
 }
 
 ._SCRIPT_3
-var VAR_21 = call play_3d_fx(var &VAR_22, var &VAR_20, int 0, int 0)
+var VAR_21 = call play_3d_fx("FIRE", var &VAR_20, int 0, int 0)
 call remove_face(var &VAR_20)
 call play_loaded_sound(int 198, int -1, int 0, var &VAR_20)
 
@@ -139,7 +124,7 @@ switch(var VAR_26)
 }
 
 ._SCRIPT_5
-var VAR_24 = call create_char(var &VAR_23, var &VAR_25, int 220, int 14)
+var VAR_24 = call create_char(var &VAR_23, "btreasure", int 220, int 14)
 call add_item_to_char(var VAR_24, int 66, int 1, int 0)
 call add_item_to_char(var VAR_24, int 6, int 1, int 0)
 call add_item_to_char(var VAR_24, int 85, int 3277313, int 0)
@@ -204,11 +189,11 @@ switch(var VAR_27)
 			call char_turn_to_pos(var VAR_30, call get_char_pos(var VAR_29))
 			if(var VAR_0)
 			 {
-					call start_dialog(var &VAR_32, var &VAR_33)
+					call start_dialog("L_DVDORB", "NULL")
 			}
 			else
 			 {
-					call start_dialog(var &VAR_34, var &VAR_35)
+					call start_dialog("T_DVDORB", "NULL")
 			}
 			var VAR_27 ++ 
 			var VAR_28 = int 0
@@ -249,22 +234,22 @@ var VAR_1 += call func_42(var VAR_2, int 6)
 var VAR_1 += call func_42(var VAR_2, int 7)
 if(var VAR_1 == int 8)
  {
-		call func_116(var &VAR_3, var &VAR_4, int 9)
-		call set_scene_overwrite_act(var &VAR_5, var &VAR_6, int 0)
-		call func_118(var &VAR_7, var &VAR_8, int 1)
+		call func_116("haven", "h_camptp", int 9)
+		call set_scene_overwrite_act("haven", "h_camptp", int 0)
+		call func_118("haven", "h_camptp", int 1)
 		var VAR_0 = int 1
-		call log(var &VAR_9)
+		call log("all 8 orbs taken!")
 }
 else
  {
-		call log(var &VAR_10)
+		call log("not got all orbs yet!")
 }
 
 ._SCRIPT_14
 var VAR_11 = call is_char_handle_in_level(int 1507337)
 if(var ! VAR_11)
  {
-		var VAR_11 = call create_char(var VAR_12, var &VAR_17, var VAR_13, int 14)
+		var VAR_11 = call create_char(var VAR_12, "btreasure9", var VAR_13, int 14)
 		call func_aa(var VAR_11)
 }
 else

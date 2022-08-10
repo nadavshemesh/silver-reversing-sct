@@ -4,11 +4,6 @@ VAR_1	0
 VAR_2	{ 0, 1, 100, 0, 0 }	
 VAR_3	{ 258, -25, -6351 }	
 VAR_4	{ -1774, -25, -6316 }	
-VAR_5	"flayer"	
-VAR_6	"eflayer"	
-VAR_7	"aflayer"	
-VAR_8	"iflayer"	
-VAR_9	"iwarrior"	
 VAR_10	{ -1493, -25, -6210, 857, 575, -6543, -2320, 575, -6476 }	
 VAR_11	{ -750, -125, -4437 }	
 VAR_12	{ VAR_11, 145, 3, VAR_10 }	
@@ -41,12 +36,6 @@ VAR_38	{ -1271, -125, -4431 }
 VAR_39	{ -747, -550, -6416 }	
 VAR_40	{ 0, 0 }	
 VAR_41	-1	
-VAR_42	"mechanic"	
-VAR_43	"glow"	
-VAR_44	"blood1"	
-VAR_45	"blood2"	
-VAR_46	"chainy"	
-VAR_47	"hidmech"	
 VAR_48	0	
 VAR_49	0	
 VAR_50	0	
@@ -214,11 +203,11 @@ switch(var VAR_40)
 }
 
 ._SCRIPT_5
-call load_char(var &VAR_5)
-call load_char(var &VAR_6)
-call load_char(var &VAR_7)
-call load_char(var &VAR_8)
-call load_char(var &VAR_9)
+call load_char("flayer")
+call load_char("eflayer")
+call load_char("aflayer")
+call load_char("iflayer")
+call load_char("iwarrior")
 call func_99(int 0, var &VAR_12)
 var VAR_34 = call create_enemy(int 163, int 0, var &VAR_37, int 0)
 var VAR_35 = call create_enemy(int 163, int 1, var &VAR_38, int 310)
@@ -248,21 +237,21 @@ call add_item_to_char(var VAR_2, int 33, int 1, int 0)
 ._SCRIPT_9
 gamevar SMACKER_X = int 256
 gamevar SMACKER_Y = int 108
-call play_2d_anim(var &VAR_42, int 1, int 0, int 0)
+call play_2d_anim("mechanic", int 1, int 0, int 0)
 gamevar SMACKER_X = int 408
 gamevar SMACKER_Y = int 624
-call play_2d_anim(var &VAR_43, int 1, int 1, int 0)
+call play_2d_anim("glow", int 1, int 1, int 0)
 gamevar SMACKER_X = int 492
 gamevar SMACKER_Y = int 152
-call play_2d_anim(var &VAR_44, int 1, int 1, int 0)
+call play_2d_anim("blood1", int 1, int 1, int 0)
 gamevar SMACKER_X = int 1144
 gamevar SMACKER_Y = int 228
-call play_2d_anim(var &VAR_45, int 1, int 1, int 0)
+call play_2d_anim("blood2", int 1, int 1, int 0)
 gamevar SMACKER_X = int 1012
 gamevar SMACKER_Y = int 0
-call play_2d_anim(var &VAR_46, int 1, int 1, int 0)
+call play_2d_anim("chainy", int 1, int 1, int 0)
 gamevar SMACKER_X = int 1192
 gamevar SMACKER_Y = int 292
-call play_2d_anim(var &VAR_47, int 1, int 1, int 0)
+call play_2d_anim("hidmech", int 1, int 1, int 0)
 
 ._SCRIPT_10

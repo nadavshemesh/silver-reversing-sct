@@ -5,7 +5,6 @@ VAR_2	0
 VAR_3	0	
 VAR_4	{ 0, 0, 0 }	
 VAR_5	{ 0, 0, 0 }	
-VAR_6	"moss"	
 VAR_7	{ 3021, -2230, 1316 }	
 VAR_8	0	
 VAR_9	{ 0, 3527, -2230, 2093, 2, 3354, -2080, 2220, 3, VAR_10, 0, 11, 100, 200, 0, 3900, -2230, 2168, 2, 4252, -2100, 2172, 3, VAR_11, 0, 11, 100, 200, 0, 3016, -2230, 1310, 3, VAR_12, 0, 11, 100, 200, 7, 8 }	
@@ -13,7 +12,6 @@ VAR_10	"bigsigh"
 VAR_11	"head_nod"	
 VAR_12	"head_sad"	
 VAR_13	{ 0, 0, 0, 0 }	
-VAR_14	"nmoss"	
 VAR_15	{ 3615, -2195, 1218 }	
 VAR_16	0	
 VAR_17	0	
@@ -33,10 +31,6 @@ VAR_30	0
 VAR_31	0	
 VAR_32	{ 3836, -2230, 1234 }	
 VAR_33	0	
-VAR_34	"DOGSEYES"	
-VAR_35	"DOGSEYES"	
-VAR_36	"S_MOSTED"	
-VAR_37	"NULL"	
 VAR_38	0	
 VAR_39	0	
 VAR_40	0	
@@ -255,10 +249,10 @@ if(call func_bf(int 303, gamevar CURRENT_LEVEL, gamevar CURRENT_SCENE))
 ._SCRIPT_10
 gamevar SMACKER_X = int 376
 gamevar SMACKER_Y = int 224
-call play_2d_anim(var &VAR_6, int 0, int 1, var &VAR_5)
+call play_2d_anim("moss", int 0, int 1, var &VAR_5)
 
 ._SCRIPT_11
-var VAR_8 = call create_char(var &VAR_7, var &VAR_14, int 130, int 13)
+var VAR_8 = call create_char(var &VAR_7, "nmoss", int 130, int 13)
 call func_50(var VAR_8, int 8192)
 call play_char_ai_script(var VAR_8, var &VAR_9)
 if(call func_bf(int 303, gamevar CURRENT_LEVEL, gamevar CURRENT_SCENE))
@@ -283,7 +277,7 @@ switch(var VAR_28)
 		case 0
 			if(var VAR_1)
 			 {
-					call func_10c(var VAR_8, var &VAR_34)
+					call func_10c(var VAR_8, "DOGSEYES")
 					var VAR_28 = int 2
 					var VAR_29 = int 0
 			}
@@ -302,7 +296,7 @@ switch(var VAR_28)
 			if(call get_input_sys() != int 4)
 			 {
 					call func_2(var VAR_8)
-					call func_10c(var VAR_8, var &VAR_35)
+					call func_10c(var VAR_8, "DOGSEYES")
 					var VAR_28 ++ 
 					var VAR_29 = int 0
 			}
@@ -331,7 +325,7 @@ switch(var VAR_28)
 					 {
 							call char_turn_to_pos(var VAR_31, call get_char_pos(var VAR_8))
 					}
-					call start_dialog(var &VAR_36, var &VAR_37)
+					call start_dialog("S_MOSTED", "NULL")
 					var VAR_28 ++ 
 					var VAR_29 = int 0
 			}

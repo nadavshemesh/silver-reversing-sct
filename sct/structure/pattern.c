@@ -461,6 +461,22 @@ void init_expr(expr_pattern* expr, i_arr bin_tokens, i_arr bin_var_pos, s_arr as
     memcpy(expr->asm_var_pos, asm_var_pos.arr, expr->asm_var_num*sizeof(int*));
 }
 
+expr_pattern* init_aid_expr_inline_data() {
+    expr_pattern* expr_inline = create_and_init_expr_pattern();
+    expr_inline->type = INLINE_AID;
+    expr_inline->name = aapts("inline data");
+
+    i_arr bin_tokens = { .arr = { }, .len = 0 };
+    i_arr bin_var_pos = { .arr = { }, .len = 0 };
+    s_arr asm_tokens = { .arr = { S_VAR }, .len = 1 };
+    i_arr asm_var_pos = { .arr = { 0 }, .len = 1 };
+    s_arr var_names = { .arr = { }, .len = 0 };
+    
+    init_expr(expr_inline, bin_tokens, bin_var_pos, asm_tokens, asm_var_pos);
+
+    return expr_inline;
+}
+
 expr_pattern* init_expr_func_call() {
     expr_pattern* expr_func_call = (expr_pattern*) malloc(sizeof(code_pattern));
     expr_func_call->type = FUNCTION;

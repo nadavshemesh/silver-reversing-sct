@@ -7,7 +7,6 @@ VAR_4	0
 VAR_5	0	
 VAR_6	0	
 VAR_7	0	
-VAR_8	"random_rain_fx: Rain SFX not initialised! See Marc"	
 VAR_9	0	
 VAR_10	0	
 VAR_11	0	
@@ -23,10 +22,7 @@ VAR_20	0
 VAR_21	0	
 VAR_22	0	
 VAR_23	-1	
-VAR_24	"btreasure9"	
 VAR_25	{ 356, -929, -2703 }	
-VAR_26	"RAINPT1"	
-VAR_27	"it's_raining"	
 VAR_28	{ -1150, 590, 2820 }	
 VAR_29	{ -140, 590, 160 }	
 VAR_30	{ 1313423698, -1431655936, 0, 0, 0, 0 }	
@@ -45,7 +41,7 @@ execute SCRIPT_13
 var VAR_23 = int 6554113
 execute SCRIPT_14
 execute SCRIPT_3
-call play_bgm(var &VAR_26)
+call play_bgm("RAINPT1")
 if(gamevar is_room_cleared)
  {
 		execute SCRIPT_8
@@ -101,7 +97,7 @@ if(gamevar !is_room_cleared)
 }
 
 ._SCRIPT_3
-call log(var &VAR_27)
+call log("it's_raining")
 call play_3d_fx(var &VAR_30, var &VAR_28, var &VAR_29, int 0)
 execute SCRIPT_9
 
@@ -139,7 +135,7 @@ var VAR_0 = int 1
 ._SCRIPT_10
 if(var ! VAR_0)
  {
-		call log(var &VAR_8)
+		call log("random_rain_fx: Rain SFX not initialised! See Marc")
 		exit_script 
 }
 switch(var VAR_4)
@@ -293,7 +289,7 @@ var VAR_14 ++
 var VAR_18 = call is_char_handle_in_level(int 1507337)
 if(var ! VAR_18)
  {
-		var VAR_18 = call create_char(var VAR_19, var &VAR_24, var VAR_20, int 14)
+		var VAR_18 = call create_char(var VAR_19, "btreasure9", var VAR_20, int 14)
 		call func_aa(var VAR_18)
 }
 else

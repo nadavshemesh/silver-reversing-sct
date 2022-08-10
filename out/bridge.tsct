@@ -7,7 +7,6 @@ VAR_4	0
 VAR_5	0	
 VAR_6	0	
 VAR_7	0	
-VAR_8	"random_rain_fx: Rain SFX not initialised! See Marc"	
 VAR_9	0	
 VAR_10	0	
 VAR_11	0	
@@ -19,17 +18,14 @@ VAR_16	0
 VAR_17	{ 0, 0 }	
 VAR_18	{ 140, 2135, 2640 }	
 VAR_19	{ 2950, 2135, -2525 }	
-VAR_20	"RAIN"	
 VAR_21	0	
 VAR_22	{ 0, 0 }	
-VAR_23	"bridge"	
 VAR_24	0	
 VAR_25	0	
 VAR_26	{ -2684, -10, -284 }	
 VAR_27	{ -2697, -10, -741 }	
 VAR_28	{ 9, VAR_25, 11, 200, 300, 7, 8 }	
 VAR_29	{ 7, 8 }	
-VAR_30	"bat"	
 VAR_31	0	
 VAR_32	0	
 VAR_33	{ -1365, -160, -799, -1315, -160, -306 }	
@@ -49,11 +45,6 @@ VAR_46	{ 10, -2595, 660, -507, 10, -1719, 1068, -843, 10, -1016, 2200, -886, 35,
 VAR_47	{ 10, -2595, 660, -507, 10, -1506, 1068, -403, 10, -264, 2200, -291, 35, 8 }	
 VAR_48	{ 10, -2595, 660, -507, 10, -1368, 1068, -780, 10, -585, 2200, -686, 35, 8 }	
 VAR_49	-1	
-VAR_50	"nbat5"	
-VAR_51	"nbat4"	
-VAR_52	"nbat3"	
-VAR_53	"nbat2"	
-VAR_54	"nbat1"
 
 ._on_load
 if(call func_6f() == int 0)
@@ -141,12 +132,12 @@ switch(var VAR_31)
 			 {
 					if(call is_char_handle_in_level(int 524289))
 					 {
-							call set_char_behav(var VAR_24, int 186)
+							call set_char_template(var VAR_24, int 186)
 							call func_106(var VAR_24, int 0, int 3, int 360)
 					}
 					if(call is_char_handle_in_level(int 524290))
 					 {
-							call set_char_behav(var VAR_25, int 186)
+							call set_char_template(var VAR_25, int 186)
 							call func_106(var VAR_25, int 0, int 3, int 360)
 					}
 					var VAR_31 ++ 
@@ -182,7 +173,7 @@ switch(var VAR_31)
 			if(var VAR_32 == int 10)
 			 {
 					gamevar compile_init_character = int 0
-					var VAR_38 = call create_char(var &VAR_43, var &VAR_50, int 65, int 16)
+					var VAR_38 = call create_char(var &VAR_43, "nbat5", int 65, int 16)
 					gamevar compile_init_character = int 1
 					call func_50(var VAR_38, int 8192)
 					call play_char_ai_script(var VAR_38, var &VAR_48)
@@ -192,7 +183,7 @@ switch(var VAR_31)
 			if(var VAR_32 == int 30)
 			 {
 					gamevar compile_init_character = int 0
-					var VAR_37 = call create_char(var &VAR_42, var &VAR_51, int 120, int 16)
+					var VAR_37 = call create_char(var &VAR_42, "nbat4", int 120, int 16)
 					gamevar compile_init_character = int 1
 					call func_50(var VAR_37, int 8192)
 					call play_char_ai_script(var VAR_37, var &VAR_47)
@@ -202,7 +193,7 @@ switch(var VAR_31)
 			if(var VAR_32 == int 50)
 			 {
 					gamevar compile_init_character = int 0
-					var VAR_36 = call create_char(var &VAR_41, var &VAR_52, int 85, int 16)
+					var VAR_36 = call create_char(var &VAR_41, "nbat3", int 85, int 16)
 					gamevar compile_init_character = int 1
 					call func_50(var VAR_36, int 8192)
 					call play_char_ai_script(var VAR_36, var &VAR_46)
@@ -212,7 +203,7 @@ switch(var VAR_31)
 			if(var VAR_32 == int 70)
 			 {
 					gamevar compile_init_character = int 0
-					var VAR_35 = call create_char(var &VAR_40, var &VAR_53, int 100, int 16)
+					var VAR_35 = call create_char(var &VAR_40, "nbat2", int 100, int 16)
 					gamevar compile_init_character = int 1
 					call func_50(var VAR_35, int 8192)
 					call play_char_ai_script(var VAR_35, var &VAR_45)
@@ -222,7 +213,7 @@ switch(var VAR_31)
 			if(var VAR_32 == int 90)
 			 {
 					gamevar compile_init_character = int 0
-					var VAR_34 = call create_char(var &VAR_39, var &VAR_54, int 95, int 16)
+					var VAR_34 = call create_char(var &VAR_39, "nbat1", int 95, int 16)
 					gamevar compile_init_character = int 1
 					call func_50(var VAR_34, int 8192)
 					call play_char_ai_script(var VAR_34, var &VAR_44)
@@ -256,7 +247,7 @@ call func_50(var VAR_25, int 8192)
 call play_char_ai_script(var VAR_24, var &VAR_28)
 call play_char_ai_script(var VAR_25, var &VAR_29)
 call add_item_to_char(var VAR_24, int 45, int 1, int 0)
-call load_char(var &VAR_30)
+call load_char("bat")
 gamevar *scene_info_p+3 = int 16
 
 ._SCRIPT_5
@@ -270,7 +261,7 @@ gamevar *scene_info_p+3 = int 16
 ._SCRIPT_9
 
 ._SCRIPT_10
-call play_3d_fx(var &VAR_20, var &VAR_18, var &VAR_19, int 0)
+call play_3d_fx("RAIN", var &VAR_18, var &VAR_19, int 0)
 execute SCRIPT_11
 
 ._SCRIPT_11
@@ -284,7 +275,7 @@ var VAR_0 = int 1
 ._SCRIPT_12
 if(var ! VAR_0)
  {
-		call log(var &VAR_8)
+		call log("random_rain_fx: Rain SFX not initialised! See Marc")
 		exit_script 
 }
 switch(var VAR_4)
@@ -437,4 +428,4 @@ var VAR_14 ++
 ._SCRIPT_15
 gamevar SMACKER_X = int 208
 gamevar SMACKER_Y = int 96
-call play_2d_anim(var &VAR_23, int 0, int 1, var &VAR_21)
+call play_2d_anim("bridge", int 0, int 1, var &VAR_21)

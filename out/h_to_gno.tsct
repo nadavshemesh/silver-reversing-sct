@@ -1,17 +1,11 @@
 ._DATA
 VAR_0	0	
-VAR_1	"leftsea"	
-VAR_2	"rightsea"	
 VAR_3	0	
 VAR_4	{ 1431, -1000, -592 }	
 VAR_5	0	
 VAR_6	{ 1350, -1000, -592 }	
 VAR_7	{ 10, 2300, -800, 2025, 5, 400, 10, 2300, -1000, -900, 5, 400, 5, 40, 7, 8 }	
 VAR_8	{ 5, 45, 10, 2500, -500, 2025, 5, 400, 10, 2222, -600, -900, 5, 400, 7, 8 }	
-VAR_9	"NGULL1"	
-VAR_10	"NGULL2"	
-VAR_11	"haven"	
-VAR_12	"h_cavext"	
 VAR_13	0	
 VAR_14	0	
 VAR_15	0	
@@ -63,12 +57,12 @@ switch(var VAR_0)
 		case 0
 			gamevar SMACKER_X = int 0
 			gamevar SMACKER_Y = int 356
-			call play_2d_anim(var &VAR_1, int 1, int 0, int 0)
+			call play_2d_anim("leftsea", int 1, int 0, int 0)
 			break 
 		case 1
 			gamevar SMACKER_X = int 392
 			gamevar SMACKER_Y = int 240
-			call play_2d_anim(var &VAR_2, int 1, int 1, int 0)
+			call play_2d_anim("rightsea", int 1, int 1, int 0)
 			break 
 }
 if(var VAR_0 < int 3)
@@ -133,8 +127,8 @@ if(gamevar script_time > var VAR_16)
 ._SCRIPT_4
 
 ._SCRIPT_5
-var VAR_3 = call create_char(var &VAR_4, var &VAR_9, int 325, int 16)
-var VAR_5 = call create_char(var &VAR_6, var &VAR_10, int 144, int 16)
+var VAR_3 = call create_char(var &VAR_4, "NGULL1", int 325, int 16)
+var VAR_5 = call create_char(var &VAR_6, "NGULL2", int 144, int 16)
 call set_char_init_state(var VAR_3, int 13)
 call play_char_ai_script(var VAR_3, var &VAR_7)
 gamevar script_object = var VAR_3
@@ -151,7 +145,7 @@ execute SCRIPT_5
 ._SCRIPT_7
 
 ._SCRIPT_8
-call set_scene_overwrite_act(var &VAR_11, var &VAR_12, int 0)
+call set_scene_overwrite_act("haven", "h_cavext", int 0)
 
 ._SCRIPT_9
 

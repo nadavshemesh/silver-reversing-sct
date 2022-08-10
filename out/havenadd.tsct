@@ -2,7 +2,6 @@
 VAR_0	0	
 VAR_1	0	
 VAR_2	0	
-VAR_3	"havenadd"	
 VAR_4	0	
 VAR_5	{ 2567, 0, 504 }	
 VAR_6	0	
@@ -20,10 +19,8 @@ VAR_17	{ -61, 1000, 505 }
 VAR_18	0	
 VAR_19	0	
 VAR_20	0	
-VAR_21	"tyrosumn"	
 VAR_22	0	
 VAR_23	0	
-VAR_24	"david: through gate"	
 VAR_25	0	
 VAR_26	{ 420, 0, 596 }	
 VAR_27	{ 446, 0, 435 }	
@@ -39,13 +36,6 @@ VAR_36	0
 VAR_37	{ 740, 1, 452 }	
 VAR_38	0	
 VAR_39	-1	
-VAR_40	"GraGate"	
-VAR_41	"NULL"	
-VAR_42	"GraDvd"	
-VAR_43	"NULL"	
-VAR_44	"haven"	
-VAR_45	"h_torain"	
-VAR_46	"Trigger new enemy"	
 VAR_47	{ 1853, 0, 594 }	
 VAR_48	0	
 VAR_49	0	
@@ -55,8 +45,6 @@ VAR_52	{ 0, 1184, 1, 469, 2, 1527, 321, 517, 11, 200, 300, 0, 1988, 0, 429, 11, 
 VAR_53	{ 11, 1000, 2000, 3, VAR_54, 0, 11, 1000, 2000, 3, VAR_55, 0, 7, 8 }	
 VAR_54	"confused"	
 VAR_55	"cough"	
-VAR_56	"nrebela1"	
-VAR_57	"nrebela2"	
 VAR_58	0	
 VAR_59	{ 0, 0 }	
 VAR_60	0
@@ -64,7 +52,7 @@ VAR_60	0
 ._on_load
 gamevar SMACKER_X = int 0
 gamevar SMACKER_Y = int 336
-call play_2d_anim(var &VAR_3, int 1, int 1, int 0)
+call play_2d_anim("havenadd", int 1, int 1, int 0)
 call load_sound_set(int 56)
 call load_sound_set(int 60)
 call func_58(int 1)
@@ -115,7 +103,7 @@ switch(gamevar room_state)
 }
 
 ._SCRIPT_3
-var VAR_20 = call load_anim(var &VAR_21)
+var VAR_20 = call load_anim("tyrosumn")
 
 ._SCRIPT_4
 var VAR_4 = call create_enemy(int 156, int 1, var &VAR_11, int 265)
@@ -159,7 +147,7 @@ if(var VAR_22 == int 0)
  {
 		if(call get_char_x(var VAR_1) < int 10)
 		 {
-				call log(var &VAR_24)
+				call log("david: through gate")
 				call func_c9()
 				var VAR_23 = int 20
 				var VAR_22 ++ 
@@ -185,7 +173,7 @@ switch(var VAR_23)
 		case 1
 			if(call is_char_standing(var VAR_2))
 			 {
-					call start_dialog(var &VAR_40, var &VAR_41)
+					call start_dialog("GraGate", "NULL")
 					var VAR_23 ++ 
 					var VAR_25 = int 0
 			}
@@ -234,23 +222,23 @@ switch(var VAR_23)
 					call char_turn_to_pos(var VAR_1, call get_char_pos(var VAR_4))
 					if(call is_char_handle_in_level(int 4128769))
 					 {
-							call func_18(var VAR_4, int 799, int 0, int -54)
+							call char_walk_to(var VAR_4, int 799, int 0, int -54)
 					}
 					if(call is_char_handle_in_level(int 4128770))
 					 {
-							call func_18(var VAR_6, int 1248, int 0, int 388)
+							call char_walk_to(var VAR_6, int 1248, int 0, int 388)
 					}
 					if(call is_char_handle_in_level(int 4128771))
 					 {
-							call func_18(var VAR_8, int 1121, int 0, int 861)
+							call char_walk_to(var VAR_8, int 1121, int 0, int 861)
 					}
 					if(call is_char_handle_in_level(int 4128772))
 					 {
-							call func_18(var VAR_10, int 664, int 0, int 1255)
+							call char_walk_to(var VAR_10, int 664, int 0, int 1255)
 					}
 					if(call is_char_handle_in_level(int 4128773))
 					 {
-							call func_18(var VAR_12, int 943, int 0, int 613)
+							call char_walk_to(var VAR_12, int 943, int 0, int 613)
 					}
 					var VAR_23 ++ 
 					var VAR_25 = int 0
@@ -348,23 +336,23 @@ switch(var VAR_23)
 			 {
 					if(call is_char_handle_in_level(int 4128769))
 					 {
-							call set_char_behav(var VAR_4, int 156)
+							call set_char_template(var VAR_4, int 156)
 					}
 					if(call is_char_handle_in_level(int 4128770))
 					 {
-							call set_char_behav(var VAR_6, int 156)
+							call set_char_template(var VAR_6, int 156)
 					}
 					if(call is_char_handle_in_level(int 4128771))
 					 {
-							call set_char_behav(var VAR_8, int 156)
+							call set_char_template(var VAR_8, int 156)
 					}
 					if(call is_char_handle_in_level(int 4128772))
 					 {
-							call set_char_behav(var VAR_10, int 156)
+							call set_char_template(var VAR_10, int 156)
 					}
 					if(call is_char_handle_in_level(int 4128773))
 					 {
-							call set_char_behav(var VAR_12, int 156)
+							call set_char_template(var VAR_12, int 156)
 					}
 					var VAR_23 ++ 
 					var VAR_25 = int 0
@@ -397,7 +385,7 @@ switch(var VAR_23)
 		case 11
 			if(var VAR_25 > int 50)
 			 {
-					call start_dialog(var &VAR_42, var &VAR_43)
+					call start_dialog("GraDvd", "NULL")
 					var VAR_23 ++ 
 					var VAR_25 = int 0
 			}
@@ -435,7 +423,7 @@ switch(var VAR_23)
 			break 
 		case 20
 			call char_follow_char(var VAR_2, var VAR_1)
-			call func_e6(var &VAR_44, var &VAR_45, var &VAR_29, int 1)
+			call func_e6("haven", "h_torain", var &VAR_29, int 1)
 			var VAR_23 ++ 
 			break 
 }
@@ -447,7 +435,7 @@ if(call get_num_of_enemies() < int 5)
  {
 		if(var ! VAR_38)
 		 {
-				call log(var &VAR_46)
+				call log("Trigger new enemy")
 				execute SCRIPT_9
 				var VAR_36 ++ 
 		}
@@ -464,8 +452,8 @@ gamevar *character_stats_p+15 = int 14000
 call func_106(var VAR_35, int 0, int 3, int 360)
 
 ._SCRIPT_10
-var VAR_48 = call create_char(var &VAR_50, var &VAR_56, int 55, int 13)
-var VAR_49 = call create_char(var &VAR_51, var &VAR_57, int 85, int 13)
+var VAR_48 = call create_char(var &VAR_50, "nrebela1", int 55, int 13)
+var VAR_49 = call create_char(var &VAR_51, "nrebela2", int 85, int 13)
 call add_item_to_char(var VAR_48, int 16, int 0, int 1)
 call add_item_to_char(var VAR_49, int 16, int 0, int 1)
 call func_50(var VAR_48, int 8192)

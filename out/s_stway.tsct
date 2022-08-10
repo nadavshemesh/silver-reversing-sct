@@ -6,12 +6,6 @@ VAR_3	0
 VAR_4	0	
 VAR_5	0	
 VAR_6	0	
-VAR_7	"kill door 1 effect"	
-VAR_8	"Kill door 2 effect"	
-VAR_9	"s_stwayl"	
-VAR_10	"s_stwayr"	
-VAR_11	"aflayer"	
-VAR_12	"eflayer"	
 VAR_13	{ 1918990185, 1919904114, 0 }	
 VAR_14	{ 189, -875, -2066, -188, -875, -2089 }	
 VAR_15	{ 0, 0, 0 }	
@@ -96,7 +90,7 @@ if(var VAR_1)
 		}
 		else
 		 {
-				call log(var &VAR_7)
+				call log("kill door 1 effect")
 				call func_b4(var VAR_3)
 				var VAR_1 = int 0
 				if(var VAR_5 == int 1)
@@ -113,7 +107,7 @@ if(var VAR_2)
 		}
 		else
 		 {
-				call log(var &VAR_8)
+				call log("Kill door 2 effect")
 				call func_b4(var VAR_4)
 				var VAR_2 = int 0
 				if(var VAR_5 == int 1)
@@ -151,10 +145,10 @@ if(gamevar !is_room_cleared)
 ._SCRIPT_3
 gamevar SMACKER_X = int 176
 gamevar SMACKER_Y = int 80
-call play_2d_anim(var &VAR_9, int 1, int 1, int 0)
+call play_2d_anim("s_stwayl", int 1, int 1, int 0)
 gamevar SMACKER_X = int 552
 gamevar SMACKER_Y = int 188
-call play_2d_anim(var &VAR_10, int 1, int 1, int 0)
+call play_2d_anim("s_stwayr", int 1, int 1, int 0)
 
 ._SCRIPT_4
 if(gamevar script_time > var VAR_25)
@@ -191,7 +185,7 @@ switch(var VAR_23)
 			 {
 					if(call ! is_char_handle_in_level(int 12648448))
 					 {
-							var VAR_15 = call func_96(int 171, int 0, int 2, int 2)
+							var VAR_15 = call create_enemy_through_door(int 171, int 0, int 2, int 2)
 							call func_106(var VAR_15, int 2, int 1, var &VAR_20)
 							call func_106(var VAR_15, int 2, int 3, int 8)
 							call func_50(var VAR_15, int 8)
@@ -204,8 +198,8 @@ switch(var VAR_23)
 var VAR_24 ++ 
 
 ._SCRIPT_6
-call load_char(var &VAR_11)
-call load_char(var &VAR_12)
+call load_char("aflayer")
+call load_char("eflayer")
 call load_char(var &VAR_13)
 
 ._SCRIPT_7

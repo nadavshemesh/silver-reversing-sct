@@ -1,7 +1,6 @@
 ._DATA
 VAR_0	0	
 VAR_1	{ 0, 0 }	
-VAR_2	"e_cori_1"	
 VAR_3	0	
 VAR_4	0	
 VAR_5	0	
@@ -16,7 +15,6 @@ VAR_13	0
 VAR_14	0	
 VAR_15	0	
 VAR_16	0	
-VAR_17	"lookout"	
 VAR_18	{ 129, 5, 103 }	
 VAR_19	{ -649, 0, -248, 149, 0, 60 }	
 VAR_20	{ 4, VAR_11, 0, -295, 0, -208, 3, VAR_21, 0, 2, -611, 0, 454, 3, VAR_22, 0, 0, -611, 0, 454, 8 }	
@@ -36,9 +34,6 @@ VAR_33	0
 VAR_34	0	
 VAR_35	0	
 VAR_36	0	
-VAR_37	"boxrlo"	
-VAR_38	"outro"	
-VAR_39	"e_gates"	
 VAR_40	0	
 VAR_41	2	
 VAR_42	1	
@@ -96,13 +91,13 @@ call load_sound_set(int 75)
 call load_sound_set(int 30)
 call func_113(int 8, int 8)
 call set_input_system(int 2)
-var VAR_16 = call load_anim(var &VAR_17)
+var VAR_16 = call load_anim("lookout")
 execute SCRIPT_8
 
 ._SCRIPT_4
 gamevar SMACKER_X = int 0
 gamevar SMACKER_Y = int 128
-call play_2d_anim(var &VAR_2, int 0, int 0, var &VAR_0)
+call play_2d_anim("e_cori_1", int 0, int 0, var &VAR_0)
 
 ._SCRIPT_5
 switch(var VAR_8)
@@ -110,7 +105,7 @@ switch(var VAR_8)
 		case 0
 			var VAR_36 = var VAR_9
 			var VAR_8 ++ 
-			call func_cb(var &VAR_37)
+			call func_cb("boxrlo")
 			break 
 		case 1
 			if(gamevar !MovieActive&&var VAR_36 != var VAR_9)
@@ -167,7 +162,7 @@ switch(var VAR_8)
 					 {
 							call func_47(var VAR_5, int 8192)
 					}
-					call func_e6(var &VAR_38, var &VAR_39, var &VAR_18, int 1)
+					call func_e6("outro", "e_gates", var &VAR_18, int 1)
 			}
 			break 
 }

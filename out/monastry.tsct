@@ -7,14 +7,6 @@ VAR_4	0
 VAR_5	0	
 VAR_6	0	
 VAR_7	0	
-VAR_8	"david"	
-VAR_9	"sekune"	
-VAR_10	"jug"	
-VAR_11	"vivienne"	
-VAR_12	"chiaro"	
-VAR_13	"cagen"	
-VAR_14	"WARNING! Unknown hero while checking heroes"	
-VAR_15	"Get a goober -- QUICKLY!!"	
 VAR_16	0	
 VAR_17	0	
 VAR_18	0	
@@ -25,7 +17,6 @@ VAR_22	{ 15, 25, 129, 0, -436, -442, 597, 1, VAR_0, 3, VAR_23, 0, 3, VAR_24, 0, 
 VAR_23	"flip"	
 VAR_24	"tyrosumn"	
 VAR_25	{ 0, 0, 1, 0, 2, -1, 8, 1, 4, 0, 9, 2, 1, 2, 75, 75, 75, -1, 5, 0, 50, 6, 1, 7, 1, 2, -1 }	
-VAR_26	"ffastmonk"	
 VAR_27	0	
 VAR_28	0	
 VAR_29	0	
@@ -108,32 +99,32 @@ while(var VAR_6)
 		switch(var VAR_7)
 		 {
 				case 65536
-					call log(var &VAR_8)
+					call log("david")
 					var VAR_0 = var VAR_6
 					break 
 				case 786432
-					call log(var &VAR_9)
+					call log("sekune")
 					var VAR_2 = var VAR_6
 					break 
 				case 327680
-					call log(var &VAR_10)
+					call log("jug")
 					var VAR_1 = var VAR_6
 					break 
 				case 196608
-					call log(var &VAR_11)
+					call log("vivienne")
 					var VAR_3 = var VAR_6
 					break 
 				case 131072
-					call log(var &VAR_12)
+					call log("chiaro")
 					var VAR_4 = var VAR_6
 					break 
 				case 262144
-					call log(var &VAR_13)
+					call log("cagen")
 					var VAR_5 = var VAR_6
 					break 
 				default 
-					call log(var &VAR_14)
-					call log(var &VAR_15)
+					call log("WARNING! Unknown hero while checking heroes")
+					call log("Get a goober -- QUICKLY!!")
 					break 
 		}
 		var VAR_6 = call func_7e()
@@ -192,7 +183,7 @@ switch(var VAR_27)
 var VAR_28 ++ 
 
 ._SCRIPT_5
-var VAR_19 = call create_char(var &VAR_20, var &VAR_26, int 245, int 13)
+var VAR_19 = call create_char(var &VAR_20, "ffastmonk", int 245, int 13)
 gamevar script_object = var VAR_19
 gamevar *character_movement_p+60 = int 1
 call func_50(var VAR_19, int 8192)

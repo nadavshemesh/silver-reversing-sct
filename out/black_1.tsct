@@ -5,31 +5,10 @@ VAR_2	0
 VAR_3	0	
 VAR_4	0	
 VAR_5	-1	
-VAR_6	"btreasure9"	
 VAR_7	{ -10742, 2348, -1476 }	
-VAR_8	"METALON"	
-VAR_9	"black_2"	
-VAR_10	"black_1"	
 VAR_11	0	
 VAR_12	0	
 VAR_13	0	
-VAR_14	"S_SekSil"	
-VAR_15	"NULL"	
-VAR_16	"S_JugSil"	
-VAR_17	"NULL"	
-VAR_18	"S_VivSil"	
-VAR_19	"NULL"	
-VAR_20	"S_ChiSil"	
-VAR_21	"NULL"	
-VAR_22	"S_CagSil"	
-VAR_23	"NULL"	
-VAR_24	"we'll never get here"	
-VAR_25	"Not started dialog"	
-VAR_26	"sekune dialog"	
-VAR_27	"Jug dialog"	
-VAR_28	"Vivienne dialog"	
-VAR_29	"Chiaro dialog"	
-VAR_30	"Cagen dialog"	
 VAR_31	0	
 VAR_32	0	
 VAR_33	0
@@ -42,7 +21,7 @@ var VAR_3 = int 109
 execute SCRIPT_9
 var VAR_3 = int 55
 execute SCRIPT_9
-call play_bgm(var &VAR_8)
+call play_bgm("METALON")
 call load_sound_set(int 72)
 call load_sound_set(int 64)
 call play_loaded_sound(int 1, int -1, int 64, int 0)
@@ -50,10 +29,10 @@ call load_sound_set(int 65)
 call play_loaded_sound(int 1, int -1, int 65, int 0)
 gamevar SMACKER_X = int 140
 gamevar SMACKER_Y = int 0
-call play_2d_anim(var &VAR_9, int 1, int 1, int 0)
+call play_2d_anim("black_2", int 1, int 1, int 0)
 gamevar SMACKER_X = int 416
 gamevar SMACKER_Y = int 0
-call play_2d_anim(var &VAR_10, int 1, int 0, int 0)
+call play_2d_anim("black_1", int 1, int 0, int 0)
 switch(gamevar room_state)
  {
 		case 1
@@ -126,23 +105,23 @@ switch(var VAR_13)
 							switch(var VAR_12)
 							 {
 									case 786432
-										call start_dialog(var &VAR_14, var &VAR_15)
+										call start_dialog("S_SekSil", "NULL")
 										var VAR_13 = int 5
 										break 
 									case 327680
-										call start_dialog(var &VAR_16, var &VAR_17)
+										call start_dialog("S_JugSil", "NULL")
 										var VAR_13 = int 6
 										break 
 									case 196608
-										call start_dialog(var &VAR_18, var &VAR_19)
+										call start_dialog("S_VivSil", "NULL")
 										var VAR_13 = int 7
 										break 
 									case 131072
-										call start_dialog(var &VAR_20, var &VAR_21)
+										call start_dialog("S_ChiSil", "NULL")
 										var VAR_13 = int 8
 										break 
 									case 262144
-										call start_dialog(var &VAR_22, var &VAR_23)
+										call start_dialog("S_CagSil", "NULL")
 										var VAR_13 = int 9
 										break 
 									default 
@@ -154,29 +133,29 @@ switch(var VAR_13)
 			}
 			break 
 		case 1
-			call log(var &VAR_24)
+			call log("we'll never get here")
 			break 
 		case 4
-			call log(var &VAR_25)
+			call log("Not started dialog")
 			break 
 		case 5
-			call log(var &VAR_26)
+			call log("sekune dialog")
 			var VAR_13 = int 10
 			break 
 		case 6
-			call log(var &VAR_27)
+			call log("Jug dialog")
 			var VAR_13 = int 10
 			break 
 		case 7
-			call log(var &VAR_28)
+			call log("Vivienne dialog")
 			var VAR_13 = int 10
 			break 
 		case 8
-			call log(var &VAR_29)
+			call log("Chiaro dialog")
 			var VAR_13 = int 10
 			break 
 		case 9
-			call log(var &VAR_30)
+			call log("Cagen dialog")
 			var VAR_13 ++ 
 			break 
 }
@@ -191,7 +170,7 @@ switch(var VAR_13)
 var VAR_0 = call is_char_handle_in_level(int 1507337)
 if(var ! VAR_0)
  {
-		var VAR_0 = call create_char(var VAR_1, var &VAR_6, var VAR_2, int 14)
+		var VAR_0 = call create_char(var VAR_1, "btreasure9", var VAR_2, int 14)
 		call func_aa(var VAR_0)
 }
 else

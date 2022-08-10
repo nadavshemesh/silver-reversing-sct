@@ -29,7 +29,7 @@ You're welcome to take a look at them [Here](../../out/).
 As an example I'll use the file [veranda.sct](./veranda.sct) to describe an .sct's general structure.
 A binary .sct file is structured into 5 sections in the following order: (top to bottom)
 
-_(the .sct file presented is read using big endian byte order)_
+_(the .sct file presented is read using little endian byte order)_
 
 1. [Header](./header.md)
 2. [Code section (scripts)](./code.md)

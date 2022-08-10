@@ -14,10 +14,6 @@ VAR_11	{ -45, -386, 1546 }
 VAR_12	{ 339, -386, 1510 }	
 VAR_13	0	
 VAR_14	{ 0, 0, 0, -1, 8, 1, 1, 1, 86, 86, 86, -1, 4, 0, 9, 1, 5, 1, 10, 50, 7, 1, 2, -1 }	
-VAR_15	"adesew08"	
-VAR_16	"adesew8a"	
-VAR_17	"ratrptr"	
-VAR_18	"ratrptr"	
 VAR_19	{ 19, -1, 2752 }	
 VAR_20	{ -67, -1, 3368 }	
 VAR_21	{ -527, -1, 2811 }	
@@ -26,10 +22,10 @@ VAR_22	0
 ._on_load
 gamevar SMACKER_X = int 0
 gamevar SMACKER_Y = int 56
-call play_2d_anim(var &VAR_15, int 1, int 1, var &VAR_0)
+call play_2d_anim("adesew08", int 1, int 1, var &VAR_0)
 gamevar SMACKER_X = int 144
 gamevar SMACKER_Y = int 0
-call play_2d_anim(var &VAR_16, int 1, int 1, var &VAR_1)
+call play_2d_anim("adesew8a", int 1, int 1, var &VAR_1)
 call load_sound_set(int 38)
 call play_loaded_sound(int 3, int -1, int 38, int 0)
 call load_sound_set(int 30)
@@ -38,10 +34,10 @@ switch(gamevar room_state)
  {
 		case 1
 			execute SCRIPT_3
-			call load_char(var &VAR_17)
+			call load_char("ratrptr")
 			break 
 		case 2
-			call load_char(var &VAR_18)
+			call load_char("ratrptr")
 			break 
 		default 
 			break 

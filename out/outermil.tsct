@@ -1,15 +1,9 @@
 ._DATA
-VAR_0	"VERDANTE"	
 VAR_1	0	
-VAR_2	"monarea"	
-VAR_3	"gallery2"	
 VAR_4	0	
 VAR_5	{ 0, 0, 0 }	
-VAR_6	"outdoor"	
-VAR_7	"dooropen"	
 VAR_8	0	
 VAR_9	-1	
-VAR_10	"outwater"	
 VAR_11	{ 1702131055, 1818848626, -1431655936, -1635, -1263, -3184 }	
 VAR_12	{ -962, -1118, -1301 }	
 VAR_13	{ -1631, -1279, -3163 }	
@@ -29,14 +23,9 @@ VAR_26	0
 VAR_27	0	
 VAR_28	0	
 VAR_29	{ 1634890867, 560293742, 0 }	
-VAR_30	"S_DVDCHI"	
-VAR_31	"S_DVDSEKush"	
-VAR_32	"S_DVDVIVct2"	
-VAR_33	"S_DVDJUGrin"	
-VAR_34	"S_DVDCAG---"
 
 ._on_load
-if(call play_bgm(var &VAR_0))
+if(call play_bgm("VERDANTE"))
  {
 		call func_114(int 1)
 		call func_5a(int -1)
@@ -107,7 +96,7 @@ if(gamevar !is_room_cleared)
 ._SCRIPT_3
 gamevar SMACKER_X = int 24
 gamevar SMACKER_Y = int 0
-call play_2d_anim(var &VAR_10, int 1, int 1, int 0)
+call play_2d_anim("outwater", int 1, int 1, int 0)
 gamevar SMACKER_X = int 376
 gamevar SMACKER_Y = int 0
 call play_2d_anim(var &VAR_11, int 1, int 1, int 0)
@@ -160,7 +149,7 @@ switch(var VAR_19)
 					if(call is_char_handle_in_level(int 786432)&&call is_char_handle_in_level(int 196608))
 					 {
 							call log(var &VAR_29)
-							call start_dialog(var &VAR_30, var VAR_21)
+							call start_dialog("S_DVDCHI", var VAR_21)
 					}
 					else
 					 {
@@ -181,16 +170,16 @@ switch(var VAR_19)
 							switch(var VAR_28)
 							 {
 									case 786432
-										call start_dialog(var &VAR_31, var VAR_21)
+										call start_dialog("S_DVDSEK", var VAR_21)
 										break 
 									case 196608
-										call start_dialog(var &VAR_32, var VAR_21)
+										call start_dialog("S_DVDVIV", var VAR_21)
 										break 
 									case 327680
-										call start_dialog(var &VAR_33, var VAR_21)
+										call start_dialog("S_DVDJUG", var VAR_21)
 										break 
 									case 262144
-										call start_dialog(var &VAR_34, var VAR_21)
+										call start_dialog("S_DVDCAG", var VAR_21)
 										break 
 							}
 					}
@@ -214,7 +203,7 @@ var VAR_20 ++
 ._SCRIPT_9
 
 ._SCRIPT_10
-if(call func_82(var &VAR_2, var &VAR_3) > int 1)
+if(call func_82("monarea", "gallery2") > int 1)
  {
 		var VAR_1 = int 1
 }
@@ -226,14 +215,14 @@ if(gamevar *scene_info_p+3 & int 1)
  {
 		gamevar SMACKER_X = int 532
 		gamevar SMACKER_Y = int 40
-		call play_2d_anim(var &VAR_6, int 0, int 1, var &VAR_5)
+		call play_2d_anim("outdoor", int 0, int 1, var &VAR_5)
 }
 else
  {
 		var VAR_4 = int 1
 		gamevar SMACKER_X = int 532
 		gamevar SMACKER_Y = int 40
-		call play_2d_anim(var &VAR_7, int 0, int 1, int 0)
+		call play_2d_anim("dooropen", int 0, int 1, int 0)
 }
 
 ._SCRIPT_13

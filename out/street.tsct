@@ -11,7 +11,6 @@ VAR_8	0
 VAR_9	0	
 VAR_10	0	
 VAR_11	0	
-VAR_12	"random_rain_fx: Rain SFX not initialised! See Marc"	
 VAR_13	0	
 VAR_14	0	
 VAR_15	0	
@@ -21,16 +20,12 @@ VAR_18	0
 VAR_19	0	
 VAR_20	0	
 VAR_21	{ 0, 0 }	
-VAR_22	"hound"	
-VAR_23	"muscles"	
-VAR_24	"dick"	
 VAR_25	{ -850, 468, 375 }	
 VAR_26	{ 1000, 468, -825 }	
-VAR_27	"RAIN"
 
 ._on_load
-call func_b8(int 93)
-call func_b8(int 91)
+call load_item(int 93)
+call load_item(int 91)
 execute SCRIPT_9
 switch(gamevar room_state)
  {
@@ -72,9 +67,9 @@ switch(gamevar room_state)
 }
 
 ._SCRIPT_3
-call load_char(var &VAR_22)
-call load_char(var &VAR_23)
-call load_char(var &VAR_24)
+call load_char("hound")
+call load_char("muscles")
+call load_char("dick")
 var VAR_0 = int 0
 
 ._SCRIPT_4
@@ -96,7 +91,7 @@ if(var VAR_0 == int 0)
 ._SCRIPT_8
 
 ._SCRIPT_9
-call play_3d_fx(var &VAR_27, var &VAR_25, var &VAR_26, int 0)
+call play_3d_fx("RAIN", var &VAR_25, var &VAR_26, int 0)
 execute SCRIPT_10
 
 ._SCRIPT_10
@@ -110,7 +105,7 @@ var VAR_4 = int 1
 ._SCRIPT_11
 if(var ! VAR_4)
  {
-		call log(var &VAR_12)
+		call log("random_rain_fx: Rain SFX not initialised! See Marc")
 		exit_script 
 }
 switch(var VAR_8)

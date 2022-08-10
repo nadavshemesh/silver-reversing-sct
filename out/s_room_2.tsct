@@ -8,9 +8,6 @@ VAR_5	0
 VAR_6	{ 0, 0 }	
 VAR_7	0	
 VAR_8	{ 0, 0 }	
-VAR_9	"lampipt"	
-VAR_10	"rightsidHAV"	
-VAR_11	"leftsideTP\"	
 VAR_12	0	
 VAR_13	{ 0, 0, 1 }	
 VAR_14	0	
@@ -37,22 +34,10 @@ VAR_34	0
 VAR_35	{ -1407, 901, -1181 }	
 VAR_36	0	
 VAR_37	0	
-VAR_38	"davidTP"	
-VAR_39	"sekuneT"	
-VAR_40	"jug"	
-VAR_41	"viviennease"	
-VAR_42	"chiaros"	
-VAR_43	"cagen\L"	
-VAR_44	"WARNING! Unknown hero while checking heroes"	
-VAR_45	"Get a goober -- QUICKLY!!ts"	
 VAR_46	0	
-VAR_47	"cagkixr"	
 VAR_48	0	
-VAR_49	"jab"	
 VAR_50	{ 16, VAR_23, 1, 0, -877, 311, -1991, 27, 16, VAR_23, 2, 8 }	
 VAR_51	{ 16, VAR_24, 1, 0, -1229, 311, -1200, 27, 16, VAR_24, 2, 8 }	
-VAR_52	"iwarriorACT"	
-VAR_53	"flayer"	
 VAR_54	0	
 VAR_55	0	
 VAR_56	0	
@@ -92,12 +77,6 @@ VAR_89	{ -370, 399, -2026 }
 VAR_90	{ -911, 397, -1508, 0, 0 }	
 VAR_91	0	
 VAR_92	0	
-VAR_93	"USE1Rc"	
-VAR_94	"USE2:"	
-VAR_95	"USE3Rt"	
-VAR_96	"USE4ELS"	
-VAR_97	"roundhouseL"	
-VAR_98	"roundhouseP"	
 VAR_99	0	
 VAR_100	0	
 VAR_101	0	
@@ -193,13 +172,13 @@ if(gamevar !is_room_cleared)
 ._SCRIPT_3
 gamevar SMACKER_X = int 272
 gamevar SMACKER_Y = int 0
-call play_2d_anim(var &VAR_9, int -2147483, int 0, var &VAR_5)
+call play_2d_anim("lamp", int -2147483, int 0, var &VAR_5)
 gamevar SMACKER_X = int 360
 gamevar SMACKER_Y = int 0
-call play_2d_anim(var &VAR_10, int -2147483, int 0, var &VAR_7)
+call play_2d_anim("rightsid", int -2147483, int 0, var &VAR_7)
 gamevar SMACKER_X = int 0
 gamevar SMACKER_Y = int 0
-call play_2d_anim(var &VAR_11, int -2147483, int 0, var &VAR_3)
+call play_2d_anim("leftside", int -2147483, int 0, var &VAR_3)
 
 ._SCRIPT_4
 var VAR_102 = var VAR_4
@@ -347,7 +326,7 @@ switch(var VAR_57)
 			 {
 					if(gamevar global_zone_type == int 18)
 					 {
-							call log(var &VAR_93)
+							call log("USE1")
 							var VAR_85 = int 1
 							gamevar pnc_look_use_mask |= int 6
 							gamevar global_zone_type = int 0
@@ -356,7 +335,7 @@ switch(var VAR_57)
 					}
 					if(gamevar global_zone_type == int 19)
 					 {
-							call log(var &VAR_94)
+							call log("USE2")
 							var VAR_85 = int 1
 							gamevar pnc_look_use_mask |= int 6
 							gamevar global_zone_type = int 0
@@ -368,7 +347,7 @@ switch(var VAR_57)
 			 {
 					if(gamevar global_zone_type == int 20)
 					 {
-							call log(var &VAR_95)
+							call log("USE3")
 							var VAR_86 = int 1
 							gamevar pnc_look_use_mask |= int 24
 							gamevar global_zone_type = int 0
@@ -377,7 +356,7 @@ switch(var VAR_57)
 					}
 					if(gamevar global_zone_type == int 21)
 					 {
-							call log(var &VAR_96)
+							call log("USE4")
 							var VAR_86 = int 1
 							gamevar pnc_look_use_mask |= int 24
 							gamevar global_zone_type = int 0
@@ -542,7 +521,7 @@ switch(var VAR_57)
 					if(call get_char_handle_id(var VAR_61) != int 327680)
 					 {
 							call play_char_anim(var VAR_61, var VAR_46, int 0)
-							call log(var &VAR_97)
+							call log("roundhouse")
 					}
 					else
 					 {
@@ -551,7 +530,7 @@ switch(var VAR_57)
 					if(call get_char_handle_id(var VAR_62) != int 327680)
 					 {
 							call play_char_anim(var VAR_62, var VAR_46, int 0)
-							call log(var &VAR_98)
+							call log("roundhouse")
 					}
 					else
 					 {
@@ -591,8 +570,8 @@ switch(var VAR_57)
 					call func_9c(var VAR_1, var &VAR_59)
 					call func_9c(var VAR_0, var &VAR_60)
 					var VAR_3 = int 0
-					call func_18(var VAR_61, int 474, int 0, int -1582)
-					call func_18(var VAR_62, int 644, int 0, int -1038)
+					call char_walk_to(var VAR_61, int 474, int 0, int -1582)
+					call char_walk_to(var VAR_62, int 644, int 0, int -1038)
 					if(var VAR_63)
 					 {
 							call func_36(var VAR_63, int 793, int 0, int -1081)
@@ -640,8 +619,8 @@ switch(var VAR_57)
 					var VAR_7 = int 0
 					var VAR_32 = call create_enemy(int 169, int 0, var &VAR_33, int 34)
 					var VAR_34 = call create_enemy(int 167, int 1, var &VAR_35, int 79)
-					call func_18(var VAR_61, int -204, int 0, int -1639)
-					call func_18(var VAR_62, int -416, int 0, int -1087)
+					call char_walk_to(var VAR_61, int -204, int 0, int -1639)
+					call char_walk_to(var VAR_62, int -416, int 0, int -1087)
 					call func_1(var VAR_32, int -1)
 					call func_1(var VAR_34, int -1)
 					var VAR_57 ++ 
@@ -711,11 +690,11 @@ switch(var VAR_57)
 		case 20
 			var VAR_57 ++ 
 			call set_input_system(int 2)
-			call func_18(var VAR_61, int 438, int 0, int -1588)
-			call func_18(var VAR_62, int -452, int 0, int -1579)
+			call char_walk_to(var VAR_61, int 438, int 0, int -1588)
+			call char_walk_to(var VAR_62, int -452, int 0, int -1579)
 			if(var VAR_63)
 			 {
-					call func_18(var VAR_63, int -427, int 0, int -1343)
+					call char_walk_to(var VAR_63, int -427, int 0, int -1343)
 			}
 			break 
 		case 21
@@ -845,40 +824,40 @@ while(var VAR_36)
 		switch(var VAR_37)
 		 {
 				case 65536
-					call log(var &VAR_38)
+					call log("david")
 					var VAR_14 = var VAR_36
 					break 
 				case 786432
-					call log(var &VAR_39)
+					call log("sekune")
 					var VAR_15 = var VAR_36
 					break 
 				case 327680
-					call log(var &VAR_40)
+					call log("jug")
 					var VAR_16 = var VAR_36
 					break 
 				case 196608
-					call log(var &VAR_41)
+					call log("vivienne")
 					var VAR_17 = var VAR_36
 					break 
 				case 131072
-					call log(var &VAR_42)
+					call log("chiaro")
 					var VAR_18 = var VAR_36
 					break 
 				case 262144
-					call log(var &VAR_43)
+					call log("cagen")
 					var VAR_19 = var VAR_36
 					break 
 				default 
-					call log(var &VAR_44)
-					call log(var &VAR_45)
+					call log("WARNING! Unknown hero while checking heroes")
+					call log("Get a goober -- QUICKLY!!")
 					break 
 		}
 		var VAR_36 = call func_7e()
 }
-var VAR_46 = call load_anim(var &VAR_47)
-var VAR_48 = call load_anim(var &VAR_49)
-call load_char(var &VAR_52)
-call load_char(var &VAR_53)
+var VAR_46 = call load_anim("cagkixr")
+var VAR_48 = call load_anim("jab")
+call load_char("iwarrior")
+call load_char("flayer")
 execute SCRIPT_3
 gamevar global_zone_type = int 0
 

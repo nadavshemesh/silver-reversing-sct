@@ -1,11 +1,6 @@
 ._DATA
-VAR_0	"METALON"	
-VAR_1	"water"	
 VAR_2	0	
 VAR_3	0	
-VAR_4	"lookout"	
-VAR_5	"stan180a"	
-VAR_6	"sguard"	
 VAR_7	0	
 VAR_8	{ -1338, 54, -1158, -1404, 54, -875, -687, 54, -870, -1721, 54, -955, -1836, 54, -1379, -1939, 54, -706 }	
 VAR_9	{ -3163, 54, -590, -3345, 54, -1460 }	
@@ -14,13 +9,12 @@ VAR_11	{ -438, 54, -994 }
 VAR_12	0	
 VAR_13	{ 0, 0 }	
 VAR_14	0	
-VAR_15	"generate enemies"	
 VAR_16	0	
 VAR_17	0	
 VAR_18	0
 
 ._on_load
-call play_bgm(var &VAR_0)
+call play_bgm("METALON")
 call load_sound_set(int 72)
 call play_loaded_sound(int 4, int -1, int 72, int 0)
 call load_sound_set(int 64)
@@ -29,7 +23,7 @@ call load_sound_set(int 65)
 call play_loaded_sound(int 5, int -1, int 65, int 0)
 gamevar SMACKER_X = int 0
 gamevar SMACKER_Y = int 348
-call play_2d_anim(var &VAR_1, int 1, int 1, int 0)
+call play_2d_anim("water", int 1, int 1, int 0)
 switch(gamevar room_state)
  {
 		case 1
@@ -112,7 +106,7 @@ if(var VAR_14 == int 0)
  {
 		if(call func_8a(var &VAR_9))
 		 {
-				call log(var &VAR_15)
+				call log("generate enemies")
 				var VAR_7 = call run_enemy_generator(var &VAR_10, int 10)
 				if(call is_char_handle_in_level(int 11010048))
 				 {
@@ -131,7 +125,7 @@ if(var VAR_14 == int 0)
 }
 
 ._SCRIPT_5
-call load_char(var &VAR_6)
+call load_char("sguard")
 var VAR_12 = call create_enemy(int 36, int 0, var &VAR_11, int 310)
 call set_char_init_state(var VAR_12, int 0)
 var VAR_13 = call add_item_to_char(var VAR_12, int 46, int 1, int 0)
@@ -139,8 +133,8 @@ gamevar script_object = var VAR_12
 gamevar *character_stats_p+15 = int 3600
 
 ._SCRIPT_6
-var VAR_2 = call load_anim(var &VAR_4)
-var VAR_3 = call load_anim(var &VAR_5)
+var VAR_2 = call load_anim("lookout")
+var VAR_3 = call load_anim("stan180a")
 
 ._SCRIPT_7
 

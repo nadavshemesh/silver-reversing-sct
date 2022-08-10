@@ -1,22 +1,12 @@
 ._DATA
-VAR_0	"chains"	
 VAR_1	{ -492, 153, -3776 }	
-VAR_2	"TORCH1"	
-VAR_3	"TORCH2"	
 VAR_4	0	
-VAR_5	"FIRE"	
 VAR_6	0	
 VAR_7	{ -167, 0, -1985 }	
 VAR_8	0	
 VAR_9	{ -151, 0, -3171 }	
 VAR_10	0	
 VAR_11	{ -847, 0, -3907 }	
-VAR_12	"groad"	
-VAR_13	"lizman"	
-VAR_14	"bat"	
-VAR_15	"litl_liz"	
-VAR_16	"treasure"	
-VAR_17	"mimic"	
 VAR_18	0	
 VAR_19	{ -94, 0, -1119, -941, 0, -1238 }	
 VAR_20	{ -515, 0, -2366, -962, 0, -2331, -514, 0, -2610, -925, 0, -2541 }	
@@ -26,13 +16,9 @@ VAR_23	{ -151, 0, -3171, -151, 0, -3171 }
 VAR_24	{ 0, 1, 2, VAR_23, 8, 1, 19, -861, 0, -3084, 12, 194, 194, -1, 13, 1, 14, 1, 2, 5, 0, 25, 16, 0, 18, 100, 11, -1 }	
 VAR_25	0	
 VAR_26	0	
-VAR_27	"start 1"	
-VAR_28	"treasure 2"	
-VAR_29	"treasure 3"	
-VAR_30	"treasure 3"
 
 ._on_load
-call play_bgm(var &VAR_0)
+call play_bgm("chains")
 execute SCRIPT_13
 call load_sound_set(int 30)
 call play_loaded_sound(int 1, int -1, int 30, int 0)
@@ -106,7 +92,7 @@ if(gamevar !is_room_cleared)
 ._SCRIPT_3
 if(var VAR_25 == int 0)
  {
-		call log(var &VAR_27)
+		call log("start 1")
 		execute SCRIPT_5
 		var VAR_25 ++ 
 		var VAR_26 = int 0
@@ -117,7 +103,7 @@ if(var VAR_25 == int 1)
 		 {
 				call remove_char(var VAR_6)
 				var VAR_18 = call run_wandering_generator(var &VAR_22, int 1)
-				call log(var &VAR_28)
+				call log("treasure 2")
 				execute SCRIPT_6
 				var VAR_26 = int 0
 				var VAR_25 ++ 
@@ -127,7 +113,7 @@ if(var VAR_25 == int 2)
  {
 		if(call func_8a(var &VAR_20))
 		 {
-				call log(var &VAR_29)
+				call log("treasure 3")
 				execute SCRIPT_7
 				var VAR_25 ++ 
 		}
@@ -138,18 +124,18 @@ if(var VAR_25 == int 3)
 		var VAR_18 = call run_wandering_generator(var &VAR_24, int 1)
 		if(call func_8a(var &VAR_20))
 		 {
-				call log(var &VAR_30)
+				call log("treasure 3")
 				var VAR_25 ++ 
 		}
 }
 
 ._SCRIPT_4
-call load_char(var &VAR_12)
-call load_char(var &VAR_13)
-call load_char(var &VAR_14)
-call load_char(var &VAR_15)
-call load_char(var &VAR_16)
-call load_char(var &VAR_17)
+call load_char("groad")
+call load_char("lizman")
+call load_char("bat")
+call load_char("litl_liz")
+call load_char("treasure")
+call load_char("mimic")
 
 ._SCRIPT_5
 var VAR_6 = call create_enemy(int 136, int 0, var &VAR_7, int 275)
@@ -182,11 +168,11 @@ call add_item_to_char(var VAR_10, int 37, int 1, int 0)
 ._SCRIPT_13
 gamevar SMACKER_X = int 660
 gamevar SMACKER_Y = int 152
-call play_2d_anim(var &VAR_2, int 1, int 1, int 0)
+call play_2d_anim("TORCH1", int 1, int 1, int 0)
 gamevar SMACKER_X = int 876
 gamevar SMACKER_Y = int 140
-call play_2d_anim(var &VAR_3, int 1, int 1, int 0)
-var VAR_4 = call play_3d_fx(var &VAR_5, var &VAR_1, int 0, int 0)
+call play_2d_anim("TORCH2", int 1, int 1, int 0)
+var VAR_4 = call play_3d_fx("FIRE", var &VAR_1, int 0, int 0)
 call func_ec(int 198, int -1, int 0, var &VAR_1)
 
 ._SCRIPT_14

@@ -34,7 +34,6 @@ VAR_31	0
 VAR_32	0	
 VAR_33	0	
 VAR_34	0	
-VAR_35	"random_rain_fx: Rain SFX not initialised! See Marc"	
 VAR_36	0	
 VAR_37	0	
 VAR_38	0	
@@ -44,30 +43,20 @@ VAR_41	0
 VAR_42	0	
 VAR_43	0	
 VAR_44	{ 0, 0 }	
-VAR_45	"rainpt1"	
-VAR_46	"dick"	
-VAR_47	"muscles"	
-VAR_48	"door 0 / 1"	
-VAR_49	"door 2"	
-VAR_50	"talkfast"	
-VAR_51	"yes"	
 VAR_52	{ -396, -1023, 125 }	
-VAR_53	"muscles"	
-VAR_54	"finnegan"	
 VAR_55	{ 750, 1775, 1750 }	
 VAR_56	{ 3150, 1775, -2475 }	
-VAR_57	"RAIN"
 
 ._on_load
-call play_bgm(var &VAR_45)
+call play_bgm("rainpt1")
 execute SCRIPT_12
-call func_b8(int 93)
-call func_b8(int 91)
+call load_item(int 93)
+call load_item(int 91)
 switch(gamevar room_state)
  {
 		case 1
-			call load_char(var &VAR_46)
-			call load_char(var &VAR_47)
+			call load_char("dick")
+			call load_char("muscles")
 			switch(call func_6f())
 			 {
 			}
@@ -147,8 +136,8 @@ gamevar script_object = var VAR_7
 gamevar *character_movement_p+60 = int 1
 gamevar script_object = var VAR_10
 gamevar *character_movement_p+60 = int 1
-call load_anim(var &VAR_50)
-call load_anim(var &VAR_51)
+call load_anim("talkfast")
+call load_anim("yes")
 var VAR_1 = int 0
 var VAR_2 = int 400
 
@@ -246,8 +235,8 @@ switch(var VAR_1)
 ._SCRIPT_8
 
 ._SCRIPT_9
-call load_char(var &VAR_53)
-call load_char(var &VAR_54)
+call load_char("muscles")
+call load_char("finnegan")
 if(call ! func_bf(int 0, gamevar CURRENT_LEVEL, gamevar CURRENT_SCENE))
  {
 		call func_9a(var &VAR_52, int 43, int 0, int 0)
@@ -262,7 +251,7 @@ switch(var VAR_3)
 ._SCRIPT_11
 
 ._SCRIPT_12
-call play_3d_fx(var &VAR_57, var &VAR_55, var &VAR_56, int 0)
+call play_3d_fx("RAIN", var &VAR_55, var &VAR_56, int 0)
 execute SCRIPT_13
 
 ._SCRIPT_13
@@ -276,7 +265,7 @@ var VAR_27 = int 1
 ._SCRIPT_14
 if(var ! VAR_27)
  {
-		call log(var &VAR_35)
+		call log("random_rain_fx: Rain SFX not initialised! See Marc")
 		exit_script 
 }
 switch(var VAR_31)

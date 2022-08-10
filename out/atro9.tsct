@@ -5,8 +5,6 @@ VAR_2	0
 VAR_3	{ -3610, 1075, -1708 }	
 VAR_4	{ -3170, -625, -1022 }	
 VAR_5	{ VAR_3, 200, VAR_4 }	
-VAR_6	"behold"	
-VAR_7	"beholdp"	
 VAR_8	0	
 VAR_9	0	
 VAR_10	{ -99, -401, -959, 98, -401, -973 }	
@@ -16,8 +14,6 @@ VAR_13	{ -1685, -625, -44 }
 VAR_14	{ -3566, 1075, -1612 }	
 VAR_15	{ 1457, -625, -890, 1442, -625, -118, 377, -625, 155, -40, -375, -1198, 1463, -375, -1228, -1504, -375, -1414, -1200, -625, 116, -992, -625, -775, -2193, -625, -2025, -2145, -625, -602 }	
 VAR_16	{ 1457, -625, -890, 1442, -625, -118, 377, -625, 155, -40, -375, -1198, 1463, -375, -1228, -1504, -375, -1414, -1200, -625, 116, -992, -625, -775, -2193, -625, -2025, -2145, -625, -602, -3158, 1075, -1741, -4727, 1075, -1580 }	
-VAR_17	"top"	
-VAR_18	"bottom"	
 VAR_19	0	
 VAR_20	0	
 VAR_21	0	
@@ -33,7 +29,6 @@ VAR_30	{ VAR_22, VAR_23, VAR_24, VAR_25, VAR_26, VAR_27, VAR_28, VAR_29 }
 VAR_31	0	
 VAR_32	0	
 VAR_33	0	
-VAR_34	"pulse sfx"
 
 ._on_load
 call func_58(int 1)
@@ -157,8 +152,8 @@ switch(var VAR_8)
 var VAR_9 ++ 
 
 ._SCRIPT_4
-call load_char(var &VAR_6)
-call load_char(var &VAR_7)
+call load_char("behold")
+call load_char("beholdp")
 
 ._SCRIPT_5
 
@@ -171,11 +166,11 @@ call load_char(var &VAR_7)
 ._SCRIPT_9
 gamevar SMACKER_X = int 1368
 gamevar SMACKER_Y = int 100
-call play_2d_anim(var &VAR_17, int 1, int 0, var &VAR_0)
+call play_2d_anim("top", int 1, int 0, var &VAR_0)
 var VAR_0 = int 1
 gamevar SMACKER_X = int 1288
 gamevar SMACKER_Y = int 428
-call play_2d_anim(var &VAR_18, int 1, int 1, int 0)
+call play_2d_anim("bottom", int 1, int 1, int 0)
 
 ._SCRIPT_10
 

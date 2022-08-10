@@ -4,17 +4,11 @@ VAR_1	0
 VAR_2	0	
 VAR_3	0	
 VAR_4	0	
-VAR_5	"DVDCHR"	
 VAR_6	{ 1280070990, 0 }	
-VAR_7	"SEKCHR"	
 VAR_8	{ 1280070990, 0 }	
-VAR_9	"CAGCHR"	
 VAR_10	{ 1280070990, 0 }	
-VAR_11	"JUGCHR"	
 VAR_12	{ 1280070990, 0 }	
-VAR_13	"CHICHR"	
 VAR_14	{ 1280070990, 0 }	
-VAR_15	"VIVCHR"	
 VAR_16	{ 1280070990, 0 }	
 VAR_17	0	
 VAR_18	{ 0, 0, -1 }	
@@ -23,20 +17,11 @@ VAR_20	0
 VAR_21	0	
 VAR_22	0	
 VAR_23	-1	
-VAR_24	"game saved"	
-VAR_25	"game not saved"	
 VAR_26	0	
-VAR_27	"DVDCHR"	
 VAR_28	{ 1280070990, 0 }	
-VAR_29	"SEKCHR"	
 VAR_30	{ 1280070990, 0 }	
-VAR_31	"CAGCHR"	
-VAR_32	"NULL"	
-VAR_33	"JUGCHR"	
 VAR_34	{ 1280070990, 0 }	
-VAR_35	"CHICHR"	
 VAR_36	{ 1280070990, 0 }	
-VAR_37	"VIVCHR"	
 VAR_38	{ 1280070990, 0 }	
 VAR_39	0	
 VAR_40	0	
@@ -44,20 +29,14 @@ VAR_41	0
 VAR_42	0	
 VAR_43	0	
 VAR_44	0	
-VAR_45	"WPALPT1"	
-VAR_46	"haven"	
-VAR_47	"h_orout"	
 VAR_48	0	
 VAR_49	{ -3355, 4625, -13053 }	
-VAR_50	"fbludraco"	
 VAR_51	0	
 VAR_52	{ -419, 4925, -15986 }	
 VAR_53	0	
 VAR_54	{ 1685218678, 1702129249, 0 }	
 VAR_55	{ 1633843301, 1667330674, 0 }	
 VAR_56	{ 1280722249, 827605314, 0 }	
-VAR_57	"victory"	
-VAR_58	"btreasure"	
 VAR_59	0	
 VAR_60	0	
 VAR_61	0	
@@ -68,10 +47,7 @@ VAR_65	0
 VAR_66	{ -2493, 4625, -10159 }	
 VAR_67	{ -2625, 4625, -9670 }	
 VAR_68	{ -2289, 4625, -9675 }	
-VAR_69	"Dragon Takeoff"	
 VAR_70	{ 1685218678, 1702129249, 0 }	
-VAR_71	"exbarrac"	
-VAR_72	"STING3"	
 VAR_73	0	
 VAR_74	0	
 VAR_75	0	
@@ -86,10 +62,7 @@ VAR_83	{ -2407, 4625, -9897 }
 VAR_84	{ -2199, 4625, -11971 }	
 VAR_85	{ -1784, 4925, -14210 }	
 VAR_86	{ -2578, 4625, -12046 }	
-VAR_87	"nduke"	
-VAR_88	"nglass"	
 VAR_89	0	
-VAR_90	"frink"	
 VAR_91	{ 1869768803, 1818454382, 0 }	
 VAR_92	0	
 VAR_93	0	
@@ -102,17 +75,11 @@ VAR_99	0
 VAR_100	0	
 VAR_101	-1	
 VAR_102	{ 1447321427, 1095518020, 0 }	
-VAR_103	"ACT_2"	
-VAR_104	"haven"	
 VAR_105	{ 1633902440, 1886679149, 0 }	
-VAR_106	"nfrink"	
-VAR_107	"haven"	
-VAR_108	"h_orout"	
-VAR_109	"FRIHER"	
 VAR_110	{ 1280070990, 0 }
 
 ._on_load
-call play_bgm(var &VAR_45)
+call play_bgm("WPALPT1")
 execute SCRIPT_10
 if(gamevar is_room_cleared)
  {
@@ -165,7 +132,7 @@ if(gamevar !is_room_cleared)
 				case 2
 					break 
 				case 3
-					call func_116(var &VAR_46, var &VAR_47, int 10)
+					call func_116("haven", "h_orout", int 10)
 					gamevar room_state = int 2
 					break 
 				case 20
@@ -180,7 +147,7 @@ switch(var VAR_59)
 		case 0
 			if(var VAR_60 > int 2)
 			 {
-					call log(var &VAR_69)
+					call log("Dragon Takeoff")
 					var VAR_59 = int 1
 					call func_113(int 320, int 380)
 					var VAR_63 = call get_david_char()
@@ -238,7 +205,7 @@ switch(var VAR_59)
 					var VAR_42 = int 2
 					var VAR_43 = int 0
 					var VAR_44 = int 0
-					call func_4d(int 448, var &VAR_41, var &VAR_70, var &VAR_71)
+					call func_4d(int 448, var &VAR_41, var &VAR_70, "exbarrac")
 					call reset_local_timer()
 					var VAR_59 = int 3
 			}
@@ -254,7 +221,7 @@ switch(var VAR_59)
 		case 4
 			if(call is_local_timer_greater_than(int 20))
 			 {
-					call play_bgm(var &VAR_72)
+					call play_bgm("STING3")
 					call func_134()
 					if(var VAR_63)
 					 {
@@ -287,7 +254,7 @@ switch(var VAR_59)
 var VAR_60 ++ 
 
 ._SCRIPT_4
-var VAR_48 = call create_char(var &VAR_49, var &VAR_50, int 20, int 13)
+var VAR_48 = call create_char(var &VAR_49, "fbludraco", int 20, int 13)
 call func_53(var VAR_48, int 11)
 call func_113(int 100, int 100)
 call set_input_system(int 2)
@@ -297,8 +264,8 @@ var VAR_43 = int 0
 var VAR_44 = int 0
 call func_4d(int 111, var &VAR_41, var &VAR_54, var &VAR_55)
 call play_bgm(var &VAR_56)
-var VAR_51 = call load_anim(var &VAR_57)
-var VAR_53 = call create_char(var &VAR_52, var &VAR_58, int 340, int 14)
+var VAR_51 = call load_anim("victory")
+var VAR_53 = call create_char(var &VAR_52, "btreasure", int 340, int 14)
 call add_item_to_char(var VAR_53, int 47, int 1, int 0)
 call add_item_to_char(var VAR_53, int 45, int 1, int 0)
 call add_item_to_char(var VAR_53, int 40, int 1, int 0)
@@ -366,7 +333,7 @@ switch(var VAR_93)
 			}
 			if(var VAR_99&&var VAR_100)
 			 {
-					call start_dialog(var &VAR_102, var &VAR_103)
+					call start_dialog(var &VAR_102, "ACT_2")
 					var VAR_92 = int 0
 					var VAR_93 ++ 
 			}
@@ -409,7 +376,7 @@ switch(var VAR_93)
 			if(var VAR_92 > int 100)
 			 {
 					call func_fa(var VAR_74)
-					call func_116(var &VAR_104, var &VAR_105, int 7)
+					call func_116("haven", var &VAR_105, int 7)
 					var VAR_92 = int 0
 					var VAR_93 ++ 
 			}
@@ -419,7 +386,7 @@ switch(var VAR_93)
 			 {
 					call func_11e(var VAR_96)
 					gamevar compile_init_character = int 0
-					var VAR_97 = call func_92(int 1, var &VAR_106, int 0, int 13)
+					var VAR_97 = call func_92(int 1, "nfrink", int 0, int 13)
 					gamevar compile_init_character = int 1
 					var VAR_89 = call get_david_char()
 					call set_char_running(var VAR_97)
@@ -445,8 +412,8 @@ switch(var VAR_93)
 					var VAR_42 = int 2
 					var VAR_43 = int 0
 					var VAR_44 = int 0
-					call func_4d(int 444, var &VAR_41, var &VAR_107, var &VAR_108)
-					call start_dialog(var &VAR_109, var &VAR_110)
+					call func_4d(int 444, var &VAR_41, "haven", "h_orout")
+					call start_dialog("FRIHER", var &VAR_110)
 					var VAR_93 ++ 
 					var VAR_92 = int 0
 			}
@@ -477,8 +444,8 @@ var VAR_92 ++
 
 ._SCRIPT_8
 var VAR_61 = call is_char_handle_in_level(int 65536)
-var VAR_73 = call create_char(var &VAR_83, var &VAR_87, int 180, int 13)
-var VAR_74 = call create_char(var &VAR_85, var &VAR_88, int 321, int 13)
+var VAR_73 = call create_char(var &VAR_83, "nduke", int 180, int 13)
+var VAR_74 = call create_char(var &VAR_85, "nglass", int 321, int 13)
 var VAR_89 = call get_david_char()
 while(var VAR_89)
  {
@@ -515,7 +482,7 @@ if(var VAR_76 != int 0)
 		call set_char_walking(var VAR_76)
 }
 call set_input_system(int 2)
-call load_char(var &VAR_90)
+call load_char("frink")
 call load_char(var &VAR_91)
 
 ._SCRIPT_9
@@ -604,14 +571,14 @@ switch(var VAR_17)
 		case 5
 			if(var VAR_19 != gamevar saved_games_count)
 			 {
-					call log(var &VAR_24)
+					call log("game saved")
 					call func_11d()
 					var VAR_17 = int 7
 					var VAR_18 = int 0
 			}
 			else
 			 {
-					call log(var &VAR_25)
+					call log("game not saved")
 					call func_2a(var VAR_1, var &VAR_20)
 					execute SCRIPT_14
 					gamevar chronicler_variation = var VAR_2
@@ -667,22 +634,22 @@ var VAR_4 = call get_char_handle_id(gamevar control_char_p)
 switch(var VAR_4)
  {
 		case 65536
-			call load_dialog_by_number(var &VAR_5, var &VAR_6, gamevar chronicler_variation)
+			call load_dialog_by_number("DVDCHR", var &VAR_6, gamevar chronicler_variation)
 			break 
 		case 786432
-			call load_dialog_by_number(var &VAR_7, var &VAR_8, gamevar chronicler_variation)
+			call load_dialog_by_number("SEKCHR", var &VAR_8, gamevar chronicler_variation)
 			break 
 		case 262144
-			call load_dialog_by_number(var &VAR_9, var &VAR_10, gamevar chronicler_variation)
+			call load_dialog_by_number("CAGCHR", var &VAR_10, gamevar chronicler_variation)
 			break 
 		case 327680
-			call load_dialog_by_number(var &VAR_11, var &VAR_12, gamevar chronicler_variation)
+			call load_dialog_by_number("JUGCHR", var &VAR_12, gamevar chronicler_variation)
 			break 
 		case 131072
-			call load_dialog_by_number(var &VAR_13, var &VAR_14, gamevar chronicler_variation)
+			call load_dialog_by_number("CHICHR", var &VAR_14, gamevar chronicler_variation)
 			break 
 		case 196608
-			call load_dialog_by_number(var &VAR_15, var &VAR_16, gamevar chronicler_variation)
+			call load_dialog_by_number("VIVCHR", var &VAR_16, gamevar chronicler_variation)
 			break 
 }
 
@@ -691,22 +658,22 @@ var VAR_26 = call get_char_handle_id(gamevar control_char_p)
 switch(var VAR_26)
  {
 		case 65536
-			var VAR_2 = call load_next_dialog(var &VAR_27, var &VAR_28)
+			var VAR_2 = call load_next_dialog("DVDCHR", var &VAR_28)
 			break 
 		case 786432
-			var VAR_2 = call load_next_dialog(var &VAR_29, var &VAR_30)
+			var VAR_2 = call load_next_dialog("SEKCHR", var &VAR_30)
 			break 
 		case 262144
-			var VAR_2 = call load_next_dialog(var &VAR_31, var &VAR_32)
+			var VAR_2 = call load_next_dialog("CAGCHR", "NULL")
 			break 
 		case 327680
-			var VAR_2 = call load_next_dialog(var &VAR_33, var &VAR_34)
+			var VAR_2 = call load_next_dialog("JUGCHR", var &VAR_34)
 			break 
 		case 131072
-			var VAR_2 = call load_next_dialog(var &VAR_35, var &VAR_36)
+			var VAR_2 = call load_next_dialog("CHICHR", var &VAR_36)
 			break 
 		case 196608
-			var VAR_2 = call load_next_dialog(var &VAR_37, var &VAR_38)
+			var VAR_2 = call load_next_dialog("VIVCHR", var &VAR_38)
 			break 
 }
 

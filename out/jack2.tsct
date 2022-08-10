@@ -3,9 +3,6 @@ VAR_0	0
 VAR_1	0	
 VAR_2	0	
 VAR_3	{ 0, 0, 0 }	
-VAR_4	"jack2"	
-VAR_5	"ogre"	
-VAR_6	"orc"	
 VAR_7	{ 0, 0, 0 }	
 VAR_8	0	
 VAR_9	{ 1683, 2585, 11405 }	
@@ -17,15 +14,9 @@ VAR_14	{ 0, 0, 2, -1, 8, 0, 4, 0, 9, 1, 1, 1, 81, 81, -1, 5, 1, 5, 40, 6, 1, 7, 
 VAR_15	0	
 VAR_16	0	
 VAR_17	0	
-VAR_18	"open door"	
 VAR_19	0	
 VAR_20	0	
-VAR_21	"orc"	
 VAR_22	{ 0, 0, 2, -1, 8, 0, 4, 0, 9, 1, 1, 1, 81, 81, -1, 5, 1, 5, 40, 6, 1, 7, 1, 1, 10, 40, -1, -1 }	
-VAR_23	"open door"	
-VAR_24	"orc"	
-VAR_25	"ogre"	
-VAR_26	"ronnie"	
 VAR_27	{ 0, 0, 0, 1, 2, -1, 8, 0, 12, 78, 78, 76, 77, -1, 13, 1, 14, 0, 1, 2, 5, 0, 100, 18, 30, -1, 0 }	
 VAR_28	0
 
@@ -46,7 +37,7 @@ else
  {
 		gamevar SMACKER_X = int 412
 		gamevar SMACKER_Y = int 80
-		call play_2d_anim(var &VAR_4, int 0, int 0, var &VAR_3)
+		call play_2d_anim("jack2", int 0, int 0, var &VAR_3)
 		switch(gamevar room_state)
 		 {
 				case 1
@@ -114,7 +105,7 @@ if(var ! VAR_0)
 		}
 		else
 		 {
-				call log(var &VAR_18)
+				call log("open door")
 				var VAR_3 = int 1
 				call play_loaded_sound(int 10, int 0, int 9, int 0)
 				var VAR_0 = int 1
@@ -156,8 +147,8 @@ switch(var VAR_15)
 var VAR_16 ++ 
 
 ._SCRIPT_5
-call load_char(var &VAR_5)
-call load_char(var &VAR_6)
+call load_char("ogre")
+call load_char("orc")
 var VAR_7 = call create_enemy(int 77, int 0, var &VAR_9, int 260)
 call add_item_to_char(var VAR_7, int 85, int 1638913, int 0)
 gamevar script_object = var VAR_7
@@ -175,7 +166,7 @@ if(var ! VAR_0)
 		}
 		else
 		 {
-				call log(var &VAR_23)
+				call log("open door")
 				var VAR_3 = int 1
 				call play_loaded_sound(int 10, int 0, int 9, int 0)
 				var VAR_0 = int 1
@@ -216,10 +207,10 @@ switch(var VAR_19)
 var VAR_20 ++ 
 
 ._SCRIPT_7
-call load_char(var &VAR_21)
+call load_char("orc")
 
 ._SCRIPT_8
-call load_char(var &VAR_24)
-call load_char(var &VAR_25)
-call load_char(var &VAR_26)
+call load_char("orc")
+call load_char("ogre")
+call load_char("ronnie")
 call run_wandering_generator(var &VAR_27, int 100)

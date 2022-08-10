@@ -1,6 +1,4 @@
 ._DATA
-VAR_0	"orc"	
-VAR_1	"lizman"	
 VAR_2	0	
 VAR_3	{ 0, 0 }	
 VAR_4	{ 0, 0, 1, -1, 8, 0, 4, 0, 9, 1, 1, 2, 81, 81, 76, -1, 5, 1, 50, 140, 6, 1, 7, 1, 5, 10, 40, 41, -1, -1 }	
@@ -9,12 +7,7 @@ VAR_6	{ 0, 0 }
 VAR_7	{ 0, 0 }	
 VAR_8	{ -688, -1789, 145 }	
 VAR_9	{ -2319, -1789, 228 }	
-VAR_10	"wandering baddies"	
 VAR_11	0	
-VAR_12	"orc"	
-VAR_13	"lizman"	
-VAR_14	"ogre"	
-VAR_15	"ronnie"	
 VAR_16	{ 0, 0, 0, -1, 8, 0, 12, 78, 78, 78, 78, 76, 77, -1, 13, 1, 14, 0, 2, 3, 5, 0, 100, 17, 2, -3137, -1789, 539, 260, -1789, 862, -1, 18, 50, 11, -1 }	
 VAR_17	{ 0, 0, 1, -1, 8, 0, 12, 78, 78, 40, 78, -1, 13, 1, 14, 0, 1, 4, 5, 0, 100, 17, 2, 260, -1789, 1996, -3111, -1789, 1216, -1, 18, 50, 11, -1, 0 }	
 VAR_18	0
@@ -92,8 +85,8 @@ switch(var VAR_3)
 }
 
 ._SCRIPT_5
-call load_char(var &VAR_0)
-call load_char(var &VAR_1)
+call load_char("orc")
+call load_char("lizman")
 var VAR_6 = call create_enemy(int 77, int 0, var &VAR_9, int 20)
 call add_item_to_char(var VAR_6, int 85, int 1638913, int 0)
 call add_item_to_char(var VAR_6, int 85, int 1638913, int 0)
@@ -105,12 +98,12 @@ var VAR_2 = call run_enemy_generator(var &VAR_4, int 300)
 ._SCRIPT_7
 
 ._SCRIPT_8
-call log(var &VAR_10)
+call log("wandering baddies")
 var VAR_11 = call func_6f()
-call load_char(var &VAR_12)
-call load_char(var &VAR_13)
-call load_char(var &VAR_14)
-call load_char(var &VAR_15)
+call load_char("orc")
+call load_char("lizman")
+call load_char("ogre")
+call load_char("ronnie")
 if(var VAR_11 == int 1)
  {
 		call run_wandering_generator(var &VAR_16, int 100)

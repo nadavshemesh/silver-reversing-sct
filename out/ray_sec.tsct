@@ -18,20 +18,12 @@ VAR_15	{ -2623, 500, 1365 }
 VAR_16	{ -3644, 57, 1365 }	
 VAR_17	{ -2623, 57, 1365 }	
 VAR_18	{ 0, 0, 0, -1, 8, 1, 1, 2, 55, 55, -1, 10, 45, -1, 4, 0, 9, 0, 5, 1, 50, 150, 7, 1, 2, -1 }	
-VAR_19	"SEWERPT1"	
-VAR_20	"fix"	
-VAR_21	"raybell"	
-VAR_22	"gate"	
-VAR_23	"ratrptr"	
-VAR_24	"skaven"	
-VAR_25	"skavenb"	
-VAR_26	"bell hit while ringing"	
 VAR_27	0
 
 ._on_load
 call load_sound_set(int 38)
 call load_sound_set(int 34)
-call play_bgm(var &VAR_19)
+call play_bgm("SEWERPT1")
 call func_114(int 64)
 switch(gamevar room_state)
  {
@@ -47,19 +39,19 @@ if(var VAR_1)
  {
 		gamevar SMACKER_X = int 196
 		gamevar SMACKER_Y = int 52
-		call play_2d_anim(var &VAR_20, int -2147483, int 1, var &VAR_3)
+		call play_2d_anim("fix", int -2147483, int 1, var &VAR_3)
 }
 else
  {
 		gamevar SMACKER_X = int 192
 		gamevar SMACKER_Y = int 56
-		call play_2d_anim(var &VAR_21, int -2147483, int 1, var &VAR_3)
+		call play_2d_anim("raybell", int -2147483, int 1, var &VAR_3)
 		gamevar SMACKER_X = int 128
 		gamevar SMACKER_Y = int 128
-		call play_2d_anim(var &VAR_22, int -2147483, int 1, var &VAR_5)
-		call load_char(var &VAR_23)
-		call load_char(var &VAR_24)
-		call load_char(var &VAR_25)
+		call play_2d_anim("gate", int -2147483, int 1, var &VAR_5)
+		call load_char("ratrptr")
+		call load_char("skaven")
+		call load_char("skavenb")
 }
 
 ._infinite_loop
@@ -84,7 +76,7 @@ else
 		var VAR_2 ++ 
 		if(gamevar global_collision_type == int 18)
 		 {
-				call log(var &VAR_26)
+				call log("bell hit while ringing")
 				call play_loaded_sound(int 1, int 0, int 34, int 0)
 				gamevar global_collision_type = int 0
 		}

@@ -36,7 +36,7 @@ char peek_next_char(FILE* f) {
 }
 
 bool is_char_paranth(char c) {
-    return (c == '(' || c == ')' || c == '[' || c == ']');
+    return (c == '(' || c == ')' || c == '[' || c == ']' || c == '{' || c == '}');
 }
 
 int read_word(FILE* f, char* dest) {
@@ -357,7 +357,9 @@ int count_tokens_from_to(char** tokens_ptr, char* from, char* to) {
             return counter;
         }
         if(count) counter++;
-        if(strlen(*tokens_ptr) == strlen(from) && strcmp(*tokens_ptr, from) == 0) count = true;
+        if(strlen(*tokens_ptr) == strlen(from) && strcmp(*tokens_ptr, from) == 0) {
+            count = true;
+        }
         tokens_ptr++;
     }
     return -1;
@@ -461,6 +463,48 @@ int count_token_from_to(char** tokens_ptr, char* token, char* from, char* to) {
     return -1;
 }
 
+int count_parameters(char** tokens_ptr) {
+    bool count = false;
+    int counter = 0;
+    int matches = 0;
+    int nested_paranth = 0;
+    int nested_quotes = 0;
+    bool quotes_open = false;
+    // count only from '(' to ')' and exclude counting inside "" and '{' '}'
+    while(*tokens_ptr != NULL) {
+        if(count && strs_identical(*tokens_ptr, ")")) {
+            matches--;
+            if(matches == 0)
+                return counter;
+        }
+        if(count && strs_identical(*tokens_ptr, ",")) {
+            if(nested_paranth == 0 && nested_quotes == 0 && matches == 1) {
+                counter++;
+            }
+        }
+        if(nested_paranth == 0 && nested_quotes == 0 && strs_identical(*tokens_ptr, "(")) {
+            count = true;
+            matches++;
+        }
+        if(count && strs_identical(*tokens_ptr, "{")) {
+            nested_paranth++;
+        }
+        if(count && strs_identical(*tokens_ptr, "}")) {
+            nested_paranth--;
+        }
+        if(count && !quotes_open && **tokens_ptr == '\"') {
+            nested_quotes++;
+            quotes_open = true;
+        }
+        if(count && quotes_open && **tokens_ptr == '\"') {
+            nested_quotes--;
+            quotes_open = false;
+        }
+        tokens_ptr++;
+    }
+    return -1;
+}
+
 int count_token_from_to_no_nesting(char** tokens_ptr, char* token, char* from, char* to) {
     bool count = false;
     int counter = 0;
@@ -500,11 +544,137 @@ void add_sct_bin_words_switch_body(sct_f* sf) {
     sf->structure->code_section_word_counter += 0x81;
 }
 
+long gen_id = 0;
+data_obj* asm_create_inline_data_obj(char*** tokens_pos_ptr, sct_f* sf) {
+    char** token_ptr = *tokens_pos_ptr;
+    if(*token_ptr == NULL)
+        print_err_and_exit("Error, inline data obj ptr is null.", -4);
+
+    char gen[256];
+    sprintf(gen, "gen_%ld", gen_id);
+    gen_id++;
+    char* name = aapts(gen);
+
+    int ds_size = sf->structure->data_sec_size;
+    int id = (ds_size % 4 == 0) ? ds_size/4 : (ds_size/4+1);
+    node* data_nodes = *sf->data_nodes;
+
+    char* token = *token_ptr;
+    data_obj* data_o = create_and_init_data_obj();
+    switch(token[0]) {
+        case '{': {
+            int len = count_tokens_from_to(token_ptr, "{", "}");
+            if(len == -1) {
+                print_err("invalid inline int array", -4); 
+                print_token_area_details(token_ptr, MODE_ASM);
+            }
+            // todo: validate structure
+            token_ptr++;
+            int integers_num = len - (len/2);
+            //printf("array len: %d.\n", integers_num);
+            int integers[integers_num];
+            for(int i=0, j=0; i < len; i+=2, j++) {
+                // check for memory reference (data ref)
+                char* str = *(token_ptr+i);
+                if(is_letter(*str)) {
+                    // printf("%c\n", *str);
+                    // printf("memory ref: %s\n", str);
+                    node* data_node = data_nodes;
+                    bool found = false;
+                    while(data_node != NULL && !found) {
+                        data_obj* data_o = data_node->item;
+                        if(strlen(str) == strlen(data_o->name) && strcmp(data_o->name, str) == 0) {
+                            found = true;
+                            int num = data_o->id;
+                            int num_id = id+j;
+                            integers[j] = num;
+                            // printf("offset: %08x\n", id+j);
+                            create_data_data_link(num_id, sf);
+                        }
+                        data_node = data_node->next;
+                    }
+                    if(!found) { 
+                        char err[256];
+                        sprintf(err, "Error, %s var was not found.", str);
+                        print_err_and_exit(err, -4); 
+                        printf("%s var was not found.\n", str);
+                    }
+                } else { // not a letter, assuming it is an int, todo: validate
+                    int num = atoi(*(token_ptr+i));
+                    integers[j] = num;
+                }
+            }
+            token_ptr+=len;
+
+            data_o->id = id;
+            data_o->byte_size = integers_num*sizeof(int);
+            data_o->name = aapts(name);
+
+            data_o->data = w_malloc(integers_num*sizeof(int));
+            memcpy(data_o->data, integers, integers_num*sizeof(int));
+            break;
+        } 
+        case '\"': {
+            int len = count_token_chars_from_to(token, '\"', '\"');
+            if(len == -1) {
+                print_err("Error, invalid string", -4); 
+                print_token_area_details(token_ptr, MODE_ASM);
+            }
+            // printf("found string. len: %d\n", len);
+            char str[len+1];
+            copy_token_chars_from_to(token, str, '\"', '\"');
+            str[len] = 0;
+            // printf("string: %s\n", str);
+
+            // char* asm_data = { aapts(token) };
+            byte* data = (byte*) aapts(str);
+            // printf("string: %s\n", (char*) data);
+
+            data_o->id = id;
+            len += 1; // +1 for null byte
+            // printf("len: %d\n", len);
+            if(len % 4 != 0) len += 4-(len % 4); // padding
+            // printf("len with padding: %d\n", len);
+            data_o->byte_size = len; 
+            data_o->name = aapts(name);
+
+            // data_o->asm_data = w_malloc(sizeof(char*));
+            data_o->data = w_calloc(len);
+
+            // memcpy(data_o->asm_data, &asm_data, sizeof(data_o->asm_data));
+            memcpy(data_o->data, data, len);
+            break;
+        }
+
+        default: {
+            // todo: validate structure
+            char* asm_data[1] = { aapts(token) };
+            int data[1] = { atoi(token) };
+
+            data_o->id = id;
+            data_o->byte_size = 4;
+            data_o->name = aapts(name);
+
+            // data_o->asm_data = w_malloc(sizeof(char*));
+            data_o->data = w_malloc(sizeof(int*));
+
+            // memcpy(data_o->asm_data, &asm_data, sizeof(data_o->asm_data));
+            memcpy(data_o->data, data, sizeof(data_o->data));
+        }
+    }
+    token_ptr++;
+    *tokens_pos_ptr = token_ptr;
+
+    // print_data_obj(data_o);
+    return data_o;
+}
+
 data_obj* asm_create_data_obj(char*** tokens_pos_ptr, int id, node* data_nodes, 
         int* unfound_var_ids, char** unfound_var_names, int* unfound_var_index, sct_f* sf) {
     char** token_ptr = *tokens_pos_ptr;
     if(*token_ptr == NULL)
         print_err_and_exit("Error, data obj ptr is null.", -4);
+
     char* name = *token_ptr;
     token_ptr++;
 
@@ -628,6 +798,38 @@ data_obj* asm_create_data_obj(char*** tokens_pos_ptr, int id, node* data_nodes,
     return data_o;
 }
 
+void flush_data_nodes_to_data_section(sct_f* sf) {
+    node* data_next = NULL;
+
+    sf->data_section = w_malloc(sf->data_objs_num*sizeof(data_obj*));
+    data_next = *sf->data_nodes; // point to start again
+    int j = 0;
+    while(data_next != NULL) {
+        sf->data_section[j] = data_next->item;
+        data_next = data_next->next;
+        j++;
+    }
+}
+
+data_obj* add_inline_var_declaration_to_data_section(sct_f* sf, char*** token_pos_ptr) {
+    data_obj* data_o = asm_create_inline_data_obj(token_pos_ptr, sf);
+
+    sf->data_objs_num++;
+    sf->structure->data_sec_size += data_o->byte_size;
+
+    node* data_node = *sf->data_nodes;
+    while(data_node->next != NULL) { 
+        data_node = data_node->next;
+    }
+
+    node* new_node = create_node(data_o);
+    data_node->next = new_node;
+
+    flush_data_nodes_to_data_section(sf);
+
+    return data_o;
+}
+
 void build_data_section(sct_f* sf) {
     sf->structure->data_sec_size = 0;
     char** tokens;
@@ -662,14 +864,10 @@ void build_data_section(sct_f* sf) {
     }
 
     sf->data_objs_num = i;
-    sf->data_section = w_malloc(i*sizeof(data_obj*));
-    data_next = data_nodes; // point to start again
-    int j = 0;
-    while(data_next != NULL) {
-        sf->data_section[j] = data_next->item;
-        data_next = data_next->next;
-        j++;
-    }
+    sf->data_nodes = w_malloc(sizeof(node*));
+    *sf->data_nodes = data_nodes;
+
+    flush_data_nodes_to_data_section(sf);
 
     // attempt to find prev unfound var names
     for(int k=0; k < unfound_var_index; k++) {
@@ -832,7 +1030,7 @@ cp_cmp_result asm_identify_cp(char*** token_pos_ptr, sct_f* sf) {
     return res;
 }
 
-expr_cmp_result asm_identify_expr(char*** token_pos_ptr, sct_f* sf) {
+expr_cmp_result asm_identify_expr(char*** token_pos_ptr, bool silent_err, sct_f* sf) {
     expr_cmp_result res = { .is_identified = false, .match = NULL};
     char** token;
 
@@ -879,10 +1077,11 @@ expr_cmp_result asm_identify_expr(char*** token_pos_ptr, sct_f* sf) {
            }
        }
     }
+    if(silent_err)
+        return res;
     print_err("Error, expression not recognized.", 2);
     // print_asm_tokens(token, 5);
     print_token_area_details(token, MODE_ASM);
-    return res;
 }
 
 bool is_expr_token_binary_op(char** token) {
@@ -1009,7 +1208,7 @@ expr_obj* asm_create_expr_obj(expr_pattern* expr_p, char** vars, char*** token_p
                 } else { print_err("Error, missing '[' at data index pointer.", -4);
                             print_token_area_details(*token_pos_ptr, MODE_ASM); }
 
-                expression* exp = asm_read_expression(token_pos_ptr, sf);
+                expression* exp = asm_read_expression(token_pos_ptr, false, sf);
                 eo->expression_node_num = 1;
                 eo->expression_nodes = w_malloc(sizeof(node*));
                 *eo->expression_nodes = create_node(exp);
@@ -1079,7 +1278,7 @@ expr_obj* asm_create_expr_obj(expr_pattern* expr_p, char** vars, char*** token_p
     return eo;
 }
 
-expression* asm_read_expression(char*** token_pos_ptr, sct_f* sf) {
+expression* asm_read_expression(char*** token_pos_ptr, bool allow_var_decl, sct_f* sf) {
     expression* exp = create_and_init_expression();
     
     // sf->structure->code_section_word_counter += 2; // prologue
@@ -1091,7 +1290,7 @@ expression* asm_read_expression(char*** token_pos_ptr, sct_f* sf) {
     int expr_nodes_num = 0;
     int exprs_to_read = 1;
     while(exprs_to_read > 0) {
-        expr_cmp_result res = asm_identify_expr(token_pos_ptr, sf);
+        expr_cmp_result res = asm_identify_expr(token_pos_ptr, allow_var_decl, sf);
         if(res.is_identified) {
             char msg[256];
             sprintf(msg, "Found expr pattern '%s'.", res.match->name);
@@ -1111,7 +1310,50 @@ expression* asm_read_expression(char*** token_pos_ptr, sct_f* sf) {
             }
             expr_nodes_num++;
             exprs_to_read--;
+        } else {
+            // printf("checking inline var declaration\n");
+
+            // TODO: validate!!!
+
+            // check for inline var declaration
+            char first = ***token_pos_ptr;
+            expr_pattern* ep;
+            expr_obj* eo = create_and_init_expr_obj();
+
+            if(first == '\"' || first == '{') {
+                ep = expr_patterns[1]; // addr of var
+            } else {
+                ep = expr_patterns[2]; // var
+            }
+
+            eo->expr_p = ep;
+            add_sct_bin_words(ep->bin_token_num, sf);
+
+            data_obj* data_o = add_inline_var_declaration_to_data_section(sf, token_pos_ptr);
+            // print_data_obj(data_o);
+            create_data_code_link(sf);
+            eo->data = data_o;
+            data_o->references++;
+
+            char* asm_vars[1] = { aapts(data_o->name) };
+            int bin_vars[1] = { data_o->id }; 
+
+            eo->asm_vars = w_malloc(eo->expr_p->asm_var_num*sizeof(asm_vars));
+            eo->bin_vars = w_malloc(eo->expr_p->bin_var_num*sizeof(bin_vars));
+
+            memcpy(eo->asm_vars, asm_vars, sizeof(eo->asm_vars));
+            memcpy(eo->bin_vars, bin_vars, sizeof(eo->bin_vars));
+
+            node* expr_node = create_node(eo);
+            if(expr_nodes_num == 0) {
+                *expr_nodes = expr_node;
+            } else {
+                insert_node(expr_nodes, expr_node);
+            }
+            expr_nodes_num++;
+            exprs_to_read--;
         }
+
         // char** next_token = *token_pos_ptr+1;
         // size is calculated dynamically looking for binary operators
         if(is_expr_token_multi_op(*token_pos_ptr)) { 
@@ -1150,7 +1392,7 @@ code_obj* asm_read_if_statement(code_pattern* cp, char** vars, char*** token_pos
 
     int expressions_to_read = 1;
     while(expressions_to_read > 0) {
-        expression* exp = asm_read_expression(token_pos_ptr, sf);
+        expression* exp = asm_read_expression(token_pos_ptr, false, sf);
         node* exp_node = create_node(exp);
         expressions_to_read--;
 
@@ -1222,7 +1464,7 @@ code_obj* asm_read_switch_case(code_pattern* cp, char** vars, char*** tokens_pos
     add_sct_bin_words_switch_body(sf);
 
     // read expression
-    expression* exp = asm_read_expression(tokens_pos_ptr, sf);
+    expression* exp = asm_read_expression(tokens_pos_ptr, false, sf);
     node* exp_node = create_node(exp);
 
     switch_c_obj->expression_node_num = 1;
@@ -1380,7 +1622,7 @@ code_obj* asm_read_function_call(code_pattern* cp, char** vars, char*** token_po
 
     // count params(exprs)
     int params_num = 0;
-    int commas_num = count_token_from_to(*token_pos_ptr, ",", "(", ")");
+    int commas_num = count_parameters(*token_pos_ptr);
     if(commas_num == 0){
         int tokens_in_parenth = count_tokens_from_to(*token_pos_ptr, "(", ")");
         if(tokens_in_parenth > 0) params_num = 1;
@@ -1405,7 +1647,7 @@ code_obj* asm_read_function_call(code_pattern* cp, char** vars, char*** token_po
     int exp_nodes_num = 0;
     for(int i=0; i < params_num; i++){
         if(i > 0) *token_pos_ptr += 1; //comma
-        expression* exp = asm_read_expression(token_pos_ptr, sf);
+        expression* exp = asm_read_expression(token_pos_ptr, true, sf);
         node* exp_node = create_node(exp);
         if(exp_nodes_num == 0) {
             *exp_nodes = exp_node;
@@ -1435,7 +1677,8 @@ expr_obj* asm_read_function_expr(expr_obj* e_obj, char** vars, char*** token_pos
 
     // count params(exprs)
     int params_num = 0;
-    int commas_num = count_token_from_to_no_nesting(*token_pos_ptr, ",", "(", ")");
+    //int commas_num = count_token_from_to_no_nesting(*token_pos_ptr, ",", "(", ")");
+    int commas_num = count_parameters(*token_pos_ptr);
     if(commas_num == 0){
         int tokens_in_parenth = count_tokens_from_to(*token_pos_ptr, "(", ")");
         if(tokens_in_parenth > 0) params_num = 1;
@@ -1460,7 +1703,7 @@ expr_obj* asm_read_function_expr(expr_obj* e_obj, char** vars, char*** token_pos
     int exp_nodes_num = 0;
     for(int i=0; i < params_num; i++){
         if(i > 0) *token_pos_ptr += 1; //comma
-        expression* exp = asm_read_expression(token_pos_ptr, sf);
+        expression* exp = asm_read_expression(token_pos_ptr, true, sf);
         node* exp_node = create_node(exp);
         if(exp_nodes_num == 0) {
             *exp_nodes = exp_node;
@@ -1534,7 +1777,7 @@ code_obj* asm_read_assignment(code_pattern* cp, char** vars, char*** token_pos_p
     c_obj->expression_node_num = 1;
     c_obj->expression_nodes = w_malloc(sizeof(node*));
 
-    expression* exp = asm_read_expression(token_pos_ptr, sf);
+    expression* exp = asm_read_expression(token_pos_ptr, true, sf);
     *c_obj->expression_nodes = create_node(exp);
 
     return c_obj;
@@ -1567,7 +1810,7 @@ code_obj* asm_read_var_ptr(code_pattern* cp, char** vars, char*** token_pos_ptr,
         } else { print_err("Error, missing '[' at data index pointer.", -4);
                     print_token_area_details(*token_pos_ptr, MODE_ASM); }
 
-        expression* exp = asm_read_expression(token_pos_ptr, sf);
+        expression* exp = asm_read_expression(token_pos_ptr, false, sf);
         c_obj->expression_node_num = 1;
         c_obj->expression_nodes = w_malloc(sizeof(node*));
         *c_obj->expression_nodes = create_node(exp);

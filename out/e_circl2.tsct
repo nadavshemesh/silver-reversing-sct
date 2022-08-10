@@ -1,7 +1,6 @@
 ._DATA
 VAR_0	0	
 VAR_1	{ 0, 0 }	
-VAR_2	"e_circl2"	
 VAR_3	0	
 VAR_4	0	
 VAR_5	0	
@@ -29,8 +28,6 @@ VAR_26	0
 VAR_27	{ -10, -1100, -6006 }	
 VAR_28	{ -80, -1100, -6186 }	
 VAR_29	{ 97, -1100, -6196 }	
-VAR_30	"outrotr"	
-VAR_31	"e_room_2es"	
 VAR_32	0	
 VAR_33	2	
 VAR_34	1	
@@ -108,7 +105,7 @@ if(var VAR_5)
 ._SCRIPT_4
 gamevar SMACKER_X = int 0
 gamevar SMACKER_Y = int 128
-call play_2d_anim(var &VAR_2, int 0, int 0, var &VAR_0)
+call play_2d_anim("e_circl2", int 0, int 0, var &VAR_0)
 
 ._SCRIPT_5
 switch(var VAR_25)
@@ -144,7 +141,7 @@ switch(var VAR_25)
 					 {
 							call func_47(var VAR_5, int 8192)
 					}
-					call func_e6(var &VAR_30, var &VAR_31, var &VAR_15, int 1)
+					call func_e6("outro", "e_room_2", var &VAR_15, int 1)
 			}
 			break 
 }

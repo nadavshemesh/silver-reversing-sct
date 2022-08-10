@@ -2,12 +2,8 @@
 VAR_0	{ 0, 1157677056, 1145241600, -979134464 }	
 VAR_1	{ 1158430720, 1145241600, -979765248 }	
 VAR_2	0	
-VAR_3	"VERDANTE"	
-VAR_4	"gorgback"	
 VAR_5	{ 0, 0, 1, -1, 8, 0, 1, 2, 2, 2, 2, -1, 4, 0, 9, 1, 5, 1, 50, 100, 6, 1, 10, 40, -1, 7, 1, 1, -1 }	
 VAR_6	{ 0, 2, 300, 350, 8, 1, 1, 2, 3, 3, -1, 4, 0, 9, 1, 5, 1, 200, 400, 6, 2, 10, 40, 40, -1, 7, 1, 1, -1 }	
-VAR_7	"treesprt"	
-VAR_8	"mauler"	
 VAR_9	0	
 VAR_10	0	
 VAR_11	0	
@@ -36,7 +32,7 @@ VAR_33	{ -997744640, 1145241600, -978776064 }
 VAR_34	{ VAR_18, VAR_19, VAR_20, VAR_21, VAR_22, VAR_23, VAR_24, VAR_25, VAR_26, VAR_27, VAR_28, VAR_29, VAR_30, VAR_31, VAR_32, VAR_33 }
 
 ._on_load
-if(call play_bgm(var &VAR_3))
+if(call play_bgm("VERDANTE"))
  {
 		call func_114(int 1)
 		call func_5a(int -1)
@@ -46,7 +42,7 @@ call load_sound_set(int 68)
 call play_loaded_sound(int 1, int -1, int 68, var &VAR_1)
 gamevar SMACKER_X = int 72
 gamevar SMACKER_Y = int 336
-call play_2d_anim(var &VAR_4, int 1, int 1, int 0)
+call play_2d_anim("gorgback", int 1, int 1, int 0)
 var VAR_2 = call play_loaded_sound(int 2, int -1, int 17, int 0)
 call set_sound_volume(var VAR_2, int 14)
 if(gamevar is_room_cleared)
@@ -110,8 +106,8 @@ switch(var VAR_10)
 var VAR_9 ++ 
 
 ._SCRIPT_4
-call load_char(var &VAR_7)
-call load_char(var &VAR_8)
+call load_char("treesprt")
+call load_char("mauler")
 
 ._SCRIPT_5
 

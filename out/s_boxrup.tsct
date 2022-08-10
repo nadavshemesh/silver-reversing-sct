@@ -5,7 +5,6 @@ VAR_2	0
 VAR_3	0	
 VAR_4	0	
 VAR_5	-1	
-VAR_6	"btreasure9"	
 VAR_7	{ 1301, -1100, -3612 }	
 VAR_8	{ 1868717939, 1886745208, 0 }	
 VAR_9	{ 1801, -1100, -2024 }	
@@ -15,7 +14,6 @@ VAR_12	0
 VAR_13	{ 1216, -1100, -3146 }	
 VAR_14	{ 1414, -1100, -3573, 2317, -1100, -2799, 1516, -1100, -1894, 673, -1100, -2738 }	
 VAR_15	{ 14, 17, 4, VAR_14, 1, 17, 4, VAR_14, 1, 30, 143, 29, VAR_12, 11, 100, 200, 7, 8 }	
-VAR_16	"btreasure"	
 VAR_17	0	
 VAR_18	0	
 VAR_19	0	
@@ -126,7 +124,7 @@ call freeze_enemy(var VAR_11)
 call func_50(var VAR_11, int 8192)
 call play_char_ai_script(var VAR_11, var &VAR_15)
 var VAR_12 = call get_char_handle(int 65536)
-var VAR_10 = call create_char(var &VAR_9, var &VAR_16, int 215, int 14)
+var VAR_10 = call create_char(var &VAR_9, "btreasure", int 215, int 14)
 call add_item_to_char(var VAR_10, int 72, int 1, int 0)
 call add_item_to_char(var VAR_10, int 38, int 1, int 0)
 call add_item_to_char(var VAR_10, int 32, int 1, int 0)
@@ -149,7 +147,7 @@ call play_2d_anim(var &VAR_8, int 1, int 0, int 0)
 var VAR_0 = call is_char_handle_in_level(int 1507337)
 if(var ! VAR_0)
  {
-		var VAR_0 = call create_char(var VAR_1, var &VAR_6, var VAR_2, int 14)
+		var VAR_0 = call create_char(var VAR_1, "btreasure9", var VAR_2, int 14)
 		call func_aa(var VAR_0)
 }
 else

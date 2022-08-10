@@ -38,7 +38,6 @@ VAR_35	0
 VAR_36	0	
 VAR_37	0	
 VAR_38	0	
-VAR_39	"random_rain_fx: Rain SFX not initialised! See Marc"	
 VAR_40	0	
 VAR_41	0	
 VAR_42	0	
@@ -48,19 +47,13 @@ VAR_45	0
 VAR_46	0	
 VAR_47	0	
 VAR_48	{ 0, 0 }	
-VAR_49	"it's_raining"	
 VAR_50	{ -1260, 815, 2180 }	
 VAR_51	{ -190, 815, -290 }	
-VAR_52	"RAIN"	
 VAR_53	{ 765, -924, -2110 }	
 VAR_54	{ 951, -924, -2572 }	
 VAR_55	{ 612, -924, -2562 }	
 VAR_56	0	
 VAR_57	0	
-VAR_58	"muscles"	
-VAR_59	"dick"	
-VAR_60	"longjohn"	
-VAR_61	"nvillager"
 
 ._on_load
 call load_sound_set(int 81)
@@ -123,12 +116,12 @@ switch(gamevar room_state)
 }
 
 ._SCRIPT_3
-call load_char(var &VAR_58)
-call load_char(var &VAR_59)
-call load_char(var &VAR_60)
-call func_b8(int 93)
-call func_b8(int 91)
-var VAR_17 = call create_char(var &VAR_53, var &VAR_61, int 345, int 13)
+call load_char("muscles")
+call load_char("dick")
+call load_char("longjohn")
+call load_item(int 93)
+call load_item(int 91)
+var VAR_17 = call create_char(var &VAR_53, "nvillager", int 345, int 13)
 var VAR_18 = call create_enemy(int 30, int 0, var &VAR_54, int 342)
 var VAR_19 = call create_enemy(int 31, int 0, var &VAR_55, int 350)
 call func_46(var VAR_18, int 0)
@@ -191,7 +184,7 @@ switch(var VAR_56)
 			}
 			else
 			 {
-					var VAR_20 = call func_96(int 28, int 0, int 1, int 0)
+					var VAR_20 = call create_enemy_through_door(int 28, int 0, int 1, int 0)
 					call set_char_running(var VAR_20)
 					call func_19(var VAR_20, call get_selected_hero())
 					var VAR_56 ++ 
@@ -245,8 +238,8 @@ else
 ._SCRIPT_9
 
 ._SCRIPT_10
-call log(var &VAR_49)
-call play_3d_fx(var &VAR_52, var &VAR_50, var &VAR_51, int 0)
+call log("it's_raining")
+call play_3d_fx("RAIN", var &VAR_50, var &VAR_51, int 0)
 execute SCRIPT_11
 
 ._SCRIPT_11
@@ -260,7 +253,7 @@ var VAR_31 = int 1
 ._SCRIPT_12
 if(var ! VAR_31)
  {
-		call log(var &VAR_39)
+		call log("random_rain_fx: Rain SFX not initialised! See Marc")
 		exit_script 
 }
 switch(var VAR_35)

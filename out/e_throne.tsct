@@ -21,44 +21,17 @@ VAR_18	0
 VAR_19	{ -675, -1350, -2000 }	
 VAR_20	{ -509, -1350, -2178 }	
 VAR_21	{ -352, -1350, -2207 }	
-VAR_22	"njennifer"	
-VAR_23	"nbeth"	
-VAR_24	"nbonnie"	
 VAR_25	{ -189, -1350, -1874 }	
 VAR_26	{ -235, -1350, -954 }	
 VAR_27	{ -325, -1350, -1497 }	
 VAR_28	{ 333, -1349, -1557 }	
 VAR_29	0	
-VAR_30	"stepb"	
 VAR_31	0	
-VAR_32	"come"	
 VAR_33	0	
-VAR_34	"startle"	
 VAR_35	{ -25, -1350, -1774 }	
 VAR_36	{ -84, -1350, -1582 }	
 VAR_37	{ -86, -1350, -116, 85, -1350, 61 }	
 VAR_38	0	
-VAR_39	"force hero1 to stand"	
-VAR_40	"force hero2 to stand"	
-VAR_41	"now it's time for a cut scene"	
-VAR_42	"spindown"	
-VAR_43	"we'll never get here"	
-VAR_44	"Not started dialog"	
-VAR_45	"Sekune dialog"	
-VAR_46	"S_JENDVD"	
-VAR_47	"ACT_1"	
-VAR_48	"Jug dialog"	
-VAR_49	"J_JENDVD"	
-VAR_50	"ACT_1"	
-VAR_51	"Vivienne dialog"	
-VAR_52	"V_JENDVD"	
-VAR_53	"ACT_1"	
-VAR_54	"Chiaro dialog"	
-VAR_55	"H_JENDVD"	
-VAR_56	"ACT_1"	
-VAR_57	"Cagen dialog"	
-VAR_58	"C_JENDVD"	
-VAR_59	"ACT_1"	
 VAR_60	0	
 VAR_61	1	
 VAR_62	2	
@@ -98,9 +71,9 @@ gamevar room_state = int 0
 var VAR_12 = call func_e8(var &VAR_11, int 0)
 call set_input_system(int 2)
 execute SCRIPT_5
-var VAR_16 = call create_char(var &VAR_19, var &VAR_22, int 60, int 13)
-var VAR_17 = call create_char(var &VAR_21, var &VAR_23, int 20, int 13)
-var VAR_18 = call create_char(var &VAR_20, var &VAR_24, int 0, int 13)
+var VAR_16 = call create_char(var &VAR_19, "njennifer", int 60, int 13)
+var VAR_17 = call create_char(var &VAR_21, "nbeth", int 20, int 13)
+var VAR_18 = call create_char(var &VAR_20, "nbonnie", int 0, int 13)
 call reset_local_timer()
 gamevar outro_active = int 1
 
@@ -115,14 +88,14 @@ switch(var VAR_14)
 					call apply_effect_on_char(gamevar char_gen_fx_scripts, int 18, int 0, var VAR_0)
 					if(var VAR_9)
 					 {
-							call log(var &VAR_39)
+							call log("force hero1 to stand")
 							call char_teleport_to_pos(var VAR_9, var &VAR_27, int 300)
 							call char_stop(var VAR_9)
 							call set_char_running(var VAR_9)
 					}
 					if(var VAR_10)
 					 {
-							call log(var &VAR_40)
+							call log("force hero2 to stand")
 							call char_teleport_to_pos(var VAR_10, var &VAR_28, int 40)
 							call char_stop(var VAR_10)
 							call set_char_running(var VAR_10)
@@ -149,7 +122,7 @@ switch(var VAR_14)
 		case 1
 			if(var VAR_15 > int 100)
 			 {
-					call log(var &VAR_41)
+					call log("now it's time for a cut scene")
 					var VAR_15 = int 0
 					var VAR_14 ++ 
 			}
@@ -157,7 +130,7 @@ switch(var VAR_14)
 		case 2
 			var VAR_38 = var VAR_15
 			var VAR_14 ++ 
-			call func_cb(var &VAR_42)
+			call func_cb("spindown")
 			gamevar gPlayOutro = int 1
 			break 
 		case 3
@@ -188,34 +161,34 @@ switch(var VAR_14)
 			switch(var VAR_3)
 			 {
 					case 1
-						call log(var &VAR_43)
+						call log("we'll never get here")
 						break 
 					case 4
-						call log(var &VAR_44)
+						call log("Not started dialog")
 						break 
 					case 5
-						call log(var &VAR_45)
-						call start_dialog(var &VAR_46, var &VAR_47)
+						call log("Sekune dialog")
+						call start_dialog("S_JENDVD", "ACT_1")
 						var VAR_14 ++ 
 						break 
 					case 6
-						call log(var &VAR_48)
-						call start_dialog(var &VAR_49, var &VAR_50)
+						call log("Jug dialog")
+						call start_dialog("J_JENDVD", "ACT_1")
 						var VAR_14 ++ 
 						break 
 					case 7
-						call log(var &VAR_51)
-						call start_dialog(var &VAR_52, var &VAR_53)
+						call log("Vivienne dialog")
+						call start_dialog("V_JENDVD", "ACT_1")
 						var VAR_14 ++ 
 						break 
 					case 8
-						call log(var &VAR_54)
-						call start_dialog(var &VAR_55, var &VAR_56)
+						call log("Chiaro dialog")
+						call start_dialog("H_JENDVD", "ACT_1")
 						var VAR_14 ++ 
 						break 
 					case 9
-						call log(var &VAR_57)
-						call start_dialog(var &VAR_58, var &VAR_59)
+						call log("Cagen dialog")
+						call start_dialog("C_JENDVD", "ACT_1")
 						var VAR_14 ++ 
 						break 
 			}
@@ -288,9 +261,9 @@ if(var VAR_13)
 }
 
 ._SCRIPT_5
-var VAR_29 = call load_anim(var &VAR_30)
-var VAR_31 = call load_anim(var &VAR_32)
-var VAR_33 = call load_anim(var &VAR_34)
+var VAR_29 = call load_anim("stepb")
+var VAR_31 = call load_anim("come")
+var VAR_33 = call load_anim("startle")
 
 ._SCRIPT_6
 call func_dd()

@@ -13,13 +13,10 @@ VAR_10	{ -31, -1857, -1437 }
 VAR_11	{ -360, -1857, -1126 }	
 VAR_12	{ 0, 0, 0, 1, -1, 8, 1, 1, 6, 55, 55, -1, 4, 0, 9, 1, 5, 1, 50, 150, 7, 1, 4, -1 }	
 VAR_13	{ 0, 2, 300, 300, 8, 1, 1, 6, 189, 189, -1, 4, 0, 9, 1, 5, 1, 50, 150, 7, 1, 4, -1 }	
-VAR_14	"SEWERPT1"	
-VAR_15	"spider"	
-VAR_16	"ratrptr"	
 VAR_17	0
 
 ._on_load
-call play_bgm(var &VAR_14)
+call play_bgm("SEWERPT1")
 call load_sound_set(int 38)
 switch(gamevar room_state)
  {
@@ -59,8 +56,8 @@ if(gamevar script_time > var VAR_17)
 }
 
 ._SCRIPT_4
-call load_char(var &VAR_15)
-call load_char(var &VAR_16)
+call load_char("spider")
+call load_char("ratrptr")
 var VAR_2 = call create_enemy(int 45, int 0, var &VAR_7, int 290)
 var VAR_3 = call create_enemy(int 45, int 1, var &VAR_8, int 40)
 call func_106(var VAR_2, int 9, int 5, var &VAR_7)

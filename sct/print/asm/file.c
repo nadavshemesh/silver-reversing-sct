@@ -247,9 +247,11 @@ void write_asm_data_section(sct_f* sf) {
     data_obj** section = sf->data_section;
     for(int i=0; i < size; i++) {
         data_obj* data_o = section[i];
-        write_asm_data_object(data_o, sf);
-        if(i < size-1) fprintf(sf->out_file, "\t");
-        if(i%1 == 0) fprintf(sf->out_file, "\n");
+        if(!data_o->ignore) {
+            write_asm_data_object(data_o, sf);
+            if(i < size-1) fprintf(sf->out_file, "\t");
+            if(i%1 == 0) fprintf(sf->out_file, "\n");
+        }
     }
 }
 

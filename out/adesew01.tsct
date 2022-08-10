@@ -2,18 +2,18 @@
 VAR_0	0	
 VAR_1	0	
 VAR_2	{ -500, 542, 2534 }	
-VAR_3	0	
-VAR_4	0	
-VAR_5	0	
-VAR_6	0	
-VAR_7	0	
-VAR_8	0	
-VAR_9	0	
-VAR_10	0	
-VAR_11	0	
-VAR_12	0	
-VAR_13	0	
-VAR_14	0	
+lesser_gimp_0	0	
+lesser_gimp_1	0	
+greater_gimpv_2	0	
+greater_gimpv_3	0	
+greater_gimpv_4	0	
+fade_greater_gimpg_5	0	
+fade_greater_gimpg_6	0	
+spider_7	0	
+spider_8	0	
+spider_9	0	
+drop_lesser_gimp_11	0	
+drop_lesser_gimp_10	0	
 VAR_15	{ 1491, 1292, 3286 }	
 VAR_16	{ 903, 1292, 3318 }	
 VAR_17	{ 1473, 541, 2196 }	
@@ -84,17 +84,17 @@ if(gamevar script_time > var VAR_35)
 call load_char("skaven")
 call load_char("skavenb")
 call load_char("spider")
-var VAR_3 = call create_enemy(int 45, int 0, var &VAR_15, int 180)
-var VAR_4 = call create_enemy(int 45, int 1, var &VAR_16, int 130)
-gamevar script_object = var VAR_3
+var lesser_gimp_0 = call create_enemy(int 45, int 0, var &VAR_15, int 180)
+var lesser_gimp_1 = call create_enemy(int 45, int 1, var &VAR_16, int 130)
+gamevar script_object = var lesser_gimp_0
 gamevar *character_stats_p+15 = int 10000
-gamevar script_object = var VAR_4
+gamevar script_object = var lesser_gimp_1
 gamevar *character_stats_p+15 = int 10000
-call func_106(var VAR_3, int 9, int 5, var &VAR_15)
-call func_106(var VAR_4, int 9, int 5, var &VAR_16)
-var VAR_5 = call create_enemy(int 46, int 0, var &VAR_17, int 140)
-var VAR_6 = call create_enemy(int 46, int 1, var &VAR_18, int 110)
-var VAR_7 = call create_enemy(int 46, int 2, var &VAR_19, int 65)
+call func_106(var lesser_gimp_0, int 9, int 5, var &VAR_15)
+call func_106(var lesser_gimp_1, int 9, int 5, var &VAR_16)
+var greater_gimpv_2 = call create_enemy(int 46, int 0, var &VAR_17, int 140)
+var greater_gimpv_3 = call create_enemy(int 46, int 1, var &VAR_18, int 110)
+var greater_gimpv_4 = call create_enemy(int 46, int 2, var &VAR_19, int 65)
 var VAR_1 = call func_9a(var &VAR_2, int 98, int 0, int 0)
 var VAR_0 = int 0
 
@@ -104,16 +104,16 @@ switch(var VAR_0)
 		case 0
 			if(call is_char_handle_in_level(int 10551298))
 			 {
-					if(call func_88(var VAR_7))
+					if(call func_88(var greater_gimpv_4))
 					 {
-							var VAR_8 = call create_enemy(int 182, int 3, var &VAR_20, int 90)
-							var VAR_9 = call create_enemy(int 182, int 4, var &VAR_21, int 90)
-							call freeze_enemy(var VAR_8)
-							call freeze_enemy(var VAR_9)
-							call play_char_ai_script(var VAR_8, var &VAR_29)
-							call play_char_ai_script(var VAR_9, var &VAR_30)
-							call set_char_init_state(var VAR_8, int 13)
-							call set_char_init_state(var VAR_9, int 13)
+							var fade_greater_gimpg_5 = call create_enemy(int 182, int 3, var &VAR_20, int 90)
+							var fade_greater_gimpg_6 = call create_enemy(int 182, int 4, var &VAR_21, int 90)
+							call freeze_enemy(var fade_greater_gimpg_5)
+							call freeze_enemy(var fade_greater_gimpg_6)
+							call play_char_ai_script(var fade_greater_gimpg_5, var &VAR_29)
+							call play_char_ai_script(var fade_greater_gimpg_6, var &VAR_30)
+							call set_char_init_state(var fade_greater_gimpg_5, int 13)
+							call set_char_init_state(var fade_greater_gimpg_6, int 13)
 							var VAR_0 ++ 
 					}
 			}
@@ -125,12 +125,12 @@ switch(var VAR_0)
 		case 1
 			if(call ! is_char_handle_in_level(int 10551296)&&call ! is_char_handle_in_level(int 10551297)&&call ! is_char_handle_in_level(int 10551298)&&call ! is_char_handle_in_level(int 10551299)&&call ! is_char_handle_in_level(int 10551300))
 			 {
-					var VAR_10 = call create_enemy(int 70, int 0, var &VAR_22, int 120)
-					var VAR_11 = call create_enemy(int 70, int 1, var &VAR_23, int 80)
-					var VAR_12 = call create_enemy(int 70, int 2, var &VAR_24, int 95)
-					call func_19(var VAR_10, call get_selected_hero())
-					call func_19(var VAR_11, call get_selected_hero())
-					call func_19(var VAR_12, call get_selected_hero())
+					var spider_7 = call create_enemy(int 70, int 0, var &VAR_22, int 120)
+					var spider_8 = call create_enemy(int 70, int 1, var &VAR_23, int 80)
+					var spider_9 = call create_enemy(int 70, int 2, var &VAR_24, int 95)
+					call func_19(var spider_7, call get_selected_hero())
+					call func_19(var spider_8, call get_selected_hero())
+					call func_19(var spider_9, call get_selected_hero())
 					var VAR_0 ++ 
 			}
 			break 
@@ -139,14 +139,14 @@ switch(var VAR_0)
 			 {
 					if(call ! is_char_handle_in_level(int 10485760)&&call ! is_char_handle_in_level(int 10485761))
 					 {
-							var VAR_14 = call create_enemy(int 113, int 3, var &VAR_26, int 194)
-							call func_106(var VAR_14, int 9, int 5, var &VAR_28)
-							gamevar script_object = var VAR_14
+							var drop_lesser_gimp_10 = call create_enemy(int 113, int 3, var &VAR_26, int 194)
+							call func_106(var drop_lesser_gimp_10, int 9, int 5, var &VAR_28)
+							gamevar script_object = var drop_lesser_gimp_10
 							gamevar *character_stats_p+15 = int 10000
 					}
-					var VAR_13 = call create_enemy(int 113, int 2, var &VAR_25, int 310)
-					call func_106(var VAR_13, int 9, int 5, var &VAR_27)
-					gamevar script_object = var VAR_13
+					var drop_lesser_gimp_11 = call create_enemy(int 113, int 2, var &VAR_25, int 310)
+					call func_106(var drop_lesser_gimp_11, int 9, int 5, var &VAR_27)
+					gamevar script_object = var drop_lesser_gimp_11
 					gamevar *character_stats_p+15 = int 10000
 					var VAR_0 ++ 
 			}

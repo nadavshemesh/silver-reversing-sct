@@ -3,8 +3,8 @@ VAR_0	0
 VAR_1	{ -8499, 2894, -16052 }	
 VAR_2	{ 0, 0, 1, 0, -1, 8, 1, 4, 0, 9, 0, 1, 4, 102, 103, -1, 2, 4, 3, 2, 5, 0, 50, 6, 1, 7, 1, 4, -1 }	
 VAR_3	{ 11, 200, 300, 0, -8499, 2894, -16552, 11, 200, 300, 0, -8499, 2894, -16052, 11, 200, 300, 0, -8499, 2894, -15552, 7, 8 }	
-VAR_5	0	
-VAR_6	{ 0, 0 }	
+bezerk_imp_1	0	
+horn_impefs_0	{ 0, 0 }	
 VAR_7	0	
 VAR_8	0	
 VAR_9	0	
@@ -146,11 +146,11 @@ else
 }
 
 ._SCRIPT_6
-var VAR_6 = call create_enemy(int 108, int 3, var &VAR_1, int 270)
-call freeze_enemy(var VAR_6)
-call func_50(var VAR_6, int 10249)
-call play_char_ai_script(var VAR_6, var &VAR_3)
-call func_10f(var VAR_6, int 2)
+var horn_impefs_0 = call create_enemy(int 108, int 3, var &VAR_1, int 270)
+call freeze_enemy(var horn_impefs_0)
+call func_50(var horn_impefs_0, int 10249)
+call play_char_ai_script(var horn_impefs_0, var &VAR_3)
+call func_10f(var horn_impefs_0, int 2)
 
 ._SCRIPT_7
 execute SCRIPT_6
@@ -163,9 +163,9 @@ gamevar *character_movement_p+60 = int 1
 gamevar *character_movement_p+53 = int 0
 
 ._SCRIPT_9
-var VAR_5 = call create_enemy(int 103, int 1, var &VAR_22, int 270)
-call freeze_enemy(var VAR_5)
-call func_10f(var VAR_5, int 2)
+var bezerk_imp_1 = call create_enemy(int 103, int 1, var &VAR_22, int 270)
+call freeze_enemy(var bezerk_imp_1)
+call func_10f(var bezerk_imp_1, int 2)
 
 ._SCRIPT_10
 
@@ -233,7 +233,7 @@ switch(var VAR_25)
 					var VAR_25 ++ 
 					if(call is_char_handle_in_level(int 917507))
 					 {
-							call func_106(var VAR_6, int 3, int 1, var &VAR_2)
+							call func_106(var horn_impefs_0, int 3, int 1, var &VAR_2)
 					}
 			}
 			break 
@@ -246,7 +246,7 @@ switch(var VAR_27)
 		case 0
 			if(call is_char_handle_in_level(int 917507))
 			 {
-					if(call ! func_a7(var VAR_6, int 3))
+					if(call ! func_a7(var horn_impefs_0, int 3))
 					 {
 							var VAR_27 ++ 
 							var VAR_28 = int 0
@@ -271,7 +271,7 @@ switch(var VAR_27)
 		case 1
 			if(var VAR_28 > int 60)
 			 {
-					call func_29(var VAR_5)
+					call func_29(var bezerk_imp_1)
 					var VAR_27 ++ 
 					var VAR_28 = int 0
 			}
@@ -279,8 +279,8 @@ switch(var VAR_27)
 		case 2
 			if(var VAR_28 > int 180)
 			 {
-					call func_f(var VAR_5, int 8)
-					call set_char_template(var VAR_5, int 103)
+					call func_f(var bezerk_imp_1, int 8)
+					call set_char_template(var bezerk_imp_1, int 103)
 					var VAR_27 ++ 
 					var VAR_28 = int 0
 			}
@@ -319,18 +319,18 @@ switch(var VAR_13)
 		case 20
 			if(var VAR_14 > int 180)
 			 {
-					call freeze_enemy(var VAR_6)
+					call freeze_enemy(var horn_impefs_0)
 					call log("Findpath to edge...")
-					call char_walk_to_pos(var VAR_6, var &VAR_15)
+					call char_walk_to_pos(var horn_impefs_0, var &VAR_15)
 					var VAR_13 ++ 
 					var VAR_14 = int 0
 			}
 			break 
 		case 21
-			if(call is_char_standing(var VAR_6))
+			if(call is_char_standing(var horn_impefs_0))
 			 {
 					call log("Put horn away...")
-					call func_132(var VAR_6, int 87)
+					call func_132(var horn_impefs_0, int 87)
 					var VAR_13 ++ 
 					var VAR_14 = int 0
 			}
@@ -339,7 +339,7 @@ switch(var VAR_13)
 			if(var VAR_14 > int 120)
 			 {
 					call log("Turn imp...")
-					call func_36(var VAR_6, int -8770, int 1201, int -16052)
+					call func_36(var horn_impefs_0, int -8770, int 1201, int -16052)
 					var VAR_13 ++ 
 					var VAR_14 = int 0
 			}
@@ -348,7 +348,7 @@ switch(var VAR_13)
 			if(var VAR_14 > int 120)
 			 {
 					call log("Jump little imp...")
-					call func_29(var VAR_6)
+					call func_29(var horn_impefs_0)
 					var VAR_13 ++ 
 					var VAR_14 = int 0
 			}
@@ -357,7 +357,7 @@ switch(var VAR_13)
 			if(var VAR_14 > int 180)
 			 {
 					call log("Start hand_to_hand ai...")
-					call func_50(var VAR_6, int 129)
+					call func_50(var horn_impefs_0, int 129)
 					var VAR_13 ++ 
 					var VAR_14 = int 0
 			}

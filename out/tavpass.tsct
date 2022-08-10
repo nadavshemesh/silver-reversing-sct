@@ -17,8 +17,8 @@ VAR_14	{ -479, -924, -1363 }
 VAR_15	{ -433, -924, -1591 }	
 VAR_16	0	
 VAR_17	0	
-VAR_18	0	
-VAR_19	0	
+muscles_0	0	
+dick_1	0	
 VAR_20	0	
 VAR_21	{ 15, 0, 657, -924, -1115, 16, VAR_2, 1, 3, VAR_22, 0, 3, VAR_23, 0, 8 }	
 VAR_22	"unc_fall"	
@@ -122,13 +122,13 @@ call load_char("longjohn")
 call load_item(int 93)
 call load_item(int 91)
 var VAR_17 = call create_char(var &VAR_53, "nvillager", int 345, int 13)
-var VAR_18 = call create_enemy(int 30, int 0, var &VAR_54, int 342)
-var VAR_19 = call create_enemy(int 31, int 0, var &VAR_55, int 350)
-call func_46(var VAR_18, int 0)
-call func_46(var VAR_19, int 0)
+var muscles_0 = call create_enemy(int 30, int 0, var &VAR_54, int 342)
+var dick_1 = call create_enemy(int 31, int 0, var &VAR_55, int 350)
+call func_46(var muscles_0, int 0)
+call func_46(var dick_1, int 0)
 call set_char_init_state(var VAR_17, int 13)
 call play_char_ai_script(var VAR_17, var &VAR_21)
-call add_item_to_char(var VAR_19, int 42, int 1, int 0)
+call add_item_to_char(var dick_1, int 42, int 1, int 0)
 gamevar script_object = var VAR_17
 gamevar *character_movement_p+60 = int 1
 gamevar HP = int 100000
@@ -151,10 +151,10 @@ switch(var VAR_56)
 			}
 			else
 			 {
-					call set_char_init_state(var VAR_18, int 13)
-					call set_char_init_state(var VAR_19, int 13)
-					call play_char_ai_script(var VAR_18, var &VAR_28)
-					call play_char_ai_script(var VAR_19, var &VAR_25)
+					call set_char_init_state(var muscles_0, int 13)
+					call set_char_init_state(var dick_1, int 13)
+					call play_char_ai_script(var muscles_0, var &VAR_28)
+					call play_char_ai_script(var dick_1, var &VAR_25)
 					var VAR_56 ++ 
 			}
 			break 

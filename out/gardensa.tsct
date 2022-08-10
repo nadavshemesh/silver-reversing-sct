@@ -9,11 +9,11 @@ VAR_8	{ -8000, 1400, 4600 }
 VAR_9	{ 2497, 1400, -1440 }	
 VAR_10	{ 1464815187, 0 }	
 VAR_11	0	
-VAR_13	0	
+sentry_swordres_1	0	
 VAR_14	{ 3377, -1506, -1322 }	
-VAR_15	0	
+sentry_swordres_2	0	
 VAR_16	{ 4296, -1506, -671, 0, 1263, -656, -2285 }	
-VAR_17	0	
+sentryg_3	0	
 VAR_18	{ 728, -656, -3539 }	
 VAR_19	0	
 VAR_20	{ 0, 0 }	
@@ -22,9 +22,9 @@ VAR_22	{ 113, -1506, -487, -1501, -1506, -1433, 2958, 500, 1611 }
 VAR_23	{ -1501, -1506, -2332 }	
 VAR_24	{ -1465, -1506, -2468 }	
 VAR_25	{ -313, -1506, -1993 }	
-VAR_26	0	
-VAR_27	0	
-VAR_28	0	
+grow_wamper_0	0	
+sentry_swordres_4	0	
+leopard_5	0	
 VAR_29	{ 0, 3375, -1506, -232, 3, VAR_30, 0, 0, 3446, -1506, -1410, 3, VAR_31, 0, 0, 4439, -1506, -1470, 3, VAR_32, 0, 0, 4361, -1506, -314, 3, VAR_33, 0, 7, 8 }	
 VAR_30	"lookout"	
 VAR_31	"lookout"	
@@ -172,7 +172,7 @@ switch(var VAR_20)
 		case 1
 			if(call func_8c(int 10420224))
 			 {
-					var VAR_26 = call create_enemy(int 5, int 0, var &VAR_25, int 0)
+					var grow_wamper_0 = call create_enemy(int 5, int 0, var &VAR_25, int 0)
 					var VAR_20 ++ 
 			}
 			break 
@@ -213,34 +213,34 @@ switch(var VAR_20)
 }
 
 ._SCRIPT_8
-var VAR_13 = call create_enemy(int 57, int 1, var &VAR_14, int 355)
-var VAR_15 = call create_enemy(int 57, int 2, var &VAR_16, int 20)
-var VAR_17 = call create_enemy(int 56, int 4, var &VAR_18, int 0)
-var VAR_27 = call create_enemy(int 57, int 0, var &VAR_24, int 15)
-var VAR_28 = call create_enemy(int 72, int 0, var &VAR_23, int 25)
-call freeze_enemy(var VAR_28)
-call freeze_enemy(var VAR_27)
-call add_item_to_char(var VAR_15, int 85, int 1638913, int 0)
-call add_item_to_char(var VAR_27, int 85, int 1638913, int 0)
-gamevar script_object = var VAR_13
+var sentry_swordres_1 = call create_enemy(int 57, int 1, var &VAR_14, int 355)
+var sentry_swordres_2 = call create_enemy(int 57, int 2, var &VAR_16, int 20)
+var sentryg_3 = call create_enemy(int 56, int 4, var &VAR_18, int 0)
+var sentry_swordres_4 = call create_enemy(int 57, int 0, var &VAR_24, int 15)
+var leopard_5 = call create_enemy(int 72, int 0, var &VAR_23, int 25)
+call freeze_enemy(var leopard_5)
+call freeze_enemy(var sentry_swordres_4)
+call add_item_to_char(var sentry_swordres_2, int 85, int 1638913, int 0)
+call add_item_to_char(var sentry_swordres_4, int 85, int 1638913, int 0)
+gamevar script_object = var sentry_swordres_1
 gamevar *character_stats_p+15 = int 1900
-call set_char_init_state(var VAR_13, int 13)
-call play_char_ai_script(var VAR_13, var &VAR_29)
-call func_106(var VAR_13, int 1, int 0, int 2)
-call func_50(var VAR_13, int 131)
-gamevar script_object = var VAR_15
+call set_char_init_state(var sentry_swordres_1, int 13)
+call play_char_ai_script(var sentry_swordres_1, var &VAR_29)
+call func_106(var sentry_swordres_1, int 1, int 0, int 2)
+call func_50(var sentry_swordres_1, int 131)
+gamevar script_object = var sentry_swordres_2
 gamevar *character_stats_p+15 = int 1900
-call set_char_init_state(var VAR_15, int 13)
-call play_char_ai_script(var VAR_15, var &VAR_34)
-call func_106(var VAR_15, int 1, int 0, int 2)
-call func_50(var VAR_15, int 131)
+call set_char_init_state(var sentry_swordres_2, int 13)
+call play_char_ai_script(var sentry_swordres_2, var &VAR_34)
+call func_106(var sentry_swordres_2, int 1, int 0, int 2)
+call func_50(var sentry_swordres_2, int 131)
 call load_char("wamper")
-gamevar script_object = var VAR_17
+gamevar script_object = var sentryg_3
 gamevar *character_stats_p+15 = int 1000
-call set_char_init_state(var VAR_17, int 13)
-call play_char_ai_script(var VAR_17, var &VAR_39)
-call func_106(var VAR_17, int 1, int 0, int 2)
-call func_50(var VAR_17, int 131)
+call set_char_init_state(var sentryg_3, int 13)
+call play_char_ai_script(var sentryg_3, var &VAR_39)
+call func_106(var sentryg_3, int 1, int 0, int 2)
+call func_50(var sentryg_3, int 131)
 
 ._SCRIPT_9
 var VAR_11 = call load_anim("lookout")

@@ -20,11 +20,11 @@ VAR_18	{ 140, 2135, 2640 }
 VAR_19	{ 2950, 2135, -2525 }	
 VAR_21	0	
 VAR_22	{ 0, 0 }	
-VAR_24	0	
-VAR_25	0	
+triplick_lizman_0	0	
+triplick_lizman_1	0	
 VAR_26	{ -2684, -10, -284 }	
 VAR_27	{ -2697, -10, -741 }	
-VAR_28	{ 9, VAR_25, 11, 200, 300, 7, 8 }	
+VAR_28	{ 9, triplick_lizman_1, 11, 200, 300, 7, 8 }	
 VAR_29	{ 7, 8 }	
 VAR_31	0	
 VAR_32	0	
@@ -238,15 +238,15 @@ var VAR_32 ++
 ._SCRIPT_4
 execute SCRIPT_15
 call load_sound_set(int 0)
-var VAR_24 = call create_enemy(int 186, int 1, var &VAR_26, int 146)
-var VAR_25 = call create_enemy(int 186, int 2, var &VAR_27, int 0)
-call freeze_enemy(var VAR_24)
-call freeze_enemy(var VAR_25)
-call func_50(var VAR_24, int 8192)
-call func_50(var VAR_25, int 8192)
-call play_char_ai_script(var VAR_24, var &VAR_28)
-call play_char_ai_script(var VAR_25, var &VAR_29)
-call add_item_to_char(var VAR_24, int 45, int 1, int 0)
+var triplick_lizman_0 = call create_enemy(int 186, int 1, var &VAR_26, int 146)
+var triplick_lizman_1 = call create_enemy(int 186, int 2, var &VAR_27, int 0)
+call freeze_enemy(var triplick_lizman_0)
+call freeze_enemy(var triplick_lizman_1)
+call func_50(var triplick_lizman_0, int 8192)
+call func_50(var triplick_lizman_1, int 8192)
+call play_char_ai_script(var triplick_lizman_0, var &VAR_28)
+call play_char_ai_script(var triplick_lizman_1, var &VAR_29)
+call add_item_to_char(var triplick_lizman_0, int 45, int 1, int 0)
 call load_char("bat")
 gamevar *scene_info_p+3 = int 16
 

@@ -9,6 +9,7 @@
 #include "sct\game\gamevar.h"
 #include "sct\game\gamefunc.h"
 #include "sct\structure\object.h"
+#include "sct\catalog.h"
 
 #define MAX_VAR_NAME 20
 #define MAX_TOKENS_PER_EXPRESSION 50

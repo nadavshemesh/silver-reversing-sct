@@ -21,11 +21,11 @@ VAR_41	{ 2575, 1150, -5350 }
 VAR_42	{ 3775, 1150, -4050 }	
 VAR_44	0	
 VAR_45	{ 0, 0, 0 }	
-VAR_46	0	
-VAR_47	0	
-VAR_48	{ 0, 0 }	
-VAR_49	0	
-VAR_50	0	
+lieutenant_0	0	
+lieutenant_1	0	
+captain_2	{ 0, 0 }	
+archer_3	0	
+archer_4	0	
 VAR_51	0	
 VAR_52	0	
 VAR_53	{ -2389, -995, 3468 }	
@@ -191,26 +191,26 @@ if(var VAR_44 == int 2)
 }
 
 ._SCRIPT_6
-var VAR_46 = call create_enemy(int 11, int 0, var &VAR_53, int 300)
-var VAR_47 = call create_enemy(int 11, int 0, var &VAR_54, int 315)
-var VAR_48 = call create_enemy(int 14, int 0, var &VAR_55, int 355)
-var VAR_49 = call create_enemy(int 17, int 0, var &VAR_56, int 308)
-gamevar script_object = var VAR_49
+var lieutenant_0 = call create_enemy(int 11, int 0, var &VAR_53, int 300)
+var lieutenant_1 = call create_enemy(int 11, int 0, var &VAR_54, int 315)
+var captain_2 = call create_enemy(int 14, int 0, var &VAR_55, int 355)
+var archer_3 = call create_enemy(int 17, int 0, var &VAR_56, int 308)
+gamevar script_object = var archer_3
 gamevar *character_stats_p+15 = int 3400
-call freeze_enemy(var VAR_49)
-var VAR_50 = call create_enemy(int 17, int 1, var &VAR_57, int 338)
-gamevar script_object = var VAR_50
+call freeze_enemy(var archer_3)
+var archer_4 = call create_enemy(int 17, int 1, var &VAR_57, int 338)
+gamevar script_object = var archer_4
 gamevar *character_stats_p+15 = int 3400
-call freeze_enemy(var VAR_50)
+call freeze_enemy(var archer_4)
 var VAR_51 = call get_char_handle(int 65536)
 var VAR_52 = call get_char_handle(int 786432)
 var VAR_58 = call load_anim("conjure")
-call set_char_init_state(var VAR_49, int 13)
-call play_char_ai_script(var VAR_49, var &VAR_62)
-call set_char_init_state(var VAR_50, int 13)
-call play_char_ai_script(var VAR_50, var &VAR_63)
-call add_item_to_char(var VAR_48, int 108, int 1, int 0)
-call add_item_to_char(var VAR_46, int 40, int 1, int 0)
+call set_char_init_state(var archer_3, int 13)
+call play_char_ai_script(var archer_3, var &VAR_62)
+call set_char_init_state(var archer_4, int 13)
+call play_char_ai_script(var archer_4, var &VAR_63)
+call add_item_to_char(var captain_2, int 108, int 1, int 0)
+call add_item_to_char(var lieutenant_0, int 40, int 1, int 0)
 
 ._SCRIPT_7
 

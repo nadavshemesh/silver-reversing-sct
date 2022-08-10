@@ -9,14 +9,14 @@ VAR_6	0
 VAR_7	{ -2467, -3145, 2496 }	
 VAR_8	{ -2664, -3145, 2532 }	
 VAR_9	{ -2573, -3145, 2247 }	
-VAR_10	0	
-VAR_11	0	
-VAR_12	{ 0, 0 }	
-VAR_13	0	
-VAR_14	0	
-VAR_15	0	
-VAR_16	0	
-VAR_17	0	
+lesser_gimp_0	0	
+lesser_gimp_8	0	
+lesser_gimp_9	{ 0, 0 }	
+greater_gimpv_10	0	
+greater_gimpv_11	0	
+rat_raptor_max5_3	0	
+rat_raptor_max5_4	0	
+rat_raptor_max5_5	0	
 VAR_18	{ -220, -1698, 5226 }	
 VAR_19	{ 346, -1698, 5366 }	
 VAR_20	{ 313, -1698, 5055 }	
@@ -128,18 +128,18 @@ if(var VAR_6)
 		}
 }
 var VAR_6 = call get_selected_hero()
-var VAR_10 = call create_enemy(int 45, int 0, var &VAR_21, int 0)
-var VAR_13 = call create_enemy(int 46, int 0, var &VAR_23, int 265)
-var VAR_14 = call create_enemy(int 46, int 1, var &VAR_24, int 265)
-var VAR_15 = call create_enemy(int 87, int 0, var &VAR_27, int 0)
-var VAR_16 = call create_enemy(int 87, int 1, var &VAR_28, int 0)
-var VAR_17 = call create_enemy(int 87, int 2, var &VAR_29, int 0)
-call func_1(var VAR_10, int -1)
-call func_1(var VAR_13, int -1)
-call func_1(var VAR_14, int -1)
-call func_1(var VAR_15, int -1)
-call func_1(var VAR_16, int -1)
-call func_1(var VAR_17, int -1)
+var lesser_gimp_0 = call create_enemy(int 45, int 0, var &VAR_21, int 0)
+var greater_gimpv_10 = call create_enemy(int 46, int 0, var &VAR_23, int 265)
+var greater_gimpv_11 = call create_enemy(int 46, int 1, var &VAR_24, int 265)
+var rat_raptor_max5_3 = call create_enemy(int 87, int 0, var &VAR_27, int 0)
+var rat_raptor_max5_4 = call create_enemy(int 87, int 1, var &VAR_28, int 0)
+var rat_raptor_max5_5 = call create_enemy(int 87, int 2, var &VAR_29, int 0)
+call func_1(var lesser_gimp_0, int -1)
+call func_1(var greater_gimpv_1, int -1)
+call func_1(var greater_gimpv_2, int -1)
+call func_1(var rat_raptor_max5_3, int -1)
+call func_1(var rat_raptor_max5_4, int -1)
+call func_1(var rat_raptor_max5_5, int -1)
 var VAR_4 = int 0
 var VAR_5 = int 0
 
@@ -151,41 +151,41 @@ switch(var VAR_4)
 			switch(var VAR_5)
 			 {
 					case 1
-						call set_char_running(var VAR_10)
-						call char_walk_to_pos(var VAR_10, var &VAR_22)
+						call set_char_running(var lesser_gimp_0)
+						call char_walk_to_pos(var lesser_gimp_0, var &VAR_22)
 						break 
 					case 80
-						call func_29(var VAR_14)
+						call func_29(var greater_gimpv_2)
 						break 
 					case 100
-						call func_29(var VAR_13)
+						call func_29(var greater_gimpv_1)
 						break 
 					case 150
-						call set_char_running(var VAR_15)
-						call set_char_running(var VAR_16)
-						call set_char_running(var VAR_17)
-						call char_walk_to_pos(var VAR_15, var &VAR_30)
-						call char_walk_to_pos(var VAR_16, var &VAR_31)
-						call char_walk_to_pos(var VAR_17, var &VAR_32)
+						call set_char_running(var rat_raptor_max5_3)
+						call set_char_running(var rat_raptor_max5_4)
+						call set_char_running(var rat_raptor_max5_5)
+						call char_walk_to_pos(var rat_raptor_max5_3, var &VAR_30)
+						call char_walk_to_pos(var rat_raptor_max5_4, var &VAR_31)
+						call char_walk_to_pos(var rat_raptor_max5_5, var &VAR_32)
 						break 
 					case 270
-						call func_17(var VAR_14, var VAR_6)
+						call func_17(var greater_gimpv_2, var VAR_6)
 						break 
 					case 300
-						call func_17(var VAR_13, var VAR_6)
+						call func_17(var greater_gimpv_1, var VAR_6)
 						break 
 					case 370
-						call func_17(var VAR_10, var VAR_6)
+						call func_17(var lesser_gimp_0, var VAR_6)
 						break 
 					case 400
-						call func_2(var VAR_10)
-						call func_2(var VAR_13)
-						call func_2(var VAR_14)
-						call func_2(var VAR_15)
-						call func_2(var VAR_16)
-						call func_2(var VAR_17)
-						call func_19(var VAR_13, var VAR_6)
-						call func_19(var VAR_14, var VAR_6)
+						call func_2(var lesser_gimp_0)
+						call func_2(var greater_gimpv_1)
+						call func_2(var greater_gimpv_2)
+						call func_2(var rat_raptor_max5_3)
+						call func_2(var rat_raptor_max5_4)
+						call func_2(var rat_raptor_max5_5)
+						call func_19(var greater_gimpv_1, var VAR_6)
+						call func_19(var greater_gimpv_2, var VAR_6)
 						call set_input_system(int 1)
 						var VAR_4 ++ 
 						break 
@@ -206,13 +206,13 @@ switch(var VAR_4)
 			}
 			else
 			 {
-					var VAR_11 = call create_enemy(int 113, int 0, var &VAR_34, int 0)
-					var VAR_12 = call create_enemy(int 113, int 1, var &VAR_35, int 180)
-					call func_106(var VAR_11, int 9, int 5, var &VAR_36)
-					call func_106(var VAR_12, int 9, int 5, var &VAR_37)
-					gamevar script_object = var VAR_11
+					var lesser_gimp_8 = call create_enemy(int 113, int 0, var &VAR_34, int 0)
+					var lesser_gimp_9 = call create_enemy(int 113, int 1, var &VAR_35, int 180)
+					call func_106(var drop_lesser_gimp_6, int 9, int 5, var &VAR_36)
+					call func_106(var drop_lesser_gimp_7, int 9, int 5, var &VAR_37)
+					gamevar script_object = var drop_lesser_gimp_6
 					gamevar *character_stats_p+15 = int 10000
-					gamevar script_object = var VAR_12
+					gamevar script_object = var drop_lesser_gimp_7
 					gamevar *character_stats_p+15 = int 10000
 					var VAR_4 ++ 
 			}
@@ -222,18 +222,18 @@ switch(var VAR_4)
 }
 
 ._SCRIPT_5
-var VAR_11 = call create_enemy(int 45, int 0, var &VAR_36, int 0)
-var VAR_12 = call create_enemy(int 45, int 1, var &VAR_37, int 180)
-call func_106(var VAR_11, int 9, int 5, var &VAR_36)
-call func_106(var VAR_12, int 9, int 5, var &VAR_37)
-gamevar script_object = var VAR_11
+var lesser_gimp_8 = call create_enemy(int 45, int 0, var &VAR_36, int 0)
+var lesser_gimp_9 = call create_enemy(int 45, int 1, var &VAR_37, int 180)
+call func_106(var lesser_gimp_8, int 9, int 5, var &VAR_36)
+call func_106(var lesser_gimp_9, int 9, int 5, var &VAR_37)
+gamevar script_object = var lesser_gimp_8
 gamevar *character_stats_p+15 = int 10000
-gamevar script_object = var VAR_12
+gamevar script_object = var lesser_gimp_9
 gamevar *character_stats_p+15 = int 10000
-var VAR_13 = call create_enemy(int 46, int 0, var &VAR_25, int 190)
-var VAR_14 = call create_enemy(int 46, int 1, var &VAR_26, int 320)
-call add_item_to_char(var VAR_13, int 43, int 1, int 0)
-call add_item_to_char(var VAR_14, int 45, int 1, int 0)
+var greater_gimpv_10 = call create_enemy(int 46, int 0, var &VAR_25, int 190)
+var greater_gimpv_11 = call create_enemy(int 46, int 1, var &VAR_26, int 320)
+call add_item_to_char(var greater_gimpv_10, int 43, int 1, int 0)
+call add_item_to_char(var greater_gimpv_11, int 45, int 1, int 0)
 call load_char("ratrptr")
 call run_enemy_generator(var &VAR_38, int 500)
 

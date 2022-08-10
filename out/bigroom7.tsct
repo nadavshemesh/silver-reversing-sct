@@ -1,18 +1,18 @@
 ._DATA
 VAR_1	0	
-VAR_2	0	
-VAR_3	0	
+groad_0	0	
+groad_1	0	
 VAR_4	{ -5320, 695, 509 }	
 VAR_5	{ -5468, 695, 3695 }	
 VAR_6	{ -5140, 695, 391, -5131, 695, 987, -5132, 695, 1772, -5157, 695, 2567, -5122, 695, 3463 }	
 VAR_7	{ 17, 5, VAR_6, 0, 11, 100, 200, 7, 8 }	
 VAR_8	{ 17, 5, VAR_6, 0, 11, 100, 200, 7, 8 }	
-VAR_9	0	
-VAR_10	0	
+lizmant_2	0	
+lizmant_3	0	
 VAR_11	{ -2248, 145, 942 }	
 VAR_12	{ -3910, 145, 4108 }	
 VAR_13	{ -315, 145, 548, -688, 145, -862, -1659, 145, 93, -863, 145, 1663, -1961, 420, -1627, -2321, 145, 919, -2127, 145, 2007, -3940, 145, 708, -3134, 145, 1975, -4319, 145, 2833, -3780, 145, 3708, -3805, 145, 2846 }	
-VAR_14	{ 14, 9, VAR_10, 17, 12, VAR_13, 0, 11, 100, 200, 17, 12, VAR_13, 0, 11, 100, 200, 17, 12, VAR_13, 0, 11, 100, 200, 17, 12, VAR_13, 0, 11, 100, 200, 7, 8 }	
+VAR_14	{ 14, 9, lizmant_3, 17, 12, VAR_13, 0, 11, 100, 200, 17, 12, VAR_13, 0, 11, 100, 200, 17, 12, VAR_13, 0, 11, 100, 200, 17, 12, VAR_13, 0, 11, 100, 200, 7, 8 }	
 VAR_15	{ 14, 17, 12, VAR_13, 0, 11, 100, 200, 17, 12, VAR_13, 0, 11, 100, 200, 17, 12, VAR_13, 0, 11, 100, 200, 17, 12, VAR_13, 0, 11, 100, 200, 7, 8 }	
 VAR_16	{ 0, 0 }	
 VAR_19	{ -313, 145, 639 }	
@@ -104,49 +104,49 @@ switch(var VAR_16)
 }
 
 ._SCRIPT_4
-var VAR_2 = call create_enemy(int 39, int 1, var &VAR_4, int 0)
-var VAR_3 = call create_enemy(int 39, int 2, var &VAR_5, int 195)
-call func_106(var VAR_2, int 9, int 5, var &VAR_6)
-call func_106(var VAR_2, int 9, int 6, int 5)
-call func_106(var VAR_3, int 9, int 5, var &VAR_6)
-call func_106(var VAR_3, int 9, int 6, int 5)
-gamevar script_object = var VAR_2
+var groad_0 = call create_enemy(int 39, int 1, var &VAR_4, int 0)
+var groad_1 = call create_enemy(int 39, int 2, var &VAR_5, int 195)
+call func_106(var groad_0, int 9, int 5, var &VAR_6)
+call func_106(var groad_0, int 9, int 6, int 5)
+call func_106(var groad_1, int 9, int 5, var &VAR_6)
+call func_106(var groad_1, int 9, int 6, int 5)
+gamevar script_object = var groad_0
 gamevar *character_stats_p+15 = int 2000
-gamevar script_object = var VAR_2
+gamevar script_object = var groad_0
 gamevar *character_stats_p+16 = int 2000
-gamevar script_object = var VAR_3
+gamevar script_object = var groad_1
 gamevar *character_stats_p+15 = int 2000
-gamevar script_object = var VAR_3
+gamevar script_object = var groad_1
 gamevar *character_stats_p+16 = int 2000
-call func_106(var VAR_2, int 1, int 0, int 0)
-call func_106(var VAR_3, int 1, int 0, int 0)
-call func_50(var VAR_2, int 8194)
-call func_50(var VAR_3, int 8194)
-call func_50(var VAR_2, int 8192)
-call func_50(var VAR_3, int 8192)
-call play_char_ai_script(var VAR_2, var &VAR_7)
-call play_char_ai_script(var VAR_3, var &VAR_8)
-call add_item_to_char(var VAR_2, int 42, int 1, int 0)
-var VAR_9 = call create_enemy(int 40, int 1, var &VAR_11, int 290)
-var VAR_10 = call create_enemy(int 40, int 2, var &VAR_12, int 175)
-gamevar script_object = var VAR_9
+call func_106(var groad_0, int 1, int 0, int 0)
+call func_106(var groad_1, int 1, int 0, int 0)
+call func_50(var groad_0, int 8194)
+call func_50(var groad_1, int 8194)
+call func_50(var groad_0, int 8192)
+call func_50(var groad_1, int 8192)
+call play_char_ai_script(var groad_0, var &VAR_7)
+call play_char_ai_script(var groad_1, var &VAR_8)
+call add_item_to_char(var groad_0, int 42, int 1, int 0)
+var lizmant_2 = call create_enemy(int 40, int 1, var &VAR_11, int 290)
+var lizmant_3 = call create_enemy(int 40, int 2, var &VAR_12, int 175)
+gamevar script_object = var lizmant_2
 gamevar *character_stats_p+15 = int 2000
-gamevar script_object = var VAR_9
+gamevar script_object = var lizmant_2
 gamevar *character_stats_p+16 = int 2000
-gamevar script_object = var VAR_10
+gamevar script_object = var lizmant_3
 gamevar *character_stats_p+15 = int 2000
-gamevar script_object = var VAR_10
+gamevar script_object = var lizmant_3
 gamevar *character_stats_p+16 = int 2000
-call func_106(var VAR_9, int 1, int 0, int 2)
-call func_106(var VAR_10, int 1, int 0, int 2)
-call func_50(var VAR_9, int 8194)
-call func_50(var VAR_10, int 8194)
-call func_50(var VAR_9, int 8192)
-call func_50(var VAR_10, int 8192)
-call play_char_ai_script(var VAR_9, var &VAR_14)
-call play_char_ai_script(var VAR_10, var &VAR_15)
-call add_item_to_char(var VAR_9, int 45, int 1, int 0)
-call add_item_to_char(var VAR_10, int 47, int 1, int 0)
+call func_106(var lizmant_2, int 1, int 0, int 2)
+call func_106(var lizmant_3, int 1, int 0, int 2)
+call func_50(var lizmant_2, int 8194)
+call func_50(var lizmant_3, int 8194)
+call func_50(var lizmant_2, int 8192)
+call func_50(var lizmant_3, int 8192)
+call play_char_ai_script(var lizmant_2, var &VAR_14)
+call play_char_ai_script(var lizmant_3, var &VAR_15)
+call add_item_to_char(var lizmant_2, int 45, int 1, int 0)
+call add_item_to_char(var lizmant_3, int 47, int 1, int 0)
 execute SCRIPT_11
 
 ._SCRIPT_5

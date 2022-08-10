@@ -6,8 +6,8 @@ VAR_4	0
 VAR_5	0	
 VAR_6	0	
 VAR_7	0	
-VAR_8	0	
-VAR_9	0	
+bear_0	0	
+bear_1	0	
 VAR_10	0	
 VAR_11	{ -1423, 1630, 4725 }	
 VAR_12	{ 1153, 1679, 2918 }	
@@ -20,9 +20,9 @@ VAR_18	{ -70, 780, 5765 }
 VAR_19	{ 1273, 1617, 5583 }	
 VAR_21	0	
 VAR_22	0	
-VAR_23	0	
+grunt_2	0	
 VAR_24	{ -454, 1731, 2576 }	
-VAR_25	0	
+grunt_3	0	
 VAR_26	{ -730, 1731, 2576 }	
 VAR_27	{ 15, 0, 294, 1731, 2707, 2, 221, 780, 1049, 5, 30, 2, 2436, 1635, 1716, 3, VAR_28, 0, 0, 2436, 1635, 1716, 16, VAR_21, 1, 35, 8 }	
 VAR_28	"come"	
@@ -202,26 +202,26 @@ var VAR_4 = call is_char_handle_in_level(int 786432)
 var VAR_5 = call is_char_handle_in_level(int 327680)
 var VAR_6 = call is_char_handle_in_level(int 131072)
 call load_char("gbee")
-var VAR_8 = call create_enemy(int 7, int 0, var &VAR_18, int 0)
-call freeze_enemy(var VAR_8)
-call set_char_init_state(var VAR_8, int 13)
-call play_char_ai_script(var VAR_8, var &VAR_13)
-var VAR_9 = call create_enemy(int 7, int 1, var &VAR_19, int 0)
-call freeze_enemy(var VAR_9)
-call set_char_init_state(var VAR_9, int 13)
-call play_char_ai_script(var VAR_9, var &VAR_14)
-var VAR_23 = call create_enemy(int 8, int 1, var &VAR_24, int 80)
-var VAR_25 = call create_enemy(int 8, int 2, var &VAR_26, int 80)
-call freeze_enemy(var VAR_23)
-call freeze_enemy(var VAR_25)
-gamevar script_object = var VAR_23
+var bear_0 = call create_enemy(int 7, int 0, var &VAR_18, int 0)
+call freeze_enemy(var bear_0)
+call set_char_init_state(var bear_0, int 13)
+call play_char_ai_script(var bear_0, var &VAR_13)
+var bear_1 = call create_enemy(int 7, int 1, var &VAR_19, int 0)
+call freeze_enemy(var bear_1)
+call set_char_init_state(var bear_1, int 13)
+call play_char_ai_script(var bear_1, var &VAR_14)
+var grunt_2 = call create_enemy(int 8, int 1, var &VAR_24, int 80)
+var grunt_3 = call create_enemy(int 8, int 2, var &VAR_26, int 80)
+call freeze_enemy(var grunt_2)
+call freeze_enemy(var grunt_3)
+gamevar script_object = var grunt_2
 gamevar *character_movement_p+60 = int 1
-gamevar script_object = var VAR_25
+gamevar script_object = var grunt_3
 gamevar *character_movement_p+60 = int 1
-call func_50(var VAR_23, int 8192)
-call play_char_ai_script(var VAR_23, var &VAR_27)
-call func_50(var VAR_25, int 8192)
-call play_char_ai_script(var VAR_25, var &VAR_29)
+call func_50(var grunt_2, int 8192)
+call play_char_ai_script(var grunt_2, var &VAR_27)
+call func_50(var grunt_3, int 8192)
+call play_char_ai_script(var grunt_3, var &VAR_29)
 
 ._SCRIPT_7
 

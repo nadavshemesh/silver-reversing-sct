@@ -6,7 +6,7 @@ VAR_6	0
 VAR_7	{ -4600, -500, 2700, -3200, -500, 2500, -4800, -520, 2800, -794, -520, 3286 }	
 VAR_8	{ 0, 1, 4, VAR_7, 8, 2, 4, 0, 9, 1, 1, 1, 47, 47, 47, 47, 47, -1, 5, 1, 15, 50, 6, 1, 7, 1, 2, -1 }	
 VAR_9	{ 0, 0, 2, 1, -1, 8, 1, 1, 2, 58, 60, -1, 4, 0, 9, 1, 5, 1, 15, 200, 6, 2, 7, 1, 2, 10, 83, 40, -1, -1 }	
-VAR_10	0	
+boneyfx_0	0	
 VAR_11	{ -4000, -1775, 2684 }	
 VAR_14	{ 0, -4120, -1775, 1987, 3, VAR_15, 0, 0, -3784, -1775, 3164, 3, VAR_16, 0, 7, 8 }	
 VAR_15	"lookout"	
@@ -98,15 +98,15 @@ switch(var VAR_19)
 
 ._SCRIPT_4
 var VAR_6 = call run_enemy_generator(var &VAR_8, int 10)
-var VAR_10 = call create_enemy(int 61, int 0, var &VAR_11, int 190)
-var VAR_0 = call add_item_to_char(var VAR_10, int 85, int 6554113, int 0)
+var boneyfx_0 = call create_enemy(int 61, int 0, var &VAR_11, int 190)
+var VAR_0 = call add_item_to_char(var boneyfx_0, int 85, int 6554113, int 0)
 call load_char("skel")
 call load_char("wraith")
 var VAR_17 = call load_anim("lookout")
-gamevar script_object = var VAR_10
+gamevar script_object = var boneyfx_0
 gamevar *character_stats_p+15 = int 1600
-call set_char_init_state(var VAR_10, int 13)
-call play_char_ai_script(var VAR_10, var &VAR_14)
+call set_char_init_state(var boneyfx_0, int 13)
+call play_char_ai_script(var boneyfx_0, var &VAR_14)
 
 ._SCRIPT_5
 

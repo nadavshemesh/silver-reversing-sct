@@ -6,7 +6,7 @@ VAR_3	0
 VAR_4	{ 0, 0 }	
 VAR_5	0	
 VAR_6	{ 0, 0, 0 }	
-VAR_7	0	
+silv_orb_9	0	
 VAR_8	{ 1163152969, 827609170, 0 }	
 VAR_9	{ 1163152969, 827609170, 0, 0 }	
 VAR_10	0	
@@ -85,13 +85,13 @@ VAR_103	0
 VAR_104	0	
 VAR_105	0	
 VAR_106	0	
-VAR_107	0	
-VAR_108	0	
-VAR_109	0	
+f_in_sekune_1	0	
+f_in_sekune_2	0	
+silver_8	0	
 VAR_110	0	
-VAR_111	0	
-VAR_112	0	
-VAR_113	0	
+f_in_jennifer_4	0	
+f_in_bethts_5	0	
+f_in_bonnie_6	0	
 VAR_114	{ -5, -1100, -4274 }	
 VAR_115	{ 666, -1100, -4320 }	
 VAR_116	{ -20, -1350, -2692 }	
@@ -126,7 +126,7 @@ VAR_144	0
 VAR_145	0	
 VAR_146	0	
 VAR_147	{ -694, -1100, -4447 }	
-VAR_148	0	
+nemesis_3	0	
 VAR_149	0	
 VAR_150	{ 0, 0, -984727552 }	
 VAR_151	0	
@@ -851,8 +851,8 @@ switch(var VAR_104)
 					}
 					var VAR_0 = int 3
 					call func_120(var &VAR_150, int 65536)
-					var VAR_7 = call create_enemy(int 195, int 0, var &VAR_133, int 0)
-					call func_103(var VAR_7)
+					var silv_orb_9 = call create_enemy(int 195, int 0, var &VAR_133, int 0)
+					call func_103(var silv_orb_0)
 					var VAR_104 = int 20
 			}
 			break 
@@ -1061,15 +1061,15 @@ switch(var VAR_104)
 							case 1
 								if(var ! VAR_107)
 								 {
-										var VAR_107 = call create_enemy(int 205, int 0, var &VAR_147, int 0)
-										var VAR_152 = var VAR_107
+										var f_in_sekune_1 = call create_enemy(int 205, int 0, var &VAR_147, int 0)
+										var VAR_152 = var f_in_sekune_1
 								}
 								else
 								 {
 										if(var ! VAR_108)
 										 {
-												var VAR_108 = call create_enemy(int 205, int 0, var &VAR_147, int 0)
-												var VAR_152 = var VAR_108
+												var f_in_sekune_2 = call create_enemy(int 205, int 0, var &VAR_147, int 0)
+												var VAR_152 = var f_in_sekune_2
 										}
 								}
 								break 
@@ -1092,18 +1092,18 @@ switch(var VAR_104)
 			 {
 					call char_walk_to_pos(var VAR_106, var &VAR_119)
 					var VAR_143 = int 0
-					if(var VAR_107)
+					if(var f_in_sekune_1)
 					 {
-							call char_walk_to_pos(var VAR_107, var &VAR_120)
+							call char_walk_to_pos(var f_in_sekune_1, var &VAR_120)
 							var VAR_144 = int 0
 					}
 					else
 					 {
 							var VAR_144 = int 1
 					}
-					if(var VAR_108)
+					if(var f_in_sekune_2)
 					 {
-							call char_walk_to_pos(var VAR_108, var &VAR_121)
+							call char_walk_to_pos(var f_in_sekune_2, var &VAR_121)
 							var VAR_145 = int 0
 					}
 					else
@@ -1122,25 +1122,25 @@ switch(var VAR_104)
 							call char_turn_to_pos(var VAR_106, call get_char_pos(var VAR_109))
 					}
 			}
-			if(var VAR_107)
+			if(var f_in_sekune_1)
 			 {
 					if(var ! VAR_144)
 					 {
-							if(call is_char_standing(var VAR_107))
+							if(call is_char_standing(var f_in_sekune_1))
 							 {
 									var VAR_144 = int 1
-									call char_turn_to_pos(var VAR_107, call get_char_pos(var VAR_109))
+									call char_turn_to_pos(var f_in_sekune_1, call get_char_pos(var VAR_109))
 							}
 					}
 			}
-			if(var VAR_108)
+			if(var f_in_sekune_2)
 			 {
 					if(var ! VAR_145)
 					 {
-							if(call is_char_standing(var VAR_108))
+							if(call is_char_standing(var f_in_sekune_2))
 							 {
 									var VAR_145 = int 1
-									call char_turn_to_pos(var VAR_108, call get_char_pos(var VAR_109))
+									call char_turn_to_pos(var f_in_sekune_2, call get_char_pos(var VAR_109))
 							}
 					}
 			}
@@ -1163,13 +1163,13 @@ switch(var VAR_104)
 			 {
 					var VAR_146 = call func_e8(var &VAR_147, int 0)
 					call char_turn_to_pos(var VAR_106, call get_char_pos(var VAR_109))
-					if(var VAR_107)
+					if(var f_in_sekune_1)
 					 {
-							call char_turn_to_pos(var VAR_107, var &VAR_147)
+							call char_turn_to_pos(var f_in_sekune_1, var &VAR_147)
 					}
-					if(var VAR_108)
+					if(var f_in_sekune_2)
 					 {
-							call char_turn_to_pos(var VAR_108, var &VAR_147)
+							call char_turn_to_pos(var f_in_sekune_2, var &VAR_147)
 					}
 					call reset_local_timer()
 					var VAR_104 = int 33
@@ -1179,7 +1179,7 @@ switch(var VAR_104)
 			if(call is_local_timer_greater_than(int 20))
 			 {
 					call func_61(var VAR_106)
-					var VAR_148 = call create_enemy(int 201, int 0, var &VAR_147, int 0)
+					var nemesis_3 = call create_enemy(int 201, int 0, var &VAR_147, int 0)
 					call reset_local_timer()
 					var VAR_104 = int 34
 			}
@@ -1187,8 +1187,8 @@ switch(var VAR_104)
 		case 34
 			if(call is_local_timer_greater_than(int 10))
 			 {
-					call set_char_running(var VAR_148)
-					call char_walk_to_pos(var VAR_148, call get_char_pos(var VAR_106))
+					call set_char_running(var nemesis_3)
+					call char_walk_to_pos(var nemesis_3, call get_char_pos(var VAR_106))
 					call reset_local_timer()
 					var VAR_104 = int 35
 			}
@@ -1201,20 +1201,20 @@ switch(var VAR_104)
 			}
 			break 
 		case 36
-			if(call is_char_at_pos(var VAR_148, call get_char_pos(var VAR_106), int 300))
+			if(call is_char_at_pos(var nemesis_3, call get_char_pos(var VAR_106), int 300))
 			 {
-					call char_stop(var VAR_148)
+					call char_stop(var nemesis_3)
 					call resume_conversation()
-					call set_char_walking(var VAR_148)
-					call char_turn_to_pos(var VAR_148, call get_char_pos(var VAR_106))
-					call char_turn_to_pos(var VAR_106, call get_char_pos(var VAR_148))
+					call set_char_walking(var nemesis_3)
+					call char_turn_to_pos(var nemesis_3, call get_char_pos(var VAR_106))
+					call char_turn_to_pos(var VAR_106, call get_char_pos(var nemesis_3))
 					var VAR_104 = int 37
 			}
 			break 
 		case 37
 			if(call func_6d() == int 2)
 			 {
-					call set_char_walking(var VAR_148)
+					call set_char_walking(var nemesis_3)
 					call reset_local_timer()
 					var VAR_104 = int 38
 			}
@@ -1237,15 +1237,15 @@ switch(var VAR_104)
 		case 40
 			if(call is_local_timer_greater_than(int 10))
 			 {
-					call set_char_walking(var VAR_148)
-					call char_walk_to_pos(var VAR_148, var &VAR_119)
+					call set_char_walking(var nemesis_3)
+					call char_walk_to_pos(var nemesis_3, var &VAR_119)
 					var VAR_104 = int 41
 			}
 			break 
 		case 41
-			if(call is_char_standing(var VAR_148))
+			if(call is_char_standing(var nemesis_3))
 			 {
-					call char_turn_to_pos(var VAR_148, call get_char_pos(var VAR_109))
+					call char_turn_to_pos(var nemesis_3, call get_char_pos(var VAR_109))
 					call reset_local_timer()
 					var VAR_104 = int 42
 			}
@@ -1269,8 +1269,8 @@ switch(var VAR_104)
 					gamevar HP = int 1
 					gamevar script_object = var VAR_109
 					gamevar *object_p+7 |= int 4
-					var VAR_193 = call get_char_pos(var VAR_148)
-					call func_c(var VAR_148, int 20, var VAR_193, int 0)
+					var VAR_193 = call get_char_pos(var nemesis_3)
+					call func_c(var nemesis_3, int 20, var VAR_193, int 0)
 					call reset_local_timer()
 					var VAR_104 = int 44
 			}
@@ -1296,9 +1296,9 @@ switch(var VAR_104)
 		case 46
 			if(call is_local_timer_greater_than(int 20))
 			 {
-					if(call func_37(var VAR_148, int 13))
+					if(call func_37(var nemesis_3, int 13))
 					 {
-							call char_turn_to_pos(var VAR_148, call get_char_pos(var VAR_106))
+							call char_turn_to_pos(var nemesis_3, call get_char_pos(var VAR_106))
 							call reset_local_timer()
 							var VAR_104 = int 47
 					}
@@ -1328,27 +1328,27 @@ switch(var VAR_104)
 								var VAR_146 = call func_e8(var &VAR_147, int 0)
 								break 
 							case 1
-								var VAR_111 = call create_enemy(int 202, int 0, var &VAR_147, int 0)
+								var f_in_jennifer_4 = call create_enemy(int 202, int 0, var &VAR_147, int 0)
 								break 
 							case 2
-								call set_char_running(var VAR_111)
-								call char_walk_to_pos(var VAR_111, call get_char_pos(var VAR_106))
+								call set_char_running(var f_in_jennifer_4)
+								call char_walk_to_pos(var f_in_jennifer_4, call get_char_pos(var VAR_106))
 								break 
 							case 3
 								call resume_conversation()
-								var VAR_112 = call create_enemy(int 203, int 0, var &VAR_147, int 0)
+								var f_in_bethts_5 = call create_enemy(int 203, int 0, var &VAR_147, int 0)
 								break 
 							case 4
-								call char_walk_to_pos(var VAR_112, var &VAR_140)
+								call char_walk_to_pos(var f_in_bethts_5, var &VAR_140)
 								break 
 							case 5
-								var VAR_113 = call create_enemy(int 204, int 0, var &VAR_147, int 0)
+								var f_in_bonnie_6 = call create_enemy(int 204, int 0, var &VAR_147, int 0)
 								break 
 							case 6
-								call char_walk_to_pos(var VAR_113, var &VAR_141)
+								call char_walk_to_pos(var f_in_bonnie_6, var &VAR_141)
 								var VAR_105 = int 1
-								var VAR_7 = call create_enemy(int 195, int 0, var &VAR_156, int 0)
-								gamevar script_object = var VAR_7
+								var silv_orb_9 = call create_enemy(int 195, int 0, var &VAR_156, int 0)
+								gamevar script_object = var silv_orb_7
 								gamevar *object_p+7 |= int -2147483
 								break 
 							default 
@@ -1361,18 +1361,18 @@ switch(var VAR_104)
 			}
 			break 
 		case 50
-			if(call is_char_at_pos(var VAR_111, call get_char_pos(var VAR_106), int 150))
+			if(call is_char_at_pos(var f_in_jennifer_4, call get_char_pos(var VAR_106), int 150))
 			 {
-					call char_turn_to_pos(var VAR_106, call get_char_pos(var VAR_111))
-					call char_turn_to_pos(var VAR_111, call get_char_pos(var VAR_106))
+					call char_turn_to_pos(var VAR_106, call get_char_pos(var f_in_jennifer_4))
+					call char_turn_to_pos(var f_in_jennifer_4, call get_char_pos(var VAR_106))
 					var VAR_104 = int 51
 			}
 			break 
 		case 51
 			if(call func_6d() == int 7)
 			 {
-					call set_char_walking(var VAR_111)
-					call char_walk_to_pos(var VAR_111, var &VAR_194)
+					call set_char_walking(var f_in_jennifer_4)
+					call char_walk_to_pos(var f_in_jennifer_4, var &VAR_194)
 					var VAR_105 = int 7
 					call resume_conversation()
 					var VAR_104 = int 52
@@ -1382,7 +1382,7 @@ switch(var VAR_104)
 			if(call func_6d() == int 5)
 			 {
 					call reset_local_timer()
-					call remove_char(var VAR_7)
+					call remove_char(var silv_orb_7)
 					var VAR_104 = int 53
 			}
 			break 
@@ -1390,25 +1390,25 @@ switch(var VAR_104)
 			if(call is_local_timer_greater_than(int 7))
 			 {
 					call resume_conversation()
-					if(var VAR_107)
+					if(var f_in_sekune_1)
 					 {
-							call char_walk_to_pos(var VAR_107, var &VAR_117)
+							call char_walk_to_pos(var f_in_sekune_1, var &VAR_117)
 					}
-					if(var VAR_108)
+					if(var f_in_sekune_2)
 					 {
-							call char_walk_to_pos(var VAR_108, var &VAR_118)
+							call char_walk_to_pos(var f_in_sekune_2, var &VAR_118)
 					}
-					call char_walk_to_pos(var VAR_148, call get_char_pos(var VAR_106))
+					call char_walk_to_pos(var nemesis_3, call get_char_pos(var VAR_106))
 					call reset_local_timer()
 					var VAR_104 = int 54
 			}
 			break 
 		case 54
-			if(call is_char_at_pos(var VAR_148, call get_char_pos(var VAR_106), int 300))
+			if(call is_char_at_pos(var nemesis_3, call get_char_pos(var VAR_106), int 300))
 			 {
-					call char_stop(var VAR_148)
-					call char_turn_to_pos(var VAR_106, call get_char_pos(var VAR_148))
-					call char_turn_to_pos(var VAR_148, call get_char_pos(var VAR_106))
+					call char_stop(var nemesis_3)
+					call char_turn_to_pos(var VAR_106, call get_char_pos(var nemesis_3))
+					call char_turn_to_pos(var nemesis_3, call get_char_pos(var VAR_106))
 					var VAR_104 = int 55
 			}
 			break 
@@ -1416,23 +1416,23 @@ switch(var VAR_104)
 			if(call func_6d() == int 6)
 			 {
 					call set_char_running(var VAR_106)
-					call set_char_running(var VAR_148)
+					call set_char_running(var nemesis_3)
 					call char_walk_to_pos(var VAR_106, var &VAR_154)
-					call char_walk_to_pos(var VAR_148, var &VAR_155)
+					call char_walk_to_pos(var nemesis_3, var &VAR_155)
 					var VAR_104 = int 56
 			}
 			break 
 		case 56
-			if(call is_char_standing(var VAR_148)&&call is_char_standing(var VAR_106))
+			if(call is_char_standing(var nemesis_3)&&call is_char_standing(var VAR_106))
 			 {
-					call char_turn_to_pos(var VAR_111, call get_char_pos(var VAR_106))
-					call char_turn_to_pos(var VAR_113, call get_char_pos(var VAR_148))
-					call char_turn_to_pos(var VAR_112, call get_char_pos(var VAR_148))
+					call char_turn_to_pos(var f_in_jennifer_4, call get_char_pos(var VAR_106))
+					call char_turn_to_pos(var f_in_bonnie_6, call get_char_pos(var nemesis_3))
+					call char_turn_to_pos(var f_in_bethts_5, call get_char_pos(var nemesis_3))
 					call reset_local_timer()
 					call set_char_running(var VAR_106)
-					call set_char_running(var VAR_148)
-					call char_turn_to_pos(var VAR_106, call get_char_pos(var VAR_148))
-					call char_turn_to_pos(var VAR_148, call get_char_pos(var VAR_106))
+					call set_char_running(var nemesis_3)
+					call char_turn_to_pos(var VAR_106, call get_char_pos(var nemesis_3))
+					call char_turn_to_pos(var nemesis_3, call get_char_pos(var VAR_106))
 					var VAR_104 = int 57
 			}
 			break 
@@ -1441,12 +1441,12 @@ switch(var VAR_104)
 			 {
 					gamevar script_object = var VAR_106
 					gamevar *object_p+6 |= int 1
-					gamevar script_object = var VAR_148
+					gamevar script_object = var nemesis_3
 					gamevar *object_p+6 |= int 1
 					call set_char_running(var VAR_106)
 					call char_walk_to_pos(var VAR_106, var &VAR_155)
-					call set_char_running(var VAR_148)
-					call char_walk_to_pos(var VAR_148, var &VAR_154)
+					call set_char_running(var nemesis_3)
+					call char_walk_to_pos(var nemesis_3, var &VAR_154)
 					var VAR_149 = int 0
 					var VAR_104 = int 58
 			}
@@ -1455,18 +1455,18 @@ switch(var VAR_104)
 			switch(var VAR_149)
 			 {
 					case 0
-						if(call is_char_at_pos(var VAR_148, call get_char_pos(var VAR_106), int 950))
+						if(call is_char_at_pos(var nemesis_3, call get_char_pos(var VAR_106), int 950))
 						 {
 								var VAR_149 ++ 
 						}
 						break 
 					case 1
-						if(call is_char_at_pos(var VAR_148, call get_char_pos(var VAR_106), int 150))
+						if(call is_char_at_pos(var nemesis_3, call get_char_pos(var VAR_106), int 150))
 						 {
 								execute SCRIPT_17
-								call char_stop(var VAR_148)
-								call char_teleport_to_pos(var VAR_148, var &VAR_157, int 0)
-								call func_61(var VAR_148)
+								call char_stop(var nemesis_3)
+								call char_teleport_to_pos(var nemesis_3, var &VAR_157, int 0)
+								call func_61(var nemesis_3)
 								call func_61(var VAR_106)
 								call func_8d(var VAR_106, int 12845056)
 								call char_walk_to_pos(var VAR_106, var &VAR_155)
@@ -1506,8 +1506,8 @@ switch(var VAR_104)
 					case 1
 						if(call is_local_timer_greater_than(int 25))
 						 {
-								call remove_char(var VAR_148)
-								var VAR_148 = int 0
+								call remove_char(var nemesis_3)
+								var nemesis_3 = int 0
 								call reset_local_timer()
 								var VAR_149 ++ 
 						}
@@ -1531,29 +1531,29 @@ switch(var VAR_104)
 			 {
 					case 0
 						call set_char_walking(var VAR_106)
-						call set_char_walking(var VAR_111)
+						call set_char_walking(var f_in_jennifer_4)
 						gamevar script_object = var VAR_106
 						gamevar *object_p+6 |= int 1
-						gamevar script_object = var VAR_111
+						gamevar script_object = var f_in_jennifer_4
 						gamevar *object_p+6 |= int 1
 						var VAR_149 ++ 
 						break 
 					case 1
-						call char_walk_to_pos(var VAR_106, call get_char_pos(var VAR_111))
-						call char_walk_to_pos(var VAR_111, call get_char_pos(var VAR_106))
+						call char_walk_to_pos(var VAR_106, call get_char_pos(var f_in_jennifer_4))
+						call char_walk_to_pos(var f_in_jennifer_4, call get_char_pos(var VAR_106))
 						var VAR_149 ++ 
 						break 
 					case 2
-						if(call is_char_at_pos(var VAR_111, call get_char_pos(var VAR_106), int 150))
+						if(call is_char_at_pos(var f_in_jennifer_4, call get_char_pos(var VAR_106), int 150))
 						 {
 								call char_stop(var VAR_106)
-								call char_stop(var VAR_111)
+								call char_stop(var f_in_jennifer_4)
 								var VAR_149 ++ 
 						}
 						break 
 					case 3
-						call char_turn_to_pos(var VAR_106, call get_char_pos(var VAR_111))
-						call char_turn_to_pos(var VAR_111, call get_char_pos(var VAR_106))
+						call char_turn_to_pos(var VAR_106, call get_char_pos(var f_in_jennifer_4))
+						call char_turn_to_pos(var f_in_jennifer_4, call get_char_pos(var VAR_106))
 						call reset_local_timer()
 						var VAR_149 ++ 
 						break 
@@ -1562,7 +1562,7 @@ switch(var VAR_104)
 						 {
 								gamevar script_object = var VAR_106
 								gamevar *object_p+6 &= int -2
-								gamevar script_object = var VAR_111
+								gamevar script_object = var f_in_jennifer_4
 								gamevar *object_p+6 &= int -2
 								call resume_conversation()
 								var VAR_149 ++ 
@@ -1605,23 +1605,23 @@ if(var ! VAR_102)
 }
 call load_char("maim")
 execute SCRIPT_16
-var VAR_109 = call create_enemy(int 159, int 0, var &VAR_114, int 0)
-call freeze_enemy(var VAR_109)
-gamevar script_object = var VAR_109
+var silver_8 = call create_enemy(int 159, int 0, var &VAR_114, int 0)
+call freeze_enemy(var silver_8)
+gamevar script_object = var silver_8
 gamevar *object_p+6 |= int 61246873
-gamevar script_object = var VAR_109
+gamevar script_object = var silver_8
 gamevar *object_p+7 |= int 67108864
-var VAR_78 = call add_item_to_char(var VAR_109, int 3, int 0, int 0)
-var VAR_111 = call create_char(var &VAR_137, "njennifer", int 139, int 13)
-gamevar script_object = var VAR_111
+var VAR_78 = call add_item_to_char(var silver_8, int 3, int 0, int 0)
+var f_in_jennifer_4 = call create_char(var &VAR_137, "njennifer", int 139, int 13)
+gamevar script_object = var f_in_jennifer_4
 gamevar *object_p+6 |= int 8388608
 gamevar *character_stats_p+13 = int 1
-var VAR_112 = call create_char(var &VAR_138, "nbeth", int 204, int 13)
-gamevar script_object = var VAR_112
+var f_in_bethts_5 = call create_char(var &VAR_138, "nbeth", int 204, int 13)
+gamevar script_object = var f_in_bethts_5
 gamevar *object_p+6 |= int 8388608
 gamevar *character_stats_p+13 = int 1
-var VAR_113 = call create_char(var &VAR_139, "nbonnie", int 155, int 13)
-gamevar script_object = var VAR_113
+var f_in_bonnie_6 = call create_char(var &VAR_139, "nbonnie", int 155, int 13)
+gamevar script_object = var f_in_bonnie_6
 gamevar *object_p+6 |= int 8388608
 gamevar *character_stats_p+13 = int 1
 var VAR_110 = call create_char(var &VAR_142, var &VAR_171, int 232, int 13)
@@ -1629,8 +1629,8 @@ gamevar script_object = var VAR_110
 gamevar *object_p+6 |= int 67108864
 gamevar HP = int 1
 var VAR_106 = call get_david_char()
-var VAR_107 = call func_7e()
-var VAR_108 = call func_7e()
+var f_in_sekune_1 = call func_7e()
+var f_in_sekune_2 = call func_7e()
 gamevar SMACKER_X = int 236
 gamevar SMACKER_Y = int 188
 var VAR_2 = call play_2d_anim("blood_a", int 1, int 1, var &VAR_3)
@@ -1647,19 +1647,19 @@ call set_input_system(int 2)
 ._SCRIPT_11
 call func_44()
 var VAR_106 = call get_david_char()
-var VAR_107 = call func_7e()
-var VAR_108 = call func_7e()
-if(var VAR_107)
+var f_in_sekune_1 = call func_7e()
+var f_in_sekune_2 = call func_7e()
+if(var f_in_sekune_1)
  {
-		call func_61(var VAR_107)
-		call create_char_game_history_link(var VAR_107)
-		call remove_char(var VAR_107)
+		call func_61(var f_in_sekune_1)
+		call create_char_game_history_link(var f_in_sekune_1)
+		call remove_char(var f_in_sekune_1)
 }
-if(var VAR_108)
+if(var f_in_sekune_2)
  {
-		call func_61(var VAR_108)
-		call create_char_game_history_link(var VAR_108)
-		call remove_char(var VAR_108)
+		call func_61(var f_in_sekune_2)
+		call create_char_game_history_link(var f_in_sekune_2)
+		call remove_char(var f_in_sekune_2)
 }
 call func_61(var VAR_106)
 call func_8e()
@@ -1668,12 +1668,12 @@ call add_item_to_char(var VAR_106, int 114, int 0, int 1)
 gamevar room_state = int 0
 
 ._SCRIPT_12
-var VAR_7 = call create_enemy(int 195, int 0, var &VAR_133, int 0)
-gamevar script_object = var VAR_7
+var silv_orb_9 = call create_enemy(int 195, int 0, var &VAR_133, int 0)
+gamevar script_object = var silv_orb_9
 gamevar *object_p+7 |= int -2147483
-gamevar script_object = var VAR_7
+gamevar script_object = var silv_orb_9
 gamevar *object_p+6 |= int 8388608
-call func_10a(var VAR_7, int 12)
+call func_10a(var silv_orb_9, int 12)
 
 ._SCRIPT_13
 switch(var VAR_198)
@@ -1817,33 +1817,33 @@ switch(var VAR_105)
 		case 0
 			break 
 		case 1
-			if(call is_char_standing(var VAR_112))
+			if(call is_char_standing(var f_in_bethts_5))
 			 {
-					call char_turn_to_pos(var VAR_112, call get_char_pos(var VAR_106))
+					call char_turn_to_pos(var f_in_bethts_5, call get_char_pos(var VAR_106))
 					var VAR_105 = int 2
 			}
 			break 
 		case 2
-			if(call is_char_standing(var VAR_113))
+			if(call is_char_standing(var f_in_bonnie_6))
 			 {
-					call char_turn_to_pos(var VAR_113, call get_char_pos(var VAR_106))
+					call char_turn_to_pos(var f_in_bonnie_6, call get_char_pos(var VAR_106))
 					var VAR_105 = int 0
 			}
 			break 
 		case 3
-			call apply_effect_on_char(gamevar char_gen_fx_scripts, int 10, int 0, var VAR_109)
+			call apply_effect_on_char(gamevar char_gen_fx_scripts, int 10, int 0, var silver_8)
 			var VAR_105 = int 4
 			gamevar scene_counter = int 0
 			break 
 		case 4
 			if(gamevar scene_counter > int 50)
 			 {
-					call char_teleport_to_pos(var VAR_109, var VAR_158, var VAR_159)
+					call char_teleport_to_pos(var silver_8, var VAR_158, var VAR_159)
 					var VAR_105 ++ 
 			}
 			break 
 		case 5
-			call apply_effect_on_char(gamevar char_gen_fx_scripts, int 9, int 0, var VAR_109)
+			call apply_effect_on_char(gamevar char_gen_fx_scripts, int 9, int 0, var silver_8)
 			gamevar scene_counter = int 0
 			var VAR_105 ++ 
 			break 
@@ -1854,9 +1854,9 @@ switch(var VAR_105)
 			}
 			break 
 		case 7
-			if(call is_char_standing(var VAR_111))
+			if(call is_char_standing(var f_in_jennifer_4))
 			 {
-					call char_turn_to_pos(var VAR_111, call get_char_pos(var VAR_148))
+					call char_turn_to_pos(var f_in_jennifer_4, call get_char_pos(var nemesis_3))
 					var VAR_105 = int 0
 			}
 			break 
@@ -1881,8 +1881,8 @@ switch(var VAR_234)
 						if(call func_d1(var &VAR_237))
 						 {
 								call log("silver: projectile left")
-								call apply_effect_on_char(gamevar char_gen_fx_scripts, int 11, call get_char_pos(var VAR_109), int 0)
-								call apply_effect_on_char(gamevar char_gen_fx_scripts, int 17, int 0, var VAR_109)
+								call apply_effect_on_char(gamevar char_gen_fx_scripts, int 11, call get_char_pos(var silver_8), int 0)
+								call apply_effect_on_char(gamevar char_gen_fx_scripts, int 17, int 0, var silver_8)
 								var VAR_101 = int 1
 								var VAR_234 ++ 
 								var VAR_235 = int 0
@@ -1892,8 +1892,8 @@ switch(var VAR_234)
 						if(call func_d1(var &VAR_238))
 						 {
 								call log(var &VAR_246)
-								call apply_effect_on_char(gamevar char_gen_fx_scripts, int 11, call get_char_pos(var VAR_109), int 0)
-								call apply_effect_on_char(gamevar char_gen_fx_scripts, int 17, int 0, var VAR_109)
+								call apply_effect_on_char(gamevar char_gen_fx_scripts, int 11, call get_char_pos(var silver_8), int 0)
+								call apply_effect_on_char(gamevar char_gen_fx_scripts, int 17, int 0, var silver_8)
 								var VAR_101 = int 1
 								var VAR_235 = int 0
 								var VAR_234 ++ 
@@ -1907,7 +1907,7 @@ switch(var VAR_234)
 		case 1
 			if(var VAR_235 > int 50)
 			 {
-					call char_teleport_to_pos(var VAR_109, var &VAR_239, int 180)
+					call char_teleport_to_pos(var silver_8, var &VAR_239, int 180)
 					var VAR_235 = int 0
 					var VAR_234 ++ 
 			}
@@ -1924,9 +1924,9 @@ switch(var VAR_234)
 								var VAR_236 = int 0
 								break 
 					}
-					call apply_effect_on_char(gamevar char_gen_fx_scripts, int 11, call get_char_pos(var VAR_109), int 0)
-					call apply_effect_on_char(gamevar char_gen_fx_scripts, int 16, int 0, var VAR_109)
-					call char_teleport_to_pos(var VAR_109, @VAR_242[var VAR_236], @VAR_243[var VAR_236])
+					call apply_effect_on_char(gamevar char_gen_fx_scripts, int 11, call get_char_pos(var silver_8), int 0)
+					call apply_effect_on_char(gamevar char_gen_fx_scripts, int 16, int 0, var silver_8)
+					call char_teleport_to_pos(var silver_8, @VAR_242[var VAR_236], @VAR_243[var VAR_236])
 					var VAR_235 = int 0
 					var VAR_234 ++ 
 			}

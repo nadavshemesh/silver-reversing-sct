@@ -18,11 +18,11 @@ VAR_16	0
 VAR_17	{ 0, 0 }	
 VAR_21	{ -3250, 680, 900 }	
 VAR_22	{ -2050, 680, -2450 }	
-VAR_24	0	
-VAR_25	0	
-VAR_26	0	
-VAR_27	0	
-VAR_28	0	
+fetch_0	0	
+fetch_1	0	
+fetch_2	0	
+fetch_3	0	
+fetch_4	0	
 VAR_29	{ 113, -1055, 908 }	
 VAR_30	{ 882, -1055, 354 }	
 VAR_31	{ 624, -1055, 1788 }	
@@ -85,40 +85,40 @@ call play_2d_anim("torch01", int 1, int 0, int 0)
 ._SCRIPT_5
 
 ._SCRIPT_6
-var VAR_24 = call create_enemy(int 207, int 1, var &VAR_29, int 0)
-var VAR_25 = call create_enemy(int 207, int 2, var &VAR_30, int 0)
-var VAR_26 = call create_enemy(int 207, int 3, var &VAR_31, int 0)
-var VAR_27 = call create_enemy(int 207, int 4, var &VAR_32, int 0)
-var VAR_28 = call create_enemy(int 207, int 5, var &VAR_33, int 0)
-call func_50(var VAR_24, int 8192)
-call func_50(var VAR_25, int 8192)
-call func_50(var VAR_26, int 8192)
-call func_50(var VAR_27, int 8192)
-call func_50(var VAR_28, int 8192)
-call play_char_ai_script(var VAR_24, var &VAR_36)
-call play_char_ai_script(var VAR_25, var &VAR_37)
-call play_char_ai_script(var VAR_26, var &VAR_38)
-call play_char_ai_script(var VAR_27, var &VAR_39)
-call play_char_ai_script(var VAR_28, var &VAR_40)
-gamevar script_object = var VAR_24
+var fetch_0 = call create_enemy(int 207, int 1, var &VAR_29, int 0)
+var fetch_1 = call create_enemy(int 207, int 2, var &VAR_30, int 0)
+var fetch_2 = call create_enemy(int 207, int 3, var &VAR_31, int 0)
+var fetch_3 = call create_enemy(int 207, int 4, var &VAR_32, int 0)
+var fetch_4 = call create_enemy(int 207, int 5, var &VAR_33, int 0)
+call func_50(var fetch_0, int 8192)
+call func_50(var fetch_1, int 8192)
+call func_50(var fetch_2, int 8192)
+call func_50(var fetch_3, int 8192)
+call func_50(var fetch_4, int 8192)
+call play_char_ai_script(var fetch_0, var &VAR_36)
+call play_char_ai_script(var fetch_1, var &VAR_37)
+call play_char_ai_script(var fetch_2, var &VAR_38)
+call play_char_ai_script(var fetch_3, var &VAR_39)
+call play_char_ai_script(var fetch_4, var &VAR_40)
+gamevar script_object = var fetch_0
 gamevar *character_stats_p+15 = int 20000
-gamevar script_object = var VAR_24
+gamevar script_object = var fetch_0
 gamevar *character_stats_p+16 = int 20000
-gamevar script_object = var VAR_25
+gamevar script_object = var fetch_1
 gamevar *character_stats_p+15 = int 20000
-gamevar script_object = var VAR_25
+gamevar script_object = var fetch_1
 gamevar *character_stats_p+16 = int 20000
-gamevar script_object = var VAR_26
+gamevar script_object = var fetch_2
 gamevar *character_stats_p+15 = int 20000
-gamevar script_object = var VAR_26
+gamevar script_object = var fetch_2
 gamevar *character_stats_p+16 = int 20000
-gamevar script_object = var VAR_27
+gamevar script_object = var fetch_3
 gamevar *character_stats_p+15 = int 20000
-gamevar script_object = var VAR_27
+gamevar script_object = var fetch_3
 gamevar *character_stats_p+16 = int 20000
-gamevar script_object = var VAR_28
+gamevar script_object = var fetch_4
 gamevar *character_stats_p+15 = int 20000
-gamevar script_object = var VAR_28
+gamevar script_object = var fetch_4
 gamevar *character_stats_p+16 = int 20000
 var VAR_43 = call randomize_int(int 2, int 4)
 var VAR_41 = int 0
@@ -131,23 +131,23 @@ while(var VAR_41 != var VAR_43)
 				 {
 						case 0
 							call log("given to fetch 1")
-							call add_item_to_char(var VAR_24, int 85, int 328193, int 0)
+							call add_item_to_char(var fetch_0, int 85, int 328193, int 0)
 							break 
 						case 1
 							call log("given to fetch 2")
-							call add_item_to_char(var VAR_25, int 85, int 328193, int 0)
+							call add_item_to_char(var fetch_1, int 85, int 328193, int 0)
 							break 
 						case 2
 							call log("given to fetch 3")
-							call add_item_to_char(var VAR_26, int 85, int 328193, int 0)
+							call add_item_to_char(var fetch_2, int 85, int 328193, int 0)
 							break 
 						case 3
 							call log("given to fetch 4")
-							call add_item_to_char(var VAR_27, int 85, int 328193, int 0)
+							call add_item_to_char(var fetch_3, int 85, int 328193, int 0)
 							break 
 						case 4
 							call log("given to fetch 5")
-							call add_item_to_char(var VAR_28, int 85, int 328193, int 0)
+							call add_item_to_char(var fetch_4, int 85, int 328193, int 0)
 							break 
 				}
 				@VAR_42[var VAR_34]= int 1

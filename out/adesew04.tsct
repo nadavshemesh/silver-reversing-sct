@@ -4,9 +4,9 @@ VAR_1	{ 1, 0, 0 }
 VAR_2	{ 1, 0, 0 }	
 VAR_3	0	
 VAR_4	0	
-VAR_5	0	
-VAR_6	0	
-VAR_7	0	
+rat_raptor_max3_0	0	
+rat_raptor_max3_1	0	
+rat_raptor_max3_2	0	
 VAR_8	{ 3366, -300, 3066 }	
 VAR_9	{ 3263, -300, 2998 }	
 VAR_10	{ 3376, -300, 2765 }	
@@ -63,11 +63,11 @@ switch(gamevar room_state)
 }
 
 ._SCRIPT_3
-var VAR_5 = call create_enemy(int 86, int 0, var &VAR_8, int 160)
-var VAR_6 = call create_enemy(int 86, int 1, var &VAR_9, int 95)
-var VAR_7 = call create_enemy(int 86, int 2, var &VAR_10, int 335)
-call add_item_to_char(var VAR_5, int 45, int 1, int 0)
-call add_item_to_char(var VAR_7, int 43, int 1, int 0)
+var rat_raptor_max3_0 = call create_enemy(int 86, int 0, var &VAR_8, int 160)
+var rat_raptor_max3_1 = call create_enemy(int 86, int 1, var &VAR_9, int 95)
+var rat_raptor_max3_2 = call create_enemy(int 86, int 2, var &VAR_10, int 335)
+call add_item_to_char(var rat_raptor_max3_0, int 45, int 1, int 0)
+call add_item_to_char(var rat_raptor_max3_2, int 43, int 1, int 0)
 call create_char(var &VAR_11, "icheese", int 0, int 13)
 var VAR_3 = int 0
 var VAR_4 = int 120
@@ -80,13 +80,13 @@ switch(var VAR_3)
 			switch(var VAR_4)
 			 {
 					case 75
-						call func_19(var VAR_5, call get_selected_hero())
+						call func_19(var rat_raptor_max3_0, call get_selected_hero())
 						break 
 					case 30
-						call func_19(var VAR_6, call get_selected_hero())
+						call func_19(var rat_raptor_max3_1, call get_selected_hero())
 						break 
 					case 1
-						call func_19(var VAR_7, call get_selected_hero())
+						call func_19(var rat_raptor_max3_2, call get_selected_hero())
 						var VAR_3 ++ 
 						break 
 			}

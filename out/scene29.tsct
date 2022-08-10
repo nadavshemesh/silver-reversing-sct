@@ -1,11 +1,11 @@
 ._DATA
-VAR_0	0	
-VAR_1	0	
-VAR_2	0	
+muscles_0	0	
+finnegan_2	0	
+dick_1	0	
 VAR_3	{ 2737, 123, 4056 }	
 VAR_4	{ 2787, 123, 3780 }	
 VAR_5	{ 2580, 123, 3821 }	
-VAR_6	{ 9, 2, VAR_1, 3, VAR_2, 3, VAR_2, 3, VAR_2, 8 }	
+VAR_6	{ 9, 2, finnegan_2, 3, dick_1, 3, dick_1, 3, dick_1, 8 }	
 VAR_7	{ 7, 8 }	
 VAR_8	{ 7, 8 }	
 VAR_9	0	
@@ -78,17 +78,17 @@ switch(gamevar room_state)
 }
 
 ._SCRIPT_3
-var VAR_0 = call create_enemy(int 30, int 0, var &VAR_3, int 175)
-var VAR_2 = call create_enemy(int 31, int 0, var &VAR_5, int 15)
-var VAR_1 = call create_enemy(int 32, int 0, var &VAR_4, int 300)
-call add_item_to_char(var VAR_1, int 42, int 1, int 0)
-call play_char_ai_script(var VAR_0, var &VAR_6)
-call play_char_ai_script(var VAR_2, var &VAR_8)
-call play_char_ai_script(var VAR_1, var &VAR_7)
-call func_50(var VAR_0, int 8192)
-call func_50(var VAR_2, int 8192)
-call func_50(var VAR_1, int 8192)
-call func_104(var VAR_2, int 7, int 3)
+var muscles_0 = call create_enemy(int 30, int 0, var &VAR_3, int 175)
+var dick_1 = call create_enemy(int 31, int 0, var &VAR_5, int 15)
+var finnegan_2 = call create_enemy(int 32, int 0, var &VAR_4, int 300)
+call add_item_to_char(var finnegan_2, int 42, int 1, int 0)
+call play_char_ai_script(var muscles_0, var &VAR_6)
+call play_char_ai_script(var dick_1, var &VAR_8)
+call play_char_ai_script(var finnegan_2, var &VAR_7)
+call func_50(var muscles_0, int 8192)
+call func_50(var dick_1, int 8192)
+call func_50(var finnegan_2, int 8192)
+call func_104(var dick_1, int 7, int 3)
 
 ._SCRIPT_4
 if(var VAR_34 != var VAR_31)
@@ -102,7 +102,7 @@ switch(var VAR_31)
 			var VAR_33 = int 0
 			if(call is_char_handle_in_level(int 2490368))
 			 {
-					if(call func_88(var VAR_0))
+					if(call func_88(var muscles_0))
 					 {
 							var VAR_32 = int 1
 					}
@@ -113,7 +113,7 @@ switch(var VAR_31)
 			}
 			if(call is_char_handle_in_level(int 6422528))
 			 {
-					if(call func_88(var VAR_2))
+					if(call func_88(var dick_1))
 					 {
 							var VAR_32 = int 1
 					}
@@ -124,7 +124,7 @@ switch(var VAR_31)
 			}
 			if(call is_char_handle_in_level(int 5767168))
 			 {
-					if(call func_88(var VAR_1))
+					if(call func_88(var finnegan_2))
 					 {
 							var VAR_32 = int 1
 					}
@@ -137,15 +137,15 @@ switch(var VAR_31)
 			 {
 					if(call is_char_handle_in_level(int 2490368))
 					 {
-							call func_46(var VAR_0, int 13)
+							call func_46(var muscles_0, int 13)
 					}
 					if(call is_char_handle_in_level(int 6422528))
 					 {
-							call func_46(var VAR_2, int 13)
+							call func_46(var dick_1, int 13)
 					}
 					if(call is_char_handle_in_level(int 5767168))
 					 {
-							call func_46(var VAR_1, int 13)
+							call func_46(var finnegan_2, int 13)
 					}
 					var VAR_31 ++ 
 			}
@@ -162,22 +162,22 @@ switch(var VAR_31)
 			 {
 					if(call ! is_char_handle_in_level(int 2490368))
 					 {
-							var VAR_0 = call create_enemy_through_door(int 30, int 0, int 1, int 0)
-							call set_char_running(var VAR_0)
-							call func_19(var VAR_0, call get_selected_hero())
+							var muscles_0 = call create_enemy_through_door(int 30, int 0, int 1, int 0)
+							call set_char_running(var muscles_0)
+							call func_19(var muscles_0, call get_selected_hero())
 					}
 					if(call ! is_char_handle_in_level(int 6422528))
 					 {
-							var VAR_2 = call create_enemy_through_door(int 31, int 0, int 1, int 0)
-							call set_char_running(var VAR_2)
-							call func_19(var VAR_2, call get_selected_hero())
-							call add_item_to_char(var VAR_2, int 40, int 1, int 0)
+							var dick_1 = call create_enemy_through_door(int 31, int 0, int 1, int 0)
+							call set_char_running(var dick_1)
+							call func_19(var dick_1, call get_selected_hero())
+							call add_item_to_char(var dick_1, int 40, int 1, int 0)
 					}
 					if(call ! is_char_handle_in_level(int 5767168))
 					 {
-							var VAR_1 = call create_enemy_through_door(int 32, int 0, int 1, int 0)
-							call set_char_running(var VAR_1)
-							call func_19(var VAR_1, call get_selected_hero())
+							var finnegan_2 = call create_enemy_through_door(int 32, int 0, int 1, int 0)
+							call set_char_running(var finnegan_2)
+							call func_19(var finnegan_2, call get_selected_hero())
 					}
 					var VAR_31 ++ 
 			}

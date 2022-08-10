@@ -13,6 +13,14 @@ void print_game_function(game_fun* gf) {
     printf("func_description: %s\n", gf->desc);
 }
 
+catalog_ref* create_cat_ref(cat_type type, int var_index) {
+    catalog_ref* cref = w_malloc(sizeof(catalog_ref));
+    cref->type = type;
+    cref->var_index = var_index;
+
+    return cref;
+}
+
 void print_game_function_i(int num, game_fun** functions_arr) {
     game_fun* gf = functions_arr[num];
     if(gf == NULL) { print_err_and_exit("error - game_functions uninitialized.\n", -2); }
@@ -25,6 +33,7 @@ void init_game_functions(game_fun** functions_arr) {
         gf->id = i;
         char* name = w_malloc(MAX_FUNC_NAME);
         char* prefix = "func_";
+        gf->cat_ref = NULL;
 
         // c_itoa(i,num);
         sprintf(name, "%s%x", prefix, i);
@@ -39,6 +48,9 @@ void init_game_functions(game_fun** functions_arr) {
     functions_arr[0x97]->name = aapts("create_enemy");
     functions_arr[0x97]->params = 4;
     functions_arr[0x97]->desc = aapts("(int enemy_type, int id, var position_ptr, int face_direction_radius_counter_clockwise)");
+
+    functions_arr[0x97]->cat_ref =  create_cat_ref(ENEMY_CAT, 0);
+
     functions_arr[0x93]->name = aapts("create_char");
     functions_arr[0x93]->params = 4;
     functions_arr[0x93]->desc = aapts("(var pos_ptr, var char_name_ptr, int unknown, int unknown)");

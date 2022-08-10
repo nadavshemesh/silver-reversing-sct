@@ -1,14 +1,14 @@
 ._DATA
 VAR_0	{ 5197383, 0 }	
-VAR_1	0	
+devious_imp_0	0	
 VAR_2	{ -2813, -996, 5953 }	
-VAR_3	0	
+devious_imp_1	0	
 VAR_4	{ -2575, -996, 5960 }	
-VAR_5	0	
+devious_imp_2	0	
 VAR_6	{ -2680, -996, 5806 }	
 VAR_7	{ 0, -7204, -996, 5228 }	
 VAR_8	{ 0, -7333, -996, 5199 }	
-VAR_9	0	
+catapult_imp_3	0	
 VAR_10	{ -2384, 2, 3983 }	
 VAR_11	0	
 VAR_12	{ -1914, 3, 4430, -2435, 3, 4006, -1893, 3, 3557 }	
@@ -110,17 +110,17 @@ if(gamevar script_time > var VAR_33)
 
 ._SCRIPT_4
 call load_item(int 110)
-var VAR_1 = call create_enemy(int 100, int 1, var &VAR_2, int 101)
-var VAR_3 = call create_enemy(int 100, int 2, var &VAR_4, int 205)
-var VAR_5 = call create_enemy(int 100, int 3, var &VAR_6, int 345)
-var VAR_9 = call create_enemy(int 104, int 4, var &VAR_10, int 265)
-call func_106(var VAR_1, int 1, int 0, int 1)
-call func_106(var VAR_3, int 1, int 0, int 1)
-call func_106(var VAR_5, int 1, int 0, int 1)
-call func_50(var VAR_1, int 2)
-call func_50(var VAR_3, int 2)
-call func_50(var VAR_5, int 2)
-call freeze_enemy(var VAR_9)
+var devious_imp_0 = call create_enemy(int 100, int 1, var &VAR_2, int 101)
+var devious_imp_1 = call create_enemy(int 100, int 2, var &VAR_4, int 205)
+var devious_imp_2 = call create_enemy(int 100, int 3, var &VAR_6, int 345)
+var catapult_imp_3 = call create_enemy(int 104, int 4, var &VAR_10, int 265)
+call func_106(var devious_imp_0, int 1, int 0, int 1)
+call func_106(var devious_imp_1, int 1, int 0, int 1)
+call func_106(var devious_imp_2, int 1, int 0, int 1)
+call func_50(var devious_imp_0, int 2)
+call func_50(var devious_imp_1, int 2)
+call func_50(var devious_imp_2, int 2)
+call freeze_enemy(var catapult_imp_3)
 call load_char("impboss")
 call load_char("wingimp")
 call set_input_system(int 2)
@@ -166,9 +166,9 @@ switch(var VAR_20)
 			if(call get_input_sys() != int 4)
 			 {
 					call set_input_system(int 1)
-					call func_106(var VAR_9, int 9, int 5, var &VAR_12)
-					call func_106(var VAR_9, int 9, int 6, int 3)
-					call set_char_template(var VAR_9, int 104)
+					call func_106(var catapult_imp_3, int 9, int 5, var &VAR_12)
+					call func_106(var catapult_imp_3, int 9, int 6, int 3)
+					call set_char_template(var catapult_imp_3, int 104)
 					var VAR_20 ++ 
 					var VAR_19 = int 0
 			}
@@ -179,15 +179,15 @@ switch(var VAR_20)
 					var VAR_21 = int 0
 					if(call is_char_handle_in_level(int 917505))
 					 {
-							var VAR_21 = var VAR_1
+							var VAR_21 = var devious_imp_0
 					}
 					if(call is_char_handle_in_level(int 917506))
 					 {
-							var VAR_21 = var VAR_3
+							var VAR_21 = var devious_imp_1
 					}
 					if(call is_char_handle_in_level(int 917507))
 					 {
-							var VAR_21 = var VAR_5
+							var VAR_21 = var devious_imp_2
 					}
 					if(var ! VAR_21)
 					 {

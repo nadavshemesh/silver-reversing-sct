@@ -28,11 +28,11 @@ VAR_28	0
 VAR_29	0	
 VAR_30	{ 0, 0 }	
 VAR_31	0	
-VAR_32	0	
-VAR_33	0	
-VAR_34	0	
-VAR_35	0	
-VAR_36	0	
+captain_knives_0	0	
+lieutenant_1	0	
+lieutenant_2	0	
+lieutenant_3	0	
+lieutenant_4	0	
 VAR_37	{ 366, 0, -272 }	
 VAR_38	{ 514, 0, -714 }	
 VAR_39	{ -178, 0, -578 }	
@@ -326,16 +326,16 @@ switch(var VAR_71)
 }
 
 ._SCRIPT_5
-var VAR_32 = call create_enemy(int 209, int 0, var &VAR_37, int 207)
-call freeze_enemy(var VAR_32)
-var VAR_33 = call create_enemy(int 11, int 1, var &VAR_38, int 295)
-call freeze_enemy(var VAR_33)
-var VAR_34 = call create_enemy(int 11, int 2, var &VAR_39, int 25)
-call freeze_enemy(var VAR_34)
-var VAR_35 = call create_enemy(int 11, int 3, var &VAR_40, int 5)
-call freeze_enemy(var VAR_35)
-var VAR_36 = call create_enemy(int 11, int 4, var &VAR_41, int 350)
-call freeze_enemy(var VAR_36)
+var captain_knives_0 = call create_enemy(int 209, int 0, var &VAR_37, int 207)
+call freeze_enemy(var captain_knives_0)
+var lieutenant_1 = call create_enemy(int 11, int 1, var &VAR_38, int 295)
+call freeze_enemy(var lieutenant_1)
+var lieutenant_2 = call create_enemy(int 11, int 2, var &VAR_39, int 25)
+call freeze_enemy(var lieutenant_2)
+var lieutenant_3 = call create_enemy(int 11, int 3, var &VAR_40, int 5)
+call freeze_enemy(var lieutenant_3)
+var lieutenant_4 = call create_enemy(int 11, int 4, var &VAR_41, int 350)
+call freeze_enemy(var lieutenant_4)
 var VAR_31 = call create_char(var &VAR_43, "noldwoman", int 22, int 13)
 call add_item_to_char(var VAR_31, int 90, int 1, int 1)
 gamevar script_object = var VAR_31
@@ -346,9 +346,9 @@ if(call is_char_handle_in_level(int 786432))
  {
 		var VAR_30 = call get_char_handle(int 786432)
 }
-call set_char_running(var VAR_34)
-call set_char_running(var VAR_35)
-call set_char_running(var VAR_36)
+call set_char_running(var lieutenant_2)
+call set_char_running(var lieutenant_3)
+call set_char_running(var lieutenant_4)
 var VAR_48 = call load_anim("gstqustn")
 var VAR_49 = call load_anim("no")
 var VAR_50 = call load_anim("yes")
@@ -371,7 +371,7 @@ switch(var VAR_27)
 			 {
 					if(call is_char_handle_in_level(int 6881280))
 					 {
-							call play_char_anim(var VAR_32, var VAR_52, int 0)
+							call play_char_anim(var captain_knives_0, var VAR_52, int 0)
 							var VAR_27 = int 3
 					}
 					else
@@ -384,7 +384,7 @@ switch(var VAR_27)
 		case 1
 			if(call is_char_handle_in_level(int 6881280))
 			 {
-					if(call func_5c(var VAR_32))
+					if(call func_5c(var captain_knives_0))
 					 {
 							call play_char_anim(var VAR_31, var VAR_48, int 0)
 							var VAR_27 ++ 
@@ -402,7 +402,7 @@ switch(var VAR_27)
 			 {
 					if(call is_char_handle_in_level(int 6881280))
 					 {
-							call play_char_anim(var VAR_32, var VAR_52, int 0)
+							call play_char_anim(var captain_knives_0, var VAR_52, int 0)
 							var VAR_27 ++ 
 							var VAR_28 = int 0
 					}
@@ -422,7 +422,7 @@ switch(var VAR_27)
 			 {
 					if(call is_char_handle_in_level(int 6881280))
 					 {
-							if(call func_5c(var VAR_32))
+							if(call func_5c(var captain_knives_0))
 							 {
 									if(var VAR_67)
 									 {
@@ -445,7 +445,7 @@ switch(var VAR_27)
 			 {
 					if(call is_char_handle_in_level(int 6881280))
 					 {
-							call play_char_anim(var VAR_32, var VAR_53, int 0)
+							call play_char_anim(var captain_knives_0, var VAR_53, int 0)
 							var VAR_27 ++ 
 							var VAR_28 = int 0
 					}
@@ -473,7 +473,7 @@ switch(var VAR_27)
 		case 6
 			if(call is_char_handle_in_level(int 6881280))
 			 {
-					if(call func_5c(var VAR_32))
+					if(call func_5c(var captain_knives_0))
 					 {
 							if(call func_5c(var VAR_31))
 							 {
@@ -496,7 +496,7 @@ switch(var VAR_27)
 		case 7
 			if(call is_char_handle_in_level(int 6881280))
 			 {
-					if(call func_5c(var VAR_32))
+					if(call func_5c(var captain_knives_0))
 					 {
 							call play_char_anim(var VAR_31, var VAR_49, int 0)
 							var VAR_27 = int 2

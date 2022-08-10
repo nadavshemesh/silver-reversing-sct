@@ -1,12 +1,12 @@
 ._DATA
 VAR_0	{ 0, 0 }	
 VAR_1	0	
-VAR_2	0	
-VAR_3	0	
-VAR_4	0	
-VAR_5	0	
-VAR_6	0	
-VAR_7	0	
+lesser_gimp_0	0	
+greater_gimpv_1	0	
+rat_raptor_2	0	
+rat_raptor_3	0	
+rat_raptor_4	0	
+rat_raptor_5	0	
 VAR_8	{ -1949, -128, -628 }	
 VAR_9	{ -821, 94, -1218 }	
 VAR_10	{ -797, -172, -2000 }	
@@ -89,25 +89,25 @@ switch(gamevar room_state)
 call load_char("skaven")
 call load_char("skavenb")
 call load_char("ratrptr")
-var VAR_2 = call create_enemy(int 45, int 0, var &VAR_8, int 105)
-var VAR_3 = call create_enemy(int 46, int 0, var &VAR_9, int 260)
-var VAR_4 = call create_enemy(int 55, int 0, var &VAR_10, int 355)
-var VAR_5 = call create_enemy(int 55, int 1, var &VAR_11, int 20)
-var VAR_6 = call create_enemy(int 55, int 2, var &VAR_12, int 65)
-var VAR_7 = call create_enemy(int 55, int 3, var &VAR_13, int 85)
-call add_item_to_char(var VAR_4, int 43, int 1, int 0)
-call add_item_to_char(var VAR_6, int 43, int 1, int 0)
-call play_char_ai_script(var VAR_3, var &VAR_24)
-call play_char_ai_script(var VAR_4, var &VAR_27)
-call play_char_ai_script(var VAR_5, var &VAR_30)
-call play_char_ai_script(var VAR_6, var &VAR_33)
-call play_char_ai_script(var VAR_7, var &VAR_36)
-call set_char_init_state(var VAR_2, int 1)
-call func_50(var VAR_3, int 8194)
-call func_50(var VAR_4, int 8194)
-call func_50(var VAR_5, int 8194)
-call func_50(var VAR_6, int 8194)
-call func_50(var VAR_7, int 8194)
+var lesser_gimp_0 = call create_enemy(int 45, int 0, var &VAR_8, int 105)
+var greater_gimpv_1 = call create_enemy(int 46, int 0, var &VAR_9, int 260)
+var rat_raptor_2 = call create_enemy(int 55, int 0, var &VAR_10, int 355)
+var rat_raptor_3 = call create_enemy(int 55, int 1, var &VAR_11, int 20)
+var rat_raptor_4 = call create_enemy(int 55, int 2, var &VAR_12, int 65)
+var rat_raptor_5 = call create_enemy(int 55, int 3, var &VAR_13, int 85)
+call add_item_to_char(var rat_raptor_2, int 43, int 1, int 0)
+call add_item_to_char(var rat_raptor_4, int 43, int 1, int 0)
+call play_char_ai_script(var greater_gimpv_1, var &VAR_24)
+call play_char_ai_script(var rat_raptor_2, var &VAR_27)
+call play_char_ai_script(var rat_raptor_3, var &VAR_30)
+call play_char_ai_script(var rat_raptor_4, var &VAR_33)
+call play_char_ai_script(var rat_raptor_5, var &VAR_36)
+call set_char_init_state(var lesser_gimp_0, int 1)
+call func_50(var greater_gimpv_1, int 8194)
+call func_50(var rat_raptor_2, int 8194)
+call func_50(var rat_raptor_3, int 8194)
+call func_50(var rat_raptor_4, int 8194)
+call func_50(var rat_raptor_5, int 8194)
 
 ._SCRIPT_4
 switch(var VAR_0)
@@ -116,42 +116,42 @@ switch(var VAR_0)
 			var VAR_41 = int 0
 			if(call is_char_handle_in_level(int 10485760))
 			 {
-					if(call func_88(var VAR_2))
+					if(call func_88(var lesser_gimp_0))
 					 {
 							var VAR_41 = int 1
 					}
 			}
 			if(call is_char_handle_in_level(int 10551296))
 			 {
-					if(call func_88(var VAR_3))
+					if(call func_88(var greater_gimpv_1))
 					 {
 							var VAR_41 = int 1
 					}
 			}
 			if(call is_char_handle_in_level(int 9240576))
 			 {
-					if(call func_88(var VAR_4))
+					if(call func_88(var rat_raptor_2))
 					 {
 							var VAR_41 = int 1
 					}
 			}
 			if(call is_char_handle_in_level(int 9240577))
 			 {
-					if(call func_88(var VAR_5))
+					if(call func_88(var rat_raptor_3))
 					 {
 							var VAR_41 = int 1
 					}
 			}
 			if(call is_char_handle_in_level(int 9240578))
 			 {
-					if(call func_88(var VAR_6))
+					if(call func_88(var rat_raptor_4))
 					 {
 							var VAR_41 = int 1
 					}
 			}
 			if(call is_char_handle_in_level(int 9240579))
 			 {
-					if(call func_88(var VAR_7))
+					if(call func_88(var rat_raptor_5))
 					 {
 							var VAR_41 = int 1
 					}
@@ -160,28 +160,28 @@ switch(var VAR_0)
 			 {
 					if(call is_char_handle_in_level(int 10551296))
 					 {
-							call func_29(var VAR_3)
-							call func_46(var VAR_3, int 13)
+							call func_29(var greater_gimpv_1)
+							call func_46(var greater_gimpv_1, int 13)
 					}
 					if(call is_char_handle_in_level(int 10485760))
 					 {
-							call func_17(var VAR_2, call get_selected_hero())
+							call func_17(var lesser_gimp_0, call get_selected_hero())
 					}
 					if(call is_char_handle_in_level(int 9240576))
 					 {
-							call func_46(var VAR_4, int 13)
+							call func_46(var rat_raptor_2, int 13)
 					}
 					if(call is_char_handle_in_level(int 9240577))
 					 {
-							call func_46(var VAR_5, int 13)
+							call func_46(var rat_raptor_3, int 13)
 					}
 					if(call is_char_handle_in_level(int 9240578))
 					 {
-							call func_46(var VAR_6, int 13)
+							call func_46(var rat_raptor_4, int 13)
 					}
 					if(call is_char_handle_in_level(int 9240579))
 					 {
-							call func_46(var VAR_7, int 13)
+							call func_46(var rat_raptor_5, int 13)
 					}
 					var VAR_0 ++ 
 			}

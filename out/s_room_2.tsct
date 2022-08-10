@@ -28,9 +28,9 @@ VAR_28	{ 692, 0, -1049 }
 VAR_29	{ 1333, 400, -1145 }	
 VAR_30	{ 938, 800, -2090 }	
 VAR_31	{ 1333, 1000, -1145 }	
-VAR_32	0	
+drop_flayer_0	0	
 VAR_33	{ -992, 1001, -2144 }	
-VAR_34	0	
+drop_iwarrior_med_1	0	
 VAR_35	{ -1407, 901, -1181 }	
 VAR_36	0	
 VAR_37	0	
@@ -617,12 +617,12 @@ switch(var VAR_57)
 							call char_turn_to_pos(var VAR_63, var &VAR_33)
 					}
 					var VAR_7 = int 0
-					var VAR_32 = call create_enemy(int 169, int 0, var &VAR_33, int 34)
-					var VAR_34 = call create_enemy(int 167, int 1, var &VAR_35, int 79)
+					var drop_flayer_0 = call create_enemy(int 169, int 0, var &VAR_33, int 34)
+					var drop_iwarrior_med_1 = call create_enemy(int 167, int 1, var &VAR_35, int 79)
 					call char_walk_to(var VAR_61, int -204, int 0, int -1639)
 					call char_walk_to(var VAR_62, int -416, int 0, int -1087)
-					call func_1(var VAR_32, int -1)
-					call func_1(var VAR_34, int -1)
+					call func_1(var drop_flayer_0, int -1)
+					call func_1(var drop_iwarrior_med_1, int -1)
 					var VAR_57 ++ 
 					var VAR_58 = int 0
 					var VAR_20 = int 0
@@ -642,13 +642,13 @@ switch(var VAR_57)
 			 {
 					if(call is_char_handle_in_level(int 12386304))
 					 {
-							call func_50(var VAR_32, int 8192)
-							call play_char_ai_script(var VAR_32, var &VAR_50)
+							call func_50(var drop_flayer_0, int 8192)
+							call play_char_ai_script(var drop_flayer_0, var &VAR_50)
 					}
 					if(call is_char_handle_in_level(int 3473409))
 					 {
-							call func_50(var VAR_34, int 8192)
-							call play_char_ai_script(var VAR_34, var &VAR_51)
+							call func_50(var drop_iwarrior_med_1, int 8192)
+							call play_char_ai_script(var drop_iwarrior_med_1, var &VAR_51)
 					}
 					var VAR_57 ++ 
 					var VAR_58 = int 0
@@ -670,13 +670,13 @@ switch(var VAR_57)
 					var VAR_57 ++ 
 					if(call is_char_handle_in_level(int 12386304))
 					 {
-							call func_47(var VAR_32, int 8192)
-							call func_2(var VAR_32)
+							call func_47(var drop_flayer_0, int 8192)
+							call func_2(var drop_flayer_0)
 					}
 					if(call is_char_handle_in_level(int 3473409))
 					 {
-							call func_47(var VAR_34, int 8192)
-							call func_2(var VAR_34)
+							call func_47(var drop_iwarrior_med_1, int 8192)
+							call func_2(var drop_iwarrior_med_1)
 					}
 			}
 			break 

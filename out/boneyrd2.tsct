@@ -2,13 +2,13 @@
 VAR_4	0	
 VAR_5	0	
 VAR_6	0	
-VAR_7	0	
-VAR_8	0	
-VAR_9	0	
+skel_3	0	
+skel_4	0	
+spin_in_skel_2	0	
 VAR_10	{ -4636, -1625, 3577 }	
 VAR_11	{ -3002, -1625, 2232 }	
 VAR_12	{ -2834, -1625, 1574 }	
-VAR_13	0	
+grow_boney_dont_drop_bombs_0	0	
 VAR_14	{ -598, -456, 4763 }	
 VAR_15	{ -786, -456, 4729 }	
 VAR_16	{ -2967, -1575, 4163, -2907, -1575, 4381 }	
@@ -97,7 +97,7 @@ switch(var VAR_21)
 		case 0
 			if(call func_8a(var &VAR_16))
 			 {
-					var VAR_13 = call create_enemy(int 214, int 0, var &VAR_14, int 240)
+					var grow_boney_dont_drop_bombs_0 = call create_enemy(int 214, int 0, var &VAR_14, int 240)
 					var VAR_21 ++ 
 			}
 			break 
@@ -106,8 +106,8 @@ switch(var VAR_21)
 			 {
 					if(call is_char_handle_in_level(int 5439488))
 					 {
-							call func_47(var VAR_13, int 641)
-							call char_walk_to_pos(var VAR_13, var &VAR_15)
+							call func_47(var grow_boney_dont_drop_bombs_0, int 641)
+							call char_walk_to_pos(var grow_boney_dont_drop_bombs_0, var &VAR_15)
 					}
 					var VAR_21 ++ 
 			}
@@ -115,9 +115,9 @@ switch(var VAR_21)
 		case 2
 			if(call is_char_handle_in_level(int 5439488))
 			 {
-					if(call is_char_standing(var VAR_13))
+					if(call is_char_standing(var grow_boney_dont_drop_bombs_0))
 					 {
-							call func_29(var VAR_13)
+							call func_29(var grow_boney_dont_drop_bombs_0)
 							var VAR_21 ++ 
 							var VAR_22 = int 0
 					}
@@ -125,18 +125,18 @@ switch(var VAR_21)
 			else
 			 {
 					var VAR_5 = call run_enemy_generator(var &VAR_19, int 10)
-					var VAR_9 = call create_enemy(int 92, int 0, var &VAR_10, int 80)
+					var spin_in_skel_2 = call create_enemy(int 92, int 0, var &VAR_10, int 80)
 					var VAR_21 = int 10
 			}
 			break 
 		case 3
 			if(call is_char_handle_in_level(int 5439488))
 			 {
-					if(var VAR_22 > int 10&&call func_5c(var VAR_13))
+					if(var VAR_22 > int 10&&call func_5c(var grow_boney_dont_drop_bombs_0))
 					 {
-							call func_50(var VAR_13, int 641)
+							call func_50(var grow_boney_dont_drop_bombs_0, int 641)
 							var VAR_5 = call run_enemy_generator(var &VAR_19, int 10)
-							var VAR_9 = call create_enemy(int 92, int 0, var &VAR_10, int 80)
+							var spin_in_skel_2 = call create_enemy(int 92, int 0, var &VAR_10, int 80)
 							var VAR_21 ++ 
 					}
 			}
@@ -149,20 +149,20 @@ execute SCRIPT_8
 call load_char("boney")
 call load_char("wraith")
 call load_char("death")
-var VAR_7 = call create_enemy(int 58, int 0, var &VAR_11, int 299)
-var VAR_8 = call create_enemy(int 58, int 1, var &VAR_12, int 235)
-call func_106(var VAR_7, int 1, int 0, int 1)
-call func_106(var VAR_8, int 1, int 0, int 1)
-call func_50(var VAR_7, int 3)
-call func_50(var VAR_8, int 3)
+var skel_3 = call create_enemy(int 58, int 0, var &VAR_11, int 299)
+var skel_4 = call create_enemy(int 58, int 1, var &VAR_12, int 235)
+call func_106(var skel_3, int 1, int 0, int 1)
+call func_106(var skel_4, int 1, int 0, int 1)
+call func_50(var skel_3, int 3)
+call func_50(var skel_4, int 3)
 var VAR_6 = call run_enemy_generator(var &VAR_20, int 2)
 
 ._SCRIPT_5
 
 ._SCRIPT_6
-var VAR_13 = call create_char(var &VAR_14, "nboney", int 240, int 13)
-call func_50(var VAR_13, int 8192)
-call play_char_ai_script(var VAR_13, var &VAR_23)
+var grow_boney_dont_drop_bombs_0 = call create_char(var &VAR_14, "nboney", int 240, int 13)
+call func_50(var grow_boney_dont_drop_bombs_0, int 8192)
+call play_char_ai_script(var grow_boney_dont_drop_bombs_0, var &VAR_23)
 
 ._SCRIPT_7
 call log("Wandering Baddies Override Act")

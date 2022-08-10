@@ -1,5 +1,9 @@
 #include "sct\convert\bin\sctbin.h"
 
+int global_hint_var_name_counter = 0;
+bool during_assingment = false;
+data_obj* last_data_obj_cp = NULL;
+
 void build_scripts_order(sct_f* sf) {
     unsigned long f_pos = ftell(sf->file);
 
@@ -373,6 +377,12 @@ expr_obj* bin_read_function_call_expr(expr_pattern* expr_p, int* vars, void** to
     // printf("game_func: %x, params_num(exprs): %d\n", func_num, params_num);
 
     game_fun* gf = game_functions[func_num];
+
+    int param_cat_ref = -1;
+    if(gf->cat_ref != NULL) {
+            param_cat_ref = gf->cat_ref->var_index;
+    }
+    
     if(gf == NULL) { 
         char err[256];
         sprintf(err, "ERROR, game func %d not found.\n", func_num);
@@ -391,6 +401,22 @@ expr_obj* bin_read_function_call_expr(expr_pattern* expr_p, int* vars, void** to
             insert_node(exp_nodes, new_node);
         }
         exp_nodes_len++;
+
+        // try to name the assigned var if it exists using the catalogs
+        if(i == param_cat_ref && during_assingment) {
+            int param = gf->cat_ref->var_index;
+            if(gf->cat_ref->type == ENEMY_CAT) {
+                // TODO: validate
+                expr_obj* eo = exp->expr_objs;
+                int enemy_num = (int) eo->bin_vars[0];
+                char* enemy_name = aapts(enemy_cat->items[enemy_num]);
+                // printf("%s -> found %s.\n", last_data_obj_cp->name, enemy_name);
+                char new_var_name[256];
+                sprintf(new_var_name, "%s_%d", enemy_name, global_hint_var_name_counter);
+                global_hint_var_name_counter++;
+                last_data_obj_cp->name = aapts(new_var_name);
+            }
+        }
     }
 
     e_obj->expression_nodes = w_malloc(sizeof(node*));
@@ -398,6 +424,7 @@ expr_obj* bin_read_function_call_expr(expr_pattern* expr_p, int* vars, void** to
     e_obj->expression_node_num = exp_nodes_len;
     e_obj->expression_nodes = exp_nodes;
     // print_expression((*exp_nodes)->item);
+
 
     char* asm_vars = { gf->name };
     e_obj->expr_p = expr_p;
@@ -830,6 +857,7 @@ code_obj* bin_read_assignment(code_pattern* cp, int* vars, void** token_pos_ptr,
     c_obj->expression_nodes = exp_nodes;
     c_obj->expression_node_num = 1;
 
+    during_assingment = false;
     return c_obj;
 }
 
@@ -877,14 +905,19 @@ code_obj* bin_read_var_ptr(code_pattern* cp, int* vars, void** token_pos_ptr, sc
     int data_var = (((int*)vars))[0];
     data_obj* data;
     data = get_data_obj_by_id(data_var, sf);
-    char* name = (data != NULL) ? data->name : "";
-    char* asm_vars = { name };
+
+    // useful to keep for hints
+    last_data_obj_cp = data;
+
+    char* name = (data != NULL) ? data->name : aapts("");
+    //char* asm_vars = { name };
     int bin_vars[1] = { data_var };
-    c_obj->asm_vars = w_malloc(cp->asm_var_num*sizeof(char*));
+    //c_obj->asm_vars = w_malloc(cp->asm_var_num*sizeof(char*));
+    c_obj->asm_vars = &(data->name);
     c_obj->bin_vars = w_malloc(cp->bin_var_num*sizeof(int));
 
     c_obj->data = data;
-    memcpy(c_obj->asm_vars, &asm_vars, sizeof(c_obj->asm_vars));
+    //memcpy(c_obj->asm_vars, &asm_vars, sizeof(c_obj->asm_vars));
 
     memcpy(c_obj->bin_vars, bin_vars, sizeof(c_obj->bin_vars));
     if(cp->type == CP_DATA_INDEX_PTR) {
@@ -1054,6 +1087,7 @@ obj_and_token_ptr bin_create_code_obj(code_pattern* cp, int* vars, void** token_
             c_obj = bin_read_var_ptr(cp, vars, token_pos_ptr, sf);
             break;
         case ASSIGNMENT:
+            during_assingment = true;
             c_obj = bin_read_assignment(cp, vars, token_pos_ptr, sf);
             break;
         default:

@@ -4,9 +4,9 @@ VAR_1	{ 1, 0, 0 }
 VAR_2	0	
 VAR_3	{ -2000, 0, 100, -2000, 0, -100 }	
 VAR_4	{ -1151, -3200, 2026 }	
-VAR_5	0	
-VAR_6	0	
-VAR_7	0	
+drop_greater_gimp_0	0	
+drop_greater_gimp_1	0	
+drop_greater_gimp_2	0	
 VAR_8	{ -750, -1500, 2214 }	
 VAR_9	{ -781, -1400, 1721 }	
 VAR_10	{ -570, -1700, 1941 }	
@@ -66,11 +66,11 @@ switch(var VAR_2)
 		case 0
 			if(call func_8a(var &VAR_3))
 			 {
-					var VAR_5 = call create_enemy(int 131, int 0, var &VAR_8, int 265)
-					var VAR_6 = call create_enemy(int 131, int 1, var &VAR_9, int 275)
-					var VAR_7 = call create_enemy(int 131, int 2, var &VAR_10, int 255)
-					call add_item_to_char(var VAR_6, int 45, int 1, int 0)
-					call add_item_to_char(var VAR_7, int 43, int 1, int 0)
+					var drop_greater_gimp_0 = call create_enemy(int 131, int 0, var &VAR_8, int 265)
+					var drop_greater_gimp_1 = call create_enemy(int 131, int 1, var &VAR_9, int 275)
+					var drop_greater_gimp_2 = call create_enemy(int 131, int 2, var &VAR_10, int 255)
+					call add_item_to_char(var drop_greater_gimp_1, int 45, int 1, int 0)
+					call add_item_to_char(var drop_greater_gimp_2, int 43, int 1, int 0)
 					call run_enemy_generator(var &VAR_11, int 5)
 					var VAR_2 ++ 
 			}

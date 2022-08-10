@@ -28,7 +28,7 @@ VAR_30	{ 10, 2540, 120, -1360, 5, 223, 10, -4850, -60, 4800, 5, 478, 10, -3750, 
 VAR_31	{ 10, -2100, 1500, 5450, 5, 100, 10, -5208, 1230, 4060, 5, 523, 10, -1510, 1020, 2650, 11, 100, 1000, 10, -2200, 1020, 5280, 7, 8 }	
 VAR_32	{ 1818585971, 0 }	
 VAR_33	{ 0, 0 }	
-VAR_34	0	
+skel_0	0	
 VAR_35	0	
 VAR_36	{ -1732, -343, 1744 }	
 VAR_37	{ -1396, -343, 1897 }	
@@ -164,14 +164,14 @@ if(var VAR_42 == int 0)
 call load_char(var &VAR_32)
 call load_item(int 93)
 call load_item(int 111)
-var VAR_34 = call create_enemy(int 58, int 0, var &VAR_36, int 35)
-call add_item_to_char(var VAR_34, int 34, int 1, int 0)
-call freeze_enemy(var VAR_34)
-call func_50(var VAR_34, int 8192)
-call play_char_ai_script(var VAR_34, var &VAR_39)
-gamevar script_object = var VAR_34
+var skel_0 = call create_enemy(int 58, int 0, var &VAR_36, int 35)
+call add_item_to_char(var skel_0, int 34, int 1, int 0)
+call freeze_enemy(var skel_0)
+call func_50(var skel_0, int 8192)
+call play_char_ai_script(var skel_0, var &VAR_39)
+gamevar script_object = var skel_0
 gamevar *character_stats_p+15 = int 8000
-gamevar script_object = var VAR_34
+gamevar script_object = var skel_0
 gamevar *character_stats_p+16 = int 8000
 
 ._SCRIPT_6

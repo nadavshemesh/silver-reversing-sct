@@ -20,7 +20,7 @@ VAR_19	{ 982, 2615, -2736 }
 VAR_20	{ 7587, 2615, 3049 }	
 VAR_22	0	
 VAR_23	0	
-VAR_24	0	
+gonchfx_0	0	
 VAR_25	0	
 VAR_26	{ -4046, 795, -1220 }	
 VAR_27	{ -4910, 795, -915 }	
@@ -455,20 +455,20 @@ if(call is_char_handle_in_level(int 8847360))
 }
 
 ._SCRIPT_5
-var VAR_24 = call create_enemy(int 73, int 0, var &VAR_26, int 80)
-call func_f(var VAR_24, int 131072)
-gamevar script_object = var VAR_24
+var gonchfx_0 = call create_enemy(int 73, int 0, var &VAR_26, int 80)
+call func_f(var gonchfx_0, int 131072)
+gamevar script_object = var gonchfx_0
 gamevar *object_p+8 |= int 4194304
-call add_item_to_char(var VAR_24, int 76, int 1, int 0)
-var VAR_25 = call add_item_to_char(var VAR_24, int 3, int 0, int 0)
-call add_item_to_char(var VAR_24, int 85, int 1638913, int 0)
+call add_item_to_char(var gonchfx_0, int 76, int 1, int 0)
+var VAR_25 = call add_item_to_char(var gonchfx_0, int 3, int 0, int 0)
+call add_item_to_char(var gonchfx_0, int 85, int 1638913, int 0)
 call func_f7(var VAR_25, int 1)
-call set_char_init_state(var VAR_24, int 0)
-call func_106(var VAR_24, int 0, int 3, int 360)
-gamevar script_object = var VAR_24
+call set_char_init_state(var gonchfx_0, int 0)
+call func_106(var gonchfx_0, int 0, int 3, int 360)
+gamevar script_object = var gonchfx_0
 gamevar *character_stats_p+15 = int 4000
 gamevar *character_stats_p+16 = int 4000
-gamevar script_object = var VAR_24
+gamevar script_object = var gonchfx_0
 gamevar *object_p+6 |= int 67108864
 var VAR_31 = call get_char_handle(int 65536)
 var VAR_34 = call get_david_char()
@@ -508,9 +508,9 @@ while(var VAR_34)
 		}
 		var VAR_34 = call func_7e()
 }
-call func_50(var VAR_24, int 8192)
-call play_char_ai_script(var VAR_24, var &VAR_55)
-call set_char_running(var VAR_24)
+call func_50(var gonchfx_0, int 8192)
+call play_char_ai_script(var gonchfx_0, var &VAR_55)
+call set_char_running(var gonchfx_0)
 var VAR_65 = call load_anim("strut")
 var VAR_66 = call load_anim("impish")
 var VAR_62 = call load_anim("confused")
@@ -522,7 +522,7 @@ var VAR_68 = call load_anim("lookout")
 ._SCRIPT_6
 if(var VAR_108 == int 0)
  {
-		gamevar script_object = var VAR_24
+		gamevar script_object = var gonchfx_0
 		if(var VAR_111 != gamevar *character_combat_p+15)
 		 {
 				var VAR_111 = gamevar *character_combat_p+15
@@ -532,20 +532,20 @@ if(var VAR_108 == int 0)
 		 {
 				var VAR_107 ++ 
 				call log("We hit gonch")
-				gamevar script_object = var VAR_24
+				gamevar script_object = var gonchfx_0
 				gamevar *character_combat_p+15 = int 0
 		}
 		if(var VAR_107 >= int 4)
 		 {
 				var VAR_108 ++ 
-				call func_47(var VAR_24, int 8192)
-				call func_115(var VAR_24, var &VAR_110)
-				call func_50(var VAR_24, int 8192)
-				call func_28(var VAR_24)
-				gamevar script_object = var VAR_24
+				call func_47(var gonchfx_0, int 8192)
+				call func_115(var gonchfx_0, var &VAR_110)
+				call func_50(var gonchfx_0, int 8192)
+				call func_28(var gonchfx_0)
+				gamevar script_object = var gonchfx_0
 				gamevar *object_p+6 |= int 1
-				call func_f(var VAR_24, int 131072)
-				gamevar script_object = var VAR_24
+				call func_f(var gonchfx_0, int 131072)
+				gamevar script_object = var gonchfx_0
 				gamevar *object_p+8 |= int 4194304
 		}
 }
@@ -553,15 +553,15 @@ if(var VAR_108 == int 1)
  {
 		if(var VAR_109)
 		 {
-				call func_2b(var VAR_24, int 0)
+				call func_2b(var gonchfx_0, int 0)
 				var VAR_108 ++ 
 		}
 }
 if(var VAR_108 == int 2)
  {
-		if(call is_char_standing(var VAR_24))
+		if(call is_char_standing(var gonchfx_0))
 		 {
-				call remove_char(var VAR_24)
+				call remove_char(var gonchfx_0)
 				var VAR_108 ++ 
 		}
 }

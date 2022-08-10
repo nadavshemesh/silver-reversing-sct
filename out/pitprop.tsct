@@ -13,10 +13,10 @@ VAR_21	{ 1234, -1675, 4788, 666, -1675, 5455, 160, -1675, 6281, 1482, -2275, 686
 VAR_22	{ 0, 1, 12, VAR_21, 8, 2, 4, 0, 9, 1, 1, 2, 60, 60, 60, 60, -1, 5, 0, 60, 6, 2, 7, 1, 1, -1 }	
 VAR_23	0	
 VAR_24	0	
-VAR_25	0	
-VAR_26	0	
-VAR_27	0	
-VAR_28	0	
+skel_0	0	
+skel_1	0	
+skel_2	0	
+deathip_3	0	
 VAR_29	0	
 VAR_30	{ -535, -1675, 6421 }	
 VAR_31	{ 65, -1675, 6965 }	
@@ -26,13 +26,13 @@ VAR_34	{ -1678, -2075, 7681 }
 VAR_36	{ 0, 139, -1675, 5764, 0, 677, -1675, 6250, 0, 35, -1675, 6939, 0, -535, -1675, 6421, 7, 8 }	
 VAR_37	{ 0, -522, -1675, 6440, 0, 78, -1675, 5678, 0, 698, -1675, 6271, 0, 65, -1675, 6965, 7, 8 }	
 VAR_38	{ 0, 907, -2275, 7768, 0, 1777, -2275, 6764, 7, 8, 1791, -1875, 5307, 1623, -1675, -4803, 1234, -1675, 5237 }	
-VAR_40	0	
+drop_wraith_4	0	
 VAR_41	{ 1349, -1275, 6489 }	
-VAR_42	0	
+drop_wraith_5	0	
 VAR_43	{ 530, -1275, 7376 }	
-VAR_44	0	
+drop_wraith_6	0	
 VAR_45	{ 1583, -675, 4298 }	
-VAR_46	0	
+drop_wraith_7	0	
 VAR_47	{ -280, -1275, 8900 }	
 VAR_48	-1	
 VAR_59	0	
@@ -244,31 +244,31 @@ while(var VAR_10)
 		}
 		var VAR_10 = call func_7e()
 }
-var VAR_25 = call create_enemy(int 58, int 1, var &VAR_30, int 300)
-var VAR_26 = call create_enemy(int 58, int 2, var &VAR_31, int 300)
-var VAR_27 = call create_enemy(int 58, int 3, var &VAR_32, int 290)
-var VAR_28 = call create_enemy(int 59, int 0, var &VAR_33, int 114)
-gamevar script_object = var VAR_25
+var skel_0 = call create_enemy(int 58, int 1, var &VAR_30, int 300)
+var skel_1 = call create_enemy(int 58, int 2, var &VAR_31, int 300)
+var skel_2 = call create_enemy(int 58, int 3, var &VAR_32, int 290)
+var deathip_3 = call create_enemy(int 59, int 0, var &VAR_33, int 114)
+gamevar script_object = var skel_0
 gamevar *character_stats_p+15 = int 1400
-gamevar script_object = var VAR_26
+gamevar script_object = var skel_1
 gamevar *character_stats_p+15 = int 1400
-gamevar script_object = var VAR_28
+gamevar script_object = var deathip_3
 gamevar *character_stats_p+15 = int 6000
 var VAR_29 = call create_char(var &VAR_34, "ndeadjohn", int 50, int 13)
 call func_f1(var VAR_29, int 4)
-call set_char_init_state(var VAR_25, int 13)
-call play_char_ai_script(var VAR_25, var &VAR_36)
-call set_char_init_state(var VAR_26, int 13)
-call play_char_ai_script(var VAR_26, var &VAR_37)
-call set_char_init_state(var VAR_27, int 13)
-call play_char_ai_script(var VAR_27, var &VAR_38)
+call set_char_init_state(var skel_0, int 13)
+call play_char_ai_script(var skel_0, var &VAR_36)
+call set_char_init_state(var skel_1, int 13)
+call play_char_ai_script(var skel_1, var &VAR_37)
+call set_char_init_state(var skel_2, int 13)
+call play_char_ai_script(var skel_2, var &VAR_38)
 call load_char("wraith")
 
 ._SCRIPT_5
-var VAR_40 = call create_enemy(int 90, int 1, var &VAR_41, int 325)
-var VAR_42 = call create_enemy(int 90, int 2, var &VAR_43, int 65)
-var VAR_44 = call create_enemy(int 90, int 3, var &VAR_45, int 325)
-var VAR_46 = call create_enemy(int 90, int 4, var &VAR_47, int 105)
+var drop_wraith_4 = call create_enemy(int 90, int 1, var &VAR_41, int 325)
+var drop_wraith_5 = call create_enemy(int 90, int 2, var &VAR_43, int 65)
+var drop_wraith_6 = call create_enemy(int 90, int 3, var &VAR_45, int 325)
+var drop_wraith_7 = call create_enemy(int 90, int 4, var &VAR_47, int 105)
 
 ._SCRIPT_6
 

@@ -4,6 +4,7 @@ game_var** game_vars;
 game_fun** game_functions;
 code_pattern** code_patterns;
 expr_pattern** expr_patterns;
+catalog* enemy_cat;
 
 
 script* disasm_script(int script_num, sct_f* sf) {
@@ -236,6 +237,10 @@ int main(int argc, char* argv[]) {
     init_game_functions(game_functions);
     init_code_patterns(code_patterns);
     init_expr_patterns(expr_patterns);
+
+    // catalogs
+    enemy_cat = w_malloc(sizeof(catalog*));
+    init_enemies_cat(enemy_cat);
 
     bool save_to_out = false;
     for(int i=0; i < argc; i++) {

@@ -30,7 +30,7 @@ VAR_27	{ -5112, -3103, -7555 }
 VAR_28	{ VAR_5, VAR_6, VAR_7, VAR_8, VAR_9, VAR_10, VAR_11, VAR_12, VAR_13, VAR_14, VAR_15, VAR_16, VAR_17, VAR_18, VAR_19, VAR_20, VAR_21, VAR_22, VAR_23, VAR_24, VAR_25, VAR_25, VAR_26, VAR_27 }	
 VAR_31	0	
 VAR_32	{ 1601004910, 1702256996, 0 }	
-VAR_34	0	
+apocalypse_0	0	
 VAR_35	{ 45, -551, 6195, 297, -1100, -4303 }	
 VAR_36	0	
 VAR_37	{ 82, 90, 2595 }	
@@ -145,8 +145,8 @@ switch(var VAR_0)
 			call reset_local_timer()
 			var VAR_0 = int 1
 			call add_item_to_char(var VAR_31, int 28, int 0, int 1)
-			var VAR_34 = call create_enemy(int 197, int 0, var &VAR_35, int 240)
-			call func_1(var VAR_34, int -1)
+			var apocalypse_0 = call create_enemy(int 197, int 0, var &VAR_35, int 240)
+			call func_1(var apocalypse_0, int -1)
 			break 
 		case 1
 			if(call is_local_timer_greater_than(int 50))
@@ -225,7 +225,7 @@ switch(var VAR_0)
 		case 9
 			if(call func_6d() == int 18)
 			 {
-					call func_2(var VAR_34)
+					call func_2(var apocalypse_0)
 					var VAR_0 = int 10
 					var VAR_2 = int 0
 			}
@@ -233,7 +233,7 @@ switch(var VAR_0)
 		case 10
 			if(call get_input_sys() == int 1)
 			 {
-					call func_103(var VAR_34)
+					call func_103(var apocalypse_0)
 					var VAR_0 = int 11
 					call func_f8(int 28, int 200)
 			}

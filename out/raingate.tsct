@@ -18,15 +18,15 @@ VAR_16	0
 VAR_17	{ 0, 0 }	
 VAR_19	{ -1448, 2211, -3270 }	
 VAR_20	{ 2024, 2211, -459 }	
-VAR_22	0	
-VAR_23	0	
-VAR_24	0	
+dick_0	0	
+finnegan_1	0	
+longjohn_2	0	
 VAR_25	{ -229, 433, 2188 }	
 VAR_26	{ -228, 433, 1928 }	
 VAR_27	{ -290, 433, 1691 }	
-VAR_28	{ 0, 565, 433, 1944, 1, VAR_24, 8 }	
-VAR_29	{ 5, 40, 0, 568, 433, 2206, 1, VAR_24, 9, VAR_24, 8 }	
-VAR_30	{ 0, 594, 433, 1672, 1, VAR_23, 9, VAR_23, 8 }	
+VAR_28	{ 0, 565, 433, 1944, 1, longjohn_2, 8 }	
+VAR_29	{ 5, 40, 0, 568, 433, 2206, 1, longjohn_2, 9, longjohn_2, 8 }	
+VAR_30	{ 0, 594, 433, 1672, 1, finnegan_1, 9, finnegan_1, 8 }	
 VAR_31	0	
 VAR_32	{ -483, 433, 1521, 13, 433, 1635, 384, 433, 1573, 1031, 433, 1595, 1070, 433, 1896, 1047, 433, 2311 }	
 VAR_33	{ 0, 0, 0, 1, -1, 8, 1, 4, 2, 6, VAR_32, 9, 0, 1, 2, 31, 32, 30, -1, 2, 3, 5, 0, 10, 7, 1, 3, 6, 2, 10, 42, 43, -1, -1 }	
@@ -191,24 +191,24 @@ if(var VAR_35 == int 3)
 }
 
 ._SCRIPT_5
-var VAR_22 = call create_enemy(int 31, int 0, var &VAR_25, int 90)
-gamevar script_object = var VAR_22
+var dick_0 = call create_enemy(int 31, int 0, var &VAR_25, int 90)
+gamevar script_object = var dick_0
 gamevar *character_stats_p+16 = int 800
 gamevar *character_stats_p+15 = int 3400
-var VAR_23 = call create_enemy(int 32, int 0, var &VAR_26, int 60)
-var VAR_24 = call create_enemy(int 28, int 0, var &VAR_27, int 65)
-call freeze_enemy(var VAR_22)
-call freeze_enemy(var VAR_23)
-call freeze_enemy(var VAR_24)
-call func_50(var VAR_22, int 8192)
-call func_50(var VAR_23, int 8192)
-call func_50(var VAR_24, int 8192)
-call func_50(var VAR_22, int 1)
-call func_50(var VAR_23, int 1)
-call func_50(var VAR_24, int 1)
-call play_char_ai_script(var VAR_22, var &VAR_28)
-call play_char_ai_script(var VAR_23, var &VAR_29)
-call play_char_ai_script(var VAR_24, var &VAR_30)
+var finnegan_1 = call create_enemy(int 32, int 0, var &VAR_26, int 60)
+var longjohn_2 = call create_enemy(int 28, int 0, var &VAR_27, int 65)
+call freeze_enemy(var dick_0)
+call freeze_enemy(var finnegan_1)
+call freeze_enemy(var longjohn_2)
+call func_50(var dick_0, int 8192)
+call func_50(var finnegan_1, int 8192)
+call func_50(var longjohn_2, int 8192)
+call func_50(var dick_0, int 1)
+call func_50(var finnegan_1, int 1)
+call func_50(var longjohn_2, int 1)
+call play_char_ai_script(var dick_0, var &VAR_28)
+call play_char_ai_script(var finnegan_1, var &VAR_29)
+call play_char_ai_script(var longjohn_2, var &VAR_30)
 call load_char("muscles")
 
 ._SCRIPT_6

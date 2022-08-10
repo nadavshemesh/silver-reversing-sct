@@ -2,11 +2,11 @@
 VAR_0	{ 1, 0, 0 }	
 VAR_1	{ 1, 0, 0 }	
 VAR_2	{ -171, -637, 2976, 0 }	
-VAR_3	0	
-VAR_4	0	
-VAR_5	0	
-VAR_6	0	
-VAR_7	0	
+lesser_gimp_0	0	
+lesser_gimp_1	0	
+greater_gimpv_2	0	
+greater_gimpv_3	0	
+greater_gimpv_4	0	
 VAR_8	{ -144, -386, 1048 }	
 VAR_9	{ 183, -386, 1083 }	
 VAR_10	{ -410, -386, 1509 }	
@@ -63,25 +63,25 @@ switch(gamevar room_state)
 }
 
 ._SCRIPT_3
-var VAR_3 = call create_enemy(int 45, int 0, var &VAR_8, int 10)
-var VAR_4 = call create_enemy(int 45, int 1, var &VAR_9, int 300)
-var VAR_5 = call create_enemy(int 46, int 0, var &VAR_10, int 105)
-var VAR_6 = call create_enemy(int 46, int 1, var &VAR_11, int 170)
-var VAR_7 = call create_enemy(int 46, int 2, var &VAR_12, int 200)
-call add_item_to_char(var VAR_5, int 43, int 1, int 0)
-call add_item_to_char(var VAR_4, int 45, int 1, int 0)
-call func_106(var VAR_3, int 1, int 0, int 1)
-call func_106(var VAR_4, int 1, int 0, int 1)
-call func_106(var VAR_5, int 1, int 0, int 1)
-call func_106(var VAR_6, int 1, int 0, int 1)
-call func_106(var VAR_7, int 1, int 0, int 1)
-call set_char_init_state(var VAR_3, int 1)
-call set_char_init_state(var VAR_4, int 1)
-call set_char_init_state(var VAR_5, int 1)
-call set_char_init_state(var VAR_6, int 1)
-call set_char_init_state(var VAR_7, int 1)
-call func_106(var VAR_7, int 0, int 3, int 360)
-gamevar script_object = var VAR_7
+var lesser_gimp_0 = call create_enemy(int 45, int 0, var &VAR_8, int 10)
+var lesser_gimp_1 = call create_enemy(int 45, int 1, var &VAR_9, int 300)
+var greater_gimpv_2 = call create_enemy(int 46, int 0, var &VAR_10, int 105)
+var greater_gimpv_3 = call create_enemy(int 46, int 1, var &VAR_11, int 170)
+var greater_gimpv_4 = call create_enemy(int 46, int 2, var &VAR_12, int 200)
+call add_item_to_char(var greater_gimpv_2, int 43, int 1, int 0)
+call add_item_to_char(var lesser_gimp_1, int 45, int 1, int 0)
+call func_106(var lesser_gimp_0, int 1, int 0, int 1)
+call func_106(var lesser_gimp_1, int 1, int 0, int 1)
+call func_106(var greater_gimpv_2, int 1, int 0, int 1)
+call func_106(var greater_gimpv_3, int 1, int 0, int 1)
+call func_106(var greater_gimpv_4, int 1, int 0, int 1)
+call set_char_init_state(var lesser_gimp_0, int 1)
+call set_char_init_state(var lesser_gimp_1, int 1)
+call set_char_init_state(var greater_gimpv_2, int 1)
+call set_char_init_state(var greater_gimpv_3, int 1)
+call set_char_init_state(var greater_gimpv_4, int 1)
+call func_106(var greater_gimpv_4, int 0, int 3, int 360)
+gamevar script_object = var greater_gimpv_4
 gamevar *character_stats_p+15 = int 3400
 call func_9a(var &VAR_2, int 43, int 0, int 0)
 

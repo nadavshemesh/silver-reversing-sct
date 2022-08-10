@@ -15,6 +15,7 @@ typedef enum catalog_type { ENEMY_CAT, ITEM_CAT, SOUND_CAT, CHAR_CAT } cat_type;
 typedef struct catalog {
     cat_type type;
     char** items;
+    int* items_used;
 } catalog;
 
 

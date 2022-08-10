@@ -19,13 +19,13 @@ VAR_31	0
 VAR_33	0	
 VAR_35	0	
 VAR_37	0	
-npc_skel_1	0	
+npc_skel	0	
 VAR_39	{ 1184, -2275, 7430 }	
-grow_boney_0	0	
+grow_boney	0	
 VAR_42	{ -578, -1675, 5967 }	
-skel_2	0	
+skel	0	
 VAR_44	{ -91, -1675, 5688 }	
-skel_3	0	
+skel1	0	
 VAR_46	{ -1113, -1675, 5958 }	
 VAR_47	0	
 VAR_48	{ 0, -638, -1675, 6388, 3, VAR_49, 0, 0, -1145, -1675, 5900, 0, -519, -1675, 5164, 3, VAR_50, 0, 0, -22, -1675, 5535, 7, 8 }	
@@ -241,7 +241,7 @@ switch(var VAR_24)
 		case 6
 			if(call get_num_of_enemies() < int 2)
 			 {
-					var grow_boney_0 = call create_enemy(int 69, int 0, var &VAR_42, int 0)
+					var grow_boney = call create_enemy(int 69, int 0, var &VAR_42, int 0)
 					var VAR_24 ++ 
 			}
 			break 
@@ -257,11 +257,11 @@ switch(var VAR_24)
 			 {
 					var VAR_60 = call randomize_int(int 0, int 6)
 					call log_obj(var VAR_60)
-					var npc_skel_1 = call create_enemy(int 71, int 0, @VAR_68[var VAR_60], int 0)
-					gamevar script_object = var npc_skel_1
+					var npc_skel = call create_enemy(int 71, int 0, @VAR_68[var VAR_60], int 0)
+					gamevar script_object = var npc_skel
 					gamevar *object_p+6 |= int 8388608
 					var VAR_25 = int 0
-					call set_char_running(var npc_skel_1)
+					call set_char_running(var npc_skel)
 					var VAR_24 ++ 
 			}
 			break 
@@ -269,13 +269,13 @@ switch(var VAR_24)
 			var VAR_25 ++ 
 			if(var VAR_25 > int 30)
 			 {
-					call char_walk_to_pos(var npc_skel_1, var &VAR_59)
+					call char_walk_to_pos(var npc_skel, var &VAR_59)
 					var VAR_25 = int 0
 					var VAR_24 ++ 
 			}
 			break 
 		case 10
-			if(call is_char_at_pos(var npc_skel_1, var &VAR_59, int 320))
+			if(call is_char_at_pos(var npc_skel, var &VAR_59, int 320))
 			 {
 					var VAR_72 = call get_david_char()
 					while(var VAR_72)
@@ -291,7 +291,7 @@ switch(var VAR_24)
 							var VAR_25 = int 0
 							var VAR_24 = int 13
 					}
-					if(call is_char_standing(var npc_skel_1))
+					if(call is_char_standing(var npc_skel))
 					 {
 							var VAR_24 ++ 
 							var VAR_25 = int 0
@@ -299,7 +299,7 @@ switch(var VAR_24)
 			}
 			break 
 		case 11
-			call char_teleport_to_pos(var npc_skel_1, var &VAR_59, int 120)
+			call char_teleport_to_pos(var npc_skel, var &VAR_59, int 120)
 			var VAR_24 ++ 
 			var VAR_25 = int 0
 			break 
@@ -307,7 +307,7 @@ switch(var VAR_24)
 			var VAR_25 ++ 
 			if(var VAR_25 == int 30)
 			 {
-					call play_char_anim(var npc_skel_1, var VAR_33, int 0)
+					call play_char_anim(var npc_skel, var VAR_33, int 0)
 			}
 			if(var VAR_25 > int 48)
 			 {
@@ -322,12 +322,12 @@ switch(var VAR_24)
 			var VAR_25 ++ 
 			if(var VAR_25 == int 60)
 			 {
-					call char_walk_to(var npc_skel_1, int 113, int -2275, int 7465)
+					call char_walk_to(var npc_skel, int 113, int -2275, int 7465)
 			}
 			if(var VAR_25 == int 100)
 			 {
 					var VAR_7 = int 1
-					var VAR_37 = var npc_skel_1
+					var VAR_37 = var npc_skel
 					var VAR_25 = int 0
 					var VAR_24 ++ 
 			}
@@ -345,23 +345,23 @@ call load_char("skel")
 var VAR_31 = call load_anim("rchp90a")
 var VAR_33 = call load_anim("rpunchr")
 var VAR_35 = call load_anim("lookout")
-var npc_skel_1 = call create_char(var &VAR_39, "nskel", int 90, int 13)
-call set_char_running(var npc_skel_1)
-gamevar script_object = var npc_skel_1
+var npc_skel = call create_char(var &VAR_39, "nskel", int 90, int 13)
+call set_char_running(var npc_skel)
+gamevar script_object = var npc_skel
 gamevar *object_p+6 |= int 8388608
-var skel_2 = call create_enemy(int 58, int 0, var &VAR_44, int 200)
-call func_106(var skel_2, int 1, int 0, int 3)
-call set_char_init_state(var skel_2, int 1)
-var skel_3 = call create_enemy(int 58, int 1, var &VAR_46, int 20)
-call func_106(var skel_3, int 1, int 0, int 3)
-call set_char_init_state(var skel_3, int 1)
-call set_char_init_state(var skel_2, int 13)
-call play_char_ai_script(var skel_2, var &VAR_48)
-gamevar script_object = var skel_2
+var skel = call create_enemy(int 58, int 0, var &VAR_44, int 200)
+call func_106(var skel, int 1, int 0, int 3)
+call set_char_init_state(var skel, int 1)
+var skel1 = call create_enemy(int 58, int 1, var &VAR_46, int 20)
+call func_106(var skel1, int 1, int 0, int 3)
+call set_char_init_state(var skel1, int 1)
+call set_char_init_state(var skel, int 13)
+call play_char_ai_script(var skel, var &VAR_48)
+gamevar script_object = var skel
 gamevar *character_stats_p+15 = int 1000
-call set_char_init_state(var skel_3, int 13)
-call play_char_ai_script(var skel_3, var &VAR_51)
-gamevar script_object = var skel_3
+call set_char_init_state(var skel1, int 13)
+call play_char_ai_script(var skel1, var &VAR_51)
+gamevar script_object = var skel1
 gamevar *character_stats_p+15 = int 1000
 
 ._SCRIPT_5

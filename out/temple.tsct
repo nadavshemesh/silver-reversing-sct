@@ -1,6 +1,6 @@
 ._DATA
 VAR_0	0	
-fade_chronicler_6	0	
+fade_chronicler	0	
 VAR_2	0	
 VAR_3	0	
 VAR_4	0	
@@ -17,12 +17,12 @@ VAR_40	0
 VAR_41	0	
 VAR_42	{ 1871, -1650, 1425 }	
 VAR_43	0	
-greater_gimpv_0	0	
-greater_gimpv_1	0	
-rat_raptor_max5_2	0	
-rat_raptor_max5_3	0	
-rat_raptor_max5_4	0	
-rat_raptor_max5_5	0	
+greater_gimpv	0	
+greater_gimpv1	0	
+rat_raptor_max5	0	
+rat_raptor_max51	0	
+rat_raptor_max52	0	
+rat_raptor_max53	0	
 VAR_50	{ 2043, -1650, 1846 }	
 VAR_51	{ 1660, -1650, 1829 }	
 VAR_52	{ 1480, -1650, 1608 }	
@@ -31,7 +31,7 @@ VAR_54	{ 1440, -1650, 1794 }
 VAR_55	{ 1509, -1650, 2015 }	
 VAR_56	{ 1632, -1650, 2204 }	
 VAR_57	0	
-VAR_58	{ 5, 100, 1, rat_raptor_max5_2, 5, 30, 1, greater_gimpv_0, 5, 20, 3, VAR_59, 0, 16, VAR_57, 1, 3, VAR_60, 0, 8 }	
+VAR_58	{ 5, 100, 1, rat_raptor_max5, 5, 30, 1, greater_gimpv, 5, 20, 3, VAR_59, 0, 16, VAR_57, 1, 3, VAR_60, 0, 8 }	
 VAR_59	"no"	
 VAR_60	"stepb"	
 VAR_61	{ 4, VAR_57, 5, 20, 3, VAR_62, 0, 14, 0, 2123, -1650, 1953, 12, 12, 5, 100, 1, VAR_43, 7, 8 }	
@@ -141,35 +141,35 @@ gamevar *object_p+6 |= int 2048
 gamevar script_object = var VAR_43
 gamevar HP = int 2
 call add_item_to_char(var VAR_43, int 85, int 19661313, int 0)
-var greater_gimpv_0 = call create_enemy(int 46, int 0, var &VAR_51, int 75)
-var greater_gimpv_1 = call create_enemy(int 46, int 1, var &VAR_52, int 60)
-call add_item_to_char(var greater_gimpv_0, int 21, int 1, int 0)
-var rat_raptor_max5_2 = call create_enemy(int 87, int 0, var &VAR_53, int 105)
-var rat_raptor_max5_3 = call create_enemy(int 87, int 1, var &VAR_54, int 50)
-var rat_raptor_max5_4 = call create_enemy(int 87, int 2, var &VAR_55, int 65)
-var rat_raptor_max5_5 = call create_enemy(int 87, int 3, var &VAR_56, int 80)
-call add_item_to_char(var rat_raptor_max5_3, int 43, int 1, int 0)
-call add_item_to_char(var rat_raptor_max5_4, int 43, int 1, int 0)
-call func_46(var greater_gimpv_0, int 0)
-call func_46(var greater_gimpv_1, int 0)
-call func_46(var rat_raptor_max5_2, int 0)
-call func_46(var rat_raptor_max5_3, int 0)
-call func_46(var rat_raptor_max5_4, int 0)
-call func_46(var rat_raptor_max5_5, int 0)
+var greater_gimpv = call create_enemy(int 46, int 0, var &VAR_51, int 75)
+var greater_gimpv1 = call create_enemy(int 46, int 1, var &VAR_52, int 60)
+call add_item_to_char(var greater_gimpv, int 21, int 1, int 0)
+var rat_raptor_max5 = call create_enemy(int 87, int 0, var &VAR_53, int 105)
+var rat_raptor_max51 = call create_enemy(int 87, int 1, var &VAR_54, int 50)
+var rat_raptor_max52 = call create_enemy(int 87, int 2, var &VAR_55, int 65)
+var rat_raptor_max53 = call create_enemy(int 87, int 3, var &VAR_56, int 80)
+call add_item_to_char(var rat_raptor_max51, int 43, int 1, int 0)
+call add_item_to_char(var rat_raptor_max52, int 43, int 1, int 0)
+call func_46(var greater_gimpv, int 0)
+call func_46(var greater_gimpv1, int 0)
+call func_46(var rat_raptor_max5, int 0)
+call func_46(var rat_raptor_max51, int 0)
+call func_46(var rat_raptor_max52, int 0)
+call func_46(var rat_raptor_max53, int 0)
 call set_char_init_state(var VAR_43, int 13)
-call set_char_init_state(var greater_gimpv_0, int 13)
-call set_char_init_state(var greater_gimpv_1, int 13)
-call set_char_init_state(var rat_raptor_max5_2, int 13)
-call set_char_init_state(var rat_raptor_max5_3, int 13)
-call set_char_init_state(var rat_raptor_max5_4, int 13)
-call set_char_init_state(var rat_raptor_max5_5, int 13)
+call set_char_init_state(var greater_gimpv, int 13)
+call set_char_init_state(var greater_gimpv1, int 13)
+call set_char_init_state(var rat_raptor_max5, int 13)
+call set_char_init_state(var rat_raptor_max51, int 13)
+call set_char_init_state(var rat_raptor_max52, int 13)
+call set_char_init_state(var rat_raptor_max53, int 13)
 call play_char_ai_script(var VAR_43, var &VAR_58)
-call play_char_ai_script(var greater_gimpv_0, var &VAR_61)
-call play_char_ai_script(var greater_gimpv_1, var &VAR_63)
-call play_char_ai_script(var rat_raptor_max5_2, var &VAR_64)
-call play_char_ai_script(var rat_raptor_max5_3, var &VAR_73)
-call play_char_ai_script(var rat_raptor_max5_4, var &VAR_82)
-call play_char_ai_script(var rat_raptor_max5_5, var &VAR_91)
+call play_char_ai_script(var greater_gimpv, var &VAR_61)
+call play_char_ai_script(var greater_gimpv1, var &VAR_63)
+call play_char_ai_script(var rat_raptor_max5, var &VAR_64)
+call play_char_ai_script(var rat_raptor_max51, var &VAR_73)
+call play_char_ai_script(var rat_raptor_max52, var &VAR_82)
+call play_char_ai_script(var rat_raptor_max53, var &VAR_91)
 var VAR_40 = int 0
 call set_input_system(int 2)
 
@@ -183,33 +183,33 @@ switch(var VAR_40)
 					call func_ea(var VAR_43)
 					if(call is_char_handle_in_level(int 10551296))
 					 {
-							call func_46(var greater_gimpv_0, int 13)
-							call set_char_init_state(var greater_gimpv_0, int 0)
+							call func_46(var greater_gimpv, int 13)
+							call set_char_init_state(var greater_gimpv, int 0)
 					}
 					if(call is_char_handle_in_level(int 10551297))
 					 {
-							call func_46(var greater_gimpv_1, int 13)
-							call set_char_init_state(var greater_gimpv_1, int 0)
+							call func_46(var greater_gimpv1, int 13)
+							call set_char_init_state(var greater_gimpv1, int 0)
 					}
 					if(call is_char_handle_in_level(int 9240576))
 					 {
-							call func_46(var rat_raptor_max5_2, int 13)
-							call set_char_init_state(var rat_raptor_max5_2, int 0)
+							call func_46(var rat_raptor_max5, int 13)
+							call set_char_init_state(var rat_raptor_max5, int 0)
 					}
 					if(call is_char_handle_in_level(int 9240577))
 					 {
-							call func_46(var rat_raptor_max5_3, int 13)
-							call set_char_init_state(var rat_raptor_max5_3, int 0)
+							call func_46(var rat_raptor_max51, int 13)
+							call set_char_init_state(var rat_raptor_max51, int 0)
 					}
 					if(call is_char_handle_in_level(int 9240578))
 					 {
-							call func_46(var rat_raptor_max5_4, int 13)
-							call set_char_init_state(var rat_raptor_max5_4, int 0)
+							call func_46(var rat_raptor_max52, int 13)
+							call set_char_init_state(var rat_raptor_max52, int 0)
 					}
 					if(call is_char_handle_in_level(int 9240579))
 					 {
-							call func_46(var rat_raptor_max5_5, int 13)
-							call set_char_init_state(var rat_raptor_max5_5, int 0)
+							call func_46(var rat_raptor_max53, int 13)
+							call set_char_init_state(var rat_raptor_max53, int 0)
 					}
 					var VAR_41 = int 90
 					var VAR_40 ++ 
@@ -223,37 +223,37 @@ switch(var VAR_40)
 					case 70
 						if(call is_char_handle_in_level(int 9240576))
 						 {
-								call char_walk_to(var rat_raptor_max5_2, int -3015, int -1650, int 1375)
+								call char_walk_to(var rat_raptor_max5, int -3015, int -1650, int 1375)
 						}
 						break 
 					case 65
 						if(call is_char_handle_in_level(int 9240578))
 						 {
-								call char_walk_to(var rat_raptor_max5_4, int -3015, int -1650, int 1375)
+								call char_walk_to(var rat_raptor_max52, int -3015, int -1650, int 1375)
 						}
 						break 
 					case 40
 						if(call is_char_handle_in_level(int 10551296))
 						 {
-								call char_walk_to(var greater_gimpv_0, int -3015, int -1650, int 1375)
+								call char_walk_to(var greater_gimpv, int -3015, int -1650, int 1375)
 						}
 						break 
 					case 38
 						if(call is_char_handle_in_level(int 9240577))
 						 {
-								call char_walk_to(var rat_raptor_max5_3, int -3015, int -1650, int 1375)
+								call char_walk_to(var rat_raptor_max51, int -3015, int -1650, int 1375)
 						}
 						break 
 					case 20
 						if(call is_char_handle_in_level(int 10551297))
 						 {
-								call char_walk_to(var greater_gimpv_1, int -3015, int -1650, int 1375)
+								call char_walk_to(var greater_gimpv1, int -3015, int -1650, int 1375)
 						}
 						break 
 					case 7
 						if(call is_char_handle_in_level(int 9240579))
 						 {
-								call char_walk_to(var rat_raptor_max5_5, int -3015, int -1650, int 1375)
+								call char_walk_to(var rat_raptor_max53, int -3015, int -1650, int 1375)
 						}
 						break 
 					case 0
@@ -269,7 +269,7 @@ switch(var VAR_40)
 		case 2
 			if(call get_num_of_enemies() == int 0&&call ! func_122(var VAR_100)&&call ! func_122(var VAR_102))
 			 {
-					var fade_chronicler_6 = call create_enemy(int 178, int 0, var &VAR_39, int 312)
+					var fade_chronicler = call create_enemy(int 178, int 0, var &VAR_39, int 312)
 					var VAR_40 ++ 
 			}
 			break 
@@ -291,9 +291,9 @@ if(call ! is_char_handle_in_level(int 6291456))
 }
 else
  {
-		if(var fade_chronicler_6 == int 0)
+		if(var fade_chronicler == int 0)
 		 {
-				var fade_chronicler_6 = call get_char_handle(int 6291456)
+				var fade_chronicler = call get_char_handle(int 6291456)
 		}
 }
 
@@ -304,9 +304,9 @@ if(call ! is_char_handle_in_level(int 6291456))
 }
 else
  {
-		if(var fade_chronicler_6 == int 0)
+		if(var fade_chronicler == int 0)
 		 {
-				var fade_chronicler_6 = call get_char_handle(int 6291456)
+				var fade_chronicler = call get_char_handle(int 6291456)
 		}
 }
 if(var VAR_23 != var VAR_17)
@@ -321,17 +321,17 @@ switch(var VAR_17)
 			 {
 					execute SCRIPT_9
 			}
-			gamevar script_object = var fade_chronicler_6
+			gamevar script_object = var fade_chronicler
 			var VAR_20 = gamevar *character_movement_p+3
 			var VAR_21 = gamevar *character_movement_p+4
 			var VAR_22 = gamevar *character_movement_p+5
 			var VAR_3 = int 0
-			call func_10c(var fade_chronicler_6, int 0)
+			call func_10c(var fade_chronicler, int 0)
 			var VAR_17 ++ 
 			var VAR_18 = int 0
 			break 
 		case 1
-			if(call func_127(var fade_chronicler_6))
+			if(call func_127(var fade_chronicler))
 			 {
 					var VAR_19 = gamevar saved_games_count
 					var VAR_3 = int 1
@@ -376,7 +376,7 @@ switch(var VAR_17)
 			else
 			 {
 					call log("game not saved")
-					call func_2a(var fade_chronicler_6, var &VAR_20)
+					call func_2a(var fade_chronicler, var &VAR_20)
 					execute SCRIPT_10
 					gamevar chronicler_variation = var VAR_2
 					var VAR_17 ++ 
@@ -396,7 +396,7 @@ switch(var VAR_17)
 		case 7
 			if(var VAR_18 > int 40)
 			 {
-					call apply_effect_on_char(gamevar char_gen_fx_scripts, int 8, int 0, var fade_chronicler_6)
+					call apply_effect_on_char(gamevar char_gen_fx_scripts, int 8, int 0, var fade_chronicler)
 					execute SCRIPT_10
 					gamevar chronicler_variation = var VAR_2
 					var VAR_17 ++ 
@@ -406,7 +406,7 @@ switch(var VAR_17)
 		case 8
 			if(var VAR_18 > int 100)
 			 {
-					call remove_char(var fade_chronicler_6)
+					call remove_char(var fade_chronicler)
 					call set_input_system(int 1)
 					var VAR_3 = int 0
 					var VAR_17 ++ 
@@ -419,11 +419,11 @@ var VAR_18 ++
 ._SCRIPT_8
 if(call is_char_handle_in_level(int 6291456))
  {
-		if(var fade_chronicler_6 == int 0)
+		if(var fade_chronicler == int 0)
 		 {
-				var fade_chronicler_6 = call get_char_handle(int 6291456)
+				var fade_chronicler = call get_char_handle(int 6291456)
 		}
-		call func_34(var fade_chronicler_6)
+		call func_34(var fade_chronicler)
 }
 
 ._SCRIPT_9

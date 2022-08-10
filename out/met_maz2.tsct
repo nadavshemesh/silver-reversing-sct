@@ -29,13 +29,13 @@ VAR_30	0
 VAR_31	0	
 VAR_32	0	
 VAR_33	{ 163, 164, 165 }	
-plague_boss_3	0	
+plague_boss	0	
 VAR_35	{ 0, 0 }	
 VAR_40	0	
 VAR_41	0	
-bat_0	0	
-bat_1	0	
-bat_2	0	
+bat	0	
+bat1	0	
+bat2	0	
 VAR_45	{ -2436, 589, -1860, -1521, 589, -3174, -1488, 689, -2083 }	
 VAR_46	{ -1720, 1635, -852, -1714, 1735, -976, -1689, 1835, -1296, -1558, 1935, -1413, -1290, 2135, -1213, -1260, 2235, -1469, -1303, 2135, -1725, -1642, 2035, -1753, -1734, 1735, -2124, -1696, 1629, -2670, -1761, 1529, -3187, -2031, 1429, -3370, -2612, 1729, -3314, -2732, 1831, -3685, -3007, 1629, -3145, -3586, 1529, -2810, -3259, 1412, -2376, -2715, 1329, -2464, -2885, 1229, -2967, -2106, 1129, -2527 }	
 VAR_47	{ 13, 20, VAR_46, 0, 7, 8 }	
@@ -179,21 +179,21 @@ if(var VAR_40 == int 2)
 ._SCRIPT_5
 call load_char("sarcher")
 call load_char("sguard")
-var bat_0 = call create_enemy(int 47, int 0, var &VAR_45, int 33)
-gamevar script_object = var bat_0
+var bat = call create_enemy(int 47, int 0, var &VAR_45, int 33)
+gamevar script_object = var bat
 gamevar *character_stats_p+14 = int 91750
-var bat_1 = call create_enemy(int 47, int 1, var &VAR_45, int 33)
-gamevar script_object = var bat_1
+var bat1 = call create_enemy(int 47, int 1, var &VAR_45, int 33)
+gamevar script_object = var bat1
 gamevar *character_stats_p+14 = int 91750
-var bat_2 = call create_enemy(int 47, int 2, var &VAR_45, int 33)
-gamevar script_object = var bat_2
+var bat2 = call create_enemy(int 47, int 2, var &VAR_45, int 33)
+gamevar script_object = var bat2
 gamevar *character_stats_p+14 = int 140750
-call func_50(var bat_0, int 8192)
-call play_char_ai_script(var bat_0, var &VAR_47)
-call func_50(var bat_1, int 8192)
-call play_char_ai_script(var bat_1, var &VAR_48)
-call func_50(var bat_2, int 8192)
-call play_char_ai_script(var bat_2, var &VAR_49)
+call func_50(var bat, int 8192)
+call play_char_ai_script(var bat, var &VAR_47)
+call func_50(var bat1, int 8192)
+call play_char_ai_script(var bat1, var &VAR_48)
+call func_50(var bat2, int 8192)
+call play_char_ai_script(var bat2, var &VAR_49)
 var VAR_51 = call create_char(var &VAR_54, "fsarcher1", int 220, int 13)
 var VAR_52 = call create_char(var &VAR_55, "fsarcher2", int 220, int 13)
 var VAR_53 = call create_char(var &VAR_56, "fsarcher3", int 220, int 13)
@@ -226,7 +226,7 @@ gamevar *object_p+8 |= int 33554432
 call add_item_to_char(var VAR_17, int 22, int 0, int 1)
 call func_50(var VAR_17, int 129)
 call func_106(var VAR_17, int 7, int 7, int 3)
-call func_10a(var VAR_17, int 15)
+call set_char_lvl(var VAR_17, int 15)
 gamevar script_object = var VAR_17
 gamevar *character_stats_p+15 = int 30000
 gamevar script_object = var VAR_17
@@ -237,7 +237,7 @@ gamevar *object_p+8 |= int 33554432
 call add_item_to_char(var VAR_18, int 22, int 0, int 1)
 call func_50(var VAR_18, int 129)
 call func_106(var VAR_18, int 7, int 7, int 3)
-call func_10a(var VAR_18, int 15)
+call set_char_lvl(var VAR_18, int 15)
 gamevar script_object = var VAR_18
 gamevar *character_stats_p+15 = int 30000
 gamevar script_object = var VAR_18
@@ -248,7 +248,7 @@ gamevar *object_p+8 |= int 33554432
 call add_item_to_char(var VAR_19, int 22, int 0, int 1)
 call func_50(var VAR_19, int 129)
 call func_106(var VAR_19, int 7, int 7, int 3)
-call func_10a(var VAR_19, int 15)
+call set_char_lvl(var VAR_19, int 15)
 gamevar script_object = var VAR_19
 gamevar *character_stats_p+15 = int 30000
 gamevar script_object = var VAR_19

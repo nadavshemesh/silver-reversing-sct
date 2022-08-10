@@ -3,7 +3,7 @@ VAR_0	0
 VAR_1	0	
 VAR_10	{ -13285, -818, 2300, -13701, -818, 753 }	
 VAR_11	{ -13701, -818, 753, -12290, -818, 379 }	
-fire_fishman_0	0	
+fire_fishman	0	
 VAR_13	{ -14110, 406, 3267 }	
 VAR_14	{ 15, 0, -13221, 407, 2470, 23, 0, -12292, 407, 2808, 23, 0, -11341, 407, 2499, 23, 0, -10973, 407, 1731, 23, 0, -11100, 407, 974, 23, 0, -11535, 407, 590, 23, 0, -12191, 407, 395, 23, 2, -12279, -818, 1562, 27, 24, 512, 5, 10, 8 }	
 VAR_15	0	
@@ -24,7 +24,7 @@ VAR_29	{ -12765, -818, 1873 }
 VAR_30	{ -11691, 1800, 1870 }	
 VAR_31	{ -12222, 1800, 975 }	
 VAR_32	{ -12765, 1800, 1873, -12222, -818, 1576 }	
-treasure_1	0	
+treasure	0	
 VAR_34	{ -12222, -818, 1576 }	
 VAR_35	0	
 VAR_36	0	
@@ -217,11 +217,11 @@ var VAR_36 ++
 call load_char("fishman")
 call load_char("lobster")
 call load_char("treasure")
-var fire_fishman_0 = call create_enemy(int 148, int 0, var &VAR_13, int 80)
-call freeze_enemy(var fire_fishman_0)
-call func_50(var fire_fishman_0, int 8193)
-call play_char_ai_script(var fire_fishman_0, var &VAR_14)
-call set_char_running(var fire_fishman_0)
+var fire_fishman = call create_enemy(int 148, int 0, var &VAR_13, int 80)
+call freeze_enemy(var fire_fishman)
+call func_50(var fire_fishman, int 8193)
+call play_char_ai_script(var fire_fishman, var &VAR_14)
+call set_char_running(var fire_fishman)
 execute SCRIPT_6
 call load_item(int 69)
 
@@ -231,11 +231,11 @@ var VAR_25 = call func_9a(var &VAR_28, int 83, int 20, int 1)
 var VAR_26 = call func_9a(var &VAR_29, int 83, int 20, int 1)
 
 ._SCRIPT_7
-var treasure_1 = call create_enemy(int 136, int 0, var &VAR_34, int 271)
-call add_item_to_char(var treasure_1, int 69, int 1, int 0)
-call add_item_to_char(var treasure_1, int 85, int 6554113, int 0)
-call add_item_to_char(var treasure_1, int 42, int 1, int 0)
-call add_item_to_char(var treasure_1, int 43, int 1, int 0)
+var treasure = call create_enemy(int 136, int 0, var &VAR_34, int 271)
+call add_item_to_char(var treasure, int 69, int 1, int 0)
+call add_item_to_char(var treasure, int 85, int 6554113, int 0)
+call add_item_to_char(var treasure, int 42, int 1, int 0)
+call add_item_to_char(var treasure, int 43, int 1, int 0)
 
 ._SCRIPT_8
 

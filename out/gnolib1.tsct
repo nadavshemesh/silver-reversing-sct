@@ -4,8 +4,8 @@ VAR_1	0
 VAR_3	0	
 VAR_4	{ -367, -928, -8434 }	
 VAR_7	0	
-catapult_imp_1	0	
-catapult_imp_0	0	
+catapult_imp1	0	
+catapult_imp	0	
 VAR_10	0	
 VAR_11	0	
 VAR_12	{ 0, -1748, 658, -5432 }	
@@ -15,12 +15,12 @@ VAR_15	{ -3170, -123, -6443 }
 VAR_16	{ -3170, -123, -6443 }	
 VAR_17	{ -830, -997, -6080 }	
 VAR_18	{ -727, -998, -6766, 163, -998, -6808, 205, -998, -8088, -695, -998, -7987, -801, -998, -8706, -2074, -998, -7951, -2248, -998, -6704 }	
-neutral_imp_2	0	
-neutral_imp_3	0	
-cowardly_imp_4	0	
-cowardly_imp_5	0	
-devious_imp_6	0	
-devious_imp_7	0	
+neutral_imp	0	
+neutral_imp1	0	
+cowardly_imp	0	
+cowardly_imp1	0	
+devious_imp	0	
+devious_imp1	0	
 VAR_25	{ -1715, -997, -7984 }	
 VAR_26	{ -795, -997, -7280 }	
 VAR_27	{ 282, -997, -6975 }	
@@ -143,10 +143,10 @@ if(gamevar is_room_cleared == int 2)
 
 ._SCRIPT_5
 var VAR_10 = call load_anim("pfew")
-var catapult_imp_0 = call create_enemy(int 104, int 8, var &VAR_14, int 90)
-call add_item_to_char(var catapult_imp_0, int 8, int 1, int 0)
-var catapult_imp_1 = call create_enemy(int 104, int 9, var &VAR_15, int 0)
-call func_10f(var catapult_imp_1, int 2)
+var catapult_imp = call create_enemy(int 104, int 8, var &VAR_14, int 90)
+call add_item_to_char(var catapult_imp, int 8, int 1, int 0)
+var catapult_imp1 = call create_enemy(int 104, int 9, var &VAR_15, int 0)
+call func_10f(var catapult_imp1, int 2)
 var VAR_7 = call create_char(var &VAR_17, "nyelimp", int 150, int 13)
 gamevar script_object = var VAR_7
 gamevar *character_movement_p+60 = int 1
@@ -154,32 +154,32 @@ gamevar *character_movement_p+53 = int 0
 gamevar *character_stats_p+14 = int 106000
 call set_input_system(int 2)
 var VAR_0 = call get_char_handle(int 65536)
-call freeze_enemy(var catapult_imp_0)
-call freeze_enemy(var catapult_imp_1)
-var neutral_imp_2 = call create_enemy(int 102, int 1, var &VAR_25, int 0)
-var neutral_imp_3 = call create_enemy(int 102, int 2, var &VAR_26, int 0)
-var cowardly_imp_4 = call create_enemy(int 101, int 3, var &VAR_27, int 0)
-var cowardly_imp_5 = call create_enemy(int 101, int 4, var &VAR_28, int 0)
-var devious_imp_6 = call create_enemy(int 100, int 5, var &VAR_29, int 0)
-var devious_imp_7 = call create_enemy(int 100, int 6, var &VAR_30, int 0)
-call freeze_enemy(var neutral_imp_2)
-call freeze_enemy(var neutral_imp_3)
-call freeze_enemy(var cowardly_imp_4)
-call freeze_enemy(var cowardly_imp_5)
-call freeze_enemy(var devious_imp_6)
-call freeze_enemy(var devious_imp_7)
-call func_50(var neutral_imp_2, int 8192)
-call func_50(var neutral_imp_3, int 8192)
-call func_50(var cowardly_imp_4, int 8192)
-call func_50(var cowardly_imp_5, int 8192)
-call func_50(var devious_imp_6, int 8192)
-call func_50(var devious_imp_7, int 8192)
-call play_char_ai_script(var neutral_imp_2, var &VAR_32)
-call play_char_ai_script(var neutral_imp_3, var &VAR_34)
-call play_char_ai_script(var cowardly_imp_4, var &VAR_36)
-call play_char_ai_script(var cowardly_imp_5, var &VAR_38)
-call play_char_ai_script(var devious_imp_6, var &VAR_40)
-call play_char_ai_script(var devious_imp_7, var &VAR_42)
+call freeze_enemy(var catapult_imp)
+call freeze_enemy(var catapult_imp1)
+var neutral_imp = call create_enemy(int 102, int 1, var &VAR_25, int 0)
+var neutral_imp1 = call create_enemy(int 102, int 2, var &VAR_26, int 0)
+var cowardly_imp = call create_enemy(int 101, int 3, var &VAR_27, int 0)
+var cowardly_imp1 = call create_enemy(int 101, int 4, var &VAR_28, int 0)
+var devious_imp = call create_enemy(int 100, int 5, var &VAR_29, int 0)
+var devious_imp1 = call create_enemy(int 100, int 6, var &VAR_30, int 0)
+call freeze_enemy(var neutral_imp)
+call freeze_enemy(var neutral_imp1)
+call freeze_enemy(var cowardly_imp)
+call freeze_enemy(var cowardly_imp1)
+call freeze_enemy(var devious_imp)
+call freeze_enemy(var devious_imp1)
+call func_50(var neutral_imp, int 8192)
+call func_50(var neutral_imp1, int 8192)
+call func_50(var cowardly_imp, int 8192)
+call func_50(var cowardly_imp1, int 8192)
+call func_50(var devious_imp, int 8192)
+call func_50(var devious_imp1, int 8192)
+call play_char_ai_script(var neutral_imp, var &VAR_32)
+call play_char_ai_script(var neutral_imp1, var &VAR_34)
+call play_char_ai_script(var cowardly_imp, var &VAR_36)
+call play_char_ai_script(var cowardly_imp1, var &VAR_38)
+call play_char_ai_script(var devious_imp, var &VAR_40)
+call play_char_ai_script(var devious_imp1, var &VAR_42)
 
 ._SCRIPT_6
 switch(var VAR_11)
@@ -265,27 +265,27 @@ switch(var VAR_49)
 					call remove_char(var VAR_7)
 					if(call is_char_handle_in_level(int 917505))
 					 {
-							call set_char_template(var neutral_imp_2, int 102)
+							call set_char_template(var neutral_imp, int 102)
 					}
 					if(call is_char_handle_in_level(int 917506))
 					 {
-							call set_char_template(var neutral_imp_3, int 102)
+							call set_char_template(var neutral_imp1, int 102)
 					}
 					if(call is_char_handle_in_level(int 917507))
 					 {
-							call set_char_template(var cowardly_imp_4, int 101)
+							call set_char_template(var cowardly_imp, int 101)
 					}
 					if(call is_char_handle_in_level(int 917508))
 					 {
-							call set_char_template(var cowardly_imp_5, int 101)
+							call set_char_template(var cowardly_imp1, int 101)
 					}
 					if(call is_char_handle_in_level(int 917509))
 					 {
-							call set_char_template(var devious_imp_6, int 100)
+							call set_char_template(var devious_imp, int 100)
 					}
 					if(call is_char_handle_in_level(int 917510))
 					 {
-							call set_char_template(var devious_imp_7, int 100)
+							call set_char_template(var devious_imp1, int 100)
 					}
 					var VAR_50 = int 0
 					var VAR_49 ++ 
@@ -309,33 +309,33 @@ switch(var VAR_46)
 			 {
 					if(var VAR_12 == int 1)
 					 {
-							call func_29(var catapult_imp_0)
+							call func_29(var catapult_imp)
 					}
 					if(var VAR_12 < int 2)
 					 {
-							call func_1c(var catapult_imp_1, var VAR_3)
+							call func_1c(var catapult_imp1, var VAR_3)
 							var VAR_12 ++ 
 							gamevar scene_counter = int 0
 							var VAR_13 = int 240
 					}
 					else
 					 {
-							call set_char_running(var catapult_imp_0)
-							call char_walk_to_pos(var catapult_imp_0, var &VAR_47)
-							call set_char_template(var catapult_imp_1, int 104)
-							call func_106(var catapult_imp_1, int 9, int 5, var &VAR_16)
-							call func_106(var catapult_imp_1, int 9, int 6, int 1)
+							call set_char_running(var catapult_imp)
+							call char_walk_to_pos(var catapult_imp, var &VAR_47)
+							call set_char_template(var catapult_imp1, int 104)
+							call func_106(var catapult_imp1, int 9, int 5, var &VAR_16)
+							call func_106(var catapult_imp1, int 9, int 6, int 1)
 							var VAR_46 ++ 
 							gamevar scene_counter = int 0
 					}
 			}
 			break 
 		case 2
-			if(call is_char_standing(var catapult_imp_0))
+			if(call is_char_standing(var catapult_imp))
 			 {
-					call set_char_template(var catapult_imp_0, int 104)
-					call func_106(var catapult_imp_0, int 9, int 5, var &VAR_18)
-					call func_106(var catapult_imp_0, int 9, int 6, int 7)
+					call set_char_template(var catapult_imp, int 104)
+					call func_106(var catapult_imp, int 9, int 5, var &VAR_18)
+					call func_106(var catapult_imp, int 9, int 6, int 7)
 					var VAR_46 ++ 
 			}
 			break 
@@ -345,7 +345,7 @@ switch(var VAR_46)
 gamevar script_object = var VAR_0
 if(gamevar *object_p+5 == int 6&&var ! VAR_48)
  {
-		call func_29(var catapult_imp_1)
+		call func_29(var catapult_imp1)
 		var VAR_48 = int 1
 }
 

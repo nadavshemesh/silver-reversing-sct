@@ -23,12 +23,12 @@ VAR_24	0
 VAR_25	0	
 VAR_26	0	
 VAR_27	{ 0, 0 }	
-lieutenant_0	0	
-lieutenant_1	0	
+lieutenant	0	
+lieutenant1	0	
 VAR_30	0	
 VAR_31	0	
-archer_2	0	
-archer_3	0	
+archer	0	
+archer1	0	
 VAR_34	0	
 VAR_35	0	
 VAR_36	0	
@@ -152,47 +152,47 @@ var VAR_36 = call load_anim("no")
 var VAR_37 = call load_anim("yes")
 var VAR_38 = call load_anim("confused")
 var VAR_39 = call load_anim("talkfstb")
-var lieutenant_0 = call create_enemy(int 11, int 0, var &VAR_40, int 270)
-gamevar script_object = var lieutenant_0
+var lieutenant = call create_enemy(int 11, int 0, var &VAR_40, int 270)
+gamevar script_object = var lieutenant
 gamevar *character_stats_p+15 = int 0
 gamevar *character_stats_p+16 = int 0
-call func_106(var lieutenant_0, int 1, int 0, int 1)
-call func_50(var lieutenant_0, int 2)
-var lieutenant_1 = call create_enemy(int 11, int 1, var &VAR_41, int 132)
-gamevar script_object = var lieutenant_1
+call func_106(var lieutenant, int 1, int 0, int 1)
+call func_50(var lieutenant, int 2)
+var lieutenant1 = call create_enemy(int 11, int 1, var &VAR_41, int 132)
+gamevar script_object = var lieutenant1
 gamevar *character_stats_p+15 = int 0
 gamevar *character_stats_p+16 = int 0
-call func_106(var lieutenant_1, int 1, int 0, int 1)
-call func_50(var lieutenant_1, int 2)
-var archer_2 = call create_enemy(int 17, int 0, var &VAR_43, int 304)
-gamevar script_object = var archer_2
+call func_106(var lieutenant1, int 1, int 0, int 1)
+call func_50(var lieutenant1, int 2)
+var archer = call create_enemy(int 17, int 0, var &VAR_43, int 304)
+gamevar script_object = var archer
 gamevar *character_stats_p+15 = int 3000
 gamevar *character_stats_p+16 = int 0
-call func_106(var archer_2, int 1, int 0, int 2)
-call func_50(var archer_2, int 1539)
-call func_106(var archer_2, int 9, int 5, var &VAR_47)
-call func_106(var archer_2, int 9, int 6, int 1)
-call func_106(var archer_2, int 0, int 3, int 180)
-call set_char_init_state(var archer_2, int 13)
-call play_char_ai_script(var archer_2, var &VAR_45)
-var archer_3 = call create_enemy(int 17, int 1, var &VAR_44, int 114)
-gamevar script_object = var archer_3
+call func_106(var archer, int 1, int 0, int 2)
+call func_50(var archer, int 1539)
+call func_106(var archer, int 9, int 5, var &VAR_47)
+call func_106(var archer, int 9, int 6, int 1)
+call func_106(var archer, int 0, int 3, int 180)
+call set_char_init_state(var archer, int 13)
+call play_char_ai_script(var archer, var &VAR_45)
+var archer1 = call create_enemy(int 17, int 1, var &VAR_44, int 114)
+gamevar script_object = var archer1
 gamevar *character_stats_p+15 = int 3000
 gamevar *character_stats_p+16 = int 0
-call func_106(var archer_3, int 1, int 0, int 2)
-call func_50(var archer_3, int 1539)
-call func_106(var archer_3, int 9, int 5, var &VAR_48)
-call func_106(var archer_3, int 9, int 6, int 1)
-call func_106(var archer_3, int 0, int 3, int 180)
-call set_char_init_state(var archer_3, int 13)
-call play_char_ai_script(var archer_3, var &VAR_46)
+call func_106(var archer1, int 1, int 0, int 2)
+call func_50(var archer1, int 1539)
+call func_106(var archer1, int 9, int 5, var &VAR_48)
+call func_106(var archer1, int 9, int 6, int 1)
+call func_106(var archer1, int 0, int 3, int 180)
+call set_char_init_state(var archer1, int 13)
+call play_char_ai_script(var archer1, var &VAR_46)
 var VAR_30 = call create_char(var &VAR_42, "nflatnose", int 285, int 13)
 call set_char_running(var VAR_30)
 gamevar script_object = var VAR_30
 gamevar *character_movement_p+60 = int 1
 var VAR_31 = call get_char_handle(int 65536)
 var VAR_34 = call get_char_handle(int 786432)
-call add_item_to_char(var lieutenant_0, int 108, int 1, int 0)
+call add_item_to_char(var lieutenant, int 108, int 1, int 0)
 
 ._SCRIPT_6
 if(var VAR_25 == int 0)
@@ -202,7 +202,7 @@ if(var VAR_25 == int 0)
 		 {
 				if(call is_char_handle_in_level(int 7143425))
 				 {
-						call play_char_anim(var lieutenant_1, var VAR_39, int 0)
+						call play_char_anim(var lieutenant1, var VAR_39, int 0)
 				}
 				var VAR_25 ++ 
 				var VAR_26 = int 0
@@ -212,9 +212,9 @@ if(var VAR_25 == int 1)
  {
 		if(call is_char_handle_in_level(int 7143425))
 		 {
-				if(call func_5c(var lieutenant_1))
+				if(call func_5c(var lieutenant1))
 				 {
-						call play_char_anim(var lieutenant_1, var VAR_35, int 0)
+						call play_char_anim(var lieutenant1, var VAR_35, int 0)
 				}
 				var VAR_25 ++ 
 		}
@@ -227,7 +227,7 @@ if(var VAR_25 == int 2)
  {
 		if(call is_char_handle_in_level(int 7143425))
 		 {
-				if(call func_5c(var lieutenant_1))
+				if(call func_5c(var lieutenant1))
 				 {
 						call play_char_anim(var VAR_30, var VAR_39, int 0)
 				}
@@ -252,7 +252,7 @@ if(var VAR_25 == int 4)
 		 {
 				if(call is_char_handle_in_level(int 7143425))
 				 {
-						call play_char_anim(var lieutenant_1, var VAR_35, int 0)
+						call play_char_anim(var lieutenant1, var VAR_35, int 0)
 				}
 				var VAR_25 ++ 
 		}
@@ -261,7 +261,7 @@ if(var VAR_25 == int 5)
  {
 		if(call is_char_handle_in_level(int 7143425))
 		 {
-				if(call func_5c(var lieutenant_1))
+				if(call func_5c(var lieutenant1))
 				 {
 						call play_char_anim(var VAR_30, var VAR_36, int 0)
 						var VAR_25 ++ 
@@ -279,7 +279,7 @@ if(var VAR_25 == int 6)
 		 {
 				if(call is_char_handle_in_level(int 7143425))
 				 {
-						call play_char_anim(var lieutenant_1, var VAR_39, int 0)
+						call play_char_anim(var lieutenant1, var VAR_39, int 0)
 				}
 				var VAR_25 = int 0
 		}

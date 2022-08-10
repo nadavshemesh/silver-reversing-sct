@@ -1,8 +1,8 @@
 ._DATA
 VAR_4	0	
 VAR_5	0	
-bat_0	0	
-bat_1	0	
+bat	0	
+bat1	0	
 VAR_8	{ 1180, 334, 115, -2873, 1334, -1161 }	
 VAR_9	{ 2779, 654, 115, -2519, 554, -1466, -3579, 947, -2185, -4173, 755, -1040, -3585, 755, -560, -2367, 655, -804 }	
 VAR_10	{ 13, 6, VAR_9, 0, 7, 8 }	
@@ -126,12 +126,12 @@ if(var VAR_4 == int 1)
 ._SCRIPT_5
 call load_char("sarcher")
 call load_char("sguard")
-var bat_0 = call create_enemy(int 47, int 0, var &VAR_8, int 33)
-var bat_1 = call create_enemy(int 47, int 1, var &VAR_8, int 33)
-call func_50(var bat_0, int 8192)
-call play_char_ai_script(var bat_0, var &VAR_10)
-call func_50(var bat_1, int 8192)
-call play_char_ai_script(var bat_1, var &VAR_11)
+var bat = call create_enemy(int 47, int 0, var &VAR_8, int 33)
+var bat1 = call create_enemy(int 47, int 1, var &VAR_8, int 33)
+call func_50(var bat, int 8192)
+call play_char_ai_script(var bat, var &VAR_10)
+call func_50(var bat1, int 8192)
+call play_char_ai_script(var bat1, var &VAR_11)
 var VAR_12 = call create_char(var &VAR_13, "fsguard", int 240, int 13)
 call add_item_to_char(var VAR_12, int 22, int 0, int 1)
 var VAR_14 = call create_char(var &VAR_15, "fsguard1", int 240, int 13)

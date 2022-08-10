@@ -18,14 +18,14 @@ VAR_16	0
 VAR_17	{ 0, 0 }	
 VAR_20	{ -1880, 1514, 7240 }	
 VAR_21	{ 257, 1514, 725 }	
-lieutenant_0	0	
-lieutenant_1	0	
-lieutenant_2	0	
-lieutenant_5	0	
-lieutenant_6	0	
+lieutenant	0	
+lieutenant1	0	
+lieutenant2	0	
+lieutenant3	0	
+lieutenant4	0	
 VAR_28	0	
-archer_3	0	
-archer_4	0	
+archer	0	
+archer1	0	
 VAR_31	0	
 VAR_32	{ 363, 0, -1250 }	
 VAR_33	{ 786, 0, -1171 }	
@@ -266,29 +266,29 @@ if(call is_char_handle_in_level(int 1114112))
 var VAR_52 ++ 
 
 ._SCRIPT_5
-var lieutenant_0 = call create_enemy(int 11, int 0, var &VAR_32, int 83)
-call freeze_enemy(var lieutenant_0)
-var lieutenant_1 = call create_enemy(int 11, int 1, var &VAR_33, int 248)
-call freeze_enemy(var lieutenant_1)
-call add_item_to_char(var lieutenant_1, int 41, int 1, int 0)
-var lieutenant_2 = call create_enemy(int 11, int 2, var &VAR_34, int 158)
-call freeze_enemy(var lieutenant_2)
+var lieutenant = call create_enemy(int 11, int 0, var &VAR_32, int 83)
+call freeze_enemy(var lieutenant)
+var lieutenant1 = call create_enemy(int 11, int 1, var &VAR_33, int 248)
+call freeze_enemy(var lieutenant1)
+call add_item_to_char(var lieutenant1, int 41, int 1, int 0)
+var lieutenant2 = call create_enemy(int 11, int 2, var &VAR_34, int 158)
+call freeze_enemy(var lieutenant2)
 var VAR_28 = call create_char(var &VAR_37, "nflatnose", int 276, int 13)
 call set_char_running(var VAR_28)
 gamevar script_object = var VAR_28
 gamevar *character_movement_p+60 = int 1
-var archer_3 = call create_enemy(int 17, int 0, var &VAR_38, int 113)
-call freeze_enemy(var archer_3)
-var archer_4 = call create_enemy(int 17, int 1, var &VAR_39, int 218)
-call freeze_enemy(var archer_4)
-var lieutenant_5 = call create_enemy(int 11, int 3, var &VAR_35, int 283)
-call func_106(var lieutenant_5, int 1, int 0, int 1)
-call freeze_enemy(var lieutenant_5)
-call add_item_to_char(var lieutenant_5, int 43, int 1, int 0)
-var lieutenant_6 = call create_enemy(int 11, int 4, var &VAR_36, int 91)
-call func_106(var lieutenant_6, int 1, int 0, int 1)
-call freeze_enemy(var lieutenant_6)
-call add_item_to_char(var lieutenant_6, int 42, int 1, int 0)
+var archer = call create_enemy(int 17, int 0, var &VAR_38, int 113)
+call freeze_enemy(var archer)
+var archer1 = call create_enemy(int 17, int 1, var &VAR_39, int 218)
+call freeze_enemy(var archer1)
+var lieutenant3 = call create_enemy(int 11, int 3, var &VAR_35, int 283)
+call func_106(var lieutenant3, int 1, int 0, int 1)
+call freeze_enemy(var lieutenant3)
+call add_item_to_char(var lieutenant3, int 43, int 1, int 0)
+var lieutenant4 = call create_enemy(int 11, int 4, var &VAR_36, int 91)
+call func_106(var lieutenant4, int 1, int 0, int 1)
+call freeze_enemy(var lieutenant4)
+call add_item_to_char(var lieutenant4, int 42, int 1, int 0)
 var VAR_31 = call create_char(var &VAR_40, "nrebel", int 283, int 13)
 call add_item_to_char(var VAR_31, int 17, int 0, int 1)
 gamevar script_object = var VAR_31
@@ -298,8 +298,8 @@ gamevar STRENGTH = int 1
 gamevar DEXTERITY = int 1
 call play_char_ai_script(var VAR_28, var &VAR_43)
 call func_50(var VAR_28, int 8192)
-call play_char_ai_script(var lieutenant_0, var &VAR_46)
-call func_50(var lieutenant_0, int 8192)
+call play_char_ai_script(var lieutenant, var &VAR_46)
+call func_50(var lieutenant, int 8192)
 
 ._SCRIPT_6
 

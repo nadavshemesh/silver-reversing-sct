@@ -19,13 +19,13 @@ VAR_18	{ VAR_9, VAR_10, VAR_11, VAR_12, VAR_13, VAR_14, VAR_15, VAR_16, VAR_17 }
 VAR_19	100	
 VAR_20	0	
 VAR_21	0	
-big_swampy_0	0	
+big_swampy	0	
 VAR_23	{ -2589, -39, 10236 }	
-swampy_1	0	
+swampy	0	
 VAR_25	{ -2679, -39, 9967 }	
-swampy_2	0	
+swampy1	0	
 VAR_27	{ -2919, -40, 10098 }	
-swampy_3	0	
+swampy2	0	
 VAR_29	{ -2857, -39, 10363 }	
 VAR_30	{ 0, 0, 0, 1, -1, 8, 1, 4, 0, 9, 2, 1, 2, 111, 112, 111, -1, 5, 0, 0, 7, 1, 2, 6, 1, -1 }	
 VAR_31	{ -2434, -40, 9550, -2939, -40, 9098, -3313, -40, 9398, -3661, -40, 9779, -3424, -40, 10496, -2717, -40, 11123, -2190, -40, 10855, -1627, -40, 10063 }	
@@ -132,17 +132,17 @@ switch(var VAR_36)
 var VAR_35 ++ 
 
 ._SCRIPT_7
-var big_swampy_0 = call create_enemy(int 138, int 1, var &VAR_23, int 235)
-call add_item_to_char(var big_swampy_0, int 45, int 1, int 0)
-var swampy_1 = call create_enemy(int 130, int 2, var &VAR_25, int 330)
-var swampy_2 = call create_enemy(int 130, int 3, var &VAR_27, int 60)
-var swampy_3 = call create_enemy(int 130, int 4, var &VAR_29, int 155)
-call add_item_to_char(var swampy_3, int 45, int 1, int 0)
-call freeze_enemy(var big_swampy_0)
-call freeze_enemy(var swampy_1)
-call freeze_enemy(var swampy_2)
-call freeze_enemy(var swampy_3)
-call add_item_to_char(var big_swampy_0, int 11, int 1, int 1)
+var big_swampy = call create_enemy(int 138, int 1, var &VAR_23, int 235)
+call add_item_to_char(var big_swampy, int 45, int 1, int 0)
+var swampy = call create_enemy(int 130, int 2, var &VAR_25, int 330)
+var swampy1 = call create_enemy(int 130, int 3, var &VAR_27, int 60)
+var swampy2 = call create_enemy(int 130, int 4, var &VAR_29, int 155)
+call add_item_to_char(var swampy2, int 45, int 1, int 0)
+call freeze_enemy(var big_swampy)
+call freeze_enemy(var swampy)
+call freeze_enemy(var swampy1)
+call freeze_enemy(var swampy2)
+call add_item_to_char(var big_swampy, int 11, int 1, int 1)
 call run_enemy_generator(var &VAR_30, int 0)
 
 ._SCRIPT_8

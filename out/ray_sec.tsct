@@ -5,11 +5,11 @@ VAR_2	0
 VAR_3	0	
 VAR_4	{ 0, 0 }	
 VAR_5	{ 0, 0, 0 }	
-drop_lesser_gimp_3	0	
-drop_lesser_gimp_4	0	
-greater_gimpv_0	0	
-greater_gimpv_1	0	
-greater_gimpv_2	0	
+drop_lesser_gimp	0	
+drop_lesser_gimp1	0	
+greater_gimpv	0	
+greater_gimpv1	0	
+greater_gimpv2	0	
 VAR_11	{ -3366, -639, 86 }	
 VAR_12	{ -2868, -639, -11 }	
 VAR_13	{ -3330, -639, -574 }	
@@ -100,30 +100,30 @@ switch(gamevar room_state)
 }
 
 ._SCRIPT_3
-var greater_gimpv_0 = call create_enemy(int 46, int 0, var &VAR_11, int 150)
-var greater_gimpv_1 = call create_enemy(int 46, int 1, var &VAR_12, int 205)
-var greater_gimpv_2 = call create_enemy(int 46, int 2, var &VAR_13, int 30)
-gamevar script_object = var greater_gimpv_0
+var greater_gimpv = call create_enemy(int 46, int 0, var &VAR_11, int 150)
+var greater_gimpv1 = call create_enemy(int 46, int 1, var &VAR_12, int 205)
+var greater_gimpv2 = call create_enemy(int 46, int 2, var &VAR_13, int 30)
+gamevar script_object = var greater_gimpv
 gamevar *character_stats_p+15 = int 5000
-gamevar script_object = var greater_gimpv_1
+gamevar script_object = var greater_gimpv1
 gamevar *character_stats_p+15 = int 5000
-gamevar script_object = var greater_gimpv_2
+gamevar script_object = var greater_gimpv2
 gamevar *character_stats_p+15 = int 5000
-call add_item_to_char(var greater_gimpv_0, int 21, int 1, int 0)
-call add_item_to_char(var greater_gimpv_1, int 43, int 1, int 0)
-call func_17(var greater_gimpv_0, call get_selected_hero())
-call func_17(var greater_gimpv_1, call get_selected_hero())
-call func_17(var greater_gimpv_2, call get_selected_hero())
+call add_item_to_char(var greater_gimpv, int 21, int 1, int 0)
+call add_item_to_char(var greater_gimpv1, int 43, int 1, int 0)
+call func_17(var greater_gimpv, call get_selected_hero())
+call func_17(var greater_gimpv1, call get_selected_hero())
+call func_17(var greater_gimpv2, call get_selected_hero())
 
 ._SCRIPT_4
-var drop_lesser_gimp_3 = call create_enemy(int 113, int 0, var &VAR_14, int 165)
-var drop_lesser_gimp_4 = call create_enemy(int 113, int 1, var &VAR_15, int 235)
-gamevar script_object = var drop_lesser_gimp_3
+var drop_lesser_gimp = call create_enemy(int 113, int 0, var &VAR_14, int 165)
+var drop_lesser_gimp1 = call create_enemy(int 113, int 1, var &VAR_15, int 235)
+gamevar script_object = var drop_lesser_gimp
 gamevar *character_stats_p+15 = int 10000
-gamevar script_object = var drop_lesser_gimp_4
+gamevar script_object = var drop_lesser_gimp1
 gamevar *character_stats_p+15 = int 10000
-call func_106(var drop_lesser_gimp_3, int 9, int 5, var &VAR_16)
-call func_106(var drop_lesser_gimp_4, int 9, int 5, var &VAR_17)
+call func_106(var drop_lesser_gimp, int 9, int 5, var &VAR_16)
+call func_106(var drop_lesser_gimp1, int 9, int 5, var &VAR_17)
 call run_enemy_generator(var &VAR_18, int 200)
 
 ._SCRIPT_5

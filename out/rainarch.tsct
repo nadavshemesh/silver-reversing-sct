@@ -20,9 +20,9 @@ VAR_20	{ -1750, 986, 1250 }
 VAR_21	{ -327, 986, -3275 }	
 VAR_23	{ -51, -925, -102 }	
 VAR_24	{ 2138, -575, 290 }	
-lieutenant_0	0	
-lieutenant_1	0	
-VAR_27	{ 0, 820, -925, 161, 9, lieutenant_1, 0, 2138, -575, 290, 5, 200, 0, 821, -925, 455, 0, -51, -925, -102, 5, 300, 7, 8 }	
+lieutenant	0	
+lieutenant1	0	
+VAR_27	{ 0, 820, -925, 161, 9, lieutenant1, 0, 2138, -575, 290, 5, 200, 0, 821, -925, 455, 0, -51, -925, -102, 5, 300, 7, 8 }	
 VAR_28	{ 0, -51, -925, -102, 5, 300, 0, 810, -925, -73, 0, 2138, -575, 290, 5, 300, 7, 8 }	
 VAR_29	{ 0, 807, -925, 285 }	
 VAR_30	0	
@@ -97,19 +97,19 @@ execute SCRIPT_10
 execute SCRIPT_6
 
 ._SCRIPT_5
-var lieutenant_0 = call create_enemy(int 11, int 0, var &VAR_23, int 350)
-gamevar script_object = var lieutenant_0
+var lieutenant = call create_enemy(int 11, int 0, var &VAR_23, int 350)
+gamevar script_object = var lieutenant
 gamevar *character_movement_p+60 = int 1
-var lieutenant_1 = call create_enemy(int 11, int 1, var &VAR_24, int 225)
-gamevar script_object = var lieutenant_1
+var lieutenant1 = call create_enemy(int 11, int 1, var &VAR_24, int 225)
+gamevar script_object = var lieutenant1
 gamevar *character_movement_p+60 = int 1
-call func_106(var lieutenant_0, int 1, int 0, int 1)
-call func_106(var lieutenant_1, int 1, int 0, int 1)
-call func_50(var lieutenant_0, int 8194)
-call func_50(var lieutenant_1, int 8194)
-call play_char_ai_script(var lieutenant_0, var &VAR_27)
-call play_char_ai_script(var lieutenant_1, var &VAR_28)
-call add_item_to_char(var lieutenant_1, int 42, int 1, int 0)
+call func_106(var lieutenant, int 1, int 0, int 1)
+call func_106(var lieutenant1, int 1, int 0, int 1)
+call func_50(var lieutenant, int 8194)
+call func_50(var lieutenant1, int 8194)
+call play_char_ai_script(var lieutenant, var &VAR_27)
+call play_char_ai_script(var lieutenant1, var &VAR_28)
+call add_item_to_char(var lieutenant1, int 42, int 1, int 0)
 
 ._SCRIPT_6
 if(var VAR_32 != var VAR_29)
@@ -123,10 +123,10 @@ if(var VAR_29 == int 0)
 		 {
 				if(call is_char_handle_in_level(int 7143424))
 				 {
-						if(call func_88(var lieutenant_0))
+						if(call func_88(var lieutenant))
 						 {
-								call func_47(var lieutenant_0, int 8192)
-								gamevar script_object = var lieutenant_0
+								call func_47(var lieutenant, int 8192)
+								gamevar script_object = var lieutenant
 								gamevar *character_movement_p+60 = int 0
 								var VAR_30 = int 1
 						}
@@ -136,10 +136,10 @@ if(var VAR_29 == int 0)
 		 {
 				if(call is_char_handle_in_level(int 7143425))
 				 {
-						if(call func_88(var lieutenant_1))
+						if(call func_88(var lieutenant1))
 						 {
-								call func_47(var lieutenant_1, int 8192)
-								gamevar script_object = var lieutenant_1
+								call func_47(var lieutenant1, int 8192)
+								gamevar script_object = var lieutenant1
 								gamevar *character_movement_p+60 = int 0
 								var VAR_31 = int 1
 						}

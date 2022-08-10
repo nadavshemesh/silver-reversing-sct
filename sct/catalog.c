@@ -3,6 +3,7 @@
 
 void init_enemies_cat(catalog* enemy_cat) {
     char* items[TOTAL_ENEMIES_NUM];
+    int items_used[TOTAL_ENEMIES_NUM] = { 0 };
     enemy_cat->type = ENEMY_CAT;
 
     items[0] = aapts("fireboss");
@@ -224,4 +225,7 @@ void init_enemies_cat(catalog* enemy_cat) {
 
     enemy_cat->items = w_malloc(TOTAL_ENEMIES_NUM*sizeof(char*));
     memcpy(enemy_cat->items, items, TOTAL_ENEMIES_NUM*sizeof(char*));
+
+    enemy_cat->items_used = w_malloc(TOTAL_ENEMIES_NUM*sizeof(char*));
+    memcpy(enemy_cat->items_used, items_used, TOTAL_ENEMIES_NUM*sizeof(int));
 }

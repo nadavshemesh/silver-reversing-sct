@@ -6,7 +6,7 @@ VAR_8	{ -1338, 54, -1158, -1404, 54, -875, -687, 54, -870, -1721, 54, -955, -183
 VAR_9	{ -3163, 54, -590, -3345, 54, -1460 }	
 VAR_10	{ 0, 1, 6, VAR_8, 8, 2, 1, 2, 33, 33, -1, 4, 0, 9, 1, 5, 1, 15, 100, 6, 2, 7, 1, 2, -1 }	
 VAR_11	{ -438, 54, -994 }	
-sarcher_0	0	
+sarcher	0	
 VAR_13	{ 0, 0 }	
 VAR_14	0	
 VAR_16	0	
@@ -126,10 +126,10 @@ if(var VAR_14 == int 0)
 
 ._SCRIPT_5
 call load_char("sguard")
-var sarcher_0 = call create_enemy(int 36, int 0, var &VAR_11, int 310)
-call set_char_init_state(var sarcher_0, int 0)
-var VAR_13 = call add_item_to_char(var sarcher_0, int 46, int 1, int 0)
-gamevar script_object = var sarcher_0
+var sarcher = call create_enemy(int 36, int 0, var &VAR_11, int 310)
+call set_char_init_state(var sarcher, int 0)
+var VAR_13 = call add_item_to_char(var sarcher, int 46, int 1, int 0)
+gamevar script_object = var sarcher
 gamevar *character_stats_p+15 = int 3600
 
 ._SCRIPT_6

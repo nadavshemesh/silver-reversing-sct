@@ -1,9 +1,9 @@
 ._DATA
-dick_1	0	
+dick	0	
 VAR_1	{ 4615, -929, -3947 }	
-finnegan_2	0	
+finnegan	0	
 VAR_3	{ 4639, -930, -3630 }	
-muscles_0	0	
+muscles	0	
 VAR_5	{ 4848, -929, -3795 }	
 VAR_6	0	
 VAR_7	0	
@@ -62,17 +62,17 @@ switch(gamevar room_state)
 ._SCRIPT_3
 
 ._SCRIPT_4
-var muscles_0 = call create_enemy(int 30, int 0, var &VAR_5, int 105)
-var dick_1 = call create_enemy(int 31, int 0, var &VAR_1, int 90)
-var finnegan_2 = call create_enemy(int 32, int 0, var &VAR_3, int 80)
-call add_item_to_char(var finnegan_2, int 43, int 1, int 0)
-call add_item_to_char(var dick_1, int 26, int 1, int 0)
-call set_char_running(var muscles_0)
-call set_char_running(var dick_1)
-call set_char_running(var finnegan_2)
-call func_19(var muscles_0, call get_selected_hero())
-call func_19(var finnegan_2, call get_selected_hero())
-call func_19(var dick_1, call get_selected_hero())
+var muscles = call create_enemy(int 30, int 0, var &VAR_5, int 105)
+var dick = call create_enemy(int 31, int 0, var &VAR_1, int 90)
+var finnegan = call create_enemy(int 32, int 0, var &VAR_3, int 80)
+call add_item_to_char(var finnegan, int 43, int 1, int 0)
+call add_item_to_char(var dick, int 26, int 1, int 0)
+call set_char_running(var muscles)
+call set_char_running(var dick)
+call set_char_running(var finnegan)
+call func_19(var muscles, call get_selected_hero())
+call func_19(var finnegan, call get_selected_hero())
+call func_19(var dick, call get_selected_hero())
 
 ._SCRIPT_5
 call play_3d_fx("RAIN", var &VAR_24, var &VAR_25, int 0)

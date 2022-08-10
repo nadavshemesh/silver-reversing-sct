@@ -11,11 +11,11 @@ VAR_8	0
 VAR_9	0	
 VAR_10	0	
 VAR_11	0	
-pirate_captain_0	0	
+pirate_captain	0	
 VAR_13	{ -401, -1417, -397 }	
-dick_1	0	
+dick	0	
 VAR_15	{ -647, -1417, -281 }	
-VAR_16	{ 9, dick_1, 7, 8 }	
+VAR_16	{ 9, dick, 7, 8 }	
 VAR_17	{ 7, 8 }	
 VAR_18	{ 0, 0, 0, -1, 1, 2, 30, 32, -1, 7, 1, 3, 5, 1, 100, 150, 8, 1, 4, 0, 9, 1, 10, 42, 43, -1, -1 }	
 VAR_19	0	
@@ -37,8 +37,8 @@ VAR_35	0
 VAR_36	{ 0, 0 }	
 VAR_39	{ -1700, 1000, 550 }	
 VAR_40	{ 2650, 1000, -1150 }	
-dick_2	0	
-finnegan_3	0	
+dick1	0	
+finnegan	0	
 VAR_50	0	
 VAR_51	0	
 VAR_52	0	
@@ -105,15 +105,15 @@ call load_char("muscles")
 call load_char("finnegan")
 call load_char("longjohn")
 call load_char("dick")
-var pirate_captain_0 = call create_enemy(int 29, int 0, var &VAR_13, int 295)
-call func_109(var pirate_captain_0, int 3)
-var dick_1 = call create_enemy(int 31, int 0, var &VAR_15, int 115)
-call func_46(var pirate_captain_0, int 0)
-call func_46(var dick_1, int 0)
-call func_fe(var pirate_captain_0)
-call func_fe(var dick_1)
-call func_f(var pirate_captain_0, int 131072)
-call func_f(var dick_1, int 131072)
+var pirate_captain = call create_enemy(int 29, int 0, var &VAR_13, int 295)
+call func_109(var pirate_captain, int 3)
+var dick = call create_enemy(int 31, int 0, var &VAR_15, int 115)
+call func_46(var pirate_captain, int 0)
+call func_46(var dick, int 0)
+call func_fe(var pirate_captain)
+call func_fe(var dick)
+call func_f(var pirate_captain, int 131072)
+call func_f(var dick, int 131072)
 if(call is_char_handle_in_level(int 65536))
  {
 		var VAR_5 = call get_char_handle(int 65536)
@@ -145,11 +145,11 @@ var VAR_1 = int 5
 ._SCRIPT_4
 if(call ! is_char_handle_in_level(int 6356992))
  {
-		var pirate_captain_0 = int 0
+		var pirate_captain = int 0
 }
 if(call ! is_char_handle_in_level(int 6422528))
  {
-		var dick_1 = int 0
+		var dick = int 0
 }
 switch(var VAR_0)
  {
@@ -161,10 +161,10 @@ switch(var VAR_0)
 			}
 			else
 			 {
-					call set_char_init_state(var pirate_captain_0, int 13)
-					call set_char_init_state(var dick_1, int 13)
-					call play_char_ai_script(var pirate_captain_0, var &VAR_16)
-					call play_char_ai_script(var dick_1, var &VAR_17)
+					call set_char_init_state(var pirate_captain, int 13)
+					call set_char_init_state(var dick, int 13)
+					call play_char_ai_script(var pirate_captain, var &VAR_16)
+					call play_char_ai_script(var dick, var &VAR_17)
 					var VAR_0 ++ 
 			}
 			break 
@@ -186,11 +186,11 @@ switch(var VAR_0)
 			 {
 					if(call ! is_char_handle_in_level(int 6356992))
 					 {
-							var pirate_captain_0 = int 0
+							var pirate_captain = int 0
 					}
 					if(call ! is_char_handle_in_level(int 6422528))
 					 {
-							var dick_1 = int 0
+							var dick = int 0
 					}
 					if(var VAR_5)
 					 {
@@ -205,25 +205,25 @@ switch(var VAR_0)
 							call char_stop(var VAR_7)
 					}
 					var VAR_8 = call get_selected_hero()
-					if(var pirate_captain_0)
+					if(var pirate_captain)
 					 {
-							call func_17(var VAR_8, var pirate_captain_0)
+							call func_17(var VAR_8, var pirate_captain)
 					}
-					if(var pirate_captain_0)
+					if(var pirate_captain)
 					 {
-							call func_17(var pirate_captain_0, var VAR_8)
+							call func_17(var pirate_captain, var VAR_8)
 					}
-					if(var dick_1)
+					if(var dick)
 					 {
-							call func_17(var dick_1, var VAR_8)
+							call func_17(var dick, var VAR_8)
 					}
-					if(var pirate_captain_0)
+					if(var pirate_captain)
 					 {
-							call func_46(var pirate_captain_0, int 13)
+							call func_46(var pirate_captain, int 13)
 					}
-					if(var dick_1)
+					if(var dick)
 					 {
-							call func_46(var dick_1, int 13)
+							call func_46(var dick, int 13)
 					}
 					call start_dialog("S_DVDENT", "NULL")
 					var VAR_2 = int 1
@@ -235,21 +235,21 @@ switch(var VAR_0)
 					if(call func_d0())
 					 {
 							var VAR_8 = call get_selected_hero()
-							if(var pirate_captain_0)
+							if(var pirate_captain)
 							 {
-									call func_17(var pirate_captain_0, var VAR_8)
+									call func_17(var pirate_captain, var VAR_8)
 							}
-							if(var dick_1)
+							if(var dick)
 							 {
-									call func_17(var dick_1, var VAR_8)
+									call func_17(var dick, var VAR_8)
 							}
-							if(var pirate_captain_0)
+							if(var pirate_captain)
 							 {
-									call func_46(var pirate_captain_0, int 13)
+									call func_46(var pirate_captain, int 13)
 							}
-							if(var dick_1)
+							if(var dick)
 							 {
-									call func_46(var dick_1, int 13)
+									call func_46(var dick, int 13)
 							}
 							var VAR_2 = int 1
 							var VAR_1 = int 0
@@ -264,33 +264,33 @@ switch(var VAR_0)
 			}
 			if(var VAR_1 == int 0||call get_input_sys() != int 4)
 			 {
-					if(var dick_1)
+					if(var dick)
 					 {
-							call func_55(var dick_1, int 93)
+							call func_55(var dick, int 93)
 					}
 					var VAR_1 = int -1
 			}
 			if(call get_input_sys() != int 4)
 			 {
-					if(var pirate_captain_0)
+					if(var pirate_captain)
 					 {
-							call func_f(var pirate_captain_0, int 8)
+							call func_f(var pirate_captain, int 8)
 					}
-					if(var dick_1)
+					if(var dick)
 					 {
-							call func_f(var dick_1, int 8)
+							call func_f(var dick, int 8)
 					}
-					if(var pirate_captain_0)
+					if(var pirate_captain)
 					 {
-							call func_55(var pirate_captain_0, int 93)
+							call func_55(var pirate_captain, int 93)
 					}
-					if(var pirate_captain_0)
+					if(var pirate_captain)
 					 {
-							call set_char_init_state(var pirate_captain_0, int 0)
+							call set_char_init_state(var pirate_captain, int 0)
 					}
-					if(var dick_1)
+					if(var dick)
 					 {
-							call set_char_init_state(var dick_1, int 0)
+							call set_char_init_state(var dick, int 0)
 					}
 					call run_enemy_generator(var &VAR_18, int 600)
 					var VAR_0 ++ 
@@ -315,10 +315,10 @@ call load_char("longjohn")
 call load_char("muscles")
 call load_char("dick")
 call load_char("finnegan")
-var dick_2 = call create_enemy(int 31, int 0, var &VAR_53, int 175)
-var finnegan_3 = call create_enemy(int 32, int 0, var &VAR_54, int 335)
-call func_46(var dick_2, int 0)
-call func_46(var finnegan_3, int 0)
+var dick1 = call create_enemy(int 31, int 0, var &VAR_53, int 175)
+var finnegan = call create_enemy(int 32, int 0, var &VAR_54, int 335)
+call func_46(var dick1, int 0)
+call func_46(var finnegan, int 0)
 call set_input_system(int 2)
 
 ._SCRIPT_7
@@ -347,10 +347,10 @@ switch(var VAR_3)
 		case 1
 			if(call is_char_standing(var VAR_8)&&call is_char_standing(var VAR_9))
 			 {
-					call func_17(var VAR_8, var dick_2)
-					call func_17(var dick_2, var VAR_8)
-					call func_17(var VAR_9, var finnegan_3)
-					call func_17(var finnegan_3, var VAR_9)
+					call func_17(var VAR_8, var dick1)
+					call func_17(var dick1, var VAR_8)
+					call func_17(var VAR_9, var finnegan)
+					call func_17(var finnegan, var VAR_9)
 					var VAR_4 = int 30
 					var VAR_3 ++ 
 			}
@@ -366,7 +366,7 @@ switch(var VAR_3)
 			var VAR_3 ++ 
 			break 
 		case 3
-			call play_char_anim(var dick_2, var VAR_52, int 0)
+			call play_char_anim(var dick1, var VAR_52, int 0)
 			var VAR_4 = int 30
 			var VAR_3 ++ 
 			break 
@@ -385,8 +385,8 @@ switch(var VAR_3)
 			break 
 		case 6
 			call set_char_init_state(var VAR_50, int 0)
-			call set_char_init_state(var dick_2, int 0)
-			call set_char_init_state(var finnegan_3, int 0)
+			call set_char_init_state(var dick1, int 0)
+			call set_char_init_state(var finnegan, int 0)
 			var VAR_3 ++ 
 		case 7
 			if(call get_num_of_enemies() <= int 2)
@@ -409,15 +409,15 @@ switch(var VAR_3)
 			}
 			if(call ! is_char_handle_in_level(int 5767168))
 			 {
-					var finnegan_3 = call create_enemy_through_door(int 32, int 0, int 1, int 0)
-					call set_char_running(var finnegan_3)
-					call func_19(var finnegan_3, var VAR_8)
+					var finnegan = call create_enemy_through_door(int 32, int 0, int 1, int 0)
+					call set_char_running(var finnegan)
+					call func_19(var finnegan, var VAR_8)
 			}
 			if(call ! is_char_handle_in_level(int 6422528))
 			 {
-					var dick_2 = call create_enemy_through_door(int 31, int 0, int 1, int 0)
-					call set_char_running(var dick_2)
-					call func_19(var dick_2, var VAR_9)
+					var dick1 = call create_enemy_through_door(int 31, int 0, int 1, int 0)
+					call set_char_running(var dick1)
+					call func_19(var dick1, var VAR_9)
 			}
 			var VAR_3 ++ 
 			break 
@@ -442,15 +442,15 @@ switch(var VAR_3)
 			}
 			if(call ! is_char_handle_in_level(int 5767168))
 			 {
-					var finnegan_3 = call create_enemy_through_door(int 32, int 0, int 2, int 0)
-					call set_char_running(var finnegan_3)
-					call func_19(var finnegan_3, var VAR_8)
+					var finnegan = call create_enemy_through_door(int 32, int 0, int 2, int 0)
+					call set_char_running(var finnegan)
+					call func_19(var finnegan, var VAR_8)
 			}
 			if(call ! is_char_handle_in_level(int 6422528))
 			 {
-					var dick_2 = call create_enemy_through_door(int 31, int 0, int 2, int 0)
-					call set_char_running(var dick_2)
-					call func_19(var dick_2, var VAR_9)
+					var dick1 = call create_enemy_through_door(int 31, int 0, int 2, int 0)
+					call set_char_running(var dick1)
+					call func_19(var dick1, var VAR_9)
 			}
 			var VAR_3 ++ 
 			break 

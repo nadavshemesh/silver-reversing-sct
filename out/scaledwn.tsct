@@ -33,8 +33,8 @@ VAR_34	0
 VAR_35	0	
 VAR_36	0	
 VAR_38	{ 1701407858, 1852142709, 1792, 0, 0, 0, 0 }	
-archer_0	0	
-archer_1	0	
+archer	0	
+archer1	0	
 VAR_41	0	
 VAR_42	0	
 VAR_43	0	
@@ -259,14 +259,14 @@ if(var VAR_35 == int 2)
 				call func_4e(int 1)
 				call func_4e(int 2)
 				gamevar compile_init_character = int 0
-				var archer_0 = call create_enemy(int 17, int 0, var &VAR_48, int 304)
-				call freeze_enemy(var archer_0)
-				var archer_1 = call create_enemy(int 17, int 1, var &VAR_49, int 0)
-				call freeze_enemy(var archer_1)
+				var archer = call create_enemy(int 17, int 0, var &VAR_48, int 304)
+				call freeze_enemy(var archer)
+				var archer1 = call create_enemy(int 17, int 1, var &VAR_49, int 0)
+				call freeze_enemy(var archer1)
 				gamevar compile_init_character = int 1
-				gamevar script_object = var archer_0
+				gamevar script_object = var archer
 				gamevar *character_stats_p+15 = int 3400
-				gamevar script_object = var archer_1
+				gamevar script_object = var archer1
 				gamevar *character_stats_p+15 = int 3400
 				var VAR_35 ++ 
 				var VAR_36 = int 0
@@ -285,16 +285,16 @@ if(var VAR_35 == int 4)
 		var VAR_36 ++ 
 		if(var VAR_36 == int 30)
 		 {
-				call func_1c(var archer_1, var VAR_44)
+				call func_1c(var archer1, var VAR_44)
 		}
 		if(var VAR_36 == int 60)
 		 {
-				call func_50(var archer_0, int 513)
-				call func_106(var archer_0, int 9, int 5, var &VAR_50)
-				call func_106(var archer_0, int 9, int 6, int 1)
-				call func_50(var archer_1, int 513)
-				call func_106(var archer_1, int 9, int 5, var &VAR_51)
-				call func_106(var archer_1, int 9, int 6, int 1)
+				call func_50(var archer, int 513)
+				call func_106(var archer, int 9, int 5, var &VAR_50)
+				call func_106(var archer, int 9, int 6, int 1)
+				call func_50(var archer1, int 513)
+				call func_106(var archer1, int 9, int 5, var &VAR_51)
+				call func_106(var archer1, int 9, int 6, int 1)
 		}
 		if(var VAR_36 == int 100)
 		 {

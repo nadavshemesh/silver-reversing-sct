@@ -1,11 +1,11 @@
 ._DATA
 VAR_0	0	
 VAR_1	0	
-longjohn_0	0	
+longjohn	0	
 VAR_3	{ 6607, -930, -3422 }	
-dick_1	0	
+dick	0	
 VAR_5	{ 6895, -930, -3433 }	
-muscles_2	0	
+muscles	0	
 VAR_7	{ 7130, -930, -4023 }	
 VAR_8	0	
 VAR_9	{ 6724, -930, -3221 }	
@@ -85,35 +85,35 @@ switch(gamevar room_state)
 call load_char("finnegan")
 call load_char("muscles")
 var VAR_8 = call create_char(var &VAR_9, "Nvillager", int 190, int 13)
-var longjohn_0 = call create_enemy(int 28, int 0, var &VAR_3, int 5)
-var dick_1 = call create_enemy(int 31, int 0, var &VAR_5, int 300)
-var muscles_2 = call create_enemy(int 30, int 0, var &VAR_7, int 323)
+var longjohn = call create_enemy(int 28, int 0, var &VAR_3, int 5)
+var dick = call create_enemy(int 31, int 0, var &VAR_5, int 300)
+var muscles = call create_enemy(int 30, int 0, var &VAR_7, int 323)
 gamevar script_object = var VAR_8
 gamevar *object_p+8 |= int 67108864
-gamevar script_object = var longjohn_0
+gamevar script_object = var longjohn
 gamevar *object_p+8 |= int 67108864
-gamevar script_object = var dick_1
+gamevar script_object = var dick
 gamevar *object_p+8 |= int 67108864
-gamevar script_object = var muscles_2
+gamevar script_object = var muscles
 gamevar *object_p+8 |= int 67108864
-call add_item_to_char(var longjohn_0, int 42, int 1, int 0)
-call func_47(var longjohn_0, int 528)
-gamevar script_object = var longjohn_0
+call add_item_to_char(var longjohn, int 42, int 1, int 0)
+call func_47(var longjohn, int 528)
+gamevar script_object = var longjohn
 gamevar *character_stats_p+15 = int 700
 gamevar *character_stats_p+16 = int 700
-gamevar script_object = var dick_1
+gamevar script_object = var dick
 gamevar *character_stats_p+15 = int 700
 gamevar *character_stats_p+16 = int 700
-gamevar script_object = var muscles_2
+gamevar script_object = var muscles
 gamevar *character_stats_p+15 = int 700
 gamevar *character_stats_p+16 = int 700
-call func_fe(var longjohn_0)
-call func_fe(var dick_1)
-call func_fe(var muscles_2)
-call char_attack(var longjohn_0, var VAR_8)
-call char_attack(var dick_1, var VAR_8)
-call char_attack(var VAR_8, var longjohn_0)
-call char_attack(var muscles_2, var VAR_8)
+call func_fe(var longjohn)
+call func_fe(var dick)
+call func_fe(var muscles)
+call char_attack(var longjohn, var VAR_8)
+call char_attack(var dick, var VAR_8)
+call char_attack(var VAR_8, var longjohn)
+call char_attack(var muscles, var VAR_8)
 execute SCRIPT_6
 var VAR_1 = int 50
 var VAR_0 = int 0
@@ -125,21 +125,21 @@ switch(var VAR_0)
 			execute SCRIPT_7
 			if(call is_char_handle_in_level(int 6160384))
 			 {
-					if(call func_88(var longjohn_0))
+					if(call func_88(var longjohn))
 					 {
 							var VAR_37 = int 1
 					}
 			}
 			if(call is_char_handle_in_level(int 6422528))
 			 {
-					if(call func_88(var dick_1))
+					if(call func_88(var dick))
 					 {
 							var VAR_37 = int 1
 					}
 			}
 			if(call is_char_handle_in_level(int 2490368))
 			 {
-					if(call func_88(var muscles_2))
+					if(call func_88(var muscles))
 					 {
 							var VAR_37 = int 1
 					}
@@ -163,24 +163,24 @@ switch(var VAR_0)
 					}
 					if(call is_char_handle_in_level(int 6160384))
 					 {
-							gamevar script_object = var longjohn_0
+							gamevar script_object = var longjohn
 							gamevar *object_p+8 &= int -6710886
-							call func_d6(var longjohn_0)
-							call func_17(var longjohn_0, call get_selected_hero())
+							call func_d6(var longjohn)
+							call func_17(var longjohn, call get_selected_hero())
 					}
 					if(call is_char_handle_in_level(int 6422528))
 					 {
-							gamevar script_object = var dick_1
+							gamevar script_object = var dick
 							gamevar *object_p+8 &= int -6710886
-							call func_d6(var dick_1)
-							call func_17(var dick_1, call get_selected_hero())
+							call func_d6(var dick)
+							call func_17(var dick, call get_selected_hero())
 					}
 					if(call is_char_handle_in_level(int 2490368))
 					 {
-							gamevar script_object = var muscles_2
+							gamevar script_object = var muscles
 							gamevar *object_p+8 &= int -6710886
-							call func_d6(var muscles_2)
-							call func_17(var muscles_2, call get_selected_hero())
+							call func_d6(var muscles)
+							call func_17(var muscles, call get_selected_hero())
 					}
 					var VAR_0 ++ 
 					var VAR_1 = int 40
@@ -193,7 +193,7 @@ switch(var VAR_0)
 			}
 			if(call is_char_handle_in_level(int 6422528))
 			 {
-					call func_55(var dick_1, int 93)
+					call func_55(var dick, int 93)
 			}
 			var VAR_0 ++ 
 			var VAR_1 = int 20
@@ -210,7 +210,7 @@ switch(var VAR_0)
 			}
 			if(call is_char_handle_in_level(int 2490368))
 			 {
-					call func_55(var muscles_2, int 91)
+					call func_55(var muscles, int 91)
 			}
 			var VAR_0 ++ 
 			break 
@@ -248,11 +248,11 @@ if(call is_char_handle_in_level(int 2097152))
 }
 
 ._SCRIPT_6
-gamevar script_object = var longjohn_0
+gamevar script_object = var longjohn
 var VAR_39 = gamevar HP
-gamevar script_object = var dick_1
+gamevar script_object = var dick
 var VAR_40 = gamevar HP
-gamevar script_object = var muscles_2
+gamevar script_object = var muscles
 var VAR_41 = gamevar HP
 gamevar script_object = var VAR_8
 var VAR_42 = gamevar HP
@@ -260,17 +260,17 @@ var VAR_42 = gamevar HP
 ._SCRIPT_7
 if(call is_char_handle_in_level(int 6160384))
  {
-		gamevar script_object = var longjohn_0
+		gamevar script_object = var longjohn
 		gamevar HP = var VAR_39
 }
 if(call is_char_handle_in_level(int 6422528))
  {
-		gamevar script_object = var dick_1
+		gamevar script_object = var dick
 		gamevar HP = var VAR_40
 }
 if(call is_char_handle_in_level(int 2490368))
  {
-		gamevar script_object = var muscles_2
+		gamevar script_object = var muscles
 		gamevar HP = var VAR_41
 }
 if(call is_char_handle_in_level(int 2097152))

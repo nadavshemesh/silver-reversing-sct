@@ -20,15 +20,15 @@ VAR_18	0
 VAR_22	{ 1634492784, 892495203, 0 }	
 VAR_24	0	
 VAR_25	{ 1701670755, 0 }	
-vikingc_2	0	
+vikingc1	0	
 VAR_27	{ 1490, 3425, -4070 }	
-bstump_3	0	
+bstump1	0	
 VAR_29	{ 1115, 3425, -4442 }	
-bstump_4	0	
+bstump2	0	
 VAR_31	{ 797, 3425, -4641 }	
-bstump_5	0	
+bstump3	0	
 VAR_33	{ 2248, 3425, -4347 }	
-bstump_6	0	
+bstump4	0	
 VAR_35	{ 2072, 3425, -4646 }	
 VAR_36	{ 3, VAR_37, 0, 3, VAR_38, 0, 5, 40, 3, VAR_39, 0, 2, 1480, 3435, -6810, 8 }	
 VAR_37	28526	
@@ -45,14 +45,14 @@ VAR_47	{ 3, VAR_48, 0, 5, 20, 2, 1490, 3435, -4070, 5, 30, 2, 1480, 3435, -6810,
 VAR_48	"yes"	
 VAR_49	{ 0, 0, 0, -1, 8, 0, 1, 1, 65, 65, -1, 4, 0, 9, 1, 5, 1, 10, 20, 6, 4, 7, 1, 6, 10, 12, 43, -1, -1 }	
 VAR_50	{ 0, 0, 0, -1, 8, 0, 1, 4, 63, -1, 4, 0, 9, 1, 5, 1, 10, 100, 6, 5, 7, 1, 6, 10, 42, 45, -1, -1 }	
-vikingc_0	0	
-bstump_1	0	
+vikingc	0	
+bstump	0	
 VAR_53	{ 4646, 3435, -5136 }	
 VAR_54	{ 4362, 3435, -5103 }	
 VAR_55	{ 5, 50, 0, 5350, 3435, -6463, 8 }	
 VAR_56	{ 5, 90, 15, 0, 5005, 3435, -6446, 8 }	
-vikingc_7	0	
-bstump_8	0	
+vikingc2	0	
+bstump5	0	
 VAR_62	{ 4646, 3435, -5136 }	
 VAR_63	{ 4362, 3435, -5103 }	
 VAR_64	{ 5, 50, 0, 5350, 3435, -6463, 8 }	
@@ -214,16 +214,16 @@ switch(var VAR_0)
 			if(var VAR_6 == int -1)
 			 {
 					var VAR_5 = call run_enemy_generator(var &VAR_13, int 50)
-					var vikingc_0 = call create_enemy(int 66, int 0, var &VAR_53, int 90)
-					call func_f(var vikingc_0, int 131072)
-					var bstump_1 = call create_enemy(int 63, int 0, var &VAR_54, int 0)
-					call func_f(var bstump_1, int 131072)
-					call func_46(var vikingc_0, int 0)
-					call func_46(var bstump_1, int 0)
-					call set_char_init_state(var vikingc_0, int 13)
-					call play_char_ai_script(var vikingc_0, var &VAR_55)
-					call set_char_init_state(var bstump_1, int 13)
-					call play_char_ai_script(var bstump_1, var &VAR_56)
+					var vikingc = call create_enemy(int 66, int 0, var &VAR_53, int 90)
+					call func_f(var vikingc, int 131072)
+					var bstump = call create_enemy(int 63, int 0, var &VAR_54, int 0)
+					call func_f(var bstump, int 131072)
+					call func_46(var vikingc, int 0)
+					call func_46(var bstump, int 0)
+					call set_char_init_state(var vikingc, int 13)
+					call play_char_ai_script(var vikingc, var &VAR_55)
+					call set_char_init_state(var bstump, int 13)
+					call play_char_ai_script(var bstump, var &VAR_56)
 					var VAR_1 = int 0
 					call set_input_system(int 1)
 					call char_stop(var VAR_9)
@@ -237,36 +237,36 @@ var VAR_1 = int 0
 var VAR_0 = int 0
 call load_char("vikingb")
 var VAR_24 = call load_anim(var &VAR_25)
-var vikingc_2 = call create_enemy(int 66, int 0, var &VAR_27, int 170)
-var bstump_3 = call create_enemy(int 63, int 0, var &VAR_29, int 250)
-var bstump_4 = call create_enemy(int 63, int 1, var &VAR_31, int 65)
-var bstump_5 = call create_enemy(int 63, int 2, var &VAR_33, int 225)
-var bstump_6 = call create_enemy(int 63, int 3, var &VAR_35, int 5)
-call func_106(var bstump_3, int 1, int 0, int 3)
-call set_char_init_state(var bstump_3, int 1)
-call func_106(var bstump_4, int 1, int 0, int 3)
-call set_char_init_state(var bstump_4, int 1)
-call func_106(var bstump_5, int 1, int 0, int 2)
-call set_char_init_state(var bstump_5, int 1)
-call func_106(var bstump_6, int 1, int 0, int 2)
-call set_char_init_state(var bstump_6, int 1)
-call func_f(var vikingc_2, int 131072)
-call func_46(var vikingc_2, int 0)
-call set_char_init_state(var bstump_3, int 13)
-call play_char_ai_script(var bstump_3, var &VAR_36)
-call set_char_init_state(var bstump_4, int 13)
-call play_char_ai_script(var bstump_4, var &VAR_40)
-call set_char_init_state(var bstump_5, int 13)
-call play_char_ai_script(var bstump_5, var &VAR_43)
-call set_char_init_state(var bstump_6, int 13)
-call play_char_ai_script(var bstump_6, var &VAR_47)
-gamevar script_object = var bstump_3
+var vikingc1 = call create_enemy(int 66, int 0, var &VAR_27, int 170)
+var bstump1 = call create_enemy(int 63, int 0, var &VAR_29, int 250)
+var bstump2 = call create_enemy(int 63, int 1, var &VAR_31, int 65)
+var bstump3 = call create_enemy(int 63, int 2, var &VAR_33, int 225)
+var bstump4 = call create_enemy(int 63, int 3, var &VAR_35, int 5)
+call func_106(var bstump1, int 1, int 0, int 3)
+call set_char_init_state(var bstump1, int 1)
+call func_106(var bstump2, int 1, int 0, int 3)
+call set_char_init_state(var bstump2, int 1)
+call func_106(var bstump3, int 1, int 0, int 2)
+call set_char_init_state(var bstump3, int 1)
+call func_106(var bstump4, int 1, int 0, int 2)
+call set_char_init_state(var bstump4, int 1)
+call func_f(var vikingc1, int 131072)
+call func_46(var vikingc1, int 0)
+call set_char_init_state(var bstump1, int 13)
+call play_char_ai_script(var bstump1, var &VAR_36)
+call set_char_init_state(var bstump2, int 13)
+call play_char_ai_script(var bstump2, var &VAR_40)
+call set_char_init_state(var bstump3, int 13)
+call play_char_ai_script(var bstump3, var &VAR_43)
+call set_char_init_state(var bstump4, int 13)
+call play_char_ai_script(var bstump4, var &VAR_47)
+gamevar script_object = var bstump1
 gamevar *character_stats_p+15 = int 2500
-gamevar script_object = var bstump_4
+gamevar script_object = var bstump2
 gamevar *character_stats_p+15 = int 2500
-gamevar script_object = var bstump_5
+gamevar script_object = var bstump3
 gamevar *character_stats_p+15 = int 2500
-gamevar script_object = var bstump_6
+gamevar script_object = var bstump4
 gamevar *character_stats_p+15 = int 2500
 
 ._SCRIPT_6
@@ -296,16 +296,16 @@ switch(var VAR_0)
 			if(var VAR_1 == int 20)
 			 {
 					var VAR_5 = call run_enemy_generator(var &VAR_12, int 50)
-					var vikingc_7 = call create_enemy(int 66, int 0, var &VAR_62, int 90)
-					call func_f(var vikingc_7, int 131072)
-					var bstump_8 = call create_enemy(int 63, int 0, var &VAR_63, int 0)
-					call func_f(var bstump_8, int 131072)
-					call func_46(var vikingc_7, int 0)
-					call func_46(var bstump_8, int 0)
-					call set_char_init_state(var vikingc_7, int 13)
-					call play_char_ai_script(var vikingc_7, var &VAR_64)
-					call set_char_init_state(var bstump_8, int 13)
-					call play_char_ai_script(var bstump_8, var &VAR_65)
+					var vikingc2 = call create_enemy(int 66, int 0, var &VAR_62, int 90)
+					call func_f(var vikingc2, int 131072)
+					var bstump5 = call create_enemy(int 63, int 0, var &VAR_63, int 0)
+					call func_f(var bstump5, int 131072)
+					call func_46(var vikingc2, int 0)
+					call func_46(var bstump5, int 0)
+					call set_char_init_state(var vikingc2, int 13)
+					call play_char_ai_script(var vikingc2, var &VAR_64)
+					call set_char_init_state(var bstump5, int 13)
+					call play_char_ai_script(var bstump5, var &VAR_65)
 			}
 			if(var VAR_1 > int 120)
 			 {

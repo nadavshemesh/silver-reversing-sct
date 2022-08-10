@@ -1,10 +1,10 @@
 ._DATA
 VAR_4	0	
-boneyfx_0	0	
+boneyfx	0	
 VAR_6	{ -2255, -1450, 5430 }	
-skel_1	0	
+skel	0	
 VAR_8	{ -2878, -1750, 2505 }	
-skel_2	0	
+skel1	0	
 VAR_10	{ -1834, -1450, 2833 }	
 VAR_11	{ 0, -2980, -1750, 2660, 0, -2670, -1750, 2170, 7, 8 }	
 VAR_12	{ 0, -1292, -1450, 3030, 0, -2230, -1450, 2580, 0, -1270, -1450, 3100, 0, -2426, -1450, 5565, 7, 8 }	
@@ -142,28 +142,28 @@ switch(var VAR_17)
 }
 
 ._SCRIPT_4
-var boneyfx_0 = call create_enemy(int 61, int 0, var &VAR_6, int 220)
-call set_char_running(var boneyfx_0)
-call func_106(var boneyfx_0, int 1, int 0, int 3)
-call func_104(var boneyfx_0, int 1, int 4)
-call set_char_init_state(var boneyfx_0, int 1)
-gamevar script_object = var boneyfx_0
+var boneyfx = call create_enemy(int 61, int 0, var &VAR_6, int 220)
+call set_char_running(var boneyfx)
+call func_106(var boneyfx, int 1, int 0, int 3)
+call func_104(var boneyfx, int 1, int 4)
+call set_char_init_state(var boneyfx, int 1)
+gamevar script_object = var boneyfx
 gamevar *character_stats_p+15 = int 1400
 gamevar *character_stats_p+16 = int 1400
-var skel_1 = call create_enemy(int 58, int 0, var &VAR_8, int 140)
-var skel_2 = call create_enemy(int 58, int 0, var &VAR_10, int 60)
-gamevar script_object = var skel_1
+var skel = call create_enemy(int 58, int 0, var &VAR_8, int 140)
+var skel1 = call create_enemy(int 58, int 0, var &VAR_10, int 60)
+gamevar script_object = var skel
 gamevar *character_stats_p+15 = int 1200
-call set_char_init_state(var skel_1, int 13)
-call play_char_ai_script(var skel_1, var &VAR_11)
-gamevar script_object = var skel_2
+call set_char_init_state(var skel, int 13)
+call play_char_ai_script(var skel, var &VAR_11)
+gamevar script_object = var skel1
 gamevar *character_stats_p+15 = int 1000
-call set_char_init_state(var skel_2, int 13)
-call play_char_ai_script(var skel_2, var &VAR_12)
-call func_106(var skel_1, int 1, int 0, int 3)
-call func_106(var skel_2, int 1, int 0, int 3)
-call func_50(var skel_1, int 3)
-call func_50(var skel_2, int 3)
+call set_char_init_state(var skel1, int 13)
+call play_char_ai_script(var skel1, var &VAR_12)
+call func_106(var skel, int 1, int 0, int 3)
+call func_106(var skel1, int 1, int 0, int 3)
+call func_50(var skel, int 3)
+call func_50(var skel1, int 3)
 call load_char("bat")
 
 ._SCRIPT_5

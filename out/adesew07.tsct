@@ -1,11 +1,11 @@
 ._DATA
 VAR_0	0	
 VAR_1	0	
-lesser_gimp_0	0	
-lesser_gimp_1	0	
-greater_gimpv_2	0	
-greater_gimpv_3	0	
-greater_gimpv_4	0	
+lesser_gimp	0	
+lesser_gimp1	0	
+greater_gimpv	0	
+greater_gimpv1	0	
+greater_gimpv2	0	
 VAR_7	{ 2145, -1857, -1243 }	
 VAR_8	{ -280, -1857, -1378 }	
 VAR_9	{ 1851, -1857, -1449 }	
@@ -58,31 +58,31 @@ if(gamevar script_time > var VAR_17)
 ._SCRIPT_4
 call load_char("spider")
 call load_char("ratrptr")
-var lesser_gimp_0 = call create_enemy(int 45, int 0, var &VAR_7, int 290)
-var lesser_gimp_1 = call create_enemy(int 45, int 1, var &VAR_8, int 40)
-call func_106(var lesser_gimp_0, int 9, int 5, var &VAR_7)
-call func_106(var lesser_gimp_1, int 9, int 5, var &VAR_8)
-call set_char_init_state(var lesser_gimp_0, int 3)
-call set_char_init_state(var lesser_gimp_1, int 3)
-call func_106(var lesser_gimp_0, int 3, int 1, var &VAR_12)
-call func_106(var lesser_gimp_1, int 3, int 1, var &VAR_13)
-var greater_gimpv_2 = call create_enemy(int 46, int 0, var &VAR_9, int 310)
-var greater_gimpv_3 = call create_enemy(int 46, int 1, var &VAR_10, int 50)
-var greater_gimpv_4 = call create_enemy(int 46, int 2, var &VAR_11, int 40)
-call add_item_to_char(var greater_gimpv_2, int 45, int 1, int 0)
-call add_item_to_char(var greater_gimpv_4, int 43, int 1, int 0)
-call func_106(var greater_gimpv_2, int 1, int 0, int 1)
-call func_106(var greater_gimpv_3, int 1, int 0, int 1)
-call func_106(var greater_gimpv_4, int 1, int 0, int 1)
-call set_char_init_state(var greater_gimpv_2, int 1)
-call set_char_init_state(var greater_gimpv_3, int 1)
-call set_char_init_state(var greater_gimpv_4, int 1)
-call func_1(var greater_gimpv_2, int -1)
-call func_1(var greater_gimpv_3, int -1)
-call func_1(var greater_gimpv_4, int -1)
-gamevar script_object = var greater_gimpv_2
+var lesser_gimp = call create_enemy(int 45, int 0, var &VAR_7, int 290)
+var lesser_gimp1 = call create_enemy(int 45, int 1, var &VAR_8, int 40)
+call func_106(var lesser_gimp, int 9, int 5, var &VAR_7)
+call func_106(var lesser_gimp1, int 9, int 5, var &VAR_8)
+call set_char_init_state(var lesser_gimp, int 3)
+call set_char_init_state(var lesser_gimp1, int 3)
+call func_106(var lesser_gimp, int 3, int 1, var &VAR_12)
+call func_106(var lesser_gimp1, int 3, int 1, var &VAR_13)
+var greater_gimpv = call create_enemy(int 46, int 0, var &VAR_9, int 310)
+var greater_gimpv1 = call create_enemy(int 46, int 1, var &VAR_10, int 50)
+var greater_gimpv2 = call create_enemy(int 46, int 2, var &VAR_11, int 40)
+call add_item_to_char(var greater_gimpv, int 45, int 1, int 0)
+call add_item_to_char(var greater_gimpv2, int 43, int 1, int 0)
+call func_106(var greater_gimpv, int 1, int 0, int 1)
+call func_106(var greater_gimpv1, int 1, int 0, int 1)
+call func_106(var greater_gimpv2, int 1, int 0, int 1)
+call set_char_init_state(var greater_gimpv, int 1)
+call set_char_init_state(var greater_gimpv1, int 1)
+call set_char_init_state(var greater_gimpv2, int 1)
+call func_1(var greater_gimpv, int -1)
+call func_1(var greater_gimpv1, int -1)
+call func_1(var greater_gimpv2, int -1)
+gamevar script_object = var greater_gimpv
 gamevar *character_stats_p+16 = int 850
-call func_106(var greater_gimpv_2, int 0, int 3, int 80)
+call func_106(var greater_gimpv, int 0, int 3, int 80)
 var VAR_0 = int 0
 var VAR_1 = int 150
 
@@ -98,15 +98,15 @@ switch(var VAR_0)
 			 {
 					if(call is_char_handle_in_level(int 10551296))
 					 {
-							call func_29(var greater_gimpv_2)
+							call func_29(var greater_gimpv)
 					}
 					if(call is_char_handle_in_level(int 10551297))
 					 {
-							call func_29(var greater_gimpv_3)
+							call func_29(var greater_gimpv1)
 					}
 					if(call is_char_handle_in_level(int 10551298))
 					 {
-							call func_29(var greater_gimpv_4)
+							call func_29(var greater_gimpv2)
 					}
 					var VAR_1 = int 20
 					var VAR_0 ++ 
@@ -121,15 +121,15 @@ switch(var VAR_0)
 			 {
 					if(call is_char_handle_in_level(int 10551296))
 					 {
-							call func_2(var greater_gimpv_2)
+							call func_2(var greater_gimpv)
 					}
 					if(call is_char_handle_in_level(int 10551297))
 					 {
-							call func_2(var greater_gimpv_3)
+							call func_2(var greater_gimpv1)
 					}
 					if(call is_char_handle_in_level(int 10551298))
 					 {
-							call func_2(var greater_gimpv_4)
+							call func_2(var greater_gimpv2)
 					}
 					var VAR_0 ++ 
 			}

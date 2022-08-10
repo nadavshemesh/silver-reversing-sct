@@ -9,7 +9,7 @@ VAR_7	{ 1301, -1100, -3612 }
 VAR_8	{ 1868717939, 1886745208, 0 }	
 VAR_9	{ 1801, -1100, -2024 }	
 VAR_10	0	
-hellcat_0	0	
+hellcat	0	
 VAR_12	0	
 VAR_13	{ 1216, -1100, -3146 }	
 VAR_14	{ 1414, -1100, -3573, 2317, -1100, -2799, 1516, -1100, -1894, 673, -1100, -2738 }	
@@ -117,12 +117,12 @@ if(gamevar script_time > var VAR_18)
 ._SCRIPT_4
 
 ._SCRIPT_5
-var hellcat_0 = call create_enemy(int 143, int 0, var &VAR_13, int 103)
-gamevar script_object = var hellcat_0
+var hellcat = call create_enemy(int 143, int 0, var &VAR_13, int 103)
+gamevar script_object = var hellcat
 gamevar *character_stats_p+15 = int 2000
-call freeze_enemy(var hellcat_0)
-call func_50(var hellcat_0, int 8192)
-call play_char_ai_script(var hellcat_0, var &VAR_15)
+call freeze_enemy(var hellcat)
+call func_50(var hellcat, int 8192)
+call play_char_ai_script(var hellcat, var &VAR_15)
 var VAR_12 = call get_char_handle(int 65536)
 var VAR_10 = call create_char(var &VAR_9, "btreasure", int 215, int 14)
 call add_item_to_char(var VAR_10, int 72, int 1, int 0)

@@ -11,11 +11,11 @@ VAR_9	0
 VAR_10	0	
 VAR_11	0	
 VAR_12	0	
-ganitos_3	0	
+ganitos1	0	
 VAR_22	{ -526, -1913, -2420 }	
 VAR_25	-1431699410	
-wraithp_0	0	
-wraithp_1	0	
+wraithp	0	
+wraithp1	0	
 VAR_52	{ -509, -1913, -2592 }	
 VAR_53	{ -65, -1887, -1898 }	
 VAR_54	{ -601, -1913, -2384 }	
@@ -309,14 +309,14 @@ while(var VAR_9)
 		}
 		var VAR_9 = call func_7e()
 }
-var wraithp_0 = call create_enemy(int 60, int 1, var &VAR_52, int 120)
-var wraithp_1 = call create_enemy(int 60, int 2, var &VAR_53, int 295)
-var ganitos_3 = call create_enemy(int 74, int 0, var &VAR_22, int 0)
-call add_item_to_char(var ganitos_2, int 64, int 1, int 0)
-call func_10c(var ganitos_2, "NULL")
+var wraithp = call create_enemy(int 60, int 1, var &VAR_52, int 120)
+var wraithp1 = call create_enemy(int 60, int 2, var &VAR_53, int 295)
+var ganitos1 = call create_enemy(int 74, int 0, var &VAR_22, int 0)
+call add_item_to_char(var ganitos, int 64, int 1, int 0)
+call func_10c(var ganitos, "NULL")
 call func_108("NULL")
-call freeze_enemy(var wraithp_0)
-call freeze_enemy(var wraithp_1)
+call freeze_enemy(var wraithp)
+call freeze_enemy(var wraithp1)
 gamevar *scene_info_p+4 = int 16
 
 ._SCRIPT_5
@@ -355,9 +355,9 @@ while(var VAR_9)
 					call log("Get a goober -- QUICKLY!!")
 					break 
 		}
-		var ganitos_3 = call create_enemy(int 74, int 0, var &VAR_22, int 0)
-		call add_item_to_char(var ganitos_3, int 64, int 1, int 0)
-		call func_10c(var ganitos_3, "NULL")
+		var ganitos1 = call create_enemy(int 74, int 0, var &VAR_22, int 0)
+		call add_item_to_char(var ganitos1, int 64, int 1, int 0)
+		call func_10c(var ganitos1, "NULL")
 		call func_108("NULL")
 		var VAR_9 = call func_7e()
 }
@@ -371,7 +371,7 @@ if(var VAR_11 == int 1)
 						var VAR_10 = call get_char_handle_id(var VAR_9)
 						if(var VAR_10 == int 65536)
 						 {
-								call char_turn_to_pos(var ganitos_3, var VAR_0)
+								call char_turn_to_pos(var ganitos1, var VAR_0)
 								call log(var &VAR_25)
 								var VAR_9 = call func_7e()
 						}
@@ -417,8 +417,8 @@ if(var VAR_11 == int 10)
 		if(call get_input_sys() != int 4)
 		 {
 				call log("ready to run")
-				call set_char_running(var ganitos_3)
-				call char_walk_to(var ganitos_3, int 987, int -1913, int 1070)
+				call set_char_running(var ganitos1)
+				call char_walk_to(var ganitos1, int 987, int -1913, int 1070)
 				var VAR_11 ++ 
 				var VAR_12 = int 0
 		}
@@ -428,18 +428,18 @@ if(var VAR_11 == int 11)
 		var VAR_12 ++ 
 		if(var VAR_12 > int 80)
 		 {
-				call func_14(var ganitos_3, int 64)
-				call char_walk_to(var ganitos_3, int 450, int -1887, int -1412)
-				call func_fa(var ganitos_3)
+				call func_14(var ganitos1, int 64)
+				call char_walk_to(var ganitos1, int 450, int -1887, int -1412)
+				call func_fa(var ganitos1)
 				var VAR_11 ++ 
 		}
 }
 if(var VAR_11 == int 12)
  {
-		if(call is_char_standing(var ganitos_3))
+		if(call is_char_standing(var ganitos1))
 		 {
 				var VAR_6 = int 1
-				call remove_char(var ganitos_3)
+				call remove_char(var ganitos1)
 				var VAR_11 ++ 
 		}
 }

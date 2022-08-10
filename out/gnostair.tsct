@@ -4,7 +4,7 @@ VAR_3	0
 VAR_4	0	
 VAR_5	0	
 VAR_6	0	
-imp_boss_0	0	
+imp_boss	0	
 VAR_8	{ -1998, 3, -2593 }	
 VAR_9	{ -1928, 1003, -1586 }	
 VAR_10	{ -2231, 3, -2470 }	
@@ -144,7 +144,7 @@ call add_item_to_char(var VAR_4, int 85, int 3277313, int 0)
 call add_item_to_char(var VAR_4, int 40, int 1, int 0)
 call add_item_to_char(var VAR_4, int 40, int 1, int 0)
 call add_item_to_char(var VAR_4, int 41, int 1, int 0)
-var imp_boss_0 = call create_char(var &VAR_10, "fimpboss", int -90, int 13)
+var imp_boss = call create_char(var &VAR_10, "fimpboss", int -90, int 13)
 call func_50(var VAR_7, int 8192)
 call play_char_ai_script(var VAR_7, var &VAR_12)
 execute SCRIPT_4
@@ -181,9 +181,9 @@ if(var VAR_17 == int 2)
 var VAR_18 ++ 
 
 ._SCRIPT_8
-var imp_boss_0 = call create_enemy(int 129, int 0, var &VAR_10, int -90)
-call func_50(var imp_boss_0, int 8192)
-call play_char_ai_script(var imp_boss_0, var &VAR_21)
+var imp_boss = call create_enemy(int 129, int 0, var &VAR_10, int -90)
+call func_50(var imp_boss, int 8192)
+call play_char_ai_script(var imp_boss, var &VAR_21)
 execute SCRIPT_4
 call load_char("imp")
 call func_108("ARSE")
@@ -208,7 +208,7 @@ switch(var VAR_25)
 			 {
 					if(call is_char_handle_in_level(int 4194304))
 					 {
-							call func_106(var imp_boss_0, int 3, int 1, var &VAR_22)
+							call func_106(var imp_boss, int 3, int 1, var &VAR_22)
 					}
 					var VAR_25 ++ 
 			}

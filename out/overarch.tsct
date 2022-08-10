@@ -20,7 +20,7 @@ VAR_20	{ -3600, 2331, -3000 }
 VAR_21	{ 0, 2331, -6750 }	
 VAR_22	{ 1313423698, -1431655936, 0, 0, 0, 0 }	
 VAR_23	{ 0, 1949, 173, 4476, 0, 2349, 173, 5447, 2, 1949, 173, 4476, 5, 100, 0, 1949, 173, 4476, 0, 1954, 173, 3231, 2, 1949, 173, 4476, 5, 100, 7, 8 }	
-lieutenant_0	{ 0, 951, 173, 4301 }	
+lieutenant	{ 0, 951, 173, 4301 }	
 VAR_25	{ 1954, 173, 3231 }	
 VAR_26	{ 0, 0, 0, 2, -1, 8, 1, 12, 30, 30, 31, 30, 32, -1, 13, 0, 14, 0, 1, 5, 5, 0, 60, 18, 75, -1 }	
 VAR_27	{ 0, 0, 0, 2, -1, 8, 1, 12, 11, 12, 13, 11, 12, -1, 13, 0, 14, 0, 1, 5, 5, 0, 60, 18, 75, -1 }	
@@ -90,14 +90,14 @@ execute SCRIPT_9
 ._SCRIPT_4
 
 ._SCRIPT_5
-var lieutenant_0 = call create_enemy(int 11, int 0, var &VAR_25, int 85)
-call play_char_ai_script(var lieutenant_0, var &VAR_23)
-call func_50(var lieutenant_0, int 8192)
-gamevar script_object = var lieutenant_0
+var lieutenant = call create_enemy(int 11, int 0, var &VAR_25, int 85)
+call play_char_ai_script(var lieutenant, var &VAR_23)
+call func_50(var lieutenant, int 8192)
+gamevar script_object = var lieutenant
 gamevar *character_stats_p+15 = int 500
-call add_item_to_char(var lieutenant_0, int 108, int 1, int 0)
-call add_item_to_char(var lieutenant_0, int 40, int 1, int 0)
-call add_item_to_char(var lieutenant_0, int 42, int 1, int 0)
+call add_item_to_char(var lieutenant, int 108, int 1, int 0)
+call add_item_to_char(var lieutenant, int 40, int 1, int 0)
+call add_item_to_char(var lieutenant, int 42, int 1, int 0)
 
 ._SCRIPT_6
 

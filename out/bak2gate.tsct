@@ -22,9 +22,9 @@ VAR_23	0
 VAR_25	{ -4426, -933, 142 }	
 VAR_26	{ -4584, -933, -99 }	
 VAR_27	{ -4598, -933, 420 }	
-captain_knives_0	0	
-lieutenant_1	0	
-lieutenant_2	0	
+captain_knives	0	
+lieutenant	0	
+lieutenant1	0	
 VAR_31	{ 0, 0, 0, -1, 8, 0, 1, 1, 11, 11, 12, 13, -1, 4, 0, 9, 0, 5, 0, 100, 6, 1, 7, 1, 2, 10, 42, 43, -1, -1, 0 }	
 VAR_32	0	
 VAR_33	{ 672, -933, -783, 795, -933, -1100, 672, -933, -783, 795, -933, -1100 }	
@@ -101,22 +101,22 @@ execute SCRIPT_10
 var VAR_32 ++ 
 
 ._SCRIPT_5
-var captain_knives_0 = call create_enemy(int 209, int 0, var &VAR_25, int 84)
-call func_106(var captain_knives_0, int 1, int 0, int 1)
-call func_106(var captain_knives_0, int 1, int 7, int 1)
-call func_104(var captain_knives_0, int 1, int 4)
-call func_104(var captain_knives_0, int 7, int 2)
-call func_106(var captain_knives_0, int 3, int 1, var &VAR_31)
-call func_50(var captain_knives_0, int 667)
-var lieutenant_1 = call create_enemy(int 11, int 0, var &VAR_26, int 86)
-call func_106(var lieutenant_1, int 1, int 0, int 1)
-call func_50(var lieutenant_1, int 2)
-gamevar script_object = var lieutenant_1
+var captain_knives = call create_enemy(int 209, int 0, var &VAR_25, int 84)
+call func_106(var captain_knives, int 1, int 0, int 1)
+call func_106(var captain_knives, int 1, int 7, int 1)
+call func_104(var captain_knives, int 1, int 4)
+call func_104(var captain_knives, int 7, int 2)
+call func_106(var captain_knives, int 3, int 1, var &VAR_31)
+call func_50(var captain_knives, int 667)
+var lieutenant = call create_enemy(int 11, int 0, var &VAR_26, int 86)
+call func_106(var lieutenant, int 1, int 0, int 1)
+call func_50(var lieutenant, int 2)
+gamevar script_object = var lieutenant
 gamevar *character_stats_p+15 = int 3000
-var lieutenant_2 = call create_enemy(int 11, int 1, var &VAR_27, int 81)
-call func_106(var lieutenant_2, int 1, int 0, int 1)
-call func_50(var lieutenant_2, int 2)
-gamevar script_object = var lieutenant_2
+var lieutenant1 = call create_enemy(int 11, int 1, var &VAR_27, int 81)
+call func_106(var lieutenant1, int 1, int 0, int 1)
+call func_50(var lieutenant1, int 2)
+gamevar script_object = var lieutenant1
 gamevar *character_stats_p+15 = int 3000
 
 ._SCRIPT_6

@@ -5,16 +5,16 @@ VAR_5	{ -3291, 800, -1207 }
 VAR_6	{ -1728, 800, -1869 }	
 VAR_7	{ -2114, 800, -903 }	
 VAR_8	{ -2705, 800, -2272 }	
-fall_fastmonk_0	0	
-fall_fastmonk_1	0	
-fall_fastmonk_2	0	
-fall_fastmonk_3	0	
+fall_fastmonk	0	
+fall_fastmonk1	0	
+fall_fastmonk2	0	
+fall_fastmonk3	0	
 VAR_13	0	
 VAR_14	0	
 VAR_15	{ -2738, -395, -2611, -2019, -395, -752 }	
 VAR_16	0	
-fall_mystmonk_4	0	
-fall_mystmonk_5	0	
+fall_mystmonk	0	
+fall_mystmonk1	0	
 VAR_19	{ -1, 0 }	
 VAR_20	0
 
@@ -86,10 +86,10 @@ if(gamevar !is_room_cleared)
 
 ._SCRIPT_3
 gamevar compile_init_character = int 0
-var fall_fastmonk_0 = call create_enemy(int 85, int 1, var &VAR_5, int 90)
-var fall_fastmonk_1 = call create_enemy(int 85, int 2, var &VAR_7, int 180)
-var fall_fastmonk_2 = call create_enemy(int 85, int 3, var &VAR_6, int 270)
-var fall_fastmonk_3 = call create_enemy(int 85, int 4, var &VAR_8, int 0)
+var fall_fastmonk = call create_enemy(int 85, int 1, var &VAR_5, int 90)
+var fall_fastmonk1 = call create_enemy(int 85, int 2, var &VAR_7, int 180)
+var fall_fastmonk2 = call create_enemy(int 85, int 3, var &VAR_6, int 270)
+var fall_fastmonk3 = call create_enemy(int 85, int 4, var &VAR_8, int 0)
 gamevar compile_init_character = int 1
 
 ._SCRIPT_4
@@ -126,8 +126,8 @@ switch(var VAR_13)
 			if(call func_9(var VAR_16))
 			 {
 					gamevar compile_init_character = int 0
-					var fall_mystmonk_4 = call create_enemy(int 91, int 1, var &VAR_5, int 90)
-					var fall_mystmonk_5 = call create_enemy(int 91, int 2, var &VAR_6, int 270)
+					var fall_mystmonk = call create_enemy(int 91, int 1, var &VAR_5, int 90)
+					var fall_mystmonk1 = call create_enemy(int 91, int 2, var &VAR_6, int 270)
 					gamevar compile_init_character = int 1
 					var VAR_13 ++ 
 					var VAR_14 = int 0

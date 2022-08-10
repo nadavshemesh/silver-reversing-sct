@@ -18,9 +18,9 @@ VAR_16	0
 VAR_17	{ 0, 0 }	
 VAR_19	{ -3359, 2978, -346 }	
 VAR_20	{ 3332, 2978, 5043 }	
-ogre_0	{ 0, 0, 0 }	
-orc2_1	0	
-orc_2	0	
+ogre	{ 0, 0, 0 }	
+orc2	0	
+orc	0	
 VAR_25	{ -890, 297, -2412, -370, 297, -2535, -408, 297, -2269 }	
 VAR_26	{ 1958, 297, -633 }	
 VAR_27	{ 1749, 297, -4030 }	
@@ -118,27 +118,27 @@ if(var VAR_33 == int 1)
 }
 
 ._SCRIPT_5
-var ogre_0 = call create_enemy(int 76, int 0, var &VAR_25, int 60)
-call add_item_to_char(var ogre_0, int 85, int 3277313, int 0)
-gamevar script_object = var ogre_0
+var ogre = call create_enemy(int 76, int 0, var &VAR_25, int 60)
+call add_item_to_char(var ogre, int 85, int 3277313, int 0)
+gamevar script_object = var ogre
 gamevar *character_stats_p+15 = int 3400
-var orc2_1 = call create_enemy(int 81, int 3, var &VAR_26, int 245)
-gamevar script_object = var orc2_1
+var orc2 = call create_enemy(int 81, int 3, var &VAR_26, int 245)
+gamevar script_object = var orc2
 gamevar *character_stats_p+16 = int 1400
 gamevar *character_stats_p+15 = int 3400
-var orc_2 = call create_enemy(int 78, int 4, var &VAR_27, int 53)
-call add_item_to_char(var orc_2, int 85, int 1638913, int 0)
-gamevar script_object = var orc_2
+var orc = call create_enemy(int 78, int 4, var &VAR_27, int 53)
+call add_item_to_char(var orc, int 85, int 1638913, int 0)
+gamevar script_object = var orc
 gamevar *character_stats_p+16 = int 1400
 gamevar *character_stats_p+15 = int 3400
-call func_106(var ogre_0, int 1, int 0, int 1)
-call func_106(var orc2_1, int 1, int 0, int 1)
-call func_106(var orc_2, int 1, int 0, int 1)
-call func_50(var ogre_0, int 131)
-call func_50(var ogre_0, int 130)
-call func_104(var ogre_0, int 1, int 4)
-call func_106(var ogre_0, int 1, int 7, int 1)
-call func_104(var ogre_0, int 7, int 4)
+call func_106(var ogre, int 1, int 0, int 1)
+call func_106(var orc2, int 1, int 0, int 1)
+call func_106(var orc, int 1, int 0, int 1)
+call func_50(var ogre, int 131)
+call func_50(var ogre, int 130)
+call func_104(var ogre, int 1, int 4)
+call func_106(var ogre, int 1, int 7, int 1)
+call func_104(var ogre, int 7, int 4)
 call load_char("orc")
 call load_char("ronnie")
 call load_item(int 92)

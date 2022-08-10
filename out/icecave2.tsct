@@ -20,9 +20,9 @@ VAR_18	{ -97, -47, -30 }
 VAR_19	{ 247, 104, 1446 }	
 VAR_20	{ VAR_8, VAR_9, VAR_10, VAR_11, VAR_12, VAR_13, VAR_14, VAR_15, VAR_16, VAR_17, VAR_18, VAR_19 }	
 VAR_21	{ 1346982468, 0 }	
-sentryg_0	0	
+sentryg	0	
 VAR_23	{ -60, -1109, 433 }	
-sentryg_1	0	
+sentryg1	0	
 VAR_25	{ -1452, -865, -700, 900, -1124, 804, -1507, -825, -1074, 2 }	
 VAR_27	{ 2003791475, 1953656947, 0, 400, -1107, 1160 }	
 VAR_28	{ 0, -1507, -825, -1074, 0, 900, -1124, 804, 7, 8 }	
@@ -232,25 +232,25 @@ if(var VAR_35 == int 13)
 }
 
 ._SCRIPT_6
-var sentryg_0 = call create_enemy(int 56, int 1, var &VAR_23, int 225)
-var sentryg_1 = call create_enemy(int 56, int 2, var &VAR_25, int 30)
+var sentryg = call create_enemy(int 56, int 1, var &VAR_23, int 225)
+var sentryg1 = call create_enemy(int 56, int 2, var &VAR_25, int 30)
 call load_char("wamper")
 call load_char(var &VAR_27)
-call add_item_to_char(var sentryg_0, int 16, int 0, int 1)
-call add_item_to_char(var sentryg_0, int 85, int 1638913, int 0)
-call add_item_to_char(var sentryg_0, int 43, int 1, int 0)
-call add_item_to_char(var sentryg_1, int 16, int 0, int 1)
-call add_item_to_char(var sentryg_1, int 85, int 3277313, int 0)
-call add_item_to_char(var sentryg_1, int 40, int 1, int 0)
+call add_item_to_char(var sentryg, int 16, int 0, int 1)
+call add_item_to_char(var sentryg, int 85, int 1638913, int 0)
+call add_item_to_char(var sentryg, int 43, int 1, int 0)
+call add_item_to_char(var sentryg1, int 16, int 0, int 1)
+call add_item_to_char(var sentryg1, int 85, int 3277313, int 0)
+call add_item_to_char(var sentryg1, int 40, int 1, int 0)
 execute SCRIPT_7
-call set_char_init_state(var sentryg_0, int 13)
-call play_char_ai_script(var sentryg_0, var &VAR_28)
-call func_106(var sentryg_0, int 1, int 0, int 2)
-call func_50(var sentryg_0, int 131)
-call set_char_init_state(var sentryg_1, int 13)
-call play_char_ai_script(var sentryg_1, var &VAR_29)
-call func_106(var sentryg_1, int 1, int 0, int 2)
-call func_50(var sentryg_1, int 131)
+call set_char_init_state(var sentryg, int 13)
+call play_char_ai_script(var sentryg, var &VAR_28)
+call func_106(var sentryg, int 1, int 0, int 2)
+call func_50(var sentryg, int 131)
+call set_char_init_state(var sentryg1, int 13)
+call play_char_ai_script(var sentryg1, var &VAR_29)
+call func_106(var sentryg1, int 1, int 0, int 2)
+call func_50(var sentryg1, int 131)
 
 ._SCRIPT_7
 

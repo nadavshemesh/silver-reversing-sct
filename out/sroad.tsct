@@ -19,13 +19,13 @@ VAR_17	{ 0, 0 }
 VAR_19	0	
 VAR_21	{ -550, 869, 550 }	
 VAR_22	{ 2300, 869, -1525 }	
-lieutenant_2	0	
+lieutenant2	0	
 VAR_25	{ 555, -1000, 164 }	
-lieutenant_3	0	
+lieutenant3	0	
 VAR_27	{ 112, -1000, 769 }	
-lieutenant_0	0	
+lieutenant	0	
 VAR_29	{ -4709, -1000, -338 }	
-lieutenant_1	0	
+lieutenant1	0	
 VAR_31	{ -4134, -1000, -104 }	
 VAR_33	0	
 VAR_34	0	
@@ -107,9 +107,9 @@ if(var VAR_33 == int 0)
 		if(call is_char_at_pos(var VAR_36, var &VAR_35, int 800))
 		 {
 				var VAR_37 = call get_char_pos(var VAR_36)
-				var lieutenant_0 = call create_enemy(int 11, int 3, var &VAR_29, int 145)
-				call set_char_running(var lieutenant_0)
-				call char_walk_to_pos(var lieutenant_0, var VAR_37)
+				var lieutenant = call create_enemy(int 11, int 3, var &VAR_29, int 145)
+				call set_char_running(var lieutenant)
+				call char_walk_to_pos(var lieutenant, var VAR_37)
 				var VAR_19 = int 1
 				var VAR_33 ++ 
 				var VAR_34 = int 0
@@ -120,23 +120,23 @@ if(var VAR_33 == int 1)
 		var VAR_37 = call get_char_pos(var VAR_36)
 		if(var VAR_34 == int 10)
 		 {
-				var lieutenant_1 = call create_enemy(int 11, int 4, var &VAR_31, int 150)
-				call add_item_to_char(var lieutenant_1, int 43, int 1, int 0)
-				call set_char_running(var lieutenant_1)
-				call char_walk_to_pos(var lieutenant_1, var VAR_37)
+				var lieutenant1 = call create_enemy(int 11, int 4, var &VAR_31, int 150)
+				call add_item_to_char(var lieutenant1, int 43, int 1, int 0)
+				call set_char_running(var lieutenant1)
+				call char_walk_to_pos(var lieutenant1, var VAR_37)
 		}
 		if(var VAR_34 == int 90)
 		 {
-				var lieutenant_2 = call create_enemy(int 11, int 1, var &VAR_25, int 285)
-				call set_char_running(var lieutenant_2)
-				call char_walk_to_pos(var lieutenant_2, var VAR_37)
+				var lieutenant2 = call create_enemy(int 11, int 1, var &VAR_25, int 285)
+				call set_char_running(var lieutenant2)
+				call char_walk_to_pos(var lieutenant2, var VAR_37)
 		}
 		if(var VAR_34 == int 100)
 		 {
-				var lieutenant_3 = call create_enemy(int 11, int 2, var &VAR_27, int 190)
-				call add_item_to_char(var lieutenant_3, int 42, int 1, int 0)
-				call set_char_running(var lieutenant_3)
-				call char_walk_to_pos(var lieutenant_3, var VAR_37)
+				var lieutenant3 = call create_enemy(int 11, int 2, var &VAR_27, int 190)
+				call add_item_to_char(var lieutenant3, int 42, int 1, int 0)
+				call set_char_running(var lieutenant3)
+				call char_walk_to_pos(var lieutenant3, var VAR_37)
 				var VAR_33 ++ 
 				var VAR_34 = int 0
 		}

@@ -231,6 +231,12 @@ void init_game_functions(game_fun** functions_arr) {
     functions_arr[0x78]->name = aapts("get_char_y");
     functions_arr[0x78]->params = 1;
     functions_arr[0x78]->desc = aapts("(var char_ptr)");
+    functions_arr[0x79]->name = aapts("get_char_z");
+    functions_arr[0x79]->params = 1;
+    functions_arr[0x79]->desc = aapts("(var char_ptr)");
+    functions_arr[0x10a]->name = aapts("set_char_lvl");
+    functions_arr[0x10a]->params = 2;
+    functions_arr[0x10a]->desc = aapts("(var char_ptr, int lvl)");
     functions_arr[0xd3]->name = aapts("randomize_int");
     functions_arr[0xd3]->params = 2;
     functions_arr[0xd3]->desc = aapts("(int from, int to)");

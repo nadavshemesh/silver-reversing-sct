@@ -79,7 +79,7 @@ VAR_85	0
 VAR_86	{ 0, 0, 1, -1, 8, 2, 4, 0, 9, 0, 1, 5, 192, 192, -1, 2, 2, 3, 2, 5, 0, 100, 7, 1, 6, 6, 1, -1 }	
 VAR_87	0	
 VAR_89	0	
-plagueman_catapult_0	0
+plagueman_catapult	0
 
 ._on_load
 call load_sound_set(int 28)
@@ -305,18 +305,18 @@ while(var VAR_89 < int 6)
 				if(call func_8a(@VAR_63[var VAR_89]))
 				 {
 						gamevar compile_init_character = int 0
-						var plagueman_catapult_0 = call create_enemy(@VAR_66[var VAR_89], var VAR_89, @VAR_65[var VAR_89], @VAR_64[var VAR_89])
+						var plagueman_catapult = call create_enemy(@VAR_66[var VAR_89], var VAR_89, @VAR_65[var VAR_89], @VAR_64[var VAR_89])
 						gamevar compile_init_character = int 1
-						call set_char_init_state(var plagueman_catapult_0, int 13)
-						call play_char_ai_script(var plagueman_catapult_0, @VAR_67[var VAR_89])
+						call set_char_init_state(var plagueman_catapult, int 13)
+						call play_char_ai_script(var plagueman_catapult, @VAR_67[var VAR_89])
 						if(@VAR_68[var VAR_89])
 						 {
-								call func_106(var plagueman_catapult_0, int 9, int 5, @VAR_68[var VAR_89])
-								call func_106(var plagueman_catapult_0, int 9, int 6, int 1)
+								call func_106(var plagueman_catapult, int 9, int 5, @VAR_68[var VAR_89])
+								call func_106(var plagueman_catapult, int 9, int 6, int 1)
 						}
 						else
 						 {
-								gamevar script_object = var plagueman_catapult_0
+								gamevar script_object = var plagueman_catapult
 								gamevar *character_movement_p+60 = int 1
 						}
 						@VAR_57[var VAR_89]= int 0

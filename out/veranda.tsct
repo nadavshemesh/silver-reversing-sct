@@ -3,16 +3,16 @@ VAR_0	0
 VAR_1	0	
 VAR_3	0	
 VAR_4	0	
-bezerk_imp_0	0	
-bezerk_imp_1	0	
+bezerk_imp	0	
+bezerk_imp1	0	
 VAR_8	0	
 VAR_9	{ -6883, 0, -3005 }	
 VAR_10	{ -6001, 0, -2917 }	
 VAR_11	{ -7722, -800, -4195 }	
-flying_imps_2	0	
-flying_imps_3	0	
-flying_imps_4	0	
-flying_imps_5	0	
+flying_imps	0	
+flying_imps1	0	
+flying_imps2	0	
+flying_imps3	0	
 VAR_16	{ -5933, 2000, -3650 }	
 VAR_17	{ -5493, 2200, -3457 }	
 VAR_18	{ -6307, 2000, -3877 }	
@@ -149,22 +149,22 @@ if(gamevar script_time > var VAR_53)
 var VAR_4 = call load_anim("imphorn")
 
 ._SCRIPT_5
-var bezerk_imp_0 = call create_enemy(int 103, int 1, var &VAR_9, int 25)
-var bezerk_imp_1 = call create_enemy(int 103, int 2, var &VAR_10, int 330)
+var bezerk_imp = call create_enemy(int 103, int 1, var &VAR_9, int 25)
+var bezerk_imp1 = call create_enemy(int 103, int 2, var &VAR_10, int 330)
 var VAR_8 = call create_char(var &VAR_11, "NIMP3", int 35, int 13)
 call set_char_running(var VAR_8)
 call add_item_to_char(var VAR_8, int 87, int 1, int 1)
-var flying_imps_2 = call create_enemy(int 105, int 1, var &VAR_16, int 345)
-var flying_imps_3 = call create_enemy(int 105, int 2, var &VAR_17, int 305)
-var flying_imps_4 = call create_enemy(int 105, int 3, var &VAR_18, int 15)
-var flying_imps_5 = call create_enemy(int 105, int 4, var &VAR_19, int 50)
+var flying_imps = call create_enemy(int 105, int 1, var &VAR_16, int 345)
+var flying_imps1 = call create_enemy(int 105, int 2, var &VAR_17, int 305)
+var flying_imps2 = call create_enemy(int 105, int 3, var &VAR_18, int 15)
+var flying_imps3 = call create_enemy(int 105, int 4, var &VAR_19, int 50)
 execute SCRIPT_4
 var VAR_0 = call get_char_handle(int 65536)
 var VAR_1 = call get_char_handle(int 2031616)
-call freeze_enemy(var flying_imps_2)
-call freeze_enemy(var flying_imps_3)
-call freeze_enemy(var flying_imps_4)
-call freeze_enemy(var flying_imps_5)
+call freeze_enemy(var flying_imps)
+call freeze_enemy(var flying_imps1)
+call freeze_enemy(var flying_imps2)
+call freeze_enemy(var flying_imps3)
 call load_sound_set(int 53)
 
 ._SCRIPT_6
@@ -252,14 +252,14 @@ var VAR_37 ++
 ._SCRIPT_9
 if(var VAR_31 == int 0)
  {
-		call func_c5(var flying_imps_2)
-		call fly_to_pos(var flying_imps_2, int 0, var &VAR_33)
-		call func_c5(var flying_imps_3)
-		call fly_to_pos(var flying_imps_3, int 0, var &VAR_34)
-		call func_c5(var flying_imps_4)
-		call fly_to_pos(var flying_imps_4, int 0, var &VAR_35)
-		call func_c5(var flying_imps_5)
-		call fly_to_pos(var flying_imps_5, int 0, var &VAR_36)
+		call func_c5(var flying_imps)
+		call fly_to_pos(var flying_imps, int 0, var &VAR_33)
+		call func_c5(var flying_imps1)
+		call fly_to_pos(var flying_imps1, int 0, var &VAR_34)
+		call func_c5(var flying_imps2)
+		call fly_to_pos(var flying_imps2, int 0, var &VAR_35)
+		call func_c5(var flying_imps3)
+		call fly_to_pos(var flying_imps3, int 0, var &VAR_36)
 		var VAR_31 ++ 
 		var VAR_32 = int 0
 }
@@ -267,10 +267,10 @@ if(var VAR_31 == int 1)
  {
 		if(var VAR_32 > int 150)
 		 {
-				call set_char_template(var flying_imps_2, int 105)
-				call set_char_template(var flying_imps_3, int 105)
-				call set_char_template(var flying_imps_4, int 105)
-				call set_char_template(var flying_imps_5, int 105)
+				call set_char_template(var flying_imps, int 105)
+				call set_char_template(var flying_imps1, int 105)
+				call set_char_template(var flying_imps2, int 105)
+				call set_char_template(var flying_imps3, int 105)
 				call run_enemy_generator(var &VAR_22, int 10)
 				var VAR_31 ++ 
 				var VAR_32 = int 0
@@ -279,7 +279,7 @@ if(var VAR_31 == int 1)
 var VAR_32 ++ 
 
 ._SCRIPT_10
-call func_7(int 0, call get_char_x(var VAR_1), call get_char_y(var VAR_1), call func_79(var VAR_1))
+call func_7(int 0, call get_char_x(var VAR_1), call get_char_y(var VAR_1), call get_char_z(var VAR_1))
 call remove_char(var VAR_1)
 
 ._SCRIPT_11

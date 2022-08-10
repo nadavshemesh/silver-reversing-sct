@@ -23,17 +23,17 @@ VAR_21	{ -3625, 3375, -13700 }
 VAR_28	0	
 VAR_29	0	
 VAR_30	{ -2732, 806, 10090 }	
-scaptainpts_0	0	
-scaptainpts_1	0	
-scaptainpts_2	0	
-scaptainpts_3	0	
+scaptainpts	0	
+scaptainpts1	0	
+scaptainpts2	0	
+scaptainpts3	0	
 VAR_38	{ -2074, 805, 10742 }	
 VAR_39	{ -2050, 805, 10178 }	
 VAR_40	{ -2050, 805, 9635 }	
 VAR_41	{ -2032, 805, 9169 }	
-slieutenant_4	0	
-slieutenant_5	0	
-slieutenant_6	0	
+slieutenant	0	
+slieutenant1	0	
+slieutenant2	0	
 VAR_45	{ -1764, 805, 10374 }	
 VAR_46	{ -1786, 805, 9513 }	
 VAR_47	{ -1502, 805, 9925 }	
@@ -186,36 +186,36 @@ call add_item_to_char(var VAR_29, int 22, int 1, int 1)
 call add_item_to_char(var VAR_29, int 85, int 6554113, int 0)
 call load_char("scaptain")
 call load_char("slieuten")
-var scaptainpts_0 = call create_enemy(int 125, int 0, var &VAR_38, int 240)
-var scaptainpts_1 = call create_enemy(int 125, int 1, var &VAR_39, int 245)
-var scaptainpts_2 = call create_enemy(int 125, int 2, var &VAR_40, int 230)
-var scaptainpts_3 = call create_enemy(int 125, int 3, var &VAR_41, int 240)
-call add_item_to_char(var scaptainpts_0, int 43, int 1, int 0)
-call add_item_to_char(var scaptainpts_3, int 42, int 1, int 0)
-var slieutenant_4 = call create_enemy(int 122, int 0, var &VAR_45, int 235)
-var slieutenant_5 = call create_enemy(int 122, int 1, var &VAR_46, int 235)
-var slieutenant_6 = call create_enemy(int 122, int 2, var &VAR_47, int 235)
-call add_item_to_char(var slieutenant_5, int 41, int 1, int 0)
-call freeze_enemy(var scaptainpts_0)
-call freeze_enemy(var scaptainpts_1)
-call freeze_enemy(var scaptainpts_2)
-call freeze_enemy(var scaptainpts_3)
-call freeze_enemy(var slieutenant_4)
-call freeze_enemy(var slieutenant_5)
-call freeze_enemy(var slieutenant_6)
-gamevar script_object = var scaptainpts_0
+var scaptainpts = call create_enemy(int 125, int 0, var &VAR_38, int 240)
+var scaptainpts1 = call create_enemy(int 125, int 1, var &VAR_39, int 245)
+var scaptainpts2 = call create_enemy(int 125, int 2, var &VAR_40, int 230)
+var scaptainpts3 = call create_enemy(int 125, int 3, var &VAR_41, int 240)
+call add_item_to_char(var scaptainpts, int 43, int 1, int 0)
+call add_item_to_char(var scaptainpts3, int 42, int 1, int 0)
+var slieutenant = call create_enemy(int 122, int 0, var &VAR_45, int 235)
+var slieutenant1 = call create_enemy(int 122, int 1, var &VAR_46, int 235)
+var slieutenant2 = call create_enemy(int 122, int 2, var &VAR_47, int 235)
+call add_item_to_char(var slieutenant1, int 41, int 1, int 0)
+call freeze_enemy(var scaptainpts)
+call freeze_enemy(var scaptainpts1)
+call freeze_enemy(var scaptainpts2)
+call freeze_enemy(var scaptainpts3)
+call freeze_enemy(var slieutenant)
+call freeze_enemy(var slieutenant1)
+call freeze_enemy(var slieutenant2)
+gamevar script_object = var scaptainpts
 gamevar *character_stats_p+15 = int 3400
-gamevar script_object = var scaptainpts_1
+gamevar script_object = var scaptainpts1
 gamevar *character_stats_p+15 = int 3400
-gamevar script_object = var scaptainpts_2
+gamevar script_object = var scaptainpts2
 gamevar *character_stats_p+15 = int 3400
-gamevar script_object = var scaptainpts_3
+gamevar script_object = var scaptainpts3
 gamevar *character_stats_p+15 = int 3400
-gamevar script_object = var slieutenant_4
+gamevar script_object = var slieutenant
 gamevar *character_stats_p+15 = int 3400
-gamevar script_object = var slieutenant_5
+gamevar script_object = var slieutenant1
 gamevar *character_stats_p+15 = int 3400
-gamevar script_object = var slieutenant_6
+gamevar script_object = var slieutenant2
 gamevar *character_stats_p+15 = int 3400
 
 ._SCRIPT_6

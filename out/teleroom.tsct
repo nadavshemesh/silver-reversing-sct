@@ -15,9 +15,9 @@ VAR_16	{ -235, -1183, 3600 }
 VAR_17	{ 43, -1183, 3468 }	
 VAR_18	0	
 VAR_19	0	
-neutral_imp_0	0	
-neutral_imp_1	0	
-neutral_imp_2	0	
+neutral_imp	0	
+neutral_imp1	0	
+neutral_imp2	0	
 VAR_23	0	
 VAR_26	0	
 VAR_27	0	
@@ -315,36 +315,36 @@ if(var VAR_86 == int 11)
 
 ._SCRIPT_7
 var VAR_18 = call create_char(var &VAR_14, "ntyronis", int -45, int 13)
-call func_10a(var VAR_18, int 15)
+call set_char_lvl(var VAR_18, int 15)
 gamevar script_object = var VAR_18
 gamevar *character_movement_p+60 = int 1
 call set_char_running(var VAR_18)
 call char_unfollow(var VAR_18)
 var VAR_23 = call add_item_to_char(var VAR_18, int 3, int 0, int 0)
-var neutral_imp_0 = call create_enemy(int 102, int 1, var &VAR_15, int -90)
-call set_char_running(var neutral_imp_0)
-gamevar script_object = var neutral_imp_0
+var neutral_imp = call create_enemy(int 102, int 1, var &VAR_15, int -90)
+call set_char_running(var neutral_imp)
+gamevar script_object = var neutral_imp
 gamevar *character_movement_p+53 = int 0
-gamevar script_object = var neutral_imp_0
+gamevar script_object = var neutral_imp
 gamevar *object_p+6 |= int 67108864
-var neutral_imp_1 = call create_enemy(int 102, int 2, var &VAR_16, int -90)
-call set_char_running(var neutral_imp_1)
-gamevar script_object = var neutral_imp_1
+var neutral_imp1 = call create_enemy(int 102, int 2, var &VAR_16, int -90)
+call set_char_running(var neutral_imp1)
+gamevar script_object = var neutral_imp1
 gamevar *character_movement_p+53 = int 0
-gamevar script_object = var neutral_imp_1
+gamevar script_object = var neutral_imp1
 gamevar *object_p+6 |= int 67108864
-var neutral_imp_2 = call create_enemy(int 102, int 3, var &VAR_17, int -90)
-call set_char_running(var neutral_imp_2)
-gamevar script_object = var neutral_imp_2
+var neutral_imp2 = call create_enemy(int 102, int 3, var &VAR_17, int -90)
+call set_char_running(var neutral_imp2)
+gamevar script_object = var neutral_imp2
 gamevar *character_movement_p+53 = int 0
-gamevar script_object = var neutral_imp_2
+gamevar script_object = var neutral_imp2
 gamevar *object_p+6 |= int 67108864
 var VAR_7 = call get_char_handle(int 65536)
 var VAR_19 = call get_char_handle(int 393216)
 call func_10c(var VAR_19, "Before_T")
-call freeze_enemy(var neutral_imp_0)
-call freeze_enemy(var neutral_imp_1)
-call freeze_enemy(var neutral_imp_2)
+call freeze_enemy(var neutral_imp)
+call freeze_enemy(var neutral_imp1)
+call freeze_enemy(var neutral_imp2)
 
 ._SCRIPT_8
 if(call is_char_handle_in_level(int 2031616))
@@ -368,19 +368,19 @@ switch(var VAR_36)
  {
 		case 0
 			call toggle_or_use_char_item(var VAR_18, var VAR_23)
-			call char_walk_to(var neutral_imp_0, int -1868, int -1183, int 3336)
-			call char_walk_to(var neutral_imp_1, int -1743, int -1183, int 3379)
-			call char_walk_to(var neutral_imp_2, int -1743, int -1183, int 3379)
+			call char_walk_to(var neutral_imp, int -1868, int -1183, int 3336)
+			call char_walk_to(var neutral_imp1, int -1743, int -1183, int 3379)
+			call char_walk_to(var neutral_imp2, int -1743, int -1183, int 3379)
 			var VAR_36 ++ 
 			var VAR_37 = int 0
 			break 
 		case 1
-			if(call is_char_standing(var neutral_imp_0))
+			if(call is_char_standing(var neutral_imp))
 			 {
 					call set_input_system(int 2)
-					call func_36(var neutral_imp_0, int -1910, int -1183, int 3201)
-					call func_36(var neutral_imp_1, int -1467, int -1183, int 1955)
-					call func_36(var neutral_imp_2, int -1467, int -1183, int 1955)
+					call func_36(var neutral_imp, int -1910, int -1183, int 3201)
+					call func_36(var neutral_imp1, int -1467, int -1183, int 1955)
+					call func_36(var neutral_imp2, int -1467, int -1183, int 1955)
 					var VAR_36 ++ 
 					var VAR_37 = int 0
 			}
@@ -388,7 +388,7 @@ switch(var VAR_36)
 		case 2
 			if(var VAR_37 > int 40)
 			 {
-					call chars_face_opposite(var neutral_imp_0, var neutral_imp_1)
+					call chars_face_opposite(var neutral_imp, var neutral_imp1)
 					var VAR_36 ++ 
 					var VAR_37 = int 0
 			}
@@ -396,22 +396,22 @@ switch(var VAR_36)
 		case 3
 			if(var VAR_37 > int 40)
 			 {
-					call play_char_anim(var neutral_imp_0, var VAR_32, int 0)
+					call play_char_anim(var neutral_imp, var VAR_32, int 0)
 					var VAR_36 ++ 
 					var VAR_37 = int 0
 			}
 			break 
 		case 4
-			if(call func_5c(var neutral_imp_0))
+			if(call func_5c(var neutral_imp))
 			 {
-					call char_walk_to(var neutral_imp_0, int -1467, int -1183, int 1955)
-					call char_walk_to(var neutral_imp_1, int -2581, int -1183, int 2406)
-					call char_walk_to(var neutral_imp_2, int -1467, int -1183, int 1955)
+					call char_walk_to(var neutral_imp, int -1467, int -1183, int 1955)
+					call char_walk_to(var neutral_imp1, int -2581, int -1183, int 2406)
+					call char_walk_to(var neutral_imp2, int -1467, int -1183, int 1955)
 					call func_f7(var VAR_23, int 2)
 					if(call is_char_handle_in_level(int 917505))
 					 {
 							call log("fire at imp1")
-							call func_1e(var VAR_18, var neutral_imp_0)
+							call func_1e(var VAR_18, var neutral_imp)
 					}
 					var VAR_36 ++ 
 					var VAR_37 = int 0
@@ -423,7 +423,7 @@ switch(var VAR_36)
 					if(call is_char_handle_in_level(int 917507))
 					 {
 							call log("fire at imp3")
-							call func_1e(var VAR_18, var neutral_imp_2)
+							call func_1e(var VAR_18, var neutral_imp2)
 					}
 					var VAR_36 ++ 
 					var VAR_37 = int 0
@@ -435,7 +435,7 @@ switch(var VAR_36)
 					if(call is_char_handle_in_level(int 917506))
 					 {
 							call log("fire at imp2")
-							call func_1e(var VAR_18, var neutral_imp_1)
+							call func_1e(var VAR_18, var neutral_imp1)
 					}
 					var VAR_36 ++ 
 					var VAR_37 = int 0

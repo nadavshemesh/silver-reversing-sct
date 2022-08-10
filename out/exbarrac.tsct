@@ -1,21 +1,21 @@
 ._DATA
 VAR_0	0	
 VAR_1	0	
-start_grunt_0	0	
+start_grunt	0	
 VAR_7	{ 10730, -39, -1632 }	
-grunt_wooden_shield_1	0	
+grunt_wooden_shield	0	
 VAR_9	{ 11370, -40, -2965 }	
-start_grunt_2	0	
+start_grunt1	0	
 VAR_11	{ 5811, -39, -2669 }	
-grunt_wooden_shield_3	0	
+grunt_wooden_shield1	0	
 VAR_13	{ 5811, -39, -1487 }	
-start_grunt_4	0	
+start_grunt2	0	
 VAR_15	{ 7405, -39, -3263 }	
-start_grunt_5	0	
+start_grunt3	0	
 VAR_17	{ 6790, -39, -2732 }	
-grunt_wooden_shield_6	0	
+grunt_wooden_shield2	0	
 VAR_19	{ 5896, 1825, -3633 }	
-grunt_wooden_shield_7	0	
+grunt_wooden_shield3	0	
 VAR_21	{ 5640, 1825, -3522 }	
 VAR_22	0	
 VAR_23	0	
@@ -156,30 +156,30 @@ if(gamevar *scene_info_p+1 == int 1)
 ._SCRIPT_4
 var VAR_22 = call get_char_handle(int 65536)
 var VAR_23 = call get_char_handle(int 393216)
-var start_grunt_0 = call create_enemy(int 156, int 1, var &VAR_7, int 85)
-var grunt_wooden_shield_1 = call create_enemy(int 99, int 2, var &VAR_9, int 30)
-var start_grunt_2 = call create_enemy(int 156, int 3, var &VAR_11, int 65)
-var grunt_wooden_shield_3 = call create_enemy(int 99, int 4, var &VAR_13, int 65)
-var start_grunt_4 = call create_enemy(int 156, int 5, var &VAR_15, int 250)
-var start_grunt_5 = call create_enemy(int 156, int 6, var &VAR_17, int 170)
-var grunt_wooden_shield_6 = call create_enemy(int 99, int 7, var &VAR_19, int 295)
-var grunt_wooden_shield_7 = call create_enemy(int 99, int 8, var &VAR_21, int 60)
-call func_106(var start_grunt_0, int 1, int 0, int 1)
-call func_50(var start_grunt_0, int 131)
-call func_106(var grunt_wooden_shield_1, int 1, int 0, int 1)
-call func_50(var grunt_wooden_shield_1, int 131)
-call func_106(var start_grunt_4, int 1, int 0, int 2)
-call func_50(var start_grunt_4, int 131)
-call func_106(var start_grunt_5, int 1, int 0, int 2)
-call func_50(var start_grunt_5, int 131)
-call func_106(var grunt_wooden_shield_6, int 1, int 0, int 3)
-call func_50(var grunt_wooden_shield_6, int 131)
-call func_106(var grunt_wooden_shield_7, int 1, int 0, int 3)
-call func_50(var grunt_wooden_shield_7, int 131)
-call func_106(var start_grunt_2, int 1, int 0, int 3)
-call func_50(var start_grunt_2, int 131)
-call func_106(var grunt_wooden_shield_3, int 1, int 0, int 3)
-call func_50(var grunt_wooden_shield_3, int 131)
+var start_grunt = call create_enemy(int 156, int 1, var &VAR_7, int 85)
+var grunt_wooden_shield = call create_enemy(int 99, int 2, var &VAR_9, int 30)
+var start_grunt1 = call create_enemy(int 156, int 3, var &VAR_11, int 65)
+var grunt_wooden_shield1 = call create_enemy(int 99, int 4, var &VAR_13, int 65)
+var start_grunt2 = call create_enemy(int 156, int 5, var &VAR_15, int 250)
+var start_grunt3 = call create_enemy(int 156, int 6, var &VAR_17, int 170)
+var grunt_wooden_shield2 = call create_enemy(int 99, int 7, var &VAR_19, int 295)
+var grunt_wooden_shield3 = call create_enemy(int 99, int 8, var &VAR_21, int 60)
+call func_106(var start_grunt, int 1, int 0, int 1)
+call func_50(var start_grunt, int 131)
+call func_106(var grunt_wooden_shield, int 1, int 0, int 1)
+call func_50(var grunt_wooden_shield, int 131)
+call func_106(var start_grunt2, int 1, int 0, int 2)
+call func_50(var start_grunt2, int 131)
+call func_106(var start_grunt3, int 1, int 0, int 2)
+call func_50(var start_grunt3, int 131)
+call func_106(var grunt_wooden_shield2, int 1, int 0, int 3)
+call func_50(var grunt_wooden_shield2, int 131)
+call func_106(var grunt_wooden_shield3, int 1, int 0, int 3)
+call func_50(var grunt_wooden_shield3, int 131)
+call func_106(var start_grunt1, int 1, int 0, int 3)
+call func_50(var start_grunt1, int 131)
+call func_106(var grunt_wooden_shield1, int 1, int 0, int 3)
+call func_50(var grunt_wooden_shield1, int 131)
 gamevar play_sting = int 1
 gamevar play_battle_music = int 1
 execute SCRIPT_6
@@ -199,34 +199,34 @@ switch(var VAR_24)
 			 {
 					if(call is_char_handle_in_level(int 4128773))
 					 {
-							gamevar script_object = var start_grunt_4
+							gamevar script_object = var start_grunt2
 							if(gamevar *character_combat_p+1 == int 0)
 							 {
 									if(call func_37(var VAR_22, int 6))
 									 {
-											call char_attack(var start_grunt_4, var VAR_23)
+											call char_attack(var start_grunt2, var VAR_23)
 									}
 									else
 									 {
-											call char_attack(var start_grunt_4, var VAR_22)
+											call char_attack(var start_grunt2, var VAR_22)
 									}
-									call set_char_running(var start_grunt_4)
+									call set_char_running(var start_grunt2)
 							}
 					}
 					if(call is_char_handle_in_level(int 4128774))
 					 {
-							gamevar script_object = var start_grunt_5
+							gamevar script_object = var start_grunt3
 							if(gamevar *character_combat_p+1 == int 0)
 							 {
 									if(call func_37(var VAR_22, int 6))
 									 {
-											call char_attack(var start_grunt_5, var VAR_23)
+											call char_attack(var start_grunt3, var VAR_23)
 									}
 									else
 									 {
-											call char_attack(var start_grunt_5, var VAR_22)
+											call char_attack(var start_grunt3, var VAR_22)
 									}
-									call set_char_running(var start_grunt_5)
+									call set_char_running(var start_grunt3)
 							}
 					}
 			}
@@ -237,34 +237,34 @@ switch(var VAR_24)
 			 {
 					if(call is_char_handle_in_level(int 4128775))
 					 {
-							gamevar script_object = var grunt_wooden_shield_6
+							gamevar script_object = var grunt_wooden_shield2
 							if(gamevar *character_combat_p+1 == int 0)
 							 {
 									if(call func_37(var VAR_22, int 6))
 									 {
-											call char_attack(var grunt_wooden_shield_6, var VAR_23)
+											call char_attack(var grunt_wooden_shield2, var VAR_23)
 									}
 									else
 									 {
-											call char_attack(var grunt_wooden_shield_6, var VAR_22)
+											call char_attack(var grunt_wooden_shield2, var VAR_22)
 									}
-									call set_char_running(var grunt_wooden_shield_6)
+									call set_char_running(var grunt_wooden_shield2)
 							}
 					}
 					if(call is_char_handle_in_level(int 4128776))
 					 {
-							gamevar script_object = var grunt_wooden_shield_7
+							gamevar script_object = var grunt_wooden_shield3
 							if(gamevar *character_combat_p+1 == int 0)
 							 {
 									if(call func_37(var VAR_22, int 6))
 									 {
-											call char_attack(var grunt_wooden_shield_7, var VAR_23)
+											call char_attack(var grunt_wooden_shield3, var VAR_23)
 									}
 									else
 									 {
-											call char_attack(var grunt_wooden_shield_7, var VAR_22)
+											call char_attack(var grunt_wooden_shield3, var VAR_22)
 									}
-									call set_char_running(var grunt_wooden_shield_7)
+									call set_char_running(var grunt_wooden_shield3)
 							}
 					}
 			}
@@ -275,34 +275,34 @@ switch(var VAR_24)
 			 {
 					if(call is_char_handle_in_level(int 4128771))
 					 {
-							gamevar script_object = var start_grunt_2
+							gamevar script_object = var start_grunt1
 							if(gamevar *character_combat_p+1 == int 0)
 							 {
 									if(call func_37(var VAR_22, int 6))
 									 {
-											call char_attack(var start_grunt_2, var VAR_23)
+											call char_attack(var start_grunt1, var VAR_23)
 									}
 									else
 									 {
-											call char_attack(var start_grunt_2, var VAR_22)
+											call char_attack(var start_grunt1, var VAR_22)
 									}
-									call set_char_running(var start_grunt_2)
+									call set_char_running(var start_grunt1)
 							}
 					}
 					if(call is_char_handle_in_level(int 4128772))
 					 {
-							gamevar script_object = var grunt_wooden_shield_3
+							gamevar script_object = var grunt_wooden_shield1
 							if(gamevar *character_combat_p+1 == int 0)
 							 {
 									if(call func_37(var VAR_22, int 6))
 									 {
-											call char_attack(var grunt_wooden_shield_3, var VAR_23)
+											call char_attack(var grunt_wooden_shield1, var VAR_23)
 									}
 									else
 									 {
-											call char_attack(var grunt_wooden_shield_3, var VAR_22)
+											call char_attack(var grunt_wooden_shield1, var VAR_22)
 									}
-									call set_char_running(var grunt_wooden_shield_3)
+									call set_char_running(var grunt_wooden_shield1)
 							}
 					}
 			}

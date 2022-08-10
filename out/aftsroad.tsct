@@ -20,9 +20,9 @@ VAR_20	{ -1300, 1250, 1875 }
 VAR_21	{ 525, 1250, -3100 }	
 VAR_24	0	
 VAR_25	0	
-hound_0	0	
+hound	0	
 VAR_27	0	
-handler_1	0	
+handler	0	
 VAR_29	{ 1263, -1026, 2503 }	
 VAR_30	{ 832, -1026, 2427 }	
 VAR_31	{ 436, -1026, 1502 }	
@@ -97,23 +97,23 @@ execute SCRIPT_9
 
 ._SCRIPT_4
 call load_char("rlieuten")
-var hound_0 = call create_enemy(int 18, int 1, var &VAR_29, int 45)
-gamevar script_object = var hound_0
+var hound = call create_enemy(int 18, int 1, var &VAR_29, int 45)
+gamevar script_object = var hound
 gamevar *character_stats_p+16 = int 1400
 gamevar *character_stats_p+15 = int 3400
-var handler_1 = call create_enemy(int 21, int 1, var &VAR_30, int 194)
+var handler = call create_enemy(int 21, int 1, var &VAR_30, int 194)
 var VAR_27 = call create_enemy_through_door(int 18, int 2, int 2, int 45)
 gamevar script_object = var VAR_27
 gamevar *character_stats_p+16 = int 1400
 gamevar *character_stats_p+15 = int 3400
 call set_char_running(var VAR_27)
-call freeze_enemy(var hound_0)
+call freeze_enemy(var hound)
 call freeze_enemy(var VAR_27)
-call freeze_enemy(var handler_1)
-call set_char_init_state(var hound_0, int 13)
-call play_char_ai_script(var hound_0, var &VAR_32)
-call set_char_init_state(var handler_1, int 13)
-call play_char_ai_script(var handler_1, var &VAR_33)
+call freeze_enemy(var handler)
+call set_char_init_state(var hound, int 13)
+call play_char_ai_script(var hound, var &VAR_32)
+call set_char_init_state(var handler, int 13)
+call play_char_ai_script(var handler, var &VAR_33)
 
 ._SCRIPT_5
 if(var VAR_24 == int 0)
@@ -123,27 +123,27 @@ if(var VAR_24 == int 0)
 		 {
 				if(call is_char_handle_in_level(int 6684673))
 				 {
-						call func_46(var handler_1, int 13)
-						call set_char_template(var handler_1, int 21)
-						call func_106(var handler_1, int 1, int 0, int 1)
-						call func_50(var handler_1, int 10)
-						call func_104(var handler_1, int 1, int 4)
-						call func_106(var handler_1, int 1, int 7, int 1)
-						call func_104(var handler_1, int 7, int 4)
-						call func_106(var handler_1, int 3, int 1, var &VAR_34)
-						gamevar script_object = var handler_1
+						call func_46(var handler, int 13)
+						call set_char_template(var handler, int 21)
+						call func_106(var handler, int 1, int 0, int 1)
+						call func_50(var handler, int 10)
+						call func_104(var handler, int 1, int 4)
+						call func_106(var handler, int 1, int 7, int 1)
+						call func_104(var handler, int 7, int 4)
+						call func_106(var handler, int 3, int 1, var &VAR_34)
+						gamevar script_object = var handler
 						gamevar *character_stats_p+15 = int 30000
-						gamevar script_object = var handler_1
+						gamevar script_object = var handler
 						gamevar *character_stats_p+16 = int 30000
 				}
 				if(call is_char_handle_in_level(int 7208961))
 				 {
-						call func_106(var hound_0, int 1, int 0, int 1)
-						call func_50(var hound_0, int 3)
-						call func_53(var hound_0, int 5)
-						gamevar script_object = var hound_0
+						call func_106(var hound, int 1, int 0, int 1)
+						call func_50(var hound, int 3)
+						call func_53(var hound, int 5)
+						gamevar script_object = var hound
 						gamevar *character_stats_p+15 = int 30000
-						gamevar script_object = var hound_0
+						gamevar script_object = var hound
 						gamevar *character_stats_p+16 = int 30000
 				}
 				if(call is_char_handle_in_level(int 7208962))
@@ -164,27 +164,27 @@ if(var VAR_24 == int 0)
 				 {
 						if(call is_char_handle_in_level(int 6684673))
 						 {
-								call func_46(var handler_1, int 13)
-								call set_char_template(var handler_1, int 21)
-								call func_106(var handler_1, int 1, int 0, int 1)
-								call func_50(var handler_1, int 10)
-								call func_104(var handler_1, int 1, int 4)
-								call func_106(var handler_1, int 1, int 7, int 1)
-								call func_104(var handler_1, int 7, int 4)
-								call func_106(var handler_1, int 3, int 1, var &VAR_34)
-								gamevar script_object = var handler_1
+								call func_46(var handler, int 13)
+								call set_char_template(var handler, int 21)
+								call func_106(var handler, int 1, int 0, int 1)
+								call func_50(var handler, int 10)
+								call func_104(var handler, int 1, int 4)
+								call func_106(var handler, int 1, int 7, int 1)
+								call func_104(var handler, int 7, int 4)
+								call func_106(var handler, int 3, int 1, var &VAR_34)
+								gamevar script_object = var handler
 								gamevar *character_stats_p+15 = int 30000
-								gamevar script_object = var handler_1
+								gamevar script_object = var handler
 								gamevar *character_stats_p+16 = int 30000
 						}
 						if(call is_char_handle_in_level(int 7208961))
 						 {
-								call func_106(var hound_0, int 1, int 0, int 1)
-								call func_50(var hound_0, int 3)
-								call func_53(var hound_0, int 5)
-								gamevar script_object = var hound_0
+								call func_106(var hound, int 1, int 0, int 1)
+								call func_50(var hound, int 3)
+								call func_53(var hound, int 5)
+								gamevar script_object = var hound
 								gamevar *character_stats_p+15 = int 30000
-								gamevar script_object = var hound_0
+								gamevar script_object = var hound
 								gamevar *character_stats_p+16 = int 30000
 						}
 						if(call is_char_handle_in_level(int 7208962))
@@ -205,11 +205,11 @@ if(var VAR_24 == int 1)
  {
 		if(call is_char_handle_in_level(int 7208961))
 		 {
-				if(call func_88(var hound_0))
+				if(call func_88(var hound))
 				 {
 						if(call is_char_handle_in_level(int 6684673))
 						 {
-								call func_36(var handler_1, int 1433, int -1027, int 899)
+								call func_36(var handler, int 1433, int -1027, int 899)
 						}
 						var VAR_24 ++ 
 						var VAR_25 = int 0
@@ -219,7 +219,7 @@ if(var VAR_24 == int 1)
 		 {
 				if(call is_char_handle_in_level(int 6684673))
 				 {
-						call func_36(var handler_1, int 1433, int -1027, int 899)
+						call func_36(var handler, int 1433, int -1027, int 899)
 				}
 				var VAR_24 ++ 
 				var VAR_25 = int 0

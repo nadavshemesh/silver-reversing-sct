@@ -5,7 +5,7 @@ VAR_2	0
 VAR_3	0	
 VAR_4	0	
 VAR_5	{ 1433, 3425, 17 }	
-bstump_0	{ 0, 0 }	
+bstump	{ 0, 0 }	
 VAR_7	{ 0, 0, 0, -1, 8, 0, 4, 0, 9, 1, 6, 1, 1, 1, 63, 63, 63, 63, 63, 63, 63, -1, 7, 1, 8, 10, 42, -1, -1 }	
 VAR_8	{ 0, 0, 1, -1, 8, 0, 4, 0, 9, 1, 6, 1, 1, 1, 63, 63, -1, 7, 1, 8, 10, 46, -1, -1 }	
 VAR_9	{ 0, 0, 0, -1, 8, 0, 4, 0, 9, 1, 6, 1, 1, 1, 63, 63, -1, 7, 1, 8, 10, 45, -1, -1 }	
@@ -145,13 +145,13 @@ if(var VAR_0 == int 6)
 }
 
 ._SCRIPT_5
-var bstump_0 = call create_enemy(int 63, int 0, var &VAR_5, int 0)
-gamevar script_object = var bstump_0
+var bstump = call create_enemy(int 63, int 0, var &VAR_5, int 0)
+gamevar script_object = var bstump
 gamevar *character_stats_p+16 = int 500
 gamevar *character_stats_p+15 = int 3000
-call func_106(var bstump_0, int 1, int 0, int 1)
-call set_char_init_state(var bstump_0, int 1)
-call char_walk_to(var bstump_0, int 1487, int 3425, int -3759)
+call func_106(var bstump, int 1, int 0, int 1)
+call set_char_init_state(var bstump, int 1)
+call char_walk_to(var bstump, int 1487, int 3425, int -3759)
 var VAR_1 = int 0
 var VAR_0 = int 1
 

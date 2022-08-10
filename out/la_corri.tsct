@@ -7,9 +7,9 @@ VAR_4	0
 VAR_5	-1	
 VAR_7	{ -11726, -398, 52 }	
 VAR_8	0	
-lobster_0	0	
-lobster_1	0	
-lobster_2	0	
+lobster	0	
+lobster1	0	
+lobster2	0	
 VAR_13	{ -10333, -422, 1673 }	
 VAR_14	{ -10653, -349, 812 }	
 VAR_15	{ -10667, -349, 2500 }	
@@ -102,16 +102,16 @@ if(gamevar !is_room_cleared)
 
 ._SCRIPT_4
 call load_char("fishman")
-var lobster_0 = call create_enemy(int 64, int 0, var &VAR_13, int 270)
-var lobster_1 = call create_enemy(int 64, int 1, var &VAR_14, int 320)
-var lobster_2 = call create_enemy(int 64, int 2, var &VAR_15, int 220)
+var lobster = call create_enemy(int 64, int 0, var &VAR_13, int 270)
+var lobster1 = call create_enemy(int 64, int 1, var &VAR_14, int 320)
+var lobster2 = call create_enemy(int 64, int 2, var &VAR_15, int 220)
 call run_enemy_generator(var &VAR_17, int 60)
-call func_106(var lobster_0, int 2, int 0, int 1)
-call func_106(var lobster_1, int 2, int 0, int 1)
-call func_106(var lobster_2, int 2, int 0, int 1)
-call func_50(var lobster_0, int 2)
-call func_50(var lobster_1, int 2)
-call func_50(var lobster_2, int 2)
+call func_106(var lobster, int 2, int 0, int 1)
+call func_106(var lobster1, int 2, int 0, int 1)
+call func_106(var lobster2, int 2, int 0, int 1)
+call func_50(var lobster, int 2)
+call func_50(var lobster1, int 2)
+call func_50(var lobster2, int 2)
 
 ._SCRIPT_5
 

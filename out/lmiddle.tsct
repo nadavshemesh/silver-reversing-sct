@@ -3,7 +3,7 @@ VAR_0	0
 VAR_1	0	
 VAR_2	0	
 VAR_6	0	
-teleport_mini_maim_0	0	
+teleport_mini_maim	0	
 VAR_8	{ 181, 237, -655 }	
 VAR_9	0	
 VAR_10	0	
@@ -87,7 +87,7 @@ switch(var VAR_6)
 		case 0
 			if(call is_not_force_scrolling())
 			 {
-					var teleport_mini_maim_0 = call create_enemy(int 210, int 0, var &VAR_8, int 295)
+					var teleport_mini_maim = call create_enemy(int 210, int 0, var &VAR_8, int 295)
 					gamevar *character_movement_p+60 = int 1
 					call reset_local_timer()
 					var VAR_6 ++ 
@@ -96,24 +96,24 @@ switch(var VAR_6)
 		case 1
 			if(call is_local_timer_greater_than(int 30))
 			 {
-					call char_turn_to_pos(var VAR_0, call get_char_pos(var teleport_mini_maim_0))
+					call char_turn_to_pos(var VAR_0, call get_char_pos(var teleport_mini_maim))
 					if(var VAR_1)
 					 {
-							call char_turn_to_pos(var VAR_1, call get_char_pos(var teleport_mini_maim_0))
+							call char_turn_to_pos(var VAR_1, call get_char_pos(var teleport_mini_maim))
 					}
 					if(var VAR_2)
 					 {
-							call char_turn_to_pos(var VAR_2, call get_char_pos(var teleport_mini_maim_0))
+							call char_turn_to_pos(var VAR_2, call get_char_pos(var teleport_mini_maim))
 					}
 					call func_11f(var &VAR_12, int 61440)
-					call char_walk_to(var teleport_mini_maim_0, int -1416, int -111, int 2218)
+					call char_walk_to(var teleport_mini_maim, int -1416, int -111, int 2218)
 					var VAR_6 ++ 
 			}
 			break 
 		case 2
-			if(call is_char_standing(var teleport_mini_maim_0))
+			if(call is_char_standing(var teleport_mini_maim))
 			 {
-					call remove_char(var teleport_mini_maim_0)
+					call remove_char(var teleport_mini_maim)
 					var VAR_6 ++ 
 			}
 			break 

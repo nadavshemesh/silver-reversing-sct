@@ -1,6 +1,5 @@
 #include "sct\convert\bin\sctbin.h"
 
-int global_hint_var_name_counter = 0;
 bool during_assingment = false;
 data_obj* last_data_obj_cp = NULL;
 
@@ -410,10 +409,15 @@ expr_obj* bin_read_function_call_expr(expr_pattern* expr_p, int* vars, void** to
                 expr_obj* eo = exp->expr_objs;
                 int enemy_num = (int) eo->bin_vars[0];
                 char* enemy_name = aapts(enemy_cat->items[enemy_num]);
+                int num_of_uses = enemy_cat->items_used[enemy_num]; 
                 // printf("%s -> found %s.\n", last_data_obj_cp->name, enemy_name);
                 char new_var_name[256];
-                sprintf(new_var_name, "%s_%d", enemy_name, global_hint_var_name_counter);
-                global_hint_var_name_counter++;
+                if(num_of_uses == 0) {
+                    sprintf(new_var_name, "%s", enemy_name);
+                } else {
+                    sprintf(new_var_name, "%s%d", enemy_name, num_of_uses);
+                }
+                enemy_cat->items_used[enemy_num]++;
                 last_data_obj_cp->name = aapts(new_var_name);
             }
         }

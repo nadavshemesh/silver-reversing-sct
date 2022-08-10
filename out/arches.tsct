@@ -17,27 +17,27 @@ VAR_22	{ 0, 1, 3, VAR_18, 8, 2, 4, 2, 3, VAR_19, 9, 0, 1, 2, 47, 47, 47, 47, -1,
 VAR_23	{ 0, 1, 7, VAR_20, 8, 2, 4, 2, 7, VAR_21, 9, 0, 1, 28, 47, -1, 2, 1, 5, 1, 10, 30, 7, 1, 7, 6, 2, -1 }	
 VAR_24	{ 4226, -40, 3094 }	
 VAR_25	{ 4661, -40, 2652, 4561, -40, 1914, 3595, -40, 1780, 2901, -40, 1814, 2901, -40, 1136, 2900, -40, -81 }	
-groad_7	0	
+groad1	0	
 VAR_27	{ 17, 6, VAR_25, 1, 11, 150, 250, 7, 8 }	
 VAR_28	0	
-groad_0	0	
-lizmant_1	0	
-lizmant_2	0	
+groad	0	
+lizmant	0	
+lizmant1	0	
 VAR_32	{ 2900, -40, -81 }	
 VAR_33	{ 3790, -719, 2297 }	
 VAR_34	{ 3724, -719, 2845 }	
 VAR_35	{ 17, 6, VAR_25, 1, 11, 150, 250, 7, 8 }	
-VAR_36	{ 9, lizmant_2, 11, 10, 100, 7, 8 }	
+VAR_36	{ 9, lizmant1, 11, 10, 100, 7, 8 }	
 VAR_37	{ 7, 8 }	
 VAR_38	{ 2191, -720, 3416, 2499, -720, 2544, 1719, -720, 1999, 950, -720, 2497, 897, -720, -248, 3499, -720, 2589 }	
 VAR_39	{ 15, 17, 6, VAR_38, 0, 11, 50, 150, 7, 8 }	
 VAR_40	{ 15, 17, 6, VAR_38, 0, 11, 50, 150, 7, 8 }	
 VAR_41	{ 15, 17, 6, VAR_38, 0, 11, 50, 150, 7, 8 }	
 VAR_42	{ 15, 17, 6, VAR_38, 0, 11, 50, 150, 7, 8 }	
-cowardly_little_lizmang_3	0	
-cowardly_little_lizmang_4	0	
-cowardly_little_lizmang_5	0	
-cowardly_little_lizmang_6	0	
+cowardly_little_lizmang	0	
+cowardly_little_lizmang1	0	
+cowardly_little_lizmang2	0	
+cowardly_little_lizmang3	0	
 VAR_47	{ 2245, -720, 3443 }	
 VAR_48	{ 2499, -720, 2544 }	
 VAR_49	{ 1719, -720, 1999 }	
@@ -116,31 +116,31 @@ if(gamevar !is_room_cleared)
 ._SCRIPT_3
 
 ._SCRIPT_4
-var groad_0 = call create_enemy(int 39, int 0, var &VAR_32, int 155)
-var lizmant_1 = call create_enemy(int 40, int 1, var &VAR_33, int 0)
-var lizmant_2 = call create_enemy(int 40, int 2, var &VAR_34, int 185)
-call func_106(var groad_0, int 9, int 5, var &VAR_25)
-call func_106(var groad_0, int 9, int 6, int 6)
-call set_char_init_state(var groad_0, int 13)
-call play_char_ai_script(var groad_0, var &VAR_35)
-call func_106(var lizmant_1, int 1, int 0, int 1)
-call func_106(var lizmant_2, int 1, int 0, int 1)
-call func_50(var lizmant_1, int 8194)
-call func_50(var lizmant_2, int 8194)
-call play_char_ai_script(var lizmant_1, var &VAR_36)
-call play_char_ai_script(var lizmant_2, var &VAR_37)
-var cowardly_little_lizmang_3 = call create_enemy(int 191, int 1, var &VAR_47, int 70)
-var cowardly_little_lizmang_4 = call create_enemy(int 191, int 2, var &VAR_48, int 90)
-var cowardly_little_lizmang_5 = call create_enemy(int 191, int 3, var &VAR_49, int 325)
-var cowardly_little_lizmang_6 = call create_enemy(int 191, int 4, var &VAR_50, int 315)
-call func_50(var cowardly_little_lizmang_3, int 8192)
-call func_50(var cowardly_little_lizmang_4, int 8192)
-call func_50(var cowardly_little_lizmang_5, int 8192)
-call func_50(var cowardly_little_lizmang_6, int 8192)
-call play_char_ai_script(var cowardly_little_lizmang_3, var &VAR_39)
-call play_char_ai_script(var cowardly_little_lizmang_4, var &VAR_40)
-call play_char_ai_script(var cowardly_little_lizmang_5, var &VAR_41)
-call play_char_ai_script(var cowardly_little_lizmang_6, var &VAR_42)
+var groad = call create_enemy(int 39, int 0, var &VAR_32, int 155)
+var lizmant = call create_enemy(int 40, int 1, var &VAR_33, int 0)
+var lizmant1 = call create_enemy(int 40, int 2, var &VAR_34, int 185)
+call func_106(var groad, int 9, int 5, var &VAR_25)
+call func_106(var groad, int 9, int 6, int 6)
+call set_char_init_state(var groad, int 13)
+call play_char_ai_script(var groad, var &VAR_35)
+call func_106(var lizmant, int 1, int 0, int 1)
+call func_106(var lizmant1, int 1, int 0, int 1)
+call func_50(var lizmant, int 8194)
+call func_50(var lizmant1, int 8194)
+call play_char_ai_script(var lizmant, var &VAR_36)
+call play_char_ai_script(var lizmant1, var &VAR_37)
+var cowardly_little_lizmang = call create_enemy(int 191, int 1, var &VAR_47, int 70)
+var cowardly_little_lizmang1 = call create_enemy(int 191, int 2, var &VAR_48, int 90)
+var cowardly_little_lizmang2 = call create_enemy(int 191, int 3, var &VAR_49, int 325)
+var cowardly_little_lizmang3 = call create_enemy(int 191, int 4, var &VAR_50, int 315)
+call func_50(var cowardly_little_lizmang, int 8192)
+call func_50(var cowardly_little_lizmang1, int 8192)
+call func_50(var cowardly_little_lizmang2, int 8192)
+call func_50(var cowardly_little_lizmang3, int 8192)
+call play_char_ai_script(var cowardly_little_lizmang, var &VAR_39)
+call play_char_ai_script(var cowardly_little_lizmang1, var &VAR_40)
+call play_char_ai_script(var cowardly_little_lizmang2, var &VAR_41)
+call play_char_ai_script(var cowardly_little_lizmang3, var &VAR_42)
 
 ._SCRIPT_5
 
@@ -234,15 +234,15 @@ switch(var VAR_13)
 					gamevar *scene_info_p+4 |= int 2
 					call func_59(var VAR_17)
 					var VAR_28 = call run_enemy_generator(var &VAR_22, int 20)
-					var groad_7 = call create_enemy(int 39, int 1, var &VAR_24, int 0)
-					gamevar script_object = var groad_7
+					var groad1 = call create_enemy(int 39, int 1, var &VAR_24, int 0)
+					gamevar script_object = var groad1
 					gamevar *character_stats_p+15 = int 8000
 					gamevar *character_stats_p+16 = int 8000
-					call func_106(var groad_7, int 9, int 5, var &VAR_25)
-					call func_106(var groad_7, int 9, int 6, int 6)
-					call set_char_init_state(var groad_7, int 13)
-					call play_char_ai_script(var groad_7, var &VAR_27)
-					call char_walk_to_pos(var groad_7, var &VAR_25)
+					call func_106(var groad1, int 9, int 5, var &VAR_25)
+					call func_106(var groad1, int 9, int 6, int 6)
+					call set_char_init_state(var groad1, int 13)
+					call play_char_ai_script(var groad1, var &VAR_27)
+					call char_walk_to_pos(var groad1, var &VAR_25)
 					var VAR_13 ++ 
 					var VAR_14 = int 0
 			}

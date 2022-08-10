@@ -34,17 +34,17 @@ VAR_36	-1
 VAR_54	0	
 VAR_55	0	
 VAR_56	0	
-groad_1	0	
-groad_2	0	
-lizmant_3	0	
-lizmant_4	0	
+groad1	0	
+groad2	0	
+lizmant	0	
+lizmant1	0	
 VAR_61	{ 3389, 69, 2355 }	
 VAR_62	{ 748, 69, 2320 }	
 VAR_63	{ 1177, -719, 3469 }	
 VAR_64	{ 1210, -719, 3919 }	
 VAR_65	{ 3401, 70, -231, 3353, 70, 923, 3347, 70, 1603, 3331, 70, 3049, 3318, 70, 3667, 2467, 70, 2600 }	
 VAR_66	{ 888, 70, 69, 857, 70, 892, 871, 70, 1980, 875, 70, 2911, 883, 70, 3929, 1411, 70, 2762 }	
-VAR_67	{ 9, lizmant_4, 11, 100, 200, 7, 8 }	
+VAR_67	{ 9, lizmant1, 11, 100, 200, 7, 8 }	
 VAR_68	{ 7, 8 }	
 VAR_69	{ 17, 6, VAR_65, 1, 11, 100, 200, 7, 8 }	
 VAR_70	{ 17, 6, VAR_66, 1, 11, 100, 200, 7, 8 }	
@@ -53,7 +53,7 @@ VAR_73	{ 3177, -720, 2586, 1021, -720, 2561 }
 VAR_74	0	
 VAR_75	0	
 VAR_76	{ 3886, 70, 3203 }	
-groad_0	0	
+groad	0	
 VAR_78	{ 3066, 70, 2747, 2101, 70, 2675, 1059, 70, 2615 }	
 VAR_79	{ 0, 0, 0, 2, -1, 8, 2, 4, 0, 9, 0, 1, 3, 191, 192, 190, 193, -1, 2, 6, 3, 2, 5, 1, 30, 50, 7, 1, 5, 6, 1, -1 }	
 VAR_80	0	
@@ -177,11 +177,11 @@ switch(var VAR_74)
 		case 1
 			if(call get_num_of_enemies() == int 0)
 			 {
-					var groad_0 = call create_enemy(int 39, int 3, var &VAR_76, int 0)
-					call func_106(var groad_0, int 9, int 5, var &VAR_78)
-					call func_106(var groad_0, int 9, int 6, int 3)
-					call set_char_running(var groad_0)
-					gamevar script_object = var groad_0
+					var groad = call create_enemy(int 39, int 3, var &VAR_76, int 0)
+					call func_106(var groad, int 9, int 5, var &VAR_78)
+					call func_106(var groad, int 9, int 6, int 3)
+					call set_char_running(var groad)
+					gamevar script_object = var groad
 					gamevar *character_stats_p+15 = int 8000
 					gamevar *character_stats_p+16 = int 8000
 					var VAR_80 = call run_enemy_generator(var &VAR_79, int 20)
@@ -298,26 +298,26 @@ switch(var VAR_74)
 var VAR_75 ++ 
 
 ._SCRIPT_4
-var groad_1 = call create_enemy(int 39, int 1, var &VAR_61, int 0)
-var groad_2 = call create_enemy(int 39, int 2, var &VAR_62, int 0)
-var lizmant_3 = call create_enemy(int 40, int 1, var &VAR_63, int 5)
-var lizmant_4 = call create_enemy(int 40, int 2, var &VAR_64, int 165)
-call add_item_to_char(var lizmant_3, int 45, int 1, int 0)
-call add_item_to_char(var lizmant_4, int 47, int 1, int 0)
-call func_106(var groad_1, int 9, int 5, var &VAR_65)
-call func_106(var groad_1, int 9, int 6, int 6)
-call func_106(var groad_2, int 9, int 5, var &VAR_66)
-call func_106(var groad_2, int 9, int 6, int 6)
-call freeze_enemy(var lizmant_3)
-call freeze_enemy(var lizmant_4)
-call func_50(var lizmant_3, int 8192)
-call func_50(var lizmant_4, int 8192)
-call play_char_ai_script(var lizmant_3, var &VAR_67)
-call play_char_ai_script(var lizmant_4, var &VAR_68)
-call func_50(var groad_1, int 8192)
-call func_50(var groad_2, int 8192)
-call play_char_ai_script(var groad_1, var &VAR_69)
-call play_char_ai_script(var groad_2, var &VAR_70)
+var groad1 = call create_enemy(int 39, int 1, var &VAR_61, int 0)
+var groad2 = call create_enemy(int 39, int 2, var &VAR_62, int 0)
+var lizmant = call create_enemy(int 40, int 1, var &VAR_63, int 5)
+var lizmant1 = call create_enemy(int 40, int 2, var &VAR_64, int 165)
+call add_item_to_char(var lizmant, int 45, int 1, int 0)
+call add_item_to_char(var lizmant1, int 47, int 1, int 0)
+call func_106(var groad1, int 9, int 5, var &VAR_65)
+call func_106(var groad1, int 9, int 6, int 6)
+call func_106(var groad2, int 9, int 5, var &VAR_66)
+call func_106(var groad2, int 9, int 6, int 6)
+call freeze_enemy(var lizmant)
+call freeze_enemy(var lizmant1)
+call func_50(var lizmant, int 8192)
+call func_50(var lizmant1, int 8192)
+call play_char_ai_script(var lizmant, var &VAR_67)
+call play_char_ai_script(var lizmant1, var &VAR_68)
+call func_50(var groad1, int 8192)
+call func_50(var groad2, int 8192)
+call play_char_ai_script(var groad1, var &VAR_69)
+call play_char_ai_script(var groad2, var &VAR_70)
 call load_char("litl_liz")
 
 ._SCRIPT_5

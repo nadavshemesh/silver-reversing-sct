@@ -1,6 +1,6 @@
 ._DATA
 VAR_0	0	
-fade_chronicler_1	0	
+fade_chronicler	0	
 VAR_2	0	
 VAR_3	0	
 VAR_4	0	
@@ -16,7 +16,7 @@ VAR_39	{ -6087, 204, -7451 }
 VAR_41	0	
 VAR_42	0	
 VAR_43	0	
-neutral_imp_0	0	
+neutral_imp	0	
 VAR_45	0	
 VAR_46	0	
 VAR_47	0	
@@ -116,9 +116,9 @@ var VAR_48 = call load_anim("startle")
 var VAR_50 = call load_anim("temper")
 var VAR_47 = call load_anim("hitface")
 var VAR_49 = call load_anim("stan180c")
-var neutral_imp_0 = call create_enemy(int 102, int 1, var &VAR_60, int 45)
-call func_10f(var neutral_imp_0, int 2)
-call freeze_enemy(var neutral_imp_0)
+var neutral_imp = call create_enemy(int 102, int 1, var &VAR_60, int 45)
+call func_10f(var neutral_imp, int 2)
+call freeze_enemy(var neutral_imp)
 var VAR_41 = call get_char_handle(int 65536)
 call func_10f(var VAR_41, int 0)
 call load_char("chronicl")
@@ -314,7 +314,7 @@ if(var VAR_62 == int 10)
  {
 		if(call get_num_of_enemies() <= int 0)
 		 {
-				var fade_chronicler_1 = call create_enemy(int 178, int 0, var &VAR_66, int 64)
+				var fade_chronicler = call create_enemy(int 178, int 0, var &VAR_66, int 64)
 				var VAR_62 ++ 
 		}
 }
@@ -332,7 +332,7 @@ if(var VAR_73 == int 0)
 		 {
 				if(call is_char_handle_in_level(int 917505))
 				 {
-						call func_29(var neutral_imp_0)
+						call func_29(var neutral_imp)
 						var VAR_73 ++ 
 						var VAR_74 = int 0
 				}
@@ -348,8 +348,8 @@ if(var VAR_73 == int 1)
 		 {
 				if(call is_char_handle_in_level(int 917505))
 				 {
-						call set_char_template(var neutral_imp_0, int 102)
-						call char_walk_to_pos(var neutral_imp_0, call get_char_pos(var VAR_41))
+						call set_char_template(var neutral_imp, int 102)
+						call char_walk_to_pos(var neutral_imp, call get_char_pos(var VAR_41))
 				}
 				var VAR_73 ++ 
 				var VAR_74 = int 0
@@ -368,9 +368,9 @@ if(call ! is_char_handle_in_level(int 6291456))
 }
 else
  {
-		if(var fade_chronicler_1 == int 0)
+		if(var fade_chronicler == int 0)
 		 {
-				var fade_chronicler_1 = call get_char_handle(int 6291456)
+				var fade_chronicler = call get_char_handle(int 6291456)
 		}
 }
 
@@ -381,9 +381,9 @@ if(call ! is_char_handle_in_level(int 6291456))
 }
 else
  {
-		if(var fade_chronicler_1 == int 0)
+		if(var fade_chronicler == int 0)
 		 {
-				var fade_chronicler_1 = call get_char_handle(int 6291456)
+				var fade_chronicler = call get_char_handle(int 6291456)
 		}
 }
 if(var VAR_23 != var VAR_17)
@@ -398,17 +398,17 @@ switch(var VAR_17)
 			 {
 					execute SCRIPT_14
 			}
-			gamevar script_object = var fade_chronicler_1
+			gamevar script_object = var fade_chronicler
 			var VAR_20 = gamevar *character_movement_p+3
 			var VAR_21 = gamevar *character_movement_p+4
 			var VAR_22 = gamevar *character_movement_p+5
 			var VAR_3 = int 0
-			call func_10c(var fade_chronicler_1, int 0)
+			call func_10c(var fade_chronicler, int 0)
 			var VAR_17 ++ 
 			var VAR_18 = int 0
 			break 
 		case 1
-			if(call func_127(var fade_chronicler_1))
+			if(call func_127(var fade_chronicler))
 			 {
 					var VAR_19 = gamevar saved_games_count
 					var VAR_3 = int 1
@@ -453,7 +453,7 @@ switch(var VAR_17)
 			else
 			 {
 					call log("game not saved")
-					call func_2a(var fade_chronicler_1, var &VAR_20)
+					call func_2a(var fade_chronicler, var &VAR_20)
 					execute SCRIPT_15
 					gamevar chronicler_variation = var VAR_2
 					var VAR_17 ++ 
@@ -473,7 +473,7 @@ switch(var VAR_17)
 		case 7
 			if(var VAR_18 > int 40)
 			 {
-					call apply_effect_on_char(gamevar char_gen_fx_scripts, int 8, int 0, var fade_chronicler_1)
+					call apply_effect_on_char(gamevar char_gen_fx_scripts, int 8, int 0, var fade_chronicler)
 					execute SCRIPT_15
 					gamevar chronicler_variation = var VAR_2
 					var VAR_17 ++ 
@@ -483,7 +483,7 @@ switch(var VAR_17)
 		case 8
 			if(var VAR_18 > int 100)
 			 {
-					call remove_char(var fade_chronicler_1)
+					call remove_char(var fade_chronicler)
 					call set_input_system(int 1)
 					var VAR_3 = int 0
 					var VAR_17 ++ 
@@ -496,11 +496,11 @@ var VAR_18 ++
 ._SCRIPT_13
 if(call is_char_handle_in_level(int 6291456))
  {
-		if(var fade_chronicler_1 == int 0)
+		if(var fade_chronicler == int 0)
 		 {
-				var fade_chronicler_1 = call get_char_handle(int 6291456)
+				var fade_chronicler = call get_char_handle(int 6291456)
 		}
-		call func_34(var fade_chronicler_1)
+		call func_34(var fade_chronicler)
 }
 
 ._SCRIPT_14

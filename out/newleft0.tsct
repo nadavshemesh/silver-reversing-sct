@@ -27,12 +27,12 @@ VAR_28	{ -2650, 1537, 3625 }
 VAR_29	{ 5225, 1537, -2050 }	
 VAR_30	{ 1313423698, -1431655936, 0 }	
 VAR_31	0	
-captain_0	0	
-lieutenant_1	0	
-lieutenant_2	0	
-lieutenant_3	0	
-lieutenant_4	0	
-lieutenant_5	0	
+captain	0	
+lieutenant	0	
+lieutenant1	0	
+lieutenant2	0	
+lieutenant3	0	
+lieutenant4	0	
 VAR_38	{ 1434, 0, -2933 }	
 VAR_39	{ 1492, 0, -2664 }	
 VAR_40	{ 1752, 0, -2809 }	
@@ -540,61 +540,61 @@ switch(var VAR_48)
 var VAR_49 ++ 
 
 ._SCRIPT_5
-var captain_0 = call create_enemy(int 14, int 0, var &VAR_38, int 286)
-call freeze_enemy(var captain_0)
-var lieutenant_1 = call create_enemy(int 11, int 0, var &VAR_39, int 286)
-call freeze_enemy(var lieutenant_1)
-var lieutenant_2 = call create_enemy(int 11, int 1, var &VAR_40, int 286)
-call freeze_enemy(var lieutenant_2)
-var lieutenant_3 = call create_enemy(int 11, int 2, var &VAR_41, int 286)
-call freeze_enemy(var lieutenant_3)
-var lieutenant_4 = call create_enemy(int 11, int 3, var &VAR_42, int 286)
-call freeze_enemy(var lieutenant_4)
-var lieutenant_5 = call create_enemy(int 11, int 4, var &VAR_43, int 286)
-call freeze_enemy(var lieutenant_5)
+var captain = call create_enemy(int 14, int 0, var &VAR_38, int 286)
+call freeze_enemy(var captain)
+var lieutenant = call create_enemy(int 11, int 0, var &VAR_39, int 286)
+call freeze_enemy(var lieutenant)
+var lieutenant1 = call create_enemy(int 11, int 1, var &VAR_40, int 286)
+call freeze_enemy(var lieutenant1)
+var lieutenant2 = call create_enemy(int 11, int 2, var &VAR_41, int 286)
+call freeze_enemy(var lieutenant2)
+var lieutenant3 = call create_enemy(int 11, int 3, var &VAR_42, int 286)
+call freeze_enemy(var lieutenant3)
+var lieutenant4 = call create_enemy(int 11, int 4, var &VAR_43, int 286)
+call freeze_enemy(var lieutenant4)
 var VAR_31 = call create_char(var &VAR_44, "nvillboy", int 311, int 13)
-gamevar script_object = var captain_0
+gamevar script_object = var captain
 gamevar *character_movement_p+60 = int 1
-gamevar script_object = var captain_0
+gamevar script_object = var captain
 gamevar *character_stats_p+15 = int 800
-gamevar script_object = var captain_0
+gamevar script_object = var captain
 gamevar *character_stats_p+16 = int 800
-gamevar script_object = var lieutenant_1
+gamevar script_object = var lieutenant
 gamevar *character_movement_p+60 = int 1
-gamevar script_object = var lieutenant_1
+gamevar script_object = var lieutenant
 gamevar *character_stats_p+15 = int 800
-gamevar script_object = var lieutenant_1
+gamevar script_object = var lieutenant
 gamevar *character_stats_p+16 = int 800
-gamevar script_object = var lieutenant_2
+gamevar script_object = var lieutenant1
 gamevar *character_movement_p+60 = int 1
-gamevar script_object = var lieutenant_2
+gamevar script_object = var lieutenant1
 gamevar *character_stats_p+15 = int 800
-gamevar script_object = var lieutenant_2
+gamevar script_object = var lieutenant1
 gamevar *character_stats_p+16 = int 800
-gamevar script_object = var lieutenant_3
+gamevar script_object = var lieutenant2
 gamevar *character_movement_p+60 = int 1
-gamevar script_object = var lieutenant_3
+gamevar script_object = var lieutenant2
 gamevar *character_stats_p+15 = int 800
-gamevar script_object = var lieutenant_3
+gamevar script_object = var lieutenant2
 gamevar *character_stats_p+16 = int 800
-gamevar script_object = var lieutenant_4
+gamevar script_object = var lieutenant3
 gamevar *character_movement_p+60 = int 1
-gamevar script_object = var lieutenant_4
+gamevar script_object = var lieutenant3
 gamevar *character_stats_p+15 = int 800
-gamevar script_object = var lieutenant_4
+gamevar script_object = var lieutenant3
 gamevar *character_stats_p+16 = int 800
-gamevar script_object = var lieutenant_5
+gamevar script_object = var lieutenant4
 gamevar *character_movement_p+60 = int 1
-gamevar script_object = var lieutenant_5
+gamevar script_object = var lieutenant4
 gamevar *character_stats_p+15 = int 800
-gamevar script_object = var lieutenant_5
+gamevar script_object = var lieutenant4
 gamevar *character_stats_p+16 = int 800
 var VAR_45 = call load_anim("tyrosumn")
 
 ._SCRIPT_6
 if(call is_char_handle_in_level(int 6881280))
  {
-		if(call func_88(var captain_0))
+		if(call func_88(var captain))
 		 {
 				var VAR_65 = int 1
 				exit_script 
@@ -602,7 +602,7 @@ if(call is_char_handle_in_level(int 6881280))
 }
 if(call is_char_handle_in_level(int 7143424))
  {
-		if(call func_88(var lieutenant_1))
+		if(call func_88(var lieutenant))
 		 {
 				var VAR_65 = int 1
 				exit_script 
@@ -610,7 +610,7 @@ if(call is_char_handle_in_level(int 7143424))
 }
 if(call is_char_handle_in_level(int 7143425))
  {
-		if(call func_88(var lieutenant_2))
+		if(call func_88(var lieutenant1))
 		 {
 				var VAR_65 = int 1
 				exit_script 
@@ -618,7 +618,7 @@ if(call is_char_handle_in_level(int 7143425))
 }
 if(call is_char_handle_in_level(int 7143426))
  {
-		if(call func_88(var lieutenant_3))
+		if(call func_88(var lieutenant2))
 		 {
 				var VAR_65 = int 1
 				exit_script 
@@ -626,7 +626,7 @@ if(call is_char_handle_in_level(int 7143426))
 }
 if(call is_char_handle_in_level(int 7143427))
  {
-		if(call func_88(var lieutenant_4))
+		if(call func_88(var lieutenant3))
 		 {
 				var VAR_65 = int 1
 				exit_script 
@@ -634,7 +634,7 @@ if(call is_char_handle_in_level(int 7143427))
 }
 if(call is_char_handle_in_level(int 7143428))
  {
-		if(call func_88(var lieutenant_5))
+		if(call func_88(var lieutenant4))
 		 {
 				var VAR_65 = int 1
 				exit_script 
@@ -644,62 +644,62 @@ if(call is_char_handle_in_level(int 7143428))
 ._SCRIPT_7
 if(call is_char_handle_in_level(int 6881280))
  {
-		call set_char_template(var captain_0, int 14)
-		call func_106(var captain_0, int 1, int 0, int 1)
-		call set_char_init_state(var captain_0, int 1)
-		gamevar script_object = var captain_0
+		call set_char_template(var captain, int 14)
+		call func_106(var captain, int 1, int 0, int 1)
+		call set_char_init_state(var captain, int 1)
+		gamevar script_object = var captain
 		gamevar *character_stats_p+15 = int 40000
-		gamevar script_object = var captain_0
+		gamevar script_object = var captain
 		gamevar *character_stats_p+16 = int 40000
 }
 if(call is_char_handle_in_level(int 7143424))
  {
-		call set_char_template(var lieutenant_1, int 11)
-		call func_106(var lieutenant_1, int 1, int 0, int 1)
-		call set_char_init_state(var lieutenant_1, int 1)
-		gamevar script_object = var lieutenant_1
+		call set_char_template(var lieutenant, int 11)
+		call func_106(var lieutenant, int 1, int 0, int 1)
+		call set_char_init_state(var lieutenant, int 1)
+		gamevar script_object = var lieutenant
 		gamevar *character_stats_p+15 = int 40000
-		gamevar script_object = var lieutenant_1
+		gamevar script_object = var lieutenant
 		gamevar *character_stats_p+16 = int 40000
 }
 if(call is_char_handle_in_level(int 7143425))
  {
-		call set_char_template(var lieutenant_2, int 11)
-		call func_106(var lieutenant_2, int 1, int 0, int 1)
-		call set_char_init_state(var lieutenant_2, int 1)
-		gamevar script_object = var lieutenant_2
+		call set_char_template(var lieutenant1, int 11)
+		call func_106(var lieutenant1, int 1, int 0, int 1)
+		call set_char_init_state(var lieutenant1, int 1)
+		gamevar script_object = var lieutenant1
 		gamevar *character_stats_p+15 = int 40000
-		gamevar script_object = var lieutenant_2
+		gamevar script_object = var lieutenant1
 		gamevar *character_stats_p+16 = int 40000
 }
 if(call is_char_handle_in_level(int 7143426))
  {
-		call set_char_template(var lieutenant_3, int 11)
-		call func_106(var lieutenant_3, int 1, int 0, int 1)
-		call set_char_init_state(var lieutenant_3, int 1)
-		gamevar script_object = var lieutenant_3
+		call set_char_template(var lieutenant2, int 11)
+		call func_106(var lieutenant2, int 1, int 0, int 1)
+		call set_char_init_state(var lieutenant2, int 1)
+		gamevar script_object = var lieutenant2
 		gamevar *character_stats_p+15 = int 40000
-		gamevar script_object = var lieutenant_3
+		gamevar script_object = var lieutenant2
 		gamevar *character_stats_p+16 = int 40000
 }
 if(call is_char_handle_in_level(int 7143427))
  {
-		call set_char_template(var lieutenant_4, int 11)
-		call func_106(var lieutenant_4, int 1, int 0, int 1)
-		call set_char_init_state(var lieutenant_4, int 1)
-		gamevar script_object = var lieutenant_4
+		call set_char_template(var lieutenant3, int 11)
+		call func_106(var lieutenant3, int 1, int 0, int 1)
+		call set_char_init_state(var lieutenant3, int 1)
+		gamevar script_object = var lieutenant3
 		gamevar *character_stats_p+15 = int 40000
-		gamevar script_object = var lieutenant_4
+		gamevar script_object = var lieutenant3
 		gamevar *character_stats_p+16 = int 40000
 }
 if(call is_char_handle_in_level(int 7143428))
  {
-		call set_char_template(var lieutenant_5, int 11)
-		call func_106(var lieutenant_5, int 1, int 0, int 1)
-		call set_char_init_state(var lieutenant_5, int 1)
-		gamevar script_object = var lieutenant_5
+		call set_char_template(var lieutenant4, int 11)
+		call func_106(var lieutenant4, int 1, int 0, int 1)
+		call set_char_init_state(var lieutenant4, int 1)
+		gamevar script_object = var lieutenant4
 		gamevar *character_stats_p+15 = int 40000
-		gamevar script_object = var lieutenant_5
+		gamevar script_object = var lieutenant4
 		gamevar *character_stats_p+16 = int 40000
 }
 

@@ -1,6 +1,6 @@
 ._DATA
 VAR_0	0	
-fade_chronicler_0	0	
+fade_chronicler	0	
 VAR_2	0	
 VAR_3	0	
 VAR_4	0	
@@ -27,13 +27,13 @@ VAR_41	0
 VAR_45	{ 1869768803, 1818454382, 0 }	
 VAR_46	0	
 VAR_47	0	
-viking_1	0	
+viking	0	
 VAR_49	{ -3609, 4025, -4564 }	
-viking_2	0	
+viking1	0	
 VAR_51	{ -3834, 4025, -4837 }	
-viking_3	0	
+viking2	0	
 VAR_53	{ -2469, 4025, -4675 }	
-viking1_4	0	
+viking1	0	
 VAR_55	{ -3417, 4025, -6735 }	
 VAR_56	0	
 VAR_57	{ -3652, 4025, -6623 }	
@@ -43,13 +43,13 @@ VAR_61	{ 1851880563, 1717989220, 0 }
 VAR_62	{ 3, VAR_63, 0, 25, 0, 2, -2469, 4025, -4675, 3, VAR_64, 0, 15, 24, 0, 0, -1950, 4025, -4260, 8 }	
 VAR_63	"laugh"	
 VAR_64	"yes"	
-VAR_65	{ 25, 0, 3, VAR_66, 0, 1, viking_1, 5, 20, 3, VAR_67, 0, 15, 24, 0, 0, -2170, 4025, -6720, 8 }	
+VAR_65	{ 25, 0, 3, VAR_66, 0, 1, viking, 5, 20, 3, VAR_67, 0, 15, 24, 0, 0, -2170, 4025, -6720, 8 }	
 VAR_66	"yes"	
 VAR_67	{ 1701670755, 0 }	
 VAR_68	0	
-VAR_69	{ 5, 120, 1, viking_1, 3, VAR_70, 0, 15, 16, VAR_68, 1, 8 }	
+VAR_69	{ 5, 120, 1, viking, 3, VAR_70, 0, 15, 16, VAR_68, 1, 8 }	
 VAR_70	"yes"	
-VAR_71	{ 5, 60, 25, 0, 3, VAR_72, 0, 1, viking_1, 3, VAR_73, 0, 15, 0, -2400, 4025, -7400, 5, 10, 24, 0, 2, -1339, 4025, -5731, 8 }	
+VAR_71	{ 5, 60, 25, 0, 3, VAR_72, 0, 1, viking, 3, VAR_73, 0, 15, 0, -2400, 4025, -7400, 5, 10, 24, 0, 2, -1339, 4025, -5731, 8 }	
 VAR_72	"lookout"	
 VAR_73	"yes"	
 VAR_74	{ 0, 0, 0, -1, 8, 0, 1, 3, 63, -1, 4, 0, 9, 1, 5, 1, 40, 80, 6, 3, 7, 1, 3, 10, 42, 46, -1, -1 }	
@@ -178,7 +178,7 @@ switch(var VAR_47)
 		case 3
 			if(call func_9(var VAR_46))
 			 {
-					var fade_chronicler_0 = call create_enemy(int 178, int 0, var &VAR_79, int 130)
+					var fade_chronicler = call create_enemy(int 178, int 0, var &VAR_79, int 130)
 					var VAR_47 ++ 
 			}
 			break 
@@ -202,22 +202,22 @@ if(var VAR_68)
 call load_char("vikingb")
 call load_char("bstump")
 call load_char(var &VAR_45)
-var viking_1 = call create_enemy(int 145, int 0, var &VAR_49, int 190)
-var viking_2 = call create_enemy(int 145, int 1, var &VAR_51, int 75)
-var viking_3 = call create_enemy(int 145, int 2, var &VAR_53, int 120)
-call add_item_to_char(var viking_3, int 47, int 1, int 0)
+var viking = call create_enemy(int 145, int 0, var &VAR_49, int 190)
+var viking1 = call create_enemy(int 145, int 1, var &VAR_51, int 75)
+var viking2 = call create_enemy(int 145, int 2, var &VAR_53, int 120)
+call add_item_to_char(var viking2, int 47, int 1, int 0)
 var VAR_56 = call create_char(var &VAR_57, "nviking", int 55, int 13)
-var viking1_4 = call create_enemy(int 152, int 1, var &VAR_55, int 285)
-call set_char_init_state(var viking_3, int 13)
-call play_char_ai_script(var viking_3, var &VAR_59)
-call set_char_init_state(var viking_1, int 13)
-call play_char_ai_script(var viking_1, var &VAR_62)
-call set_char_init_state(var viking_2, int 13)
-call play_char_ai_script(var viking_2, var &VAR_65)
+var viking1 = call create_enemy(int 152, int 1, var &VAR_55, int 285)
+call set_char_init_state(var viking2, int 13)
+call play_char_ai_script(var viking2, var &VAR_59)
+call set_char_init_state(var viking, int 13)
+call play_char_ai_script(var viking, var &VAR_62)
+call set_char_init_state(var viking1, int 13)
+call play_char_ai_script(var viking1, var &VAR_65)
 call set_char_init_state(var VAR_56, int 13)
 call play_char_ai_script(var VAR_56, var &VAR_69)
-call set_char_init_state(var viking1_4, int 13)
-call play_char_ai_script(var viking1_4, var &VAR_71)
+call set_char_init_state(var viking1, int 13)
+call play_char_ai_script(var viking1, var &VAR_71)
 
 ._SCRIPT_6
 
@@ -248,9 +248,9 @@ if(call ! is_char_handle_in_level(int 6291456))
 }
 else
  {
-		if(var fade_chronicler_0 == int 0)
+		if(var fade_chronicler == int 0)
 		 {
-				var fade_chronicler_0 = call get_char_handle(int 6291456)
+				var fade_chronicler = call get_char_handle(int 6291456)
 		}
 }
 
@@ -261,9 +261,9 @@ if(call ! is_char_handle_in_level(int 6291456))
 }
 else
  {
-		if(var fade_chronicler_0 == int 0)
+		if(var fade_chronicler == int 0)
 		 {
-				var fade_chronicler_0 = call get_char_handle(int 6291456)
+				var fade_chronicler = call get_char_handle(int 6291456)
 		}
 }
 if(var VAR_23 != var VAR_17)
@@ -278,17 +278,17 @@ switch(var VAR_17)
 			 {
 					execute SCRIPT_12
 			}
-			gamevar script_object = var fade_chronicler_0
+			gamevar script_object = var fade_chronicler
 			var VAR_20 = gamevar *character_movement_p+3
 			var VAR_21 = gamevar *character_movement_p+4
 			var VAR_22 = gamevar *character_movement_p+5
 			var VAR_3 = int 0
-			call func_10c(var fade_chronicler_0, int 0)
+			call func_10c(var fade_chronicler, int 0)
 			var VAR_17 ++ 
 			var VAR_18 = int 0
 			break 
 		case 1
-			if(call func_127(var fade_chronicler_0))
+			if(call func_127(var fade_chronicler))
 			 {
 					var VAR_19 = gamevar saved_games_count
 					var VAR_3 = int 1
@@ -333,7 +333,7 @@ switch(var VAR_17)
 			else
 			 {
 					call log("game not saved")
-					call func_2a(var fade_chronicler_0, var &VAR_20)
+					call func_2a(var fade_chronicler, var &VAR_20)
 					execute SCRIPT_13
 					gamevar chronicler_variation = var VAR_2
 					var VAR_17 ++ 
@@ -353,7 +353,7 @@ switch(var VAR_17)
 		case 7
 			if(var VAR_18 > int 40)
 			 {
-					call apply_effect_on_char(gamevar char_gen_fx_scripts, int 8, int 0, var fade_chronicler_0)
+					call apply_effect_on_char(gamevar char_gen_fx_scripts, int 8, int 0, var fade_chronicler)
 					execute SCRIPT_13
 					gamevar chronicler_variation = var VAR_2
 					var VAR_17 ++ 
@@ -363,7 +363,7 @@ switch(var VAR_17)
 		case 8
 			if(var VAR_18 > int 100)
 			 {
-					call remove_char(var fade_chronicler_0)
+					call remove_char(var fade_chronicler)
 					call set_input_system(int 1)
 					var VAR_3 = int 0
 					var VAR_17 ++ 
@@ -376,11 +376,11 @@ var VAR_18 ++
 ._SCRIPT_11
 if(call is_char_handle_in_level(int 6291456))
  {
-		if(var fade_chronicler_0 == int 0)
+		if(var fade_chronicler == int 0)
 		 {
-				var fade_chronicler_0 = call get_char_handle(int 6291456)
+				var fade_chronicler = call get_char_handle(int 6291456)
 		}
-		call func_34(var fade_chronicler_0)
+		call func_34(var fade_chronicler)
 }
 
 ._SCRIPT_12

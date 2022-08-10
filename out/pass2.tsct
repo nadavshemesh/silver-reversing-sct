@@ -1,14 +1,14 @@
 ._DATA
 VAR_0	{ -3034, 14, 4392 }	
 VAR_1	{ 6752, 14, -3656 }	
-grow_wamper_4	0	
+grow_wamper	0	
 VAR_4	{ 5, -1825, -1231 }	
 VAR_5	0	
 VAR_6	0	
-leopard_0	0	
-leopard_1	0	
-leopard_2	0	
-sentryg_3	0	
+leopard	0	
+leopard1	0	
+leopard2	0	
+sentryg	0	
 VAR_11	{ -1645, -1825, -2128 }	
 VAR_12	{ -1820, -1825, -1701 }	
 VAR_13	{ -2197, -1825, -1572 }	
@@ -222,21 +222,21 @@ if(call is_char_handle_in_level(int 10420224))
 }
 
 ._SCRIPT_6
-var leopard_0 = call create_enemy(int 72, int 0, var &VAR_11, int 75)
-var leopard_1 = call create_enemy(int 72, int 1, var &VAR_12, int 75)
-var leopard_2 = call create_enemy(int 72, int 2, var &VAR_13, int 50)
-var sentryg_3 = call create_enemy(int 56, int 0, var &VAR_14, int 25)
-call freeze_enemy(var leopard_0)
-call freeze_enemy(var leopard_1)
-call freeze_enemy(var leopard_2)
-call freeze_enemy(var sentryg_3)
-call func_50(var sentryg_3, int 1)
+var leopard = call create_enemy(int 72, int 0, var &VAR_11, int 75)
+var leopard1 = call create_enemy(int 72, int 1, var &VAR_12, int 75)
+var leopard2 = call create_enemy(int 72, int 2, var &VAR_13, int 50)
+var sentryg = call create_enemy(int 56, int 0, var &VAR_14, int 25)
+call freeze_enemy(var leopard)
+call freeze_enemy(var leopard1)
+call freeze_enemy(var leopard2)
+call freeze_enemy(var sentryg)
+call func_50(var sentryg, int 1)
 call load_char("wamper")
 
 ._SCRIPT_7
-var grow_wamper_4 = call create_enemy(int 5, int 0, var &VAR_4, int 260)
-call freeze_enemy(var grow_wamper_4)
-gamevar script_object = var grow_wamper_4
+var grow_wamper = call create_enemy(int 5, int 0, var &VAR_4, int 260)
+call freeze_enemy(var grow_wamper)
+gamevar script_object = var grow_wamper
 gamevar HP = int 4
 
 ._SCRIPT_8

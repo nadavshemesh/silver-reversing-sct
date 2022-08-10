@@ -21,7 +21,7 @@ In this document, Let us discuss the following:
 1. [The binary file structure](#the-binary-file-structure)
 2. [Predefined execution rules](#predefined-execution-rules)
 
-Using this information I managed to get all the game's .sct files (except 2) reversed automatically
+Using this information I managed to get all the game's .sct files reversed automatically
 
 You're welcome to take a look at them [Here](../../out/).
 

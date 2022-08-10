@@ -11,7 +11,7 @@ This tool’s purpose is to translate the game’s .sct files to a readable file
 
 Currently, This tool can: 
 
-1. Translate most .sct files to a .tsct text file (it’s structure and rules are explained in the docs)
+1. Translate all .sct files to a .tsct text file (it’s structure and rules are explained in the docs)
 2. Translate .tsct script file back to .sct format that can be executed by the game’s engine.
 
 ## Examples

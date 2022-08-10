@@ -17,7 +17,7 @@ typedef enum code_type { EXPRESSION, IF_STATEMENT, ELSE_STATEMENT, SWITCH, BREAK
             ASSIGNMENT, VAR_INC, VAR_DEC, CODE_BLOCK, CODE_BLOCK_CASES, CASE_AID, ROOM_VAR_PTR, CP_VAR_PTR,
             UNKNOWN, RET, CP_DATA_INDEX_PTR } c_type;
 typedef enum expr_type { OPERATOR, INTEGER, ADDROF_VAR_PTR, DATA_INDEX_PTR, VAR_PTR, FUNCTION, GAME_VAR,
-            MUL_EXP_OP, FUNC_PTR } expr_type;
+            MUL_EXP_OP, FUNC_PTR, ARR_OR_STR_INLINE_DECLARATION } expr_type;
 typedef enum operator_type { BINARY_OP, UNARY_OP} operator_type;
 
 typedef struct code_pattern {

@@ -234,7 +234,7 @@ VAR_107	"walked to bell"
 	gamevar SMACKER_X = int 264
 	gamevar SMACKER_Y = int 192
 	call play_2d_anim(var &VAR_81, int 0, int 1, var &play_gate_open_animation)
-	call reload_char(var &VAR_82)
+	call load_char(var &VAR_82)
 
 	// check tavern memory
 	if(call func_c0(int 999, var &VAR_83, var &VAR_84)) {
@@ -523,7 +523,7 @@ VAR_107	"walked to bell"
 	call play_2d_anim(var &VAR_74, int 1, int 1, var &is_bell_ring_animation_played)
 
 ._get_chronicler_if_he_already_exist
-	if(call ! is_char_exist(int 6291456)) {
+	if(call ! is_char_handle_in_level(int 6291456)) {
 			exit_script 
 	} else {
 			if(var chronicler_char_ref == int 0) {
@@ -532,7 +532,7 @@ VAR_107	"walked to bell"
 	}
 
 ._handle_chronicler
-	if(call ! is_char_exist(int 6291456)) {
+	if(call ! is_char_handle_in_level(int 6291456)) {
 			exit_script 
 	} else {
 			if(var chronicler_char_ref == int 0) {
@@ -636,7 +636,7 @@ VAR_107	"walked to bell"
 
 ._get_chronicler_if_he_exists
 	// check if chronicler character exist
-	if(call is_char_exist(int 6291456))
+	if(call is_char_handle_in_level(int 6291456))
 	{
 			if(var chronicler_char_ref == int 0) {
 					var chronicler_char_ref = call get_char_handle(int 6291456)

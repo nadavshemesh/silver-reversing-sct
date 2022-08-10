@@ -33,9 +33,12 @@ void init_game_functions(game_fun** functions_arr) {
         functions_arr[i] = gf;
     }
 
+    functions_arr[0x96]->name = aapts("create_enemy_through_door");
+    functions_arr[0x96]->params = 4;
+    functions_arr[0x96]->desc = aapts("(int enemy_type, int id, int door, int face_direction_radius_counter_clockwise)");
     functions_arr[0x97]->name = aapts("create_enemy");
     functions_arr[0x97]->params = 4;
-    functions_arr[0x97]->desc = aapts("(int char_type, int id, var position_ptr, int radius)");
+    functions_arr[0x97]->desc = aapts("(int enemy_type, int id, var position_ptr, int face_direction_radius_counter_clockwise)");
     functions_arr[0x93]->name = aapts("create_char");
     functions_arr[0x93]->params = 4;
     functions_arr[0x93]->desc = aapts("(var pos_ptr, var char_name_ptr, int unknown, int unknown)");
@@ -54,6 +57,9 @@ void init_game_functions(game_fun** functions_arr) {
     functions_arr[0x5f]->name = aapts("char_stop");
     functions_arr[0x5f]->params = 1;
     functions_arr[0x5f]->desc = aapts("(var char_ptr)");
+    functions_arr[0xb8]->name = aapts("load_item");
+    functions_arr[0xb8]->params = 1;
+    functions_arr[0xb8]->desc = aapts("(int item_type)");
     functions_arr[0x12c]->name = aapts("play_char_anim");
     functions_arr[0x12c]->params = 3;
     functions_arr[0x12c]->desc = aapts("(var char_ptr, var anim_name_ptr, int unknown)");
@@ -81,15 +87,21 @@ void init_game_functions(game_fun** functions_arr) {
     functions_arr[0xbc]->name = aapts("load_char");
     functions_arr[0xbc]->params = 1;
     functions_arr[0xbc]->desc = aapts("(var char_name_ptr)");
+    functions_arr[0xff]->name = aapts("force_scroll_to_pos");
+    functions_arr[0xff]->params = 1;
+    functions_arr[0xff]->desc = aapts("(var pos_ptr)");
     functions_arr[0x69]->name = aapts("get_char_handle");
     functions_arr[0x69]->params = 1;
     functions_arr[0x69]->desc = aapts("(int char_handle_id)");
-    functions_arr[0x51]->name = aapts("set_char_behav");
+    functions_arr[0x51]->name = aapts("set_char_template");
     functions_arr[0x51]->params = 2;
     functions_arr[0x51]->desc = aapts("(var char_ptr, int char_type)");
     functions_arr[0xbb]->name = aapts("load_char_anim");
     functions_arr[0xbb]->params = 2;
     functions_arr[0xbb]->desc = aapts("(var char_ptr, var anim_table)");
+    functions_arr[0x18]->name = aapts("char_walk_to");
+    functions_arr[0x18]->params = 4;
+    functions_arr[0x18]->desc = aapts("(var char_ptr, int x, int y, int z)");
     functions_arr[0x0d]->name = aapts("char_play_attack_anim");
     functions_arr[0x0d]->params = 4;
     functions_arr[0x0d]->desc = aapts("(var char_ptr, int attack, var pos_ptr, int unknown)");
@@ -168,7 +180,7 @@ void init_game_functions(game_fun** functions_arr) {
     functions_arr[0x66]->name = aapts("get_char_handle_id");
     functions_arr[0x66]->params = 1;
     functions_arr[0x66]->desc = aapts("(var char_ptr)");
-    functions_arr[0x5e]->name = aapts("is_not_scrolling");
+    functions_arr[0x5e]->name = aapts("is_not_force_scrolling");
     functions_arr[0x5e]->params = 0;
     functions_arr[0x5e]->desc = aapts("()");
     functions_arr[0x30]->name = aapts("create_item");

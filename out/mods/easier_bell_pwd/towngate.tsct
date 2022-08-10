@@ -2,22 +2,8 @@
 test	0	
 test2	0	
 VAR_0	0	
-chronicler_char_ref	0	
-chronicler_dialog	0	
 VAR_3	0	
 VAR_4	0	
-VAR_5	"DVDCHR"	
-VAR_6	"NULL"	
-VAR_7	"SEKCHR"	
-VAR_8	"NULL"	
-VAR_9	"CAGCHR"	
-VAR_10	"NULL"	
-VAR_11	"JUGCHR"	
-VAR_12	"NULL"	
-VAR_13	"CHICHR"	
-VAR_14	"NULL"	
-VAR_15	"VIVCHR"	
-VAR_16	"NULL"	
 VAR_17	0	
 VAR_18	{ 0, 0, -1 }	
 VAR_19	0	
@@ -25,22 +11,6 @@ VAR_20	0
 VAR_21	0	
 VAR_22	0	
 VAR_23	-1	
-VAR_24	"game saved"	
-VAR_25	"game not saved"	
-selected_char	0	
-VAR_27	"DVDCHR"	
-VAR_28	"NULL"	
-VAR_29	"SEKCHR"	
-VAR_30	"NULL"	
-VAR_31	"CAGCHR"	
-VAR_32	"NULL"	
-VAR_33	"JUGCHR"	
-VAR_34	"NULL"	
-VAR_35	"CHICHR"	
-VAR_36	"NULL"	
-VAR_37	"VIVCHR"	
-VAR_38	"NULL"	
-rain_sfx_initialized	0	
 VAR_40	0	
 VAR_41	0	
 VAR_42	0	
@@ -48,7 +18,6 @@ VAR_43	0
 VAR_44	0	
 VAR_45	0	
 VAR_46	0	
-VAR_47	"random_rain_fx: Rain SFX not initialised! See Marc"	
 VAR_48	0	
 VAR_49	0	
 VAR_50	0	
@@ -57,36 +26,27 @@ VAR_52	0
 VAR_53	0	
 VAR_54	0	
 VAR_55	0	
-VAR_56	{ 0, 0 }	
+chronicler_char_ref	0	
+chronicler_dialog	0	
+selected_char	0	
+rain_sfx_initialized	0	
 play_gate_open_animation	0	
-VAR_58	{ 0, 0 }	
 portcullis_sound_ref	0	
 VAR_60	0	
 door_close_sound_ref	0	
 VAR_62	0	
 VAR_63	0	
-VAR_64	"RAINPT1"	
-VAR_65	"stop playing the portcullis sound"	
 code_cracked	0	
-VAR_67	"it's_raining"	
 VAR_68	{ -1100, 1270, 1250 }	
 VAR_69	{ 1900, 1270, -1475 }	
-VAR_70	"RAIN"	
-VAR_71	"torch"	
 is_bell_ring_animation_played	0	
 bell_anim_frame	0
-VAR_74	"bellring"	
+VAR_56	{ 0, 0 }	
+VAR_58	{ 0, 0 }	
 pwd_ring_parts	{ 3, 2, 1 }	
 nod_animation	0	
 VAR_78	{ -1000882176, -1004978176, -1018298368 }	
 is_code_given	1
-VAR_80	"yes"	
-VAR_81	"gateopen"	
-VAR_82	"chronicl"	
-VAR_83	"rain"	
-VAR_84	"tavern01"	
-VAR_85	"given bell code"	
-VAR_86	"no bell code"	
 password_phase	0	
 num_of_rings_made	0	
 current_pwd_part	0	
@@ -96,18 +56,7 @@ near_bell_position	{ -693, -1039, -230 }
 selected_hero	0	
 VAR_94	{ -584, -1039, 758 }	
 VAR_95	-1	
-VAR_96	"walked to bell"	
-VAR_97	"*"
-VAR_98	"code timeout"	
-VAR_99	"code timeout"	
-VAR_100	"."	
-VAR_101	"right..."
-VAR_102	"pause timeout 1"	
-VAR_103	"pause timeout 2"	
-VAR_104	"wrong pause..."	
-VAR_105	"cracked the code!!"	
 bell_step	0	
-VAR_107	"walked to bell"
 
 ._main
 	execute make_it_rain
@@ -117,7 +66,7 @@ VAR_107	"walked to bell"
 	execute get_chronicler_if_he_already_exist
 
 	// play rain's theme
-	call play_bgm(var &VAR_64)
+	call play_bgm("RAINPT1")
 
 	if(gamevar is_room_cleared) {
 			execute do_nothing
@@ -165,7 +114,7 @@ VAR_107	"walked to bell"
 					
 					// stop playing portcullis
 					call stop_playing_sound(var portcullis_sound_ref)
-					call log(var &VAR_65)
+					call log("stop playing the portcullis sound")
 					
 					// play door close sound ("DoorCls3")
 					var door_close_sound_ref = call play_loaded_sound(int 3, int 0, int 51, int 0)
@@ -196,8 +145,8 @@ VAR_107	"walked to bell"
 	}
 
 ._make_it_rain
-	call log(var &VAR_67)
-	call func_f4(var &VAR_70, var &VAR_68, var &VAR_69, int 0)
+	call log("it's_raining")
+	call func_f4("RAIN", { -1100, 1270, 1250 }, { 1900, 1270, -1475 }, int 0)
 	execute create_rain_fx
 
 ._animate_gate_torch
@@ -205,7 +154,7 @@ VAR_107	"walked to bell"
 	gamevar SMACKER_Y = int 224
 
 	// play torch animation next to the gate
-	call play_2d_anim(var &VAR_71, int 1, int 1, int 0)
+	call play_2d_anim("torch", int 1, int 1, int 0)
 
 ._lock_gate_door
 	gamevar *scene_info_p+4 &= int -3
@@ -230,18 +179,18 @@ VAR_107	"walked to bell"
 	}
 
 ._check_if_code_was_given
-	var nod_animation = call load_anim(var &VAR_80)
+	var nod_animation = call load_anim("yes")
 	gamevar SMACKER_X = int 264
 	gamevar SMACKER_Y = int 192
-	call play_2d_anim(var &VAR_81, int 0, int 1, var &play_gate_open_animation)
-	call load_char(var &VAR_82)
+	call play_2d_anim("gateopen", int 0, int 1, var &play_gate_open_animation)
+	call load_char("chronicl")
 
 	// check tavern memory
-	if(call func_c0(int 999, var &VAR_83, var &VAR_84)) {
-			call log(var &VAR_85) // "given bell code"	
+	if(call func_c0(int 999, "rain", "tavern01")) {
+			call log("given bell code") // "given bell code"	
 			var is_code_given = int 1
 	} else {
-			call log(var &VAR_86) // "no bell code"	
+			call log("no bell code") // "no bell code"	
 	}
 
 ._check_password
@@ -278,7 +227,7 @@ VAR_107	"walked to bell"
 	if(var password_phase == int 1) {
 			if(call is_char_standing(var selected_hero)) {
 					if(call is_char_at_pos(var selected_hero, var &near_bell_position, int 160)) {
-							call log(var &VAR_96) // "walked to bell"
+							call log("walked to bell") // "walked to bell"
 							var num_of_rings_made = int 1
 							var current_pwd_part = int 0
 							var should_pause = int 0
@@ -298,7 +247,7 @@ VAR_107	"walked to bell"
 			if(var should_pause == int 0) {
 					// if ringing animation is stopped playing 
 					if(var is_bell_ring_animation_played == int 0) {
-							call log(var &VAR_97) // "*"
+							call log("*") // "*"
 
 							// check if this part of the password is correct
 							if(var num_of_rings_made == @pwd_ring_parts[var current_pwd_part]) {
@@ -329,14 +278,14 @@ VAR_107	"walked to bell"
 							// check for code timeout
 							if(call is_local_timer_greater_than(int 9)) {
 									if(var is_bell_ring_animation_played == int 1 && var bell_anim_frame == int 15) {
-											call log(var &VAR_98) // "code timeout"
+											call log("code timeout") // "code timeout"
 											var password_phase = int 0
 											// reset timer
 											call reset_local_timer()
 											var is_bell_ring_animation_played = int 0
 									}
 									if(var is_bell_ring_animation_played == int 0) {
-											call log(var &VAR_99) // "code timeout"
+											call log("code timeout") // "code timeout"
 											var password_phase = int 0
                                             // reset timer
 											call reset_local_timer()
@@ -358,7 +307,7 @@ VAR_107	"walked to bell"
 			} else {
 				// check the pause between the password parts
 					if(call is_local_timer_between(int 10, int 18)) {
-							call log(var &VAR_100) // "."
+							call log(".") // "."
 					}
 
 					// if the bell was queued to ring (in a row)
@@ -368,7 +317,7 @@ VAR_107	"walked to bell"
 
 							// if its within the time frame the pause was right
 							if(call is_local_timer_between(int 8, int 48)) {
-								call log(var &VAR_101) // "right..."
+								call log("right...") // "right..."
 								var num_of_rings_made = int 1
                                 // reset timer
 								call reset_local_timer()
@@ -383,7 +332,7 @@ VAR_107	"walked to bell"
 					if(call is_local_timer_greater_than(int 48)) {
 							// if the ring animation ended
 							if(var is_bell_ring_animation_played == int 0) {
-									call log(var &VAR_102)  // "pause timeout 1"
+									call log("pause timeout 1")  // "pause timeout 1"
 									var password_phase = int 0
                                     // reset timer
 									call reset_local_timer()
@@ -391,7 +340,7 @@ VAR_107	"walked to bell"
 							}
 							// if the ring animation already started the next ring
 							if(var is_bell_ring_animation_played == int 1 && var bell_anim_frame == int 1) {
-									call log(var &VAR_103) // "pause timeout 2"
+									call log("pause timeout 2") // "pause timeout 2"
 									var password_phase = int 0
                                     // reset timer
 									call reset_local_timer()
@@ -404,7 +353,7 @@ VAR_107	"walked to bell"
 	// phase 3 means the pause was not right, when the anim ends we move to 4
 	if(var password_phase == int 3) {
 			if(var is_bell_ring_animation_played == int 1 && var bell_anim_frame == int 15) {
-					call log(var &VAR_104) // "wrong pause"
+					call log("wrong pause...") // "wrong pause"
 					var password_phase ++ 
                     // reset timer
 					call reset_local_timer()
@@ -423,7 +372,7 @@ VAR_107	"walked to bell"
 
 	// if this is true, the code is cracked
 	if(var password_phase == int 5) {
-			call log(var &VAR_105)  // "cracked the code!!!"
+			call log("cracked the code!!")  // "cracked the code!!!"
 
 			var code_cracked = int 1
 			gamevar *scene_info_p+1 = int 1
@@ -483,7 +432,7 @@ VAR_107	"walked to bell"
 	if(var bell_step == int 1) {
 			if(call is_char_standing(var selected_hero)) {
 					if(call is_char_at_pos(var selected_hero, var &near_bell_position, int 160)) {
-							call log(var &VAR_107)  // "walked to bell"
+							call log("walked to bell")  // "walked to bell"
 							var is_bell_ring_animation_played = int 1
 							var bell_step ++ 
 					} else {
@@ -520,7 +469,7 @@ VAR_107	"walked to bell"
 	call load_sound_set(int 51)
 	gamevar SMACKER_X = int 368
 	gamevar SMACKER_Y = int 304
-	call play_2d_anim(var &VAR_74, int 1, int 1, var &is_bell_ring_animation_played)
+	call play_2d_anim("bellring", int 1, int 1, var &is_bell_ring_animation_played)
 
 ._get_chronicler_if_he_already_exist
 	if(call ! is_char_handle_in_level(int 6291456)) {
@@ -590,12 +539,12 @@ VAR_107	"walked to bell"
 				break 
 			case 5
 				if(var VAR_19 != gamevar saved_games_count) {
-						call log(var &VAR_24) // "game saved"
+						call log("game saved") // "game saved"
 						call func_11d()
 						var VAR_17 = int 7
 						var VAR_18 = int 0
 				} else {
-						call log(var &VAR_25) // "game not saved"
+						call log("game not saved") // "game not saved"
 						call func_2a(var chronicler_char_ref, var &VAR_20)
 						execute load_chronicler_and_hero_dialog
 						gamevar chronicler_variation = var chronicler_dialog
@@ -648,22 +597,22 @@ VAR_107	"walked to bell"
 	var VAR_4 = call func_66(gamevar control_char_p)
 	switch(var VAR_4) {
 			case 65536
-				call load_dialog_by_number(var &VAR_5, var &VAR_6, gamevar chronicler_variation)
+				call load_dialog_by_number("DVDCHR", "NULL", gamevar chronicler_variation)
 				break 
 			case 786432
-				call load_dialog_by_number(var &VAR_7, var &VAR_8, gamevar chronicler_variation)
+				call load_dialog_by_number("SEKCHR", "NULL", gamevar chronicler_variation)
 				break 
 			case 262144
-				call load_dialog_by_number(var &VAR_9, var &VAR_10, gamevar chronicler_variation)
+				call load_dialog_by_number("CAGCHR", "NULL", gamevar chronicler_variation)
 				break 
 			case 327680
-				call load_dialog_by_number(var &VAR_11, var &VAR_12, gamevar chronicler_variation)
+				call load_dialog_by_number("JUGCHR", "NULL", gamevar chronicler_variation)
 				break 
 			case 131072
-				call load_dialog_by_number(var &VAR_13, var &VAR_14, gamevar chronicler_variation)
+				call load_dialog_by_number("CHICHR", "NULL", gamevar chronicler_variation)
 				break 
 			case 196608
-				call load_dialog_by_number(var &VAR_15, var &VAR_16, gamevar chronicler_variation)
+				call load_dialog_by_number("VIVCHR", "NULL", gamevar chronicler_variation)
 				break 
 	}
 
@@ -672,22 +621,23 @@ VAR_107	"walked to bell"
 	var selected_char = call func_66(gamevar control_char_p)
 	switch(var selected_char) {
 			case 65536
-				var chronicler_dialog = call load_next_dialog(var &VAR_27, var &VAR_28)
+				var chronicler_dialog = call load_next_dialog("DVDCHR", "NULL")
 				break 
 			case 786432
-				var chronicler_dialog = call load_next_dialog(var &VAR_29, var &VAR_30)
+				var chronicler_dialog = call load_next_dialog("SEKCHR", "NULL")
+
 				break 
 			case 262144
-				var chronicler_dialog = call load_next_dialog(var &VAR_31, var &VAR_32)
+				var chronicler_dialog = call load_next_dialog("CAGCHR", "NULL")
 				break 
 			case 327680
-				var chronicler_dialog = call load_next_dialog(var &VAR_33, var &VAR_34)
+				var chronicler_dialog = call load_next_dialog("JUGCHR", "NULL")
 				break 
 			case 131072
-				var chronicler_dialog = call load_next_dialog(var &VAR_35, var &VAR_36)
+				var chronicler_dialog = call load_next_dialog("CHICHR", "NULL")
 				break 
 			case 196608
-				var chronicler_dialog = call load_next_dialog(var &VAR_37, var &VAR_38)
+				var chronicler_dialog = call load_next_dialog("VIVCHR", "NULL")
 				break 
 	}
 
@@ -707,7 +657,7 @@ VAR_107	"walked to bell"
 
 ._play_lightning_thunder_effects
 	if(var !rain_sfx_initialized) {
-			call log(var &VAR_47)
+			call log("random_rain_fx: Rain SFX not initialised! See Marc")
 			exit_script 
 	}
 	switch(var VAR_43) {

@@ -622,7 +622,7 @@ data_obj* asm_create_inline_data_obj(char*** tokens_pos_ptr, sct_f* sf) {
                 print_token_area_details(token_ptr, MODE_ASM);
             }
             // printf("found string. len: %d\n", len);
-            char str[len+1];
+            char str[len+8];
             copy_token_chars_from_to(token, str, '\"', '\"');
             str[len] = 0;
             // printf("string: %s\n", str);
@@ -633,8 +633,13 @@ data_obj* asm_create_inline_data_obj(char*** tokens_pos_ptr, sct_f* sf) {
 
             data_o->id = id;
             len += 1; // +1 for null byte
+            int pre_padding_len = len;
             // printf("len: %d\n", len);
             if(len % 4 != 0) len += 4-(len % 4); // padding
+            for(int i=pre_padding_len; i < len; i++) {
+                str[i] = 0xAA;
+            }
+            data = str;
             // printf("len with padding: %d\n", len);
             data_o->byte_size = len; 
             data_o->name = aapts(name);
@@ -690,7 +695,7 @@ data_obj* asm_create_data_obj(char*** tokens_pos_ptr, int id, node* data_nodes,
             }
             // todo: validate structure
             token_ptr++;
-            int integers_num = len - (len/2);
+            int integers_num = (len == 1) ? len : len - (len/2);
             // printf("array len: %d.\n", integers_num);
             int integers[integers_num];
             for(int i=0, j=0; i < len; i+=2, j++) {
@@ -709,6 +714,7 @@ data_obj* asm_create_data_obj(char*** tokens_pos_ptr, int id, node* data_nodes,
                             int num_id = id+j;
                             integers[j] = num;
                             // printf("offset: %08x\n", id+j);
+                            // printf("%s var was found.\n", str);
                             create_data_data_link(num_id, sf);
                         }
                         data_node = data_node->next;
@@ -751,19 +757,24 @@ data_obj* asm_create_data_obj(char*** tokens_pos_ptr, int id, node* data_nodes,
                 print_token_area_details(token_ptr, MODE_ASM);
             }
             // printf("found string. len: %d\n", len);
-            char str[len+1];
+            char str[len+8];
             copy_token_chars_from_to(token, str, '\"', '\"');
             str[len] = 0;
             // printf("string: %s\n", str);
 
-            // char* asm_data = { aapts(token) };
             byte* data = (byte*) aapts(str);
+            // char* asm_data = { aapts(token) };
             // printf("string: %s\n", (char*) data);
 
             data_o->id = id;
             len += 1; // +1 for null byte
+            int pre_padding_len = len;
             // printf("len: %d\n", len);
             if(len % 4 != 0) len += 4-(len % 4); // padding
+            for(int i=pre_padding_len; i < len; i++) {
+                str[i] = 0xAA;
+            }
+            data = str;
             // printf("len with padding: %d\n", len);
             data_o->byte_size = len; 
             data_o->name = aapts(name);
@@ -777,9 +788,47 @@ data_obj* asm_create_data_obj(char*** tokens_pos_ptr, int id, node* data_nodes,
         }
 
         default: {
+                // check for memory reference (data ref)
+                bool is_unfound_data_ref = false;
+                char* str = *(token_ptr);
+                if(is_letter(*str)) {
+                    // printf("%c\n", *str);
+                    // printf("memory ref: %s\n", str);
+                    node* data_node = data_nodes;
+                    bool found = false;
+                    while(data_node != NULL && !found) {
+                        data_obj* data_o = data_node->item;
+                        if(strlen(str) == strlen(data_o->name) && strcmp(data_o->name, str) == 0) {
+                            found = true;
+                            int num = data_o->id;
+                            int num_id = id;
+                            // printf("offset: %08x\n", id+j);
+                            // printf("%s var was found.\n", str);
+                            create_data_data_link(num_id, sf);
+                        }
+                        data_node = data_node->next;
+                    }
+                    if(!found) { 
+                        // char err[256];
+                        // sprintf(err, "Error, %s var was not found.", str);
+                        // print_err_and_exit(err, -4); 
+                        // printf("%s var was not found.\n", str);
+                        int num_id = id;
+                        is_unfound_data_ref = true;
+                        unfound_var_ids[*unfound_var_index] = num_id;
+                        unfound_var_names[*unfound_var_index] = aapts(str);
+                        *unfound_var_index += 1;
+                        create_data_data_link(num_id, sf);
+                    }
+                }
             // todo: validate structure
             char* asm_data[1] = { aapts(token) };
-            int data[1] = { atoi(token) };
+            int data[1];
+            if(is_unfound_data_ref) {
+                data[0] = -9;
+            } else {
+                data[0] = atoi(token);
+            }
 
             data_o->id = id;
             data_o->byte_size = 4;

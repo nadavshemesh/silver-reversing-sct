@@ -59,7 +59,7 @@ void build_data_from_link_table(sct_f* sct) {
 
     for(int i=0; i < ds_size; i++) { 
         ref_is_valid[i] = 0; ref_is_data[i] = 0; ref_is_code[i] = 0; ref_count[i] = 0;
-        data_to_replace[i] = 0; data_should_replace[i] = 0; }
+        data_to_replace[i] = 0; data_should_replace[i] = 0; data_ref_count[i] = 0; }
     // check and convert to data offset
     for(int i=0; i < links_num; i++) {
         // printf("type: %03x\n", refs[i] & 0xFF000000);

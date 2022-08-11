@@ -1,22 +1,15 @@
 ._DATA
 VAR_0	0	
-VAR_1	0	
 VAR_2	0	
 VAR_3	{ 0, 0 }	
 VAR_4	{ 0, 601, -350, 69, -607, -350, 92 }	
 VAR_6	0	
 VAR_7	{ -5, -350, -418 }	
-VAR_8	0	
-dead_queen	0	
 VAR_11	{ 9, -350, -130 }	
-VAR_12	0	
 VAR_13	0	
 VAR_14	{ 590, -350, 1087, 25, -250, 1350, -542, -350, 1165, 9, -350, -130 }	
 VAR_15	0	
-VAR_19	0	
 VAR_21	0	
-VAR_22	0	
-VAR_23	0	
 VAR_24	{ 1145192448, -1011941376, 1150582784 }	
 VAR_25	{ -1002242048, -1011941376, 1150631936 }	
 VAR_26	"wDIE"	
@@ -117,8 +110,8 @@ switch(var VAR_4)
 			 {
 					call play_bgm("STING3")
 					call func_134()
-					var VAR_12 = call get_char_handle(int 65536)
-					gamevar script_object = var VAR_12
+					var DAVID = call get_char_handle(int 65536)
+					gamevar script_object = var DAVID
 					var VAR_13 = gamevar LEVEL
 					var VAR_0 = var VAR_13 + int 1
 					execute SCRIPT_13
@@ -132,7 +125,7 @@ switch(var VAR_4)
 			}
 			break 
 		case 2
-			if(call func_5c(var VAR_12))
+			if(call func_5c(var DAVID))
 			 {
 					call force_scroll_to_pos(var &VAR_11)
 					var VAR_4 = int 3

@@ -1,23 +1,7 @@
 ._DATA
-VAR_0	0	
-VAR_1	0	
-VAR_2	0	
-VAR_3	0	
-VAR_4	0	
-VAR_5	0	
-VAR_10	0	
-VAR_11	0	
 VAR_15	{ 1769367926, 1701736037, 0 }	
-VAR_20	0	
 VAR_21	{ 1234, -1675, 4788, 666, -1675, 5455, 160, -1675, 6281, 1482, -2275, 6864, 1219, -2275, 7253, 946, -2275, 7544, 2306, -2075, 5781, 2738, -2075, 6133, 534, -2275, 8115, -275, -2275, 8689, -954, -2075, 8114, -735, -1875, 6983 }	
 VAR_22	{ 0, 1, 12, VAR_21, 8, 2, 4, 0, 9, 1, 1, 2, 60, 60, 60, 60, -1, 5, 0, 60, 6, 2, 7, 1, 1, -1 }	
-VAR_23	0	
-VAR_24	0	
-skel	0	
-skel1	0	
-skel2	0	
-deathip	0	
-VAR_29	0	
 VAR_30	{ -535, -1675, 6421 }	
 VAR_31	{ 65, -1675, 6965 }	
 VAR_32	{ 1777, -2275, 6764 }	
@@ -26,17 +10,11 @@ VAR_34	{ -1678, -2075, 7681 }
 VAR_36	{ 0, 139, -1675, 5764, 0, 677, -1675, 6250, 0, 35, -1675, 6939, 0, -535, -1675, 6421, 7, 8 }	
 VAR_37	{ 0, -522, -1675, 6440, 0, 78, -1675, 5678, 0, 698, -1675, 6271, 0, 65, -1675, 6965, 7, 8 }	
 VAR_38	{ 0, 907, -2275, 7768, 0, 1777, -2275, 6764, 7, 8, 1791, -1875, 5307, 1623, -1675, -4803, 1234, -1675, 5237 }	
-drop_wraith	0	
 VAR_41	{ 1349, -1275, 6489 }	
-drop_wraith1	0	
 VAR_43	{ 530, -1275, 7376 }	
-drop_wraith2	0	
 VAR_45	{ 1583, -675, 4298 }	
-drop_wraith3	0	
 VAR_47	{ -280, -1275, 8900 }	
 VAR_48	-1	
-VAR_59	0	
-VAR_60	0	
 VAR_61	{ 0, 0, 1, -1, 8, 1, 19, 1070, -2275, 7082, 12, 58, 58, 59, -1, 13, 0, 14, 0, 1, 3, 5, 0, 60, 17, 2, 2260, -2075, 5406, 2877, -2075, 6299, -1, 18, 50, 11, -1 }	
 VAR_62	{ 0, 0, 0, -1, 8, 1, 19, 1070, -2275, 7082, 12, 60, 60, 59, -1, 13, 0, 14, 0, 1, 3, 5, 0, 60, 17, 2, 293, -2275, 8520, -615, -2275, 8719, -1, 18, 50, 11, -1 }	
 VAR_63	{ 1242, -1000, 7056, 167, -1000, 6387, 1265, -1000, 4836, 1234, -1000, 6778 }	
@@ -113,21 +91,21 @@ switch(var VAR_23)
 		case 0
 			if(call is_char_handle_in_level(int 8192000))
 			 {
-					if(call func_88(var VAR_28))
+					if(call func_88(var deathip))
 					 {
 							var VAR_23 = int 2
 					}
 			}
 			if(call is_char_handle_in_level(int 8126465))
 			 {
-					if(call func_88(var VAR_25))
+					if(call func_88(var skel))
 					 {
 							var VAR_23 = int 2
 					}
 			}
 			if(call is_char_handle_in_level(int 8126466))
 			 {
-					if(call func_88(var VAR_26))
+					if(call func_88(var skel1))
 					 {
 							var VAR_23 = int 2
 					}
@@ -182,8 +160,8 @@ switch(var VAR_23)
 			 {
 					var VAR_20 = call run_enemy_generator(var &VAR_22, int 10)
 					call set_input_system(int 1)
-					call set_char_running(var VAR_29)
-					call char_walk_to(var VAR_29, int -61, int -1675, int 6364)
+					call set_char_running(var ndeadjohn)
+					call char_walk_to(var ndeadjohn, int -61, int -1675, int 6364)
 					call func_116("haven", "h_camptp", int 8)
 					var VAR_23 ++ 
 					var VAR_24 = int 0
@@ -193,14 +171,14 @@ switch(var VAR_23)
 			var VAR_24 ++ 
 			if(var VAR_24 > int 80)
 			 {
-					call func_fa(var VAR_29)
+					call func_fa(var ndeadjohn)
 					var VAR_23 ++ 
 			}
 			break 
 		case 8
-			if(call is_char_standing(var VAR_29))
+			if(call is_char_standing(var ndeadjohn))
 			 {
-					call remove_char(var VAR_29)
+					call remove_char(var ndeadjohn)
 					var VAR_23 ++ 
 			}
 			break 
@@ -254,8 +232,8 @@ gamevar script_object = var skel1
 gamevar *character_stats_p+15 = int 1400
 gamevar script_object = var deathip
 gamevar *character_stats_p+15 = int 6000
-var VAR_29 = call create_char(var &VAR_34, "ndeadjohn", int 50, int 13)
-call func_f1(var VAR_29, int 4)
+var ndeadjohn = call create_char(var &VAR_34, "ndeadjohn", int 50, int 13)
+call func_f1(var ndeadjohn, int 4)
 call set_char_init_state(var skel, int 13)
 call play_char_ai_script(var skel, var &VAR_36)
 call set_char_init_state(var skel1, int 13)

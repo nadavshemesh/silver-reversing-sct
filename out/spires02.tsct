@@ -1,8 +1,6 @@
 ._DATA
-VAR_0	0	
 VAR_4	{ 0, 3 }	
 VAR_5	1	
-VAR_6	0	
 VAR_7	{ -20231, 250, 1602 }	
 VAR_8	{ -20220, 600, 1196 }	
 VAR_9	{ -20297, 600, 1570, -20314, 600, 1309, -20298, 600, 1092, -20298, 600, 922, -20166, 600, 2268, -20312, 600, 2034, -20296, 600, 1905, -20313, 600, 1751 }	
@@ -10,18 +8,10 @@ VAR_10	{ 0, 1, 8, VAR_9, 8, 0, 4, 0, 9, 0, 1, 1, 150, -1, 5, 1, 10, 40, 6, 3, 7,
 VAR_11	{ 0, 0, 0, -1, 8, 1, 4, 0, 9, 1, 1, 2, 51, 148, -1, 5, 1, 250, 400, 6, 1, 7, 1, 3, 10, 43, -1, -1 }	
 VAR_14	{ 0, 0, 0, -1, 8, 1, 4, 0, 9, 0, 1, 1, 51, 51, -1, 5, 1, 250, 400, 6, 3, 7, 1, 3, -1 }	
 VAR_15	{ 0, 0, 0, 1, -1, 8, 2, 4, 0, 9, 0, 1, 3, 64, 64, -1, 5, 1, 150, 250, 6, 1, 7, 1, 2, -1 }	
-VAR_16	0	
-VAR_17	0	
-VAR_18	0	
-VAR_19	0	
-VAR_20	0	
 VAR_21	{ -18021, -352, 2167, -18008, -352, 1031 }	
-VAR_22	0	
-VAR_23	0	
 VAR_27	{ 0, 0, 0, 1, -1, 8, 1, 19, 1070, -2275, 7082, 12, 64, 64, 64, -1, 13, 0, 14, 0, 1, 3, 5, 0, 60, 18, 50, -1 }	
 VAR_28	{ -18138, 1352, 1229, -17816, 1352, 1365, -17920, 1352, 1827, -18509, 1352, 1559, -19494, 1352, 1059, -18975, 1352, 1102, -19347, 1352, 1851 }	
 VAR_29	{ 0, 1, 7, VAR_28, 8, 1, 19, 1070, -2275, 7082, 12, 147, 147, 150, -1, 13, 0, 14, 0, 1, 3, 5, 0, 60, 18, 50, -1, 0, 0 }	
-VAR_30	0
 
 ._on_load
 call load_item(int 94)
@@ -152,11 +142,11 @@ switch(var VAR_17)
 					 {
 							if(call get_char_y(var VAR_22) > int -300&&call func_122(var VAR_16))
 							 {
-									var VAR_23 = call create_enemy_through_door(int 148, int 0, int 0, int 0)
-									gamevar script_object = var VAR_23
+									var fire_fishman = call create_enemy_through_door(int 148, int 0, int 0, int 0)
+									gamevar script_object = var fire_fishman
 									gamevar *character_stats_p+15 = int 2000
-									call char_walk_to(var VAR_23, int -18787, int -352, int 1592)
-									call add_item_to_char(var VAR_23, int 32, int 1, int 0)
+									call char_walk_to(var fire_fishman, int -18787, int -352, int 1592)
+									call add_item_to_char(var fire_fishman, int 32, int 1, int 0)
 									var VAR_17 ++ 
 							}
 					}

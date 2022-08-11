@@ -1,32 +1,9 @@
 ._DATA
-VAR_0	0	
-fade_chronicler	0	
-VAR_2	0	
-VAR_3	0	
-VAR_4	0	
-VAR_17	0	
 VAR_18	{ 0, 0, -1 }	
-VAR_19	0	
-VAR_20	0	
-VAR_21	0	
-VAR_22	0	
 VAR_23	-1	
-VAR_26	0	
-VAR_39	0	
-VAR_40	0	
 VAR_41	1	
 VAR_42	{ 0, 0 }	
-VAR_44	0	
-VAR_45	0	
-VAR_46	0	
-VAR_47	0	
-VAR_50	0	
-VAR_51	0	
 VAR_52	{ 165, 0, -55 }	
-VAR_55	0	
-VAR_56	0	
-VAR_57	0	
-VAR_58	0	
 VAR_59	{ -300, 0, 28 }	
 VAR_60	{ -161, 0, 337 }	
 VAR_61	{ 157, 0, 624 }	
@@ -34,8 +11,6 @@ VAR_62	VAR_60
 VAR_63	VAR_61	
 VAR_64	{ -1264, 0, 901 }	
 VAR_65	-1	
-VAR_72	0	
-VAR_73	0
 
 ._on_load
 execute SCRIPT_4
@@ -177,11 +152,11 @@ var VAR_45 ++
 execute SCRIPT_8
 
 ._SCRIPT_7
-var VAR_51 = call create_char(var &VAR_52, "NVILLBOY", int 325, int 13)
-var VAR_50 = call add_item_to_char(var VAR_51, int 87, int 1, int 1)
+var NVILLBOY = call create_char(var &VAR_52, "NVILLBOY", int 325, int 13)
+var VAR_50 = call add_item_to_char(var NVILLBOY, int 87, int 1, int 1)
 execute SCRIPT_9
-var VAR_39 = call get_char_handle(int 65536)
-var VAR_40 = call get_char_handle(int 393216)
+var DAVID = call get_char_handle(int 65536)
+var GRANDAD = call get_char_handle(int 393216)
 call load_char("chronicl")
 
 ._SCRIPT_8
@@ -199,8 +174,8 @@ switch(var VAR_55)
 			}
 			if(var VAR_56 > int 60)
 			 {
-					call char_walk_to_pos(var VAR_39, var VAR_62)
-					call char_walk_to_pos(var VAR_40, var VAR_63)
+					call char_walk_to_pos(var DAVID, var VAR_62)
+					call char_walk_to_pos(var GRANDAD, var VAR_63)
 					var VAR_55 ++ 
 					var VAR_56 = int 0
 			}
@@ -208,7 +183,7 @@ switch(var VAR_55)
 		case 1
 			if(var VAR_56 > int 50)
 			 {
-					call play_char_anim(var VAR_51, var VAR_46, int 0)
+					call play_char_anim(var NVILLBOY, var VAR_46, int 0)
 					var VAR_58 = call play_loaded_sound(int 3, int 0, int 8, int 0)
 					call set_sound_volume(var VAR_58, int 100)
 					var VAR_55 ++ 
@@ -225,12 +200,12 @@ switch(var VAR_55)
 			}
 			break 
 		case 3
-			if(call is_char_standing(var VAR_40))
+			if(call is_char_standing(var GRANDAD))
 			 {
-					var VAR_57 = call func_14(var VAR_39, int 89)
+					var VAR_57 = call func_14(var DAVID, int 89)
 					call func_112(var VAR_57, int 2)
-					call play_char_anim(var VAR_39, var VAR_47, int 0)
-					call play_char_anim(var VAR_40, var VAR_47, int 0)
+					call play_char_anim(var DAVID, var VAR_47, int 0)
+					call play_char_anim(var GRANDAD, var VAR_47, int 0)
 					var VAR_55 ++ 
 					var VAR_56 = int 0
 			}
@@ -238,8 +213,8 @@ switch(var VAR_55)
 		case 4
 			if(var VAR_56 > int 70)
 			 {
-					call char_turn_to_pos(var VAR_40, call get_char_pos(var VAR_51))
-					call char_turn_to_pos(var VAR_39, call get_char_pos(var VAR_51))
+					call char_turn_to_pos(var GRANDAD, call get_char_pos(var NVILLBOY))
+					call char_turn_to_pos(var DAVID, call get_char_pos(var NVILLBOY))
 					call start_dialog("DVDBOY", "NULL")
 					var VAR_55 ++ 
 					var VAR_56 = int 0
@@ -248,8 +223,8 @@ switch(var VAR_55)
 		case 5
 			if(call func_6d() == int 1)
 			 {
-					call set_char_running(var VAR_51)
-					call func_2b(var VAR_51, int 1)
+					call set_char_running(var NVILLBOY)
+					call func_2b(var NVILLBOY, int 1)
 					var VAR_55 ++ 
 					var VAR_56 = int 0
 			}
@@ -257,13 +232,13 @@ switch(var VAR_55)
 		case 6
 			if(var VAR_56 == int 70)
 			 {
-					call char_turn_to_pos(var VAR_40, var &VAR_64)
+					call char_turn_to_pos(var GRANDAD, var &VAR_64)
 			}
 			if(var VAR_56 == int 75)
 			 {
-					call char_turn_to_pos(var VAR_39, var &VAR_64)
+					call char_turn_to_pos(var DAVID, var &VAR_64)
 			}
-			if(call is_char_standing(var VAR_51))
+			if(call is_char_standing(var NVILLBOY))
 			 {
 					call resume_conversation()
 					var VAR_55 ++ 
@@ -272,7 +247,7 @@ switch(var VAR_55)
 		case 7
 			if(call get_input_sys() != int 4)
 			 {
-					call remove_char(var VAR_51)
+					call remove_char(var NVILLBOY)
 					call set_input_system(int 1)
 					var fade_chronicler = call create_enemy(int 178, int 0, var &VAR_59, int 5)
 					call func_116("haven", "h_cavext", int 3)

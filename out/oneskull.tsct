@@ -1,33 +1,14 @@
 ._DATA
-VAR_0	0	
 VAR_1	{ 0, 0 }	
-VAR_2	0	
 VAR_6	{ 1818585971, -1431655936, 9 }	
-VAR_7	0	
-VAR_8	0	
-VAR_9	0	
-VAR_12	0	
-VAR_13	0	
 VAR_14	{ 0, 1019, -800, 8182, 1067, -800, 6376, 1601, -800, 6926, -622, -800, 5973, 941, -800, 6576, 993, -800, 8095, 1061, -800, 7176, -622, -1675, 5973, 941, -2275, 6576, 993, -2275, 8095, 1061, -2275, 7176 }	
 VAR_15	{ 0, 0, 0, 1, -1, 8, 2, 19, 1000, -2275, 7177, 12, 61, 58, 60, 58, -1, 13, 0, 14, 0, 1, 4, 17, 0, 200, -1, 18, 100, -1 }	
 VAR_16	{ 0, 0, 0, 1, -1, 8, 2, 12, 58, 60, 60, 60, -1, 13, 0, 14, 0, 1, 4, 5, 0, 100, 18, 100, -1 }	
-VAR_24	0	
 VAR_25	{ 0, 0, 0 }	
-VAR_26	0	
-VAR_27	0	
-VAR_31	0	
-VAR_33	0	
-VAR_35	0	
-VAR_37	0	
-npc_skel	0	
 VAR_39	{ 1184, -2275, 7430 }	
-grow_boney	0	
 VAR_42	{ -578, -1675, 5967 }	
-skel	0	
 VAR_44	{ -91, -1675, 5688 }	
-skel1	0	
 VAR_46	{ -1113, -1675, 5958 }	
-VAR_47	0	
 VAR_48	{ 0, -638, -1675, 6388, 3, VAR_49, 0, 0, -1145, -1675, 5900, 0, -519, -1675, 5164, 3, VAR_50, 0, 0, -22, -1675, 5535, 7, 8 }	
 VAR_49	"lookout"	
 VAR_50	"lookout"	
@@ -40,7 +21,6 @@ VAR_56	{ 1035, -2275, 6269, 1867, -2275, 6933 }
 VAR_57	{ 1019, -800, 8182, 1067, -800, 6376, 1601, -800, 6926 }	
 VAR_58	{ 0, 1, 3, VAR_57, 8, 1, 4, 0, 9, 1, 1, 3, 90, -1, 5, 1, 15, 100, 6, 1, 7, 1, 3, -1 }	
 VAR_59	{ 503, -2075, 7100 }	
-VAR_60	0	
 VAR_61	{ 1601, -2275, 6934 }	
 VAR_62	{ 993, -2275, 6728 }	
 VAR_63	{ 1276, -2275, 7850 }	
@@ -51,19 +31,12 @@ VAR_67	{ 433, -2275, 7609 }
 VAR_68	{ VAR_61, VAR_62, VAR_63, VAR_64, VAR_65, VAR_66, VAR_67 }	
 VAR_69	{ -622, -1675, 5973, 941, -2275, 6576, 993, -2275, 8095, 1061, -2275, 7176 }	
 VAR_70	{ 0, 1, 4, VAR_69, 8, 1, 4, 0, 9, 1, 1, 1, 69, 60, 60, 68, -1, 5, 0, 100, 6, 1, 7, 1, 2, -1 }	
-VAR_71	0	
-VAR_72	0	
-VAR_73	0	
-VAR_76	0	
 VAR_78	{ 1019, -800, 8182, 1067, -800, 6376, 1601, -800, 6926, -622, -800, 5973, 941, -800, 6576, 993, -800, 8095, 1061, -800, 7176 }	
 VAR_79	{ -622, -1675, 5973, 941, -2275, 6576, 993, -2275, 8095, 1061, -2275, 7176 }	
 VAR_80	{ 0, 1, 4, VAR_79, 8, 2, 19, 1000, -2275, 7177, 12, 69, 60, 60, 68, -1, 13, 0, 14, 0, 1, 4, 17, 0, 200, -1, 18, 40, -1 }	
 VAR_81	{ 0, 1, 7, VAR_78, 8, 2, 12, 89, 90, 90, 90, -1, 13, 0, 14, 0, 1, 4, 5, 0, 100, 18, 30, -1 }	
-VAR_82	0	
 VAR_83	10	
 VAR_84	1	
-VAR_85	0	
-VAR_86	0
 
 ._on_load
 call play_bgm("DEADPT1")
@@ -143,13 +116,13 @@ switch(var VAR_24)
 		case 0
 			if(call func_d1(var &VAR_56))
 			 {
-					call char_walk_to(var VAR_38, int 502, int -2075, int 7102)
+					call char_walk_to(var npc_skel, int 502, int -2075, int 7102)
 					call log("projectile sensed")
 					var VAR_71 = int 1
 			}
 			if(call func_8a(var &VAR_55))
 			 {
-					call char_walk_to(var VAR_38, int 502, int -2075, int 7102)
+					call char_walk_to(var npc_skel, int 502, int -2075, int 7102)
 					call log("heros crossed tripwire")
 					var VAR_71 = int 1
 			}
@@ -159,9 +132,9 @@ switch(var VAR_24)
 			}
 			break 
 		case 1
-			if(call is_char_standing(var VAR_38))
+			if(call is_char_standing(var npc_skel))
 			 {
-					call char_teleport_to_pos(var VAR_38, var &VAR_59, int 250)
+					call char_teleport_to_pos(var npc_skel, var &VAR_59, int 250)
 					var VAR_24 ++ 
 			}
 			break 
@@ -169,7 +142,7 @@ switch(var VAR_24)
 			var VAR_25 ++ 
 			if(var VAR_25 > int 50)
 			 {
-					call play_char_anim(var VAR_38, var VAR_31, int 0)
+					call play_char_anim(var npc_skel, var VAR_31, int 0)
 					var VAR_25 = int 0
 					var VAR_24 ++ 
 			}
@@ -191,23 +164,23 @@ switch(var VAR_24)
 			var VAR_25 ++ 
 			if(var VAR_25 == int 20)
 			 {
-					call char_walk_to(var VAR_38, int 113, int -2275, int 7465)
+					call char_walk_to(var npc_skel, int 113, int -2275, int 7465)
 					if(call is_char_handle_in_level(int 8126464))
 					 {
-							call func_46(var VAR_43, int 13)
-							call set_char_running(var VAR_43)
+							call func_46(var skel1, int 13)
+							call set_char_running(var skel1)
 					}
 					if(call is_char_handle_in_level(int 8126465))
 					 {
-							call func_46(var VAR_45, int 13)
-							call set_char_running(var VAR_45)
+							call func_46(var skel2, int 13)
+							call set_char_running(var skel2)
 					}
 			}
 			if(var VAR_25 == int 50)
 			 {
 					if(call is_char_handle_in_level(int 8126464))
 					 {
-							call char_walk_to(var VAR_43, int 813, int -2275, int 7433)
+							call char_walk_to(var skel1, int 813, int -2275, int 7433)
 					}
 			}
 			if(var VAR_25 > int 100)
@@ -215,15 +188,15 @@ switch(var VAR_24)
 					var VAR_25 = int 0
 					var VAR_24 ++ 
 					var VAR_7 = int 1
-					var VAR_37 = var VAR_38
+					var VAR_37 = var npc_skel
 					if(call is_char_handle_in_level(int 8126465))
 					 {
-							call char_walk_to(var VAR_45, int 303, int -2075, int 7151)
+							call char_walk_to(var skel2, int 303, int -2075, int 7151)
 					}
-					var VAR_47 = call create_enemy_through_door(int 58, int 3, int 1, int 90)
-					call set_char_running(var VAR_47)
-					call func_106(var VAR_47, int 1, int 0, int 3)
-					call set_char_init_state(var VAR_47, int 1)
+					var skel = call create_enemy_through_door(int 58, int 3, int 1, int 90)
+					call set_char_running(var skel)
+					call func_106(var skel, int 1, int 0, int 3)
+					call set_char_init_state(var skel, int 1)
 			}
 			break 
 		case 5
@@ -232,7 +205,7 @@ switch(var VAR_24)
 			 {
 					if(call is_char_handle_in_level(int 8126467))
 					 {
-							call char_walk_to(var VAR_47, int 606, int -2275, int 7745)
+							call char_walk_to(var skel, int 606, int -2275, int 7745)
 					}
 					var VAR_25 = int 0
 					var VAR_24 ++ 
@@ -349,19 +322,19 @@ var npc_skel = call create_char(var &VAR_39, "nskel", int 90, int 13)
 call set_char_running(var npc_skel)
 gamevar script_object = var npc_skel
 gamevar *object_p+6 |= int 8388608
-var skel = call create_enemy(int 58, int 0, var &VAR_44, int 200)
-call func_106(var skel, int 1, int 0, int 3)
-call set_char_init_state(var skel, int 1)
-var skel1 = call create_enemy(int 58, int 1, var &VAR_46, int 20)
+var skel1 = call create_enemy(int 58, int 0, var &VAR_44, int 200)
 call func_106(var skel1, int 1, int 0, int 3)
 call set_char_init_state(var skel1, int 1)
-call set_char_init_state(var skel, int 13)
-call play_char_ai_script(var skel, var &VAR_48)
-gamevar script_object = var skel
-gamevar *character_stats_p+15 = int 1000
+var skel2 = call create_enemy(int 58, int 1, var &VAR_46, int 20)
+call func_106(var skel2, int 1, int 0, int 3)
+call set_char_init_state(var skel2, int 1)
 call set_char_init_state(var skel1, int 13)
-call play_char_ai_script(var skel1, var &VAR_51)
+call play_char_ai_script(var skel1, var &VAR_48)
 gamevar script_object = var skel1
+gamevar *character_stats_p+15 = int 1000
+call set_char_init_state(var skel2, int 13)
+call play_char_ai_script(var skel2, var &VAR_51)
+gamevar script_object = var skel2
 gamevar *character_stats_p+15 = int 1000
 
 ._SCRIPT_5

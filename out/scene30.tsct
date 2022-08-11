@@ -1,40 +1,8 @@
 ._DATA
-VAR_0	0	
-VAR_1	0	
-VAR_2	0	
-VAR_3	0	
-VAR_4	0	
-VAR_5	0	
-VAR_6	0	
-VAR_7	0	
-VAR_9	0	
-VAR_10	0	
-VAR_11	0	
-VAR_12	0	
-VAR_13	0	
-VAR_14	0	
-VAR_15	0	
-VAR_16	0	
 VAR_17	{ 0, 0 }	
 VAR_20	{ -2600, 2199, -4625 }	
 VAR_21	{ 375, 2199, -7350 }	
-VAR_23	0	
-VAR_24	0	
-VAR_25	0	
-VAR_26	0	
 VAR_27	{ 0, 0 }	
-lieutenant	0	
-lieutenant1	0	
-VAR_30	0	
-VAR_31	0	
-archer	0	
-archer1	0	
-VAR_34	0	
-VAR_35	0	
-VAR_36	0	
-VAR_37	0	
-VAR_38	0	
-VAR_39	0	
 VAR_40	{ 2197, -950, 6015 }	
 VAR_41	{ 1921, -950, 6291 }	
 VAR_42	{ 2071, -950, 6141 }	
@@ -128,12 +96,12 @@ switch(var VAR_23)
 		case 1
 			if(call is_char_handle_in_level(int 7143424))
 			 {
-					gamevar script_object = var VAR_28
+					gamevar script_object = var lieutenant
 					gamevar *character_stats_p+15 = int 3000
 			}
 			if(call is_char_handle_in_level(int 7143425))
 			 {
-					gamevar script_object = var VAR_29
+					gamevar script_object = var lieutenant1
 					gamevar *character_stats_p+15 = int 3000
 			}
 			var VAR_27 = int 4
@@ -186,12 +154,12 @@ call func_106(var archer1, int 9, int 6, int 1)
 call func_106(var archer1, int 0, int 3, int 180)
 call set_char_init_state(var archer1, int 13)
 call play_char_ai_script(var archer1, var &VAR_46)
-var VAR_30 = call create_char(var &VAR_42, "nflatnose", int 285, int 13)
-call set_char_running(var VAR_30)
-gamevar script_object = var VAR_30
+var nflatnose = call create_char(var &VAR_42, "nflatnose", int 285, int 13)
+call set_char_running(var nflatnose)
+gamevar script_object = var nflatnose
 gamevar *character_movement_p+60 = int 1
-var VAR_31 = call get_char_handle(int 65536)
-var VAR_34 = call get_char_handle(int 786432)
+var DAVID = call get_char_handle(int 65536)
+var SEKUNE = call get_char_handle(int 786432)
 call add_item_to_char(var lieutenant, int 108, int 1, int 0)
 
 ._SCRIPT_6
@@ -229,7 +197,7 @@ if(var VAR_25 == int 2)
 		 {
 				if(call func_5c(var lieutenant1))
 				 {
-						call play_char_anim(var VAR_30, var VAR_39, int 0)
+						call play_char_anim(var nflatnose, var VAR_39, int 0)
 				}
 				var VAR_25 ++ 
 		}
@@ -240,15 +208,15 @@ if(var VAR_25 == int 2)
 }
 if(var VAR_25 == int 3)
  {
-		if(call func_5c(var VAR_30))
+		if(call func_5c(var nflatnose))
 		 {
-				call play_char_anim(var VAR_30, var VAR_38, int 0)
+				call play_char_anim(var nflatnose, var VAR_38, int 0)
 				var VAR_25 ++ 
 		}
 }
 if(var VAR_25 == int 4)
  {
-		if(call func_5c(var VAR_30))
+		if(call func_5c(var nflatnose))
 		 {
 				if(call is_char_handle_in_level(int 7143425))
 				 {
@@ -263,19 +231,19 @@ if(var VAR_25 == int 5)
 		 {
 				if(call func_5c(var lieutenant1))
 				 {
-						call play_char_anim(var VAR_30, var VAR_36, int 0)
+						call play_char_anim(var nflatnose, var VAR_36, int 0)
 						var VAR_25 ++ 
 				}
 		}
 		else
 		 {
-				call play_char_anim(var VAR_30, var VAR_36, int 0)
+				call play_char_anim(var nflatnose, var VAR_36, int 0)
 				var VAR_25 ++ 
 		}
 }
 if(var VAR_25 == int 6)
  {
-		if(call func_5c(var VAR_30))
+		if(call func_5c(var nflatnose))
 		 {
 				if(call is_char_handle_in_level(int 7143425))
 				 {
@@ -286,14 +254,14 @@ if(var VAR_25 == int 6)
 }
 if(var VAR_25 == int 7)
  {
-		call func_2b(var VAR_30, int 0)
+		call func_2b(var nflatnose, int 0)
 		var VAR_25 ++ 
 }
 if(var VAR_25 == int 8)
  {
-		if(call is_char_standing(var VAR_30))
+		if(call is_char_standing(var nflatnose))
 		 {
-				call remove_char(var VAR_30)
+				call remove_char(var nflatnose)
 				var VAR_25 ++ 
 		}
 }

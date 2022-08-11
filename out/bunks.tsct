@@ -1,15 +1,12 @@
 ._DATA
 VAR_0	0	
-VAR_1	0	
 VAR_2	{ -534, -2113, 150, -1567, -2113, 150 }	
-VAR_3	0	
 VAR_4	{ 0, 0, 1, -1, 8, 0, 4, 0, 9, 1, 1, 2, 81, 81, 78, -1, 5, 0, 140, 6, 4, 7, 1, 1, -1 }	
 VAR_5	{ 0, 0, 0, 1, -1, 8, 1, 4, 0, 9, 1, 1, 1, 77, 77, -1, 5, 0, 140, 6, 4, 7, 1, 2, -1 }	
 VAR_6	{ -1595, -2112, -301 }	
 VAR_7	{ -1601, -2112, 575 }	
-VAR_8	0	
-VAR_9	0	
-VAR_14	0	
+btreasure	0	
+bmimic	0	
 VAR_15	{ 0, 0 }	
 VAR_16	0
 
@@ -105,13 +102,13 @@ if(var VAR_14 == int 1)
 }
 
 ._SCRIPT_5
-var VAR_9 = call create_char(var &VAR_7, "bmimic", int 90, int 17)
-call add_item_to_char(var VAR_9, int 48, int 0, int 0)
-call add_item_to_char(var VAR_9, int 16, int 0, int 0)
-var VAR_8 = call create_char(var &VAR_6, "btreasure", int 90, int 14)
-call add_item_to_char(var VAR_8, int 40, int 1, int 0)
-call add_item_to_char(var VAR_8, int 43, int 1, int 0)
-call add_item_to_char(var VAR_8, int 85, int 1638913, int 0)
+var bmimic = call create_char(var &VAR_7, "bmimic", int 90, int 17)
+call add_item_to_char(var bmimic, int 48, int 0, int 0)
+call add_item_to_char(var bmimic, int 16, int 0, int 0)
+var btreasure = call create_char(var &VAR_6, "btreasure", int 90, int 14)
+call add_item_to_char(var btreasure, int 40, int 1, int 0)
+call add_item_to_char(var btreasure, int 43, int 1, int 0)
+call add_item_to_char(var btreasure, int 85, int 1638913, int 0)
 call load_char("orc")
 call load_char("ronnie")
 call load_item(int 92)

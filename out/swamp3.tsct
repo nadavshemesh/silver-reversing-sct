@@ -1,32 +1,9 @@
 ._DATA
-VAR_0	0	
-fade_chronicler	0	
-VAR_2	0	
-VAR_3	0	
-VAR_4	0	
-VAR_17	0	
 VAR_18	{ 0, 0, -1 }	
-VAR_19	0	
-VAR_20	0	
-VAR_21	0	
-VAR_22	0	
 VAR_23	-1	
-VAR_26	0	
-VAR_39	0	
-VAR_40	0	
 VAR_41	{ -5825, 160, 9617 }	
-VAR_42	0	
-VAR_43	0	
-VAR_44	0	
-VAR_45	0	
-VAR_46	0	
 VAR_47	{ -5825, 160, 9617 }	
-swamp_tarra	0	
 treasure	{ 0, 0 }	
-VAR_52	0	
-VAR_53	0	
-VAR_55	0	
-VAR_56	0	
 VAR_57	{ -6151, 160, 9112 }	
 VAR_60	{ -5068, 160, 7767 }	
 VAR_61	{ -4112, 11, 10841 }	
@@ -35,9 +12,6 @@ VAR_63	{ -10586, 11, 7679 }
 VAR_64	{ -6362, 160, 9484 }	
 VAR_65	{ VAR_60, VAR_61, VAR_62, VAR_63, VAR_64 }	
 VAR_66	100	
-VAR_67	0	
-VAR_68	0	
-VAR_69	0
 
 ._on_load
 execute SCRIPT_8
@@ -122,8 +96,8 @@ switch(var VAR_55)
 			if(call is_local_timer_greater_than(int 60))
 			 {
 					call func_58(int 1)
-					call play_char_anim(var VAR_52, var VAR_53, int 0)
-					gamevar script_object = var VAR_52
+					call play_char_anim(var DAVID, var VAR_53, int 0)
+					gamevar script_object = var DAVID
 					var VAR_56 = gamevar LEVEL
 					var VAR_39 = var VAR_56 + int 1
 					execute SCRIPT_14
@@ -173,7 +147,7 @@ call load_char("treasure")
 call load_item(int 60)
 gamevar *scene_info_p+3 |= int 16
 var VAR_53 = call load_anim("victory")
-var VAR_52 = call get_char_handle(int 65536)
+var DAVID = call get_char_handle(int 65536)
 
 ._SCRIPT_5
 execute SCRIPT_7
@@ -192,14 +166,14 @@ if(var VAR_66 == int 0)
 var VAR_66 -- 
 
 ._SCRIPT_8
-var VAR_52 = call get_char_handle(int 65536)
+var DAVID = call get_char_handle(int 65536)
 var VAR_43 = int 0
 var VAR_44 = int 0
 var VAR_69 = call get_david_char()
 var VAR_42 = int 0
 while(var VAR_69)
  {
-		if(var VAR_69 != var VAR_52)
+		if(var VAR_69 != var DAVID)
 		 {
 				@VAR_43[var VAR_42]= var VAR_69
 				var VAR_42 ++ 

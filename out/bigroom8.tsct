@@ -1,21 +1,14 @@
 ._DATA
 VAR_1	{ -492, 153, -3776 }	
-VAR_4	0	
-treasure	0	
 VAR_7	{ -167, 0, -1985 }	
-treasure1	0	
 VAR_9	{ -151, 0, -3171 }	
-treasure2	0	
 VAR_11	{ -847, 0, -3907 }	
-VAR_18	0	
 VAR_19	{ -94, 0, -1119, -941, 0, -1238 }	
 VAR_20	{ -515, 0, -2366, -962, 0, -2331, -514, 0, -2610, -925, 0, -2541 }	
 VAR_21	{ -167, 0, -1985, -167, 0, -1985 }	
 VAR_22	{ 0, 1, 2, VAR_21, 8, 1, 19, -832, 0, -2094, 12, 194, 194, -1, 13, 1, 14, 1, 2, 5, 0, 25, 16, 0, 18, 100, 11, -1 }	
 VAR_23	{ -151, 0, -3171, -151, 0, -3171 }	
 VAR_24	{ 0, 1, 2, VAR_23, 8, 1, 19, -861, 0, -3084, 12, 194, 194, -1, 13, 1, 14, 1, 2, 5, 0, 25, 16, 0, 18, 100, 11, -1 }	
-VAR_25	0	
-VAR_26	0	
 
 ._on_load
 call play_bgm("chains")
@@ -101,7 +94,7 @@ if(var VAR_25 == int 1)
  {
 		if(call func_8a(var &VAR_19))
 		 {
-				call remove_char(var VAR_6)
+				call remove_char(var treasure)
 				var VAR_18 = call run_wandering_generator(var &VAR_22, int 1)
 				call log("treasure 2")
 				execute SCRIPT_6
@@ -120,7 +113,7 @@ if(var VAR_25 == int 2)
 }
 if(var VAR_25 == int 3)
  {
-		call remove_char(var VAR_8)
+		call remove_char(var treasure1)
 		var VAR_18 = call run_wandering_generator(var &VAR_24, int 1)
 		if(call func_8a(var &VAR_20))
 		 {

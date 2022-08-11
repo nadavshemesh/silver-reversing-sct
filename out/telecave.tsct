@@ -1,17 +1,8 @@
 ._DATA
-VAR_0	0	
-VAR_1	0	
-VAR_2	0	
-VAR_3	0	
-VAR_4	0	
 VAR_5	-1	
-VAR_7	0	
-VAR_8	0	
 VAR_9	{ 863, -1924, 2239 }	
 VAR_11	{ 0, 0 }	
-VAR_12	0	
 VAR_13	{ 440, -1485, 937 }	
-VAR_14	0	
 VAR_16	{ -467, -1925, 2101, -496, -1925, -18, -737, -1925, 480, -795, -1925, 1039, -651, -1925, 1506, -1007, -1925, 1020, -865, -1875, 1659, -1134, -1875, 1800, -1471, -1925, 1005, -614, -1925, -73, -599, -1925, 2235, -1550, -1925, 841, -1037, -1925, 1239, -704, -1925, 777, -464, -1925, 311, -385, -1925, 1605, -331, -1925, 1014, -616, -1925, 2036, -913, -1925, 1312, -599, -1925, 1384, -1042, -1875, 2061 }	
 VAR_17	{ 0, 1, 21, VAR_16, 8, 2, 1, 3, 60, 60, -1, 4, 0, 9, 1, 5, 1, 5, 100, 6, 2, 7, 1, 1, 10, 46, 83, 40, -1, -1 }	
 VAR_18	{ -180, -1925, 2395, -200, -1925, -340 }	
@@ -96,16 +87,16 @@ switch(var VAR_11)
 
 ._SCRIPT_4
 call load_char("wraith")
-var VAR_14 = call is_char_handle_in_level(int 1507328)
-if(var ! VAR_14)
+var is_BTREASURE_exist = call is_char_handle_in_level(int 1507328)
+if(var ! is_BTREASURE_exist)
  {
-		var VAR_14 = call create_char(var &VAR_13, "btreasure", int 270, int 14)
-		call add_item_to_char(var VAR_14, int 85, int 6554113, int 0)
-		call add_item_to_char(var VAR_14, int 83, int 1, int 0)
-		call add_item_to_char(var VAR_14, int 43, int 1, int 0)
-		call add_item_to_char(var VAR_14, int 40, int 1, int 0)
-		call add_item_to_char(var VAR_14, int 40, int 1, int 0)
-		call add_item_to_char(var VAR_14, int 47, int 1, int 0)
+		var is_BTREASURE_exist = call create_char(var &VAR_13, "btreasure", int 270, int 14)
+		call add_item_to_char(var is_BTREASURE_exist, int 85, int 6554113, int 0)
+		call add_item_to_char(var is_BTREASURE_exist, int 83, int 1, int 0)
+		call add_item_to_char(var is_BTREASURE_exist, int 43, int 1, int 0)
+		call add_item_to_char(var is_BTREASURE_exist, int 40, int 1, int 0)
+		call add_item_to_char(var is_BTREASURE_exist, int 40, int 1, int 0)
+		call add_item_to_char(var is_BTREASURE_exist, int 47, int 1, int 0)
 }
 
 ._SCRIPT_5
@@ -115,19 +106,19 @@ if(var ! VAR_14)
 ._SCRIPT_7
 
 ._SCRIPT_8
-var VAR_0 = call is_char_handle_in_level(int 1507337)
-if(var ! VAR_0)
+var is_BTREASURE_exist1 = call is_char_handle_in_level(int 1507337)
+if(var ! is_BTREASURE_exist1)
  {
-		var VAR_0 = call create_char(var VAR_1, "btreasure9", var VAR_2, int 14)
-		call func_aa(var VAR_0)
+		var is_BTREASURE_exist1 = call create_char(var VAR_1, "btreasure9", var VAR_2, int 14)
+		call func_aa(var is_BTREASURE_exist1)
 }
 else
  {
 		var VAR_4 = int 1
-		gamevar script_object = var VAR_0
+		gamevar script_object = var is_BTREASURE_exist1
 		if(gamevar *object_p+7 == int 4194304)
 		 {
-				call func_aa(var VAR_0)
+				call func_aa(var is_BTREASURE_exist1)
 		}
 }
 
@@ -138,11 +129,11 @@ if(var VAR_3 != int -1)
 		 {
 				if(var VAR_5 != int -1)
 				 {
-						call add_item_to_char(var VAR_0, int 85, var VAR_5, int 0)
+						call add_item_to_char(var is_BTREASURE_exist1, int 85, var VAR_5, int 0)
 				}
 				else
 				 {
-						call add_item_to_char(var VAR_0, var VAR_3, int 1, int 0)
+						call add_item_to_char(var is_BTREASURE_exist1, var VAR_3, int 1, int 0)
 				}
 		}
 }

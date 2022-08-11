@@ -36,6 +36,7 @@ void init_data_obj(data_obj* d_obj) {
     d_obj->references = 0;
     d_obj->byte_size = 0;
     d_obj->ignore = false;
+    d_obj->was_renamed = false;
     d_obj->name = NULL;
     // d_obj->asm_data = NULL;
     // d_obj->bin_data = NULL;

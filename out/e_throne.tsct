@@ -1,23 +1,5 @@
 ._DATA
-VAR_0	0	
-VAR_1	0	
-VAR_2	0	
-VAR_3	0	
-VAR_4	0	
-VAR_5	0	
-VAR_6	0	
-VAR_7	0	
-VAR_8	0	
-VAR_9	0	
-VAR_10	0	
 VAR_11	{ -25, -1350, -1774 }	
-VAR_12	0	
-VAR_13	0	
-VAR_14	0	
-VAR_15	0	
-VAR_16	0	
-VAR_17	0	
-VAR_18	0	
 VAR_19	{ -675, -1350, -2000 }	
 VAR_20	{ -509, -1350, -2178 }	
 VAR_21	{ -352, -1350, -2207 }	
@@ -25,14 +7,9 @@ VAR_25	{ -189, -1350, -1874 }
 VAR_26	{ -235, -1350, -954 }	
 VAR_27	{ -325, -1350, -1497 }	
 VAR_28	{ 333, -1349, -1557 }	
-VAR_29	0	
-VAR_31	0	
-VAR_33	0	
 VAR_35	{ -25, -1350, -1774 }	
 VAR_36	{ -84, -1350, -1582 }	
 VAR_37	{ -86, -1350, -116, 85, -1350, 61 }	
-VAR_38	0	
-VAR_60	0	
 VAR_61	1	
 VAR_62	2	
 VAR_63	4
@@ -71,9 +48,9 @@ gamevar room_state = int 0
 var VAR_12 = call func_e8(var &VAR_11, int 0)
 call set_input_system(int 2)
 execute SCRIPT_5
-var VAR_16 = call create_char(var &VAR_19, "njennifer", int 60, int 13)
-var VAR_17 = call create_char(var &VAR_21, "nbeth", int 20, int 13)
-var VAR_18 = call create_char(var &VAR_20, "nbonnie", int 0, int 13)
+var njennifer = call create_char(var &VAR_19, "njennifer", int 60, int 13)
+var nbeth = call create_char(var &VAR_21, "nbeth", int 20, int 13)
+var nbonnie = call create_char(var &VAR_20, "nbonnie", int 0, int 13)
 call reset_local_timer()
 gamevar outro_active = int 1
 
@@ -137,19 +114,19 @@ switch(var VAR_14)
 			if(gamevar !MovieActive&&var VAR_38 != var VAR_15)
 			 {
 					call func_113(int 8, int 8)
-					call set_char_running(var VAR_16)
-					call set_char_running(var VAR_18)
+					call set_char_running(var njennifer)
+					call set_char_running(var nbonnie)
 					if(var VAR_9)
 					 {
 							call char_walk_to_pos(var VAR_9, var &VAR_26)
 					}
-					call func_2b(var VAR_17, int 1)
-					call char_walk_to_pos(var VAR_16, var &VAR_25)
+					call func_2b(var nbeth, int 1)
+					call char_walk_to_pos(var njennifer, var &VAR_25)
 					var VAR_14 ++ 
 			}
 			break 
 		case 4
-			if(call is_char_standing(var VAR_16))
+			if(call is_char_standing(var njennifer))
 			 {
 					var VAR_13 = int 1
 					call play_loaded_sound(int 1, int -1, int 75, int 0)
@@ -207,7 +184,7 @@ switch(var VAR_14)
 		case 7
 			if(call func_5c(var VAR_9))
 			 {
-					call func_2b(var VAR_18, int 1)
+					call func_2b(var nbonnie, int 1)
 					call char_turn_to_pos(var VAR_9, var &VAR_36)
 					var VAR_14 ++ 
 			}
@@ -215,20 +192,20 @@ switch(var VAR_14)
 		case 8
 			if(call get_input_sys() != int 4)
 			 {
-					call func_2b(var VAR_16, int 1)
-					gamevar script_object = var VAR_16
+					call func_2b(var njennifer, int 1)
+					gamevar script_object = var njennifer
 					gamevar *object_p+6 |= int 1
-					gamevar script_object = var VAR_17
+					gamevar script_object = var nbeth
 					gamevar *object_p+6 |= int 1
 					var VAR_14 ++ 
 			}
 			break 
 		case 9
-			if(call func_12b(var VAR_18, var &VAR_37)&&call func_12b(var VAR_17, var &VAR_37)&&call func_12b(var VAR_16, var &VAR_37))
+			if(call func_12b(var nbonnie, var &VAR_37)&&call func_12b(var nbeth, var &VAR_37)&&call func_12b(var njennifer, var &VAR_37))
 			 {
-					call remove_char(var VAR_17)
-					call remove_char(var VAR_18)
-					call remove_char(var VAR_16)
+					call remove_char(var nbeth)
+					call remove_char(var nbonnie)
+					call remove_char(var njennifer)
 					call char_walk_to_pos(var VAR_9, var &VAR_36)
 					var VAR_14 ++ 
 			}

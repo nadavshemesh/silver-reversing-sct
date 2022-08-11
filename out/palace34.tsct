@@ -1,33 +1,10 @@
 ._DATA
-VAR_0	0	
-fade_chronicler	0	
-VAR_2	0	
-VAR_3	0	
-VAR_4	0	
-VAR_17	0	
 VAR_18	{ 0, 0, -1 }	
-VAR_19	0	
-VAR_20	0	
-VAR_21	0	
-VAR_22	0	
 VAR_23	-1	
-VAR_26	0	
-VAR_39	0	
-VAR_40	0	
-VAR_41	0	
-VAR_50	0	
-VAR_53	0	
-VAR_54	0	
-VAR_55	0	
 VAR_56	{ 2376, 5980, -16466 }	
 VAR_57	{ 2515, 5980, -16273 }	
 VAR_58	{ 1, 20, 0, 0 }	
 VAR_59	{ 1149, 4928, -16235 }	
-VAR_60	0	
-VAR_61	0	
-VAR_62	0	
-VAR_63	0	
-VAR_78	0	
 VAR_79	{ 0, 0 }
 
 ._on_load
@@ -145,16 +122,16 @@ switch(var VAR_60)
 					 {
 							call set_input_system(int 2)
 							execute SCRIPT_15
-							var VAR_61 = call get_char_handle(int 65536)
+							var DAVID = call get_char_handle(int 65536)
 							var VAR_62 = call get_david_char()
-							if(var VAR_62 == var VAR_61)
+							if(var VAR_62 == var DAVID)
 							 {
 									var VAR_62 = call func_7e()
 							}
 							if(var VAR_39)
 							 {
-									call char_turn_to_pos(var VAR_61, call get_char_pos(var VAR_62))
-									call char_turn_to_pos(var VAR_62, call get_char_pos(var VAR_61))
+									call char_turn_to_pos(var DAVID, call get_char_pos(var VAR_62))
+									call char_turn_to_pos(var VAR_62, call get_char_pos(var DAVID))
 									call start_dialog("L_DVDORB", "NULL")
 							}
 							else
@@ -163,33 +140,33 @@ switch(var VAR_60)
 									switch(var VAR_63)
 									 {
 											case 65536
-												call char_turn_to_pos(var VAR_61, call get_char_pos(var VAR_62))
-												call char_turn_to_pos(var VAR_62, call get_char_pos(var VAR_61))
+												call char_turn_to_pos(var DAVID, call get_char_pos(var VAR_62))
+												call char_turn_to_pos(var VAR_62, call get_char_pos(var DAVID))
 												call start_dialog("I_DVDORB", "NULL")
 												break 
 											case 327680
-												call char_turn_to_pos(gamevar control_char_p, call get_char_pos(var VAR_61))
-												call char_turn_to_pos(var VAR_61, call get_char_pos(gamevar control_char_p))
+												call char_turn_to_pos(gamevar control_char_p, call get_char_pos(var DAVID))
+												call char_turn_to_pos(var DAVID, call get_char_pos(gamevar control_char_p))
 												call start_dialog("I_JUGORB", "NULL")
 												break 
 											case 786432
-												call char_turn_to_pos(gamevar control_char_p, call get_char_pos(var VAR_61))
-												call char_turn_to_pos(var VAR_61, call get_char_pos(gamevar control_char_p))
+												call char_turn_to_pos(gamevar control_char_p, call get_char_pos(var DAVID))
+												call char_turn_to_pos(var DAVID, call get_char_pos(gamevar control_char_p))
 												call start_dialog("I_SEKORB", "NULL")
 												break 
 											case 196608
-												call char_turn_to_pos(gamevar control_char_p, call get_char_pos(var VAR_61))
-												call char_turn_to_pos(var VAR_61, call get_char_pos(gamevar control_char_p))
+												call char_turn_to_pos(gamevar control_char_p, call get_char_pos(var DAVID))
+												call char_turn_to_pos(var DAVID, call get_char_pos(gamevar control_char_p))
 												call start_dialog("I_VIVORB", "NULL")
 												break 
 											case 131072
-												call char_turn_to_pos(gamevar control_char_p, call get_char_pos(var VAR_61))
-												call char_turn_to_pos(var VAR_61, call get_char_pos(gamevar control_char_p))
+												call char_turn_to_pos(gamevar control_char_p, call get_char_pos(var DAVID))
+												call char_turn_to_pos(var DAVID, call get_char_pos(gamevar control_char_p))
 												call start_dialog("I_CHIORB", "NULL")
 												break 
 											case 262144
-												call char_turn_to_pos(gamevar control_char_p, call get_char_pos(var VAR_61))
-												call char_turn_to_pos(var VAR_61, call get_char_pos(gamevar control_char_p))
+												call char_turn_to_pos(gamevar control_char_p, call get_char_pos(var DAVID))
+												call char_turn_to_pos(var DAVID, call get_char_pos(gamevar control_char_p))
 												call start_dialog("I_CAGORB", "NULL")
 												break 
 									}

@@ -1,75 +1,17 @@
 ._DATA
-VAR_0	0	
-fade_chronicler	0	
-VAR_2	0	
-VAR_3	0	
-VAR_4	0	
-VAR_17	0	
 VAR_18	{ 0, 0, -1 }	
-VAR_19	0	
-VAR_20	0	
-VAR_21	0	
-VAR_22	0	
 VAR_23	-1	
-VAR_26	0	
-VAR_39	0	
-VAR_40	0	
-VAR_41	0	
-VAR_42	0	
-VAR_43	0	
-VAR_44	0	
-VAR_45	0	
-VAR_46	0	
-VAR_47	0	
-VAR_48	0	
-VAR_49	0	
-VAR_50	0	
-VAR_51	0	
-VAR_52	0	
-VAR_53	0	
-VAR_54	0	
-VAR_55	0	
-VAR_57	0	
 VAR_58	{ 0, 0 }	
-VAR_59	0	
 VAR_60	{ 0, 0 }	
-VAR_61	0	
-VAR_62	0	
 VAR_72	{ -1119, -189, 593 }	
-VAR_74	0	
-VAR_75	0	
-VAR_76	0	
-VAR_89	0	
 VAR_90	{ -6295, -1265, 625 }	
-VAR_92	0	
-VAR_93	0	
-VAR_94	0	
-VAR_98	0	
-VAR_99	0	
-VAR_100	0	
-VAR_101	0	
-VAR_102	0	
 VAR_103	-1	
 VAR_107	{ 315, -189, 143 }	
-VAR_108	0	
-VAR_109	0	
 VAR_110	{ -478, -189, 589 }	
 VAR_111	{ -587, -189, 1050 }	
-VAR_112	0	
 VAR_113	{ 0, 0 }	
-VAR_114	0	
-VAR_115	0	
-VAR_116	0	
-VAR_117	0	
 VAR_118	{ -490, -189, 818 }	
 VAR_119	-1	
-VAR_150	0	
-VAR_151	0	
-VAR_153	0	
-VAR_154	0	
-VAR_155	0	
-VAR_156	0	
-VAR_157	0
 
 ._on_load
 execute SCRIPT_3
@@ -187,7 +129,7 @@ if(gamevar !is_room_cleared)
 											call remove_char(var VAR_59)
 									}
 							}
-							call func_34(var VAR_49)
+							call func_34(var nmedmonk)
 					}
 					break 
 				case 3
@@ -252,7 +194,7 @@ while(var VAR_58)
 switch(var VAR_74)
  {
 		case 0
-			if(call ! func_127(var VAR_49))
+			if(call ! func_127(var nmedmonk))
 			 {
 					var VAR_76 = call get_selected_hero()
 					if(var VAR_76)
@@ -261,20 +203,20 @@ switch(var VAR_74)
 							 {
 									if(var VAR_45)
 									 {
-											call func_10c(var VAR_49, "WIT_VIV")
+											call func_10c(var nmedmonk, "WIT_VIV")
 									}
 									if(var VAR_44)
 									 {
-											call func_10c(var VAR_49, "WIT_SEK")
+											call func_10c(var nmedmonk, "WIT_SEK")
 									}
 									if(var VAR_47)
 									 {
-											call func_10c(var VAR_49, "WIT_CAG")
+											call func_10c(var nmedmonk, "WIT_CAG")
 									}
 							}
 							else
 							 {
-									call func_10c(var VAR_49, "NULL")
+									call func_10c(var nmedmonk, "NULL")
 							}
 					}
 					else
@@ -300,7 +242,7 @@ switch(var VAR_74)
 var VAR_75 ++ 
 
 ._SCRIPT_6
-var VAR_49 = call create_char(var &VAR_72, "nmedmonk", int 25, int 13)
+var nmedmonk = call create_char(var &VAR_72, "nmedmonk", int 25, int 13)
 
 ._SCRIPT_7
 if(var VAR_103 != var VAR_98)
@@ -332,7 +274,7 @@ switch(var VAR_98)
 			}
 			break 
 		case 2
-			if(call func_127(var VAR_49))
+			if(call func_127(var nmedmonk))
 			 {
 					var VAR_57 = int 1
 					var VAR_98 ++ 
@@ -378,13 +320,13 @@ switch(var VAR_98)
 			if(call get_input_sys() != int 4)
 			 {
 					call set_input_system(int 2)
-					call play_char_anim(var VAR_49, var VAR_92, int 0)
+					call play_char_anim(var nmedmonk, var VAR_92, int 0)
 					var VAR_98 ++ 
 					var VAR_99 = int 0
 			}
 			break 
 		case 8
-			if(call func_5c(var VAR_49))
+			if(call func_5c(var nmedmonk))
 			 {
 					call func_f9(var VAR_89, int 100)
 					var VAR_102 = call add_item_to_char(var VAR_101, int 97, int 1, int 0)
@@ -426,8 +368,8 @@ if(var VAR_39)
 }
 
 ._SCRIPT_8
-var VAR_49 = call create_char(var &VAR_72, "nmedmonk", int 25, int 13)
-var VAR_89 = call add_item_to_char(var VAR_49, int 97, int 0, int 0)
+var nmedmonk = call create_char(var &VAR_72, "nmedmonk", int 25, int 13)
+var VAR_89 = call add_item_to_char(var nmedmonk, int 97, int 0, int 0)
 execute SCRIPT_9
 
 ._SCRIPT_9
@@ -447,7 +389,7 @@ switch(var VAR_108)
 			if(var VAR_109 == int 10)
 			 {
 					call func_108("dogwank")
-					call func_10c(var VAR_1, int 0)
+					call func_10c(var fade_chronicler, int 0)
 			}
 			if(var VAR_109 > int 30)
 			 {
@@ -699,7 +641,7 @@ var fade_chronicler = call create_enemy(int 178, int 0, var &VAR_107, int 325)
 call set_input_system(int 2)
 
 ._SCRIPT_12
-var VAR_49 = call create_char(var &VAR_72, "nmedmonk", int 25, int 13)
+var nmedmonk = call create_char(var &VAR_72, "nmedmonk", int 25, int 13)
 call func_108("DOGWANK")
 call log("init_act20")
 

@@ -1,29 +1,11 @@
 ._DATA
-VAR_0	0	
 VAR_1	{ -8499, 2894, -16052 }	
 VAR_2	{ 0, 0, 1, 0, -1, 8, 1, 4, 0, 9, 0, 1, 4, 102, 103, -1, 2, 4, 3, 2, 5, 0, 50, 6, 1, 7, 1, 4, -1 }	
 VAR_3	{ 11, 200, 300, 0, -8499, 2894, -16552, 11, 200, 300, 0, -8499, 2894, -16052, 11, 200, 300, 0, -8499, 2894, -15552, 7, 8 }	
-bezerk_imp	0	
 horn_impefs	{ 0, 0 }	
-VAR_7	0	
-VAR_8	0	
-VAR_9	0	
-VAR_10	0	
-VAR_13	0	
-VAR_14	0	
 VAR_15	{ -8546, 2931, -16112, 0, 0 }	
 VAR_22	{ -8540, 2969, -15233, -8499, 2898, -16791, -8499, 2898, -16791 }	
 VAR_23	{ -8714, 1201, -16178 }	
-VAR_25	0	
-VAR_26	0	
-VAR_27	0	
-VAR_28	0	
-VAR_30	0	
-VAR_31	0	
-VAR_33	0	
-VAR_34	0	
-VAR_35	0	
-VAR_36	0
 
 ._on_load
 call play_bgm("GNO")
@@ -116,7 +98,7 @@ var VAR_9 = call load_anim("startle")
 execute SCRIPT_7
 execute SCRIPT_8
 call set_input_system(int 2)
-var VAR_0 = call get_char_handle(int 65536)
+var DAVID = call get_char_handle(int 65536)
 
 ._SCRIPT_5
 if(call is_char_handle_in_level(int 1769472))
@@ -135,7 +117,7 @@ else
 				 {
 						if(call get_num_of_enemies() == int 1)
 						 {
-								call func_106(var VAR_6, int 3, int 1, var &VAR_2)
+								call func_106(var horn_impefs, int 3, int 1, var &VAR_2)
 						}
 				}
 		}
@@ -157,8 +139,8 @@ execute SCRIPT_6
 execute SCRIPT_9
 
 ._SCRIPT_8
-var VAR_7 = call create_char(var &VAR_23, "nyelimp", int 60, int 13)
-gamevar script_object = var VAR_7
+var nyelimp = call create_char(var &VAR_23, "nyelimp", int 60, int 13)
+gamevar script_object = var nyelimp
 gamevar *character_movement_p+60 = int 1
 gamevar *character_movement_p+53 = int 0
 
@@ -179,7 +161,7 @@ switch(var VAR_25)
 		case 1
 			if(var VAR_26 > int 10)
 			 {
-					call play_char_anim(var VAR_7, var VAR_8, int 0)
+					call play_char_anim(var nyelimp, var VAR_8, int 0)
 					var VAR_25 ++ 
 					var VAR_26 = int 0
 			}
@@ -187,30 +169,30 @@ switch(var VAR_25)
 		case 2
 			if(var VAR_26 > int 200)
 			 {
-					call play_char_anim(var VAR_7, var VAR_9, int 0)
-					call func_95(var VAR_7, int 5, int 0)
+					call play_char_anim(var nyelimp, var VAR_9, int 0)
+					call func_95(var nyelimp, int 5, int 0)
 					var VAR_25 ++ 
 					var VAR_26 = int 0
 					call set_input_system(int 1)
 			}
 			break 
 		case 3
-			if(call func_5c(var VAR_7))
+			if(call func_5c(var nyelimp))
 			 {
-					var VAR_10 = call func_41(var VAR_7, int 0)
-					gamevar script_object = var VAR_7
+					var VAR_10 = call func_41(var nyelimp, int 0)
+					gamevar script_object = var nyelimp
 					gamevar *character_stats_p+14 = int 106000
-					call set_char_running(var VAR_7)
-					call char_walk_to(var VAR_7, int -9053, int 1201, int -17898)
+					call set_char_running(var nyelimp)
+					call char_walk_to(var nyelimp, int -9053, int 1201, int -17898)
 					var VAR_26 = int 0
 					var VAR_25 ++ 
 			}
 			break 
 		case 4
-			if(call is_char_standing(var VAR_7))
+			if(call is_char_standing(var nyelimp))
 			 {
 					call func_12f(var VAR_10)
-					call play_char_anim(var VAR_7, var VAR_8, int 0)
+					call play_char_anim(var nyelimp, var VAR_8, int 0)
 					var VAR_26 = int 0
 					var VAR_25 ++ 
 			}
@@ -218,17 +200,17 @@ switch(var VAR_25)
 		case 5
 			if(var VAR_26 > int 100)
 			 {
-					var VAR_10 = call func_41(var VAR_7, int 0)
-					call func_2b(var VAR_7, int 0)
+					var VAR_10 = call func_41(var nyelimp, int 0)
+					call func_2b(var nyelimp, int 0)
 					var VAR_26 = int 0
 					var VAR_25 ++ 
 			}
 			break 
 		case 6
-			if(call is_char_standing(var VAR_7))
+			if(call is_char_standing(var nyelimp))
 			 {
 					call func_12f(var VAR_10)
-					call remove_char(var VAR_7)
+					call remove_char(var nyelimp)
 					var VAR_26 = int 0
 					var VAR_25 ++ 
 					if(call is_char_handle_in_level(int 917507))
@@ -253,7 +235,7 @@ switch(var VAR_27)
 					}
 					else
 					 {
-							gamevar script_object = var VAR_0
+							gamevar script_object = var DAVID
 							if(gamevar *object_p+5 == int 6)
 							 {
 									call log("drop imp jump down - david is dead")
@@ -307,7 +289,7 @@ switch(var VAR_13)
 			}
 			else
 			 {
-					gamevar script_object = var VAR_0
+					gamevar script_object = var DAVID
 					if(gamevar *object_p+5 == int 6)
 					 {
 							call log("horn imp jump down - david is dead")

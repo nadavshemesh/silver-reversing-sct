@@ -1,21 +1,12 @@
 ._DATA
 VAR_0	{ 0, 0 }	
 VAR_1	0	
-lesser_gimp	0	
-greater_gimpv	0	
-rat_raptor	0	
-rat_raptor1	0	
-rat_raptor2	0	
-rat_raptor3	0	
 VAR_8	{ -1949, -128, -628 }	
 VAR_9	{ -821, 94, -1218 }	
 VAR_10	{ -797, -172, -2000 }	
 VAR_11	{ -1547, -560, -1686 }	
 VAR_12	{ -1773, -560, -1341 }	
 VAR_13	{ -1684, -560, -1111 }	
-VAR_14	0	
-VAR_15	0	
-VAR_16	0	
 VAR_17	{ -2987, -560, -760 }	
 VAR_18	{ -2800, 0, -352 }	
 VAR_19	{ -2787, 0, -1107 }	
@@ -36,8 +27,6 @@ VAR_34	"no"
 VAR_35	"yes"	
 VAR_36	{ 4, VAR_1, 11, 25, 75, 3, VAR_37, 0, 5, 50, 7, 8 }	
 VAR_37	"no"	
-VAR_41	0	
-VAR_44	0
 
 ._on_load
 var VAR_0 = int 0
@@ -189,12 +178,12 @@ switch(var VAR_0)
 		case 1
 			if(call get_num_of_enemies() <= int 3)
 			 {
-					var VAR_14 = call create_enemy_through_door(int 46, int 1, int 0, int 0)
-					var VAR_15 = call create_enemy_through_door(int 55, int 4, int 0, int 0)
-					var VAR_16 = call create_enemy_through_door(int 55, int 5, int 0, int 0)
-					call set_char_init_state(var VAR_14, int 1)
-					call set_char_init_state(var VAR_15, int 1)
-					call set_char_init_state(var VAR_16, int 1)
+					var greater_gimpv1 = call create_enemy_through_door(int 46, int 1, int 0, int 0)
+					var rat_raptor4 = call create_enemy_through_door(int 55, int 4, int 0, int 0)
+					var rat_raptor5 = call create_enemy_through_door(int 55, int 5, int 0, int 0)
+					call set_char_init_state(var greater_gimpv1, int 1)
+					call set_char_init_state(var rat_raptor4, int 1)
+					call set_char_init_state(var rat_raptor5, int 1)
 					var VAR_0 ++ 
 			}
 			break 

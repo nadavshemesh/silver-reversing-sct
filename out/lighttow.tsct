@@ -1,45 +1,13 @@
 ._DATA
-VAR_0	0	
-VAR_1	0	
-VAR_2	0	
-VAR_3	0	
-VAR_4	0	
-VAR_5	0	
-VAR_6	0	
-VAR_7	0	
-VAR_9	0	
-VAR_10	0	
-VAR_11	0	
-VAR_12	0	
-VAR_13	0	
-VAR_14	0	
-VAR_15	0	
-VAR_16	0	
 VAR_17	{ 0, 0 }	
 VAR_19	{ 982, 2615, -2736 }	
 VAR_20	{ 7587, 2615, 3049 }	
-VAR_22	0	
-VAR_23	0	
-gonchfx	0	
 VAR_25	0	
 VAR_26	{ -4046, 795, -1220 }	
 VAR_27	{ -4910, 795, -915 }	
 VAR_28	{ -4690, 795, -500 }	
 VAR_29	{ -4252, 795, -390 }	
 VAR_30	{ VAR_27, VAR_28, VAR_29 }	
-VAR_31	0	
-VAR_32	0	
-VAR_33	0	
-VAR_34	0	
-VAR_35	0	
-VAR_36	0	
-VAR_37	0	
-VAR_38	0	
-VAR_39	0	
-VAR_40	0	
-VAR_41	0	
-VAR_42	0	
-VAR_43	0	
 VAR_44	0	
 VAR_45	0	
 VAR_54	{ -5305, 796, -1955, -3210, 796, -1924, -3138, 796, 1074, -4743, 796, 678, -3279, 796, -291, -5159, 796, -230, -4982, 796, -1440, -5856, 796, -757, -5192, 796, -1349, -4728, 796, -2413 }	
@@ -50,13 +18,6 @@ VAR_58	"laugh"
 VAR_59	"implook"	
 VAR_60	"impish"	
 VAR_61	"laugh"	
-VAR_62	0	
-VAR_63	0	
-VAR_64	0	
-VAR_65	0	
-VAR_66	0	
-VAR_67	0	
-VAR_68	0	
 VAR_76	-1	
 VAR_96	{ -6880, 1286, -2151, -7018, 796, -1436, -3033, 796, -2397, -2552, 796, 1396 }	
 VAR_97	{ -6880, 1286, -2151, -7018, 796, -1436, -3033, 796, -2397, -2552, 796, 1396 }	
@@ -64,12 +25,6 @@ VAR_98	{ -6880, 1286, -2151, -7018, 796, -1436, -3033, 796, -2397, -2552, 796, 1
 VAR_99	{ 0, 1, 4, VAR_96, 8, 2, 4, 0, 9, 1, 1, 1, 78, -1, 5, 1, 1, 50, 6, 1, 7, 1, 1, 10, 43, -1, -1 }	
 VAR_100	{ 0, 1, 4, VAR_97, 8, 2, 4, 0, 9, 1, 1, 1, 76, -1, 5, 1, 5, 50, 6, 1, 7, 1, 1, 10, 40, -1, -1 }	
 VAR_101	{ 0, 1, 4, VAR_98, 8, 2, 4, 0, 9, 1, 1, 1, 77, -1, 5, 1, 5, 50, 6, 1, 7, 1, 1, 10, 42, -1, -1 }	
-VAR_102	0	
-VAR_103	0	
-VAR_105	0	
-VAR_106	0	
-VAR_107	0	
-VAR_108	0	
 VAR_109	0	
 VAR_110	{ 5, 10, 20, 16, VAR_109, 1, 8 }	
 VAR_111	-1	
@@ -167,9 +122,9 @@ switch(var VAR_22)
 			}
 			break 
 		case 2
-			if(call is_char_standing(var VAR_31))
+			if(call is_char_standing(var DAVID))
 			 {
-					gamevar script_object = var VAR_31
+					gamevar script_object = var DAVID
 					gamevar *object_p+8 |= int 67108864
 					var VAR_22 ++ 
 					var VAR_23 = int 0
@@ -178,12 +133,12 @@ switch(var VAR_22)
 		case 3
 			if(var VAR_23 == int 20)
 			 {
-					call func_36(var VAR_31, int -3769, int 796, int -1128)
+					call func_36(var DAVID, int -3769, int 796, int -1128)
 			}
 			if(var VAR_23 > int 60)
 			 {
-					call set_char_walking(var VAR_31)
-					call play_char_anim(var VAR_31, var VAR_62, int 0)
+					call set_char_walking(var DAVID)
+					call play_char_anim(var DAVID, var VAR_62, int 0)
 					var VAR_22 ++ 
 					var VAR_23 = int 0
 			}
@@ -191,7 +146,7 @@ switch(var VAR_22)
 		case 4
 			if(var VAR_23 > int 200)
 			 {
-					call char_walk_to(var VAR_31, int -3652, int 795, int -711)
+					call char_walk_to(var DAVID, int -3652, int 795, int -711)
 					var VAR_22 ++ 
 					var VAR_23 = int 0
 			}
@@ -199,10 +154,10 @@ switch(var VAR_22)
 		case 5
 			if(var VAR_23 == int 220)
 			 {
-					var VAR_43 = call get_char_pos(var VAR_31)
-					call char_turn_to_pos(var VAR_24, var VAR_43)
+					var VAR_43 = call get_char_pos(var DAVID)
+					call char_turn_to_pos(var gonchfx, var VAR_43)
 					var VAR_34 = call get_david_char()
-					var VAR_43 = call get_char_pos(var VAR_24)
+					var VAR_43 = call get_char_pos(var gonchfx)
 					while(var VAR_34)
 					 {
 							call char_turn_to_pos(var VAR_34, var VAR_43)
@@ -289,7 +244,7 @@ switch(var VAR_22)
 		case 7
 			if(call func_6d() == int 1)
 			 {
-					call play_char_anim(var VAR_24, var VAR_65, int 0)
+					call play_char_anim(var gonchfx, var VAR_65, int 0)
 					var VAR_23 = int 0
 					var VAR_22 ++ 
 					if(var VAR_33)
@@ -301,7 +256,7 @@ switch(var VAR_22)
 		case 8
 			if(var VAR_23 > int 25)
 			 {
-					call play_char_anim(var VAR_24, var VAR_66, int 0)
+					call play_char_anim(var gonchfx, var VAR_66, int 0)
 					call resume_conversation()
 					var VAR_22 ++ 
 					var VAR_23 = int 0
@@ -312,14 +267,14 @@ switch(var VAR_22)
 			 {
 					if(var VAR_23 == int 2)
 					 {
-							var VAR_43 = call get_char_pos(var VAR_31)
-							call char_turn_to_pos(var VAR_24, var VAR_43)
+							var VAR_43 = call get_char_pos(var DAVID)
+							call char_turn_to_pos(var gonchfx, var VAR_43)
 					}
 					if(var VAR_23 > int 30)
 					 {
-							var VAR_43 = call get_char_pos(var VAR_24)
-							call char_turn_to_pos(var VAR_31, var VAR_43)
-							call play_char_anim(var VAR_24, var VAR_64, int 0)
+							var VAR_43 = call get_char_pos(var gonchfx)
+							call char_turn_to_pos(var DAVID, var VAR_43)
+							call play_char_anim(var gonchfx, var VAR_64, int 0)
 							var VAR_23 = int 0
 							var VAR_22 ++ 
 					}
@@ -328,15 +283,15 @@ switch(var VAR_22)
 		case 10
 			if(var VAR_23 == int 50)
 			 {
-					call play_char_anim(var VAR_31, var VAR_62, int 0)
+					call play_char_anim(var DAVID, var VAR_62, int 0)
 			}
 			if(var VAR_23 == int 120)
 			 {
-					call char_stop(var VAR_24)
+					call char_stop(var gonchfx)
 			}
 			if(var VAR_23 > int 130)
 			 {
-					call char_turn_to_pos(var VAR_24, call get_char_movement_ptr(var VAR_31))
+					call char_turn_to_pos(var gonchfx, call get_char_movement_ptr(var DAVID))
 					var VAR_22 ++ 
 					var VAR_23 = int 0
 			}
@@ -344,14 +299,14 @@ switch(var VAR_22)
 		case 11
 			if(var VAR_23 == int 60)
 			 {
-					call func_55(var VAR_24, int 3)
+					call func_55(var gonchfx, int 3)
 			}
 			if(var VAR_23 > int 180)
 			 {
-					call func_f(var VAR_24, int 8)
-					gamevar script_object = var VAR_24
+					call func_f(var gonchfx, int 8)
+					gamevar script_object = var gonchfx
 					gamevar *object_p+8 |= int 4194304
-					gamevar script_object = var VAR_31
+					gamevar script_object = var DAVID
 					gamevar *object_p+8 |= int 4194304
 					if(var VAR_32)
 					 {
@@ -367,7 +322,7 @@ switch(var VAR_22)
 							gamevar script_object = var VAR_33
 							gamevar *object_p+8 |= int 67108864
 					}
-					call func_1e(var VAR_24, var VAR_31)
+					call func_1e(var gonchfx, var DAVID)
 					if(var VAR_33)
 					 {
 							call play_char_anim(var VAR_33, var VAR_63, int 0)
@@ -379,9 +334,9 @@ switch(var VAR_22)
 		case 12
 			if(var VAR_23 > int 120)
 			 {
-					gamevar script_object = var VAR_31
+					gamevar script_object = var DAVID
 					gamevar *object_p+8 &= int -6710886
-					gamevar script_object = var VAR_31
+					gamevar script_object = var DAVID
 					gamevar *object_p+8 &= int -4194305
 					if(var VAR_32)
 					 {
@@ -397,13 +352,13 @@ switch(var VAR_22)
 							gamevar script_object = var VAR_33
 							gamevar *object_p+8 &= int -6710886
 					}
-					call play_char_anim(var VAR_24, var VAR_67, int 0)
+					call play_char_anim(var gonchfx, var VAR_67, int 0)
 					var VAR_22 ++ 
 			}
 			break 
 		case 13
-			var VAR_43 = call get_char_pos(var VAR_24)
-			call char_turn_to_pos(var VAR_31, var VAR_43)
+			var VAR_43 = call get_char_pos(var gonchfx)
+			call char_turn_to_pos(var DAVID, var VAR_43)
 			call resume_conversation()
 			var VAR_22 ++ 
 			break 
@@ -411,14 +366,14 @@ switch(var VAR_22)
 			if(call func_6d() == int 3)
 			 {
 					var VAR_23 = int 0
-					call func_132(var VAR_24, int 3)
+					call func_132(var gonchfx, int 3)
 					var VAR_22 ++ 
 			}
 			break 
 		case 15
 			if(var VAR_23 > int 30)
 			 {
-					call play_char_anim(var VAR_31, var VAR_65, int 0)
+					call play_char_anim(var DAVID, var VAR_65, int 0)
 					var VAR_44 = int 1
 					var VAR_22 ++ 
 					var VAR_23 = int 0
@@ -470,7 +425,7 @@ gamevar *character_stats_p+15 = int 4000
 gamevar *character_stats_p+16 = int 4000
 gamevar script_object = var gonchfx
 gamevar *object_p+6 |= int 67108864
-var VAR_31 = call get_char_handle(int 65536)
+var DAVID = call get_char_handle(int 65536)
 var VAR_34 = call get_david_char()
 while(var VAR_34)
  {

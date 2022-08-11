@@ -1,27 +1,8 @@
 ._DATA
-VAR_0	0	
-fade_chronicler	0	
-VAR_2	0	
-VAR_3	0	
-VAR_4	0	
-VAR_17	0	
 VAR_18	{ 0, 0, -1 }	
-VAR_19	0	
-VAR_20	0	
-VAR_21	0	
-VAR_22	0	
 VAR_23	-1	
-VAR_26	0	
-VAR_39	0	
-VAR_40	0	
-VAR_41	0	
-VAR_42	0	
-VAR_43	0	
+nfrink	0	
 VAR_44	{ 584, -2466, 2776 }	
-VAR_46	0	
-VAR_47	0	
-VAR_54	0	
-VAR_55	0	
 VAR_58	{ 1905, -916, 1492 }	
 VAR_59	{ 316, -2466, 2964 }	
 VAR_60	{ 605, -2466, 2557 }	
@@ -31,7 +12,6 @@ VAR_63	"impjump"
 VAR_64	"impjump"	
 VAR_65	"impjump"	
 VAR_66	"impjump"	
-VAR_70	0	
 VAR_71	0	
 VAR_72	{ 1504, -2466, 2667 }	
 VAR_73	{ 1266, -2466, 2660 }	
@@ -47,21 +27,14 @@ VAR_86	"impjump"
 VAR_87	"impjump"	
 VAR_88	"impjump"	
 VAR_89	"impjump"	
-VAR_94	0	
-VAR_96	0	
-VAR_97	0	
-VAR_98	0	
 VAR_99	-1	
 VAR_100	{ 1024, 634, 1310, -1397, -2466, 3148, 656, -2465, 3646, 656, -2465, 3646, 2069, -2466, 2439 }	
-VAR_101	0	
-VAR_102	0	
-VAR_103	0	
 VAR_104	{ 1181, 634, 535 }	
 VAR_105	{ 1504, 634, 286 }	
 VAR_106	-1	
 VAR_120	{ 393, -2466, 2932 }	
 VAR_121	{ -66, -2466, 3101 }	
-VAR_122	{ 11, 100, 200, 3, VAR_123, 0, 11, 100, 200, 3, VAR_124, 0, 11, 100, 200, 1, VAR_42, 3, VAR_125, 0, 3, VAR_126, 0, 7, 8 }	
+VAR_122	{ 11, 100, 200, 3, VAR_123, 0, 11, 100, 200, 3, VAR_124, 0, 11, 100, 200, 1, nfrink, 3, VAR_125, 0, 3, VAR_126, 0, 7, 8 }	
 VAR_123	"confused;"	
 VAR_124	"coughpt"	
 VAR_125	"tyrosumnHAV"	
@@ -69,14 +42,8 @@ VAR_126	"noH"
 VAR_127	{ 0, 206, -2466, 3263, 0, 471, -2466, 3182, 0, 622, -2466, 2947, 3, VAR_128, 0, 0, 463, -2466, 2666, 0, 189, -2466, 2615, 0, -68, -2466, 2794, 0, -87, -2466, 3095, 3, VAR_129, 0, 7, 8 }	
 VAR_128	"impjump"	
 VAR_129	"impjump"	
-VAR_130	0	
 VAR_131	{ 0, 0, 0 }	
-VAR_132	0	
-VAR_133	0	
-VAR_134	0	
-VAR_135	0	
 VAR_139	{ 0, 0 }	
-VAR_140	0	
 VAR_141	{ VAR_142, VAR_143, VAR_144, VAR_145, VAR_146, VAR_147, VAR_148 }	
 VAR_142	"ACT_4MP"	
 VAR_143	"ACT_557"	
@@ -87,12 +54,7 @@ VAR_147	"SPECIAL"
 VAR_148	"SPECIAL2VEN"	
 VAR_149	VAR_150	
 VAR_150	"ACT_3H_"	
-VAR_151	0	
 VAR_152	-1	
-VAR_171	0	
-VAR_172	0	
-VAR_173	0	
-VAR_174	0	
 VAR_175	{ 1156538368, -988143616, 1161527296 }	
 VAR_176	{ VAR_175, VAR_175 }
 
@@ -175,27 +137,27 @@ switch(var VAR_70)
 		case 0
 			if(var VAR_71 > int 10)
 			 {
-					call set_char_running(var VAR_39)
-					call set_char_running(var VAR_41)
-					call char_walk_to_pos(var VAR_39, var &VAR_73)
-					call char_walk_to_pos(var VAR_41, var &VAR_72)
+					call set_char_running(var DAVID)
+					call set_char_running(var nduke)
+					call char_walk_to_pos(var DAVID, var &VAR_73)
+					call char_walk_to_pos(var nduke, var &VAR_72)
 					var VAR_70 ++ 
 					var VAR_71 = int 0
 			}
 			break 
 		case 1
-			if(call is_char_standing(var VAR_41))
+			if(call is_char_standing(var nduke))
 			 {
-					call play_char_anim(var VAR_40, var VAR_54, int 0)
+					call play_char_anim(var nbuzuki, var VAR_54, int 0)
 					call func_11f(var &VAR_58, int 49152)
 					var VAR_70 ++ 
 					var VAR_71 = int 0
 			}
 			break 
 		case 2
-			if(call func_5c(var VAR_40))
+			if(call func_5c(var nbuzuki))
 			 {
-					call play_char_anim(var VAR_40, var VAR_54, int 0)
+					call play_char_anim(var nbuzuki, var VAR_54, int 0)
 			}
 			if(call is_not_force_scrolling())
 			 {
@@ -207,8 +169,8 @@ switch(var VAR_70)
 		case 3
 			if(call func_6d() == int 1)
 			 {
-					call set_char_running(var VAR_40)
-					call char_walk_to_pos(var VAR_40, var &VAR_74)
+					call set_char_running(var nbuzuki)
+					call char_walk_to_pos(var nbuzuki, var &VAR_74)
 					var VAR_70 ++ 
 					var VAR_71 = int 0
 			}
@@ -216,8 +178,8 @@ switch(var VAR_70)
 		case 4
 			if(var VAR_71 > int 60)
 			 {
-					call char_turn_to_pos(var VAR_39, var &VAR_72)
-					call char_turn_to_pos(var VAR_41, var &VAR_73)
+					call char_turn_to_pos(var DAVID, var &VAR_72)
+					call char_turn_to_pos(var nduke, var &VAR_73)
 					call resume_conversation()
 					var VAR_70 ++ 
 					var VAR_71 = int 0
@@ -226,8 +188,8 @@ switch(var VAR_70)
 		case 5
 			if(call get_input_sys() != int 4)
 			 {
-					call set_char_running(var VAR_41)
-					call func_2b(var VAR_41, int 0)
+					call set_char_running(var nduke)
+					call func_2b(var nduke, int 0)
 					var VAR_70 ++ 
 					var VAR_71 = int 0
 			}
@@ -235,8 +197,8 @@ switch(var VAR_70)
 		case 6
 			if(var VAR_71 > int 45)
 			 {
-					call set_char_running(var VAR_39)
-					call func_2b(var VAR_39, int 0)
+					call set_char_running(var DAVID)
+					call func_2b(var DAVID, int 0)
 					var VAR_70 ++ 
 					var VAR_71 = int 0
 			}
@@ -253,14 +215,14 @@ switch(var VAR_70)
 var VAR_71 ++ 
 
 ._SCRIPT_4
-var VAR_40 = call create_char(var &VAR_58, "nbuzuki", int 295, int 13)
-var VAR_41 = call create_char(var &VAR_59, "nduke", int 110, int 13)
-var VAR_42 = call create_char(var &VAR_60, "nfrink", int 0, int 13)
-call add_item_to_char(var VAR_41, int 16, int 0, int 1)
-call set_char_running(var VAR_42)
-call func_50(var VAR_42, int 8192)
-call play_char_ai_script(var VAR_42, var &VAR_61)
-var VAR_39 = call get_char_handle(int 65536)
+var nbuzuki = call create_char(var &VAR_58, "nbuzuki", int 295, int 13)
+var nduke = call create_char(var &VAR_59, "nduke", int 110, int 13)
+var nfrink = call create_char(var &VAR_60, "nfrink", int 0, int 13)
+call add_item_to_char(var nduke, int 16, int 0, int 1)
+call set_char_running(var nfrink)
+call func_50(var nfrink, int 8192)
+call play_char_ai_script(var nfrink, var &VAR_61)
+var DAVID = call get_char_handle(int 65536)
 execute SCRIPT_5
 call set_input_system(int 2)
 
@@ -279,8 +241,8 @@ switch(var VAR_96)
 		case 0
 			if(var VAR_97 <= int 5)
 			 {
-					call char_teleport_to_pos(var VAR_43, var &VAR_84, int 40)
-					call char_teleport_to_pos(var VAR_39, var &VAR_100, int 125)
+					call char_teleport_to_pos(var SEKUNE, var &VAR_84, int 40)
+					call char_teleport_to_pos(var DAVID, var &VAR_100, int 125)
 			}
 			if(var VAR_97 > int 100)
 			 {
@@ -292,8 +254,8 @@ switch(var VAR_96)
 		case 1
 			if(call func_6d() == int 15)
 			 {
-					call char_walk_to_pos(var VAR_43, var &VAR_105)
-					call char_turn_to_pos(var VAR_41, call get_char_pos(var VAR_39))
+					call char_walk_to_pos(var SEKUNE, var &VAR_105)
+					call char_turn_to_pos(var nduke, call get_char_pos(var DAVID))
 					var VAR_96 ++ 
 					var VAR_97 = int 0
 			}
@@ -301,13 +263,13 @@ switch(var VAR_96)
 		case 2
 			if(var VAR_97 > int 60)
 			 {
-					call play_char_anim(var VAR_41, var VAR_94, int 0)
+					call play_char_anim(var nduke, var VAR_94, int 0)
 					var VAR_96 ++ 
 					var VAR_97 = int 0
 			}
 			break 
 		case 3
-			if(call func_5c(var VAR_41))
+			if(call func_5c(var nduke))
 			 {
 					call func_f8(int 107, int 100)
 					call reset_local_timer()
@@ -334,8 +296,8 @@ switch(var VAR_96)
 		case 4
 			if(call get_input_sys() != int 4)
 			 {
-					call set_char_walking(var VAR_40)
-					call func_10c(var VAR_40, int 0)
+					call set_char_walking(var nbuzuki)
+					call func_10c(var nbuzuki, int 0)
 					var fade_chronicler = call create_enemy(int 178, int 0, var &VAR_104, int 330)
 					var VAR_96 ++ 
 					var VAR_97 = int 0
@@ -353,13 +315,13 @@ switch(var VAR_96)
 			if(call get_input_sys() != int 4)
 			 {
 					call set_input_system(int 1)
-					call func_10c(var VAR_40, "ACT_2")
+					call func_10c(var nbuzuki, "ACT_2")
 					var VAR_96 ++ 
 					var VAR_97 = int 0
 			}
 			break 
 		case 7
-			if(call func_127(var VAR_40))
+			if(call func_127(var nbuzuki))
 			 {
 					var VAR_47 = int 1
 					call func_7(int 448, int 1, int 1, int 1)
@@ -374,12 +336,12 @@ switch(var VAR_96)
 					switch(call func_4a())
 					 {
 							case 1
-								if(call func_6c(var VAR_40))
+								if(call func_6c(var nbuzuki))
 								 {
 										call start_dialog("B_DVDYES", "ACT_2")
-										call play_char_anim(var VAR_40, var VAR_94, int 0)
+										call play_char_anim(var nbuzuki, var VAR_94, int 0)
 										var VAR_103 = int 1
-										var VAR_98 = call add_item_to_char(var VAR_39, int 37, int 0, int 0)
+										var VAR_98 = call add_item_to_char(var DAVID, int 37, int 0, int 0)
 										var VAR_96 = int 11
 								}
 								else
@@ -400,16 +362,16 @@ switch(var VAR_96)
 			if(call func_6d() == int 1)
 			 {
 					call set_input_system(int 2)
-					call play_char_anim(var VAR_40, var VAR_94, int 0)
+					call play_char_anim(var nbuzuki, var VAR_94, int 0)
 					var VAR_96 ++ 
 					var VAR_97 = int 0
 			}
 			break 
 		case 10
-			if(call func_5c(var VAR_40))
+			if(call func_5c(var nbuzuki))
 			 {
 					call set_input_system(int 1)
-					var VAR_98 = call add_item_to_char(var VAR_39, int 37, int 0, int 0)
+					var VAR_98 = call add_item_to_char(var DAVID, int 37, int 0, int 0)
 					call resume_conversation()
 					var VAR_103 = int 1
 					var VAR_96 ++ 
@@ -423,16 +385,16 @@ switch(var VAR_96)
 					 {
 							call func_f9(var VAR_98, int 100)
 					}
-					call func_10c(var VAR_40, "ARSE")
-					call char_walk_to_pos(var VAR_40, var &VAR_44)
+					call func_10c(var nbuzuki, "ARSE")
+					call char_walk_to_pos(var nbuzuki, var &VAR_44)
 					var VAR_96 ++ 
 					var VAR_97 = int 0
 			}
 			break 
 		case 12
-			if(call is_char_standing(var VAR_40))
+			if(call is_char_standing(var nbuzuki))
 			 {
-					call func_10c(var VAR_40, int 0)
+					call func_10c(var nbuzuki, int 0)
 					var VAR_96 ++ 
 					var VAR_97 = int 0
 			}
@@ -451,18 +413,18 @@ if(gamevar CLICKED_DOOR != int -1)
 var VAR_97 ++ 
 
 ._SCRIPT_7
-var VAR_40 = call create_char(var &VAR_81, "nbuzuki", int 3, int 13)
-var VAR_41 = call create_char(var &VAR_82, "nduke", int 285, int 13)
-var VAR_42 = call create_char(var &VAR_83, "nfrink", int 0, int 13)
-call add_item_to_char(var VAR_41, int 16, int 0, int 1)
-call set_char_running(var VAR_42)
-call func_50(var VAR_42, int 8192)
-call play_char_ai_script(var VAR_42, var &VAR_85)
-var VAR_39 = call get_char_handle(int 65536)
+var nbuzuki = call create_char(var &VAR_81, "nbuzuki", int 3, int 13)
+var nduke = call create_char(var &VAR_82, "nduke", int 285, int 13)
+var nfrink = call create_char(var &VAR_83, "nfrink", int 0, int 13)
+call add_item_to_char(var nduke, int 16, int 0, int 1)
+call set_char_running(var nfrink)
+call func_50(var nfrink, int 8192)
+call play_char_ai_script(var nfrink, var &VAR_85)
+var DAVID = call get_char_handle(int 65536)
 execute SCRIPT_9
 call func_24(int 786432, var &VAR_84, int 40)
-var VAR_43 = call get_char_handle(int 786432)
-call set_char_running(var VAR_43)
+var SEKUNE = call get_char_handle(int 786432)
+call set_char_running(var SEKUNE)
 call set_input_system(int 2)
 call load_char("chronicl")
 
@@ -470,15 +432,15 @@ call load_char("chronicl")
 switch(var VAR_99)
  {
 		case 0
-			call set_char_running(var VAR_41)
-			call func_2b(var VAR_41, int 2)
+			call set_char_running(var nduke)
+			call func_2b(var nduke, int 2)
 			var VAR_99 ++ 
 			break 
 		case 1
-			if(call is_char_standing(var VAR_41))
+			if(call is_char_standing(var nduke))
 			 {
 					call log("Duke has left")
-					call remove_char(var VAR_41)
+					call remove_char(var nduke)
 					var VAR_99 ++ 
 			}
 			break 
@@ -488,14 +450,14 @@ switch(var VAR_99)
 var VAR_94 = call load_anim("jangive")
 
 ._SCRIPT_10
-var VAR_40 = call create_char(var &VAR_120, "nbuzuki", int 5, int 13)
-var VAR_42 = call create_char(var &VAR_121, "nfrink", int 0, int 13)
-call set_char_running(var VAR_42)
-call func_50(var VAR_42, int 8192)
-call play_char_ai_script(var VAR_42, var &VAR_127)
-call set_char_walking(var VAR_40)
-call func_50(var VAR_40, int 8192)
-call play_char_ai_script(var VAR_40, var &VAR_122)
+var nbuzuki = call create_char(var &VAR_120, "nbuzuki", int 5, int 13)
+var nfrink = call create_char(var &VAR_121, "nfrink", int 0, int 13)
+call set_char_running(var nfrink)
+call func_50(var nfrink, int 8192)
+call play_char_ai_script(var nfrink, var &VAR_127)
+call set_char_walking(var nbuzuki)
+call func_50(var nbuzuki, int 8192)
+call play_char_ai_script(var nbuzuki, var &VAR_122)
 if(call func_bf(int 444, gamevar CURRENT_LEVEL, gamevar CURRENT_SCENE))
  {
 		call func_d8(int 444, var &VAR_130)
@@ -505,19 +467,19 @@ if(call func_bf(int 444, gamevar CURRENT_LEVEL, gamevar CURRENT_SCENE))
 switch(var VAR_132)
  {
 		case 2
-			call add_item_to_char(var VAR_40, int 38, int 0, int 0)
-			call add_item_to_char(var VAR_40, int 39, int 0, int 0)
+			call add_item_to_char(var nbuzuki, int 38, int 0, int 0)
+			call add_item_to_char(var nbuzuki, int 39, int 0, int 0)
 		case 1
-			call add_item_to_char(var VAR_40, int 36, int 0, int 0)
-			call add_item_to_char(var VAR_40, int 37, int 0, int 0)
+			call add_item_to_char(var nbuzuki, int 36, int 0, int 0)
+			call add_item_to_char(var nbuzuki, int 37, int 0, int 0)
 		case 0
-			call add_item_to_char(var VAR_40, int 32, int 0, int 0)
-			call add_item_to_char(var VAR_40, int 33, int 0, int 0)
-			call add_item_to_char(var VAR_40, int 34, int 0, int 0)
-			call add_item_to_char(var VAR_40, int 35, int 0, int 0)
+			call add_item_to_char(var nbuzuki, int 32, int 0, int 0)
+			call add_item_to_char(var nbuzuki, int 33, int 0, int 0)
+			call add_item_to_char(var nbuzuki, int 34, int 0, int 0)
+			call add_item_to_char(var nbuzuki, int 35, int 0, int 0)
 			break 
 }
-var VAR_39 = call get_char_handle(int 65536)
+var DAVID = call get_char_handle(int 65536)
 var VAR_133 = int 0
 var VAR_134 = int 0
 if(call func_bf(int 448, gamevar CURRENT_LEVEL, gamevar CURRENT_SCENE))
@@ -570,7 +532,7 @@ switch(var VAR_133)
 			}
 			break 
 		case 1
-			if(call func_65(var VAR_40, int 13) == int 17)
+			if(call func_65(var nbuzuki, int 13) == int 17)
 			 {
 					var VAR_47 = int 1
 					switch(gamevar room_state)
@@ -618,7 +580,7 @@ switch(var VAR_133)
 					}
 					else
 					 {
-							if(call func_6c(var VAR_40))
+							if(call func_6c(var nbuzuki))
 							 {
 									call log("Have money but no items bought")
 									call start_dialog("B_HERNO", var VAR_140)
@@ -699,7 +661,7 @@ switch(var VAR_133)
 			 {
 					if(var VAR_140 == var VAR_149)
 					 {
-							var VAR_98 = call add_item_to_char(var VAR_39, int 37, int 0, int 0)
+							var VAR_98 = call add_item_to_char(var DAVID, int 37, int 0, int 0)
 							call func_f9(var VAR_98, int 100)
 					}
 					call resume_conversation()

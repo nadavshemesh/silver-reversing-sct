@@ -1,12 +1,9 @@
 ._DATA
-VAR_0	0	
+DAVID	0	
 VAR_1	65536	
 VAR_2	65536	
 VAR_3	0	
 VAR_4	0	
-VAR_5	0	
-VAR_6	0	
-VAR_7	0	
 VAR_8	{ 1665, -665, 327 }	
 VAR_9	{ -335, -665, 353 }	
 VAR_10	{ 676, 500, 725 }	
@@ -15,35 +12,19 @@ VAR_12	{ -400, 1145 }
 VAR_13	0	
 VAR_14	500	
 VAR_15	{ 10, 120 }	
-VAR_16	0	
-VAR_17	0	
-VAR_18	0	
-VAR_19	0	
 VAR_25	0	
-VAR_26	0	
-VAR_27	0	
 VAR_31	0	
 VAR_32	{ 0, 0 }	
 VAR_33	0	
 VAR_34	{ 0, 0 }	
 VAR_35	{ 0, 0, 0 }	
-VAR_36	0	
-VAR_37	0	
-VAR_41	0	
-VAR_42	0	
-VAR_43	0	
 VAR_44	{ 1790, -765, 750 }	
 VAR_45	{ 1024, 634, 1310 }	
 VAR_46	{ 674, -665, 374 }	
 VAR_47	{ 674, -200, 374 }	
 VAR_48	{ 1605, -300, 813 }	
-VAR_49	0	
-VAR_50	0	
-VAR_51	0	
 VAR_52	0	
 VAR_53	-1	
-VAR_60	0	
-VAR_61	0
 
 ._on_load
 call load_sound_set(int 78)
@@ -106,7 +87,7 @@ switch(var VAR_41)
 		case 0
 			if(var VAR_42 > int 5)
 			 {
-					call char_teleport_to_pos(var VAR_0, var &VAR_44, int 250)
+					call char_teleport_to_pos(var DAVID, var &VAR_44, int 250)
 					var VAR_41 ++ 
 					var VAR_42 = int 0
 			}
@@ -122,13 +103,13 @@ switch(var VAR_41)
 		case 2
 			if(call func_6d() == int 1)
 			 {
-					call play_char_anim(var VAR_0, var VAR_25, int 0)
+					call play_char_anim(var DAVID, var VAR_25, int 0)
 					var VAR_41 ++ 
 					var VAR_42 = int 0
 			}
 			break 
 		case 3
-			if(call func_5c(var VAR_0))
+			if(call func_5c(var DAVID))
 			 {
 					call resume_conversation()
 					var VAR_13 = int 3
@@ -157,7 +138,7 @@ switch(var VAR_41)
 		case 5
 			if(var VAR_32 == int 10)
 			 {
-					call play_char_anim(var VAR_0, var VAR_26, int 0)
+					call play_char_anim(var DAVID, var VAR_26, int 0)
 					var VAR_2 = int 98304
 					var VAR_3 = int -2000
 					var VAR_14 = int 600
@@ -165,11 +146,11 @@ switch(var VAR_41)
 			}
 			if(var VAR_32 == int 14)
 			 {
-					call play_char_anim(var VAR_5, var VAR_26, int 0)
+					call play_char_anim(var nduke, var VAR_26, int 0)
 			}
 			if(var VAR_32 == int 20)
 			 {
-					call play_char_anim(var VAR_6, var VAR_27, int 0)
+					call play_char_anim(var nbuzuki, var VAR_27, int 0)
 			}
 			if(var VAR_32 < int 20&&var VAR_32 > int 8)
 			 {
@@ -215,7 +196,7 @@ switch(var VAR_41)
 			if(var VAR_42 > int 30)
 			 {
 					gamevar compile_init_character = int 0
-					var VAR_43 = call create_char(var &VAR_46, "i1horn", int 0, int 13)
+					var i1horn = call create_char(var &VAR_46, "i1horn", int 0, int 13)
 					gamevar compile_init_character = int 1
 					var VAR_41 ++ 
 					var VAR_42 = int 0
@@ -224,35 +205,35 @@ switch(var VAR_41)
 		case 9
 			if(var VAR_42 > int 20)
 			 {
-					call func_9b(var VAR_43, var &VAR_47, int 10863247)
-					var VAR_52 = call play_3d_fx("ORACLE", int 0, int 0, var VAR_43)
+					call func_9b(var i1horn, var &VAR_47, int 10863247)
+					var VAR_52 = call play_3d_fx("ORACLE", int 0, int 0, var i1horn)
 					var VAR_41 ++ 
 					var VAR_42 = int 0
 			}
 			break 
 		case 10
-			if(call func_38(var VAR_43, int 0))
+			if(call func_38(var i1horn, int 0))
 			 {
-					call func_9b(var VAR_43, var &VAR_48, int 10779361)
+					call func_9b(var i1horn, var &VAR_48, int 10779361)
 					var VAR_41 ++ 
 					var VAR_42 = int 0
 			}
 			break 
 		case 11
-			if(call func_38(var VAR_43, int 0))
+			if(call func_38(var i1horn, int 0))
 			 {
-					call func_9b(var VAR_43, var &VAR_44, int 10779361)
+					call func_9b(var i1horn, var &VAR_44, int 10779361)
 					var VAR_41 ++ 
 					var VAR_42 = int 0
 			}
 			break 
 		case 12
-			if(call func_38(var VAR_43, int 0))
+			if(call func_38(var i1horn, int 0))
 			 {
 					call func_12f(var VAR_52)
-					call set_char_walking(var VAR_0)
-					call func_ca(var VAR_0, var VAR_43, int 0)
-					call char_turn_to_pos(var VAR_5, var &VAR_44)
+					call set_char_walking(var DAVID)
+					call func_ca(var DAVID, var i1horn, int 0)
+					call char_turn_to_pos(var nduke, var &VAR_44)
 					var VAR_41 ++ 
 					var VAR_42 = int 0
 			}
@@ -260,8 +241,8 @@ switch(var VAR_41)
 		case 13
 			if(var VAR_42 > int 20)
 			 {
-					call set_char_walking(var VAR_6)
-					call func_2b(var VAR_6, int 0)
+					call set_char_walking(var nbuzuki)
+					call func_2b(var nbuzuki, int 0)
 					var VAR_41 ++ 
 					var VAR_42 = int 0
 			}
@@ -269,11 +250,11 @@ switch(var VAR_41)
 		case 14
 			if(var VAR_42 == int 60)
 			 {
-					call func_2b(var VAR_0, int 0)
+					call func_2b(var DAVID, int 0)
 			}
 			if(var VAR_42 == int 120)
 			 {
-					call func_2b(var VAR_5, int 0)
+					call func_2b(var nduke, int 0)
 					var VAR_41 ++ 
 					var VAR_42 = int 0
 			}
@@ -290,13 +271,13 @@ switch(var VAR_41)
 var VAR_42 ++ 
 
 ._SCRIPT_4
-var VAR_5 = call create_char(var &VAR_8, "nduke", int 275, int 13)
-var VAR_6 = call create_char(var &VAR_9, "nbuzuki", int 35, int 13)
-var VAR_7 = call create_char(var &VAR_10, "noracle", int 210, int 13)
-gamevar script_object = var VAR_7
+var nduke = call create_char(var &VAR_8, "nduke", int 275, int 13)
+var nbuzuki = call create_char(var &VAR_9, "nbuzuki", int 35, int 13)
+var noracle = call create_char(var &VAR_10, "noracle", int 210, int 13)
+gamevar script_object = var noracle
 gamevar *character_movement_p+62 = int 1
-call add_item_to_char(var VAR_5, int 16, int 0, int 1)
-var VAR_0 = call get_char_handle(int 65536)
+call add_item_to_char(var nduke, int 16, int 0, int 1)
+var DAVID = call get_char_handle(int 65536)
 execute SCRIPT_5
 execute SCRIPT_6
 call func_9e(var &VAR_11)

@@ -1,29 +1,12 @@
 ._DATA
-VAR_0	0	
-fade_chronicler	0	
-VAR_2	0	
-VAR_3	0	
-VAR_4	0	
-VAR_17	0	
 VAR_18	{ 0, 0, -1 }	
-VAR_19	0	
-VAR_20	0	
-VAR_21	0	
-VAR_22	0	
 VAR_23	-1	
-VAR_26	0	
-VAR_39	0	
-VAR_40	0	
-VAR_41	0	
-VAR_42	0	
 VAR_43	{ -1953, -255, 1484 }	
 VAR_44	{ -2416, -256, 1468 }	
 VAR_45	{ -1423, 496, 3778 }	
 VAR_46	{ -2392, -256, 1878 }	
 VAR_47	{ -1742, 493, 1245 }	
 VAR_48	{ 1, 0, 0 }	
-VAR_53	0	
-VAR_57	0
 
 ._on_load
 call play_bgm("SEWERPT1")
@@ -71,15 +54,15 @@ switch(gamevar room_state)
 }
 
 ._SCRIPT_3
-var VAR_42 = call create_char(var &VAR_43, "nrebel", int 315, int 13)
-call add_item_to_char(var VAR_42, int 16, int 0, int 0)
+var nrebel = call create_char(var &VAR_43, "nrebel", int 315, int 13)
+call add_item_to_char(var nrebel, int 16, int 0, int 0)
 var VAR_39 = int 0
 
 ._SCRIPT_4
 switch(var VAR_39)
  {
 		case 0
-			if(call func_127(var VAR_42))
+			if(call func_127(var nrebel))
 			 {
 					var VAR_41 = call get_selected_hero()
 					var VAR_39 ++ 
@@ -89,8 +72,8 @@ switch(var VAR_39)
 			if(call get_input_sys() != int 4)
 			 {
 					call set_input_system(int 2)
-					call func_17(var VAR_41, var VAR_42)
-					call func_55(var VAR_42, int 16)
+					call func_17(var VAR_41, var nrebel)
+					call func_55(var nrebel, int 16)
 					var VAR_40 = int 30
 					var VAR_39 ++ 
 			}
@@ -102,7 +85,7 @@ switch(var VAR_39)
 			}
 			else
 			 {
-					call char_turn_to_pos(var VAR_42, var &VAR_44)
+					call char_turn_to_pos(var nrebel, var &VAR_44)
 					var VAR_40 = int 25
 					var VAR_39 ++ 
 			}
@@ -114,7 +97,7 @@ switch(var VAR_39)
 			}
 			else
 			 {
-					call func_98(var VAR_42, int 24)
+					call func_98(var nrebel, int 24)
 					var VAR_40 = int 120
 					var VAR_39 ++ 
 			}
@@ -126,7 +109,7 @@ switch(var VAR_39)
 			}
 			else
 			 {
-					call func_17(var VAR_42, var VAR_41)
+					call func_17(var nrebel, var VAR_41)
 					if(call func_80(var VAR_41) != int 1)
 					 {
 							var VAR_53 = call func_e0(var VAR_41, int 22)
@@ -173,8 +156,8 @@ switch(var VAR_39)
 			}
 			else
 			 {
-					call func_17(var VAR_41, var VAR_42)
-					call func_17(var VAR_42, var VAR_41)
+					call func_17(var VAR_41, var nrebel)
+					call func_17(var nrebel, var VAR_41)
 					var VAR_40 = int 30
 					var VAR_39 ++ 
 			}
@@ -193,10 +176,10 @@ switch(var VAR_39)
 		case 9
 			if(call get_input_sys() != int 4)
 			 {
-					call func_10c(var VAR_42, "fart")
-					call func_132(var VAR_42, int 16)
-					call set_char_running(var VAR_42)
-					call char_walk_to_pos(var VAR_42, var &VAR_45)
+					call func_10c(var nrebel, "fart")
+					call func_132(var nrebel, int 16)
+					call set_char_running(var nrebel)
+					call char_walk_to_pos(var nrebel, var &VAR_45)
 					call set_input_system(int 1)
 					var VAR_40 = int 100
 					var VAR_39 ++ 
@@ -214,9 +197,9 @@ switch(var VAR_39)
 			}
 			break 
 		case 11
-			if(call is_char_standing(var VAR_42))
+			if(call is_char_standing(var nrebel))
 			 {
-					call remove_char(var VAR_42)
+					call remove_char(var nrebel)
 					var VAR_39 ++ 
 			}
 			break 

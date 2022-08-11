@@ -811,6 +811,34 @@ void flush_data_nodes_to_data_section(sct_f* sf) {
     }
 }
 
+data_obj* add_and_init_data_var_by_name(char* var_name, sct_f* sf) {
+    data_obj* data_o = create_and_init_data_obj();
+    
+    data_o->name = aapts(var_name);
+    data_o->byte_size = 4;
+    data_o->data = (byte*) w_malloc(sizeof(int));
+    *((int*)data_o->data) = 0;
+
+    int ds_size = sf->structure->data_sec_size;
+    int id = (ds_size % 4 == 0) ? ds_size/4 : (ds_size/4+1);
+    data_o->id = id;
+
+    sf->data_objs_num++;
+    sf->structure->data_sec_size += 4;
+
+    node* data_node = *sf->data_nodes;
+    while(data_node->next != NULL) { 
+        data_node = data_node->next;
+    }
+
+    node* new_node = create_node(data_o);
+    data_node->next = new_node;
+
+    flush_data_nodes_to_data_section(sf);
+
+    return data_o;
+}
+
 data_obj* add_inline_var_declaration_to_data_section(sct_f* sf, char*** token_pos_ptr) {
     data_obj* data_o = asm_create_inline_data_obj(token_pos_ptr, sf);
 
@@ -884,7 +912,7 @@ void build_data_section(sct_f* sf) {
                     // print_data_obj(data_o);
                     // printf("byte_num: %d\n", byte_num);
                     // byte_num = (byte_num == 0)? byte_num : byte_num-1;
-                    data_obj* ref_obj = get_data_obj_by_name(unfound_name, sf);
+                    data_obj* ref_obj = get_data_obj_by_name(unfound_name, false, sf);
                     if(*((int*) data_o->data+byte_num) != -9) break;
                     // printf("Found %s, byte_num: %d(val: %d), ref_id: %d\n", unfound_name,
                     //          byte_num, *((int*) data_o->data+byte_num), ref_obj->id);
@@ -1184,7 +1212,17 @@ expr_obj* asm_create_expr_obj(expr_pattern* expr_p, char** vars, char*** token_p
                 data_name = **token_pos_ptr;
                 *token_pos_ptr += 1;
             }
-            data_obj* data_o = get_data_obj_by_name(data_name, sf);
+            // auto creatdata_obj* data_e only for var ptr
+            data_obj* data_o;
+            if(expr_p->type == VAR_PTR) {
+                data_o = get_data_obj_by_name(data_name, true, sf);
+                // auto create var if it isnt declared in the data section
+                if(data_o == NULL) {
+                    data_o = add_and_init_data_var_by_name(data_name, sf);
+                }
+            } else {
+                data_o = get_data_obj_by_name(data_name, false, sf);
+            }
             eo->data = data_o;
             data_o->references++;
             if(is_negated) {
@@ -1790,7 +1828,12 @@ code_obj* asm_read_var_ptr(code_pattern* cp, char** vars, char*** token_pos_ptr,
     create_data_code_link(sf);
     // print_bin_link_table(sf);
     char* data_name = vars[0];
-    data_obj* data_o = get_data_obj_by_name(data_name, sf);
+    data_obj* data_o = get_data_obj_by_name(data_name, true, sf);
+
+    // auto create var if it isnt declared in the data section
+    if(data_o == NULL) {
+        data_o = add_and_init_data_var_by_name(data_name, sf);
+    }
     c_obj->data = data_o;
     data_o->references++;
 

@@ -1,30 +1,13 @@
 ._DATA
 VAR_0	0	
-VAR_1	0	
-VAR_2	0	
-VAR_3	0	
-VAR_4	0	
-VAR_5	0	
 VAR_6	{ 1491, -3410, 10402 }	
-VAR_7	0	
 VAR_8	1	
-VAR_9	0	
 VAR_10	{ 1455, -3410, 10956, 974, -3410, 10870 }	
-VAR_12	0	
-VAR_13	0	
 VAR_22	{ -3029, -3410, 12070 }	
-VAR_23	0	
-VAR_24	0	
 VAR_26	0	
 VAR_27	{ 0, 0, 0 }	
-VAR_28	0	
-VAR_29	0	
-VAR_30	0	
-VAR_31	0	
-VAR_32	0	
 VAR_33	{ -4698, -3110, 12091 }	
 VAR_47	{ 1280070990, -1431655936, 0 }	
-VAR_48	0
 
 ._on_load
 execute SCRIPT_4
@@ -118,7 +101,7 @@ while(var VAR_12)
 					break 
 				case 262144
 					call log("cagen")
-					var VAR_5 = var VAR_12
+					var ncagen = var VAR_12
 					break 
 				default 
 					call log("WARNING! Unknown hero while checking heroes")
@@ -139,14 +122,14 @@ switch(var VAR_26)
 		case 0
 			if(var VAR_27 == int 5)
 			 {
-					call set_char_walking(var VAR_5)
-					call char_walk_to_pos(var VAR_5, var &VAR_33)
+					call set_char_walking(var ncagen)
+					call char_walk_to_pos(var ncagen, var &VAR_33)
 					var VAR_26 ++ 
 					var VAR_27 = int 0
 			}
 			break 
 		case 1
-			if(call is_char_standing(var VAR_5))
+			if(call is_char_standing(var ncagen))
 			 {
 					if(var VAR_2)
 					 {
@@ -240,11 +223,11 @@ switch(var VAR_26)
 var VAR_27 ++ 
 
 ._SCRIPT_6
-var VAR_5 = call create_char(var &VAR_22, "ncagen", int 251, int 13)
-var VAR_23 = call get_char_handle(int 65536)
-gamevar script_object = var VAR_23
+var ncagen = call create_char(var &VAR_22, "ncagen", int 251, int 13)
+var DAVID = call get_char_handle(int 65536)
+gamevar script_object = var DAVID
 var VAR_24 = gamevar LEVEL
-call set_char_lvl(var VAR_5, var VAR_24)
+call set_char_lvl(var ncagen, var VAR_24)
 call set_input_system(int 2)
 
 ._SCRIPT_7

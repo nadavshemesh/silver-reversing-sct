@@ -1,35 +1,12 @@
 ._DATA
-VAR_0	0	
-VAR_1	0	
-VAR_2	0	
-fade_chronicler	0	
-VAR_4	0	
-VAR_5	0	
-VAR_6	0	
-VAR_19	0	
 VAR_20	{ 0, 0, -1 }	
-VAR_21	0	
-VAR_22	0	
-VAR_23	0	
-VAR_24	0	
 VAR_25	-1	
-VAR_28	0	
-VAR_43	0	
-VAR_44	0	
-VAR_45	0	
 VAR_46	{ 0, 1 }	
-VAR_47	0	
-neutral_imp	0	
-neutral_imp1	0	
 VAR_50	{ 1676, 403, -3261 }	
 VAR_51	{ 2043, 403, -3169 }	
 VAR_52	{ 2433, -597, -3617 }	
 VAR_53	{ 0, 0, 0, 1, -1, 8, 1, 4, 0, 9, 0, 1, 16, 102, 103, -1, 2, 1, 3, 2, 5, 0, 50, 7, 1, 8, -1 }	
 VAR_57	{ 2872, -597, -3192 }	
-VAR_58	0	
-VAR_59	0	
-VAR_66	0	
-VAR_67	0
 
 ._on_load
 call play_bgm("GNO")
@@ -102,46 +79,46 @@ if(gamevar is_room_cleared == int 2)
 ._SCRIPT_5
 var neutral_imp = call create_enemy(int 102, int 1, var &VAR_50, int 0)
 var neutral_imp1 = call create_enemy(int 102, int 2, var &VAR_51, int 315)
-var VAR_44 = call create_char(var &VAR_52, "nyelimp", int -30, int 13)
-gamevar script_object = var VAR_44
+var nyelimp = call create_char(var &VAR_52, "nyelimp", int -30, int 13)
+gamevar script_object = var nyelimp
 gamevar *character_movement_p+60 = int 1
-gamevar script_object = var VAR_44
+gamevar script_object = var nyelimp
 gamevar *object_p+7 |= int 8388608
 var VAR_45 = call load_anim("startle")
-var VAR_0 = call get_char_handle(int 65536)
-var VAR_1 = call get_char_handle(int 393216)
+var DAVID = call get_char_handle(int 65536)
+var GRANDAD = call get_char_handle(int 393216)
 call func_108("ARSE")
 
 ._SCRIPT_6
 switch(var VAR_46)
  {
 		case 0
-			if(call get_char_y(var VAR_0) < int -72)
+			if(call get_char_y(var DAVID) < int -72)
 			 {
 					var VAR_43 = int 1
-					call play_char_anim(var VAR_44, var VAR_45, int 0)
-					call func_95(var VAR_44, int 5, int 0)
+					call play_char_anim(var nyelimp, var VAR_45, int 0)
+					call func_95(var nyelimp, int 5, int 0)
 					gamevar scene_counter = int 0
 					var VAR_46 ++ 
 			}
 			break 
 		case 1
-			if(call func_5c(var VAR_44))
+			if(call func_5c(var nyelimp))
 			 {
-					gamevar script_object = var VAR_44
+					gamevar script_object = var nyelimp
 					gamevar *character_stats_p+14 = int 106000
-					call set_char_running(var VAR_44)
-					call func_2b(var VAR_44, int 1)
-					var VAR_47 = call func_41(var VAR_44, int 0)
+					call set_char_running(var nyelimp)
+					call func_2b(var nyelimp, int 1)
+					var VAR_47 = call func_41(var nyelimp, int 0)
 					gamevar scene_counter = int 0
 					var VAR_46 ++ 
 			}
 			break 
 		case 2
-			if(call is_char_standing(var VAR_44))
+			if(call is_char_standing(var nyelimp))
 			 {
 					call func_12f(var VAR_47)
-					call remove_char(var VAR_44)
+					call remove_char(var nyelimp)
 					var VAR_59 = call run_enemy_generator(var &VAR_53, int 10)
 					gamevar scene_counter = int 0
 					var VAR_58 = int 0
@@ -165,14 +142,14 @@ switch(var VAR_46)
 }
 
 ._SCRIPT_7
-var VAR_44 = call create_char(var &VAR_52, "nyelimp", int -30, int 13)
-gamevar script_object = var VAR_44
+var nyelimp = call create_char(var &VAR_52, "nyelimp", int -30, int 13)
+gamevar script_object = var nyelimp
 gamevar *character_movement_p+60 = int 1
-gamevar script_object = var VAR_44
+gamevar script_object = var nyelimp
 gamevar *object_p+7 |= int 8388608
 var VAR_45 = call load_anim("startle")
-var VAR_0 = call get_char_handle(int 65536)
-var VAR_1 = call get_char_handle(int 393216)
+var DAVID = call get_char_handle(int 65536)
+var GRANDAD = call get_char_handle(int 393216)
 call func_108("ARSE")
 call load_char("imp")
 

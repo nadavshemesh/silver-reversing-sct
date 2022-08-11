@@ -1,19 +1,7 @@
 ._DATA
-VAR_0	0	
-fade_chronicler	0	
-VAR_2	0	
-VAR_3	0	
-VAR_4	0	
-VAR_17	0	
 VAR_18	{ 0, 0, -1 }	
-VAR_19	0	
-VAR_20	0	
-VAR_21	0	
-VAR_22	0	
 VAR_23	-1	
-VAR_26	0	
 VAR_39	{ -1416, 0, 168 }	
-VAR_40	0	
 VAR_43	{ -473, 0, -108 }	
 VAR_44	{ -18, 0, -441 }	
 VAR_45	{ -683, 0, -460 }	
@@ -21,18 +9,7 @@ VAR_46	{ -964, 0, -271 }
 VAR_47	{ -364, 0, -729 }	
 VAR_48	{ -83, 0, -780 }	
 VAR_49	{ 3580, 0, -309 }	
-VAR_50	0	
-fuge	0	
-jennifer	0	
-start_grunt	0	
-start_grunt1	0	
-start_grunt2	0	
-start_grunt3	0	
-grunt_wooden_shield	0	
-VAR_59	0	
-VAR_60	0	
-VAR_61	0	
-VAR_62	0	
+NVILOWFAT	0	
 VAR_63	{ 1598, 0, -1151 }	
 VAR_64	{ 4502, 0, -773 }	
 VAR_65	{ -74, 0, -2268 }	
@@ -47,31 +24,19 @@ VAR_73	{ 0, 2695, 0, -622, 0, 1084, 0, -1590, 0, -913, 0, 333, 2, -1000, -750, 8
 VAR_74	"throw"	
 VAR_75	"throw"	
 VAR_76	{ 7, 8 }	
-VAR_77	{ 9, VAR_61, 0, -595, 0, 353, 3, VAR_78, 0, 0, 111, 0, -1129, 7, 8 }	
+VAR_77	{ 9, NVILOWFAT, 0, -595, 0, 353, 3, VAR_78, 0, 0, 111, 0, -1129, 7, 8 }	
 VAR_78	"taichi"	
-VAR_83	0	
-VAR_84	0	
 VAR_87	{ 3190, 0, -163 }	
 VAR_88	{ 3017, 0, -581 }	
-VAR_89	0	
-VAR_90	0	
 VAR_91	1	
 VAR_92	1	
-VAR_93	0	
-VAR_94	0	
 VAR_95	{ -1214, 0, 270 }	
 VAR_96	{ -1214, 0, -129 }	
-VAR_97	0	
-VAR_98	0	
 VAR_99	{ -1068, -600, 4753 }	
 VAR_100	{ -3746, -250, 1781 }	
 VAR_101	{ 10, -3584, 1200, 900, 5, 408, 10, 2872, -250, 3100, 5, 312, 10, -3946, -50, 1781, 5, 146, 10, -1068, -400, 4753, 5, 108, 7, 8 }	
 VAR_102	{ 10, 2872, -450, 3100, 5, 305, 10, -3584, 1400, 900, 5, 507, 10, 500, 700, 4100, 5, 259, 10, -3946, -250, 1781, 5, 403, 7, 8 }	
 VAR_106	{ 0, 0, 0, 1, -1, 8, 2, 12, 156, -1, 14, 0, 1, 1, 18, 25, -1 }	
-VAR_107	0	
-VAR_108	0	
-VAR_109	0	
-VAR_110	0	
 VAR_111	{ -2201, 0, -589 }
 
 ._on_load
@@ -141,27 +106,27 @@ gamevar SMACKER_Y = int 320
 call play_2d_anim("subarch", int 1, int 1, int 0)
 
 ._SCRIPT_5
-var VAR_59 = call create_char(var &VAR_63, "NVILLBOY", int 270, int 13)
-call set_char_running(var VAR_59)
-call set_char_init_state(var VAR_59, int 13)
-call play_char_ai_script(var VAR_59, var &VAR_67)
-var VAR_60 = call create_char(var &VAR_64, "NVILLOW", int -90, int 13)
-call set_char_init_state(var VAR_60, int 13)
-call play_char_ai_script(var VAR_60, var &VAR_73)
-var VAR_61 = call create_char(var &VAR_65, "NVILOWFAT", int 296, int 13)
-call set_char_init_state(var VAR_61, int 13)
-call play_char_ai_script(var VAR_61, var &VAR_76)
-var VAR_62 = call create_char(var &VAR_66, "NVILLHAT", int 0, int 13)
-call set_char_init_state(var VAR_62, int 13)
-call play_char_ai_script(var VAR_62, var &VAR_77)
-call func_109(var VAR_59, int -1)
-call func_109(var VAR_60, int -1)
-call func_109(var VAR_61, int -1)
-call func_109(var VAR_62, int -1)
+var NVILLBOY = call create_char(var &VAR_63, "NVILLBOY", int 270, int 13)
+call set_char_running(var NVILLBOY)
+call set_char_init_state(var NVILLBOY, int 13)
+call play_char_ai_script(var NVILLBOY, var &VAR_67)
+var NVILLOW = call create_char(var &VAR_64, "NVILLOW", int -90, int 13)
+call set_char_init_state(var NVILLOW, int 13)
+call play_char_ai_script(var NVILLOW, var &VAR_73)
+var NVILOWFAT = call create_char(var &VAR_65, "NVILOWFAT", int 296, int 13)
+call set_char_init_state(var NVILOWFAT, int 13)
+call play_char_ai_script(var NVILOWFAT, var &VAR_76)
+var NVILLHAT = call create_char(var &VAR_66, "NVILLHAT", int 0, int 13)
+call set_char_init_state(var NVILLHAT, int 13)
+call play_char_ai_script(var NVILLHAT, var &VAR_77)
+call func_109(var NVILLBOY, int -1)
+call func_109(var NVILLOW, int -1)
+call func_109(var NVILOWFAT, int -1)
+call func_109(var NVILLHAT, int -1)
 
 ._SCRIPT_6
 execute SCRIPT_3
-var VAR_50 = call get_char_handle(int 65536)
+var DAVID = call get_char_handle(int 65536)
 var fuge = call create_enemy(int 97, int 0, var &VAR_43, int 85)
 gamevar script_object = var fuge
 gamevar *character_movement_p+60 = int 1
@@ -192,7 +157,7 @@ if(var VAR_83 == int 0)
  {
 		if(var VAR_84 > int 60)
 		 {
-				if(call is_char_standing(var VAR_50))
+				if(call is_char_standing(var DAVID))
 				 {
 						call set_input_system(int 1)
 						call start_dialog("DVDJEN", "NULL")
@@ -333,7 +298,7 @@ if(var VAR_90 >= int 4)
 				 {
 						if(call is_char_standing(var start_grunt3))
 						 {
-								call char_turn_to_pos(var start_grunt3, call get_char_pos(var VAR_50))
+								call char_turn_to_pos(var start_grunt3, call get_char_pos(var DAVID))
 								var VAR_94 ++ 
 						}
 				}
@@ -348,7 +313,7 @@ if(var VAR_90 >= int 4)
 				 {
 						if(call is_char_standing(var start_grunt2))
 						 {
-								call char_turn_to_pos(var start_grunt2, call get_char_pos(var VAR_50))
+								call char_turn_to_pos(var start_grunt2, call get_char_pos(var DAVID))
 								var VAR_94 ++ 
 						}
 				}
@@ -361,16 +326,16 @@ if(var VAR_90 >= int 4)
 var VAR_93 ++ 
 
 ._SCRIPT_10
-var VAR_97 = call create_char(var &VAR_99, "NGULL1", int 230, int 16)
-var VAR_98 = call create_char(var &VAR_100, "NGULL2", int 70, int 16)
-gamevar script_object = var VAR_97
+var NGULL1 = call create_char(var &VAR_99, "NGULL1", int 230, int 16)
+var NGULL2 = call create_char(var &VAR_100, "NGULL2", int 70, int 16)
+gamevar script_object = var NGULL1
 gamevar *character_stats_p+14 = int 98304
-gamevar script_object = var VAR_98
+gamevar script_object = var NGULL2
 gamevar *character_stats_p+14 = int 98304
-call set_char_init_state(var VAR_97, int 13)
-call play_char_ai_script(var VAR_97, var &VAR_101)
-call set_char_init_state(var VAR_98, int 13)
-call play_char_ai_script(var VAR_98, var &VAR_102)
+call set_char_init_state(var NGULL1, int 13)
+call play_char_ai_script(var NGULL1, var &VAR_101)
+call set_char_init_state(var NGULL2, int 13)
+call play_char_ai_script(var NGULL2, var &VAR_102)
 
 ._SCRIPT_11
 call func_108("act2")

@@ -1,24 +1,16 @@
 ._DATA
 VAR_0	0	
 VAR_1	{ 0, 0 }	
-VAR_2	0	
-VAR_3	0	
-VAR_4	0	
 VAR_5	0	
-VAR_6	0	
 VAR_7	0	
-VAR_8	0	
 VAR_9	0	
 VAR_10	{ 3, VAR_11, 0, 2, 5, -8, 332, 3, VAR_12, 0, 2, 255, -15, 742, 2, 402, -11, 461, 3, VAR_13, 0, 16, VAR_9, 1, 5, 30, 3, VAR_14, 0, 8 }	
 VAR_11	"lookout"	
 VAR_12	"lookout"	
 VAR_13	"lookout"	
 VAR_14	"teeter"	
-VAR_15	0	
 VAR_16	0	
-VAR_17	0	
-VAR_18	0	
-VAR_19	0	
+njennifer	0	
 VAR_20	{ 341, -7, 723 }	
 VAR_21	{ 475, 3, 752 }	
 VAR_22	{ 604, 0, 584 }	
@@ -30,18 +22,13 @@ VAR_31	{ -25, -1350, -1774 }
 VAR_32	{ 129, 5, 103 }	
 VAR_33	{ -115, 6, 122 }	
 VAR_34	{ 122, 10, -308 }	
-VAR_35	0	
-VAR_36	0	
 VAR_37	{ -244, -15, 1787 }	
 VAR_38	{ -389, -15, 1666 }	
 VAR_40	{ 1313824581, 1346979923, 0 }	
-VAR_41	0	
 VAR_42	1	
 VAR_43	2	
 VAR_44	4	
-VAR_45	0	
 VAR_46	0	
-VAR_47	0
 
 ._on_load
 call load_sound_set(int 75)
@@ -93,9 +80,9 @@ call set_input_system(int 2)
 execute SCRIPT_8
 call func_113(int 8, int 8)
 execute SCRIPT_4
-var VAR_17 = call create_char(var &VAR_20, "njennifer", int 190, int 13)
-var VAR_18 = call create_char(var &VAR_22, "nbeth", int 265, int 13)
-var VAR_19 = call create_char(var &VAR_21, "nbonnie", int 180, int 13)
+var njennifer = call create_char(var &VAR_20, "njennifer", int 190, int 13)
+var nbeth = call create_char(var &VAR_22, "nbeth", int 265, int 13)
+var nbonnie = call create_char(var &VAR_21, "nbonnie", int 180, int 13)
 
 ._SCRIPT_4
 gamevar SMACKER_X = int 0
@@ -138,8 +125,8 @@ switch(var VAR_15)
 			 {
 					var VAR_15 ++ 
 					var VAR_16 = int 0
-					call char_walk_to(var VAR_17, int 251, int -14, int 428)
-					call func_fa(var VAR_18)
+					call char_walk_to(var njennifer, int 251, int -14, int 428)
+					call func_fa(var nbeth)
 					call func_fa(var VAR_5)
 					var VAR_35 = gamevar script_time
 			}
@@ -148,7 +135,7 @@ switch(var VAR_15)
 			var VAR_36 = gamevar script_time - var VAR_35
 			if(var VAR_36 > int 16)
 			 {
-					call remove_char(var VAR_18)
+					call remove_char(var nbeth)
 					call func_47(var VAR_5, int 8192)
 					call char_teleport_to_pos(var VAR_5, var &VAR_37, int 117)
 					var VAR_15 ++ 
@@ -164,8 +151,8 @@ switch(var VAR_15)
 					 {
 							call func_fa(var VAR_6)
 					}
-					call func_fa(var VAR_19)
-					call func_fa(var VAR_17)
+					call func_fa(var nbonnie)
+					call func_fa(var njennifer)
 					call func_50(var VAR_2, int 8192)
 					call func_115(var VAR_2, var &VAR_10)
 					var VAR_35 = gamevar script_time
@@ -180,8 +167,8 @@ switch(var VAR_15)
 							call func_47(var VAR_6, int 8192)
 							call char_teleport_to_pos(var VAR_6, var &VAR_38, int 102)
 					}
-					call remove_char(var VAR_19)
-					call remove_char(var VAR_17)
+					call remove_char(var nbonnie)
+					call remove_char(var njennifer)
 					var VAR_15 ++ 
 					var VAR_16 = int 0
 			}

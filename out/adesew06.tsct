@@ -3,20 +3,10 @@ VAR_0	{ 1, 0, 0 }
 VAR_1	{ 1, 0, 0 }	
 VAR_2	{ 1, 0, 0 }	
 VAR_3	{ 1, 0, 0 }	
-VAR_4	0	
-VAR_5	0	
-VAR_6	0	
 VAR_7	{ -2467, -3145, 2496 }	
 VAR_8	{ -2664, -3145, 2532 }	
 VAR_9	{ -2573, -3145, 2247 }	
-lesser_gimp	0	
-lesser_gimp1	0	
-lesser_gimp2	{ 0, 0 }	
-greater_gimpv2	0	
-greater_gimpv3	0	
-rat_raptor_max5	0	
-rat_raptor_max51	0	
-rat_raptor_max52	0	
+drop_lesser_gimp1	{ 0, 0 }	
 VAR_18	{ -220, -1698, 5226 }	
 VAR_19	{ 346, -1698, 5366 }	
 VAR_20	{ 313, -1698, 5055 }	
@@ -39,7 +29,6 @@ VAR_36	{ 2023, -1257, -723 }
 VAR_37	{ 1949, -1257, 6341 }	
 VAR_38	{ 0, 0, 0, -1, 8, 1, 1, 2, 215, 215, 215, -1, 4, 0, 9, 1, 5, 1, 50, 150, 7, 1, 4, 10, 45, -1, -1 }	
 VAR_39	-1	
-VAR_49	0
 
 ._on_load
 var VAR_39 = call func_6f()
@@ -129,8 +118,8 @@ if(var VAR_6)
 }
 var VAR_6 = call get_selected_hero()
 var lesser_gimp = call create_enemy(int 45, int 0, var &VAR_21, int 0)
-var greater_gimpv2 = call create_enemy(int 46, int 0, var &VAR_23, int 265)
-var greater_gimpv3 = call create_enemy(int 46, int 1, var &VAR_24, int 265)
+var greater_gimpv = call create_enemy(int 46, int 0, var &VAR_23, int 265)
+var greater_gimpv1 = call create_enemy(int 46, int 1, var &VAR_24, int 265)
 var rat_raptor_max5 = call create_enemy(int 87, int 0, var &VAR_27, int 0)
 var rat_raptor_max51 = call create_enemy(int 87, int 1, var &VAR_28, int 0)
 var rat_raptor_max52 = call create_enemy(int 87, int 2, var &VAR_29, int 0)
@@ -206,8 +195,8 @@ switch(var VAR_4)
 			}
 			else
 			 {
-					var lesser_gimp1 = call create_enemy(int 113, int 0, var &VAR_34, int 0)
-					var lesser_gimp2 = call create_enemy(int 113, int 1, var &VAR_35, int 180)
+					var drop_lesser_gimp = call create_enemy(int 113, int 0, var &VAR_34, int 0)
+					var drop_lesser_gimp1 = call create_enemy(int 113, int 1, var &VAR_35, int 180)
 					call func_106(var drop_lesser_gimp, int 9, int 5, var &VAR_36)
 					call func_106(var drop_lesser_gimp1, int 9, int 5, var &VAR_37)
 					gamevar script_object = var drop_lesser_gimp
@@ -222,18 +211,18 @@ switch(var VAR_4)
 }
 
 ._SCRIPT_5
-var lesser_gimp1 = call create_enemy(int 45, int 0, var &VAR_36, int 0)
-var lesser_gimp2 = call create_enemy(int 45, int 1, var &VAR_37, int 180)
-call func_106(var lesser_gimp1, int 9, int 5, var &VAR_36)
-call func_106(var lesser_gimp2, int 9, int 5, var &VAR_37)
-gamevar script_object = var lesser_gimp1
+var drop_lesser_gimp = call create_enemy(int 45, int 0, var &VAR_36, int 0)
+var drop_lesser_gimp1 = call create_enemy(int 45, int 1, var &VAR_37, int 180)
+call func_106(var drop_lesser_gimp, int 9, int 5, var &VAR_36)
+call func_106(var drop_lesser_gimp1, int 9, int 5, var &VAR_37)
+gamevar script_object = var drop_lesser_gimp
 gamevar *character_stats_p+15 = int 10000
-gamevar script_object = var lesser_gimp2
+gamevar script_object = var drop_lesser_gimp1
 gamevar *character_stats_p+15 = int 10000
-var greater_gimpv2 = call create_enemy(int 46, int 0, var &VAR_25, int 190)
-var greater_gimpv3 = call create_enemy(int 46, int 1, var &VAR_26, int 320)
-call add_item_to_char(var greater_gimpv2, int 43, int 1, int 0)
-call add_item_to_char(var greater_gimpv3, int 45, int 1, int 0)
+var greater_gimpv = call create_enemy(int 46, int 0, var &VAR_25, int 190)
+var greater_gimpv1 = call create_enemy(int 46, int 1, var &VAR_26, int 320)
+call add_item_to_char(var greater_gimpv, int 43, int 1, int 0)
+call add_item_to_char(var greater_gimpv1, int 45, int 1, int 0)
 call load_char("ratrptr")
 call run_enemy_generator(var &VAR_38, int 500)
 

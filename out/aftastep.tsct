@@ -1,32 +1,7 @@
 ._DATA
-VAR_0	0	
-VAR_1	0	
-VAR_2	0	
-VAR_3	0	
-VAR_4	0	
-VAR_5	0	
-VAR_6	0	
-VAR_7	0	
-VAR_9	0	
-VAR_10	0	
-VAR_11	0	
-VAR_12	0	
-VAR_13	0	
-VAR_14	0	
-VAR_15	0	
-VAR_16	0	
 VAR_17	{ 0, 0 }	
 VAR_20	{ -1880, 1514, 7240 }	
 VAR_21	{ 257, 1514, 725 }	
-lieutenant	0	
-lieutenant1	0	
-lieutenant2	0	
-lieutenant3	0	
-lieutenant4	0	
-VAR_28	0	
-archer	0	
-archer1	0	
-VAR_31	0	
 VAR_32	{ 363, 0, -1250 }	
 VAR_33	{ 786, 0, -1171 }	
 VAR_34	{ 519, 0, -915 }	
@@ -44,8 +19,6 @@ VAR_47	"talkfstb"
 VAR_48	"gstqustn"	
 VAR_49	"talkfstb"	
 VAR_50	"no"	
-VAR_51	0	
-VAR_52	0	
 VAR_53	{ -263, 0, -1988, 1267, 0, -2299 }	
 VAR_54	{ 0, 0, 1, -1, 8, 0, 12, 28, 30, 31, 30, 31, -1, 13, 1, 14, 0, 2, 3, 5, 0, 80, 18, 25, -1 }	
 VAR_55	{ 0, 0, 1, -1, 8, 0, 12, 11, 12, 13, 11, 12, -1, 13, 1, 14, 0, 2, 3, 5, 0, 80, 18, 25, -1 }	
@@ -122,15 +95,15 @@ switch(var VAR_51)
 					 {
 							if(call is_char_handle_in_level(int 1114112))
 							 {
-									call char_attack(var VAR_27, var VAR_31)
+									call char_attack(var lieutenant4, var nrebel)
 							}
 					}
 					if(call is_char_handle_in_level(int 7143427))
 					 {
 							if(call is_char_handle_in_level(int 1114112))
 							 {
-									call char_attack(var VAR_26, var VAR_31)
-									call char_attack(var VAR_31, var VAR_26)
+									call char_attack(var lieutenant3, var nrebel)
+									call char_attack(var nrebel, var lieutenant3)
 							}
 					}
 					else
@@ -139,7 +112,7 @@ switch(var VAR_51)
 							 {
 									if(call is_char_handle_in_level(int 7143428))
 									 {
-											call char_attack(var VAR_31, var VAR_27)
+											call char_attack(var nrebel, var lieutenant4)
 									}
 							}
 					}
@@ -160,47 +133,47 @@ switch(var VAR_51)
 			}
 			break 
 		case 2
-			call func_2b(var VAR_28, int 0)
+			call func_2b(var nflatnose, int 0)
 			if(call is_char_handle_in_level(int 7143424))
 			 {
-					call func_50(var VAR_23, int 131)
-					call func_106(var VAR_23, int 1, int 0, int 1)
+					call func_50(var lieutenant, int 131)
+					call func_106(var lieutenant, int 1, int 0, int 1)
 			}
 			if(call is_char_handle_in_level(int 7143425))
 			 {
-					call func_50(var VAR_24, int 131)
-					call func_106(var VAR_24, int 1, int 0, int 1)
+					call func_50(var lieutenant1, int 131)
+					call func_106(var lieutenant1, int 1, int 0, int 1)
 			}
 			if(call is_char_handle_in_level(int 7143426))
 			 {
-					call func_50(var VAR_25, int 131)
-					call func_106(var VAR_25, int 1, int 0, int 1)
+					call func_50(var lieutenant2, int 131)
+					call func_106(var lieutenant2, int 1, int 0, int 1)
 			}
 			if(call is_char_handle_in_level(int 6750208))
 			 {
-					call func_50(var VAR_29, int 513)
+					call func_50(var archer, int 513)
 			}
 			if(call is_char_handle_in_level(int 6750209))
 			 {
-					call func_50(var VAR_30, int 513)
+					call func_50(var archer1, int 513)
 			}
 			if(call is_char_handle_in_level(int 1114112))
 			 {
 					if(call is_char_handle_in_level(int 7143424))
 					 {
-							call char_attack(var VAR_31, var VAR_23)
+							call char_attack(var nrebel, var lieutenant)
 					}
 					else
 					 {
 							if(call is_char_handle_in_level(int 7143425))
 							 {
-									call char_attack(var VAR_31, var VAR_24)
+									call char_attack(var nrebel, var lieutenant1)
 							}
 							else
 							 {
 									if(call is_char_handle_in_level(int 7143426))
 									 {
-											call char_attack(var VAR_31, var VAR_25)
+											call char_attack(var nrebel, var lieutenant2)
 									}
 							}
 					}
@@ -208,9 +181,9 @@ switch(var VAR_51)
 			var VAR_51 ++ 
 			break 
 		case 3
-			if(call is_char_standing(var VAR_28))
+			if(call is_char_standing(var nflatnose))
 			 {
-					call remove_char(var VAR_28)
+					call remove_char(var nflatnose)
 					var VAR_51 ++ 
 			}
 			break 
@@ -223,7 +196,7 @@ switch(var VAR_51)
 							 {
 									if(call ! is_char_handle_in_level(int 7143426))
 									 {
-											call func_2b(var VAR_31, int 0)
+											call func_2b(var nrebel, int 0)
 											var VAR_51 ++ 
 									}
 							}
@@ -233,9 +206,9 @@ switch(var VAR_51)
 		case 5
 			if(call is_char_handle_in_level(int 1114112))
 			 {
-					if(call is_char_standing(var VAR_31))
+					if(call is_char_standing(var nrebel))
 					 {
-							call remove_char(var VAR_31)
+							call remove_char(var nrebel)
 							var VAR_51 ++ 
 					}
 			}
@@ -243,24 +216,24 @@ switch(var VAR_51)
 }
 if(call is_char_handle_in_level(int 1114112))
  {
-		gamevar script_object = var VAR_31
+		gamevar script_object = var nrebel
 		if(gamevar *object_p+5 == int 6)
 		 {
 				if(call is_char_handle_in_level(int 7143427))
 				 {
-						gamevar script_object = var VAR_26
+						gamevar script_object = var lieutenant3
 						gamevar *character_stats_p+15 = int 3000
-						call func_106(var VAR_26, int 1, int 0, int 1)
-						call func_50(var VAR_26, int 131)
+						call func_106(var lieutenant3, int 1, int 0, int 1)
+						call func_50(var lieutenant3, int 131)
 				}
 				if(call is_char_handle_in_level(int 7143428))
 				 {
-						gamevar script_object = var VAR_27
+						gamevar script_object = var lieutenant4
 						gamevar *character_stats_p+15 = int 3000
-						call func_106(var VAR_27, int 1, int 0, int 1)
-						call func_50(var VAR_27, int 131)
+						call func_106(var lieutenant4, int 1, int 0, int 1)
+						call func_50(var lieutenant4, int 131)
 				}
-				call kill_char(var VAR_31)
+				call kill_char(var nrebel)
 		}
 }
 var VAR_52 ++ 
@@ -273,9 +246,9 @@ call freeze_enemy(var lieutenant1)
 call add_item_to_char(var lieutenant1, int 41, int 1, int 0)
 var lieutenant2 = call create_enemy(int 11, int 2, var &VAR_34, int 158)
 call freeze_enemy(var lieutenant2)
-var VAR_28 = call create_char(var &VAR_37, "nflatnose", int 276, int 13)
-call set_char_running(var VAR_28)
-gamevar script_object = var VAR_28
+var nflatnose = call create_char(var &VAR_37, "nflatnose", int 276, int 13)
+call set_char_running(var nflatnose)
+gamevar script_object = var nflatnose
 gamevar *character_movement_p+60 = int 1
 var archer = call create_enemy(int 17, int 0, var &VAR_38, int 113)
 call freeze_enemy(var archer)
@@ -289,15 +262,15 @@ var lieutenant4 = call create_enemy(int 11, int 4, var &VAR_36, int 91)
 call func_106(var lieutenant4, int 1, int 0, int 1)
 call freeze_enemy(var lieutenant4)
 call add_item_to_char(var lieutenant4, int 42, int 1, int 0)
-var VAR_31 = call create_char(var &VAR_40, "nrebel", int 283, int 13)
-call add_item_to_char(var VAR_31, int 17, int 0, int 1)
-gamevar script_object = var VAR_31
+var nrebel = call create_char(var &VAR_40, "nrebel", int 283, int 13)
+call add_item_to_char(var nrebel, int 17, int 0, int 1)
+gamevar script_object = var nrebel
 gamevar HP = int 8
 gamevar ARMOUR_CLASS = int 1
 gamevar STRENGTH = int 1
 gamevar DEXTERITY = int 1
-call play_char_ai_script(var VAR_28, var &VAR_43)
-call func_50(var VAR_28, int 8192)
+call play_char_ai_script(var nflatnose, var &VAR_43)
+call func_50(var nflatnose, int 8192)
 call play_char_ai_script(var lieutenant, var &VAR_46)
 call func_50(var lieutenant, int 8192)
 

@@ -1,35 +1,25 @@
 ._DATA
 VAR_0	{ -2865, -1045, -250 }	
 VAR_1	{ -2833, -1045, -220 }	
-VAR_2	0	
 VAR_3	{ 0, 0, 0 }	
 VAR_5	0	
 VAR_6	0	
 VAR_7	0	
 VAR_8	0	
-VAR_9	0	
-VAR_10	0	
 VAR_11	{ -3440, -1075, 660, -3006, -1075, 600 }	
-VAR_12	0	
 VAR_13	{ -3381, -1075, 498, -3027, -1075, 435 }	
-VAR_14	0	
 VAR_15	{ -3525, -1075, 400, -3081, -1075, 216 }	
 VAR_16	{ -985526272, -1000456192, 1120403456 }	
-VAR_17	0	
+nreuben	0	
 VAR_18	{ -2300, -1075, -463, -2875, -1075, -167 }	
-VAR_19	0	
 VAR_20	{ -3047, -1075, 989 }	
-VAR_25	0	
 VAR_28	{ 5, 20, 14, 0, -3081, -1075, 216, 2, -2622, -1075, 45, 5, 15, 16, 15, VAR_6, 3, 114, VAR_29, 5, 100, 0, -3027, -1075, 435, 2, -3316, -1075, 246, 3, 116, VAR_30, 16, 14, VAR_5, 5, 30, 16, 16, VAR_7, 5, 15, 0, -1905, -825, 475, 8 }	
 VAR_29	"silzapp"	
 VAR_30	"come"	
 VAR_31	{ 5, 20, 14, 0, -3027, -1075, 435, 2, -2875, -1075, -167, 5, 80, 0, -2096, -825, 475, 8 }	
-VAR_32	{ 5, 15, 14, 0, -3006, -1075, 600, 1, 43, VAR_17, 200, 0, -2314, -825, 475, 8 }	
+VAR_32	{ 5, 15, 14, 0, -3006, -1075, 600, 1, 43, nreuben, 200, 0, -2314, -825, 475, 8 }	
 VAR_33	{ 5, 75, 15, 0, -2940, -1075, -40, 5, 12, 16, 17, VAR_8, 5, 32, 0, -2670, -1075, -532, 8 }	
-VAR_34	0	
 VAR_35	{ -782, -189, 642, 0, 0 }	
-VAR_36	0	
-VAR_45	0	
 VAR_46	{ -6242, -1265, 606 }	
 
 ._on_load
@@ -93,9 +83,9 @@ switch(var VAR_6)
 					call log("Poor Reuben gets rubbed out, but `What is that?`")
 					call log(" .....yes, he's dropped the WOODEN KEY")
 					var VAR_6 ++ 
-					call func_46(var VAR_17, int 13)
+					call func_46(var nreuben, int 13)
 					call apply_effect_on_char(gamevar misc_fx_scripts, int 7, int 0, int 0)
-					call func_b3(var VAR_17, var &VAR_16)
+					call func_b3(var nreuben, var &VAR_16)
 					var VAR_3 = int 1
 					call func_ec(int 1, int -1, int 71, var &VAR_0)
 					call play_3d_fx("WISP", var &VAR_0, int 0, int 0)
@@ -108,26 +98,26 @@ switch(var VAR_6)
 					var VAR_5 -- 
 					if(var ! VAR_5)
 					 {
-							call char_walk_to(var VAR_19, int -1905, int -825, int 475)
+							call char_walk_to(var nguide, int -1905, int -825, int 475)
 							var VAR_6 ++ 
 							call set_input_system(int 1)
 					}
 			}
 			break 
 		case 3
-			if(call is_char_standing(var VAR_14))
+			if(call is_char_standing(var nsilver))
 			 {
-					call remove_char(var VAR_14)
-					call remove_char(var VAR_10)
-					call remove_char(var VAR_12)
-					call remove_char(var VAR_19)
+					call remove_char(var nsilver)
+					call remove_char(var nglass)
+					call remove_char(var nfuge)
+					call remove_char(var nguide)
 					var VAR_6 ++ 
 			}
 			break 
 }
 if(var VAR_8)
  {
-		call play_char_anim(var VAR_17, var VAR_25, int 0)
+		call play_char_anim(var nreuben, var VAR_25, int 0)
 		var VAR_8 = int 0
 }
 switch(var VAR_36)
@@ -141,28 +131,28 @@ gamevar script_object = var VAR_9
 gamevar *object_p+6 |= int 1
 call func_49()
 call set_input_system(int 2)
-var VAR_12 = call create_char(var &VAR_13, "nfuge", int 85, int 13)
-gamevar script_object = var VAR_12
+var nfuge = call create_char(var &VAR_13, "nfuge", int 85, int 13)
+gamevar script_object = var nfuge
 gamevar *object_p+6 |= int 1
-var VAR_10 = call create_char(var &VAR_11, "nglass", int 95, int 13)
-gamevar script_object = var VAR_10
+var nglass = call create_char(var &VAR_11, "nglass", int 95, int 13)
+gamevar script_object = var nglass
 gamevar *object_p+6 |= int 1
-var VAR_14 = call create_char(var &VAR_15, "nsilver", int 110, int 13)
-call add_item_to_char(var VAR_14, int 106, int 0, int 1)
-gamevar script_object = var VAR_14
+var nsilver = call create_char(var &VAR_15, "nsilver", int 110, int 13)
+call add_item_to_char(var nsilver, int 106, int 0, int 1)
+gamevar script_object = var nsilver
 gamevar *object_p+6 |= int 1
-var VAR_17 = call create_char(var &VAR_18, "nreuben", int 0, int 13)
+var nreuben = call create_char(var &VAR_18, "nreuben", int 0, int 13)
 var VAR_25 = call load_anim("stepb")
-var VAR_19 = call create_char(var &VAR_20, "nguide", int 180, int 13)
-call set_char_init_state(var VAR_14, int 13)
-call play_char_ai_script(var VAR_14, var &VAR_28)
-call set_char_init_state(var VAR_12, int 13)
-call play_char_ai_script(var VAR_12, var &VAR_31)
-call set_char_init_state(var VAR_10, int 13)
-call play_char_ai_script(var VAR_10, var &VAR_32)
-call set_char_init_state(var VAR_17, int 13)
-call play_char_ai_script(var VAR_17, var &VAR_33)
-var VAR_34 = call add_item_to_char(var VAR_17, int 61, int 1, int 0)
+var nguide = call create_char(var &VAR_20, "nguide", int 180, int 13)
+call set_char_init_state(var nsilver, int 13)
+call play_char_ai_script(var nsilver, var &VAR_28)
+call set_char_init_state(var nfuge, int 13)
+call play_char_ai_script(var nfuge, var &VAR_31)
+call set_char_init_state(var nglass, int 13)
+call play_char_ai_script(var nglass, var &VAR_32)
+call set_char_init_state(var nreuben, int 13)
+call play_char_ai_script(var nreuben, var &VAR_33)
+var VAR_34 = call add_item_to_char(var nreuben, int 61, int 1, int 0)
 
 ._SCRIPT_5
 if(var VAR_45 == int 300)

@@ -1,32 +1,5 @@
 ._DATA
-VAR_0	0	
-VAR_1	0	
-VAR_2	0	
-VAR_3	0	
-VAR_4	0	
-VAR_5	0	
-VAR_6	0	
-VAR_7	0	
-VAR_9	0	
-VAR_10	0	
-VAR_11	0	
-VAR_12	0	
-VAR_13	0	
-VAR_14	0	
-VAR_15	0	
-VAR_16	0	
 VAR_17	{ 0, 0 }	
-VAR_18	0	
-VAR_19	0	
-VAR_20	0	
-VAR_21	0	
-VAR_22	0	
-VAR_23	0	
-VAR_25	0	
-VAR_26	0	
-VAR_27	0	
-VAR_36	0	
-VAR_37	0	
 VAR_38	{ -680, -344, -435 }	
 VAR_39	{ -551, -354, -448 }	
 VAR_40	{ -877, -334, -541 }	
@@ -46,61 +19,24 @@ VAR_54	{ -3399, -334, -510 }
 VAR_55	{ VAR_52, VAR_53, VAR_54 }	
 VAR_59	{ 4520, 957, -353 }	
 VAR_60	{ -1132, 957, 2085 }	
-VAR_63	0	
-VAR_64	0	
-VAR_66	0	
-VAR_67	0	
-VAR_69	0	
-VAR_71	0	
 VAR_72	-1	
-VAR_73	0	
-VAR_74	0	
-VAR_75	0	
-VAR_76	0	
-VAR_77	0	
 VAR_78	{ 0, 0 }	
-VAR_84	0	
-VAR_85	0	
-VAR_86	0	
-VAR_87	0	
-VAR_88	0	
-VAR_89	0	
-VAR_90	0	
-VAR_91	0	
 VAR_92	-1	
-VAR_93	0	
-VAR_94	0	
-VAR_95	0	
-VAR_96	0	
-VAR_97	0	
-VAR_98	0	
 VAR_99	{ -322, -178, 1551 }	
 VAR_100	{ -855, -385, -551 }	
 VAR_101	{ -861, -385, -351 }	
 VAR_102	{ -683, -334, -419 }	
 VAR_103	{ VAR_100, VAR_101, VAR_102 }	
-VAR_104	0	
-VAR_105	0	
 VAR_106	{ -479, -334, 32 }	
 VAR_107	{ -442, -334, 166 }	
 VAR_108	{ -474, -334, -124 }	
 VAR_109	{ VAR_106, VAR_107, VAR_108 }	
-VAR_126	0	
-VAR_127	0	
-VAR_128	0	
-VAR_129	0	
-VAR_132	0	
-archer	0	
 VAR_134	{ -2955, -227, -1050 }	
-archer1	0	
 VAR_136	{ -3171, -227, -1105 }	
-ogre	0	
 VAR_138	{ -2867, -345, -324 }	
-orc	0	
 VAR_140	{ -800, -77, -1148 }	
 VAR_141	{ 0, 0, 1, -1, 8, 0, 4, 0, 9, 1, 1, 2, 81, 81, -1, 5, 1, 5, 40, 6, 2, 7, 1, 2, 10, 43, 42, -1, -1 }	
 VAR_142	{ 0, 0, 1, -1, 8, 0, 4, 0, 9, 1, 1, 1, 79, 79, 78, -1, 5, 1, 5, 40, 6, 1, 7, 1, 3, 10, 41, 40, -1, -1 }	
-VAR_143	0
 
 ._on_load
 execute SCRIPT_3
@@ -203,8 +139,8 @@ var VAR_64 ++
 ._SCRIPT_5
 execute SCRIPT_7
 call func_108("NO_VEL")
-call func_50(var VAR_37, int 8192)
-call play_char_ai_script(var VAR_37, var &VAR_45)
+call func_50(var nboatman, int 8192)
+call play_char_ai_script(var nboatman, var &VAR_45)
 
 ._SCRIPT_6
 var VAR_26 = call get_david_char()
@@ -246,15 +182,15 @@ while(var VAR_26)
 }
 
 ._SCRIPT_7
-var VAR_36 = call create_char(var &VAR_38, "nraft", int 270, int 13)
-var VAR_37 = call create_char(var &VAR_39, var &VAR_49, int 290, int 13)
-call func_d9(var VAR_36)
+var nraft = call create_char(var &VAR_38, "nraft", int 270, int 13)
+var nboatman = call create_char(var &VAR_39, var &VAR_49, int 290, int 13)
+call func_d9(var nraft)
 gamevar unknown_02_00_65 = int 1
 
 ._SCRIPT_8
-var VAR_36 = call create_char(var &VAR_50, "nraft", int 270, int 13)
-var VAR_37 = call create_char(var &VAR_51, "nboatman", int 65, int 13)
-call func_d9(var VAR_36)
+var nraft = call create_char(var &VAR_50, "nraft", int 270, int 13)
+var nboatman = call create_char(var &VAR_51, "nboatman", int 65, int 13)
+call func_d9(var nraft)
 gamevar unknown_02_00_65 = int 1
 
 ._SCRIPT_9
@@ -265,8 +201,8 @@ var VAR_67 ++
 
 ._SCRIPT_10
 execute SCRIPT_7
-call func_50(var VAR_37, int 8192)
-call play_char_ai_script(var VAR_37, var &VAR_45)
+call func_50(var nboatman, int 8192)
+call play_char_ai_script(var nboatman, var &VAR_45)
 
 ._SCRIPT_11
 var VAR_69 = call load_anim("jangive")
@@ -277,7 +213,7 @@ switch(var VAR_143)
 		case 0
 			if(call is_char_handle_in_level(int 3735553))
 			 {
-					call char_walk_to(var VAR_137, int -1388, int -345, int -500)
+					call char_walk_to(var ogre, int -1388, int -345, int -500)
 			}
 			var VAR_143 ++ 
 			break 
@@ -349,8 +285,8 @@ else
 if(var VAR_73 == int 0)
  {
 		execute SCRIPT_7
-		call func_50(var VAR_37, int 8192)
-		call play_char_ai_script(var VAR_37, var &VAR_45)
+		call func_50(var nboatman, int 8192)
+		call play_char_ai_script(var nboatman, var &VAR_45)
 }
 else
  {
@@ -397,12 +333,12 @@ switch(var VAR_93)
 			}
 			break 
 		case 1
-			if(call func_65(var VAR_37, int 13) == int 17)
+			if(call func_65(var nboatman, int 13) == int 17)
 			 {
 					var VAR_74 = int 1
 					if(var VAR_75)
 					 {
-							call func_47(var VAR_37, int 8192)
+							call func_47(var nboatman, int 8192)
 							var VAR_93 = int 20
 					}
 					else
@@ -421,7 +357,7 @@ switch(var VAR_93)
 						 {
 								call log("yes! Dubloon")
 								call func_db()
-								call func_47(var VAR_37, int 8192)
+								call func_47(var nboatman, int 8192)
 								var VAR_93 = int 10
 								var VAR_94 = int 0
 						}
@@ -473,8 +409,8 @@ switch(var VAR_93)
 			break 
 		case 10
 			call set_input_system(int 2)
-			call char_turn_to_pos(gamevar control_char_p, call get_char_pos(var VAR_37))
-			call char_turn_to_pos(var VAR_37, call get_char_pos(gamevar control_char_p))
+			call char_turn_to_pos(gamevar control_char_p, call get_char_pos(var nboatman))
+			call char_turn_to_pos(var nboatman, call get_char_pos(gamevar control_char_p))
 			var VAR_93 ++ 
 			var VAR_94 = int 0
 			break 
@@ -498,15 +434,15 @@ switch(var VAR_93)
 		case 13
 			if(var VAR_94 > int 100)
 			 {
-					call char_walk_to_pos(var VAR_37, var &VAR_39)
+					call char_walk_to_pos(var nboatman, var &VAR_39)
 					var VAR_93 ++ 
 					var VAR_94 = int 0
 			}
 			break 
 		case 14
-			if(call is_char_standing(var VAR_37))
+			if(call is_char_standing(var nboatman))
 			 {
-					call char_turn_to_pos(var VAR_37, var &VAR_40)
+					call char_turn_to_pos(var nboatman, var &VAR_40)
 					var VAR_93 ++ 
 					var VAR_94 = int 0
 			}
@@ -575,7 +511,7 @@ switch(var VAR_93)
 					var VAR_26 = call get_david_char()
 					while(var VAR_26)
 					 {
-							call func_e1(var VAR_26, var VAR_36)
+							call func_e1(var VAR_26, var nraft)
 							var VAR_26 = call func_7e()
 					}
 					var VAR_93 ++ 
@@ -585,8 +521,8 @@ switch(var VAR_93)
 		case 18
 			if(var VAR_94 > int 60)
 			 {
-					call func_e1(var VAR_37, var VAR_36)
-					call func_94(var VAR_36, var &VAR_44, int 10821304)
+					call func_e1(var nboatman, var nraft)
+					call func_94(var nraft, var &VAR_44, int 10821304)
 					var VAR_91 = int 1
 					var VAR_93 ++ 
 					var VAR_94 = int 0
@@ -640,12 +576,12 @@ switch(var VAR_93)
 					var VAR_26 = call get_david_char()
 					while(var VAR_26)
 					 {
-							call func_e1(var VAR_26, var VAR_36)
+							call func_e1(var VAR_26, var nraft)
 							var VAR_105 ++ 
 							var VAR_26 = call func_7e()
 					}
-					call func_e1(var VAR_37, var VAR_36)
-					call func_94(var VAR_36, var &VAR_38, int 10821304)
+					call func_e1(var nboatman, var nraft)
+					call func_94(var nraft, var &VAR_38, int 10821304)
 					var VAR_91 = int 1
 					var VAR_93 ++ 
 					var VAR_94 = int 0
@@ -663,7 +599,7 @@ switch(var VAR_93)
 							var VAR_105 ++ 
 							var VAR_26 = call func_7e()
 					}
-					call func_fc(var VAR_37)
+					call func_fc(var nboatman)
 					var VAR_93 ++ 
 					var VAR_94 = int 0
 			}
@@ -733,8 +669,8 @@ switch(var VAR_93)
 			if(var VAR_94 > int 10)
 			 {
 					call set_input_system(int 1)
-					call func_50(var VAR_37, int 8192)
-					call play_char_ai_script(var VAR_37, var &VAR_45)
+					call func_50(var nboatman, int 8192)
+					call play_char_ai_script(var nboatman, var &VAR_45)
 					var VAR_73 = int 0
 					call func_108("ACT_3")
 					var VAR_93 = int 0
@@ -754,9 +690,9 @@ if(var VAR_75)
  {
 		call func_7(int 777, int 1, int 0, int 0)
 }
-if(var VAR_37)
+if(var nboatman)
  {
-		call remove_char(var VAR_37)
+		call remove_char(var nboatman)
 }
 
 ._SCRIPT_18

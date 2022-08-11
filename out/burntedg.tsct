@@ -1,61 +1,22 @@
 ._DATA
-VAR_0	0	
-fade_chronicler	0	
-VAR_2	0	
-VAR_3	0	
-VAR_4	0	
 VAR_10	{ 1280070990, 0 }	
-VAR_17	0	
 VAR_18	{ 0, 0, -1 }	
-VAR_19	0	
-VAR_20	0	
-VAR_21	0	
-VAR_22	0	
 VAR_23	-1	
-VAR_26	0	
 VAR_30	{ 1280070990, 0 }	
 VAR_32	{ 1280070990, 0 }	
 VAR_36	{ 1280070990, 0 }	
-VAR_39	0	
-VAR_40	0	
-VAR_41	0	
-VAR_42	0	
-VAR_43	0	
-VAR_44	0	
-VAR_45	0	
-VAR_46	0	
-VAR_47	0	
 VAR_48	{ 1146242390, 1163152961, 0 }	
-VAR_49	0	
-VAR_52	0	
-VAR_53	0	
-VAR_58	0	
 VAR_59	10	
 VAR_60	2	
 VAR_61	{ 0, 1128136704, 1145896960, 1170907136 }	
 VAR_62	{ 181, 820, 6390 }	
-VAR_63	0	
 VAR_65	{ 1163020614, 555819297, 33 }	
-VAR_66	0	
-VAR_67	0	
 VAR_71	{ 1769367926, 1701736037, 0 }	
-VAR_76	0	
-VAR_77	0	
-VAR_78	0	
-flatnosr	0	
-flatnosr1	0	
-flatnose	0	
-flatnose1	0	
-VAR_83	0	
 VAR_84	{ 361, 793, 6386 }	
 VAR_85	{ 253, 793, 6740 }	
 VAR_86	{ 379, 793, 6614 }	
 VAR_87	{ 180, 793, 6287 }	
 VAR_88	{ 11, 793, 6612 }	
-VAR_90	0	
-VAR_91	0	
-VAR_92	0	
-VAR_93	0	
 VAR_98	{ 5, 250, 3, VAR_99, 0, 5, 60, 3, VAR_100, 0, 5, 100, 3, VAR_101, 0, 5, 120, 7, 8 }	
 VAR_99	"eat"	
 VAR_100	"eat"	
@@ -72,12 +33,6 @@ VAR_110	{ 5, 250, 3, VAR_111, 0, 5, 60, 3, VAR_112, 0, 5, 300, 3, VAR_113, 0, 5,
 VAR_111	"eat"	
 VAR_112	"eat"	
 VAR_113	"lizwarm"	
-VAR_115	0	
-VAR_116	0	
-VAR_117	0	
-VAR_118	0	
-VAR_119	0	
-VAR_120	0	
 VAR_121	{ 516, 793, 5271 }	
 VAR_122	-1	
 VAR_127	{ 1280070990, 0 }	
@@ -211,7 +166,7 @@ switch(var VAR_76)
 			}
 			else
 			 {
-					if(call func_127(var VAR_83))
+					if(call func_127(var NMAYOR))
 					 {
 							var VAR_53 = int 1
 							gamevar clicked_character = int 0
@@ -344,17 +299,17 @@ switch(var VAR_76)
 			 {
 					if(call func_6d() == int 1)
 					 {
-							call func_55(var VAR_81, int 16)
-							call func_55(var VAR_82, int 16)
-							call func_55(var VAR_79, int 16)
-							call func_55(var VAR_80, int 16)
-							call func_46(var VAR_81, int 13)
-							call func_46(var VAR_82, int 13)
-							call func_46(var VAR_79, int 13)
-							call func_46(var VAR_80, int 13)
+							call func_55(var flatnose, int 16)
+							call func_55(var flatnose1, int 16)
+							call func_55(var flatnosr, int 16)
+							call func_55(var flatnosr1, int 16)
+							call func_46(var flatnose, int 13)
+							call func_46(var flatnose1, int 13)
+							call func_46(var flatnosr, int 13)
+							call func_46(var flatnosr1, int 13)
 							call resume_conversation()
 							call log("the fight starts here")
-							call func_10c(var VAR_83, "act2")
+							call func_10c(var NMAYOR, "act2")
 							var VAR_76 ++ 
 							var VAR_77 = int 0
 					}
@@ -363,16 +318,16 @@ switch(var VAR_76)
 		case 12
 			if(call get_input_sys() != int 4)
 			 {
-					call func_f(var VAR_81, int 8)
-					call func_f(var VAR_82, int 8)
-					call func_f(var VAR_79, int 8)
-					call func_f(var VAR_80, int 8)
+					call func_f(var flatnose, int 8)
+					call func_f(var flatnose1, int 8)
+					call func_f(var flatnosr, int 8)
+					call func_f(var flatnosr1, int 8)
 					var VAR_77 = int 0
 					var VAR_76 ++ 
 			}
 			break 
 		case 13
-			call play_char_anim(var VAR_83, var VAR_93, int 0)
+			call play_char_anim(var NMAYOR, var VAR_93, int 0)
 			var VAR_77 = int 0
 			var VAR_76 ++ 
 			break 
@@ -384,34 +339,34 @@ switch(var VAR_76)
 					call func_b1()
 					if(call is_char_handle_in_level(int 9502720))
 					 {
-							call func_3c(var VAR_79)
-							call set_char_running(var VAR_79)
-							call func_2b(var VAR_79, int 0)
-							gamevar script_object = var VAR_79
+							call func_3c(var flatnosr)
+							call set_char_running(var flatnosr)
+							call func_2b(var flatnosr, int 0)
+							gamevar script_object = var flatnosr
 							gamevar *object_p+6 |= int 8388609
 					}
 					if(call is_char_handle_in_level(int 9502721))
 					 {
-							call func_3c(var VAR_80)
-							call set_char_running(var VAR_80)
-							call func_2b(var VAR_80, int 0)
-							gamevar script_object = var VAR_80
+							call func_3c(var flatnosr1)
+							call set_char_running(var flatnosr1)
+							call func_2b(var flatnosr1, int 0)
+							gamevar script_object = var flatnosr1
 							gamevar *object_p+6 |= int 8388609
 					}
 					if(call is_char_handle_in_level(int 6815744))
 					 {
-							call func_3c(var VAR_81)
-							call set_char_running(var VAR_81)
-							call func_2b(var VAR_81, int 0)
-							gamevar script_object = var VAR_81
+							call func_3c(var flatnose)
+							call set_char_running(var flatnose)
+							call func_2b(var flatnose, int 0)
+							gamevar script_object = var flatnose
 							gamevar *object_p+6 |= int 8388609
 					}
 					if(call is_char_handle_in_level(int 6815745))
 					 {
-							call func_3c(var VAR_82)
-							call set_char_running(var VAR_82)
-							call func_2b(var VAR_82, int 0)
-							gamevar script_object = var VAR_82
+							call func_3c(var flatnose1)
+							call set_char_running(var flatnose1)
+							call func_2b(var flatnose1, int 0)
+							gamevar script_object = var flatnose1
 							gamevar *object_p+6 |= int 8388609
 					}
 					var VAR_77 = int 0
@@ -421,34 +376,34 @@ switch(var VAR_76)
 		case 15
 			if(call is_char_handle_in_level(int 6815744))
 			 {
-					if(call is_char_standing(var VAR_81))
+					if(call is_char_standing(var flatnose))
 					 {
 							call log("dead 1")
-							call remove_char(var VAR_81)
+							call remove_char(var flatnose)
 					}
 			}
 			if(call is_char_handle_in_level(int 6815745))
 			 {
-					if(call is_char_standing(var VAR_82))
+					if(call is_char_standing(var flatnose1))
 					 {
 							call log("dead 2")
-							call remove_char(var VAR_82)
+							call remove_char(var flatnose1)
 					}
 			}
 			if(call is_char_handle_in_level(int 9502720))
 			 {
-					if(call is_char_standing(var VAR_79))
+					if(call is_char_standing(var flatnosr))
 					 {
 							call log("dead 3")
-							call remove_char(var VAR_79)
+							call remove_char(var flatnosr)
 					}
 			}
 			if(call is_char_handle_in_level(int 9502721))
 			 {
-					if(call is_char_standing(var VAR_80))
+					if(call is_char_standing(var flatnosr1))
 					 {
 							call log("dead 4")
-							call remove_char(var VAR_80)
+							call remove_char(var flatnosr1)
 					}
 			}
 			if(call ! is_char_handle_in_level(int 9502720)&&call ! is_char_handle_in_level(int 9502721)&&call ! is_char_handle_in_level(int 6815744)&&call ! is_char_handle_in_level(int 6815745))
@@ -459,9 +414,9 @@ switch(var VAR_76)
 			break 
 		case 16
 			var VAR_77 ++ 
-			call set_char_running(var VAR_83)
-			call func_2b(var VAR_83, int 0)
-			call func_14(var VAR_83, int 59)
+			call set_char_running(var NMAYOR)
+			call func_2b(var NMAYOR, int 0)
+			call func_14(var NMAYOR, int 59)
 			var fade_chronicler = call create_enemy(int 178, int 0, var &VAR_121, int 353)
 			var VAR_77 = int 0
 			var VAR_76 ++ 
@@ -469,10 +424,10 @@ switch(var VAR_76)
 		case 17
 			if(call is_char_handle_in_level(int 8519680))
 			 {
-					if(call is_char_standing(var VAR_83))
+					if(call is_char_standing(var NMAYOR))
 					 {
 							call log("dead 5")
-							call remove_char(var VAR_83)
+							call remove_char(var NMAYOR)
 							var VAR_77 = int 0
 							var VAR_76 ++ 
 					}
@@ -675,8 +630,8 @@ var flatnosr = call create_enemy(int 177, int 0, var &VAR_84, int 305)
 var flatnosr1 = call create_enemy(int 177, int 1, var &VAR_85, int 175)
 var flatnose = call create_enemy(int 176, int 0, var &VAR_86, int 215)
 var flatnose1 = call create_enemy(int 176, int 1, var &VAR_87, int 15)
-var VAR_83 = call create_char(var &VAR_88, "NMAYOR", int 124, int 13)
-call add_item_to_char(var VAR_83, int 59, int 1, int 0)
+var NMAYOR = call create_char(var &VAR_88, "NMAYOR", int 124, int 13)
+call add_item_to_char(var NMAYOR, int 59, int 1, int 0)
 gamevar script_object = var flatnosr
 gamevar *character_movement_p+60 = int 1
 gamevar script_object = var flatnosr1
@@ -685,7 +640,7 @@ gamevar script_object = var flatnose
 gamevar *character_movement_p+60 = int 1
 gamevar script_object = var flatnose1
 gamevar *character_movement_p+60 = int 1
-gamevar script_object = var VAR_83
+gamevar script_object = var NMAYOR
 gamevar *character_movement_p+60 = int 1
 var VAR_91 = call load_anim("eat")
 var VAR_90 = call load_anim("lizwarm")

@@ -1,44 +1,12 @@
 ._DATA
-VAR_0	0	
-VAR_1	0	
-VAR_2	0	
-VAR_3	0	
-VAR_4	0	
-VAR_5	0	
-VAR_6	0	
-VAR_7	0	
-VAR_9	0	
-VAR_10	0	
-VAR_11	0	
-VAR_12	0	
-VAR_13	0	
-VAR_14	0	
-VAR_15	0	
-VAR_16	0	
 VAR_17	{ 0, 0 }	
-VAR_18	0	
-VAR_19	0	
-VAR_20	0	
-VAR_21	0	
 VAR_23	{ 0, 0, 0 }	
 VAR_24	{ 0, 0, 0 }	
-VAR_25	0	
 VAR_26	{ 0, 0 }	
 VAR_28	{ 1830, 1083, 2490 }	
 VAR_29	{ 3110, 1083, -1110 }	
-VAR_31	0	
-VAR_32	0	
-VAR_33	0	
-VAR_34	0	
-VAR_35	0	
-VAR_36	0	
 VAR_38	{ 1701407858, 1852142709, 1792, 0, 0, 0, 0 }	
-archer	0	
-archer1	0	
-VAR_41	0	
-VAR_42	0	
-VAR_43	0	
-VAR_44	{ 0, -2744, -835, -1954, -2767, -835, -2034, -2775, -835, -2133, -2794, -835, -2253 }	
+nrebela	{ 0, -2744, -835, -1954, -2767, -835, -2034, -2775, -835, -2133, -2794, -835, -2253 }	
 VAR_45	{ -2681, -943, -174, -1665, -60, -1002, -2610, -237, -1920 }	
 VAR_46	{ VAR_47, 0, 0, 5, 0, 0 }	
 VAR_47	"unc_pant"	
@@ -46,11 +14,8 @@ VAR_48	{ -1520, -60, -1028 }
 VAR_49	{ -2624, -238, -1628 }	
 VAR_50	{ -1520, -60, -1028 }	
 VAR_51	{ -2624, -238, -1628 }	
-VAR_52	0	
-VAR_54	0	
 VAR_56	{ 0, 0, 1, -1, 8, 0, 1, 1, 11, 11, -1, 4, 0, 9, 0, 5, 1, 50, 100, 6, 1, 7, 1, 3, 10, 40, -1, -1 }	
 VAR_57	{ 0, 0, 1, -1, 8, 0, 1, 1, 11, 11, -1, 4, 0, 9, 0, 5, 1, 50, 100, 6, 1, 7, 1, 3, 10, 41, -1, -1 }	
-VAR_65	0	
 VAR_69	-1	
 
 ._on_load
@@ -132,7 +97,7 @@ if(var VAR_31 == int 0)
 		var VAR_32 ++ 
 		if(var VAR_32 > int 10)
 		 {
-				gamevar script_object = var VAR_44
+				gamevar script_object = var nrebela
 				gamevar *object_p+5 = int 6
 				var VAR_31 ++ 
 				var VAR_32 = int 0
@@ -154,11 +119,11 @@ if(var VAR_31 == int 2)
 		if(call get_input_sys() != int 4)
 		 {
 				var VAR_43 = call get_selected_hero()
-				if(var VAR_43 == var VAR_42)
+				if(var VAR_43 == var DAVID)
 				 {
 						var VAR_33 = int 1
 				}
-				if(var VAR_43 == var VAR_41)
+				if(var VAR_43 == var SEKUNE)
 				 {
 						var VAR_33 = int 2
 				}
@@ -188,17 +153,17 @@ if(var VAR_19&&var ! VAR_21)
 ._SCRIPT_5
 call load_char("rarcher")
 call load_char(var &VAR_38)
-var VAR_44 = call create_char(var &VAR_45, "nrebela", int 340, int 13)
-gamevar script_object = var VAR_44
+var nrebela = call create_char(var &VAR_45, "nrebela", int 340, int 13)
+gamevar script_object = var nrebela
 gamevar HP = int 1
-gamevar script_object = var VAR_44
+gamevar script_object = var nrebela
 gamevar *object_p+6 |= int 4194304
-var VAR_42 = call get_char_handle(int 65536)
-var VAR_41 = call get_char_handle(int 786432)
+var DAVID = call get_char_handle(int 65536)
+var SEKUNE = call get_char_handle(int 786432)
 var VAR_54 = call load_anim("unc_pant")
 execute SCRIPT_8
-call load_char_anim(var VAR_44, var &VAR_46)
-call add_item_to_char(var VAR_44, int 108, int 1, int 0)
+call load_char_anim(var nrebela, var &VAR_46)
+call add_item_to_char(var nrebela, int 108, int 1, int 0)
 call set_input_system(int 2)
 
 ._SCRIPT_6
@@ -285,7 +250,7 @@ if(var VAR_35 == int 4)
 		var VAR_36 ++ 
 		if(var VAR_36 == int 30)
 		 {
-				call func_1c(var archer1, var VAR_44)
+				call func_1c(var archer1, var nrebela)
 		}
 		if(var VAR_36 == int 60)
 		 {
@@ -298,7 +263,7 @@ if(var VAR_35 == int 4)
 		}
 		if(var VAR_36 == int 100)
 		 {
-				call kill_char(var VAR_44)
+				call kill_char(var nrebela)
 				var VAR_35 ++ 
 				var VAR_36 = int 0
 		}

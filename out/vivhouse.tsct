@@ -1,52 +1,17 @@
 ._DATA
 VAR_0	{ 1146242390, 1163152961, -1431655936, 0 }	
-VAR_1	0	
-VAR_2	0	
-VAR_3	0	
 VAR_6	{ -480, -713, -4147 }	
-VAR_7	0	
-hound	0	
 VAR_9	{ 2494, 780, -6544 }	
-hound1	0	
 VAR_11	{ 1386, 779, -7229 }	
-VAR_12	0	
-VAR_13	0	
-VAR_14	0	
-VAR_15	0	
 VAR_16	-1	
-VAR_25	0	
-VAR_26	0	
-VAR_27	0	
-VAR_28	0	
-VAR_29	0	
 VAR_30	{ 1748, 780, -6267 }	
-VAR_31	0	
-VAR_36	0	
-VAR_37	0	
-VAR_38	0	
-VAR_39	0	
 VAR_40	{ 1570, 780, -6240 }	
 VAR_41	{ 1780, 780, -6340 }	
 VAR_42	{ 1320, 780, -6260 }	
 VAR_43	{ 1860, 780, -6620 }	
 VAR_44	158	
 VAR_45	253	
-VAR_46	0	
-VAR_48	0	
-VAR_49	0	
-VAR_50	0	
-VAR_51	0	
-VAR_52	0	
-VAR_53	0	
-VAR_54	0	
-VAR_55	0	
-VAR_56	0	
-VAR_68	0	
-VAR_69	0	
 VAR_70	-1	
-VAR_71	0	
-VAR_72	0	
-VAR_73	0
 
 ._on_load
 if(call play_bgm(var &VAR_0))
@@ -153,7 +118,7 @@ switch(var VAR_12)
 					var VAR_14 = call get_david_char()
 					while(var VAR_14)
 					 {
-							if(var VAR_14 != var VAR_7)
+							if(var VAR_14 != var DAVID)
 							 {
 									var VAR_15 = call get_char_handle_id(var VAR_14)
 									switch(var VAR_15)
@@ -188,11 +153,11 @@ switch(var VAR_12)
 					call set_input_system(int 1)
 					if(call is_char_handle_in_level(int 7208961))
 					 {
-							call set_char_template(var VAR_8, int 18)
+							call set_char_template(var hound, int 18)
 					}
 					if(call is_char_handle_in_level(int 7208962))
 					 {
-							call set_char_template(var VAR_10, int 18)
+							call set_char_template(var hound1, int 18)
 					}
 					var VAR_13 = int 0
 					var VAR_12 ++ 
@@ -216,7 +181,7 @@ var hound = call create_enemy(int 18, int 1, var &VAR_9, int 265)
 var hound1 = call create_enemy(int 18, int 2, var &VAR_11, int 205)
 call freeze_enemy(var hound)
 call freeze_enemy(var hound1)
-var VAR_7 = call get_char_handle(int 65536)
+var DAVID = call get_char_handle(int 65536)
 call set_input_system(int 2)
 
 ._SCRIPT_5
@@ -225,28 +190,28 @@ switch(var VAR_48)
 		case 0
 			if(var VAR_49 > int 10)
 			 {
-					call char_teleport_to_pos(var VAR_7, var &VAR_41, int 228)
-					if(var VAR_39)
+					call char_teleport_to_pos(var DAVID, var &VAR_41, int 228)
+					if(var is_CHIARO_exist)
 					 {
-							call char_teleport_to_pos(var VAR_39, var &VAR_42, var VAR_44)
-							if(var VAR_38)
+							call char_teleport_to_pos(var is_CHIARO_exist, var &VAR_42, var VAR_44)
+							if(var is_JUG_exist)
 							 {
-									call char_teleport_to_pos(var VAR_38, var &VAR_43, var VAR_45)
+									call char_teleport_to_pos(var is_JUG_exist, var &VAR_43, var VAR_45)
 							}
-							if(var VAR_36)
+							if(var is_SEKUNE_exist)
 							 {
-									call char_teleport_to_pos(var VAR_36, var &VAR_43, var VAR_45)
+									call char_teleport_to_pos(var is_SEKUNE_exist, var &VAR_43, var VAR_45)
 							}
 					}
 					else
 					 {
-							if(var VAR_38)
+							if(var is_JUG_exist)
 							 {
-									call char_teleport_to_pos(var VAR_38, var &VAR_42, var VAR_44)
+									call char_teleport_to_pos(var is_JUG_exist, var &VAR_42, var VAR_44)
 							}
-							if(var VAR_36)
+							if(var is_SEKUNE_exist)
 							 {
-									call char_teleport_to_pos(var VAR_36, var &VAR_43, var VAR_45)
+									call char_teleport_to_pos(var is_SEKUNE_exist, var &VAR_43, var VAR_45)
 							}
 					}
 					var VAR_48 ++ 
@@ -339,16 +304,16 @@ switch(var VAR_48)
 var VAR_49 ++ 
 
 ._SCRIPT_6
-var VAR_7 = call is_char_handle_in_level(int 65536)
-var VAR_36 = call is_char_handle_in_level(int 786432)
-var VAR_37 = call is_char_handle_in_level(int 196608)
-var VAR_38 = call is_char_handle_in_level(int 327680)
-var VAR_39 = call is_char_handle_in_level(int 131072)
-var VAR_37 = call create_char(var &VAR_40, "nvivienne", int 190, int 13)
-call add_item_to_char(var VAR_37, int 17, int 0, int 1)
-gamevar script_object = var VAR_7
+var DAVID = call is_char_handle_in_level(int 65536)
+var is_SEKUNE_exist = call is_char_handle_in_level(int 786432)
+var is_VIVIENNE_exist = call is_char_handle_in_level(int 196608)
+var is_JUG_exist = call is_char_handle_in_level(int 327680)
+var is_CHIARO_exist = call is_char_handle_in_level(int 131072)
+var is_VIVIENNE_exist = call create_char(var &VAR_40, "nvivienne", int 190, int 13)
+call add_item_to_char(var is_VIVIENNE_exist, int 17, int 0, int 1)
+gamevar script_object = var DAVID
 var VAR_46 = gamevar LEVEL
-call set_char_lvl(var VAR_37, var VAR_46)
+call set_char_lvl(var is_VIVIENNE_exist, var VAR_46)
 call set_input_system(int 2)
 
 ._SCRIPT_7
@@ -368,12 +333,12 @@ var VAR_69 ++
 switch(var VAR_25)
  {
 		case 0
-			var VAR_7 = call get_char_handle(int 65536)
+			var DAVID = call get_char_handle(int 65536)
 			var VAR_28 = int 0
 			var VAR_27 = call get_david_char()
 			while(var VAR_27)
 			 {
-					if(var VAR_27 != var VAR_7)
+					if(var VAR_27 != var DAVID)
 					 {
 							@VAR_2[var VAR_28]= var VAR_27
 							var VAR_28 ++ 
@@ -397,15 +362,15 @@ switch(var VAR_25)
 							}
 							var VAR_28 ++ 
 					}
-					call func_5d(var VAR_7)
-					call char_walk_to_pos(var VAR_7, var &VAR_30)
+					call func_5d(var DAVID)
+					call char_walk_to_pos(var DAVID, var &VAR_30)
 					var VAR_25 ++ 
 					var VAR_26 = int 0
 			}
 			break 
 		case 2
 			var VAR_31 = int 0
-			if(call is_char_standing(var VAR_7))
+			if(call is_char_standing(var DAVID))
 			 {
 					call log("david hit path target")
 					var VAR_31 = int 1
@@ -432,8 +397,8 @@ switch(var VAR_25)
 					 {
 							var VAR_1 = int 1
 							call set_input_system(int 2)
-							call func_5d(var VAR_7)
-							call char_stop(var VAR_7)
+							call func_5d(var DAVID)
+							call char_stop(var DAVID)
 							var VAR_28 = int 0
 							while(var VAR_28 < int 2)
 							 {
@@ -460,14 +425,14 @@ switch(var VAR_25)
 			 {
 					if(var VAR_29 < int 2)
 					 {
-							call char_exit_door(var VAR_7, int 1)
+							call char_exit_door(var DAVID, int 1)
 							call char_exit_door(var VAR_2, int 1)
 							var VAR_25 = int -1
 							var VAR_26 = int 0
 					}
 					else
 					 {
-							call char_turn_to_pos(var VAR_7, call get_char_pos(var VAR_3))
+							call char_turn_to_pos(var DAVID, call get_char_pos(var VAR_3))
 							call char_turn_to_pos(var VAR_2, call get_char_pos(var VAR_3))
 							call start_dialog("S_DVDGUA", "NULL")
 							var VAR_25 ++ 
@@ -478,7 +443,7 @@ switch(var VAR_25)
 		case 4
 			if(call get_input_sys() != int 4)
 			 {
-					call char_exit_door(var VAR_7, int 1)
+					call char_exit_door(var DAVID, int 1)
 					call char_exit_door(var VAR_2, int 1)
 					call func_34(var VAR_3)
 					var VAR_25 = int -1

@@ -1,20 +1,9 @@
 ._DATA
-VAR_0	0	
-fade_chronicler	0	
-VAR_2	0	
-VAR_3	0	
-VAR_4	0	
 VAR_6	{ 1280070990, 0 }	
 VAR_12	{ 1280070990, 0 }	
 VAR_14	{ 1280070990, 0 }	
-VAR_17	0	
 VAR_18	{ 0, 0, -1 }	
-VAR_19	0	
-VAR_20	0	
-VAR_21	0	
-VAR_22	0	
 VAR_23	-1	
-VAR_26	0	
 VAR_28	{ 1280070990, 0 }	
 VAR_30	{ 1280070990, 0 }	
 VAR_32	{ 1280070990, 0 }	
@@ -23,24 +12,14 @@ VAR_36	{ 1280070990, 0 }
 VAR_38	{ 1280070990, 0 }	
 VAR_39	{ 635, -111, 730 }	
 VAR_42	{ 1868783474, 1852667244, 0 }	
-VAR_43	0	
-VAR_44	0	
 VAR_46	{ 1851880563, 1630550065, 0 }	
-sguard	0	
 VAR_48	{ 454, -110, 830 }	
-sguard1	0	
 VAR_50	{ -170, -110, 840 }	
-sguard2	0	
 VAR_52	{ -705, -110, 592 }	
-sguard3	0	
 VAR_54	{ -1042, -110, 77 }	
-VAR_55	0	
-VAR_56	0	
-VAR_57	0	
 VAR_58	{ 261, 237, -858 }	
-VAR_59	{ 0, 0, 0, 0, 0, 0 }	
+DAVID	{ 0, 0, 0, 0, 0, 0 }	
 VAR_60	{ 1869768803, 1818454382, 0 }	
-VAR_61	0	
 VAR_62	{ 3, VAR_63, 0, 3, VAR_64, 0, 8 }	
 VAR_63	"lookout"	
 VAR_64	"stan180a"	
@@ -51,17 +30,8 @@ VAR_68	{ 5, 20, 3, VAR_69, 0, 8 }
 VAR_69	{ 1851880563, 1630550065, 0 }	
 VAR_70	{ 5, 40, 3, VAR_71, 0, 8 }	
 VAR_71	{ 1851880563, 1630550065, 0 }	
-VAR_72	0	
 VAR_73	{ -928, -111, -609, -966, -111, 57, -759, -111, 511, -526, -111, 54, -479, -111, 562, -92, -111, 273, -14, -111, 701, 658, -111, 309, 847, -111, 671, 518, -111, 947, -13, -111, 834, 289, -111, 669, 217, -111, 772, 207, 238, -791 }	
 VAR_74	{ 0, 1, 14, VAR_73, 8, 2, 1, 3, 33, 33, -1, 4, 0, 9, 1, 5, 1, 15, 100, 6, 2, 7, 1, 2, -1 }	
-VAR_75	0	
-VAR_76	0	
-VAR_77	0	
-VAR_78	0	
-VAR_79	0	
-VAR_80	0	
-VAR_85	0	
-VAR_86	0
 
 ._on_load
 call play_bgm("METALON")
@@ -192,10 +162,10 @@ if(var VAR_55 == int 3)
 		var VAR_80 = call get_num_of_enemies()
 		if(call is_char_handle_in_level(int 1179649))
 		 {
-				if(call func_a6(var VAR_47)&&var VAR_76 == int 0)
+				if(call func_a6(var sguard)&&var VAR_76 == int 0)
 				 {
-						call func_55(var VAR_47, int 22)
-						call func_50(var VAR_47, int 131)
+						call func_55(var sguard, int 22)
+						call func_50(var sguard, int 131)
 						var VAR_75 ++ 
 						var VAR_76 ++ 
 						call log("SGUARD1 READY")
@@ -203,10 +173,10 @@ if(var VAR_55 == int 3)
 		}
 		if(call is_char_handle_in_level(int 1179650))
 		 {
-				if(call func_a6(var VAR_49)&&var VAR_77 == int 0)
+				if(call func_a6(var sguard1)&&var VAR_77 == int 0)
 				 {
-						call func_55(var VAR_49, int 22)
-						call func_50(var VAR_49, int 131)
+						call func_55(var sguard1, int 22)
+						call func_50(var sguard1, int 131)
 						var VAR_75 ++ 
 						var VAR_77 ++ 
 						call log("SGUARD2 READY")
@@ -214,10 +184,10 @@ if(var VAR_55 == int 3)
 		}
 		if(call is_char_handle_in_level(int 1179651))
 		 {
-				if(call func_a6(var VAR_51)&&var VAR_78 == int 0)
+				if(call func_a6(var sguard2)&&var VAR_78 == int 0)
 				 {
-						call func_55(var VAR_51, int 22)
-						call func_50(var VAR_51, int 131)
+						call func_55(var sguard2, int 22)
+						call func_50(var sguard2, int 131)
 						var VAR_75 ++ 
 						var VAR_78 ++ 
 						call log("SGUARD3 READY")
@@ -225,10 +195,10 @@ if(var VAR_55 == int 3)
 		}
 		if(call is_char_handle_in_level(int 1179652))
 		 {
-				if(call func_a6(var VAR_53)&&var VAR_79 == int 0)
+				if(call func_a6(var sguard3)&&var VAR_79 == int 0)
 				 {
-						call func_55(var VAR_53, int 22)
-						call func_50(var VAR_53, int 131)
+						call func_55(var sguard3, int 22)
+						call func_50(var sguard3, int 131)
 						var VAR_75 ++ 
 						var VAR_79 ++ 
 						call log("SGUARD4 READY")
@@ -255,7 +225,7 @@ var sguard = call create_enemy(int 34, int 1, var &VAR_48, int 355)
 var sguard1 = call create_enemy(int 34, int 2, var &VAR_50, int 335)
 var sguard2 = call create_enemy(int 34, int 3, var &VAR_52, int 315)
 var sguard3 = call create_enemy(int 34, int 4, var &VAR_54, int 315)
-var VAR_59 = call get_char_handle(int 65536)
+var DAVID = call get_char_handle(int 65536)
 gamevar script_object = var sguard
 gamevar *character_stats_p+15 = int 1200
 call func_106(var sguard, int 1, int 0, int 1)

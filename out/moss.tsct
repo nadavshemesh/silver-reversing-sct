@@ -1,40 +1,18 @@
 ._DATA
-VAR_0	0	
-VAR_1	0	
-VAR_2	0	
-VAR_3	0	
 VAR_4	{ 0, 0, 0 }	
 VAR_5	{ 0, 0, 0 }	
 VAR_7	{ 3021, -2230, 1316 }	
-VAR_8	0	
 VAR_9	{ 0, 3527, -2230, 2093, 2, 3354, -2080, 2220, 3, VAR_10, 0, 11, 100, 200, 0, 3900, -2230, 2168, 2, 4252, -2100, 2172, 3, VAR_11, 0, 11, 100, 200, 0, 3016, -2230, 1310, 3, VAR_12, 0, 11, 100, 200, 7, 8 }	
 VAR_10	"bigsigh"	
 VAR_11	"head_nod"	
 VAR_12	"head_sad"	
 VAR_13	{ 0, 0, 0, 0 }	
 VAR_15	{ 3615, -2195, 1218 }	
-VAR_16	0	
-VAR_17	0	
-VAR_18	0	
-VAR_19	0	
-VAR_20	0	
 VAR_21	{ 3838, -2230, 1583 }	
 VAR_22	{ 3962, -2230, 1404 }	
 VAR_23	{ 3636, -2230, 1424 }	
 VAR_24	{ VAR_21, VAR_22, VAR_23 }	
-VAR_25	0	
-VAR_26	0	
-VAR_27	0	
-VAR_28	0	
-VAR_29	0	
-VAR_30	0	
-VAR_31	0	
 VAR_32	{ 3836, -2230, 1234 }	
-VAR_33	0	
-VAR_38	0	
-VAR_39	0	
-VAR_40	0	
-VAR_41	0	
 VAR_42	{ 0, 0 }	
 VAR_43	{ 0, 0, 0, 0 }
 
@@ -199,7 +177,7 @@ switch(var VAR_18)
 							 {
 									if(call is_char_standing(@VAR_4[var VAR_20]))
 									 {
-											call char_turn_to_pos(@VAR_4[var VAR_20], call get_char_pos(var VAR_8))
+											call char_turn_to_pos(@VAR_4[var VAR_20], call get_char_pos(var nmoss))
 											@VAR_25[var VAR_20]= int 1
 									}
 							}
@@ -252,9 +230,9 @@ gamevar SMACKER_Y = int 224
 call play_2d_anim("moss", int 0, int 1, var &VAR_5)
 
 ._SCRIPT_11
-var VAR_8 = call create_char(var &VAR_7, "nmoss", int 130, int 13)
-call func_50(var VAR_8, int 8192)
-call play_char_ai_script(var VAR_8, var &VAR_9)
+var nmoss = call create_char(var &VAR_7, "nmoss", int 130, int 13)
+call func_50(var nmoss, int 8192)
+call play_char_ai_script(var nmoss, var &VAR_9)
 if(call func_bf(int 303, gamevar CURRENT_LEVEL, gamevar CURRENT_SCENE))
  {
 		call func_d8(int 303, var &VAR_13)
@@ -277,15 +255,15 @@ switch(var VAR_28)
 		case 0
 			if(var VAR_1)
 			 {
-					call func_10c(var VAR_8, "DOGSEYES")
+					call func_10c(var nmoss, "DOGSEYES")
 					var VAR_28 = int 2
 					var VAR_29 = int 0
 			}
 			else
 			 {
-					if(call func_65(var VAR_8, int 13) == int 17)
+					if(call func_65(var nmoss, int 13) == int 17)
 					 {
-							call func_1(var VAR_8, int 8192)
+							call func_1(var nmoss, int 8192)
 							var VAR_1 = int 1
 							var VAR_28 ++ 
 							var VAR_29 = int 0
@@ -295,8 +273,8 @@ switch(var VAR_28)
 		case 1
 			if(call get_input_sys() != int 4)
 			 {
-					call func_2(var VAR_8)
-					call func_10c(var VAR_8, "DOGSEYES")
+					call func_2(var nmoss)
+					call func_10c(var nmoss, "DOGSEYES")
 					var VAR_28 ++ 
 					var VAR_29 = int 0
 			}
@@ -307,23 +285,23 @@ switch(var VAR_28)
 			if(var VAR_30)
 			 {
 					call set_input_system(int 2)
-					call freeze_enemy(var VAR_8)
+					call freeze_enemy(var nmoss)
 					call stop_playing_sound(var VAR_33)
-					var VAR_31 = call get_char_handle(int 65536)
-					call func_19(var VAR_8, gamevar control_char_p)
+					var DAVID = call get_char_handle(int 65536)
+					call func_19(var nmoss, gamevar control_char_p)
 					call func_7(int 12345, int 1, int 1, int 1)
 					var VAR_28 ++ 
 					var VAR_29 = int 0
 			}
 			break 
 		case 3
-			if(call is_char_standing(var VAR_8))
+			if(call is_char_standing(var nmoss))
 			 {
-					call char_turn_to_pos(var VAR_8, call get_char_pos(gamevar control_char_p))
-					call char_turn_to_pos(gamevar control_char_p, call get_char_pos(var VAR_8))
-					if(gamevar control_char_p != var VAR_31)
+					call char_turn_to_pos(var nmoss, call get_char_pos(gamevar control_char_p))
+					call char_turn_to_pos(gamevar control_char_p, call get_char_pos(var nmoss))
+					if(gamevar control_char_p != var DAVID)
 					 {
-							call char_turn_to_pos(var VAR_31, call get_char_pos(var VAR_8))
+							call char_turn_to_pos(var DAVID, call get_char_pos(var nmoss))
 					}
 					call start_dialog("S_MOSTED", "NULL")
 					var VAR_28 ++ 
@@ -333,8 +311,8 @@ switch(var VAR_28)
 		case 4
 			if(call func_6d() == int 1)
 			 {
-					call set_char_running(var VAR_8)
-					call func_2b(var VAR_8, int 0)
+					call set_char_running(var nmoss)
+					call func_2b(var nmoss, int 0)
 					call func_60(gamevar control_char_p, var VAR_30)
 					var VAR_28 ++ 
 					var VAR_29 = int 0
@@ -343,7 +321,7 @@ switch(var VAR_28)
 		case 5
 			if(var VAR_29 > int 60)
 			 {
-					call char_turn_to_pos(var VAR_31, var &VAR_32)
+					call char_turn_to_pos(var DAVID, var &VAR_32)
 					call resume_conversation()
 					call remove_item_from_pie(var VAR_30)
 					var VAR_28 ++ 

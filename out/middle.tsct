@@ -1,10 +1,6 @@
 ._DATA
-VAR_1	0	
 VAR_2	{ 0, 1 }	
-VAR_3	0	
-VAR_4	0	
 VAR_5	{ -2814, 1020, -3220 }	
-devious_imp	0	
 devious_imp1	0	
 neutral_imp	0	
 neutral_imp1	0	
@@ -16,9 +12,6 @@ VAR_14	{ -123, -994, -4606 }
 VAR_15	{ 918, 6, -2072 }	
 VAR_16	{ 29, 1, 79, 1, -1 }	
 VAR_17	{ 0, 0, 1, 3, -1, 8, 1, 4, 0, 9, 0, 1, 16, 102, 100, 101, 100, -1, 2, 1, 3, 2, 5, 0, 50, 6, 1, 7, 1, 8, -1 }	
-devious_imp2	0	
-devious_imp3	0	
-devious_imp4	0	
 devious_imp5	0	
 VAR_22	{ -1478, -994, -3830 }	
 VAR_23	{ -1396, -994, -4245 }	
@@ -26,7 +19,6 @@ VAR_24	{ -2022, -994, -4128 }
 VAR_25	{ -1723, -994, -4683 }	
 VAR_29	{ 2003134064, -1431655936, 0, 660, 1490, -4280, 530, -700, -4070 }	
 VAR_30	0	
-VAR_32	0	
 VAR_33	0
 
 ._on_load
@@ -139,8 +131,8 @@ gamevar script_object = var devious_imp4
 gamevar *character_stats_p+15 = int 4000
 gamevar script_object = var devious_imp5
 gamevar *character_stats_p+15 = int 4000
-var VAR_1 = call create_char(var &VAR_14, "nyelimp", int -130, int 13)
-gamevar script_object = var VAR_1
+var nyelimp = call create_char(var &VAR_14, "nyelimp", int -130, int 13)
+gamevar script_object = var nyelimp
 gamevar *character_movement_p+60 = int 1
 var VAR_3 = call load_anim(var &VAR_29)
 call set_input_system(int 2)
@@ -159,7 +151,7 @@ switch(var VAR_2)
 		case 0
 			if(gamevar scene_counter > int 2)
 			 {
-					call play_char_anim(var VAR_1, var VAR_3, int 0)
+					call play_char_anim(var nyelimp, var VAR_3, int 0)
 					call set_char_template(var devious_imp, int 100)
 					call set_char_template(var devious_imp1, int 100)
 					call set_char_template(var neutral_imp, int 102)
@@ -176,11 +168,11 @@ switch(var VAR_2)
 		case 1
 			if(gamevar scene_counter > int 150)
 			 {
-					gamevar script_object = var VAR_1
+					gamevar script_object = var nyelimp
 					gamevar *character_stats_p+14 = int 106000
-					call set_char_running(var VAR_1)
-					call func_2b(var VAR_1, int 3)
-					var VAR_4 = call func_41(var VAR_1, int 0)
+					call set_char_running(var nyelimp)
+					call func_2b(var nyelimp, int 3)
+					var VAR_4 = call func_41(var nyelimp, int 0)
 					call set_input_system(int 1)
 					gamevar scene_counter = int 0
 					var VAR_2 ++ 
@@ -189,10 +181,10 @@ switch(var VAR_2)
 		case 2
 			if(gamevar scene_counter > int 10)
 			 {
-					if(call is_char_standing(var VAR_1))
+					if(call is_char_standing(var nyelimp))
 					 {
 							call func_12f(var VAR_4)
-							call remove_char(var VAR_1)
+							call remove_char(var nyelimp)
 							gamevar scene_counter = int 0
 							var VAR_2 ++ 
 					}

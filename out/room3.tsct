@@ -1,13 +1,5 @@
 ._DATA
-VAR_0	0	
-VAR_1	0	
-VAR_2	0	
-VAR_3	0	
-VAR_4	0	
 VAR_5	-1	
-VAR_7	0	
-VAR_8	0	
-VAR_9	0	
 VAR_10	{ -239, 0, 2564 }	
 VAR_11	{ 85, 6554113, 45, 1, 46, 1, 47, 1, 40, 1, 41, 1, 42, 1, -1 }	
 VAR_12	{ -285, 160, 2050 }	
@@ -117,19 +109,19 @@ if(gamevar *psys_p+1)
 }
 
 ._SCRIPT_10
-var VAR_0 = call is_char_handle_in_level(int 1507337)
-if(var ! VAR_0)
+var is_BTREASURE_exist = call is_char_handle_in_level(int 1507337)
+if(var ! is_BTREASURE_exist)
  {
-		var VAR_0 = call create_char(var VAR_1, "btreasure9", var VAR_2, int 14)
-		call func_aa(var VAR_0)
+		var is_BTREASURE_exist = call create_char(var VAR_1, "btreasure9", var VAR_2, int 14)
+		call func_aa(var is_BTREASURE_exist)
 }
 else
  {
 		var VAR_4 = int 1
-		gamevar script_object = var VAR_0
+		gamevar script_object = var is_BTREASURE_exist
 		if(gamevar *object_p+7 == int 4194304)
 		 {
-				call func_aa(var VAR_0)
+				call func_aa(var is_BTREASURE_exist)
 		}
 }
 
@@ -140,11 +132,11 @@ if(var VAR_3 != int -1)
 		 {
 				if(var VAR_5 != int -1)
 				 {
-						call add_item_to_char(var VAR_0, int 85, var VAR_5, int 0)
+						call add_item_to_char(var is_BTREASURE_exist, int 85, var VAR_5, int 0)
 				}
 				else
 				 {
-						call add_item_to_char(var VAR_0, var VAR_3, int 1, int 0)
+						call add_item_to_char(var is_BTREASURE_exist, var VAR_3, int 1, int 0)
 				}
 		}
 }

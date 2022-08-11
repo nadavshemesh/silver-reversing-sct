@@ -1,40 +1,12 @@
 ._DATA
-VAR_0	0	
-VAR_1	0	
-VAR_2	0	
-VAR_3	0	
-VAR_4	0	
-VAR_5	0	
-VAR_6	0	
-VAR_7	0	
-VAR_9	0	
-VAR_10	0	
-VAR_11	0	
-VAR_12	0	
-VAR_13	0	
-VAR_14	0	
-VAR_15	0	
-VAR_16	0	
 VAR_17	{ 0, 0 }	
 VAR_18	{ 0, 0, 0, 0 }	
-VAR_19	0	
-VAR_20	0	
 VAR_22	{ -531, 1190, -1456 }	
 VAR_23	{ -1160, 1190, 231 }	
-VAR_25	0	
 VAR_26	{ 548, 252, 322 }	
 VAR_27	{ 3, VAR_28, 0, 11, 100, 400, 7, 8 }	
 VAR_28	"taichi"	
-VAR_29	0	
-VAR_32	0	
-VAR_33	0	
-VAR_34	0	
-VAR_35	0	
 VAR_36	-1	
-VAR_55	0	
-VAR_56	0	
-VAR_57	0	
-VAR_58	0	
 
 ._on_load
 execute SCRIPT_3
@@ -146,7 +118,7 @@ if(var VAR_36 != var VAR_32)
 switch(var VAR_32)
  {
 		case 0
-			if(call func_65(var VAR_25, int 13) == int 17)
+			if(call func_65(var noldvill, int 13) == int 17)
 			 {
 					call log("talking to villager")
 					var VAR_19 = int 1
@@ -182,7 +154,7 @@ switch(var VAR_32)
 											break 
 								}
 								var VAR_20 = int 1
-								call play_char_anim(var VAR_25, var VAR_29, int 0)
+								call play_char_anim(var noldvill, var VAR_29, int 0)
 								call add_item_to_char(gamevar control_char_p, int 115, int 0, int 0)
 								call func_f8(int 115, int 100)
 								call func_110(var VAR_34 - int 50)
@@ -240,7 +212,7 @@ switch(var VAR_55)
 			}
 			break 
 		case 1
-			if(call func_65(var VAR_25, int 13) == int 17)
+			if(call func_65(var noldvill, int 13) == int 17)
 			 {
 					call log("talking to villager")
 					var VAR_19 = int 1
@@ -276,7 +248,7 @@ switch(var VAR_55)
 											break 
 								}
 								var VAR_20 = int 1
-								call play_char_anim(var VAR_25, var VAR_29, int 0)
+								call play_char_anim(var noldvill, var VAR_29, int 0)
 								call add_item_to_char(gamevar control_char_p, int 115, int 0, int 0)
 								call func_f8(int 115, int 100)
 								call func_110(var VAR_57 - int 50)
@@ -333,9 +305,9 @@ execute SCRIPT_12
 call func_108("ARSE")
 
 ._SCRIPT_12
-var VAR_25 = call create_char(var &VAR_26, "noldvill", int 336, int 13)
-call func_50(var VAR_25, int 8192)
-call play_char_ai_script(var VAR_25, var &VAR_27)
+var noldvill = call create_char(var &VAR_26, "noldvill", int 336, int 13)
+call func_50(var noldvill, int 8192)
+call play_char_ai_script(var noldvill, var &VAR_27)
 var VAR_29 = call load_anim("jangive")
 
 ._SCRIPT_13

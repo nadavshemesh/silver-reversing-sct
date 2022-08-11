@@ -1,29 +1,14 @@
 ._DATA
-VAR_0	0	
-VAR_4	0	
-VAR_5	0	
-VAR_6	0	
-VAR_7	0	
-VAR_8	0	
-VAR_9	0	
-VAR_10	0	
-VAR_11	0	
-VAR_12	0	
-VAR_13	0	
-neutral_imp	0	
-neutral_imp1	0	
-neutral_imp2	0	
-neutral_imp3	0	
+DAVID1	0	
 VAR_22	{ -11000, 1250, -12050 }	
 VAR_24	{ -9329, 1250, -15047 }	
 VAR_25	{ -8546, 1250, -14898 }	
 VAR_26	{ -8713, 1250, -15047 }	
 VAR_27	{ -8937, 1250, -14860 }	
-VAR_28	0	
 VAR_29	0	
 VAR_30	0	
 VAR_31	{ -8159, 1202, -12023 }	
-VAR_32	{ 5, 300, 15, 29, VAR_0, 1, VAR_0, 32, VAR_33, VAR_34, 16, VAR_30, 1, 4, VAR_29, 14, 0, -8193, 1203, -12014, 2, -8125, 1203, -11964, 28, VAR_35, 5, 0, 0, -9102, 1203, -11980, 2, -8981, 1203, -11981, 28, VAR_36, 5, 0, 0, -10650, 1203, -11984, 2, -10654, 1947, -11963, 28, VAR_37, 5, 0, 0, -11524, 1203, -11988, 2, -11471, 2068, -11963, 28, VAR_38, 5, 0, 0, -11587, 1203, -14435, 2, -11578, 1203, -14447, 28, VAR_39, 5, 0, 0, -10631, 1203, -14405, 2, -10624, 2023, -14472, 28, VAR_40, 5, 0, 0, -9009, 1203, -14395, 2, -9002, 2019, -14472, 28, VAR_41, 5, 0, 0, -7957, 1203, -14366, 2, -8077, 2036, -14472, 28, VAR_42, 5, 0, 6, 8, 0, 8 }	
+VAR_32	{ 5, 300, 15, 29, DAVID1, 1, DAVID1, 32, VAR_33, VAR_34, 16, VAR_30, 1, 4, VAR_29, 14, 0, -8193, 1203, -12014, 2, -8125, 1203, -11964, 28, VAR_35, 5, 0, 0, -9102, 1203, -11980, 2, -8981, 1203, -11981, 28, VAR_36, 5, 0, 0, -10650, 1203, -11984, 2, -10654, 1947, -11963, 28, VAR_37, 5, 0, 0, -11524, 1203, -11988, 2, -11471, 2068, -11963, 28, VAR_38, 5, 0, 0, -11587, 1203, -14435, 2, -11578, 1203, -14447, 28, VAR_39, 5, 0, 0, -10631, 1203, -14405, 2, -10624, 2023, -14472, 28, VAR_40, 5, 0, 0, -9009, 1203, -14395, 2, -9002, 2019, -14472, 28, VAR_41, 5, 0, 0, -7957, 1203, -14366, 2, -8077, 2036, -14472, 28, VAR_42, 5, 0, 6, 8, 0, 8 }	
 VAR_33	"DVDWIT"	
 VAR_34	"NULL"	
 VAR_35	"impread"	
@@ -34,13 +19,6 @@ VAR_39	"impread"
 VAR_40	"impread"	
 VAR_41	"impread"	
 VAR_42	"impread"	
-VAR_44	0	
-VAR_45	0	
-VAR_47	0	
-VAR_48	0	
-VAR_49	0	
-VAR_50	0	
-VAR_51	0
 
 ._on_load
 call play_bgm("GNO")
@@ -160,7 +138,7 @@ if(var VAR_4 == int 1)
  {
 		if(var VAR_5 == int 4)
 		 {
-				call play_char_anim(var VAR_12, var VAR_9, int 0)
+				call play_char_anim(var nwhittle, var VAR_9, int 0)
 				var VAR_6 = int 600
 				var VAR_7 = int 3
 				var VAR_4 = int 2
@@ -171,14 +149,14 @@ if(var VAR_4 == int 2)
  {
 		if(var VAR_5 == int 100)
 		 {
-				call func_100(call get_char_movement_ptr(var VAR_12))
+				call func_100(call get_char_movement_ptr(var nwhittle))
 		}
 		if(var VAR_6 > int 0)
 		 {
 				var VAR_6 -- 
-				if(call func_5c(var VAR_12))
+				if(call func_5c(var nwhittle))
 				 {
-						call play_char_anim(var VAR_12, var VAR_9, int 0)
+						call play_char_anim(var nwhittle, var VAR_9, int 0)
 				}
 				var VAR_8 = var VAR_6 % int 84
 				if(var VAR_8 == int 0)
@@ -187,39 +165,39 @@ if(var VAR_4 == int 2)
 						if(var VAR_7 == int 0)
 						 {
 								var VAR_7 = int 3
-								call play_char_anim(var VAR_12, var VAR_10, int 0)
+								call play_char_anim(var nwhittle, var VAR_10, int 0)
 						}
 				}
 		}
 		else
 		 {
-				call set_char_running(var VAR_14)
-				call char_walk_to(var VAR_14, int -9740, int 1250, int -14230)
+				call set_char_running(var neutral_imp)
+				call char_walk_to(var neutral_imp, int -9740, int 1250, int -14230)
 				var VAR_4 = int 3
-				call func_100(call get_char_movement_ptr(var VAR_14))
+				call func_100(call get_char_movement_ptr(var neutral_imp))
 		}
 }
 if(var VAR_4 == int 3)
  {
-		if(call is_char_standing(var VAR_14))
+		if(call is_char_standing(var neutral_imp))
 		 {
 				var VAR_4 = int 4
-				call play_char_anim(var VAR_14, var VAR_11, int 0)
-				call set_char_running(var VAR_15)
-				call char_walk_to(var VAR_15, int -11000, int 1250, int -12050)
-				call set_char_running(var VAR_16)
-				call char_walk_to(var VAR_16, int -11000, int 1250, int -12050)
-				call set_char_running(var VAR_17)
-				call char_walk_to(var VAR_17, int -11000, int 1250, int -12050)
+				call play_char_anim(var neutral_imp, var VAR_11, int 0)
+				call set_char_running(var neutral_imp1)
+				call char_walk_to(var neutral_imp1, int -11000, int 1250, int -12050)
+				call set_char_running(var neutral_imp2)
+				call char_walk_to(var neutral_imp2, int -11000, int 1250, int -12050)
+				call set_char_running(var neutral_imp3)
+				call char_walk_to(var neutral_imp3, int -11000, int 1250, int -12050)
 		}
 }
 if(var VAR_4 == int 4)
  {
-		if(call func_5c(var VAR_14))
+		if(call func_5c(var neutral_imp))
 		 {
-				call set_char_running(var VAR_14)
-				call char_walk_to(var VAR_14, int -11000, int 1250, int -12050)
-				call func_36(var VAR_12, int -9740, int 1250, int -14230)
+				call set_char_running(var neutral_imp)
+				call char_walk_to(var neutral_imp, int -11000, int 1250, int -12050)
+				call func_36(var nwhittle, int -9740, int 1250, int -14230)
 				var VAR_6 = int 60
 				var VAR_4 = int 5
 		}
@@ -229,9 +207,9 @@ if(var VAR_4 == int 5)
 		var VAR_6 -- 
 		if(var VAR_6 == int 0)
 		 {
-				call func_100(call get_char_movement_ptr(var VAR_12))
-				call set_char_running(var VAR_12)
-				call char_walk_to(var VAR_12, int -13550, int 1250, int -13388)
+				call func_100(call get_char_movement_ptr(var nwhittle))
+				call set_char_running(var nwhittle)
+				call char_walk_to(var nwhittle, int -13550, int 1250, int -13388)
 				var VAR_6 = int 100
 				var VAR_4 = int 6
 		}
@@ -241,19 +219,19 @@ if(var VAR_4 == int 6)
 		var VAR_6 -- 
 		if(var VAR_6 == int 90)
 		 {
-				call char_walk_to(var VAR_14, int -12093, int 1250, int -13444)
+				call char_walk_to(var neutral_imp, int -12093, int 1250, int -13444)
 		}
 		if(var VAR_6 == int 80)
 		 {
-				call char_walk_to(var VAR_15, int -12160, int 1250, int -13543)
+				call char_walk_to(var neutral_imp1, int -12160, int 1250, int -13543)
 		}
 		if(var VAR_6 == int 60)
 		 {
-				call char_walk_to(var VAR_16, int -12017, int 1250, int -13292)
+				call char_walk_to(var neutral_imp2, int -12017, int 1250, int -13292)
 		}
 		if(var VAR_6 == int 40)
 		 {
-				call char_walk_to(var VAR_17, int -12136, int 1250, int -13240)
+				call char_walk_to(var neutral_imp3, int -12136, int 1250, int -13240)
 		}
 		if(var VAR_6 == int 0)
 		 {
@@ -262,9 +240,9 @@ if(var VAR_4 == int 6)
 }
 if(var VAR_4 == int 8)
  {
-		if(call is_char_standing(var VAR_14))
+		if(call is_char_standing(var neutral_imp))
 		 {
-				call func_36(var VAR_14, int -13550, int 1250, int -13388)
+				call func_36(var neutral_imp, int -13550, int 1250, int -13388)
 				var VAR_6 = int 90
 				var VAR_4 = int 7
 				call log_obj(var VAR_4)
@@ -285,40 +263,40 @@ if(var VAR_4 == int 9)
 		var VAR_6 -- 
 		if(var VAR_6 == int 90)
 		 {
-				call func_2b(var VAR_14, int 2)
+				call func_2b(var neutral_imp, int 2)
 		}
 		if(var VAR_6 == int 80)
 		 {
-				call func_2b(var VAR_16, int 2)
+				call func_2b(var neutral_imp2, int 2)
 		}
 		if(var VAR_6 == int 50)
 		 {
-				var VAR_13 = call get_char_handle(int 65536)
-				call func_100(call get_char_movement_ptr(var VAR_13))
+				var DAVID = call get_char_handle(int 65536)
+				call func_100(call get_char_movement_ptr(var DAVID))
 				call set_input_system(int 1)
 		}
 		if(var VAR_6 == int 30)
 		 {
-				call func_2b(var VAR_15, int 2)
+				call func_2b(var neutral_imp1, int 2)
 		}
 		if(var VAR_6 == int 10)
 		 {
-				call func_2b(var VAR_17, int 2)
+				call func_2b(var neutral_imp3, int 2)
 		}
 		if(var VAR_6 == int 0)
 		 {
 				call log("the end")
-				call remove_char(var VAR_14)
-				call remove_char(var VAR_16)
-				call remove_char(var VAR_15)
-				call remove_char(var VAR_17)
+				call remove_char(var neutral_imp)
+				call remove_char(var neutral_imp2)
+				call remove_char(var neutral_imp1)
+				call remove_char(var neutral_imp3)
 				var VAR_4 ++ 
 		}
 }
 
 ._SCRIPT_7
-var VAR_12 = call create_char(var &VAR_22, "nwhittle", int 0, int 13)
-gamevar script_object = var VAR_12
+var nwhittle = call create_char(var &VAR_22, "nwhittle", int 0, int 13)
+gamevar script_object = var nwhittle
 gamevar *character_movement_p+60 = int 1
 
 ._SCRIPT_8
@@ -359,8 +337,8 @@ var VAR_10 = call load_anim("confused")
 var VAR_11 = call load_anim("come")
 
 ._SCRIPT_11
-var VAR_28 = call create_char(var &VAR_31, "nwhittle", int 342, int 13)
-var VAR_0 = call get_char_handle(int 65536)
+var nwhittle = call create_char(var &VAR_31, "nwhittle", int 342, int 13)
+var DAVID1 = call get_char_handle(int 65536)
 call set_input_system(int 2)
 
 ._SCRIPT_12
@@ -369,8 +347,8 @@ switch(var VAR_44)
 		case 0
 			if(var VAR_45 > int 100)
 			 {
-					call func_50(var VAR_28, int 8192)
-					call play_char_ai_script(var VAR_28, var &VAR_32)
+					call func_50(var nwhittle, int 8192)
+					call play_char_ai_script(var nwhittle, var &VAR_32)
 					var VAR_44 ++ 
 					var VAR_45 = int 0
 			}

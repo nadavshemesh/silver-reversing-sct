@@ -1,47 +1,25 @@
 ._DATA
 VAR_0	{ 0, 2, -1 }	
 VAR_1	{ 0, 2, -1 }	
-VAR_2	0	
-VAR_3	0	
-VAR_4	0	
 VAR_5	{ 395, 0, 172 }	
-VAR_6	0	
 VAR_7	{ 1428, 0, 363 }	
-VAR_8	0	
 VAR_9	{ 1574, 0, 466 }	
-VAR_10	0	
 VAR_11	{ 224, 0, 359 }	
 VAR_16	{ -89, 1277, 492 }	
 VAR_17	1	
 VAR_18	{ 0, 0 }	
-VAR_20	0	
-VAR_21	0	
-VAR_22	0	
-VAR_23	0	
-VAR_24	0	
-VAR_25	0	
-VAR_30	0	
-VAR_31	0	
 VAR_32	{ 78, 0, 345 }	
 VAR_33	{ -520, 0, 378 }	
 VAR_34	{ -1202, 0, -11 }	
 VAR_35	{ 4259, 0, 430 }	
-VAR_36	0	
-VAR_37	0	
-VAR_38	0	
-VAR_39	0	
 VAR_40	-1	
-VAR_44	0	
-VAR_45	0	
+nrebela1	0	
 VAR_46	{ 22, 0, 744 }	
 VAR_47	{ 345, 0, 93 }	
 VAR_48	{ 11, 1000, 2000, 3, VAR_49, 0, 11, 1000, 2000, 3, VAR_50, 0, 7, 8 }	
 VAR_49	"confused"	
 VAR_50	"cough"	
-VAR_51	{ 0, 3887, 0, 493, 11, 1000, 2000, 0, -16, 0, 449, 9, VAR_44, 0, 363, 0, 119, 11, 400, 500, 7, 8 }	
-VAR_54	0	
-VAR_55	0	
-VAR_56	0
+VAR_51	{ 0, 3887, 0, 493, 11, 1000, 2000, 0, -16, 0, 449, 9, nrebela1, 0, 363, 0, 119, 11, 400, 500, 7, 8 }	
 
 ._on_load
 execute SCRIPT_4
@@ -180,17 +158,17 @@ var VAR_25 = call load_anim("electro")
 
 ._SCRIPT_7
 gamevar door_restriction_p = var &VAR_0
-var VAR_4 = call create_char(var &VAR_5, "FSGRUNT!", int 270, int 13)
-var VAR_6 = call create_char(var &VAR_7, "FSGRUNT2", int 230, int 13)
-var VAR_8 = call create_char(var &VAR_9, "FSGRUNT3", int 225, int 13)
-var VAR_10 = call create_char(var &VAR_11, "FSGRUNT", int 265, int 13)
-call add_item_to_char(var VAR_4, int 16, int 0, int 1)
-call add_item_to_char(var VAR_6, int 16, int 0, int 1)
-call add_item_to_char(var VAR_8, int 16, int 0, int 1)
-call add_item_to_char(var VAR_10, int 16, int 0, int 1)
+var FSGRUNT! = call create_char(var &VAR_5, "FSGRUNT!", int 270, int 13)
+var FSGRUNT2 = call create_char(var &VAR_7, "FSGRUNT2", int 230, int 13)
+var FSGRUNT3 = call create_char(var &VAR_9, "FSGRUNT3", int 225, int 13)
+var FSGRUNT = call create_char(var &VAR_11, "FSGRUNT", int 265, int 13)
+call add_item_to_char(var FSGRUNT!, int 16, int 0, int 1)
+call add_item_to_char(var FSGRUNT2, int 16, int 0, int 1)
+call add_item_to_char(var FSGRUNT3, int 16, int 0, int 1)
+call add_item_to_char(var FSGRUNT, int 16, int 0, int 1)
 execute SCRIPT_6
-var VAR_2 = call get_char_handle(int 65536)
-var VAR_3 = call get_char_handle(int 393216)
+var DAVID = call get_char_handle(int 65536)
+var GRANDAD = call get_char_handle(int 393216)
 call remove_face(var &VAR_16)
 
 ._SCRIPT_8
@@ -207,23 +185,23 @@ if(var VAR_30 == int 0)
 		if(var VAR_31 == int 1)
 		 {
 				call set_input_system(int 2)
-				call set_char_running(var VAR_2)
-				call char_walk_to_pos(var VAR_2, var &VAR_34)
-				call char_teleport_to_pos(var VAR_3, var &VAR_34, int 75)
+				call set_char_running(var DAVID)
+				call char_walk_to_pos(var DAVID, var &VAR_34)
+				call char_teleport_to_pos(var GRANDAD, var &VAR_34, int 75)
 		}
 		if(var VAR_31 > int 60)
 		 {
-				call play_char_anim(var VAR_10, var VAR_22, int 0)
+				call play_char_anim(var FSGRUNT, var VAR_22, int 0)
 				var VAR_30 ++ 
 				var VAR_31 = int 0
 		}
 }
 if(var VAR_30 == int 1)
  {
-		if(call func_5c(var VAR_10))
+		if(call func_5c(var FSGRUNT))
 		 {
 				call start_dialog("S_DVDGRA", "NULL")
-				call char_turn_to_pos(var VAR_2, call get_char_pos(var VAR_10))
+				call char_turn_to_pos(var DAVID, call get_char_pos(var FSGRUNT))
 				var VAR_30 ++ 
 				var VAR_31 = int 0
 		}
@@ -232,25 +210,25 @@ if(var VAR_30 == int 2)
  {
 		if(call func_6d() == int 1)
 		 {
-				call char_walk_to_pos(var VAR_4, var &VAR_32)
+				call char_walk_to_pos(var FSGRUNT!, var &VAR_32)
 				var VAR_30 ++ 
 				var VAR_31 = int 0
 		}
 }
 if(var VAR_30 == int 3)
  {
-		if(call is_char_standing(var VAR_4))
+		if(call is_char_standing(var FSGRUNT!))
 		 {
-				call play_char_anim(var VAR_4, var VAR_24, int 0)
+				call play_char_anim(var FSGRUNT!, var VAR_24, int 0)
 				var VAR_30 ++ 
 				var VAR_31 = int 0
 		}
 }
 if(var VAR_30 == int 4)
  {
-		if(call func_5c(var VAR_4))
+		if(call func_5c(var FSGRUNT!))
 		 {
-				call char_turn_to_pos(var VAR_3, call get_char_pos(var VAR_10))
+				call char_turn_to_pos(var GRANDAD, call get_char_pos(var FSGRUNT))
 				var VAR_30 ++ 
 				var VAR_31 = int 0
 		}
@@ -259,18 +237,18 @@ if(var VAR_30 == int 5)
  {
 		if(var VAR_31 > int 50)
 		 {
-				call set_char_running(var VAR_4)
-				call char_walk_to_pos(var VAR_4, var &VAR_33)
+				call set_char_running(var FSGRUNT!)
+				call char_walk_to_pos(var FSGRUNT!, var &VAR_33)
 				var VAR_30 ++ 
 				var VAR_31 = int 0
 		}
 }
 if(var VAR_30 == int 6)
  {
-		if(call is_char_standing(var VAR_4))
+		if(call is_char_standing(var FSGRUNT!))
 		 {
-				call func_f0(var &VAR_16, var VAR_4, int 30, int 50)
-				call play_char_anim(var VAR_4, var VAR_25, int 0)
+				call func_f0(var &VAR_16, var FSGRUNT!, int 30, int 50)
+				call play_char_anim(var FSGRUNT!, var VAR_25, int 0)
 				var VAR_36 = call play_loaded_sound(int 18, int 0, int 56, int 0)
 				var VAR_30 ++ 
 				var VAR_31 = int 0
@@ -280,9 +258,9 @@ if(var VAR_30 == int 7)
  {
 		if(var VAR_31 == int 50)
 		 {
-				gamevar script_object = var VAR_4
+				gamevar script_object = var FSGRUNT!
 				gamevar *object_p+6 |= int 1048576
-				call kill_char(var VAR_4)
+				call kill_char(var FSGRUNT!)
 		}
 		if(var VAR_31 == int 250)
 		 {
@@ -296,12 +274,12 @@ if(var VAR_30 == int 8)
 		if(call get_input_sys() != int 4)
 		 {
 				call set_input_system(int 1)
-				call set_char_running(var VAR_10)
-				call set_char_running(var VAR_6)
-				call set_char_running(var VAR_8)
-				call char_walk_to_pos(var VAR_10, var &VAR_35)
-				call char_walk_to_pos(var VAR_6, var &VAR_35)
-				call char_walk_to_pos(var VAR_8, var &VAR_35)
+				call set_char_running(var FSGRUNT)
+				call set_char_running(var FSGRUNT2)
+				call set_char_running(var FSGRUNT3)
+				call char_walk_to_pos(var FSGRUNT, var &VAR_35)
+				call char_walk_to_pos(var FSGRUNT2, var &VAR_35)
+				call char_walk_to_pos(var FSGRUNT3, var &VAR_35)
 				call play_bgm("HAVENPT1")
 				var VAR_30 ++ 
 				var VAR_31 = int 0
@@ -311,26 +289,26 @@ if(var VAR_30 == int 9)
  {
 		if(call is_char_handle_in_level(int 4128768))
 		 {
-				if(call is_char_standing(var VAR_10))
+				if(call is_char_standing(var FSGRUNT))
 				 {
 						var VAR_37 = int 1
-						call remove_char(var VAR_10)
+						call remove_char(var FSGRUNT)
 				}
 		}
 		if(call is_char_handle_in_level(int 4128770))
 		 {
-				if(call is_char_standing(var VAR_6))
+				if(call is_char_standing(var FSGRUNT2))
 				 {
 						var VAR_38 = int 1
-						call remove_char(var VAR_6)
+						call remove_char(var FSGRUNT2)
 				}
 		}
 		if(call is_char_handle_in_level(int 4128771))
 		 {
-				if(call is_char_standing(var VAR_8))
+				if(call is_char_standing(var FSGRUNT3))
 				 {
 						var VAR_39 = int 1
-						call remove_char(var VAR_8)
+						call remove_char(var FSGRUNT3)
 				}
 		}
 		if(var VAR_37&&var VAR_38&&var VAR_39)
@@ -354,13 +332,13 @@ gamevar door_restriction_p = var &VAR_1
 ._SCRIPT_13
 
 ._SCRIPT_14
-var VAR_44 = call create_char(var &VAR_46, "nrebela1", int 150, int 13)
-var VAR_45 = call create_char(var &VAR_47, "nrebela2", int 345, int 13)
-call add_item_to_char(var VAR_44, int 16, int 0, int 1)
-call add_item_to_char(var VAR_45, int 16, int 0, int 1)
-call func_50(var VAR_44, int 8192)
-call play_char_ai_script(var VAR_44, var &VAR_48)
-call func_50(var VAR_45, int 8192)
-call play_char_ai_script(var VAR_45, var &VAR_51)
+var nrebela1 = call create_char(var &VAR_46, "nrebela1", int 150, int 13)
+var nrebela2 = call create_char(var &VAR_47, "nrebela2", int 345, int 13)
+call add_item_to_char(var nrebela1, int 16, int 0, int 1)
+call add_item_to_char(var nrebela2, int 16, int 0, int 1)
+call func_50(var nrebela1, int 8192)
+call play_char_ai_script(var nrebela1, var &VAR_48)
+call func_50(var nrebela2, int 8192)
+call play_char_ai_script(var nrebela2, var &VAR_51)
 
 ._SCRIPT_15

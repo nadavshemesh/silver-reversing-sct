@@ -1,29 +1,22 @@
 ._DATA
 VAR_0	0	
-VAR_1	0	
-VAR_2	0	
 VAR_3	0	
-VAR_4	0	
-VAR_5	0	
-VAR_6	0	
-VAR_7	0	
+DAVID	0	
 VAR_8	{ -533, 0, -485 }	
 VAR_9	{ -761, 0, -57 }	
 VAR_10	{ -585, 0, -173 }	
 VAR_11	{ -637, 501, -1540 }	
-VAR_12	0	
+NREBEL	0	
 VAR_13	{ -1264, 0, 438 }	
-VAR_14	0	
 VAR_15	{ -1039, 0, 443 }	
-VAR_16	0	
+NWILLIAM	0	
 VAR_17	{ -1125, 0, 689 }	
-VAR_18	0	
+NTAVMAN	0	
 VAR_19	{ -753, 0, -423 }	
-VAR_20	0	
 VAR_21	{ -866, 0, -224 }	
 VAR_22	0	
 VAR_23	{ 7, 8 }	
-VAR_24	{ 9, VAR_18, 7, 8 }	
+VAR_24	{ 9, NTAVMAN, 7, 8 }	
 VAR_41	{ -999473152, 1124663296, -1003536384 }	
 VAR_42	{ -993263616, 1136885760, 1133608960 }	
 VAR_43	{ 1, 0, 0 }	
@@ -36,19 +29,19 @@ switch(gamevar room_state)
  {
 		case 1
 			call set_input_system(int 2)
-			var VAR_18 = call create_char(var &VAR_19, "NTAVMAN", int 334, int 13)
-			var VAR_20 = call create_char(var &VAR_21, "NSTIPE", int 160, int 13)
-			var VAR_16 = call create_char(var &VAR_17, "NWILLIAM", int 152, int 13)
-			call set_char_init_state(var VAR_18, int 13)
-			call set_char_init_state(var VAR_20, int 13)
-			call play_char_ai_script(var VAR_18, var &VAR_23)
-			call play_char_ai_script(var VAR_20, var &VAR_24)
+			var NTAVMAN = call create_char(var &VAR_19, "NTAVMAN", int 334, int 13)
+			var NSTIPE = call create_char(var &VAR_21, "NSTIPE", int 160, int 13)
+			var NWILLIAM = call create_char(var &VAR_17, "NWILLIAM", int 152, int 13)
+			call set_char_init_state(var NTAVMAN, int 13)
+			call set_char_init_state(var NSTIPE, int 13)
+			call play_char_ai_script(var NTAVMAN, var &VAR_23)
+			call play_char_ai_script(var NSTIPE, var &VAR_24)
 			var VAR_0 = int 0
 			var VAR_2 = int 0
-			var VAR_4 = call get_char_handle(int 65536)
+			var DAVID = call get_char_handle(int 65536)
 		default 
-			var VAR_12 = call create_char(var &VAR_13, "NREBEL", int 70, int 13)
-			var VAR_14 = call create_char(var &VAR_15, "NREBELA", int 295, int 13)
+			var NREBEL = call create_char(var &VAR_13, "NREBEL", int 70, int 13)
+			var NREBELA = call create_char(var &VAR_15, "NREBELA", int 295, int 13)
 			var VAR_22 = call load_anim("talkslow")
 			var VAR_3 = int 0
 			break 
@@ -96,15 +89,15 @@ switch(var VAR_0)
 			var VAR_0 ++ 
 			break 
 		case 1
-			if(call is_char_standing(var VAR_4))
+			if(call is_char_standing(var DAVID))
 			 {
-					call func_46(var VAR_18, int 13)
-					call func_46(var VAR_20, int 13)
-					call func_17(var VAR_5, var VAR_18)
-					call func_17(var VAR_6, var VAR_18)
-					call func_17(var VAR_7, var VAR_18)
-					call func_17(var VAR_18, var VAR_4)
-					call func_17(var VAR_20, var VAR_4)
+					call func_46(var NTAVMAN, int 13)
+					call func_46(var NSTIPE, int 13)
+					call func_17(var VAR_5, var NTAVMAN)
+					call func_17(var VAR_6, var NTAVMAN)
+					call func_17(var VAR_7, var NTAVMAN)
+					call func_17(var NTAVMAN, var DAVID)
+					call func_17(var NSTIPE, var DAVID)
 					var VAR_1 = int 50
 					var VAR_0 ++ 
 			}
@@ -151,34 +144,34 @@ switch(var VAR_0)
 		case 3
 			if(call get_input_sys() != int 4)
 			 {
-					call set_char_walking(var VAR_18)
-					call set_char_walking(var VAR_20)
-					call char_walk_to_pos(var VAR_18, var &VAR_11)
-					call char_walk_to_pos(var VAR_20, var &VAR_11)
+					call set_char_walking(var NTAVMAN)
+					call set_char_walking(var NSTIPE)
+					call char_walk_to_pos(var NTAVMAN, var &VAR_11)
+					call char_walk_to_pos(var NSTIPE, var &VAR_11)
 					call set_input_system(int 1)
 					var VAR_0 ++ 
 			}
 			break 
 		case 4
-			if(var VAR_18)
+			if(var NTAVMAN)
 			 {
-					if(call is_char_standing(var VAR_18))
+					if(call is_char_standing(var NTAVMAN))
 					 {
-							call remove_char(var VAR_18)
-							var VAR_18 = int 0
-							if(var ! VAR_20)
+							call remove_char(var NTAVMAN)
+							var NTAVMAN = int 0
+							if(var ! NSTIPE)
 							 {
 									var VAR_0 ++ 
 							}
 					}
 			}
-			if(var VAR_20)
+			if(var NSTIPE)
 			 {
-					if(call is_char_standing(var VAR_20))
+					if(call is_char_standing(var NSTIPE))
 					 {
-							call remove_char(var VAR_20)
-							var VAR_20 = int 0
-							if(var ! VAR_18)
+							call remove_char(var NSTIPE)
+							var NSTIPE = int 0
+							if(var ! NTAVMAN)
 							 {
 									var VAR_0 ++ 
 							}
@@ -193,7 +186,7 @@ switch(var VAR_0)
 switch(var VAR_2)
  {
 		case 0
-			if(call func_127(var VAR_16))
+			if(call func_127(var NWILLIAM))
 			 {
 					var VAR_2 ++ 
 			}
@@ -201,14 +194,14 @@ switch(var VAR_2)
 		case 1
 			if(call get_input_sys() != int 4)
 			 {
-					call char_walk_to_pos(var VAR_16, var &VAR_11)
+					call char_walk_to_pos(var NWILLIAM, var &VAR_11)
 					var VAR_2 ++ 
 			}
 			break 
 		case 2
-			if(call is_char_standing(var VAR_16))
+			if(call is_char_standing(var NWILLIAM))
 			 {
-					call remove_char(var VAR_16)
+					call remove_char(var NWILLIAM)
 					var VAR_2 ++ 
 			}
 			break 
@@ -220,15 +213,15 @@ switch(var VAR_2)
 switch(var VAR_3)
  {
 		case 0
-			call play_char_anim(var VAR_12, var VAR_22, int 0)
-			call play_char_anim(var VAR_14, var VAR_22, int 41)
+			call play_char_anim(var NREBEL, var VAR_22, int 0)
+			call play_char_anim(var NREBELA, var VAR_22, int 41)
 			var VAR_3 ++ 
 			break 
 		case 1
-			if(call func_5c(var VAR_12)||call func_5c(var VAR_14))
+			if(call func_5c(var NREBEL)||call func_5c(var NREBELA))
 			 {
-					call play_char_anim(var VAR_12, var VAR_22, int 0)
-					call play_char_anim(var VAR_14, var VAR_22, int 41)
+					call play_char_anim(var NREBEL, var VAR_22, int 0)
+					call play_char_anim(var NREBELA, var VAR_22, int 41)
 			}
 			break 
 }

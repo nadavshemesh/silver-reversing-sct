@@ -1,15 +1,7 @@
 ._DATA
-VAR_0	0	
-VAR_1	0	
-VAR_2	0	
-VAR_3	0	
-VAR_4	0	
 VAR_5	{ -3927, 1625, -2421 }	
 VAR_6	{ -4593, 1625, -2538 }	
 vikingc	0	
-vikingc1	0	
-VAR_9	0	
-VAR_10	0	
 VAR_11	{ -4337, 1625, -3381 }	
 VAR_12	{ -4121, 1625, -3393 }	
 VAR_13	{ 0, 0, 1, -1, 8, 0, 4, 2, 1, VAR_12, 9, 2, 6, 1, 1, 1, 26, -1, 7, 1, 8, 10, 43, -1, -1 }	
@@ -17,7 +9,6 @@ VAR_14	{ 0, 0, 2, -1, 8, 0, 4, 2, 1, VAR_11, 9, 2, 6, 1, 1, 1, 26, -1, 7, 1, 8, 
 VAR_15	{ 0, 0, 0, -1, 8, 0, 4, 0, 9, 1, 6, 1, 1, 1, 26, 26, -1, 7, 1, 8, -1 }	
 VAR_16	{ -4671, 1625, -5563, -3649, 1677, -5316 }	
 VAR_21	0	
-VAR_22	0
 
 ._on_load
 call load_sound_set(int 66)
@@ -94,7 +85,7 @@ if(var VAR_0 == int 1)
 }
 if(var VAR_0 == int 2)
  {
-		call play_char_anim(var VAR_7, var VAR_10, int 0)
+		call play_char_anim(var viking, var VAR_10, int 0)
 		var VAR_0 = int 3
 		call reset_local_timer()
 		var VAR_1 = int 10
@@ -102,7 +93,7 @@ if(var VAR_0 == int 2)
 }
 if(var VAR_0 == int 3)
  {
-		call play_char_anim(var VAR_8, var VAR_9, int 0)
+		call play_char_anim(var vikingc, var VAR_9, int 0)
 		var VAR_0 = int 4
 		call reset_local_timer()
 		var VAR_1 = int 20
@@ -119,8 +110,8 @@ if(var VAR_0 == int 4)
 }
 if(var VAR_0 == int 5)
  {
-		call func_2b(var VAR_7, int 1)
-		call func_2b(var VAR_8, int 2)
+		call func_2b(var viking, int 1)
+		call func_2b(var vikingc, int 2)
 		call set_input_system(int 1)
 		var VAR_0 = int 6
 		exit_script 
@@ -133,11 +124,11 @@ if(var VAR_0 == int 6)
 		}
 		if(call is_char_handle_in_level(int 8585216))
 		 {
-				call remove_char(var VAR_7)
+				call remove_char(var viking)
 		}
 		if(call is_char_handle_in_level(int 8585217))
 		 {
-				call remove_char(var VAR_8)
+				call remove_char(var vikingc)
 		}
 		call run_enemy_generator(var &VAR_15, int 10)
 		var VAR_0 = int 7
@@ -175,18 +166,18 @@ if(var VAR_0 == int 9)
  {
 		if(call get_num_of_enemies() <= int 2)
 		 {
-				var vikingc = call create_enemy_through_door(int 145, int 0, int 0, int 0)
-				call func_106(var VAR_7, int 1, int 0, int 1)
-				call set_char_init_state(var VAR_7, int 1)
-				call add_item_to_char(var VAR_7, int 20, int 1, int 0)
+				var viking = call create_enemy_through_door(int 145, int 0, int 0, int 0)
+				call func_106(var viking, int 1, int 0, int 1)
+				call set_char_init_state(var viking, int 1)
+				call add_item_to_char(var viking, int 20, int 1, int 0)
 				var VAR_0 ++ 
 		}
 }
 
 ._SCRIPT_5
 call load_char("viking")
-var vikingc = call create_enemy(int 66, int 0, var &VAR_5, int 110)
-var vikingc1 = call create_enemy(int 66, int 1, var &VAR_6, int 115)
+var viking = call create_enemy(int 66, int 0, var &VAR_5, int 110)
+var vikingc = call create_enemy(int 66, int 1, var &VAR_6, int 115)
 var VAR_9 = call load_anim("come")
 var VAR_10 = call load_anim("tyrosumn")
 call set_input_system(int 2)

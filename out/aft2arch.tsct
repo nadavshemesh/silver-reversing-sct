@@ -1,63 +1,18 @@
 ._DATA
-VAR_0	0	
-VAR_1	0	
-VAR_2	0	
-VAR_3	0	
-VAR_4	0	
-VAR_5	0	
-VAR_6	0	
-VAR_7	0	
-VAR_9	0	
-VAR_10	0	
-VAR_11	0	
-VAR_12	0	
-VAR_13	0	
-VAR_14	0	
-VAR_15	0	
-VAR_16	0	
 VAR_17	{ 0, 0 }	
-VAR_18	0	
-fade_chronicler	0	
-VAR_20	0	
-VAR_21	0	
-VAR_22	0	
-VAR_35	0	
 VAR_36	{ 0, 0, -1 }	
-VAR_37	0	
-VAR_38	0	
-VAR_39	0	
-VAR_40	0	
 VAR_41	-1	
-VAR_44	0	
 VAR_59	{ 1900, 1026, -3000 }	
 VAR_60	{ 6100, 1026, -5025 }	
 VAR_62	{ 0, 0 }	
 VAR_63	{ 0, 0 }	
-VAR_64	0	
-VAR_65	0	
-VAR_66	0	
-lieutenant	0	
-lieutenant1	0	
-lieutenant2	0	
-VAR_70	0	
-VAR_71	0	
-VAR_72	0	
 VAR_73	{ -4500, -1055, 2381 }	
 VAR_74	{ -3398, -1055, 2573 }	
 VAR_75	{ -3249, -1055, 3113 }	
 VAR_76	{ -4572, -1055, 3039 }	
 VAR_77	{ -3639, -1055, 2277 }	
 VAR_78	{ -2623, -1055, 2961, -4576, -1055, 1123, -1678, -1055, 3153 }	
-VAR_83	0	
-VAR_84	0	
-VAR_85	0	
-VAR_86	0	
-VAR_87	0	
-VAR_88	0	
-VAR_92	0	
-VAR_93	0	
 VAR_94	{ -4029, -1055, 2948 }	
-VAR_95	0	
 VAR_96	-1
 
 ._on_load
@@ -120,11 +75,11 @@ if(var VAR_62 == int 0)
 		 {
 				if(call is_char_handle_in_level(int 6750208))
 				 {
-						call char_walk_to(var VAR_71, int -5148, int -1055, int 3303)
+						call char_walk_to(var archer, int -5148, int -1055, int 3303)
 				}
 				if(call is_char_handle_in_level(int 6750209))
 				 {
-						call char_walk_to(var VAR_72, int -3874, int -1055, int 4005)
+						call char_walk_to(var archer1, int -3874, int -1055, int 4005)
 				}
 				var VAR_62 ++ 
 		}
@@ -135,12 +90,12 @@ if(var VAR_62 == int 1)
 		 {
 				if(call is_char_handle_in_level(int 6750208))
 				 {
-						if(call is_char_standing(var VAR_71))
+						if(call is_char_standing(var archer))
 						 {
-								gamevar script_object = var VAR_71
+								gamevar script_object = var archer
 								gamevar *character_stats_p+15 = int 3000
-								call func_106(var VAR_71, int 0, int 3, int 360)
-								call func_50(var VAR_71, int 657)
+								call func_106(var archer, int 0, int 3, int 360)
+								call func_50(var archer, int 657)
 								var VAR_92 = int 1
 						}
 				}
@@ -149,12 +104,12 @@ if(var VAR_62 == int 1)
 		 {
 				if(call is_char_handle_in_level(int 6750209))
 				 {
-						if(call is_char_standing(var VAR_72))
+						if(call is_char_standing(var archer1))
 						 {
-								gamevar script_object = var VAR_72
+								gamevar script_object = var archer1
 								gamevar *character_stats_p+15 = int 3000
-								call func_106(var VAR_72, int 0, int 3, int 360)
-								call func_50(var VAR_72, int 657)
+								call func_106(var archer1, int 0, int 3, int 360)
+								call func_50(var archer1, int 657)
 								var VAR_93 = int 1
 						}
 				}
@@ -174,23 +129,23 @@ if(var VAR_95 == int 0)
 }
 
 ._SCRIPT_5
-var VAR_64 = call create_char(var &VAR_73, "nrebel", int 344, int 13)
-call add_item_to_char(var VAR_64, int 17, int 0, int 1)
-gamevar script_object = var VAR_64
+var nrebel = call create_char(var &VAR_73, "nrebel", int 344, int 13)
+call add_item_to_char(var nrebel, int 17, int 0, int 1)
+gamevar script_object = var nrebel
 gamevar HP = int 2
 gamevar ARMOUR_CLASS = int 1
 gamevar STRENGTH = int 1
 gamevar DEXTERITY = int 1
-var VAR_65 = call create_char(var &VAR_74, "nrebel1", int 204, int 13)
-call add_item_to_char(var VAR_65, int 17, int 0, int 1)
-gamevar script_object = var VAR_65
+var nrebel1 = call create_char(var &VAR_74, "nrebel1", int 204, int 13)
+call add_item_to_char(var nrebel1, int 17, int 0, int 1)
+gamevar script_object = var nrebel1
 gamevar HP = int 5
 gamevar ARMOUR_CLASS = int 1
 gamevar STRENGTH = int 1
 gamevar DEXTERITY = int 1
-var VAR_66 = call create_char(var &VAR_75, "nrebela2", int 49, int 13)
-call add_item_to_char(var VAR_66, int 17, int 0, int 1)
-gamevar script_object = var VAR_66
+var nrebela2 = call create_char(var &VAR_75, "nrebela2", int 49, int 13)
+call add_item_to_char(var nrebela2, int 17, int 0, int 1)
+gamevar script_object = var nrebela2
 gamevar HP = int 3
 gamevar ARMOUR_CLASS = int 1
 gamevar STRENGTH = int 1
@@ -201,27 +156,27 @@ var lieutenant1 = call create_enemy(int 11, int 1, var &VAR_77, int 23)
 call add_item_to_char(var lieutenant1, int 41, int 1, int 0)
 var lieutenant2 = call create_enemy(int 11, int 2, var &VAR_78, int 258)
 call add_item_to_char(var lieutenant2, int 42, int 1, int 0)
-var VAR_71 = call create_enemy_through_door(int 17, int 0, int 0, int 23)
-call freeze_enemy(var VAR_71)
-var VAR_72 = call create_enemy_through_door(int 17, int 1, int 0, int 135)
-call freeze_enemy(var VAR_72)
-var VAR_70 = call get_char_handle(int 65536)
-call set_char_running(var VAR_64)
-call set_char_running(var VAR_65)
-call set_char_running(var VAR_66)
-call set_char_running(var VAR_71)
-call set_char_running(var VAR_72)
+var archer = call create_enemy_through_door(int 17, int 0, int 0, int 23)
+call freeze_enemy(var archer)
+var archer1 = call create_enemy_through_door(int 17, int 1, int 0, int 135)
+call freeze_enemy(var archer1)
+var DAVID = call get_char_handle(int 65536)
+call set_char_running(var nrebel)
+call set_char_running(var nrebel1)
+call set_char_running(var nrebela2)
+call set_char_running(var archer)
+call set_char_running(var archer1)
 call load_char("chronicl")
 
 ._SCRIPT_6
 if(var VAR_63 == int 0)
  {
-		call char_attack(var VAR_64, var lieutenant)
-		call char_attack(var lieutenant, var VAR_64)
-		call char_attack(var VAR_65, var lieutenant1)
-		call char_attack(var lieutenant1, var VAR_65)
-		call char_attack(var VAR_66, var lieutenant2)
-		call char_attack(var lieutenant2, var VAR_66)
+		call char_attack(var nrebel, var lieutenant)
+		call char_attack(var lieutenant, var nrebel)
+		call char_attack(var nrebel1, var lieutenant1)
+		call char_attack(var lieutenant1, var nrebel1)
+		call char_attack(var nrebela2, var lieutenant2)
+		call char_attack(var lieutenant2, var nrebela2)
 		var VAR_63 ++ 
 }
 if(var VAR_63 == int 1)
@@ -235,7 +190,7 @@ if(var VAR_63 == int 1)
 								call log("fight1: finished")
 								gamevar script_object = var lieutenant
 								gamevar *character_stats_p+15 = int 3000
-								call func_17(var lieutenant, var VAR_70)
+								call func_17(var lieutenant, var DAVID)
 								call func_106(var lieutenant, int 1, int 0, int 1)
 								call func_106(var lieutenant, int 0, int 3, int 360)
 								call func_50(var lieutenant, int 8)
@@ -252,7 +207,7 @@ if(var VAR_63 == int 1)
 								call log("fight2: finished")
 								gamevar script_object = var lieutenant1
 								gamevar *character_stats_p+15 = int 3000
-								call func_17(var lieutenant1, var VAR_70)
+								call func_17(var lieutenant1, var DAVID)
 								call func_106(var lieutenant1, int 1, int 0, int 1)
 								call func_106(var lieutenant1, int 0, int 3, int 360)
 								call func_50(var lieutenant1, int 8)
@@ -269,7 +224,7 @@ if(var VAR_63 == int 1)
 								call log("fight3: finished")
 								gamevar script_object = var lieutenant2
 								gamevar *character_stats_p+15 = int 3000
-								call func_17(var lieutenant2, var VAR_70)
+								call func_17(var lieutenant2, var DAVID)
 								call func_106(var lieutenant2, int 1, int 0, int 1)
 								call func_106(var lieutenant2, int 0, int 3, int 360)
 								call func_50(var lieutenant2, int 8)
@@ -284,10 +239,10 @@ if(var VAR_63 == int 1)
 }
 if(call is_char_handle_in_level(int 1114112))
  {
-		gamevar script_object = var VAR_64
+		gamevar script_object = var nrebel
 		if(gamevar *object_p+5 == int 6)
 		 {
-				call kill_char(var VAR_64)
+				call kill_char(var nrebel)
 		}
 		else
 		 {
@@ -295,7 +250,7 @@ if(call is_char_handle_in_level(int 1114112))
 				 {
 						if(var ! VAR_86)
 						 {
-								call func_2b(var VAR_64, int 0)
+								call func_2b(var nrebel, int 0)
 								var VAR_86 = int 1
 						}
 				}
@@ -303,10 +258,10 @@ if(call is_char_handle_in_level(int 1114112))
 }
 if(call is_char_handle_in_level(int 1114113))
  {
-		gamevar script_object = var VAR_65
+		gamevar script_object = var nrebel1
 		if(gamevar *object_p+5 == int 6)
 		 {
-				call kill_char(var VAR_65)
+				call kill_char(var nrebel1)
 		}
 		else
 		 {
@@ -314,7 +269,7 @@ if(call is_char_handle_in_level(int 1114113))
 				 {
 						if(var ! VAR_87)
 						 {
-								call func_2b(var VAR_65, int 0)
+								call func_2b(var nrebel1, int 0)
 								var VAR_87 = int 1
 						}
 				}
@@ -322,10 +277,10 @@ if(call is_char_handle_in_level(int 1114113))
 }
 if(call is_char_handle_in_level(int 1048578))
  {
-		gamevar script_object = var VAR_66
+		gamevar script_object = var nrebela2
 		if(gamevar *object_p+5 == int 6)
 		 {
-				call kill_char(var VAR_66)
+				call kill_char(var nrebela2)
 		}
 		else
 		 {
@@ -333,7 +288,7 @@ if(call is_char_handle_in_level(int 1048578))
 				 {
 						if(var ! VAR_88)
 						 {
-								call func_2b(var VAR_66, int 0)
+								call func_2b(var nrebela2, int 0)
 								var VAR_88 = int 1
 						}
 				}

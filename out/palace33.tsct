@@ -1,57 +1,26 @@
 ._DATA
-VAR_0	0	
-fade_chronicler	0	
-VAR_2	0	
-VAR_3	0	
-VAR_4	0	
 VAR_6	{ 1280070990, 0 }	
 VAR_8	{ 1280070990, 0 }	
 VAR_10	{ 1280070990, 0 }	
 VAR_12	{ 1280070990, 0 }	
 VAR_14	{ 1280070990, 0 }	
 VAR_16	{ 1280070990, 0 }	
-VAR_17	0	
 VAR_18	{ 0, 0, -1 }	
-VAR_19	0	
-VAR_20	0	
-VAR_21	0	
-VAR_22	0	
 VAR_23	-1	
-VAR_26	0	
 VAR_28	{ 1280070990, 0 }	
 VAR_30	{ 1280070990, 0 }	
 VAR_34	{ 1280070990, 0 }	
 VAR_36	{ 1280070990, 0 }	
 VAR_38	{ 1280070990, 0 }	
-VAR_39	0	
-VAR_40	0	
-VAR_41	0	
-VAR_42	0	
-VAR_43	0	
-VAR_44	0	
-VAR_48	0	
 VAR_49	{ -3355, 4625, -13053 }	
-VAR_51	0	
 VAR_52	{ -419, 4925, -15986 }	
-VAR_53	0	
 VAR_54	{ 1685218678, 1702129249, 0 }	
 VAR_55	{ 1633843301, 1667330674, 0 }	
 VAR_56	{ 1280722249, 827605314, 0 }	
-VAR_59	0	
-VAR_60	0	
-VAR_61	0	
-VAR_62	0	
-VAR_63	0	
-VAR_64	0	
-VAR_65	0	
 VAR_66	{ -2493, 4625, -10159 }	
 VAR_67	{ -2625, 4625, -9670 }	
 VAR_68	{ -2289, 4625, -9675 }	
 VAR_70	{ 1685218678, 1702129249, 0 }	
-VAR_73	0	
-VAR_74	0	
-VAR_75	0	
-VAR_76	0	
 VAR_77	{ -2413, 4625, -9092 }	
 VAR_78	{ -2404, 4625, -11182 }	
 VAR_79	{ -2147, 4625, -9544 }	
@@ -62,17 +31,10 @@ VAR_83	{ -2407, 4625, -9897 }
 VAR_84	{ -2199, 4625, -11971 }	
 VAR_85	{ -1784, 4925, -14210 }	
 VAR_86	{ -2578, 4625, -12046 }	
-VAR_89	0	
 VAR_91	{ 1869768803, 1818454382, 0 }	
-VAR_92	0	
-VAR_93	0	
 VAR_94	{ -2401, 4625, -11720 }	
 VAR_95	{ -2388, 4625, -13681 }	
-VAR_96	0	
-VAR_97	0	
 VAR_98	{ -2399, 4625, -13418 }	
-VAR_99	0	
-VAR_100	0	
 VAR_101	-1	
 VAR_102	{ 1447321427, 1095518020, 0 }	
 VAR_105	{ 1633902440, 1886679149, 0 }	
@@ -153,24 +115,24 @@ switch(var VAR_59)
 					var VAR_63 = call get_david_char()
 					var VAR_64 = call func_7e()
 					var VAR_65 = call func_7e()
-					var VAR_61 = call get_char_handle(int 65536)
+					var DAVID = call get_char_handle(int 65536)
 					if(var VAR_63)
 					 {
-							if(var VAR_63 != var VAR_61)
+							if(var VAR_63 != var DAVID)
 							 {
 									call func_61(var VAR_63)
 							}
 					}
 					if(var VAR_64)
 					 {
-							if(var VAR_64 != var VAR_61)
+							if(var VAR_64 != var DAVID)
 							 {
 									call func_61(var VAR_64)
 							}
 					}
 					if(var VAR_65)
 					 {
-							if(var VAR_65 != var VAR_61)
+							if(var VAR_65 != var DAVID)
 							 {
 									call func_61(var VAR_65)
 							}
@@ -187,7 +149,7 @@ switch(var VAR_59)
 			}
 			break 
 		case 1
-			if(call func_65(var VAR_48, int 2) > int 3)
+			if(call func_65(var fbludraco, int 2) > int 3)
 			 {
 					call set_input_system(int 1)
 					var VAR_59 = int 2
@@ -235,7 +197,7 @@ switch(var VAR_59)
 					 {
 							call play_char_anim(var VAR_65, var VAR_51, int 5)
 					}
-					gamevar script_object = var VAR_61
+					gamevar script_object = var DAVID
 					var VAR_62 = gamevar LEVEL
 					var VAR_39 = var VAR_62 + int 1
 					execute SCRIPT_15
@@ -254,8 +216,8 @@ switch(var VAR_59)
 var VAR_60 ++ 
 
 ._SCRIPT_4
-var VAR_48 = call create_char(var &VAR_49, "fbludraco", int 20, int 13)
-call func_53(var VAR_48, int 11)
+var fbludraco = call create_char(var &VAR_49, "fbludraco", int 20, int 13)
+call func_53(var fbludraco, int 11)
 call func_113(int 100, int 100)
 call set_input_system(int 2)
 var VAR_41 = int 111
@@ -265,10 +227,10 @@ var VAR_44 = int 0
 call func_4d(int 111, var &VAR_41, var &VAR_54, var &VAR_55)
 call play_bgm(var &VAR_56)
 var VAR_51 = call load_anim("victory")
-var VAR_53 = call create_char(var &VAR_52, "btreasure", int 340, int 14)
-call add_item_to_char(var VAR_53, int 47, int 1, int 0)
-call add_item_to_char(var VAR_53, int 45, int 1, int 0)
-call add_item_to_char(var VAR_53, int 40, int 1, int 0)
+var btreasure = call create_char(var &VAR_52, "btreasure", int 340, int 14)
+call add_item_to_char(var btreasure, int 47, int 1, int 0)
+call add_item_to_char(var btreasure, int 45, int 1, int 0)
+call add_item_to_char(var btreasure, int 40, int 1, int 0)
 gamevar *scene_info_p+3 = int 16
 gamevar *scene_info_p+4 = int 16
 gamevar *scene_info_p+5 = int 16
@@ -292,17 +254,17 @@ switch(var VAR_93)
 			}
 			if(var VAR_92 > int 10)
 			 {
-					call char_walk_to_pos(var VAR_73, var &VAR_84)
+					call char_walk_to_pos(var nduke, var &VAR_84)
 					call char_walk_to_pos(var VAR_75, var &VAR_80)
-					call char_walk_to_pos(var VAR_74, var &VAR_86)
+					call char_walk_to_pos(var nglass, var &VAR_86)
 					if(var VAR_76 != int 0)
 					 {
-							call char_walk_to_pos(var VAR_61, var &VAR_78)
+							call char_walk_to_pos(var DAVID, var &VAR_78)
 							call char_walk_to_pos(var VAR_76, var &VAR_82)
 					}
 					else
 					 {
-							call char_walk_to_pos(var VAR_61, var &VAR_82)
+							call char_walk_to_pos(var DAVID, var &VAR_82)
 					}
 					var VAR_92 = int 0
 					var VAR_93 ++ 
@@ -317,17 +279,17 @@ switch(var VAR_93)
 		case 2
 			if(var ! VAR_100)
 			 {
-					if(call is_char_standing(var VAR_73))
+					if(call is_char_standing(var nduke))
 					 {
-							call char_turn_to_pos(var VAR_73, var &VAR_94)
+							call char_turn_to_pos(var nduke, var &VAR_94)
 							var VAR_100 = int 1
 					}
 			}
 			if(var ! VAR_99)
 			 {
-					if(call is_char_standing(var VAR_74))
+					if(call is_char_standing(var nglass))
 					 {
-							call char_turn_to_pos(var VAR_74, var &VAR_94)
+							call char_turn_to_pos(var nglass, var &VAR_94)
 							var VAR_99 = int 1
 					}
 			}
@@ -341,8 +303,8 @@ switch(var VAR_93)
 		case 3
 			if(call func_6d() == int 1)
 			 {
-					call set_char_running(var VAR_73)
-					call func_2b(var VAR_73, int 1)
+					call set_char_running(var nduke)
+					call func_2b(var nduke, int 1)
 					var VAR_92 = int 0
 					var VAR_93 ++ 
 			}
@@ -359,15 +321,15 @@ switch(var VAR_93)
 			if(call get_input_sys() != int 4)
 			 {
 					var VAR_96 = call func_e8(var &VAR_95, int 0)
-					call char_walk_to_pos(var VAR_74, var &VAR_95)
+					call char_walk_to_pos(var nglass, var &VAR_95)
 					var VAR_92 = int 0
 					var VAR_93 ++ 
 			}
 			break 
 		case 6
-			if(call is_char_standing(var VAR_74))
+			if(call is_char_standing(var nglass))
 			 {
-					call char_turn_to_pos(var VAR_74, var &VAR_94)
+					call char_turn_to_pos(var nglass, var &VAR_94)
 					var VAR_92 = int 0
 					var VAR_93 ++ 
 			}
@@ -375,7 +337,7 @@ switch(var VAR_93)
 		case 7
 			if(var VAR_92 > int 100)
 			 {
-					call func_fa(var VAR_74)
+					call func_fa(var nglass)
 					call func_116("haven", var &VAR_105, int 7)
 					var VAR_92 = int 0
 					var VAR_93 ++ 
@@ -391,7 +353,7 @@ switch(var VAR_93)
 					var VAR_89 = call get_david_char()
 					call set_char_running(var VAR_97)
 					call char_walk_to_pos(var VAR_97, call get_char_pos(var VAR_89))
-					call remove_char(var VAR_74)
+					call remove_char(var nglass)
 					var VAR_92 = int 0
 					var VAR_93 ++ 
 			}
@@ -443,13 +405,13 @@ switch(var VAR_93)
 var VAR_92 ++ 
 
 ._SCRIPT_8
-var VAR_61 = call is_char_handle_in_level(int 65536)
-var VAR_73 = call create_char(var &VAR_83, "nduke", int 180, int 13)
-var VAR_74 = call create_char(var &VAR_85, "nglass", int 321, int 13)
+var DAVID = call is_char_handle_in_level(int 65536)
+var nduke = call create_char(var &VAR_83, "nduke", int 180, int 13)
+var nglass = call create_char(var &VAR_85, "nglass", int 321, int 13)
 var VAR_89 = call get_david_char()
 while(var VAR_89)
  {
-		if(var VAR_89 != var VAR_61)
+		if(var VAR_89 != var DAVID)
 		 {
 				if(var VAR_75 == int 0)
 				 {
@@ -462,20 +424,20 @@ while(var VAR_89)
 		}
 		var VAR_89 = call func_7e()
 }
-call char_stop(var VAR_61)
+call char_stop(var DAVID)
 if(var VAR_76 != int 0)
  {
-		call char_teleport_to_pos(var VAR_61, var &VAR_77, int 180)
+		call char_teleport_to_pos(var DAVID, var &VAR_77, int 180)
 }
 else
  {
-		call char_teleport_to_pos(var VAR_61, var &VAR_81, int 180)
+		call char_teleport_to_pos(var DAVID, var &VAR_81, int 180)
 }
-call set_char_walking(var VAR_61)
-call set_char_walking(var VAR_73)
+call set_char_walking(var DAVID)
+call set_char_walking(var nduke)
 call char_teleport_to_pos(var VAR_75, var &VAR_79, int 180)
 call set_char_walking(var VAR_75)
-call set_char_walking(var VAR_74)
+call set_char_walking(var nglass)
 if(var VAR_76 != int 0)
  {
 		call char_teleport_to_pos(var VAR_76, var &VAR_81, int 180)

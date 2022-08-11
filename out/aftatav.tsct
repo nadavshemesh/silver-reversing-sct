@@ -1,47 +1,26 @@
 ._DATA
-VAR_0	0	
-VAR_1	0	
-VAR_2	0	
-VAR_3	0	
-longjohn1	0	
 VAR_5	{ -2861, -60, 1459 }	
 VAR_6	{ -2255, -1023, 717, -2099, -1023, 1472, 0 }	
-finnegan1	0	
+finnegan	0	
 VAR_8	{ -3071, -60, 1281 }	
 VAR_9	{ -2394, -1023, 435 }	
-muscles1	0	
+muscles	0	
 VAR_11	{ -2465, -60, 2196 }	
 VAR_12	{ -2054, -1023, 481 }	
 VAR_13	{ 0, 0, 1, 1, 2, 2, -1, 8, 1, 1, 2, 31, 30, -1, 10, 43, -1, 4, 0, 9, 0, 5, 1, 50, 100, 7, 1, 3, -1 }	
 VAR_14	0	
 VAR_15	0	
 VAR_16	0	
-VAR_17	{ 16, VAR_14, 0, 5, 100, 0, -1394, -60, 2015, 1, finnegan1, 4, VAR_15, 4, VAR_16, 1, finnegan1, 3, VAR_18, 0, 16, VAR_14, 1, 1, muscles1, 5, 100, 0, -296, -57, 1013, 2, -1095, -57, -276, 8 }	
+VAR_17	{ 16, VAR_14, 0, 5, 100, 0, -1394, -60, 2015, 1, finnegan, 4, VAR_15, 4, VAR_16, 1, finnegan, 3, VAR_18, 0, 16, VAR_14, 1, 1, muscles, 5, 100, 0, -296, -57, 1013, 2, -1095, -57, -276, 8 }	
 VAR_18	{ 1802264948, 1953718630, 0 }	
 VAR_19	{ 5, 250, 0, -1697, -60, 1626, 2, -1394, -60, 2015, 16, VAR_15, 1, 4, VAR_14, 3, VAR_20, 0, 5, 2147483647, 8 }	
 VAR_20	"yes"	
-VAR_21	{ 5, 200, 0, -1766, -60, 1996, 2, -1394, -60, 2015, 16, VAR_16, 1, 4, VAR_14, 5, 30, 3, VAR_22, 0, 9, finnegan1, 6, 7, 0, 8 }	
+VAR_21	{ 5, 200, 0, -1766, -60, 1996, 2, -1394, -60, 2015, 16, VAR_16, 1, 4, VAR_14, 5, 30, 3, VAR_22, 0, 9, finnegan, 6, 7, 0, 8 }	
 VAR_22	"yes"	
-VAR_23	{ 9, muscles1, 9, muscles1, 9, muscles1, 9, finnegan1, 7, 8 }	
+VAR_23	{ 9, muscles, 9, muscles, 9, muscles, 9, finnegan, 7, 8 }	
 VAR_24	{ 7, 8 }	
 VAR_25	{ 7, 8 }	
 VAR_26	{ 0, 0, 0, 0, 1, 1, -1, 8, 1, 1, 2, 30, 32, -1, 10, 43, -1, 4, 0, 9, 0, 5, 1, 50, 100, 7, 1, 2, -1 }	
-VAR_27	0	
-VAR_28	0	
-VAR_29	0	
-VAR_30	0	
-VAR_31	0	
-VAR_32	0	
-VAR_33	0	
-VAR_34	0	
-VAR_36	0	
-VAR_37	0	
-VAR_38	0	
-VAR_39	0	
-VAR_40	0	
-VAR_41	0	
-VAR_42	0	
-VAR_43	0	
 VAR_44	{ 0, 0 }	
 VAR_52	{ -396, -1023, 125 }	
 VAR_55	{ 750, 1775, 1750 }	
@@ -114,9 +93,9 @@ switch(gamevar room_state)
 }
 
 ._SCRIPT_3
-var longjohn1 = call create_enemy(int 28, int 0, var &VAR_5, int 0)
-var finnegan1 = call create_enemy(int 32, int 0, var &VAR_8, int 0)
-var muscles1 = call create_enemy(int 30, int 0, var &VAR_11, int 0)
+var longjohn = call create_enemy(int 28, int 0, var &VAR_5, int 0)
+var finnegan = call create_enemy(int 32, int 0, var &VAR_8, int 0)
+var muscles = call create_enemy(int 30, int 0, var &VAR_11, int 0)
 call func_fe(var finnegan)
 call func_fe(var muscles)
 call add_item_to_char(var longjohn, int 85, int 13107713, int 0)
@@ -214,17 +193,17 @@ switch(var VAR_1)
 ._SCRIPT_5
 
 ._SCRIPT_6
-var longjohn1 = call create_enemy(int 28, int 0, var &VAR_6, int 0)
-var finnegan1 = call create_enemy(int 32, int 0, var &VAR_9, int 0)
-var muscles1 = call create_enemy(int 30, int 0, var &VAR_12, int 0)
-call add_item_to_char(var longjohn1, int 85, int 13107713, int 0)
-call add_item_to_char(var finnegan1, int 43, int 1, int 0)
-call set_char_init_state(var longjohn1, int 13)
-call set_char_init_state(var muscles1, int 13)
-call set_char_init_state(var finnegan1, int 13)
-call play_char_ai_script(var longjohn1, var &VAR_23)
-call play_char_ai_script(var muscles1, var &VAR_25)
-call play_char_ai_script(var finnegan1, var &VAR_24)
+var longjohn = call create_enemy(int 28, int 0, var &VAR_6, int 0)
+var finnegan = call create_enemy(int 32, int 0, var &VAR_9, int 0)
+var muscles = call create_enemy(int 30, int 0, var &VAR_12, int 0)
+call add_item_to_char(var longjohn, int 85, int 13107713, int 0)
+call add_item_to_char(var finnegan, int 43, int 1, int 0)
+call set_char_init_state(var longjohn, int 13)
+call set_char_init_state(var muscles, int 13)
+call set_char_init_state(var finnegan, int 13)
+call play_char_ai_script(var longjohn, var &VAR_23)
+call play_char_ai_script(var muscles, var &VAR_25)
+call play_char_ai_script(var finnegan, var &VAR_24)
 var VAR_1 = int 0
 
 ._SCRIPT_7

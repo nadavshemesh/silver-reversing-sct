@@ -1,26 +1,20 @@
 ._DATA
 VAR_0	0	
-VAR_1	0	
 VAR_2	0	
-VAR_11	0	
 VAR_12	0	
 VAR_13	0	
 VAR_14	0	
 VAR_15	0	
 VAR_16	-1	
 VAR_18	{ 3681, 124, -1636 }	
-VAR_19	0	
 VAR_20	{ 2799, 185, 581 }	
-VAR_21	0	
 VAR_23	{ 3134, 125, 1051 }	
-VAR_24	0	
+btreasure	0	
 VAR_26	0	
 VAR_27	0	
-VAR_28	0	
-VAR_29	0	
+DAVID	0	
 VAR_30	0	
 VAR_31	-1	
-VAR_36	0
 
 ._on_load
 var VAR_12 = var &VAR_18
@@ -124,10 +118,10 @@ switch(var VAR_26)
 }
 
 ._SCRIPT_5
-var VAR_24 = call create_char(var &VAR_23, "btreasure", int 220, int 14)
-call add_item_to_char(var VAR_24, int 66, int 1, int 0)
-call add_item_to_char(var VAR_24, int 6, int 1, int 0)
-call add_item_to_char(var VAR_24, int 85, int 3277313, int 0)
+var btreasure = call create_char(var &VAR_23, "btreasure", int 220, int 14)
+call add_item_to_char(var btreasure, int 66, int 1, int 0)
+call add_item_to_char(var btreasure, int 6, int 1, int 0)
+call add_item_to_char(var btreasure, int 85, int 3277313, int 0)
 
 ._SCRIPT_6
 switch(var VAR_36)
@@ -155,21 +149,21 @@ switch(var VAR_27)
 					 {
 							call set_input_system(int 2)
 							var VAR_19 = int 1
-							var VAR_29 = call get_char_handle(int 65536)
+							var DAVID = call get_char_handle(int 65536)
 							var VAR_30 = call get_david_char()
-							if(var VAR_30 == var VAR_29)
+							if(var VAR_30 == var DAVID)
 							 {
 									var VAR_30 = call func_7e()
 							}
-							if(gamevar control_char_p == var VAR_29)
+							if(gamevar control_char_p == var DAVID)
 							 {
 									var VAR_27 = int 2
 									var VAR_28 = int 0
 							}
 							else
 							 {
-									call set_char_running(var VAR_29)
-									call char_approach_char_pos(var VAR_29, var VAR_30, int 200)
+									call set_char_running(var DAVID)
+									call char_approach_char_pos(var DAVID, var VAR_30, int 200)
 									var VAR_27 ++ 
 									var VAR_28 = int 0
 							}
@@ -177,7 +171,7 @@ switch(var VAR_27)
 			}
 			break 
 		case 1
-			if(call is_char_standing(var VAR_29))
+			if(call is_char_standing(var DAVID))
 			 {
 					var VAR_27 ++ 
 					var VAR_28 = int 0
@@ -185,8 +179,8 @@ switch(var VAR_27)
 			break 
 		case 2
 			execute SCRIPT_13
-			call char_turn_to_pos(var VAR_29, call get_char_pos(var VAR_30))
-			call char_turn_to_pos(var VAR_30, call get_char_pos(var VAR_29))
+			call char_turn_to_pos(var DAVID, call get_char_pos(var VAR_30))
+			call char_turn_to_pos(var VAR_30, call get_char_pos(var DAVID))
 			if(var VAR_0)
 			 {
 					call start_dialog("L_DVDORB", "NULL")
@@ -246,19 +240,19 @@ else
 }
 
 ._SCRIPT_14
-var VAR_11 = call is_char_handle_in_level(int 1507337)
-if(var ! VAR_11)
+var is_BTREASURE_exist = call is_char_handle_in_level(int 1507337)
+if(var ! is_BTREASURE_exist)
  {
-		var VAR_11 = call create_char(var VAR_12, "btreasure9", var VAR_13, int 14)
-		call func_aa(var VAR_11)
+		var is_BTREASURE_exist = call create_char(var VAR_12, "btreasure9", var VAR_13, int 14)
+		call func_aa(var is_BTREASURE_exist)
 }
 else
  {
 		var VAR_15 = int 1
-		gamevar script_object = var VAR_11
+		gamevar script_object = var is_BTREASURE_exist
 		if(gamevar *object_p+7 == int 4194304)
 		 {
-				call func_aa(var VAR_11)
+				call func_aa(var is_BTREASURE_exist)
 		}
 }
 
@@ -269,11 +263,11 @@ if(var VAR_14 != int -1)
 		 {
 				if(var VAR_16 != int -1)
 				 {
-						call add_item_to_char(var VAR_11, int 85, var VAR_16, int 0)
+						call add_item_to_char(var is_BTREASURE_exist, int 85, var VAR_16, int 0)
 				}
 				else
 				 {
-						call add_item_to_char(var VAR_11, var VAR_14, int 1, int 0)
+						call add_item_to_char(var is_BTREASURE_exist, var VAR_14, int 1, int 0)
 				}
 		}
 }

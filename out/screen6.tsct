@@ -1,28 +1,8 @@
 ._DATA
-VAR_0	0	
-VAR_1	0	
-VAR_2	0	
-VAR_3	0	
-VAR_7	0	
-VAR_8	0	
-VAR_9	0	
-VAR_10	0	
-VAR_11	0	
-VAR_12	0	
-VAR_13	0	
-VAR_14	0	
 VAR_15	{ 545, 640, 7725 }	
-VAR_16	0	
 VAR_17	{ 0, 0 }	
-VAR_18	0	
 VAR_19	{ 0, 0 }	
 VAR_20	{ 0, 0, 0 }	
-VAR_21	0	
-VAR_22	0	
-VAR_23	0	
-VAR_24	0	
-VAR_25	0	
-VAR_26	0	
 VAR_27	{ 3255, 625, 5025 }	
 VAR_28	{ 3235, 625, 4855 }	
 VAR_29	{ 3410, 625, 4970 }	
@@ -41,21 +21,9 @@ VAR_41	{ 1774, 625, 6251 }
 VAR_42	{ 1240, 625, 7728 }	
 VAR_43	{ 2254, 625, 6252, 0 }	
 VAR_56	{ 1231, 2225, 7091 }	
-VAR_57	0	
-VAR_58	0	
 VAR_59	-1	
-VAR_101	0	
-VAR_102	0	
-VAR_103	0	
-VAR_104	0	
-VAR_105	0	
 VAR_106	{ 998, 625, 7426 }	
 VAR_107	{ 887, 624, 7316 }	
-VAR_108	0	
-VAR_109	0	
-VAR_115	0	
-VAR_116	0	
-VAR_117	0
 
 ._on_load
 call func_58(int 1)
@@ -100,10 +68,10 @@ call load_char("duke")
 call load_char("tyronis")
 call load_char("rebel")
 call load_char("rebela")
-var VAR_13 = call get_char_handle(int 65536)
-var VAR_12 = call create_char(var &VAR_15, "fdemonb", int 45, int 16)
-call func_103(var VAR_12)
-call func_53(var VAR_12, int 2)
+var DAVID = call get_char_handle(int 65536)
+var fdemonb = call create_char(var &VAR_15, "fdemonb", int 45, int 16)
+call func_103(var fdemonb)
+call func_53(var fdemonb, int 2)
 var VAR_10 = call load_anim("victory")
 var VAR_11 = call load_anim("pfew")
 gamevar SMACKER_X = int 320
@@ -156,7 +124,7 @@ switch(var VAR_14)
 			call play_bgm("IEVLBAT1")
 			if(var VAR_17 == int 82)
 			 {
-					call func_12d(var VAR_12)
+					call func_12d(var fdemonb)
 					var VAR_14 = int 2
 					gamevar scroll_x_shake = int 0
 					call set_input_system(int 1)
@@ -175,7 +143,7 @@ switch(var VAR_14)
 			}
 			break 
 		case 3
-			gamevar script_object = var VAR_12
+			gamevar script_object = var fdemonb
 			if(gamevar *object_p+5 == int 27)
 			 {
 					call func_b1()
@@ -185,14 +153,14 @@ switch(var VAR_14)
 			}
 			break 
 		case 4
-			gamevar script_object = var VAR_13
+			gamevar script_object = var DAVID
 			if(gamevar *object_p+6 & int 13421772)
 			 {
 			}
 			else
 			 {
 					call func_85()
-					call play_char_anim(var VAR_13, var VAR_11, int 0)
+					call play_char_anim(var DAVID, var VAR_11, int 0)
 					gamevar scene_counter = int 0
 					var VAR_14 = int 5
 			}
@@ -215,7 +183,7 @@ switch(var VAR_14)
 			 {
 					call play_bgm("DSTING")
 					call func_134()
-					call play_char_anim(var VAR_13, var VAR_10, int 0)
+					call play_char_anim(var DAVID, var VAR_10, int 0)
 					var VAR_0 = int 2
 					execute SCRIPT_7
 					call func_59(var VAR_3)
@@ -225,7 +193,7 @@ switch(var VAR_14)
 			}
 			break 
 		case 8
-			if(call func_5c(var VAR_13))
+			if(call func_5c(var DAVID))
 			 {
 					var VAR_14 = int 9
 			}
@@ -246,36 +214,36 @@ switch(var VAR_14)
 			gamevar compile_init_character = int 0
 			if(gamevar scene_counter == int 200)
 			 {
-					var VAR_22 = call create_char(var &VAR_27, "nprofess", int 282, int 13)
+					var nprofess = call create_char(var &VAR_27, "nprofess", int 282, int 13)
 			}
 			if(gamevar scene_counter == int 210)
 			 {
-					var VAR_23 = call create_char(var &VAR_28, "nduke", int 282, int 13)
+					var nduke = call create_char(var &VAR_28, "nduke", int 282, int 13)
 			}
 			if(gamevar scene_counter == int 220)
 			 {
-					var VAR_24 = call create_char(var &VAR_29, "ntyronis", int 282, int 13)
+					var ntyronis = call create_char(var &VAR_29, "ntyronis", int 282, int 13)
 			}
 			if(gamevar scene_counter == int 230)
 			 {
-					var VAR_25 = call create_char(var &VAR_30, "nrebel", int 282, int 13)
+					var nrebel = call create_char(var &VAR_30, "nrebel", int 282, int 13)
 			}
 			if(gamevar scene_counter == int 240)
 			 {
-					var VAR_26 = call create_char(var &VAR_31, "nrebela", int 282, int 13)
-					call char_unfollow(var VAR_24)
-					call set_char_running(var VAR_22)
-					call set_char_running(var VAR_23)
-					call set_char_running(var VAR_24)
-					call set_char_running(var VAR_25)
-					call set_char_running(var VAR_26)
-					call char_walk_to_pos(var VAR_22, var &VAR_32)
-					call char_walk_to_pos(var VAR_23, var &VAR_33)
-					call char_walk_to_pos(var VAR_24, var &VAR_34)
-					call char_walk_to_pos(var VAR_25, var &VAR_35)
-					call char_walk_to_pos(var VAR_26, var &VAR_36)
-					call set_char_running(var VAR_13)
-					call char_walk_to_pos(var VAR_13, var &VAR_42)
+					var nrebela = call create_char(var &VAR_31, "nrebela", int 282, int 13)
+					call char_unfollow(var ntyronis)
+					call set_char_running(var nprofess)
+					call set_char_running(var nduke)
+					call set_char_running(var ntyronis)
+					call set_char_running(var nrebel)
+					call set_char_running(var nrebela)
+					call char_walk_to_pos(var nprofess, var &VAR_32)
+					call char_walk_to_pos(var nduke, var &VAR_33)
+					call char_walk_to_pos(var ntyronis, var &VAR_34)
+					call char_walk_to_pos(var nrebel, var &VAR_35)
+					call char_walk_to_pos(var nrebela, var &VAR_36)
+					call set_char_running(var DAVID)
+					call char_walk_to_pos(var DAVID, var &VAR_42)
 					call force_scroll_to_pos(var &VAR_35)
 					var VAR_58 = int 0
 					gamevar compile_init_character = int 1
@@ -284,50 +252,50 @@ switch(var VAR_14)
 			}
 			break 
 		case 11
-			if(call is_char_standing(var VAR_13)&&gamevar scene_counter > int 300)
+			if(call is_char_standing(var DAVID)&&gamevar scene_counter > int 300)
 			 {
-					call char_turn_to_pos(var VAR_13, var &VAR_32)
+					call char_turn_to_pos(var DAVID, var &VAR_32)
 					var VAR_14 = int 12
 			}
 			break 
 		case 12
 			if(var VAR_58 == int 0)
 			 {
-					if(call is_char_standing(var VAR_22))
+					if(call is_char_standing(var nprofess))
 					 {
-							call char_turn_to_pos(var VAR_22, var &VAR_42)
+							call char_turn_to_pos(var nprofess, var &VAR_42)
 							var VAR_58 ++ 
 					}
 			}
 			if(var VAR_58 == int 1)
 			 {
-					if(call is_char_standing(var VAR_24))
+					if(call is_char_standing(var ntyronis))
 					 {
-							call char_turn_to_pos(var VAR_24, var &VAR_42)
+							call char_turn_to_pos(var ntyronis, var &VAR_42)
 							var VAR_58 ++ 
 					}
 			}
 			if(var VAR_58 == int 2)
 			 {
-					if(call is_char_standing(var VAR_23))
+					if(call is_char_standing(var nduke))
 					 {
-							call char_turn_to_pos(var VAR_23, var &VAR_42)
+							call char_turn_to_pos(var nduke, var &VAR_42)
 							var VAR_58 ++ 
 					}
 			}
 			if(var VAR_58 == int 3)
 			 {
-					if(call is_char_standing(var VAR_25))
+					if(call is_char_standing(var nrebel))
 					 {
-							call char_turn_to_pos(var VAR_25, var &VAR_42)
+							call char_turn_to_pos(var nrebel, var &VAR_42)
 							var VAR_58 ++ 
 					}
 			}
 			if(var VAR_58 == int 4)
 			 {
-					if(call is_char_standing(var VAR_26))
+					if(call is_char_standing(var nrebela))
 					 {
-							call char_turn_to_pos(var VAR_26, var &VAR_42)
+							call char_turn_to_pos(var nrebela, var &VAR_42)
 							var VAR_58 ++ 
 					}
 			}
@@ -351,35 +319,35 @@ switch(var VAR_14)
 			 {
 					if(gamevar scene_counter == int 30)
 					 {
-							call char_walk_to_pos(var VAR_23, var &VAR_38)
+							call char_walk_to_pos(var nduke, var &VAR_38)
 					}
 					if(gamevar scene_counter == int 80)
 					 {
-							call char_walk_to_pos(var VAR_24, var &VAR_39)
+							call char_walk_to_pos(var ntyronis, var &VAR_39)
 					}
 					if(gamevar scene_counter == int 130)
 					 {
-							call char_walk_to_pos(var VAR_13, var &VAR_43)
+							call char_walk_to_pos(var DAVID, var &VAR_43)
 					}
 					if(gamevar scene_counter == int 230)
 					 {
-							call char_walk_to_pos(var VAR_22, var &VAR_37)
+							call char_walk_to_pos(var nprofess, var &VAR_37)
 					}
 					if(gamevar scene_counter == int 300)
 					 {
-							call char_walk_to_pos(var VAR_25, var &VAR_40)
+							call char_walk_to_pos(var nrebel, var &VAR_40)
 					}
 					if(gamevar scene_counter == int 380)
 					 {
-							call char_walk_to_pos(var VAR_26, var &VAR_41)
+							call char_walk_to_pos(var nrebela, var &VAR_41)
 					}
 					if(gamevar scene_counter > int 30)
 					 {
 							if(var VAR_58 == int 0)
 							 {
-									if(call is_char_standing(var VAR_23))
+									if(call is_char_standing(var nduke))
 									 {
-											call char_turn_to_pos(var VAR_23, var &VAR_43)
+											call char_turn_to_pos(var nduke, var &VAR_43)
 											var VAR_58 ++ 
 									}
 							}
@@ -388,9 +356,9 @@ switch(var VAR_14)
 					 {
 							if(var VAR_58 == int 1)
 							 {
-									if(call is_char_standing(var VAR_24))
+									if(call is_char_standing(var ntyronis))
 									 {
-											call char_turn_to_pos(var VAR_24, var &VAR_43)
+											call char_turn_to_pos(var ntyronis, var &VAR_43)
 											var VAR_58 ++ 
 									}
 							}
@@ -399,9 +367,9 @@ switch(var VAR_14)
 					 {
 							if(var VAR_58 == int 2)
 							 {
-									if(call is_char_standing(var VAR_13))
+									if(call is_char_standing(var DAVID))
 									 {
-											call char_turn_to_pos(var VAR_13, var &VAR_38)
+											call char_turn_to_pos(var DAVID, var &VAR_38)
 											var VAR_58 ++ 
 									}
 							}
@@ -410,9 +378,9 @@ switch(var VAR_14)
 					 {
 							if(var VAR_58 == int 3)
 							 {
-									if(call is_char_standing(var VAR_22))
+									if(call is_char_standing(var nprofess))
 									 {
-											call char_turn_to_pos(var VAR_22, var &VAR_43)
+											call char_turn_to_pos(var nprofess, var &VAR_43)
 											var VAR_58 ++ 
 									}
 							}
@@ -421,9 +389,9 @@ switch(var VAR_14)
 					 {
 							if(var VAR_58 == int 4)
 							 {
-									if(call is_char_standing(var VAR_25))
+									if(call is_char_standing(var nrebel))
 									 {
-											call char_turn_to_pos(var VAR_25, var &VAR_43)
+											call char_turn_to_pos(var nrebel, var &VAR_43)
 											var VAR_58 ++ 
 									}
 							}
@@ -432,13 +400,13 @@ switch(var VAR_14)
 					 {
 							if(var VAR_58 == int 5)
 							 {
-									if(call is_char_standing(var VAR_26))
+									if(call is_char_standing(var nrebela))
 									 {
-											call char_turn_to_pos(var VAR_26, var &VAR_38)
+											call char_turn_to_pos(var nrebela, var &VAR_38)
 											var VAR_58 ++ 
 									}
 							}
-							if(call is_char_standing(var VAR_26))
+							if(call is_char_standing(var nrebela))
 							 {
 									call start_dialog("DUKLEAVE", "NULL")
 									var VAR_14 = int 15
@@ -454,9 +422,9 @@ switch(var VAR_14)
 		case 15
 			if(call get_input_sys() != int 4)
 			 {
-					call char_walk_to_pos(var VAR_22, var &VAR_32)
-					call char_walk_to_pos(var VAR_25, var &VAR_35)
-					call char_walk_to_pos(var VAR_26, var &VAR_36)
+					call char_walk_to_pos(var nprofess, var &VAR_32)
+					call char_walk_to_pos(var nrebel, var &VAR_35)
+					call char_walk_to_pos(var nrebela, var &VAR_36)
 					gamevar scene_counter = int 0
 					var VAR_14 = int 16
 			}
@@ -464,10 +432,10 @@ switch(var VAR_14)
 		case 16
 			if(gamevar scene_counter > int 20)
 			 {
-					call func_2b(var VAR_13, int 0)
-					call func_2b(var VAR_24, int 0)
-					call char_exit_door(var VAR_23, int 0)
-					call func_c1(var VAR_23, "GNO", "BOILAREA", int 3)
+					call func_2b(var DAVID, int 0)
+					call func_2b(var ntyronis, int 0)
+					call char_exit_door(var nduke, int 0)
+					call func_c1(var nduke, "GNO", "BOILAREA", int 3)
 					call func_116("gno", "gnolib1", int 3)
 					call set_scene_overwrite_act("gno", "gnolib1", int 1)
 					call func_71("gno", "boilarea", int 2, int 2)
@@ -500,50 +468,50 @@ switch(var VAR_21)
 					var VAR_102 = call load_anim("temper")
 					var VAR_103 = call load_anim("impoint")
 					var VAR_108 = call load_anim("startle")
-					var VAR_104 = call create_char(var &VAR_106, "fimp1", int 290, int 13)
-					var VAR_105 = call create_char(var &VAR_107, "fimp2", int 285, int 13)
-					call set_char_init_state(var VAR_104, int 0)
-					call set_char_init_state(var VAR_105, int 0)
+					var fimp1 = call create_char(var &VAR_106, "fimp1", int 290, int 13)
+					var fimp2 = call create_char(var &VAR_107, "fimp2", int 285, int 13)
+					call set_char_init_state(var fimp1, int 0)
+					call set_char_init_state(var fimp2, int 0)
 			}
 			if(var VAR_101 > int 10)
 			 {
-					call play_char_anim(var VAR_104, var VAR_102, int 0)
-					call play_char_anim(var VAR_105, var VAR_102, int 10)
-					call func_95(var VAR_104, int 2, int 0)
+					call play_char_anim(var fimp1, var VAR_102, int 0)
+					call play_char_anim(var fimp2, var VAR_102, int 10)
+					call func_95(var fimp1, int 2, int 0)
 					var VAR_21 = int 1
 			}
 			break 
 		case 1
-			if(call func_5c(var VAR_104))
+			if(call func_5c(var fimp1))
 			 {
-					call play_char_anim(var VAR_104, @VAR_102[call randomize_int(int 0, int 2)], call randomize_int(int 0, int 3))
+					call play_char_anim(var fimp1, @VAR_102[call randomize_int(int 0, int 2)], call randomize_int(int 0, int 3))
 					var VAR_109 ++ 
 					if(var VAR_109 == int 4)
 					 {
 							var VAR_109 = int 0
-							call func_95(var VAR_105, int 3, int 0)
+							call func_95(var fimp2, int 3, int 0)
 					}
 			}
-			if(call func_5c(var VAR_105))
+			if(call func_5c(var fimp2))
 			 {
-					call play_char_anim(var VAR_105, @VAR_102[call randomize_int(int 0, int 2)], call randomize_int(int 0, int 3))
+					call play_char_anim(var fimp2, @VAR_102[call randomize_int(int 0, int 2)], call randomize_int(int 0, int 3))
 					var VAR_109 ++ 
 					if(var VAR_109 == int 4)
 					 {
-							call func_95(var VAR_104, int 4, int 0)
+							call func_95(var fimp1, int 4, int 0)
 							var VAR_109 = int 0
 					}
 			}
 			break 
 		case 2
-			call set_char_init_state(var VAR_104, int 7)
-			call func_32(var VAR_104)
-			call func_32(var VAR_105)
-			call set_char_init_state(var VAR_105, int 7)
-			call play_char_anim(var VAR_104, var VAR_108, int 0)
-			call play_char_anim(var VAR_105, var VAR_108, int 4)
-			call func_95(var VAR_104, int 2, int 0)
-			call func_95(var VAR_105, int 4, int 0)
+			call set_char_init_state(var fimp1, int 7)
+			call func_32(var fimp1)
+			call func_32(var fimp2)
+			call set_char_init_state(var fimp2, int 7)
+			call play_char_anim(var fimp1, var VAR_108, int 0)
+			call play_char_anim(var fimp2, var VAR_108, int 4)
+			call func_95(var fimp1, int 2, int 0)
+			call func_95(var fimp2, int 4, int 0)
 			var VAR_21 = int 4
 			break 
 }

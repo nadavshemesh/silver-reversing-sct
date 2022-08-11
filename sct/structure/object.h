@@ -5,8 +5,10 @@ typedef enum o_type { OBJ_CODE, OBJ_DATA, OBJ_EXPR } o_type;
 typedef struct data_object {
     int id;
     int references;
+    int data_references;
     int byte_size;
     bool ignore;
+    bool was_renamed;
     char* name;
     byte* data;
 } data_obj;

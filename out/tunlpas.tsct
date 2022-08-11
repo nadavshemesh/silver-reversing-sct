@@ -1,39 +1,14 @@
 ._DATA
-VAR_0	0	
-VAR_1	0	
-VAR_2	0	
-VAR_3	0	
-VAR_4	0	
-VAR_5	0	
-VAR_6	0	
-VAR_7	0	
-VAR_9	0	
-VAR_10	0	
-VAR_11	0	
-VAR_12	0	
-VAR_13	0	
-VAR_14	0	
-VAR_15	0	
-VAR_16	0	
 VAR_17	{ 0, 0 }	
-VAR_18	0	
 VAR_41	{ 2575, 1150, -5350 }	
 VAR_42	{ 3775, 1150, -4050 }	
-VAR_44	0	
 VAR_45	{ 0, 0, 0 }	
-lieutenant	0	
-lieutenant1	0	
 captain	{ 0, 0 }	
-archer	0	
-archer1	0	
-VAR_51	0	
-VAR_52	0	
 VAR_53	{ -2389, -995, 3468 }	
 VAR_54	{ -2903, -995, 3184 }	
 VAR_55	{ -2475, -995, 2944 }	
 VAR_56	{ -1391, -34, 2604 }	
 VAR_57	{ -2879, -34, 2396, -2979, -995, 3910 }	
-VAR_58	0	
 VAR_60	{ -1995, -34, 2438 }	
 VAR_61	{ -2424, -34, 2177 }	
 VAR_62	{ 0, -2049, -34, 2512, 0, -1391, -34, 2604, 7, 8 }	
@@ -154,16 +129,16 @@ if(var VAR_44 == int 1)
 		var VAR_45 ++ 
 		if(var VAR_45 > int 60)
 		 {
-				call func_106(var VAR_49, int 1, int 0, int 2)
-				call func_106(var VAR_49, int 9, int 5, var &VAR_60)
-				call func_106(var VAR_49, int 9, int 6, int 1)
-				call func_106(var VAR_49, int 0, int 3, int 360)
-				call func_50(var VAR_49, int 1539)
-				call func_106(var VAR_50, int 1, int 0, int 2)
-				call func_106(var VAR_50, int 9, int 5, var &VAR_61)
-				call func_106(var VAR_50, int 9, int 6, int 1)
-				call func_106(var VAR_50, int 0, int 3, int 360)
-				call func_50(var VAR_50, int 1539)
+				call func_106(var archer, int 1, int 0, int 2)
+				call func_106(var archer, int 9, int 5, var &VAR_60)
+				call func_106(var archer, int 9, int 6, int 1)
+				call func_106(var archer, int 0, int 3, int 360)
+				call func_50(var archer, int 1539)
+				call func_106(var archer1, int 1, int 0, int 2)
+				call func_106(var archer1, int 9, int 5, var &VAR_61)
+				call func_106(var archer1, int 9, int 6, int 1)
+				call func_106(var archer1, int 0, int 3, int 360)
+				call func_50(var archer1, int 1539)
 				var VAR_45 = int 0
 				var VAR_44 ++ 
 		}
@@ -172,20 +147,20 @@ if(var VAR_44 == int 2)
  {
 		if(call is_char_handle_in_level(int 6881280))
 		 {
-				call func_106(var VAR_48, int 1, int 0, int 1)
-				call func_104(var VAR_48, int 1, int 4)
-				call func_106(var VAR_48, int 1, int 7, int 1)
-				call func_104(var VAR_48, int 7, int 2)
-				call func_106(var VAR_48, int 3, int 1, var &VAR_64)
-				call func_50(var VAR_48, int 667)
+				call func_106(var captain, int 1, int 0, int 1)
+				call func_104(var captain, int 1, int 4)
+				call func_106(var captain, int 1, int 7, int 1)
+				call func_104(var captain, int 7, int 2)
+				call func_106(var captain, int 3, int 1, var &VAR_64)
+				call func_50(var captain, int 667)
 		}
 		if(call is_char_handle_in_level(int 7143424))
 		 {
-				call func_106(var VAR_46, int 1, int 0, int 1)
+				call func_106(var lieutenant, int 1, int 0, int 1)
 		}
 		if(call is_char_handle_in_level(int 7143425))
 		 {
-				call func_106(var VAR_47, int 1, int 0, int 1)
+				call func_106(var lieutenant1, int 1, int 0, int 1)
 		}
 		var VAR_44 ++ 
 }
@@ -202,8 +177,8 @@ var archer1 = call create_enemy(int 17, int 1, var &VAR_57, int 338)
 gamevar script_object = var archer1
 gamevar *character_stats_p+15 = int 3400
 call freeze_enemy(var archer1)
-var VAR_51 = call get_char_handle(int 65536)
-var VAR_52 = call get_char_handle(int 786432)
+var DAVID = call get_char_handle(int 65536)
+var SEKUNE = call get_char_handle(int 786432)
 var VAR_58 = call load_anim("conjure")
 call set_char_init_state(var archer, int 13)
 call play_char_ai_script(var archer, var &VAR_62)

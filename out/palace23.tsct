@@ -1,35 +1,16 @@
 ._DATA
-VAR_0	0	
-VAR_1	0	
-VAR_2	0	
-VAR_3	0	
-VAR_4	0	
 VAR_5	-1	
-VAR_7	0	
-VAR_8	0	
-VAR_9	0	
-VAR_10	0	
-VAR_11	0	
 VAR_12	{ 77, 1, -1 }	
 VAR_13	{ 42, 1, 71, 1, -1 }	
 VAR_14	{ -5659, 1625, -10693 }	
 VAR_16	{ -5981, 1625, -9502 }	
 VAR_18	{ -4485, 1625, -11010 }	
-vikingc	0	
 VAR_21	{ -5782, 1625, -10850 }	
-bstump	0	
 VAR_23	{ -5245, 1625, -10285 }	
-bstump1	0	
 VAR_25	{ -4525, 1625, -10790 }	
-bstump2	0	
 VAR_27	{ -5677, 1625, -9548 }	
-VAR_28	0	
-VAR_29	0	
-VAR_30	0	
-VAR_31	0	
 VAR_32	0	
 VAR_33	{ 0, -4564, 1625, -9659 }	
-vikingc1	0	
 VAR_35	{ 5, 50, 25, 0, 3, VAR_36, 0, 5, 10, 1, VAR_32, 24, 0, 8 }	
 VAR_36	"lookout"	
 VAR_37	{ -5770, 1625, -9762 }	
@@ -41,8 +22,6 @@ VAR_42	{ -5351, 1625, -10477 }
 VAR_43	{ -6031, 1625, -10538 }	
 VAR_44	{ -5453, 1625, -11072 }	
 VAR_45	{ VAR_37, VAR_38, VAR_39, VAR_40, VAR_41, VAR_42, VAR_43, VAR_44, 0 }	
-VAR_46	0	
-VAR_47	0
 
 ._on_load
 var VAR_1 = var &VAR_14
@@ -137,8 +116,8 @@ var bstump2 = call create_enemy(int 63, int 2, var &VAR_27, int 70)
 ._SCRIPT_6
 if(var ! VAR_28)
  {
-		call set_char_init_state(var VAR_34, int 13)
-		call play_char_ai_script(var VAR_34, var &VAR_35)
+		call set_char_init_state(var bstump3, int 13)
+		call play_char_ai_script(var bstump3, var &VAR_35)
 		var VAR_28 ++ 
 }
 
@@ -153,35 +132,35 @@ if(var ! VAR_28)
 		switch(var VAR_29)
 		 {
 				case 0
-					var vikingc1 = call create_enemy(int 63, int 0, var VAR_33, int 225)
+					var bstump3 = call create_enemy(int 63, int 0, var VAR_33, int 225)
 					break 
 				case 1
-					var vikingc1 = call create_enemy(int 26, int 0, var VAR_33, int 225)
+					var bstump3 = call create_enemy(int 26, int 0, var VAR_33, int 225)
 					break 
 				case 2
-					var vikingc1 = call create_enemy(int 65, int 0, var VAR_33, int 225)
+					var bstump3 = call create_enemy(int 65, int 0, var VAR_33, int 225)
 					break 
 				case 3
-					var vikingc1 = call create_enemy(int 66, int 0, var VAR_33, int 225)
+					var bstump3 = call create_enemy(int 66, int 0, var VAR_33, int 225)
 					break 
 		}
 		var VAR_31 = call randomize_int(int 0, int 6)
 		switch(var VAR_31)
 		 {
 				case 0
-					call add_item_to_char(var vikingc1, int 40, int 1, int 0)
+					call add_item_to_char(var bstump3, int 40, int 1, int 0)
 					break 
 				case 1
-					call add_item_to_char(var vikingc1, int 46, int 1, int 0)
+					call add_item_to_char(var bstump3, int 46, int 1, int 0)
 					break 
 				case 2
 					if(var ! VAR_29)
 					 {
-							call add_item_to_char(var vikingc1, int 46, int 1, int 0)
+							call add_item_to_char(var bstump3, int 46, int 1, int 0)
 					}
 					break 
 				case 3
-					call add_item_to_char(var vikingc1, int 47, int 1, int 0)
+					call add_item_to_char(var bstump3, int 47, int 1, int 0)
 					break 
 		}
 }
@@ -201,19 +180,19 @@ var VAR_8 = int 0
 var VAR_7 = int 1
 
 ._SCRIPT_10
-var VAR_0 = call is_char_handle_in_level(int 1507337)
-if(var ! VAR_0)
+var is_BTREASURE_exist = call is_char_handle_in_level(int 1507337)
+if(var ! is_BTREASURE_exist)
  {
-		var VAR_0 = call create_char(var VAR_1, "btreasure9", var VAR_2, int 14)
-		call func_aa(var VAR_0)
+		var is_BTREASURE_exist = call create_char(var VAR_1, "btreasure9", var VAR_2, int 14)
+		call func_aa(var is_BTREASURE_exist)
 }
 else
  {
 		var VAR_4 = int 1
-		gamevar script_object = var VAR_0
+		gamevar script_object = var is_BTREASURE_exist
 		if(gamevar *object_p+7 == int 4194304)
 		 {
-				call func_aa(var VAR_0)
+				call func_aa(var is_BTREASURE_exist)
 		}
 }
 
@@ -224,11 +203,11 @@ if(var VAR_3 != int -1)
 		 {
 				if(var VAR_5 != int -1)
 				 {
-						call add_item_to_char(var VAR_0, int 85, var VAR_5, int 0)
+						call add_item_to_char(var is_BTREASURE_exist, int 85, var VAR_5, int 0)
 				}
 				else
 				 {
-						call add_item_to_char(var VAR_0, var VAR_3, int 1, int 0)
+						call add_item_to_char(var is_BTREASURE_exist, var VAR_3, int 1, int 0)
 				}
 		}
 }

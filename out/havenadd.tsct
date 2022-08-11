@@ -1,53 +1,27 @@
 ._DATA
-VAR_0	0	
-VAR_1	0	
-VAR_2	0	
-start_grunt	0	
 VAR_5	{ 2567, 0, 504 }	
-start_grunt1	0	
 VAR_7	{ 2270, 0, 599 }	
-start_grunt2	0	
 VAR_9	{ 2160, 0, 599 }	
-start_grunt3	0	
 VAR_11	{ 2050, 0, 599 }	
-start_grunt4	0	
 VAR_13	{ 2800, 0, 599 }	
-VAR_14	0	
 VAR_15	{ -29, 13, 852 }	
 VAR_16	{ -29, 11, 60 }	
 VAR_17	{ -61, 1000, 505 }	
-VAR_18	0	
-VAR_19	0	
-VAR_20	0	
-VAR_22	0	
-VAR_23	0	
-VAR_25	0	
 VAR_26	{ 420, 0, 596 }	
 VAR_27	{ 446, 0, 435 }	
 VAR_28	{ -889, 0, 410 }	
 VAR_29	{ -270, 0, 417, 794, 0, 432 }	
-VAR_30	0	
-VAR_31	0	
-VAR_32	0	
-VAR_33	0	
-VAR_34	0	
-start_grunt5	0	
-VAR_36	0	
 VAR_37	{ 740, 1, 452 }	
-VAR_38	0	
 VAR_39	-1	
 VAR_47	{ 1853, 0, 594 }	
-VAR_48	0	
-VAR_49	0	
+nrebela2	0	
 VAR_50	{ 1069, 1, -16 }	
 VAR_51	{ 257, 0, 914 }	
-VAR_52	{ 0, 1184, 1, 469, 2, 1527, 321, 517, 11, 200, 300, 0, 1988, 0, 429, 11, 500, 700, 0, 522, 1, 865, 9, VAR_49, 0, 1212, 1, -71, 11, 200, 300, 7, 8 }	
+VAR_52	{ 0, 1184, 1, 469, 2, 1527, 321, 517, 11, 200, 300, 0, 1988, 0, 429, 11, 500, 700, 0, 522, 1, 865, 9, nrebela2, 0, 1212, 1, -71, 11, 200, 300, 7, 8 }	
 VAR_53	{ 11, 1000, 2000, 3, VAR_54, 0, 11, 1000, 2000, 3, VAR_55, 0, 7, 8 }	
 VAR_54	"confused"	
 VAR_55	"cough"	
-VAR_58	0	
 VAR_59	{ 0, 0 }	
-VAR_60	0
 
 ._on_load
 gamevar SMACKER_X = int 0
@@ -121,11 +95,11 @@ call set_char_running(var start_grunt1)
 call set_char_running(var start_grunt2)
 call set_char_running(var start_grunt3)
 call set_char_running(var start_grunt4)
-var VAR_1 = call get_char_handle(int 65536)
-var VAR_2 = call get_char_handle(int 393216)
-call char_unfollow(var VAR_2)
+var DAVID = call get_char_handle(int 65536)
+var GRANDAD = call get_char_handle(int 393216)
+call char_unfollow(var GRANDAD)
 execute SCRIPT_3
-gamevar script_object = var VAR_1
+gamevar script_object = var DAVID
 var VAR_14 = gamevar HP
 gamevar script_object = var start_grunt
 gamevar *character_movement_p+60 = int 1
@@ -145,7 +119,7 @@ gamevar open_all_doors = int 1
 ._SCRIPT_5
 if(var VAR_22 == int 0)
  {
-		if(call get_char_x(var VAR_1) < int 10)
+		if(call get_char_x(var DAVID) < int 10)
 		 {
 				call log("david: through gate")
 				call func_c9()
@@ -166,12 +140,12 @@ switch(var VAR_23)
  {
 		case 0
 			call set_input_system(int 2)
-			call char_walk_to_pos(var VAR_1, var &VAR_26)
-			call char_walk_to_pos(var VAR_2, var &VAR_27)
+			call char_walk_to_pos(var DAVID, var &VAR_26)
+			call char_walk_to_pos(var GRANDAD, var &VAR_27)
 			var VAR_23 ++ 
 			break 
 		case 1
-			if(call is_char_standing(var VAR_2))
+			if(call is_char_standing(var GRANDAD))
 			 {
 					call start_dialog("GraGate", "NULL")
 					var VAR_23 ++ 
@@ -196,14 +170,14 @@ switch(var VAR_23)
 		case 4
 			if(call func_6d() == int 2)
 			 {
-					call char_walk_to_pos(var VAR_2, var &VAR_28)
+					call char_walk_to_pos(var GRANDAD, var &VAR_28)
 					var VAR_23 ++ 
 			}
 			break 
 		case 5
-			if(call is_char_standing(var VAR_2))
+			if(call is_char_standing(var GRANDAD))
 			 {
-					call char_turn_to_pos(var VAR_2, call get_char_pos(var VAR_1))
+					call char_turn_to_pos(var GRANDAD, call get_char_pos(var DAVID))
 					var VAR_23 ++ 
 					var VAR_25 = int 0
 			}
@@ -211,7 +185,7 @@ switch(var VAR_23)
 		case 6
 			if(var VAR_25 > int 70)
 			 {
-					call play_char_anim(var VAR_2, var VAR_20, int 0)
+					call play_char_anim(var GRANDAD, var VAR_20, int 0)
 					call resume_conversation()
 					var VAR_23 ++ 
 			}
@@ -219,7 +193,7 @@ switch(var VAR_23)
 		case 7
 			if(call get_input_sys() != int 4)
 			 {
-					call char_turn_to_pos(var VAR_1, call get_char_pos(var start_grunt))
+					call char_turn_to_pos(var DAVID, call get_char_pos(var start_grunt))
 					if(call is_char_handle_in_level(int 4128769))
 					 {
 							call char_walk_to(var start_grunt, int 799, int 0, int -54)
@@ -249,7 +223,7 @@ switch(var VAR_23)
 			if(var VAR_25 > int 70)
 			 {
 					call set_input_system(int 1)
-					call char_turn_to_pos(var VAR_1, call get_char_pos(var VAR_2))
+					call char_turn_to_pos(var DAVID, call get_char_pos(var GRANDAD))
 					var VAR_23 ++ 
 					var VAR_25 = int 0
 			}
@@ -261,7 +235,7 @@ switch(var VAR_23)
 					 {
 							if(call is_char_standing(var start_grunt))
 							 {
-									call char_turn_to_pos(var start_grunt, call get_char_pos(var VAR_1))
+									call char_turn_to_pos(var start_grunt, call get_char_pos(var DAVID))
 									var VAR_30 = int 1
 							}
 					}
@@ -276,7 +250,7 @@ switch(var VAR_23)
 					 {
 							if(call is_char_standing(var start_grunt1))
 							 {
-									call char_turn_to_pos(var start_grunt1, call get_char_pos(var VAR_1))
+									call char_turn_to_pos(var start_grunt1, call get_char_pos(var DAVID))
 									var VAR_31 = int 1
 							}
 					}
@@ -292,7 +266,7 @@ switch(var VAR_23)
 							if(call is_char_standing(var start_grunt2))
 							 {
 									call func_59(var VAR_0)
-									call char_turn_to_pos(var start_grunt2, call get_char_pos(var VAR_1))
+									call char_turn_to_pos(var start_grunt2, call get_char_pos(var DAVID))
 									var VAR_32 = int 1
 							}
 					}
@@ -307,7 +281,7 @@ switch(var VAR_23)
 					 {
 							if(call is_char_standing(var start_grunt3))
 							 {
-									call char_turn_to_pos(var start_grunt3, call get_char_pos(var VAR_1))
+									call char_turn_to_pos(var start_grunt3, call get_char_pos(var DAVID))
 									var VAR_33 = int 1
 							}
 					}
@@ -360,13 +334,13 @@ switch(var VAR_23)
 			break 
 		case 10
 			execute SCRIPT_7
-			gamevar script_object = var VAR_1
+			gamevar script_object = var DAVID
 			if(gamevar HP < int 45)
 			 {
 					if(var VAR_14 != gamevar HP||gamevar *object_p+5 == int 6)
 					 {
 							call func_c9()
-							call func_3c(var VAR_1)
+							call func_3c(var DAVID)
 							var VAR_23 ++ 
 							var VAR_25 = int 0
 					}
@@ -376,7 +350,7 @@ switch(var VAR_23)
 					if(var VAR_36 >= int 3)
 					 {
 							call func_c9()
-							call func_3c(var VAR_1)
+							call func_3c(var DAVID)
 							var VAR_23 ++ 
 							var VAR_25 = int 0
 					}
@@ -400,21 +374,21 @@ switch(var VAR_23)
 			break 
 		case 13
 			execute SCRIPT_7
-			gamevar script_object = var VAR_1
+			gamevar script_object = var DAVID
 			if(gamevar *object_p+5 == int 6)
 			 {
 					call func_c9()
-					call char_walk_to_pos(var VAR_2, var &VAR_37)
+					call char_walk_to_pos(var GRANDAD, var &VAR_37)
 					var VAR_23 ++ 
 			}
 			break 
 		case 14
-			if(call is_char_standing(var VAR_2))
+			if(call is_char_standing(var GRANDAD))
 			 {
 					var VAR_38 = int 1
 					call func_da()
-					call func_53(var VAR_2, int 4)
-					call char_follow_char(var VAR_2, var VAR_1)
+					call func_53(var GRANDAD, int 4)
+					call char_follow_char(var GRANDAD, var DAVID)
 					var VAR_23 ++ 
 			}
 			break 
@@ -422,7 +396,7 @@ switch(var VAR_23)
 			execute SCRIPT_7
 			break 
 		case 20
-			call char_follow_char(var VAR_2, var VAR_1)
+			call char_follow_char(var GRANDAD, var DAVID)
 			call func_e6("haven", "h_torain", var &VAR_29, int 1)
 			var VAR_23 ++ 
 			break 
@@ -452,14 +426,14 @@ gamevar *character_stats_p+15 = int 14000
 call func_106(var start_grunt5, int 0, int 3, int 360)
 
 ._SCRIPT_10
-var VAR_48 = call create_char(var &VAR_50, "nrebela1", int 55, int 13)
-var VAR_49 = call create_char(var &VAR_51, "nrebela2", int 85, int 13)
-call add_item_to_char(var VAR_48, int 16, int 0, int 1)
-call add_item_to_char(var VAR_49, int 16, int 0, int 1)
-call func_50(var VAR_48, int 8192)
-call play_char_ai_script(var VAR_48, var &VAR_52)
-call func_50(var VAR_49, int 8192)
-call play_char_ai_script(var VAR_49, var &VAR_53)
+var nrebela1 = call create_char(var &VAR_50, "nrebela1", int 55, int 13)
+var nrebela2 = call create_char(var &VAR_51, "nrebela2", int 85, int 13)
+call add_item_to_char(var nrebela1, int 16, int 0, int 1)
+call add_item_to_char(var nrebela2, int 16, int 0, int 1)
+call func_50(var nrebela1, int 8192)
+call play_char_ai_script(var nrebela1, var &VAR_52)
+call func_50(var nrebela2, int 8192)
+call play_char_ai_script(var nrebela2, var &VAR_53)
 
 ._SCRIPT_11
 

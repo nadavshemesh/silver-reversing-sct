@@ -1,14 +1,10 @@
 ._DATA
 VAR_0	0	
-VAR_1	0	
 VAR_2	0	
-VAR_3	0	
 VAR_4	0	
 VAR_5	0	
 VAR_6	0	
-VAR_7	0	
 VAR_8	0	
-VAR_9	0	
 VAR_10	{ 833, -924, 516 }	
 VAR_11	{ 632, -924, 389 }	
 VAR_12	{ 756, -924, 386 }	
@@ -16,44 +12,23 @@ VAR_13	{ -549, -924, -1622 }
 VAR_14	{ -479, -924, -1363 }	
 VAR_15	{ -433, -924, -1591 }	
 VAR_16	0	
-VAR_17	0	
-muscles	0	
-dick	0	
-VAR_20	0	
+nvillager	0	
 VAR_21	{ 15, 0, 657, -924, -1115, 16, VAR_2, 1, 3, VAR_22, 0, 3, VAR_23, 0, 8 }	
 VAR_22	"unc_fall"	
 VAR_23	"unc_pant"	
 VAR_24	{ 0, -277, -924, -1440, 35, 8 }	
-VAR_25	{ 15, 0, 538, -924, -1037, 1, VAR_17, 16, VAR_0, 1, 3, VAR_26, 0, 5, 20, 1, VAR_17, 16, VAR_16, 1, 3, VAR_27, 0, 16, VAR_4, 1, 1, VAR_5, 24, 1, 5, 120, 8 }	
+VAR_25	{ 15, 0, 538, -924, -1037, 1, nvillager, 16, VAR_0, 1, 3, VAR_26, 0, 5, 20, 1, nvillager, 16, VAR_16, 1, 3, VAR_27, 0, 16, VAR_4, 1, 1, VAR_5, 24, 1, 5, 120, 8 }	
 VAR_26	"kiki"	
 VAR_27	"kiki"	
-VAR_28	{ 15, 0, 724, -924, -1007, 1, VAR_17, 16, VAR_0, 1, 3, VAR_29, 0, 4, VAR_16, 5, 10, 1, VAR_17, 16, VAR_0, 1, 3, VAR_30, 0, 16, VAR_4, 1, 1, VAR_6, 24, 1, 8 }	
+VAR_28	{ 15, 0, 724, -924, -1007, 1, nvillager, 16, VAR_0, 1, 3, VAR_29, 0, 4, VAR_16, 5, 10, 1, nvillager, 16, VAR_0, 1, 3, VAR_30, 0, 16, VAR_4, 1, 1, VAR_6, 24, 1, 8 }	
 VAR_29	"kiki"	
 VAR_30	"kiki"	
-VAR_31	0	
-VAR_32	0	
-VAR_33	0	
-VAR_34	0	
-VAR_35	0	
-VAR_36	0	
-VAR_37	0	
-VAR_38	0	
-VAR_40	0	
-VAR_41	0	
-VAR_42	0	
-VAR_43	0	
-VAR_44	0	
-VAR_45	0	
-VAR_46	0	
-VAR_47	0	
 VAR_48	{ 0, 0 }	
 VAR_50	{ -1260, 815, 2180 }	
 VAR_51	{ -190, 815, -290 }	
 VAR_53	{ 765, -924, -2110 }	
 VAR_54	{ 951, -924, -2572 }	
 VAR_55	{ 612, -924, -2562 }	
-VAR_56	0	
-VAR_57	0	
 
 ._on_load
 call load_sound_set(int 81)
@@ -121,15 +96,15 @@ call load_char("dick")
 call load_char("longjohn")
 call load_item(int 93)
 call load_item(int 91)
-var VAR_17 = call create_char(var &VAR_53, "nvillager", int 345, int 13)
+var nvillager = call create_char(var &VAR_53, "nvillager", int 345, int 13)
 var muscles = call create_enemy(int 30, int 0, var &VAR_54, int 342)
 var dick = call create_enemy(int 31, int 0, var &VAR_55, int 350)
 call func_46(var muscles, int 0)
 call func_46(var dick, int 0)
-call set_char_init_state(var VAR_17, int 13)
-call play_char_ai_script(var VAR_17, var &VAR_21)
+call set_char_init_state(var nvillager, int 13)
+call play_char_ai_script(var nvillager, var &VAR_21)
 call add_item_to_char(var dick, int 42, int 1, int 0)
-gamevar script_object = var VAR_17
+gamevar script_object = var nvillager
 gamevar *character_movement_p+60 = int 1
 gamevar HP = int 100000
 gamevar *object_p+6 |= int 67108864
@@ -170,7 +145,7 @@ switch(var VAR_56)
 							call set_input_system(int 1)
 							if(call is_char_handle_in_level(int 2097152))
 							 {
-									call func_115(var VAR_17, var &VAR_24)
+									call func_115(var nvillager, var &VAR_24)
 							}
 							var VAR_57 = int 300
 							var VAR_56 ++ 
@@ -184,9 +159,9 @@ switch(var VAR_56)
 			}
 			else
 			 {
-					var VAR_20 = call create_enemy_through_door(int 28, int 0, int 1, int 0)
-					call set_char_running(var VAR_20)
-					call func_19(var VAR_20, call get_selected_hero())
+					var longjohn = call create_enemy_through_door(int 28, int 0, int 1, int 0)
+					call set_char_running(var longjohn)
+					call func_19(var longjohn, call get_selected_hero())
 					var VAR_56 ++ 
 			}
 			break 

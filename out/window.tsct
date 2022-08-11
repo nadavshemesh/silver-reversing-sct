@@ -1,49 +1,13 @@
 ._DATA
-VAR_0	0	
-fade_chronicler	0	
-VAR_2	0	
-VAR_3	0	
-VAR_4	0	
-VAR_17	0	
 VAR_18	{ 0, 0, -1 }	
-VAR_19	0	
-VAR_20	0	
-VAR_21	0	
-VAR_22	0	
 VAR_23	-1	
-VAR_26	0	
-VAR_39	0	
-VAR_40	0	
-VAR_41	0	
-VAR_42	0	
-VAR_43	0	
-VAR_52	0	
-VAR_53	0	
-VAR_54	0	
-VAR_55	0	
-VAR_56	0	
 VAR_57	{ -10176, 601, 2771 }	
 VAR_58	{ -10685, 601, 2784 }	
-aqua_dragon	0	
 VAR_60	{ -9570, 601, 2774, -10685, 1801, 2784 }	
 VAR_61	{ -11282, 601, 2765 }	
-VAR_62	0	
-VAR_63	0	
-VAR_64	0	
-VAR_65	0	
-VAR_72	0	
-VAR_73	0	
 VAR_74	-1	
-VAR_79	0	
 VAR_80	{ 0, 0 }	
-VAR_81	0	
-VAR_82	0	
 VAR_83	-1	
-VAR_98	0	
-VAR_99	0	
-VAR_100	0	
-VAR_101	0	
-VAR_102	0
 
 ._on_load
 call load_sound_set(int 30)
@@ -144,20 +108,20 @@ switch(var VAR_52)
 			if(call func_6d() == int 1)
 			 {
 					call resume_conversation()
-					call func_2(var VAR_59)
+					call func_2(var aqua_dragon)
 					var VAR_52 ++ 
 			}
 			break 
 		case 2
 			if(call get_input_sys() != int 4)
 			 {
-					call char_turn_to_pos(var VAR_56, call get_char_pos(var VAR_59))
+					call char_turn_to_pos(var fjag, call get_char_pos(var aqua_dragon))
 					var VAR_53 = int 0
 					var VAR_52 ++ 
 			}
 			break 
 		case 3
-			if(call func_65(var VAR_59, int 2) == int 4)
+			if(call func_65(var aqua_dragon, int 2) == int 4)
 			 {
 					var VAR_53 = int 0
 					var VAR_52 ++ 
@@ -166,7 +130,7 @@ switch(var VAR_52)
 		case 4
 			if(var VAR_53 > int 60)
 			 {
-					call play_char_anim(var VAR_56, var VAR_64, int 0)
+					call play_char_anim(var fjag, var VAR_64, int 0)
 					var VAR_53 = int 0
 					var VAR_52 ++ 
 			}
@@ -174,7 +138,7 @@ switch(var VAR_52)
 		case 5
 			if(var VAR_53 > int 60)
 			 {
-					call char_stop(var VAR_56)
+					call char_stop(var fjag)
 					var VAR_53 = int 0
 					var VAR_52 ++ 
 			}
@@ -194,8 +158,8 @@ switch(var VAR_52)
 					call play_bgm("STING3")
 					call func_134()
 					call func_7(int 12345, int 1, int 1, int 1)
-					var VAR_62 = call get_char_handle(int 65536)
-					gamevar script_object = var VAR_62
+					var DAVID = call get_char_handle(int 65536)
+					gamevar script_object = var DAVID
 					var VAR_63 = gamevar LEVEL
 					var VAR_39 = var VAR_63 + int 1
 					execute SCRIPT_15
@@ -210,7 +174,7 @@ switch(var VAR_52)
 			}
 			break 
 		case 8
-			if(call func_5c(var VAR_62))
+			if(call func_5c(var DAVID))
 			 {
 					call set_input_system(int 1)
 					call reset_local_timer()
@@ -238,7 +202,7 @@ gamevar compile_init_character = int 0
 var aqua_dragon = call create_enemy(int 208, int 0, var &VAR_58, int 90)
 gamevar compile_init_character = int 1
 call func_1(var aqua_dragon, int 4)
-var VAR_56 = call create_char(var &VAR_57, "fjag", int 90, int 13)
+var fjag = call create_char(var &VAR_57, "fjag", int 90, int 13)
 var VAR_53 = int 0
 call set_input_system(int 2)
 var VAR_64 = call load_anim("stepb")
@@ -267,21 +231,21 @@ switch(var VAR_79)
 					 {
 							call set_input_system(int 2)
 							var VAR_55 = int 1
-							var VAR_62 = call get_char_handle(int 65536)
+							var DAVID = call get_char_handle(int 65536)
 							var VAR_81 = call get_david_char()
-							if(var VAR_81 == var VAR_62)
+							if(var VAR_81 == var DAVID)
 							 {
 									var VAR_81 = call func_7e()
 							}
-							if(gamevar control_char_p == var VAR_62)
+							if(gamevar control_char_p == var DAVID)
 							 {
 									var VAR_79 = int 2
 									var VAR_80 = int 0
 							}
 							else
 							 {
-									call set_char_running(var VAR_62)
-									call char_approach_char_pos(var VAR_62, var VAR_81, int 200)
+									call set_char_running(var DAVID)
+									call char_approach_char_pos(var DAVID, var VAR_81, int 200)
 									var VAR_79 ++ 
 									var VAR_80 = int 0
 							}
@@ -289,7 +253,7 @@ switch(var VAR_79)
 			}
 			break 
 		case 1
-			if(call is_char_standing(var VAR_62))
+			if(call is_char_standing(var DAVID))
 			 {
 					var VAR_79 ++ 
 					var VAR_80 = int 0
@@ -297,8 +261,8 @@ switch(var VAR_79)
 			break 
 		case 2
 			execute SCRIPT_16
-			call char_turn_to_pos(var VAR_62, call get_char_pos(var VAR_81))
-			call char_turn_to_pos(var VAR_81, call get_char_pos(var VAR_62))
+			call char_turn_to_pos(var DAVID, call get_char_pos(var VAR_81))
+			call char_turn_to_pos(var VAR_81, call get_char_pos(var DAVID))
 			if(var VAR_41)
 			 {
 					call start_dialog("F_DVDORB", "NULL")

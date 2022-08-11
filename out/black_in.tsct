@@ -4,58 +4,28 @@ VAR_1	{ 1406, 2890, -4945 }
 VAR_2	{ 1484, 2845, -5100 }	
 VAR_3	{ 1543, 2845, -4766 }	
 VAR_4	{ VAR_1, VAR_2, VAR_3 }	
-VAR_5	0	
 VAR_6	{ 1845, 2845, -4950 }	
 VAR_7	{ 1808, 2845, -4813 }	
 VAR_8	{ 1821, 2845, -5052 }	
 VAR_9	{ VAR_6, VAR_7, VAR_8 }	
-VAR_10	0	
-VAR_11	0	
 VAR_12	28526	
 VAR_13	{ 1634428781, 29289, 0 }	
-VAR_14	0	
-VAR_15	0	
-VAR_16	0	
 VAR_17	160	
-VAR_18	0	
-VAR_19	0	
-VAR_20	0	
-VAR_21	0	
-VAR_22	0	
-VAR_23	0	
 VAR_24	{ 0, 0, 0 }	
-VAR_25	0	
-VAR_26	0	
 VAR_27	{ 2492, 4381, -4951, 0 }	
-VAR_28	0	
 VAR_29	{ 1667329122, 1802658667, 0 }	
 VAR_32	{ 1667329122, 1852399467, 0 }	
 VAR_33	{ 1952804204, 1852796001, 0 }	
-VAR_35	0	
 VAR_36	{ 0, 0 }	
 VAR_37	{ 0, 0, 0 }	
 VAR_38	{ 1667329122, 1852399467, 0 }	
-VAR_40	0	
 VAR_41	{ 0, 12 }	
 VAR_42	{ 2069, 4041, -4026 }	
-VAR_43	0	
-VAR_44	0	
 VAR_45	{ 2116, 4041, -5955 }	
-VAR_46	0	
-VAR_47	0	
-VAR_48	0	
-VAR_49	0	
-VAR_52	0	
-VAR_53	0	
 VAR_56	{ 1952804204, 1852796001, 0 }	
 VAR_57	{ 1667329122, 1852399467, 0 }	
-VAR_58	0	
-VAR_59	0	
 VAR_60	{ 1162626388, 1414680400, 0 }	
 VAR_63	{ 1952804204, 1852796001, 0 }	
-VAR_65	0	
-VAR_66	0	
-VAR_67	0
 
 ._on_load
 var VAR_10 = call load_anim(var &VAR_12)
@@ -165,13 +135,13 @@ if(gamevar !is_room_cleared&&var VAR_22 == int 0)
 			}
 			var VAR_37 = int 1
 			call create_enemy(int 36, int 0, var &VAR_42, int 238)
-			var VAR_43 = call get_char_handle(int 11010048)
-			call set_char_init_state(var VAR_43, int 0)
-			var VAR_44 = call add_item_to_char(var VAR_43, int 46, int 1, int 0)
+			var SARCHER = call get_char_handle(int 11010048)
+			call set_char_init_state(var SARCHER, int 0)
+			var VAR_44 = call add_item_to_char(var SARCHER, int 46, int 1, int 0)
 			call create_enemy(int 36, int 1, var &VAR_45, int 310)
-			var VAR_46 = call get_char_handle(int 11010049)
-			call set_char_init_state(var VAR_46, int 0)
-			var VAR_47 = call add_item_to_char(var VAR_46, int 45, int 1, int 0)
+			var SARCHER1 = call get_char_handle(int 11010049)
+			call set_char_init_state(var SARCHER1, int 0)
+			var VAR_47 = call add_item_to_char(var SARCHER1, int 45, int 1, int 0)
 			execute SCRIPT_4
 			var VAR_14 = call play_loaded_sound(int 1, int -1, int 30, int 0)
 			var VAR_15 = int 1
@@ -717,13 +687,13 @@ execute SCRIPT_5
 ._SCRIPT_7
 var VAR_37 = int 1
 call create_enemy(int 36, int 0, var &VAR_42, int 238)
-var VAR_43 = call get_char_handle(int 11010048)
-call set_char_init_state(var VAR_43, int 0)
-var VAR_44 = call add_item_to_char(var VAR_43, int 46, int 1, int 0)
+var SARCHER = call get_char_handle(int 11010048)
+call set_char_init_state(var SARCHER, int 0)
+var VAR_44 = call add_item_to_char(var SARCHER, int 46, int 1, int 0)
 call create_enemy(int 36, int 1, var &VAR_45, int 310)
-var VAR_46 = call get_char_handle(int 11010049)
-call set_char_init_state(var VAR_46, int 0)
-var VAR_47 = call add_item_to_char(var VAR_46, int 45, int 1, int 0)
+var SARCHER1 = call get_char_handle(int 11010049)
+call set_char_init_state(var SARCHER1, int 0)
+var VAR_47 = call add_item_to_char(var SARCHER1, int 45, int 1, int 0)
 execute SCRIPT_4
 var VAR_14 = call play_loaded_sound(int 1, int -1, int 30, int 0)
 var VAR_15 = int 1

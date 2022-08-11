@@ -1,55 +1,22 @@
 ._DATA
-VAR_0	0	
-VAR_1	0	
-VAR_2	0	
-VAR_3	0	
-VAR_4	0	
-VAR_5	0	
-VAR_6	0	
-VAR_7	0	
-VAR_9	0	
-VAR_10	0	
-VAR_11	0	
-VAR_12	0	
-VAR_13	0	
-VAR_14	0	
-VAR_15	0	
-VAR_16	0	
 VAR_17	{ 0, 0, 0, 0, 0, 0, 0, 0 }	
-VAR_18	0	
-VAR_19	0	
 VAR_20	{ 7825, 3375, -15675 }	
 VAR_21	{ -3625, 3375, -13700 }	
-VAR_28	0	
-VAR_29	0	
 VAR_30	{ -2732, 806, 10090 }	
-scaptainpts	0	
-scaptainpts1	0	
-scaptainpts2	0	
-scaptainpts3	0	
 VAR_38	{ -2074, 805, 10742 }	
 VAR_39	{ -2050, 805, 10178 }	
 VAR_40	{ -2050, 805, 9635 }	
 VAR_41	{ -2032, 805, 9169 }	
-slieutenant	0	
-slieutenant1	0	
-slieutenant2	0	
 VAR_45	{ -1764, 805, 10374 }	
 VAR_46	{ -1786, 805, 9513 }	
 VAR_47	{ -1502, 805, 9925 }	
-VAR_48	0	
-VAR_49	0	
-VAR_50	0	
-VAR_51	0	
 VAR_52	{ -4405, 806, 10012 }	
 VAR_53	{ -4803, 806, 10464 }	
 VAR_54	{ -4587, 806, 9509 }	
 VAR_55	{ -4587, 806, 9509 }	
 VAR_56	{ VAR_52, VAR_53, VAR_54, VAR_55 }	
-VAR_60	0	
 VAR_64	{ -1673, 806, 11903, -1863, 806, 8253 }	
 VAR_65	{ 0, 1, 1, VAR_64, 8, 1, 19, -4605, 806, 9990, 12, 78, 77, 77, 78, -1, 13, 0, 14, 1, 2, 5, 0, 200, 17, 2, -4541, 806, 11272, -3916, 806, 8834, -1, 16, 0, 18, 100, -1, 0 }	
-VAR_66	0
 
 ._on_load
 execute SCRIPT_9
@@ -160,15 +127,15 @@ switch(var VAR_48)
 		case 2
 			if(call get_input_sys() != int 4)
 			 {
-					call func_50(var VAR_29, int 129)
-					call func_106(var VAR_29, int 7, int 5, int 4)
-					call set_char_template(var VAR_34, int 125)
-					call set_char_template(var VAR_35, int 125)
-					call set_char_template(var VAR_36, int 125)
-					call set_char_template(var VAR_37, int 125)
-					call set_char_template(var VAR_42, int 122)
-					call set_char_template(var VAR_43, int 122)
-					call set_char_template(var VAR_44, int 122)
+					call func_50(var fkhan, int 129)
+					call func_106(var fkhan, int 7, int 5, int 4)
+					call set_char_template(var scaptainpts, int 125)
+					call set_char_template(var scaptainpts1, int 125)
+					call set_char_template(var scaptainpts2, int 125)
+					call set_char_template(var scaptainpts3, int 125)
+					call set_char_template(var slieutenant, int 122)
+					call set_char_template(var slieutenant1, int 122)
+					call set_char_template(var slieutenant2, int 122)
 					call set_input_system(int 1)
 					var VAR_49 = int 0
 					var VAR_48 ++ 
@@ -180,10 +147,10 @@ switch(var VAR_48)
 call set_input_system(int 2)
 call load_sound_set(int 30)
 var VAR_28 = call play_loaded_sound(int 1, int -1, int 30, int 0)
-var VAR_29 = call create_char(var &VAR_30, "fkhan", int 260, int 13)
-call add_item_to_char(var VAR_29, int 53, int 1, int 1)
-call add_item_to_char(var VAR_29, int 22, int 1, int 1)
-call add_item_to_char(var VAR_29, int 85, int 6554113, int 0)
+var fkhan = call create_char(var &VAR_30, "fkhan", int 260, int 13)
+call add_item_to_char(var fkhan, int 53, int 1, int 1)
+call add_item_to_char(var fkhan, int 22, int 1, int 1)
+call add_item_to_char(var fkhan, int 85, int 6554113, int 0)
 call load_char("scaptain")
 call load_char("slieuten")
 var scaptainpts = call create_enemy(int 125, int 0, var &VAR_38, int 240)

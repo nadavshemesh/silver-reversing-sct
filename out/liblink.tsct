@@ -1,35 +1,15 @@
 ._DATA
-VAR_0	0	
-fade_chronicler	0	
-VAR_2	0	
-VAR_3	0	
-VAR_4	0	
-VAR_17	0	
 VAR_18	{ 0, 0, -1 }	
-VAR_19	0	
-VAR_20	0	
-VAR_21	0	
-VAR_22	0	
 VAR_23	-1	
-VAR_26	0	
 VAR_39	{ 85, 3277313, 40, 1, 40, 1, 43, 1, 42, 1, -1 }	
-VAR_40	0	
-VAR_43	0	
-VAR_44	0	
 VAR_45	{ -11617, 2352, -20626, 0, 0, 0, 1, -1, 8, 1, 4, 0, 9, 0, 1, 16, 102, 103, -1, 2, 1, 3, 2, 5, 0, 50, 6, 1, 7, 1, 6, -1 }	
 VAR_46	{ -12985, 2352, -21089 }	
 VAR_48	{ -13010, 2352, -20524 }	
-VAR_50	0	
-VAR_51	0	
 VAR_53	{ 0, 0 }	
 VAR_54	-1	
-VAR_56	0	
-VAR_57	0	
-VAR_58	0	
-VAR_59	0
 
 ._on_load
-var VAR_40 = int 0
+var BTREASURE = int 0
 call play_bgm("GNO")
 call load_sound_set(int 63)
 call play_loaded_sound(int 1, int -1, int 63, int 0)
@@ -59,9 +39,9 @@ else
 execute SCRIPT_3
 var VAR_0 = int 20
 execute SCRIPT_14
-if(var VAR_40)
+if(var BTREASURE)
  {
-		gamevar script_object = var VAR_40
+		gamevar script_object = var BTREASURE
 		if(gamevar *object_p+5 != int 15)
 		 {
 				execute SCRIPT_6
@@ -71,7 +51,7 @@ else
  {
 		if(gamevar room_state > int 1)
 		 {
-				var VAR_40 = call get_char_handle(int 1507328)
+				var BTREASURE = call get_char_handle(int 1507328)
 		}
 }
 if(gamevar !is_room_cleared)
@@ -152,10 +132,10 @@ switch(var VAR_53)
 ._SCRIPT_7
 if(var VAR_50 == int 0)
  {
-		if(call is_char_standing(var VAR_43))
+		if(call is_char_standing(var nyelimp))
 		 {
 				call func_12f(var VAR_44)
-				call remove_char(var VAR_43)
+				call remove_char(var nyelimp)
 				var VAR_50 ++ 
 				var VAR_51 = int 0
 		}
@@ -163,13 +143,13 @@ if(var VAR_50 == int 0)
 var VAR_51 ++ 
 
 ._SCRIPT_8
-var VAR_43 = call create_char(var &VAR_48, "nyelimp", int 0, int 13)
-gamevar script_object = var VAR_43
+var nyelimp = call create_char(var &VAR_48, "nyelimp", int 0, int 13)
+gamevar script_object = var nyelimp
 gamevar *character_movement_p+60 = int 1
 gamevar *character_movement_p+53 = int 0
-call set_char_running(var VAR_43)
-call func_2b(var VAR_43, int 0)
-var VAR_44 = call func_41(var VAR_43, int 0)
+call set_char_running(var nyelimp)
+call func_2b(var nyelimp, int 0)
+var VAR_44 = call func_41(var nyelimp, int 0)
 
 ._SCRIPT_9
 if(call is_char_handle_in_level(int 1769472))
@@ -180,7 +160,7 @@ if(call is_char_handle_in_level(int 1769472))
 ._SCRIPT_10
 execute SCRIPT_8
 gamevar global_inventory_p = var &VAR_39
-var VAR_40 = call create_char(var &VAR_45, "btreasure", int 215, int 14)
+var BTREASURE = call create_char(var &VAR_45, "btreasure", int 215, int 14)
 var fade_chronicler = call create_enemy(int 178, int 0, var &VAR_46, int 110)
 
 ._SCRIPT_11

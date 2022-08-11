@@ -1,52 +1,16 @@
 ._DATA
-VAR_0	0	
-VAR_1	0	
-VAR_2	0	
-fade_chronicler	0	
-VAR_4	0	
-VAR_5	0	
-VAR_6	0	
-VAR_19	0	
 VAR_20	{ 0, 0, -1 }	
-VAR_21	0	
-VAR_22	0	
-VAR_23	0	
-VAR_24	0	
 VAR_25	-1	
-VAR_28	0	
-VAR_41	0	
-VAR_42	0	
-VAR_43	0	
-VAR_44	0	
-VAR_45	0	
 VAR_46	-1	
-VAR_48	0	
 VAR_49	{ -381, 300, -1754 }	
-VAR_52	0	
-VAR_53	0	
-VAR_54	0	
-VAR_55	0	
-VAR_56	0	
-VAR_57	0	
-battle_fuge	0	
 VAR_60	{ -1480, 299, -910 }	
-VAR_61	0	
-VAR_62	0	
 VAR_63	{ 1018, 300, -1051 }	
 VAR_64	{ 384, 300, -1051 }	
-VAR_65	0	
-VAR_71	0	
 VAR_72	{ 0, 0 }	
-VAR_73	0	
-VAR_74	0	
 VAR_75	{ -479, 300, -552 }	
 VAR_76	{ 180, 300, -389 }	
-VAR_77	0	
-VAR_78	0	
-VAR_79	0	
 VAR_80	{ 1101, 600, -1345, -816, 300, -1550, -1401, 300, 20, 85, 300, -207, -1582, 0, 1078, 9, 0, 1263, 1297, 0, 1008, 1460, 300, -379 }	
 VAR_81	{ 1297, 300, -308 }	
-VAR_82	0	
 VAR_83	{ 666, 300, -839 }	
 VAR_84	-1	
 
@@ -151,11 +115,11 @@ switch(var VAR_71)
 		case 0
 			if(var VAR_72 == int 10)
 			 {
-					call char_stop(var VAR_57)
+					call char_stop(var DAVID)
 			}
 			if(var VAR_72 == int 20)
 			 {
-					call char_walk_to_pos(var VAR_57, var &VAR_81)
+					call char_walk_to_pos(var DAVID, var &VAR_81)
 			}
 			if(var VAR_72 == int 250)
 			 {
@@ -164,12 +128,12 @@ switch(var VAR_71)
 							gamevar script_object = var VAR_54
 							var VAR_73 = gamevar HP
 							gamevar HP = int 1
-							call func_1e(var VAR_59, var VAR_54)
+							call func_1e(var battle_fuge, var VAR_54)
 					}
 			}
 			if(var VAR_72 == int 285)
 			 {
-					call play_char_anim(var VAR_57, var VAR_62, int 0)
+					call play_char_anim(var DAVID, var VAR_62, int 0)
 			}
 			if(var VAR_72 == int 350)
 			 {
@@ -178,7 +142,7 @@ switch(var VAR_71)
 							gamevar script_object = var VAR_55
 							var VAR_74 = gamevar HP
 							gamevar HP = int 1
-							call func_1e(var VAR_59, var VAR_55)
+							call func_1e(var battle_fuge, var VAR_55)
 					}
 					var VAR_72 = int 0
 					var VAR_71 ++ 
@@ -187,7 +151,7 @@ switch(var VAR_71)
 		case 1
 			if(var VAR_72 > int 50)
 			 {
-					call func_60(var VAR_59, var VAR_61)
+					call func_60(var battle_fuge, var VAR_61)
 					var VAR_72 = int 0
 					var VAR_71 ++ 
 			}
@@ -195,8 +159,8 @@ switch(var VAR_71)
 		case 2
 			if(var VAR_72 > int 20)
 			 {
-					call set_char_walking(var VAR_59)
-					call char_walk_to_pos(var VAR_59, var &VAR_75)
+					call set_char_walking(var battle_fuge)
+					call char_walk_to_pos(var battle_fuge, var &VAR_75)
 					call func_11f(var &VAR_75, int 32768)
 					var VAR_72 = int 0
 					var VAR_71 ++ 
@@ -205,8 +169,8 @@ switch(var VAR_71)
 		case 3
 			if(var VAR_72 > int 180)
 			 {
-					call set_char_walking(var VAR_57)
-					call char_walk_to_pos(var VAR_57, var &VAR_76)
+					call set_char_walking(var DAVID)
+					call char_walk_to_pos(var DAVID, var &VAR_76)
 					var VAR_72 = int 0
 					var VAR_71 ++ 
 			}
@@ -228,12 +192,12 @@ switch(var VAR_71)
 			 {
 					call set_input_system(int 1)
 					call play_bgm("Ievlbat1")
-					call func_55(var VAR_59, int 23)
-					call set_char_template(var VAR_59, int 200)
-					call func_106(var VAR_59, int 2, int 1, var &VAR_80)
-					call func_106(var VAR_59, int 2, int 3, int 8)
-					call func_106(var VAR_59, int 9, int 5, var &VAR_80)
-					call func_106(var VAR_59, int 9, int 6, int 8)
+					call func_55(var battle_fuge, int 23)
+					call set_char_template(var battle_fuge, int 200)
+					call func_106(var battle_fuge, int 2, int 1, var &VAR_80)
+					call func_106(var battle_fuge, int 2, int 3, int 8)
+					call func_106(var battle_fuge, int 9, int 5, var &VAR_80)
+					call func_106(var battle_fuge, int 9, int 6, int 8)
 					var VAR_72 = int 0
 					var VAR_71 ++ 
 			}
@@ -273,7 +237,7 @@ switch(var VAR_71)
 		case 8
 			if(var VAR_72 > int 100)
 			 {
-					call play_char_anim(var VAR_57, var VAR_65, int 0)
+					call play_char_anim(var DAVID, var VAR_65, int 0)
 					if(var VAR_54)
 					 {
 							call play_char_anim(var VAR_54, var VAR_65, int 3)
@@ -282,7 +246,7 @@ switch(var VAR_71)
 					 {
 							call play_char_anim(var VAR_55, var VAR_65, int 5)
 					}
-					gamevar script_object = var VAR_57
+					gamevar script_object = var DAVID
 					var VAR_82 = gamevar LEVEL
 					var VAR_0 = var VAR_82 + int 1
 					execute SCRIPT_11
@@ -298,12 +262,12 @@ switch(var VAR_71)
 					if(var VAR_54)
 					 {
 							call set_char_running(var VAR_54)
-							call func_19(var VAR_54, var VAR_57)
+							call func_19(var VAR_54, var DAVID)
 					}
 					if(var VAR_55)
 					 {
 							call set_char_running(var VAR_55)
-							call func_19(var VAR_55, var VAR_57)
+							call func_19(var VAR_55, var DAVID)
 					}
 					var VAR_72 = int 0
 					var VAR_71 ++ 
@@ -317,7 +281,7 @@ switch(var VAR_71)
 							if(call is_char_standing(var VAR_54))
 							 {
 									var VAR_77 = int 1
-									call char_turn_to_pos(var VAR_54, call get_char_pos(var VAR_57))
+									call char_turn_to_pos(var VAR_54, call get_char_pos(var DAVID))
 							}
 					}
 			}
@@ -332,7 +296,7 @@ switch(var VAR_71)
 							if(call is_char_standing(var VAR_55))
 							 {
 									var VAR_78 = int 1
-									call char_turn_to_pos(var VAR_55, call get_char_pos(var VAR_57))
+									call char_turn_to_pos(var VAR_55, call get_char_pos(var DAVID))
 							}
 					}
 			}
@@ -344,7 +308,7 @@ switch(var VAR_71)
 			 {
 					if(var VAR_54)
 					 {
-							call char_turn_to_pos(var VAR_57, call get_char_pos(var VAR_54))
+							call char_turn_to_pos(var DAVID, call get_char_pos(var VAR_54))
 							var VAR_79 = call get_char_handle_id(var VAR_54)
 							switch(var VAR_79)
 							 {
@@ -409,7 +373,7 @@ if(var VAR_55)
 		gamevar *object_p+6 |= int 67110912
 		gamevar *character_stats_p+27 |= int 4
 }
-call func_a3(var VAR_57)
+call func_a3(var DAVID)
 var VAR_62 = call load_anim("DodgeB")
 call set_input_system(int 2)
 call create_char(var &VAR_63, "ipie", int 0, int 0)
@@ -428,12 +392,12 @@ call load_char("chronicl")
 ._SCRIPT_9
 
 ._SCRIPT_10
-var VAR_57 = call get_char_handle(int 65536)
+var DAVID = call get_char_handle(int 65536)
 var VAR_52 = int 0
 var VAR_53 = call get_david_char()
 while(var VAR_53)
  {
-		if(var VAR_53 != var VAR_57)
+		if(var VAR_53 != var DAVID)
 		 {
 				@VAR_54[var VAR_52]= var VAR_53
 				var VAR_52 ++ 
@@ -641,19 +605,19 @@ switch(var VAR_28)
 }
 
 ._SCRIPT_17
-var VAR_41 = call is_char_handle_in_level(int 1507337)
-if(var ! VAR_41)
+var is_BTREASURE_exist = call is_char_handle_in_level(int 1507337)
+if(var ! is_BTREASURE_exist)
  {
-		var VAR_41 = call create_char(var VAR_42, "btreasure9", var VAR_43, int 14)
-		call func_aa(var VAR_41)
+		var is_BTREASURE_exist = call create_char(var VAR_42, "btreasure9", var VAR_43, int 14)
+		call func_aa(var is_BTREASURE_exist)
 }
 else
  {
 		var VAR_45 = int 1
-		gamevar script_object = var VAR_41
+		gamevar script_object = var is_BTREASURE_exist
 		if(gamevar *object_p+7 == int 4194304)
 		 {
-				call func_aa(var VAR_41)
+				call func_aa(var is_BTREASURE_exist)
 		}
 }
 
@@ -664,11 +628,11 @@ if(var VAR_44 != int -1)
 		 {
 				if(var VAR_46 != int -1)
 				 {
-						call add_item_to_char(var VAR_41, int 85, var VAR_46, int 0)
+						call add_item_to_char(var is_BTREASURE_exist, int 85, var VAR_46, int 0)
 				}
 				else
 				 {
-						call add_item_to_char(var VAR_41, var VAR_44, int 1, int 0)
+						call add_item_to_char(var is_BTREASURE_exist, var VAR_44, int 1, int 0)
 				}
 		}
 }

@@ -3,53 +3,32 @@ VAR_0	{ 1, 2, -1 }
 VAR_1	{ 1, -1 }	
 VAR_2	{ -3359, -90, -5151 }	
 VAR_4	{ 1146242390, 1163152961, 0 }	
-VAR_5	0	
 VAR_6	{ 1869773172, 1852667251, 0 }	
-VAR_7	0	
-VAR_8	0	
-fuge	0	
 VAR_10	{ -2041, -90, -890 }	
-jennifer	0	
 VAR_12	{ -2107, -90, -3941 }	
-start_grunt4	0	
 VAR_14	{ -1955, -90, -3541 }	
-start_grunt5	0	
 VAR_16	{ -2244, -90, -4118 }	
-grunt_wooden_shield1	0	
 VAR_18	{ 1700, -40, -2050 }	
-grunt_wooden_shield2	0	
 VAR_20	{ 1600, -40, -2050 }	
-grunt_wooden_shield	0	
 VAR_22	{ -3875, -90, -5600 }	
 VAR_23	{ -4180, -90, -5850 }	
 VAR_24	{ -4180, -90, -5235 }	
 VAR_25	{ -4180, -90, -5600 }	
-VAR_26	0	
-VAR_27	0	
 VAR_28	{ -845, -90, -3567 }	
 VAR_29	{ -2050, -90, -1109 }	
 VAR_30	{ -1845, -90, -861 }	
 VAR_31	{ -2708, -90, -4957 }	
-VAR_32	0	
-VAR_33	0	
-VAR_34	0	
-VAR_35	0	
 VAR_36	{ -2135, -90, -1600 }	
 VAR_37	{ -1849, -90, -1301 }	
-VAR_38	0	
 VAR_39	{ 0, 1, 1 }	
 VAR_40	{ 1427, -40, -1771 }	
 VAR_41	{ 1384, -40, -2156 }	
 VAR_42	{ -133, -40, -2334 }	
 VAR_43	{ -128, -40, -1786 }	
 VAR_44	{ 844383041, 0 }	
-VAR_45	0	
 VAR_46	{ -1407, -90, -2591 }	
 VAR_47	{ -1416, -90, -3682 }	
 VAR_49	{ 0, 0, 2, -1, 8, 2, 12, 156, -1, 14, 0, 1, 1, 18, 50, -1 }	
-VAR_50	0	
-VAR_51	0	
-VAR_52	0
 
 ._on_load
 if(gamevar room_state > int 4)
@@ -125,8 +104,8 @@ var VAR_5 = call load_anim(var &VAR_6)
 
 ._SCRIPT_4
 execute SCRIPT_3
-var VAR_7 = call get_char_handle(int 65536)
-var VAR_8 = call get_char_handle(int 393216)
+var DAVID = call get_char_handle(int 65536)
+var GRANDAD = call get_char_handle(int 393216)
 var fuge = call create_enemy(int 97, int 0, var &VAR_10, int 180)
 gamevar script_object = var fuge
 gamevar *character_movement_p+60 = int 1
@@ -134,16 +113,16 @@ call func_1(var fuge, int -1)
 var jennifer = call create_enemy(int 96, int 0, var &VAR_12, int 180)
 gamevar script_object = var jennifer
 gamevar *character_movement_p+60 = int 1
-var start_grunt4 = call create_enemy(int 156, int 0, var &VAR_14, int 180)
+var start_grunt = call create_enemy(int 156, int 0, var &VAR_14, int 180)
 gamevar script_object = var start_grunt
 gamevar *character_movement_p+60 = int 1
-var start_grunt5 = call create_enemy(int 156, int 1, var &VAR_16, int 270)
+var start_grunt1 = call create_enemy(int 156, int 1, var &VAR_16, int 270)
 gamevar script_object = var start_grunt1
 gamevar *character_movement_p+60 = int 1
-var grunt_wooden_shield1 = call create_enemy(int 156, int 2, var &VAR_18, int 270)
+var start_grunt2 = call create_enemy(int 156, int 2, var &VAR_18, int 270)
 call func_106(var start_grunt2, int 1, int 0, int 0)
 call func_50(var start_grunt2, int 2)
-var grunt_wooden_shield2 = call create_enemy(int 156, int 3, var &VAR_20, int 270)
+var start_grunt3 = call create_enemy(int 156, int 3, var &VAR_20, int 270)
 call func_106(var start_grunt3, int 1, int 0, int 0)
 call func_50(var start_grunt3, int 2)
 call add_item_to_char(var start_grunt3, int 40, int 1, int 0)
@@ -163,8 +142,8 @@ if(call ! is_char_handle_in_level(int 4128770)&&call ! is_char_handle_in_level(i
 ._SCRIPT_6
 if(var VAR_27 == int 0)
  {
-		call char_walk_to_pos(var VAR_7, var &VAR_29)
-		call char_walk_to_pos(var VAR_8, var &VAR_30)
+		call char_walk_to_pos(var DAVID, var &VAR_29)
+		call char_walk_to_pos(var GRANDAD, var &VAR_30)
 		var VAR_27 ++ 
 		var VAR_26 = int 0
 }
@@ -224,7 +203,7 @@ if(var VAR_27 == int 6)
  {
 		if(call is_char_standing(var grunt_wooden_shield))
 		 {
-				call char_turn_to_pos(var grunt_wooden_shield, call get_char_pos(var VAR_7))
+				call char_turn_to_pos(var grunt_wooden_shield, call get_char_pos(var DAVID))
 				var VAR_27 ++ 
 				var VAR_26 = int 0
 		}
@@ -256,7 +235,7 @@ if(var VAR_33 == int 1)
  {
 		if(call is_char_standing(var start_grunt2))
 		 {
-				call char_turn_to_pos(var start_grunt2, call get_char_pos(var VAR_7))
+				call char_turn_to_pos(var start_grunt2, call get_char_pos(var DAVID))
 				call func_2(var start_grunt2)
 				call func_2(var start_grunt3)
 				var VAR_33 ++ 
@@ -289,29 +268,29 @@ if(var VAR_39 == int 1)
 var VAR_38 ++ 
 
 ._SCRIPT_9
-var VAR_7 = call get_char_handle(int 65536)
+var DAVID = call get_char_handle(int 65536)
 gamevar door_restriction_p = var &VAR_0
 
 ._SCRIPT_10
 
 ._SCRIPT_11
-var VAR_7 = call get_char_handle(int 65536)
-var start_grunt4 = call create_enemy(int 156, int 0, var &VAR_40, int 250)
-call func_106(var start_grunt4, int 1, int 0, int 1)
-call func_50(var start_grunt4, int 2)
-var start_grunt5 = call create_enemy(int 156, int 1, var &VAR_41, int 265)
-call func_106(var start_grunt5, int 1, int 0, int 1)
-call func_50(var start_grunt5, int 2)
-var grunt_wooden_shield1 = call create_enemy(int 99, int 2, var &VAR_42, int 235)
-call func_106(var grunt_wooden_shield1, int 1, int 0, int 2)
-call func_50(var grunt_wooden_shield1, int 2)
-call add_item_to_char(var grunt_wooden_shield1, int 40, int 1, int 0)
-var grunt_wooden_shield2 = call create_enemy(int 99, int 3, var &VAR_43, int 235)
-call func_106(var grunt_wooden_shield2, int 1, int 0, int 2)
-call func_50(var grunt_wooden_shield2, int 2)
-call add_item_to_char(var grunt_wooden_shield2, int 32, int 1, int 0)
-var VAR_8 = call get_char_handle(int 393216)
-call func_10c(var VAR_8, var &VAR_44)
+var DAVID = call get_char_handle(int 65536)
+var start_grunt = call create_enemy(int 156, int 0, var &VAR_40, int 250)
+call func_106(var start_grunt, int 1, int 0, int 1)
+call func_50(var start_grunt, int 2)
+var start_grunt1 = call create_enemy(int 156, int 1, var &VAR_41, int 265)
+call func_106(var start_grunt1, int 1, int 0, int 1)
+call func_50(var start_grunt1, int 2)
+var start_grunt2 = call create_enemy(int 99, int 2, var &VAR_42, int 235)
+call func_106(var start_grunt2, int 1, int 0, int 2)
+call func_50(var start_grunt2, int 2)
+call add_item_to_char(var start_grunt2, int 40, int 1, int 0)
+var start_grunt3 = call create_enemy(int 99, int 3, var &VAR_43, int 235)
+call func_106(var start_grunt3, int 1, int 0, int 2)
+call func_50(var start_grunt3, int 2)
+call add_item_to_char(var start_grunt3, int 32, int 1, int 0)
+var GRANDAD = call get_char_handle(int 393216)
+call func_10c(var GRANDAD, var &VAR_44)
 call reset_local_timer()
 
 ._SCRIPT_12
@@ -319,10 +298,10 @@ if(var VAR_45 == int 0)
  {
 		if(call is_local_timer_greater_than(int 10))
 		 {
-				call set_char_running(var start_grunt4)
-				call char_walk_to_pos(var start_grunt4, var &VAR_46)
-				call set_char_running(var start_grunt5)
-				call char_walk_to_pos(var start_grunt5, var &VAR_47)
+				call set_char_running(var start_grunt)
+				call char_walk_to_pos(var start_grunt, var &VAR_46)
+				call set_char_running(var start_grunt1)
+				call char_walk_to_pos(var start_grunt1, var &VAR_47)
 				var VAR_45 = int 1
 				call reset_local_timer()
 		}
@@ -331,10 +310,10 @@ if(var VAR_45 == int 1)
  {
 		if(call is_char_handle_in_level(int 4128769))
 		 {
-				if(call is_char_standing(var start_grunt5))
+				if(call is_char_standing(var start_grunt1))
 				 {
-						call char_turn_to_pos(var start_grunt4, call get_char_pos(var VAR_7))
-						call char_turn_to_pos(var start_grunt5, call get_char_pos(var VAR_7))
+						call char_turn_to_pos(var start_grunt, call get_char_pos(var DAVID))
+						call char_turn_to_pos(var start_grunt1, call get_char_pos(var DAVID))
 						var VAR_45 = int 2
 						call log("act3_wait_for_heros")
 						gamevar room_state = int 4
@@ -345,7 +324,7 @@ if(var VAR_45 == int 1)
 
 ._SCRIPT_13
 gamevar door_restriction_p = var &VAR_1
-var VAR_7 = call get_char_handle(int 65536)
+var DAVID = call get_char_handle(int 65536)
 call run_wandering_generator(var &VAR_49, int 100)
 
 ._SCRIPT_14

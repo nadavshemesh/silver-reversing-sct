@@ -247,6 +247,12 @@ void write_asm_data_section(sct_f* sf) {
     data_obj** section = sf->data_section;
     for(int i=0; i < size; i++) {
         data_obj* data_o = section[i];
+
+        // ignore any default zero val code ref
+        if(data_o->byte_size == 4 && *((int*)data_o->data) == 0 && data_o->data_references == 0) {
+            data_o->ignore = true;
+        }
+
         if(!data_o->ignore) {
             write_asm_data_object(data_o, sf);
             if(i < size-1) fprintf(sf->out_file, "\t");

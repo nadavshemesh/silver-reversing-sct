@@ -1,29 +1,13 @@
 ._DATA
-VAR_0	0	
-VAR_1	0	
-VAR_2	0	
-VAR_3	0	
-VAR_4	0	
-VAR_5	0	
-VAR_6	0	
 VAR_7	{ -601, -1913, -2384 }	
-VAR_9	0	
-VAR_10	0	
-VAR_11	0	
-VAR_12	0	
-ganitos1	0	
 VAR_22	{ -526, -1913, -2420 }	
 VAR_25	-1431699410	
-wraithp	0	
-wraithp1	0	
 VAR_52	{ -509, -1913, -2592 }	
 VAR_53	{ -65, -1887, -1898 }	
 VAR_54	{ -601, -1913, -2384 }	
 VAR_55	{ -434, -1913, -2284 }	
-VAR_58	0	
 VAR_59	{ 0, 0, 0, 0 }	
 VAR_60	-1	
-VAR_80	0	
 VAR_81	{ 936, -1913, -626, 979, -1913, -842, 1238, -1913, -1038, 965, -1913, -1111, 1128, -1913, -1337, 665, -1888, -1296, 585, -1887, -224, 529, -1887, -114 }	
 VAR_82	{ 0, 1, 8, VAR_81, 8, 2, 4, 0, 9, 0, 1, 1, 68, 69, -1, 5, 1, 120, 300, 6, 1, 7, 1, 2, -1 }
 
@@ -98,9 +82,9 @@ if(var VAR_60 != var VAR_58)
 }
 if(var VAR_58 == int 0)
  {
-		call char_attack(var VAR_50, var VAR_13)
-		call char_attack(var VAR_51, var VAR_13)
-		call char_attack(var VAR_13, var VAR_51)
+		call char_attack(var wraithp, var ganitos)
+		call char_attack(var wraithp1, var ganitos)
+		call char_attack(var ganitos, var wraithp1)
 		var VAR_58 ++ 
 }
 if(var VAR_58 == int 1)
@@ -108,15 +92,15 @@ if(var VAR_58 == int 1)
 		if(call get_num_of_enemies() < int 1)
 		 {
 				call set_input_system(int 2)
-				call char_walk_to(var VAR_13, int -601, int -1913, int -2384)
+				call char_walk_to(var ganitos, int -601, int -1913, int -2384)
 				var VAR_58 ++ 
 		}
 }
 if(var VAR_58 == int 2)
  {
-		if(call is_char_standing(var VAR_13))
+		if(call is_char_standing(var ganitos))
 		 {
-				call func_100(var VAR_13)
+				call func_100(var ganitos)
 				if(call is_char_handle_in_level(int 786432))
 				 {
 						call char_walk_to(var VAR_2, int -285, int -1913, int -2443)
@@ -159,7 +143,7 @@ if(var VAR_58 == int 3)
 				if(call func_8b())
 				 {
 						call log("david has hit path target")
-						call char_turn_to_pos(var VAR_13, var &VAR_55)
+						call char_turn_to_pos(var ganitos, var &VAR_55)
 						var VAR_58 ++ 
 				}
 		}
@@ -172,7 +156,7 @@ if(var VAR_58 == int 4)
 				var VAR_10 = call get_char_handle_id(var VAR_9)
 				if(var VAR_10 == int 65536)
 				 {
-						call char_turn_to_pos(var VAR_13, var VAR_0)
+						call char_turn_to_pos(var ganitos, var VAR_0)
 						var VAR_9 = call func_7e()
 						var VAR_10 = call get_char_handle_id(var VAR_9)
 				}
@@ -242,8 +226,8 @@ if(var VAR_58 == int 10)
 		 {
 				call set_input_system(int 1)
 				call log("ready to run")
-				call set_char_running(var VAR_13)
-				call char_walk_to(var VAR_13, int 987, int -1913, int 1070)
+				call set_char_running(var ganitos)
+				call char_walk_to(var ganitos, int 987, int -1913, int 1070)
 				var VAR_58 ++ 
 				var VAR_59 = int 0
 		}
@@ -253,19 +237,19 @@ if(var VAR_58 == int 11)
 		var VAR_59 ++ 
 		if(var VAR_59 > int 80)
 		 {
-				call func_14(var VAR_13, int 64)
-				call char_walk_to(var VAR_13, int 450, int -1887, int -1412)
-				call func_fa(var VAR_13)
+				call func_14(var ganitos, int 64)
+				call char_walk_to(var ganitos, int 450, int -1887, int -1412)
+				call func_fa(var ganitos)
 				gamevar *scene_info_p+4 = int 2
 				var VAR_58 ++ 
 		}
 }
 if(var VAR_58 == int 12)
  {
-		if(call is_char_standing(var VAR_13))
+		if(call is_char_standing(var ganitos))
 		 {
 				var VAR_6 = int 1
-				call remove_char(var VAR_13)
+				call remove_char(var ganitos)
 				var VAR_58 ++ 
 				gamevar *scene_info_p+4 = int 2
 		}
@@ -311,7 +295,7 @@ while(var VAR_9)
 }
 var wraithp = call create_enemy(int 60, int 1, var &VAR_52, int 120)
 var wraithp1 = call create_enemy(int 60, int 2, var &VAR_53, int 295)
-var ganitos1 = call create_enemy(int 74, int 0, var &VAR_22, int 0)
+var ganitos = call create_enemy(int 74, int 0, var &VAR_22, int 0)
 call add_item_to_char(var ganitos, int 64, int 1, int 0)
 call func_10c(var ganitos, "NULL")
 call func_108("NULL")
@@ -355,9 +339,9 @@ while(var VAR_9)
 					call log("Get a goober -- QUICKLY!!")
 					break 
 		}
-		var ganitos1 = call create_enemy(int 74, int 0, var &VAR_22, int 0)
-		call add_item_to_char(var ganitos1, int 64, int 1, int 0)
-		call func_10c(var ganitos1, "NULL")
+		var ganitos = call create_enemy(int 74, int 0, var &VAR_22, int 0)
+		call add_item_to_char(var ganitos, int 64, int 1, int 0)
+		call func_10c(var ganitos, "NULL")
 		call func_108("NULL")
 		var VAR_9 = call func_7e()
 }
@@ -371,7 +355,7 @@ if(var VAR_11 == int 1)
 						var VAR_10 = call get_char_handle_id(var VAR_9)
 						if(var VAR_10 == int 65536)
 						 {
-								call char_turn_to_pos(var ganitos1, var VAR_0)
+								call char_turn_to_pos(var ganitos, var VAR_0)
 								call log(var &VAR_25)
 								var VAR_9 = call func_7e()
 						}
@@ -417,8 +401,8 @@ if(var VAR_11 == int 10)
 		if(call get_input_sys() != int 4)
 		 {
 				call log("ready to run")
-				call set_char_running(var ganitos1)
-				call char_walk_to(var ganitos1, int 987, int -1913, int 1070)
+				call set_char_running(var ganitos)
+				call char_walk_to(var ganitos, int 987, int -1913, int 1070)
 				var VAR_11 ++ 
 				var VAR_12 = int 0
 		}
@@ -428,18 +412,18 @@ if(var VAR_11 == int 11)
 		var VAR_12 ++ 
 		if(var VAR_12 > int 80)
 		 {
-				call func_14(var ganitos1, int 64)
-				call char_walk_to(var ganitos1, int 450, int -1887, int -1412)
-				call func_fa(var ganitos1)
+				call func_14(var ganitos, int 64)
+				call char_walk_to(var ganitos, int 450, int -1887, int -1412)
+				call func_fa(var ganitos)
 				var VAR_11 ++ 
 		}
 }
 if(var VAR_11 == int 12)
  {
-		if(call is_char_standing(var ganitos1))
+		if(call is_char_standing(var ganitos))
 		 {
 				var VAR_6 = int 1
-				call remove_char(var ganitos1)
+				call remove_char(var ganitos)
 				var VAR_11 ++ 
 		}
 }

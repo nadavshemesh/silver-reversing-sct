@@ -67,7 +67,7 @@ void print_script(script* script);
 void print_data_section(sct_f* sf);
 data_obj* inefficient_search_data_id(int id, sct_f* sf);
 data_obj* get_data_obj_by_id(int id, sct_f* sf);
-data_obj* get_data_obj_by_name(char* name, sct_f* sf);
+data_obj* get_data_obj_by_name(char* name, bool silent_err, sct_f* sf);
 void print_bin_link_table(sct_f* sf);
 int get_script_num_by_offset(int offset, sct_f* sf);
 

@@ -1,20 +1,7 @@
 ._DATA
-VAR_0	0	
-fade_chronicler	0	
-VAR_2	0	
-VAR_3	0	
-VAR_4	0	
-VAR_17	0	
 VAR_18	{ 0, 0, -1 }	
-VAR_19	0	
-VAR_20	0	
-VAR_21	0	
-VAR_22	0	
 VAR_23	-1	
-VAR_26	0	
 VAR_39	{ -8789, -154, 2124 }	
-VAR_40	0	
-VAR_41	0	
 VAR_42	{ -10719, 1999, 3414 }	
 VAR_43	{ -10292, 1999, 1446 }	
 VAR_44	{ -9788, 1999, 2779 }	
@@ -28,15 +15,9 @@ VAR_51	{ -11615, 1999, -232 }
 VAR_52	{ -11003, 1999, 2141 }	
 VAR_53	{ -10143, 1999, 3593 }	
 VAR_54	{ VAR_42, VAR_43, VAR_44, VAR_45, VAR_46, VAR_47, VAR_48, VAR_49, VAR_50, VAR_51, VAR_52, VAR_53 }	
-VAR_56	0	
-VAR_57	0	
 VAR_58	{ 0, 0 }	
 VAR_64	{ 0, 0, 2, -1, 8, 1, 4, 0, 9, 0, 1, 1, 51, 51, -1, 5, 1, 50, 100, 6, 3, 7, 1, 1, 10, 42, -1, -1 }	
 VAR_65	{ 0, 0, 1, 3, -1, 8, 1, 4, 0, 9, 0, 1, 1, 64, 64, -1, 5, 1, 50, 100, 6, 1, 7, 1, 3, -1 }	
-VAR_66	0	
-VAR_67	0	
-VAR_68	0	
-VAR_69	0	
 VAR_70	{ -10444, -351, 2068, -10444, -351, 1373, -8870, -154, 3715, -8870, -154, 3185 }	
 VAR_71	{ -12660, 83, 707 }	
 VAR_72	{ -12923, 83, 1020 }	
@@ -44,22 +25,11 @@ VAR_73	{ -12585, 83, 1216 }
 VAR_74	{ -10079, -351, 1431 }	
 VAR_75	{ -9914, -351, 2318 }	
 VAR_76	{ -10032, -351, 1850 }	
-VAR_77	0	
-VAR_78	0	
-VAR_79	0	
-VAR_80	0	
 VAR_81	100	
 VAR_82	{ -8891, -154, 2757, 0 }	
-VAR_85	0	
 VAR_89	{ 0, 0, 3, -1, 8, 1, 12, 64, 64, 64, -1, 13, 0, 14, 0, 1, 3, 5, 0, 60, 18, 50, 11, -1 }	
 VAR_90	{ 0, 0, 2, -1, 8, 1, 12, 51, 51, 148, -1, 13, 0, 14, 0, 1, 3, 5, 0, 60, 18, 55, 11, -1 }	
-VAR_91	0	
-VAR_92	0	
-VAR_93	0	
-VAR_94	0	
 VAR_95	{ 1852141679, 1663067237, 1953719656, -1431655936, 0 }	
-VAR_96	0	
-VAR_97	0
 
 ._on_load
 call func_58(int 1)
@@ -314,11 +284,11 @@ call set_input_system(int 2)
 gamevar SMACKER_X = int 296
 gamevar SMACKER_Y = int 100
 call play_2d_anim("opendoor", int 0, int 0, var &VAR_57)
-var VAR_40 = call create_char(var &VAR_39, "btreasure", int 35, int 14)
+var btreasure = call create_char(var &VAR_39, "btreasure", int 35, int 14)
 gamevar *object_p+6 |= int 4096
 gamevar character_misc_p = int 64
-call add_item_to_char(var VAR_40, int 80, int 1, int 0)
-call add_item_to_char(var VAR_40, int 85, int 3277313, int 0)
+call add_item_to_char(var btreasure, int 80, int 1, int 0)
+call add_item_to_char(var btreasure, int 85, int 3277313, int 0)
 call load_char("fishman")
 call load_char("lobster")
 call load_char("chronicl")
@@ -337,11 +307,11 @@ call run_wandering_generator(var &VAR_89, int 100)
 ._SCRIPT_9
 if(call is_char_handle_in_level(int 1507328))
  {
-		var VAR_40 = call get_char_handle(int 1507328)
+		var btreasure = call get_char_handle(int 1507328)
 }
-if(var VAR_40)
+if(var btreasure)
  {
-		gamevar script_object = var VAR_40
+		gamevar script_object = var btreasure
 		if(gamevar *object_p+5 == int 15)
 		 {
 				var VAR_91 = int 1
@@ -353,7 +323,7 @@ if(var VAR_91)
  {
 		exit_script 
 }
-if(var ! VAR_40)
+if(var ! btreasure)
  {
 		exit_script 
 }

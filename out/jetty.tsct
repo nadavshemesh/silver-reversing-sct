@@ -2,11 +2,9 @@
 VAR_1	{ 350, -1503, 4055 }	
 VAR_4	{ 0, 9, 0, 0 }	
 VAR_5	{ -1154, -1702, 4368 }	
-VAR_6	0	
+btreasure	0	
 deathip	0	
-skel	0	
 skel1	0	
-skel2	0	
 skel3	0	
 VAR_13	{ -2705, -1550, 2240 }	
 VAR_14	{ -2879, -1550, 2708 }	
@@ -73,13 +71,13 @@ switch(gamevar room_state)
 ._SCRIPT_3
 
 ._SCRIPT_4
-var VAR_6 = call create_char(var &VAR_5, "btreasure", int 140, int 14)
-call add_item_to_char(var VAR_6, int 42, int 1, int 0)
-call add_item_to_char(var VAR_6, int 47, int 1, int 0)
-call add_item_to_char(var VAR_6, int 46, int 1, int 0)
-call add_item_to_char(var VAR_6, int 46, int 1, int 0)
-call add_item_to_char(var VAR_6, int 85, int 3277313, int 0)
-call add_item_to_char(var VAR_6, int 22, int 1, int 0)
+var btreasure = call create_char(var &VAR_5, "btreasure", int 140, int 14)
+call add_item_to_char(var btreasure, int 42, int 1, int 0)
+call add_item_to_char(var btreasure, int 47, int 1, int 0)
+call add_item_to_char(var btreasure, int 46, int 1, int 0)
+call add_item_to_char(var btreasure, int 46, int 1, int 0)
+call add_item_to_char(var btreasure, int 85, int 3277313, int 0)
+call add_item_to_char(var btreasure, int 22, int 1, int 0)
 var deathip = call create_enemy(int 59, int 0, var &VAR_13, int 295)
 var skel = call create_enemy(int 58, int 1, var &VAR_14, int 305)
 var skel1 = call create_enemy(int 58, int 2, var &VAR_15, int 310)

@@ -1,26 +1,11 @@
 ._DATA
-VAR_0	0	
-VAR_1	0	
-VAR_3	0	
 VAR_4	{ -367, -928, -8434 }	
-VAR_7	0	
-catapult_imp1	0	
-catapult_imp	0	
-VAR_10	0	
-VAR_11	0	
 VAR_12	{ 0, -1748, 658, -5432 }	
-VAR_13	0	
 VAR_14	{ -3170, -123, -6143 }	
 VAR_15	{ -3170, -123, -6443 }	
 VAR_16	{ -3170, -123, -6443 }	
 VAR_17	{ -830, -997, -6080 }	
 VAR_18	{ -727, -998, -6766, 163, -998, -6808, 205, -998, -8088, -695, -998, -7987, -801, -998, -8706, -2074, -998, -7951, -2248, -998, -6704 }	
-neutral_imp	0	
-neutral_imp1	0	
-cowardly_imp	0	
-cowardly_imp1	0	
-devious_imp	0	
-devious_imp1	0	
 VAR_25	{ -1715, -997, -7984 }	
 VAR_26	{ -795, -997, -7280 }	
 VAR_27	{ 282, -997, -6975 }	
@@ -40,19 +25,8 @@ VAR_40	{ 15, 17, 14, VAR_31, 0, 3, VAR_41, 0, 7, 8 }
 VAR_41	"impjump"	
 VAR_42	{ 15, 17, 14, VAR_31, 0, 3, VAR_43, 0, 7, 8 }	
 VAR_43	"impjump"	
-VAR_46	0	
 VAR_47	{ -1939, -998, -6708, 0 }	
-VAR_48	0	
-VAR_49	0	
-VAR_50	0	
-VAR_51	0	
-VAR_52	0	
-VAR_53	0	
 VAR_54	{ -238, -870, -8458 }	
-VAR_56	0	
-VAR_57	0	
-VAR_58	0	
-VAR_59	0
 
 ._on_load
 call play_bgm("GNO")
@@ -147,13 +121,13 @@ var catapult_imp = call create_enemy(int 104, int 8, var &VAR_14, int 90)
 call add_item_to_char(var catapult_imp, int 8, int 1, int 0)
 var catapult_imp1 = call create_enemy(int 104, int 9, var &VAR_15, int 0)
 call func_10f(var catapult_imp1, int 2)
-var VAR_7 = call create_char(var &VAR_17, "nyelimp", int 150, int 13)
-gamevar script_object = var VAR_7
+var nyelimp = call create_char(var &VAR_17, "nyelimp", int 150, int 13)
+gamevar script_object = var nyelimp
 gamevar *character_movement_p+60 = int 1
 gamevar *character_movement_p+53 = int 0
 gamevar *character_stats_p+14 = int 106000
 call set_input_system(int 2)
-var VAR_0 = call get_char_handle(int 65536)
+var DAVID = call get_char_handle(int 65536)
 call freeze_enemy(var catapult_imp)
 call freeze_enemy(var catapult_imp1)
 var neutral_imp = call create_enemy(int 102, int 1, var &VAR_25, int 0)
@@ -187,7 +161,7 @@ switch(var VAR_11)
 		case 0
 			if(gamevar scene_counter > int 150)
 			 {
-					call func_100(call get_char_movement_ptr(var VAR_7))
+					call func_100(call get_char_movement_ptr(var nyelimp))
 					var VAR_11 ++ 
 					gamevar scene_counter = int 0
 			}
@@ -195,7 +169,7 @@ switch(var VAR_11)
 		case 1
 			if(gamevar scene_counter > int 240)
 			 {
-					call func_100(call get_char_movement_ptr(var VAR_3))
+					call func_100(call get_char_movement_ptr(var nimpnerd))
 					var VAR_11 ++ 
 					gamevar scene_counter = int 0
 					call set_input_system(int 1)
@@ -221,22 +195,22 @@ switch(var VAR_49)
 		case 0
 			var VAR_49 ++ 
 			var VAR_50 = int 0
-			var VAR_51 = call func_41(var VAR_7, int 0)
+			var VAR_51 = call func_41(var nyelimp, int 0)
 			break 
 		case 1
 			if(var VAR_50 > int 20)
 			 {
-					call set_char_running(var VAR_7)
-					call char_walk_to(var VAR_7, int -3340, int -397, int -8485)
+					call set_char_running(var nyelimp)
+					call char_walk_to(var nyelimp, int -3340, int -397, int -8485)
 					var VAR_50 = int 0
 					var VAR_49 ++ 
 			}
 			break 
 		case 2
-			if(call is_char_standing(var VAR_7))
+			if(call is_char_standing(var nyelimp))
 			 {
 					call func_12f(var VAR_51)
-					call play_char_anim(var VAR_7, var VAR_10, int 0)
+					call play_char_anim(var nyelimp, var VAR_10, int 0)
 					var VAR_50 = int 0
 					var VAR_49 ++ 
 			}
@@ -244,8 +218,8 @@ switch(var VAR_49)
 		case 3
 			if(var VAR_50 > int 200)
 			 {
-					call set_char_running(var VAR_7)
-					call func_2b(var VAR_7, int 0)
+					call set_char_running(var nyelimp)
+					call func_2b(var nyelimp, int 0)
 					var VAR_50 = int 0
 					var VAR_49 ++ 
 			}
@@ -253,16 +227,16 @@ switch(var VAR_49)
 		case 4
 			if(var VAR_50 > int 30)
 			 {
-					var VAR_51 = call func_41(var VAR_7, int 0)
+					var VAR_51 = call func_41(var nyelimp, int 0)
 					var VAR_50 = int 0
 					var VAR_49 ++ 
 			}
 			break 
 		case 5
-			if(call is_char_standing(var VAR_7))
+			if(call is_char_standing(var nyelimp))
 			 {
 					call func_12f(var VAR_51)
-					call remove_char(var VAR_7)
+					call remove_char(var nyelimp)
 					if(call is_char_handle_in_level(int 917505))
 					 {
 							call set_char_template(var neutral_imp, int 102)
@@ -313,7 +287,7 @@ switch(var VAR_46)
 					}
 					if(var VAR_12 < int 2)
 					 {
-							call func_1c(var catapult_imp1, var VAR_3)
+							call func_1c(var catapult_imp1, var nimpnerd)
 							var VAR_12 ++ 
 							gamevar scene_counter = int 0
 							var VAR_13 = int 240
@@ -342,7 +316,7 @@ switch(var VAR_46)
 }
 
 ._SCRIPT_9
-gamevar script_object = var VAR_0
+gamevar script_object = var DAVID
 if(gamevar *object_p+5 == int 6&&var ! VAR_48)
  {
 		call func_29(var catapult_imp1)
@@ -353,7 +327,7 @@ if(gamevar *object_p+5 == int 6&&var ! VAR_48)
 switch(var VAR_52)
  {
 		case 0
-			if(call func_127(var VAR_3))
+			if(call func_127(var nimpnerd))
 			 {
 					var VAR_52 ++ 
 					var VAR_53 = int 0
@@ -362,9 +336,9 @@ switch(var VAR_52)
 			 {
 					if(call is_char_handle_in_level(int 393216))
 					 {
-							if(call func_127(var VAR_1))
+							if(call func_127(var GRANDAD))
 							 {
-									call char_turn_to_pos(var VAR_3, call get_char_pos(var VAR_1))
+									call char_turn_to_pos(var nimpnerd, call get_char_pos(var GRANDAD))
 									var VAR_52 ++ 
 									var VAR_53 = int 0
 							}
@@ -374,7 +348,7 @@ switch(var VAR_52)
 		case 1
 			if(call get_input_sys() != int 4)
 			 {
-					call char_turn_to_pos(var VAR_3, var &VAR_54)
+					call char_turn_to_pos(var nimpnerd, var &VAR_54)
 					var VAR_52 ++ 
 					var VAR_53 = int 0
 			}
@@ -394,14 +368,14 @@ var VAR_53 ++
 ._SCRIPT_12
 
 ._SCRIPT_13
-var VAR_3 = call create_char(var &VAR_4, "nimpnerd", int 90, int 13)
-gamevar script_object = var VAR_3
+var nimpnerd = call create_char(var &VAR_4, "nimpnerd", int 90, int 13)
+gamevar script_object = var nimpnerd
 gamevar *object_p+6 |= int 67108864
 if(call is_char_handle_in_level(int 393216))
  {
-		var VAR_1 = call get_char_handle(int 393216)
+		var GRANDAD = call get_char_handle(int 393216)
 }
 if(gamevar room_state == int 2)
  {
-		call func_10c(var VAR_3, "DOGSEYES")
+		call func_10c(var nimpnerd, "DOGSEYES")
 }

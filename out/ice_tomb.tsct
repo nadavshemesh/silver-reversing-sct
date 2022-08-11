@@ -1,71 +1,38 @@
 ._DATA
-VAR_0	0	
-fade_chronicler	0	
-VAR_2	0	
-VAR_3	0	
-VAR_4	0	
 VAR_8	{ 1280070990, 0 }	
 VAR_10	{ 1280070990, 0 }	
 VAR_12	{ 1280070990, 0 }	
 VAR_14	{ 1280070990, 0 }	
 VAR_16	{ 1280070990, 0 }	
-VAR_17	0	
 VAR_18	{ 0, 0, -1 }	
-VAR_19	0	
-VAR_20	0	
-VAR_21	0	
-VAR_22	0	
 VAR_23	-1	
-VAR_26	0	
 VAR_28	{ 1280070990, 0 }	
 VAR_30	{ 1280070990, 0 }	
 VAR_32	{ 1280070990, 0 }	
 VAR_34	{ 1280070990, 0 }	
 VAR_36	{ 1280070990, 0 }	
 VAR_38	{ 1280070990, 0 }	
-VAR_39	0	
-VAR_40	0	
-VAR_41	0	
 VAR_43	{ 1633902440, 1886679149, 0 }	
 VAR_45	{ 1633902440, 1886679149, 0 }	
 VAR_47	{ 1633902440, 1886679149, 0 }	
-VAR_51	0	
 VAR_52	{ 2690, 450, -7986 }	
 VAR_53	{ 2799, 450, -7986 }	
 VAR_54	{ 2981, 460, -7986 }	
 VAR_55	{ 3122, 430, -7986 }	
-VAR_56	0	
-VAR_57	0	
-VAR_58	0	
-VAR_59	0	
 VAR_60	{ 1112362836, 0 }	
 VAR_62	{ 1112362836, 0 }	
 VAR_64	{ 2955, 470, -8031 }	
 VAR_65	{ 2944, 470, -7611 }	
 VAR_66	{ 2944, 0, -7611 }	
-VAR_67	0	
-VAR_68	0	
-VAR_69	0	
 VAR_71	{ 1869768803, 1818454382, 0 }	
-VAR_73	0	
-VAR_74	0	
 VAR_75	{ 0, 0 }	
-VAR_76	0	
-VAR_77	0	
 VAR_78	{ 2625, 0, -7602 }	
-VAR_79	0	
 VAR_80	{ 3313, 0, -7552 }	
 VAR_81	{ 2437, 0, -7963 }	
 VAR_82	{ VAR_80, VAR_81 }	
-VAR_83	0	
-VAR_84	0	
-VAR_85	0	
 VAR_86	{ 2593, 0, -7551 }	
 VAR_87	{ 3025, 0, -6837 }	
 VAR_88	{ 3050, 0, -7621, 2917, 0, -7391 }	
-VAR_89	0	
-VAR_90	0	
-VAR_91	0	
 VAR_92	-1	
 VAR_94	{ 1920233061, 1701015137, 0 }	
 VAR_97	{ 1163091795, 1112690507, 0 }	
@@ -81,9 +48,7 @@ VAR_111	{ 1447321420, 1112690500, 0 }
 VAR_112	{ 1280070990, 0 }	
 VAR_117	{ 1447321427, 1230263108, 0 }	
 VAR_118	{ 1280070990, 0 }	
-VAR_119	0	
 VAR_121	{ 1869768803, 1818454382, 0 }	
-VAR_123	0
 
 ._on_load
 execute SCRIPT_14
@@ -403,10 +368,10 @@ switch(var VAR_73)
 					if(var ! VAR_91)
 					 {
 							gamevar compile_init_character = int 0
-							var VAR_89 = call create_char(var &VAR_87, "nstipe", int 140, int 13)
+							var nstipe = call create_char(var &VAR_87, "nstipe", int 140, int 13)
 							gamevar compile_init_character = int 1
-							call set_char_running(var VAR_89)
-							call char_walk_to_pos(var VAR_89, var &VAR_88)
+							call set_char_running(var nstipe)
+							call char_walk_to_pos(var nstipe, var &VAR_88)
 							call func_7(int 808, int 1, int 0, int 0)
 							var VAR_73 ++ 
 							var VAR_74 = int 0
@@ -420,11 +385,11 @@ switch(var VAR_73)
 			}
 			break 
 		case 8
-			if(call is_char_standing(var VAR_89))
+			if(call is_char_standing(var nstipe))
 			 {
-					var VAR_90 = call get_char_handle(int 65536)
-					call char_turn_to_pos(var VAR_89, call get_char_pos(var VAR_90))
-					call char_turn_to_pos(var VAR_90, call get_char_pos(var VAR_89))
+					var DAVID = call get_char_handle(int 65536)
+					call char_turn_to_pos(var nstipe, call get_char_pos(var DAVID))
+					call char_turn_to_pos(var DAVID, call get_char_pos(var nstipe))
 					var VAR_73 ++ 
 					var VAR_74 = int 0
 			}
@@ -440,17 +405,17 @@ switch(var VAR_73)
 		case 10
 			if(call get_input_sys() != int 4)
 			 {
-					call set_char_running(var VAR_89)
-					call char_walk_to_pos(var VAR_89, var &VAR_87)
+					call set_char_running(var nstipe)
+					call char_walk_to_pos(var nstipe, var &VAR_87)
 					var VAR_73 ++ 
 					var VAR_74 = int 0
 			}
 			break 
 		case 11
-			if(call is_char_standing(var VAR_89))
+			if(call is_char_standing(var nstipe))
 			 {
 					call set_input_system(int 1)
-					call remove_char(var VAR_89)
+					call remove_char(var nstipe)
 					var VAR_73 ++ 
 					var VAR_74 = int 0
 			}

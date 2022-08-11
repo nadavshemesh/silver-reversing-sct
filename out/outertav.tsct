@@ -1,47 +1,13 @@
 ._DATA
-VAR_0	0	
-VAR_1	0	
-VAR_2	0	
-VAR_3	0	
-VAR_4	0	
-VAR_5	0	
-VAR_6	0	
-VAR_7	0	
-VAR_8	0	
-VAR_9	0	
-VAR_10	0	
-VAR_11	0	
-pirate_captain	0	
 VAR_13	{ -401, -1417, -397 }	
 dick	0	
 VAR_15	{ -647, -1417, -281 }	
 VAR_16	{ 9, dick, 7, 8 }	
 VAR_17	{ 7, 8 }	
 VAR_18	{ 0, 0, 0, -1, 1, 2, 30, 32, -1, 7, 1, 3, 5, 1, 100, 150, 8, 1, 4, 0, 9, 1, 10, 42, 43, -1, -1 }	
-VAR_19	0	
-VAR_20	0	
-VAR_21	0	
-VAR_22	0	
-VAR_23	0	
-VAR_24	0	
-VAR_25	0	
-VAR_26	0	
-VAR_28	0	
-VAR_29	0	
-VAR_30	0	
-VAR_31	0	
-VAR_32	0	
-VAR_33	0	
-VAR_34	0	
-VAR_35	0	
 VAR_36	{ 0, 0 }	
 VAR_39	{ -1700, 1000, 550 }	
 VAR_40	{ 2650, 1000, -1150 }	
-dick1	0	
-finnegan	0	
-VAR_50	0	
-VAR_51	0	
-VAR_52	0	
 VAR_53	{ -1234, -1417, 717 }	
 VAR_54	{ -1196, -1417, 454 }	
 VAR_55	{ -652, -1417, -241 }	
@@ -116,27 +82,27 @@ call func_f(var pirate_captain, int 131072)
 call func_f(var dick, int 131072)
 if(call is_char_handle_in_level(int 65536))
  {
-		var VAR_5 = call get_char_handle(int 65536)
+		var DAVID = call get_char_handle(int 65536)
 }
 else
  {
-		var VAR_5 = int 0
+		var DAVID = int 0
 }
 if(call is_char_handle_in_level(int 786432))
  {
-		var VAR_6 = call get_char_handle(int 786432)
+		var SEKUNE = call get_char_handle(int 786432)
 }
 else
  {
-		var VAR_6 = int 0
+		var SEKUNE = int 0
 }
 if(call is_char_handle_in_level(int 196608))
  {
-		var VAR_7 = call get_char_handle(int 196608)
+		var VIVIENNE = call get_char_handle(int 196608)
 }
 else
  {
-		var VAR_7 = int 0
+		var VIVIENNE = int 0
 }
 var VAR_2 = int 0
 var VAR_0 = int 0
@@ -170,17 +136,17 @@ switch(var VAR_0)
 			break 
 		case 1
 			var VAR_11 = int 0
-			if(var VAR_5)
+			if(var DAVID)
 			 {
-					var VAR_11 = call is_char_at_pos(var VAR_5, var &VAR_13, int 400)
+					var VAR_11 = call is_char_at_pos(var DAVID, var &VAR_13, int 400)
 			}
-			if(var VAR_6&&var ! VAR_11)
+			if(var SEKUNE&&var ! VAR_11)
 			 {
-					var VAR_11 = call is_char_at_pos(var VAR_6, var &VAR_13, int 400)
+					var VAR_11 = call is_char_at_pos(var SEKUNE, var &VAR_13, int 400)
 			}
-			if(var VAR_7&&var ! VAR_11)
+			if(var VIVIENNE&&var ! VAR_11)
 			 {
-					var VAR_11 = call is_char_at_pos(var VAR_7, var &VAR_13, int 400)
+					var VAR_11 = call is_char_at_pos(var VIVIENNE, var &VAR_13, int 400)
 			}
 			if(var VAR_11)
 			 {
@@ -192,17 +158,17 @@ switch(var VAR_0)
 					 {
 							var dick = int 0
 					}
-					if(var VAR_5)
+					if(var DAVID)
 					 {
-							call char_stop(var VAR_5)
+							call char_stop(var DAVID)
 					}
-					if(var VAR_6)
+					if(var SEKUNE)
 					 {
-							call char_stop(var VAR_6)
+							call char_stop(var SEKUNE)
 					}
-					if(var VAR_7)
+					if(var VIVIENNE)
 					 {
-							call char_stop(var VAR_7)
+							call char_stop(var VIVIENNE)
 					}
 					var VAR_8 = call get_selected_hero()
 					if(var pirate_captain)
@@ -356,12 +322,12 @@ switch(var VAR_3)
 			}
 			break 
 		case 2
-			var VAR_50 = call create_enemy_through_door(int 28, int 0, int 0, int 0)
-			var VAR_51 = call create_enemy_through_door(int 30, int 0, int 0, int 0)
-			call func_46(var VAR_50, int 0)
-			call func_46(var VAR_51, int 0)
-			call char_walk_to_pos(var VAR_50, var &VAR_55)
-			call char_walk_to_pos(var VAR_51, var &VAR_56)
+			var longjohn = call create_enemy_through_door(int 28, int 0, int 0, int 0)
+			var muscles = call create_enemy_through_door(int 30, int 0, int 0, int 0)
+			call func_46(var longjohn, int 0)
+			call func_46(var muscles, int 0)
+			call char_walk_to_pos(var longjohn, var &VAR_55)
+			call char_walk_to_pos(var muscles, var &VAR_56)
 			var VAR_4 = int 60
 			var VAR_3 ++ 
 			break 
@@ -371,20 +337,20 @@ switch(var VAR_3)
 			var VAR_3 ++ 
 			break 
 		case 4
-			call func_17(var VAR_9, var VAR_51)
+			call func_17(var VAR_9, var muscles)
 			var VAR_4 = int 60
 			var VAR_3 ++ 
 			break 
 		case 5
-			call set_char_init_state(var VAR_51, int 0)
-			call set_char_running(var VAR_51)
-			call func_19(var VAR_51, var VAR_8)
+			call set_char_init_state(var muscles, int 0)
+			call set_char_running(var muscles)
+			call func_19(var muscles, var VAR_8)
 			call set_input_system(int 1)
 			var VAR_4 = int 60
 			var VAR_3 ++ 
 			break 
 		case 6
-			call set_char_init_state(var VAR_50, int 0)
+			call set_char_init_state(var longjohn, int 0)
 			call set_char_init_state(var dick1, int 0)
 			call set_char_init_state(var finnegan, int 0)
 			var VAR_3 ++ 
@@ -397,15 +363,15 @@ switch(var VAR_3)
 		case 8
 			if(call ! is_char_handle_in_level(int 6160384))
 			 {
-					var VAR_50 = call create_enemy_through_door(int 28, int 0, int 1, int 0)
-					call set_char_running(var VAR_50)
-					call func_19(var VAR_50, var VAR_8)
+					var longjohn = call create_enemy_through_door(int 28, int 0, int 1, int 0)
+					call set_char_running(var longjohn)
+					call func_19(var longjohn, var VAR_8)
 			}
 			if(call ! is_char_handle_in_level(int 2490368))
 			 {
-					var VAR_51 = call create_enemy_through_door(int 30, int 0, int 1, int 0)
-					call set_char_running(var VAR_51)
-					call func_19(var VAR_51, var VAR_9)
+					var muscles = call create_enemy_through_door(int 30, int 0, int 1, int 0)
+					call set_char_running(var muscles)
+					call func_19(var muscles, var VAR_9)
 			}
 			if(call ! is_char_handle_in_level(int 5767168))
 			 {
@@ -430,15 +396,15 @@ switch(var VAR_3)
 		case 10
 			if(call ! is_char_handle_in_level(int 6160384))
 			 {
-					var VAR_50 = call create_enemy_through_door(int 28, int 0, int 2, int 0)
-					call set_char_running(var VAR_50)
-					call func_19(var VAR_50, var VAR_8)
+					var longjohn = call create_enemy_through_door(int 28, int 0, int 2, int 0)
+					call set_char_running(var longjohn)
+					call func_19(var longjohn, var VAR_8)
 			}
 			if(call ! is_char_handle_in_level(int 2490368))
 			 {
-					var VAR_51 = call create_enemy_through_door(int 30, int 0, int 2, int 0)
-					call set_char_running(var VAR_51)
-					call func_19(var VAR_51, var VAR_9)
+					var muscles = call create_enemy_through_door(int 30, int 0, int 2, int 0)
+					call set_char_running(var muscles)
+					call func_19(var muscles, var VAR_9)
 			}
 			if(call ! is_char_handle_in_level(int 5767168))
 			 {

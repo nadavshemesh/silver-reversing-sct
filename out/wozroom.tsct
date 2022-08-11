@@ -1,47 +1,22 @@
 ._DATA
-VAR_2	0	
-VAR_3	0	
-VAR_6	0	
-VAR_7	0	
-VAR_8	0	
-VAR_9	0	
 VAR_10	{ 136, 2145, 293 }	
-VAR_12	0	
-VAR_13	0	
-VAR_14	0	
-VAR_15	0	
-VAR_16	0	
 VAR_17	{ 0, 0 }	
 VAR_18	{ 0, 0, 0 }	
-VAR_24	0	
 VAR_25	{ 759, -225, 2010 }	
 VAR_26	0	
 VAR_27	0	
 VAR_28	{ 15, 4, VAR_26, 37, VAR_27, 0, 697, -225, 2247, 16, VAR_26, 0, 35, 8 }	
-VAR_30	0	
-VAR_31	0	
-VAR_32	0	
-VAR_33	0	
 VAR_34	{ 77, 2264, 189 }	
 VAR_35	{ 179, 5, -67 }	
 VAR_36	{ -2, 0, -2 }	
 VAR_37	{ 3, VAR_38, 0, 8 }	
 VAR_38	"rchop"	
-VAR_52	0	
-VAR_53	0	
-VAR_54	0	
 VAR_55	{ -655, 5, 979 }	
 VAR_56	{ 506, 0, 1414, 751, 5, 965, 17, 5, 1064, 816, 5, 172, 284, 5, 444, -268, 5, 835, -684, 5, 975, -1074, 5, 397, -1009, 5, -247, -300, 5, -562, -85, 5, -726, 403, 5, -514, -201, 5, 305 }	
 VAR_57	{ 0, 1, 13, VAR_56, 8, 2, 4, 0, 9, 0, 1, 5, 194, 194, -1, 2, 2, 3, 2, 5, 1, 30, 50, 7, 1, 5, 6, 1, 10, 40, 40, 40, -1, -1 }	
 VAR_58	{ 1144897536, -1017053184, 1157316608 }	
-VAR_59	0	
-VAR_60	0	
-VAR_61	0	
 VAR_62	{ 123, 1430, -455, 474, 1505, 182, 462, 1505, 958, -362, 855, 1856, 278, 1255, 1566 }	
-VAR_63	0	
 VAR_64	-1	
-VAR_67	0	
-VAR_68	0	
 
 ._on_load
 call play_bgm("CHAINS")
@@ -194,8 +169,8 @@ switch(var VAR_30)
 								call start_dialog("CAGGUN", "NULL")
 								break 
 					}
-					call char_turn_to_pos(var VAR_32, call get_char_pos(var VAR_9))
-					call char_turn_to_pos(var VAR_9, call get_char_pos(var VAR_32))
+					call char_turn_to_pos(var VAR_32, call get_char_pos(var njeremiah))
+					call char_turn_to_pos(var njeremiah, call get_char_pos(var VAR_32))
 					var VAR_30 ++ 
 					var VAR_31 = int 0
 			}
@@ -203,15 +178,15 @@ switch(var VAR_30)
 		case 3
 			if(call get_input_sys() != int 4)
 			 {
-					call func_50(var VAR_9, int 8192)
-					call play_char_ai_script(var VAR_9, var &VAR_37)
+					call func_50(var njeremiah, int 8192)
+					call play_char_ai_script(var njeremiah, var &VAR_37)
 					call func_108("DOGSEYES")
 					var VAR_30 ++ 
 					var VAR_31 = int 0
 			}
 			break 
 		case 4
-			if(call func_5c(var VAR_9))
+			if(call func_5c(var njeremiah))
 			 {
 					var VAR_27 = call func_9a(var &VAR_34, int 56, int 0, int 0)
 					call func_9c(var VAR_27, var &VAR_36)
@@ -252,9 +227,9 @@ switch(var VAR_30)
 var VAR_31 ++ 
 
 ._SCRIPT_4
-var VAR_24 = call create_char(var &VAR_25, "nlizbosss", int 170, int 13)
-call func_50(var VAR_24, int 8192)
-call play_char_ai_script(var VAR_24, var &VAR_28)
+var nlizbosss = call create_char(var &VAR_25, "nlizbosss", int 170, int 13)
+call func_50(var nlizbosss, int 8192)
+call play_char_ai_script(var nlizbosss, var &VAR_28)
 call set_input_system(int 2)
 var VAR_12 = int 1
 
@@ -308,8 +283,8 @@ switch(var VAR_6)
 var VAR_7 ++ 
 
 ._SCRIPT_12
-var VAR_9 = call create_char(var &VAR_10, "njeremiah", int 245, int 13)
-gamevar script_object = var VAR_9
+var njeremiah = call create_char(var &VAR_10, "njeremiah", int 245, int 13)
+gamevar script_object = var njeremiah
 gamevar *object_p+6 |= int 8388608
 
 ._SCRIPT_13
@@ -329,7 +304,7 @@ switch(var VAR_13)
 			 {
 					if(gamevar control_char_p)
 					 {
-							call char_turn_to_pos(var VAR_9, call get_char_pos(gamevar control_char_p))
+							call char_turn_to_pos(var njeremiah, call get_char_pos(gamevar control_char_p))
 					}
 					var VAR_13 = int 0
 					var VAR_14 = int 0
@@ -408,10 +383,10 @@ switch(var VAR_52)
 			if(call func_ab(int 400, var &VAR_55))
 			 {
 					var VAR_59 = call run_enemy_generator(var &VAR_57, int 20)
-					var VAR_60 = call create_enemy_through_door(int 39, int 0, int 0, int 0)
-					call func_106(var VAR_60, int 9, int 5, var &VAR_62)
-					call func_106(var VAR_60, int 9, int 6, int 5)
-					gamevar script_object = var VAR_60
+					var groad = call create_enemy_through_door(int 39, int 0, int 0, int 0)
+					call func_106(var groad, int 9, int 5, var &VAR_62)
+					call func_106(var groad, int 9, int 6, int 5)
+					gamevar script_object = var groad
 					gamevar *character_stats_p+15 = int 8000
 					gamevar *character_stats_p+16 = int 8000
 					var VAR_53 = int 0
@@ -421,8 +396,8 @@ switch(var VAR_52)
 		case 4
 			if(call func_9(var VAR_59))
 			 {
-					var VAR_61 = call create_enemy_through_door(int 120, int 0, int 1, int 180)
-					call add_item_to_char(var VAR_61, int 56, int 1, int 0)
+					var lizard_boss = call create_enemy_through_door(int 120, int 0, int 1, int 180)
+					call add_item_to_char(var lizard_boss, int 56, int 1, int 0)
 					var VAR_2 = int 1
 					var VAR_53 = int 0
 					var VAR_52 ++ 
@@ -450,10 +425,10 @@ switch(var VAR_52)
 					var VAR_63 = call get_david_char()
 					while(var VAR_63)
 					 {
-							call char_turn_to_pos(var VAR_63, call get_char_pos(var VAR_9))
+							call char_turn_to_pos(var VAR_63, call get_char_pos(var njeremiah))
 							var VAR_63 = call func_7e()
 					}
-					call char_turn_to_pos(var VAR_9, call get_char_pos(gamevar control_char_p))
+					call char_turn_to_pos(var njeremiah, call get_char_pos(gamevar control_char_p))
 					call start_dialog("S_DVDGUN", "NULL")
 					var VAR_53 = int 0
 					var VAR_52 ++ 

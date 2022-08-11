@@ -13,11 +13,7 @@ VAR_10	{ VAR_1, VAR_2, VAR_3, VAR_4, VAR_5, VAR_6, VAR_7, VAR_8, VAR_9 }
 VAR_12	{ 0, 0, 0 }	
 VAR_13	{ 0, 0, 0 }	
 VAR_16	{ -1630, -478, -930 }	
-VAR_17	0	
 VAR_18	0	
-VAR_19	0	
-VAR_20	0	
-VAR_23	0	
 VAR_24	0	
 VAR_25	{ -1616, 5955, -681 }	
 VAR_26	{ -1643, 5955, -980 }	
@@ -115,9 +111,9 @@ call play_loaded_sound(int 2, int -1, int 64, int 0)
 execute SCRIPT_5
 var VAR_18 = call load_anim("liftdwna")
 var VAR_17 = call func_9d("lift", var &VAR_16, int 0, var VAR_18)
-var VAR_19 = call get_char_handle(int 65536)
-var VAR_20 = call get_char_handle(int 2031616)
-call char_unfollow(var VAR_20)
+var DAVID = call get_char_handle(int 65536)
+var TYRONIS = call get_char_handle(int 2031616)
+call char_unfollow(var TYRONIS)
 
 ._SCRIPT_7
 if(var VAR_23 == int 0)
@@ -130,7 +126,7 @@ if(var VAR_23 == int 1)
  {
 		if(call get_input_sys() != int 4)
 		 {
-				call char_walk_to_pos(var VAR_20, var &VAR_27)
+				call char_walk_to_pos(var TYRONIS, var &VAR_27)
 				var VAR_23 ++ 
 				var VAR_24 = int 0
 		}
@@ -141,15 +137,15 @@ if(var VAR_23 == int 2)
 		 {
 				call set_input_system(int 2)
 				call log("David is near lift...")
-				call char_stop(var VAR_19)
+				call char_stop(var DAVID)
 				var VAR_23 ++ 
 				var VAR_24 = int 0
 		}
 }
 if(var VAR_23 == int 3&&var VAR_24 > int 2)
  {
-		call force_scroll_to_pos(call get_char_pos(var VAR_19))
-		call char_turn_to_pos(var VAR_19, var &VAR_27)
+		call force_scroll_to_pos(call get_char_pos(var DAVID))
+		call char_turn_to_pos(var DAVID, var &VAR_27)
 		call start_dialog("TERDVD", "NULL")
 		var VAR_23 ++ 
 		var VAR_24 = int 0
@@ -158,16 +154,16 @@ if(var VAR_23 == int 4)
  {
 		if(call func_6d() == int 1)
 		 {
-				call char_walk_to_pos(var VAR_19, var &VAR_26)
+				call char_walk_to_pos(var DAVID, var &VAR_26)
 				var VAR_23 ++ 
 				var VAR_24 = int 0
 		}
 }
 if(var VAR_23 == int 5)
  {
-		if(call is_char_standing(var VAR_19))
+		if(call is_char_standing(var DAVID))
 		 {
-				call char_turn_to_pos(var VAR_19, var &VAR_25)
+				call char_turn_to_pos(var DAVID, var &VAR_25)
 				call resume_conversation()
 				var VAR_23 ++ 
 				var VAR_24 = int 0
@@ -209,7 +205,7 @@ if(var VAR_23 == int 9)
  {
 		if(var VAR_24 > int 44)
 		 {
-				call remove_char(var VAR_20)
+				call remove_char(var TYRONIS)
 				var VAR_23 ++ 
 				var VAR_24 = int 0
 		}

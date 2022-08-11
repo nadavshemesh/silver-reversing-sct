@@ -1,70 +1,30 @@
 ._DATA
-grandad1	0	
-VAR_1	0	
 VAR_2	{ 0, 1, -1 }	
 VAR_3	{ 1, -1 }	
-VAR_4	0	
 VAR_6	{ 1752588644, 1702065519, 0 }	
-VAR_7	0	
 VAR_8	{ -1053, 1435, -3599 }	
 VAR_9	{ 2106, 785, -6620 }	
-VAR_10	0	
 VAR_11	{ VAR_12, 0, 0, 5, 0, 0 }	
 VAR_12	{ 1935963251, 1819044212, 0 }	
 VAR_13	{ 829711201, 0 }	
 VAR_15	{ 2003134064, 0 }	
 VAR_17	{ 844383041, 1717920768, 1684, 785, -6150 }	
 VAR_18	{ 3046, 785, -6855 }	
-VAR_21	0	
-VAR_22	0	
-VAR_23	0	
-VAR_24	0	
-VAR_25	0	
-VAR_26	0	
-VAR_27	0	
-VAR_28	0	
-VAR_29	0	
 VAR_30	{ 2268, 785, -6754 }	
-jennifer	0	
 VAR_32	{ 1851, 785, -5094 }	
-fuge	0	
 VAR_34	{ -1573, 785, -8332 }	
-start_grunt	0	
 VAR_36	{ -1670, 785, -8265 }	
-start_grunt1	0	
 VAR_38	{ -1424, 785, -8468 }	
-start_grunt2	0	
 VAR_40	{ -1818, 785, -8502 }	
-start_grunt3	0	
 VAR_42	{ -1317, 785, -8396 }	
-VAR_52	0	
-VAR_53	0	
-VAR_54	0	
 VAR_55	5	
-VAR_56	0	
-VAR_57	0	
-VAR_58	0	
-VAR_59	0	
 VAR_148	{ 844383041, 1095062111, 1229348684, 945047623, 0 }	
 VAR_149	{ 844383041, 1095062111, 1229348684, 961824839, 0 }	
 VAR_152	{ 1819047278, 0 }	
 VAR_154	{ 1079, 785, -6381 }	
-VAR_155	0	
-VAR_156	0	
-VAR_157	0	
-VAR_158	0	
-VAR_160	0	
-VAR_161	0	
 VAR_162	10	
 VAR_163	2	
-VAR_164	0	
-VAR_165	0	
-VAR_166	0	
 VAR_167	{ -846, 1425, -7346 }	
-VAR_170	0	
-VAR_171	0	
-VAR_172	0	
-VAR_173	0	
 VAR_174	{ 1786, 785, -5861 }	
 VAR_175	{ 1079, 785, -5755 }	
 VAR_176	{ 1750, 785, -5250, 0 }	
@@ -73,9 +33,7 @@ VAR_179	{ 1785752937, 7368053, 1500, 785, -5985, 2032, 785, -5916 }
 VAR_180	{ 0, 1, 1, VAR_176, 8, 0, 12, 2, -1, 13, 0, 15, VAR_178, -1, 16, 0, 18, 100, 17, 0, 1500, 2, 680, 785, -7294, 932, 785, -7635, 3, -1, 11, -1 }	
 VAR_181	{ 1500, 785, -5985, 2032, 785, -5916, 3587, 1435, -3812, 3351, 1435, -3532, 3039, 1435, -3263 }	
 VAR_182	{ 0, 1, 5, VAR_181, 8, 2, 4, 0, 9, 1, 1, 1, 4, 4, 4, 4, 4, -1, 5, 0, 25, 6, 2, 7, 1, 2, 10, 40, 40, 40, -1, 11, -1, -2, 2, 680, 785, -7294, 932, 785, -7635, 3, -1, -1 }	
-VAR_183	0	
 VAR_184	{ 1701147252, 1953656947, 0 }	
-VAR_185	0	
 VAR_186	-1	
 VAR_187	{ 1984192339, 1801802596, 0 }	
 VAR_188	{ 1280070990, 0 }	
@@ -145,9 +103,9 @@ switch(gamevar room_state)
 switch(gamevar room_state)
  {
 		case 1
-			if(var VAR_0)
+			if(var grandad)
 			 {
-					call remove_char(var VAR_0)
+					call remove_char(var grandad)
 					if(var VAR_1)
 					 {
 							call remove_item_from_pie(var VAR_1)
@@ -158,9 +116,9 @@ switch(gamevar room_state)
 		case 2
 			if(var VAR_4 < int 10)
 			 {
-					if(var VAR_0)
+					if(var grandad)
 					 {
-							call remove_char(var VAR_0)
+							call remove_char(var grandad)
 							if(var VAR_1)
 							 {
 									call remove_item_from_pie(var VAR_1)
@@ -186,15 +144,15 @@ switch(gamevar room_state)
 ._SCRIPT_3
 call log(var &VAR_13)
 gamevar door_restriction_p = var &VAR_2
-var VAR_7 = call create_char(var &VAR_8, "HDAVID", int 75, int 13)
-var grandad1 = call create_enemy(int 98, int 0, var &VAR_9, int 125)
+var HDAVID = call create_char(var &VAR_8, "HDAVID", int 75, int 13)
+var grandad = call create_enemy(int 98, int 0, var &VAR_9, int 125)
 call func_1(var grandad, int -1)
 var VAR_1 = call create_item(int 16)
 var VAR_10 = call load_anim(var &VAR_15)
-call load_char_anim(var VAR_7, var &VAR_11)
+call load_char_anim(var HDAVID, var &VAR_11)
 call play_bgm("dfight")
-call set_char_walking(var VAR_7)
-call char_walk_to(var VAR_7, int 1799, int 785, int -6568)
+call set_char_walking(var HDAVID)
+call char_walk_to(var HDAVID, int 1799, int 785, int -6568)
 call func_10c(var grandad, var &VAR_17)
 gamevar play_sting = int 0
 call set_input_system(int 2)
@@ -234,17 +192,17 @@ if(var VAR_4 == int 4)
  {
 		if(call is_local_timer_greater_than(int 20))
 		 {
-				call set_char_running(var VAR_7)
-				call char_walk_to(var VAR_7, int 1799, int 785, int -6568)
+				call set_char_running(var HDAVID)
+				call char_walk_to(var HDAVID, int 1799, int 785, int -6568)
 				var VAR_4 = int 5
 				call reset_local_timer()
 		}
 }
 if(var VAR_4 == int 5)
  {
-		if(call is_char_standing(var VAR_7))
+		if(call is_char_standing(var HDAVID))
 		 {
-				call play_char_anim(var VAR_7, var VAR_10, int 0)
+				call play_char_anim(var HDAVID, var VAR_10, int 0)
 				var VAR_4 = int 6
 				call reset_local_timer()
 		}
@@ -253,8 +211,8 @@ if(var VAR_4 == int 6)
  {
 		if(call is_local_timer_greater_than(int 20))
 		 {
-				call func_c2(var VAR_7, int 65536)
-				call char_stop(var VAR_7)
+				call func_c2(var HDAVID, int 65536)
+				call char_stop(var HDAVID)
 				call start_dialog("s_dvdhur", "null")
 				var VAR_4 = int 7
 		}
@@ -389,7 +347,7 @@ if(var VAR_21 == int 2)
 																				var VAR_24 = gamevar time - var VAR_23
 																				if(var VAR_24 >= int 20)
 																				 {
-																						call char_turn_to_pos(var grandad, call get_char_pos(var VAR_7))
+																						call char_turn_to_pos(var grandad, call get_char_pos(var HDAVID))
 																						var VAR_22 ++ 
 																						var VAR_23 = gamevar time
 																				}
@@ -410,9 +368,9 @@ if(var VAR_21 == int 2)
 ._SCRIPT_6
 call log("act2")
 gamevar door_restriction_p = var &VAR_2
-var VAR_7 = call get_char_handle(int 65536)
-var grandad1 = call create_enemy(int 98, int 0, var &VAR_30, int 300)
-call func_1(var grandad1, int -1)
+var HDAVID = call get_char_handle(int 65536)
+var grandad = call create_enemy(int 98, int 0, var &VAR_30, int 300)
+call func_1(var grandad, int -1)
 var VAR_1 = call create_item(int 16)
 var jennifer = call create_enemy(int 96, int 0, var &VAR_32, int 33)
 gamevar script_object = var jennifer
@@ -421,7 +379,7 @@ gamevar script_object = var jennifer
 gamevar *character_movement_p+60 = int 1
 call load_char("fuge")
 call load_char("sgrunt")
-call func_10c(var grandad1, "ACT2")
+call func_10c(var grandad, "ACT2")
 var VAR_25 = call load_anim("tyrosumn")
 var VAR_26 = call load_anim("jendown")
 var VAR_27 = call load_anim("jenwash")
@@ -452,10 +410,10 @@ if(var VAR_4 == int 2)
  {
 		if(call is_local_timer_greater_than(int 20))
 		 {
-				call char_turn_to_pos(var VAR_7, call get_char_pos(var grandad1))
+				call char_turn_to_pos(var HDAVID, call get_char_pos(var grandad))
 				if(call create_item(int 16))
 				 {
-						if(call get_char_item_if_equiped(var VAR_7, int 16))
+						if(call get_char_item_if_equiped(var HDAVID, int 16))
 						 {
 								var VAR_23 = gamevar time
 								var VAR_22 = int 0
@@ -463,14 +421,14 @@ if(var VAR_4 == int 2)
 						}
 						else
 						 {
-								call char_stop(var VAR_7)
+								call char_stop(var HDAVID)
 								call start_dialog("S_DvdSwo", "null")
 								var VAR_4 = int 3
 						}
 				}
 				else
 				 {
-						call char_stop(var VAR_7)
+						call char_stop(var HDAVID)
 						call start_dialog("S_DvdSwo", "null")
 						var VAR_4 = int 3
 				}
@@ -493,7 +451,7 @@ if(var VAR_4 == int 5)
  {
 		if(call create_item(int 16))
 		 {
-				if(call get_char_item_if_equiped(var VAR_7, int 16))
+				if(call get_char_item_if_equiped(var HDAVID, int 16))
 				 {
 						if(call get_input_sys() != int 4)
 						 {
@@ -510,7 +468,7 @@ if(var VAR_4 == int 5)
 		 {
 				if(var VAR_24 >= int 20)
 				 {
-						call char_stop(var VAR_7)
+						call char_stop(var HDAVID)
 						call start_dialog("Grachase", "null")
 						var VAR_22 ++ 
 				}
@@ -519,14 +477,14 @@ if(var VAR_4 == int 5)
 		 {
 				if(call get_input_sys() != int 4)
 				 {
-						call char_walk_to(var grandad1, int 2268, int 785, int -6754)
+						call char_walk_to(var grandad, int 2268, int 785, int -6754)
 						var VAR_22 ++ 
 						var VAR_23 = gamevar time
 				}
 		}
 		if(var VAR_22 == int 11)
 		 {
-				if(call is_char_standing(var grandad1))
+				if(call is_char_standing(var grandad))
 				 {
 						var VAR_4 = int 3
 						var VAR_22 ++ 
@@ -537,8 +495,8 @@ if(var VAR_4 == int 5)
 }
 if(var VAR_4 == int 4)
  {
-		call char_walk_to(var VAR_7, int 1891, int 785, int -6421)
-		call char_walk_to(var grandad1, int 2443, int 785, int -6934)
+		call char_walk_to(var HDAVID, int 1891, int 785, int -6421)
+		call char_walk_to(var grandad, int 2443, int 785, int -6934)
 		call set_input_system(int 2)
 		gamevar *scene_info_p+5 = int 16
 		call func_116("VERDANTE", "DAVINNER", int 3)
@@ -550,7 +508,7 @@ if(var VAR_4 == int 6)
  {
 		if(call is_not_force_scrolling())
 		 {
-				call char_turn_to_pos(var grandad1, call get_char_pos(var VAR_7))
+				call char_turn_to_pos(var grandad, call get_char_pos(var HDAVID))
 				call start_dialog("S_Dvdlea", "null")
 				var VAR_4 = int 8
 		}
@@ -560,16 +518,16 @@ if(var VAR_4 == int 8)
 		if(call get_input_sys() != int 4)
 		 {
 				call set_input_system(int 2)
-				call set_char_running(var VAR_7)
-				call char_walk_to(var VAR_7, int 1891, int 785, int -6421)
+				call set_char_running(var HDAVID)
+				call char_walk_to(var HDAVID, int 1891, int 785, int -6421)
 				var VAR_4 = int 7
 		}
 }
 if(var VAR_4 == int 7)
  {
-		if(call is_char_standing(var VAR_7))
+		if(call is_char_standing(var HDAVID))
 		 {
-				call set_char_walking(var VAR_7)
+				call set_char_walking(var HDAVID)
 				if(var VAR_58)
 				 {
 						var VAR_4 = var VAR_55
@@ -585,11 +543,11 @@ if(var VAR_4 == int 7)
 }
 if(var VAR_4 == int 20)
  {
-		if(call is_char_standing(var grandad1))
+		if(call is_char_standing(var grandad))
 		 {
-				if(call is_char_standing(var VAR_7))
+				if(call is_char_standing(var HDAVID))
 				 {
-						call char_turn_to_pos(var grandad1, call get_char_pos(var VAR_7))
+						call char_turn_to_pos(var grandad, call get_char_pos(var HDAVID))
 						call reset_local_timer()
 						var VAR_4 = int 21
 				}
@@ -607,16 +565,16 @@ if(var VAR_4 == int 22)
  {
 		if(call get_input_sys() != int 4)
 		 {
-				call char_walk_to(var grandad1, int 2443, int 785, int -6934)
+				call char_walk_to(var grandad, int 2443, int 785, int -6934)
 				call set_input_system(int 2)
 				var VAR_4 = int 23
 		}
 }
 if(var VAR_4 == int 23)
  {
-		if(call is_char_standing(var grandad1))
+		if(call is_char_standing(var grandad))
 		 {
-				call char_turn_to_pos(var grandad1, call get_char_pos(var VAR_7))
+				call char_turn_to_pos(var grandad, call get_char_pos(var HDAVID))
 				call reset_local_timer()
 				var VAR_4 = int 24
 		}
@@ -625,7 +583,7 @@ if(var VAR_4 == int 24)
  {
 		if(call is_local_timer_greater_than(int 10))
 		 {
-				call char_play_attack_anim(var grandad1, int 28, call get_char_pos(var VAR_7), int 0)
+				call char_play_attack_anim(var grandad, int 28, call get_char_pos(var HDAVID), int 0)
 				call reset_local_timer()
 				var VAR_4 = int 25
 		}
@@ -658,9 +616,9 @@ if(var VAR_4 == int 31)
 if(var VAR_4 == int 26)
  {
 		execute SCRIPT_10
-		if(call func_37(var VAR_7, int 3))
+		if(call func_37(var HDAVID, int 3))
 		 {
-				gamevar script_object = var VAR_7
+				gamevar script_object = var HDAVID
 				var VAR_52 = gamevar *character_combat_p+11
 				var VAR_4 = int 27
 				call reset_local_timer()
@@ -671,18 +629,18 @@ if(var VAR_4 == int 27)
 		execute SCRIPT_10
 		if(call is_local_timer_greater_than(int 5))
 		 {
-				if(call func_5c(var VAR_7))
+				if(call func_5c(var HDAVID))
 				 {
 						call func_d2()
 						if(var VAR_52 == int 28)
 						 {
-								call char_turn_to_pos(var VAR_7, call get_char_pos(var grandad1))
+								call char_turn_to_pos(var HDAVID, call get_char_pos(var grandad))
 								call start_dialog("E_DvdWel", "null")
 								var VAR_4 = int 30
 						}
 						else
 						 {
-								call char_turn_to_pos(var VAR_7, call get_char_pos(var grandad1))
+								call char_turn_to_pos(var HDAVID, call get_char_pos(var grandad))
 								call start_dialog("E_GraDvD", "null")
 								var VAR_4 = int 28
 						}
@@ -694,19 +652,19 @@ if(var VAR_4 == int 28)
 		if(call get_input_sys() != int 4)
 		 {
 				call set_input_system(int 2)
-				call char_walk_to(var grandad1, int 2443, int 785, int -6934)
-				call char_walk_to(var VAR_7, int 1891, int 785, int -6421)
+				call char_walk_to(var grandad, int 2443, int 785, int -6934)
+				call char_walk_to(var HDAVID, int 1891, int 785, int -6421)
 				var VAR_4 = int 29
 		}
 }
 if(var VAR_4 == int 29)
  {
-		if(call is_char_standing(var grandad1))
+		if(call is_char_standing(var grandad))
 		 {
-				if(call is_char_standing(var VAR_7))
+				if(call is_char_standing(var HDAVID))
 				 {
-						call char_turn_to_pos(var VAR_7, call get_char_pos(var grandad1))
-						call char_turn_to_pos(var grandad1, call get_char_pos(var VAR_7))
+						call char_turn_to_pos(var HDAVID, call get_char_pos(var grandad))
+						call char_turn_to_pos(var grandad, call get_char_pos(var HDAVID))
 						call reset_local_timer()
 						var VAR_4 = int 24
 				}
@@ -718,16 +676,16 @@ if(var VAR_4 == int 30)
 		if(call get_input_sys() != int 4)
 		 {
 				call set_input_system(int 2)
-				call char_walk_to(var VAR_7, int 1891, int 785, int -6421)
+				call char_walk_to(var HDAVID, int 1891, int 785, int -6421)
 				var VAR_4 = int 9
 				var VAR_55 = int 17
 		}
 }
 if(var VAR_4 == int 9)
  {
-		if(call is_char_standing(var VAR_7))
+		if(call is_char_standing(var HDAVID))
 		 {
-				call char_turn_to_pos(var VAR_7, call get_char_pos(var grandad1))
+				call char_turn_to_pos(var HDAVID, call get_char_pos(var grandad))
 				call reset_local_timer()
 				var VAR_4 = int 10
 		}
@@ -744,16 +702,16 @@ if(var VAR_4 == int 11)
  {
 		if(call get_input_sys() != int 4)
 		 {
-				call char_walk_to(var grandad1, int 2443, int 785, int -6934)
+				call char_walk_to(var grandad, int 2443, int 785, int -6934)
 				call set_input_system(int 2)
 				var VAR_4 = int 12
 		}
 }
 if(var VAR_4 == int 12)
  {
-		if(call is_char_standing(var grandad1))
+		if(call is_char_standing(var grandad))
 		 {
-				call char_turn_to_pos(var grandad1, call get_char_pos(var VAR_7))
+				call char_turn_to_pos(var grandad, call get_char_pos(var HDAVID))
 				call reset_local_timer()
 				var VAR_4 = int 13
 		}
@@ -762,7 +720,7 @@ if(var VAR_4 == int 13)
  {
 		if(call is_local_timer_greater_than(int 10))
 		 {
-				call char_play_attack_anim(var grandad1, int 29, var &VAR_18, int 0)
+				call char_play_attack_anim(var grandad, int 29, var &VAR_18, int 0)
 				call reset_local_timer()
 				var VAR_4 = int 14
 		}
@@ -787,9 +745,9 @@ if(var VAR_4 == int 14)
 if(var VAR_4 == int 15)
  {
 		execute SCRIPT_10
-		if(call func_37(var VAR_7, int 3))
+		if(call func_37(var HDAVID, int 3))
 		 {
-				gamevar script_object = var VAR_7
+				gamevar script_object = var HDAVID
 				var VAR_52 = gamevar *character_combat_p+11
 				var VAR_4 = int 16
 				call reset_local_timer()
@@ -800,18 +758,18 @@ if(var VAR_4 == int 16)
 		execute SCRIPT_10
 		if(call is_local_timer_greater_than(int 10))
 		 {
-				if(call func_5c(var VAR_7))
+				if(call func_5c(var HDAVID))
 				 {
 						call func_d2()
 						if(var VAR_52 == int 29)
 						 {
-								call char_turn_to_pos(var VAR_7, call get_char_pos(var grandad1))
+								call char_turn_to_pos(var HDAVID, call get_char_pos(var grandad))
 								call start_dialog("L_DvdWel", "null")
 								var VAR_4 = int 19
 						}
 						else
 						 {
-								call char_turn_to_pos(var VAR_7, call get_char_pos(var grandad1))
+								call char_turn_to_pos(var HDAVID, call get_char_pos(var grandad))
 								call start_dialog("L_GraDvD", "null")
 								var VAR_4 = int 17
 						}
@@ -823,19 +781,19 @@ if(var VAR_4 == int 17)
 		if(call get_input_sys() != int 4)
 		 {
 				call set_input_system(int 2)
-				call char_walk_to(var grandad1, int 2443, int 785, int -6934)
-				call char_walk_to(var VAR_7, int 1891, int 785, int -6421)
+				call char_walk_to(var grandad, int 2443, int 785, int -6934)
+				call char_walk_to(var HDAVID, int 1891, int 785, int -6421)
 				var VAR_4 = int 18
 		}
 }
 if(var VAR_4 == int 18)
  {
-		if(call is_char_standing(var grandad1))
+		if(call is_char_standing(var grandad))
 		 {
-				if(call is_char_standing(var VAR_7))
+				if(call is_char_standing(var HDAVID))
 				 {
-						call char_turn_to_pos(var VAR_7, call get_char_pos(var grandad1))
-						call char_turn_to_pos(var grandad1, call get_char_pos(var VAR_7))
+						call char_turn_to_pos(var HDAVID, call get_char_pos(var grandad))
+						call char_turn_to_pos(var grandad, call get_char_pos(var HDAVID))
 						call reset_local_timer()
 						var VAR_4 = int 13
 				}
@@ -847,16 +805,16 @@ if(var VAR_4 == int 19)
 		if(call get_input_sys() != int 4)
 		 {
 				call set_input_system(int 2)
-				call char_walk_to(var VAR_7, int 1891, int 785, int -6421)
+				call char_walk_to(var HDAVID, int 1891, int 785, int -6421)
 				var VAR_4 = int 43
 				var VAR_55 = int 51
 		}
 }
 if(var VAR_4 == int 43)
  {
-		if(call is_char_standing(var VAR_7))
+		if(call is_char_standing(var HDAVID))
 		 {
-				call char_turn_to_pos(var VAR_7, call get_char_pos(var grandad1))
+				call char_turn_to_pos(var HDAVID, call get_char_pos(var grandad))
 				call reset_local_timer()
 				var VAR_4 = int 44
 		}
@@ -873,16 +831,16 @@ if(var VAR_4 == int 45)
  {
 		if(call get_input_sys() != int 4)
 		 {
-				call char_walk_to(var grandad1, int 2443, int 785, int -6934)
+				call char_walk_to(var grandad, int 2443, int 785, int -6934)
 				call set_input_system(int 2)
 				var VAR_4 = int 46
 		}
 }
 if(var VAR_4 == int 46)
  {
-		if(call is_char_standing(var grandad1))
+		if(call is_char_standing(var grandad))
 		 {
-				call char_turn_to_pos(var grandad1, call get_char_pos(var VAR_7))
+				call char_turn_to_pos(var grandad, call get_char_pos(var HDAVID))
 				call reset_local_timer()
 				var VAR_4 = int 47
 		}
@@ -891,7 +849,7 @@ if(var VAR_4 == int 47)
  {
 		if(call is_local_timer_greater_than(int 10))
 		 {
-				call char_play_attack_anim(var grandad1, int 31, var &VAR_18, int 0)
+				call char_play_attack_anim(var grandad, int 31, var &VAR_18, int 0)
 				call reset_local_timer()
 				var VAR_4 = int 48
 		}
@@ -916,9 +874,9 @@ if(var VAR_4 == int 48)
 if(var VAR_4 == int 49)
  {
 		execute SCRIPT_10
-		if(call func_37(var VAR_7, int 3))
+		if(call func_37(var HDAVID, int 3))
 		 {
-				gamevar script_object = var VAR_7
+				gamevar script_object = var HDAVID
 				var VAR_52 = gamevar *character_combat_p+11
 				var VAR_4 = int 50
 				call reset_local_timer()
@@ -929,18 +887,18 @@ if(var VAR_4 == int 50)
 		execute SCRIPT_10
 		if(call is_local_timer_greater_than(int 10))
 		 {
-				if(call func_5c(var VAR_7))
+				if(call func_5c(var HDAVID))
 				 {
 						call func_d2()
 						if(var VAR_52 == int 31)
 						 {
-								call char_turn_to_pos(var VAR_7, call get_char_pos(var grandad1))
+								call char_turn_to_pos(var HDAVID, call get_char_pos(var grandad))
 								call start_dialog("R_DvdWel", "null")
 								var VAR_4 = int 53
 						}
 						else
 						 {
-								call char_turn_to_pos(var VAR_7, call get_char_pos(var grandad1))
+								call char_turn_to_pos(var HDAVID, call get_char_pos(var grandad))
 								call start_dialog("R_GraDvD", "null")
 								var VAR_4 = int 51
 						}
@@ -952,19 +910,19 @@ if(var VAR_4 == int 51)
 		if(call get_input_sys() != int 4)
 		 {
 				call set_input_system(int 2)
-				call char_walk_to(var grandad1, int 2443, int 785, int -6934)
-				call char_walk_to(var VAR_7, int 1891, int 785, int -6421)
+				call char_walk_to(var grandad, int 2443, int 785, int -6934)
+				call char_walk_to(var HDAVID, int 1891, int 785, int -6421)
 				var VAR_4 = int 52
 		}
 }
 if(var VAR_4 == int 52)
  {
-		if(call is_char_standing(var grandad1))
+		if(call is_char_standing(var grandad))
 		 {
-				if(call is_char_standing(var VAR_7))
+				if(call is_char_standing(var HDAVID))
 				 {
-						call char_turn_to_pos(var VAR_7, call get_char_pos(var grandad1))
-						call char_turn_to_pos(var grandad1, call get_char_pos(var VAR_7))
+						call char_turn_to_pos(var HDAVID, call get_char_pos(var grandad))
+						call char_turn_to_pos(var grandad, call get_char_pos(var HDAVID))
 						call reset_local_timer()
 						var VAR_4 = int 47
 				}
@@ -976,16 +934,16 @@ if(var VAR_4 == int 53)
 		if(call get_input_sys() != int 4)
 		 {
 				call set_input_system(int 2)
-				call char_walk_to(var VAR_7, int 1891, int 785, int -6421)
+				call char_walk_to(var HDAVID, int 1891, int 785, int -6421)
 				var VAR_4 = int 32
 				var VAR_55 = int 40
 		}
 }
 if(var VAR_4 == int 32)
  {
-		if(call is_char_standing(var VAR_7))
+		if(call is_char_standing(var HDAVID))
 		 {
-				call char_turn_to_pos(var VAR_7, call get_char_pos(var grandad1))
+				call char_turn_to_pos(var HDAVID, call get_char_pos(var grandad))
 				call reset_local_timer()
 				var VAR_4 = int 33
 		}
@@ -1002,16 +960,16 @@ if(var VAR_4 == int 34)
  {
 		if(call get_input_sys() != int 4)
 		 {
-				call char_walk_to(var grandad1, int 2443, int 785, int -6934)
+				call char_walk_to(var grandad, int 2443, int 785, int -6934)
 				call set_input_system(int 2)
 				var VAR_4 = int 35
 		}
 }
 if(var VAR_4 == int 35)
  {
-		if(call is_char_standing(var grandad1))
+		if(call is_char_standing(var grandad))
 		 {
-				call char_turn_to_pos(var grandad1, call get_char_pos(var VAR_7))
+				call char_turn_to_pos(var grandad, call get_char_pos(var HDAVID))
 				call reset_local_timer()
 				var VAR_4 = int 36
 		}
@@ -1020,7 +978,7 @@ if(var VAR_4 == int 36)
  {
 		if(call is_local_timer_greater_than(int 10))
 		 {
-				call char_play_attack_anim(var grandad1, int 30, var &VAR_18, int 0)
+				call char_play_attack_anim(var grandad, int 30, var &VAR_18, int 0)
 				call reset_local_timer()
 				var VAR_4 = int 37
 		}
@@ -1045,9 +1003,9 @@ if(var VAR_4 == int 37)
 if(var VAR_4 == int 38)
  {
 		execute SCRIPT_10
-		if(call func_37(var VAR_7, int 3))
+		if(call func_37(var HDAVID, int 3))
 		 {
-				gamevar script_object = var VAR_7
+				gamevar script_object = var HDAVID
 				var VAR_52 = gamevar *character_combat_p+11
 				var VAR_4 = int 39
 				call reset_local_timer()
@@ -1058,18 +1016,18 @@ if(var VAR_4 == int 39)
 		execute SCRIPT_10
 		if(call is_local_timer_greater_than(int 10))
 		 {
-				if(call func_5c(var VAR_7))
+				if(call func_5c(var HDAVID))
 				 {
 						call func_d2()
 						if(var VAR_52 == int 30)
 						 {
-								call char_turn_to_pos(var VAR_7, call get_char_pos(var grandad1))
+								call char_turn_to_pos(var HDAVID, call get_char_pos(var grandad))
 								call start_dialog("S_DvdWel", "null")
 								var VAR_4 = int 42
 						}
 						else
 						 {
-								call char_turn_to_pos(var VAR_7, call get_char_pos(var grandad1))
+								call char_turn_to_pos(var HDAVID, call get_char_pos(var grandad))
 								call start_dialog("S_GraDvD", "null")
 								var VAR_4 = int 40
 						}
@@ -1081,19 +1039,19 @@ if(var VAR_4 == int 40)
 		if(call get_input_sys() != int 4)
 		 {
 				call set_input_system(int 2)
-				call char_walk_to(var grandad1, int 2443, int 785, int -6934)
-				call char_walk_to(var VAR_7, int 1891, int 785, int -6421)
+				call char_walk_to(var grandad, int 2443, int 785, int -6934)
+				call char_walk_to(var HDAVID, int 1891, int 785, int -6421)
 				var VAR_4 = int 41
 		}
 }
 if(var VAR_4 == int 41)
  {
-		if(call is_char_standing(var grandad1))
+		if(call is_char_standing(var grandad))
 		 {
-				if(call is_char_standing(var VAR_7))
+				if(call is_char_standing(var HDAVID))
 				 {
-						call char_turn_to_pos(var VAR_7, call get_char_pos(var grandad1))
-						call char_turn_to_pos(var grandad1, call get_char_pos(var VAR_7))
+						call char_turn_to_pos(var HDAVID, call get_char_pos(var grandad))
+						call char_turn_to_pos(var grandad, call get_char_pos(var HDAVID))
 						call reset_local_timer()
 						var VAR_4 = int 36
 				}
@@ -1105,16 +1063,16 @@ if(var VAR_4 == int 42)
 		if(call get_input_sys() != int 4)
 		 {
 				call set_input_system(int 2)
-				call char_walk_to(var VAR_7, int 1891, int 785, int -6421)
+				call char_walk_to(var HDAVID, int 1891, int 785, int -6421)
 				var VAR_4 = int 54
 				var VAR_55 = int 62
 		}
 }
 if(var VAR_4 == int 54)
  {
-		if(call is_char_standing(var VAR_7))
+		if(call is_char_standing(var HDAVID))
 		 {
-				call char_turn_to_pos(var VAR_7, call get_char_pos(var grandad1))
+				call char_turn_to_pos(var HDAVID, call get_char_pos(var grandad))
 				call reset_local_timer()
 				var VAR_4 = int 55
 		}
@@ -1131,16 +1089,16 @@ if(var VAR_4 == int 56)
  {
 		if(call get_input_sys() != int 4)
 		 {
-				call char_walk_to(var grandad1, int 2443, int 785, int -6934)
+				call char_walk_to(var grandad, int 2443, int 785, int -6934)
 				call set_input_system(int 2)
 				var VAR_4 = int 57
 		}
 }
 if(var VAR_4 == int 57)
  {
-		if(call is_char_standing(var grandad1))
+		if(call is_char_standing(var grandad))
 		 {
-				call char_turn_to_pos(var grandad1, call get_char_pos(var VAR_7))
+				call char_turn_to_pos(var grandad, call get_char_pos(var HDAVID))
 				call reset_local_timer()
 				var VAR_4 = int 58
 		}
@@ -1149,7 +1107,7 @@ if(var VAR_4 == int 58)
  {
 		if(call is_local_timer_greater_than(int 10))
 		 {
-				call char_play_attack_anim(var grandad1, int 16, var &VAR_18, int 0)
+				call char_play_attack_anim(var grandad, int 16, var &VAR_18, int 0)
 				call reset_local_timer()
 				var VAR_4 = int 59
 		}
@@ -1158,7 +1116,7 @@ if(var VAR_4 == int 59)
  {
 		if(call is_local_timer_greater_than(int 20))
 		 {
-				call char_turn_to_pos(var grandad1, call get_char_pos(var VAR_7))
+				call char_turn_to_pos(var grandad, call get_char_pos(var HDAVID))
 				call resume_conversation()
 				var VAR_4 = int 65
 		}
@@ -1183,9 +1141,9 @@ if(var VAR_4 == int 65)
 if(var VAR_4 == int 60)
  {
 		execute SCRIPT_10
-		if(call func_37(var VAR_7, int 3))
+		if(call func_37(var HDAVID, int 3))
 		 {
-				gamevar script_object = var VAR_7
+				gamevar script_object = var HDAVID
 				var VAR_52 = gamevar *character_combat_p+11
 				var VAR_4 = int 61
 				call reset_local_timer()
@@ -1196,18 +1154,18 @@ if(var VAR_4 == int 61)
 		execute SCRIPT_10
 		if(call is_local_timer_greater_than(int 10))
 		 {
-				if(call func_5c(var VAR_7))
+				if(call func_5c(var HDAVID))
 				 {
 						call func_d2()
 						if(var VAR_52 == int 16||var VAR_52 == int 17)
 						 {
-								call char_turn_to_pos(var VAR_7, call get_char_pos(var grandad1))
+								call char_turn_to_pos(var HDAVID, call get_char_pos(var grandad))
 								call start_dialog("T_DvdWel", "null")
 								var VAR_4 = int 64
 						}
 						else
 						 {
-								call char_turn_to_pos(var VAR_7, call get_char_pos(var grandad1))
+								call char_turn_to_pos(var HDAVID, call get_char_pos(var grandad))
 								call start_dialog("T_GraDvD", "null")
 								var VAR_4 = int 62
 						}
@@ -1219,19 +1177,19 @@ if(var VAR_4 == int 62)
 		if(call get_input_sys() != int 4)
 		 {
 				call set_input_system(int 2)
-				call char_walk_to(var grandad1, int 2443, int 785, int -6934)
-				call char_walk_to(var VAR_7, int 1891, int 785, int -6421)
+				call char_walk_to(var grandad, int 2443, int 785, int -6934)
+				call char_walk_to(var HDAVID, int 1891, int 785, int -6421)
 				var VAR_4 = int 63
 		}
 }
 if(var VAR_4 == int 63)
  {
-		if(call is_char_standing(var grandad1))
+		if(call is_char_standing(var grandad))
 		 {
-				if(call is_char_standing(var VAR_7))
+				if(call is_char_standing(var HDAVID))
 				 {
-						call char_turn_to_pos(var VAR_7, call get_char_pos(var grandad1))
-						call char_turn_to_pos(var grandad1, var &VAR_18)
+						call char_turn_to_pos(var HDAVID, call get_char_pos(var grandad))
+						call char_turn_to_pos(var grandad, var &VAR_18)
 						call reset_local_timer()
 						var VAR_4 = int 58
 				}
@@ -1243,10 +1201,10 @@ if(var VAR_4 == int 64)
 		if(call get_input_sys() != int 4)
 		 {
 				call set_input_system(int 2)
-				call char_walk_to(var VAR_7, int 1891, int 785, int -6421)
+				call char_walk_to(var HDAVID, int 1891, int 785, int -6421)
 				if(call create_item(int 48))
 				 {
-						if(call get_char_item_if_equiped(var VAR_7, int 48))
+						if(call get_char_item_if_equiped(var HDAVID, int 48))
 						 {
 								var VAR_4 = int 77
 								var VAR_55 = int 85
@@ -1266,7 +1224,7 @@ if(var VAR_4 == int 64)
 }
 if(var VAR_4 == int 66)
  {
-		if(call is_char_standing(var VAR_7))
+		if(call is_char_standing(var HDAVID))
 		 {
 				call reset_local_timer()
 				var VAR_4 = int 67
@@ -1276,7 +1234,7 @@ if(var VAR_4 == int 67)
  {
 		if(call is_local_timer_greater_than(int 10))
 		 {
-				call char_turn_to_pos(var VAR_7, call get_char_pos(var grandad1))
+				call char_turn_to_pos(var HDAVID, call get_char_pos(var grandad))
 				call start_dialog("D_DvdDod", "null")
 				var VAR_4 = int 68
 		}
@@ -1285,16 +1243,16 @@ if(var VAR_4 == int 68)
  {
 		if(call get_input_sys() != int 4)
 		 {
-				call char_walk_to(var grandad1, int 2268, int 785, int -6754)
+				call char_walk_to(var grandad, int 2268, int 785, int -6754)
 				call set_input_system(int 2)
 				var VAR_4 = int 69
 		}
 }
 if(var VAR_4 == int 69)
  {
-		if(call is_char_standing(var grandad1))
+		if(call is_char_standing(var grandad))
 		 {
-				call char_turn_to_pos(var grandad1, call get_char_pos(var VAR_7))
+				call char_turn_to_pos(var grandad, call get_char_pos(var HDAVID))
 				call reset_local_timer()
 				var VAR_4 = int 70
 		}
@@ -1303,7 +1261,7 @@ if(var VAR_4 == int 70)
  {
 		if(call is_local_timer_greater_than(int 10))
 		 {
-				call func_13(var grandad1)
+				call func_13(var grandad)
 				call reset_local_timer()
 				var VAR_4 = int 71
 		}
@@ -1320,7 +1278,7 @@ if(var VAR_4 == int 71)
 				 {
 						call start_dialog("SYSTEM", "dodge")
 				}
-				call char_turn_to_pos(var grandad1, call get_char_pos(var VAR_7))
+				call char_turn_to_pos(var grandad, call get_char_pos(var HDAVID))
 				call set_input_system(int 1)
 				call reset_local_timer()
 				var VAR_4 = int 72
@@ -1329,15 +1287,15 @@ if(var VAR_4 == int 71)
 if(var VAR_4 == int 72)
  {
 		execute SCRIPT_10
-		if(call func_37(var VAR_7, int 26))
+		if(call func_37(var HDAVID, int 26))
 		 {
 				var VAR_52 = int 26
 				var VAR_4 = int 73
 				call reset_local_timer()
 		}
-		if(call func_37(var VAR_7, int 3))
+		if(call func_37(var HDAVID, int 3))
 		 {
-				gamevar script_object = var VAR_7
+				gamevar script_object = var HDAVID
 				var VAR_52 = gamevar *character_combat_p+11
 				var VAR_4 = int 73
 				call reset_local_timer()
@@ -1348,7 +1306,7 @@ if(var VAR_4 == int 73)
 		execute SCRIPT_10
 		if(call is_local_timer_greater_than(int 5))
 		 {
-				if(call func_5c(var VAR_7))
+				if(call func_5c(var HDAVID))
 				 {
 						call func_d2()
 						if(var VAR_52 == int 26)
@@ -1369,19 +1327,19 @@ if(var VAR_4 == int 74)
 		if(call get_input_sys() != int 4)
 		 {
 				call set_input_system(int 2)
-				call char_walk_to(var grandad1, int 2268, int 785, int -6754)
-				call char_walk_to(var VAR_7, int 1891, int 785, int -6421)
+				call char_walk_to(var grandad, int 2268, int 785, int -6754)
+				call char_walk_to(var HDAVID, int 1891, int 785, int -6421)
 				var VAR_4 = int 75
 		}
 }
 if(var VAR_4 == int 75)
  {
-		if(call is_char_standing(var grandad1))
+		if(call is_char_standing(var grandad))
 		 {
-				if(call is_char_standing(var VAR_7))
+				if(call is_char_standing(var HDAVID))
 				 {
-						call char_turn_to_pos(var VAR_7, call get_char_pos(var grandad1))
-						call char_turn_to_pos(var grandad1, var &VAR_18)
+						call char_turn_to_pos(var HDAVID, call get_char_pos(var grandad))
+						call char_turn_to_pos(var grandad, var &VAR_18)
 						call reset_local_timer()
 						var VAR_4 = int 70
 				}
@@ -1398,7 +1356,7 @@ if(var VAR_4 == int 76)
 }
 if(var VAR_4 == int 77)
  {
-		if(call is_char_standing(var VAR_7))
+		if(call is_char_standing(var HDAVID))
 		 {
 				call reset_local_timer()
 				var VAR_4 = int 78
@@ -1408,7 +1366,7 @@ if(var VAR_4 == int 78)
  {
 		if(call is_local_timer_greater_than(int 10))
 		 {
-				call char_turn_to_pos(var VAR_7, call get_char_pos(var grandad1))
+				call char_turn_to_pos(var HDAVID, call get_char_pos(var grandad))
 				call set_input_system(int 1)
 				call start_dialog("Sh_DvdSh", "null")
 				var VAR_4 = int 79
@@ -1418,16 +1376,16 @@ if(var VAR_4 == int 79)
  {
 		if(call get_input_sys() != int 4)
 		 {
-				call char_walk_to(var grandad1, int 2268, int 785, int -6754)
+				call char_walk_to(var grandad, int 2268, int 785, int -6754)
 				call set_input_system(int 2)
 				var VAR_4 = int 80
 		}
 }
 if(var VAR_4 == int 80)
  {
-		if(call is_char_standing(var grandad1))
+		if(call is_char_standing(var grandad))
 		 {
-				call char_turn_to_pos(var grandad1, call get_char_pos(var VAR_7))
+				call char_turn_to_pos(var grandad, call get_char_pos(var HDAVID))
 				call reset_local_timer()
 				var VAR_4 = int 82
 		}
@@ -1444,7 +1402,7 @@ if(var VAR_4 == int 82)
 				 {
 						call start_dialog("SYSTEM", "shield")
 				}
-				call char_turn_to_pos(var grandad1, call get_char_pos(var VAR_7))
+				call char_turn_to_pos(var grandad, call get_char_pos(var HDAVID))
 				call set_input_system(int 1)
 				call reset_local_timer()
 				var VAR_4 = int 83
@@ -1453,7 +1411,7 @@ if(var VAR_4 == int 82)
 if(var VAR_4 == int 83)
  {
 		execute SCRIPT_10
-		if(call func_37(var VAR_7, int 24))
+		if(call func_37(var HDAVID, int 24))
 		 {
 				var VAR_59 ++ 
 				if(var VAR_59 > int 10)
@@ -1468,9 +1426,9 @@ if(var VAR_4 == int 83)
 		 {
 				var VAR_59 = int 0
 		}
-		if(call func_37(var VAR_7, int 3))
+		if(call func_37(var HDAVID, int 3))
 		 {
-				gamevar script_object = var VAR_7
+				gamevar script_object = var HDAVID
 				var VAR_52 = gamevar *character_combat_p+11
 				var VAR_4 = int 84
 				call reset_local_timer()
@@ -1481,12 +1439,12 @@ if(var VAR_4 == int 84)
 		execute SCRIPT_10
 		if(call is_local_timer_greater_than(int 5))
 		 {
-				if(call ! func_37(var VAR_7, int 24))
+				if(call ! func_37(var HDAVID, int 24))
 				 {
 						call func_d2()
 						if(var VAR_52 == int 24)
 						 {
-								call char_turn_to_pos(var VAR_7, call get_char_pos(var grandad1))
+								call char_turn_to_pos(var HDAVID, call get_char_pos(var grandad))
 								call start_dialog("Sh_DvdWe", "null")
 								var VAR_4 = int 87
 						}
@@ -1503,19 +1461,19 @@ if(var VAR_4 == int 85)
 		if(call get_input_sys() != int 4)
 		 {
 				call set_input_system(int 2)
-				call char_walk_to(var grandad1, int 2268, int 785, int -6754)
-				call char_walk_to(var VAR_7, int 1891, int 785, int -6421)
+				call char_walk_to(var grandad, int 2268, int 785, int -6754)
+				call char_walk_to(var HDAVID, int 1891, int 785, int -6421)
 				var VAR_4 = int 86
 		}
 }
 if(var VAR_4 == int 86)
  {
-		if(call is_char_standing(var grandad1))
+		if(call is_char_standing(var grandad))
 		 {
-				if(call is_char_standing(var VAR_7))
+				if(call is_char_standing(var HDAVID))
 				 {
-						call char_turn_to_pos(var VAR_7, call get_char_pos(var grandad1))
-						call char_turn_to_pos(var grandad1, var &VAR_18)
+						call char_turn_to_pos(var HDAVID, call get_char_pos(var grandad))
+						call char_turn_to_pos(var grandad, var &VAR_18)
 						call reset_local_timer()
 						var VAR_4 = int 82
 				}
@@ -1535,7 +1493,7 @@ if(var VAR_4 == int 88)
 		if(call is_local_timer_greater_than(int 10))
 		 {
 				call start_dialog("S_DvdPra", "null")
-				call char_turn_to_pos(var grandad1, call get_char_pos(var VAR_7))
+				call char_turn_to_pos(var grandad, call get_char_pos(var HDAVID))
 				var VAR_4 = int 89
 		}
 }
@@ -1571,28 +1529,28 @@ if(var VAR_4 == int 90)
 				gamevar script_object = var start_grunt1
 				gamevar *character_movement_p+60 = int 1
 				gamevar disable_scroll = int 0
-				call func_f(var grandad1, int 67108872)
-				call func_f(var VAR_7, int 67108868)
-				call char_attack(var grandad1, var VAR_7)
+				call func_f(var grandad, int 67108872)
+				call func_f(var HDAVID, int 67108868)
+				call char_attack(var grandad, var HDAVID)
 				var VAR_4 = int 91
 		}
 }
 if(var VAR_4 == int 91)
  {
-		if(call is_char_at_pos(var grandad1, var &VAR_30, int 1000) == int 0)
+		if(call is_char_at_pos(var grandad, var &VAR_30, int 1000) == int 0)
 		 {
-				call func_d6(var grandad1)
-				call set_char_running(var grandad1)
-				call char_walk_to(var grandad1, int 2268, int 785, int -6754)
+				call func_d6(var grandad)
+				call set_char_running(var grandad)
+				call char_walk_to(var grandad, int 2268, int 785, int -6754)
 				var VAR_4 = int 92
 		}
-		gamevar script_object = var grandad1
+		gamevar script_object = var grandad
 		if(gamevar *character_combat_p+15)
 		 {
 				var VAR_56 ++ 
 				gamevar *character_combat_p+15 = int 0
 		}
-		gamevar script_object = var VAR_7
+		gamevar script_object = var HDAVID
 		if(gamevar *character_combat_p+15)
 		 {
 				var VAR_57 ++ 
@@ -1600,9 +1558,9 @@ if(var VAR_4 == int 91)
 		}
 		if(var VAR_56 + var VAR_57 >= int 5)
 		 {
-				call func_d6(var VAR_7)
-				call func_d6(var grandad1)
-				call char_turn_to_pos(var jennifer, call get_char_pos(var VAR_7))
+				call func_d6(var HDAVID)
+				call func_d6(var grandad)
+				call char_turn_to_pos(var jennifer, call get_char_pos(var HDAVID))
 				if(var VAR_56 > var VAR_57)
 				 {
 						call start_dialog("N_DvdJen", "null")
@@ -1617,18 +1575,18 @@ if(var VAR_4 == int 91)
 }
 if(var VAR_4 == int 92)
  {
-		if(call is_char_standing(var grandad1))
+		if(call is_char_standing(var grandad))
 		 {
-				if(call is_char_at_pos(var VAR_7, var &VAR_30, int 1000) == int 0)
+				if(call is_char_at_pos(var HDAVID, var &VAR_30, int 1000) == int 0)
 				 {
-						call char_turn_to_pos(var grandad1, call get_char_pos(var VAR_7))
+						call char_turn_to_pos(var grandad, call get_char_pos(var HDAVID))
 						call reset_local_timer()
 						var VAR_4 = int 93
 				}
 				else
 				 {
-						call set_char_walking(var grandad1)
-						call char_attack(var grandad1, var VAR_7)
+						call set_char_walking(var grandad)
+						call char_attack(var grandad, var HDAVID)
 						var VAR_4 = int 91
 				}
 		}
@@ -1637,14 +1595,14 @@ if(var VAR_4 == int 93)
  {
 		if(call is_local_timer_greater_than(int 10))
 		 {
-				call play_char_anim(var grandad1, var VAR_25, int 0)
+				call play_char_anim(var grandad, var VAR_25, int 0)
 				call reset_local_timer()
 				var VAR_4 = int 94
 		}
-		if(call is_char_at_pos(var VAR_7, var &VAR_30, int 1000) == int 1)
+		if(call is_char_at_pos(var HDAVID, var &VAR_30, int 1000) == int 1)
 		 {
-				call set_char_walking(var grandad1)
-				call char_attack(var grandad1, var VAR_7)
+				call set_char_walking(var grandad)
+				call char_attack(var grandad, var HDAVID)
 				var VAR_4 = int 91
 		}
 }
@@ -1652,14 +1610,14 @@ if(var VAR_4 == int 94)
  {
 		if(call is_local_timer_greater_than(int 40))
 		 {
-				call char_turn_to_pos(var grandad1, call get_char_pos(var VAR_7))
+				call char_turn_to_pos(var grandad, call get_char_pos(var HDAVID))
 				call reset_local_timer()
 				var VAR_4 = int 93
 		}
-		if(call is_char_at_pos(var VAR_7, var &VAR_30, int 1000) == int 1)
+		if(call is_char_at_pos(var HDAVID, var &VAR_30, int 1000) == int 1)
 		 {
-				call set_char_walking(var grandad1)
-				call char_attack(var grandad1, var VAR_7)
+				call set_char_walking(var grandad)
+				call char_attack(var grandad, var HDAVID)
 				var VAR_4 = int 91
 		}
 }
@@ -1667,7 +1625,7 @@ if(var VAR_4 == int 95)
  {
 		if(call is_local_timer_greater_than(int 20))
 		 {
-				call char_turn_to_pos(var VAR_7, call get_char_pos(var jennifer))
+				call char_turn_to_pos(var HDAVID, call get_char_pos(var jennifer))
 				var VAR_4 = int 96
 		}
 }
@@ -1677,39 +1635,39 @@ if(var VAR_4 == int 96)
 		 {
 				call char_walk_to(var jennifer, int 463, int 785, int -6855)
 				var VAR_53 = int 103
-				call set_char_lvl(var grandad1, int 5)
+				call set_char_lvl(var grandad, int 5)
 				call log("Set Grandad to Level 5")
-				call set_char_walking(var grandad1)
-				call char_attack(var grandad1, var VAR_7)
+				call set_char_walking(var grandad)
+				call char_attack(var grandad, var HDAVID)
 				var VAR_4 = int 97
 		}
 }
 if(var VAR_4 == int 97)
  {
 		call log("ACT2_REAL_FIGHT7")
-		if(call is_char_at_pos(var grandad1, var &VAR_30, int 1000) == int 0)
+		if(call is_char_at_pos(var grandad, var &VAR_30, int 1000) == int 0)
 		 {
-				call func_d6(var grandad1)
-				call set_char_running(var grandad1)
-				call char_walk_to(var grandad1, int 2268, int 785, int -6754)
+				call func_d6(var grandad)
+				call set_char_running(var grandad)
+				call char_walk_to(var grandad, int 2268, int 785, int -6754)
 				var VAR_4 = int 98
 		}
 }
 if(var VAR_4 == int 98)
  {
 		call log(var &VAR_148)
-		if(call is_char_standing(var grandad1))
+		if(call is_char_standing(var grandad))
 		 {
-				if(call is_char_at_pos(var VAR_7, var &VAR_30, int 1000) == int 0)
+				if(call is_char_at_pos(var HDAVID, var &VAR_30, int 1000) == int 0)
 				 {
-						call char_turn_to_pos(var grandad1, call get_char_pos(var VAR_7))
+						call char_turn_to_pos(var grandad, call get_char_pos(var HDAVID))
 						call reset_local_timer()
 						var VAR_4 = int 99
 				}
 				else
 				 {
-						call set_char_walking(var grandad1)
-						call char_attack(var grandad1, var VAR_7)
+						call set_char_walking(var grandad)
+						call char_attack(var grandad, var HDAVID)
 						var VAR_4 = int 97
 				}
 		}
@@ -1719,14 +1677,14 @@ if(var VAR_4 == int 99)
 		call log(var &VAR_149)
 		if(call is_local_timer_greater_than(int 10))
 		 {
-				call play_char_anim(var grandad1, var VAR_25, int 0)
+				call play_char_anim(var grandad, var VAR_25, int 0)
 				call reset_local_timer()
 				var VAR_4 = int 100
 		}
-		if(call is_char_at_pos(var VAR_7, var &VAR_30, int 1000) == int 1)
+		if(call is_char_at_pos(var HDAVID, var &VAR_30, int 1000) == int 1)
 		 {
-				call set_char_walking(var grandad1)
-				call char_attack(var grandad1, var VAR_7)
+				call set_char_walking(var grandad)
+				call char_attack(var grandad, var HDAVID)
 				var VAR_4 = int 97
 		}
 }
@@ -1735,14 +1693,14 @@ if(var VAR_4 == int 100)
 		call log("ACT2_REAL_FIGHT10")
 		if(call is_local_timer_greater_than(int 40))
 		 {
-				call char_turn_to_pos(var grandad1, call get_char_pos(var VAR_7))
+				call char_turn_to_pos(var grandad, call get_char_pos(var HDAVID))
 				call reset_local_timer()
 				var VAR_4 = int 99
 		}
-		if(call is_char_at_pos(var VAR_7, var &VAR_30, int 1000) == int 1)
+		if(call is_char_at_pos(var HDAVID, var &VAR_30, int 1000) == int 1)
 		 {
-				call set_char_walking(var grandad1)
-				call char_attack(var grandad1, var VAR_7)
+				call set_char_walking(var grandad)
+				call char_attack(var grandad, var HDAVID)
 				var VAR_4 = int 97
 		}
 }
@@ -1750,16 +1708,16 @@ if(var VAR_4 == int 108)
  {
 		if(call is_local_timer_greater_than(int 10))
 		 {
-				call set_char_running(var grandad1)
-				call char_walk_to(var grandad1, int 2268, int 785, int -6754)
+				call set_char_running(var grandad)
+				call char_walk_to(var grandad, int 2268, int 785, int -6754)
 				var VAR_4 = int 109
 		}
 }
 if(var VAR_4 == int 109)
  {
-		if(call is_char_standing(var grandad1))
+		if(call is_char_standing(var grandad))
 		 {
-				call char_turn_to_pos(var grandad1, call get_char_pos(var VAR_7))
+				call char_turn_to_pos(var grandad, call get_char_pos(var HDAVID))
 				call reset_local_timer()
 				var VAR_4 = int 110
 		}
@@ -1768,7 +1726,7 @@ if(var VAR_4 == int 110)
  {
 		if(call is_local_timer_greater_than(int 10))
 		 {
-				call play_char_anim(var grandad1, var VAR_25, int 0)
+				call play_char_anim(var grandad, var VAR_25, int 0)
 				call reset_local_timer()
 				var VAR_4 = int 111
 		}
@@ -1777,16 +1735,16 @@ if(var VAR_4 == int 111)
  {
 		if(call is_local_timer_greater_than(int 10))
 		 {
-				call set_char_running(var VAR_7)
-				call func_19(var VAR_7, var grandad1)
+				call set_char_running(var HDAVID)
+				call func_19(var HDAVID, var grandad)
 				var VAR_4 = int 112
 		}
 }
 if(var VAR_4 == int 112)
  {
-		if(call is_char_at_pos(var VAR_7, var &VAR_30, int 300) == int 1)
+		if(call is_char_at_pos(var HDAVID, var &VAR_30, int 300) == int 1)
 		 {
-				call char_stop(var VAR_7)
+				call char_stop(var HDAVID)
 				var VAR_4 = int 113
 		}
 }
@@ -1798,14 +1756,14 @@ if(var VAR_54 == int 119)
  {
 		if(call is_char_standing(var fuge))
 		 {
-				call char_walk_to(var grandad1, int 1888, int 785, int -6821)
+				call char_walk_to(var grandad, int 1888, int 785, int -6821)
 				var VAR_4 = int 120
 				var VAR_54 ++ 
 		}
 }
 if(var VAR_4 == int 120)
  {
-		if(call is_char_standing(var grandad1))
+		if(call is_char_standing(var grandad))
 		 {
 				call play_char_anim(var jennifer, var VAR_28, int 0)
 				call char_walk_to(var start_grunt3, int 608, int 785, int -7202)
@@ -1827,8 +1785,8 @@ if(var VAR_4 == int 121)
  {
 		if(gamevar scene_counter > int 50)
 		 {
-				call set_char_running(var VAR_7)
-				call char_walk_to(var VAR_7, int 1665, int 813, int -6821)
+				call set_char_running(var HDAVID)
+				call char_walk_to(var HDAVID, int 1665, int 813, int -6821)
 				var VAR_4 = int 123
 		}
 }
@@ -1836,16 +1794,16 @@ if(var VAR_4 == int 123)
  {
 		if(call func_6d() == int 1)
 		 {
-				call play_char_anim(var VAR_7, var VAR_29, int 0)
+				call play_char_anim(var HDAVID, var VAR_29, int 0)
 				gamevar scene_counter = int 0
 				var VAR_4 = int 138
 		}
 }
 if(var VAR_4 == int 138)
  {
-		if(call func_5c(var VAR_7))
+		if(call func_5c(var HDAVID))
 		 {
-				call char_turn_to_pos(var VAR_7, call get_char_pos(var fuge))
+				call char_turn_to_pos(var HDAVID, call get_char_pos(var fuge))
 				call resume_conversation()
 				call func_17(var start_grunt2, var jennifer)
 				gamevar scene_counter = int 0
@@ -1864,8 +1822,8 @@ if(var VAR_4 == int 125)
  {
 		if(call func_6d() == int 2)
 		 {
-				call set_char_running(var VAR_7)
-				call char_walk_to(var VAR_7, int 1109, int 917, int -7199)
+				call set_char_running(var HDAVID)
+				call char_walk_to(var HDAVID, int 1109, int 917, int -7199)
 				gamevar scene_counter = int 0
 				var VAR_4 = int 139
 		}
@@ -1874,15 +1832,15 @@ if(var VAR_4 == int 139)
  {
 		if(gamevar scene_counter > int 25)
 		 {
-				call set_char_running(var grandad1)
-				call char_walk_to(var grandad1, int 1321, int 931, int -7111)
+				call set_char_running(var grandad)
+				call char_walk_to(var grandad, int 1321, int 931, int -7111)
 				gamevar scene_counter = int 0
 				var VAR_4 = int 256
 		}
 }
-if(var VAR_4 == int 256&&call is_char_standing(var grandad1)&&call is_char_standing(var VAR_7))
+if(var VAR_4 == int 256&&call is_char_standing(var grandad)&&call is_char_standing(var HDAVID))
  {
-		call char_turn_to_pos(var VAR_7, call get_char_pos(var fuge))
+		call char_turn_to_pos(var HDAVID, call get_char_pos(var fuge))
 		call resume_conversation()
 		var VAR_4 = int 140
 }
@@ -1925,7 +1883,7 @@ if(var VAR_4 == int 129)
  {
 		if(call is_char_standing(var jennifer))
 		 {
-				call func_17(var jennifer, var VAR_7)
+				call func_17(var jennifer, var HDAVID)
 				gamevar scene_counter = int 0
 				var VAR_4 = int 130
 		}
@@ -1987,10 +1945,10 @@ if(var VAR_4 == int 135)
 				call remove_char(var start_grunt2)
 				call func_2(var start_grunt)
 				call func_2(var start_grunt3)
-				call char_turn_to_pos(var start_grunt, call get_char_pos(var VAR_7))
-				call char_turn_to_pos(var start_grunt3, call get_char_pos(var VAR_7))
+				call char_turn_to_pos(var start_grunt, call get_char_pos(var HDAVID))
+				call char_turn_to_pos(var start_grunt3, call get_char_pos(var HDAVID))
 				call set_input_system(int 1)
-				call func_10c(var grandad1, int 0)
+				call func_10c(var grandad, int 0)
 				var VAR_4 = int 10000
 		}
 }
@@ -2040,13 +1998,13 @@ if(var VAR_53 == int 106)
 		var VAR_156 = gamevar time - var VAR_155
 		if(var VAR_156 > int 50)
 		 {
-				call func_d6(var VAR_7)
-				call func_d6(var grandad1)
+				call func_d6(var HDAVID)
+				call func_d6(var grandad)
 				call set_input_system(int 2)
 				call reset_local_timer()
-				call func_f(var grandad1, int 6422532)
-				call func_2(var grandad1)
-				call func_f(var VAR_7, int 4)
+				call func_f(var grandad, int 6422532)
+				call func_2(var grandad)
+				call func_f(var HDAVID, int 4)
 				call func_11f(var &VAR_154, int 32768)
 				gamevar accel_window_width = int 16
 				var VAR_4 = int 108
@@ -2117,7 +2075,7 @@ if(var VAR_54 == int 119)
 
 ._SCRIPT_10
 var VAR_160 = int 0
-if(call is_char_at_pos(var VAR_7, var &VAR_30, int 2000) == int 0)
+if(call is_char_at_pos(var HDAVID, var &VAR_30, int 2000) == int 0)
  {
 		var VAR_160 = int 1
 }
@@ -2127,11 +2085,11 @@ if(var VAR_160)
 		if(call get_input_sys() != int 4)
 		 {
 				call func_d2()
-				call char_turn_to_pos(var VAR_7, call get_char_pos(var grandad1))
-				call func_100(call get_char_movement_ptr(var grandad1))
+				call char_turn_to_pos(var HDAVID, call get_char_pos(var grandad))
+				call func_100(call get_char_movement_ptr(var grandad))
 				if(call create_item(int 16))
 				 {
-						if(call get_char_item_if_equiped(var VAR_7, int 16))
+						if(call get_char_item_if_equiped(var HDAVID, int 16))
 						 {
 								var VAR_58 = int 1
 						}
@@ -2153,7 +2111,7 @@ call log("act4")
 
 ._SCRIPT_15
 call log("act5")
-var VAR_173 = call get_char_handle(int 786432)
+var SEKUNE = call get_char_handle(int 786432)
 call set_input_system(int 2)
 call force_scroll_to_pos(var &VAR_175)
 call load_char(var &VAR_184)

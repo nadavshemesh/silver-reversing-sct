@@ -1,20 +1,12 @@
 ._DATA
-VAR_4	0	
-boneyfx	0	
 VAR_6	{ -2255, -1450, 5430 }	
-skel	0	
 VAR_8	{ -2878, -1750, 2505 }	
-skel1	0	
 VAR_10	{ -1834, -1450, 2833 }	
 VAR_11	{ 0, -2980, -1750, 2660, 0, -2670, -1750, 2170, 7, 8 }	
 VAR_12	{ 0, -1292, -1450, 3030, 0, -2230, -1450, 2580, 0, -1270, -1450, 3100, 0, -2426, -1450, 5565, 7, 8 }	
-VAR_13	0	
 VAR_14	{ -1900, 1000, 3800, -1800, 1200, 3900 }	
 VAR_15	{ 0, 1, 2, VAR_14, 8, 2, 4, 0, 9, 1, 1, 1, 47, 47, -1, 5, 1, 5, 50, 6, 1, 7, 1, 1, -1 }	
-VAR_17	0	
-VAR_18	0	
 VAR_24	0	
-VAR_25	0	
 VAR_26	{ 0, -2230, -1450, 5128, 2, -3918, -2375, 4169, 8 }	
 VAR_27	{ 0, -2611, -1746, 4411, 2, -3918, -2375, 4169, 8 }	
 VAR_28	{ 0, -1322, -1450, 3038, 2, -3918, -2375, 4169, 3, VAR_29, 0, 8 }	
@@ -111,7 +103,7 @@ switch(var VAR_17)
 			 {
 					if(call is_char_handle_in_level(int 5439488))
 					 {
-							call char_walk_to(var VAR_5, int -2740, int -1746, int 4452)
+							call char_walk_to(var boneyfx, int -2740, int -1746, int 4452)
 					}
 					var VAR_18 = int 0
 					var VAR_17 ++ 
@@ -120,10 +112,10 @@ switch(var VAR_17)
 		case 1
 			if(call is_char_handle_in_level(int 5439488))
 			 {
-					if(call is_char_standing(var VAR_5))
+					if(call is_char_standing(var boneyfx))
 					 {
 							call log("hit path target")
-							call func_36(var VAR_5, int -4340, int -2100, int 3540)
+							call func_36(var boneyfx, int -4340, int -2100, int 3540)
 							var VAR_17 ++ 
 					}
 			}

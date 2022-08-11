@@ -1,38 +1,10 @@
 ._DATA
-VAR_0	0	
-VAR_1	0	
-VAR_2	0	
-VAR_3	0	
-VAR_4	0	
-VAR_5	0	
-VAR_6	0	
-VAR_7	0	
-VAR_9	0	
-VAR_10	0	
-VAR_11	0	
-VAR_12	0	
-VAR_13	0	
-VAR_14	0	
-VAR_15	0	
-VAR_16	0	
 VAR_17	{ 0, 0 }	
-VAR_18	0	
-VAR_19	0	
-VAR_20	0	
-VAR_21	0	
-VAR_22	0	
 VAR_23	-1	
 VAR_25	{ -1637, 0, -3631 }	
 VAR_28	{ -2650, 1537, 3625 }	
 VAR_29	{ 5225, 1537, -2050 }	
 VAR_30	{ 1313423698, -1431655936, 0 }	
-VAR_31	0	
-captain	0	
-lieutenant	0	
-lieutenant1	0	
-lieutenant2	0	
-lieutenant3	0	
-lieutenant4	0	
 VAR_38	{ 1434, 0, -2933 }	
 VAR_39	{ 1492, 0, -2664 }	
 VAR_40	{ 1752, 0, -2809 }	
@@ -40,25 +12,10 @@ VAR_41	{ 1682, 0, -3056 }
 VAR_42	{ 1920, 0, -3131 }	
 VAR_43	{ 1970, 0, -2911, -1956, 0, -3148 }	
 VAR_44	{ -3000, 0, -3885 }	
-VAR_45	0	
-VAR_48	0	
-VAR_49	0	
-VAR_50	0	
-VAR_51	0	
-VAR_52	0	
-VAR_53	0	
 VAR_54	{ -3065, 0, -3690 }	
 VAR_55	{ -3243, 0, -3942 }	
 VAR_56	{ -1956, 0, -3201 }	
 VAR_57	{ -1422, 0, -4173 }	
-VAR_58	0	
-VAR_59	0	
-VAR_60	0	
-VAR_61	0	
-VAR_62	0	
-VAR_63	0	
-VAR_64	0	
-VAR_65	0	
 VAR_66	-1	
 
 ._on_load
@@ -157,17 +114,17 @@ switch(var VAR_48)
 								call log("arse! david or sekune aren't the control character!!!")
 								break 
 					}
-					var VAR_51 = call is_char_handle_in_level(int 65536)
-					var VAR_52 = call is_char_handle_in_level(int 786432)
-					call char_turn_to_pos(var VAR_51, call get_char_pos(var VAR_31))
-					call char_turn_to_pos(var VAR_52, call get_char_pos(var VAR_31))
-					if(gamevar control_char_p == var VAR_51)
+					var is_DAVID_exist = call is_char_handle_in_level(int 65536)
+					var is_SEKUNE_exist = call is_char_handle_in_level(int 786432)
+					call char_turn_to_pos(var is_DAVID_exist, call get_char_pos(var nvillboy))
+					call char_turn_to_pos(var is_SEKUNE_exist, call get_char_pos(var nvillboy))
+					if(gamevar control_char_p == var is_DAVID_exist)
 					 {
-							var VAR_53 = var VAR_52
+							var VAR_53 = var is_SEKUNE_exist
 					}
 					else
 					 {
-							var VAR_53 = var VAR_51
+							var VAR_53 = var is_DAVID_exist
 					}
 					var VAR_48 ++ 
 					var VAR_49 = int 0
@@ -183,7 +140,7 @@ switch(var VAR_48)
 		case 2
 			if(var VAR_49 == int 60)
 			 {
-					call play_char_anim(var VAR_31, var VAR_45, int 0)
+					call play_char_anim(var nvillboy, var VAR_45, int 0)
 			}
 			if(var VAR_49 > int 200)
 			 {
@@ -204,8 +161,8 @@ switch(var VAR_48)
 		case 4
 			if(call is_char_standing(gamevar control_char_p)&&call is_char_standing(var VAR_53))
 			 {
-					call char_turn_to_pos(var VAR_51, call get_char_pos(var VAR_31))
-					call char_turn_to_pos(var VAR_52, call get_char_pos(var VAR_31))
+					call char_turn_to_pos(var is_DAVID_exist, call get_char_pos(var nvillboy))
+					call char_turn_to_pos(var is_SEKUNE_exist, call get_char_pos(var nvillboy))
 					call start_dialog("DVDVBY", "NULL")
 					var VAR_48 ++ 
 					var VAR_49 = int 0
@@ -214,18 +171,18 @@ switch(var VAR_48)
 		case 5
 			if(call get_input_sys() != int 4)
 			 {
-					call set_char_running(var VAR_31)
-					call char_walk_to_pos(var VAR_31, var &VAR_56)
-					call char_turn_to_pos(var VAR_51, var &VAR_56)
-					call char_turn_to_pos(var VAR_52, var &VAR_56)
+					call set_char_running(var nvillboy)
+					call char_walk_to_pos(var nvillboy, var &VAR_56)
+					call char_turn_to_pos(var is_DAVID_exist, var &VAR_56)
+					call char_turn_to_pos(var is_SEKUNE_exist, var &VAR_56)
 					var VAR_48 ++ 
 					var VAR_49 = int 0
 			}
 			break 
 		case 6
-			if(call is_char_standing(var VAR_31))
+			if(call is_char_standing(var nvillboy))
 			 {
-					call char_turn_to_pos(var VAR_31, call get_char_pos(gamevar control_char_p))
+					call char_turn_to_pos(var nvillboy, call get_char_pos(gamevar control_char_p))
 					call start_dialog("S_VBY", "NULL")
 					var VAR_48 ++ 
 					var VAR_49 = int 0
@@ -235,15 +192,15 @@ switch(var VAR_48)
 			if(call get_input_sys() != int 4)
 			 {
 					call set_input_system(int 1)
-					call char_walk_to_pos(var VAR_31, var &VAR_57)
+					call char_walk_to_pos(var nvillboy, var &VAR_57)
 					var VAR_48 ++ 
 					var VAR_49 = int 0
 			}
 			break 
 		case 8
-			if(call is_char_standing(var VAR_31))
+			if(call is_char_standing(var nvillboy))
 			 {
-					call char_turn_to_pos(var VAR_31, call get_char_pos(gamevar control_char_p))
+					call char_turn_to_pos(var nvillboy, call get_char_pos(gamevar control_char_p))
 					var VAR_48 ++ 
 					var VAR_49 = int 0
 			}
@@ -251,27 +208,27 @@ switch(var VAR_48)
 		case 9
 			if(call is_char_handle_in_level(int 6881280))
 			 {
-					call char_walk_to(var VAR_32, int -134, int 0, int -2344)
+					call char_walk_to(var captain, int -134, int 0, int -2344)
 			}
 			if(call is_char_handle_in_level(int 7143424))
 			 {
-					call char_walk_to(var VAR_33, int -290, int 0, int -2021)
+					call char_walk_to(var lieutenant, int -290, int 0, int -2021)
 			}
 			if(call is_char_handle_in_level(int 7143425))
 			 {
-					call char_walk_to(var VAR_34, int -99, int 0, int -1953)
+					call char_walk_to(var lieutenant1, int -99, int 0, int -1953)
 			}
 			if(call is_char_handle_in_level(int 7143426))
 			 {
-					call char_walk_to(var VAR_35, int 36, int 0, int -2263)
+					call char_walk_to(var lieutenant2, int 36, int 0, int -2263)
 			}
 			if(call is_char_handle_in_level(int 7143427))
 			 {
-					call char_walk_to(var VAR_36, int 233, int 0, int -2202)
+					call char_walk_to(var lieutenant3, int 233, int 0, int -2202)
 			}
 			if(call is_char_handle_in_level(int 7143428))
 			 {
-					call char_walk_to(var VAR_37, int 109, int 0, int -1884)
+					call char_walk_to(var lieutenant4, int 109, int 0, int -1884)
 			}
 			var VAR_48 ++ 
 			var VAR_49 = int 0
@@ -281,27 +238,27 @@ switch(var VAR_48)
 			 {
 					if(call is_char_handle_in_level(int 6881280))
 					 {
-							call set_char_init_state(var VAR_32, int 0)
+							call set_char_init_state(var captain, int 0)
 					}
 					if(call is_char_handle_in_level(int 7143424))
 					 {
-							call set_char_init_state(var VAR_33, int 0)
+							call set_char_init_state(var lieutenant, int 0)
 					}
 					if(call is_char_handle_in_level(int 7143425))
 					 {
-							call set_char_init_state(var VAR_34, int 0)
+							call set_char_init_state(var lieutenant1, int 0)
 					}
 					if(call is_char_handle_in_level(int 7143426))
 					 {
-							call set_char_init_state(var VAR_35, int 0)
+							call set_char_init_state(var lieutenant2, int 0)
 					}
 					if(call is_char_handle_in_level(int 7143427))
 					 {
-							call set_char_init_state(var VAR_36, int 0)
+							call set_char_init_state(var lieutenant3, int 0)
 					}
 					if(call is_char_handle_in_level(int 7143428))
 					 {
-							call set_char_init_state(var VAR_37, int 0)
+							call set_char_init_state(var lieutenant4, int 0)
 					}
 					var VAR_48 ++ 
 					var VAR_49 = int 0
@@ -312,7 +269,7 @@ switch(var VAR_48)
 			 {
 					if(call is_char_handle_in_level(int 6881280))
 					 {
-							if(call is_char_standing(var VAR_32))
+							if(call is_char_standing(var captain))
 							 {
 									var VAR_58 = int 1
 							}
@@ -326,7 +283,7 @@ switch(var VAR_48)
 			 {
 					if(call is_char_handle_in_level(int 7143424))
 					 {
-							if(call is_char_standing(var VAR_33))
+							if(call is_char_standing(var lieutenant))
 							 {
 									var VAR_59 = int 1
 							}
@@ -340,7 +297,7 @@ switch(var VAR_48)
 			 {
 					if(call is_char_handle_in_level(int 7143425))
 					 {
-							if(call is_char_standing(var VAR_34))
+							if(call is_char_standing(var lieutenant1))
 							 {
 									var VAR_60 = int 1
 							}
@@ -354,7 +311,7 @@ switch(var VAR_48)
 			 {
 					if(call is_char_handle_in_level(int 7143426))
 					 {
-							if(call is_char_standing(var VAR_35))
+							if(call is_char_standing(var lieutenant2))
 							 {
 									var VAR_61 = int 1
 							}
@@ -368,7 +325,7 @@ switch(var VAR_48)
 			 {
 					if(call is_char_handle_in_level(int 7143427))
 					 {
-							if(call is_char_standing(var VAR_36))
+							if(call is_char_standing(var lieutenant3))
 							 {
 									var VAR_62 = int 1
 							}
@@ -382,7 +339,7 @@ switch(var VAR_48)
 			 {
 					if(call is_char_handle_in_level(int 7143428))
 					 {
-							if(call is_char_standing(var VAR_37))
+							if(call is_char_standing(var lieutenant4))
 							 {
 									var VAR_63 = int 1
 							}
@@ -402,27 +359,27 @@ switch(var VAR_48)
 					}
 					if(call is_char_handle_in_level(int 6881280))
 					 {
-							call char_walk_to(var VAR_32, int -4681, int 0, int -4057)
+							call char_walk_to(var captain, int -4681, int 0, int -4057)
 					}
 					if(call is_char_handle_in_level(int 7143424))
 					 {
-							call char_walk_to(var VAR_33, int -5180, int 0, int -3990)
+							call char_walk_to(var lieutenant, int -5180, int 0, int -3990)
 					}
 					if(call is_char_handle_in_level(int 7143425))
 					 {
-							call char_walk_to(var VAR_34, int -5002, int 0, int -3973)
+							call char_walk_to(var lieutenant1, int -5002, int 0, int -3973)
 					}
 					if(call is_char_handle_in_level(int 7143426))
 					 {
-							call char_walk_to(var VAR_35, int -5181, int 0, int -4199)
+							call char_walk_to(var lieutenant2, int -5181, int 0, int -4199)
 					}
 					if(call is_char_handle_in_level(int 7143427))
 					 {
-							call char_walk_to(var VAR_36, int -4677, int 0, int -4035)
+							call char_walk_to(var lieutenant3, int -4677, int 0, int -4035)
 					}
 					if(call is_char_handle_in_level(int 7143428))
 					 {
-							call char_walk_to(var VAR_37, int -4692, int 0, int -3581)
+							call char_walk_to(var lieutenant4, int -4692, int 0, int -3581)
 					}
 					var VAR_48 ++ 
 					var VAR_49 = int 0
@@ -443,9 +400,9 @@ switch(var VAR_48)
 					 {
 							if(call is_char_handle_in_level(int 6881280))
 							 {
-									if(call is_char_standing(var VAR_32))
+									if(call is_char_standing(var captain))
 									 {
-											call remove_char(var VAR_32)
+											call remove_char(var captain)
 											var VAR_58 = int 1
 									}
 							}
@@ -458,9 +415,9 @@ switch(var VAR_48)
 					 {
 							if(call is_char_handle_in_level(int 7143424))
 							 {
-									if(call is_char_standing(var VAR_33))
+									if(call is_char_standing(var lieutenant))
 									 {
-											call remove_char(var VAR_33)
+											call remove_char(var lieutenant)
 											var VAR_59 = int 1
 									}
 							}
@@ -473,9 +430,9 @@ switch(var VAR_48)
 					 {
 							if(call is_char_handle_in_level(int 7143425))
 							 {
-									if(call is_char_standing(var VAR_34))
+									if(call is_char_standing(var lieutenant1))
 									 {
-											call remove_char(var VAR_34)
+											call remove_char(var lieutenant1)
 											var VAR_60 = int 1
 									}
 							}
@@ -488,9 +445,9 @@ switch(var VAR_48)
 					 {
 							if(call is_char_handle_in_level(int 7143426))
 							 {
-									if(call is_char_standing(var VAR_35))
+									if(call is_char_standing(var lieutenant2))
 									 {
-											call remove_char(var VAR_35)
+											call remove_char(var lieutenant2)
 											var VAR_61 = int 1
 									}
 							}
@@ -503,9 +460,9 @@ switch(var VAR_48)
 					 {
 							if(call is_char_handle_in_level(int 7143427))
 							 {
-									if(call is_char_standing(var VAR_36))
+									if(call is_char_standing(var lieutenant3))
 									 {
-											call remove_char(var VAR_36)
+											call remove_char(var lieutenant3)
 											var VAR_62 = int 1
 									}
 							}
@@ -518,9 +475,9 @@ switch(var VAR_48)
 					 {
 							if(call is_char_handle_in_level(int 7143428))
 							 {
-									if(call is_char_standing(var VAR_37))
+									if(call is_char_standing(var lieutenant4))
 									 {
-											call remove_char(var VAR_37)
+											call remove_char(var lieutenant4)
 											var VAR_63 = int 1
 									}
 							}
@@ -552,7 +509,7 @@ var lieutenant3 = call create_enemy(int 11, int 3, var &VAR_42, int 286)
 call freeze_enemy(var lieutenant3)
 var lieutenant4 = call create_enemy(int 11, int 4, var &VAR_43, int 286)
 call freeze_enemy(var lieutenant4)
-var VAR_31 = call create_char(var &VAR_44, "nvillboy", int 311, int 13)
+var nvillboy = call create_char(var &VAR_44, "nvillboy", int 311, int 13)
 gamevar script_object = var captain
 gamevar *character_movement_p+60 = int 1
 gamevar script_object = var captain
@@ -871,19 +828,19 @@ switch(var VAR_13)
 var VAR_14 ++ 
 
 ._SCRIPT_15
-var VAR_18 = call is_char_handle_in_level(int 1507337)
-if(var ! VAR_18)
+var is_BTREASURE_exist = call is_char_handle_in_level(int 1507337)
+if(var ! is_BTREASURE_exist)
  {
-		var VAR_18 = call create_char(var VAR_19, "btreasure9", var VAR_20, int 14)
-		call func_aa(var VAR_18)
+		var is_BTREASURE_exist = call create_char(var VAR_19, "btreasure9", var VAR_20, int 14)
+		call func_aa(var is_BTREASURE_exist)
 }
 else
  {
 		var VAR_22 = int 1
-		gamevar script_object = var VAR_18
+		gamevar script_object = var is_BTREASURE_exist
 		if(gamevar *object_p+7 == int 4194304)
 		 {
-				call func_aa(var VAR_18)
+				call func_aa(var is_BTREASURE_exist)
 		}
 }
 
@@ -894,11 +851,11 @@ if(var VAR_21 != int -1)
 		 {
 				if(var VAR_23 != int -1)
 				 {
-						call add_item_to_char(var VAR_18, int 85, var VAR_23, int 0)
+						call add_item_to_char(var is_BTREASURE_exist, int 85, var VAR_23, int 0)
 				}
 				else
 				 {
-						call add_item_to_char(var VAR_18, var VAR_21, int 1, int 0)
+						call add_item_to_char(var is_BTREASURE_exist, var VAR_21, int 1, int 0)
 				}
 		}
 }

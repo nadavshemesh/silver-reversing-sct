@@ -1,42 +1,21 @@
 ._DATA
 VAR_1	{ 0, 0, 0 }	
-VAR_2	0	
-VAR_3	0	
-VAR_4	0	
-VAR_8	0	
 VAR_9	{ 778, -720, 3850 }	
 VAR_10	{ 817, -720, 3834, 533, -720, 3932, 753, -720, 3936, 619, -720, 3785 }	
 VAR_11	{ 17, 4, VAR_10, 1, 11, 100, 200, 3, VAR_12, 0, 17, 4, VAR_10, 1, 11, 100, 200, 3, VAR_13, 0, 7, 8 }	
 VAR_12	"laugh"	
 VAR_13	"no"	
-VAR_15	0	
-VAR_16	0	
 VAR_17	{ 0, 0, 0 }	
-VAR_18	0	
-VAR_19	0	
 VAR_20	{ 972, -720, 3903 }	
-VAR_21	0	
 VAR_22	{ 1919, -720, 3939 }	
 VAR_23	{ 1623, -720, 3555 }	
 VAR_24	{ 2001, -720, 3681 }	
 VAR_25	{ VAR_22, VAR_23, VAR_24 }	
-VAR_26	0	
-VAR_27	0	
-VAR_28	0	
 VAR_29	{ 1424, -720, 3905 }	
 VAR_30	{ 562, -720, 3829 }	
 VAR_31	{ 1289, -720, 3731 }	
-VAR_32	0	
 VAR_33	{ 3217, -720, 3891, 0 }	
-VAR_34	0	
-VAR_35	0	
 VAR_36	-1	
-VAR_54	0	
-VAR_55	0	
-VAR_56	0	
-groad1	0	
-groad2	0	
-lizmant	0	
 lizmant1	0	
 VAR_61	{ 3389, 69, 2355 }	
 VAR_62	{ 748, 69, 2320 }	
@@ -50,24 +29,15 @@ VAR_69	{ 17, 6, VAR_65, 1, 11, 100, 200, 7, 8 }
 VAR_70	{ 17, 6, VAR_66, 1, 11, 100, 200, 7, 8 }	
 VAR_72	{ 2095, -720, -2944, 2052, -720, 3977 }	
 VAR_73	{ 3177, -720, 2586, 1021, -720, 2561 }	
-VAR_74	0	
-VAR_75	0	
 VAR_76	{ 3886, 70, 3203 }	
-groad	0	
 VAR_78	{ 3066, 70, 2747, 2101, 70, 2675, 1059, 70, 2615 }	
 VAR_79	{ 0, 0, 0, 2, -1, 8, 2, 4, 0, 9, 0, 1, 3, 191, 192, 190, 193, -1, 2, 6, 3, 2, 5, 1, 30, 50, 7, 1, 5, 6, 1, -1 }	
-VAR_80	0	
 VAR_81	{ 1399, -720, 3867 }	
 VAR_82	{ 1095, -720, 3688 }	
 VAR_83	{ 1405, -720, 3635 }	
 VAR_84	{ VAR_81, VAR_82, VAR_83 }	
 VAR_85	{ 817, -720, 3835 }	
-VAR_86	0	
-VAR_87	0	
-VAR_88	0	
 VAR_89	{ 0, 0 }	
-VAR_96	0	
-VAR_97	0	
 
 ._on_load
 call play_bgm("chains")
@@ -154,19 +124,19 @@ switch(var VAR_74)
 			 {
 					if(call is_char_handle_in_level(int 524289))
 					 {
-							call func_46(var VAR_59, int 13)
-							call set_char_template(var VAR_59, int 40)
-							call func_106(var VAR_59, int 0, int 3, int 360)
-							gamevar script_object = var VAR_59
+							call func_46(var lizmant, int 13)
+							call set_char_template(var lizmant, int 40)
+							call func_106(var lizmant, int 0, int 3, int 360)
+							gamevar script_object = var lizmant
 							gamevar *character_stats_p+15 = int 8000
 							gamevar *character_stats_p+16 = int 8000
 					}
 					if(call is_char_handle_in_level(int 524290))
 					 {
-							call func_46(var VAR_60, int 13)
-							call set_char_template(var VAR_60, int 40)
-							call func_106(var VAR_60, int 0, int 3, int 360)
-							gamevar script_object = var VAR_60
+							call func_46(var lizmant1, int 13)
+							call set_char_template(var lizmant1, int 40)
+							call func_106(var lizmant1, int 0, int 3, int 360)
+							gamevar script_object = var lizmant1
 							gamevar *character_stats_p+15 = int 8000
 							gamevar *character_stats_p+16 = int 8000
 					}
@@ -193,8 +163,8 @@ switch(var VAR_74)
 			if(call ! is_char_handle_in_level(int 8060931)&&call func_9(var VAR_80))
 			 {
 					call set_input_system(int 2)
-					call func_1(var VAR_8, int 8192)
-					call char_walk_to_pos(var VAR_8, var &VAR_85)
+					call func_1(var nduke, int 8192)
+					call char_walk_to_pos(var nduke, var &VAR_85)
 					call force_scroll_to_pos(var &VAR_85)
 					var VAR_86 = int 0
 					while(var VAR_86 < int 3)
@@ -221,7 +191,7 @@ switch(var VAR_74)
 									if(call is_char_standing(@VAR_17[var VAR_86]))
 									 {
 											@VAR_87[var VAR_86]= int 1
-											call char_turn_to_pos(@VAR_17[var VAR_86], call get_char_pos(var VAR_8))
+											call char_turn_to_pos(@VAR_17[var VAR_86], call get_char_pos(var nduke))
 									}
 							}
 					}
@@ -233,7 +203,7 @@ switch(var VAR_74)
 			}
 			if(var VAR_87&&var VAR_88&&var VAR_89)
 			 {
-					call char_turn_to_pos(var VAR_8, call get_char_pos(var VAR_17))
+					call char_turn_to_pos(var nduke, call get_char_pos(var VAR_17))
 					if(call is_char_handle_in_level(int 262144))
 					 {
 							call start_dialog("S_CAGDUK", "NULL")
@@ -250,7 +220,7 @@ switch(var VAR_74)
 			if(call get_input_sys() != int 4)
 			 {
 					call set_input_system(int 1)
-					call func_2(var VAR_8)
+					call func_2(var nduke)
 					var VAR_74 ++ 
 					var VAR_75 = int 0
 			}
@@ -259,8 +229,8 @@ switch(var VAR_74)
 			if(call ! func_8a(var &VAR_72)||call func_8a(var &VAR_73))
 			 {
 					call set_input_system(int 2)
-					call func_1(var VAR_8, int 8192)
-					call char_walk_to_pos(var VAR_8, var &VAR_85)
+					call func_1(var nduke, int 8192)
+					call char_walk_to_pos(var nduke, var &VAR_85)
 					var VAR_74 ++ 
 					var VAR_75 = int 0
 			}
@@ -277,9 +247,9 @@ switch(var VAR_74)
 							}
 							var VAR_86 ++ 
 					}
-					var VAR_3 = call get_char_handle(int 65536)
-					call char_turn_to_pos(var VAR_3, call get_char_pos(var VAR_8))
-					call char_turn_to_pos(var VAR_8, call get_char_pos(var VAR_3))
+					var DAVID = call get_char_handle(int 65536)
+					call char_turn_to_pos(var DAVID, call get_char_pos(var nduke))
+					call char_turn_to_pos(var nduke, call get_char_pos(var DAVID))
 					call start_dialog("S_DUKCAR", "NULL")
 					var VAR_74 ++ 
 					var VAR_75 = int 0
@@ -289,7 +259,7 @@ switch(var VAR_74)
 			if(call get_input_sys() != int 4)
 			 {
 					call set_input_system(int 1)
-					call func_2(var VAR_8)
+					call func_2(var nduke)
 					var VAR_74 ++ 
 					var VAR_75 = int 0
 			}
@@ -342,8 +312,8 @@ switch(var VAR_96)
 							if(call get_input_sys() != int 4)
 							 {
 									call start_dialog("S_DUKDVD", "ACT_3")
-									call char_stop(var VAR_3)
-									call char_turn_to_pos(var VAR_3, call get_char_pos(var VAR_8))
+									call char_stop(var DAVID)
+									call char_turn_to_pos(var DAVID, call get_char_pos(var nduke))
 									var VAR_96 ++ 
 									var VAR_97 = int 0
 							}
@@ -407,7 +377,7 @@ if(gamevar *scene_info_p+4 & int 1)
 		gamevar SMACKER_Y = int 504
 		call play_2d_anim("cells", int 0, int 1, var &VAR_1)
 		execute SCRIPT_15
-		var VAR_3 = call get_char_handle(int 65536)
+		var DAVID = call get_char_handle(int 65536)
 		if(call create_item(int 62))
 		 {
 				var VAR_4 = int 1
@@ -442,11 +412,11 @@ switch(var VAR_18)
 					 {
 							call set_input_system(int 2)
 							call char_stop(gamevar control_char_p)
-							var VAR_3 = call get_char_handle(int 65536)
-							if(gamevar control_char_p != var VAR_3)
+							var DAVID = call get_char_handle(int 65536)
+							if(gamevar control_char_p != var DAVID)
 							 {
-									call set_char_running(var VAR_3)
-									call char_walk_to_pos(var VAR_3, var VAR_25)
+									call set_char_running(var DAVID)
+									call char_walk_to_pos(var DAVID, var VAR_25)
 									var VAR_34 = int 1
 							}
 							var VAR_18 ++ 
@@ -457,17 +427,17 @@ switch(var VAR_18)
 		case 1
 			if(var VAR_34)
 			 {
-					if(call is_char_standing(var VAR_3))
+					if(call is_char_standing(var DAVID))
 					 {
 							var VAR_34 = int 0
-							call char_turn_to_pos(var VAR_3, call get_char_pos(var VAR_8))
+							call char_turn_to_pos(var DAVID, call get_char_pos(var nduke))
 					}
 			}
 			else
 			 {
-					call char_turn_to_pos(gamevar control_char_p, call get_char_pos(var VAR_8))
-					call func_1(var VAR_8, int 8192)
-					call char_turn_to_pos(var VAR_8, call get_char_pos(gamevar control_char_p))
+					call char_turn_to_pos(gamevar control_char_p, call get_char_pos(var nduke))
+					call func_1(var nduke, int 8192)
+					call char_turn_to_pos(var nduke, call get_char_pos(gamevar control_char_p))
 					call start_dialog("S_DUKKEY", "ACT_3")
 					var VAR_35 = int 1
 					var VAR_18 ++ 
@@ -478,7 +448,7 @@ switch(var VAR_18)
 			if(call get_input_sys() != int 4)
 			 {
 					call set_input_system(int 1)
-					call func_2(var VAR_8)
+					call func_2(var nduke)
 					var VAR_18 ++ 
 					var VAR_19 = int 0
 			}
@@ -493,7 +463,7 @@ switch(var VAR_18)
 					var VAR_1 = int 1
 					call play_loaded_sound(int 1, int 0, int 29, int 0)
 					gamevar *scene_info_p+4 |= int 8
-					call func_1(var VAR_8, int 8192)
+					call func_1(var nduke, int 8192)
 					var VAR_4 = int 0
 					var VAR_18 ++ 
 					var VAR_19 = int 0
@@ -502,13 +472,13 @@ switch(var VAR_18)
 		case 4
 			if(var VAR_1 == int -1)
 			 {
-					call set_char_running(var VAR_8)
-					call char_walk_to_pos(var VAR_8, var &VAR_29)
+					call set_char_running(var nduke)
+					call char_walk_to_pos(var nduke, var &VAR_29)
 					gamevar compile_init_character = int 0
-					var VAR_32 = call create_char(var &VAR_30, "nclay", int 55, int 13)
+					var nclay = call create_char(var &VAR_30, "nclay", int 55, int 13)
 					gamevar compile_init_character = int 1
-					call set_char_running(var VAR_32)
-					call char_walk_to_pos(var VAR_32, var &VAR_31)
+					call set_char_running(var nclay)
+					call char_walk_to_pos(var nclay, var &VAR_31)
 					var VAR_18 ++ 
 					var VAR_19 = int 0
 			}
@@ -541,7 +511,7 @@ switch(var VAR_18)
 									if(call is_char_standing(@VAR_17[var VAR_21]))
 									 {
 											@VAR_26[var VAR_21]= int 1
-											call char_turn_to_pos(@VAR_17[var VAR_21], call get_char_pos(var VAR_8))
+											call char_turn_to_pos(@VAR_17[var VAR_21], call get_char_pos(var nduke))
 									}
 							}
 					}
@@ -591,7 +561,7 @@ switch(var VAR_18)
 							if(@VAR_17[var VAR_21])
 							 {
 									call char_stop(@VAR_17[var VAR_21])
-									call char_turn_to_pos(@VAR_17[var VAR_21], call get_char_pos(var VAR_8))
+									call char_turn_to_pos(@VAR_17[var VAR_21], call get_char_pos(var nduke))
 							}
 							var VAR_21 ++ 
 					}
@@ -608,7 +578,7 @@ switch(var VAR_18)
 					 {
 							if(@VAR_17[var VAR_21])
 							 {
-									if(@VAR_17[var VAR_21] != var VAR_3)
+									if(@VAR_17[var VAR_21] != var DAVID)
 									 {
 											call set_char_running(@VAR_17[var VAR_21])
 											call func_2b(@VAR_17[var VAR_21], int 2)
@@ -616,10 +586,10 @@ switch(var VAR_18)
 							}
 							var VAR_21 ++ 
 					}
-					call set_char_running(var VAR_8)
-					call func_2b(var VAR_8, int 2)
-					call set_char_running(var VAR_32)
-					call func_2b(var VAR_32, int 2)
+					call set_char_running(var nduke)
+					call func_2b(var nduke, int 2)
+					call set_char_running(var nclay)
+					call func_2b(var nclay, int 2)
 					var VAR_18 ++ 
 					var VAR_19 = int 0
 			}
@@ -631,8 +601,8 @@ switch(var VAR_18)
 					call set_scene_overwrite_act("verdante", "dockside", int 0)
 					call func_118("verdante", "dockside", int 3)
 					call func_116("winter", "palace33", int 3)
-					call char_exit_door(var VAR_3, int 2)
-					call func_c1(var VAR_3, "winter", "palace33", int 65539)
+					call char_exit_door(var DAVID, int 2)
+					call func_c1(var DAVID, "winter", "palace33", int 65539)
 					var VAR_2 = int 1
 					var VAR_18 ++ 
 					var VAR_19 = int 0
@@ -652,8 +622,8 @@ while(var VAR_16)
 }
 
 ._SCRIPT_15
-var VAR_8 = call create_char(var &VAR_9, "nduke", int 64, int 13)
-gamevar script_object = var VAR_8
+var nduke = call create_char(var &VAR_9, "nduke", int 64, int 13)
+gamevar script_object = var nduke
 gamevar *object_p+6 |= int 8388608
-call func_50(var VAR_8, int 8192)
-call play_char_ai_script(var VAR_8, var &VAR_11)
+call func_50(var nduke, int 8192)
+call play_char_ai_script(var nduke, var &VAR_11)

@@ -1,32 +1,18 @@
 ._DATA
 VAR_0	{ -3034, 14, 4392 }	
 VAR_1	{ 6752, 14, -3656 }	
-grow_wamper	0	
 VAR_4	{ 5, -1825, -1231 }	
-VAR_5	0	
-VAR_6	0	
-leopard	0	
-leopard1	0	
-leopard2	0	
-sentryg	0	
 VAR_11	{ -1645, -1825, -2128 }	
 VAR_12	{ -1820, -1825, -1701 }	
 VAR_13	{ -2197, -1825, -1572 }	
 VAR_14	{ -1967, -1825, -2011 }	
 VAR_16	-1	
-VAR_17	0	
-VAR_18	0	
-VAR_19	0	
-VAR_26	0	
-VAR_27	0	
 VAR_28	{ 0, 0, 0, 0, 0 }	
 VAR_29	{ 0, 0, 0 }	
 VAR_35	{ 536, -1825, -1463, 427, -1825, -761, -51, -1825, -125, 25, -1825, -831, -119, -1825, -1620, 338, -1825, -1138, 871, -1825, -877, -171, -1825, 140, -372, -1825, 773, -703, -1825, 901, -724, -1825, 292, -933, -1825, -405, -1041, -1825, -1158, -1135, -1825, 790, -1211, -1825, -585, -1242, -1825, -1991, -1726, -1825, -955, -1795, -1825, 12, -2007, -1825, -1846, -1398, -1825, -2319 }	
 VAR_36	{ 536, -1825, -1463, 427, -1825, -761, -51, -1825, -125, 25, -1825, -831, -119, -1825, -1620, 338, -1825, -1138, 871, -1825, -877, -171, -1825, 140, -372, -1825, 773, -703, -1825, 901, -724, -1825, 292, -933, -1825, -405, -1041, -1825, -1158, -1135, -1825, 790, -1211, -1825, -585, -1242, -1825, -1991, -1726, -1825, -955, -1795, -1825, 12, -2007, -1825, -1846, -1398, -1825, -2319 }	
 VAR_37	{ 0, 1, 20, VAR_35, 8, 2, 4, 0, 9, 1, 1, 2, 5, -1, 5, 1, 50, 120, 6, 2, 7, 1, 2, 10, 45, -1, -1 }	
 VAR_38	{ 0, 1, 20, VAR_36, 8, 2, 4, 0, 9, 1, 1, 2, 24, -1, 5, 1, 50, 120, 6, 2, 7, 1, 1, -1, 0 }	
-VAR_39	0	
-VAR_40	0
 
 ._on_load
 call load_sound_set(int 65)
@@ -117,7 +103,7 @@ if(var VAR_5 == int 0)
 		 {
 				call set_input_system(int 2)
 				execute SCRIPT_7
-				call func_f(var VAR_3, int 131072)
+				call func_f(var grow_wamper, int 131072)
 				var VAR_6 = int 0
 				var VAR_5 ++ 
 		}
@@ -128,10 +114,10 @@ if(var VAR_5 == int 1)
 		if(var VAR_6 > int 100)
 		 {
 				call log("fight time")
-				call char_attack(var VAR_7, var VAR_3)
-				call char_attack(var VAR_8, var VAR_3)
-				call char_attack(var VAR_9, var VAR_3)
-				call char_attack(var VAR_3, var VAR_7)
+				call char_attack(var leopard, var grow_wamper)
+				call char_attack(var leopard1, var grow_wamper)
+				call char_attack(var leopard2, var grow_wamper)
+				call char_attack(var grow_wamper, var leopard)
 				var VAR_5 ++ 
 		}
 }
@@ -141,16 +127,16 @@ if(var VAR_5 == int 2)
 		 {
 				if(var VAR_17 == int 0)
 				 {
-						if(call func_87(var VAR_7))
+						if(call func_87(var leopard))
 						 {
 								call log("fight1: finished")
-								call func_36(var VAR_7, int -1233, int -1825, int 347)
-								gamevar script_object = var VAR_7
+								call func_36(var leopard, int -1233, int -1825, int 347)
+								gamevar script_object = var leopard
 								gamevar *character_stats_p+15 = int 3000
-								call func_d6(var VAR_7)
-								call func_106(var VAR_7, int 1, int 0, int 1)
-								call func_50(var VAR_7, int 3)
-								call func_53(var VAR_7, int 5)
+								call func_d6(var leopard)
+								call func_106(var leopard, int 1, int 0, int 1)
+								call func_50(var leopard, int 3)
+								call func_53(var leopard, int 5)
 								var VAR_17 = int 1
 						}
 				}
@@ -159,16 +145,16 @@ if(var VAR_5 == int 2)
 		 {
 				if(var VAR_18 == int 0)
 				 {
-						if(call func_87(var VAR_8))
+						if(call func_87(var leopard1))
 						 {
 								call log("fight1: finished")
-								call func_36(var VAR_8, int -1233, int -1825, int 347)
-								gamevar script_object = var VAR_8
+								call func_36(var leopard1, int -1233, int -1825, int 347)
+								gamevar script_object = var leopard1
 								gamevar *character_stats_p+15 = int 3000
-								call func_d6(var VAR_8)
-								call func_106(var VAR_8, int 1, int 0, int 1)
-								call func_50(var VAR_8, int 3)
-								call func_53(var VAR_8, int 5)
+								call func_d6(var leopard1)
+								call func_106(var leopard1, int 1, int 0, int 1)
+								call func_50(var leopard1, int 3)
+								call func_53(var leopard1, int 5)
 								var VAR_18 = int 1
 						}
 				}
@@ -177,15 +163,15 @@ if(var VAR_5 == int 2)
 		 {
 				if(var VAR_19 == int 0)
 				 {
-						if(call func_87(var VAR_9))
+						if(call func_87(var leopard2))
 						 {
 								call log("fight1: finished")
-								call func_36(var VAR_9, int -1233, int -1825, int 347)
-								gamevar script_object = var VAR_9
+								call func_36(var leopard2, int -1233, int -1825, int 347)
+								gamevar script_object = var leopard2
 								gamevar *character_stats_p+15 = int 3000
-								call func_106(var VAR_9, int 1, int 0, int 1)
-								call func_50(var VAR_9, int 3)
-								call func_53(var VAR_9, int 5)
+								call func_106(var leopard2, int 1, int 0, int 1)
+								call func_50(var leopard2, int 3)
+								call func_53(var leopard2, int 5)
 								var VAR_19 = int 1
 						}
 				}
@@ -203,10 +189,10 @@ if(var VAR_5 == int 3)
 				if(call is_char_handle_in_level(int 2752512))
 				 {
 						call log("you killed my leopards")
-						gamevar script_object = var VAR_10
+						gamevar script_object = var sentryg
 						gamevar *character_stats_p+15 = int 3000
-						call func_106(var VAR_10, int 1, int 0, int 1)
-						call func_50(var VAR_10, int 138)
+						call func_106(var sentryg, int 1, int 0, int 1)
+						call func_50(var sentryg, int 138)
 						var VAR_5 ++ 
 				}
 		}
@@ -214,10 +200,10 @@ if(var VAR_5 == int 3)
 if(call is_char_handle_in_level(int 10420224))
  {
 		call log("dead but not dead")
-		gamevar script_object = var VAR_3
+		gamevar script_object = var grow_wamper
 		if(gamevar *object_p+5 == int 6)
 		 {
-				call kill_char(var VAR_3)
+				call kill_char(var grow_wamper)
 		}
 }
 

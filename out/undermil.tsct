@@ -1,39 +1,18 @@
 ._DATA
-VAR_0	0	
 VAR_1	0	
-VAR_2	0	
-VAR_3	0	
-VAR_4	0	
-VAR_5	0	
-VAR_6	0	
 VAR_7	{ 0, 0 }	
 VAR_9	{ 1701080693, 1818848626, 0 }	
 VAR_10	{ -671, -1316, -1316 }	
 VAR_11	{ 489, -1117, 622 }	
 VAR_12	{ 443, -1361, -267 }	
 VAR_13	{ 14, 5, 20, 0, 578, -1362, 516, 5, 30, 0, 878, -1362, 260, 1, VAR_1, 15, 0, 427, -1362, -277, 5, 30, 12, 28, 5, 20, 1, VAR_1, 8 }	
-VAR_14	0	
-VAR_15	0	
-VAR_17	0	
-VAR_18	0	
 VAR_19	{ 0, 0 }	
-VAR_20	0	
-VAR_21	0	
-VAR_22	0	
-VAR_23	0	
-VAR_24	0	
-VAR_25	0	
-VAR_26	0	
 VAR_27	-1	
 VAR_36	{ 1280070990, 0 }	
 VAR_38	{ 1212374851, 1196771913, 0 }	
 VAR_39	{ 1280070990, 0 }	
-VAR_56	0	
-VAR_57	0	
-VAR_66	0	
 VAR_67	10	
 VAR_68	2	
-VAR_69	0
 
 ._on_load
 var VAR_7 = int 0
@@ -117,13 +96,13 @@ call play_loaded_sound(int 7, int -1, int 3, var &VAR_10)
 call func_ec(int 23, int -1, int 0, var &VAR_11)
 
 ._SCRIPT_5
-var VAR_5 = call create_char(var &VAR_12, "nchiaro", int 75, int 13)
-var VAR_14 = call get_char_handle(int 65536)
-gamevar script_object = var VAR_14
+var nchiaro = call create_char(var &VAR_12, "nchiaro", int 75, int 13)
+var DAVID = call get_char_handle(int 65536)
+gamevar script_object = var DAVID
 var VAR_15 = gamevar LEVEL
-call set_char_lvl(var VAR_5, var VAR_15)
-call func_50(var VAR_5, int 8192)
-call play_char_ai_script(var VAR_5, var &VAR_13)
+call set_char_lvl(var nchiaro, var VAR_15)
+call func_50(var nchiaro, int 8192)
+call play_char_ai_script(var nchiaro, var &VAR_13)
 call set_input_system(int 2)
 
 ._SCRIPT_6
@@ -135,7 +114,7 @@ if(var VAR_27 != var VAR_17)
 switch(var VAR_17)
  {
 		case 0
-			if(call func_a6(var VAR_5))
+			if(call func_a6(var nchiaro))
 			 {
 					var VAR_0 = call get_david_char()
 					while(var VAR_0)
@@ -147,7 +126,7 @@ switch(var VAR_17)
 							}
 							else
 							 {
-									call char_turn_to_pos(var VAR_0, call get_char_pos(var VAR_5))
+									call char_turn_to_pos(var VAR_0, call get_char_pos(var nchiaro))
 									var VAR_0 = call func_7e()
 							}
 					}
@@ -305,7 +284,7 @@ while(var VAR_56)
 					break 
 				case 131072
 					call log("chiaro")
-					var VAR_5 = var VAR_56
+					var nchiaro = var VAR_56
 					break 
 				case 262144
 					call log("cagen")

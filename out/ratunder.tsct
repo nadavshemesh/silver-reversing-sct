@@ -1,30 +1,7 @@
 ._DATA
-VAR_0	0	
-fade_chronicler	0	
-VAR_2	0	
-VAR_3	0	
-VAR_4	0	
-VAR_17	0	
 VAR_18	{ 0, 0, -1 }	
-VAR_19	0	
-VAR_20	0	
-VAR_21	0	
-VAR_22	0	
 VAR_23	-1	
-VAR_26	0	
-VAR_39	0	
-VAR_40	0	
-VAR_41	0	
-VAR_42	0	
-VAR_43	0	
-VAR_52	0	
-VAR_53	0	
-VAR_54	0	
-VAR_55	0	
 VAR_57	{ 0, 4 }	
-ratgod	0	
-rat_raptor	0	
-rat_raptor1	0	
 VAR_61	{ -5441, -375, -168 }	
 VAR_62	{ -2253, -1694, -660 }	
 VAR_63	{ -2253, -1684, -59 }	
@@ -35,21 +12,10 @@ VAR_67	{ 15, 28, VAR_68, 5, 0, 5, 30, 0, -5441, -375, -168, 8 }
 VAR_68	"jenwash"	
 VAR_69	{ 15, 28, VAR_70, 5, 0, 5, 30, 0, -5441, -375, -168, 8 }	
 VAR_70	"jenwash"	
-VAR_72	0	
-VAR_73	0	
-VAR_75	0	
-VAR_76	0	
-VAR_77	0	
-VAR_78	0	
 VAR_79	{ -2530, -1694, 227 }	
 VAR_80	{ 0, 0 }	
-VAR_81	0	
-VAR_82	0	
 VAR_103	{ 1280070990, -1431655936, 0 }	
-VAR_104	0	
 VAR_105	-1	
-VAR_108	0	
-VAR_109	0
 
 ._on_load
 execute SCRIPT_7
@@ -150,7 +116,7 @@ switch(var VAR_75)
 			 {
 					call log("user!")
 					call set_input_system(int 1)
-					call set_char_template(var VAR_58, int 146)
+					call set_char_template(var ratgod, int 146)
 					call play_bgm("ievlbat1")
 					var VAR_75 ++ 
 					var VAR_76 = int 0
@@ -161,9 +127,9 @@ switch(var VAR_75)
 			 {
 					if(call is_char_handle_in_level(int 9240577))
 					 {
-							if(call func_a6(var VAR_59))
+							if(call func_a6(var rat_raptor))
 							 {
-									call remove_char(var VAR_59)
+									call remove_char(var rat_raptor)
 							}
 					}
 					else
@@ -175,9 +141,9 @@ switch(var VAR_75)
 			 {
 					if(call is_char_handle_in_level(int 9240578))
 					 {
-							if(call func_a6(var VAR_60))
+							if(call func_a6(var rat_raptor1))
 							 {
-									call remove_char(var VAR_60)
+									call remove_char(var rat_raptor1)
 							}
 					}
 					else
@@ -206,8 +172,8 @@ switch(var VAR_75)
 		case 3
 			if(var VAR_76 > int 60)
 			 {
-					call play_char_anim(var VAR_72, var VAR_73, int 0)
-					gamevar script_object = var VAR_72
+					call play_char_anim(var DAVID, var VAR_73, int 0)
+					gamevar script_object = var DAVID
 					var VAR_80 = gamevar LEVEL
 					var VAR_39 = var VAR_80 + int 1
 					execute SCRIPT_17
@@ -318,7 +284,7 @@ var VAR_65 = call get_selected_hero()
 call set_input_system(int 2)
 call load_char("chronicl")
 var VAR_73 = call load_anim("victory")
-var VAR_72 = call get_char_handle(int 65536)
+var DAVID = call get_char_handle(int 65536)
 
 ._SCRIPT_5
 switch(var VAR_108)
@@ -328,14 +294,14 @@ switch(var VAR_108)
 ._SCRIPT_6
 
 ._SCRIPT_7
-var VAR_72 = call get_char_handle(int 65536)
+var DAVID = call get_char_handle(int 65536)
 var VAR_53 = int 0
 var VAR_54 = int 0
 var VAR_109 = call get_david_char()
 var VAR_52 = int 0
 while(var VAR_109)
  {
-		if(var VAR_109 != var VAR_72)
+		if(var VAR_109 != var DAVID)
 		 {
 				@VAR_53[var VAR_52]= var VAR_109
 				var VAR_52 ++ 

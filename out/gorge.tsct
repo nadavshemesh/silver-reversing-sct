@@ -1,14 +1,5 @@
 ._DATA
-VAR_1	0	
 VAR_2	{ -1001488384, 1154203648, 1150795776 }	
-VAR_3	0	
-VAR_4	0	
-VAR_5	0	
-VAR_6	0	
-VAR_7	0	
-bear	0	
-bear1	0	
-VAR_10	0	
 VAR_11	{ -1423, 1630, 4725 }	
 VAR_12	{ 1153, 1679, 2918 }	
 VAR_13	{ 0, -1560, 1580, 4910, 5, 50, 0, -671, 1630, 4627, 5, 60, 0, -1161, 1630, 3123, 5, 80, 0, -1560, 1580, 4895, 5, 90, 7, 8 }	
@@ -20,30 +11,15 @@ VAR_18	{ -70, 780, 5765 }
 VAR_19	{ 1273, 1617, 5583 }	
 VAR_21	0	
 VAR_22	0	
-grunt	0	
 VAR_24	{ -454, 1731, 2576 }	
-grunt1	0	
 VAR_26	{ -730, 1731, 2576 }	
 VAR_27	{ 15, 0, 294, 1731, 2707, 2, 221, 780, 1049, 5, 30, 2, 2436, 1635, 1716, 3, VAR_28, 0, 0, 2436, 1635, 1716, 16, VAR_21, 1, 35, 8 }	
 VAR_28	"come"	
 VAR_29	{ 15, 0, 38, 1731, 2711, 5, 200, 0, 2120, 1635, 2058, 16, VAR_22, 1, 35, 8 }	
-VAR_30	0	
 VAR_31	{ 0, 0 }	
-VAR_32	0	
-VAR_34	0	
-VAR_35	0	
 VAR_36	{ -267, 867, 5416, 866, 780, 5245 }	
-VAR_37	0	
-VAR_38	0	
-VAR_49	0	
-VAR_50	0	
-VAR_51	0	
-VAR_52	0	
-VAR_54	0	
 VAR_55	10	
 VAR_56	3	
-VAR_57	0	
-VAR_58	0	
 VAR_59	"0HDEE"	
 VAR_60	{ -989810688, 1154203648, 1164718080 }	
 VAR_61	{ -998457344, 1154203648, 1168340992 }	
@@ -119,17 +95,17 @@ switch(var VAR_34)
 			if(var VAR_10 == int 1)
 			 {
 					call set_input_system(int 1)
-					if(var VAR_4)
+					if(var is_SEKUNE_exist)
 					 {
-							call char_stop(var VAR_4)
+							call char_stop(var is_SEKUNE_exist)
 							call start_dialog("S_DVDSEK", "NULL")
 							var VAR_35 = int 0
 							var VAR_34 ++ 
 							break 
 					}
-					if(var VAR_6)
+					if(var is_CHIARO_exist)
 					 {
-							call char_stop(var VAR_6)
+							call char_stop(var is_CHIARO_exist)
 							call start_dialog("S_DVDCHI", "NULL")
 							var VAR_35 = int 0
 							var VAR_34 ++ 
@@ -143,9 +119,9 @@ switch(var VAR_34)
 							var VAR_34 ++ 
 							break 
 					}
-					if(var VAR_5)
+					if(var is_JUG_exist)
 					 {
-							call char_stop(var VAR_5)
+							call char_stop(var is_JUG_exist)
 							call start_dialog("S_DVDJUG", "NULL")
 							var VAR_35 = int 0
 							var VAR_34 ++ 
@@ -168,8 +144,8 @@ switch(var VAR_34)
 					call log("Bear 1 is go")
 					if(call is_char_handle_in_level(int 10092544))
 					 {
-							call func_46(var VAR_8, int 13)
-							call set_char_template(var VAR_8, int 7)
+							call func_46(var bear, int 13)
+							call set_char_template(var bear, int 7)
 					}
 					var VAR_35 = int 0
 					var VAR_34 ++ 
@@ -181,8 +157,8 @@ switch(var VAR_34)
 					call log("Bear 2 is go")
 					if(call is_char_handle_in_level(int 10092545))
 					 {
-							call func_46(var VAR_9, int 13)
-							call set_char_template(var VAR_9, int 7)
+							call func_46(var bear1, int 13)
+							call set_char_template(var bear1, int 7)
 					}
 					var VAR_35 = int 0
 					var VAR_34 ++ 
@@ -197,10 +173,10 @@ execute SCRIPT_4
 execute SCRIPT_9
 
 ._SCRIPT_6
-var VAR_3 = call is_char_handle_in_level(int 65536)
-var VAR_4 = call is_char_handle_in_level(int 786432)
-var VAR_5 = call is_char_handle_in_level(int 327680)
-var VAR_6 = call is_char_handle_in_level(int 131072)
+var is_DAVID_exist = call is_char_handle_in_level(int 65536)
+var is_SEKUNE_exist = call is_char_handle_in_level(int 786432)
+var is_JUG_exist = call is_char_handle_in_level(int 327680)
+var is_CHIARO_exist = call is_char_handle_in_level(int 131072)
 call load_char("gbee")
 var bear = call create_enemy(int 7, int 0, var &VAR_18, int 0)
 call freeze_enemy(var bear)

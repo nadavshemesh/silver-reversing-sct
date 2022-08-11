@@ -1,44 +1,28 @@
 ._DATA
-VAR_0	0	
-VAR_1	0	
-start_grunt	0	
 VAR_7	{ 10730, -39, -1632 }	
-grunt_wooden_shield	0	
 VAR_9	{ 11370, -40, -2965 }	
-start_grunt1	0	
 VAR_11	{ 5811, -39, -2669 }	
-grunt_wooden_shield1	0	
 VAR_13	{ 5811, -39, -1487 }	
-start_grunt2	0	
 VAR_15	{ 7405, -39, -3263 }	
-start_grunt3	0	
 VAR_17	{ 6790, -39, -2732 }	
-grunt_wooden_shield2	0	
 VAR_19	{ 5896, 1825, -3633 }	
-grunt_wooden_shield3	0	
 VAR_21	{ 5640, 1825, -3522 }	
-VAR_22	0	
-VAR_23	0	
-VAR_24	0	
-VAR_25	0	
-VAR_26	0	
-VAR_27	0	
+NVILLOW	0	
+NVILLAGER	0	
 VAR_28	{ 8486, -40, -1225 }	
-VAR_29	0	
 VAR_30	{ 9874, -40, -5830 }	
 VAR_31	{ 8157, 105, -1292 }	
-VAR_32	{ 0, 8010, -40, -1191, 5, 100, 1, VAR_26, 3, VAR_33, 0, 5, 275, 3, VAR_34, 0, 5, 100, 3, VAR_35, 0, 0, 10269, -40, -5485, 5, 100, 3, VAR_36, 0, 0, 10104, -40, -1028, 1, VAR_27, 5, 275, 3, VAR_37, 0, 7, 8 }	
+VAR_32	{ 0, 8010, -40, -1191, 5, 100, 1, NVILLOW, 3, VAR_33, 0, 5, 275, 3, VAR_34, 0, 5, 100, 3, VAR_35, 0, 0, 10269, -40, -5485, 5, 100, 3, VAR_36, 0, 0, 10104, -40, -1028, 1, NVILLAGER, 5, 275, 3, VAR_37, 0, 7, 8 }	
 VAR_33	"no"	
 VAR_34	"laugh"	
 VAR_35	"no"	
 VAR_36	"scratch2"	
 VAR_37	"scratch2"	
-VAR_38	{ 0, 5889, 525, -6889, 3, VAR_39, 0, 0, 8486, -40, -1225, 1, VAR_26, 3, VAR_40, 0, 5, 50, 7, 8 }	
+VAR_38	{ 0, 5889, 525, -6889, 3, VAR_39, 0, 0, 8486, -40, -1225, 1, NVILLOW, 3, VAR_40, 0, 5, 50, 7, 8 }	
 VAR_39	"scratch2"	
 VAR_40	"no"	
 VAR_44	{ 0, 0, 0, 1, -1, 8, 2, 12, 156, -1, 14, 0, 1, 1, 18, 25, -1 }	
 VAR_46	{ 6905, -39, -3322 }	
-VAR_47	0	
 VAR_48	VAR_49	
 VAR_49	"ACT_2"	
 VAR_50	{ VAR_51, VAR_52, VAR_53, VAR_54, VAR_55, VAR_56, VAR_57 }	
@@ -50,15 +34,8 @@ VAR_55	"GENERIC3"
 VAR_56	"ACT_8"	
 VAR_57	"GENERIC2"	
 VAR_58	-1	
-VAR_59	0	
-VAR_60	0	
-VAR_61	0	
-VAR_62	0	
-VAR_65	0	
 VAR_66	{ 0, 0 }	
 VAR_77	{ 8004, -40, -1559 }	
-VAR_78	0	
-VAR_79	0	
 VAR_80	VAR_81	
 VAR_81	"ACT_2"	
 VAR_82	{ VAR_84, VAR_85, VAR_86, VAR_87, VAR_88 }	
@@ -70,14 +47,9 @@ VAR_87	"ACT_5"
 VAR_88	"GENERIC5"	
 VAR_89	"ACT_9"	
 VAR_90	-1	
-VAR_94	0	
 VAR_95	{ 0, 0 }	
 VAR_96	{ 8150, 105, -1277 }	
-VAR_97	0	
 VAR_101	{ 555819297, 1347624993, 1095320389, 1094918220, 555763027, 555819297, -1431655936 }	
-VAR_115	0	
-VAR_116	0	
-VAR_117	0
 
 ._on_load
 call load_sound_set(int 6)
@@ -154,8 +126,8 @@ if(gamevar *scene_info_p+1 == int 1)
 }
 
 ._SCRIPT_4
-var VAR_22 = call get_char_handle(int 65536)
-var VAR_23 = call get_char_handle(int 393216)
+var DAVID = call get_char_handle(int 65536)
+var GRANDAD = call get_char_handle(int 393216)
 var start_grunt = call create_enemy(int 156, int 1, var &VAR_7, int 85)
 var grunt_wooden_shield = call create_enemy(int 99, int 2, var &VAR_9, int 30)
 var start_grunt1 = call create_enemy(int 156, int 3, var &VAR_11, int 65)
@@ -202,13 +174,13 @@ switch(var VAR_24)
 							gamevar script_object = var start_grunt2
 							if(gamevar *character_combat_p+1 == int 0)
 							 {
-									if(call func_37(var VAR_22, int 6))
+									if(call func_37(var DAVID, int 6))
 									 {
-											call char_attack(var start_grunt2, var VAR_23)
+											call char_attack(var start_grunt2, var GRANDAD)
 									}
 									else
 									 {
-											call char_attack(var start_grunt2, var VAR_22)
+											call char_attack(var start_grunt2, var DAVID)
 									}
 									call set_char_running(var start_grunt2)
 							}
@@ -218,13 +190,13 @@ switch(var VAR_24)
 							gamevar script_object = var start_grunt3
 							if(gamevar *character_combat_p+1 == int 0)
 							 {
-									if(call func_37(var VAR_22, int 6))
+									if(call func_37(var DAVID, int 6))
 									 {
-											call char_attack(var start_grunt3, var VAR_23)
+											call char_attack(var start_grunt3, var GRANDAD)
 									}
 									else
 									 {
-											call char_attack(var start_grunt3, var VAR_22)
+											call char_attack(var start_grunt3, var DAVID)
 									}
 									call set_char_running(var start_grunt3)
 							}
@@ -240,13 +212,13 @@ switch(var VAR_24)
 							gamevar script_object = var grunt_wooden_shield2
 							if(gamevar *character_combat_p+1 == int 0)
 							 {
-									if(call func_37(var VAR_22, int 6))
+									if(call func_37(var DAVID, int 6))
 									 {
-											call char_attack(var grunt_wooden_shield2, var VAR_23)
+											call char_attack(var grunt_wooden_shield2, var GRANDAD)
 									}
 									else
 									 {
-											call char_attack(var grunt_wooden_shield2, var VAR_22)
+											call char_attack(var grunt_wooden_shield2, var DAVID)
 									}
 									call set_char_running(var grunt_wooden_shield2)
 							}
@@ -256,13 +228,13 @@ switch(var VAR_24)
 							gamevar script_object = var grunt_wooden_shield3
 							if(gamevar *character_combat_p+1 == int 0)
 							 {
-									if(call func_37(var VAR_22, int 6))
+									if(call func_37(var DAVID, int 6))
 									 {
-											call char_attack(var grunt_wooden_shield3, var VAR_23)
+											call char_attack(var grunt_wooden_shield3, var GRANDAD)
 									}
 									else
 									 {
-											call char_attack(var grunt_wooden_shield3, var VAR_22)
+											call char_attack(var grunt_wooden_shield3, var DAVID)
 									}
 									call set_char_running(var grunt_wooden_shield3)
 							}
@@ -278,13 +250,13 @@ switch(var VAR_24)
 							gamevar script_object = var start_grunt1
 							if(gamevar *character_combat_p+1 == int 0)
 							 {
-									if(call func_37(var VAR_22, int 6))
+									if(call func_37(var DAVID, int 6))
 									 {
-											call char_attack(var start_grunt1, var VAR_23)
+											call char_attack(var start_grunt1, var GRANDAD)
 									}
 									else
 									 {
-											call char_attack(var start_grunt1, var VAR_22)
+											call char_attack(var start_grunt1, var DAVID)
 									}
 									call set_char_running(var start_grunt1)
 							}
@@ -294,13 +266,13 @@ switch(var VAR_24)
 							gamevar script_object = var grunt_wooden_shield1
 							if(gamevar *character_combat_p+1 == int 0)
 							 {
-									if(call func_37(var VAR_22, int 6))
+									if(call func_37(var DAVID, int 6))
 									 {
-											call char_attack(var grunt_wooden_shield1, var VAR_23)
+											call char_attack(var grunt_wooden_shield1, var GRANDAD)
 									}
 									else
 									 {
-											call char_attack(var grunt_wooden_shield1, var VAR_22)
+											call char_attack(var grunt_wooden_shield1, var DAVID)
 									}
 									call set_char_running(var grunt_wooden_shield1)
 							}
@@ -319,13 +291,13 @@ switch(var VAR_24)
 
 ._SCRIPT_6
 var VAR_0 = call play_3d_fx("SPARK", var &VAR_31, int 0, int 0)
-var VAR_27 = call create_char(var &VAR_28, "NVILLAGER", int 265, int 13)
-var VAR_29 = call create_char(var &VAR_30, "NVILLAGRB", int 101, int 13)
-call set_char_init_state(var VAR_27, int 13)
-call play_char_ai_script(var VAR_27, var &VAR_38)
-call set_char_running(var VAR_27)
-call set_char_init_state(var VAR_29, int 13)
-call play_char_ai_script(var VAR_29, var &VAR_32)
+var NVILLAGER = call create_char(var &VAR_28, "NVILLAGER", int 265, int 13)
+var NVILLAGRB = call create_char(var &VAR_30, "NVILLAGRB", int 101, int 13)
+call set_char_init_state(var NVILLAGER, int 13)
+call play_char_ai_script(var NVILLAGER, var &VAR_38)
+call set_char_running(var NVILLAGER)
+call set_char_init_state(var NVILLAGRB, int 13)
+call play_char_ai_script(var NVILLAGRB, var &VAR_32)
 
 ._SCRIPT_7
 execute SCRIPT_6
@@ -354,11 +326,11 @@ if(gamevar *scene_info_p+1 == int 1)
 }
 
 ._SCRIPT_10
-var VAR_25 = call create_char(var &VAR_46, "NVILOWFAT", int 350, int 13)
-call add_item_to_char(var VAR_25, int 40, int 0, int 0)
-call add_item_to_char(var VAR_25, int 41, int 0, int 0)
-call add_item_to_char(var VAR_25, int 42, int 0, int 0)
-call add_item_to_char(var VAR_25, int 43, int 0, int 0)
+var NVILOWFAT = call create_char(var &VAR_46, "NVILOWFAT", int 350, int 13)
+call add_item_to_char(var NVILOWFAT, int 40, int 0, int 0)
+call add_item_to_char(var NVILOWFAT, int 41, int 0, int 0)
+call add_item_to_char(var NVILOWFAT, int 42, int 0, int 0)
+call add_item_to_char(var NVILOWFAT, int 43, int 0, int 0)
 if(call func_bf(int 333, gamevar CURRENT_LEVEL, gamevar CURRENT_SCENE))
  {
 		call log("old food topic from history")
@@ -373,18 +345,18 @@ else
  {
 		var VAR_47 = @VAR_50[gamevar room_state - int 2]
 }
-call func_10c(var VAR_25, var VAR_47)
+call func_10c(var NVILOWFAT, var VAR_47)
 if(call func_bf(int 448, gamevar CURRENT_LEVEL, gamevar CURRENT_SCENE))
  {
 		call func_d8(int 448, var &VAR_59)
 		switch(var VAR_60)
 		 {
 				case 2
-					call add_item_to_char(var VAR_25, int 47, int 0, int 0)
-					call add_item_to_char(var VAR_25, int 46, int 0, int 0)
+					call add_item_to_char(var NVILOWFAT, int 47, int 0, int 0)
+					call add_item_to_char(var NVILOWFAT, int 46, int 0, int 0)
 				case 1
-					call add_item_to_char(var VAR_25, int 44, int 0, int 0)
-					call add_item_to_char(var VAR_25, int 45, int 0, int 0)
+					call add_item_to_char(var NVILOWFAT, int 44, int 0, int 0)
+					call add_item_to_char(var NVILOWFAT, int 45, int 0, int 0)
 					break 
 		}
 		call func_7(int 448, var VAR_60, int 0, int 0)
@@ -394,7 +366,7 @@ if(call func_bf(int 448, gamevar CURRENT_LEVEL, gamevar CURRENT_SCENE))
 switch(var VAR_65)
  {
 		case 0
-			if(call func_127(var VAR_25))
+			if(call func_127(var NVILOWFAT))
 			 {
 					var VAR_66 = int 0
 					var VAR_65 ++ 
@@ -422,7 +394,7 @@ switch(var VAR_65)
 					var VAR_58 ++ 
 					var VAR_58 = var VAR_58 % int 7
 					var VAR_47 = @VAR_50[var VAR_58]
-					call func_10c(var VAR_25, var VAR_47)
+					call func_10c(var NVILOWFAT, var VAR_47)
 					var VAR_66 = int 0
 					var VAR_65 = int 0
 			}
@@ -436,7 +408,7 @@ switch(var VAR_65)
 					}
 					else
 					 {
-							if(call func_6c(var VAR_25))
+							if(call func_6c(var NVILOWFAT))
 							 {
 									call log("didn't want anything")
 									call start_dialog("V_VFTNO", var VAR_47)
@@ -457,7 +429,7 @@ switch(var VAR_65)
 					var VAR_58 ++ 
 					var VAR_58 = var VAR_58 % int 7
 					var VAR_47 = @VAR_50[var VAR_58]
-					call func_10c(var VAR_25, var VAR_47)
+					call func_10c(var NVILOWFAT, var VAR_47)
 					var VAR_66 = int 0
 					var VAR_65 = int 0
 			}
@@ -471,13 +443,13 @@ var VAR_60 = var VAR_58
 var VAR_61 = int 0
 var VAR_62 = int 0
 call func_4d(int 333, var &VAR_59, "verdante", "exbarrac")
-if(var VAR_25)
+if(var NVILOWFAT)
  {
-		call remove_char(var VAR_25)
+		call remove_char(var NVILOWFAT)
 }
 
 ._SCRIPT_13
-var VAR_26 = call create_char(var &VAR_77, "NVILLOW", int 40, int 13)
+var NVILLOW = call create_char(var &VAR_77, "NVILLOW", int 40, int 13)
 if(call func_bf(int 222, gamevar CURRENT_LEVEL, gamevar CURRENT_SCENE))
  {
 		call func_d8(int 222, var &VAR_59)
@@ -514,16 +486,16 @@ else
 		switch(var VAR_60)
 		 {
 				case 2
-					call add_item_to_char(var VAR_26, int 109, int 0, int 0)
+					call add_item_to_char(var NVILLOW, int 109, int 0, int 0)
 				case 1
-					call add_item_to_char(var VAR_26, int 12, int 0, int 0)
+					call add_item_to_char(var NVILLOW, int 12, int 0, int 0)
 				case 0
-					call add_item_to_char(var VAR_26, int 9, int 0, int 0)
-					call add_item_to_char(var VAR_26, int 108, int 0, int 0)
+					call add_item_to_char(var NVILLOW, int 9, int 0, int 0)
+					call add_item_to_char(var NVILLOW, int 108, int 0, int 0)
 					break 
 		}
 		call func_7(int 111, var VAR_60, int 0, int 0)
-		call func_10c(var VAR_26, var VAR_79)
+		call func_10c(var NVILLOW, var VAR_79)
 }
 
 ._SCRIPT_14
@@ -534,7 +506,7 @@ if(var ! VAR_78)
 switch(var VAR_94)
  {
 		case 0
-			if(call func_127(var VAR_26))
+			if(call func_127(var NVILLOW))
 			 {
 					var VAR_95 = int 0
 					var VAR_94 ++ 
@@ -562,8 +534,8 @@ switch(var VAR_94)
 					var VAR_90 ++ 
 					var VAR_90 = var VAR_90 % int 6
 					var VAR_79 = @VAR_82[var VAR_90]
-					call func_10c(var VAR_26, var VAR_79)
-					call char_turn_to_pos(var VAR_26, var &VAR_96)
+					call func_10c(var NVILLOW, var VAR_79)
+					call char_turn_to_pos(var NVILLOW, var &VAR_96)
 					var VAR_95 = int 0
 					var VAR_94 = int 5
 			}
@@ -606,7 +578,7 @@ switch(var VAR_94)
 					}
 					else
 					 {
-							if(call func_6c(var VAR_26))
+							if(call func_6c(var NVILLOW))
 							 {
 									call log("didn't want anything")
 									call start_dialog("V_VOWNO", var VAR_79)
@@ -627,8 +599,8 @@ switch(var VAR_94)
 					var VAR_90 ++ 
 					var VAR_90 = var VAR_90 % int 6
 					var VAR_79 = @VAR_82[var VAR_90]
-					call func_10c(var VAR_26, var VAR_79)
-					call char_turn_to_pos(var VAR_26, var &VAR_96)
+					call func_10c(var NVILLOW, var VAR_79)
+					call char_turn_to_pos(var NVILLOW, var &VAR_96)
 					var VAR_95 = int 0
 					var VAR_94 = int 5
 			}
@@ -649,7 +621,7 @@ var VAR_60 = var VAR_90
 var VAR_61 = int 0
 var VAR_62 = int 0
 call func_4d(int 222, var &VAR_59, "verdante", "exbarrac")
-if(var VAR_26)
+if(var NVILLOW)
  {
-		call remove_char(var VAR_26)
+		call remove_char(var NVILLOW)
 }

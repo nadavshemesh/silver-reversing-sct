@@ -1,24 +1,14 @@
 ._DATA
 VAR_1	{ 1918988130, 1870099551, 0 }	
 VAR_3	{ -422, -884, 415 }	
-VAR_4	0	
-VAR_5	0	
-VAR_6	0	
 VAR_7	{ -1155, -884, 756, -1241, -884, 407, -1123, -884, 16 }	
 VAR_8	{ 0, 1, 3, VAR_7, 8, 2, 1, 5, 33, -1, 4, 0, 9, 1, 5, 1, 1, 10, 6, 1, 7, 1, 4, -1 }	
 VAR_9	{ 0, 1, 3, VAR_7, 8, 2, 1, 2, 35, 35, -1, 4, 0, 9, 1, 5, 1, 4, 20, 6, 1, 7, 1, 4, 10, 47, 46, -1, -1 }	
 VAR_10	{ -2172, -883, 841, -2209, -883, -60 }	
-VAR_13	0	
-VAR_14	0	
 VAR_17	{ 3, VAR_18, 0, 11, 30, 100, 3, VAR_19, 0, 11, 50, 240, 3, VAR_20, 0, 11, 30, 100, 7, 8 }	
 VAR_18	"feint2"	
 VAR_19	"stndoff2"	
 VAR_20	{ 1851880563, 1717989220, -1431655936, 0 }	
-VAR_21	0	
-VAR_22	0	
-VAR_23	0	
-VAR_24	0	
-VAR_25	0
 
 ._on_load
 call play_bgm("METALON")
@@ -105,8 +95,8 @@ if(var VAR_21 == int 0)
 				var VAR_21 ++ 
 				if(call is_char_handle_in_level(int 4128768))
 				 {
-						call set_char_init_state(var VAR_4, int 0)
-						call func_46(var VAR_4, int 13)
+						call set_char_init_state(var SGRUNT, int 0)
+						call func_46(var SGRUNT, int 13)
 				}
 		}
 		else
@@ -129,16 +119,16 @@ if(var VAR_21 == int 1)
 
 ._SCRIPT_5
 call create_enemy(int 9, int 0, var &VAR_3, int 275)
-var VAR_4 = call get_char_handle(int 4128768)
-call func_46(var VAR_4, int 0)
-var VAR_5 = call add_item_to_char(var VAR_4, int 83, int 1, int 0)
-call add_item_to_char(var VAR_4, int 47, int 1, int 0)
+var SGRUNT = call get_char_handle(int 4128768)
+call func_46(var SGRUNT, int 0)
+var VAR_5 = call add_item_to_char(var SGRUNT, int 83, int 1, int 0)
+call add_item_to_char(var SGRUNT, int 47, int 1, int 0)
 call load_char("sguard")
 call load_char("sarcher")
 var VAR_13 = call load_anim("tyrosumn")
 var VAR_14 = call load_anim("stepb")
-call set_char_init_state(var VAR_4, int 13)
-call play_char_ai_script(var VAR_4, var &VAR_17)
+call set_char_init_state(var SGRUNT, int 13)
+call play_char_ai_script(var SGRUNT, var &VAR_17)
 
 ._SCRIPT_6
 

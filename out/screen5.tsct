@@ -1,49 +1,20 @@
 ._DATA
-VAR_0	0	
-fade_chronicler	0	
-VAR_2	0	
-VAR_3	0	
-VAR_4	0	
 VAR_8	{ 1280070990, 0 }	
 VAR_10	{ 1280070990, 0 }	
 VAR_12	{ 1280070990, 0 }	
 VAR_16	{ 1280070990, 0 }	
-VAR_17	0	
 VAR_18	{ 0, 0, -1 }	
-VAR_19	0	
-VAR_20	0	
-VAR_21	0	
-VAR_22	0	
 VAR_23	-1	
-VAR_26	0	
 VAR_28	{ 1280070990, 0 }	
 VAR_34	{ 1280070990, 0 }	
-VAR_39	0	
-VAR_41	0	
-VAR_42	0	
-VAR_43	0	
-golem	0	
-golem1	0	
-golem2	0	
-golem3	0	
 VAR_50	{ 1827, 3100, 2488 }	
 VAR_51	{ 978, 3100, 2208 }	
 VAR_52	{ 1998, 1900, 4756 }	
 VAR_53	{ 899, 1900, 4685 }	
-VAR_54	0	
-VAR_55	0	
-VAR_56	0	
 VAR_57	{ 1772, 650, 5825 }	
 VAR_58	{ 1383, 649, 5930 }	
-VAR_62	0	
 VAR_63	{ 0, 0 }	
-VAR_64	0	
-VAR_65	0	
 VAR_66	{ 2275, 650, 5498 }	
-VAR_67	0	
-VAR_68	0	
-VAR_69	0	
-VAR_70	0
 
 ._on_load
 call load_sound_set(int 64)
@@ -181,25 +152,25 @@ switch(var VAR_62)
 		case 0
 			if(var VAR_63 > int 50)
 			 {
-					call play_char_anim(var VAR_55, var VAR_43, int 0)
-					call play_char_anim(var VAR_56, var VAR_43, int 0)
+					call play_char_anim(var nimp1, var VAR_43, int 0)
+					call play_char_anim(var nimp2, var VAR_43, int 0)
 					var VAR_62 ++ 
 					var VAR_63 = int 0
 			}
 			break 
 		case 1
-			if(call get_char_y(var VAR_39) < int 1800)
+			if(call get_char_y(var DAVID) < int 1800)
 			 {
 					var VAR_41 = int 1
-					if(call get_char_x(var VAR_39) > int 1450)
+					if(call get_char_x(var DAVID) > int 1450)
 					 {
-							var VAR_64 = var VAR_55
-							var VAR_65 = var VAR_56
+							var VAR_64 = var nimp1
+							var VAR_65 = var nimp2
 					}
 					else
 					 {
-							var VAR_64 = var VAR_56
-							var VAR_65 = var VAR_55
+							var VAR_64 = var nimp2
+							var VAR_65 = var nimp1
 					}
 					call play_char_anim(var VAR_64, var VAR_42, int 0)
 					var VAR_62 ++ 
@@ -260,12 +231,12 @@ switch(var VAR_62)
 var VAR_63 ++ 
 
 ._SCRIPT_13
-var VAR_55 = call create_char(var &VAR_57, "nimp1", int 0, int 13)
-var VAR_56 = call create_char(var &VAR_58, "nimp2", int 330, int 13)
-var VAR_39 = call get_char_handle(int 65536)
-gamevar script_object = var VAR_55
+var nimp1 = call create_char(var &VAR_57, "nimp1", int 0, int 13)
+var nimp2 = call create_char(var &VAR_58, "nimp2", int 330, int 13)
+var DAVID = call get_char_handle(int 65536)
+gamevar script_object = var nimp1
 gamevar *character_movement_p+53 = int 0
-gamevar script_object = var VAR_56
+gamevar script_object = var nimp2
 gamevar *character_movement_p+53 = int 0
 execute SCRIPT_4
 call load_char("chronicl")

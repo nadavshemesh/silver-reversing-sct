@@ -1,23 +1,7 @@
 ._DATA
-VAR_0	0	
 VAR_1	{ 0, 0 }	
-VAR_2	0	
-VAR_3	0	
-VAR_4	0	
-VAR_13	0	
-fade_chronicler	0	
-VAR_15	0	
-VAR_16	0	
-VAR_17	0	
-VAR_30	0	
 VAR_31	{ 0, 0, -1 }	
-VAR_32	0	
-VAR_33	0	
-VAR_34	0	
-VAR_35	0	
 VAR_36	-1	
-VAR_39	0	
-VAR_52	0	
 VAR_53	{ 1153, -850, 1182 }	
 VAR_54	{ 1750, 0, 531 }	
 VAR_55	{ VAR_53, 200, VAR_54 }	
@@ -25,18 +9,7 @@ VAR_56	{ -1153, -850, 1196 }
 VAR_57	{ -1715, 0, 518 }	
 VAR_58	{ VAR_56, 200, VAR_57 }	
 VAR_59	{ -769, 0, 221 }	
-VAR_60	0	
 VAR_61	{ 760, 0, 290 }	
-VAR_63	0	
-VAR_64	0	
-VAR_65	0	
-VAR_66	0	
-VAR_67	0	
-VAR_68	0	
-VAR_84	0	
-VAR_89	0	
-VAR_90	0	
-VAR_91	0	
 VAR_92	{ 1153851392, -1001095168, 1152040960 }	
 VAR_93	{ -1047527424, -1001095168, 1154686976 }	
 VAR_94	{ -993796096, -1001095168, 1151827968 }	
@@ -46,9 +19,6 @@ VAR_97	{ 1156718592, 0, 1143390208 }
 VAR_98	{ 1144913920, 0, 1133608960 }	
 VAR_99	{ -1001848832, 0, 1128202240 }	
 VAR_100	{ VAR_92, VAR_93, VAR_94, VAR_95, VAR_96, VAR_97, VAR_98, VAR_99 }	
-VAR_101	0	
-VAR_102	0	
-VAR_103	0
 
 ._on_load
 execute SCRIPT_12
@@ -158,7 +128,7 @@ switch(var VAR_63)
 }
 
 ._SCRIPT_4
-var VAR_60 = call create_char(var &VAR_59, "ilight", int 0, int 0)
+var ilight = call create_char(var &VAR_59, "ilight", int 0, int 0)
 var fade_chronicler = call create_enemy(int 178, int 0, var &VAR_61, int 0)
 
 ._SCRIPT_5
@@ -182,7 +152,7 @@ switch(var VAR_64)
 					 {
 							var VAR_52 = int 1
 							var VAR_66 = call get_char_handle_id(gamevar control_char_p)
-							var VAR_67 = call get_char_handle(int 65536)
+							var DAVID = call get_char_handle(int 65536)
 							execute SCRIPT_14
 							if(var VAR_3 == int 8)
 							 {
@@ -212,18 +182,18 @@ switch(var VAR_64)
 									}
 									if(var VAR_66 != int 65536)
 									 {
-											call char_turn_to_pos(gamevar control_char_p, call get_char_pos(var VAR_67))
-											call char_turn_to_pos(var VAR_67, call get_char_pos(gamevar control_char_p))
+											call char_turn_to_pos(gamevar control_char_p, call get_char_pos(var DAVID))
+											call char_turn_to_pos(var DAVID, call get_char_pos(gamevar control_char_p))
 									}
 									else
 									 {
 											var VAR_68 = call get_david_char()
-											if(var VAR_68 == var VAR_67)
+											if(var VAR_68 == var DAVID)
 											 {
 													var VAR_68 = call func_7e()
 											}
-											call char_turn_to_pos(var VAR_67, call get_char_pos(var VAR_68))
-											call char_turn_to_pos(var VAR_68, call get_char_pos(var VAR_67))
+											call char_turn_to_pos(var DAVID, call get_char_pos(var VAR_68))
+											call char_turn_to_pos(var VAR_68, call get_char_pos(var DAVID))
 									}
 									var VAR_64 ++ 
 									var VAR_65 = int 0
@@ -231,21 +201,21 @@ switch(var VAR_64)
 							else
 							 {
 									var VAR_66 = call get_char_handle_id(gamevar control_char_p)
-									var VAR_67 = call get_char_handle(int 65536)
+									var DAVID = call get_char_handle(int 65536)
 									if(var VAR_66 != int 65536)
 									 {
-											call char_turn_to_pos(gamevar control_char_p, call get_char_pos(var VAR_67))
-											call char_turn_to_pos(var VAR_67, call get_char_pos(gamevar control_char_p))
+											call char_turn_to_pos(gamevar control_char_p, call get_char_pos(var DAVID))
+											call char_turn_to_pos(var DAVID, call get_char_pos(gamevar control_char_p))
 									}
 									else
 									 {
 											var VAR_68 = call get_david_char()
-											if(var VAR_68 == var VAR_67)
+											if(var VAR_68 == var DAVID)
 											 {
 													var VAR_68 = call func_7e()
 											}
-											call char_turn_to_pos(var VAR_67, call get_char_pos(var VAR_68))
-											call char_turn_to_pos(var VAR_68, call get_char_pos(var VAR_67))
+											call char_turn_to_pos(var DAVID, call get_char_pos(var VAR_68))
+											call char_turn_to_pos(var VAR_68, call get_char_pos(var DAVID))
 									}
 									call start_dialog("F_DVDORB", "NULL")
 									var VAR_64 ++ 

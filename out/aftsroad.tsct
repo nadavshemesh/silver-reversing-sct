@@ -1,28 +1,7 @@
 ._DATA
-VAR_0	0	
-VAR_1	0	
-VAR_2	0	
-VAR_3	0	
-VAR_4	0	
-VAR_5	0	
-VAR_6	0	
-VAR_7	0	
-VAR_9	0	
-VAR_10	0	
-VAR_11	0	
-VAR_12	0	
-VAR_13	0	
-VAR_14	0	
-VAR_15	0	
-VAR_16	0	
 VAR_17	{ 0, 0 }	
 VAR_20	{ -1300, 1250, 1875 }	
 VAR_21	{ 525, 1250, -3100 }	
-VAR_24	0	
-VAR_25	0	
-hound	0	
-VAR_27	0	
-handler	0	
 VAR_29	{ 1263, -1026, 2503 }	
 VAR_30	{ 832, -1026, 2427 }	
 VAR_31	{ 436, -1026, 1502 }	
@@ -102,13 +81,13 @@ gamevar script_object = var hound
 gamevar *character_stats_p+16 = int 1400
 gamevar *character_stats_p+15 = int 3400
 var handler = call create_enemy(int 21, int 1, var &VAR_30, int 194)
-var VAR_27 = call create_enemy_through_door(int 18, int 2, int 2, int 45)
-gamevar script_object = var VAR_27
+var hound1 = call create_enemy_through_door(int 18, int 2, int 2, int 45)
+gamevar script_object = var hound1
 gamevar *character_stats_p+16 = int 1400
 gamevar *character_stats_p+15 = int 3400
-call set_char_running(var VAR_27)
+call set_char_running(var hound1)
 call freeze_enemy(var hound)
-call freeze_enemy(var VAR_27)
+call freeze_enemy(var hound1)
 call freeze_enemy(var handler)
 call set_char_init_state(var hound, int 13)
 call play_char_ai_script(var hound, var &VAR_32)
@@ -148,11 +127,11 @@ if(var VAR_24 == int 0)
 				}
 				if(call is_char_handle_in_level(int 7208962))
 				 {
-						call func_106(var VAR_27, int 1, int 0, int 1)
-						call func_50(var VAR_27, int 3)
-						gamevar script_object = var VAR_27
+						call func_106(var hound1, int 1, int 0, int 1)
+						call func_50(var hound1, int 3)
+						gamevar script_object = var hound1
 						gamevar *character_stats_p+15 = int 30000
-						gamevar script_object = var VAR_27
+						gamevar script_object = var hound1
 						gamevar *character_stats_p+16 = int 30000
 				}
 				var VAR_24 ++ 
@@ -189,11 +168,11 @@ if(var VAR_24 == int 0)
 						}
 						if(call is_char_handle_in_level(int 7208962))
 						 {
-								call func_106(var VAR_27, int 1, int 0, int 1)
-								call func_50(var VAR_27, int 3)
-								gamevar script_object = var VAR_27
+								call func_106(var hound1, int 1, int 0, int 1)
+								call func_50(var hound1, int 3)
+								gamevar script_object = var hound1
 								gamevar *character_stats_p+15 = int 30000
-								gamevar script_object = var VAR_27
+								gamevar script_object = var hound1
 								gamevar *character_stats_p+16 = int 30000
 						}
 						var VAR_24 ++ 
@@ -232,7 +211,7 @@ if(var VAR_24 == int 2)
 				if(call is_char_handle_in_level(int 7208962))
 				 {
 						call log("hound2 attacks")
-						call func_53(var VAR_27, int 5)
+						call func_53(var hound1, int 5)
 				}
 				var VAR_24 ++ 
 				var VAR_25 = int 0

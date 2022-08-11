@@ -242,13 +242,13 @@ gamevar script_object = var fsgrunt
 gamevar HP = int 10
 gamevar script_object = var fsgrunt
 gamevar *object_p+6 |= int 67108864
-var nrebel! = call create_char(var &VAR_86, "nrebel!", int 95, int 13)
-call add_item_to_char(var nrebel!, int 16, int 0, int 1)
-gamevar script_object = var nrebel!
+var nrebel = call create_char(var &VAR_86, "nrebel!", int 95, int 13)
+call add_item_to_char(var nrebel, int 16, int 0, int 1)
+gamevar script_object = var nrebel
 gamevar *object_p+6 |= int 67108864
-var nrebel1! = call create_char(var &VAR_87, "nrebel1!", int 95, int 13)
-call add_item_to_char(var nrebel1!, int 16, int 0, int 1)
-gamevar script_object = var nrebel1!
+var nrebel1 = call create_char(var &VAR_87, "nrebel1!", int 95, int 13)
+call add_item_to_char(var nrebel1, int 16, int 0, int 1)
+gamevar script_object = var nrebel1
 gamevar *object_p+6 |= int 67108864
 var nbill = call create_char(var &VAR_88, "nbill", int 115, int 13)
 var nben = call create_char(var &VAR_89, "nben", int 115, int 13)
@@ -258,8 +258,8 @@ var nclay = call create_char(var &VAR_92, "nclay", int 20, int 13)
 var nrichard = call create_char(var &VAR_93, "nrichard", int 25, int 13)
 var nfatbob = call create_char(var &VAR_94, "nfatbob", int 0, int 13)
 call set_char_running(var fsgrunt)
-call set_char_running(var nrebel!)
-call set_char_running(var nrebel1!)
+call set_char_running(var nrebel)
+call set_char_running(var nrebel1)
 call set_char_running(var nbill)
 call set_char_running(var nben)
 call set_char_running(var nduke)
@@ -284,19 +284,19 @@ var VAR_19 = call play_loaded_sound(int 228, int -1, int 0, int 0)
 ._SCRIPT_6
 if(var VAR_71 == int 0)
  {
-		call char_attack(var nrebel!, var fsgrunt)
-		call char_attack(var fsgrunt, var nrebel!)
-		call char_attack(var nrebel1!, var fsgrunt)
+		call char_attack(var nrebel, var fsgrunt)
+		call char_attack(var fsgrunt, var nrebel)
+		call char_attack(var nrebel1, var fsgrunt)
 		var VAR_71 ++ 
 }
 if(var VAR_71 == int 1)
  {
 		if(var VAR_110 == int 0)
 		 {
-				if(call func_87(var nrebel!))
+				if(call func_87(var nrebel))
 				 {
-						call char_walk_to(var nrebel!, int 666, int -1016, int -3361)
-						call char_walk_to(var nrebel1!, int 481, int -1016, int -3266)
+						call char_walk_to(var nrebel, int 666, int -1016, int -3361)
+						call char_walk_to(var nrebel1, int 481, int -1016, int -3266)
 						var VAR_110 = int 1
 						var VAR_111 = int 1
 						var VAR_71 ++ 
@@ -306,8 +306,8 @@ if(var VAR_71 == int 1)
 }
 if(var VAR_71 == int 2)
  {
-		call func_17(var nrebel!, var nduke)
-		call func_17(var nrebel1!, var nduke)
+		call func_17(var nrebel, var nduke)
+		call func_17(var nrebel1, var nduke)
 		var VAR_71 ++ 
 		var VAR_72 = int 0
 }

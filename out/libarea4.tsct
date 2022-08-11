@@ -113,8 +113,8 @@ call set_char_init_state(var shaman_imp, int 11)
 gamevar *character_movement_p+57 = int 60
 gamevar *character_movement_p+58 = int 90
 gamevar *character_movement_p+59 = int 30
-var nyelimp! = call create_char(var &VAR_5, "nyelimp!", int 150, int 13)
-gamevar script_object = var nyelimp!
+var nyelimp = call create_char(var &VAR_5, "nyelimp!", int 150, int 13)
+gamevar script_object = var nyelimp
 gamevar *character_movement_p+60 = int 1
 gamevar *character_stats_p+14 = int 106000
 var btreasure = call create_char(var &VAR_4, "btreasure", int 0, int 14)
@@ -149,20 +149,20 @@ if(var VAR_40 != var VAR_33)
 switch(var VAR_33)
  {
 		case 0
-			var VAR_35 = call func_41(var nyelimp!, int 0)
-			call set_char_running(var nyelimp!)
-			call func_19(var nyelimp!, var shaman_imp)
+			var VAR_35 = call func_41(var nyelimp, int 0)
+			call set_char_running(var nyelimp)
+			call func_19(var nyelimp, var shaman_imp)
 			call force_scroll_to_pos(call get_char_pos(var shaman_imp))
 			var VAR_33 ++ 
 			var VAR_34 = int 0
 			break 
 		case 1
-			if(call is_char_standing(var nyelimp!))
+			if(call is_char_standing(var nyelimp))
 			 {
 					call func_12f(var VAR_35)
 					var VAR_36 = call get_char_pos(var shaman_imp)
-					call char_turn_to_pos(var nyelimp!, var VAR_36)
-					call char_turn_to_pos(var shaman_imp, call get_char_pos(var nyelimp!))
+					call char_turn_to_pos(var nyelimp, var VAR_36)
+					call char_turn_to_pos(var shaman_imp, call get_char_pos(var nyelimp))
 					var VAR_34 = int 0
 					var VAR_33 ++ 
 			}
@@ -170,24 +170,24 @@ switch(var VAR_33)
 		case 2
 			if(var VAR_34 > int 30)
 			 {
-					call play_char_anim(var nyelimp!, var VAR_11, int 0)
+					call play_char_anim(var nyelimp, var VAR_11, int 0)
 					var VAR_34 = int 0
 					var VAR_33 ++ 
 			}
 			break 
 		case 3
-			if(call func_5c(var nyelimp!))
+			if(call func_5c(var nyelimp))
 			 {
 					call play_char_anim(var shaman_imp, var VAR_15, int 0)
-					call play_char_anim(var nyelimp!, var VAR_12, int 0)
+					call play_char_anim(var nyelimp, var VAR_12, int 0)
 					var VAR_34 = int 0
 					var VAR_33 ++ 
 			}
 			break 
 		case 4
-			if(call func_5c(var nyelimp!))
+			if(call func_5c(var nyelimp))
 			 {
-					call play_char_anim(var nyelimp!, var VAR_15, int 0)
+					call play_char_anim(var nyelimp, var VAR_15, int 0)
 					var VAR_34 = int 0
 					var VAR_33 ++ 
 			}
@@ -206,11 +206,11 @@ switch(var VAR_33)
 		case 6
 			if(call is_char_handle_in_level(int 1769472))
 			 {
-					if(call func_ab(int 500, call get_char_pos(var nyelimp!)))
+					if(call func_ab(int 500, call get_char_pos(var nyelimp)))
 					 {
 							var VAR_39 = int 1
 					}
-					gamevar script_object = var nyelimp!
+					gamevar script_object = var nyelimp
 					if(gamevar *object_p+7 & int 4)
 					 {
 							gamevar *object_p+7 &= int -5
@@ -232,7 +232,7 @@ switch(var VAR_33)
 			}
 			if(var VAR_39)
 			 {
-					gamevar script_object = var nyelimp!
+					gamevar script_object = var nyelimp
 					gamevar *object_p+6 |= int 8388608
 					var VAR_34 = int 0
 					var VAR_33 ++ 
@@ -241,8 +241,8 @@ switch(var VAR_33)
 		case 7
 			if(var VAR_34 > int 5)
 			 {
-					call apply_effect_on_char(gamevar char_gen_fx_scripts, int 11, call get_char_pos(var nyelimp!), int 0)
-					var VAR_37 = call apply_effect_on_char(gamevar char_gen_fx_scripts, int 10, int 0, var nyelimp!)
+					call apply_effect_on_char(gamevar char_gen_fx_scripts, int 11, call get_char_pos(var nyelimp), int 0)
+					var VAR_37 = call apply_effect_on_char(gamevar char_gen_fx_scripts, int 10, int 0, var nyelimp)
 					call force_scroll_to_pos(var &VAR_38)
 					var VAR_34 = int 0
 					var VAR_33 ++ 
@@ -251,9 +251,9 @@ switch(var VAR_33)
 		case 8
 			if(var VAR_34 > int 75)
 			 {
-					call char_teleport_to_pos(var nyelimp!, var &VAR_38, int 227)
+					call char_teleport_to_pos(var nyelimp, var &VAR_38, int 227)
 					call apply_effect_on_char(gamevar char_gen_fx_scripts, int 11, var &VAR_38, int 0)
-					var VAR_37 = call apply_effect_on_char(gamevar char_gen_fx_scripts, int 9, int 0, var nyelimp!)
+					var VAR_37 = call apply_effect_on_char(gamevar char_gen_fx_scripts, int 9, int 0, var nyelimp)
 					call set_input_system(int 1)
 					var VAR_34 = int 0
 					var VAR_33 ++ 
@@ -266,19 +266,19 @@ switch(var VAR_33)
 					 {
 							call set_char_template(var shaman_imp, int 106)
 					}
-					call set_char_running(var nyelimp!)
-					var VAR_35 = call func_41(var nyelimp!, int 0)
-					call func_2b(var nyelimp!, int 1)
+					call set_char_running(var nyelimp)
+					var VAR_35 = call func_41(var nyelimp, int 0)
+					call func_2b(var nyelimp, int 1)
 					call force_scroll_to_pos(call get_char_pos(var DAVID))
 					var VAR_34 = int 0
 					var VAR_33 ++ 
 			}
 			break 
 		case 10
-			if(call is_char_standing(var nyelimp!))
+			if(call is_char_standing(var nyelimp))
 			 {
 					call func_12f(var VAR_35)
-					call remove_char(var nyelimp!)
+					call remove_char(var nyelimp)
 					var VAR_34 = int 0
 					var VAR_33 ++ 
 			}

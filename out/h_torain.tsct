@@ -158,11 +158,11 @@ var VAR_25 = call load_anim("electro")
 
 ._SCRIPT_7
 gamevar door_restriction_p = var &VAR_0
-var FSGRUNT! = call create_char(var &VAR_5, "FSGRUNT!", int 270, int 13)
+var FSGRUNT = call create_char(var &VAR_5, "FSGRUNT!", int 270, int 13)
 var FSGRUNT2 = call create_char(var &VAR_7, "FSGRUNT2", int 230, int 13)
 var FSGRUNT3 = call create_char(var &VAR_9, "FSGRUNT3", int 225, int 13)
 var FSGRUNT = call create_char(var &VAR_11, "FSGRUNT", int 265, int 13)
-call add_item_to_char(var FSGRUNT!, int 16, int 0, int 1)
+call add_item_to_char(var FSGRUNT, int 16, int 0, int 1)
 call add_item_to_char(var FSGRUNT2, int 16, int 0, int 1)
 call add_item_to_char(var FSGRUNT3, int 16, int 0, int 1)
 call add_item_to_char(var FSGRUNT, int 16, int 0, int 1)
@@ -210,23 +210,23 @@ if(var VAR_30 == int 2)
  {
 		if(call func_6d() == int 1)
 		 {
-				call char_walk_to_pos(var FSGRUNT!, var &VAR_32)
+				call char_walk_to_pos(var FSGRUNT, var &VAR_32)
 				var VAR_30 ++ 
 				var VAR_31 = int 0
 		}
 }
 if(var VAR_30 == int 3)
  {
-		if(call is_char_standing(var FSGRUNT!))
+		if(call is_char_standing(var FSGRUNT))
 		 {
-				call play_char_anim(var FSGRUNT!, var VAR_24, int 0)
+				call play_char_anim(var FSGRUNT, var VAR_24, int 0)
 				var VAR_30 ++ 
 				var VAR_31 = int 0
 		}
 }
 if(var VAR_30 == int 4)
  {
-		if(call func_5c(var FSGRUNT!))
+		if(call func_5c(var FSGRUNT))
 		 {
 				call char_turn_to_pos(var GRANDAD, call get_char_pos(var FSGRUNT))
 				var VAR_30 ++ 
@@ -237,18 +237,18 @@ if(var VAR_30 == int 5)
  {
 		if(var VAR_31 > int 50)
 		 {
-				call set_char_running(var FSGRUNT!)
-				call char_walk_to_pos(var FSGRUNT!, var &VAR_33)
+				call set_char_running(var FSGRUNT)
+				call char_walk_to_pos(var FSGRUNT, var &VAR_33)
 				var VAR_30 ++ 
 				var VAR_31 = int 0
 		}
 }
 if(var VAR_30 == int 6)
  {
-		if(call is_char_standing(var FSGRUNT!))
+		if(call is_char_standing(var FSGRUNT))
 		 {
-				call func_f0(var &VAR_16, var FSGRUNT!, int 30, int 50)
-				call play_char_anim(var FSGRUNT!, var VAR_25, int 0)
+				call func_f0(var &VAR_16, var FSGRUNT, int 30, int 50)
+				call play_char_anim(var FSGRUNT, var VAR_25, int 0)
 				var VAR_36 = call play_loaded_sound(int 18, int 0, int 56, int 0)
 				var VAR_30 ++ 
 				var VAR_31 = int 0
@@ -258,9 +258,9 @@ if(var VAR_30 == int 7)
  {
 		if(var VAR_31 == int 50)
 		 {
-				gamevar script_object = var FSGRUNT!
+				gamevar script_object = var FSGRUNT
 				gamevar *object_p+6 |= int 1048576
-				call kill_char(var FSGRUNT!)
+				call kill_char(var FSGRUNT)
 		}
 		if(var VAR_31 == int 250)
 		 {

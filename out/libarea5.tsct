@@ -123,16 +123,16 @@ if(gamevar !is_room_cleared)
 ._SCRIPT_3
 
 ._SCRIPT_4
-var nyelimp* = call create_char(var &VAR_37, "nyelimp*", int 0, int 13)
-gamevar script_object = var nyelimp*
+var nyelimp = call create_char(var &VAR_37, "nyelimp*", int 0, int 13)
+gamevar script_object = var nyelimp
 gamevar *object_p+6 |= int 2048
-gamevar script_object = var nyelimp*
+gamevar script_object = var nyelimp
 gamevar *character_movement_p+60 = int 1
 gamevar *character_movement_p+53 = int 0
 gamevar *character_stats_p+14 = int 81920
-var VAR_7 = call func_41(var nyelimp*, int 0)
-call set_char_running(var nyelimp*)
-call char_walk_to_pos(var nyelimp*, var &VAR_38)
+var VAR_7 = call func_41(var nyelimp, int 0)
+call set_char_running(var nyelimp)
+call char_walk_to_pos(var nyelimp, var &VAR_38)
 var DAVID = call get_char_handle(int 65536)
 var GRANDAD = call get_char_handle(int 393216)
 var VAR_0 = call load_anim("pfew")
@@ -167,16 +167,16 @@ if(call is_char_handle_in_level(int 1769472))
 		execute SCRIPT_6
 		if(var VAR_64)
 		 {
-				var VAR_63 = call get_char_movement_ptr(var nyelimp*)
+				var VAR_63 = call get_char_movement_ptr(var nyelimp)
 				call func_100(var VAR_63)
 		}
 		execute SCRIPT_10
-		gamevar script_object = var nyelimp*
+		gamevar script_object = var nyelimp
 		if(gamevar *object_p+5 == int 6)
 		 {
 				if(var VAR_65 > int 60)
 				 {
-						call func_f5(var nyelimp*)
+						call func_f5(var nyelimp)
 						call func_108("ARSE")
 				}
 				var VAR_65 ++ 
@@ -204,12 +204,12 @@ else
 switch(var VAR_69)
  {
 		case 0
-			if(call is_char_standing(var nyelimp*))
+			if(call is_char_standing(var nyelimp))
 			 {
 					call func_12f(var VAR_7)
 					var VAR_71 = call get_char_pos(var DAVID)
-					call func_21(var nyelimp*, var VAR_71)
-					call func_95(var nyelimp*, int 3, int 0)
+					call func_21(var nyelimp, var VAR_71)
+					call func_95(var nyelimp, int 3, int 0)
 					call start_dialog("IYNhelp", "NULL")
 					var VAR_70 = int 0
 					var VAR_69 ++ 
@@ -218,29 +218,29 @@ switch(var VAR_69)
 		case 1
 			if(call get_input_sys() != int 4)
 			 {
-					call func_10c(var nyelimp*, "marc")
+					call func_10c(var nyelimp, "marc")
 					var VAR_64 = int 0
-					call func_50(var nyelimp*, int 8192)
-					call play_char_ai_script(var nyelimp*, var &VAR_30)
+					call func_50(var nyelimp, int 8192)
+					call play_char_ai_script(var nyelimp, var &VAR_30)
 					if(call is_char_handle_in_level(int 917505))
 					 {
 							call set_char_template(var neutral_imp, int 102)
-							call char_attack(var neutral_imp, var nyelimp*)
+							call char_attack(var neutral_imp, var nyelimp)
 					}
 					if(call is_char_handle_in_level(int 917506))
 					 {
 							call set_char_template(var neutral_imp1, int 102)
-							call char_attack(var neutral_imp1, var nyelimp*)
+							call char_attack(var neutral_imp1, var nyelimp)
 					}
 					if(call is_char_handle_in_level(int 917507))
 					 {
 							call set_char_template(var neutral_imp2, int 102)
-							call char_attack(var neutral_imp2, var nyelimp*)
+							call char_attack(var neutral_imp2, var nyelimp)
 					}
 					if(call is_char_handle_in_level(int 917508))
 					 {
 							call set_char_template(var neutral_imp3, int 102)
-							call char_attack(var neutral_imp3, var nyelimp*)
+							call char_attack(var neutral_imp3, var nyelimp)
 					}
 					if(call is_char_handle_in_level(int 917509))
 					 {
@@ -262,7 +262,7 @@ switch(var VAR_69)
 			var VAR_72 = call get_num_of_enemies()
 			if(var VAR_72 == int 0)
 			 {
-					call func_47(var nyelimp*, int 8192)
+					call func_47(var nyelimp, int 8192)
 					var VAR_26 = int 1
 					var VAR_70 = int 0
 					var VAR_69 = int 14
@@ -270,7 +270,7 @@ switch(var VAR_69)
 			break 
 		case 14
 			call log("all chars killed")
-			call func_10c(var nyelimp*, int 0)
+			call func_10c(var nyelimp, int 0)
 			call set_input_system(int 2)
 			var VAR_70 = int 0
 			var VAR_69 ++ 
@@ -278,17 +278,17 @@ switch(var VAR_69)
 		case 15
 			if(var VAR_70 > int 100)
 			 {
-					call char_walk_to_pos(var nyelimp*, call get_char_pos(var DAVID))
+					call char_walk_to_pos(var nyelimp, call get_char_pos(var DAVID))
 					var VAR_70 = int 0
 					var VAR_69 ++ 
 			}
 			break 
 		case 16
-			if(call is_char_standing(var nyelimp*))
+			if(call is_char_standing(var nyelimp))
 			 {
 					call start_dialog("DVDIYN", "NULL")
-					call char_turn_to_pos(var DAVID, call get_char_pos(var nyelimp*))
-					call char_turn_to_pos(var nyelimp*, call get_char_pos(var DAVID))
+					call char_turn_to_pos(var DAVID, call get_char_pos(var nyelimp))
+					call char_turn_to_pos(var nyelimp, call get_char_pos(var DAVID))
 					var VAR_70 = int 0
 					var VAR_69 ++ 
 			}
@@ -305,30 +305,30 @@ switch(var VAR_69)
 			if(call get_input_sys() != int 4)
 			 {
 					call func_108("NULL")
-					call char_walk_to(var nyelimp*, int -1107, int -997, int -3742)
+					call char_walk_to(var nyelimp, int -1107, int -997, int -3742)
 					call set_input_system(int 1)
 					var VAR_70 = int 0
 					var VAR_69 ++ 
 			}
 			break 
 		case 19
-			if(call is_char_standing(var nyelimp*))
+			if(call is_char_standing(var nyelimp))
 			 {
-					call play_char_anim(var nyelimp*, var VAR_9, int 0)
+					call play_char_anim(var nyelimp, var VAR_9, int 0)
 					var VAR_70 = int 0
 					var VAR_69 ++ 
 			}
 			break 
 		case 20
-			if(call func_5c(var nyelimp*))
+			if(call func_5c(var nyelimp))
 			 {
-					call func_2b(var nyelimp*, int 2)
+					call func_2b(var nyelimp, int 2)
 					var VAR_70 = int 0
 					var VAR_69 ++ 
 			}
 			break 
 		case 21
-			if(call is_char_standing(var nyelimp*))
+			if(call is_char_standing(var nyelimp))
 			 {
 					gamevar *scene_info_p+5 -= int 4
 					var VAR_13 = int 1
@@ -336,7 +336,7 @@ switch(var VAR_69)
 					 {
 							var VAR_28 = int 1
 					}
-					call remove_char(var nyelimp*)
+					call remove_char(var nyelimp)
 					var VAR_70 = int 0
 					var VAR_69 ++ 
 			}
@@ -344,7 +344,7 @@ switch(var VAR_69)
 }
 if(var VAR_27)
  {
-		var VAR_7 = call func_41(var nyelimp*, int 0)
+		var VAR_7 = call func_41(var nyelimp, int 0)
 		var VAR_27 = int 0
 }
 if(var VAR_28)
@@ -471,7 +471,7 @@ if(var VAR_15 == int 1)
 ._SCRIPT_11
 if(var VAR_16 == int 20)
  {
-		if(call get_char_y(var nyelimp*) > int -970)
+		if(call get_char_y(var nyelimp) > int -970)
 		 {
 				call func_47(var neutral_imp, int -1)
 				call char_walk_to(var neutral_imp, int -721, int -997, int -3784)
@@ -512,7 +512,7 @@ var VAR_17 ++
 ._SCRIPT_12
 if(var VAR_18 == int 20)
  {
-		if(call get_char_y(var nyelimp*) > int -970)
+		if(call get_char_y(var nyelimp) > int -970)
 		 {
 				call func_47(var neutral_imp1, int -1)
 				call char_walk_to(var neutral_imp1, int -724, int -997, int -4043)
@@ -553,7 +553,7 @@ var VAR_19 ++
 ._SCRIPT_13
 if(var VAR_20 == int 20)
  {
-		if(call get_char_y(var nyelimp*) > int -970)
+		if(call get_char_y(var nyelimp) > int -970)
 		 {
 				call func_47(var neutral_imp2, int -1)
 				call char_walk_to(var neutral_imp2, int -445, int -997, int -4150)
@@ -594,7 +594,7 @@ var VAR_21 ++
 ._SCRIPT_14
 if(var VAR_22 == int 20)
  {
-		if(call get_char_y(var nyelimp*) > int -970)
+		if(call get_char_y(var nyelimp) > int -970)
 		 {
 				call func_47(var neutral_imp3, int -1)
 				call char_walk_to(var neutral_imp3, int -891, int -997, int -4032)
@@ -675,19 +675,19 @@ call func_103(var grow_big_yellow_imp)
 ._SCRIPT_18
 var VAR_0 = call load_anim("pfew")
 var VAR_1 = call load_anim("yibscale")
-var nyelimp* = call create_char(var &VAR_88, "nyelimp", int 70, int 13)
-gamevar script_object = var nyelimp*
+var nyelimp = call create_char(var &VAR_88, "nyelimp", int 70, int 13)
+gamevar script_object = var nyelimp
 gamevar *object_p+6 |= int 2048
-gamevar script_object = var nyelimp*
+gamevar script_object = var nyelimp
 gamevar *object_p+6 |= int 67108864
-gamevar script_object = var nyelimp*
+gamevar script_object = var nyelimp
 gamevar *object_p+6 |= int 1048576
-gamevar script_object = var nyelimp*
+gamevar script_object = var nyelimp
 gamevar *character_movement_p+60 = int 1
 gamevar *character_movement_p+53 = int 0
-var VAR_6 = call add_item_to_char(var nyelimp*, int 33, int 0, int 0)
-call set_char_running(var nyelimp*)
-call char_walk_to(var nyelimp*, int -603, int -997, int -4344)
+var VAR_6 = call add_item_to_char(var nyelimp, int 33, int 0, int 0)
+call set_char_running(var nyelimp)
+call char_walk_to(var nyelimp, int -603, int -997, int -4344)
 var DAVID = call get_char_handle(int 65536)
 var GRANDAD = call get_char_handle(int 393216)
 call func_108("act2")
@@ -781,9 +781,9 @@ if(var VAR_106 != var VAR_104)
 switch(var VAR_104)
  {
 		case 0
-			if(call is_char_standing(var nyelimp*))
+			if(call is_char_standing(var nyelimp))
 			 {
-					call func_36(var nyelimp*, int -1190, int -997, int -3202)
+					call func_36(var nyelimp, int -1190, int -997, int -3202)
 					var VAR_104 ++ 
 					var VAR_105 = int 0
 			}
@@ -791,16 +791,16 @@ switch(var VAR_104)
 		case 1
 			if(var VAR_105 > int 30)
 			 {
-					call toggle_or_use_char_item(var nyelimp*, var VAR_6)
+					call toggle_or_use_char_item(var nyelimp, var VAR_6)
 					var VAR_104 ++ 
 					var VAR_105 = int 0
 			}
 			break 
 		case 2
-			gamevar script_object = var nyelimp*
+			gamevar script_object = var nyelimp
 			if(gamevar *object_p+5 == int 13)
 			 {
-					call play_char_anim(var nyelimp*, var VAR_0, int 0)
+					call play_char_anim(var nyelimp, var VAR_0, int 0)
 					var VAR_104 ++ 
 					var VAR_105 = int 0
 			}
@@ -808,13 +808,13 @@ switch(var VAR_104)
 		case 3
 			if(var VAR_105 == int 100)
 			 {
-					call play_3d_fx("WOLFSMOKE", call get_char_movement_ptr(var nyelimp*), int 0, int 0)
+					call play_3d_fx("WOLFSMOKE", call get_char_movement_ptr(var nyelimp), int 0, int 0)
 			}
 			if(var VAR_105 > int 120)
 			 {
 					var VAR_104 ++ 
 					var VAR_105 = int 0
-					call kill_char(var nyelimp*)
+					call kill_char(var nyelimp)
 			}
 			break 
 }

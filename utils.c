@@ -229,7 +229,7 @@ bool is_string(byte* str, int len) {
     if(letters <= 1 || printable == 0) {return false;}
     //if(letters > 10 && spaces == 0) return false;
     //if(letters > 1 && last == 0) return true;
-    if(last != 0 && last != 0x23) {return false;}
+    // if(last != 0 && last != 0x23) {return false;}
     //if(letters <= (len-null_counter)/2) return false;
     if(letters < (null_counter/2)) {return false;}
     return true;

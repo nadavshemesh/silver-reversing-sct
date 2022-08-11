@@ -45,7 +45,6 @@ VAR_78	{ 1, 0, 0 }
 VAR_80	{ 1, 0, 0 }	
 VAR_82	{ 1, 0, 0 }	
 VAR_122	-1	
-VAR_220	{ 1414088787, 1951604769, 1735287154, 1751326821, 1667330657, 544367988, 1952867692, 1751474720, 560229993, -1431655936 }
 
 ._on_load
 call func_58(int 1)
@@ -816,17 +815,17 @@ switch(var VAR_45)
 switch(var VAR_47)
  {
 		case 0
-			var ntavman! = call create_char(var &VAR_36, "ntavman!", int 0, int 13)
-			gamevar script_object = var ntavman!
+			var ntavman = call create_char(var &VAR_36, "ntavman!", int 0, int 13)
+			gamevar script_object = var ntavman
 			gamevar *object_p+6 |= int 8388608
-			call set_char_init_state(var ntavman!, int 13)
-			call play_char_ai_script(var ntavman!, var &VAR_66)
+			call set_char_init_state(var ntavman, int 13)
+			call play_char_ai_script(var ntavman, var &VAR_66)
 			switch(var VAR_6)
 			 {
 					case 0
 						if(call func_c0(int 2, "haven", "h_camptp"))
 						 {
-								call func_10c(var ntavman!, "Act_3")
+								call func_10c(var ntavman, "Act_3")
 								var VAR_26 = call load_anim("come")
 								var VAR_47 = int 100
 						}
@@ -838,47 +837,47 @@ switch(var VAR_47)
 					case 1
 						if(call func_c0(int 2, "haven", "h_camptp"))
 						 {
-								call func_10c(var ntavman!, "Act_3b")
+								call func_10c(var ntavman, "Act_3b")
 								var VAR_26 = call load_anim("come")
 								var VAR_47 = int 100
 						}
 						else
 						 {
-								call func_10c(var ntavman!, "Act_2")
+								call func_10c(var ntavman, "Act_2")
 								var VAR_47 = int 1
 						}
 						break 
 					case 2
-						call func_10c(var ntavman!, "bigjugs")
+						call func_10c(var ntavman, "bigjugs")
 						var VAR_47 = int -1
 						break 
 			}
 			break 
 		case 1
-			if(call func_65(var ntavman!, int 13) == int 17)
+			if(call func_65(var ntavman, int 13) == int 17)
 			 {
-					call func_1(var ntavman!, int -1)
+					call func_1(var ntavman, int -1)
 					var VAR_47 = int 2
 			}
 			break 
 		case 2
 			if(call get_input_sys() != int 4)
 			 {
-					call func_10c(var ntavman!, "Act_2")
+					call func_10c(var ntavman, "Act_2")
 					var VAR_6 = int 1
-					call func_2(var ntavman!)
+					call func_2(var ntavman)
 					var VAR_47 = int 1
 			}
 			break 
 		case 100
-			if(call func_65(var ntavman!, int 13) == int 17)
+			if(call func_65(var ntavman, int 13) == int 17)
 			 {
 					call log("TALKING TO MILDEW, HEROS HAVE THE PASSWORD")
-					call func_46(var ntavman!, int 13)
+					call func_46(var ntavman, int 13)
 					if(call is_char_handle_in_level(int 6946816))
 					 {
 							call func_46(var nstipe, int 13)
-							call func_19(var nstipe, var ntavman!)
+							call func_19(var nstipe, var ntavman)
 							if(var VAR_7 != int 1&&call is_char_handle_in_level(int 327680))
 							 {
 									call func_46(var njug, int 13)
@@ -892,12 +891,12 @@ switch(var VAR_47)
 			 {
 					call set_input_system(int 2)
 					call force_scroll_to_pos(var &VAR_10)
-					call char_walk_to(var ntavman!, int -2751, int 0, int -769)
+					call char_walk_to(var ntavman, int -2751, int 0, int -769)
 					var VAR_47 ++ 
 			}
 			break 
 		case 102
-			if(call is_char_standing(var ntavman!))
+			if(call is_char_standing(var ntavman))
 			 {
 					call play_loaded_sound(int 2, int 0, int 31, int 0)
 					var VAR_9 = int 1
@@ -911,14 +910,14 @@ switch(var VAR_47)
 					var VAR_48 -- 
 					if(var VAR_48 == int 100)
 					 {
-							call play_char_anim(var ntavman!, var VAR_26, int 0)
+							call play_char_anim(var ntavman, var VAR_26, int 0)
 					}
 			}
 			else
 			 {
 					var VAR_11 = int 1
 					var VAR_6 = int 2
-					call char_walk_to_pos(var ntavman!, var &VAR_10)
+					call char_walk_to_pos(var ntavman, var &VAR_10)
 					if(call is_char_handle_in_level(int 6946816))
 					 {
 							call char_walk_to_pos(var nstipe, var &VAR_10)
@@ -943,8 +942,8 @@ switch(var VAR_47)
 switch(var VAR_49)
  {
 		case 0
-			var ncaptain! = call create_char(var &VAR_37, "ncaptain!", int 195, int 13)
-			gamevar script_object = var ncaptain!
+			var ncaptain = call create_char(var &VAR_37, "ncaptain!", int 195, int 13)
+			gamevar script_object = var ncaptain
 			gamevar *object_p+6 |= int 8388608
 			var VAR_49 ++ 
 			break 
@@ -952,21 +951,21 @@ switch(var VAR_49)
 			switch(var VAR_3)
 			 {
 					case 0
-						call func_10c(var ncaptain!, "Null")
+						call func_10c(var ncaptain, "Null")
 						break 
 					case 1
-						call func_10c(var ncaptain!, "Act_2")
+						call func_10c(var ncaptain, "Act_2")
 						break 
 					case 2
-						call func_10c(var ncaptain!, "knickers")
+						call func_10c(var ncaptain, "knickers")
 						var VAR_49 = int 999
 						break 
 			}
-			call char_turn_to_pos(var ncaptain!, var &VAR_38)
+			call char_turn_to_pos(var ncaptain, var &VAR_38)
 			var VAR_49 ++ 
 			break 
 		case 2
-			if(call func_127(var ncaptain!))
+			if(call func_127(var ncaptain))
 			 {
 					var VAR_49 ++ 
 			}
@@ -1276,7 +1275,7 @@ else
 										}
 										else
 										 {
-												call log(var &VAR_220)
+												call log("SHIT! Strange character left behind!")
 										}
 								}
 						}

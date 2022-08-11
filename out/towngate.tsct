@@ -8,13 +8,11 @@ VAR_69	{ 1900, 1270, -1475 }
 VAR_73	{ 0, 0 }	
 VAR_75	{ 3, 2, 1 }	
 VAR_76	3	
-VAR_78	{ -1000882176, -1004978176, -1018298368 }	
 VAR_92	{ -693, -1039, -230 }	
 VAR_94	{ -584, -1039, 758 }	
 VAR_95	-1	
 VAR_97	-1431699414	
 VAR_100	-1431699410	
-VAR_101	{ 1751607666, 774778484, -1431655936 }	
 
 ._on_load
 execute SCRIPT_3
@@ -268,7 +266,7 @@ if(var VAR_87 == int 2)
 						var VAR_72 = int 1
 						if(call is_local_timer_between(int 10, int 18))
 						 {
-								call log(var &VAR_101)
+								call log("right...")
 								var VAR_88 = int 1
 								call reset_local_timer()
 								var VAR_90 = int 0
@@ -341,7 +339,7 @@ if(var VAR_87 == int 5)
 }
 if(var VAR_72 == int 1&&var VAR_73 == int 15)
  {
-		call play_loaded_sound(int 1, int 0, int 14, var &VAR_78)
+		call play_loaded_sound(int 1, int 0, int 14, "")
 }
 
 ._SCRIPT_8

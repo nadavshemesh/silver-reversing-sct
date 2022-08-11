@@ -4,23 +4,20 @@ VAR_10	{ 5032, 3425, -4651, 5342, 3425, -6084, 5350, 3425, -6463, 5283, 3425, -6
 VAR_11	{ 5032, 3425, -4651, 5342, 3425, -6084, 5350, 3425, -6463, 5283, 3425, -6286 }	
 VAR_12	{ 0, 1, 4, VAR_11, 8, 1, 1, 2, 63, 63, -1, 4, 0, 9, 0, 5, 1, 30, 60, 7, 1, 2, 10, 40, 47, -1, -1 }	
 VAR_13	{ 0, 1, 4, VAR_10, 8, 1, 1, 2, 63, 63, -1, 4, 0, 9, 0, 5, 1, 30, 60, 7, 1, 2, 10, 40, 47, -1, -1 }	
-VAR_17	{ 1165598720, 1163390976, -5568 }	
-VAR_22	{ 1634492784, 892495203, 0 }	
-VAR_25	{ 1701670755, 0 }	
 VAR_27	{ 1490, 3425, -4070 }	
 VAR_29	{ 1115, 3425, -4442 }	
 VAR_31	{ 797, 3425, -4641 }	
 VAR_33	{ 2248, 3425, -4347 }	
 VAR_35	{ 2072, 3425, -4646 }	
 VAR_36	{ 3, VAR_37, 0, 3, VAR_38, 0, 5, 40, 3, VAR_39, 0, 2, 1480, 3435, -6810, 8 }	
-VAR_37	28526	
+VAR_37	"no"	
 VAR_38	"fpiont"	
 VAR_39	"lookout"	
 VAR_40	{ 3, VAR_41, 0, 5, 40, 3, VAR_42, 0, 2, 1480, 3435, -6810, 8 }	
-VAR_41	{ 1802264948, 1651798886, 0 }	
+VAR_41	"talkfstb"	
 VAR_42	"lookout"	
 VAR_43	{ 3, VAR_44, 0, 3, VAR_45, 0, 5, 40, 3, VAR_46, 0, 2, 1480, 3435, -6810, 8 }	
-VAR_44	{ 1903457127, 1853125493, 0 }	
+VAR_44	"gstqustn"	
 VAR_45	"yes"	
 VAR_46	"lookout"	
 VAR_47	{ 3, VAR_48, 0, 5, 20, 2, 1490, 3435, -4070, 5, 30, 2, 1480, 3435, -6810, 8 }	
@@ -67,7 +64,7 @@ if(gamevar !is_room_cleared&&gamevar room_state != int 3)
  {
 		gamevar SMACKER_X = int 300
 		gamevar SMACKER_Y = int 60
-		call play_2d_anim(var &VAR_22, int 0, int 1, var &VAR_6)
+		call play_2d_anim("palace25", int 0, int 1, var &VAR_6)
 		var VAR_18 = int 1
 }
 
@@ -78,7 +75,7 @@ if(var VAR_18)
 		var VAR_16 = var VAR_7
 		if(var VAR_16 == int 17)
 		 {
-				call play_loaded_sound(int 106, int 0, int 0, var &VAR_17)
+				call play_loaded_sound(int 106, int 0, int 0, "")
 				var VAR_18 = int 0
 		}
 }
@@ -211,7 +208,7 @@ switch(var VAR_0)
 var VAR_1 = int 0
 var VAR_0 = int 0
 call load_char("vikingb")
-var VAR_24 = call load_anim(var &VAR_25)
+var VAR_24 = call load_anim("come")
 var vikingc1 = call create_enemy(int 66, int 0, var &VAR_27, int 170)
 var bstump1 = call create_enemy(int 63, int 0, var &VAR_29, int 250)
 var bstump2 = call create_enemy(int 63, int 1, var &VAR_31, int 65)

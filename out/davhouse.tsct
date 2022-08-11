@@ -1,14 +1,10 @@
 ._DATA
 VAR_2	{ 0, 1, -1 }	
 VAR_3	{ 1, -1 }	
-VAR_6	{ 1752588644, 1702065519, 0 }	
 VAR_8	{ -1053, 1435, -3599 }	
 VAR_9	{ 2106, 785, -6620 }	
 VAR_11	{ VAR_12, 0, 0, 5, 0, 0 }	
-VAR_12	{ 1935963251, 1819044212, 0 }	
-VAR_13	{ 829711201, 0 }	
-VAR_15	{ 2003134064, 0 }	
-VAR_17	{ 844383041, 1717920768, 1684, 785, -6150 }	
+VAR_12	"stdstill"	
 VAR_18	{ 3046, 785, -6855 }	
 VAR_30	{ 2268, 785, -6754 }	
 VAR_32	{ 1851, 785, -5094 }	
@@ -18,9 +14,6 @@ VAR_38	{ -1424, 785, -8468 }
 VAR_40	{ -1818, 785, -8502 }	
 VAR_42	{ -1317, 785, -8396 }	
 VAR_55	5	
-VAR_148	{ 844383041, 1095062111, 1229348684, 945047623, 0 }	
-VAR_149	{ 844383041, 1095062111, 1229348684, 961824839, 0 }	
-VAR_152	{ 1819047278, 0 }	
 VAR_154	{ 1079, 785, -6381 }	
 VAR_162	10	
 VAR_163	2	
@@ -33,11 +26,7 @@ VAR_179	{ 1785752937, 7368053, 1500, 785, -5985, 2032, 785, -5916 }
 VAR_180	{ 0, 1, 1, VAR_176, 8, 0, 12, 2, -1, 13, 0, 15, VAR_178, -1, 16, 0, 18, 100, 17, 0, 1500, 2, 680, 785, -7294, 932, 785, -7635, 3, -1, 11, -1 }	
 VAR_181	{ 1500, 785, -5985, 2032, 785, -5916, 3587, 1435, -3812, 3351, 1435, -3532, 3039, 1435, -3263 }	
 VAR_182	{ 0, 1, 5, VAR_181, 8, 2, 4, 0, 9, 1, 1, 1, 4, 4, 4, 4, 4, -1, 5, 0, 25, 6, 2, 7, 1, 2, 10, 40, 40, 40, -1, 11, -1, -2, 2, 680, 785, -7294, 932, 785, -7635, 3, -1, -1 }	
-VAR_184	{ 1701147252, 1953656947, 0 }	
 VAR_186	-1	
-VAR_187	{ 1984192339, 1801802596, 0 }	
-VAR_188	{ 1280070990, 0 }	
-VAR_190	{ 913597281, 0 }
 
 ._on_load
 if(gamevar room_state > int 4)
@@ -50,7 +39,7 @@ if(gamevar room_state > int 4)
 }
 gamevar SMACKER_X = int 64
 gamevar SMACKER_Y = int 184
-call play_2d_anim(var &VAR_6, int 1, int 0, int 0)
+call play_2d_anim("davhouse", int 1, int 0, int 0)
 call load_sound_set(int 2)
 execute SCRIPT_20
 switch(gamevar room_state)
@@ -142,18 +131,18 @@ switch(gamevar room_state)
 }
 
 ._SCRIPT_3
-call log(var &VAR_13)
+call log("act1")
 gamevar door_restriction_p = var &VAR_2
 var HDAVID = call create_char(var &VAR_8, "HDAVID", int 75, int 13)
 var grandad = call create_enemy(int 98, int 0, var &VAR_9, int 125)
 call func_1(var grandad, int -1)
 var VAR_1 = call create_item(int 16)
-var VAR_10 = call load_anim(var &VAR_15)
+var VAR_10 = call load_anim("pfew")
 call load_char_anim(var HDAVID, var &VAR_11)
 call play_bgm("dfight")
 call set_char_walking(var HDAVID)
 call char_walk_to(var HDAVID, int 1799, int 785, int -6568)
-call func_10c(var grandad, var &VAR_17)
+call func_10c(var grandad, "ACT2")
 gamevar play_sting = int 0
 call set_input_system(int 2)
 
@@ -1655,7 +1644,7 @@ if(var VAR_4 == int 97)
 }
 if(var VAR_4 == int 98)
  {
-		call log(var &VAR_148)
+		call log("ACT2_REAL_FIGHT8")
 		if(call is_char_standing(var grandad))
 		 {
 				if(call is_char_at_pos(var HDAVID, var &VAR_30, int 1000) == int 0)
@@ -1674,7 +1663,7 @@ if(var VAR_4 == int 98)
 }
 if(var VAR_4 == int 99)
  {
-		call log(var &VAR_149)
+		call log("ACT2_REAL_FIGHT9")
 		if(call is_local_timer_greater_than(int 10))
 		 {
 				call play_char_anim(var grandad, var VAR_25, int 0)
@@ -1768,7 +1757,7 @@ if(var VAR_4 == int 120)
 				call play_char_anim(var jennifer, var VAR_28, int 0)
 				call char_walk_to(var start_grunt3, int 608, int 785, int -7202)
 				call char_walk_to(var start_grunt2, int 322, int 785, int -6780)
-				call start_dialog("grafug", var &VAR_152)
+				call start_dialog("grafug", "null")
 				gamevar scene_counter = int 0
 				var VAR_4 = int 122
 		}
@@ -2114,7 +2103,7 @@ call log("act5")
 var SEKUNE = call get_char_handle(int 786432)
 call set_input_system(int 2)
 call force_scroll_to_pos(var &VAR_175)
-call load_char(var &VAR_184)
+call load_char("treesprt")
 call func_58(int 1)
 var VAR_183 = call func_ec(int 10, int -1, int 2, int 0)
 
@@ -2130,7 +2119,7 @@ switch(var VAR_170)
 			var VAR_171 ++ 
 			if(var VAR_171 > int 280)
 			 {
-					call start_dialog(var &VAR_187, var &VAR_188)
+					call start_dialog("S_DvdSek", "NULL")
 					var VAR_171 = int 0
 					var VAR_170 ++ 
 			}
@@ -2197,7 +2186,7 @@ switch(var VAR_170)
 }
 
 ._SCRIPT_17
-call log(var &VAR_190)
+call log("act6")
 
 ._SCRIPT_18
 

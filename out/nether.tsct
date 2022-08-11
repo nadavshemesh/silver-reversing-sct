@@ -1,5 +1,5 @@
 ._DATA
-VAR_2	100	
+VAR_2	"d"	
 VAR_5	{ 2871, -3103, -6461 }	
 VAR_6	{ 2104, -3103, -4459 }	
 VAR_7	{ 1648, -3103, -4173 }	
@@ -24,19 +24,15 @@ VAR_25	{ -4858, -3103, -7414 }
 VAR_26	{ -4357, -3103, -7414 }	
 VAR_27	{ -5112, -3103, -7555 }	
 VAR_28	{ VAR_5, VAR_6, VAR_7, VAR_8, VAR_9, VAR_10, VAR_11, VAR_12, VAR_13, VAR_14, VAR_15, VAR_16, VAR_17, VAR_18, VAR_19, VAR_20, VAR_21, VAR_22, VAR_23, VAR_24, VAR_25, VAR_25, VAR_26, VAR_27 }	
-VAR_32	{ 1601004910, 1702256996, 0 }	
 VAR_35	{ 45, -551, 6195, 297, -1100, -4303 }	
 VAR_37	{ 82, 90, 2595 }	
 VAR_38	{ 91, 126, 1385 }	
 VAR_39	{ -1511, 840, -3706 }	
-VAR_42	{ 1668247649, 1887005793, 0 }	
-VAR_47	{ 1447321427, 1330659652, 0 }	
-VAR_48	{ 1280070990, 0 }	
 VAR_49	{ -16, -1350, -2424 }	
 VAR_54	{ 0, -14, 90, 2763 }	
 VAR_55	{ 800, 0, 2583 }	
 VAR_59	1	
-VAR_60	100
+VAR_60	"d"
 
 ._on_load
 call load_sound_set(int 79)
@@ -97,7 +93,7 @@ switch(gamevar room_state)
 call open_save_screen(int 2)
 
 ._SCRIPT_4
-call log(var &VAR_32)
+call log("nem_dave")
 call func_8f("nemdave")
 var VAR_31 = call get_david_char()
 call func_61(var VAR_31)
@@ -109,7 +105,7 @@ call add_item_to_char(var VAR_31, int 114, int 0, int 1)
 ._SCRIPT_5
 call func_49()
 call set_input_system(int 2)
-call load_char(var &VAR_42)
+call load_char("apocalyp")
 var VAR_31 = call get_david_char()
 call set_char_lvl(var VAR_31, int 14)
 gamevar script_object = var VAR_31
@@ -204,7 +200,7 @@ switch(var VAR_0)
 		case 8
 			if(call is_local_timer_greater_than(int 30))
 			 {
-					call start_dialog(var &VAR_47, var &VAR_48)
+					call start_dialog("S_DVDAPO", "NULL")
 					var VAR_0 = int 9
 			}
 			break 

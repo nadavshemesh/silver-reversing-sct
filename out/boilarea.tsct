@@ -25,8 +25,7 @@ VAR_28	{ VAR_22, VAR_23, VAR_24, VAR_25, VAR_26, VAR_27, -1632, -481, -780, 0, 0
 VAR_29	{ -740, -480, 775 }	
 VAR_30	{ -740, -480, 575 }	
 VAR_36	{ 1, 0, 0 }	
-VAR_47	100	
-VAR_49	{ 1413827155, 0 }	
+VAR_47	"d"	
 VAR_52	{ 1052, -481, 641, -2011, -481, 426 }	
 VAR_54	1	
 VAR_55	1	
@@ -40,7 +39,6 @@ VAR_71	{ -664, 891, -555 }
 VAR_72	{ -2671, -1183, 1000 }	
 VAR_75	{ 0, 0 }	
 VAR_87	{ 1947, -481, 679 }	
-VAR_97	{ 1919905636, 1886221668, -1431655936, 0 }	
 
 ._on_load
 call func_124()
@@ -269,7 +267,7 @@ if(var VAR_45 > var VAR_47)
  {
 		var VAR_48 = call randomize_int(int 10, int 60)
 		var VAR_46 = call randomize_int(int 0, int 5)
-		call play_3d_fx(var &VAR_49, @VAR_20[var VAR_46], @VAR_21[var VAR_46], var VAR_48)
+		call play_3d_fx("SJET", @VAR_20[var VAR_46], @VAR_21[var VAR_46], var VAR_48)
 		call play_loaded_sound(int 5, int 0, int 39, int 0)
 		var VAR_47 = call randomize_int(int 30, int 150)
 		var VAR_45 = int 0
@@ -419,4 +417,4 @@ switch(gamevar room_state)
 ._SCRIPT_19
 gamevar SMACKER_X = int 268
 gamevar SMACKER_Y = int 248
-call play_2d_anim(var &VAR_97, int 0, int 1, int 0)
+call play_2d_anim("doordump", int 0, int 1, int 0)

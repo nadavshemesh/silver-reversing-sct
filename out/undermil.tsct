@@ -1,16 +1,12 @@
 ._DATA
 VAR_1	0	
 VAR_7	{ 0, 0 }	
-VAR_9	{ 1701080693, 1818848626, 0 }	
 VAR_10	{ -671, -1316, -1316 }	
 VAR_11	{ 489, -1117, 622 }	
 VAR_12	{ 443, -1361, -267 }	
 VAR_13	{ 14, 5, 20, 0, 578, -1362, 516, 5, 30, 0, 878, -1362, 260, 1, VAR_1, 15, 0, 427, -1362, -277, 5, 30, 12, 28, 5, 20, 1, VAR_1, 8 }	
 VAR_19	{ 0, 0 }	
 VAR_27	-1	
-VAR_36	{ 1280070990, 0 }	
-VAR_38	{ 1212374851, 1196771913, 0 }	
-VAR_39	{ 1280070990, 0 }	
 VAR_67	10	
 VAR_68	2	
 
@@ -84,7 +80,7 @@ gamevar SMACKER_Y = int 48
 call play_2d_anim("milwheel", int 1, int 0, int 0)
 gamevar SMACKER_X = int 240
 gamevar SMACKER_Y = int 0
-call play_2d_anim(var &VAR_9, int 1, int 0, int 0)
+call play_2d_anim("undermil", int 1, int 0, int 0)
 
 ._SCRIPT_4
 call load_sound_set(int 18)
@@ -152,11 +148,11 @@ switch(var VAR_17)
 												break 
 											case 262144
 												call log("cagen")
-												call start_dialog("C_CHICAG", var &VAR_36)
+												call start_dialog("C_CHICAG", "NULL")
 												break 
 											case 327680
 												call log("jug")
-												call start_dialog(var &VAR_38, var &VAR_39)
+												call start_dialog("C_CHIJUG", "NULL")
 												break 
 											default 
 												call log("unknown hero in list")

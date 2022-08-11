@@ -8,27 +8,18 @@ VAR_6	{ 1845, 2845, -4950 }
 VAR_7	{ 1808, 2845, -4813 }	
 VAR_8	{ 1821, 2845, -5052 }	
 VAR_9	{ VAR_6, VAR_7, VAR_8 }	
-VAR_12	28526	
 VAR_13	{ 1634428781, 29289, 0 }	
 VAR_17	160	
 VAR_24	{ 0, 0, 0 }	
 VAR_27	{ 2492, 4381, -4951, 0 }	
-VAR_29	{ 1667329122, 1802658667, 0 }	
-VAR_32	{ 1667329122, 1852399467, 0 }	
-VAR_33	{ 1952804204, 1852796001, 0 }	
 VAR_36	{ 0, 0 }	
 VAR_37	{ 0, 0, 0 }	
-VAR_38	{ 1667329122, 1852399467, 0 }	
 VAR_41	{ 0, 12 }	
 VAR_42	{ 2069, 4041, -4026 }	
 VAR_45	{ 2116, 4041, -5955 }	
-VAR_56	{ 1952804204, 1852796001, 0 }	
-VAR_57	{ 1667329122, 1852399467, 0 }	
-VAR_60	{ 1162626388, 1414680400, 0 }	
-VAR_63	{ 1952804204, 1852796001, 0 }	
 
 ._on_load
-var VAR_10 = call load_anim(var &VAR_12)
+var VAR_10 = call load_anim("no")
 var VAR_11 = call load_anim(var &VAR_13)
 call load_sound_set(int 30)
 call load_sound_set(int 0)
@@ -41,7 +32,7 @@ call load_sound_set(int 65)
 call play_loaded_sound(int 5, int -1, int 65, int 0)
 gamevar SMACKER_X = int 204
 gamevar SMACKER_Y = int 592
-call play_2d_anim(var &VAR_29, int 1, int 1, int 0)
+call play_2d_anim("blackcrk", int 1, int 1, int 0)
 call play_bgm("METALON")
 if(gamevar is_room_cleared)
  {
@@ -86,8 +77,8 @@ else
 ._on_exit
 if(var VAR_22 == int 1)
  {
-		call set_scene_overwrite_act("lmetalon", var &VAR_32, int 0)
-		call func_116(var &VAR_33, "black_3", int 2)
+		call set_scene_overwrite_act("lmetalon", "black_in", int 0)
+		call func_116("lmetalon", "black_3", int 2)
 		gamevar room_state = int 2
 }
 if(gamevar !is_room_cleared&&var VAR_22 == int 0)
@@ -115,7 +106,7 @@ if(gamevar !is_room_cleared&&var VAR_22 == int 0)
 		}
 			gamevar SMACKER_X = int 308
 			gamevar SMACKER_Y = int 324
-			call play_2d_anim(var &VAR_38, int 1, int 1, var &VAR_37)
+			call play_2d_anim("black_in", int 1, int 1, var &VAR_37)
 			call play_2d_anim("blackfad", int -2147483, int 1, var &VAR_35)
 			gamevar use_mouse_override_sprite = int 410
 			if(var VAR_15)
@@ -369,7 +360,7 @@ if(gamevar !is_room_cleared&&var VAR_22 == int 0)
 							 {
 									var VAR_52 ++ 
 									call func_e6("lmetalon", "black_3", var &VAR_0, int 2)
-									call set_scene_overwrite_act(var &VAR_56, var &VAR_57, int 0)
+									call set_scene_overwrite_act("lmetalon", "black_in", int 0)
 							}
 					}
 			}
@@ -478,7 +469,7 @@ if(gamevar !is_room_cleared&&var VAR_22 == int 0)
 									var VAR_26 = var VAR_25
 									var VAR_20 = call func_7e()
 							}
-							call log(var &VAR_60)
+							call log("TELEPORT")
 							var VAR_25 = int 0
 							var VAR_58 ++ 
 							var VAR_59 = int 0
@@ -507,7 +498,7 @@ if(gamevar !is_room_cleared&&var VAR_22 == int 0)
 							 {
 									var VAR_58 ++ 
 									call func_e6("lmetalon", "black_3", var &VAR_0, int 2)
-									call set_scene_overwrite_act(var &VAR_63, "black_in", int 0)
+									call set_scene_overwrite_act("lmetalon", "black_in", int 0)
 							}
 					}
 			}
@@ -533,7 +524,7 @@ if(gamevar script_time > var VAR_67)
 ._SCRIPT_4
 gamevar SMACKER_X = int 308
 gamevar SMACKER_Y = int 324
-call play_2d_anim(var &VAR_38, int 1, int 1, var &VAR_37)
+call play_2d_anim("black_in", int 1, int 1, var &VAR_37)
 call play_2d_anim("blackfad", int -2147483, int 1, var &VAR_35)
 gamevar use_mouse_override_sprite = int 410
 
@@ -793,7 +784,7 @@ if(var VAR_52 == int 5)
 				 {
 						var VAR_52 ++ 
 						call func_e6("lmetalon", "black_3", var &VAR_0, int 2)
-						call set_scene_overwrite_act(var &VAR_56, var &VAR_57, int 0)
+						call set_scene_overwrite_act("lmetalon", "black_in", int 0)
 				}
 		}
 }
@@ -910,7 +901,7 @@ if(var VAR_58 == int 5)
 						var VAR_26 = var VAR_25
 						var VAR_20 = call func_7e()
 				}
-				call log(var &VAR_60)
+				call log("TELEPORT")
 				var VAR_25 = int 0
 				var VAR_58 ++ 
 				var VAR_59 = int 0
@@ -939,7 +930,7 @@ if(var VAR_58 == int 6)
 				 {
 						var VAR_58 ++ 
 						call func_e6("lmetalon", "black_3", var &VAR_0, int 2)
-						call set_scene_overwrite_act(var &VAR_63, "black_in", int 0)
+						call set_scene_overwrite_act("lmetalon", "black_in", int 0)
 				}
 		}
 }

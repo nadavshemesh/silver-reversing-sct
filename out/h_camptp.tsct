@@ -120,7 +120,6 @@ nmoss	0
 VAR_304	{ 1878, 1572, 174 }	
 VAR_305	{ 2069, 1572, 166 }	
 VAR_306	{ 2220, 1572, -369 }	
-VAR_307	{ 1857, 1572, -403 }	
 VAR_308	{ 1044, 1572, -510 }	
 VAR_309	{ 635, 1572, -661 }	
 VAR_310	{ 12, 28, 11, 50, 100, 12, 28, 11, 50, 100, 12, 28, 2, 1044, 1572, -510, 11, 50, 100, 12, 28, 11, 50, 100, 12, 28, 11, 50, 100, 12, 28, 2, 1044, 1572, -510, 11, 50, 100, 7, 8 }	
@@ -173,7 +172,6 @@ VAR_426	{ 1454, 1572, -420 }
 VAR_427	{ 1180, 1572, -150 }	
 VAR_428	{ VAR_426, VAR_427, 0 }	
 VAR_432	-1	
-VAR_439	{ 1601463661, 1835099490, -1431655936, 0 }	
 VAR_440	{ 261, 237, -858 }	
 
 ._on_load
@@ -1903,7 +1901,7 @@ if(call func_c0(int 12345, "chains", "moss"))
 		call play_char_ai_script(var noldwoman, var &VAR_312)
 }
 var nduke = call create_char(var &VAR_306, "nduke", int 310, int 13)
-var nben = call create_char(var &VAR_307, "nben", int 10, int 13)
+var nben = call create_char("A", "nben", int 10, int 13)
 var nrichard = call create_char(var &VAR_308, "nrichard", int 0, int 13)
 var nclay = call create_char(var &VAR_309, "nclay", int 55, int 13)
 call add_item_to_char(var nrichard, int 16, int 0, int 1)
@@ -2667,7 +2665,7 @@ switch(var VAR_418)
 		case 20
 			if(var VAR_419 > int 200)
 			 {
-					call func_e6("lmetalon", var &VAR_439, var &VAR_424, int 1)
+					call func_e6("lmetalon", "met_beam", var &VAR_424, int 1)
 					var VAR_418 ++ 
 					var VAR_419 = int 0
 			}

@@ -1,6 +1,5 @@
 ._DATA
 VAR_17	{ 0, 0 }	
-VAR_19	{ 1931965545, 1767993951, 1735289198, 0 }	
 VAR_20	{ -3450, 1225, 2150 }	
 VAR_21	{ -2075, 1225, 50 }	
 VAR_27	{ 3397, -1016, -1045 }	
@@ -9,7 +8,6 @@ VAR_30	{ 0, 0, 0, -1, 8, 0, 1, 1, 11, 11, -1, 4, 0, 9, 1, 5, 1, 50, 100, 6, 1, 7
 VAR_33	-1	
 VAR_34	{ 0, 0, 0, -1, 8, 0, 12, 30, 30, 32, -1, 13, 0, 14, 0, 1, 3, 5, 0, 60, 18, 55, -1 }	
 VAR_35	{ 0, 0, 0, -1, 8, 0, 12, 11, 12, 13, -1, 13, 0, 14, 0, 1, 3, 5, 0, 60, 18, 55, -1 }	
-VAR_36	{ 1701407858, 1852142709, 0 }	
 
 ._on_load
 execute SCRIPT_3
@@ -69,7 +67,7 @@ if(gamevar !is_room_cleared)
 }
 
 ._SCRIPT_3
-call log(var &VAR_19)
+call log("it's_raining")
 call play_3d_fx("RAIN", var &VAR_20, var &VAR_21, int 0)
 execute SCRIPT_9
 
@@ -190,7 +188,7 @@ var VAR_31 = call load_anim("conjure")
 switch(gamevar is_room_cleared)
  {
 		case 1
-			call load_char(var &VAR_36)
+			call load_char("rlieuten")
 			call run_wandering_generator(var &VAR_35, int 100)
 			break 
 		case 2

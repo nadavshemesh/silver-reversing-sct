@@ -539,7 +539,7 @@ expr_obj* bin_create_expr_obj(expr_pattern* expr, int* vars, void** token_pos_pt
             data = get_data_obj_by_id(data_var, sf);
 
             // check if can convert to inline string
-            if(is_string(data->data, data->byte_size) && data->references == 1) {
+            if(expr->type == ADDROF_VAR_PTR && is_string(data->data, data->byte_size) && data->references == 1) {
                 expr_pattern* ep = init_aid_expr_inline_data();
                 
                 eo->expr_p = ep;

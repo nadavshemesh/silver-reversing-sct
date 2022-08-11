@@ -2,9 +2,7 @@
 VAR_1	{ -5541, 1978, 3772 }	
 VAR_2	{ 3737, 1978, -6150 }	
 VAR_11	{ 700, -1199, 3033 }	
-VAR_12	{ 342, -1199, 3132 }	
 VAR_13	{ 722, -1199, 3370 }	
-VAR_14	{ 334, -1199, 3460 }	
 VAR_15	{ 689, -1199, 3719 }	
 VAR_16	{ 326, -1199, 3821 }	
 VAR_17	{ 0, 795, -1200, -374, 0, 700, -1199, 3033, 7, 8 }	
@@ -195,10 +193,10 @@ call load_char("wamper")
 call load_char("sentry")
 var sentryg = call create_enemy(int 56, int 0, var &VAR_11, int 165)
 call add_item_to_char(var sentryg, int 43, int 1, int 0)
-var sentryg1 = call create_enemy(int 56, int 1, var &VAR_12, int 165)
+var sentryg1 = call create_enemy(int 56, int 1, "V", int 165)
 call add_item_to_char(var sentryg1, int 40, int 1, int 0)
 var sentryg2 = call create_enemy(int 56, int 2, var &VAR_13, int 150)
-var sentryg3 = call create_enemy(int 56, int 3, var &VAR_14, int 165)
+var sentryg3 = call create_enemy(int 56, int 3, "N", int 165)
 var sentryg4 = call create_enemy(int 56, int 4, var &VAR_15, int 160)
 var sentryg5 = call create_enemy(int 56, int 5, var &VAR_16, int 155)
 call freeze_enemy(var sentryg)

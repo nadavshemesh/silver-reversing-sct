@@ -1,30 +1,13 @@
 ._DATA
-VAR_8	{ 1280070990, 0 }	
-VAR_10	{ 1280070990, 0 }	
-VAR_12	{ 1280070990, 0 }	
-VAR_14	{ 1280070990, 0 }	
-VAR_16	{ 1280070990, 0 }	
 VAR_18	{ 0, 0, -1 }	
 VAR_23	-1	
-VAR_28	{ 1280070990, 0 }	
-VAR_30	{ 1280070990, 0 }	
-VAR_32	{ 1280070990, 0 }	
-VAR_34	{ 1280070990, 0 }	
-VAR_36	{ 1280070990, 0 }	
-VAR_38	{ 1280070990, 0 }	
-VAR_43	{ 1633902440, 1886679149, 0 }	
-VAR_45	{ 1633902440, 1886679149, 0 }	
-VAR_47	{ 1633902440, 1886679149, 0 }	
 VAR_52	{ 2690, 450, -7986 }	
 VAR_53	{ 2799, 450, -7986 }	
 VAR_54	{ 2981, 460, -7986 }	
 VAR_55	{ 3122, 430, -7986 }	
-VAR_60	{ 1112362836, 0 }	
-VAR_62	{ 1112362836, 0 }	
 VAR_64	{ 2955, 470, -8031 }	
 VAR_65	{ 2944, 470, -7611 }	
 VAR_66	{ 2944, 0, -7611 }	
-VAR_71	{ 1869768803, 1818454382, 0 }	
 VAR_75	{ 0, 0 }	
 VAR_78	{ 2625, 0, -7602 }	
 VAR_80	{ 3313, 0, -7552 }	
@@ -34,21 +17,6 @@ VAR_86	{ 2593, 0, -7551 }
 VAR_87	{ 3025, 0, -6837 }	
 VAR_88	{ 3050, 0, -7621, 2917, 0, -7391 }	
 VAR_92	-1	
-VAR_94	{ 1920233061, 1701015137, 0 }	
-VAR_97	{ 1163091795, 1112690507, 0 }	
-VAR_99	{ 1230397267, 1112690518, 0 }	
-VAR_101	{ 1447321427, 1112690500, 0 }	
-VAR_103	{ 1447321427, 1112690500, 0 }	
-VAR_104	{ 1280070990, 0 }	
-VAR_105	{ 1163091795, 1112690507, 0 }	
-VAR_107	{ 1230397267, 1112690518, 0 }	
-VAR_108	{ 1280070990, 0 }	
-VAR_109	{ 1447321427, 1112690500, 0 }	
-VAR_111	{ 1447321420, 1112690500, 0 }	
-VAR_112	{ 1280070990, 0 }	
-VAR_117	{ 1447321427, 1230263108, 0 }	
-VAR_118	{ 1280070990, 0 }	
-VAR_121	{ 1869768803, 1818454382, 0 }	
 
 ._on_load
 execute SCRIPT_14
@@ -140,7 +108,7 @@ var VAR_68 = call load_anim("victory")
 var VAR_69 = call play_loaded_sound(int 2, int -1, int 16, int 0)
 gamevar items_in_drag_box = int 0
 execute SCRIPT_11
-call load_char(var &VAR_71)
+call load_char("chronicl")
 call load_char("stipe")
 
 ._SCRIPT_5
@@ -154,7 +122,7 @@ var VAR_68 = call load_anim("victory")
 var VAR_69 = call play_loaded_sound(int 2, int -1, int 16, int 0)
 gamevar items_in_drag_box = int 0
 execute SCRIPT_11
-call load_char(var &VAR_121)
+call load_char("chronicl")
 call load_char("stipe")
 
 ._SCRIPT_7
@@ -169,9 +137,9 @@ call load_sound_set(int 65)
 call play_loaded_sound(int 3, int -1, int 65, int 0)
 
 ._SCRIPT_11
-var VAR_56 = call play_3d_fx(var &VAR_60, var &VAR_52, var &VAR_52, int 0)
+var VAR_56 = call play_3d_fx("TOMB", var &VAR_52, var &VAR_52, int 0)
 var VAR_57 = call play_3d_fx("TOMB", var &VAR_53, var &VAR_53, int 0)
-var VAR_58 = call play_3d_fx(var &VAR_62, var &VAR_54, var &VAR_54, int 0)
+var VAR_58 = call play_3d_fx("TOMB", var &VAR_54, var &VAR_54, int 0)
 var VAR_59 = call play_3d_fx("TOMB", var &VAR_55, var &VAR_55, int 0)
 
 ._SCRIPT_12
@@ -209,7 +177,7 @@ switch(var VAR_73)
 					var VAR_69 = call play_loaded_sound(int 3, int -1, int 16, int 0)
 					call char_turn_to_pos(gamevar control_char_p, var &VAR_64)
 					call func_9b(var VAR_67, var &VAR_65, int 10737418)
-					if(call func_c0(int 1001, "gno", var &VAR_94))
+					if(call func_c0(int 1001, "gno", "entrance"))
 					 {
 							var VAR_91 = int 1
 					}
@@ -306,13 +274,13 @@ switch(var VAR_73)
 											call start_dialog("S_DVDORB", "FIRST")
 											break 
 										case 786432
-											call start_dialog(var &VAR_97, "FIRST")
+											call start_dialog("S_SEKORB", "FIRST")
 											break 
 										case 196608
-											call start_dialog(var &VAR_99, "FIRST")
+											call start_dialog("S_VIVORB", "FIRST")
 											break 
 										default 
-											call start_dialog(var &VAR_101, "ANY")
+											call start_dialog("S_DVDORB", "ANY")
 											break 
 								}
 								break 
@@ -320,21 +288,21 @@ switch(var VAR_73)
 								switch(var VAR_85)
 								 {
 										case 65536
-											call start_dialog(var &VAR_103, var &VAR_104)
+											call start_dialog("S_DVDORB", "NULL")
 											break 
 										case 786432
-											call start_dialog(var &VAR_105, "NULL")
+											call start_dialog("S_SEKORB", "NULL")
 											break 
 										case 196608
-											call start_dialog(var &VAR_107, var &VAR_108)
+											call start_dialog("S_VIVORB", "NULL")
 											break 
 										default 
-											call start_dialog(var &VAR_109, "ANY")
+											call start_dialog("S_DVDORB", "ANY")
 											break 
 								}
 								break 
 							case 8
-								call start_dialog(var &VAR_111, var &VAR_112)
+								call start_dialog("L_DVDORB", "NULL")
 								break 
 							default 
 								call start_dialog("S_DVDORB", "ANY")
@@ -397,7 +365,7 @@ switch(var VAR_73)
 		case 9
 			if(var VAR_74 > int 30)
 			 {
-					call start_dialog(var &VAR_117, var &VAR_118)
+					call start_dialog("S_DVDSTI", "NULL")
 					var VAR_73 ++ 
 					var VAR_74 = int 0
 			}
@@ -579,19 +547,19 @@ switch(var VAR_4)
 			call load_dialog_by_number("DVDCHR", "NULL", gamevar chronicler_variation)
 			break 
 		case 786432
-			call load_dialog_by_number("SEKCHR", var &VAR_8, gamevar chronicler_variation)
+			call load_dialog_by_number("SEKCHR", "NULL", gamevar chronicler_variation)
 			break 
 		case 262144
-			call load_dialog_by_number("CAGCHR", var &VAR_10, gamevar chronicler_variation)
+			call load_dialog_by_number("CAGCHR", "NULL", gamevar chronicler_variation)
 			break 
 		case 327680
-			call load_dialog_by_number("JUGCHR", var &VAR_12, gamevar chronicler_variation)
+			call load_dialog_by_number("JUGCHR", "NULL", gamevar chronicler_variation)
 			break 
 		case 131072
-			call load_dialog_by_number("CHICHR", var &VAR_14, gamevar chronicler_variation)
+			call load_dialog_by_number("CHICHR", "NULL", gamevar chronicler_variation)
 			break 
 		case 196608
-			call load_dialog_by_number("VIVCHR", var &VAR_16, gamevar chronicler_variation)
+			call load_dialog_by_number("VIVCHR", "NULL", gamevar chronicler_variation)
 			break 
 }
 
@@ -600,22 +568,22 @@ var VAR_26 = call get_char_handle_id(gamevar control_char_p)
 switch(var VAR_26)
  {
 		case 65536
-			var VAR_2 = call load_next_dialog("DVDCHR", var &VAR_28)
+			var VAR_2 = call load_next_dialog("DVDCHR", "NULL")
 			break 
 		case 786432
-			var VAR_2 = call load_next_dialog("SEKCHR", var &VAR_30)
+			var VAR_2 = call load_next_dialog("SEKCHR", "NULL")
 			break 
 		case 262144
-			var VAR_2 = call load_next_dialog("CAGCHR", var &VAR_32)
+			var VAR_2 = call load_next_dialog("CAGCHR", "NULL")
 			break 
 		case 327680
-			var VAR_2 = call load_next_dialog("JUGCHR", var &VAR_34)
+			var VAR_2 = call load_next_dialog("JUGCHR", "NULL")
 			break 
 		case 131072
-			var VAR_2 = call load_next_dialog("CHICHR", var &VAR_36)
+			var VAR_2 = call load_next_dialog("CHICHR", "NULL")
 			break 
 		case 196608
-			var VAR_2 = call load_next_dialog("VIVCHR", var &VAR_38)
+			var VAR_2 = call load_next_dialog("VIVCHR", "NULL")
 			break 
 }
 
@@ -632,9 +600,9 @@ var VAR_40 += call func_42(var VAR_41, int 6)
 var VAR_40 += call func_42(var VAR_41, int 7)
 if(var VAR_40 == int 8)
  {
-		call func_116("haven", var &VAR_43, int 9)
-		call set_scene_overwrite_act("haven", var &VAR_45, int 0)
-		call func_118("haven", var &VAR_47, int 1)
+		call func_116("haven", "h_camptp", int 9)
+		call set_scene_overwrite_act("haven", "h_camptp", int 0)
+		call func_118("haven", "h_camptp", int 1)
 		var VAR_39 = int 1
 		call log("all 8 orbs taken!")
 }

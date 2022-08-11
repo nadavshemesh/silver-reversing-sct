@@ -1,6 +1,4 @@
 ._DATA
-VAR_0	{ 1701279046, 829706306, -1431655936, 0 }	
-VAR_2	{ 6610, -700, 86 }	
 VAR_4	{ 6026, -700, 691 }	
 VAR_5	{ 10, 3990, -600, -6834, 10, 4108, 0, 1174, 10, 2125, 500, 2015, 5, 100, 10, 6610, -700, 86, 5, 100, 7, 8 }	
 VAR_6	{ 10, 2125, 700, 2015, 5, 100, 10, 4043, 300, 1937, 10, 3990, -700, -6834, 10, 5609, -200, 1552, 5, 100, 7, 8 }	
@@ -22,7 +20,7 @@ nsgrunt2	{ 0, 0, 0, 0 }
 ._on_load
 if(gamevar room_state == int 3)
  {
-		call play_bgm(var &VAR_0)
+		call play_bgm("FugeBPt1")
 }
 execute SCRIPT_5
 if(gamevar is_room_cleared)
@@ -122,7 +120,7 @@ call play_loaded_sound(int 12, int -1, int 9, int 0)
 execute SCRIPT_6
 
 ._SCRIPT_6
-var NGULL1 = call create_char(var &VAR_2, "NGULL1", int 325, int 16)
+var NGULL1 = call create_char("Ò", "NGULL1", int 325, int 16)
 call set_char_init_state(var NGULL1, int 13)
 call play_char_ai_script(var NGULL1, var &VAR_5)
 gamevar script_object = var NGULL1

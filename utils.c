@@ -193,16 +193,27 @@ bool is_string(byte* str, int len) {
     int row_nulls = 0;
     int non_printable = 0;
     int letters = 0;
+    int printable = 0;
+    int spaces = 0;
+    char last = *(str+(len));
     for(int i=0; i < len; i++) {
         char ch = *(str+i);
         if(ch == 0) { null_counter++; row_nulls++; } else { row_nulls = 0; }
-        if(row_nulls >= 4) return false;
-        if(is_letter_or_number(ch)) letters++;
+        //if((row_nulls > 8 && len > 4)) return false;
+        if((row_nulls > 4)) return false;
+        if(is_letter_or_number(ch)) printable++;
+        if(is_letter(ch)) letters++;
+        if(ch == 0x20) spaces++;
         if(!is_printable_ascii(ch) && !is_exception_char(ch))
             non_printable++;
     }
-    if(non_printable >= (len/2)) return false;
-    if(null_counter >= len/2) return false;
-    if(letters <= (len-null_counter)/2) return false;
+    if(non_printable >= (((float)len)/10)*5) {return false;}
+    //if(null_counter >= 5) return false;
+    if(letters == 0 || printable == 0) {return false;}
+    //if(letters > 10 && spaces == 0) return false;
+    //if(letters > 1 && last == 0) return true;
+    if(last != 0 && last != 0x23) {return false;}
+    //if(letters <= (len-null_counter)/2) return false;
+    if(letters < (null_counter/2)) {return false;}
     return true;
 }

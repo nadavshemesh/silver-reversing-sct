@@ -10,12 +10,9 @@ VAR_19	"impread"
 VAR_20	"yes"	
 VAR_21	"impread"	
 VAR_22	"impread"	
-VAR_23	28526	
+VAR_23	"no"	
 VAR_27	{ 0, 0 }	
 VAR_30	-1	
-VAR_32	{ 1280070990, 0 }	
-VAR_39	{ 1447321427, 1515536964, 0 }	
-VAR_40	{ 1280070990, 0 }	
 VAR_49	{ 0, 0 }	
 
 ._on_load
@@ -251,7 +248,7 @@ if(var VAR_26 == int 9)
  {
 		if(var VAR_27 > int 60)
 		 {
-				call start_dialog("ISHBUZ", var &VAR_32)
+				call start_dialog("ISHBUZ", "NULL")
 				var VAR_26 ++ 
 				var VAR_27 = int 0
 		}
@@ -330,7 +327,7 @@ switch(var VAR_33)
 		case 1
 			if(var VAR_34 > int 60)
 			 {
-					call start_dialog(var &VAR_39, var &VAR_40)
+					call start_dialog("S_DVDBUZ", "NULL")
 					var VAR_35 = call get_david_char()
 					while(var VAR_35)
 					 {

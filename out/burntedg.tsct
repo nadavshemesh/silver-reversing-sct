@@ -1,17 +1,10 @@
 ._DATA
-VAR_10	{ 1280070990, 0 }	
 VAR_18	{ 0, 0, -1 }	
 VAR_23	-1	
-VAR_30	{ 1280070990, 0 }	
-VAR_32	{ 1280070990, 0 }	
-VAR_36	{ 1280070990, 0 }	
-VAR_48	{ 1146242390, 1163152961, 0 }	
 VAR_59	10	
 VAR_60	2	
 VAR_61	{ 0, 1128136704, 1145896960, 1170907136 }	
 VAR_62	{ 181, 820, 6390 }	
-VAR_65	{ 1163020614, 555819297, 33 }	
-VAR_71	{ 1769367926, 1701736037, 0 }	
 VAR_84	{ 361, 793, 6386 }	
 VAR_85	{ 253, 793, 6740 }	
 VAR_86	{ 379, 793, 6614 }	
@@ -35,15 +28,9 @@ VAR_112	"eat"
 VAR_113	"lizwarm"	
 VAR_121	{ 516, 793, 5271 }	
 VAR_122	-1	
-VAR_127	{ 1280070990, 0 }	
-VAR_128	{ 1969972595, 1931961710, 1818326048, 1735289195, 0 }	
-VAR_129	{ 1699962707, 2036419947, 0 }	
-VAR_130	{ 1280070990, 0 }	
-VAR_132	{ 1767268179, 2036419958, 0 }	
-VAR_133	{ 1280070990, 0 }	
 
 ._on_load
-if(call play_bgm(var &VAR_48))
+if(call play_bgm("VERDANTE"))
  {
 		call func_114(int 1)
 		call func_5a(int -1)
@@ -215,12 +202,12 @@ switch(var VAR_76)
 			 {
 					call char_turn_to_pos(var VAR_44, var &VAR_88)
 			}
-			call start_dialog("S_DvdMay", var &VAR_127)
+			call start_dialog("S_DvdMay", "NULL")
 			var VAR_76 = int 11
 			var VAR_77 = int 0
 			break 
 		case 5
-			call log(var &VAR_128)
+			call log("sekune's talking")
 			call char_turn_to_pos(var VAR_43, var &VAR_88)
 			if(call is_char_handle_in_level(int 65536))
 			 {
@@ -230,7 +217,7 @@ switch(var VAR_76)
 			 {
 					call char_turn_to_pos(var VAR_44, var &VAR_88)
 			}
-			call start_dialog(var &VAR_129, var &VAR_130)
+			call start_dialog("S_SekMay", "NULL")
 			var VAR_76 = int 11
 			var VAR_77 = int 0
 			break 
@@ -245,7 +232,7 @@ switch(var VAR_76)
 			 {
 					call char_turn_to_pos(var VAR_41, var &VAR_88)
 			}
-			call start_dialog(var &VAR_132, var &VAR_133)
+			call start_dialog("S_VivMay", "NULL")
 			var VAR_76 = int 11
 			var VAR_77 = int 0
 			break 
@@ -608,7 +595,7 @@ while(var VAR_66)
 					var VAR_42 = var VAR_66
 					break 
 				case 196608
-					call log(var &VAR_71)
+					call log("vivienne")
 					var VAR_44 = var VAR_66
 					break 
 				case 131072
@@ -660,7 +647,7 @@ call load_char("chronicl")
 ._SCRIPT_5
 var VAR_63 = call play_3d_fx("FIRE", var &VAR_62, int 0, int 0)
 call func_ec(int 198, int -1, int 0, var &VAR_62)
-call log(var &VAR_65)
+call log("FIRE!!!!!")
 
 ._SCRIPT_6
 
@@ -887,7 +874,7 @@ switch(var VAR_4)
 			call load_dialog_by_number("SEKCHR", "NULL", gamevar chronicler_variation)
 			break 
 		case 262144
-			call load_dialog_by_number("CAGCHR", var &VAR_10, gamevar chronicler_variation)
+			call load_dialog_by_number("CAGCHR", "NULL", gamevar chronicler_variation)
 			break 
 		case 327680
 			call load_dialog_by_number("JUGCHR", "NULL", gamevar chronicler_variation)
@@ -908,16 +895,16 @@ switch(var VAR_26)
 			var VAR_2 = call load_next_dialog("DVDCHR", "NULL")
 			break 
 		case 786432
-			var VAR_2 = call load_next_dialog("SEKCHR", var &VAR_30)
+			var VAR_2 = call load_next_dialog("SEKCHR", "NULL")
 			break 
 		case 262144
-			var VAR_2 = call load_next_dialog("CAGCHR", var &VAR_32)
+			var VAR_2 = call load_next_dialog("CAGCHR", "NULL")
 			break 
 		case 327680
 			var VAR_2 = call load_next_dialog("JUGCHR", "NULL")
 			break 
 		case 131072
-			var VAR_2 = call load_next_dialog("CHICHR", var &VAR_36)
+			var VAR_2 = call load_next_dialog("CHICHR", "NULL")
 			break 
 		case 196608
 			var VAR_2 = call load_next_dialog("VIVCHR", "NULL")

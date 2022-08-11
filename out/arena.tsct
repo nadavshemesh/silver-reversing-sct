@@ -3,23 +3,9 @@ VAR_6	{ 0, 430, 1420, 2849, -1492, 1420, 3369, -1583, 1420, 4533, -612, 1420, 38
 VAR_8	{ 430, 1420, 2849, -1492, 1420, 3369, -1583, 1420, 4533, -612, 1420, 3843, 80, 1420, 4957 }	
 VAR_9	{ 357, 1468, 4503, -1402, 2362, 5485, -1492, 1420, 3369 }	
 VAR_10	{ 530, 1420, 3493, 7, 1420, 2796, -302, 1420, 3761, -563, 1420, 2693, -999, 1420, 3495, -1654, 1420, 4020, -1231, 1420, 4459, -850, 1420, 4244, -305, 1420, 4444, -137, 1420, 4753, -233, 1420, 5104, -647, 1420, 5241, -1017, 1420, 4954, -1293, 1420, 5188, -1350, 1420, 4635, -1446, 1420, 5043 }	
-VAR_23	{ 1280070990, 0 }	
-VAR_25	{ 1280070990, 0 }	
-VAR_27	{ 1280070990, 0 }	
-VAR_29	{ 1280070990, 0 }	
 VAR_31	{ 0, 0, -1 }	
 VAR_36	-1	
-VAR_41	{ 1280070990, 0 }	
-VAR_43	{ 1280070990, 0 }	
-VAR_45	{ 1280070990, 0 }	
-VAR_47	{ 1280070990, 0 }	
-VAR_49	{ 1280070990, 0 }	
-VAR_51	{ 1280070990, 0 }	
-VAR_58	{ 1701996902, 1953656947, 0 }	
-VAR_59	{ 1869768803, 1818454382, 0 }	
 VAR_68	{ -1031, 1420, 3387 }	
-VAR_72	{ 1280722249, 827605314, 0 }	
-VAR_74	{ 1163020614, 1397968706, 541671712, 1414090313, 0 }	
 
 ._on_load
 call load_sound_set(int 46)
@@ -94,7 +80,7 @@ switch(var VAR_0)
 					var fireboss = call create_enemy(int 0, int 0, var &VAR_8 + int 36, int 0)
 					call func_103(var fireboss)
 					call func_ec(int 1, int 0, int 23, var &VAR_8 + int 36)
-					call play_bgm(var &VAR_72)
+					call play_bgm("IEVLBAT1")
 					var VAR_0 = int 1
 					call log("FIREBOSS GENERATE")
 			}
@@ -107,7 +93,7 @@ switch(var VAR_0)
 			}
 			break 
 		case 2
-			call log(var &VAR_74)
+			call log("FIREBOSS AI INIT")
 			call func_106(var fireboss, int 2, int 0, var &VAR_8)
 			call func_106(var fireboss, int 2, int 1, int 5)
 			call func_106(var fireboss, int 2, int 2, int 3)
@@ -159,9 +145,9 @@ var VAR_69 ++
 var VAR_55 = call load_anim("victory")
 var DAVID = call get_char_handle(int 65536)
 call load_char("firel")
-call load_char(var &VAR_58)
+call load_char("firesprt")
 var VAR_0 = int 0
-call load_char(var &VAR_59)
+call load_char("chronicl")
 
 ._SCRIPT_5
 
@@ -345,16 +331,16 @@ switch(var VAR_17)
 			call load_dialog_by_number("SEKCHR", "NULL", gamevar chronicler_variation)
 			break 
 		case 262144
-			call load_dialog_by_number("CAGCHR", var &VAR_23, gamevar chronicler_variation)
+			call load_dialog_by_number("CAGCHR", "NULL", gamevar chronicler_variation)
 			break 
 		case 327680
-			call load_dialog_by_number("JUGCHR", var &VAR_25, gamevar chronicler_variation)
+			call load_dialog_by_number("JUGCHR", "NULL", gamevar chronicler_variation)
 			break 
 		case 131072
-			call load_dialog_by_number("CHICHR", var &VAR_27, gamevar chronicler_variation)
+			call load_dialog_by_number("CHICHR", "NULL", gamevar chronicler_variation)
 			break 
 		case 196608
-			call load_dialog_by_number("VIVCHR", var &VAR_29, gamevar chronicler_variation)
+			call load_dialog_by_number("VIVCHR", "NULL", gamevar chronicler_variation)
 			break 
 }
 
@@ -363,21 +349,21 @@ var VAR_39 = call get_char_handle_id(gamevar control_char_p)
 switch(var VAR_39)
  {
 		case 65536
-			var VAR_15 = call load_next_dialog("DVDCHR", var &VAR_41)
+			var VAR_15 = call load_next_dialog("DVDCHR", "NULL")
 			break 
 		case 786432
-			var VAR_15 = call load_next_dialog("SEKCHR", var &VAR_43)
+			var VAR_15 = call load_next_dialog("SEKCHR", "NULL")
 			break 
 		case 262144
-			var VAR_15 = call load_next_dialog("CAGCHR", var &VAR_45)
+			var VAR_15 = call load_next_dialog("CAGCHR", "NULL")
 			break 
 		case 327680
-			var VAR_15 = call load_next_dialog("JUGCHR", var &VAR_47)
+			var VAR_15 = call load_next_dialog("JUGCHR", "NULL")
 			break 
 		case 131072
-			var VAR_15 = call load_next_dialog("CHICHR", var &VAR_49)
+			var VAR_15 = call load_next_dialog("CHICHR", "NULL")
 			break 
 		case 196608
-			var VAR_15 = call load_next_dialog("VIVCHR", var &VAR_51)
+			var VAR_15 = call load_next_dialog("VIVCHR", "NULL")
 			break 
 }

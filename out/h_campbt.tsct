@@ -1,24 +1,13 @@
 ._DATA
-VAR_6	{ 1280070990, 0 }	
-VAR_8	{ 1280070990, 0 }	
-VAR_10	{ 1280070990, 0 }	
-VAR_12	{ 1280070990, 0 }	
-VAR_14	{ 1280070990, 0 }	
 VAR_18	{ 0, 0, -1 }	
 VAR_23	-1	
-VAR_28	{ 1280070990, 0 }	
-VAR_34	{ 1280070990, 0 }	
-VAR_36	{ 1280070990, 0 }	
-VAR_38	{ 1280070990, 0 }	
 VAR_39	{ 0, -1 }	
-VAR_52	{ 1903457127, 1853125493, 0 }	
 VAR_54	{ 1071, 0, 1704 }	
 VAR_55	{ 1549, 0, 1049 }	
 VAR_56	{ 3122, 0, 1339 }	
 VAR_57	{ -1267, 0, 1636 }	
 VAR_58	{ 4400, 0, 2109 }	
 VAR_59	{ 4907, 0, 2086 }	
-VAR_75	{ 1818851182, 1835100524, 0 }	
 VAR_77	{ 2521, 0, 1623 }	
 VAR_78	{ 2567, 0, 1436 }	
 VAR_85	{ 486, 0, 1457 }	
@@ -39,9 +28,6 @@ VAR_99	{ 2664, 0, 1173 }
 VAR_100	{ 3024, 0, 552 }	
 VAR_101	{ 2385, 0, 1209 }	
 VAR_102	{ 3044, 1572, 264 }	
-VAR_110	{ 1280070990, 0 }	
-VAR_115	{ 1768843622, 1684367475, 1919120160, 543976559, 1142976372, 1684633185, 0 }	
-VAR_117	{ 1633902440, 1886679149, 0 }	
 VAR_120	{ 903, 550, 1272 }	
 VAR_121	{ 1144, 500, 1199 }	
 VAR_122	{ 131, 800, 318 }	
@@ -57,7 +43,6 @@ VAR_142	{ -610, 0, 1565 }
 VAR_143	{ -1129, 0, 1606 }	
 VAR_144	{ -1329, 0, 1606 }	
 VAR_145	{ -1429, 0, 1606 }	
-VAR_150	{ 1852138094, 0 }	
 VAR_153	{ 863265633, 0, -676, 0, 2096 }	
 VAR_154	{ -193, 0, 1849 }	
 VAR_155	{ -365, 0, 1968 }	
@@ -74,18 +59,11 @@ VAR_165	{ 2986, 0, 589 }
 VAR_166	{ 3297, 0, 1680 }	
 VAR_167	{ 62, -2466, 3121 }	
 VAR_170	-1	
-VAR_175	{ 1380343635, 1263879241, 0 }	
-VAR_176	{ 1280070990, 0 }	
-VAR_185	{ 1430544211, 1413563979, 0 }	
-VAR_186	{ 1280070990, 0 }	
 VAR_193	{ 3417, 0, 803 }	
 VAR_194	{ 868, 0, 905 }	
 VAR_195	{ 2729, 0, 913 }	
 VAR_196	{ 180, 0, 1125 }	
 VAR_197	{ 1947, 0, 1145 }	
-VAR_200	{ 1650815598, 828468325, 0 }	
-VAR_201	{ 1650815598, 845245541, 0 }	
-VAR_206	{ 1650815598, 845245541, 0 }	
 VAR_211	{ 0, 0, -1 }	
 VAR_216	-1	
 
@@ -179,7 +157,7 @@ switch(gamevar room_state)
 
 ._SCRIPT_3
 var VAR_48 = call load_anim("come")
-var VAR_49 = call load_anim(var &VAR_52)
+var VAR_49 = call load_anim("gstqustn")
 var VAR_50 = call load_anim("laugh")
 
 ._SCRIPT_4
@@ -205,7 +183,7 @@ var VAR_64 = call add_item_to_char(var nrebel, int 16, int 0, int 0)
 var nduke = call create_char(var &VAR_58, "nduke", int 0, int 13)
 gamevar script_object = var nduke
 gamevar *character_movement_p+40 = int 0
-var nwilliam = call create_char(var &VAR_59, var &VAR_75, int 0, int 13)
+var nwilliam = call create_char(var &VAR_59, "nwilliam", int 0, int 13)
 gamevar script_object = var nwilliam
 gamevar *character_movement_p+40 = int 0
 var DAVID = call get_char_handle(int 65536)
@@ -226,7 +204,7 @@ if(var VAR_83 == int 0)
  {
 		if(var VAR_84 > int 150)
 		 {
-				call start_dialog("DVDDUK", var &VAR_110)
+				call start_dialog("DVDDUK", "NULL")
 				var VAR_83 ++ 
 				var VAR_84 = int 0
 		}
@@ -475,7 +453,7 @@ if(var VAR_83 == int 17)
  {
 		if(call is_not_force_scrolling()&&call is_char_standing(var nduke))
 		 {
-				call log(var &VAR_115)
+				call log("finished scroll to David")
 				var VAR_103 = call get_char_pos(var nduke)
 				call char_turn_to_pos(var nrebela, var VAR_103)
 				call char_turn_to_pos(var nrebela, var VAR_103)
@@ -554,7 +532,7 @@ if(var VAR_83 == int 22)
 		}
 		if(var VAR_84 > int 80)
 		 {
-				call func_e6("haven", var &VAR_117, var &VAR_102, int 1)
+				call func_e6("haven", "h_camptp", var &VAR_102, int 1)
 				var VAR_83 ++ 
 				var VAR_84 = int 0
 		}
@@ -687,7 +665,7 @@ switch(var VAR_168)
 					}
 					else
 					 {
-							call start_dialog(var &VAR_175, var &VAR_176)
+							call start_dialog("S_FRIDUK", "NULL")
 					}
 					call func_116("gno", "screen3", int 4)
 					call set_scene_overwrite_act("gno", "screen3", int 0)
@@ -733,7 +711,7 @@ switch(var VAR_168)
 		case 8
 			if(var VAR_169 > int 40)
 			 {
-					call start_dialog(var &VAR_185, var &VAR_186)
+					call start_dialog("S_DUKFAT", "NULL")
 					call play_char_anim(var nfatbob, var VAR_131, int 0)
 					var VAR_168 ++ 
 					var VAR_169 = int 0
@@ -774,7 +752,7 @@ var nduke = call create_char(var &VAR_139, "nduke", int 95, int 13)
 var nfrink = call create_char(var &VAR_140, "nfrink", int 260, int 13)
 var nfatbob = call create_char(var &VAR_141, "nfatbob", int 96, int 13)
 var nbill = call create_char(var &VAR_142, "nbill", int 96, int 13)
-var nben = call create_char(var &VAR_143, var &VAR_150, int 96, int 13)
+var nben = call create_char(var &VAR_143, "nben", int 96, int 13)
 var nclay = call create_char(var &VAR_145, "nclay", int 96, int 13)
 var nrichard = call create_char(var &VAR_144, "nrichard", int 96, int 13)
 call add_item_to_char(var nduke, int 16, int 0, int 1)
@@ -797,8 +775,8 @@ if(var SEKUNE)
 ._SCRIPT_15
 var nrebel1 = call create_char(var &VAR_193, "nrebel1", int 320, int 13)
 var nrebel2 = call create_char(var &VAR_194, "nrebel2", int 345, int 13)
-var nrebela1 = call create_char(var &VAR_195, var &VAR_200, int 325, int 13)
-var nrebela2 = call create_char(var &VAR_196, var &VAR_201, int 355, int 13)
+var nrebela1 = call create_char(var &VAR_195, "nrebela1", int 325, int 13)
+var nrebela2 = call create_char(var &VAR_196, "nrebela2", int 355, int 13)
 call add_item_to_char(var nrebel1, int 16, int 0, int 1)
 call add_item_to_char(var nrebel2, int 16, int 0, int 1)
 call add_item_to_char(var nrebela1, int 16, int 0, int 1)
@@ -816,7 +794,7 @@ var fade_chronicler = call create_enemy(int 178, int 0, var &VAR_197, int 0)
 var nrebel1 = call create_char(var &VAR_193, "nrebel1", int 320, int 13)
 var nrebel2 = call create_char(var &VAR_194, "nrebel2", int 345, int 13)
 var nrebela1 = call create_char(var &VAR_195, "nrebela1", int 325, int 13)
-var nrebela2 = call create_char(var &VAR_196, var &VAR_206, int 355, int 13)
+var nrebela2 = call create_char(var &VAR_196, "nrebela2", int 355, int 13)
 call add_item_to_char(var nrebel1, int 16, int 0, int 1)
 call add_item_to_char(var nrebel2, int 16, int 0, int 1)
 call add_item_to_char(var nrebela1, int 16, int 0, int 1)
@@ -1098,19 +1076,19 @@ var VAR_4 = call get_char_handle_id(gamevar control_char_p)
 switch(var VAR_4)
  {
 		case 65536
-			call load_dialog_by_number("DVDCHR", var &VAR_6, gamevar chronicler_variation)
+			call load_dialog_by_number("DVDCHR", "NULL", gamevar chronicler_variation)
 			break 
 		case 786432
-			call load_dialog_by_number("SEKCHR", var &VAR_8, gamevar chronicler_variation)
+			call load_dialog_by_number("SEKCHR", "NULL", gamevar chronicler_variation)
 			break 
 		case 262144
-			call load_dialog_by_number("CAGCHR", var &VAR_10, gamevar chronicler_variation)
+			call load_dialog_by_number("CAGCHR", "NULL", gamevar chronicler_variation)
 			break 
 		case 327680
-			call load_dialog_by_number("JUGCHR", var &VAR_12, gamevar chronicler_variation)
+			call load_dialog_by_number("JUGCHR", "NULL", gamevar chronicler_variation)
 			break 
 		case 131072
-			call load_dialog_by_number("CHICHR", var &VAR_14, gamevar chronicler_variation)
+			call load_dialog_by_number("CHICHR", "NULL", gamevar chronicler_variation)
 			break 
 		case 196608
 			call load_dialog_by_number("VIVCHR", "NULL", gamevar chronicler_variation)
@@ -1122,7 +1100,7 @@ var VAR_26 = call get_char_handle_id(gamevar control_char_p)
 switch(var VAR_26)
  {
 		case 65536
-			var VAR_2 = call load_next_dialog("DVDCHR", var &VAR_28)
+			var VAR_2 = call load_next_dialog("DVDCHR", "NULL")
 			break 
 		case 786432
 			var VAR_2 = call load_next_dialog("SEKCHR", "NULL")
@@ -1131,13 +1109,13 @@ switch(var VAR_26)
 			var VAR_2 = call load_next_dialog("CAGCHR", "NULL")
 			break 
 		case 327680
-			var VAR_2 = call load_next_dialog("JUGCHR", var &VAR_34)
+			var VAR_2 = call load_next_dialog("JUGCHR", "NULL")
 			break 
 		case 131072
-			var VAR_2 = call load_next_dialog("CHICHR", var &VAR_36)
+			var VAR_2 = call load_next_dialog("CHICHR", "NULL")
 			break 
 		case 196608
-			var VAR_2 = call load_next_dialog("VIVCHR", var &VAR_38)
+			var VAR_2 = call load_next_dialog("VIVCHR", "NULL")
 			break 
 }
 

@@ -2,8 +2,6 @@
 VAR_0	{ 1, 2, -1 }	
 VAR_1	{ 1, -1 }	
 VAR_2	{ -3359, -90, -5151 }	
-VAR_4	{ 1146242390, 1163152961, 0 }	
-VAR_6	{ 1869773172, 1852667251, 0 }	
 VAR_10	{ -2041, -90, -890 }	
 VAR_12	{ -2107, -90, -3941 }	
 VAR_14	{ -1955, -90, -3541 }	
@@ -25,7 +23,6 @@ VAR_40	{ 1427, -40, -1771 }
 VAR_41	{ 1384, -40, -2156 }	
 VAR_42	{ -133, -40, -2334 }	
 VAR_43	{ -128, -40, -1786 }	
-VAR_44	{ 844383041, 0 }	
 VAR_46	{ -1407, -90, -2591 }	
 VAR_47	{ -1416, -90, -3682 }	
 VAR_49	{ 0, 0, 2, -1, 8, 2, 12, 156, -1, 14, 0, 1, 1, 18, 50, -1 }	
@@ -58,7 +55,7 @@ switch(gamevar room_state)
 			execute SCRIPT_13
 			break 
 		case 5
-			call play_bgm(var &VAR_4)
+			call play_bgm("VERDANTE")
 			execute SCRIPT_15
 			break 
 }
@@ -100,7 +97,7 @@ switch(gamevar room_state)
 }
 
 ._SCRIPT_3
-var VAR_5 = call load_anim(var &VAR_6)
+var VAR_5 = call load_anim("tyrosumn")
 
 ._SCRIPT_4
 execute SCRIPT_3
@@ -290,7 +287,7 @@ call func_106(var start_grunt3, int 1, int 0, int 2)
 call func_50(var start_grunt3, int 2)
 call add_item_to_char(var start_grunt3, int 32, int 1, int 0)
 var GRANDAD = call get_char_handle(int 393216)
-call func_10c(var GRANDAD, var &VAR_44)
+call func_10c(var GRANDAD, "ACT2")
 call reset_local_timer()
 
 ._SCRIPT_12

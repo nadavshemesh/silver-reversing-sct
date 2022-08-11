@@ -1214,7 +1214,7 @@ expr_obj* asm_create_expr_obj(expr_pattern* expr_p, char** vars, char*** token_p
             }
             // auto creatdata_obj* data_e only for var ptr
             data_obj* data_o;
-            if(expr_p->type == VAR_PTR) {
+            if(expr_p->type == VAR_PTR || expr_p->type == ADDROF_VAR_PTR) {
                 data_o = get_data_obj_by_name(data_name, true, sf);
                 // auto create var if it isnt declared in the data section
                 if(data_o == NULL) {

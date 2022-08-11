@@ -188,6 +188,23 @@ bool is_letter(char ch) {
     return (ch >= 65 && ch <= 90) || (ch >= 97 && ch <=122);
 }
 
+char* string_remove_special_chars(char* str) {
+    int len = strlen(str);
+    int new_len = 0;
+    char* ch = str;
+    char new[len];
+
+    for(int i=0; i < len; i++) {
+        if(is_letter_or_number(*(ch+i))) {
+            new[i] = *(ch+i);
+            new_len++;
+        }
+    }
+    new[new_len] = 0;
+
+    return aapts(new);
+}
+
 bool is_string(byte* str, int len) {
     int null_counter = 0;
     int row_nulls = 0;

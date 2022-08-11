@@ -66,5 +66,6 @@ bool is_printable_ascii(char ch);
 bool is_letter(char ch);
 bool is_string(byte* str, int len);
 bool strs_identical(char* str1, char* str2);
+char* string_remove_special_chars(char* str);
 
 #endif

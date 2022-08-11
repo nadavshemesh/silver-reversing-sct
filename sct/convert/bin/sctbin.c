@@ -464,7 +464,7 @@ expr_obj* bin_read_function_call_expr(expr_pattern* expr_p, int* vars, void** to
                 int num_of_uses = general_param_hint_counter;
                 // printf("%s -> found %s.\n", last_data_obj_cp->name, enemy_name);
                 char new_var_name[256];
-                sprintf(new_var_name, "%s", (char*) eo->data->data);
+                sprintf(new_var_name, "%s", string_remove_special_chars((char*) eo->data->data));
                 // if(num_of_uses == 0) {
                 //     sprintf(new_var_name, "%s", (char*) eo->data->data);
                 // } else {

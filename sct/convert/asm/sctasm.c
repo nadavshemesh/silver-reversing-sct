@@ -1,8 +1,8 @@
 #include "sct\convert\asm\sctasm.h"
 
 bool is_separator_char(char ch) {
-    if(ch == ' ' || ch == '\t' || ch == '\n' || ch == '\r' || ch == '|' || ch == '&' || ch == '@' || ch == ']' || ch == '-'
-         || ch == '[' || ch == '\0' || ch == '(' || ch == ')' || ch == ',' || ch == '+' || ch == '=' || ch == '*' || ch == '%')
+    if(ch == ' ' || ch == '\t' || ch == '\n' || ch == '\r' || ch == '|' || ch == '&' || ch == '@' || ch == ']' || ch == '-' ||
+         ch == '{' || ch == '}' || ch == '[' || ch == '\0' || ch == '(' || ch == ')' || ch == ',' || ch == '+' || ch == '=' || ch == '*' || ch == '%')
         return true;
     return false;
 }
@@ -76,7 +76,7 @@ int read_word(FILE* f, char* dest) {
 
     if(is_special_char(c)) {
         int index = 0;
-        if(is_special_char(peek_next_char(f)) && !is_char_paranth(c)) { // such as (ie: ++, --, ==, >=)
+        if(is_special_char(peek_next_char(f)) && !is_char_paranth(c) && c != ',') { // such as (ie: ++, --, ==, >=)
             dest[index] = c;
             index++;
             c = getc(f);
@@ -316,6 +316,7 @@ char** tokenize_section(char* section_title, sct_f* sf) {
     // print_asm_tokens(*tokens_ptr, tokens_len);
     // return tokens;
     tokens = join_tokens_by_rules(tokens, tokens_len);
+    // print_asm_tokens(tokens, tokens_len);
     return tokens;
 }
 
@@ -595,7 +596,7 @@ data_obj* asm_create_inline_data_obj(char*** tokens_pos_ptr, sct_f* sf) {
                     }
                     if(!found) { 
                         char err[256];
-                        sprintf(err, "Error, %s var was not found.", str);
+                        sprintf(err, "Error, '%s' var was not found.", str);
                         print_err_and_exit(err, -4); 
                         printf("%s var was not found.\n", str);
                     }
@@ -1212,7 +1213,7 @@ expr_obj* asm_create_expr_obj(expr_pattern* expr_p, char** vars, char*** token_p
                 data_name = **token_pos_ptr;
                 *token_pos_ptr += 1;
             }
-            // auto creatdata_obj* data_e only for var ptr
+            // auto create data_obj* data_e only for var ptr
             data_obj* data_o;
             if(expr_p->type == VAR_PTR || expr_p->type == ADDROF_VAR_PTR) {
                 data_o = get_data_obj_by_name(data_name, true, sf);
@@ -1368,7 +1369,7 @@ expression* asm_read_expression(char*** token_pos_ptr, bool allow_var_decl, sct_
             add_sct_bin_words(ep->bin_token_num, sf);
 
             data_obj* data_o = add_inline_var_declaration_to_data_section(sf, token_pos_ptr);
-            // print_data_obj(data_o);
+
             create_data_code_link(sf);
             eo->data = data_o;
             data_o->references++;

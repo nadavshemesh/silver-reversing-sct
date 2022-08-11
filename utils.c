@@ -209,7 +209,7 @@ bool is_string(byte* str, int len) {
     }
     if(non_printable >= (((float)len)/10)*5) {return false;}
     //if(null_counter >= 5) return false;
-    if(letters == 0 || printable == 0) {return false;}
+    if(letters <= 1 || printable == 0) {return false;}
     //if(letters > 10 && spaces == 0) return false;
     //if(letters > 1 && last == 0) return true;
     if(last != 0 && last != 0x23) {return false;}

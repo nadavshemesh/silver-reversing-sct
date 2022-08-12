@@ -6,7 +6,17 @@ for further information and support of this project please visit:
 https://github.com/nadavshemesh/silver-reversing-sct */
 
 
-t -1, int 12, int 0)
+._DATA
+VAR_3	{ 1840, 862, -4539 }	
+VAR_4	{ 2433, 863, -4409 }	
+VAR_5	{ 2217, 863, -4213 }	
+VAR_6	{ 2300, 863, -4416 }	
+VAR_7	{ 0, 1639, 863, -5381, 11, 10, 50, 0, 1142, 863, -5143, 11, 10, 50, 0, 1075, 863, -4180, 11, 10, 50, 0, 1847, 863, -4492, 11, 100, 200, 7, 8 }	
+VAR_13	{ 0, 0 }
+
+._on_load
+call load_sound_set(int 12)
+call play_loaded_sound(int 8, int -1, int 12, int 0)
 call load_sound_set(int 37)
 call func_ec(int 2, int -1, int 37, "")
 if(call play_bgm("HAVNBPT1"))

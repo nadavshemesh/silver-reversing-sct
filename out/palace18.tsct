@@ -6,7 +6,22 @@ for further information and support of this project please visit:
 https://github.com/nadavshemesh/silver-reversing-sct */
 
 
-evar room_state == int 2)
+._DATA
+VAR_5	{ -2149, 1625, 1233 }	
+
+._on_load
+call load_sound_set(int 66)
+call play_loaded_sound(int 7, int -1, int 66, int 0)
+call play_loaded_sound(int 1, int -1, int 66, int 0)
+var VAR_2 = call get_david_char()
+var VAR_3 = call func_7e()
+var VAR_4 = call func_7e()
+call play_bgm("WPALPT1")
+if(gamevar room_state == int 1)
+ {
+		execute SCRIPT_5
+}
+if(gamevar room_state == int 2)
  {
 		execute SCRIPT_7
 }

@@ -6,7 +6,22 @@ for further information and support of this project please visit:
 https://github.com/nadavshemesh/silver-reversing-sct */
 
 
- room_state)
+._DATA
+VAR_4	{ 1431, -1000, -592 }	
+VAR_6	{ 1350, -1000, -592 }	
+VAR_7	{ 10, 2300, -800, 2025, 5, 400, 10, 2300, -1000, -900, 5, 400, 5, 40, 7, 8 }	
+VAR_8	{ 5, 45, 10, 2500, -500, 2025, 5, 400, 10, 2222, -600, -900, 5, 400, 7, 8 }	
+VAR_17	{ 0, 0 }	
+
+._on_load
+call func_58(int 1)
+if(gamevar is_room_cleared)
+ {
+		execute SCRIPT_4
+}
+else
+ {
+		switch(gamevar room_state)
 		 {
 				case 1
 					execute SCRIPT_8

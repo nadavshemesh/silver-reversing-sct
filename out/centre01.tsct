@@ -6,7 +6,29 @@ for further information and support of this project please visit:
 https://github.com/nadavshemesh/silver-reversing-sct */
 
 
-ecute SCRIPT_7
+._DATA
+VAR_1	{ 4615, -929, -3947 }	
+VAR_3	{ 4639, -930, -3630 }	
+VAR_5	{ 4848, -929, -3795 }	
+VAR_23	{ 0, 0 }	
+VAR_24	{ -7755, 1825, 5210 }	
+VAR_25	{ -3295, 1825, 3290 }	
+
+._on_load
+call load_item(int 93)
+call load_item(int 91)
+execute SCRIPT_5
+switch(gamevar room_state)
+ {
+		case 1
+			execute SCRIPT_4
+			break 
+		default 
+			break 
+}
+
+._infinite_loop
+execute SCRIPT_7
 switch(gamevar room_state)
  {
 		case 1

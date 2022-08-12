@@ -6,7 +6,21 @@ for further information and support of this project please visit:
 https://github.com/nadavshemesh/silver-reversing-sct */
 
 
-, int 64, int 0)
+._DATA
+VAR_18	{ 0, 0, -1 }	
+VAR_23	-1	
+VAR_57	{ -10176, 601, 2771 }	
+VAR_60	{ -9570, 601, 2774, -10685, 1801, 2784 }	
+VAR_61	{ -11282, 601, 2765 }	
+VAR_74	-1	
+VAR_80	{ 0, 0 }	
+VAR_83	-1	
+
+._on_load
+call load_sound_set(int 30)
+call play_loaded_sound(int 1, int -1, int 30, int 0)
+call load_sound_set(int 64)
+var VAR_54 = call play_loaded_sound(int 1, int -1, int 64, int 0)
 if(var VAR_54)
  {
 		call set_sound_volume(var VAR_54, int 16)

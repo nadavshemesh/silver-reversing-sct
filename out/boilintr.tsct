@@ -6,7 +6,28 @@ for further information and support of this project please visit:
 https://github.com/nadavshemesh/silver-reversing-sct */
 
 
-_7
+._DATA
+VAR_0	{ -735, -480, 1047 }	
+VAR_19	{ 0, 0, 0, 0, 0 }	
+
+._on_load
+call load_sound_set(int 64)
+call play_loaded_sound(int 2, int -1, int 64, int 0)
+call func_124()
+execute SCRIPT_4
+if(gamevar is_room_cleared)
+ {
+		execute SCRIPT_11
+}
+else
+ {
+		switch(gamevar room_state)
+		 {
+				case 1
+					execute SCRIPT_5
+					break 
+				case 2
+					execute SCRIPT_7
 					break 
 				case 3
 					execute SCRIPT_10

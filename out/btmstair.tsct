@@ -6,7 +6,21 @@ for further information and support of this project please visit:
 https://github.com/nadavshemesh/silver-reversing-sct */
 
 
-e 2
+._DATA
+VAR_0	{ 0, 0, 2, 2, 0, 2, 2, 0, -1, 1, 3, 31, 32, 30, 31, 32, 30, -1, 2, 2, 3, 2, 7, 1, 2, 5, 1, 75, 125, 8, 1, 4, 0, 9, 1, 10, 42, 43, 41, -1, -1 }	
+VAR_18	{ 0, 0 }	
+VAR_23	{ 80, 1130, 2730 }	
+VAR_24	{ 2810, 1130, 610 }	
+
+._on_load
+call play_bgm("rainpt1")
+execute SCRIPT_9
+switch(gamevar room_state)
+ {
+		case 1
+			execute SCRIPT_3
+			break 
+		case 2
 			execute SCRIPT_6
 			break 
 		default 

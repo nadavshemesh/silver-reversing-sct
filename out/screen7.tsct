@@ -6,7 +6,26 @@ for further information and support of this project please visit:
 https://github.com/nadavshemesh/silver-reversing-sct */
 
 
-aded_sound(int 1, int -1, int 64, int 0)
+._DATA
+VAR_5	-1	
+VAR_7	{ 8, 625, 4952 }	
+VAR_13	{ 0, 0, 0, 0 }	
+VAR_14	{ -323, 625, 5560 }
+
+._on_load
+var VAR_1 = var &VAR_7
+var VAR_2 = int 335
+execute SCRIPT_10
+var VAR_3 = int 32
+execute SCRIPT_11
+var VAR_3 = int 33
+execute SCRIPT_11
+var VAR_3 = int 38
+execute SCRIPT_11
+call play_bgm("GNOCVP1")
+execute SCRIPT_3
+call load_sound_set(int 64)
+call play_loaded_sound(int 1, int -1, int 64, int 0)
 call load_sound_set(int 30)
 call play_loaded_sound(int 1, int -1, int 30, int 0)
 if(gamevar is_room_cleared)

@@ -6,7 +6,28 @@ for further information and support of this project please visit:
 https://github.com/nadavshemesh/silver-reversing-sct */
 
 
-PT_5
+._DATA
+VAR_17	{ 0, 0 }	
+VAR_18	{ 0, 0, 0, 0 }	
+VAR_22	{ -531, 1190, -1456 }	
+VAR_23	{ -1160, 1190, 231 }	
+VAR_26	{ 548, 252, 322 }	
+VAR_27	{ 3, VAR_28, 0, 11, 100, 400, 7, 8 }	
+VAR_28	"taichi"	
+VAR_36	-1	
+
+._on_load
+execute SCRIPT_3
+if(gamevar is_room_cleared)
+ {
+		execute SCRIPT_13
+}
+else
+ {
+		switch(gamevar room_state)
+		 {
+				case 1
+					execute SCRIPT_5
 					break 
 				case 2
 					execute SCRIPT_7

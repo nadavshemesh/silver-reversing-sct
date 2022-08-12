@@ -181,10 +181,10 @@ void write_tsct_asm_file(char* filepath, bool write_to_out_dir, sct_f* sf) {
     sf->out_file = w_malloc(sizeof(FILE));
     sf->out_file = f;
 
-    write_asm_file(sf);
     if(write_to_out_dir) {
         mark_auto_gen_file(sf);
     }
+    write_asm_file(sf);
 
     char msg[256];
     sprintf(msg, "successfully written to %s.", fullpath);

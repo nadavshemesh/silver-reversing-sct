@@ -6,7 +6,23 @@ for further information and support of this project please visit:
 https://github.com/nadavshemesh/silver-reversing-sct */
 
 
-amevar *character_stats_p+12 = int 100
+._DATA
+VAR_0	{ VAR_1, 0, 0, 1, 10, 0, 0 }	
+VAR_1	"silv_spn"	
+VAR_2	{ VAR_0, 0, 0 }	
+
+._on_load
+gamevar *character_stats_p+0 = int 1
+gamevar LEVEL = int 12
+gamevar STRENGTH = int 25
+gamevar DEXTERITY = int 1
+gamevar RANGED = int 1
+gamevar WISDOM = int 1
+gamevar CONSTITUTION = int 1
+gamevar HP = int 130
+gamevar MAGIC = int 0
+gamevar ARMOUR_CLASS = int 10
+gamevar *character_stats_p+12 = int 100
 gamevar *character_stats_p+13 = int 50
 gamevar *object_p+6 |= int 54113280
 gamevar *character_stats_p+14 = int 80000

@@ -6,7 +6,21 @@ for further information and support of this project please visit:
 https://github.com/nadavshemesh/silver-reversing-sct */
 
 
-evar SMACKER_Y = int 244
+._DATA
+VAR_20	{ 0, 0, -1 }	
+VAR_25	-1	
+VAR_42	{ -2425, -436, -950 }	
+VAR_53	{ -7165, -95, -884 }	
+
+._on_load
+call load_sound_set(int 73)
+call load_sound_set(int 72)
+call load_sound_set(int 64)
+call play_loaded_sound(int 1, int -1, int 64, int 0)
+call load_sound_set(int 65)
+call play_loaded_sound(int 5, int -1, int 65, int 0)
+gamevar SMACKER_X = int 0
+gamevar SMACKER_Y = int 244
 call play_2d_anim("blacjohn", int 1, int 1, int 0)
 execute SCRIPT_9
 switch(gamevar room_state)

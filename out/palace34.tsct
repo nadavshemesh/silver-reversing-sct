@@ -6,7 +6,22 @@ for further information and support of this project please visit:
 https://github.com/nadavshemesh/silver-reversing-sct */
 
 
-tch(gamevar room_state)
+._DATA
+VAR_18	{ 0, 0, -1 }	
+VAR_23	-1	
+VAR_56	{ 2376, 5980, -16466 }	
+VAR_57	{ 2515, 5980, -16273 }	
+VAR_58	{ 1, 20, 0, 0 }	
+VAR_59	{ 1149, 4928, -16235 }	
+VAR_79	{ 0, 0 }
+
+._on_load
+call load_sound_set(int 65)
+var VAR_50 = call play_loaded_sound(int 7, int -1, int 65, int 0)
+call set_sound_volume(var VAR_50, int 30)
+execute SCRIPT_10
+call func_124()
+switch(gamevar room_state)
  {
 		case 1
 			if(call ! is_char_handle_in_level(int 6291456))

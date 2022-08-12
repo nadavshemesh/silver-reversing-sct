@@ -217,6 +217,7 @@ void write_asm_data_object(data_obj* data_o, sct_f* sf) {
         fprintf(sf->out_file, "\"");
         for(int i=0; i < data_o->byte_size; i++) {
             char b = *((char*)(data_o->data+i)); 
+            if(b == '\"') b = '\'';
             if(isprint(b) && b != '@') {
                 fprintf(sf->out_file, "%c", b);
             }
@@ -249,11 +250,6 @@ void write_asm_data_section(sct_f* sf) {
         data_obj* data_o = section[i];
 
         // ignore any default zero val code ref
-        // printf("name: %s, byte_size: %d\n", data_o->name, data_o->byte_size);
-        // if(data_o->byte_size == 4) {
-        //     int val = *((int*)data_o->data);
-        //     printf("name: %s, val: %d, data_ref: %d\n", data_o->name, val, data_o->data_references);
-        // }
         if(data_o->byte_size == 4 && *((int*)data_o->data) == 0 && data_o->data_references == 0) {
             data_o->ignore = true;
         }

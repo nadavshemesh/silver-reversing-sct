@@ -13,10 +13,12 @@ void print_game_function(game_fun* gf) {
     printf("func_description: %s\n", gf->desc);
 }
 
-catalog_ref* create_cat_ref(cat_type type, int var_index) {
+catalog_ref* create_cat_ref(cat_type type, int var_index, char* prefix, char* postfix) {
     catalog_ref* cref = w_malloc(sizeof(catalog_ref));
     cref->type = type;
     cref->var_index = var_index;
+    cref->prefix = (prefix != NULL) ? aapts(prefix) : NULL;
+    cref->postfix = (postfix != NULL) ? aapts(postfix) : NULL;
 
     return cref;
 }
@@ -45,15 +47,15 @@ void init_game_functions(game_fun** functions_arr) {
     functions_arr[0x96]->name = aapts("create_enemy_through_door");
     functions_arr[0x96]->params = 4;
     functions_arr[0x96]->desc = aapts("(int enemy_type, int id, int door, int face_direction_radius_counter_clockwise)");
-    functions_arr[0x96]->cat_ref =  create_cat_ref(ENEMY_CAT, 0);
+    functions_arr[0x96]->cat_ref =  create_cat_ref(ENEMY_CAT, 0, NULL, NULL);
     functions_arr[0x97]->name = aapts("create_enemy");
     functions_arr[0x97]->params = 4;
     functions_arr[0x97]->desc = aapts("(int enemy_type, int id, var position_ptr, int face_direction_radius_counter_clockwise)");
-    functions_arr[0x97]->cat_ref =  create_cat_ref(ENEMY_CAT, 0);
+    functions_arr[0x97]->cat_ref =  create_cat_ref(ENEMY_CAT, 0, NULL, NULL);
     functions_arr[0x93]->name = aapts("create_char");
     functions_arr[0x93]->params = 4;
-    functions_arr[0x93]->desc = aapts("(var pos_ptr, var char_name_ptr, int unknown, int unknown)");
-    functions_arr[0x93]->cat_ref =  create_cat_ref(NO_CAT_USE_PARAM_STRING, 1);
+    functions_arr[0x93]->desc = aapts("(var pos_ptr, var char_name_ptr, int face_direction_radius_counter_clockwise, int init_state)");
+    functions_arr[0x93]->cat_ref =  create_cat_ref(NO_CAT_USE_PARAM_STRING, 1, NULL, NULL);
     functions_arr[0x25]->name = aapts("is_char_standing");
     functions_arr[0x25]->params = 1;
     functions_arr[0x25]->desc = aapts("(var char_ptr)");
@@ -90,6 +92,7 @@ void init_game_functions(game_fun** functions_arr) {
     functions_arr[0xb7]->name = aapts("load_anim");
     functions_arr[0xb7]->params = 1;
     functions_arr[0xb7]->desc = aapts("(var anim_name_ptr)");
+    functions_arr[0xb7]->cat_ref =  create_cat_ref(NO_CAT_USE_PARAM_STRING, 0, NULL, "_anim");
     functions_arr[0xbd]->name = aapts("load_sound_set");
     functions_arr[0xbd]->params = 1;
     functions_arr[0xbd]->desc = aapts("(int sound_num)");
@@ -105,7 +108,7 @@ void init_game_functions(game_fun** functions_arr) {
     functions_arr[0x69]->name = aapts("get_char_handle");
     functions_arr[0x69]->params = 1;
     functions_arr[0x69]->desc = aapts("(int char_handle_id)");
-    functions_arr[0x69]->cat_ref = create_cat_ref(HANDLE_CAT, 0);
+    functions_arr[0x69]->cat_ref = create_cat_ref(HANDLE_CAT, 0, NULL, NULL);
     functions_arr[0x51]->name = aapts("set_char_template");
     functions_arr[0x51]->params = 2;
     functions_arr[0x51]->desc = aapts("(var char_ptr, int char_type)");
@@ -262,7 +265,7 @@ void init_game_functions(game_fun** functions_arr) {
     functions_arr[0x16]->name = aapts("is_char_handle_in_level");
     functions_arr[0x16]->params = 1;
     functions_arr[0x16]->desc = aapts("(int char_handle_id)");
-    functions_arr[0x16]->cat_ref = create_cat_ref(HANDLE_CAT, 0);
+    functions_arr[0x16]->cat_ref = create_cat_ref(HANDLE_CAT, 0, "is_", "_exist");
     functions_arr[0x107]->name = aapts("play_char_ai_script");
     functions_arr[0x107]->params = 2;
     functions_arr[0x107]->desc = aapts("(var char_ptr, var anim_table_ptr)");

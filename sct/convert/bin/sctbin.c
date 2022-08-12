@@ -408,6 +408,9 @@ expr_obj* bin_read_function_call_expr(expr_pattern* expr_p, int* vars, void** to
 
         // try to name the assigned var if it exists using the catalogs
         if(i == param_cat_ref && during_assingment && last_data_obj_cp != NULL) {
+            char* prefix = (gf->cat_ref->prefix != NULL) ? gf->cat_ref->prefix : "";
+            char* postfix = (gf->cat_ref->postfix != NULL) ? gf->cat_ref->postfix : "";
+
             if(gf->cat_ref->type == ENEMY_CAT) {
                 // TODO: validate
                 expr_obj* eo = exp->expr_objs;
@@ -417,9 +420,9 @@ expr_obj* bin_read_function_call_expr(expr_pattern* expr_p, int* vars, void** to
                 // printf("%s -> found %s.\n", last_data_obj_cp->name, enemy_name);
                 char new_var_name[256];
                 if(num_of_uses == 0) {
-                    sprintf(new_var_name, "%s", enemy_name);
+                    sprintf(new_var_name, "%s%s%s", prefix, enemy_name, postfix);
                 } else {
-                    sprintf(new_var_name, "%s%d", enemy_name, num_of_uses);
+                    sprintf(new_var_name, "%s%s%d%s", prefix, enemy_name, num_of_uses, postfix);
                 }
                 
                 if(!last_data_obj_cp->was_renamed) {
@@ -438,18 +441,10 @@ expr_obj* bin_read_function_call_expr(expr_pattern* expr_p, int* vars, void** to
                 int num_of_uses = handle_cat->items_used[index]; 
                 char new_var_name[256];
 
-                if(gf->id == 0x16) {
-                    if(num_of_uses == 0) {
-                        sprintf(new_var_name, "is_%s_exist", char_name);
-                    } else {
-                        sprintf(new_var_name, "is_%s_exist%d", char_name, num_of_uses);
-                    }
+                if(num_of_uses == 0) {
+                    sprintf(new_var_name, "%s%s%s", prefix, char_name, postfix);
                 } else {
-                    if(num_of_uses == 0) {
-                        sprintf(new_var_name, "%s", char_name);
-                    } else {
-                        sprintf(new_var_name, "%s%d", char_name, num_of_uses);
-                    }
+                    sprintf(new_var_name, "%s%s%d%s", prefix, char_name, num_of_uses, postfix);
                 }
 
                 if(!last_data_obj_cp->was_renamed) {
@@ -464,7 +459,7 @@ expr_obj* bin_read_function_call_expr(expr_pattern* expr_p, int* vars, void** to
                 int num_of_uses = general_param_hint_counter;
                 // printf("%s -> found %s.\n", last_data_obj_cp->name, enemy_name);
                 char new_var_name[256];
-                sprintf(new_var_name, "%s", string_remove_special_chars((char*) eo->data->data));
+                sprintf(new_var_name, "%s%s%s", prefix, string_remove_special_chars((char*) eo->data->data), postfix);
                 // if(num_of_uses == 0) {
                 //     sprintf(new_var_name, "%s", (char*) eo->data->data);
                 // } else {

@@ -7,6 +7,7 @@
 #include "sct\print\bin\file.h"
 
 #define MAX_ASM_TOKEN_LEN 256
+#define MAX_DATA_REFS_ALLOCATED 10000 // this is a workaround because i couldnt deal with realloc at some point.
 
 
 unsigned long get_sct_code_word_count(sct_f* sf);

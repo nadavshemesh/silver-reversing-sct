@@ -73,6 +73,19 @@ int read_word(FILE* f, char* dest) {
         fseek(f, ftell(f)-1, SEEK_SET);
         return 0;
     }
+    
+    // ignore multi line comments
+    if(c == '/' && peek_next_char(f) == '\*') {
+        // printf("found multiline comment\n");
+        while(!(c == '\*' && peek_next_char(f) == '/')) {
+            c = getc(f);
+        }
+        c = getc(f);
+        c = getc(f);
+        while(c == '\t' || c == '\n' || c == '\r' || c == ' ') {
+            c = getc(f);
+        }
+    }
 
     if(is_special_char(c)) {
         int index = 0;
@@ -97,6 +110,7 @@ int read_word(FILE* f, char* dest) {
             c = getc(f);
         }
     }
+
     // make word
     int i = 0;
     while(c != EOF && !is_separator_char(c)) {
@@ -307,7 +321,7 @@ char** tokenize_section(char* section_title, sct_f* sf) {
 
     int tokens_len = count_text_words_until_string(sf->file, "._");
     // printf("tokens until next section: %d.\n", tokens_len);
-    char** tokens = w_malloc((tokens_len+5)*sizeof(char*)); // +5 for padding 
+    char** tokens = w_calloc((tokens_len+5)*sizeof(char*)); // +5 for padding 
     for(int i=0; i < tokens_len; i++) {
         char token[MAX_ASM_TOKEN_LEN];
         read_word(sf->file, token);
@@ -316,7 +330,6 @@ char** tokenize_section(char* section_title, sct_f* sf) {
     // print_asm_tokens(*tokens_ptr, tokens_len);
     // return tokens;
     tokens = join_tokens_by_rules(tokens, tokens_len);
-    // print_asm_tokens(tokens, tokens_len);
     return tokens;
 }
 
@@ -708,7 +721,8 @@ data_obj* asm_create_data_obj(char*** tokens_pos_ptr, int id, node* data_nodes,
                     bool found = false;
                     while(data_node != NULL && !found) {
                         data_obj* data_o = data_node->item;
-                        if(strlen(str) == strlen(data_o->name) && strcmp(data_o->name, str) == 0) {
+
+                        if(strs_identical(str, data_o->name)) {
                             found = true;
                             int num = data_o->id;
                             int num_id = id+j;
@@ -844,7 +858,6 @@ data_obj* asm_create_data_obj(char*** tokens_pos_ptr, int id, node* data_nodes,
     token_ptr++;
     *tokens_pos_ptr = token_ptr;
 
-    // print_data_obj(data_o);
     return data_o;
 }
 
@@ -916,16 +929,16 @@ void build_data_section(sct_f* sf) {
     tokens_pos_ptr = &tokens;
 
     int i = 0;
-    char** unfound_var_names = w_malloc(sizeof(char*));
-    int* unfound_var_ids = w_malloc(sizeof(int));
+    char** unfound_var_names = w_malloc(MAX_DATA_REFS_ALLOCATED*sizeof(char*));
+    int* unfound_var_ids = w_malloc(MAX_DATA_REFS_ALLOCATED*sizeof(int));
     int unfound_var_index = 0;
     node* data_next = NULL;
     node* data_nodes = NULL;
     while(**tokens_pos_ptr != NULL) {
         int ds_size = sf->structure->data_sec_size;
         int id = (ds_size % 4 == 0) ? ds_size/4 : (ds_size/4+1);
-        unfound_var_names = realloc(unfound_var_names, (i+1)*sizeof(char*));
-        unfound_var_ids = realloc(unfound_var_ids, (i+1)*sizeof(int));
+        // unfound_var_names = realloc(unfound_var_names, (i+500)*sizeof(char*));
+        // unfound_var_ids = realloc(unfound_var_ids, (i+500)*sizeof(int));
         // printf("id: %08x\n", id);
         data_obj* data_o = asm_create_data_obj(tokens_pos_ptr, id, data_nodes, 
                             unfound_var_ids, unfound_var_names, &unfound_var_index, sf);

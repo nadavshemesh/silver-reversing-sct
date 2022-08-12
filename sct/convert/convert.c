@@ -146,6 +146,8 @@ sct_f* asm_file(char* filepath) {
         }
 
         sct_file->scripts[i] = sc;
+
+        free(tokens);
     }
 
     // printf("data section size: %08x\n", sct_file->structure->data_sec_size);

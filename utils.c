@@ -27,6 +27,7 @@ char *aapts(char* str) {
 }
 
 bool strs_identical(char* str1, char* str2) {
+    if(str1 == NULL || str2 == NULL) print_err_and_exit("string cmp error, one or both are NULL", -4);
     if(strlen(str1) == strlen(str2) && strcmp(str1, str2) == 0)
         return true;
     return false;

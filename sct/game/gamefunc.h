@@ -6,6 +6,8 @@
 typedef struct catalog_ref {
     cat_type type;
     int var_index;
+    char* prefix;
+    char* postfix;
 } catalog_ref;
 
 typedef struct game_function {

@@ -1,9 +1,12 @@
-/* This file was auto-generated using 'silver-reverse-sct' tool 
-to fully understand the scripts presented, one is encouraged to
-check the catalogs at: 
-https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
-for further information and support of this project please visit:
-https://github.com/nadavshemesh/silver-reversing-sct */
+/*
+* This file was auto-generated using 'silver-reverse-sct' tool
+* to fully understand the scripts presented, one is encouraged to
+* view the catalogs at: 
+* https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
+*
+* Any further information and support of this project please visit:
+* https://github.com/nadavshemesh/silver-reversing-sct 
+*/
 
 
 ._DATA
@@ -27,7 +30,7 @@ VAR_59	{ 0, 0, 0 }
 VAR_66	{ 0, 0, 0, 0 }	
 VAR_73	{ -348, 0, 2494 }	
 VAR_77	2	
-VAR_79	{ -260, -173, 1864, 477, -174, 1580 }	
+VAR_79	"SHR,"	
 VAR_82	2	
 VAR_83	{ -257, -174, 1176 }	
 VAR_84	{ 421, -174, 1790 }	
@@ -420,7 +423,7 @@ switch(var VAR_75)
 			}
 			break 
 }
-if(call is_char_handle_in_level(int 11206656))
+if(call is_char_handle_in_level(int 11206656 /* THADDEUS */ ))
  {
 		if(var VAR_80)
 		 {
@@ -716,8 +719,8 @@ call set_input_system(int 1)
 gamevar no_user_input = int 1
 
 ._SCRIPT_12
-var nraft = call create_char(var &VAR_50, "nraft", int 0, int 13)
-var nboatman = call create_char(var &VAR_51, "nboatman", int 0, int 13)
+var nraft = call create_char(var &VAR_50, "nraft" /* nraft */ , int 0, int 13)
+var nboatman = call create_char(var &VAR_51, "nboatman" /* nboatman */ , int 0, int 13)
 call func_d9(var nraft)
 gamevar unknown_02_00_65 = int 1
 
@@ -751,7 +754,7 @@ switch(var VAR_131)
 gamevar SMACKER_X = int 480
 gamevar SMACKER_Y = int 272
 call play_2d_anim("wizard", int 1, int 1, int 0)
-if(call ! is_char_handle_in_level(int 1507328))
+if(call ! is_char_handle_in_level(int 1507328 /* BTREASURE */ ))
  {
 		var btreasure = call create_char(var &VAR_135, "btreasure", int 230, int 14)
 		call add_item_to_char(var btreasure, int 109, int 1, int 0)

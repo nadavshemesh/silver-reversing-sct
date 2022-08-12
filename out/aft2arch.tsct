@@ -1,20 +1,21 @@
-/* This file was auto-generated using 'silver-reverse-sct' tool 
-to fully understand the scripts presented, one is encouraged to
-check the catalogs at: 
-https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
-for further information and support of this project please visit:
-https://github.com/nadavshemesh/silver-reversing-sct */
+/*
+* This file was auto-generated using 'silver-reverse-sct' tool
+* to fully understand the scripts presented, one is encouraged to
+* view the catalogs at: 
+* https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
+*
+* Any further information and support of this project please visit:
+* https://github.com/nadavshemesh/silver-reversing-sct 
+*/
 
 
 ._DATA
 VAR_17	{ 0, 0 }	
 VAR_36	{ 0, 0, -1 }	
 VAR_41	-1	
-VAR_59	{ 1900, 1026, -3000 }	
 VAR_60	{ 6100, 1026, -5025 }	
 VAR_62	{ 0, 0 }	
 VAR_63	{ 0, 0 }	
-VAR_73	{ -4500, -1055, 2381 }	
 VAR_74	{ -3398, -1055, 2573 }	
 VAR_75	{ -3249, -1055, 3113 }	
 VAR_76	{ -4572, -1055, 3039 }	
@@ -67,7 +68,7 @@ switch(gamevar room_state)
 
 ._SCRIPT_3
 call log("it's_raining")
-call play_3d_fx("RAIN", var &VAR_59, var &VAR_60, int 0)
+call play_3d_fx("RAIN", "l", var &VAR_60, int 0)
 execute SCRIPT_9
 
 ._SCRIPT_4
@@ -137,7 +138,7 @@ if(var VAR_95 == int 0)
 }
 
 ._SCRIPT_5
-var nrebel = call create_char(var &VAR_73, "nrebel", int 344, int 13)
+var nrebel = call create_char("lîÿÿáûÿÿM	", "nrebel", int 344, int 13)
 call add_item_to_char(var nrebel, int 17, int 0, int 1)
 gamevar script_object = var nrebel
 gamevar HP = int 2
@@ -245,7 +246,7 @@ if(var VAR_63 == int 1)
 				var VAR_63 ++ 
 		}
 }
-if(call is_char_handle_in_level(int 1114112))
+if(call is_char_handle_in_level(int 1114112 /* REBEL */ ))
  {
 		gamevar script_object = var nrebel
 		if(gamevar *object_p+5 == int 6)
@@ -264,7 +265,7 @@ if(call is_char_handle_in_level(int 1114112))
 				}
 		}
 }
-if(call is_char_handle_in_level(int 1114113))
+if(call is_char_handle_in_level(int 1114113 /* REBEL */ ))
  {
 		gamevar script_object = var nrebel1
 		if(gamevar *object_p+5 == int 6)
@@ -283,7 +284,7 @@ if(call is_char_handle_in_level(int 1114113))
 				}
 		}
 }
-if(call is_char_handle_in_level(int 1048578))
+if(call is_char_handle_in_level(int 1048578 /* REBELA */ ))
  {
 		gamevar script_object = var nrebela2
 		if(gamevar *object_p+5 == int 6)
@@ -469,7 +470,7 @@ switch(var VAR_13)
 var VAR_14 ++ 
 
 ._SCRIPT_13
-if(call ! is_char_handle_in_level(int 6291456))
+if(call ! is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
  {
 		exit_script 
 }
@@ -477,12 +478,12 @@ else
  {
 		if(var fade_chronicler == int 0)
 		 {
-				var fade_chronicler = call get_char_handle(int 6291456)
+				var fade_chronicler = call get_char_handle(int 6291456 /* CHRONICL */ )
 		}
 }
 
 ._SCRIPT_14
-if(call ! is_char_handle_in_level(int 6291456))
+if(call ! is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
  {
 		exit_script 
 }
@@ -490,7 +491,7 @@ else
  {
 		if(var fade_chronicler == int 0)
 		 {
-				var fade_chronicler = call get_char_handle(int 6291456)
+				var fade_chronicler = call get_char_handle(int 6291456 /* CHRONICL */ )
 		}
 }
 if(var VAR_41 != var VAR_35)
@@ -601,11 +602,11 @@ switch(var VAR_35)
 var VAR_36 ++ 
 
 ._SCRIPT_15
-if(call is_char_handle_in_level(int 6291456))
+if(call is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
  {
 		if(var fade_chronicler == int 0)
 		 {
-				var fade_chronicler = call get_char_handle(int 6291456)
+				var fade_chronicler = call get_char_handle(int 6291456 /* CHRONICL */ )
 		}
 		call func_34(var fade_chronicler)
 }

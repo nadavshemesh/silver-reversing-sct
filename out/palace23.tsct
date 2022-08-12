@@ -1,9 +1,12 @@
-/* This file was auto-generated using 'silver-reverse-sct' tool 
-to fully understand the scripts presented, one is encouraged to
-check the catalogs at: 
-https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
-for further information and support of this project please visit:
-https://github.com/nadavshemesh/silver-reversing-sct */
+/*
+* This file was auto-generated using 'silver-reverse-sct' tool
+* to fully understand the scripts presented, one is encouraged to
+* view the catalogs at: 
+* https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
+*
+* Any further information and support of this project please visit:
+* https://github.com/nadavshemesh/silver-reversing-sct 
+*/
 
 
 ._DATA
@@ -24,7 +27,7 @@ VAR_36	"lookout"
 VAR_37	{ -5770, 1625, -9762 }	
 VAR_38	{ -5818, 1625, -10232 }	
 VAR_39	{ -5593, 1625, -10695 }	
-VAR_40	{ -5011, 1625, -10895 }	
+VAR_40	"mYq"	
 VAR_41	{ -4615, 1625, -10857 }	
 VAR_42	{ -5351, 1625, -10477 }	
 VAR_43	{ -6031, 1625, -10538 }	
@@ -143,13 +146,13 @@ if(var ! VAR_28)
 					var bstump3 = call create_enemy(int 63, int 0, var VAR_33, int 225)
 					break 
 				case 1
-					var bstump3 = call create_enemy(int 26, int 0, var VAR_33, int 225)
+					var bstump3 = call create_enemy(int 26 /* viking */ , int 0, var VAR_33, int 225)
 					break 
 				case 2
-					var bstump3 = call create_enemy(int 65, int 0, var VAR_33, int 225)
+					var bstump3 = call create_enemy(int 65 /* vikingb */ , int 0, var VAR_33, int 225)
 					break 
 				case 3
-					var bstump3 = call create_enemy(int 66, int 0, var VAR_33, int 225)
+					var bstump3 = call create_enemy(int 66 /* vikingc */ , int 0, var VAR_33, int 225)
 					break 
 		}
 		var VAR_31 = call randomize_int(int 0, int 6)
@@ -191,7 +194,7 @@ var VAR_7 = int 1
 var is_BTREASURE_exist = call is_char_handle_in_level(int 1507337)
 if(var ! is_BTREASURE_exist)
  {
-		var is_BTREASURE_exist = call create_char(var VAR_1, "btreasure9", var VAR_2, int 14)
+		var is_BTREASURE_exist = call create_char(var VAR_1, "btreasure9" /* btreasure9 */ , var VAR_2, int 14)
 		call func_aa(var is_BTREASURE_exist)
 }
 else

@@ -1,13 +1,15 @@
-/* This file was auto-generated using 'silver-reverse-sct' tool 
-to fully understand the scripts presented, one is encouraged to
-check the catalogs at: 
-https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
-for further information and support of this project please visit:
-https://github.com/nadavshemesh/silver-reversing-sct */
+/*
+* This file was auto-generated using 'silver-reverse-sct' tool
+* to fully understand the scripts presented, one is encouraged to
+* view the catalogs at: 
+* https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
+*
+* Any further information and support of this project please visit:
+* https://github.com/nadavshemesh/silver-reversing-sct 
+*/
 
 
 ._DATA
-VAR_1	{ -8499, 2894, -16052 }	
 VAR_2	{ 0, 0, 1, 0, -1, 8, 1, 4, 0, 9, 0, 1, 4, 102, 103, -1, 2, 4, 3, 2, 5, 0, 50, 6, 1, 7, 1, 4, -1 }	
 VAR_3	{ 11, 200, 300, 0, -8499, 2894, -16552, 11, 200, 300, 0, -8499, 2894, -16052, 11, 200, 300, 0, -8499, 2894, -15552, 7, 8 }	
 horn_impefs	{ 0, 0 }	
@@ -109,19 +111,19 @@ call set_input_system(int 2)
 var DAVID = call get_char_handle(int 65536)
 
 ._SCRIPT_5
-if(call is_char_handle_in_level(int 1769472))
+if(call is_char_handle_in_level(int 1769472 /* YELIMP */ ))
  {
 		execute SCRIPT_11
 }
 else
  {
-		if(call is_char_handle_in_level(int 917505))
+		if(call is_char_handle_in_level(int 917505 /* IMP */ ))
 		 {
 				execute SCRIPT_12
 		}
 		else
 		 {
-				if(call is_char_handle_in_level(int 917507))
+				if(call is_char_handle_in_level(int 917507 /* IMP */ ))
 				 {
 						if(call get_num_of_enemies() == int 1)
 						 {
@@ -129,14 +131,14 @@ else
 						}
 				}
 		}
-		if(call is_char_handle_in_level(int 917507))
+		if(call is_char_handle_in_level(int 917507 /* IMP */ ))
 		 {
 				execute SCRIPT_14
 		}
 }
 
 ._SCRIPT_6
-var horn_impefs = call create_enemy(int 108, int 3, var &VAR_1, int 270)
+var horn_impefs = call create_enemy(int 108, int 3, "ÍÞÿÿN", int 270)
 call freeze_enemy(var horn_impefs)
 call func_50(var horn_impefs, int 10249)
 call play_char_ai_script(var horn_impefs, var &VAR_3)
@@ -221,7 +223,7 @@ switch(var VAR_25)
 					call remove_char(var nyelimp)
 					var VAR_26 = int 0
 					var VAR_25 ++ 
-					if(call is_char_handle_in_level(int 917507))
+					if(call is_char_handle_in_level(int 917507 /* IMP */ ))
 					 {
 							call func_106(var horn_impefs, int 3, int 1, var &VAR_2)
 					}
@@ -234,7 +236,7 @@ var VAR_26 ++
 switch(var VAR_27)
  {
 		case 0
-			if(call is_char_handle_in_level(int 917507))
+			if(call is_char_handle_in_level(int 917507 /* IMP */ ))
 			 {
 					if(call ! func_a7(var horn_impefs, int 3))
 					 {
@@ -290,7 +292,7 @@ var VAR_31 ++
 switch(var VAR_13)
  {
 		case 0
-			if(call ! is_char_handle_in_level(int 917505))
+			if(call ! is_char_handle_in_level(int 917505 /* IMP */ ))
 			 {
 					var VAR_13 = int 20
 					var VAR_14 = int 0

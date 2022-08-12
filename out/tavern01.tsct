@@ -1,9 +1,12 @@
-/* This file was auto-generated using 'silver-reverse-sct' tool 
-to fully understand the scripts presented, one is encouraged to
-check the catalogs at: 
-https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
-for further information and support of this project please visit:
-https://github.com/nadavshemesh/silver-reversing-sct */
+/*
+* This file was auto-generated using 'silver-reverse-sct' tool
+* to fully understand the scripts presented, one is encouraged to
+* view the catalogs at: 
+* https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
+*
+* Any further information and support of this project please visit:
+* https://github.com/nadavshemesh/silver-reversing-sct 
+*/
 
 
 ._DATA
@@ -407,7 +410,7 @@ switch(var VAR_39)
 			call func_17(var DAVID1, var njug)
 			call func_17(var njug, var DAVID1)
 			call func_17(var nstipe, var DAVID1)
-			if(call is_char_handle_in_level(int 786432)&&call ! is_char_handle_in_level(int 196608))
+			if(call is_char_handle_in_level(int 786432 /* SEKUNE */ )&&call ! is_char_handle_in_level(int 196608 /* VIVIENNE */ ))
 			 {
 					call start_dialog("S_DvdJug", "Null")
 			}
@@ -465,7 +468,7 @@ switch(var VAR_39)
 			}
 			break 
 		case 20
-			if(call is_char_handle_in_level(int 6946816))
+			if(call is_char_handle_in_level(int 6946816 /* STIPE */ ))
 			 {
 					if(call is_char_standing(var nstipe))
 					 {
@@ -846,7 +849,7 @@ switch(var VAR_47)
 						if(call func_c0(int 2, "haven", "h_camptp"))
 						 {
 								call func_10c(var ntavman, "Act_3b")
-								var come_anim = call load_anim("come")
+								var come_anim = call load_anim("come" /* come */ )
 								var VAR_47 = int 100
 						}
 						else
@@ -882,11 +885,11 @@ switch(var VAR_47)
 			 {
 					call log("TALKING TO MILDEW, HEROS HAVE THE PASSWORD")
 					call func_46(var ntavman, int 13)
-					if(call is_char_handle_in_level(int 6946816))
+					if(call is_char_handle_in_level(int 6946816 /* STIPE */ ))
 					 {
 							call func_46(var nstipe, int 13)
 							call func_19(var nstipe, var ntavman)
-							if(var VAR_7 != int 1&&call is_char_handle_in_level(int 327680))
+							if(var VAR_7 != int 1&&call is_char_handle_in_level(int 327680 /* JUG */ ))
 							 {
 									call func_46(var njug, int 13)
 							}
@@ -926,7 +929,7 @@ switch(var VAR_47)
 					var VAR_11 = int 1
 					var VAR_6 = int 2
 					call char_walk_to_pos(var ntavman, var &VAR_10)
-					if(call is_char_handle_in_level(int 6946816))
+					if(call is_char_handle_in_level(int 6946816 /* STIPE */ ))
 					 {
 							call char_walk_to_pos(var nstipe, var &VAR_10)
 					}
@@ -1219,7 +1222,7 @@ if(var VAR_200)
 }
 if(var VAR_43)
  {
-		if(call is_char_handle_in_level(int 327680))
+		if(call is_char_handle_in_level(int 327680 /* JUG */ ))
 		 {
 				if(call func_7b(var njug) == int 0)
 				 {

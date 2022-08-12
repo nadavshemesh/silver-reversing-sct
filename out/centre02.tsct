@@ -1,16 +1,18 @@
-/* This file was auto-generated using 'silver-reverse-sct' tool 
-to fully understand the scripts presented, one is encouraged to
-check the catalogs at: 
-https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
-for further information and support of this project please visit:
-https://github.com/nadavshemesh/silver-reversing-sct */
+/*
+* This file was auto-generated using 'silver-reverse-sct' tool
+* to fully understand the scripts presented, one is encouraged to
+* view the catalogs at: 
+* https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
+*
+* Any further information and support of this project please visit:
+* https://github.com/nadavshemesh/silver-reversing-sct 
+*/
 
 
 ._DATA
 VAR_3	{ 6607, -930, -3422 }	
 VAR_5	{ 6895, -930, -3433 }	
 VAR_7	{ 7130, -930, -4023 }	
-VAR_9	{ 6724, -930, -3221 }	
 VAR_29	{ 0, 0 }	
 VAR_31	{ -8625, 2550, 6150 }	
 VAR_32	{ -850, 2550, 3150 }	
@@ -63,7 +65,7 @@ switch(gamevar room_state)
 ._SCRIPT_3
 call load_char("finnegan")
 call load_char("muscles")
-var Nvillager = call create_char(var &VAR_9, "Nvillager", int 190, int 13)
+var Nvillager = call create_char("D", "Nvillager", int 190, int 13)
 var longjohn = call create_enemy(int 28, int 0, var &VAR_3, int 5)
 var dick = call create_enemy(int 31, int 0, var &VAR_5, int 300)
 var muscles = call create_enemy(int 30, int 0, var &VAR_7, int 323)
@@ -116,7 +118,7 @@ switch(var VAR_0)
 							var VAR_37 = int 1
 					}
 			}
-			if(call is_char_handle_in_level(int 2490368))
+			if(call is_char_handle_in_level(int 2490368 /* MUSCLES */ ))
 			 {
 					if(call func_88(var muscles))
 					 {
@@ -130,7 +132,7 @@ switch(var VAR_0)
 			if(var VAR_37)
 			 {
 					call log("kick ass")
-					if(call is_char_handle_in_level(int 2097152))
+					if(call is_char_handle_in_level(int 2097152 /* VILLAGER */ ))
 					 {
 							call func_d6(var Nvillager)
 							gamevar script_object = var Nvillager
@@ -154,7 +156,7 @@ switch(var VAR_0)
 							call func_d6(var dick)
 							call func_17(var dick, call get_selected_hero())
 					}
-					if(call is_char_handle_in_level(int 2490368))
+					if(call is_char_handle_in_level(int 2490368 /* MUSCLES */ ))
 					 {
 							gamevar script_object = var muscles
 							gamevar *object_p+8 &= int -6710886
@@ -166,7 +168,7 @@ switch(var VAR_0)
 			}
 			break 
 		case 1
-			if(call is_char_handle_in_level(int 2097152))
+			if(call is_char_handle_in_level(int 2097152 /* VILLAGER */ ))
 			 {
 					call char_walk_to(var Nvillager, int 634, int -930, int -3446)
 			}
@@ -183,18 +185,18 @@ switch(var VAR_0)
 					var VAR_1 -- 
 					exit_script 
 			}
-			if(call is_char_handle_in_level(int 2097152))
+			if(call is_char_handle_in_level(int 2097152 /* VILLAGER */ ))
 			 {
 					call char_walk_to(var Nvillager, int 634, int -930, int -3446)
 			}
-			if(call is_char_handle_in_level(int 2490368))
+			if(call is_char_handle_in_level(int 2490368 /* MUSCLES */ ))
 			 {
 					call func_55(var muscles, int 91)
 			}
 			var VAR_0 ++ 
 			break 
 		case 3
-			if(call is_char_handle_in_level(int 2097152))
+			if(call is_char_handle_in_level(int 2097152 /* VILLAGER */ ))
 			 {
 					if(call is_char_standing(var Nvillager))
 					 {
@@ -221,7 +223,7 @@ switch(var VAR_0)
 }
 
 ._SCRIPT_5
-if(call is_char_handle_in_level(int 2097152))
+if(call is_char_handle_in_level(int 2097152 /* VILLAGER */ ))
  {
 		call remove_char(var Nvillager)
 }
@@ -247,12 +249,12 @@ if(call is_char_handle_in_level(int 6422528))
 		gamevar script_object = var dick
 		gamevar HP = var VAR_40
 }
-if(call is_char_handle_in_level(int 2490368))
+if(call is_char_handle_in_level(int 2490368 /* MUSCLES */ ))
  {
 		gamevar script_object = var muscles
 		gamevar HP = var VAR_41
 }
-if(call is_char_handle_in_level(int 2097152))
+if(call is_char_handle_in_level(int 2097152 /* VILLAGER */ ))
  {
 		gamevar script_object = var Nvillager
 		gamevar HP = var VAR_42

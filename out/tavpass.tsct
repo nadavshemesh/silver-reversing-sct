@@ -1,9 +1,12 @@
-/* This file was auto-generated using 'silver-reverse-sct' tool 
-to fully understand the scripts presented, one is encouraged to
-check the catalogs at: 
-https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
-for further information and support of this project please visit:
-https://github.com/nadavshemesh/silver-reversing-sct */
+/*
+* This file was auto-generated using 'silver-reverse-sct' tool
+* to fully understand the scripts presented, one is encouraged to
+* view the catalogs at: 
+* https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
+*
+* Any further information and support of this project please visit:
+* https://github.com/nadavshemesh/silver-reversing-sct 
+*/
 
 
 ._DATA
@@ -12,8 +15,6 @@ VAR_2	0
 VAR_4	0	
 VAR_5	0	
 VAR_6	0	
-VAR_10	{ 833, -924, 516 }	
-VAR_11	{ 632, -924, 389 }	
 VAR_12	{ 756, -924, 386 }	
 VAR_13	{ -549, -924, -1622 }	
 VAR_14	{ -479, -924, -1363 }	
@@ -150,7 +151,7 @@ switch(var VAR_56)
 					if(var VAR_4)
 					 {
 							call set_input_system(int 1)
-							if(call is_char_handle_in_level(int 2097152))
+							if(call is_char_handle_in_level(int 2097152 /* VILLAGER */ ))
 							 {
 									call func_115(var nvillager, var &VAR_24)
 							}
@@ -202,8 +203,8 @@ if(var VAR_2)
 ._SCRIPT_6
 if(var VAR_8 == int 1)
  {
-		call char_teleport_to_pos(var VAR_5, var &VAR_10, int 0)
-		call char_teleport_to_pos(var VAR_6, var &VAR_11, int 0)
+		call char_teleport_to_pos(var VAR_5, "A", int 0)
+		call char_teleport_to_pos(var VAR_6, "x", int 0)
 		call char_teleport_to_pos(var VAR_7, var &VAR_12, int 0)
 }
 else

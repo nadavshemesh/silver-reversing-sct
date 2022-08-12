@@ -1,9 +1,12 @@
-/* This file was auto-generated using 'silver-reverse-sct' tool 
-to fully understand the scripts presented, one is encouraged to
-check the catalogs at: 
-https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
-for further information and support of this project please visit:
-https://github.com/nadavshemesh/silver-reversing-sct */
+/*
+* This file was auto-generated using 'silver-reverse-sct' tool
+* to fully understand the scripts presented, one is encouraged to
+* view the catalogs at: 
+* https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
+*
+* Any further information and support of this project please visit:
+* https://github.com/nadavshemesh/silver-reversing-sct 
+*/
 
 
 ._DATA
@@ -88,7 +91,7 @@ switch(var VAR_31)
  {
 		case 0
 			var VAR_33 = int 0
-			if(call is_char_handle_in_level(int 2490368))
+			if(call is_char_handle_in_level(int 2490368 /* MUSCLES */ ))
 			 {
 					if(call func_88(var muscles))
 					 {
@@ -123,7 +126,7 @@ switch(var VAR_31)
 			}
 			if(var VAR_32)
 			 {
-					if(call is_char_handle_in_level(int 2490368))
+					if(call is_char_handle_in_level(int 2490368 /* MUSCLES */ ))
 					 {
 							call func_46(var muscles, int 13)
 					}
@@ -148,22 +151,22 @@ switch(var VAR_31)
 		case 1
 			if(call get_num_of_enemies() <= int 1)
 			 {
-					if(call ! is_char_handle_in_level(int 2490368))
+					if(call ! is_char_handle_in_level(int 2490368 /* MUSCLES */ ))
 					 {
-							var muscles = call create_enemy_through_door(int 30, int 0, int 1, int 0)
+							var muscles = call create_enemy_through_door(int 30 /* muscles */ , int 0, int 1, int 0)
 							call set_char_running(var muscles)
 							call func_19(var muscles, call get_selected_hero())
 					}
 					if(call ! is_char_handle_in_level(int 6422528))
 					 {
-							var dick = call create_enemy_through_door(int 31, int 0, int 1, int 0)
+							var dick = call create_enemy_through_door(int 31 /* dick */ , int 0, int 1, int 0)
 							call set_char_running(var dick)
 							call func_19(var dick, call get_selected_hero())
 							call add_item_to_char(var dick, int 40, int 1, int 0)
 					}
 					if(call ! is_char_handle_in_level(int 5767168))
 					 {
-							var finnegan = call create_enemy_through_door(int 32, int 0, int 1, int 0)
+							var finnegan = call create_enemy_through_door(int 32 /* finnegan */ , int 0, int 1, int 0)
 							call set_char_running(var finnegan)
 							call func_19(var finnegan, call get_selected_hero())
 					}

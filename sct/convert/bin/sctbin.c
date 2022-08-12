@@ -407,7 +407,7 @@ expr_obj* bin_read_function_call_expr(expr_pattern* expr_p, int* vars, void** to
         exp_nodes_len++;
 
         // try to name the assigned var if it exists using the catalogs
-        if(i == param_cat_ref && during_assingment && last_data_obj_cp != NULL) {
+        if(i == param_cat_ref) {
             char* prefix = (gf->cat_ref->prefix != NULL) ? gf->cat_ref->prefix : "";
             char* postfix = (gf->cat_ref->postfix != NULL) ? gf->cat_ref->postfix : "";
 
@@ -419,19 +419,23 @@ expr_obj* bin_read_function_call_expr(expr_pattern* expr_p, int* vars, void** to
                 int num_of_uses = enemy_cat->items_used[enemy_num]; 
                 // printf("%s -> found %s.\n", last_data_obj_cp->name, enemy_name);
                 char new_var_name[256];
-                if(num_of_uses == 0) {
+                if(num_of_uses == 0 || !during_assingment) {
                     sprintf(new_var_name, "%s%s%s", prefix, enemy_name, postfix);
                 } else {
                     sprintf(new_var_name, "%s%s%d%s", prefix, enemy_name, num_of_uses, postfix);
                 }
                 
-                if(!last_data_obj_cp->was_renamed) {
+                if(during_assingment && last_data_obj_cp != NULL && !last_data_obj_cp->was_renamed) {
                     if(last_data_obj_cp->name != NULL)
                         free(last_data_obj_cp->name);
                     last_data_obj_cp->name = aapts(new_var_name);
                     last_data_obj_cp->was_renamed = true;
-                    enemy_cat->items_used[enemy_num]++;
+                } else {
+                    char comment[256];
+                    sprintf(comment, " /* %s */ ", enemy_name);
+                    eo->hint_comment = aapts(comment);
                 }
+                enemy_cat->items_used[enemy_num]++;
             } else if(gf->cat_ref->type == HANDLE_CAT) {
                 expr_obj* eo = exp->expr_objs;
                 int handle_num = (int) eo->bin_vars[0];
@@ -447,13 +451,17 @@ expr_obj* bin_read_function_call_expr(expr_pattern* expr_p, int* vars, void** to
                     sprintf(new_var_name, "%s%s%d%s", prefix, char_name, num_of_uses, postfix);
                 }
 
-                if(!last_data_obj_cp->was_renamed) {
+                if(during_assingment && last_data_obj_cp != NULL && !last_data_obj_cp->was_renamed) {
                     if(last_data_obj_cp->name != NULL)
                         free(last_data_obj_cp->name);
                     last_data_obj_cp->name = aapts(new_var_name);
                     last_data_obj_cp->was_renamed = true;
-                    handle_cat->items_used[index]++;
+                } else {
+                    char comment[256];
+                    sprintf(comment, " /* %s */ ", char_name);
+                    eo->hint_comment = aapts(comment);
                 }
+                handle_cat->items_used[index]++;
             } else if(gf->cat_ref->type == NO_CAT_USE_PARAM_STRING) {
                 expr_obj* eo = exp->expr_objs;
                 int num_of_uses = general_param_hint_counter;
@@ -466,13 +474,17 @@ expr_obj* bin_read_function_call_expr(expr_pattern* expr_p, int* vars, void** to
                 //     sprintf(new_var_name, "%s%d", (char*) eo->data->data, num_of_uses);
                 // }
 
-                if(!last_data_obj_cp->was_renamed) {
+                if(during_assingment && last_data_obj_cp != NULL && !last_data_obj_cp->was_renamed) {
                     if(last_data_obj_cp->name != NULL)
                         free(last_data_obj_cp->name);
                     last_data_obj_cp->name = aapts(new_var_name);
                     last_data_obj_cp->was_renamed = true;
-                    general_param_hint_counter++;
+                } else {
+                    char comment[256];
+                    sprintf(comment, " /* %s */ ", string_remove_special_chars((char*) eo->data->data));
+                    eo->hint_comment = aapts(comment);
                 }
+                general_param_hint_counter++;
             }
         }
     }

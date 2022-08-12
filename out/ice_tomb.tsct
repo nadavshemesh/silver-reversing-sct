@@ -1,9 +1,12 @@
-/* This file was auto-generated using 'silver-reverse-sct' tool 
-to fully understand the scripts presented, one is encouraged to
-check the catalogs at: 
-https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
-for further information and support of this project please visit:
-https://github.com/nadavshemesh/silver-reversing-sct */
+/*
+* This file was auto-generated using 'silver-reverse-sct' tool
+* to fully understand the scripts presented, one is encouraged to
+* view the catalogs at: 
+* https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
+*
+* Any further information and support of this project please visit:
+* https://github.com/nadavshemesh/silver-reversing-sct 
+*/
 
 
 ._DATA
@@ -126,7 +129,7 @@ switch(var VAR_123)
 
 ._SCRIPT_6
 var VAR_67 = call func_af(int 1)
-var victory_anim = call load_anim("victory")
+var victory_anim = call load_anim("victory" /* victory */ )
 var VAR_69 = call play_loaded_sound(int 2, int -1, int 16, int 0)
 gamevar items_in_drag_box = int 0
 execute SCRIPT_11
@@ -406,7 +409,7 @@ switch(var VAR_73)
 var VAR_74 ++ 
 
 ._SCRIPT_14
-if(call ! is_char_handle_in_level(int 6291456))
+if(call ! is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
  {
 		exit_script 
 }
@@ -414,12 +417,12 @@ else
  {
 		if(var fade_chronicler == int 0)
 		 {
-				var fade_chronicler = call get_char_handle(int 6291456)
+				var fade_chronicler = call get_char_handle(int 6291456 /* CHRONICL */ )
 		}
 }
 
 ._SCRIPT_15
-if(call ! is_char_handle_in_level(int 6291456))
+if(call ! is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
  {
 		exit_script 
 }
@@ -427,7 +430,7 @@ else
  {
 		if(var fade_chronicler == int 0)
 		 {
-				var fade_chronicler = call get_char_handle(int 6291456)
+				var fade_chronicler = call get_char_handle(int 6291456 /* CHRONICL */ )
 		}
 }
 if(var VAR_23 != var VAR_17)
@@ -538,11 +541,11 @@ switch(var VAR_17)
 var VAR_18 ++ 
 
 ._SCRIPT_16
-if(call is_char_handle_in_level(int 6291456))
+if(call is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
  {
 		if(var fade_chronicler == int 0)
 		 {
-				var fade_chronicler = call get_char_handle(int 6291456)
+				var fade_chronicler = call get_char_handle(int 6291456 /* CHRONICL */ )
 		}
 		call func_34(var fade_chronicler)
 }

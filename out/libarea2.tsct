@@ -1,9 +1,12 @@
-/* This file was auto-generated using 'silver-reverse-sct' tool 
-to fully understand the scripts presented, one is encouraged to
-check the catalogs at: 
-https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
-for further information and support of this project please visit:
-https://github.com/nadavshemesh/silver-reversing-sct */
+/*
+* This file was auto-generated using 'silver-reverse-sct' tool
+* to fully understand the scripts presented, one is encouraged to
+* view the catalogs at: 
+* https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
+*
+* Any further information and support of this project please visit:
+* https://github.com/nadavshemesh/silver-reversing-sct 
+*/
 
 
 ._DATA
@@ -18,7 +21,6 @@ VAR_32	{ -13830, 1202, -12279 }
 VAR_33	{ -14545, 1202, -12946 }	
 VAR_34	{ -14545, 1202, -13803 }	
 VAR_36	-1	
-VAR_38	{ 5130566, 0 }	
 
 ._on_load
 call play_bgm("GNO")
@@ -66,16 +68,16 @@ if(gamevar !is_room_cleared)
 		switch(gamevar room_state)
 		 {
 				case 1
-					if(call is_char_handle_in_level(int 2359296))
+					if(call is_char_handle_in_level(int 2359296 /* WHITTLE */ ))
 					 {
-							call func_34(var is_WHITTLE_exist)
+							call func_34(var is_WHITTLE1_exist)
 					}
 					call func_7(int 0, int 1, int 0, int 0)
 					gamevar room_state ++ 
 					break 
 				case 2
-					var is_WHITTLE_exist = call is_char_handle_in_level(int 2359296)
-					if(var is_WHITTLE_exist)
+					var is_WHITTLE1_exist = call is_char_handle_in_level(int 2359296)
+					if(var is_WHITTLE1_exist)
 					 {
 							if(var VAR_4)
 							 {
@@ -85,7 +87,7 @@ if(gamevar !is_room_cleared)
 									var VAR_8 = int 0
 									call func_4d(int 888, var &VAR_5, "gno", "libarea2")
 							}
-							call func_34(var is_WHITTLE_exist)
+							call func_34(var is_WHITTLE1_exist)
 					}
 					break 
 				case 0
@@ -128,7 +130,7 @@ if(gamevar script_time > var VAR_43)
 call load_char("whittle")
 call load_char("samnimp")
 call load_char("imp")
-var is_WHITTLE_exist = call create_char(var &VAR_17, "nwhittle!", int 292, int 13)
+var is_WHITTLE1_exist = call create_char(var &VAR_17, "nwhittle!" /* nwhittle */ , int 292, int 13)
 execute SCRIPT_6
 execute SCRIPT_7
 execute SCRIPT_8
@@ -142,7 +144,7 @@ switch(var VAR_23)
 		case 0
 			if(var VAR_24 > int 15)
 			 {
-					call play_char_anim(var is_WHITTLE_exist, var cringe_anim, int 0)
+					call play_char_anim(var is_WHITTLE1_exist, var cringe_anim, int 0)
 					var VAR_23 ++ 
 					var VAR_24 = int 0
 			}
@@ -152,7 +154,7 @@ switch(var VAR_23)
 			 {
 					if(call is_char_at_pos(var DAVID, var &VAR_17, int 500))
 					 {
-							call chars_face_opposite(var DAVID, var is_WHITTLE_exist)
+							call chars_face_opposite(var DAVID, var is_WHITTLE1_exist)
 							call start_dialog("DVDWIT", "NULL")
 							var VAR_23 ++ 
 							var VAR_24 = int 0
@@ -160,7 +162,7 @@ switch(var VAR_23)
 			}
 			break 
 }
-if(call func_127(var is_WHITTLE_exist))
+if(call func_127(var is_WHITTLE1_exist))
  {
 		call func_10c(var GRANDAD, int 0)
 }
@@ -180,9 +182,9 @@ var bezerk_imp3 = call create_enemy(int 103, int 4, var &VAR_34, int 63)
 var cringe_anim = call load_anim("cringe")
 
 ._SCRIPT_9
-var is_WHITTLE_exist = int 0
+var is_WHITTLE1_exist = int 0
 var VAR_4 = int 0
-var is_WHITTLE_exist = call is_char_handle_in_level(int 2359296)
+var is_WHITTLE1_exist = call is_char_handle_in_level(int 2359296 /* WHITTLE */ )
 if(call func_bf(int 888, gamevar CURRENT_LEVEL, gamevar CURRENT_SCENE))
  {
 		var VAR_4 = int 1
@@ -206,16 +208,16 @@ switch(var VAR_35)
 					call func_108("RE_ENTER")
 					if(var VAR_4)
 					 {
-							if(var is_WHITTLE_exist)
+							if(var is_WHITTLE1_exist)
 							 {
-									call func_10c(var is_WHITTLE_exist, var &VAR_38)
+									call func_10c(var is_WHITTLE1_exist, "FIN")
 							}
 					}
 					var VAR_35 ++ 
 			}
 			break 
 		case 2
-			if(var is_WHITTLE_exist)
+			if(var is_WHITTLE1_exist)
 			 {
 					var VAR_35 ++ 
 			}
@@ -225,7 +227,7 @@ switch(var VAR_35)
 			}
 			break 
 		case 3
-			if(call func_127(var is_WHITTLE_exist))
+			if(call func_127(var is_WHITTLE1_exist))
 			 {
 					var VAR_4 = int 1
 					var VAR_35 ++ 
@@ -234,8 +236,8 @@ switch(var VAR_35)
 }
 
 ._SCRIPT_11
-var is_WHITTLE_exist = call is_char_handle_in_level(int 2359296)
-if(var is_WHITTLE_exist)
+var is_WHITTLE1_exist = call is_char_handle_in_level(int 2359296 /* WHITTLE */ )
+if(var is_WHITTLE1_exist)
  {
-		call remove_char(var is_WHITTLE_exist)
+		call remove_char(var is_WHITTLE1_exist)
 }

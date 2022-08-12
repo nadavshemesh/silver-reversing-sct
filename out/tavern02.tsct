@@ -1,9 +1,12 @@
-/* This file was auto-generated using 'silver-reverse-sct' tool 
-to fully understand the scripts presented, one is encouraged to
-check the catalogs at: 
-https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
-for further information and support of this project please visit:
-https://github.com/nadavshemesh/silver-reversing-sct */
+/*
+* This file was auto-generated using 'silver-reverse-sct' tool
+* to fully understand the scripts presented, one is encouraged to
+* view the catalogs at: 
+* https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
+*
+* Any further information and support of this project please visit:
+* https://github.com/nadavshemesh/silver-reversing-sct 
+*/
 
 
 ._DATA
@@ -19,7 +22,6 @@ VAR_19	{ -753, 0, -423 }
 VAR_21	{ -866, 0, -224 }	
 VAR_23	{ 7, 8 }	
 VAR_24	{ 9, NTAVMAN, 7, 8 }	
-VAR_42	{ -993263616, 1136885760, 1133608960 }	
 VAR_43	{ 1, 0, 0 }	
 VAR_45	{ 1, 0, 0 }	
 VAR_47	{ 1, 0, 0 }	
@@ -110,25 +112,25 @@ switch(var VAR_0)
 			}
 			else
 			 {
-					if(call is_char_handle_in_level(int 786432))
+					if(call is_char_handle_in_level(int 786432 /* SEKUNE */ ))
 					 {
 							call start_dialog("T_SekTav", "Null")
 					}
 					else
 					 {
-							if(call is_char_handle_in_level(int 196608))
+							if(call is_char_handle_in_level(int 196608 /* VIVIENNE */ ))
 							 {
 									call start_dialog("T_VivTav", "Null")
 							}
 							else
 							 {
-									if(call is_char_handle_in_level(int 262144))
+									if(call is_char_handle_in_level(int 262144 /* CAGEN */ ))
 									 {
 											call start_dialog("T_CagTav", "Null")
 									}
 									else
 									 {
-											if(call is_char_handle_in_level(int 131072))
+											if(call is_char_handle_in_level(int 131072 /* CHIARO */ ))
 											 {
 													call start_dialog("T_ChiTav", "Null")
 											}
@@ -232,7 +234,7 @@ call load_sound_set(int 32)
 call play_loaded_sound(int 1, int -1, int 32, int 0)
 call play_loaded_sound(int 198, int -1, int 0, "")
 call load_sound_set(int 30)
-call play_loaded_sound(int 1, int -1, int 30, var &VAR_42)
+call play_loaded_sound(int 1, int -1, int 30, "")
 gamevar SMACKER_X = int 248
 gamevar SMACKER_Y = int 120
 call play_2d_anim("torch01", int 1, int 1, var &VAR_43)

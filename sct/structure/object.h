@@ -15,6 +15,7 @@ typedef struct data_object {
 
 typedef struct expression_object {
     int expression_node_num;
+    char* hint_comment;
     expr_pattern* expr_p;
     int* bin_vars;
     char** asm_vars;
@@ -32,6 +33,7 @@ typedef struct code_object {
     int asm_var_num;
     int code_nodes_num;
     int expression_node_num;
+    char* hint_comment;
     data_obj* data;
     code_pattern* cp;
     int* bin_vars;

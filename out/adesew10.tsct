@@ -1,15 +1,18 @@
-/* This file was auto-generated using 'silver-reverse-sct' tool 
-to fully understand the scripts presented, one is encouraged to
-check the catalogs at: 
-https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
-for further information and support of this project please visit:
-https://github.com/nadavshemesh/silver-reversing-sct */
+/*
+* This file was auto-generated using 'silver-reverse-sct' tool
+* to fully understand the scripts presented, one is encouraged to
+* view the catalogs at: 
+* https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
+*
+* Any further information and support of this project please visit:
+* https://github.com/nadavshemesh/silver-reversing-sct 
+*/
 
 
 ._DATA
 VAR_4	{ 0, 0, 0 }	
 VAR_5	{ 1, 0, 0 }	
-VAR_6	{ 708, -1978, 4968 }	
+VAR_6	"Fh"	
 VAR_10	{ 1836, -1481, 6302 }	
 VAR_11	{ 1862, -1481, 3723 }	
 VAR_13	{ 382, -1481, 6218 }	
@@ -132,8 +135,8 @@ if(var VAR_8 == int 0)
 }
 else
  {
-		var lesser_gimp = call create_enemy_through_door(int 45, int 0, int 0, int 0)
-		var lesser_gimp1 = call create_enemy_through_door(int 45, int 1, int 0, int 0)
+		var lesser_gimp = call create_enemy_through_door(int 45 /* lesser_gimp */ , int 0, int 0, int 0)
+		var lesser_gimp1 = call create_enemy_through_door(int 45 /* lesser_gimp */ , int 1, int 0, int 0)
 		call set_char_running(var lesser_gimp)
 		call set_char_running(var lesser_gimp1)
 		call func_106(var lesser_gimp, int 9, int 5, var &VAR_11)
@@ -177,8 +180,8 @@ if(var lesser_gimp1)
 }
 
 ._SCRIPT_5
-var lesser_gimp = call create_enemy(int 45, int 0, var &VAR_20, int 310)
-var lesser_gimp1 = call create_enemy(int 45, int 1, var &VAR_21, int 230)
+var lesser_gimp = call create_enemy(int 45 /* lesser_gimp */ , int 0, var &VAR_20, int 310)
+var lesser_gimp1 = call create_enemy(int 45 /* lesser_gimp */ , int 1, var &VAR_21, int 230)
 var spider = call create_enemy(int 70, int 0, var &VAR_22, int 290)
 var spider1 = call create_enemy(int 70, int 1, var &VAR_23, int 310)
 var spider2 = call create_enemy(int 70, int 2, var &VAR_24, int 245)

@@ -1,14 +1,16 @@
-/* This file was auto-generated using 'silver-reverse-sct' tool 
-to fully understand the scripts presented, one is encouraged to
-check the catalogs at: 
-https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
-for further information and support of this project please visit:
-https://github.com/nadavshemesh/silver-reversing-sct */
+/*
+* This file was auto-generated using 'silver-reverse-sct' tool
+* to fully understand the scripts presented, one is encouraged to
+* view the catalogs at: 
+* https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
+*
+* Any further information and support of this project please visit:
+* https://github.com/nadavshemesh/silver-reversing-sct 
+*/
 
 
 ._DATA
 VAR_7	{ 10730, -39, -1632 }	
-VAR_9	{ 11370, -40, -2965 }	
 VAR_11	{ 5811, -39, -2669 }	
 VAR_13	{ 5811, -39, -1487 }	
 VAR_15	{ 7405, -39, -3263 }	
@@ -136,7 +138,7 @@ if(gamevar *scene_info_p+1 == int 1)
 var DAVID = call get_char_handle(int 65536)
 var GRANDAD = call get_char_handle(int 393216)
 var start_grunt = call create_enemy(int 156, int 1, var &VAR_7, int 85)
-var grunt_wooden_shield = call create_enemy(int 99, int 2, var &VAR_9, int 30)
+var grunt_wooden_shield = call create_enemy(int 99, int 2, "j,", int 30)
 var start_grunt1 = call create_enemy(int 156, int 3, var &VAR_11, int 65)
 var grunt_wooden_shield1 = call create_enemy(int 99, int 4, var &VAR_13, int 65)
 var start_grunt2 = call create_enemy(int 156, int 5, var &VAR_15, int 250)
@@ -171,12 +173,12 @@ switch(var VAR_24)
 			var VAR_24 = int 1
 			break 
 		case 1
-			if(call is_char_handle_in_level(int 4128769)&&call is_char_handle_in_level(int 4128770))
+			if(call is_char_handle_in_level(int 4128769 /* SGRUNT */ )&&call is_char_handle_in_level(int 4128770 /* SGRUNT */ ))
 			 {
 			}
 			else
 			 {
-					if(call is_char_handle_in_level(int 4128773))
+					if(call is_char_handle_in_level(int 4128773 /* SGRUNT */ ))
 					 {
 							gamevar script_object = var start_grunt2
 							if(gamevar *character_combat_p+1 == int 0)
@@ -192,7 +194,7 @@ switch(var VAR_24)
 									call set_char_running(var start_grunt2)
 							}
 					}
-					if(call is_char_handle_in_level(int 4128774))
+					if(call is_char_handle_in_level(int 4128774 /* SGRUNT */ ))
 					 {
 							gamevar script_object = var start_grunt3
 							if(gamevar *character_combat_p+1 == int 0)
@@ -209,12 +211,12 @@ switch(var VAR_24)
 							}
 					}
 			}
-			if(call is_char_handle_in_level(int 4128773)&&call is_char_handle_in_level(int 4128774))
+			if(call is_char_handle_in_level(int 4128773 /* SGRUNT */ )&&call is_char_handle_in_level(int 4128774 /* SGRUNT */ ))
 			 {
 			}
 			else
 			 {
-					if(call is_char_handle_in_level(int 4128775))
+					if(call is_char_handle_in_level(int 4128775 /* SGRUNT */ ))
 					 {
 							gamevar script_object = var grunt_wooden_shield2
 							if(gamevar *character_combat_p+1 == int 0)
@@ -230,7 +232,7 @@ switch(var VAR_24)
 									call set_char_running(var grunt_wooden_shield2)
 							}
 					}
-					if(call is_char_handle_in_level(int 4128776))
+					if(call is_char_handle_in_level(int 4128776 /* SGRUNT */ ))
 					 {
 							gamevar script_object = var grunt_wooden_shield3
 							if(gamevar *character_combat_p+1 == int 0)
@@ -247,12 +249,12 @@ switch(var VAR_24)
 							}
 					}
 			}
-			if(call is_char_handle_in_level(int 4128775)&&call is_char_handle_in_level(int 4128776))
+			if(call is_char_handle_in_level(int 4128775 /* SGRUNT */ )&&call is_char_handle_in_level(int 4128776 /* SGRUNT */ ))
 			 {
 			}
 			else
 			 {
-					if(call is_char_handle_in_level(int 4128771))
+					if(call is_char_handle_in_level(int 4128771 /* SGRUNT */ ))
 					 {
 							gamevar script_object = var start_grunt1
 							if(gamevar *character_combat_p+1 == int 0)
@@ -268,7 +270,7 @@ switch(var VAR_24)
 									call set_char_running(var start_grunt1)
 							}
 					}
-					if(call is_char_handle_in_level(int 4128772))
+					if(call is_char_handle_in_level(int 4128772 /* SGRUNT */ ))
 					 {
 							gamevar script_object = var grunt_wooden_shield1
 							if(gamevar *character_combat_p+1 == int 0)
@@ -285,7 +287,7 @@ switch(var VAR_24)
 							}
 					}
 			}
-			if(call ! is_char_handle_in_level(int 4128769)&&call ! is_char_handle_in_level(int 4128770)&&call ! is_char_handle_in_level(int 4128771)&&call ! is_char_handle_in_level(int 4128772)&&call ! is_char_handle_in_level(int 4128773)&&call ! is_char_handle_in_level(int 4128774)&&call ! is_char_handle_in_level(int 4128775)&&call ! is_char_handle_in_level(int 4128776))
+			if(call ! is_char_handle_in_level(int 4128769 /* SGRUNT */ )&&call ! is_char_handle_in_level(int 4128770 /* SGRUNT */ )&&call ! is_char_handle_in_level(int 4128771 /* SGRUNT */ )&&call ! is_char_handle_in_level(int 4128772 /* SGRUNT */ )&&call ! is_char_handle_in_level(int 4128773 /* SGRUNT */ )&&call ! is_char_handle_in_level(int 4128774 /* SGRUNT */ )&&call ! is_char_handle_in_level(int 4128775 /* SGRUNT */ )&&call ! is_char_handle_in_level(int 4128776 /* SGRUNT */ ))
 			 {
 					gamevar room_state = int 2
 					call reset_local_timer()

@@ -1,9 +1,12 @@
-/* This file was auto-generated using 'silver-reverse-sct' tool 
-to fully understand the scripts presented, one is encouraged to
-check the catalogs at: 
-https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
-for further information and support of this project please visit:
-https://github.com/nadavshemesh/silver-reversing-sct */
+/*
+* This file was auto-generated using 'silver-reverse-sct' tool
+* to fully understand the scripts presented, one is encouraged to
+* view the catalogs at: 
+* https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
+*
+* Any further information and support of this project please visit:
+* https://github.com/nadavshemesh/silver-reversing-sct 
+*/
 
 
 ._DATA
@@ -16,7 +19,6 @@ VAR_6	{ 1845, 2845, -4950 }
 VAR_7	{ 1808, 2845, -4813 }	
 VAR_8	{ 1821, 2845, -5052 }	
 VAR_9	{ VAR_6, VAR_7, VAR_8 }	
-VAR_13	{ 1634428781, 29289, 0 }	
 VAR_17	160	
 VAR_24	{ 0, 0, 0 }	
 VAR_27	{ 2492, 4381, -4951, 0 }	
@@ -28,7 +30,7 @@ VAR_45	{ 2116, 4041, -5955 }
 
 ._on_load
 var no_anim = call load_anim("no")
-var mgkair_anim = call load_anim(var &VAR_13)
+var mgkair_anim = call load_anim("mgkair")
 call load_sound_set(int 30)
 call load_sound_set(int 0)
 call load_sound_set(int 72)
@@ -686,11 +688,11 @@ execute SCRIPT_5
 ._SCRIPT_7
 var VAR_37 = int 1
 call create_enemy(int 36, int 0, var &VAR_42, int 238)
-var SARCHER = call get_char_handle(int 11010048)
+var SARCHER = call get_char_handle(int 11010048 /* SARCHER */ )
 call set_char_init_state(var SARCHER, int 0)
 var VAR_44 = call add_item_to_char(var SARCHER, int 46, int 1, int 0)
 call create_enemy(int 36, int 1, var &VAR_45, int 310)
-var SARCHER1 = call get_char_handle(int 11010049)
+var SARCHER1 = call get_char_handle(int 11010049 /* SARCHER */ )
 call set_char_init_state(var SARCHER1, int 0)
 var VAR_47 = call add_item_to_char(var SARCHER1, int 45, int 1, int 0)
 execute SCRIPT_4

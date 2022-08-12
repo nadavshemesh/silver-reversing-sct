@@ -1,9 +1,12 @@
-/* This file was auto-generated using 'silver-reverse-sct' tool 
-to fully understand the scripts presented, one is encouraged to
-check the catalogs at: 
-https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
-for further information and support of this project please visit:
-https://github.com/nadavshemesh/silver-reversing-sct */
+/*
+* This file was auto-generated using 'silver-reverse-sct' tool
+* to fully understand the scripts presented, one is encouraged to
+* view the catalogs at: 
+* https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
+*
+* Any further information and support of this project please visit:
+* https://github.com/nadavshemesh/silver-reversing-sct 
+*/
 
 
 ._DATA
@@ -13,7 +16,6 @@ VAR_46	{ 0, 0, 0, 0 }
 VAR_58	{ -6644, 4939, -4319 }	
 VAR_59	{ 5880, 4939, -6862 }	
 sentryg1	0	
-VAR_67	{ 4456, -400, 6381 }	
 VAR_68	{ 158, 0, 4171 }	
 VAR_69	{ -114, 0, 4241 }	
 VAR_70	{ -4639, -400, 6229 }	
@@ -32,7 +34,6 @@ VAR_89	"NULL"
 VAR_90	VAR_91	
 VAR_91	"ACT_2B"	
 VAR_92	{ 508, -400, 5770 }	
-VAR_113	{ 1599357761, 16690, 0 }	
 
 ._on_load
 call func_58(int 1)
@@ -275,7 +276,7 @@ switch(var VAR_82)
 var VAR_83 ++ 
 
 ._SCRIPT_6
-var sentry_swordres = call create_enemy(int 57, int 1, var &VAR_67, int 310)
+var sentry_swordres = call create_enemy(int 57, int 1, "h", int 310)
 var sentryg = call create_enemy(int 56, int 2, var &VAR_68, int 310)
 var sentryg1 = call create_enemy(int 56, int 3, var &VAR_69, int 25)
 var sentry_swordres1 = call create_enemy(int 57, int 4, var &VAR_70, int 0)
@@ -419,7 +420,7 @@ switch(var VAR_100)
 								call start_dialog("S_DVDCAG", "ACT_2A")
 								break 
 							case 131072
-								call start_dialog("S_DVDCHI", var &VAR_113)
+								call start_dialog("S_DVDCHI", "ACT_2A")
 								break 
 					}
 					call char_turn_to_pos(gamevar control_char_p, call get_char_pos(var VAR_102))
@@ -480,7 +481,7 @@ while(var VAR_48)
 }
 
 ._SCRIPT_15
-if(call ! is_char_handle_in_level(int 6291456))
+if(call ! is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
  {
 		exit_script 
 }
@@ -488,12 +489,12 @@ else
  {
 		if(var fade_chronicler == int 0)
 		 {
-				var fade_chronicler = call get_char_handle(int 6291456)
+				var fade_chronicler = call get_char_handle(int 6291456 /* CHRONICL */ )
 		}
 }
 
 ._SCRIPT_16
-if(call ! is_char_handle_in_level(int 6291456))
+if(call ! is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
  {
 		exit_script 
 }
@@ -501,7 +502,7 @@ else
  {
 		if(var fade_chronicler == int 0)
 		 {
-				var fade_chronicler = call get_char_handle(int 6291456)
+				var fade_chronicler = call get_char_handle(int 6291456 /* CHRONICL */ )
 		}
 }
 if(var VAR_23 != var VAR_17)
@@ -612,11 +613,11 @@ switch(var VAR_17)
 var VAR_18 ++ 
 
 ._SCRIPT_17
-if(call is_char_handle_in_level(int 6291456))
+if(call is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
  {
 		if(var fade_chronicler == int 0)
 		 {
-				var fade_chronicler = call get_char_handle(int 6291456)
+				var fade_chronicler = call get_char_handle(int 6291456 /* CHRONICL */ )
 		}
 		call func_34(var fade_chronicler)
 }

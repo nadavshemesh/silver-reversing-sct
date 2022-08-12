@@ -1,9 +1,12 @@
-/* This file was auto-generated using 'silver-reverse-sct' tool 
-to fully understand the scripts presented, one is encouraged to
-check the catalogs at: 
-https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
-for further information and support of this project please visit:
-https://github.com/nadavshemesh/silver-reversing-sct */
+/*
+* This file was auto-generated using 'silver-reverse-sct' tool
+* to fully understand the scripts presented, one is encouraged to
+* view the catalogs at: 
+* https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
+*
+* Any further information and support of this project please visit:
+* https://github.com/nadavshemesh/silver-reversing-sct 
+*/
 
 
 ._DATA
@@ -11,7 +14,6 @@ VAR_0	{ 0, 0 }
 VAR_1	{ 0, 0 }	
 VAR_4	{ 0, 0 }	
 VAR_6	{ 0, 0, 0 }	
-VAR_9	{ 1163152969, 827609170, 0, 0 }	
 nglass	{ 0, 0 }	
 nsguard3	{ 0, 0 }	
 VAR_20	{ -5, -1025, -4274 }	
@@ -103,13 +105,13 @@ VAR_238	{ -1011, -1100, -3962, -544, -1100, -3469 }
 VAR_239	{ -19, -1350, -2692 }	
 VAR_240	{ 1014, -1105, -3401 }	
 VAR_241	{ -1053, -1105, -3360 }	
-VAR_242	{ VAR_240, VAR_241 }	
+VAR_242	"QT"	
 VAR_243	{ 205, 80 }	
 VAR_244	-1	
-VAR_251	{ 1146634240, -997621760, -980582400 }	
+VAR_251	"XD"	
 VAR_252	{ -1000505344, -997621760, -980582400 }	
 VAR_253	{ -1016266752, -997621760, -978800640 }	
-VAR_254	{ VAR_251, VAR_252, VAR_253 }
+VAR_254	"twz"
 
 ._on_load
 gamevar *scene_info_p+4 = int 8
@@ -122,7 +124,7 @@ switch(gamevar room_state)
 			execute SCRIPT_5
 			break 
 		case 2
-			call play_bgm(var &VAR_9)
+			call play_bgm("INTERPT1")
 			execute SCRIPT_8
 			break 
 		case 3
@@ -510,14 +512,14 @@ switch(var VAR_90)
 var VAR_91 ++ 
 
 ._SCRIPT_8
-var nsilver = call create_char(var &VAR_20, "nsilver", int 0, int 13)
-var nglass = call create_char(var &VAR_22, "nglass", int 250, int 13)
-var nsguard2 = call create_char(var &VAR_23, "nsguard2", int 260, int 13)
-var nsguard3 = call create_char(var &VAR_24, "nsguard3", int 260, int 13)
-var nsguard5 = call create_char(var &VAR_25, "nsguard5", int 100, int 13)
-var nsguard6 = call create_char(var &VAR_26, "nsguard6", int 100, int 13)
-var nkaleb = call create_char(var &VAR_28, "nkaleb", int 175, int 13)
-var nkhan = call create_char(var &VAR_29, "nkhan", int 150, int 13)
+var nsilver = call create_char(var &VAR_20, "nsilver" /* nsilver */ , int 0, int 13)
+var nglass = call create_char(var &VAR_22, "nglass" /* nglass */ , int 250, int 13)
+var nsguard2 = call create_char(var &VAR_23, "nsguard2" /* nsguard2 */ , int 260, int 13)
+var nsguard3 = call create_char(var &VAR_24, "nsguard3" /* nsguard3 */ , int 260, int 13)
+var nsguard5 = call create_char(var &VAR_25, "nsguard5" /* nsguard5 */ , int 100, int 13)
+var nsguard6 = call create_char(var &VAR_26, "nsguard6" /* nsguard6 */ , int 100, int 13)
+var nkaleb = call create_char(var &VAR_28, "nkaleb" /* nkaleb */ , int 175, int 13)
+var nkhan = call create_char(var &VAR_29, "nkhan" /* nkhan */ , int 150, int 13)
 call load_char_anim(var nkaleb, var &VAR_38)
 call load_char_anim(var nkhan, var &VAR_40)
 call load_char_anim(var nsguard2, var &VAR_43)
@@ -682,7 +684,7 @@ switch(var VAR_104)
 			}
 			break 
 		case 13
-			if(call ! is_char_handle_in_level(int 4784128))
+			if(call ! is_char_handle_in_level(int 4784128 /* WILLIAM */ ))
 			 {
 					call func_fd(var silver, var VAR_78)
 					call reset_local_timer()
@@ -1253,7 +1255,7 @@ switch(var VAR_104)
 							case 6
 								call char_walk_to_pos(var f_in_bonnie, var &VAR_141)
 								var VAR_105 = int 1
-								var silv_orb = call create_enemy(int 195, int 0, var &VAR_156, int 0)
+								var silv_orb = call create_enemy(int 195 /* silv_orb */ , int 0, var &VAR_156, int 0)
 								gamevar script_object = var silv_orb
 								gamevar *object_p+7 |= int -2147483
 								break 
@@ -1518,15 +1520,15 @@ gamevar *object_p+6 |= int 61246873
 gamevar script_object = var silver
 gamevar *object_p+7 |= int 67108864
 var VAR_78 = call add_item_to_char(var silver, int 3, int 0, int 0)
-var f_in_jennifer = call create_char(var &VAR_137, "njennifer", int 139, int 13)
+var f_in_jennifer = call create_char(var &VAR_137, "njennifer" /* njennifer */ , int 139, int 13)
 gamevar script_object = var f_in_jennifer
 gamevar *object_p+6 |= int 8388608
 gamevar *character_stats_p+13 = int 1
-var f_in_bethts = call create_char(var &VAR_138, "nbeth", int 204, int 13)
+var f_in_bethts = call create_char(var &VAR_138, "nbeth" /* nbeth */ , int 204, int 13)
 gamevar script_object = var f_in_bethts
 gamevar *object_p+6 |= int 8388608
 gamevar *character_stats_p+13 = int 1
-var f_in_bonnie = call create_char(var &VAR_139, "nbonnie", int 155, int 13)
+var f_in_bonnie = call create_char(var &VAR_139, "nbonnie" /* nbonnie */ , int 155, int 13)
 gamevar script_object = var f_in_bonnie
 gamevar *object_p+6 |= int 8388608
 gamevar *character_stats_p+13 = int 1
@@ -1574,7 +1576,7 @@ call add_item_to_char(var VAR_106, int 114, int 0, int 1)
 gamevar room_state = int 0
 
 ._SCRIPT_12
-var silv_orb = call create_enemy(int 195, int 0, var &VAR_133, int 0)
+var silv_orb = call create_enemy(int 195 /* silv_orb */ , int 0, var &VAR_133, int 0)
 gamevar script_object = var silv_orb
 gamevar *object_p+7 |= int -2147483
 gamevar script_object = var silv_orb

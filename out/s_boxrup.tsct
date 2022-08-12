@@ -1,9 +1,12 @@
-/* This file was auto-generated using 'silver-reverse-sct' tool 
-to fully understand the scripts presented, one is encouraged to
-check the catalogs at: 
-https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
-for further information and support of this project please visit:
-https://github.com/nadavshemesh/silver-reversing-sct */
+/*
+* This file was auto-generated using 'silver-reverse-sct' tool
+* to fully understand the scripts presented, one is encouraged to
+* view the catalogs at: 
+* https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
+*
+* Any further information and support of this project please visit:
+* https://github.com/nadavshemesh/silver-reversing-sct 
+*/
 
 
 ._DATA
@@ -15,7 +18,7 @@ VAR_13	{ 1216, -1100, -3146 }
 VAR_14	{ 1414, -1100, -3573, 2317, -1100, -2799, 1516, -1100, -1894, 673, -1100, -2738 }	
 VAR_15	{ 14, 17, 4, VAR_14, 1, 17, 4, VAR_14, 1, 30, 143, 29, DAVID, 11, 100, 200, 7, 8 }	
 VAR_20	{ 1151672320, -997621760, -991494144 }	
-VAR_21	{ 1151369216, -997621760, -983363584 }	
+VAR_21	"Dc"	
 VAR_22	{ 1158852608, -997621760, -986918912 }	
 VAR_23	{ VAR_20, VAR_21, VAR_22 }
 
@@ -144,7 +147,7 @@ call play_2d_anim("s_boxrup", int 1, int 0, int 0)
 var is_BTREASURE_exist = call is_char_handle_in_level(int 1507337)
 if(var ! is_BTREASURE_exist)
  {
-		var is_BTREASURE_exist = call create_char(var VAR_1, "btreasure9", var VAR_2, int 14)
+		var is_BTREASURE_exist = call create_char(var VAR_1, "btreasure9" /* btreasure9 */ , var VAR_2, int 14)
 		call func_aa(var is_BTREASURE_exist)
 }
 else

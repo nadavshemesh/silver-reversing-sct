@@ -1,9 +1,12 @@
-/* This file was auto-generated using 'silver-reverse-sct' tool 
-to fully understand the scripts presented, one is encouraged to
-check the catalogs at: 
-https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
-for further information and support of this project please visit:
-https://github.com/nadavshemesh/silver-reversing-sct */
+/*
+* This file was auto-generated using 'silver-reverse-sct' tool
+* to fully understand the scripts presented, one is encouraged to
+* view the catalogs at: 
+* https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
+*
+* Any further information and support of this project please visit:
+* https://github.com/nadavshemesh/silver-reversing-sct 
+*/
 
 
 ._DATA
@@ -100,10 +103,10 @@ if(var VAR_21 == int 0)
 		 {
 				var VAR_6 = call run_enemy_generator(var &VAR_8, int 1)
 				var VAR_21 ++ 
-				if(call is_char_handle_in_level(int 4128768))
+				if(call is_char_handle_in_level(int 4128768 /* SGRUNT */ ))
 				 {
-						call set_char_init_state(var SGRUNT, int 0)
-						call func_46(var SGRUNT, int 13)
+						call set_char_init_state(var SGRUNT1, int 0)
+						call func_46(var SGRUNT1, int 13)
 				}
 		}
 		else
@@ -126,16 +129,16 @@ if(var VAR_21 == int 1)
 
 ._SCRIPT_5
 call create_enemy(int 9, int 0, var &VAR_3, int 275)
-var SGRUNT = call get_char_handle(int 4128768)
-call func_46(var SGRUNT, int 0)
-var VAR_5 = call add_item_to_char(var SGRUNT, int 83, int 1, int 0)
-call add_item_to_char(var SGRUNT, int 47, int 1, int 0)
+var SGRUNT1 = call get_char_handle(int 4128768)
+call func_46(var SGRUNT1, int 0)
+var VAR_5 = call add_item_to_char(var SGRUNT1, int 83, int 1, int 0)
+call add_item_to_char(var SGRUNT1, int 47, int 1, int 0)
 call load_char("sguard")
 call load_char("sarcher")
 var tyrosumn_anim = call load_anim("tyrosumn")
 var stepb_anim = call load_anim("stepb")
-call set_char_init_state(var SGRUNT, int 13)
-call play_char_ai_script(var SGRUNT, var &VAR_17)
+call set_char_init_state(var SGRUNT1, int 13)
+call play_char_ai_script(var SGRUNT1, var &VAR_17)
 
 ._SCRIPT_6
 

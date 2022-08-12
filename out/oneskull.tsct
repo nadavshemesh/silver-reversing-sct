@@ -1,9 +1,12 @@
-/* This file was auto-generated using 'silver-reverse-sct' tool 
-to fully understand the scripts presented, one is encouraged to
-check the catalogs at: 
-https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
-for further information and support of this project please visit:
-https://github.com/nadavshemesh/silver-reversing-sct */
+/*
+* This file was auto-generated using 'silver-reverse-sct' tool
+* to fully understand the scripts presented, one is encouraged to
+* view the catalogs at: 
+* https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
+*
+* Any further information and support of this project please visit:
+* https://github.com/nadavshemesh/silver-reversing-sct 
+*/
 
 
 ._DATA
@@ -172,12 +175,12 @@ switch(var VAR_24)
 			if(var VAR_25 == int 20)
 			 {
 					call char_walk_to(var npc_skel, int 113, int -2275, int 7465)
-					if(call is_char_handle_in_level(int 8126464))
+					if(call is_char_handle_in_level(int 8126464 /* SKEL */ ))
 					 {
 							call func_46(var skel1, int 13)
 							call set_char_running(var skel1)
 					}
-					if(call is_char_handle_in_level(int 8126465))
+					if(call is_char_handle_in_level(int 8126465 /* SKEL */ ))
 					 {
 							call func_46(var skel2, int 13)
 							call set_char_running(var skel2)
@@ -185,7 +188,7 @@ switch(var VAR_24)
 			}
 			if(var VAR_25 == int 50)
 			 {
-					if(call is_char_handle_in_level(int 8126464))
+					if(call is_char_handle_in_level(int 8126464 /* SKEL */ ))
 					 {
 							call char_walk_to(var skel1, int 813, int -2275, int 7433)
 					}
@@ -196,7 +199,7 @@ switch(var VAR_24)
 					var VAR_24 ++ 
 					var VAR_7 = int 1
 					var VAR_37 = var npc_skel
-					if(call is_char_handle_in_level(int 8126465))
+					if(call is_char_handle_in_level(int 8126465 /* SKEL */ ))
 					 {
 							call char_walk_to(var skel2, int 303, int -2075, int 7151)
 					}
@@ -210,7 +213,7 @@ switch(var VAR_24)
 			var VAR_25 ++ 
 			if(var VAR_25 > int 180)
 			 {
-					if(call is_char_handle_in_level(int 8126467))
+					if(call is_char_handle_in_level(int 8126467 /* SKEL */ ))
 					 {
 							call char_walk_to(var skel, int 606, int -2275, int 7745)
 					}
@@ -325,7 +328,7 @@ call load_char("skel")
 var rchp90a_anim = call load_anim("rchp90a")
 var rpunchr_anim = call load_anim("rpunchr")
 var lookout_anim = call load_anim("lookout")
-var npc_skel = call create_char(var &VAR_39, "nskel", int 90, int 13)
+var npc_skel = call create_char(var &VAR_39, "nskel" /* nskel */ , int 90, int 13)
 call set_char_running(var npc_skel)
 gamevar script_object = var npc_skel
 gamevar *object_p+6 |= int 8388608

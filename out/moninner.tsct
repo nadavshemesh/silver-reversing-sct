@@ -1,9 +1,12 @@
-/* This file was auto-generated using 'silver-reverse-sct' tool 
-to fully understand the scripts presented, one is encouraged to
-check the catalogs at: 
-https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
-for further information and support of this project please visit:
-https://github.com/nadavshemesh/silver-reversing-sct */
+/*
+* This file was auto-generated using 'silver-reverse-sct' tool
+* to fully understand the scripts presented, one is encouraged to
+* view the catalogs at: 
+* https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
+*
+* Any further information and support of this project please visit:
+* https://github.com/nadavshemesh/silver-reversing-sct 
+*/
 
 
 ._DATA
@@ -14,8 +17,6 @@ VAR_15	{ 126, -15, -3162 }
 VAR_39	{ -233, 61, -3328 }	
 VAR_40	{ -558, -394, -2491 }	
 VAR_41	{ -258, -394, -2491 }	
-VAR_42	{ 77, -394, -2491 }	
-VAR_43	{ 77, -394, -2825 }	
 VAR_44	{ -258, -394, -2825 }	
 VAR_45	{ -558, -394, -2825 }	
 VAR_47	0	
@@ -328,8 +329,8 @@ gamevar script_object = var mystmonk
 gamevar *object_p+6 |= int 8388608
 var fastmonk = call create_enemy(int 75, int 1, var &VAR_40, int 180)
 var fastmonk1 = call create_enemy(int 75, int 2, var &VAR_41, int 180)
-var fastmonk2 = call create_enemy(int 75, int 3, var &VAR_42, int 180)
-var fastmonk3 = call create_enemy(int 75, int 4, var &VAR_43, int 180)
+var fastmonk2 = call create_enemy(int 75, int 3, "M", int 180)
+var fastmonk3 = call create_enemy(int 75, int 4, "M", int 180)
 var fastmonk4 = call create_enemy(int 75, int 5, var &VAR_44, int 180)
 var fastmonk5 = call create_enemy(int 75, int 6, var &VAR_45, int 180)
 call add_item_to_char(var mystmonk, int 27, int 1, int 0)
@@ -392,7 +393,7 @@ if(gamevar script_time > var VAR_85)
 var is_BTREASURE_exist = call is_char_handle_in_level(int 1507337)
 if(var ! is_BTREASURE_exist)
  {
-		var is_BTREASURE_exist = call create_char(var VAR_1, "btreasure9", var VAR_2, int 14)
+		var is_BTREASURE_exist = call create_char(var VAR_1, "btreasure9" /* btreasure9 */ , var VAR_2, int 14)
 		call func_aa(var is_BTREASURE_exist)
 }
 else

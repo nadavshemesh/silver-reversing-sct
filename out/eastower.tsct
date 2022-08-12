@@ -1,9 +1,12 @@
-/* This file was auto-generated using 'silver-reverse-sct' tool 
-to fully understand the scripts presented, one is encouraged to
-check the catalogs at: 
-https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
-for further information and support of this project please visit:
-https://github.com/nadavshemesh/silver-reversing-sct */
+/*
+* This file was auto-generated using 'silver-reverse-sct' tool
+* to fully understand the scripts presented, one is encouraged to
+* view the catalogs at: 
+* https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
+*
+* Any further information and support of this project please visit:
+* https://github.com/nadavshemesh/silver-reversing-sct 
+*/
 
 
 ._DATA
@@ -150,14 +153,14 @@ switch(var VAR_46)
 }
 
 ._SCRIPT_7
-var nyelimp = call create_char(var &VAR_52, "nyelimp", int -30, int 13)
+var nyelimp = call create_char(var &VAR_52, "nyelimp" /* nyelimp */ , int -30, int 13)
 gamevar script_object = var nyelimp
 gamevar *character_movement_p+60 = int 1
 gamevar script_object = var nyelimp
 gamevar *object_p+7 |= int 8388608
-var startle_anim = call load_anim("startle")
-var DAVID = call get_char_handle(int 65536)
-var GRANDAD = call get_char_handle(int 393216)
+var startle_anim = call load_anim("startle" /* startle */ )
+var DAVID = call get_char_handle(int 65536 /* DAVID */ )
+var GRANDAD = call get_char_handle(int 393216 /* GRANDAD */ )
 call func_108("ARSE")
 call load_char("imp")
 
@@ -169,7 +172,7 @@ call func_108("ARSE")
 ._SCRIPT_10
 
 ._SCRIPT_11
-if(call ! is_char_handle_in_level(int 6291456))
+if(call ! is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
  {
 		exit_script 
 }
@@ -177,12 +180,12 @@ else
  {
 		if(var fade_chronicler == int 0)
 		 {
-				var fade_chronicler = call get_char_handle(int 6291456)
+				var fade_chronicler = call get_char_handle(int 6291456 /* CHRONICL */ )
 		}
 }
 
 ._SCRIPT_12
-if(call ! is_char_handle_in_level(int 6291456))
+if(call ! is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
  {
 		exit_script 
 }
@@ -190,7 +193,7 @@ else
  {
 		if(var fade_chronicler == int 0)
 		 {
-				var fade_chronicler = call get_char_handle(int 6291456)
+				var fade_chronicler = call get_char_handle(int 6291456 /* CHRONICL */ )
 		}
 }
 if(var VAR_25 != var VAR_19)
@@ -301,11 +304,11 @@ switch(var VAR_19)
 var VAR_20 ++ 
 
 ._SCRIPT_13
-if(call is_char_handle_in_level(int 6291456))
+if(call is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
  {
 		if(var fade_chronicler == int 0)
 		 {
-				var fade_chronicler = call get_char_handle(int 6291456)
+				var fade_chronicler = call get_char_handle(int 6291456 /* CHRONICL */ )
 		}
 		call func_34(var fade_chronicler)
 }

@@ -1,9 +1,12 @@
-/* This file was auto-generated using 'silver-reverse-sct' tool 
-to fully understand the scripts presented, one is encouraged to
-check the catalogs at: 
-https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
-for further information and support of this project please visit:
-https://github.com/nadavshemesh/silver-reversing-sct */
+/*
+* This file was auto-generated using 'silver-reverse-sct' tool
+* to fully understand the scripts presented, one is encouraged to
+* view the catalogs at: 
+* https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
+*
+* Any further information and support of this project please visit:
+* https://github.com/nadavshemesh/silver-reversing-sct 
+*/
 
 
 ._DATA
@@ -100,7 +103,7 @@ switch(var VAR_24)
 			var VAR_25 = int 0
 			break 
 		case 1
-			if(call is_char_handle_in_level(int 6881280))
+			if(call is_char_handle_in_level(int 6881280 /* RCAPTAIN */ ))
 			 {
 					if(call is_char_standing(var captain))
 					 {
@@ -113,7 +116,7 @@ switch(var VAR_24)
 		case 2
 			if(call func_ab(int 660, var &VAR_27))
 			 {
-					if(call is_char_handle_in_level(int 6881280))
+					if(call is_char_handle_in_level(int 6881280 /* RCAPTAIN */ ))
 					 {
 							call func_36(var captain, int 3397, int -1016, int -1045)
 					}
@@ -125,7 +128,7 @@ switch(var VAR_24)
 			var VAR_25 ++ 
 			if(var VAR_25 > int 5)
 			 {
-					if(call is_char_handle_in_level(int 6881280))
+					if(call is_char_handle_in_level(int 6881280 /* RCAPTAIN */ ))
 					 {
 							call play_char_anim(var captain, var conjure_anim, int 0)
 							var VAR_24 ++ 
@@ -138,7 +141,7 @@ switch(var VAR_24)
 			}
 			break 
 		case 4
-			if(call is_char_handle_in_level(int 6881280))
+			if(call is_char_handle_in_level(int 6881280 /* RCAPTAIN */ ))
 			 {
 					if(call func_5c(var captain))
 					 {
@@ -160,7 +163,7 @@ switch(var VAR_24)
 			var VAR_25 ++ 
 			if(var VAR_25 > int 80)
 			 {
-					if(call is_char_handle_in_level(int 6881280))
+					if(call is_char_handle_in_level(int 6881280 /* RCAPTAIN */ ))
 					 {
 							call func_106(var captain, int 1, int 0, int 1)
 							call func_104(var captain, int 1, int 4)
@@ -182,7 +185,7 @@ if(call func_6f() == int 1)
 }
 else
  {
-		var captain = call create_enemy_through_door(int 14, int 0, int 1, int 350)
+		var captain = call create_enemy_through_door(int 14 /* captain */ , int 0, int 1, int 350)
 }
 call freeze_enemy(var captain)
 call set_char_running(var captain)

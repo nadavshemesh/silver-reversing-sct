@@ -1,9 +1,12 @@
-/* This file was auto-generated using 'silver-reverse-sct' tool 
-to fully understand the scripts presented, one is encouraged to
-check the catalogs at: 
-https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
-for further information and support of this project please visit:
-https://github.com/nadavshemesh/silver-reversing-sct */
+/*
+* This file was auto-generated using 'silver-reverse-sct' tool
+* to fully understand the scripts presented, one is encouraged to
+* view the catalogs at: 
+* https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
+*
+* Any further information and support of this project please visit:
+* https://github.com/nadavshemesh/silver-reversing-sct 
+*/
 
 
 ._DATA
@@ -21,7 +24,6 @@ VAR_15	{ -2937, 2859, -2495 }
 VAR_16	{ -2767, 2859, -2772 }	
 VAR_17	{ VAR_14, VAR_15, VAR_16, VAR_16 }	
 VAR_18	{ 35, 44, 39, 0 }	
-VAR_24	{ -2397, 2859, -1679, -1806, 2859, -2737 }	
 VAR_25	{ 46, 2859, 496 }	
 VAR_26	{ -2829, 2860, -2667 }	
 VAR_27	{ -15, 2861, -1165 }	
@@ -30,7 +32,6 @@ VAR_29	{ 46, 2859, 496, -220, 3693, -1940, -17, 2861, -1155, -2798, 2860, -2637 
 VAR_33	{ 0, 0 }	
 VAR_37	{ 0, 0, 0 }	
 VAR_38	-1	
-VAR_42	{ -680, -1465, 1090, 0 }	
 VAR_54	"Y2E!"	
 VAR_55	{ -997105664, 1160929280, -991141888 }	
 VAR_56	"D2E"	
@@ -150,7 +151,7 @@ switch(var VAR_21)
 			}
 			break 
 		case 3
-			if(call func_8a(var &VAR_24))
+			if(call func_8a("£öÿÿ+"))
 			 {
 					var beholder_red1 = call create_enemy(int 154, int 1, var &VAR_25, int 235)
 					call func_106(var beholder_red1, int 9, int 5, var &VAR_28)
@@ -161,7 +162,7 @@ switch(var VAR_21)
 					gamevar *character_stats_p+16 = int 4000
 					call add_item_to_char(var beholder_red1, int 76, int 0, int 0)
 					call func_3a(var beholder_red1)
-					var beholder_red1 = call create_enemy(int 154, int 1, var &VAR_27, int 298)
+					var beholder_red1 = call create_enemy(int 154 /* beholder_red1 */ , int 1, var &VAR_27, int 298)
 					call func_106(var beholder_red1, int 9, int 5, var &VAR_28)
 					call func_106(var beholder_red1, int 9, int 6, int 3)
 					gamevar script_object = var beholder_red1
@@ -177,7 +178,7 @@ switch(var VAR_21)
 		case 4
 			if(call get_num_of_enemies() == int 0)
 			 {
-					var beholder_red1 = call create_enemy(int 155, int 2, var &VAR_26, int 45)
+					var beholder_red1 = call create_enemy(int 155 /* beholder_purple */ , int 2, var &VAR_26, int 45)
 					call func_106(var beholder_red1, int 9, int 5, var &VAR_28)
 					call func_106(var beholder_red1, int 9, int 6, int 3)
 					call func_106(var beholder_red1, int 2, int 1, var &VAR_29)
@@ -272,7 +273,7 @@ switch(var VAR_30)
 			if(var VAR_39 > int 60)
 			 {
 					var VAR_41 = call func_82("deadgate", "boneyard")
-					call func_e6("deadgate", "boneyard", var &VAR_42, var VAR_41)
+					call func_e6("deadgate", "boneyard", "XıÿÿGúÿÿB", var VAR_41)
 					var VAR_30 ++ 
 					var VAR_39 = int 0
 			}

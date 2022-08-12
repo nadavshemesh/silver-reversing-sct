@@ -1,13 +1,15 @@
-/* This file was auto-generated using 'silver-reverse-sct' tool 
-to fully understand the scripts presented, one is encouraged to
-check the catalogs at: 
-https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
-for further information and support of this project please visit:
-https://github.com/nadavshemesh/silver-reversing-sct */
+/*
+* This file was auto-generated using 'silver-reverse-sct' tool
+* to fully understand the scripts presented, one is encouraged to
+* view the catalogs at: 
+* https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
+*
+* Any further information and support of this project please visit:
+* https://github.com/nadavshemesh/silver-reversing-sct 
+*/
 
 
 ._DATA
-VAR_0	{ 5197383, 0 }	
 VAR_2	{ -2813, -996, 5953 }	
 VAR_4	{ -2575, -996, 5960 }	
 VAR_6	{ -2680, -996, 5806 }	
@@ -27,7 +29,7 @@ VAR_27	{ 15, 0, -5950, -997, 5244, 8 }
 VAR_28	-1	
 
 ._on_load
-call play_bgm(var &VAR_0)
+call play_bgm("GNO")
 call load_sound_set(int 62)
 call load_sound_set(int 63)
 call play_loaded_sound(int 1, int -1, int 63, int 0)
@@ -173,15 +175,15 @@ switch(var VAR_20)
 			if(call get_num_of_enemies() < int 2)
 			 {
 					var VAR_21 = int 0
-					if(call is_char_handle_in_level(int 917505))
+					if(call is_char_handle_in_level(int 917505 /* IMP */ ))
 					 {
 							var VAR_21 = var devious_imp
 					}
-					if(call is_char_handle_in_level(int 917506))
+					if(call is_char_handle_in_level(int 917506 /* IMP */ ))
 					 {
 							var VAR_21 = var devious_imp1
 					}
-					if(call is_char_handle_in_level(int 917507))
+					if(call is_char_handle_in_level(int 917507 /* IMP */ ))
 					 {
 							var VAR_21 = var devious_imp2
 					}

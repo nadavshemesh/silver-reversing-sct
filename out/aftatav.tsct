@@ -1,9 +1,12 @@
-/* This file was auto-generated using 'silver-reverse-sct' tool 
-to fully understand the scripts presented, one is encouraged to
-check the catalogs at: 
-https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
-for further information and support of this project please visit:
-https://github.com/nadavshemesh/silver-reversing-sct */
+/*
+* This file was auto-generated using 'silver-reverse-sct' tool
+* to fully understand the scripts presented, one is encouraged to
+* view the catalogs at: 
+* https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
+*
+* Any further information and support of this project please visit:
+* https://github.com/nadavshemesh/silver-reversing-sct 
+*/
 
 
 ._DATA
@@ -161,7 +164,7 @@ switch(var VAR_1)
 							var VAR_1 = int 2
 					}
 			}
-			if(call is_char_handle_in_level(int 2490368))
+			if(call is_char_handle_in_level(int 2490368 /* MUSCLES */ ))
 			 {
 					if(call func_88(var muscles))
 					 {
@@ -184,7 +187,7 @@ switch(var VAR_1)
 							gamevar script_object = var longjohn
 							gamevar *character_movement_p+60 = int 0
 					}
-					if(call is_char_handle_in_level(int 2490368))
+					if(call is_char_handle_in_level(int 2490368 /* MUSCLES */ ))
 					 {
 							call func_46(var muscles, int 13)
 							gamevar script_object = var muscles
@@ -200,9 +203,9 @@ switch(var VAR_1)
 ._SCRIPT_5
 
 ._SCRIPT_6
-var longjohn = call create_enemy(int 28, int 0, var &VAR_6, int 0)
-var finnegan = call create_enemy(int 32, int 0, var &VAR_9, int 0)
-var muscles = call create_enemy(int 30, int 0, var &VAR_12, int 0)
+var longjohn = call create_enemy(int 28 /* longjohn */ , int 0, var &VAR_6, int 0)
+var finnegan = call create_enemy(int 32 /* finnegan */ , int 0, var &VAR_9, int 0)
+var muscles = call create_enemy(int 30 /* muscles */ , int 0, var &VAR_12, int 0)
 call add_item_to_char(var longjohn, int 85, int 13107713, int 0)
 call add_item_to_char(var finnegan, int 43, int 1, int 0)
 call set_char_init_state(var longjohn, int 13)

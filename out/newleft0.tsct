@@ -1,9 +1,12 @@
-/* This file was auto-generated using 'silver-reverse-sct' tool 
-to fully understand the scripts presented, one is encouraged to
-check the catalogs at: 
-https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
-for further information and support of this project please visit:
-https://github.com/nadavshemesh/silver-reversing-sct */
+/*
+* This file was auto-generated using 'silver-reverse-sct' tool
+* to fully understand the scripts presented, one is encouraged to
+* view the catalogs at: 
+* https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
+*
+* Any further information and support of this project please visit:
+* https://github.com/nadavshemesh/silver-reversing-sct 
+*/
 
 
 ._DATA
@@ -213,7 +216,7 @@ switch(var VAR_48)
 			}
 			break 
 		case 9
-			if(call is_char_handle_in_level(int 6881280))
+			if(call is_char_handle_in_level(int 6881280 /* RCAPTAIN */ ))
 			 {
 					call char_walk_to(var captain, int -134, int 0, int -2344)
 			}
@@ -243,7 +246,7 @@ switch(var VAR_48)
 		case 10
 			if(var VAR_49 > int 10)
 			 {
-					if(call is_char_handle_in_level(int 6881280))
+					if(call is_char_handle_in_level(int 6881280 /* RCAPTAIN */ ))
 					 {
 							call set_char_init_state(var captain, int 0)
 					}
@@ -274,7 +277,7 @@ switch(var VAR_48)
 		case 11
 			if(var ! VAR_58)
 			 {
-					if(call is_char_handle_in_level(int 6881280))
+					if(call is_char_handle_in_level(int 6881280 /* RCAPTAIN */ ))
 					 {
 							if(call is_char_standing(var captain))
 							 {
@@ -364,7 +367,7 @@ switch(var VAR_48)
 							@VAR_58[var VAR_64]= int 0
 							var VAR_64 ++ 
 					}
-					if(call is_char_handle_in_level(int 6881280))
+					if(call is_char_handle_in_level(int 6881280 /* RCAPTAIN */ ))
 					 {
 							call char_walk_to(var captain, int -4681, int 0, int -4057)
 					}
@@ -405,7 +408,7 @@ switch(var VAR_48)
 			 {
 					if(var ! VAR_58)
 					 {
-							if(call is_char_handle_in_level(int 6881280))
+							if(call is_char_handle_in_level(int 6881280 /* RCAPTAIN */ ))
 							 {
 									if(call is_char_standing(var captain))
 									 {
@@ -556,7 +559,7 @@ gamevar *character_stats_p+16 = int 800
 var tyrosumn_anim = call load_anim("tyrosumn")
 
 ._SCRIPT_6
-if(call is_char_handle_in_level(int 6881280))
+if(call is_char_handle_in_level(int 6881280 /* RCAPTAIN */ ))
  {
 		if(call func_88(var captain))
 		 {
@@ -606,7 +609,7 @@ if(call is_char_handle_in_level(int 7143428))
 }
 
 ._SCRIPT_7
-if(call is_char_handle_in_level(int 6881280))
+if(call is_char_handle_in_level(int 6881280 /* RCAPTAIN */ ))
  {
 		call set_char_template(var captain, int 14)
 		call func_106(var captain, int 1, int 0, int 1)
@@ -838,7 +841,7 @@ var VAR_14 ++
 var is_BTREASURE_exist = call is_char_handle_in_level(int 1507337)
 if(var ! is_BTREASURE_exist)
  {
-		var is_BTREASURE_exist = call create_char(var VAR_19, "btreasure9", var VAR_20, int 14)
+		var is_BTREASURE_exist = call create_char(var VAR_19, "btreasure9" /* btreasure9 */ , var VAR_20, int 14)
 		call func_aa(var is_BTREASURE_exist)
 }
 else

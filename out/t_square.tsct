@@ -1,17 +1,19 @@
-/* This file was auto-generated using 'silver-reverse-sct' tool 
-to fully understand the scripts presented, one is encouraged to
-check the catalogs at: 
-https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
-for further information and support of this project please visit:
-https://github.com/nadavshemesh/silver-reversing-sct */
+/*
+* This file was auto-generated using 'silver-reverse-sct' tool
+* to fully understand the scripts presented, one is encouraged to
+* view the catalogs at: 
+* https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
+*
+* Any further information and support of this project please visit:
+* https://github.com/nadavshemesh/silver-reversing-sct 
+*/
 
 
 ._DATA
 VAR_17	{ 0, 0 }	
 VAR_22	{ -2075, 2025, 4625 }	
 VAR_23	{ 800, 2025, -4025 }	
-VAR_24	{ 1313423698, -1431655936, 0, 0 }	
-SEKUNE	{ 0, 0 }	
+SEKUNE3	{ 0, 0 }	
 VAR_37	{ 366, 0, -272 }	
 VAR_38	{ 514, 0, -714 }	
 VAR_39	{ -178, 0, -578 }	
@@ -89,7 +91,7 @@ if(gamevar !is_room_cleared)
 
 ._SCRIPT_3
 call log("it's_raining")
-call play_3d_fx(var &VAR_24, var &VAR_22, var &VAR_23, int 0)
+call play_3d_fx("RAIN", var &VAR_22, var &VAR_23, int 0)
 execute SCRIPT_10
 
 ._SCRIPT_4
@@ -128,7 +130,7 @@ switch(var VAR_25)
 			if(call func_ab(int 2500, var &VAR_42))
 			 {
 					call log("next_step")
-					if(call is_char_handle_in_level(int 6881280))
+					if(call is_char_handle_in_level(int 6881280 /* RCAPTAIN */ ))
 					 {
 							gamevar script_object = var captain_knives
 							gamevar *character_stats_p+15 = int 3000
@@ -161,13 +163,13 @@ switch(var VAR_25)
 					 {
 							call func_17(var lieutenant1, var DAVID1)
 					}
-					if(call is_char_handle_in_level(int 7143427)&&call is_char_handle_in_level(int 786432))
+					if(call is_char_handle_in_level(int 7143427)&&call is_char_handle_in_level(int 786432 /* SEKUNE */ ))
 					 {
-							call func_17(var lieutenant2, var SEKUNE)
+							call func_17(var lieutenant2, var SEKUNE3)
 					}
-					if(call is_char_handle_in_level(int 7143428)&&call is_char_handle_in_level(int 786432))
+					if(call is_char_handle_in_level(int 7143428)&&call is_char_handle_in_level(int 786432 /* SEKUNE */ ))
 					 {
-							call func_17(var lieutenant3, var SEKUNE)
+							call func_17(var lieutenant3, var SEKUNE3)
 					}
 					var VAR_25 ++ 
 					var VAR_26 = int 0
@@ -223,7 +225,7 @@ switch(var VAR_25)
 			var VAR_26 ++ 
 			if(var VAR_26 > int 180)
 			 {
-					if(call is_char_handle_in_level(int 6881280))
+					if(call is_char_handle_in_level(int 6881280 /* RCAPTAIN */ ))
 					 {
 							call func_106(var captain_knives, int 1, int 0, int 1)
 							call func_106(var captain_knives, int 1, int 7, int 1)
@@ -263,10 +265,10 @@ switch(var VAR_71)
 			}
 			else
 			 {
-					call set_char_running(var SEKUNE)
+					call set_char_running(var SEKUNE3)
 					call set_char_running(var DAVID)
 					call char_walk_to(var DAVID, int -634, int 0, int 360)
-					call char_walk_to(var SEKUNE, int -325, int 0, int 413)
+					call char_walk_to(var SEKUNE3, int -325, int 0, int 413)
 			}
 			var VAR_71 ++ 
 			break 
@@ -282,10 +284,10 @@ switch(var VAR_71)
 			}
 			else
 			 {
-					if(call is_not_force_scrolling()&&call is_char_standing(var SEKUNE)&&call is_char_standing(var DAVID))
+					if(call is_not_force_scrolling()&&call is_char_standing(var SEKUNE3)&&call is_char_standing(var DAVID))
 					 {
 							call chars_face_opposite(var DAVID, var noldwoman)
-							call chars_face_opposite(var SEKUNE, var noldwoman)
+							call chars_face_opposite(var SEKUNE3, var noldwoman)
 							call start_dialog("SEKVWM", "NULL")
 							var VAR_71 ++ 
 					}
@@ -310,9 +312,9 @@ gamevar script_object = var noldwoman
 gamevar *object_p+6 |= int 8388608
 call func_109(var noldwoman, int 0)
 var DAVID1 = call get_char_handle(int 65536)
-if(call is_char_handle_in_level(int 786432))
+if(call is_char_handle_in_level(int 786432 /* SEKUNE */ ))
  {
-		var SEKUNE = call get_char_handle(int 786432)
+		var SEKUNE3 = call get_char_handle(int 786432)
 }
 call set_char_running(var lieutenant1)
 call set_char_running(var lieutenant2)
@@ -337,7 +339,7 @@ switch(var VAR_27)
 			var VAR_28 ++ 
 			if(var VAR_28 > int 100)
 			 {
-					if(call is_char_handle_in_level(int 6881280))
+					if(call is_char_handle_in_level(int 6881280 /* RCAPTAIN */ ))
 					 {
 							call play_char_anim(var captain_knives, var talkfstb_anim, int 0)
 							var VAR_27 = int 3
@@ -350,7 +352,7 @@ switch(var VAR_27)
 			}
 			break 
 		case 1
-			if(call is_char_handle_in_level(int 6881280))
+			if(call is_char_handle_in_level(int 6881280 /* RCAPTAIN */ ))
 			 {
 					if(call func_5c(var captain_knives))
 					 {
@@ -368,7 +370,7 @@ switch(var VAR_27)
 		case 2
 			if(call func_5c(var noldwoman))
 			 {
-					if(call is_char_handle_in_level(int 6881280))
+					if(call is_char_handle_in_level(int 6881280 /* RCAPTAIN */ ))
 					 {
 							call play_char_anim(var captain_knives, var talkfstb_anim, int 0)
 							var VAR_27 ++ 
@@ -388,7 +390,7 @@ switch(var VAR_27)
 			}
 			if(var ! VAR_64)
 			 {
-					if(call is_char_handle_in_level(int 6881280))
+					if(call is_char_handle_in_level(int 6881280 /* RCAPTAIN */ ))
 					 {
 							if(call func_5c(var captain_knives))
 							 {
@@ -411,7 +413,7 @@ switch(var VAR_27)
 		case 4
 			if(call func_5c(var noldwoman))
 			 {
-					if(call is_char_handle_in_level(int 6881280))
+					if(call is_char_handle_in_level(int 6881280 /* RCAPTAIN */ ))
 					 {
 							call play_char_anim(var captain_knives, var dypunch_anim, int 0)
 							var VAR_27 ++ 
@@ -439,7 +441,7 @@ switch(var VAR_27)
 			}
 			break 
 		case 6
-			if(call is_char_handle_in_level(int 6881280))
+			if(call is_char_handle_in_level(int 6881280 /* RCAPTAIN */ ))
 			 {
 					if(call func_5c(var captain_knives))
 					 {
@@ -462,7 +464,7 @@ switch(var VAR_27)
 			}
 			break 
 		case 7
-			if(call is_char_handle_in_level(int 6881280))
+			if(call is_char_handle_in_level(int 6881280 /* RCAPTAIN */ ))
 			 {
 					if(call func_5c(var captain_knives))
 					 {

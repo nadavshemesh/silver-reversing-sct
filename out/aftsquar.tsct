@@ -1,15 +1,16 @@
-/* This file was auto-generated using 'silver-reverse-sct' tool 
-to fully understand the scripts presented, one is encouraged to
-check the catalogs at: 
-https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
-for further information and support of this project please visit:
-https://github.com/nadavshemesh/silver-reversing-sct */
+/*
+* This file was auto-generated using 'silver-reverse-sct' tool
+* to fully understand the scripts presented, one is encouraged to
+* view the catalogs at: 
+* https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
+*
+* Any further information and support of this project please visit:
+* https://github.com/nadavshemesh/silver-reversing-sct 
+*/
 
 
 ._DATA
 finnegan	0	
-VAR_2	{ 875, -937, -712 }	
-VAR_4	{ 587, -937, -649 }	
 VAR_6	{ 1147, -937, -2656 }	
 VAR_7	{ 7, 8 }	
 VAR_8	{ 9, finnegan, 7, 8 }	
@@ -58,8 +59,8 @@ switch(gamevar room_state)
 }
 
 ._SCRIPT_3
-var finnegan = call create_enemy(int 32, int 0, var &VAR_2, int 295)
-var muscles = call create_enemy(int 30, int 0, var &VAR_4, int 85)
+var finnegan = call create_enemy(int 32, int 0, "k", int 295)
+var muscles = call create_enemy(int 30, int 0, "K", int 85)
 var longjohn = call create_enemy(int 28, int 0, var &VAR_6, int 270)
 call add_item_to_char(var finnegan, int 42, int 1, int 0)
 call play_char_ai_script(var finnegan, var &VAR_7)
@@ -93,7 +94,7 @@ switch(var VAR_0)
 			 {
 					var VAR_75 = int 1
 			}
-			if(call is_char_handle_in_level(int 2490368))
+			if(call is_char_handle_in_level(int 2490368 /* MUSCLES */ ))
 			 {
 					if(call func_88(var muscles))
 					 {
@@ -110,7 +111,7 @@ switch(var VAR_0)
 					 {
 							call func_46(var finnegan, int 13)
 					}
-					if(call is_char_handle_in_level(int 2490368))
+					if(call is_char_handle_in_level(int 2490368 /* MUSCLES */ ))
 					 {
 							call func_46(var muscles, int 13)
 					}
@@ -304,7 +305,7 @@ switch(var VAR_24)
 var VAR_25 ++ 
 
 ._SCRIPT_11
-if(call ! is_char_handle_in_level(int 6291456))
+if(call ! is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
  {
 		exit_script 
 }
@@ -312,12 +313,12 @@ else
  {
 		if(var fade_chronicler == int 0)
 		 {
-				var fade_chronicler = call get_char_handle(int 6291456)
+				var fade_chronicler = call get_char_handle(int 6291456 /* CHRONICL */ )
 		}
 }
 
 ._SCRIPT_12
-if(call ! is_char_handle_in_level(int 6291456))
+if(call ! is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
  {
 		exit_script 
 }
@@ -325,7 +326,7 @@ else
  {
 		if(var fade_chronicler == int 0)
 		 {
-				var fade_chronicler = call get_char_handle(int 6291456)
+				var fade_chronicler = call get_char_handle(int 6291456 /* CHRONICL */ )
 		}
 }
 if(var VAR_52 != var VAR_46)
@@ -436,11 +437,11 @@ switch(var VAR_46)
 var VAR_47 ++ 
 
 ._SCRIPT_13
-if(call is_char_handle_in_level(int 6291456))
+if(call is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
  {
 		if(var fade_chronicler == int 0)
 		 {
-				var fade_chronicler = call get_char_handle(int 6291456)
+				var fade_chronicler = call get_char_handle(int 6291456 /* CHRONICL */ )
 		}
 		call func_34(var fade_chronicler)
 }

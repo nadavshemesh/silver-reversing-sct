@@ -1,14 +1,16 @@
-/* This file was auto-generated using 'silver-reverse-sct' tool 
-to fully understand the scripts presented, one is encouraged to
-check the catalogs at: 
-https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
-for further information and support of this project please visit:
-https://github.com/nadavshemesh/silver-reversing-sct */
+/*
+* This file was auto-generated using 'silver-reverse-sct' tool
+* to fully understand the scripts presented, one is encouraged to
+* view the catalogs at: 
+* https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
+*
+* Any further information and support of this project please visit:
+* https://github.com/nadavshemesh/silver-reversing-sct 
+*/
 
 
 ._DATA
 VAR_5	{ -4690, 1625, 3771 }	
-VAR_6	{ -6790, 1625, 3718 }	
 VAR_7	{ -5730, 1625, 4139 }	
 viking12	{ 0, 0 }	
 VAR_15	{ 0, -4690, 1625, 3771, 0, -6790, 1625, 3718, 7, 8 }	
@@ -16,7 +18,6 @@ VAR_16	{ 0, -6790, 1625, 3718, 0, -4690, 1625, 3771, 7, 8 }
 VAR_17	{ 0, 0, 1, -1, 8, 0, 4, 0, 9, 1, 6, 1, 1, 1, 65, 152, -1, 7, 1, 8, 10, 42, 12, -1, -1 }	
 VAR_18	{ 0, 0, 0, -1, 8, 0, 4, 0, 9, 1, 6, 1, 1, 1, 65, 152, -1, 7, 1, 8, 10, 46, -1, -1 }	
 VAR_19	{ 0, 0, 1, -1, 8, 0, 4, 0, 9, 1, 6, 1, 1, 1, 145, -1, 7, 1, 8, 10, 45, -1, -1 }	
-VAR_24	{ 1952543827, 3350629, 0 }	
 
 ._on_load
 call load_sound_set(int 66)
@@ -148,7 +149,7 @@ if(var VAR_0 == int 3)
 		 {
 				exit_script 
 		}
-		call log(var &VAR_24)
+		call log("State 3")
 		call run_enemy_generator(var &VAR_19, int 10)
 		var VAR_0 = int 4
 		exit_script 
@@ -157,7 +158,7 @@ if(var VAR_0 == int 3)
 ._SCRIPT_5
 call load_char("vikingc")
 var viking1 = call create_enemy(int 152, int 0, var &VAR_5, int 260)
-var viking11 = call create_enemy(int 152, int 1, var &VAR_6, int 85)
+var viking11 = call create_enemy(int 152, int 1, "zåÿÿY", int 85)
 var viking12 = call create_enemy(int 152, int 2, var &VAR_7, int 180)
 var vikingb = call create_enemy(int 65, int 0, "vîÿÿY", int 35)
 var vikingb1 = call create_enemy(int 65, int 1, "wäÿÿY", int 325)

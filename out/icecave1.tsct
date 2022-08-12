@@ -1,9 +1,12 @@
-/* This file was auto-generated using 'silver-reverse-sct' tool 
-to fully understand the scripts presented, one is encouraged to
-check the catalogs at: 
-https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
-for further information and support of this project please visit:
-https://github.com/nadavshemesh/silver-reversing-sct */
+/*
+* This file was auto-generated using 'silver-reverse-sct' tool
+* to fully understand the scripts presented, one is encouraged to
+* view the catalogs at: 
+* https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
+*
+* Any further information and support of this project please visit:
+* https://github.com/nadavshemesh/silver-reversing-sct 
+*/
 
 
 ._DATA
@@ -20,7 +23,6 @@ VAR_9	{ -1394, 30, 3646 }
 VAR_10	{ VAR_0, VAR_1, VAR_2, VAR_3, VAR_4, VAR_5, VAR_6, VAR_7, VAR_8, VAR_9 }	
 VAR_12	{ -4000, 1400, -2800 }	
 VAR_13	{ -170, 1400, -5880 }	
-VAR_16	{ -2765, -941, 4218 }	
 VAR_18	{ -2789, -941, 3341, 2 }	
 VAR_21	{ 1800, -250, 3800 }	
 VAR_22	{ 560, -300, 4000 }	
@@ -104,7 +106,7 @@ if(var VAR_26 == int 1)
  {
 		if(call func_122(var VAR_28) == int 0&&call get_num_of_enemies() < int 3)
 		 {
-				if(call is_char_handle_in_level(int 851968))
+				if(call is_char_handle_in_level(int 851968 /* WYVERN */ ))
 				 {
 						call set_char_init_state(var fwyvern, int 8)
 						call fly_to_pos(var fwyvern, int 0, var &VAR_29)
@@ -125,14 +127,14 @@ if(var VAR_26 == int 2)
 if(var VAR_26 == int 3)
  {
 		var VAR_27 ++ 
-		if(call is_char_handle_in_level(int 851968)&&var VAR_27 > int 10)
+		if(call is_char_handle_in_level(int 851968 /* WYVERN */ )&&var VAR_27 > int 10)
 		 {
 				call func_47(var fwyvern, int 257)
 				call fly_to_pos(var fwyvern, int 0, var &VAR_22)
 				var VAR_26 = var VAR_30
 		}
 }
-if(var VAR_26 == var VAR_30&&call is_char_handle_in_level(int 851968))
+if(var VAR_26 == var VAR_30&&call is_char_handle_in_level(int 851968 /* WYVERN */ ))
  {
 		if(call is_char_standing(var fwyvern))
 		 {
@@ -141,7 +143,7 @@ if(var VAR_26 == var VAR_30&&call is_char_handle_in_level(int 851968))
 				var VAR_26 = var VAR_31
 		}
 }
-if(var VAR_26 == var VAR_31&&call is_char_handle_in_level(int 851968))
+if(var VAR_26 == var VAR_31&&call is_char_handle_in_level(int 851968 /* WYVERN */ ))
  {
 		if(call is_char_standing(var fwyvern))
 		 {
@@ -151,7 +153,7 @@ if(var VAR_26 == var VAR_31&&call is_char_handle_in_level(int 851968))
 }
 
 ._SCRIPT_6
-var wamper = call create_enemy(int 6, int 1, var &VAR_16, int 100)
+var wamper = call create_enemy(int 6, int 1, "3õÿÿSüÿÿz", int 100)
 var wamper1 = call create_enemy(int 6, int 2, var &VAR_18, int 60)
 call load_char("wamper")
 var fwyvern = call create_char(var &VAR_21, "fwyvern", int 30, int 16)

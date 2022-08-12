@@ -1,9 +1,12 @@
-/* This file was auto-generated using 'silver-reverse-sct' tool 
-to fully understand the scripts presented, one is encouraged to
-check the catalogs at: 
-https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
-for further information and support of this project please visit:
-https://github.com/nadavshemesh/silver-reversing-sct */
+/*
+* This file was auto-generated using 'silver-reverse-sct' tool
+* to fully understand the scripts presented, one is encouraged to
+* view the catalogs at: 
+* https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
+*
+* Any further information and support of this project please visit:
+* https://github.com/nadavshemesh/silver-reversing-sct 
+*/
 
 
 ._DATA
@@ -14,7 +17,6 @@ VAR_11	{ 0, 0, 0 }
 VAR_12	{ 0, 1 }	
 VAR_17	{ -2236, -1790, -2555, -262, -1790, -2330 }	
 VAR_18	{ -2253, -1790, -164, -1050, -1790, -95 }	
-VAR_19	{ 1953066569, 1769108512, 1919248231, 1852799520, -1442811035, 2, 0 }	
 VAR_20	{ -760, -1789, 760 }	
 VAR_21	{ -1739, -1789, 1603 }	
 VAR_24	{ -576, -1790, -3422, -402, -1790, -3990, -652, -1790, -4398, -1066, -1790, -3602, -1418, -1790, -3068, -909, -1790, -3091, -969, -1790, -907, -883, -1790, -1493, -1434, -1790, -816, -1526, -1790, -1361, -1995, -1790, -804, -1908, -1790, -1487 }	
@@ -81,14 +83,14 @@ if(gamevar !is_room_cleared)
 					}
 					else
 					 {
-							if(call is_char_handle_in_level(int 1507328))
+							if(call is_char_handle_in_level(int 1507328 /* BTREASURE */ ))
 							 {
 									if(var btreasure)
 									 {
 											call remove_char(var btreasure)
 									}
 							}
-							if(call is_char_handle_in_level(int 1507330))
+							if(call is_char_handle_in_level(int 1507330 /* BTREASURE */ ))
 							 {
 									if(var btreasure2)
 									 {
@@ -118,7 +120,7 @@ var VAR_7 = call func_7e()
 var VAR_8 = call func_7e()
 var VAR_9 = call func_7e()
 execute SCRIPT_9
-call log(var &VAR_19)
+call log("Init trigger zones")
 
 ._SCRIPT_5
 if(gamevar script_time > var VAR_45)

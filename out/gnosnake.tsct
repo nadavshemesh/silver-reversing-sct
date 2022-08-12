@@ -1,9 +1,12 @@
-/* This file was auto-generated using 'silver-reverse-sct' tool 
-to fully understand the scripts presented, one is encouraged to
-check the catalogs at: 
-https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
-for further information and support of this project please visit:
-https://github.com/nadavshemesh/silver-reversing-sct */
+/*
+* This file was auto-generated using 'silver-reverse-sct' tool
+* to fully understand the scripts presented, one is encouraged to
+* view the catalogs at: 
+* https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
+*
+* Any further information and support of this project please visit:
+* https://github.com/nadavshemesh/silver-reversing-sct 
+*/
 
 
 ._DATA
@@ -12,12 +15,10 @@ VAR_23	-1
 VAR_39	{ -6087, 204, -7451 }	
 temper_anim	{ 0, 0 }	
 VAR_52	{ -6048, 204, -7317 }	
-VAR_60	{ -6048, 334, -7317 }	
 VAR_65	{ -5437, 204, -7663 }	
 VAR_66	{ -6316, 204, -7009 }	
 VAR_69	{ 0, 0 }	
 VAR_70	{ -5018, 204, -7277 }	
-VAR_75	{ -6048, 334, -7317 }	
 VAR_76	{ -5322, 202, -7869, -5340, 199, -6716 }	
 VAR_77	-1	
 
@@ -93,10 +94,10 @@ var startle_anim = call load_anim("startle")
 var temper_anim = call load_anim("temper")
 var hitface_anim = call load_anim("hitface")
 var stan180c_anim = call load_anim("stan180c")
-var neutral_imp = call create_enemy(int 102, int 1, var &VAR_60, int 45)
+var neutral_imp = call create_enemy(int 102, int 1, "`èÿÿN", int 45)
 call func_10f(var neutral_imp, int 2)
 call freeze_enemy(var neutral_imp)
-var DAVID = call get_char_handle(int 65536)
+var DAVID = call get_char_handle(int 65536 /* DAVID */ )
 call func_10f(var DAVID, int 0)
 call load_char("chronicl")
 call set_input_system(int 2)
@@ -104,7 +105,7 @@ call set_input_system(int 2)
 ._SCRIPT_5
 execute SCRIPT_7
 execute SCRIPT_6
-if(call is_char_handle_in_level(int 917505))
+if(call is_char_handle_in_level(int 917505 /* IMP */ ))
  {
 		execute SCRIPT_8
 }
@@ -305,9 +306,9 @@ if(var VAR_77 != var VAR_73)
 }
 if(var VAR_73 == int 0)
  {
-		if(call is_char_at_pos(var DAVID, var &VAR_75, int 800)||call func_d1(var &VAR_76))
+		if(call is_char_at_pos(var DAVID, "`èÿÿN", int 800)||call func_d1(var &VAR_76))
 		 {
-				if(call is_char_handle_in_level(int 917505))
+				if(call is_char_handle_in_level(int 917505 /* IMP */ ))
 				 {
 						call func_29(var neutral_imp)
 						var VAR_73 ++ 
@@ -323,7 +324,7 @@ if(var VAR_73 == int 1)
  {
 		if(var VAR_74 > int 120)
 		 {
-				if(call is_char_handle_in_level(int 917505))
+				if(call is_char_handle_in_level(int 917505 /* IMP */ ))
 				 {
 						call set_char_template(var neutral_imp, int 102)
 						call char_walk_to_pos(var neutral_imp, call get_char_pos(var DAVID))
@@ -339,7 +340,7 @@ var VAR_74 ++
 ._SCRIPT_10
 
 ._SCRIPT_11
-if(call ! is_char_handle_in_level(int 6291456))
+if(call ! is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
  {
 		exit_script 
 }
@@ -347,12 +348,12 @@ else
  {
 		if(var fade_chronicler == int 0)
 		 {
-				var fade_chronicler = call get_char_handle(int 6291456)
+				var fade_chronicler = call get_char_handle(int 6291456 /* CHRONICL */ )
 		}
 }
 
 ._SCRIPT_12
-if(call ! is_char_handle_in_level(int 6291456))
+if(call ! is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
  {
 		exit_script 
 }
@@ -360,7 +361,7 @@ else
  {
 		if(var fade_chronicler == int 0)
 		 {
-				var fade_chronicler = call get_char_handle(int 6291456)
+				var fade_chronicler = call get_char_handle(int 6291456 /* CHRONICL */ )
 		}
 }
 if(var VAR_23 != var VAR_17)
@@ -471,11 +472,11 @@ switch(var VAR_17)
 var VAR_18 ++ 
 
 ._SCRIPT_13
-if(call is_char_handle_in_level(int 6291456))
+if(call is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
  {
 		if(var fade_chronicler == int 0)
 		 {
-				var fade_chronicler = call get_char_handle(int 6291456)
+				var fade_chronicler = call get_char_handle(int 6291456 /* CHRONICL */ )
 		}
 		call func_34(var fade_chronicler)
 }

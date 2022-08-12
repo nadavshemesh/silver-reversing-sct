@@ -1,9 +1,12 @@
-/* This file was auto-generated using 'silver-reverse-sct' tool 
-to fully understand the scripts presented, one is encouraged to
-check the catalogs at: 
-https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
-for further information and support of this project please visit:
-https://github.com/nadavshemesh/silver-reversing-sct */
+/*
+* This file was auto-generated using 'silver-reverse-sct' tool
+* to fully understand the scripts presented, one is encouraged to
+* view the catalogs at: 
+* https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
+*
+* Any further information and support of this project please visit:
+* https://github.com/nadavshemesh/silver-reversing-sct 
+*/
 
 
 ._DATA
@@ -17,7 +20,6 @@ VAR_16	{ -235, -1183, 3600 }
 VAR_17	{ 43, -1183, 3468 }	
 VAR_29	{ -986611712, -996933632, -1019543552 }	
 VAR_37	{ 0, 0, 0, 0, 1, 1, 1, -1, 8, 1, 4, 0, 9, 0, 1, 16, 100, 103, 103, 103, -1, 2, 1, 3, 1, 5, 0, 50, 6, 1, 7, 1, 4, -1, 0, 0 }	
-VAR_39	{ -1694, -1183, 3448 }	
 VAR_40	{ 233, -1130, 3763 }	
 VAR_41	{ 560, -78, 3970 }	
 VAR_42	{ -1572, -1183, 2232 }	
@@ -320,7 +322,7 @@ call freeze_enemy(var neutral_imp1)
 call freeze_enemy(var neutral_imp2)
 
 ._SCRIPT_8
-if(call is_char_handle_in_level(int 2031616))
+if(call is_char_handle_in_level(int 2031616 /* TYRONIS */ ))
  {
 		execute SCRIPT_10
 }
@@ -381,7 +383,7 @@ switch(var VAR_36)
 					call char_walk_to(var neutral_imp1, int -2581, int -1183, int 2406)
 					call char_walk_to(var neutral_imp2, int -1467, int -1183, int 1955)
 					call func_f7(var VAR_23, int 2)
-					if(call is_char_handle_in_level(int 917505))
+					if(call is_char_handle_in_level(int 917505 /* IMP */ ))
 					 {
 							call log("fire at imp1")
 							call func_1e(var ntyronis, var neutral_imp)
@@ -393,7 +395,7 @@ switch(var VAR_36)
 		case 5
 			if(var VAR_37 > int 100)
 			 {
-					if(call is_char_handle_in_level(int 917507))
+					if(call is_char_handle_in_level(int 917507 /* IMP */ ))
 					 {
 							call log("fire at imp3")
 							call func_1e(var ntyronis, var neutral_imp2)
@@ -405,7 +407,7 @@ switch(var VAR_36)
 		case 6
 			if(var VAR_37 > int 100)
 			 {
-					if(call is_char_handle_in_level(int 917506))
+					if(call is_char_handle_in_level(int 917506 /* IMP */ ))
 					 {
 							call log("fire at imp2")
 							call func_1e(var ntyronis, var neutral_imp1)
@@ -467,7 +469,7 @@ switch(var VAR_36)
 			if(call get_input_sys() != int 4)
 			 {
 					call func_10c(var GRANDAD, int 0)
-					call char_walk_to_pos(var ntyronis, var &VAR_39)
+					call char_walk_to_pos(var ntyronis, "bùÿÿaûÿÿx")
 					var VAR_36 ++ 
 					var VAR_37 = int 0
 			}
@@ -732,7 +734,7 @@ if(var VAR_58 == int 17)
 }
 
 ._SCRIPT_13
-var DAVID = call get_char_handle(int 65536)
+var DAVID = call get_char_handle(int 65536 /* DAVID */ )
 execute SCRIPT_5
 var VAR_60 = call func_92(int 1, "nduke", int 182, int 13)
 var VAR_61 = call func_92(int 1, "ntyronis", int 44, int 13)
@@ -750,7 +752,7 @@ var talkslow_anim = call load_anim("talkslow")
 var is_BTREASURE_exist = call is_char_handle_in_level(int 1507337)
 if(var ! is_BTREASURE_exist)
  {
-		var is_BTREASURE_exist = call create_char(var VAR_1, "btreasure9", var VAR_2, int 14)
+		var is_BTREASURE_exist = call create_char(var VAR_1, "btreasure9" /* btreasure9 */ , var VAR_2, int 14)
 		call func_aa(var is_BTREASURE_exist)
 }
 else

@@ -1,9 +1,12 @@
-/* This file was auto-generated using 'silver-reverse-sct' tool 
-to fully understand the scripts presented, one is encouraged to
-check the catalogs at: 
-https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
-for further information and support of this project please visit:
-https://github.com/nadavshemesh/silver-reversing-sct */
+/*
+* This file was auto-generated using 'silver-reverse-sct' tool
+* to fully understand the scripts presented, one is encouraged to
+* view the catalogs at: 
+* https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
+*
+* Any further information and support of this project please visit:
+* https://github.com/nadavshemesh/silver-reversing-sct 
+*/
 
 
 ._DATA
@@ -168,7 +171,7 @@ switch(var VAR_74)
 			}
 			break 
 		case 2
-			if(call ! is_char_handle_in_level(int 8060931)&&call func_9(var VAR_80))
+			if(call ! is_char_handle_in_level(int 8060931 /* GROAD */ )&&call func_9(var VAR_80))
 			 {
 					call set_input_system(int 2)
 					call func_1(var nduke, int 8192)
@@ -212,7 +215,7 @@ switch(var VAR_74)
 			if(var VAR_87&&var VAR_88&&var VAR_89)
 			 {
 					call char_turn_to_pos(var nduke, call get_char_pos(var VAR_17))
-					if(call is_char_handle_in_level(int 262144))
+					if(call is_char_handle_in_level(int 262144 /* CAGEN */ ))
 					 {
 							call start_dialog("S_CAGDUK", "NULL")
 					}
@@ -385,7 +388,7 @@ if(gamevar *scene_info_p+4 & int 1)
 		gamevar SMACKER_Y = int 504
 		call play_2d_anim("cells", int 0, int 1, var &VAR_1)
 		execute SCRIPT_15
-		var DAVID = call get_char_handle(int 65536)
+		var DAVID = call get_char_handle(int 65536 /* DAVID */ )
 		if(call create_item(int 62))
 		 {
 				var VAR_4 = int 1
@@ -420,7 +423,7 @@ switch(var VAR_18)
 					 {
 							call set_input_system(int 2)
 							call char_stop(gamevar control_char_p)
-							var DAVID = call get_char_handle(int 65536)
+							var DAVID = call get_char_handle(int 65536 /* DAVID */ )
 							if(gamevar control_char_p != var DAVID)
 							 {
 									call set_char_running(var DAVID)
@@ -531,7 +534,7 @@ switch(var VAR_18)
 			}
 			if(var VAR_26&&var VAR_27&&var VAR_28)
 			 {
-					if(call is_char_handle_in_level(int 131072))
+					if(call is_char_handle_in_level(int 131072 /* CHIARO */ ))
 					 {
 							call start_dialog("C_DVDDUK", "ACT_3")
 					}

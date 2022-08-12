@@ -2,6 +2,7 @@
 
 void init_code_obj(code_obj* c_obj) {
     c_obj->cp = NULL;
+    c_obj->hint_comment = NULL;
     c_obj->bin_vars = NULL;
     c_obj->asm_vars = NULL;
     c_obj->bin_var_num = 0;
@@ -55,6 +56,7 @@ void init_expr_obj(expr_obj* e_obj) {
     e_obj->expression_nodes = NULL;
     e_obj->data = 0;
     e_obj->expression_node_num = 0;
+    e_obj->hint_comment = NULL;
 }
 
 expr_obj* create_and_init_expr_obj() {

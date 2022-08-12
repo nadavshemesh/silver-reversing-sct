@@ -1,16 +1,12 @@
-._DATA
-VAR_18	{ 0, 0, -1 }	
-VAR_23	-1	
-VAR_57	{ 0, 4 }	
-VAR_61	{ -5441, -375, -168 }	
-VAR_62	{ -2253, -1694, -660 }	
-VAR_63	{ -2253, -1684, -59 }	
-VAR_64	0	
-VAR_65	0	
-VAR_66	{ 5, 100, 14, 0, -3293, -1096, -324, 1, VAR_65, 16, VAR_64, 1, 0, -2009, -1694, -343, 8 }	
-VAR_67	{ 15, 28, VAR_68, 5, 0, 5, 30, 0, -5441, -375, -168, 8 }	
-VAR_68	"jenwash"	
-VAR_69	{ 15, 28, VAR_70, 5, 0, 5, 30, 0, -5441, -375, -168, 8 }	
+/* This file was auto-generated using 'silver-reverse-sct' tool 
+to fully understand the scripts presented, one is encouraged to
+check the catalogs at: 
+https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
+for further information and support of this project please visit:
+https://github.com/nadavshemesh/silver-reversing-sct */
+
+
+ 15, 28, VAR_70, 5, 0, 5, 30, 0, -5441, -375, -168, 8 }	
 VAR_70	"jenwash"	
 VAR_79	{ -2530, -1694, 227 }	
 VAR_80	{ 0, 0 }	
@@ -171,7 +167,7 @@ switch(var VAR_75)
 		case 3
 			if(var VAR_76 > int 60)
 			 {
-					call play_char_anim(var DAVID, var VAR_73, int 0)
+					call play_char_anim(var DAVID, var victory_anim, int 0)
 					gamevar script_object = var DAVID
 					var VAR_80 = gamevar LEVEL
 					var VAR_39 = var VAR_80 + int 1
@@ -180,15 +176,15 @@ switch(var VAR_75)
 					call func_134()
 					if(var VAR_53)
 					 {
-							call play_char_anim(var VAR_53, var VAR_73, int 5)
+							call play_char_anim(var VAR_53, var victory_anim, int 5)
 					}
 					if(var VAR_54)
 					 {
-							call play_char_anim(var VAR_54, var VAR_73, int 3)
+							call play_char_anim(var VAR_54, var victory_anim, int 3)
 					}
 					if(var VAR_55)
 					 {
-							call play_char_anim(var VAR_55, var VAR_73, int 0)
+							call play_char_anim(var VAR_55, var victory_anim, int 0)
 					}
 					var VAR_75 ++ 
 					var VAR_76 = int 0
@@ -282,7 +278,7 @@ call play_char_ai_script(var rat_raptor1, var &VAR_69)
 var VAR_65 = call get_selected_hero()
 call set_input_system(int 2)
 call load_char("chronicl")
-var VAR_73 = call load_anim("victory")
+var victory_anim = call load_anim("victory")
 var DAVID = call get_char_handle(int 65536)
 
 ._SCRIPT_5

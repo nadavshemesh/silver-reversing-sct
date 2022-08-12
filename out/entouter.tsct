@@ -1,11 +1,12 @@
-._DATA
-VAR_4	{ 6026, -700, 691 }	
-VAR_5	{ 10, 3990, -600, -6834, 10, 4108, 0, 1174, 10, 2125, 500, 2015, 5, 100, 10, 6610, -700, 86, 5, 100, 7, 8 }	
-VAR_6	{ 10, 2125, 700, 2015, 5, 100, 10, 4043, 300, 1937, 10, 3990, -700, -6834, 10, 5609, -200, 1552, 5, 100, 7, 8 }	
-VAR_9	{ 0, 1 }	
-VAR_17	{ 0, 0, 0 }	
-VAR_18	{ 0, 0, 0 }	
-VAR_19	{ 2671, 3, 677, 5284, -997, -4070 }	
+/* This file was auto-generated using 'silver-reverse-sct' tool 
+to fully understand the scripts presented, one is encouraged to
+check the catalogs at: 
+https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
+for further information and support of this project please visit:
+https://github.com/nadavshemesh/silver-reversing-sct */
+
+
+7, -4070 }	
 VAR_20	{ 2827, 3, 700 }	
 VAR_21	{ 2827, 3, 864 }	
 VAR_22	{ 1, -1 }	
@@ -143,8 +144,8 @@ gamevar SMACKER_X = int 696
 gamevar SMACKER_Y = int 180
 call play_2d_anim("entopen", int -2147483, int 1, var &VAR_18)
 call play_2d_anim("entslams", int 0, int 1, var &VAR_17)
-var VAR_14 = call load_anim("knock")
-var VAR_15 = call load_anim("barge")
+var knock_anim = call load_anim("knock")
+var barge_anim = call load_anim("barge")
 call set_char_running(var DAVID)
 call char_walk_to(var DAVID, int 5362, int -996, int -828)
 call set_char_running(var GRANDAD)
@@ -286,7 +287,7 @@ if(var VAR_9 == int 10)
 				 {
 						call play_loaded_sound(int 11, int 0, int 9, int 0)
 						call func_21(var GRANDAD, var &VAR_19)
-						call play_char_anim(var GRANDAD, var VAR_15, int 0)
+						call play_char_anim(var GRANDAD, var barge_anim, int 0)
 						var VAR_9 = int 11
 				}
 		}
@@ -358,7 +359,7 @@ if(var VAR_9 == int 16)
 		if(gamevar scene_counter > int 90)
 		 {
 				call play_loaded_sound(int 11, int 0, int 9, int 0)
-				call play_char_anim(var DAVID, var VAR_15, int 0)
+				call play_char_anim(var DAVID, var barge_anim, int 0)
 				var VAR_9 = int 17
 				gamevar scene_counter = int 0
 		}
@@ -413,9 +414,9 @@ call add_item_to_char(var nsgrunt2, int 16, int 0, int 1)
 call set_char_running(var nsgrunt2)
 
 ._SCRIPT_13
-var VAR_51 = call load_anim("lookout")
-var VAR_52 = call load_anim("tyrosumn")
-var VAR_53 = call load_anim("come")
+var lookout_anim = call load_anim("lookout")
+var tyrosumn_anim = call load_anim("tyrosumn")
+var come_anim = call load_anim("come")
 
 ._SCRIPT_14
 if(var VAR_39 == int 0)

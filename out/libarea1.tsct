@@ -1,14 +1,12 @@
-._DATA
-DAVID1	0	
-VAR_22	{ -11000, 1250, -12050 }	
-VAR_24	{ -9329, 1250, -15047 }	
-VAR_25	{ -8546, 1250, -14898 }	
-VAR_26	{ -8713, 1250, -15047 }	
-VAR_27	{ -8937, 1250, -14860 }	
-VAR_29	0	
-VAR_30	0	
-VAR_31	{ -8159, 1202, -12023 }	
-VAR_32	{ 5, 300, 15, 29, DAVID1, 1, DAVID1, 32, VAR_33, VAR_34, 16, VAR_30, 1, 4, VAR_29, 14, 0, -8193, 1203, -12014, 2, -8125, 1203, -11964, 28, VAR_35, 5, 0, 0, -9102, 1203, -11980, 2, -8981, 1203, -11981, 28, VAR_36, 5, 0, 0, -10650, 1203, -11984, 2, -10654, 1947, -11963, 28, VAR_37, 5, 0, 0, -11524, 1203, -11988, 2, -11471, 2068, -11963, 28, VAR_38, 5, 0, 0, -11587, 1203, -14435, 2, -11578, 1203, -14447, 28, VAR_39, 5, 0, 0, -10631, 1203, -14405, 2, -10624, 2023, -14472, 28, VAR_40, 5, 0, 0, -9009, 1203, -14395, 2, -9002, 2019, -14472, 28, VAR_41, 5, 0, 0, -7957, 1203, -14366, 2, -8077, 2036, -14472, 28, VAR_42, 5, 0, 6, 8, 0, 8 }	
+/* This file was auto-generated using 'silver-reverse-sct' tool 
+to fully understand the scripts presented, one is encouraged to
+check the catalogs at: 
+https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
+for further information and support of this project please visit:
+https://github.com/nadavshemesh/silver-reversing-sct */
+
+
+, 1203, -11964, 28, VAR_35, 5, 0, 0, -9102, 1203, -11980, 2, -8981, 1203, -11981, 28, VAR_36, 5, 0, 0, -10650, 1203, -11984, 2, -10654, 1947, -11963, 28, VAR_37, 5, 0, 0, -11524, 1203, -11988, 2, -11471, 2068, -11963, 28, VAR_38, 5, 0, 0, -11587, 1203, -14435, 2, -11578, 1203, -14447, 28, VAR_39, 5, 0, 0, -10631, 1203, -14405, 2, -10624, 2023, -14472, 28, VAR_40, 5, 0, 0, -9009, 1203, -14395, 2, -9002, 2019, -14472, 28, VAR_41, 5, 0, 0, -7957, 1203, -14366, 2, -8077, 2036, -14472, 28, VAR_42, 5, 0, 6, 8, 0, 8 }	
 VAR_33	"DVDWIT"	
 VAR_34	"NULL"	
 VAR_35	"impread"	
@@ -138,7 +136,7 @@ if(var VAR_4 == int 1)
  {
 		if(var VAR_5 == int 4)
 		 {
-				call play_char_anim(var nwhittle, var VAR_9, int 0)
+				call play_char_anim(var nwhittle, var impread_anim, int 0)
 				var VAR_6 = int 600
 				var VAR_7 = int 3
 				var VAR_4 = int 2
@@ -156,7 +154,7 @@ if(var VAR_4 == int 2)
 				var VAR_6 -- 
 				if(call func_5c(var nwhittle))
 				 {
-						call play_char_anim(var nwhittle, var VAR_9, int 0)
+						call play_char_anim(var nwhittle, var impread_anim, int 0)
 				}
 				var VAR_8 = var VAR_6 % int 84
 				if(var VAR_8 == int 0)
@@ -165,7 +163,7 @@ if(var VAR_4 == int 2)
 						if(var VAR_7 == int 0)
 						 {
 								var VAR_7 = int 3
-								call play_char_anim(var nwhittle, var VAR_10, int 0)
+								call play_char_anim(var nwhittle, var confused_anim, int 0)
 						}
 				}
 		}
@@ -182,7 +180,7 @@ if(var VAR_4 == int 3)
 		if(call is_char_standing(var neutral_imp))
 		 {
 				var VAR_4 = int 4
-				call play_char_anim(var neutral_imp, var VAR_11, int 0)
+				call play_char_anim(var neutral_imp, var come_anim, int 0)
 				call set_char_running(var neutral_imp1)
 				call char_walk_to(var neutral_imp1, int -11000, int 1250, int -12050)
 				call set_char_running(var neutral_imp2)
@@ -332,9 +330,9 @@ call freeze_enemy(var neutral_imp2)
 call freeze_enemy(var neutral_imp3)
 
 ._SCRIPT_10
-var VAR_9 = call load_anim("impread")
-var VAR_10 = call load_anim("confused")
-var VAR_11 = call load_anim("come")
+var impread_anim = call load_anim("impread")
+var confused_anim = call load_anim("confused")
+var come_anim = call load_anim("come")
 
 ._SCRIPT_11
 var nwhittle = call create_char(var &VAR_31, "nwhittle", int 342, int 13)

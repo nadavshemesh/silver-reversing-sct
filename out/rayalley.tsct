@@ -1,25 +1,12 @@
-._DATA
-VAR_17	{ 0, 0 }	
-VAR_18	{ 0, 0, 0, 0 }	
-VAR_22	{ -531, 1190, -1456 }	
-VAR_23	{ -1160, 1190, 231 }	
-VAR_26	{ 548, 252, 322 }	
-VAR_27	{ 3, VAR_28, 0, 11, 100, 400, 7, 8 }	
-VAR_28	"taichi"	
-VAR_36	-1	
+/* This file was auto-generated using 'silver-reverse-sct' tool 
+to fully understand the scripts presented, one is encouraged to
+check the catalogs at: 
+https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
+for further information and support of this project please visit:
+https://github.com/nadavshemesh/silver-reversing-sct */
 
-._on_load
-execute SCRIPT_3
-if(gamevar is_room_cleared)
- {
-		execute SCRIPT_13
-}
-else
- {
-		switch(gamevar room_state)
-		 {
-				case 1
-					execute SCRIPT_5
+
+PT_5
 					break 
 				case 2
 					execute SCRIPT_7
@@ -154,7 +141,7 @@ switch(var VAR_32)
 											break 
 								}
 								var VAR_20 = int 1
-								call play_char_anim(var noldvill, var VAR_29, int 0)
+								call play_char_anim(var noldvill, var jangive_anim, int 0)
 								call add_item_to_char(gamevar control_char_p, int 115, int 0, int 0)
 								call func_f8(int 115, int 100)
 								call func_110(var VAR_34 - int 50)
@@ -248,7 +235,7 @@ switch(var VAR_55)
 											break 
 								}
 								var VAR_20 = int 1
-								call play_char_anim(var noldvill, var VAR_29, int 0)
+								call play_char_anim(var noldvill, var jangive_anim, int 0)
 								call add_item_to_char(gamevar control_char_p, int 115, int 0, int 0)
 								call func_f8(int 115, int 100)
 								call func_110(var VAR_57 - int 50)
@@ -308,7 +295,7 @@ call func_108("ARSE")
 var noldvill = call create_char(var &VAR_26, "noldvill", int 336, int 13)
 call func_50(var noldvill, int 8192)
 call play_char_ai_script(var noldvill, var &VAR_27)
-var VAR_29 = call load_anim("jangive")
+var jangive_anim = call load_anim("jangive")
 
 ._SCRIPT_13
 

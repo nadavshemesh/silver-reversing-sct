@@ -1,12 +1,15 @@
-._DATA
-shaman_imp	{ 0, 0, 0, 0, 0, 0, 0, -12481, 3, -18801, -12363, 3, -19113, -11545, 3, -17815, -11943, 3, -17859, -10929, 3, -18178, -10713, 3, -17278 }	
-VAR_3	{ -12179, 3, -19641 }	
-VAR_4	{ -13717, 4, -19532 }	
-VAR_5	{ -9880, 1205, -18195 }	
-VAR_6	{ -11886, 3, -19531, -11998, 3, -20060, -12568, 3, -19210, -12944, 3, -19882, -14018, 3, -19824, -13992, 3, -19395, -13669, 3, -19208, -12664, 3, -18219, -12206, 3, -18151, -11821, 3, -17805, -11560, 3, -17130, -10782, 3, -17066, -10598, 3, -17501, -10899, 3, -18326, -10899, 3, -17936, -11189, 3, -17337, -11515, 3, -17799, -11899, 3, -17772, -11672, 403, -18894, -10151, 1003, -19083 }	
+/* This file was auto-generated using 'silver-reverse-sct' tool 
+to fully understand the scripts presented, one is encouraged to
+check the catalogs at: 
+https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
+for further information and support of this project please visit:
+https://github.com/nadavshemesh/silver-reversing-sct */
+
+
+ 3, -19395, -13669, 3, -19208, -12664, 3, -18219, -12206, 3, -18151, -11821, 3, -17805, -11560, 3, -17130, -10782, 3, -17066, -10598, 3, -17501, -10899, 3, -18326, -10899, 3, -17936, -11189, 3, -17337, -11515, 3, -17799, -11899, 3, -17772, -11672, 403, -18894, -10151, 1003, -19083 }	
 VAR_7	{ -12107, 3, -19740, -12177, 3, -18750, -12021, 3, -17781, -11254, 3, -17941, -10838, 3, -18496, -10750, 3, -17313, -11873, 3, -17399, -13005, 3, -18403, -13759, 3, -19124, -13211, 3, -20018 }	
 VAR_8	{ 0, 1, 20, VAR_6, 8, 2, 4, 0, 9, 0, 1, 16, 107, 114, -1, 2, 2, 3, 2, 5, 0, 100, 7, 1, 6, 6, 1, -1 }	
-VAR_12	{ 0, 17, 18, VAR_6, 0, 11, 100, 200, 7, 8, 17, 18, VAR_6, 0, 11, 100, 200, 7, 8, 17, 18, VAR_6, 0, 11, 100, 200, 7, 8, 17, 18, VAR_6, 0, 11, 100, 200, 7, 8, 17, 18, VAR_6, 0, 11, 100, 200, 7, 8, 17, 18, VAR_6, 0, 11, 100, 200, 7, 8 }	
+impoint_anim	{ 0, 17, 18, VAR_6, 0, 11, 100, 200, 7, 8, 17, 18, VAR_6, 0, 11, 100, 200, 7, 8, 17, 18, VAR_6, 0, 11, 100, 200, 7, 8, 17, 18, VAR_6, 0, 11, 100, 200, 7, 8, 17, 18, VAR_6, 0, 11, 100, 200, 7, 8, 17, 18, VAR_6, 0, 11, 100, 200, 7, 8 }	
 VAR_13	{ 17, 10, VAR_7, 1, 11, 300, 500, 7, 8 }	
 VAR_14	{ 0, 0, 0, 0 }	
 VAR_36	{ 0, 0, 0 }	
@@ -123,12 +126,12 @@ call add_item_to_char(var btreasure, int 43, int 1, int 0)
 call add_item_to_char(var btreasure, int 85, int 3277313, int 0)
 call add_item_to_char(var btreasure, int 32, int 1, int 0)
 var DAVID = call get_char_handle(int 65536)
-var VAR_10 = call load_anim("pfew")
-var VAR_11 = call load_anim("startle")
-var VAR_12 = call load_anim("impoint")
-var VAR_15 = call load_anim("no")
-var VAR_16 = call load_anim("no")
-var VAR_17 = call load_anim("conjure")
+var pfew_anim = call load_anim("pfew")
+var startle_anim = call load_anim("startle")
+var impoint_anim = call load_anim("impoint")
+var no_anim = call load_anim("no")
+var no_anim = call load_anim("no")
+var conjure_anim = call load_anim("conjure")
 call set_input_system(int 2)
 if(call func_c0(int 0, "gno", "libarea2"))
  {
@@ -170,7 +173,7 @@ switch(var VAR_33)
 		case 2
 			if(var VAR_34 > int 30)
 			 {
-					call play_char_anim(var nyelimp, var VAR_11, int 0)
+					call play_char_anim(var nyelimp, var startle_anim, int 0)
 					var VAR_34 = int 0
 					var VAR_33 ++ 
 			}
@@ -178,8 +181,8 @@ switch(var VAR_33)
 		case 3
 			if(call func_5c(var nyelimp))
 			 {
-					call play_char_anim(var shaman_imp, var VAR_15, int 0)
-					call play_char_anim(var nyelimp, var VAR_12, int 0)
+					call play_char_anim(var shaman_imp, var no_anim, int 0)
+					call play_char_anim(var nyelimp, var impoint_anim, int 0)
 					var VAR_34 = int 0
 					var VAR_33 ++ 
 			}
@@ -187,7 +190,7 @@ switch(var VAR_33)
 		case 4
 			if(call func_5c(var nyelimp))
 			 {
-					call play_char_anim(var nyelimp, var VAR_15, int 0)
+					call play_char_anim(var nyelimp, var no_anim, int 0)
 					var VAR_34 = int 0
 					var VAR_33 ++ 
 			}

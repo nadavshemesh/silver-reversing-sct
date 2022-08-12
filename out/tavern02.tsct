@@ -1,18 +1,12 @@
-._DATA
-VAR_8	{ -533, 0, -485 }	
-VAR_9	{ -761, 0, -57 }	
-VAR_10	{ -585, 0, -173 }	
-VAR_11	{ -637, 501, -1540 }	
-VAR_13	{ -1264, 0, 438 }	
-VAR_15	{ -1039, 0, 443 }	
-VAR_17	{ -1125, 0, 689 }	
-NTAVMAN	0	
-VAR_19	{ -753, 0, -423 }	
-VAR_21	{ -866, 0, -224 }	
-VAR_23	{ 7, 8 }	
-VAR_24	{ 9, NTAVMAN, 7, 8 }	
-VAR_42	{ -993263616, 1136885760, 1133608960 }	
-VAR_43	{ 1, 0, 0 }	
+/* This file was auto-generated using 'silver-reverse-sct' tool 
+to fully understand the scripts presented, one is encouraged to
+check the catalogs at: 
+https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
+for further information and support of this project please visit:
+https://github.com/nadavshemesh/silver-reversing-sct */
+
+
+ 0, 0 }	
 VAR_45	{ 1, 0, 0 }	
 VAR_47	{ 1, 0, 0 }	
 
@@ -35,7 +29,7 @@ switch(gamevar room_state)
 		default 
 			var NREBEL = call create_char(var &VAR_13, "NREBEL", int 70, int 13)
 			var NREBELA = call create_char(var &VAR_15, "NREBELA", int 295, int 13)
-			var VAR_22 = call load_anim("talkslow")
+			var talkslow_anim = call load_anim("talkslow")
 			var VAR_3 = int 0
 			break 
 }
@@ -206,15 +200,15 @@ switch(var VAR_2)
 switch(var VAR_3)
  {
 		case 0
-			call play_char_anim(var NREBEL, var VAR_22, int 0)
-			call play_char_anim(var NREBELA, var VAR_22, int 41)
+			call play_char_anim(var NREBEL, var talkslow_anim, int 0)
+			call play_char_anim(var NREBELA, var talkslow_anim, int 41)
 			var VAR_3 ++ 
 			break 
 		case 1
 			if(call func_5c(var NREBEL)||call func_5c(var NREBELA))
 			 {
-					call play_char_anim(var NREBEL, var VAR_22, int 0)
-					call play_char_anim(var NREBELA, var VAR_22, int 41)
+					call play_char_anim(var NREBEL, var talkslow_anim, int 0)
+					call play_char_anim(var NREBELA, var talkslow_anim, int 41)
 			}
 			break 
 }

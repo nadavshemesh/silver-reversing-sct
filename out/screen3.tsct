@@ -1,10 +1,12 @@
-._DATA
-VAR_2	{ 0, 0, 0 }	
-VAR_5	{ 1319, 757, 5823 }	
-VAR_12	{ 789, 625, 5528 }	
-VAR_13	{ 660, 774, 6632 }	
-nfrink	0	
-VAR_17	{ 0, 717, 625, 5494, 2, 716, 910, 5484, 28, VAR_18, 15, 0, 0, 1945, 625, 5487, 2, 1914, 851, 5419, 28, VAR_19, 20, 0, 0, 849, 625, 6709, 1, nfrink, 3, VAR_20, 0, 0, 717, 625, 5494, 2, 716, 910, 5484, 28, VAR_21, 15, 0, 0, 1945, 625, 5487, 2, 1914, 851, 5419, 28, VAR_22, 20, 0, 0, 849, 625, 6709, 1, nfrink, 3, VAR_23, 0, 7, 8 }	
+/* This file was auto-generated using 'silver-reverse-sct' tool 
+to fully understand the scripts presented, one is encouraged to
+check the catalogs at: 
+https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
+for further information and support of this project please visit:
+https://github.com/nadavshemesh/silver-reversing-sct */
+
+
+ 5487, 2, 1914, 851, 5419, 28, VAR_22, 20, 0, 0, 849, 625, 6709, 1, nfrink, 3, VAR_23, 0, 7, 8 }	
 VAR_18	"impread"	
 VAR_19	"impread"	
 VAR_20	"yes"	
@@ -132,8 +134,8 @@ if(gamevar *psys_p+1)
 }
 
 ._SCRIPT_6
-var VAR_8 = call load_anim("impread")
-var VAR_9 = call load_anim("dodgeb")
+var impread_anim = call load_anim("impread")
+var dodgeb_anim = call load_anim("dodgeb")
 
 ._SCRIPT_7
 if(gamevar *scene_info_p+4 & int 1)
@@ -167,7 +169,7 @@ if(var VAR_26 == int 0)
 		 {
 				call set_input_system(int 2)
 				call char_walk_to(var DAVID, int 2244, int 625, int 6080)
-				call play_char_anim(var nbuzuki, var VAR_8, int 0)
+				call play_char_anim(var nbuzuki, var impread_anim, int 0)
 				var VAR_26 ++ 
 				var VAR_27 = int 0
 		}
@@ -209,7 +211,7 @@ if(var VAR_26 == int 5)
  {
 		if(call func_5c(var DAVID))
 		 {
-				call play_char_anim(var DAVID, var VAR_9, int 0)
+				call play_char_anim(var DAVID, var dodgeb_anim, int 0)
 				var VAR_26 ++ 
 				var VAR_27 = int 0
 		}

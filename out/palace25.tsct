@@ -1,9 +1,12 @@
-._DATA
-VAR_7	{ 0, 0 }	
-VAR_10	{ 5032, 3425, -4651, 5342, 3425, -6084, 5350, 3425, -6463, 5283, 3425, -6286 }	
-VAR_11	{ 5032, 3425, -4651, 5342, 3425, -6084, 5350, 3425, -6463, 5283, 3425, -6286 }	
-VAR_12	{ 0, 1, 4, VAR_11, 8, 1, 1, 2, 63, 63, -1, 4, 0, 9, 0, 5, 1, 30, 60, 7, 1, 2, 10, 40, 47, -1, -1 }	
-VAR_13	{ 0, 1, 4, VAR_10, 8, 1, 1, 2, 63, 63, -1, 4, 0, 9, 0, 5, 1, 30, 60, 7, 1, 2, 10, 40, 47, -1, -1 }	
+/* This file was auto-generated using 'silver-reverse-sct' tool 
+to fully understand the scripts presented, one is encouraged to
+check the catalogs at: 
+https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
+for further information and support of this project please visit:
+https://github.com/nadavshemesh/silver-reversing-sct */
+
+
+ 0, 9, 0, 5, 1, 30, 60, 7, 1, 2, 10, 40, 47, -1, -1 }	
 VAR_27	{ 1490, 3425, -4070 }	
 VAR_29	{ 1115, 3425, -4442 }	
 VAR_31	{ 797, 3425, -4641 }	
@@ -41,7 +44,7 @@ call load_sound_set(int 0)
 call load_sound_set(int 66)
 call play_loaded_sound(int 7, int -1, int 66, int 0)
 call play_loaded_sound(int 1, int -1, int 66, int 0)
-var VAR_14 = call load_anim("stepb")
+var stepb_anim = call load_anim("stepb")
 call load_char("vikingb")
 call load_char("vikingc")
 call play_bgm("WPALPT1")
@@ -144,7 +147,7 @@ switch(var VAR_0)
 		case 1
 			if(call is_not_force_scrolling())
 			 {
-					call play_char_anim(var vikingc1, var VAR_24, int 0)
+					call play_char_anim(var vikingc1, var come_anim, int 0)
 					var VAR_0 ++ 
 			}
 			break 
@@ -177,7 +180,7 @@ switch(var VAR_0)
 			if(var VAR_8)
 			 {
 					var VAR_9 = call get_selected_hero()
-					call play_char_anim(var VAR_9, var VAR_14, int 0)
+					call play_char_anim(var VAR_9, var stepb_anim, int 0)
 					var VAR_0 ++ 
 			}
 			break 
@@ -208,7 +211,7 @@ switch(var VAR_0)
 var VAR_1 = int 0
 var VAR_0 = int 0
 call load_char("vikingb")
-var VAR_24 = call load_anim("come")
+var come_anim = call load_anim("come")
 var vikingc1 = call create_enemy(int 66, int 0, var &VAR_27, int 170)
 var bstump1 = call create_enemy(int 63, int 0, var &VAR_29, int 250)
 var bstump2 = call create_enemy(int 63, int 1, var &VAR_31, int 65)
@@ -257,7 +260,7 @@ switch(var VAR_0)
 							gamevar is_room_cleared = int 1
 							call set_input_system(int 2)
 							var VAR_9 = call get_selected_hero()
-							call play_char_anim(var VAR_9, var VAR_14, int 0)
+							call play_char_anim(var VAR_9, var stepb_anim, int 0)
 							var VAR_0 ++ 
 							var VAR_1 = int 0
 					}

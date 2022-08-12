@@ -1,21 +1,12 @@
-._DATA
-VAR_0	{ 0, 2, -1 }	
-VAR_1	{ 0, 2, -1 }	
-VAR_5	{ 395, 0, 172 }	
-VAR_7	{ 1428, 0, 363 }	
-VAR_9	{ 1574, 0, 466 }	
-VAR_11	{ 224, 0, 359 }	
-VAR_16	{ -89, 1277, 492 }	
-VAR_17	1	
-VAR_18	{ 0, 0 }	
-VAR_32	{ 78, 0, 345 }	
-VAR_33	{ -520, 0, 378 }	
-VAR_34	{ -1202, 0, -11 }	
-VAR_35	{ 4259, 0, 430 }	
-VAR_40	-1	
-nrebela1	0	
-VAR_46	{ 22, 0, 744 }	
-VAR_47	{ 345, 0, 93 }	
+/* This file was auto-generated using 'silver-reverse-sct' tool 
+to fully understand the scripts presented, one is encouraged to
+check the catalogs at: 
+https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
+for further information and support of this project please visit:
+https://github.com/nadavshemesh/silver-reversing-sct */
+
+
+, 93 }	
 VAR_48	{ 11, 1000, 2000, 3, VAR_49, 0, 11, 1000, 2000, 3, VAR_50, 0, 7, 8 }	
 VAR_49	"confused"	
 VAR_50	"cough"	
@@ -151,10 +142,10 @@ switch(var VAR_20)
 var VAR_21 ++ 
 
 ._SCRIPT_6
-var VAR_22 = call load_anim("come")
-var VAR_23 = call load_anim("pfew")
-var VAR_24 = call load_anim("no")
-var VAR_25 = call load_anim("electro")
+var come_anim = call load_anim("come")
+var pfew_anim = call load_anim("pfew")
+var no_anim = call load_anim("no")
+var electro_anim = call load_anim("electro")
 
 ._SCRIPT_7
 gamevar door_restriction_p = var &VAR_0
@@ -191,7 +182,7 @@ if(var VAR_30 == int 0)
 		}
 		if(var VAR_31 > int 60)
 		 {
-				call play_char_anim(var FSGRUNT, var VAR_22, int 0)
+				call play_char_anim(var FSGRUNT, var come_anim, int 0)
 				var VAR_30 ++ 
 				var VAR_31 = int 0
 		}
@@ -219,7 +210,7 @@ if(var VAR_30 == int 3)
  {
 		if(call is_char_standing(var FSGRUNT))
 		 {
-				call play_char_anim(var FSGRUNT, var VAR_24, int 0)
+				call play_char_anim(var FSGRUNT, var no_anim, int 0)
 				var VAR_30 ++ 
 				var VAR_31 = int 0
 		}
@@ -248,7 +239,7 @@ if(var VAR_30 == int 6)
 		if(call is_char_standing(var FSGRUNT))
 		 {
 				call func_f0(var &VAR_16, var FSGRUNT, int 30, int 50)
-				call play_char_anim(var FSGRUNT, var VAR_25, int 0)
+				call play_char_anim(var FSGRUNT, var electro_anim, int 0)
 				var VAR_36 = call play_loaded_sound(int 18, int 0, int 56, int 0)
 				var VAR_30 ++ 
 				var VAR_31 = int 0

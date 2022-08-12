@@ -1,16 +1,12 @@
-._DATA
-VAR_17	{ 0, 0, 0, 0, 0, 0, 0, 0 }	
-VAR_66	{ -9525, 4637, 6050 }	
-VAR_67	{ 1475, 4637, -4650 }	
-nfatbob	{ 0, 0 }	
-VAR_85	{ 3279, -1016, -6869 }	
-VAR_86	{ 1902, -1016, -5028 }	
-VAR_87	{ 1489, -1016, -5455 }	
-VAR_88	{ 560, -1016, -2022 }	
-VAR_89	{ 642, -1016, -1810 }	
-VAR_90	{ 703, -1016, -2204 }	
-VAR_91	{ 476, -1016, -2229 }	
-VAR_92	{ 672, -1016, -2980 }	
+/* This file was auto-generated using 'silver-reverse-sct' tool 
+to fully understand the scripts presented, one is encouraged to
+check the catalogs at: 
+https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
+for further information and support of this project please visit:
+https://github.com/nadavshemesh/silver-reversing-sct */
+
+
+980 }	
 VAR_93	{ 334, -1016, -2810 }	
 VAR_94	{ 505, -1016, -2953 }	
 VAR_105	{ 1, 0, 0 }	
@@ -362,7 +358,7 @@ switch(var VAR_120)
 		case 2
 			if(var VAR_121 > int 60)
 			 {
-					call play_char_anim(var VAR_124, var VAR_118, int 0)
+					call play_char_anim(var VAR_124, var imphorn_anim, int 0)
 					call play_loaded_sound(int 1, int 0, int 15, call get_char_movement_ptr(var VAR_124))
 					var VAR_120 ++ 
 					var VAR_121 = int 0
@@ -396,7 +392,7 @@ switch(var VAR_120)
 var VAR_121 ++ 
 
 ._SCRIPT_8
-var VAR_118 = call load_anim("imphorn")
+var imphorn_anim = call load_anim("imphorn")
 call load_sound_set(int 15)
 var VAR_18 = call func_40(int 0, int 8, int 1, int -1)
 var VAR_19 = call play_loaded_sound(int 228, int -1, int 0, int 0)

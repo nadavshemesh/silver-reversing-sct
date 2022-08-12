@@ -1,16 +1,12 @@
-._DATA
-VAR_17	{ 0, 0 }	
-VAR_20	{ -2600, 2199, -4625 }	
-VAR_21	{ 375, 2199, -7350 }	
-VAR_27	{ 0, 0 }	
-VAR_40	{ 2197, -950, 6015 }	
-VAR_41	{ 1921, -950, 6291 }	
-VAR_42	{ 2071, -950, 6141 }	
-VAR_43	{ 1935, 169, 4296 }	
-VAR_44	{ -34, 169, 5493 }	
-VAR_45	{ 0, 898, 169, 4944, 0, 1935, 169, 4296, 7, 8 }	
-VAR_46	{ 0, 652, 169, 5089, 0, -34, 169, 5493, 7, 8 }	
-VAR_47	{ 848, 169, 4975 }	
+/* This file was auto-generated using 'silver-reverse-sct' tool 
+to fully understand the scripts presented, one is encouraged to
+check the catalogs at: 
+https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
+for further information and support of this project please visit:
+https://github.com/nadavshemesh/silver-reversing-sct */
+
+
+R_47	{ 848, 169, 4975 }	
 VAR_48	{ 630, 169, 5085, 1936, 35, 5384, 2183, 35, 5535 }	
 VAR_55	{ 287, -878, 5488, 1375, -878, 4835 }
 
@@ -115,11 +111,11 @@ switch(var VAR_23)
 var VAR_24 ++ 
 
 ._SCRIPT_5
-var VAR_35 = call load_anim("gstqustn")
-var VAR_36 = call load_anim("no")
-var VAR_37 = call load_anim("yes")
-var VAR_38 = call load_anim("confused")
-var VAR_39 = call load_anim("talkfstb")
+var gstqustn_anim = call load_anim("gstqustn")
+var no_anim = call load_anim("no")
+var yes_anim = call load_anim("yes")
+var confused_anim = call load_anim("confused")
+var talkfstb_anim = call load_anim("talkfstb")
 var lieutenant = call create_enemy(int 11, int 0, var &VAR_40, int 270)
 gamevar script_object = var lieutenant
 gamevar *character_stats_p+15 = int 0
@@ -170,7 +166,7 @@ if(var VAR_25 == int 0)
 		 {
 				if(call is_char_handle_in_level(int 7143425))
 				 {
-						call play_char_anim(var lieutenant1, var VAR_39, int 0)
+						call play_char_anim(var lieutenant1, var talkfstb_anim, int 0)
 				}
 				var VAR_25 ++ 
 				var VAR_26 = int 0
@@ -182,7 +178,7 @@ if(var VAR_25 == int 1)
 		 {
 				if(call func_5c(var lieutenant1))
 				 {
-						call play_char_anim(var lieutenant1, var VAR_35, int 0)
+						call play_char_anim(var lieutenant1, var gstqustn_anim, int 0)
 				}
 				var VAR_25 ++ 
 		}
@@ -197,7 +193,7 @@ if(var VAR_25 == int 2)
 		 {
 				if(call func_5c(var lieutenant1))
 				 {
-						call play_char_anim(var nflatnose, var VAR_39, int 0)
+						call play_char_anim(var nflatnose, var talkfstb_anim, int 0)
 				}
 				var VAR_25 ++ 
 		}
@@ -210,7 +206,7 @@ if(var VAR_25 == int 3)
  {
 		if(call func_5c(var nflatnose))
 		 {
-				call play_char_anim(var nflatnose, var VAR_38, int 0)
+				call play_char_anim(var nflatnose, var confused_anim, int 0)
 				var VAR_25 ++ 
 		}
 }
@@ -220,7 +216,7 @@ if(var VAR_25 == int 4)
 		 {
 				if(call is_char_handle_in_level(int 7143425))
 				 {
-						call play_char_anim(var lieutenant1, var VAR_35, int 0)
+						call play_char_anim(var lieutenant1, var gstqustn_anim, int 0)
 				}
 				var VAR_25 ++ 
 		}
@@ -231,13 +227,13 @@ if(var VAR_25 == int 5)
 		 {
 				if(call func_5c(var lieutenant1))
 				 {
-						call play_char_anim(var nflatnose, var VAR_36, int 0)
+						call play_char_anim(var nflatnose, var no_anim, int 0)
 						var VAR_25 ++ 
 				}
 		}
 		else
 		 {
-				call play_char_anim(var nflatnose, var VAR_36, int 0)
+				call play_char_anim(var nflatnose, var no_anim, int 0)
 				var VAR_25 ++ 
 		}
 }
@@ -247,7 +243,7 @@ if(var VAR_25 == int 6)
 		 {
 				if(call is_char_handle_in_level(int 7143425))
 				 {
-						call play_char_anim(var lieutenant1, var VAR_39, int 0)
+						call play_char_anim(var lieutenant1, var talkfstb_anim, int 0)
 				}
 				var VAR_25 = int 0
 		}

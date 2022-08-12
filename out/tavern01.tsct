@@ -1,20 +1,12 @@
-._DATA
-VAR_5	1	
-VAR_7	{ 0, 0 }	
-VAR_9	{ 0, 0, 0 }	
-VAR_10	{ -2454, 0, -1580 }	
-DAVID1	{ 0, 0, 0, 0 }	
-nstipe	0	
-nmuscles	0	
-VAR_27	{ 168, 321, -2313 }	
-VAR_28	{ 122, 0, 680 }	
-VAR_29	{ -1363, 0, 559 }	
-VAR_30	{ -1597, 0, 509 }	
-VAR_31	{ -1343, 0, -37 }	
-VAR_32	{ -1466, 0, -225 }	
-VAR_33	{ -2419, 0, 116 }	
-VAR_34	{ -2334, 0, -504 }	
-VAR_35	{ -2799, 0, -554 }	
+/* This file was auto-generated using 'silver-reverse-sct' tool 
+to fully understand the scripts presented, one is encouraged to
+check the catalogs at: 
+https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
+for further information and support of this project please visit:
+https://github.com/nadavshemesh/silver-reversing-sct */
+
+
+4 }	
 VAR_36	{ -2400, 0, 0 }	
 VAR_37	{ -2559, 0, 147 }	
 VAR_38	{ -2827, 0, -535 }	
@@ -609,7 +601,7 @@ switch(var VAR_45)
 			call load_anim("talkfast")
 			call load_anim("laugh")
 			call load_anim("confused")
-			var VAR_25 = call load_anim("drink")
+			var drink_anim = call load_anim("drink")
 			var ndrunkwiz = call create_char(var &VAR_33, "ndrunkwiz", int 0, int 13)
 			gamevar script_object = var ndrunkwiz
 			gamevar *object_p+6 |= int 8388608
@@ -790,7 +782,7 @@ switch(var VAR_45)
 			}
 			else
 			 {
-					call play_char_anim(var ndrunkwiz, var VAR_25, int 0)
+					call play_char_anim(var ndrunkwiz, var drink_anim, int 0)
 					var VAR_46 = int 90
 					var VAR_45 = int 15
 			}
@@ -826,7 +818,7 @@ switch(var VAR_47)
 						if(call func_c0(int 2, "haven", "h_camptp"))
 						 {
 								call func_10c(var ntavman, "Act_3")
-								var VAR_26 = call load_anim("come")
+								var come_anim = call load_anim("come")
 								var VAR_47 = int 100
 						}
 						else
@@ -838,7 +830,7 @@ switch(var VAR_47)
 						if(call func_c0(int 2, "haven", "h_camptp"))
 						 {
 								call func_10c(var ntavman, "Act_3b")
-								var VAR_26 = call load_anim("come")
+								var come_anim = call load_anim("come")
 								var VAR_47 = int 100
 						}
 						else
@@ -910,7 +902,7 @@ switch(var VAR_47)
 					var VAR_48 -- 
 					if(var VAR_48 == int 100)
 					 {
-							call play_char_anim(var ntavman, var VAR_26, int 0)
+							call play_char_anim(var ntavman, var come_anim, int 0)
 					}
 			}
 			else

@@ -1,17 +1,12 @@
-._DATA
-VAR_0	{ 0, 0 }	
-VAR_1	{ 0, 0 }	
-VAR_4	{ 0, 0 }	
-VAR_6	{ 0, 0, 0 }	
-VAR_9	{ 1163152969, 827609170, 0, 0 }	
-nglass	{ 0, 0 }	
-nsguard3	{ 0, 0 }	
-VAR_20	{ -5, -1025, -4274 }	
-VAR_21	{ -287, -1099, -4100 }	
-VAR_22	{ 277, -1099, -4033, 277, -1099, -4033 }	
-VAR_23	{ 365, -1099, -3717 }	
-VAR_24	{ 461, -1099, -3456, -287, -1099, -4100 }	
-VAR_25	{ -377, -1099, -3769 }	
+/* This file was auto-generated using 'silver-reverse-sct' tool 
+to fully understand the scripts presented, one is encouraged to
+check the catalogs at: 
+https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
+for further information and support of this project please visit:
+https://github.com/nadavshemesh/silver-reversing-sct */
+
+
+99, -3769 }	
 VAR_26	{ -464, -1099, -3446 }	
 VAR_27	{ -40, -1100, -3811 }	
 VAR_28	{ 107, -1100, -3814 }	
@@ -203,7 +198,7 @@ switch(var VAR_68)
 		case 2
 			if(call func_6d() == int 1)
 			 {
-					call play_char_anim(var nsilver, var VAR_64, int 0)
+					call play_char_anim(var nsilver, var tyrosumn_anim, int 0)
 					var VAR_68 ++ 
 					var VAR_69 = int 0
 			}
@@ -230,7 +225,7 @@ switch(var VAR_68)
 			 {
 					call set_char_running(var njag)
 					call char_walk_to_pos(var njag, var &VAR_71)
-					call play_char_anim(var nsilver, var VAR_65, int 0)
+					call play_char_anim(var nsilver, var goaway_anim, int 0)
 					var VAR_68 ++ 
 					var VAR_69 = int 0
 			}
@@ -326,8 +321,8 @@ execute SCRIPT_12
 call set_input_system(int 2)
 
 ._SCRIPT_6
-var VAR_64 = call load_anim("tyrosumn")
-var VAR_65 = call load_anim("goaway")
+var tyrosumn_anim = call load_anim("tyrosumn")
+var goaway_anim = call load_anim("goaway")
 
 ._SCRIPT_7
 if(var VAR_94 != var VAR_90)
@@ -356,7 +351,7 @@ switch(var VAR_90)
 		case 2
 			if(call func_6d() == int 1)
 			 {
-					call play_char_anim(var nsilver, var VAR_64, int 0)
+					call play_char_anim(var nsilver, var tyrosumn_anim, int 0)
 					var VAR_90 ++ 
 					var VAR_91 = int 0
 			}
@@ -383,7 +378,7 @@ switch(var VAR_90)
 			 {
 					call set_char_running(var nkhan)
 					call char_walk_to_pos(var nkhan, var &VAR_71)
-					call play_char_anim(var nsilver, var VAR_65, int 0)
+					call play_char_anim(var nsilver, var goaway_anim, int 0)
 					var VAR_90 ++ 
 					var VAR_91 = int 0
 			}
@@ -563,10 +558,10 @@ switch(var VAR_104)
 		case 1
 			if(call is_local_timer_greater_than(int 20))
 			 {
-					call play_char_anim(var f_in_bethts, var VAR_122, int 0)
-					call play_char_anim(var f_in_bonnie, var VAR_122, int 4)
-					call play_char_anim(var f_in_jennifer, var VAR_122, int 8)
-					call play_char_anim(var nwilliam, var VAR_124, int 0)
+					call play_char_anim(var f_in_bethts, var jenwash_anim, int 0)
+					call play_char_anim(var f_in_bonnie, var jenwash_anim, int 4)
+					call play_char_anim(var f_in_jennifer, var jenwash_anim, int 8)
+					call play_char_anim(var nwilliam, var stdstil1_anim, int 0)
 					call func_120(call get_char_movement_ptr(var silver), int 98304)
 					var VAR_104 = int 2
 			}
@@ -640,7 +635,7 @@ switch(var VAR_104)
 		case 10
 			if(call is_local_timer_greater_than(int 4))
 			 {
-					call play_char_anim(var nwilliam, var VAR_125, int 0)
+					call play_char_anim(var nwilliam, var lookout_anim, int 0)
 					var VAR_104 = int 11
 			}
 			break 
@@ -662,7 +657,7 @@ switch(var VAR_104)
 			 {
 					if(call func_37(var nwilliam, int 13))
 					 {
-							call play_char_anim(var nwilliam, var VAR_132, int 0)
+							call play_char_anim(var nwilliam, var no_anim, int 0)
 							var VAR_149 = int 1
 					}
 			}
@@ -692,7 +687,7 @@ switch(var VAR_104)
 			if(call is_local_timer_greater_than(int 10))
 			 {
 					call reset_local_timer()
-					call play_char_anim(var silver, var VAR_123, int 0)
+					call play_char_anim(var silver, var conjure_anim, int 0)
 					var VAR_104 = int 16
 			}
 			break 
@@ -833,7 +828,7 @@ switch(var VAR_104)
 									gamevar script_object = var silver
 									call func_47(var silver, int -1)
 									gamevar *object_p+6 |= int 2048
-									call play_char_anim(var silver, var VAR_126, int 0)
+									call play_char_anim(var silver, var unckpan_anim, int 0)
 									var VAR_104 = int 24
 							}
 					}
@@ -905,14 +900,14 @@ switch(var VAR_104)
 								 {
 										call func_3c(var f_in_sekune1)
 								}
-								call play_char_anim(var VAR_106, var VAR_131, int 8)
+								call play_char_anim(var VAR_106, var victory_anim, int 8)
 								if(var f_in_sekune)
 								 {
-										call play_char_anim(var f_in_sekune, var VAR_131, int 4)
+										call play_char_anim(var f_in_sekune, var victory_anim, int 4)
 								}
 								if(var f_in_sekune1)
 								 {
-										call play_char_anim(var f_in_sekune1, var VAR_131, int 0)
+										call play_char_anim(var f_in_sekune1, var victory_anim, int 0)
 								}
 								call reset_local_timer()
 								var VAR_149 ++ 
@@ -1127,7 +1122,7 @@ switch(var VAR_104)
 		case 39
 			if(call func_6d() == int 3)
 			 {
-					call play_char_anim(var VAR_106, var VAR_127, int 0)
+					call play_char_anim(var VAR_106, var stepb_anim, int 0)
 					call reset_local_timer()
 					var VAR_104 = int 40
 			}
@@ -1380,7 +1375,7 @@ switch(var VAR_104)
 						if(call is_local_timer_greater_than(int 15))
 						 {
 								call char_stop(var VAR_106)
-								call play_char_anim(var VAR_106, var VAR_130, int 0)
+								call play_char_anim(var VAR_106, var skid_anim, int 0)
 								var VAR_149 ++ 
 						}
 						break 
@@ -1396,7 +1391,7 @@ switch(var VAR_104)
 					case 0
 						if(call func_5c(var VAR_106))
 						 {
-								call play_char_anim(var VAR_106, var VAR_125, int 0)
+								call play_char_anim(var VAR_106, var lookout_anim, int 0)
 								call reset_local_timer()
 								var VAR_149 ++ 
 						}
@@ -1691,17 +1686,17 @@ if(var ! VAR_220)
 }
 
 ._SCRIPT_16
-var VAR_124 = call load_anim("stdstil1")
-var VAR_122 = call load_anim("jenwash")
-var VAR_123 = call load_anim("conjure")
-var VAR_125 = call load_anim("lookout")
-var VAR_126 = call load_anim("unc_pant")
-var VAR_127 = call load_anim("stepb")
-var VAR_128 = call load_anim("revslice")
-var VAR_129 = call load_anim("DieTwist")
-var VAR_130 = call load_anim("skid")
-var VAR_131 = call load_anim("victory")
-var VAR_132 = call load_anim("no")
+var stdstil1_anim = call load_anim("stdstil1")
+var jenwash_anim = call load_anim("jenwash")
+var conjure_anim = call load_anim("conjure")
+var lookout_anim = call load_anim("lookout")
+var unckpan_anim = call load_anim("unc_pant")
+var stepb_anim = call load_anim("stepb")
+var revslice_anim = call load_anim("revslice")
+var DieTwist_anim = call load_anim("DieTwist")
+var skid_anim = call load_anim("skid")
+var victory_anim = call load_anim("victory")
+var no_anim = call load_anim("no")
 
 ._SCRIPT_17
 call apply_effect_on_char(gamevar misc_fx_scripts, int 7, int 0, int 0)

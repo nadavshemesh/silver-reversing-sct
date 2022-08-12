@@ -1,19 +1,12 @@
-._DATA
-VAR_18	{ 0, 0, -1 }	
-VAR_23	-1	
-VAR_39	{ 0, -1 }	
-VAR_54	{ 1071, 0, 1704 }	
-VAR_55	{ 1549, 0, 1049 }	
-VAR_56	{ 3122, 0, 1339 }	
-VAR_57	{ -1267, 0, 1636 }	
-VAR_58	{ 4400, 0, 2109 }	
-VAR_59	{ 4907, 0, 2086 }	
-VAR_77	{ 2521, 0, 1623 }	
-VAR_78	{ 2567, 0, 1436 }	
-VAR_85	{ 486, 0, 1457 }	
-VAR_86	{ 1025, 0, 1102 }	
-VAR_87	{ 2196, 0, 1466 }	
-VAR_88	{ 4038, 0, 1501 }	
+/* This file was auto-generated using 'silver-reverse-sct' tool 
+to fully understand the scripts presented, one is encouraged to
+check the catalogs at: 
+https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
+for further information and support of this project please visit:
+https://github.com/nadavshemesh/silver-reversing-sct */
+
+
+, 0, 1501 }	
 VAR_89	{ 2571, 0, 1744 }	
 VAR_90	{ 2771, 0, 1744 }	
 VAR_91	{ 2460, 0, 1453 }	
@@ -156,9 +149,9 @@ switch(gamevar room_state)
 }
 
 ._SCRIPT_3
-var VAR_48 = call load_anim("come")
-var VAR_49 = call load_anim("gstqustn")
-var VAR_50 = call load_anim("laugh")
+var come_anim = call load_anim("come")
+var gstqustn_anim = call load_anim("gstqustn")
+var laugh_anim = call load_anim("laugh")
 
 ._SCRIPT_4
 execute SCRIPT_6
@@ -272,7 +265,7 @@ if(var VAR_83 == int 6)
 		if(call is_not_force_scrolling())
 		 {
 				call resume_conversation()
-				call play_char_anim(var GRANDAD, var VAR_50, int 0)
+				call play_char_anim(var GRANDAD, var laugh_anim, int 0)
 				var VAR_83 ++ 
 				var VAR_84 = int 0
 		}
@@ -316,7 +309,7 @@ if(var VAR_83 == int 10)
 		}
 		if(var VAR_84 == int 60)
 		 {
-				call play_char_anim(var DAVID, var VAR_49, int 0)
+				call play_char_anim(var DAVID, var gstqustn_anim, int 0)
 		}
 		if(var VAR_84 == int 70)
 		 {
@@ -509,7 +502,7 @@ if(var VAR_83 == int 20)
 		if(call is_char_standing(var nwilliam))
 		 {
 				call func_36(var nrebel, int 3602, int 0, int 1076)
-				call play_char_anim(var nwilliam, var VAR_48, int 0)
+				call play_char_anim(var nwilliam, var come_anim, int 0)
 				var VAR_83 ++ 
 				var VAR_84 = int 0
 		}
@@ -679,7 +672,7 @@ switch(var VAR_168)
 			}
 			if(var VAR_169 == int 80)
 			 {
-					call play_char_anim(var nfatbob, var VAR_131, int 0)
+					call play_char_anim(var nfatbob, var eat_anim, int 0)
 					var VAR_168 ++ 
 					var VAR_169 = int 0
 			}
@@ -712,7 +705,7 @@ switch(var VAR_168)
 			if(var VAR_169 > int 40)
 			 {
 					call start_dialog("S_DUKFAT", "NULL")
-					call play_char_anim(var nfatbob, var VAR_131, int 0)
+					call play_char_anim(var nfatbob, var eat_anim, int 0)
 					var VAR_168 ++ 
 					var VAR_169 = int 0
 			}
@@ -1120,4 +1113,4 @@ switch(var VAR_26)
 }
 
 ._SCRIPT_26
-var VAR_131 = call load_anim("eat")
+var eat_anim = call load_anim("eat")

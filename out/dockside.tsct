@@ -1,15 +1,12 @@
-._DATA
-VAR_2	{ -3956, 10, -1475 }	
-VAR_9	{ 1955, 1630, 125 }	
-VAR_10	{ 3065, 1780, -1635 }	
-VAR_14	{ -1175, 1265, -1500 }	
-VAR_18	{ -5060, 1230, -1100 }	
-VAR_19	{ -4350, 1330, 1650 }	
-VAR_20	{ -5060, 1230, -1100 }	
-VAR_21	{ -4350, 1330, 1650 }	
-VAR_26	{ 250, -590, 450 }	
-VAR_27	{ 270, -590, 820 }	
-VAR_32	{ -583, -750, 456, -586, -750, 918, -532, -750, 1289, -1230, -750, 1043, -1363, -750, 569, -1186, -750, 319, -924, -750, 402, -879, -750, 930, -1281, -750, 889, -1263, -750, 1451, -1732, -750, 613, -1918, -750, 741 }	
+/* This file was auto-generated using 'silver-reverse-sct' tool 
+to fully understand the scripts presented, one is encouraged to
+check the catalogs at: 
+https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
+for further information and support of this project please visit:
+https://github.com/nadavshemesh/silver-reversing-sct */
+
+
+89, -1230, -750, 1043, -1363, -750, 569, -1186, -750, 319, -924, -750, 402, -879, -750, 930, -1281, -750, 889, -1263, -750, 1451, -1732, -750, 613, -1918, -750, 741 }	
 VAR_33	{ 11, 300, 600, 31, 12, VAR_32, 0, 7, 8 }	
 VAR_34	{ 11, 300, 600, 31, 12, VAR_32, 0, 7, 8 }	
 VAR_35	{ VAR_36, 44, 0, 5, 0, 0 }	
@@ -134,7 +131,7 @@ if(gamevar !is_room_cleared)
 }
 
 ._SCRIPT_3
-var VAR_7 = call load_anim("sob")
+var sob_anim = call load_anim("sob")
 
 ._SCRIPT_4
 call play_3d_fx("CHIM", var &VAR_9, int 0, int 0)
@@ -143,14 +140,14 @@ call play_3d_fx("CHIM", var &VAR_10, int 0, int 0)
 ._SCRIPT_5
 if(var VAR_105 == int 0)
  {
-		call play_char_anim(var NWILLIAM, var VAR_44, int 0)
+		call play_char_anim(var NWILLIAM, var talkfstb_anim, int 0)
 		var VAR_105 ++ 
 }
 if(var VAR_105 == int 1)
  {
 		if(call func_5c(var NWILLIAM))
 		 {
-				call play_char_anim(var NWILLIAM, var VAR_43, int 0)
+				call play_char_anim(var NWILLIAM, var confused_anim, int 0)
 				var VAR_105 ++ 
 		}
 }
@@ -158,7 +155,7 @@ if(var VAR_105 == int 2)
  {
 		if(call func_5c(var NWILLIAM))
 		 {
-				call play_char_anim(var NWILLIAM, var VAR_41, int 0)
+				call play_char_anim(var NWILLIAM, var gstqustn_anim, int 0)
 				var VAR_105 ++ 
 		}
 }
@@ -166,7 +163,7 @@ if(var VAR_105 == int 3)
  {
 		if(call func_5c(var NWILLIAM))
 		 {
-				call play_char_anim(var NWILLIAM, var VAR_42, int 0)
+				call play_char_anim(var NWILLIAM, var no_anim, int 0)
 				var VAR_105 ++ 
 		}
 }
@@ -174,7 +171,7 @@ if(var VAR_105 == int 4)
  {
 		if(call func_5c(var NWILLIAM))
 		 {
-				call play_char_anim(var NWILLIAM, var VAR_44, int 0)
+				call play_char_anim(var NWILLIAM, var talkfstb_anim, int 0)
 				var VAR_105 = int 1
 		}
 }
@@ -259,17 +256,17 @@ gamevar SMACKER_X = int 544
 gamevar SMACKER_Y = int 240
 call play_2d_anim("dockmob2", int 1, int 1, var &VAR_52)
 call add_item_to_char(var FFUGE, int 23, int 0, int 1)
-var VAR_45 = call load_anim("stand")
-var VAR_39 = call load_anim("stdstill")
-var VAR_40 = call load_anim("fasthopf")
-var VAR_41 = call load_anim("gstqustn")
-var VAR_42 = call load_anim("no")
-var VAR_43 = call load_anim("confused")
-var VAR_44 = call load_anim("talkfstb")
-var VAR_46 = call load_anim("tyrosumn")
-var VAR_47 = call load_anim("headchop")
-var VAR_48 = call load_anim("ulpunch")
-var VAR_49 = call load_anim("hitback")
+var stand_anim = call load_anim("stand")
+var stdstill_anim = call load_anim("stdstill")
+var fasthopf_anim = call load_anim("fasthopf")
+var gstqustn_anim = call load_anim("gstqustn")
+var no_anim = call load_anim("no")
+var confused_anim = call load_anim("confused")
+var talkfstb_anim = call load_anim("talkfstb")
+var tyrosumn_anim = call load_anim("tyrosumn")
+var headchop_anim = call load_anim("headchop")
+var ulpunch_anim = call load_anim("ulpunch")
+var hitback_anim = call load_anim("hitback")
 call set_input_system(int 2)
 call add_item_to_char(var FSGRUNT, int 16, int 0, int 1)
 call add_item_to_char(var FSGRUNT2, int 16, int 0, int 1)
@@ -303,13 +300,13 @@ if(var VAR_104 == int 0)
  {
 		if(gamevar scene_counter > int 1)
 		 {
-				call play_char_anim(var NDUKE, var VAR_39, int 0)
-				call play_char_anim(var FSGRUNT, var VAR_45, int 0)
-				call play_char_anim(var FSGRUNT2, var VAR_45, int 11)
-				call play_char_anim(var FSGRUNT3, var VAR_45, int 4)
-				call play_char_anim(var FSGRUNT4, var VAR_45, int 20)
-				call play_char_anim(var FSGRUNT5, var VAR_45, int 7)
-				call play_char_anim(var FSGRUNT6, var VAR_45, int 0)
+				call play_char_anim(var NDUKE, var stdstill_anim, int 0)
+				call play_char_anim(var FSGRUNT, var stand_anim, int 0)
+				call play_char_anim(var FSGRUNT2, var stand_anim, int 11)
+				call play_char_anim(var FSGRUNT3, var stand_anim, int 4)
+				call play_char_anim(var FSGRUNT4, var stand_anim, int 20)
+				call play_char_anim(var FSGRUNT5, var stand_anim, int 7)
+				call play_char_anim(var FSGRUNT6, var stand_anim, int 0)
 				call char_walk_to(var FFUGE, int -2307, int 10, int -1529)
 				var VAR_104 ++ 
 				gamevar scene_counter = int 0
@@ -395,7 +392,7 @@ if(var VAR_104 == int 6)
  {
 		if(call is_char_standing(var NDUKE))
 		 {
-				call play_char_anim(var NDUKE, var VAR_42, int 0)
+				call play_char_anim(var NDUKE, var no_anim, int 0)
 				call resume_conversation()
 				var VAR_104 ++ 
 		}
@@ -442,7 +439,7 @@ if(var VAR_104 == int 11)
  {
 		if(call is_char_standing(var FSGRUNT))
 		 {
-				call play_char_anim(var FSGRUNT, var VAR_46, int 0)
+				call play_char_anim(var FSGRUNT, var tyrosumn_anim, int 0)
 				var VAR_104 ++ 
 		}
 }
@@ -459,7 +456,7 @@ if(var VAR_104 == int 13)
  {
 		if(call func_5c(var FSGRUNT))
 		 {
-				call play_char_anim(var FSGRUNT, var VAR_46, int 0)
+				call play_char_anim(var FSGRUNT, var tyrosumn_anim, int 0)
 				var VAR_104 ++ 
 		}
 }
@@ -496,7 +493,7 @@ if(var VAR_104 == int 17)
  {
 		if(call is_char_standing(var FSGRUNT2))
 		 {
-				call play_char_anim(var FSGRUNT2, var VAR_46, int 0)
+				call play_char_anim(var FSGRUNT2, var tyrosumn_anim, int 0)
 				var VAR_104 ++ 
 		}
 }
@@ -505,7 +502,7 @@ if(var VAR_104 == int 18)
 		if(call func_5c(var FSGRUNT2))
 		 {
 				call char_walk_to(var NCAMILE1, int -2094, int 10, int -2257)
-				call play_char_anim(var NWILLIAM, var VAR_42, int 0)
+				call play_char_anim(var NWILLIAM, var no_anim, int 0)
 				call resume_conversation()
 				var VAR_104 ++ 
 		}
@@ -523,7 +520,7 @@ if(var VAR_104 == int 20)
  {
 		if(gamevar scene_counter > int 20)
 		 {
-				call play_char_anim(var FSGRUNT2, var VAR_40, int 0)
+				call play_char_anim(var FSGRUNT2, var fasthopf_anim, int 0)
 				gamevar scene_counter = int 0
 				var VAR_104 ++ 
 		}
@@ -560,7 +557,7 @@ if(var VAR_104 == int 24)
 		if(gamevar scene_counter > int 30)
 		 {
 				call resume_conversation()
-				call play_char_anim(var NDUKE, var VAR_44, int 0)
+				call play_char_anim(var NDUKE, var talkfstb_anim, int 0)
 				gamevar scene_counter = int 0
 				var VAR_104 ++ 
 		}
@@ -682,7 +679,7 @@ execute SCRIPT_15
 ._SCRIPT_14
 if(var VAR_123 == int 0)
  {
-		call play_char_anim(var noldwoman, var VAR_7, int 0)
+		call play_char_anim(var noldwoman, var sob_anim, int 0)
 		var VAR_123 ++ 
 		var VAR_124 = int 0
 }

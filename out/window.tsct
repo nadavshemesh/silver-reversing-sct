@@ -1,18 +1,12 @@
-._DATA
-VAR_18	{ 0, 0, -1 }	
-VAR_23	-1	
-VAR_57	{ -10176, 601, 2771 }	
-VAR_60	{ -9570, 601, 2774, -10685, 1801, 2784 }	
-VAR_61	{ -11282, 601, 2765 }	
-VAR_74	-1	
-VAR_80	{ 0, 0 }	
-VAR_83	-1	
+/* This file was auto-generated using 'silver-reverse-sct' tool 
+to fully understand the scripts presented, one is encouraged to
+check the catalogs at: 
+https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
+for further information and support of this project please visit:
+https://github.com/nadavshemesh/silver-reversing-sct */
 
-._on_load
-call load_sound_set(int 30)
-call play_loaded_sound(int 1, int -1, int 30, int 0)
-call load_sound_set(int 64)
-var VAR_54 = call play_loaded_sound(int 1, int -1, int 64, int 0)
+
+, int 64, int 0)
 if(var VAR_54)
  {
 		call set_sound_volume(var VAR_54, int 16)
@@ -129,7 +123,7 @@ switch(var VAR_52)
 		case 4
 			if(var VAR_53 > int 60)
 			 {
-					call play_char_anim(var fjag, var VAR_64, int 0)
+					call play_char_anim(var fjag, var stepb_anim, int 0)
 					var VAR_53 = int 0
 					var VAR_52 ++ 
 			}
@@ -165,7 +159,7 @@ switch(var VAR_52)
 					var VAR_72 = call get_david_char()
 					while(var VAR_72)
 					 {
-							call play_char_anim(var VAR_72, var VAR_65, var VAR_73)
+							call play_char_anim(var VAR_72, var victory_anim, var VAR_73)
 							var VAR_73 ++ 
 							var VAR_72 = call func_7e()
 					}
@@ -204,8 +198,8 @@ call func_1(var aqua_dragon, int 4)
 var fjag = call create_char(var &VAR_57, "fjag", int 90, int 13)
 var VAR_53 = int 0
 call set_input_system(int 2)
-var VAR_64 = call load_anim("stepb")
-var VAR_65 = call load_anim("victory")
+var stepb_anim = call load_anim("stepb")
+var victory_anim = call load_anim("victory")
 gamevar *scene_info_p+3 = int 16
 
 ._SCRIPT_5

@@ -1,17 +1,12 @@
-._DATA
-VAR_0	{ -2865, -1045, -250 }	
-VAR_1	{ -2833, -1045, -220 }	
-VAR_3	{ 0, 0, 0 }	
-VAR_5	0	
-VAR_6	0	
-VAR_7	0	
-VAR_8	0	
-VAR_11	{ -3440, -1075, 660, -3006, -1075, 600 }	
-VAR_13	{ -3381, -1075, 498, -3027, -1075, 435 }	
-VAR_15	{ -3525, -1075, 400, -3081, -1075, 216 }	
-nreuben	0	
-VAR_18	{ -2300, -1075, -463, -2875, -1075, -167 }	
-VAR_20	{ -3047, -1075, 989 }	
+/* This file was auto-generated using 'silver-reverse-sct' tool 
+to fully understand the scripts presented, one is encouraged to
+check the catalogs at: 
+https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
+for further information and support of this project please visit:
+https://github.com/nadavshemesh/silver-reversing-sct */
+
+
+9 }	
 VAR_28	{ 5, 20, 14, 0, -3081, -1075, 216, 2, -2622, -1075, 45, 5, 15, 16, 15, VAR_6, 3, 114, VAR_29, 5, 100, 0, -3027, -1075, 435, 2, -3316, -1075, 246, 3, 116, VAR_30, 16, 14, VAR_5, 5, 30, 16, 16, VAR_7, 5, 15, 0, -1905, -825, 475, 8 }	
 VAR_29	"silzapp"	
 VAR_30	"come"	
@@ -116,7 +111,7 @@ switch(var VAR_6)
 }
 if(var VAR_8)
  {
-		call play_char_anim(var nreuben, var VAR_25, int 0)
+		call play_char_anim(var nreuben, var stepb_anim, int 0)
 		var VAR_8 = int 0
 }
 switch(var VAR_36)
@@ -141,7 +136,7 @@ call add_item_to_char(var nsilver, int 106, int 0, int 1)
 gamevar script_object = var nsilver
 gamevar *object_p+6 |= int 1
 var nreuben = call create_char(var &VAR_18, "nreuben", int 0, int 13)
-var VAR_25 = call load_anim("stepb")
+var stepb_anim = call load_anim("stepb")
 var nguide = call create_char(var &VAR_20, "nguide", int 180, int 13)
 call set_char_init_state(var nsilver, int 13)
 call play_char_ai_script(var nsilver, var &VAR_28)

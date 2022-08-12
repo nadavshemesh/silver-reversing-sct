@@ -1,21 +1,12 @@
-._DATA
-VAR_18	{ 0, 0, -1 }	
-VAR_23	-1	
-VAR_39	{ -4017, -1227, -638 }	
-VAR_44	160	
-VAR_46	{ 0, 12 }	
-VAR_48	{ 0, 0 }	
-VAR_49	{ 0, 0, 0 }	
-VAR_53	{ 0, 0, 0 }	
-VAR_54	{ 0, 1, 0 }	
-VAR_69	{ 0, -3852, -1231, 1429 }	
-VAR_76	-1	
+/* This file was auto-generated using 'silver-reverse-sct' tool 
+to fully understand the scripts presented, one is encouraged to
+check the catalogs at: 
+https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
+for further information and support of this project please visit:
+https://github.com/nadavshemesh/silver-reversing-sct */
 
-._on_load
-call load_sound_set(int 0)
-call load_sound_set(int 30)
-call load_sound_set(int 72)
-call play_loaded_sound(int 4, int -1, int 72, int 0)
+
+t 72, int 0)
 call load_sound_set(int 64)
 call play_loaded_sound(int 1, int -1, int 64, int 0)
 call load_sound_set(int 65)
@@ -118,7 +109,7 @@ if(var VAR_66 == int 0&&call get_num_of_enemies() == int 0)
 				}
 				else
 				 {
-						call play_char_anim(var VAR_68, var VAR_59, int 0)
+						call play_char_anim(var VAR_68, var no_anim, int 0)
 				}
 				gamevar global_zone_type = int 0
 		}
@@ -149,7 +140,7 @@ if(var VAR_66 == int 3)
 		 {
 				var VAR_67 = int 0
 				var VAR_66 ++ 
-				call play_char_anim(var VAR_68, var VAR_60, int 0)
+				call play_char_anim(var VAR_68, var mgkair_anim, int 0)
 				call func_ec(int 226, int 0, int 0, int 0)
 				var VAR_49 = int 0
 				var VAR_47 = int 1
@@ -239,8 +230,8 @@ gamevar SMACKER_X = int 288
 gamevar SMACKER_Y = int 132
 var VAR_55 = call play_2d_anim("bloodout", int 10737418, int 1, var &VAR_53)
 var VAR_56 = call play_2d_anim("bloodlop", int 10737418, int 1, var &VAR_54)
-var VAR_59 = call load_anim("no")
-var VAR_60 = call load_anim("mgkair")
+var no_anim = call load_anim("no")
+var mgkair_anim = call load_anim("mgkair")
 var VAR_49 = int 1
 call load_char("chronicl")
 

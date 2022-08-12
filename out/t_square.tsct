@@ -1,18 +1,12 @@
-._DATA
-VAR_17	{ 0, 0 }	
-VAR_22	{ -2075, 2025, 4625 }	
-VAR_23	{ 800, 2025, -4025 }	
-VAR_24	{ 1313423698, -1431655936, 0, 0 }	
-SEKUNE	{ 0, 0 }	
-VAR_37	{ 366, 0, -272 }	
-VAR_38	{ 514, 0, -714 }	
-VAR_39	{ -178, 0, -578 }	
-VAR_40	{ -32, 0, -722 }	
-VAR_41	{ 237, 0, -795 }	
-VAR_42	{ 154, 0, -471 }	
-VAR_43	{ 154, 0, -471 }	
-VAR_44	{ 154, 0, -471 }	
-VAR_45	{ 237, 0, -795, -546, 0, -534 }	
+/* This file was auto-generated using 'silver-reverse-sct' tool 
+to fully understand the scripts presented, one is encouraged to
+check the catalogs at: 
+https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
+for further information and support of this project please visit:
+https://github.com/nadavshemesh/silver-reversing-sct */
+
+
+ 0, -795, -546, 0, -534 }	
 VAR_46	{ -283, 0, 470 }	
 VAR_62	{ 0, 0, 1, -1, 8, 0, 1, 1, 11, 11, 12, 13, -1, 4, 0, 9, 0, 5, 0, 100, 6, 1, 7, 1, 3, -1 }	
 VAR_63	-1	
@@ -309,13 +303,13 @@ if(call is_char_handle_in_level(int 786432))
 call set_char_running(var lieutenant1)
 call set_char_running(var lieutenant2)
 call set_char_running(var lieutenant3)
-var VAR_48 = call load_anim("gstqustn")
-var VAR_49 = call load_anim("no")
-var VAR_50 = call load_anim("yes")
-var VAR_51 = call load_anim("confused")
-var VAR_52 = call load_anim("talkfstb")
-var VAR_53 = call load_anim("dypunch")
-var VAR_54 = call load_anim("hitface")
+var gstqustn_anim = call load_anim("gstqustn")
+var no_anim = call load_anim("no")
+var yes_anim = call load_anim("yes")
+var confused_anim = call load_anim("confused")
+var talkfstb_anim = call load_anim("talkfstb")
+var dypunch_anim = call load_anim("dypunch")
+var hitface_anim = call load_anim("hitface")
 
 ._SCRIPT_6
 if(var VAR_63 != var VAR_27)
@@ -331,7 +325,7 @@ switch(var VAR_27)
 			 {
 					if(call is_char_handle_in_level(int 6881280))
 					 {
-							call play_char_anim(var captain_knives, var VAR_52, int 0)
+							call play_char_anim(var captain_knives, var talkfstb_anim, int 0)
 							var VAR_27 = int 3
 					}
 					else
@@ -346,7 +340,7 @@ switch(var VAR_27)
 			 {
 					if(call func_5c(var captain_knives))
 					 {
-							call play_char_anim(var noldwoman, var VAR_48, int 0)
+							call play_char_anim(var noldwoman, var gstqustn_anim, int 0)
 							var VAR_27 ++ 
 							var VAR_28 = int 0
 					}
@@ -362,7 +356,7 @@ switch(var VAR_27)
 			 {
 					if(call is_char_handle_in_level(int 6881280))
 					 {
-							call play_char_anim(var captain_knives, var VAR_52, int 0)
+							call play_char_anim(var captain_knives, var talkfstb_anim, int 0)
 							var VAR_27 ++ 
 							var VAR_28 = int 0
 					}
@@ -386,7 +380,7 @@ switch(var VAR_27)
 							 {
 									if(var VAR_67)
 									 {
-											call play_char_anim(var noldwoman, var VAR_49, int 0)
+											call play_char_anim(var noldwoman, var no_anim, int 0)
 									}
 									var VAR_27 ++ 
 									var VAR_67 = int 1
@@ -405,7 +399,7 @@ switch(var VAR_27)
 			 {
 					if(call is_char_handle_in_level(int 6881280))
 					 {
-							call play_char_anim(var captain_knives, var VAR_53, int 0)
+							call play_char_anim(var captain_knives, var dypunch_anim, int 0)
 							var VAR_27 ++ 
 							var VAR_28 = int 0
 					}
@@ -425,7 +419,7 @@ switch(var VAR_27)
 			if(var VAR_28 > int 30)
 			 {
 					call func_ec(int 2, int 0, int 67, var &VAR_44)
-					call play_char_anim(var noldwoman, var VAR_54, int 0)
+					call play_char_anim(var noldwoman, var hitface_anim, int 0)
 					var VAR_27 ++ 
 					var VAR_28 = int 0
 			}
@@ -437,7 +431,7 @@ switch(var VAR_27)
 					 {
 							if(call func_5c(var noldwoman))
 							 {
-									call play_char_anim(var noldwoman, var VAR_49, int 0)
+									call play_char_anim(var noldwoman, var no_anim, int 0)
 									var VAR_27 = int 3
 									var VAR_65 ++ 
 									if(var VAR_65 == var VAR_66)
@@ -458,7 +452,7 @@ switch(var VAR_27)
 			 {
 					if(call func_5c(var captain_knives))
 					 {
-							call play_char_anim(var noldwoman, var VAR_49, int 0)
+							call play_char_anim(var noldwoman, var no_anim, int 0)
 							var VAR_27 = int 2
 							var VAR_28 = int 0
 					}

@@ -1,9 +1,12 @@
-._DATA
-VAR_5	-1	
-VAR_9	{ 863, -1924, 2239 }	
-VAR_11	{ 0, 0 }	
-VAR_13	{ 440, -1485, 937 }	
-VAR_16	{ -467, -1925, 2101, -496, -1925, -18, -737, -1925, 480, -795, -1925, 1039, -651, -1925, 1506, -1007, -1925, 1020, -865, -1875, 1659, -1134, -1875, 1800, -1471, -1925, 1005, -614, -1925, -73, -599, -1925, 2235, -1550, -1925, 841, -1037, -1925, 1239, -704, -1925, 777, -464, -1925, 311, -385, -1925, 1605, -331, -1925, 1014, -616, -1925, 2036, -913, -1925, 1312, -599, -1925, 1384, -1042, -1875, 2061 }	
+/* This file was auto-generated using 'silver-reverse-sct' tool 
+to fully understand the scripts presented, one is encouraged to
+check the catalogs at: 
+https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
+for further information and support of this project please visit:
+https://github.com/nadavshemesh/silver-reversing-sct */
+
+
+25, 777, -464, -1925, 311, -385, -1925, 1605, -331, -1925, 1014, -616, -1925, 2036, -913, -1925, 1312, -599, -1925, 1384, -1042, -1875, 2061 }	
 VAR_17	{ 0, 1, 21, VAR_16, 8, 2, 1, 3, 60, 60, -1, 4, 0, 9, 1, 5, 1, 5, 100, 6, 2, 7, 1, 1, 10, 46, 83, 40, -1, -1 }	
 VAR_18	{ -180, -1925, 2395, -200, -1925, -340 }	
 
@@ -106,19 +109,19 @@ if(var ! is_BTREASURE_exist)
 ._SCRIPT_7
 
 ._SCRIPT_8
-var is_BTREASURE_exist1 = call is_char_handle_in_level(int 1507337)
-if(var ! is_BTREASURE_exist1)
+var is_BTREASURE1_exist = call is_char_handle_in_level(int 1507337)
+if(var ! is_BTREASURE1_exist)
  {
-		var is_BTREASURE_exist1 = call create_char(var VAR_1, "btreasure9", var VAR_2, int 14)
-		call func_aa(var is_BTREASURE_exist1)
+		var is_BTREASURE1_exist = call create_char(var VAR_1, "btreasure9", var VAR_2, int 14)
+		call func_aa(var is_BTREASURE1_exist)
 }
 else
  {
 		var VAR_4 = int 1
-		gamevar script_object = var is_BTREASURE_exist1
+		gamevar script_object = var is_BTREASURE1_exist
 		if(gamevar *object_p+7 == int 4194304)
 		 {
-				call func_aa(var is_BTREASURE_exist1)
+				call func_aa(var is_BTREASURE1_exist)
 		}
 }
 
@@ -129,11 +132,11 @@ if(var VAR_3 != int -1)
 		 {
 				if(var VAR_5 != int -1)
 				 {
-						call add_item_to_char(var is_BTREASURE_exist1, int 85, var VAR_5, int 0)
+						call add_item_to_char(var is_BTREASURE1_exist, int 85, var VAR_5, int 0)
 				}
 				else
 				 {
-						call add_item_to_char(var is_BTREASURE_exist1, var VAR_3, int 1, int 0)
+						call add_item_to_char(var is_BTREASURE1_exist, var VAR_3, int 1, int 0)
 				}
 		}
 }

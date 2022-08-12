@@ -1,21 +1,12 @@
-._DATA
-VAR_1	65536	
-VAR_2	65536	
-VAR_8	{ 1665, -665, 327 }	
-VAR_9	{ -335, -665, 353 }	
-VAR_10	{ 676, 500, 725 }	
-VAR_11	665	
-VAR_12	{ -400, 1145 }	
-VAR_14	500	
-VAR_15	{ 10, 120 }	
-VAR_32	{ 0, 0 }	
-VAR_34	{ 0, 0 }	
-VAR_35	{ 0, 0, 0 }	
-VAR_44	{ 1790, -765, 750 }	
-VAR_45	{ 1024, 634, 1310 }	
-VAR_46	{ 674, -665, 374 }	
-VAR_47	{ 674, -200, 374 }	
-VAR_48	{ 1605, -300, 813 }	
+/* This file was auto-generated using 'silver-reverse-sct' tool 
+to fully understand the scripts presented, one is encouraged to
+check the catalogs at: 
+https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
+for further information and support of this project please visit:
+https://github.com/nadavshemesh/silver-reversing-sct */
+
+
+5, -300, 813 }	
 VAR_53	-1	
 
 ._on_load
@@ -95,7 +86,7 @@ switch(var VAR_41)
 		case 2
 			if(call func_6d() == int 1)
 			 {
-					call play_char_anim(var DAVID, var VAR_25, int 0)
+					call play_char_anim(var DAVID, var confused_anim, int 0)
 					var VAR_41 ++ 
 					var VAR_42 = int 0
 			}
@@ -130,7 +121,7 @@ switch(var VAR_41)
 		case 5
 			if(var VAR_32 == int 10)
 			 {
-					call play_char_anim(var DAVID, var VAR_26, int 0)
+					call play_char_anim(var DAVID, var DodgeB_anim, int 0)
 					var VAR_2 = int 98304
 					var VAR_3 = int -2000
 					var VAR_14 = int 600
@@ -138,11 +129,11 @@ switch(var VAR_41)
 			}
 			if(var VAR_32 == int 14)
 			 {
-					call play_char_anim(var nduke, var VAR_26, int 0)
+					call play_char_anim(var nduke, var DodgeB_anim, int 0)
 			}
 			if(var VAR_32 == int 20)
 			 {
-					call play_char_anim(var nbuzuki, var VAR_27, int 0)
+					call play_char_anim(var nbuzuki, var laugh_anim, int 0)
 			}
 			if(var VAR_32 < int 20&&var VAR_32 > int 8)
 			 {
@@ -282,9 +273,9 @@ call load_item(int 99)
 call set_input_system(int 2)
 
 ._SCRIPT_5
-var VAR_25 = call load_anim("confused")
-var VAR_26 = call load_anim("DodgeB")
-var VAR_27 = call load_anim("laugh")
+var confused_anim = call load_anim("confused")
+var DodgeB_anim = call load_anim("DodgeB")
+var laugh_anim = call load_anim("laugh")
 
 ._SCRIPT_6
 gamevar SMACKER_X = int 160

@@ -1,19 +1,12 @@
-._DATA
-VAR_18	{ 0, 0, -1 }	
-VAR_23	-1	
-VAR_39	{ -6087, 204, -7451 }	
-VAR_50	{ 0, 0 }	
-VAR_52	{ -6048, 204, -7317 }	
-VAR_60	{ -6048, 334, -7317 }	
-VAR_65	{ -5437, 204, -7663 }	
-VAR_66	{ -6316, 204, -7009 }	
-VAR_69	{ 0, 0 }	
-VAR_70	{ -5018, 204, -7277 }	
-VAR_75	{ -6048, 334, -7317 }	
-VAR_76	{ -5322, 202, -7869, -5340, 199, -6716 }	
-VAR_77	-1	
+/* This file was auto-generated using 'silver-reverse-sct' tool 
+to fully understand the scripts presented, one is encouraged to
+check the catalogs at: 
+https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
+for further information and support of this project please visit:
+https://github.com/nadavshemesh/silver-reversing-sct */
 
-._on_load
+
+ad
 call remove_face(var &VAR_39)
 call play_bgm("GNO")
 call load_sound_set(int 63)
@@ -79,12 +72,12 @@ if(gamevar script_time > var VAR_79)
 var btreasure = call create_char(var &VAR_52, "btreasure", int 45, int 14)
 call add_item_to_char(var btreasure, int 85, int 3277313, int 0)
 call add_item_to_char(var btreasure, int 42, int 1, int 0)
-var VAR_45 = call load_anim("pfew")
-var VAR_46 = call load_anim("cheesnif")
-var VAR_48 = call load_anim("startle")
-var VAR_50 = call load_anim("temper")
-var VAR_47 = call load_anim("hitface")
-var VAR_49 = call load_anim("stan180c")
+var pfew_anim = call load_anim("pfew")
+var cheesnif_anim = call load_anim("cheesnif")
+var startle_anim = call load_anim("startle")
+var temper_anim = call load_anim("temper")
+var hitface_anim = call load_anim("hitface")
+var stan180c_anim = call load_anim("stan180c")
 var neutral_imp = call create_enemy(int 102, int 1, var &VAR_60, int 45)
 call func_10f(var neutral_imp, int 2)
 call freeze_enemy(var neutral_imp)
@@ -115,7 +108,7 @@ if(var VAR_68 == int 1)
  {
 		if(var VAR_69 > int 2)
 		 {
-				call play_char_anim(var nyelimp, var VAR_45, int 0)
+				call play_char_anim(var nyelimp, var pfew_anim, int 0)
 				var VAR_69 = int 0
 				var VAR_68 ++ 
 		}
@@ -124,7 +117,7 @@ if(var VAR_68 == int 2)
  {
 		if(var VAR_69 > int 140)
 		 {
-				call play_char_anim(var nyelimp, var VAR_49, int 0)
+				call play_char_anim(var nyelimp, var stan180c_anim, int 0)
 				var VAR_69 = int 0
 				var VAR_68 ++ 
 		}
@@ -133,7 +126,7 @@ if(var VAR_68 == int 3)
  {
 		if(call func_5c(var nyelimp))
 		 {
-				call play_char_anim(var nyelimp, var VAR_48, int 0)
+				call play_char_anim(var nyelimp, var startle_anim, int 0)
 				call func_95(var nyelimp, int 5, int 0)
 				var VAR_69 = int 0
 				var VAR_68 ++ 
@@ -189,7 +182,7 @@ if(var VAR_62 == int 1)
  {
 		if(var VAR_63 > int 2)
 		 {
-				call play_char_anim(var nlloyd, var VAR_46, int 0)
+				call play_char_anim(var nlloyd, var cheesnif_anim, int 0)
 				var VAR_63 = int 0
 				var VAR_62 ++ 
 		}
@@ -198,7 +191,7 @@ if(var VAR_62 == int 2)
  {
 		if(var VAR_63 > int 50)
 		 {
-				call play_char_anim(var nlloyd, var VAR_46, int 0)
+				call play_char_anim(var nlloyd, var cheesnif_anim, int 0)
 				var VAR_63 = int 0
 				var VAR_62 ++ 
 		}
@@ -207,7 +200,7 @@ if(var VAR_62 == int 3)
  {
 		if(var VAR_63 > int 50)
 		 {
-				call play_char_anim(var nlloyd, var VAR_46, int 0)
+				call play_char_anim(var nlloyd, var cheesnif_anim, int 0)
 				var VAR_63 = int 0
 				var VAR_62 ++ 
 		}
@@ -216,7 +209,7 @@ if(var VAR_62 == int 4)
  {
 		if(var VAR_63 > int 60)
 		 {
-				call play_char_anim(var nlloyd, var VAR_46, int 0)
+				call play_char_anim(var nlloyd, var cheesnif_anim, int 0)
 				var VAR_63 = int 0
 				var VAR_62 ++ 
 		}
@@ -225,7 +218,7 @@ if(var VAR_62 == int 5)
  {
 		if(var VAR_63 > int 70)
 		 {
-				call play_char_anim(var nlloyd, var VAR_46, int 0)
+				call play_char_anim(var nlloyd, var cheesnif_anim, int 0)
 				call func_100(call get_char_movement_ptr(var nlloyd))
 				var VAR_63 = int 0
 				var VAR_62 ++ 
@@ -235,7 +228,7 @@ if(var VAR_62 == int 6)
  {
 		if(var VAR_63 > int 25)
 		 {
-				call play_char_anim(var nlloyd, var VAR_47, int 0)
+				call play_char_anim(var nlloyd, var hitface_anim, int 0)
 				call func_28(var nlloyd)
 				var VAR_63 = int 0
 				var VAR_62 ++ 
@@ -245,7 +238,7 @@ if(var VAR_62 == int 7)
  {
 		if(call func_5c(var nlloyd))
 		 {
-				call play_char_anim(var nlloyd, var VAR_50, int 0)
+				call play_char_anim(var nlloyd, var temper_anim, int 0)
 				call func_95(var nlloyd, int 6, int 0)
 				var VAR_63 = int 0
 				var VAR_62 ++ 

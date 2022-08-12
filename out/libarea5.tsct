@@ -1,19 +1,12 @@
-._DATA
-VAR_15	0	
-VAR_16	0	
-VAR_17	0	
-VAR_18	0	
-VAR_19	0	
-VAR_20	0	
-VAR_21	0	
-VAR_22	0	
-VAR_23	0	
-VAR_24	0	
-shaman_imp	{ 0, 0 }	
-VAR_26	0	
-VAR_27	0	
-VAR_28	0	
-VAR_29	{ 132, -997, -3627, 465, -997, -4742, -284, -997, -4055, -294, -997, -4784, -795, -997, -3611, -872, -997, -4317, -914, -997, -4797, -1287, -997, -3732, -1650, -997, -4100, -1869, -997, -3627 }	
+/* This file was auto-generated using 'silver-reverse-sct' tool 
+to fully understand the scripts presented, one is encouraged to
+check the catalogs at: 
+https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
+for further information and support of this project please visit:
+https://github.com/nadavshemesh/silver-reversing-sct */
+
+
+ }	
 VAR_30	{ 15, 16, 25, 1, 16, 38, 1, VAR_15, 10, 40, VAR_27, 16, 39, 1, VAR_29, 203, 7, VAR_28, 16, 38, VAR_31, 17, 10, 40, VAR_27, 16, 39, 1, VAR_29, 205, 7, VAR_28, 16, 38, VAR_32, 17, 10, 40, VAR_27, 16, 39, 1, VAR_29, 207, 7, VAR_28, 16, 38, VAR_33, 17, 10, 40, VAR_27, 16, 39, 1, VAR_29, 209, 7, VAR_28, 16, 26, VAR_34, 16, 28, 20, VAR_16, 30, 20, VAR_18, 32, 20, VAR_20, 27, 0, VAR_22, 29, 0, VAR_17, 31, 0, VAR_19, 33, 0, VAR_21, 34, 1, VAR_23, 38, 1, VAR_24, -269, 3, VAR_27, 16, 39, 1, 1, 35, 3, VAR_28, 0, 16, shaman_imp, 1, VAR_35, 38, 1, VAR_26, -284, -997, VAR_27, 16, 39, 1, 16, 38, 1, VAR_28, 10, 40, VAR_27, 16, 39, 1, VAR_29, 213, 10, VAR_28, 6, 36, VAR_36, 8 }	
 VAR_31	"pfew"	
 VAR_32	"pfew"	
@@ -135,10 +128,10 @@ call set_char_running(var nyelimp)
 call char_walk_to_pos(var nyelimp, var &VAR_38)
 var DAVID = call get_char_handle(int 65536)
 var GRANDAD = call get_char_handle(int 393216)
-var VAR_0 = call load_anim("pfew")
-var VAR_8 = call load_anim("startle")
-var VAR_9 = call load_anim("come")
-var VAR_10 = call load_anim("jestimp")
+var pfew_anim = call load_anim("pfew")
+var startle_anim = call load_anim("startle")
+var come_anim = call load_anim("come")
+var jestimp_anim = call load_anim("jestimp")
 execute SCRIPT_9
 call load_char("samnimp")
 call load_item(int 88)
@@ -314,7 +307,7 @@ switch(var VAR_69)
 		case 19
 			if(call is_char_standing(var nyelimp))
 			 {
-					call play_char_anim(var nyelimp, var VAR_9, int 0)
+					call play_char_anim(var nyelimp, var come_anim, int 0)
 					var VAR_70 = int 0
 					var VAR_69 ++ 
 			}
@@ -391,7 +384,7 @@ switch(var VAR_80)
 		case 3
 			if(call is_not_force_scrolling() == int 1)
 			 {
-					call play_char_anim(var shaman_imp, var VAR_10, int 0)
+					call play_char_anim(var shaman_imp, var jestimp_anim, int 0)
 					gamevar script_object = var shaman_imp
 					gamevar *character_movement_p+60 = int 0
 					var VAR_80 ++ 
@@ -492,7 +485,7 @@ if(var VAR_16 == int 22)
  {
 		if(var VAR_80 == int 3)
 		 {
-				call play_char_anim(var neutral_imp, var VAR_8, int 0)
+				call play_char_anim(var neutral_imp, var startle_anim, int 0)
 				var VAR_16 ++ 
 				var VAR_17 = int 0
 		}
@@ -533,7 +526,7 @@ if(var VAR_18 == int 22)
  {
 		if(var VAR_80 == int 3)
 		 {
-				call play_char_anim(var neutral_imp1, var VAR_8, int 0)
+				call play_char_anim(var neutral_imp1, var startle_anim, int 0)
 				var VAR_18 ++ 
 				var VAR_19 = int 0
 		}
@@ -574,7 +567,7 @@ if(var VAR_20 == int 22)
  {
 		if(var VAR_80 == int 3)
 		 {
-				call play_char_anim(var neutral_imp2, var VAR_8, int 0)
+				call play_char_anim(var neutral_imp2, var startle_anim, int 0)
 				var VAR_20 ++ 
 				var VAR_21 = int 0
 		}
@@ -615,7 +608,7 @@ if(var VAR_22 == int 22)
  {
 		if(var VAR_80 == int 3)
 		 {
-				call play_char_anim(var neutral_imp3, var VAR_8, int 0)
+				call play_char_anim(var neutral_imp3, var startle_anim, int 0)
 				var VAR_22 ++ 
 				var VAR_23 = int 0
 		}
@@ -673,8 +666,8 @@ var grow_big_yellow_imp = call create_enemy(int 119, int 0, var &VAR_103, int 0)
 call func_103(var grow_big_yellow_imp)
 
 ._SCRIPT_18
-var VAR_0 = call load_anim("pfew")
-var VAR_1 = call load_anim("yibscale")
+var pfew_anim = call load_anim("pfew")
+var yibscale_anim = call load_anim("yibscale")
 var nyelimp = call create_char(var &VAR_88, "nyelimp", int 70, int 13)
 gamevar script_object = var nyelimp
 gamevar *object_p+6 |= int 2048
@@ -800,7 +793,7 @@ switch(var VAR_104)
 			gamevar script_object = var nyelimp
 			if(gamevar *object_p+5 == int 13)
 			 {
-					call play_char_anim(var nyelimp, var VAR_0, int 0)
+					call play_char_anim(var nyelimp, var pfew_anim, int 0)
 					var VAR_104 ++ 
 					var VAR_105 = int 0
 			}

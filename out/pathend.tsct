@@ -1,13 +1,12 @@
-._DATA
-VAR_3	{ 0, 0, 0 }	
-VAR_26	{ 0, 0, -1 }	
-VAR_31	-1	
-VAR_50	{ 4091, -63, -2397 }	
-VAR_52	{ 2835, 194, -4210 }	
-bmimic	{ 0, 3673, 194, -4487, 0 }	
-VAR_55	{ 2797, 1420, 723, 0, 0, 0 }	
-VAR_56	{ 3550, 193, -3155, 3725, -62, -2236, 3382, -62, -2481 }	
-VAR_58	{ 4482, 645, -2388, 4488, 745, -2258, 4460, 545, -2079, 4256, 945, -1958, 4453, 645, -2164, 4149, 545, -2110, 4168, 645, -2374, 4293, 845, -2530, 4270, 645, -2386, 4215, 745, -2131, 4189, 645, -2283, 4119, 945, -2325, 4034, 645, -2226 }	
+/* This file was auto-generated using 'silver-reverse-sct' tool 
+to fully understand the scripts presented, one is encouraged to
+check the catalogs at: 
+https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
+for further information and support of this project please visit:
+https://github.com/nadavshemesh/silver-reversing-sct */
+
+
+, 545, -2110, 4168, 645, -2374, 4293, 845, -2530, 4270, 645, -2386, 4215, 745, -2131, 4189, 645, -2283, 4119, 945, -2325, 4034, 645, -2226 }	
 VAR_59	{ 2, 4482, 645, -2388, 6, 1, 0, 8 }	
 VAR_60	{ 0, 0 }	
 VAR_63	{ 2, 4482, 645, -2388, 31, 8, VAR_58, 1, 16, VAR_60, 1, 16, VAR_60, 0, 11, 60, 180, 6, 1, 0, 8 }	
@@ -189,17 +188,17 @@ switch(var VAR_57)
 					call func_134()
 					if(var VAR_5)
 					 {
-							call play_char_anim(var VAR_5, var VAR_68, int 5)
+							call play_char_anim(var VAR_5, var victory_anim, int 5)
 					}
 					if(var VAR_6)
 					 {
-							call play_char_anim(var VAR_6, var VAR_68, int 3)
+							call play_char_anim(var VAR_6, var victory_anim, int 3)
 					}
 					if(var VAR_7)
 					 {
-							call play_char_anim(var VAR_7, var VAR_68, int 0)
+							call play_char_anim(var VAR_7, var victory_anim, int 0)
 					}
-					call play_char_anim(var DAVID, var VAR_68, int 0)
+					call play_char_anim(var DAVID, var victory_anim, int 0)
 					var VAR_57 ++ 
 			}
 			break 
@@ -225,7 +224,7 @@ if(var VAR_57 == int 0)
 
 ._SCRIPT_4
 var DAVID = call get_char_handle(int 65536)
-var VAR_68 = call load_anim("victory")
+var victory_anim = call load_anim("victory")
 call load_char("plguemen")
 call load_char("golem")
 call load_char("plguebos")

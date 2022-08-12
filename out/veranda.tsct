@@ -1,13 +1,12 @@
-._DATA
-VAR_9	{ -6883, 0, -3005 }	
-VAR_10	{ -6001, 0, -2917 }	
-VAR_11	{ -7722, -800, -4195 }	
-VAR_16	{ -5933, 2000, -3650 }	
-VAR_17	{ -5493, 2200, -3457 }	
-VAR_18	{ -6307, 2000, -3877 }	
-VAR_19	{ -6877, 2200, -3439 }	
-VAR_20	{ -5933, 2000, -3650, -5493, 2200, -3457, -6307, 2000, -3877, -6877, 2200, -3439 }	
-VAR_21	{ -5933, 400, -3650, -5493, 400, -3457, -6307, 400, -3877, -6877, 400, -3439 }	
+/* This file was auto-generated using 'silver-reverse-sct' tool 
+to fully understand the scripts presented, one is encouraged to
+check the catalogs at: 
+https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
+for further information and support of this project please visit:
+https://github.com/nadavshemesh/silver-reversing-sct */
+
+
+6307, 400, -3877, -6877, 400, -3439 }	
 VAR_22	{ 0, 1, 5, VAR_20, 8, 1, 4, 2, 5, VAR_21, 9, 0, 1, 1, 105, 105, 105, 105, -1, 5, 0, 50, 6, 1, 7, 1, 1, -1 }	
 VAR_25	{ -3950, 0, -2604 }	
 VAR_30	-1	
@@ -119,7 +118,7 @@ if(gamevar script_time > var VAR_53)
 }
 
 ._SCRIPT_4
-var VAR_4 = call load_anim("imphorn")
+var imphorn_anim = call load_anim("imphorn")
 
 ._SCRIPT_5
 var bezerk_imp = call create_enemy(int 103, int 1, var &VAR_9, int 25)
@@ -194,7 +193,7 @@ if(var VAR_30 == int 1)
  {
 		if(call is_char_standing(var NIMP3))
 		 {
-				call play_char_anim(var NIMP3, var VAR_4, int 0)
+				call play_char_anim(var NIMP3, var imphorn_anim, int 0)
 				call play_loaded_sound(int 1, int 0, int 53, call get_char_movement_ptr(var NIMP3))
 				var VAR_30 ++ 
 				var VAR_37 = int 0

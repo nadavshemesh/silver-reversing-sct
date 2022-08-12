@@ -1,17 +1,12 @@
-._DATA
-VAR_2	100	
-VAR_5	{ 2871, -3103, -6461 }	
-VAR_6	{ 2104, -3103, -4459 }	
-VAR_7	{ 1648, -3103, -4173 }	
-VAR_8	{ 1956, -3103, -6261 }	
-VAR_9	{ 1249, -3103, -4761 }	
-VAR_10	{ 1053, -3103, -6301 }	
-VAR_11	{ 707, -3103, -5346 }	
-VAR_12	{ 186, -3103, -4669 }	
-VAR_13	{ 6, -3103, -5145 }	
-VAR_14	{ 256, -3103, -5879 }	
-VAR_15	{ -166, -3103, -6461 }	
-VAR_16	{ -1162, -3103, -6750 }	
+/* This file was auto-generated using 'silver-reverse-sct' tool 
+to fully understand the scripts presented, one is encouraged to
+check the catalogs at: 
+https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
+for further information and support of this project please visit:
+https://github.com/nadavshemesh/silver-reversing-sct */
+
+
+ -1162, -3103, -6750 }	
 VAR_17	{ -1521, -3103, -7844 }	
 VAR_18	{ -1051, -3103, -8842 }	
 VAR_19	{ -813, -3103, -8197 }	
@@ -111,8 +106,8 @@ call set_char_lvl(var VAR_31, int 14)
 gamevar script_object = var VAR_31
 gamevar *object_p+6 |= int 2
 call set_char_walking(var VAR_31)
-var VAR_40 = call load_anim("lookout")
-var VAR_41 = call load_anim("victory")
+var lookout_anim = call load_anim("lookout")
+var victory_anim = call load_anim("victory")
 gamevar SMACKER_X = int 128
 gamevar SMACKER_Y = int 328
 call play_2d_anim("nether2", int 1, int 1, int 0)
@@ -192,7 +187,7 @@ switch(var VAR_0)
 			if(call is_char_standing(var VAR_31))
 			 {
 					var VAR_3 = int 0
-					call play_char_anim(var VAR_31, var VAR_40, int 0)
+					call play_char_anim(var VAR_31, var lookout_anim, int 0)
 					call reset_local_timer()
 					var VAR_0 = int 8
 			}
@@ -250,7 +245,7 @@ switch(var VAR_0)
 					case 2
 						if(call is_char_standing(var VAR_31))
 						 {
-								call play_char_anim(var VAR_31, var VAR_40, int 0)
+								call play_char_anim(var VAR_31, var lookout_anim, int 0)
 								var VAR_1 ++ 
 						}
 						break 
@@ -264,7 +259,7 @@ switch(var VAR_0)
 					case 4
 						if(call is_local_timer_greater_than(int 10))
 						 {
-								call play_char_anim(var VAR_31, var VAR_41, int 0)
+								call play_char_anim(var VAR_31, var victory_anim, int 0)
 								call reset_local_timer()
 								var VAR_1 ++ 
 						}

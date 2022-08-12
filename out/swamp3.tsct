@@ -1,21 +1,12 @@
-._DATA
-VAR_18	{ 0, 0, -1 }	
-VAR_23	-1	
-VAR_41	{ -5825, 160, 9617 }	
-VAR_47	{ -5825, 160, 9617 }	
-treasure	{ 0, 0 }	
-VAR_57	{ -6151, 160, 9112 }	
-VAR_60	{ -5068, 160, 7767 }	
-VAR_61	{ -4112, 11, 10841 }	
-VAR_62	{ -9463, 11, 10136 }	
-VAR_63	{ -10586, 11, 7679 }	
-VAR_64	{ -6362, 160, 9484 }	
-VAR_65	"jmpsv"	
-VAR_66	100	
+/* This file was auto-generated using 'silver-reverse-sct' tool 
+to fully understand the scripts presented, one is encouraged to
+check the catalogs at: 
+https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
+for further information and support of this project please visit:
+https://github.com/nadavshemesh/silver-reversing-sct */
 
-._on_load
-execute SCRIPT_8
-execute SCRIPT_9
+
+RIPT_9
 call load_sound_set(int 22)
 var VAR_46 = call play_loaded_sound(int 1, int -1, int 22, int 0)
 switch(gamevar room_state)
@@ -96,7 +87,7 @@ switch(var VAR_55)
 			if(call is_local_timer_greater_than(int 60))
 			 {
 					call func_58(int 1)
-					call play_char_anim(var DAVID, var VAR_53, int 0)
+					call play_char_anim(var DAVID, var victory_anim, int 0)
 					gamevar script_object = var DAVID
 					var VAR_56 = gamevar LEVEL
 					var VAR_39 = var VAR_56 + int 1
@@ -105,15 +96,15 @@ switch(var VAR_55)
 					call func_134()
 					if(var VAR_43)
 					 {
-							call play_char_anim(var VAR_43, var VAR_53, int 5)
+							call play_char_anim(var VAR_43, var victory_anim, int 5)
 					}
 					if(var VAR_44)
 					 {
-							call play_char_anim(var VAR_44, var VAR_53, int 3)
+							call play_char_anim(var VAR_44, var victory_anim, int 3)
 					}
 					if(var VAR_45)
 					 {
-							call play_char_anim(var VAR_45, var VAR_53, int 0)
+							call play_char_anim(var VAR_45, var victory_anim, int 0)
 					}
 					var treasure = call create_enemy(int 136, int 0, var &VAR_57, int 60)
 					call add_item_to_char(var treasure, int 85, int 6554113, int 0)
@@ -146,7 +137,7 @@ call load_char("chronicl")
 call load_char("treasure")
 call load_item(int 60)
 gamevar *scene_info_p+3 |= int 16
-var VAR_53 = call load_anim("victory")
+var victory_anim = call load_anim("victory")
 var DAVID = call get_char_handle(int 65536)
 
 ._SCRIPT_5

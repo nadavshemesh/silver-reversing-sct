@@ -1,27 +1,12 @@
-._DATA
-VAR_18	{ 0, 0, -1 }	
-VAR_23	-1	
-VAR_41	1	
-VAR_42	{ 0, 0 }	
-VAR_52	{ 165, 0, -55 }	
-VAR_59	{ -300, 0, 28 }	
-VAR_60	{ -161, 0, 337 }	
-VAR_61	{ 157, 0, 624 }	
-VAR_62	VAR_60	
-VAR_63	VAR_61	
-VAR_64	{ -1264, 0, 901 }	
-VAR_65	-1	
+/* This file was auto-generated using 'silver-reverse-sct' tool 
+to fully understand the scripts presented, one is encouraged to
+check the catalogs at: 
+https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
+for further information and support of this project please visit:
+https://github.com/nadavshemesh/silver-reversing-sct */
 
-._on_load
-execute SCRIPT_4
-execute SCRIPT_15
-call func_58(int 1)
-if(gamevar is_room_cleared)
- {
-		execute SCRIPT_14
-}
-else
- {
+
+
 		switch(gamevar room_state)
 		 {
 				case 1
@@ -183,7 +168,7 @@ switch(var VAR_55)
 		case 1
 			if(var VAR_56 > int 50)
 			 {
-					call play_char_anim(var NVILLBOY, var VAR_46, int 0)
+					call play_char_anim(var NVILLBOY, var imphorn_anim, int 0)
 					var VAR_58 = call play_loaded_sound(int 3, int 0, int 8, int 0)
 					call set_sound_volume(var VAR_58, int 100)
 					var VAR_55 ++ 
@@ -204,8 +189,8 @@ switch(var VAR_55)
 			 {
 					var VAR_57 = call func_14(var DAVID, int 89)
 					call func_112(var VAR_57, int 2)
-					call play_char_anim(var DAVID, var VAR_47, int 0)
-					call play_char_anim(var GRANDAD, var VAR_47, int 0)
+					call play_char_anim(var DAVID, var DodgeB_anim, int 0)
+					call play_char_anim(var GRANDAD, var DodgeB_anim, int 0)
 					var VAR_55 ++ 
 					var VAR_56 = int 0
 			}
@@ -260,8 +245,8 @@ switch(var VAR_55)
 var VAR_56 ++ 
 
 ._SCRIPT_9
-var VAR_46 = call load_anim("imphorn")
-var VAR_47 = call load_anim("DodgeB")
+var imphorn_anim = call load_anim("imphorn")
+var DodgeB_anim = call load_anim("DodgeB")
 
 ._SCRIPT_10
 

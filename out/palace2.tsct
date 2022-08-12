@@ -1,13 +1,12 @@
-._DATA
-VAR_4	{ 0, 1, 20, 0, 0 }	
-VAR_6	{ 351, 1625, -10336 }	
-VAR_7	{ -433, 1625, -10378 }	
-VAR_10	{ -950, 1625, -10660 }	
-VAR_11	{ 1017, 1625, -10565 }	
-VAR_12	{ 1548, 0, -7887, 1321, 0, -8025 }	
-VAR_13	{ -1485, 0, -7867 }	
-VAR_14	{ 0, 0, 2, -1, 8, 0, 4, 2, 2, VAR_12, 9, 2, 6, 1, 1, 1, 26, 26, -1, 7, 1, 8, 10, 42, -1, -1 }	
-VAR_15	{ 0, 0, 2, -1, 8, 1, 4, 2, 1, VAR_10, 9, 1, 6, 2, 1, 1, 26, -1, 7, 1, 8, 10, 40, -1, -1 }	
+/* This file was auto-generated using 'silver-reverse-sct' tool 
+to fully understand the scripts presented, one is encouraged to
+check the catalogs at: 
+https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
+for further information and support of this project please visit:
+https://github.com/nadavshemesh/silver-reversing-sct */
+
+
+, 2, 1, VAR_10, 9, 1, 6, 2, 1, 1, 26, -1, 7, 1, 8, 10, 40, -1, -1 }	
 VAR_16	{ 0, 0, 2, -1, 8, 1, 4, 2, 1, VAR_11, 9, 1, 6, 2, 1, 1, 26, -1, 7, 1, 8, 10, 45, -1, -1 }	
 VAR_17	{ 0, 0, 2, -1, 8, 1, 4, 0, 9, 1, 6, 1, 1, 1, 26, 26, -1, 7, 1, 2, -1 }	
 VAR_18	{ 0, 0, 2, -1, 8, 0, 4, 2, 1, VAR_13, 9, 1, 6, 1, 1, 1, 26, 26, -1, 7, 1, 8, -1 }	
@@ -117,7 +116,7 @@ if(var VAR_0 == int 2)
 		 {
 				exit_script 
 		}
-		call play_char_anim(var vikingc, var VAR_5, int 0)
+		call play_char_anim(var vikingc, var come_anim, int 0)
 		var VAR_0 = int 3
 		var VAR_1 = int 8
 		call reset_local_timer()
@@ -125,7 +124,7 @@ if(var VAR_0 == int 2)
 }
 if(var VAR_0 == int 3)
  {
-		call play_char_anim(var vikingc1, var VAR_5, int 0)
+		call play_char_anim(var vikingc1, var come_anim, int 0)
 		var VAR_0 = int 4
 		exit_script 
 }
@@ -209,7 +208,7 @@ if(var VAR_0 == int 10)
 call load_char("viking")
 var vikingc = call create_enemy(int 66, int 0, var &VAR_6, int 330)
 var vikingc1 = call create_enemy(int 66, int 1, var &VAR_7, int 320)
-var VAR_5 = call load_anim("come")
+var come_anim = call load_anim("come")
 call set_input_system(int 2)
 var VAR_1 = int 3
 call reset_local_timer()

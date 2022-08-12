@@ -1,12 +1,12 @@
-._DATA
-VAR_18	{ 0, 0, -1 }	
-VAR_23	-1	
-nfrink	0	
-VAR_44	{ 584, -2466, 2776 }	
-VAR_58	{ 1905, -916, 1492 }	
-VAR_59	{ 316, -2466, 2964 }	
-VAR_60	{ 605, -2466, 2557 }	
-VAR_61	{ 3, VAR_62, 0, 0, 2, -2466, 2470, 3, VAR_63, 0, 0, -710, -2466, 3104, 3, VAR_64, 0, 0, 253, -2466, 3622, 3, VAR_65, 0, 0, 1442, -2466, 2921, 3, VAR_66, 0, 0, 605, -2466, 2557, 7, 8 }	
+/* This file was auto-generated using 'silver-reverse-sct' tool 
+to fully understand the scripts presented, one is encouraged to
+check the catalogs at: 
+https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
+for further information and support of this project please visit:
+https://github.com/nadavshemesh/silver-reversing-sct */
+
+
+
 VAR_62	"impjump"	
 VAR_63	"impjump"	
 VAR_64	"impjump"	
@@ -147,7 +147,7 @@ switch(var VAR_70)
 		case 1
 			if(call is_char_standing(var nduke))
 			 {
-					call play_char_anim(var nbuzuki, var VAR_54, int 0)
+					call play_char_anim(var nbuzuki, var tyrosumn_anim, int 0)
 					call func_11f(var &VAR_58, int 49152)
 					var VAR_70 ++ 
 					var VAR_71 = int 0
@@ -156,7 +156,7 @@ switch(var VAR_70)
 		case 2
 			if(call func_5c(var nbuzuki))
 			 {
-					call play_char_anim(var nbuzuki, var VAR_54, int 0)
+					call play_char_anim(var nbuzuki, var tyrosumn_anim, int 0)
 			}
 			if(call is_not_force_scrolling())
 			 {
@@ -226,8 +226,8 @@ execute SCRIPT_5
 call set_input_system(int 2)
 
 ._SCRIPT_5
-var VAR_54 = call load_anim("tyrosumn")
-var VAR_55 = call load_anim("come")
+var tyrosumn_anim = call load_anim("tyrosumn")
+var come_anim = call load_anim("come")
 
 ._SCRIPT_6
 if(var VAR_106 != var VAR_96)
@@ -262,7 +262,7 @@ switch(var VAR_96)
 		case 2
 			if(var VAR_97 > int 60)
 			 {
-					call play_char_anim(var nduke, var VAR_94, int 0)
+					call play_char_anim(var nduke, var jangive_anim, int 0)
 					var VAR_96 ++ 
 					var VAR_97 = int 0
 			}
@@ -338,7 +338,7 @@ switch(var VAR_96)
 								if(call func_6c(var nbuzuki))
 								 {
 										call start_dialog("B_DVDYES", "ACT_2")
-										call play_char_anim(var nbuzuki, var VAR_94, int 0)
+										call play_char_anim(var nbuzuki, var jangive_anim, int 0)
 										var VAR_103 = int 1
 										var VAR_98 = call add_item_to_char(var DAVID, int 37, int 0, int 0)
 										var VAR_96 = int 11
@@ -361,7 +361,7 @@ switch(var VAR_96)
 			if(call func_6d() == int 1)
 			 {
 					call set_input_system(int 2)
-					call play_char_anim(var nbuzuki, var VAR_94, int 0)
+					call play_char_anim(var nbuzuki, var jangive_anim, int 0)
 					var VAR_96 ++ 
 					var VAR_97 = int 0
 			}
@@ -446,7 +446,7 @@ switch(var VAR_99)
 }
 
 ._SCRIPT_9
-var VAR_94 = call load_anim("jangive")
+var jangive_anim = call load_anim("jangive")
 
 ._SCRIPT_10
 var nbuzuki = call create_char(var &VAR_120, "nbuzuki", int 5, int 13)

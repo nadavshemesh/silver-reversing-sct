@@ -1,17 +1,12 @@
-._DATA
-VAR_0	{ 1, 2, -1 }	
-VAR_1	{ 1, -1 }	
-VAR_2	{ -3359, -90, -5151 }	
-VAR_10	{ -2041, -90, -890 }	
-VAR_12	{ -2107, -90, -3941 }	
-VAR_14	{ -1955, -90, -3541 }	
-VAR_16	{ -2244, -90, -4118 }	
-VAR_18	{ 1700, -40, -2050 }	
-VAR_20	{ 1600, -40, -2050 }	
-VAR_22	{ -3875, -90, -5600 }	
-VAR_23	{ -4180, -90, -5850 }	
-VAR_24	{ -4180, -90, -5235 }	
-VAR_25	{ -4180, -90, -5600 }	
+/* This file was auto-generated using 'silver-reverse-sct' tool 
+to fully understand the scripts presented, one is encouraged to
+check the catalogs at: 
+https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
+for further information and support of this project please visit:
+https://github.com/nadavshemesh/silver-reversing-sct */
+
+
+-90, -5600 }	
 VAR_28	{ -845, -90, -3567 }	
 VAR_29	{ -2050, -90, -1109 }	
 VAR_30	{ -1845, -90, -861 }	
@@ -97,7 +92,7 @@ switch(gamevar room_state)
 }
 
 ._SCRIPT_3
-var VAR_5 = call load_anim("tyrosumn")
+var tyrosumn_anim = call load_anim("tyrosumn")
 
 ._SCRIPT_4
 execute SCRIPT_3
@@ -157,7 +152,7 @@ if(var VAR_27 == int 2)
  {
 		if(var VAR_26 > int 40)
 		 {
-				call play_char_anim(var fuge, var VAR_5, int 0)
+				call play_char_anim(var fuge, var tyrosumn_anim, int 0)
 				var VAR_27 ++ 
 				var VAR_26 = int 0
 		}

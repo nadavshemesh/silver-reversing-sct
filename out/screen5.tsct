@@ -1,19 +1,12 @@
-._DATA
-VAR_18	{ 0, 0, -1 }	
-VAR_23	-1	
-VAR_50	{ 1827, 3100, 2488 }	
-VAR_51	{ 978, 3100, 2208 }	
-VAR_52	{ 1998, 1900, 4756 }	
-VAR_53	{ 899, 1900, 4685 }	
-VAR_57	{ 1772, 650, 5825 }	
-VAR_58	{ 1383, 649, 5930 }	
-VAR_63	{ 0, 0 }	
-VAR_66	{ 2275, 650, 5498 }	
+/* This file was auto-generated using 'silver-reverse-sct' tool 
+to fully understand the scripts presented, one is encouraged to
+check the catalogs at: 
+https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
+for further information and support of this project please visit:
+https://github.com/nadavshemesh/silver-reversing-sct */
 
-._on_load
-call load_sound_set(int 64)
-call play_loaded_sound(int 1, int -1, int 64, int 0)
-call play_bgm("GNOCVP1")
+
+bgm("GNOCVP1")
 execute SCRIPT_14
 if(gamevar is_room_cleared)
  {
@@ -111,8 +104,8 @@ if(gamevar script_time > var VAR_69)
 }
 
 ._SCRIPT_4
-var VAR_42 = call load_anim("startle")
-var VAR_43 = call load_anim("impish")
+var startle_anim = call load_anim("startle")
+var impish_anim = call load_anim("impish")
 
 ._SCRIPT_5
 
@@ -146,8 +139,8 @@ switch(var VAR_62)
 		case 0
 			if(var VAR_63 > int 50)
 			 {
-					call play_char_anim(var nimp1, var VAR_43, int 0)
-					call play_char_anim(var nimp2, var VAR_43, int 0)
+					call play_char_anim(var nimp1, var impish_anim, int 0)
+					call play_char_anim(var nimp2, var impish_anim, int 0)
 					var VAR_62 ++ 
 					var VAR_63 = int 0
 			}
@@ -166,7 +159,7 @@ switch(var VAR_62)
 							var VAR_64 = var nimp2
 							var VAR_65 = var nimp1
 					}
-					call play_char_anim(var VAR_64, var VAR_42, int 0)
+					call play_char_anim(var VAR_64, var startle_anim, int 0)
 					var VAR_62 ++ 
 					var VAR_63 = int 0
 			}
@@ -174,7 +167,7 @@ switch(var VAR_62)
 		case 2
 			if(var VAR_63 > int 40)
 			 {
-					call play_char_anim(var VAR_65, var VAR_42, int 0)
+					call play_char_anim(var VAR_65, var startle_anim, int 0)
 					var VAR_62 ++ 
 					var VAR_63 = int 0
 			}

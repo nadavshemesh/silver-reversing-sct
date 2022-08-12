@@ -1,15 +1,12 @@
-._DATA
-VAR_20	{ 73, 1, -1 }	
-VAR_28	{ 1218, 21, 5832, 0, 0, 0, 0, 0, 0 }	
-VAR_29	{ 0, 1543, 21, 5901, 2, 1798, 210, 5886, 28, VAR_30, 10, 0, 0, 1301, 21, 6065, 2, 1607, 248, 6380, 28, VAR_31, 15, 0, 0, 1543, 21, 5901, 6, 1, 0, 8 }	
-VAR_30	"impread"	
-VAR_31	"impread"	
-VAR_32	{ 1123, 21, 4137 }	
-VAR_33	-1	
-VAR_42	{ 1991, 3, 1964 }	
-VAR_56	{ 0, 0 }	
+/* This file was auto-generated using 'silver-reverse-sct' tool 
+to fully understand the scripts presented, one is encouraged to
+check the catalogs at: 
+https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
+for further information and support of this project please visit:
+https://github.com/nadavshemesh/silver-reversing-sct */
 
-._on_load
+
+oad
 call play_bgm("GNO")
 execute SCRIPT_3
 if(gamevar is_room_cleared)
@@ -144,7 +141,7 @@ switch(var VAR_15)
 		case 0
 			if(var VAR_27 == int 0)
 			 {
-					call play_char_anim(var TYRONIS, var VAR_5, int 0)
+					call play_char_anim(var TYRONIS, var impread_anim, int 0)
 					call set_input_system(int 2)
 			}
 			if(var VAR_27 == int 60)
@@ -155,7 +152,7 @@ switch(var VAR_15)
 			 {
 					if(call is_char_standing(var DAVID))
 					 {
-							call play_char_anim(var TYRONIS, var VAR_2, int 0)
+							call play_char_anim(var TYRONIS, var tyrosumn_anim, int 0)
 							var VAR_15 ++ 
 							var VAR_27 = int 0
 					}
@@ -226,7 +223,7 @@ switch(var VAR_15)
 		case 15
 			if(var VAR_27 > int 60)
 			 {
-					call play_char_anim(var TYRONIS, var VAR_3, int 0)
+					call play_char_anim(var TYRONIS, var conjure_anim, int 0)
 					var VAR_15 ++ 
 					var VAR_27 = int 0
 			}
@@ -287,11 +284,11 @@ execute SCRIPT_9
 var VAR_27 ++ 
 
 ._SCRIPT_8
-var VAR_2 = call load_anim("tyrosumn")
-var VAR_3 = call load_anim("conjure")
-var VAR_4 = call load_anim("gstqustn")
-var VAR_5 = call load_anim("impread")
-var VAR_6 = call load_anim("come")
+var tyrosumn_anim = call load_anim("tyrosumn")
+var conjure_anim = call load_anim("conjure")
+var gstqustn_anim = call load_anim("gstqustn")
+var impread_anim = call load_anim("impread")
+var come_anim = call load_anim("come")
 
 ._SCRIPT_9
 switch(var VAR_50)
@@ -344,7 +341,7 @@ if(var VAR_40 == int 1)
 		if(var VAR_41 > int 240)
 		 {
 				call start_dialog("DVDTELE", "NULL")
-				call play_char_anim(var GRANDAD, var VAR_4, int 0)
+				call play_char_anim(var GRANDAD, var gstqustn_anim, int 0)
 				var VAR_40 ++ 
 				var VAR_41 = int 0
 		}
@@ -379,7 +376,7 @@ if(var VAR_40 == int 4)
 if(var VAR_40 == int 5)
  {
 		call start_dialog("GRATEL", "NULL")
-		call play_char_anim(var DAVID, var VAR_6, int 0)
+		call play_char_anim(var DAVID, var come_anim, int 0)
 		var VAR_40 ++ 
 		var VAR_41 = int 0
 }

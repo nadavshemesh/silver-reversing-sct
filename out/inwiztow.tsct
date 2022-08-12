@@ -1,12 +1,12 @@
-._DATA
-VAR_18	{ -198, -767, -24 }	
-VAR_20	{ 194, -767, 8 }	
-VAR_21	{ 25, 1, 17, 1, 35, 1, 58, 1, -1 }	
-VAR_25	{ 0, -564, -767, 46, 2, -752, -542, 57, 28, VAR_26, 2, 0, 0, -514, -767, 815, 2, -821, -515, 663, 28, VAR_27, 2, 0, 0, -186, -767, -2, 2, -474, -544, -268, 28, VAR_28, 2, 0, 7, 8 }	
-VAR_26	"impread"	
-VAR_27	"impread"	
-VAR_28	"impread"	
-VAR_34	{ 0, 354, -967, 926 }	
+/* This file was auto-generated using 'silver-reverse-sct' tool 
+to fully understand the scripts presented, one is encouraged to
+check the catalogs at: 
+https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
+for further information and support of this project please visit:
+https://github.com/nadavshemesh/silver-reversing-sct */
+
+
+, 354, -967, 926 }	
 VAR_35	{ -187, -767, 930 }	
 VAR_39	{ 314, -892, 1059 }	
 VAR_40	{ 424, -992, 991 }	
@@ -160,7 +160,7 @@ switch(var VAR_33)
 		case 5
 			if(var VAR_34 > int 50)
 			 {
-					call play_char_anim(var DAVID, var VAR_23, int 0)
+					call play_char_anim(var DAVID, var dodgeb_anim, int 0)
 					var VAR_33 ++ 
 					var VAR_34 = int 0
 			}
@@ -195,7 +195,7 @@ switch(var VAR_33)
 		case 9
 			if(var VAR_34 > int 50)
 			 {
-					call play_char_anim(var DAVID, var VAR_23, int 0)
+					call play_char_anim(var DAVID, var dodgeb_anim, int 0)
 					var VAR_33 ++ 
 					var VAR_34 = int 0
 			}
@@ -220,7 +220,7 @@ switch(var VAR_33)
 		case 12
 			if(call is_char_standing(var nothias))
 			 {
-					call play_char_anim(var nothias, var VAR_24, int 0)
+					call play_char_anim(var nothias, var cstabov_anim, int 0)
 					var VAR_33 ++ 
 					var VAR_34 = int 0
 			}
@@ -257,8 +257,8 @@ gamevar *object_p+6 |= int 8388608
 gamevar global_inventory_p = var &VAR_21
 var btreasure = call create_char(var &VAR_20, "btreasure", int 330, int 14)
 var DAVID = call get_char_handle(int 65536)
-var VAR_23 = call load_anim("dodgeb")
-var VAR_24 = call load_anim("cstabov")
+var dodgeb_anim = call load_anim("dodgeb")
+var cstabov_anim = call load_anim("cstabov")
 call set_input_system(int 2)
 
 ._SCRIPT_5

@@ -262,3 +262,14 @@ void write_asm_data_section(sct_f* sf) {
     }
 }
 
+void mark_auto_gen_file(sct_f* sf) {
+    fseek(sf->out_file, 0, SEEK_SET);
+    fprintf(sf->out_file, 
+    "/* This file was auto-generated using 'silver-reverse-sct' tool \n"
+    "to fully understand the scripts presented, one is encouraged to\n"
+    "check the catalogs at: \n"
+    "https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md\n"
+    "for further information and support of this project please visit:\n"
+    "https://github.com/nadavshemesh/silver-reversing-sct */\n\n\n"
+    );
+}

@@ -1,23 +1,12 @@
-._DATA
-VAR_18	{ 0, 0, -1 }	
-VAR_23	-1	
-VAR_56	{ 0, 0 }	
-VAR_58	{ 0, 0 }	
-VAR_68	{ -1100, 1270, 1250 }	
-VAR_69	{ 1900, 1270, -1475 }	
-VAR_73	{ 0, 0 }	
-VAR_75	{ 3, 2, 1 }	
-VAR_76	3	
-VAR_92	{ -693, -1039, -230 }	
-VAR_94	{ -584, -1039, 758 }	
-VAR_95	-1	
-VAR_97	-1431699414	
-VAR_100	-1431699410	
+/* This file was auto-generated using 'silver-reverse-sct' tool 
+to fully understand the scripts presented, one is encouraged to
+check the catalogs at: 
+https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
+for further information and support of this project please visit:
+https://github.com/nadavshemesh/silver-reversing-sct */
 
-._on_load
-execute SCRIPT_3
-call load_sound_set(int 1)
-execute SCRIPT_4
+
+RIPT_4
 execute SCRIPT_14
 execute SCRIPT_15
 call play_bgm("RAINPT1")
@@ -132,7 +121,7 @@ else
 }
 
 ._SCRIPT_6
-var VAR_77 = call load_anim("yes")
+var yes_anim = call load_anim("yes")
 gamevar SMACKER_X = int 264
 gamevar SMACKER_Y = int 192
 call play_2d_anim("gateopen", int 0, int 1, var &VAR_57)
@@ -209,7 +198,7 @@ if(var VAR_87 == int 2)
 								call reset_local_timer()
 								var VAR_90 = int 1
 								gamevar global_zone_type = int 0
-								call play_char_anim(var VAR_93, var VAR_77, int 0)
+								call play_char_anim(var VAR_93, var yes_anim, int 0)
 								if(var VAR_89 == var VAR_76)
 								 {
 										var VAR_87 = int 5

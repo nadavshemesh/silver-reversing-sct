@@ -1,19 +1,12 @@
-._DATA
-VAR_18	{ 0, 0, -1 }	
-VAR_23	-1	
-VAR_39	{ -1416, 0, 168 }	
-VAR_43	{ -473, 0, -108 }	
-VAR_44	{ -18, 0, -441 }	
-VAR_45	{ -683, 0, -460 }	
-VAR_46	{ -964, 0, -271 }	
-VAR_47	{ -364, 0, -729 }	
-VAR_48	{ -83, 0, -780 }	
-VAR_49	{ 3580, 0, -309 }	
-NVILOWFAT	0	
-VAR_63	{ 1598, 0, -1151 }	
-VAR_64	{ 4502, 0, -773 }	
-VAR_65	{ -74, 0, -2268 }	
-VAR_66	{ 2266, 0, -729 }	
+/* This file was auto-generated using 'silver-reverse-sct' tool 
+to fully understand the scripts presented, one is encouraged to
+check the catalogs at: 
+https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
+for further information and support of this project please visit:
+https://github.com/nadavshemesh/silver-reversing-sct */
+
+
+729 }	
 VAR_67	{ 5, 230, 0, 1649, 0, 295, 5, 80, 0, 2170, 0, 747, 3, VAR_68, 0, 0, 2698, 0, 932, 3, VAR_69, 0, 0, 2782, 0, 578, 3, VAR_70, 0, 0, 262, 0, -1933, 3, VAR_71, 0, 5, 100, 0, -2288, 0, 627, 3, VAR_72, 0, 0, 24, 0, -401, 7, 8 }	
 VAR_68	"duck"	
 VAR_69	"impjump"	
@@ -97,7 +90,7 @@ switch(gamevar room_state)
 }
 
 ._SCRIPT_3
-var VAR_40 = call load_anim("fpiont")
+var fpiont_anim = call load_anim("fpiont")
 
 ._SCRIPT_4
 execute SCRIPT_5
@@ -182,7 +175,7 @@ var VAR_84 ++
 ._SCRIPT_8
 if(var VAR_90 == int 0)
  {
-		call play_char_anim(var fuge, var VAR_40, int 0)
+		call play_char_anim(var fuge, var fpiont_anim, int 0)
 		var VAR_90 ++ 
 		var VAR_89 = int 0
 }

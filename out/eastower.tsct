@@ -1,17 +1,12 @@
-._DATA
-VAR_20	{ 0, 0, -1 }	
-VAR_25	-1	
-VAR_46	{ 0, 1 }	
-VAR_50	{ 1676, 403, -3261 }	
-VAR_51	{ 2043, 403, -3169 }	
-VAR_52	{ 2433, -597, -3617 }	
-VAR_53	{ 0, 0, 0, 1, -1, 8, 1, 4, 0, 9, 0, 1, 16, 102, 103, -1, 2, 1, 3, 2, 5, 0, 50, 7, 1, 8, -1 }	
-VAR_57	{ 2872, -597, -3192 }	
+/* This file was auto-generated using 'silver-reverse-sct' tool 
+to fully understand the scripts presented, one is encouraged to
+check the catalogs at: 
+https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
+for further information and support of this project please visit:
+https://github.com/nadavshemesh/silver-reversing-sct */
 
-._on_load
-call play_bgm("GNO")
-call load_sound_set(int 63)
-call play_loaded_sound(int 1, int -1, int 63, int 0)
+
+d(int 1, int -1, int 63, int 0)
 execute SCRIPT_11
 switch(gamevar room_state)
  {
@@ -84,7 +79,7 @@ gamevar script_object = var nyelimp
 gamevar *character_movement_p+60 = int 1
 gamevar script_object = var nyelimp
 gamevar *object_p+7 |= int 8388608
-var VAR_45 = call load_anim("startle")
+var startle_anim = call load_anim("startle")
 var DAVID = call get_char_handle(int 65536)
 var GRANDAD = call get_char_handle(int 393216)
 call func_108("ARSE")
@@ -96,7 +91,7 @@ switch(var VAR_46)
 			if(call get_char_y(var DAVID) < int -72)
 			 {
 					var VAR_43 = int 1
-					call play_char_anim(var nyelimp, var VAR_45, int 0)
+					call play_char_anim(var nyelimp, var startle_anim, int 0)
 					call func_95(var nyelimp, int 5, int 0)
 					gamevar scene_counter = int 0
 					var VAR_46 ++ 
@@ -147,7 +142,7 @@ gamevar script_object = var nyelimp
 gamevar *character_movement_p+60 = int 1
 gamevar script_object = var nyelimp
 gamevar *object_p+7 |= int 8388608
-var VAR_45 = call load_anim("startle")
+var startle_anim = call load_anim("startle")
 var DAVID = call get_char_handle(int 65536)
 var GRANDAD = call get_char_handle(int 393216)
 call func_108("ARSE")

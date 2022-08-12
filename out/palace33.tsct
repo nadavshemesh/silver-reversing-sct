@@ -1,17 +1,12 @@
-._DATA
-VAR_18	{ 0, 0, -1 }	
-VAR_23	-1	
-VAR_49	{ -3355, 4625, -13053 }	
-VAR_52	{ -419, 4925, -15986 }	
-VAR_66	{ -2493, 4625, -10159 }	
-VAR_67	{ -2625, 4625, -9670 }	
-VAR_68	{ -2289, 4625, -9675 }	
-VAR_77	{ -2413, 4625, -9092 }	
-VAR_78	{ -2404, 4625, -11182 }	
-VAR_79	{ -2147, 4625, -9544 }	
-VAR_80	{ -2147, 4625, -11257 }	
-VAR_81	{ -2665, 4625, -9582 }	
-VAR_82	{ -2695, 4625, -11340 }	
+/* This file was auto-generated using 'silver-reverse-sct' tool 
+to fully understand the scripts presented, one is encouraged to
+check the catalogs at: 
+https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
+for further information and support of this project please visit:
+https://github.com/nadavshemesh/silver-reversing-sct */
+
+
+_82	{ -2695, 4625, -11340 }	
 VAR_83	{ -2407, 4625, -9897 }	
 VAR_84	{ -2199, 4625, -11971 }	
 VAR_85	{ -1784, 4925, -14210 }	
@@ -168,15 +163,15 @@ switch(var VAR_59)
 					call func_134()
 					if(var VAR_63)
 					 {
-							call play_char_anim(var VAR_63, var VAR_51, int 0)
+							call play_char_anim(var VAR_63, var victory_anim, int 0)
 					}
 					if(var VAR_64)
 					 {
-							call play_char_anim(var VAR_64, var VAR_51, int 3)
+							call play_char_anim(var VAR_64, var victory_anim, int 3)
 					}
 					if(var VAR_65)
 					 {
-							call play_char_anim(var VAR_65, var VAR_51, int 5)
+							call play_char_anim(var VAR_65, var victory_anim, int 5)
 					}
 					gamevar script_object = var DAVID
 					var VAR_62 = gamevar LEVEL
@@ -207,7 +202,7 @@ var VAR_43 = int 0
 var VAR_44 = int 0
 call func_4d(int 111, var &VAR_41, "verdante", "exbarrac")
 call play_bgm("IEVLBAT1")
-var VAR_51 = call load_anim("victory")
+var victory_anim = call load_anim("victory")
 var btreasure = call create_char(var &VAR_52, "btreasure", int 340, int 14)
 call add_item_to_char(var btreasure, int 47, int 1, int 0)
 call add_item_to_char(var btreasure, int 45, int 1, int 0)

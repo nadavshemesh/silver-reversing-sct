@@ -1,10 +1,12 @@
-._DATA
-VAR_1	{ -8499, 2894, -16052 }	
-VAR_2	{ 0, 0, 1, 0, -1, 8, 1, 4, 0, 9, 0, 1, 4, 102, 103, -1, 2, 4, 3, 2, 5, 0, 50, 6, 1, 7, 1, 4, -1 }	
-VAR_3	{ 11, 200, 300, 0, -8499, 2894, -16552, 11, 200, 300, 0, -8499, 2894, -16052, 11, 200, 300, 0, -8499, 2894, -15552, 7, 8 }	
-horn_impefs	{ 0, 0 }	
-VAR_15	{ -8546, 2931, -16112, 0, 0 }	
-VAR_22	{ -8540, 2969, -15233, -8499, 2898, -16791, -8499, 2898, -16791 }	
+/* This file was auto-generated using 'silver-reverse-sct' tool 
+to fully understand the scripts presented, one is encouraged to
+check the catalogs at: 
+https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
+for further information and support of this project please visit:
+https://github.com/nadavshemesh/silver-reversing-sct */
+
+
+15233, -8499, 2898, -16791, -8499, 2898, -16791 }	
 VAR_23	{ -8714, 1201, -16178 }	
 
 ._on_load
@@ -93,8 +95,8 @@ if(gamevar script_time > var VAR_34)
 }
 
 ._SCRIPT_4
-var VAR_8 = call load_anim("pfew")
-var VAR_9 = call load_anim("startle")
+var pfew_anim = call load_anim("pfew")
+var startle_anim = call load_anim("startle")
 execute SCRIPT_7
 execute SCRIPT_8
 call set_input_system(int 2)
@@ -161,7 +163,7 @@ switch(var VAR_25)
 		case 1
 			if(var VAR_26 > int 10)
 			 {
-					call play_char_anim(var nyelimp, var VAR_8, int 0)
+					call play_char_anim(var nyelimp, var pfew_anim, int 0)
 					var VAR_25 ++ 
 					var VAR_26 = int 0
 			}
@@ -169,7 +171,7 @@ switch(var VAR_25)
 		case 2
 			if(var VAR_26 > int 200)
 			 {
-					call play_char_anim(var nyelimp, var VAR_9, int 0)
+					call play_char_anim(var nyelimp, var startle_anim, int 0)
 					call func_95(var nyelimp, int 5, int 0)
 					var VAR_25 ++ 
 					var VAR_26 = int 0
@@ -192,7 +194,7 @@ switch(var VAR_25)
 			if(call is_char_standing(var nyelimp))
 			 {
 					call func_12f(var VAR_10)
-					call play_char_anim(var nyelimp, var VAR_8, int 0)
+					call play_char_anim(var nyelimp, var pfew_anim, int 0)
 					var VAR_26 = int 0
 					var VAR_25 ++ 
 			}

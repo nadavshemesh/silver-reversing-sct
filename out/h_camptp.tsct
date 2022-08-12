@@ -1,18 +1,12 @@
-._DATA
-VAR_0	{ 0, -1 }	
-VAR_1	{ 0, -1 }	
-VAR_11	{ 0, 0 }	
-VAR_22	{ 0, 0 }	
-VAR_46	{ 2016, 1620, -160 }	
-VAR_48	{ 2832, 1572, -60 }	
-VAR_49	{ 2595, 1572, -314 }	
-VAR_50	{ 52, 1572, -343 }	
-VAR_51	{ 491, 1572, -1992 }	
-VAR_52	{ 1902, 1572, -2587 }	
-VAR_53	{ 4252, 1572, -186 }	
-VAR_54	{ 3315, 1572, -130 }	
-VAR_55	{ 1114, 1572, -474, 98, 1572, -1982 }	
-VAR_57	{ 931, 2000, -3151 }	
+/* This file was auto-generated using 'silver-reverse-sct' tool 
+to fully understand the scripts presented, one is encouraged to
+check the catalogs at: 
+https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
+for further information and support of this project please visit:
+https://github.com/nadavshemesh/silver-reversing-sct */
+
+
+7	{ 931, 2000, -3151 }	
 nwilliam	0	
 nben	0	
 njohn	0	
@@ -354,12 +348,12 @@ switch(gamevar room_state)
 }
 
 ._SCRIPT_3
-var VAR_33 = call load_anim("lizwarm")
-var VAR_34 = call load_anim("come")
-var VAR_35 = call load_anim("stan180a")
-var VAR_36 = call load_anim("eat")
-var VAR_37 = call load_anim("pfew")
-var VAR_38 = call load_anim("walk")
+var lizwarm_anim = call load_anim("lizwarm")
+var come_anim = call load_anim("come")
+var stan180a_anim = call load_anim("stan180a")
+var eat_anim = call load_anim("eat")
+var pfew_anim = call load_anim("pfew")
+var walk_anim = call load_anim("walk")
 
 ._SCRIPT_4
 var VAR_45 = call play_3d_fx("FIRE", var &VAR_46, int 0, int 0)
@@ -467,7 +461,7 @@ if(var VAR_95 == int 1)
  {
 		if(var VAR_96 > int 100)
 		 {
-				call play_char_anim(var nwilliam, var VAR_34, int 0)
+				call play_char_anim(var nwilliam, var come_anim, int 0)
 				var VAR_95 ++ 
 				var VAR_96 = int 0
 		}
@@ -578,7 +572,7 @@ if(var VAR_114 == int 1)
  {
 		if(var VAR_115 > var VAR_116)
 		 {
-				call play_char_anim(var nfatbob, var VAR_36, int 0)
+				call play_char_anim(var nfatbob, var eat_anim, int 0)
 				var VAR_114 ++ 
 				var VAR_115 = int 0
 		}
@@ -685,7 +679,7 @@ if(var VAR_119 == int 10)
  {
 		if(call get_input_sys() != int 4)
 		 {
-				call play_char_anim(var nrichard, var VAR_35, int 0)
+				call play_char_anim(var nrichard, var stan180a_anim, int 0)
 				var VAR_119 ++ 
 				var VAR_120 = int 0
 		}
@@ -713,7 +707,7 @@ if(var VAR_119 == int 21)
  {
 		if(call is_char_standing(var nrichard))
 		 {
-				call play_char_anim(var nrichard, var VAR_37, int 0)
+				call play_char_anim(var nrichard, var pfew_anim, int 0)
 				var VAR_119 ++ 
 				var VAR_120 = int 0
 		}
@@ -824,7 +818,7 @@ switch(var VAR_127)
 		case 5
 			if(var VAR_128 > int 60)
 			 {
-					call play_char_anim(var nsekune, var VAR_33, int 0)
+					call play_char_anim(var nsekune, var lizwarm_anim, int 0)
 					var VAR_129 = call randomize_int(int 500, int 800)
 					var VAR_127 ++ 
 					var VAR_128 = int 0
@@ -1243,7 +1237,7 @@ if(var VAR_117 == int 2)
  {
 		if(var VAR_118 > int 100)
 		 {
-				call play_char_anim(var nduke, var VAR_33, int 0)
+				call play_char_anim(var nduke, var lizwarm_anim, int 0)
 				var VAR_117 ++ 
 				var VAR_118 = int 0
 		}
@@ -1340,7 +1334,7 @@ if(var VAR_106 == int 2)
  {
 		if(var VAR_107 > int 100)
 		 {
-				call play_char_anim(var DAVID, var VAR_33, int 0)
+				call play_char_anim(var DAVID, var lizwarm_anim, int 0)
 				var VAR_97 = int 1
 				var VAR_106 ++ 
 				var VAR_107 = int 0
@@ -1371,7 +1365,7 @@ if(var VAR_108 == int 2)
  {
 		if(var VAR_109 > int 100)
 		 {
-				call play_char_anim(var GRANDAD, var VAR_33, int 0)
+				call play_char_anim(var GRANDAD, var lizwarm_anim, int 0)
 				var VAR_98 = int 1
 				var VAR_108 ++ 
 				var VAR_109 = int 0
@@ -1393,7 +1387,7 @@ if(var VAR_110 == int 1)
  {
 		if(var VAR_111 > int 100)
 		 {
-				call play_char_anim(var nduke, var VAR_33, int 0)
+				call play_char_anim(var nduke, var lizwarm_anim, int 0)
 				var VAR_100 = int 1
 				var VAR_110 ++ 
 				var VAR_111 = int 0
@@ -1415,7 +1409,7 @@ if(var VAR_112 == int 1)
  {
 		if(var VAR_113 > int 100)
 		 {
-				call play_char_anim(var nwilliam, var VAR_33, int 0)
+				call play_char_anim(var nwilliam, var lizwarm_anim, int 0)
 				var VAR_99 = int 1
 				var VAR_112 ++ 
 				var VAR_113 = int 0
@@ -1713,7 +1707,7 @@ switch(var VAR_279)
 			}
 			if(var VAR_280 > int 20)
 			 {
-					call play_char_anim(var nrebela, var VAR_33, int 0)
+					call play_char_anim(var nrebela, var lizwarm_anim, int 0)
 					var VAR_279 ++ 
 					var VAR_280 = int 0
 			}
@@ -1736,7 +1730,7 @@ switch(var VAR_279)
 		case 3
 			if(var VAR_280 > int 90)
 			 {
-					call play_char_anim(var nrebela, var VAR_33, int 0)
+					call play_char_anim(var nrebela, var lizwarm_anim, int 0)
 					var VAR_279 ++ 
 					var VAR_280 = int 0
 			}
@@ -1746,7 +1740,7 @@ var VAR_280 ++
 
 ._SCRIPT_35
 var nrebela = call create_char(var &VAR_276, "nrebela", int 140, int 13)
-var VAR_33 = call load_anim("lizwarm")
+var lizwarm_anim = call load_anim("lizwarm")
 
 ._SCRIPT_36
 if(var ! VAR_17)
@@ -1865,8 +1859,8 @@ switch(var VAR_329)
 			if(var VAR_330 == int 5)
 			 {
 					call func_108("ACT_7")
-					call play_char_anim(var nduke, var VAR_33, int 0)
-					call play_char_anim(var nben, var VAR_33, int 3)
+					call play_char_anim(var nduke, var lizwarm_anim, int 0)
+					call play_char_anim(var nben, var lizwarm_anim, int 3)
 					if(var VAR_16&&var VAR_317)
 					 {
 							call func_10c(var noldwoman, "DOGTOSS")
@@ -1910,8 +1904,8 @@ call func_50(var nrichard, int 8192)
 call play_char_ai_script(var nrichard, var &VAR_310)
 call func_50(var nclay, int 8192)
 call play_char_ai_script(var nclay, var &VAR_311)
-var VAR_33 = call load_anim("lizwarm")
-var VAR_314 = call load_anim("jangive")
+var lizwarm_anim = call load_anim("lizwarm")
+var jangive_anim = call load_anim("jangive")
 if(call func_bf(int 909, gamevar CURRENT_LEVEL, gamevar CURRENT_SCENE))
  {
 		call func_d8(int 909, var &VAR_316)
@@ -1943,7 +1937,7 @@ switch(var VAR_333)
 		case 2
 			if(var VAR_334 == int 80)
 			 {
-					call play_char_anim(var nduke, var VAR_33, int 0)
+					call play_char_anim(var nduke, var lizwarm_anim, int 0)
 					call func_10c(var nduke, "DOGSNOG")
 					var VAR_333 ++ 
 					var VAR_334 = int 0
@@ -1966,7 +1960,7 @@ switch(var VAR_336)
 			if(call get_input_sys() != int 4)
 			 {
 					call set_input_system(int 2)
-					call play_char_anim(var noldwoman, var VAR_314, int 0)
+					call play_char_anim(var noldwoman, var jangive_anim, int 0)
 					var VAR_336 ++ 
 					var VAR_337 = int 0
 			}
@@ -2008,7 +2002,7 @@ switch(var VAR_352)
 			if(var VAR_353 == int 5)
 			 {
 					call func_108("ACT_8")
-					call play_char_anim(var nduke, var VAR_33, int 0)
+					call play_char_anim(var nduke, var lizwarm_anim, int 0)
 					if(var ! VAR_16)
 					 {
 							if(var VAR_317)
@@ -2302,8 +2296,8 @@ else
 				call play_char_ai_script(var noldwoman, var &VAR_312)
 		}
 }
-var VAR_33 = call load_anim("lizwarm")
-var VAR_314 = call load_anim("jangive")
+var lizwarm_anim = call load_anim("lizwarm")
+var jangive_anim = call load_anim("jangive")
 var DAVID = call get_char_handle(int 65536)
 if(call create_item(int 30))
  {
@@ -2330,7 +2324,7 @@ switch(var VAR_399)
 		case 1
 			if(var VAR_400 > int 80)
 			 {
-					call play_char_anim(var nduke, var VAR_33, int 0)
+					call play_char_anim(var nduke, var lizwarm_anim, int 0)
 					var VAR_399 ++ 
 					var VAR_400 = int 0
 			}
@@ -2354,7 +2348,7 @@ switch(var VAR_399)
 		case 4
 			if(var VAR_400 == int 80)
 			 {
-					call play_char_anim(var nduke, var VAR_33, int 0)
+					call play_char_anim(var nduke, var lizwarm_anim, int 0)
 					var VAR_399 ++ 
 					var VAR_400 = int 0
 			}
@@ -2373,7 +2367,7 @@ switch(var VAR_401)
 		case 1
 			if(var VAR_402 == int 80)
 			 {
-					call play_char_anim(var nben, var VAR_33, int 0)
+					call play_char_anim(var nben, var lizwarm_anim, int 0)
 					var VAR_401 ++ 
 					var VAR_402 = int 0
 			}
@@ -2395,7 +2389,7 @@ switch(var VAR_403)
 			if(call get_input_sys() != int 4)
 			 {
 					call set_input_system(int 2)
-					call play_char_anim(var noldwoman, var VAR_314, int 0)
+					call play_char_anim(var noldwoman, var jangive_anim, int 0)
 					var VAR_403 ++ 
 					var VAR_404 = int 0
 			}
@@ -2708,7 +2702,7 @@ call add_item_to_char(var nrichard, int 16, int 0, int 1)
 call add_item_to_char(var nclay, int 16, int 0, int 1)
 call add_item_to_char(var njohn, int 16, int 0, int 1)
 call add_item_to_char(var nben, int 16, int 0, int 1)
-var VAR_33 = call load_anim("lizwarm")
+var lizwarm_anim = call load_anim("lizwarm")
 call func_50(var nrichard, int 8192)
 call play_char_ai_script(var nrichard, var &VAR_310)
 call func_50(var nclay, int 8192)
@@ -2728,8 +2722,8 @@ switch(var VAR_463)
 			if(var VAR_464 == int 5)
 			 {
 					call func_108("ACT_4")
-					call play_char_anim(var nduke, var VAR_33, int 0)
-					call play_char_anim(var nwilliam, var VAR_33, int 3)
+					call play_char_anim(var nduke, var lizwarm_anim, int 0)
+					call play_char_anim(var nwilliam, var lizwarm_anim, int 3)
 					call char_attack(var nben, var njohn)
 					var VAR_463 ++ 
 					var VAR_464 = int 0
@@ -2763,7 +2757,7 @@ switch(var VAR_466)
 		case 2
 			if(var VAR_467 == int 80)
 			 {
-					call play_char_anim(var nwilliam, var VAR_33, int 0)
+					call play_char_anim(var nwilliam, var lizwarm_anim, int 0)
 					var VAR_466 ++ 
 					var VAR_467 = int 0
 			}

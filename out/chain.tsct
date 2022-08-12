@@ -1,15 +1,12 @@
-._DATA
-VAR_20	{ 0, 0, -1 }	
-VAR_25	-1	
-VAR_46	-1	
-VAR_49	{ -381, 300, -1754 }	
-VAR_60	{ -1480, 299, -910 }	
-VAR_63	{ 1018, 300, -1051 }	
-VAR_64	{ 384, 300, -1051 }	
-VAR_72	{ 0, 0 }	
-VAR_75	{ -479, 300, -552 }	
-VAR_76	{ 180, 300, -389 }	
-VAR_80	{ 1101, 600, -1345, -816, 300, -1550, -1401, 300, 20, 85, 300, -207, -1582, 0, 1078, 9, 0, 1263, 1297, 0, 1008, 1460, 300, -379 }	
+/* This file was auto-generated using 'silver-reverse-sct' tool 
+to fully understand the scripts presented, one is encouraged to
+check the catalogs at: 
+https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
+for further information and support of this project please visit:
+https://github.com/nadavshemesh/silver-reversing-sct */
+
+
+1460, 300, -379 }	
 VAR_81	{ 1297, 300, -308 }	
 VAR_83	{ 666, 300, -839 }	
 VAR_84	-1	
@@ -133,7 +130,7 @@ switch(var VAR_71)
 			}
 			if(var VAR_72 == int 285)
 			 {
-					call play_char_anim(var DAVID, var VAR_62, int 0)
+					call play_char_anim(var DAVID, var DodgeB_anim, int 0)
 			}
 			if(var VAR_72 == int 350)
 			 {
@@ -237,14 +234,14 @@ switch(var VAR_71)
 		case 8
 			if(var VAR_72 > int 100)
 			 {
-					call play_char_anim(var DAVID, var VAR_65, int 0)
+					call play_char_anim(var DAVID, var victory_anim, int 0)
 					if(var VAR_54)
 					 {
-							call play_char_anim(var VAR_54, var VAR_65, int 3)
+							call play_char_anim(var VAR_54, var victory_anim, int 3)
 					}
 					if(var VAR_55)
 					 {
-							call play_char_anim(var VAR_55, var VAR_65, int 5)
+							call play_char_anim(var VAR_55, var victory_anim, int 5)
 					}
 					gamevar script_object = var DAVID
 					var VAR_82 = gamevar LEVEL
@@ -374,11 +371,11 @@ if(var VAR_55)
 		gamevar *character_stats_p+27 |= int 4
 }
 call func_a3(var DAVID)
-var VAR_62 = call load_anim("DodgeB")
+var DodgeB_anim = call load_anim("DodgeB")
 call set_input_system(int 2)
 call create_char(var &VAR_63, "ipie", int 0, int 0)
 call create_char(var &VAR_64, "idrumstik", int 0, int 0)
-var VAR_65 = call load_anim("victory")
+var victory_anim = call load_anim("victory")
 call load_char("chronicl")
 
 ._SCRIPT_5

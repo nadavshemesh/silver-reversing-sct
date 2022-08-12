@@ -1,17 +1,12 @@
-._DATA
-VAR_3	{ 0, 0 }	
-VAR_4	{ 0, 601, -350, 69, -607, -350, 92 }	
-VAR_7	{ -5, -350, -418 }	
-VAR_11	{ 9, -350, -130 }	
-VAR_14	{ 590, -350, 1087, 25, -250, 1350, -542, -350, 1165, 9, -350, -130 }	
-VAR_24	"BDD"	
-VAR_25	"CD"	
-VAR_26	"wDIE"	
-VAR_27	"oME"	
-VAR_28	"Bp:E"	
-VAR_29	"pAD"	
-VAR_30	{ 1092616192, -1011941376, -1029439488 }	
-VAR_31	{ VAR_24, VAR_25, VAR_26, VAR_27, VAR_28, VAR_29, VAR_30 }
+/* This file was auto-generated using 'silver-reverse-sct' tool 
+to fully understand the scripts presented, one is encouraged to
+check the catalogs at: 
+https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
+for further information and support of this project please visit:
+https://github.com/nadavshemesh/silver-reversing-sct */
+
+
+AR_26, VAR_27, VAR_28, VAR_29, VAR_30 }
 
 ._on_load
 call load_sound_set(int 74)
@@ -112,7 +107,7 @@ switch(var VAR_4)
 					var VAR_19 = call get_david_char()
 					while(var VAR_19)
 					 {
-							call play_char_anim(var VAR_19, var VAR_15, int 0)
+							call play_char_anim(var VAR_19, var victory_anim, int 0)
 							var VAR_19 = call func_7e()
 					}
 					var VAR_4 = int 2
@@ -147,7 +142,7 @@ gamevar SMACKER_X = int 376
 gamevar SMACKER_Y = int 156
 call play_2d_anim("atro8", int 0, int 1, var &VAR_2)
 call play_bgm("IEVLBAT1")
-var VAR_15 = call load_anim("victory")
+var victory_anim = call load_anim("victory")
 
 ._SCRIPT_5
 

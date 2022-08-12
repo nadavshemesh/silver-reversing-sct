@@ -1,19 +1,12 @@
-._DATA
-VAR_4	{ 0, 0 }	
-VAR_6	{ 0, 0 }	
-VAR_8	{ 0, 0 }	
-VAR_13	{ 0, 0, 1 }	
-VAR_23	0	
-VAR_24	0	
-VAR_26	{ 525, 0, -1618 }	
-VAR_27	{ 938, 400, -2090 }	
-VAR_28	{ 692, 0, -1049 }	
-VAR_29	{ 1333, 400, -1145 }	
-VAR_30	{ 938, 800, -2090 }	
-VAR_31	{ 1333, 1000, -1145 }	
-VAR_33	{ -992, 1001, -2144 }	
-VAR_35	{ -1407, 901, -1181 }	
-VAR_50	{ 16, VAR_23, 1, 0, -877, 311, -1991, 27, 16, VAR_23, 2, 8 }	
+/* This file was auto-generated using 'silver-reverse-sct' tool 
+to fully understand the scripts presented, one is encouraged to
+check the catalogs at: 
+https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
+for further information and support of this project please visit:
+https://github.com/nadavshemesh/silver-reversing-sct */
+
+
+11, -1991, 27, 16, VAR_23, 2, 8 }	
 VAR_51	{ 16, VAR_24, 1, 0, -1229, 311, -1200, 27, 16, VAR_24, 2, 8 }	
 VAR_59	{ 0, 0, 0 }	
 VAR_60	{ 0, 0, 0, 0, 0 }	
@@ -464,21 +457,21 @@ switch(var VAR_57)
 			 {
 					if(call get_char_handle_id(var VAR_61) != int 327680)
 					 {
-							call play_char_anim(var VAR_61, var VAR_46, int 0)
+							call play_char_anim(var VAR_61, var cagkixr_anim, int 0)
 							call log("roundhouse")
 					}
 					else
 					 {
-							call play_char_anim(var VAR_61, var VAR_48, int 6)
+							call play_char_anim(var VAR_61, var jab_anim, int 6)
 					}
 					if(call get_char_handle_id(var VAR_62) != int 327680)
 					 {
-							call play_char_anim(var VAR_62, var VAR_46, int 0)
+							call play_char_anim(var VAR_62, var cagkixr_anim, int 0)
 							call log("roundhouse")
 					}
 					else
 					 {
-							call play_char_anim(var VAR_62, var VAR_48, int 6)
+							call play_char_anim(var VAR_62, var jab_anim, int 6)
 					}
 					call play_loaded_sound(int 13, int 0, int 49, int 0)
 					var VAR_58 = int 0
@@ -798,8 +791,8 @@ while(var VAR_36)
 		}
 		var VAR_36 = call func_7e()
 }
-var VAR_46 = call load_anim("cagkixr")
-var VAR_48 = call load_anim("jab")
+var cagkixr_anim = call load_anim("cagkixr")
+var jab_anim = call load_anim("jab")
 call load_char("iwarrior")
 call load_char("flayer")
 execute SCRIPT_3

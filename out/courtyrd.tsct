@@ -1,19 +1,12 @@
-._DATA
-VAR_1	{ 0, 0 }	
-VAR_20	{ 0, 0, -1 }	
-VAR_25	-1	
-VAR_42	100	
-VAR_43	{ -6460, 16, 1048 }	
-VAR_57	{ -6526, 40, 1818 }	
-VAR_58	{ -6566, 15, 861 }	
-VAR_59	{ -6253, 16, 1370 }	
-VAR_60	{ -6907, -13, 1124 }	
-VAR_61	{ -6943, -6, -560 }	
-VAR_62	{ -2873, -10, 3883 }	
-VAR_63	{ -5979, -13, 2846 }	
-VAR_64	{ -6107, -15, 2691 }	
-VAR_75	{ -6165, 40, 1380 }	
-VAR_76	{ -6165, 30, 2150 }	
+/* This file was auto-generated using 'silver-reverse-sct' tool 
+to fully understand the scripts presented, one is encouraged to
+check the catalogs at: 
+https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
+for further information and support of this project please visit:
+https://github.com/nadavshemesh/silver-reversing-sct */
+
+
+	{ -6165, 30, 2150 }	
 VAR_77	{ -6866, 40, 1298 }	
 VAR_80	-1	
 VAR_84	{ -5720, 32, 660 }	
@@ -322,7 +315,7 @@ if(var VAR_80 == int 1)
 		if(call is_char_standing(var FIMP5))
 		 {
 				call log("Sound horn...")
-				call play_char_anim(var FIMP5, var VAR_46, int 0)
+				call play_char_anim(var FIMP5, var imphorn_anim, int 0)
 				call play_loaded_sound(int 8, int 0, int 11, call get_char_movement_ptr(var FIMP5))
 				if(var VAR_95 == int 0)
 				 {
@@ -362,7 +355,7 @@ if(var VAR_80 == int 3)
 var VAR_91 ++ 
 
 ._SCRIPT_14
-var VAR_46 = call load_anim("imphorn")
+var imphorn_anim = call load_anim("imphorn")
 
 ._SCRIPT_15
 gamevar compile_init_character = int 0

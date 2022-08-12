@@ -182,6 +182,9 @@ void write_tsct_asm_file(char* filepath, bool write_to_out_dir, sct_f* sf) {
     sf->out_file = f;
 
     write_asm_file(sf);
+    if(write_to_out_dir) {
+        mark_auto_gen_file(sf);
+    }
 
     char msg[256];
     sprintf(msg, "successfully written to %s.", fullpath);
@@ -267,7 +270,7 @@ int main(int argc, char* argv[]) {
 
             sct_file = disasm_file(filepath);
             write_tsct_asm_file(filepath, false, sct_file);
-            // also write to ./out/
+            // write to ./out/
             if(save_to_out) {
                 write_tsct_asm_file(filepath, true, sct_file);
             }
@@ -276,7 +279,7 @@ int main(int argc, char* argv[]) {
         case 1:
             ext = getFilenameExt(filepath);
             if(!strs_identical(ext, ".tsct")) {
-                print_err_and_exit("Wrong extension. should be an .tsct file", -4);
+                print_err_and_exit("Wrong extension. should be a .tsct file", -4);
             }
 
             sct_file = asm_file(filepath);

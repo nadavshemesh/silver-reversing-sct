@@ -1,13 +1,12 @@
-._DATA
-VAR_17	{ 0, 0 }	
-VAR_38	{ -680, -344, -435 }	
-VAR_39	{ -551, -354, -448 }	
-VAR_40	{ -877, -334, -541 }	
-VAR_41	{ -889, -334, -293 }	
-VAR_42	{ -470, -334, -323 }	
-VAR_43	"ORU"	
-VAR_44	{ -3627, -334, -623 }	
-VAR_45	{ 11, 200, 400, 0, -886, -334, -565, 11, 200, 400, 0, -916, -334, -250, 11, 200, 400, 3, VAR_46, 0, 0, -413, -334, -269, 11, 200, 400, 3, VAR_47, 0, 0, -551, -334, -448, 7, 8 }	
+/* This file was auto-generated using 'silver-reverse-sct' tool 
+to fully understand the scripts presented, one is encouraged to
+check the catalogs at: 
+https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
+for further information and support of this project please visit:
+https://github.com/nadavshemesh/silver-reversing-sct */
+
+
+, VAR_47, 0, 0, -551, -334, -448, 7, 8 }	
 VAR_46	"no"	
 VAR_47	"yes"	
 VAR_50	{ -3626, -334, -622 }	
@@ -204,7 +203,7 @@ call func_50(var nboatman, int 8192)
 call play_char_ai_script(var nboatman, var &VAR_45)
 
 ._SCRIPT_11
-var VAR_69 = call load_anim("jangive")
+var jangive_anim = call load_anim("jangive")
 
 ._SCRIPT_12
 switch(var VAR_143)
@@ -416,7 +415,7 @@ switch(var VAR_93)
 		case 11
 			if(var VAR_94 > int 60)
 			 {
-					call play_char_anim(gamevar control_char_p, var VAR_69, int 0)
+					call play_char_anim(gamevar control_char_p, var jangive_anim, int 0)
 					var VAR_93 ++ 
 					var VAR_94 = int 0
 			}

@@ -1,16 +1,12 @@
-._DATA
-VAR_17	{ 0, 0 }	
-VAR_19	{ 982, 2615, -2736 }	
-VAR_20	{ 7587, 2615, 3049 }	
-VAR_25	0	
-VAR_26	{ -4046, 795, -1220 }	
-VAR_27	{ -4910, 795, -915 }	
-VAR_28	{ -4690, 795, -500 }	
-VAR_29	{ -4252, 795, -390 }	
-VAR_30	{ VAR_27, VAR_28, VAR_29 }	
-VAR_44	0	
-VAR_45	0	
-VAR_54	{ -5305, 796, -1955, -3210, 796, -1924, -3138, 796, 1074, -4743, 796, 678, -3279, 796, -291, -5159, 796, -230, -4982, 796, -1440, -5856, 796, -757, -5192, 796, -1349, -4728, 796, -2413 }	
+/* This file was auto-generated using 'silver-reverse-sct' tool 
+to fully understand the scripts presented, one is encouraged to
+check the catalogs at: 
+https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
+for further information and support of this project please visit:
+https://github.com/nadavshemesh/silver-reversing-sct */
+
+
+, -291, -5159, 796, -230, -4982, 796, -1440, -5856, 796, -757, -5192, 796, -1349, -4728, 796, -2413 }	
 VAR_55	{ 34, 3, 0, 3, VAR_56, 0, 3, VAR_57, 0, 5, 30, 34, 1, 0, 3, VAR_58, 0, 34, 4, 0, 0, -4127, 795, -1700, 3, VAR_59, 0, 0, -3566, 796, -1145, 34, 5, 0, 3, VAR_60, 0, 4, VAR_44, 19, 17, 10, VAR_54, 0, 4, VAR_45, 20, 21, VAR_25, 23, 22, VAR_25, 34, 1, 0, 3, VAR_61, 0, 5, 10, 6, 13, 0, 8 }	
 VAR_56	"impjeer"	
 VAR_57	"implook"	
@@ -138,7 +134,7 @@ switch(var VAR_22)
 			if(var VAR_23 > int 60)
 			 {
 					call set_char_walking(var DAVID)
-					call play_char_anim(var DAVID, var VAR_62, int 0)
+					call play_char_anim(var DAVID, var confused_anim, int 0)
 					var VAR_22 ++ 
 					var VAR_23 = int 0
 			}
@@ -244,7 +240,7 @@ switch(var VAR_22)
 		case 7
 			if(call func_6d() == int 1)
 			 {
-					call play_char_anim(var gonchfx, var VAR_65, int 0)
+					call play_char_anim(var gonchfx, var strut_anim, int 0)
 					var VAR_23 = int 0
 					var VAR_22 ++ 
 					if(var VAR_33)
@@ -256,7 +252,7 @@ switch(var VAR_22)
 		case 8
 			if(var VAR_23 > int 25)
 			 {
-					call play_char_anim(var gonchfx, var VAR_66, int 0)
+					call play_char_anim(var gonchfx, var impish_anim, int 0)
 					call resume_conversation()
 					var VAR_22 ++ 
 					var VAR_23 = int 0
@@ -274,7 +270,7 @@ switch(var VAR_22)
 					 {
 							var VAR_43 = call get_char_pos(var gonchfx)
 							call char_turn_to_pos(var DAVID, var VAR_43)
-							call play_char_anim(var gonchfx, var VAR_64, int 0)
+							call play_char_anim(var gonchfx, var stepb_anim, int 0)
 							var VAR_23 = int 0
 							var VAR_22 ++ 
 					}
@@ -283,7 +279,7 @@ switch(var VAR_22)
 		case 10
 			if(var VAR_23 == int 50)
 			 {
-					call play_char_anim(var DAVID, var VAR_62, int 0)
+					call play_char_anim(var DAVID, var confused_anim, int 0)
 			}
 			if(var VAR_23 == int 120)
 			 {
@@ -325,7 +321,7 @@ switch(var VAR_22)
 					call func_1e(var gonchfx, var DAVID)
 					if(var VAR_33)
 					 {
-							call play_char_anim(var VAR_33, var VAR_63, int 0)
+							call play_char_anim(var VAR_33, var startle_anim, int 0)
 					}
 					var VAR_23 = int 0
 					var VAR_22 ++ 
@@ -352,7 +348,7 @@ switch(var VAR_22)
 							gamevar script_object = var VAR_33
 							gamevar *object_p+8 &= int -6710886
 					}
-					call play_char_anim(var gonchfx, var VAR_67, int 0)
+					call play_char_anim(var gonchfx, var laugh_anim, int 0)
 					var VAR_22 ++ 
 			}
 			break 
@@ -373,7 +369,7 @@ switch(var VAR_22)
 		case 15
 			if(var VAR_23 > int 30)
 			 {
-					call play_char_anim(var DAVID, var VAR_65, int 0)
+					call play_char_anim(var DAVID, var strut_anim, int 0)
 					var VAR_44 = int 1
 					var VAR_22 ++ 
 					var VAR_23 = int 0
@@ -384,11 +380,11 @@ switch(var VAR_22)
 			 {
 					if(var VAR_32)
 					 {
-							call play_char_anim(var VAR_32, var VAR_68, int 0)
+							call play_char_anim(var VAR_32, var lookout_anim, int 0)
 					}
 					if(var VAR_33)
 					 {
-							call play_char_anim(var VAR_33, var VAR_62, int 0)
+							call play_char_anim(var VAR_33, var confused_anim, int 0)
 					}
 					call resume_conversation()
 					var VAR_22 ++ 
@@ -466,13 +462,13 @@ while(var VAR_34)
 call func_50(var gonchfx, int 8192)
 call play_char_ai_script(var gonchfx, var &VAR_55)
 call set_char_running(var gonchfx)
-var VAR_65 = call load_anim("strut")
-var VAR_66 = call load_anim("impish")
-var VAR_62 = call load_anim("confused")
-var VAR_63 = call load_anim("startle")
-var VAR_64 = call load_anim("stepb")
-var VAR_67 = call load_anim("laugh")
-var VAR_68 = call load_anim("lookout")
+var strut_anim = call load_anim("strut")
+var impish_anim = call load_anim("impish")
+var confused_anim = call load_anim("confused")
+var startle_anim = call load_anim("startle")
+var stepb_anim = call load_anim("stepb")
+var laugh_anim = call load_anim("laugh")
+var lookout_anim = call load_anim("lookout")
 
 ._SCRIPT_6
 if(var VAR_108 == int 0)

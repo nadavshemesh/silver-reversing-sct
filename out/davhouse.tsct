@@ -1,17 +1,12 @@
-._DATA
-VAR_2	{ 0, 1, -1 }	
-VAR_3	{ 1, -1 }	
-VAR_8	{ -1053, 1435, -3599 }	
-VAR_9	{ 2106, 785, -6620 }	
-VAR_11	{ VAR_12, 0, 0, 5, 0, 0 }	
-VAR_12	"stdstill"	
-VAR_18	{ 3046, 785, -6855 }	
-VAR_30	{ 2268, 785, -6754 }	
-VAR_32	{ 1851, 785, -5094 }	
-VAR_34	{ -1573, 785, -8332 }	
-VAR_36	{ -1670, 785, -8265 }	
-VAR_38	{ -1424, 785, -8468 }	
-VAR_40	{ -1818, 785, -8502 }	
+/* This file was auto-generated using 'silver-reverse-sct' tool 
+to fully understand the scripts presented, one is encouraged to
+check the catalogs at: 
+https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
+for further information and support of this project please visit:
+https://github.com/nadavshemesh/silver-reversing-sct */
+
+
+02 }	
 VAR_42	{ -1317, 785, -8396 }	
 VAR_55	5	
 VAR_154	{ 1079, 785, -6381 }	
@@ -137,7 +132,7 @@ var HDAVID = call create_char(var &VAR_8, "HDAVID", int 75, int 13)
 var grandad = call create_enemy(int 98, int 0, var &VAR_9, int 125)
 call func_1(var grandad, int -1)
 var VAR_1 = call create_item(int 16)
-var VAR_10 = call load_anim("pfew")
+var pfew_anim = call load_anim("pfew")
 call load_char_anim(var HDAVID, var &VAR_11)
 call play_bgm("dfight")
 call set_char_walking(var HDAVID)
@@ -191,7 +186,7 @@ if(var VAR_4 == int 5)
  {
 		if(call is_char_standing(var HDAVID))
 		 {
-				call play_char_anim(var HDAVID, var VAR_10, int 0)
+				call play_char_anim(var HDAVID, var pfew_anim, int 0)
 				var VAR_4 = int 6
 				call reset_local_timer()
 		}
@@ -369,11 +364,11 @@ gamevar *character_movement_p+60 = int 1
 call load_char("fuge")
 call load_char("sgrunt")
 call func_10c(var grandad, "ACT2")
-var VAR_25 = call load_anim("tyrosumn")
-var VAR_26 = call load_anim("jendown")
-var VAR_27 = call load_anim("jenwash")
-var VAR_28 = call load_anim("jenup")
-var VAR_29 = call load_anim("fasthopf")
+var tyrosumn_anim = call load_anim("tyrosumn")
+var jendown_anim = call load_anim("jendown")
+var jenwash_anim = call load_anim("jenwash")
+var jenup_anim = call load_anim("jenup")
+var fasthopf_anim = call load_anim("fasthopf")
 var VAR_21 = int 0
 var VAR_22 = int 0
 gamevar scene_counter = int 0
@@ -1584,7 +1579,7 @@ if(var VAR_4 == int 93)
  {
 		if(call is_local_timer_greater_than(int 10))
 		 {
-				call play_char_anim(var grandad, var VAR_25, int 0)
+				call play_char_anim(var grandad, var tyrosumn_anim, int 0)
 				call reset_local_timer()
 				var VAR_4 = int 94
 		}
@@ -1666,7 +1661,7 @@ if(var VAR_4 == int 99)
 		call log("ACT2_REAL_FIGHT9")
 		if(call is_local_timer_greater_than(int 10))
 		 {
-				call play_char_anim(var grandad, var VAR_25, int 0)
+				call play_char_anim(var grandad, var tyrosumn_anim, int 0)
 				call reset_local_timer()
 				var VAR_4 = int 100
 		}
@@ -1715,7 +1710,7 @@ if(var VAR_4 == int 110)
  {
 		if(call is_local_timer_greater_than(int 10))
 		 {
-				call play_char_anim(var grandad, var VAR_25, int 0)
+				call play_char_anim(var grandad, var tyrosumn_anim, int 0)
 				call reset_local_timer()
 				var VAR_4 = int 111
 		}
@@ -1754,7 +1749,7 @@ if(var VAR_4 == int 120)
  {
 		if(call is_char_standing(var grandad))
 		 {
-				call play_char_anim(var jennifer, var VAR_28, int 0)
+				call play_char_anim(var jennifer, var jenup_anim, int 0)
 				call char_walk_to(var start_grunt3, int 608, int 785, int -7202)
 				call char_walk_to(var start_grunt2, int 322, int 785, int -6780)
 				call start_dialog("grafug", "null")
@@ -1783,7 +1778,7 @@ if(var VAR_4 == int 123)
  {
 		if(call func_6d() == int 1)
 		 {
-				call play_char_anim(var HDAVID, var VAR_29, int 0)
+				call play_char_anim(var HDAVID, var fasthopf_anim, int 0)
 				gamevar scene_counter = int 0
 				var VAR_4 = int 138
 		}
@@ -1803,7 +1798,7 @@ if(var VAR_4 == int 124)
  {
 		if(gamevar scene_counter > int 40)
 		 {
-				call play_char_anim(var start_grunt2, var VAR_25, int 0)
+				call play_char_anim(var start_grunt2, var tyrosumn_anim, int 0)
 				var VAR_4 = int 125
 		}
 }
@@ -1890,7 +1885,7 @@ if(var VAR_4 == int 131)
  {
 		if(call get_input_sys() != int 4)
 		 {
-				call play_char_anim(var start_grunt1, var VAR_25, int 0)
+				call play_char_anim(var start_grunt1, var tyrosumn_anim, int 0)
 				gamevar scene_counter = int 0
 				var VAR_4 = int 132
 		}
@@ -1969,7 +1964,7 @@ if(var VAR_53 == int 104)
 		var VAR_156 = gamevar time - var VAR_155
 		if(var VAR_156 > int 10)
 		 {
-				call play_char_anim(var jennifer, var VAR_26, int 0)
+				call play_char_anim(var jennifer, var jendown_anim, int 0)
 				var VAR_53 = int 105
 		}
 }
@@ -1977,7 +1972,7 @@ if(var VAR_53 == int 105)
  {
 		if(call func_5c(var jennifer))
 		 {
-				call play_char_anim(var jennifer, var VAR_27, int 0)
+				call play_char_anim(var jennifer, var jenwash_anim, int 0)
 				var VAR_155 = gamevar time
 				var VAR_53 = int 106
 		}

@@ -1,14 +1,12 @@
-._DATA
-VAR_1	{ 0, 0 }	
-VAR_11	0	
-VAR_13	0	
-VAR_15	0	
-VAR_18	{ 129, 5, 103 }	
-VAR_19	{ -649, 0, -248, 149, 0, 60 }	
-VAR_20	{ 4, VAR_11, 0, -295, 0, -208, 3, VAR_21, 0, 2, -611, 0, 454, 3, VAR_22, 0, 0, -611, 0, 454, 8 }	
-VAR_21	"lookout"	
-VAR_22	"come"	
-VAR_23	{ 4, VAR_11, 0, -389, 0, -2208, 16, VAR_15, 1, 4, VAR_13, 3, VAR_24, 0, 3, VAR_25, 0, 2, -97, 0, -2087, 0, -649, 0, 200, 8 }	
+/* This file was auto-generated using 'silver-reverse-sct' tool 
+to fully understand the scripts presented, one is encouraged to
+check the catalogs at: 
+https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
+for further information and support of this project please visit:
+https://github.com/nadavshemesh/silver-reversing-sct */
+
+
+ -2087, 0, -649, 0, 200, 8 }	
 VAR_24	"teeter"	
 VAR_25	"dodgel"	
 VAR_26	{ 4, VAR_11, 0, -25, 0, -2609, 4, VAR_13, 3, VAR_27, 0, 3, VAR_28, 0, 0, -125, 0, -48, 8 }	
@@ -70,7 +68,7 @@ call load_sound_set(int 75)
 call load_sound_set(int 30)
 call func_113(int 8, int 8)
 call set_input_system(int 2)
-var VAR_16 = call load_anim("lookout")
+var lookout_anim = call load_anim("lookout")
 execute SCRIPT_8
 
 ._SCRIPT_4
@@ -128,7 +126,7 @@ switch(var VAR_8)
 					var VAR_8 ++ 
 					var VAR_9 = int 0
 					var VAR_15 = int 0
-					call play_char_anim(var VAR_4, var VAR_16, int 0)
+					call play_char_anim(var VAR_4, var lookout_anim, int 0)
 			}
 			break 
 		case 4

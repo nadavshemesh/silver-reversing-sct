@@ -1,22 +1,12 @@
-._DATA
-VAR_18	{ 0, 0, -1 }	
-VAR_23	-1	
-VAR_58	{ 0, 0 }	
-VAR_60	{ 0, 0 }	
-VAR_72	{ -1119, -189, 593 }	
-VAR_90	{ -6295, -1265, 625 }	
-VAR_103	-1	
-VAR_107	{ 315, -189, 143 }	
-VAR_110	{ -478, -189, 589 }	
-VAR_111	{ -587, -189, 1050 }	
-VAR_113	{ 0, 0 }	
-VAR_118	{ -490, -189, 818 }	
-VAR_119	-1	
+/* This file was auto-generated using 'silver-reverse-sct' tool 
+to fully understand the scripts presented, one is encouraged to
+check the catalogs at: 
+https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
+for further information and support of this project please visit:
+https://github.com/nadavshemesh/silver-reversing-sct */
 
-._on_load
-execute SCRIPT_3
-execute SCRIPT_4
-call load_sound_set(int 30)
+
+nt 30)
 call play_loaded_sound(int 1, int -1, int 30, int 0)
 call load_sound_set(int 64)
 var VAR_50 = call play_loaded_sound(int 1, int -1, int 64, int 0)
@@ -294,7 +284,7 @@ switch(var VAR_98)
 		case 4
 			if(var VAR_99 > int 80)
 			 {
-					call play_char_anim(var VAR_101, var VAR_92, int 0)
+					call play_char_anim(var VAR_101, var jangive_anim, int 0)
 					var VAR_99 = int 0
 					var VAR_98 ++ 
 			}
@@ -320,7 +310,7 @@ switch(var VAR_98)
 			if(call get_input_sys() != int 4)
 			 {
 					call set_input_system(int 2)
-					call play_char_anim(var nmedmonk, var VAR_92, int 0)
+					call play_char_anim(var nmedmonk, var jangive_anim, int 0)
 					var VAR_98 ++ 
 					var VAR_99 = int 0
 			}
@@ -347,7 +337,7 @@ switch(var VAR_98)
 			 {
 					var VAR_99 = int 0
 					var VAR_98 ++ 
-					call play_char_anim(var VAR_101, var VAR_94, int 0)
+					call play_char_anim(var VAR_101, var dazed_anim, int 0)
 					var VAR_39 = int 1
 					var VAR_48 = var VAR_101
 			}
@@ -373,9 +363,9 @@ var VAR_89 = call add_item_to_char(var nmedmonk, int 97, int 0, int 0)
 execute SCRIPT_9
 
 ._SCRIPT_9
-var VAR_92 = call load_anim("jangive")
-var VAR_93 = call load_anim("sheatmp")
-var VAR_94 = call load_anim("dazed")
+var jangive_anim = call load_anim("jangive")
+var sheatmp_anim = call load_anim("sheatmp")
+var dazed_anim = call load_anim("dazed")
 
 ._SCRIPT_10
 if(var VAR_119 != var VAR_108)

@@ -1,12 +1,12 @@
-._DATA
-VAR_17	{ 0, 0 }	
-VAR_20	{ -3450, 1225, 2150 }	
-VAR_21	{ -2075, 1225, 50 }	
-VAR_27	{ 3397, -1016, -1045 }	
-VAR_29	{ 0, 0, 1, -1, 8, 0, 1, 1, 11, 11, -1, 4, 0, 9, 1, 5, 1, 50, 100, 6, 1, 7, 1, 3, 10, 42, -1, -1 }	
-VAR_30	{ 0, 0, 0, -1, 8, 0, 1, 1, 11, 11, -1, 4, 0, 9, 1, 5, 1, 50, 100, 6, 1, 7, 1, 3, 10, 41, -1, -1 }	
-VAR_33	-1	
-VAR_34	{ 0, 0, 0, -1, 8, 0, 12, 30, 30, 32, -1, 13, 0, 14, 0, 1, 3, 5, 0, 60, 18, 55, -1 }	
+/* This file was auto-generated using 'silver-reverse-sct' tool 
+to fully understand the scripts presented, one is encouraged to
+check the catalogs at: 
+https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
+for further information and support of this project please visit:
+https://github.com/nadavshemesh/silver-reversing-sct */
+
+
+, 8, 0, 12, 30, 30, 32, -1, 13, 0, 14, 0, 1, 3, 5, 0, 60, 18, 55, -1 }	
 VAR_35	{ 0, 0, 0, -1, 8, 0, 12, 11, 12, 13, -1, 13, 0, 14, 0, 1, 3, 5, 0, 60, 18, 55, -1 }	
 
 ._on_load
@@ -119,7 +119,7 @@ switch(var VAR_24)
 			 {
 					if(call is_char_handle_in_level(int 6881280))
 					 {
-							call play_char_anim(var captain, var VAR_31, int 0)
+							call play_char_anim(var captain, var conjure_anim, int 0)
 							var VAR_24 ++ 
 							var VAR_25 = int 0
 					}
@@ -178,7 +178,7 @@ else
 }
 call freeze_enemy(var captain)
 call set_char_running(var captain)
-var VAR_31 = call load_anim("conjure")
+var conjure_anim = call load_anim("conjure")
 
 ._SCRIPT_6
 

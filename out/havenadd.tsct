@@ -1,19 +1,12 @@
-._DATA
-VAR_5	{ 2567, 0, 504 }	
-VAR_7	{ 2270, 0, 599 }	
-VAR_9	{ 2160, 0, 599 }	
-VAR_11	{ 2050, 0, 599 }	
-VAR_13	{ 2800, 0, 599 }	
-VAR_15	{ -29, 13, 852 }	
-VAR_16	{ -29, 11, 60 }	
-VAR_17	{ -61, 1000, 505 }	
-VAR_26	{ 420, 0, 596 }	
-VAR_27	{ 446, 0, 435 }	
-VAR_28	{ -889, 0, 410 }	
-VAR_29	{ -270, 0, 417, 794, 0, 432 }	
-VAR_37	{ 740, 1, 452 }	
-VAR_39	-1	
-VAR_47	{ 1853, 0, 594 }	
+/* This file was auto-generated using 'silver-reverse-sct' tool 
+to fully understand the scripts presented, one is encouraged to
+check the catalogs at: 
+https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
+for further information and support of this project please visit:
+https://github.com/nadavshemesh/silver-reversing-sct */
+
+
+7	{ 1853, 0, 594 }	
 nrebela2	0	
 VAR_50	{ 1069, 1, -16 }	
 VAR_51	{ 257, 0, 914 }	
@@ -77,7 +70,7 @@ switch(gamevar room_state)
 }
 
 ._SCRIPT_3
-var VAR_20 = call load_anim("tyrosumn")
+var tyrosumn_anim = call load_anim("tyrosumn")
 
 ._SCRIPT_4
 var start_grunt = call create_enemy(int 156, int 1, var &VAR_11, int 265)
@@ -185,7 +178,7 @@ switch(var VAR_23)
 		case 6
 			if(var VAR_25 > int 70)
 			 {
-					call play_char_anim(var GRANDAD, var VAR_20, int 0)
+					call play_char_anim(var GRANDAD, var tyrosumn_anim, int 0)
 					call resume_conversation()
 					var VAR_23 ++ 
 			}

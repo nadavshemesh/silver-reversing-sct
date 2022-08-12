@@ -1,32 +1,12 @@
-._DATA
-VAR_1	{ 0, 0 }	
-VAR_13	2	
-VAR_14	1	
-VAR_15	2	
+/* This file was auto-generated using 'silver-reverse-sct' tool 
+to fully understand the scripts presented, one is encouraged to
+check the catalogs at: 
+https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
+for further information and support of this project please visit:
+https://github.com/nadavshemesh/silver-reversing-sct */
 
-._on_load
-if(gamevar room_state == int 0)
- {
-		exit_script 
-}
-if(gamevar room_state == int 1)
- {
-		execute SCRIPT_3
-}
-if(gamevar room_state == int 2)
- {
-		execute SCRIPT_9
-}
 
-._infinite_loop
-execute SCRIPT_8
-if(gamevar room_state == int 0)
- {
-		exit_script 
-}
-if(gamevar room_state == int 1)
- {
-		execute SCRIPT_5
+te SCRIPT_5
 }
 if(gamevar room_state == int 2)
  {
@@ -89,7 +69,7 @@ switch(var VAR_11)
 			if(call is_char_standing(var VAR_4))
 			 {
 					var VAR_11 ++ 
-					call play_char_anim(var VAR_4, var VAR_8, int 0)
+					call play_char_anim(var VAR_4, var lookout_anim, int 0)
 			}
 			break 
 		case 2
@@ -135,7 +115,7 @@ if(var VAR_3 != var VAR_2)
 }
 
 ._SCRIPT_6
-var VAR_8 = call load_anim("lookout")
+var lookout_anim = call load_anim("lookout")
 
 ._SCRIPT_7
 if(call is_local_timer_greater_than(var VAR_14))

@@ -1,18 +1,12 @@
-._DATA
-VAR_20	{ 0, 0, -1 }	
-VAR_25	-1	
-VAR_42	{ -2425, -436, -950 }	
-VAR_53	{ -7165, -95, -884 }	
+/* This file was auto-generated using 'silver-reverse-sct' tool 
+to fully understand the scripts presented, one is encouraged to
+check the catalogs at: 
+https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
+for further information and support of this project please visit:
+https://github.com/nadavshemesh/silver-reversing-sct */
 
-._on_load
-call load_sound_set(int 73)
-call load_sound_set(int 72)
-call load_sound_set(int 64)
-call play_loaded_sound(int 1, int -1, int 64, int 0)
-call load_sound_set(int 65)
-call play_loaded_sound(int 5, int -1, int 65, int 0)
-gamevar SMACKER_X = int 0
-gamevar SMACKER_Y = int 244
+
+evar SMACKER_Y = int 244
 call play_2d_anim("blacjohn", int 1, int 1, int 0)
 execute SCRIPT_9
 switch(gamevar room_state)
@@ -101,7 +95,7 @@ switch(var VAR_49)
 					var VAR_50 = call get_david_char()
 					while(var VAR_50)
 					 {
-							call play_char_anim(var VAR_50, var VAR_44, int 0)
+							call play_char_anim(var VAR_50, var victory_anim, int 0)
 							var VAR_50 = call func_7e()
 					}
 					var DAVID = call get_char_handle(int 65536)
@@ -127,7 +121,7 @@ var VAR_48 ++
 
 ._SCRIPT_5
 var rend = call create_enemy(int 121, int 0, var &VAR_42, int 270)
-var VAR_44 = call load_anim("victory")
+var victory_anim = call load_anim("victory")
 call load_char("chronicl")
 call load_char("moonmine")
 

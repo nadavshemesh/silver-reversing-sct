@@ -1,7 +1,12 @@
-._DATA
-VAR_1	{ 0, 0 }	
-VAR_14	{ 0, 1019, -800, 8182, 1067, -800, 6376, 1601, -800, 6926, -622, -800, 5973, 941, -800, 6576, 993, -800, 8095, 1061, -800, 7176, -622, -1675, 5973, 941, -2275, 6576, 993, -2275, 8095, 1061, -2275, 7176 }	
-VAR_15	{ 0, 0, 0, 1, -1, 8, 2, 19, 1000, -2275, 7177, 12, 61, 58, 60, 58, -1, 13, 0, 14, 0, 1, 4, 17, 0, 200, -1, 18, 100, -1 }	
+/* This file was auto-generated using 'silver-reverse-sct' tool 
+to fully understand the scripts presented, one is encouraged to
+check the catalogs at: 
+https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
+for further information and support of this project please visit:
+https://github.com/nadavshemesh/silver-reversing-sct */
+
+
+, -1 }	
 VAR_16	{ 0, 0, 0, 1, -1, 8, 2, 12, 58, 60, 60, 60, -1, 13, 0, 14, 0, 1, 4, 5, 0, 100, 18, 100, -1 }	
 VAR_25	{ 0, 0, 0 }	
 VAR_39	{ 1184, -2275, 7430 }	
@@ -141,7 +146,7 @@ switch(var VAR_24)
 			var VAR_25 ++ 
 			if(var VAR_25 > int 50)
 			 {
-					call play_char_anim(var npc_skel, var VAR_31, int 0)
+					call play_char_anim(var npc_skel, var rchp90a_anim, int 0)
 					var VAR_25 = int 0
 					var VAR_24 ++ 
 			}
@@ -279,7 +284,7 @@ switch(var VAR_24)
 			var VAR_25 ++ 
 			if(var VAR_25 == int 30)
 			 {
-					call play_char_anim(var npc_skel, var VAR_33, int 0)
+					call play_char_anim(var npc_skel, var rpunchr_anim, int 0)
 			}
 			if(var VAR_25 > int 48)
 			 {
@@ -314,9 +319,9 @@ if(var VAR_7 == int 1)
 call load_char("boney")
 call load_char("wraith")
 call load_char("skel")
-var VAR_31 = call load_anim("rchp90a")
-var VAR_33 = call load_anim("rpunchr")
-var VAR_35 = call load_anim("lookout")
+var rchp90a_anim = call load_anim("rchp90a")
+var rpunchr_anim = call load_anim("rpunchr")
+var lookout_anim = call load_anim("lookout")
 var npc_skel = call create_char(var &VAR_39, "nskel", int 90, int 13)
 call set_char_running(var npc_skel)
 gamevar script_object = var npc_skel

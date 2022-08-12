@@ -1,12 +1,12 @@
-._DATA
-VAR_4	{ -367, -928, -8434 }	
-VAR_12	{ 0, -1748, 658, -5432 }	
-VAR_14	{ -3170, -123, -6143 }	
-VAR_15	{ -3170, -123, -6443 }	
-VAR_16	{ -3170, -123, -6443 }	
-VAR_17	{ -830, -997, -6080 }	
-VAR_18	{ -727, -998, -6766, 163, -998, -6808, 205, -998, -8088, -695, -998, -7987, -801, -998, -8706, -2074, -998, -7951, -2248, -998, -6704 }	
-VAR_25	{ -1715, -997, -7984 }	
+/* This file was auto-generated using 'silver-reverse-sct' tool 
+to fully understand the scripts presented, one is encouraged to
+check the catalogs at: 
+https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
+for further information and support of this project please visit:
+https://github.com/nadavshemesh/silver-reversing-sct */
+
+
+, -7984 }	
 VAR_26	{ -795, -997, -7280 }	
 VAR_27	{ 282, -997, -6975 }	
 VAR_28	{ 181, -997, -8069 }	
@@ -116,7 +116,7 @@ if(gamevar is_room_cleared == int 2)
 }
 
 ._SCRIPT_5
-var VAR_10 = call load_anim("pfew")
+var pfew_anim = call load_anim("pfew")
 var catapult_imp = call create_enemy(int 104, int 8, var &VAR_14, int 90)
 call add_item_to_char(var catapult_imp, int 8, int 1, int 0)
 var catapult_imp1 = call create_enemy(int 104, int 9, var &VAR_15, int 0)
@@ -210,7 +210,7 @@ switch(var VAR_49)
 			if(call is_char_standing(var nyelimp))
 			 {
 					call func_12f(var VAR_51)
-					call play_char_anim(var nyelimp, var VAR_10, int 0)
+					call play_char_anim(var nyelimp, var pfew_anim, int 0)
 					var VAR_50 = int 0
 					var VAR_49 ++ 
 			}

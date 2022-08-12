@@ -1,17 +1,12 @@
-._DATA
-VAR_0	{ -2602, 1560, -2358 }	
-VAR_1	{ 1406, 2890, -4945 }	
-VAR_2	{ 1484, 2845, -5100 }	
-VAR_3	{ 1543, 2845, -4766 }	
-VAR_4	{ VAR_1, VAR_2, VAR_3 }	
-VAR_6	{ 1845, 2845, -4950 }	
-VAR_7	{ 1808, 2845, -4813 }	
-VAR_8	{ 1821, 2845, -5052 }	
-VAR_9	{ VAR_6, VAR_7, VAR_8 }	
-VAR_13	{ 1634428781, 29289, 0 }	
-VAR_17	160	
-VAR_24	{ 0, 0, 0 }	
-VAR_27	{ 2492, 4381, -4951, 0 }	
+/* This file was auto-generated using 'silver-reverse-sct' tool 
+to fully understand the scripts presented, one is encouraged to
+check the catalogs at: 
+https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
+for further information and support of this project please visit:
+https://github.com/nadavshemesh/silver-reversing-sct */
+
+
+1, -4951, 0 }	
 VAR_36	{ 0, 0 }	
 VAR_37	{ 0, 0, 0 }	
 VAR_41	{ 0, 12 }	
@@ -19,8 +14,8 @@ VAR_42	{ 2069, 4041, -4026 }
 VAR_45	{ 2116, 4041, -5955 }	
 
 ._on_load
-var VAR_10 = call load_anim("no")
-var VAR_11 = call load_anim(var &VAR_13)
+var no_anim = call load_anim("no")
+var mgkair_anim = call load_anim(var &VAR_13)
 call load_sound_set(int 30)
 call load_sound_set(int 0)
 call load_sound_set(int 72)
@@ -158,7 +153,7 @@ if(gamevar !is_room_cleared&&var VAR_22 == int 0)
 							}
 							else
 							 {
-									call play_char_anim(var VAR_20, var VAR_10, int 0)
+									call play_char_anim(var VAR_20, var no_anim, int 0)
 							}
 							gamevar global_zone_type = int 0
 					}
@@ -189,7 +184,7 @@ if(gamevar !is_room_cleared&&var VAR_22 == int 0)
 					 {
 							var VAR_49 = int 0
 							var VAR_48 ++ 
-							call play_char_anim(var VAR_20, var VAR_11, int 0)
+							call play_char_anim(var VAR_20, var mgkair_anim, int 0)
 							call func_ec(int 226, int 0, int 0, int 0)
 							var VAR_37 = int 0
 							var VAR_35 = int 1
@@ -397,7 +392,7 @@ if(gamevar !is_room_cleared&&var VAR_22 == int 0)
 							}
 							else
 							 {
-									call play_char_anim(var VAR_20, var VAR_10, int 0)
+									call play_char_anim(var VAR_20, var no_anim, int 0)
 							}
 					}
 			}
@@ -420,13 +415,13 @@ if(gamevar !is_room_cleared&&var VAR_22 == int 0)
 							var VAR_58 ++ 
 							if(var VAR_22 == int 0)
 							 {
-									call play_char_anim(var VAR_20, var VAR_10, int 0)
+									call play_char_anim(var VAR_20, var no_anim, int 0)
 									call set_input_system(int 1)
 									var VAR_58 = int 50
 							}
 							if(var VAR_22 == int 1)
 							 {
-									call play_char_anim(var VAR_20, var VAR_11, int 0)
+									call play_char_anim(var VAR_20, var mgkair_anim, int 0)
 									call func_ec(int 226, int 0, int 0, int 0)
 									var VAR_37 = int 0
 									var VAR_35 = int 1
@@ -568,7 +563,7 @@ if(var VAR_48 == int 0&&call get_num_of_enemies() == int 0)
 				}
 				else
 				 {
-						call play_char_anim(var VAR_20, var VAR_10, int 0)
+						call play_char_anim(var VAR_20, var no_anim, int 0)
 				}
 				gamevar global_zone_type = int 0
 		}
@@ -599,7 +594,7 @@ if(var VAR_48 == int 3)
 		 {
 				var VAR_49 = int 0
 				var VAR_48 ++ 
-				call play_char_anim(var VAR_20, var VAR_11, int 0)
+				call play_char_anim(var VAR_20, var mgkair_anim, int 0)
 				call func_ec(int 226, int 0, int 0, int 0)
 				var VAR_37 = int 0
 				var VAR_35 = int 1
@@ -829,7 +824,7 @@ if(var VAR_58 == int 1)
 				}
 				else
 				 {
-						call play_char_anim(var VAR_20, var VAR_10, int 0)
+						call play_char_anim(var VAR_20, var no_anim, int 0)
 				}
 		}
 }
@@ -852,13 +847,13 @@ if(var VAR_58 == int 3)
 				var VAR_58 ++ 
 				if(var VAR_22 == int 0)
 				 {
-						call play_char_anim(var VAR_20, var VAR_10, int 0)
+						call play_char_anim(var VAR_20, var no_anim, int 0)
 						call set_input_system(int 1)
 						var VAR_58 = int 50
 				}
 				if(var VAR_22 == int 1)
 				 {
-						call play_char_anim(var VAR_20, var VAR_11, int 0)
+						call play_char_anim(var VAR_20, var mgkair_anim, int 0)
 						call func_ec(int 226, int 0, int 0, int 0)
 						var VAR_37 = int 0
 						var VAR_35 = int 1

@@ -16,5 +16,6 @@ void write_asm_script(script* script, sct_f* sf);
 void write_asm_file(sct_f* sf);
 void write_asm_data_object(data_obj* data_o, sct_f* sf);
 void write_asm_data_section(sct_f* sf);
+void mark_auto_gen_file(sct_f* sf);
 
 #endif

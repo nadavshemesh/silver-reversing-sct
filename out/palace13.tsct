@@ -1,11 +1,12 @@
-._DATA
-VAR_5	{ -3927, 1625, -2421 }	
-VAR_6	{ -4593, 1625, -2538 }	
-VAR_11	{ -4337, 1625, -3381 }	
-VAR_12	{ -4121, 1625, -3393 }	
-VAR_13	{ 0, 0, 1, -1, 8, 0, 4, 2, 1, VAR_12, 9, 2, 6, 1, 1, 1, 26, -1, 7, 1, 8, 10, 43, -1, -1 }	
-VAR_14	{ 0, 0, 2, -1, 8, 0, 4, 2, 1, VAR_11, 9, 2, 6, 1, 1, 1, 26, -1, 7, 1, 8, 10, 42, -1, -1 }	
-VAR_15	{ 0, 0, 0, -1, 8, 0, 4, 0, 9, 1, 6, 1, 1, 1, 26, 26, -1, 7, 1, 8, -1 }	
+/* This file was auto-generated using 'silver-reverse-sct' tool 
+to fully understand the scripts presented, one is encouraged to
+check the catalogs at: 
+https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
+for further information and support of this project please visit:
+https://github.com/nadavshemesh/silver-reversing-sct */
+
+
+0, 9, 1, 6, 1, 1, 1, 26, 26, -1, 7, 1, 8, -1 }	
 VAR_16	{ -4671, 1625, -5563, -3649, 1677, -5316 }	
 
 ._on_load
@@ -83,7 +84,7 @@ if(var VAR_0 == int 1)
 }
 if(var VAR_0 == int 2)
  {
-		call play_char_anim(var viking, var VAR_10, int 0)
+		call play_char_anim(var viking, var tyrosumn_anim, int 0)
 		var VAR_0 = int 3
 		call reset_local_timer()
 		var VAR_1 = int 10
@@ -91,7 +92,7 @@ if(var VAR_0 == int 2)
 }
 if(var VAR_0 == int 3)
  {
-		call play_char_anim(var vikingc, var VAR_9, int 0)
+		call play_char_anim(var vikingc, var come_anim, int 0)
 		var VAR_0 = int 4
 		call reset_local_timer()
 		var VAR_1 = int 20
@@ -176,8 +177,8 @@ if(var VAR_0 == int 9)
 call load_char("viking")
 var viking = call create_enemy(int 66, int 0, var &VAR_5, int 110)
 var vikingc = call create_enemy(int 66, int 1, var &VAR_6, int 115)
-var VAR_9 = call load_anim("come")
-var VAR_10 = call load_anim("tyrosumn")
+var come_anim = call load_anim("come")
+var tyrosumn_anim = call load_anim("tyrosumn")
 call set_input_system(int 2)
 call reset_local_timer()
 var VAR_1 = int 30

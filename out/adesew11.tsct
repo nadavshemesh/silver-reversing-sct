@@ -1,6 +1,6 @@
 /*
-* This file was auto-generated using 'silver-reverse-sct' tool
-* to fully understand the scripts presented, one is encouraged to
+* This file was auto-generated using 'silver-reversing-sct' tool
+* to better understand the scripts presented, one is encouraged to
 * view the catalogs at: 
 * https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
 *
@@ -136,7 +136,7 @@ if(call func_bf(int 0, gamevar CURRENT_LEVEL, gamevar CURRENT_SCENE))
 else
  {
 		call func_7(int 0, int 1, int 1, int 1)
-		var BTREASURE = call create_char(var &VAR_15, "btreasure" /* btreasure */ , int 270, int 14)
+		var BTREASURE = call create_char(var &VAR_15, "btreasure", int 270, int 14)
 		call add_item_to_char(var BTREASURE, int 31, int 1, int 0)
 }
 var VAR_16 = int 0
@@ -153,7 +153,7 @@ if(var ! VAR_16&&gamevar *object_p+5 == int 11)
 var is_BTREASURE1_exist = call is_char_handle_in_level(int 1507337)
 if(var ! is_BTREASURE1_exist)
  {
-		var is_BTREASURE1_exist = call create_char(var VAR_19, "btreasure9" /* btreasure9 */ , var VAR_20, int 14)
+		var is_BTREASURE1_exist = call create_char(var VAR_19, "btreasure9", var VAR_20, int 14)
 		call func_aa(var is_BTREASURE1_exist)
 }
 else
@@ -173,11 +173,11 @@ if(var VAR_21 != int -1)
 		 {
 				if(var VAR_23 != int -1)
 				 {
-						call add_item_to_char(var is_BTREASURE1_exist, int 85, var VAR_23, int 0)
+						call add_item_to_char(var is_BTREASURE1_exist, int 85 /* moneybag */ , var VAR_23, int 0)
 				}
 				else
 				 {
-						call add_item_to_char(var is_BTREASURE1_exist, var VAR_21, int 1, int 0)
+						call add_item_to_char(var is_BTREASURE1_exist, var VAR_21 /* bonekey */ , int 1, int 0)
 				}
 		}
 }

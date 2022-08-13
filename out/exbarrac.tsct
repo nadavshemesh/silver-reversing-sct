@@ -1,6 +1,6 @@
 /*
-* This file was auto-generated using 'silver-reverse-sct' tool
-* to fully understand the scripts presented, one is encouraged to
+* This file was auto-generated using 'silver-reversing-sct' tool
+* to better understand the scripts presented, one is encouraged to
 * view the catalogs at: 
 * https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
 *
@@ -62,11 +62,15 @@ VAR_96	{ 8150, 105, -1277 }
 
 ._on_load
 call load_sound_set(int 6)
+
+ /* play the sound 'hoot' */ 
 call play_loaded_sound(int 13, int -1, int 6, int 0)
 var VAR_1 = call play_loaded_sound(int 198, int -1, int 0, int 0)
 call set_sound_volume(var VAR_1, int 20)
 if(gamevar *scene_info_p+1 == int 1)
  {
+
+		 /* play the sound 'lforstlp' */ 
 		call play_loaded_sound(int 12, int -1, int 6, int 0)
 }
 call func_58(int 1)
@@ -361,11 +365,11 @@ if(call func_bf(int 448, gamevar CURRENT_LEVEL, gamevar CURRENT_SCENE))
 		switch(var VAR_60)
 		 {
 				case 2
-					call add_item_to_char(var NVILOWFAT, int 47, int 0, int 0)
-					call add_item_to_char(var NVILOWFAT, int 46, int 0, int 0)
+					call add_item_to_char(var NVILOWFAT, int 47 /* drumstik */ , int 0, int 0)
+					call add_item_to_char(var NVILOWFAT, int 46 /* pie */ , int 0, int 0)
 				case 1
-					call add_item_to_char(var NVILOWFAT, int 44, int 0, int 0)
-					call add_item_to_char(var NVILOWFAT, int 45, int 0, int 0)
+					call add_item_to_char(var NVILOWFAT, int 44 /* cake */ , int 0, int 0)
+					call add_item_to_char(var NVILOWFAT, int 45 /* deadmous */ , int 0, int 0)
 					break 
 		}
 		call func_7(int 448, var VAR_60, int 0, int 0)
@@ -486,7 +490,7 @@ else
 		 {
 				if(var VAR_60 != int 2)
 				 {
-						if(call create_item(int 14))
+						if(call create_item(int 14 /* triobow */ ))
 						 {
 								var VAR_60 = int 2
 						}
@@ -495,12 +499,12 @@ else
 		switch(var VAR_60)
 		 {
 				case 2
-					call add_item_to_char(var NVILLOW, int 109, int 0, int 0)
+					call add_item_to_char(var NVILLOW, int 109 /* quiverb */ , int 0, int 0)
 				case 1
-					call add_item_to_char(var NVILLOW, int 12, int 0, int 0)
+					call add_item_to_char(var NVILLOW, int 12 /* thaxe */ , int 0, int 0)
 				case 0
-					call add_item_to_char(var NVILLOW, int 9, int 0, int 0)
-					call add_item_to_char(var NVILLOW, int 108, int 0, int 0)
+					call add_item_to_char(var NVILLOW, int 9 /* thknife */ , int 0, int 0)
+					call add_item_to_char(var NVILLOW, int 108 /* quiver */ , int 0, int 0)
 					break 
 		}
 		call func_7(int 111, var VAR_60, int 0, int 0)

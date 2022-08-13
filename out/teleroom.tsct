@@ -1,6 +1,6 @@
 /*
-* This file was auto-generated using 'silver-reverse-sct' tool
-* to fully understand the scripts presented, one is encouraged to
+* This file was auto-generated using 'silver-reversing-sct' tool
+* to better understand the scripts presented, one is encouraged to
 * view the catalogs at: 
 * https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
 *
@@ -295,7 +295,7 @@ gamevar script_object = var ntyronis
 gamevar *character_movement_p+60 = int 1
 call set_char_running(var ntyronis)
 call char_unfollow(var ntyronis)
-var VAR_23 = call add_item_to_char(var ntyronis, int 3, int 0, int 0)
+var lightning = call add_item_to_char(var ntyronis, int 3, int 0, int 0)
 var neutral_imp = call create_enemy(int 102, int 1, var &VAR_15, int -90)
 call set_char_running(var neutral_imp)
 gamevar script_object = var neutral_imp
@@ -322,7 +322,7 @@ call freeze_enemy(var neutral_imp1)
 call freeze_enemy(var neutral_imp2)
 
 ._SCRIPT_8
-if(call is_char_handle_in_level(int 2031616 /* TYRONIS */ ))
+if(call is_char_handle_in_level(int 2031616))
  {
 		execute SCRIPT_10
 }
@@ -342,7 +342,7 @@ if(var VAR_45 != var VAR_36)
 switch(var VAR_36)
  {
 		case 0
-			call toggle_or_use_char_item(var ntyronis, var VAR_23)
+			call toggle_or_use_char_item(var ntyronis, var lightning)
 			call char_walk_to(var neutral_imp, int -1868, int -1183, int 3336)
 			call char_walk_to(var neutral_imp1, int -1743, int -1183, int 3379)
 			call char_walk_to(var neutral_imp2, int -1743, int -1183, int 3379)
@@ -382,7 +382,7 @@ switch(var VAR_36)
 					call char_walk_to(var neutral_imp, int -1467, int -1183, int 1955)
 					call char_walk_to(var neutral_imp1, int -2581, int -1183, int 2406)
 					call char_walk_to(var neutral_imp2, int -1467, int -1183, int 1955)
-					call func_f7(var VAR_23, int 2)
+					call func_f7(var lightning, int 2)
 					if(call is_char_handle_in_level(int 917505 /* IMP */ ))
 					 {
 							call log("fire at imp1")
@@ -419,7 +419,7 @@ switch(var VAR_36)
 		case 7
 			if(var VAR_37 > int 100)
 			 {
-					call func_fd(var ntyronis, var VAR_23)
+					call func_fd(var ntyronis, var lightning)
 					var VAR_36 ++ 
 					var VAR_37 = int 0
 			}
@@ -734,7 +734,7 @@ if(var VAR_58 == int 17)
 }
 
 ._SCRIPT_13
-var DAVID = call get_char_handle(int 65536 /* DAVID */ )
+var DAVID = call get_char_handle(int 65536)
 execute SCRIPT_5
 var VAR_60 = call func_92(int 1, "nduke", int 182, int 13)
 var VAR_61 = call func_92(int 1, "ntyronis", int 44, int 13)
@@ -752,7 +752,7 @@ var talkslow_anim = call load_anim("talkslow")
 var is_BTREASURE_exist = call is_char_handle_in_level(int 1507337)
 if(var ! is_BTREASURE_exist)
  {
-		var is_BTREASURE_exist = call create_char(var VAR_1, "btreasure9" /* btreasure9 */ , var VAR_2, int 14)
+		var is_BTREASURE_exist = call create_char(var VAR_1, "btreasure9", var VAR_2, int 14)
 		call func_aa(var is_BTREASURE_exist)
 }
 else
@@ -772,11 +772,11 @@ if(var VAR_3 != int -1)
 		 {
 				if(var VAR_5 != int -1)
 				 {
-						call add_item_to_char(var is_BTREASURE_exist, int 85, var VAR_5, int 0)
+						call add_item_to_char(var is_BTREASURE_exist, int 85 /* moneybag */ , var VAR_5, int 0)
 				}
 				else
 				 {
-						call add_item_to_char(var is_BTREASURE_exist, var VAR_3, int 1, int 0)
+						call add_item_to_char(var is_BTREASURE_exist, var VAR_3 /* lightning */ , int 1, int 0)
 				}
 		}
 }

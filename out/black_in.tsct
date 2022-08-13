@@ -1,6 +1,6 @@
 /*
-* This file was auto-generated using 'silver-reverse-sct' tool
-* to fully understand the scripts presented, one is encouraged to
+* This file was auto-generated using 'silver-reversing-sct' tool
+* to better understand the scripts presented, one is encouraged to
 * view the catalogs at: 
 * https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
 *
@@ -135,14 +135,14 @@ if(gamevar !is_room_cleared&&var VAR_22 == int 0)
 					}
 			}
 			var VAR_37 = int 1
-			call create_enemy(int 36, int 0, var &VAR_42, int 238)
+			call create_enemy(int 36 /* sarcher */ , int 0, var &VAR_42, int 238)
 			var SARCHER = call get_char_handle(int 11010048)
 			call set_char_init_state(var SARCHER, int 0)
-			var VAR_44 = call add_item_to_char(var SARCHER, int 46, int 1, int 0)
+			var pie = call add_item_to_char(var SARCHER, int 46, int 1, int 0)
 			call create_enemy(int 36, int 1, var &VAR_45, int 310)
 			var SARCHER1 = call get_char_handle(int 11010049)
 			call set_char_init_state(var SARCHER1, int 0)
-			var VAR_47 = call add_item_to_char(var SARCHER1, int 45, int 1, int 0)
+			var deadmous = call add_item_to_char(var SARCHER1, int 45, int 1, int 0)
 			execute SCRIPT_4
 			var VAR_14 = call play_loaded_sound(int 1, int -1, int 30, int 0)
 			var VAR_15 = int 1
@@ -154,7 +154,7 @@ if(gamevar !is_room_cleared&&var VAR_22 == int 0)
 					if(gamevar global_zone_type == int 18)
 					 {
 							var VAR_20 = gamevar control_char_p
-							if(call create_item(int 84))
+							if(call create_item(int 84 /* analect */ ))
 							 {
 									var VAR_22 = int 1
 							}
@@ -205,7 +205,7 @@ if(gamevar !is_room_cleared&&var VAR_22 == int 0)
 							var VAR_35 = int 1
 							gamevar pnc_look_use_mask = int 2
 							gamevar use_mouse_override_sprite = int 131072
-							var VAR_21 = call create_item(int 84)
+							var analect1 = call create_item(int 84)
 							var VAR_19 = int 1
 					}
 			}
@@ -401,7 +401,7 @@ if(gamevar !is_room_cleared&&var VAR_22 == int 0)
 					 {
 							call func_36(var VAR_20, int 2277, int 4041, int -4940)
 							var VAR_58 ++ 
-							if(call create_item(int 84))
+							if(call create_item(int 84 /* analect */ ))
 							 {
 									var VAR_22 = int 1
 							}
@@ -442,7 +442,7 @@ if(gamevar !is_room_cleared&&var VAR_22 == int 0)
 									var VAR_35 = int 1
 									gamevar pnc_look_use_mask = int 2
 									gamevar use_mouse_override_sprite = int 131072
-									var VAR_21 = call create_item(int 84)
+									var analect1 = call create_item(int 84)
 									var VAR_19 = int 1
 							}
 					}
@@ -564,7 +564,7 @@ if(var VAR_48 == int 0&&call get_num_of_enemies() == int 0)
 		if(gamevar global_zone_type == int 18)
 		 {
 				var VAR_20 = gamevar control_char_p
-				if(call create_item(int 84))
+				if(call create_item(int 84 /* analect */ ))
 				 {
 						var VAR_22 = int 1
 				}
@@ -615,7 +615,7 @@ if(var VAR_48 == int 3)
 				var VAR_35 = int 1
 				gamevar pnc_look_use_mask = int 2
 				gamevar use_mouse_override_sprite = int 131072
-				var VAR_21 = call create_item(int 84)
+				var analect1 = call create_item(int 84)
 				var VAR_19 = int 1
 		}
 }
@@ -687,14 +687,14 @@ execute SCRIPT_5
 
 ._SCRIPT_7
 var VAR_37 = int 1
-call create_enemy(int 36, int 0, var &VAR_42, int 238)
-var SARCHER = call get_char_handle(int 11010048 /* SARCHER */ )
+call create_enemy(int 36 /* sarcher */ , int 0, var &VAR_42, int 238)
+var SARCHER = call get_char_handle(int 11010048)
 call set_char_init_state(var SARCHER, int 0)
-var VAR_44 = call add_item_to_char(var SARCHER, int 46, int 1, int 0)
+var pie = call add_item_to_char(var SARCHER, int 46, int 1, int 0)
 call create_enemy(int 36, int 1, var &VAR_45, int 310)
-var SARCHER1 = call get_char_handle(int 11010049 /* SARCHER */ )
+var SARCHER1 = call get_char_handle(int 11010049)
 call set_char_init_state(var SARCHER1, int 0)
-var VAR_47 = call add_item_to_char(var SARCHER1, int 45, int 1, int 0)
+var deadmous = call add_item_to_char(var SARCHER1, int 45, int 1, int 0)
 execute SCRIPT_4
 var VAR_14 = call play_loaded_sound(int 1, int -1, int 30, int 0)
 var VAR_15 = int 1
@@ -833,7 +833,7 @@ if(var VAR_58 == int 1)
 		 {
 				call func_36(var VAR_20, int 2277, int 4041, int -4940)
 				var VAR_58 ++ 
-				if(call create_item(int 84))
+				if(call create_item(int 84 /* analect */ ))
 				 {
 						var VAR_22 = int 1
 				}
@@ -874,7 +874,7 @@ if(var VAR_58 == int 3)
 						var VAR_35 = int 1
 						gamevar pnc_look_use_mask = int 2
 						gamevar use_mouse_override_sprite = int 131072
-						var VAR_21 = call create_item(int 84)
+						var analect1 = call create_item(int 84)
 						var VAR_19 = int 1
 				}
 		}

@@ -6,6 +6,8 @@ code_pattern** code_patterns;
 expr_pattern** expr_patterns;
 catalog* enemy_cat;
 catalog* handle_cat;
+catalog* item_cat;
+catalog* sound_cat;
 
 
 script* disasm_script(int script_num, sct_f* sf) {
@@ -247,8 +249,12 @@ int main(int argc, char* argv[]) {
     // catalogs
     enemy_cat = w_malloc(sizeof(catalog*));
     handle_cat = w_malloc(sizeof(catalog*));
+    item_cat = w_malloc(sizeof(catalog*));
+    sound_cat = w_malloc(sizeof(catalog*));
     init_enemies_cat(enemy_cat);
     init_char_handle_cat(handle_cat);
+    init_item_cat(item_cat);
+    init_sound_cat(sound_cat);
 
     bool save_to_out = false;
     for(int i=0; i < argc; i++) {

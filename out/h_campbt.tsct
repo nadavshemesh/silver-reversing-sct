@@ -1,6 +1,6 @@
 /*
-* This file was auto-generated using 'silver-reverse-sct' tool
-* to fully understand the scripts presented, one is encouraged to
+* This file was auto-generated using 'silver-reversing-sct' tool
+* to better understand the scripts presented, one is encouraged to
 * view the catalogs at: 
 * https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
 *
@@ -82,6 +82,8 @@ VAR_216	-1
 call log("init_script")
 call log_obj(gamevar room_state)
 call load_sound_set(int 7)
+
+ /* play the sound 'rustle1' */ 
 call play_loaded_sound(int 6, int -1, int 7, int 0)
 execute SCRIPT_21
 switch(gamevar room_state)
@@ -181,16 +183,16 @@ if(var VAR_76)
 ._SCRIPT_5
 var nrebela = call create_char(var &VAR_54, "nrebela", int 0, int 13)
 call set_char_running(var nrebela)
-var VAR_67 = call add_item_to_char(var nrebela, int 16, int 0, int 0)
+var shrtswrd = call add_item_to_char(var nrebela, int 16, int 0, int 0)
 var nrebel = call create_char(var &VAR_55, "nrebel", int 0, int 13)
 call set_char_running(var nrebel)
-var VAR_66 = call add_item_to_char(var nrebel, int 16, int 0, int 0)
+var shrtswrd1 = call add_item_to_char(var nrebel, int 16, int 0, int 0)
 var nrebela = call create_char(var &VAR_56, "nrebela", int 0, int 13)
 call set_char_running(var nrebela)
-var VAR_65 = call add_item_to_char(var nrebela, int 16, int 0, int 0)
+var shrtswrd2 = call add_item_to_char(var nrebela, int 16, int 0, int 0)
 var nrebel = call create_char(var &VAR_57, "nrebel", int 0, int 13)
 call set_char_running(var nrebel)
-var VAR_64 = call add_item_to_char(var nrebel, int 16, int 0, int 0)
+var shrtswrd3 = call add_item_to_char(var nrebel, int 16, int 0, int 0)
 var nduke = call create_char(var &VAR_58, "nduke", int 0, int 13)
 gamevar script_object = var nduke
 gamevar *character_movement_p+40 = int 0
@@ -236,10 +238,14 @@ if(var VAR_83 == int 2)
 		}
 		if(var VAR_84 == int 160)
 		 {
+
+				 /* play the sound 'lforest1' */ 
 				call play_loaded_sound(int 1, int 0, int 7, call get_char_movement_ptr(var nrebela))
 		}
 		if(var VAR_84 == int 360)
 		 {
+
+				 /* play the sound 'lforest1' */ 
 				call play_loaded_sound(int 1, int 0, int 7, call get_char_movement_ptr(var nrebel))
 				call char_stop(var DAVID)
 				call char_stop(var GRANDAD)
@@ -273,7 +279,11 @@ if(var VAR_83 == int 5)
  {
 		call log("Larks fly from bush")
 		var VAR_76 = int 1
+
+		 /* play the sound 'flybird' */ 
 		call play_loaded_sound(int 9, int 0, int 7, call get_char_movement_ptr(var nlark1))
+
+		 /* play the sound 'swrdeqp1' */ 
 		call play_loaded_sound(int 10, int 0, int 7, call get_char_movement_ptr(var nlark1))
 		var VAR_83 ++ 
 		var VAR_84 = int 0
@@ -323,6 +333,8 @@ if(var VAR_83 == int 10)
 		if(var VAR_84 == int 1)
 		 {
 				call char_walk_to_pos(var nrebel, var &VAR_94)
+
+				 /* play the sound 'rustle2' */ 
 				call play_loaded_sound(int 7, int 0, int 7, call get_char_movement_ptr(var nrebel))
 		}
 		if(var VAR_84 == int 60)
@@ -332,17 +344,23 @@ if(var VAR_83 == int 10)
 		if(var VAR_84 == int 70)
 		 {
 				call char_walk_to_pos(var nrebela, var &VAR_91)
+
+				 /* play the sound 'flutter' */ 
 				call play_loaded_sound(int 8, int 0, int 7, call get_char_movement_ptr(var nrebela))
 		}
 		if(var VAR_84 == int 100)
 		 {
 				call char_walk_to_pos(var nrebela, var &VAR_93)
+
+				 /* play the sound 'rustle2' */ 
 				call play_loaded_sound(int 7, int 0, int 7, call get_char_movement_ptr(var nrebela))
 		}
 		if(var VAR_84 == int 150)
 		 {
 				call char_walk_to_pos(var nrebel, var &VAR_92)
 				var VAR_103 = call get_char_pos(var DAVID)
+
+				 /* play the sound 'flutter' */ 
 				call play_loaded_sound(int 8, int 0, int 7, call get_char_movement_ptr(var nrebel))
 				var VAR_83 ++ 
 				var VAR_84 = int 0
@@ -385,22 +403,30 @@ if(var VAR_83 == int 12)
  {
 		if(var VAR_84 == int 25)
 		 {
-				call toggle_or_use_char_item(var nrebel, var VAR_64)
+				call toggle_or_use_char_item(var nrebel, var shrtswrd3)
+
+				 /* play the sound 'dwavesLp' */ 
 				call play_loaded_sound(int 11, int 0, int 7, call get_char_movement_ptr(var nrebel))
 		}
 		if(var VAR_84 == int 30)
 		 {
-				call toggle_or_use_char_item(var nrebela, var VAR_65)
+				call toggle_or_use_char_item(var nrebela, var shrtswrd2)
+
+				 /* play the sound 'dwavesLp' */ 
 				call play_loaded_sound(int 11, int 0, int 7, call get_char_movement_ptr(var nrebela))
 		}
 		if(var VAR_84 == int 32)
 		 {
-				call toggle_or_use_char_item(var nrebel, var VAR_66)
+				call toggle_or_use_char_item(var nrebel, var shrtswrd1)
+
+				 /* play the sound 'dwavesLp' */ 
 				call play_loaded_sound(int 11, int 0, int 7, call get_char_movement_ptr(var nrebel))
 		}
 		if(var VAR_84 == int 35)
 		 {
-				call toggle_or_use_char_item(var nrebela, var VAR_67)
+				call toggle_or_use_char_item(var nrebela, var shrtswrd)
+
+				 /* play the sound 'dwavesLp' */ 
 				call play_loaded_sound(int 11, int 0, int 7, call get_char_movement_ptr(var nrebela))
 		}
 		if(var VAR_84 == int 100)
@@ -412,13 +438,13 @@ if(var VAR_83 == int 12)
 }
 if(var VAR_83 == int 13)
  {
-		var VAR_108 = call get_char_item_if_equiped(var DAVID, int 16)
-		if(var VAR_108 == int 0)
+		var shrtswrd4 = call get_char_item_if_equiped(var DAVID, int 16)
+		if(var shrtswrd4 == int 0)
 		 {
-				var VAR_108 = call get_char_item_if_exists(var DAVID, int 16)
-				if(var VAR_108)
+				var shrtswrd4 = call get_char_item_if_exists(var DAVID, int 16)
+				if(var shrtswrd4)
 				 {
-						call toggle_or_use_char_item(var DAVID, var VAR_108)
+						call toggle_or_use_char_item(var DAVID, var shrtswrd4)
 				}
 		}
 		call resume_conversation()
@@ -759,7 +785,7 @@ call set_char_walking(var SEKUNE)
 var VAR_169 ++ 
 
 ._SCRIPT_13
-var nduke = call create_char(var &VAR_139, "nduke" /* nduke */ , int 95, int 13)
+var nduke = call create_char(var &VAR_139, "nduke", int 95, int 13)
 var nfrink = call create_char(var &VAR_140, "nfrink", int 260, int 13)
 var nfatbob = call create_char(var &VAR_141, "nfatbob", int 96, int 13)
 var nbill = call create_char(var &VAR_142, "nbill", int 96, int 13)
@@ -770,7 +796,7 @@ call add_item_to_char(var nduke, int 16, int 0, int 1)
 call add_item_to_char(var nbill, int 16, int 0, int 1)
 call add_item_to_char(var nben, int 16, int 0, int 1)
 call add_item_to_char(var nrichard, int 16, int 0, int 1)
-var DAVID = call get_char_handle(int 65536 /* DAVID */ )
+var DAVID = call get_char_handle(int 65536)
 var SEKUNE = call get_char_handle(int 786432)
 call func_108(var &VAR_153)
 execute SCRIPT_26
@@ -802,10 +828,10 @@ var fade_chronicler = call create_enemy(int 178, int 0, var &VAR_197, int 0)
 ._SCRIPT_16
 
 ._SCRIPT_17
-var nrebel1 = call create_char(var &VAR_193, "nrebel1" /* nrebel1 */ , int 320, int 13)
-var nrebel2 = call create_char(var &VAR_194, "nrebel2" /* nrebel2 */ , int 345, int 13)
-var nrebela1 = call create_char(var &VAR_195, "nrebela1" /* nrebela1 */ , int 325, int 13)
-var nrebela2 = call create_char(var &VAR_196, "nrebela2" /* nrebela2 */ , int 355, int 13)
+var nrebel1 = call create_char(var &VAR_193, "nrebel1", int 320, int 13)
+var nrebel2 = call create_char(var &VAR_194, "nrebel2", int 345, int 13)
+var nrebela1 = call create_char(var &VAR_195, "nrebela1", int 325, int 13)
+var nrebela2 = call create_char(var &VAR_196, "nrebela2", int 355, int 13)
 call add_item_to_char(var nrebel1, int 16, int 0, int 1)
 call add_item_to_char(var nrebel2, int 16, int 0, int 1)
 call add_item_to_char(var nrebela1, int 16, int 0, int 1)
@@ -836,7 +862,7 @@ else
  {
 		if(var fade_chronicler == int 0)
 		 {
-				var fade_chronicler = call get_char_handle(int 6291456 /* CHRONICL */ )
+				var fade_chronicler = call get_char_handle(int 6291456)
 		}
 }
 if(var VAR_216 != var VAR_210)
@@ -949,12 +975,12 @@ else
  {
 		if(var fade_chronicler == int 0)
 		 {
-				var fade_chronicler = call get_char_handle(int 6291456 /* CHRONICL */ )
+				var fade_chronicler = call get_char_handle(int 6291456)
 		}
 }
 
 ._SCRIPT_22
-if(call ! is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
+if(call ! is_char_handle_in_level(int 6291456))
  {
 		exit_script 
 }
@@ -962,7 +988,7 @@ else
  {
 		if(var fade_chronicler == int 0)
 		 {
-				var fade_chronicler = call get_char_handle(int 6291456 /* CHRONICL */ )
+				var fade_chronicler = call get_char_handle(int 6291456)
 		}
 }
 if(var VAR_23 != var VAR_17)
@@ -1077,7 +1103,7 @@ if(call is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
  {
 		if(var fade_chronicler == int 0)
 		 {
-				var fade_chronicler = call get_char_handle(int 6291456 /* CHRONICL */ )
+				var fade_chronicler = call get_char_handle(int 6291456)
 		}
 		call func_34(var fade_chronicler)
 }

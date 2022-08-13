@@ -69,6 +69,12 @@ void write_asm_expr(expression* expr, sct_f* sf) {
                     c_type type = FUNCTION_CALL; 
                     if(expr_p->type == DATA_INDEX_PTR) { fprintf(sf->out_file, "["); type = CP_VAR_PTR; }
                     write_asm_expression(expr_o->expression_nodes, type, true, sf);
+                    if(expr_o->hint_comment != NULL) {
+                        // cancel last '\n' newline
+                        fseek(sf->out_file, ftell(sf->out_file)-1, SEEK_SET);
+                        fprintf(sf->out_file, expr_o->hint_comment);
+                        fprintf(sf->out_file, "\n");
+                    }
                     if(expr_p->type == DATA_INDEX_PTR) { fprintf(sf->out_file, "]"); }
                 } else {
                     if(expr_o->expr_p->type == FUNCTION) { 
@@ -118,6 +124,12 @@ bool f_is_var_type(code_pattern* cp) {
 void write_asm_code_obj(code_obj* co, int indentation_lvl, sct_f* sf) {
     code_pattern* cp = co->cp;
 
+    if(co->hint_comment != NULL) {
+        fprintf(sf->out_file, "\n");
+        if(should_f_indent(cp)) f_indent(indentation_lvl, sf);
+        fprintf(sf->out_file, co->hint_comment);
+        fprintf(sf->out_file, "\n");
+    }
     // write code structure
     for(int i=0, j=0; i < cp->asm_token_num; i++) {
         if(is_var_pos(cp, CODE_TYPE, MODE_ASM, i)) {
@@ -268,8 +280,8 @@ void write_asm_data_section(sct_f* sf) {
 void mark_auto_gen_file(sct_f* sf) {
     fseek(sf->out_file, 0, SEEK_SET);
     fprintf(sf->out_file, 
-    "/*\n* This file was auto-generated using 'silver-reverse-sct' tool\n"
-    "* to fully understand the scripts presented, one is encouraged to\n"
+    "/*\n* This file was auto-generated using 'silver-reversing-sct' tool\n"
+    "* to better understand the scripts presented, one is encouraged to\n"
     "* view the catalogs at: \n"
     "* https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md\n*\n"
     "* Any further information and support of this project please visit:\n"

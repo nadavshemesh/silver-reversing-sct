@@ -74,6 +74,7 @@ void init_game_functions(game_fun** functions_arr) {
     functions_arr[0xb8]->name = aapts("load_item");
     functions_arr[0xb8]->params = 1;
     functions_arr[0xb8]->desc = aapts("(int item_type)");
+    functions_arr[0xb8]->cat_ref =  create_cat_ref(ITEM_CAT, 0, NULL, NULL);
     functions_arr[0x12c]->name = aapts("play_char_anim");
     functions_arr[0x12c]->params = 3;
     functions_arr[0x12c]->desc = aapts("(var char_ptr, var anim_name_ptr, int unknown)");
@@ -166,6 +167,7 @@ void init_game_functions(game_fun** functions_arr) {
     functions_arr[0x06]->name = aapts("add_item_to_char");
     functions_arr[0x06]->params = 4;
     functions_arr[0x06]->desc = aapts("(var char_ptr, int item_type, int is_equiped, int is_dropped)");
+    functions_arr[0x06]->cat_ref =  create_cat_ref(ITEM_CAT, 1, NULL, NULL);
     functions_arr[0x33]->name = aapts("create_char_game_history_link");
     functions_arr[0x33]->params = 1;
     functions_arr[0x33]->desc = aapts("(var char_ptr)");
@@ -184,6 +186,7 @@ void init_game_functions(game_fun** functions_arr) {
     functions_arr[0xae]->name = aapts("get_char_item_if_equiped");
     functions_arr[0xae]->params = 2;
     functions_arr[0xae]->desc = aapts("(var char_ptr , int item_type)");
+    functions_arr[0xae]->cat_ref =  create_cat_ref(ITEM_CAT, 1, NULL, NULL);
     functions_arr[0x12e]->name = aapts("open_save_screen");
     functions_arr[0x12e]->params = 1;
     functions_arr[0x12e]->desc = aapts("(var unknown_int_ptr)");
@@ -202,9 +205,11 @@ void init_game_functions(game_fun** functions_arr) {
     functions_arr[0x30]->name = aapts("create_item");
     functions_arr[0x30]->params = 1;
     functions_arr[0x30]->desc = aapts("(int item_type)");
+    functions_arr[0x30]->cat_ref =  create_cat_ref(ITEM_CAT, 0, NULL, NULL);
     functions_arr[0xb0]->name = aapts("get_char_item_if_exists");
     functions_arr[0xb0]->params = 2;
     functions_arr[0xb0]->desc = aapts("(var char_ptr, int item_type)");
+    functions_arr[0xb0]->cat_ref =  create_cat_ref(ITEM_CAT, 1, NULL, NULL);
     functions_arr[0xb5]->name = aapts("remove_item_from_pie");
     functions_arr[0xb5]->params = 1;
     functions_arr[0xb5]->desc = aapts("(var item_ptr)");
@@ -213,7 +218,8 @@ void init_game_functions(game_fun** functions_arr) {
     functions_arr[0x22]->desc = aapts("(var char_ptr)");
     functions_arr[0xa2]->name = aapts("play_loaded_sound");
     functions_arr[0xa2]->params = 4;
-    functions_arr[0xa2]->desc = aapts("(int sound_offset, int mode[0 -> once -1 -> repeat], int id, var pos_ptr or int 0)");
+    functions_arr[0xa2]->desc = aapts("(int sound_num, int mode[0 -> once -1 -> repeat], int sound_set, var pos_ptr or int 0)");
+    functions_arr[0xa2]->cat_ref =  create_cat_ref(SOUND_CAT, 0, NULL, "_sound_ref");
     functions_arr[0x6a]->name = aapts("get_char_movement_ptr");
     functions_arr[0x6a]->params = 1;
     functions_arr[0x6a]->desc = aapts("(var char_ptr)");

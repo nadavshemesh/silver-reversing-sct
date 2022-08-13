@@ -373,6 +373,169 @@ expression* bin_read_expression(void** tokens_pos_ptr, bool with_prologue, sct_f
     return exp;
 }
 
+void add_hint_by_var_name_or_comment(game_fun* gf, node** exp_nodes, void* func_obj, p_type type) {
+    int param_cat_ref = -1;
+    if(gf->cat_ref == NULL) {
+        return;
+    } 
+    param_cat_ref = gf->cat_ref->var_index;
+
+    int param_num = 0;
+    node* exp_node = *exp_nodes;
+    while(exp_node != NULL) {
+        // try to name the assigned var if it exists using the catalogs
+        if(param_num == param_cat_ref) {
+            expression* exp = (expression*) exp_node->item;
+            expr_obj* eo = exp->expr_objs;
+            char* prefix = (gf->cat_ref->prefix != NULL) ? gf->cat_ref->prefix : "";
+            char* postfix = (gf->cat_ref->postfix != NULL) ? gf->cat_ref->postfix : "";
+
+            if(gf->cat_ref->type == ENEMY_CAT) {
+                // TODO: validate
+                int enemy_num = (int) eo->bin_vars[0];
+                char* enemy_name = aapts(enemy_cat->items[enemy_num]);
+                int num_of_uses = enemy_cat->items_used[enemy_num]; 
+                // printf("%s -> found %s.\n", last_data_obj_cp->name, enemy_name);
+                char new_var_name[256];
+                if(num_of_uses == 0 || !during_assingment) {
+                    sprintf(new_var_name, "%s%s%s", prefix, enemy_name, postfix);
+                } else {
+                    sprintf(new_var_name, "%s%s%d%s", prefix, enemy_name, num_of_uses, postfix);
+                }
+                
+                if(during_assingment && last_data_obj_cp != NULL && !last_data_obj_cp->was_renamed) {
+                    if(last_data_obj_cp->name != NULL)
+                        free(last_data_obj_cp->name);
+                    last_data_obj_cp->name = aapts(new_var_name);
+                    last_data_obj_cp->was_renamed = true;
+                } else {
+                    if(last_data_obj_cp != NULL && last_data_obj_cp->was_renamed) return;
+                    char comment[256];
+                    sprintf(comment, " /* %s */ ", enemy_name);
+                    eo->hint_comment = aapts(comment);
+                }
+                enemy_cat->items_used[enemy_num]++;
+            } 
+            
+            else if(gf->cat_ref->type == ITEM_CAT) {
+                // TODO: validate
+                int item_num = (int) eo->bin_vars[0];
+                if(item_num < 0 || item_num > TOTAL_ITEMS_NUM-1) {return;}
+                char* item_name = aapts(item_cat->items[item_num]);
+                int num_of_uses = item_cat->items_used[item_num]; 
+                char new_var_name[256];
+                if(num_of_uses == 0 || !during_assingment) {
+                    sprintf(new_var_name, "%s%s%s", prefix, item_name, postfix);
+                } else {
+                    sprintf(new_var_name, "%s%s%d%s", prefix, item_name, num_of_uses, postfix);
+                }
+                
+                if(during_assingment && last_data_obj_cp != NULL && !last_data_obj_cp->was_renamed) {
+                    if(last_data_obj_cp->name != NULL)
+                        free(last_data_obj_cp->name);
+                    last_data_obj_cp->name = aapts(new_var_name);
+                    last_data_obj_cp->was_renamed = true;
+                } else {
+                    if(last_data_obj_cp != NULL && last_data_obj_cp->was_renamed) return;
+                    char comment[256];
+                    sprintf(comment, " /* %s */ ", item_name);
+                    eo->hint_comment = aapts(comment);
+                }
+                item_cat->items_used[item_num]++;
+            } 
+            
+            else if(gf->cat_ref->type == HANDLE_CAT) {
+                int handle_num = (int) eo->bin_vars[0];
+                int index = convert_handle_num_to_index(handle_num);
+                if(index == -1) return;
+                char* char_name = handle_cat->items[index];
+                int num_of_uses = handle_cat->items_used[index]; 
+                char new_var_name[256];
+
+                if(num_of_uses == 0) {
+                    sprintf(new_var_name, "%s%s%s", prefix, char_name, postfix);
+                } else {
+                    sprintf(new_var_name, "%s%s%d%s", prefix, char_name, num_of_uses, postfix);
+                }
+
+                if(during_assingment && last_data_obj_cp != NULL && !last_data_obj_cp->was_renamed) {
+                    if(last_data_obj_cp->name != NULL)
+                        free(last_data_obj_cp->name);
+                    last_data_obj_cp->name = aapts(new_var_name);
+                    last_data_obj_cp->was_renamed = true;
+                } else {
+                    if(last_data_obj_cp != NULL && last_data_obj_cp->was_renamed) return;
+                    char comment[256];
+                    sprintf(comment, " /* %s */ ", char_name);
+                    eo->hint_comment = aapts(comment);
+                }
+                handle_cat->items_used[index]++;
+            } 
+
+            else if(gf->cat_ref->type == SOUND_CAT) {
+                expr_obj* eo = exp->expr_objs;  // sound set param
+                node* two_nodes_ahead = (exp_node->next)->next;
+                expr_obj* eo2 = ((expression*)two_nodes_ahead->item)->expr_objs; // sound num param
+
+                if(eo->expr_p->type == VAR_PTR) { return; }
+
+                int sound_set = (int) eo2->bin_vars[0];
+                int sound_num = (int) eo->bin_vars[0];
+                int index = get_sound_index(sound_set, sound_num);
+                if(index == -1) return;
+                char* sound_name = sound_cat->items[index];
+                int num_of_uses = sound_cat->items_used[index]; 
+                char new_var_name[256];
+
+                if(num_of_uses == 0) {
+                    sprintf(new_var_name, "%s%s%s", prefix, sound_name, postfix);
+                } else {
+                    sprintf(new_var_name, "%s%s%d%s", prefix, sound_name, num_of_uses, postfix);
+                }
+
+                if(during_assingment && last_data_obj_cp != NULL && !last_data_obj_cp->was_renamed) {
+                    if(last_data_obj_cp->name != NULL)
+                        free(last_data_obj_cp->name);
+                    last_data_obj_cp->name = aapts(new_var_name);
+                    last_data_obj_cp->was_renamed = true;
+                } else {
+                    char comment[256];
+                    if(type == EXPRESSION_TYPE) {
+                        sprintf(comment, " /* '%s' */ ", sound_name);
+                        expr_obj* func = (expr_obj*) func_obj;
+                        func->hint_comment = aapts(comment);
+                    }
+                    if(type == CODE_TYPE) {
+                        sprintf(comment, " /* play the sound '%s' */ ", sound_name);
+                        code_obj* func = (code_obj*) func_obj;
+                        func->hint_comment = aapts(comment);
+                    }
+                }
+                sound_cat->items_used[index]++;
+            } 
+
+            else if(gf->cat_ref->type == NO_CAT_USE_PARAM_STRING) {
+                expr_obj* eo = exp->expr_objs;
+                int num_of_uses = general_param_hint_counter;
+                // printf("%s -> found %s.\n", last_data_obj_cp->name, enemy_name);
+                char new_var_name[256];
+                sprintf(new_var_name, "%s%s%s", prefix, string_remove_special_chars((char*) eo->data->data), postfix);
+
+                if(during_assingment && last_data_obj_cp != NULL && !last_data_obj_cp->was_renamed) {
+                    if(last_data_obj_cp->name != NULL)
+                        free(last_data_obj_cp->name);
+                    last_data_obj_cp->name = aapts(new_var_name);
+                    last_data_obj_cp->was_renamed = true;
+                } 
+
+                general_param_hint_counter++;
+            }
+        }
+        exp_node = exp_node->next;
+        param_num++;
+    }
+}
+
 expr_obj* bin_read_function_call_expr(expr_pattern* expr_p, int* vars, void** tokens_pos_ptr, sct_f* sf) {
     expr_obj* e_obj = create_and_init_expr_obj();
 
@@ -381,12 +544,8 @@ expr_obj* bin_read_function_call_expr(expr_pattern* expr_p, int* vars, void** to
     // printf("game_func: %x, params_num(exprs): %d\n", func_num, params_num);
 
     game_fun* gf = game_functions[func_num];
-
-    int param_cat_ref = -1;
-    if(gf->cat_ref != NULL) {
-        param_cat_ref = gf->cat_ref->var_index;
-    }
     
+
     if(gf == NULL) { 
         char err[256];
         sprintf(err, "ERROR, game func %d not found.\n", func_num);
@@ -405,88 +564,6 @@ expr_obj* bin_read_function_call_expr(expr_pattern* expr_p, int* vars, void** to
             insert_node(exp_nodes, new_node);
         }
         exp_nodes_len++;
-
-        // try to name the assigned var if it exists using the catalogs
-        if(i == param_cat_ref) {
-            char* prefix = (gf->cat_ref->prefix != NULL) ? gf->cat_ref->prefix : "";
-            char* postfix = (gf->cat_ref->postfix != NULL) ? gf->cat_ref->postfix : "";
-
-            if(gf->cat_ref->type == ENEMY_CAT) {
-                // TODO: validate
-                expr_obj* eo = exp->expr_objs;
-                int enemy_num = (int) eo->bin_vars[0];
-                char* enemy_name = aapts(enemy_cat->items[enemy_num]);
-                int num_of_uses = enemy_cat->items_used[enemy_num]; 
-                // printf("%s -> found %s.\n", last_data_obj_cp->name, enemy_name);
-                char new_var_name[256];
-                if(num_of_uses == 0 || !during_assingment) {
-                    sprintf(new_var_name, "%s%s%s", prefix, enemy_name, postfix);
-                } else {
-                    sprintf(new_var_name, "%s%s%d%s", prefix, enemy_name, num_of_uses, postfix);
-                }
-                
-                if(during_assingment && last_data_obj_cp != NULL && !last_data_obj_cp->was_renamed) {
-                    if(last_data_obj_cp->name != NULL)
-                        free(last_data_obj_cp->name);
-                    last_data_obj_cp->name = aapts(new_var_name);
-                    last_data_obj_cp->was_renamed = true;
-                } else {
-                    char comment[256];
-                    sprintf(comment, " /* %s */ ", enemy_name);
-                    eo->hint_comment = aapts(comment);
-                }
-                enemy_cat->items_used[enemy_num]++;
-            } else if(gf->cat_ref->type == HANDLE_CAT) {
-                expr_obj* eo = exp->expr_objs;
-                int handle_num = (int) eo->bin_vars[0];
-                int index = convert_handle_num_to_index(handle_num);
-                if(index == -1) break;
-                char* char_name = handle_cat->items[index];
-                int num_of_uses = handle_cat->items_used[index]; 
-                char new_var_name[256];
-
-                if(num_of_uses == 0) {
-                    sprintf(new_var_name, "%s%s%s", prefix, char_name, postfix);
-                } else {
-                    sprintf(new_var_name, "%s%s%d%s", prefix, char_name, num_of_uses, postfix);
-                }
-
-                if(during_assingment && last_data_obj_cp != NULL && !last_data_obj_cp->was_renamed) {
-                    if(last_data_obj_cp->name != NULL)
-                        free(last_data_obj_cp->name);
-                    last_data_obj_cp->name = aapts(new_var_name);
-                    last_data_obj_cp->was_renamed = true;
-                } else {
-                    char comment[256];
-                    sprintf(comment, " /* %s */ ", char_name);
-                    eo->hint_comment = aapts(comment);
-                }
-                handle_cat->items_used[index]++;
-            } else if(gf->cat_ref->type == NO_CAT_USE_PARAM_STRING) {
-                expr_obj* eo = exp->expr_objs;
-                int num_of_uses = general_param_hint_counter;
-                // printf("%s -> found %s.\n", last_data_obj_cp->name, enemy_name);
-                char new_var_name[256];
-                sprintf(new_var_name, "%s%s%s", prefix, string_remove_special_chars((char*) eo->data->data), postfix);
-                // if(num_of_uses == 0) {
-                //     sprintf(new_var_name, "%s", (char*) eo->data->data);
-                // } else {
-                //     sprintf(new_var_name, "%s%d", (char*) eo->data->data, num_of_uses);
-                // }
-
-                if(during_assingment && last_data_obj_cp != NULL && !last_data_obj_cp->was_renamed) {
-                    if(last_data_obj_cp->name != NULL)
-                        free(last_data_obj_cp->name);
-                    last_data_obj_cp->name = aapts(new_var_name);
-                    last_data_obj_cp->was_renamed = true;
-                } else {
-                    char comment[256];
-                    sprintf(comment, " /* %s */ ", string_remove_special_chars((char*) eo->data->data));
-                    eo->hint_comment = aapts(comment);
-                }
-                general_param_hint_counter++;
-            }
-        }
     }
 
     e_obj->expression_nodes = w_malloc(sizeof(node*));
@@ -495,6 +572,7 @@ expr_obj* bin_read_function_call_expr(expr_pattern* expr_p, int* vars, void** to
     e_obj->expression_nodes = exp_nodes;
     // print_expression((*exp_nodes)->item);
 
+    add_hint_by_var_name_or_comment(gf, exp_nodes, e_obj, EXPRESSION_TYPE);
 
     char* asm_vars = { gf->name };
     e_obj->expr_p = expr_p;
@@ -814,6 +892,8 @@ code_obj* bin_read_function_call(code_pattern* cp, int* vars, void** tokens_pos_
     c_obj->expression_node_num = exp_nodes_len;
     c_obj->expression_nodes = exp_nodes;
     // print_expression((*exp_nodes)->item);
+
+    add_hint_by_var_name_or_comment(gf, exp_nodes, c_obj, CODE_TYPE);
 
     char* asm_vars = { gf->name };
     c_obj->cp = cp;

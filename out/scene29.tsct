@@ -1,6 +1,6 @@
 /*
-* This file was auto-generated using 'silver-reverse-sct' tool
-* to fully understand the scripts presented, one is encouraged to
+* This file was auto-generated using 'silver-reversing-sct' tool
+* to better understand the scripts presented, one is encouraged to
 * view the catalogs at: 
 * https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
 *
@@ -25,8 +25,8 @@ VAR_34	-1
 
 ._on_load
 execute SCRIPT_9
-call load_item(int 93)
-call load_item(int 91)
+call load_item(int 93 /* cutlass */ )
+call load_item(int 91 /* rapier */ )
 switch(gamevar room_state)
  {
 		case 1
@@ -153,20 +153,20 @@ switch(var VAR_31)
 			 {
 					if(call ! is_char_handle_in_level(int 2490368 /* MUSCLES */ ))
 					 {
-							var muscles = call create_enemy_through_door(int 30 /* muscles */ , int 0, int 1, int 0)
+							var muscles = call create_enemy_through_door(int 30, int 0, int 1, int 0)
 							call set_char_running(var muscles)
 							call func_19(var muscles, call get_selected_hero())
 					}
 					if(call ! is_char_handle_in_level(int 6422528))
 					 {
-							var dick = call create_enemy_through_door(int 31 /* dick */ , int 0, int 1, int 0)
+							var dick = call create_enemy_through_door(int 31, int 0, int 1, int 0)
 							call set_char_running(var dick)
 							call func_19(var dick, call get_selected_hero())
 							call add_item_to_char(var dick, int 40, int 1, int 0)
 					}
 					if(call ! is_char_handle_in_level(int 5767168))
 					 {
-							var finnegan = call create_enemy_through_door(int 32 /* finnegan */ , int 0, int 1, int 0)
+							var finnegan = call create_enemy_through_door(int 32, int 0, int 1, int 0)
 							call set_char_running(var finnegan)
 							call func_19(var finnegan, call get_selected_hero())
 					}

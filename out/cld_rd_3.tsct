@@ -1,6 +1,6 @@
 /*
-* This file was auto-generated using 'silver-reverse-sct' tool
-* to fully understand the scripts presented, one is encouraged to
+* This file was auto-generated using 'silver-reversing-sct' tool
+* to better understand the scripts presented, one is encouraged to
 * view the catalogs at: 
 * https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
 *
@@ -198,8 +198,8 @@ call func_d9(var nraft)
 gamevar unknown_02_00_65 = int 1
 
 ._SCRIPT_8
-var nraft = call create_char(var &VAR_50, "nraft" /* nraft */ , int 270, int 13)
-var nboatman = call create_char(var &VAR_51, "nboatman" /* nboatman */ , int 65, int 13)
+var nraft = call create_char(var &VAR_50, "nraft", int 270, int 13)
+var nboatman = call create_char(var &VAR_51, "nboatman", int 65, int 13)
 call func_d9(var nraft)
 gamevar unknown_02_00_65 = int 1
 
@@ -362,8 +362,8 @@ switch(var VAR_93)
 			switch(call func_4a())
 			 {
 					case 1
-						var VAR_95 = call create_item(int 101)
-						if(var VAR_95)
+						var BOATMAN = call create_item(int 101)
+						if(var BOATMAN)
 						 {
 								call log("yes! Dubloon")
 								call func_db()
@@ -435,8 +435,8 @@ switch(var VAR_93)
 		case 12
 			if(call func_5c(gamevar control_char_p))
 			 {
-					call func_f9(var VAR_95, int 100)
-					call func_b6(gamevar control_char_p, var VAR_95)
+					call func_f9(var BOATMAN, int 100)
+					call func_b6(gamevar control_char_p, var BOATMAN)
 					var VAR_93 ++ 
 					var VAR_94 = int 0
 			}

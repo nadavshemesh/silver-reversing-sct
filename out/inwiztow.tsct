@@ -1,6 +1,6 @@
 /*
-* This file was auto-generated using 'silver-reverse-sct' tool
-* to fully understand the scripts presented, one is encouraged to
+* This file was auto-generated using 'silver-reversing-sct' tool
+* to better understand the scripts presented, one is encouraged to
 * view the catalogs at: 
 * https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
 *
@@ -155,7 +155,7 @@ switch(var VAR_33)
 			if(call func_6d() == int 16)
 			 {
 					call char_turn_to_pos(var nothias, call get_char_pos(var DAVID))
-					var VAR_36 = call add_item_to_char(var nothias, int 0, int 0, int 1)
+					var fire = call add_item_to_char(var nothias, int 0, int 0, int 1)
 					var VAR_33 ++ 
 					var VAR_34 = int 0
 			}
@@ -323,16 +323,16 @@ switch(var VAR_52)
 var VAR_53 ++ 
 
 ._SCRIPT_6
-var nothias = call create_char(var &VAR_18, "nothias" /* nothias */ , int 180, int 13)
+var nothias = call create_char(var &VAR_18, "nothias", int 180, int 13)
 gamevar script_object = var nothias
 gamevar *object_p+6 |= int 8388608
-var DAVID = call get_char_handle(int 65536 /* DAVID */ )
+var DAVID = call get_char_handle(int 65536)
 call set_input_system(int 2)
 
 ._SCRIPT_7
 
 ._SCRIPT_8
-var nothias = call create_char(var &VAR_18, "nothias" /* nothias */ , int 180, int 13)
+var nothias = call create_char(var &VAR_18, "nothias", int 180, int 13)
 gamevar script_object = var nothias
 gamevar *object_p+6 |= int 8388608
 call func_50(var nothias, int 8192)

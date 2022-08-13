@@ -1,6 +1,6 @@
 /*
-* This file was auto-generated using 'silver-reverse-sct' tool
-* to fully understand the scripts presented, one is encouraged to
+* This file was auto-generated using 'silver-reversing-sct' tool
+* to better understand the scripts presented, one is encouraged to
 * view the catalogs at: 
 * https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
 *
@@ -52,7 +52,7 @@ if(var VAR_41)
 }
 call load_sound_set(int 65)
 call play_loaded_sound(int 5, int -1, int 65, int 0)
-call load_item(int 94)
+call load_item(int 94 /* trident */ )
 execute SCRIPT_9
 execute SCRIPT_12
 if(gamevar is_room_cleared)
@@ -315,9 +315,9 @@ call run_wandering_generator(var &VAR_90, int 1)
 call run_wandering_generator(var &VAR_89, int 100)
 
 ._SCRIPT_9
-if(call is_char_handle_in_level(int 1507328 /* BTREASURE */ ))
+if(call is_char_handle_in_level(int 1507328))
  {
-		var btreasure = call get_char_handle(int 1507328 /* BTREASURE */ )
+		var btreasure = call get_char_handle(int 1507328)
 }
 if(var btreasure)
  {
@@ -362,12 +362,12 @@ else
  {
 		if(var fade_chronicler == int 0)
 		 {
-				var fade_chronicler = call get_char_handle(int 6291456 /* CHRONICL */ )
+				var fade_chronicler = call get_char_handle(int 6291456)
 		}
 }
 
 ._SCRIPT_13
-if(call ! is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
+if(call ! is_char_handle_in_level(int 6291456))
  {
 		exit_script 
 }
@@ -375,7 +375,7 @@ else
  {
 		if(var fade_chronicler == int 0)
 		 {
-				var fade_chronicler = call get_char_handle(int 6291456 /* CHRONICL */ )
+				var fade_chronicler = call get_char_handle(int 6291456)
 		}
 }
 if(var VAR_23 != var VAR_17)
@@ -490,7 +490,7 @@ if(call is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
  {
 		if(var fade_chronicler == int 0)
 		 {
-				var fade_chronicler = call get_char_handle(int 6291456 /* CHRONICL */ )
+				var fade_chronicler = call get_char_handle(int 6291456)
 		}
 		call func_34(var fade_chronicler)
 }

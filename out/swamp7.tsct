@@ -1,6 +1,6 @@
 /*
-* This file was auto-generated using 'silver-reverse-sct' tool
-* to fully understand the scripts presented, one is encouraged to
+* This file was auto-generated using 'silver-reversing-sct' tool
+* to better understand the scripts presented, one is encouraged to
 * view the catalogs at: 
 * https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
 *
@@ -149,7 +149,7 @@ call run_enemy_generator(var &VAR_30, int 0)
 var is_BTREASURE_exist = call is_char_handle_in_level(int 1507337)
 if(var ! is_BTREASURE_exist)
  {
-		var is_BTREASURE_exist = call create_char(var VAR_1, "btreasure9" /* btreasure9 */ , var VAR_2, int 14)
+		var is_BTREASURE_exist = call create_char(var VAR_1, "btreasure9", var VAR_2, int 14)
 		call func_aa(var is_BTREASURE_exist)
 }
 else
@@ -169,11 +169,11 @@ if(var VAR_3 != int -1)
 		 {
 				if(var VAR_5 != int -1)
 				 {
-						call add_item_to_char(var is_BTREASURE_exist, int 85, var VAR_5, int 0)
+						call add_item_to_char(var is_BTREASURE_exist, int 85 /* moneybag */ , var VAR_5, int 0)
 				}
 				else
 				 {
-						call add_item_to_char(var is_BTREASURE_exist, var VAR_3, int 1, int 0)
+						call add_item_to_char(var is_BTREASURE_exist, var VAR_3 /* lightning */ , int 1, int 0)
 				}
 		}
 }

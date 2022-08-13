@@ -1,6 +1,6 @@
 /*
-* This file was auto-generated using 'silver-reverse-sct' tool
-* to fully understand the scripts presented, one is encouraged to
+* This file was auto-generated using 'silver-reversing-sct' tool
+* to better understand the scripts presented, one is encouraged to
 * view the catalogs at: 
 * https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
 *
@@ -106,9 +106,9 @@ switch(gamevar room_state)
 			if(var grandad)
 			 {
 					call remove_char(var grandad)
-					if(var VAR_1)
+					if(var shrtswrd)
 					 {
-							call remove_item_from_pie(var VAR_1)
+							call remove_item_from_pie(var shrtswrd)
 					}
 			}
 			gamevar room_state = int 2
@@ -119,9 +119,9 @@ switch(gamevar room_state)
 					if(var grandad)
 					 {
 							call remove_char(var grandad)
-							if(var VAR_1)
+							if(var shrtswrd)
 							 {
-									call remove_item_from_pie(var VAR_1)
+									call remove_item_from_pie(var shrtswrd)
 							}
 					}
 			}
@@ -147,7 +147,7 @@ gamevar door_restriction_p = var &VAR_2
 var HDAVID = call create_char(var &VAR_8, "HDAVID", int 75, int 13)
 var grandad = call create_enemy(int 98, int 0, var &VAR_9, int 125)
 call func_1(var grandad, int -1)
-var VAR_1 = call create_item(int 16)
+var shrtswrd = call create_item(int 16)
 var pfew_anim = call load_anim("pfew")
 call load_char_anim(var HDAVID, var &VAR_11)
 call play_bgm("dfight")
@@ -368,10 +368,10 @@ if(var VAR_21 == int 2)
 ._SCRIPT_6
 call log("act2")
 gamevar door_restriction_p = var &VAR_2
-var HDAVID = call get_char_handle(int 65536 /* DAVID */ )
-var grandad = call create_enemy(int 98 /* grandad */ , int 0, var &VAR_30, int 300)
+var HDAVID = call get_char_handle(int 65536)
+var grandad = call create_enemy(int 98, int 0, var &VAR_30, int 300)
 call func_1(var grandad, int -1)
-var VAR_1 = call create_item(int 16)
+var shrtswrd = call create_item(int 16)
 var jennifer = call create_enemy(int 96, int 0, var &VAR_32, int 33)
 gamevar script_object = var jennifer
 gamevar *object_p+8 |= int 13421772
@@ -411,9 +411,9 @@ if(var VAR_4 == int 2)
 		if(call is_local_timer_greater_than(int 20))
 		 {
 				call char_turn_to_pos(var HDAVID, call get_char_pos(var grandad))
-				if(call create_item(int 16))
+				if(call create_item(int 16 /* shrtswrd */ ))
 				 {
-						if(call get_char_item_if_equiped(var HDAVID, int 16))
+						if(call get_char_item_if_equiped(var HDAVID, int 16 /* shrtswrd */ ))
 						 {
 								var VAR_23 = gamevar time
 								var VAR_22 = int 0
@@ -449,9 +449,9 @@ if(var VAR_4 == int 3)
 }
 if(var VAR_4 == int 5)
  {
-		if(call create_item(int 16))
+		if(call create_item(int 16 /* shrtswrd */ ))
 		 {
-				if(call get_char_item_if_equiped(var HDAVID, int 16))
+				if(call get_char_item_if_equiped(var HDAVID, int 16 /* shrtswrd */ ))
 				 {
 						if(call get_input_sys() != int 4)
 						 {
@@ -1202,9 +1202,9 @@ if(var VAR_4 == int 64)
 		 {
 				call set_input_system(int 2)
 				call char_walk_to(var HDAVID, int 1891, int 785, int -6421)
-				if(call create_item(int 48))
+				if(call create_item(int 48 /* woodshld */ ))
 				 {
-						if(call get_char_item_if_equiped(var HDAVID, int 48))
+						if(call get_char_item_if_equiped(var HDAVID, int 48 /* woodshld */ ))
 						 {
 								var VAR_4 = int 77
 								var VAR_55 = int 85
@@ -2087,9 +2087,9 @@ if(var VAR_160)
 				call func_d2()
 				call char_turn_to_pos(var HDAVID, call get_char_pos(var grandad))
 				call func_100(call get_char_movement_ptr(var grandad))
-				if(call create_item(int 16))
+				if(call create_item(int 16 /* shrtswrd */ ))
 				 {
-						if(call get_char_item_if_equiped(var HDAVID, int 16))
+						if(call get_char_item_if_equiped(var HDAVID, int 16 /* shrtswrd */ ))
 						 {
 								var VAR_58 = int 1
 						}
@@ -2224,5 +2224,9 @@ var VAR_161 ++
 
 ._SCRIPT_20
 call remove_face(var &VAR_167)
+
+ /* play the sound 'dwavesLp' */ 
 call play_loaded_sound(int 1, int -1, int 2, int 0)
+
+ /* play the sound 'swampy1' */ 
 call play_loaded_sound(int 7, int -1, int 2, var &VAR_167)

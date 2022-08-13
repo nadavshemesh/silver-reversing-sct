@@ -1,6 +1,6 @@
 /*
-* This file was auto-generated using 'silver-reverse-sct' tool
-* to fully understand the scripts presented, one is encouraged to
+* This file was auto-generated using 'silver-reversing-sct' tool
+* to better understand the scripts presented, one is encouraged to
 * view the catalogs at: 
 * https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
 *
@@ -13,7 +13,7 @@
 VAR_17	{ 0, 0 }	
 VAR_19	{ 982, 2615, -2736 }	
 VAR_20	{ 7587, 2615, 3049 }	
-VAR_25	0	
+lightning	0	
 VAR_26	{ -4046, 795, -1220 }	
 VAR_27	{ -4910, 795, -915 }	
 VAR_28	{ -4690, 795, -500 }	
@@ -22,7 +22,7 @@ VAR_30	{ VAR_27, VAR_28, VAR_29 }
 VAR_44	0	
 VAR_45	0	
 VAR_54	{ -5305, 796, -1955, -3210, 796, -1924, -3138, 796, 1074, -4743, 796, 678, -3279, 796, -291, -5159, 796, -230, -4982, 796, -1440, -5856, 796, -757, -5192, 796, -1349, -4728, 796, -2413 }	
-VAR_55	{ 34, 3, 0, 3, VAR_56, 0, 3, VAR_57, 0, 5, 30, 34, 1, 0, 3, VAR_58, 0, 34, 4, 0, 0, -4127, 795, -1700, 3, VAR_59, 0, 0, -3566, 796, -1145, 34, 5, 0, 3, VAR_60, 0, 4, VAR_44, 19, 17, 10, VAR_54, 0, 4, VAR_45, 20, 21, VAR_25, 23, 22, VAR_25, 34, 1, 0, 3, VAR_61, 0, 5, 10, 6, 13, 0, 8 }	
+VAR_55	{ 34, 3, 0, 3, VAR_56, 0, 3, VAR_57, 0, 5, 30, 34, 1, 0, 3, VAR_58, 0, 34, 4, 0, 0, -4127, 795, -1700, 3, VAR_59, 0, 0, -3566, 796, -1145, 34, 5, 0, 3, VAR_60, 0, 4, VAR_44, 19, 17, 10, VAR_54, 0, 4, VAR_45, 20, 21, lightning, 23, 22, lightning, 34, 1, 0, 3, VAR_61, 0, 5, 10, 6, 13, 0, 8 }	
 VAR_56	"impjeer"	
 VAR_57	"implook"	
 VAR_58	"laugh"	
@@ -426,9 +426,9 @@ call func_f(var gonchfx, int 131072)
 gamevar script_object = var gonchfx
 gamevar *object_p+8 |= int 4194304
 call add_item_to_char(var gonchfx, int 76, int 1, int 0)
-var VAR_25 = call add_item_to_char(var gonchfx, int 3, int 0, int 0)
+var lightning = call add_item_to_char(var gonchfx, int 3, int 0, int 0)
 call add_item_to_char(var gonchfx, int 85, int 1638913, int 0)
-call func_f7(var VAR_25, int 1)
+call func_f7(var lightning, int 1)
 call set_char_init_state(var gonchfx, int 0)
 call func_106(var gonchfx, int 0, int 3, int 360)
 gamevar script_object = var gonchfx
@@ -547,7 +547,7 @@ if(var ! VAR_106)
 call load_char("orc")
 call load_char("ogre")
 call load_char("ronnie")
-call load_item(int 96)
+call load_item(int 96 /* pick */ )
 call set_input_system(int 2)
 var VAR_102 = call randomize_int(int 0, int 3)
 var VAR_103 = call randomize_int(int 0, int 3)

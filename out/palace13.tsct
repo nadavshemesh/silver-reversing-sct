@@ -1,6 +1,6 @@
 /*
-* This file was auto-generated using 'silver-reverse-sct' tool
-* to fully understand the scripts presented, one is encouraged to
+* This file was auto-generated using 'silver-reversing-sct' tool
+* to better understand the scripts presented, one is encouraged to
 * view the catalogs at: 
 * https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
 *
@@ -102,7 +102,7 @@ if(var VAR_0 == int 2)
 }
 if(var VAR_0 == int 3)
  {
-		call play_char_anim(var vikingc1, var come_anim, int 0)
+		call play_char_anim(var vikingc, var come_anim, int 0)
 		var VAR_0 = int 4
 		call reset_local_timer()
 		var VAR_1 = int 20
@@ -120,7 +120,7 @@ if(var VAR_0 == int 4)
 if(var VAR_0 == int 5)
  {
 		call func_2b(var viking, int 1)
-		call func_2b(var vikingc1, int 2)
+		call func_2b(var vikingc, int 2)
 		call set_input_system(int 1)
 		var VAR_0 = int 6
 		exit_script 
@@ -137,7 +137,7 @@ if(var VAR_0 == int 6)
 		}
 		if(call is_char_handle_in_level(int 8585217))
 		 {
-				call remove_char(var vikingc1)
+				call remove_char(var vikingc)
 		}
 		call run_enemy_generator(var &VAR_15, int 10)
 		var VAR_0 = int 7
@@ -185,8 +185,8 @@ if(var VAR_0 == int 9)
 
 ._SCRIPT_5
 call load_char("viking")
-var viking = call create_enemy(int 66 /* vikingc */ , int 0, var &VAR_5, int 110)
-var vikingc1 = call create_enemy(int 66, int 1, var &VAR_6, int 115)
+var viking = call create_enemy(int 66, int 0, var &VAR_5, int 110)
+var vikingc = call create_enemy(int 66, int 1, var &VAR_6, int 115)
 var come_anim = call load_anim("come")
 var tyrosumn_anim = call load_anim("tyrosumn")
 call set_input_system(int 2)

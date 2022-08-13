@@ -1,6 +1,6 @@
 /*
-* This file was auto-generated using 'silver-reverse-sct' tool
-* to fully understand the scripts presented, one is encouraged to
+* This file was auto-generated using 'silver-reversing-sct' tool
+* to better understand the scripts presented, one is encouraged to
 * view the catalogs at: 
 * https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
 *
@@ -111,6 +111,8 @@ gamevar SMACKER_X = int 204
 gamevar SMACKER_Y = int 0
 call play_2d_anim("h_intomb", int 1, int 1, var &VAR_41)
 call load_sound_set(int 8)
+
+ /* play the sound 'sent1rev' */ 
 call play_loaded_sound(int 1, int -1, int 8, int 0)
 
 ._SCRIPT_5
@@ -119,6 +121,8 @@ switch(var VAR_44)
 		case 0
 			if(var VAR_42 == int 1)
 			 {
+
+					 /* play the sound 'dragon2' */ 
 					call play_loaded_sound(int 2, int 0, int 8, int 0)
 					var VAR_45 = int 0
 					var VAR_44 ++ 
@@ -127,6 +131,8 @@ switch(var VAR_44)
 		case 1
 			if(var VAR_42 == int 7)
 			 {
+
+					 /* play the sound 'dragon2' */ 
 					call play_loaded_sound(int 2, int 0, int 8, int 0)
 					var VAR_45 = int 0
 					var VAR_44 ++ 
@@ -135,6 +141,8 @@ switch(var VAR_44)
 		case 2
 			if(var VAR_42 == int 10)
 			 {
+
+					 /* play the sound 'dragon2' */ 
 					call play_loaded_sound(int 2, int 0, int 8, int 0)
 					var VAR_45 = int 0
 					var VAR_44 ++ 
@@ -143,6 +151,8 @@ switch(var VAR_44)
 		case 3
 			if(var VAR_42 == int 28)
 			 {
+
+					 /* play the sound 'dragon2' */ 
 					call play_loaded_sound(int 2, int 0, int 8, int 0)
 					var VAR_45 = int 0
 					var VAR_44 ++ 
@@ -151,6 +161,8 @@ switch(var VAR_44)
 		case 4
 			if(var VAR_42 == int 35)
 			 {
+
+					 /* play the sound 'dragon2' */ 
 					call play_loaded_sound(int 2, int 0, int 8, int 0)
 					var VAR_45 = int 0
 					var VAR_44 = int 0
@@ -164,7 +176,7 @@ execute SCRIPT_8
 
 ._SCRIPT_7
 var NVILLBOY = call create_char(var &VAR_52, "NVILLBOY", int 325, int 13)
-var VAR_50 = call add_item_to_char(var NVILLBOY, int 87, int 1, int 1)
+var horn = call add_item_to_char(var NVILLBOY, int 87, int 1, int 1)
 execute SCRIPT_9
 var DAVID = call get_char_handle(int 65536)
 var GRANDAD = call get_char_handle(int 393216)
@@ -195,8 +207,8 @@ switch(var VAR_55)
 			if(var VAR_56 > int 50)
 			 {
 					call play_char_anim(var NVILLBOY, var imphorn_anim, int 0)
-					var VAR_58 = call play_loaded_sound(int 3, int 0, int 8, int 0)
-					call set_sound_volume(var VAR_58, int 100)
+					var lforest1_sound_ref = call play_loaded_sound(int 3, int 0, int 8, int 0)
+					call set_sound_volume(var lforest1_sound_ref, int 100)
 					var VAR_55 ++ 
 					var VAR_56 = int 0
 			}
@@ -204,8 +216,9 @@ switch(var VAR_55)
 		case 2
 			if(var VAR_56 > int 35)
 			 {
-					var VAR_58 = call play_loaded_sound(int 3, int 0, int 8, int 0)
-					call set_sound_volume(var VAR_58, int 100)
+					var lforest1_sound_ref = call play_loaded_sound(int 3, int 0, int 8, int 0 /* 'lforest1' */ 
+ /* 'lforest1' */ 
+					call set_sound_volume(var lforest1_sound_ref, int 100)
 					var VAR_55 ++ 
 					var VAR_56 = int 0
 			}
@@ -285,7 +298,7 @@ var DodgeB_anim = call load_anim("DodgeB")
 ._SCRIPT_14
 
 ._SCRIPT_15
-if(call ! is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
+if(call ! is_char_handle_in_level(int 6291456))
  {
 		exit_script 
 }
@@ -293,12 +306,12 @@ else
  {
 		if(var fade_chronicler == int 0)
 		 {
-				var fade_chronicler = call get_char_handle(int 6291456 /* CHRONICL */ )
+				var fade_chronicler = call get_char_handle(int 6291456)
 		}
 }
 
 ._SCRIPT_16
-if(call ! is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
+if(call ! is_char_handle_in_level(int 6291456))
  {
 		exit_script 
 }
@@ -306,7 +319,7 @@ else
  {
 		if(var fade_chronicler == int 0)
 		 {
-				var fade_chronicler = call get_char_handle(int 6291456 /* CHRONICL */ )
+				var fade_chronicler = call get_char_handle(int 6291456)
 		}
 }
 if(var VAR_23 != var VAR_17)
@@ -421,7 +434,7 @@ if(call is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
  {
 		if(var fade_chronicler == int 0)
 		 {
-				var fade_chronicler = call get_char_handle(int 6291456 /* CHRONICL */ )
+				var fade_chronicler = call get_char_handle(int 6291456)
 		}
 		call func_34(var fade_chronicler)
 }

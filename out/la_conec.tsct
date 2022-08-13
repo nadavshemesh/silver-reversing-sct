@@ -1,6 +1,6 @@
 /*
-* This file was auto-generated using 'silver-reverse-sct' tool
-* to fully understand the scripts presented, one is encouraged to
+* This file was auto-generated using 'silver-reversing-sct' tool
+* to better understand the scripts presented, one is encouraged to
 * view the catalogs at: 
 * https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
 *
@@ -41,7 +41,7 @@ if(var VAR_0)
 }
 call load_sound_set(int 65)
 call play_loaded_sound(int 5, int -1, int 65, int 0)
-call load_item(int 94)
+call load_item(int 94 /* trident */ )
 if(gamevar is_room_cleared)
  {
 		execute SCRIPT_7
@@ -121,9 +121,9 @@ switch(var VAR_27)
 					}
 					else
 					 {
-							var drop_fishman = call create_enemy(int 147 /* drop_fishman */ , int 0, var &VAR_17, int 15)
+							var drop_fishman = call create_enemy(int 147, int 0, var &VAR_17, int 15)
 							call add_item_to_char(var drop_fishman, int 85, int 1638913, int 0)
-							var drop_fishman1 = call create_enemy(int 147 /* drop_fishman */ , int 1, var &VAR_18, int 325)
+							var drop_fishman1 = call create_enemy(int 147, int 1, var &VAR_18, int 325)
 					}
 					var VAR_27 ++ 
 					var VAR_26 = int 0
@@ -170,9 +170,9 @@ if(var VAR_3 == int 1)
 }
 else
  {
-		var lobster = call create_enemy(int 64 /* lobster */ , int 0, var &VAR_14, int 185)
-		var lobster1 = call create_enemy(int 64 /* lobster */ , int 1, var &VAR_15, int 160)
-		var lobster2 = call create_enemy(int 64 /* lobster */ , int 2, var &VAR_16, int 185)
+		var lobster = call create_enemy(int 64, int 0, var &VAR_14, int 185)
+		var lobster1 = call create_enemy(int 64, int 1, var &VAR_15, int 160)
+		var lobster2 = call create_enemy(int 64, int 2, var &VAR_16, int 185)
 }
 gamevar script_object = var lobster
 gamevar *character_stats_p+15 = int 2200

@@ -1,6 +1,6 @@
 /*
-* This file was auto-generated using 'silver-reverse-sct' tool
-* to fully understand the scripts presented, one is encouraged to
+* This file was auto-generated using 'silver-reversing-sct' tool
+* to better understand the scripts presented, one is encouraged to
 * view the catalogs at: 
 * https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
 *
@@ -280,7 +280,7 @@ call set_char_running(var nrichard)
 call set_char_running(var nfatbob)
 var DAVID = call get_char_handle(int 65536)
 var SEKUNE = call get_char_handle(int 786432)
-var nduke = call get_char_handle(int 4456448 /* DUKE */ )
+var nduke = call get_char_handle(int 4456448)
 gamevar script_object = var nwilliam
 gamevar *character_movement_p+60 = int 1
 gamevar SMACKER_X = int 432
@@ -392,8 +392,8 @@ switch(var VAR_120)
 			 {
 					call func_b4(var VAR_18)
 					call stop_playing_sound(var VAR_19)
-					var VAR_130 = call create_item(int 99)
-					call remove_item_from_pie(var VAR_130)
+					var 1horn = call create_item(int 99)
+					call remove_item_from_pie(var 1horn)
 					gamevar *scene_info_p+3 &= int -2
 					var VAR_18 = call func_40(int 0, int 8, int 2, int -1)
 					call set_input_system(int 1)

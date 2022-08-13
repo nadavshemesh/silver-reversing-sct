@@ -1,6 +1,6 @@
 /*
-* This file was auto-generated using 'silver-reverse-sct' tool
-* to fully understand the scripts presented, one is encouraged to
+* This file was auto-generated using 'silver-reversing-sct' tool
+* to better understand the scripts presented, one is encouraged to
 * view the catalogs at: 
 * https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
 *
@@ -350,7 +350,7 @@ switch(var VAR_96)
 										call start_dialog("B_DVDYES", "ACT_2")
 										call play_char_anim(var nbuzuki, var jangive_anim, int 0)
 										var VAR_103 = int 1
-										var VAR_98 = call add_item_to_char(var DAVID, int 37, int 0, int 0)
+										var potgreen = call add_item_to_char(var DAVID, int 37, int 0, int 0)
 										var VAR_96 = int 11
 								}
 								else
@@ -380,7 +380,7 @@ switch(var VAR_96)
 			if(call func_5c(var nbuzuki))
 			 {
 					call set_input_system(int 1)
-					var VAR_98 = call add_item_to_char(var DAVID, int 37, int 0, int 0)
+					var potgreen = call add_item_to_char(var DAVID, int 37, int 0, int 0)
 					call resume_conversation()
 					var VAR_103 = int 1
 					var VAR_96 ++ 
@@ -392,7 +392,7 @@ switch(var VAR_96)
 			 {
 					if(var VAR_103)
 					 {
-							call func_f9(var VAR_98, int 100)
+							call func_f9(var potgreen, int 100)
 					}
 					call func_10c(var nbuzuki, "ARSE")
 					call char_walk_to_pos(var nbuzuki, var &VAR_44)
@@ -422,14 +422,14 @@ if(gamevar CLICKED_DOOR != int -1)
 var VAR_97 ++ 
 
 ._SCRIPT_7
-var nbuzuki = call create_char(var &VAR_81, "nbuzuki" /* nbuzuki */ , int 3, int 13)
-var nduke = call create_char(var &VAR_82, "nduke" /* nduke */ , int 285, int 13)
-var nfrink = call create_char(var &VAR_83, "nfrink" /* nfrink */ , int 0, int 13)
+var nbuzuki = call create_char(var &VAR_81, "nbuzuki", int 3, int 13)
+var nduke = call create_char(var &VAR_82, "nduke", int 285, int 13)
+var nfrink = call create_char(var &VAR_83, "nfrink", int 0, int 13)
 call add_item_to_char(var nduke, int 16, int 0, int 1)
 call set_char_running(var nfrink)
 call func_50(var nfrink, int 8192)
 call play_char_ai_script(var nfrink, var &VAR_85)
-var DAVID = call get_char_handle(int 65536 /* DAVID */ )
+var DAVID = call get_char_handle(int 65536)
 execute SCRIPT_9
 call func_24(int 786432, var &VAR_84, int 40)
 var SEKUNE = call get_char_handle(int 786432)
@@ -459,8 +459,8 @@ switch(var VAR_99)
 var jangive_anim = call load_anim("jangive")
 
 ._SCRIPT_10
-var nbuzuki = call create_char(var &VAR_120, "nbuzuki" /* nbuzuki */ , int 5, int 13)
-var nfrink = call create_char(var &VAR_121, "nfrink" /* nfrink */ , int 0, int 13)
+var nbuzuki = call create_char(var &VAR_120, "nbuzuki", int 5, int 13)
+var nfrink = call create_char(var &VAR_121, "nfrink", int 0, int 13)
 call set_char_running(var nfrink)
 call func_50(var nfrink, int 8192)
 call play_char_ai_script(var nfrink, var &VAR_127)
@@ -476,19 +476,19 @@ if(call func_bf(int 444, gamevar CURRENT_LEVEL, gamevar CURRENT_SCENE))
 switch(var VAR_132)
  {
 		case 2
-			call add_item_to_char(var nbuzuki, int 38, int 0, int 0)
-			call add_item_to_char(var nbuzuki, int 39, int 0, int 0)
+			call add_item_to_char(var nbuzuki, int 38 /* potbrown */ , int 0, int 0)
+			call add_item_to_char(var nbuzuki, int 39 /* potblack */ , int 0, int 0)
 		case 1
-			call add_item_to_char(var nbuzuki, int 36, int 0, int 0)
-			call add_item_to_char(var nbuzuki, int 37, int 0, int 0)
+			call add_item_to_char(var nbuzuki, int 36 /* potorang */ , int 0, int 0)
+			call add_item_to_char(var nbuzuki, int 37 /* potgreen */ , int 0, int 0)
 		case 0
-			call add_item_to_char(var nbuzuki, int 32, int 0, int 0)
-			call add_item_to_char(var nbuzuki, int 33, int 0, int 0)
-			call add_item_to_char(var nbuzuki, int 34, int 0, int 0)
-			call add_item_to_char(var nbuzuki, int 35, int 0, int 0)
+			call add_item_to_char(var nbuzuki, int 32 /* potwhite */ , int 0, int 0)
+			call add_item_to_char(var nbuzuki, int 33 /* potblue */ , int 0, int 0)
+			call add_item_to_char(var nbuzuki, int 34 /* potred */ , int 0, int 0)
+			call add_item_to_char(var nbuzuki, int 35 /* potpurpl */ , int 0, int 0)
 			break 
 }
-var DAVID = call get_char_handle(int 65536 /* DAVID */ )
+var DAVID = call get_char_handle(int 65536)
 var VAR_133 = int 0
 var VAR_134 = int 0
 if(call func_bf(int 448, gamevar CURRENT_LEVEL, gamevar CURRENT_SCENE))
@@ -670,8 +670,8 @@ switch(var VAR_133)
 			 {
 					if(var VAR_140 == var VAR_149)
 					 {
-							var VAR_98 = call add_item_to_char(var DAVID, int 37, int 0, int 0)
-							call func_f9(var VAR_98, int 100)
+							var potgreen = call add_item_to_char(var DAVID, int 37, int 0, int 0)
+							call func_f9(var potgreen, int 100)
 					}
 					call resume_conversation()
 					var VAR_133 = int 4
@@ -711,12 +711,12 @@ else
  {
 		if(var fade_chronicler == int 0)
 		 {
-				var fade_chronicler = call get_char_handle(int 6291456 /* CHRONICL */ )
+				var fade_chronicler = call get_char_handle(int 6291456)
 		}
 }
 
 ._SCRIPT_18
-if(call ! is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
+if(call ! is_char_handle_in_level(int 6291456))
  {
 		exit_script 
 }
@@ -724,7 +724,7 @@ else
  {
 		if(var fade_chronicler == int 0)
 		 {
-				var fade_chronicler = call get_char_handle(int 6291456 /* CHRONICL */ )
+				var fade_chronicler = call get_char_handle(int 6291456)
 		}
 }
 if(var VAR_23 != var VAR_17)
@@ -839,7 +839,7 @@ if(call is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
  {
 		if(var fade_chronicler == int 0)
 		 {
-				var fade_chronicler = call get_char_handle(int 6291456 /* CHRONICL */ )
+				var fade_chronicler = call get_char_handle(int 6291456)
 		}
 		call func_34(var fade_chronicler)
 }

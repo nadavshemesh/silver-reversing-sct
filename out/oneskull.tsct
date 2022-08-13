@@ -1,6 +1,6 @@
 /*
-* This file was auto-generated using 'silver-reverse-sct' tool
-* to fully understand the scripts presented, one is encouraged to
+* This file was auto-generated using 'silver-reversing-sct' tool
+* to better understand the scripts presented, one is encouraged to
 * view the catalogs at: 
 * https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
 *
@@ -51,7 +51,7 @@ VAR_84	1
 ._on_load
 call play_bgm("DEADPT1")
 execute SCRIPT_10
-call load_item(int 93)
+call load_item(int 93 /* cutlass */ )
 call load_char("boney")
 call load_char("wraith")
 call load_char("skel")
@@ -328,7 +328,7 @@ call load_char("skel")
 var rchp90a_anim = call load_anim("rchp90a")
 var rpunchr_anim = call load_anim("rpunchr")
 var lookout_anim = call load_anim("lookout")
-var npc_skel = call create_char(var &VAR_39, "nskel" /* nskel */ , int 90, int 13)
+var npc_skel = call create_char(var &VAR_39, "nskel", int 90, int 13)
 call set_char_running(var npc_skel)
 gamevar script_object = var npc_skel
 gamevar *object_p+6 |= int 8388608

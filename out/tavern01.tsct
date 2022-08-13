@@ -1,6 +1,6 @@
 /*
-* This file was auto-generated using 'silver-reverse-sct' tool
-* to fully understand the scripts presented, one is encouraged to
+* This file was auto-generated using 'silver-reversing-sct' tool
+* to better understand the scripts presented, one is encouraged to
 * view the catalogs at: 
 * https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
 *
@@ -259,7 +259,7 @@ switch(var VAR_39)
 			gamevar *object_p+6 &= int -8388609
 			call func_46(var nlongjohn, int 13)
 			call func_46(var nmuscles, int 13)
-			call add_item_to_char(var nlongjohn, int 32, int 0, int 0)
+			call add_item_to_char(var nlongjohn, int 32 /* potwhite */ , int 0, int 0)
 			call func_55(var nlongjohn, int 32)
 			var VAR_40 = int 165
 			var VAR_39 ++ 
@@ -430,7 +430,7 @@ switch(var VAR_39)
 		case 18
 			if(call get_input_sys() != int 4)
 			 {
-					call add_item_to_char(var DAVID1, int 18, int 0, int 0)
+					call add_item_to_char(var DAVID1, int 18 /* bipennis */ , int 0, int 0)
 					call set_char_walking(var nstipe)
 					call char_walk_to_pos(var nstipe, var &VAR_27)
 					call func_102(int 0)
@@ -700,7 +700,7 @@ switch(var VAR_45)
 									}
 									call func_132(var ndrunkwiz, int 74)
 									call func_110(call func_86() - int 100)
-									call add_item_to_char(call get_selected_hero(), int 74, int 0, int 0)
+									call add_item_to_char(call get_selected_hero(), int 74 /* fireswrd */ , int 0, int 0)
 									call func_f8(int 74, int 100)
 									var VAR_45 = int 10
 							}
@@ -849,7 +849,7 @@ switch(var VAR_47)
 						if(call func_c0(int 2, "haven", "h_camptp"))
 						 {
 								call func_10c(var ntavman, "Act_3b")
-								var come_anim = call load_anim("come" /* come */ )
+								var come_anim = call load_anim("come")
 								var VAR_47 = int 100
 						}
 						else
@@ -1016,7 +1016,7 @@ switch(var VAR_49)
 							 {
 									call start_dialog("C_herYes", "Null")
 									call func_110(call func_86() - int 30)
-									call add_item_to_char(call get_selected_hero(), int 101, int 0, int 0)
+									call add_item_to_char(call get_selected_hero(), int 101 /* BOATMAN */ , int 0, int 0)
 									var VAR_3 = int 2
 									var VAR_49 = int 1
 							}

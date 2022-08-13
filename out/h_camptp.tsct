@@ -1,6 +1,6 @@
 /*
-* This file was auto-generated using 'silver-reverse-sct' tool
-* to fully understand the scripts presented, one is encouraged to
+* This file was auto-generated using 'silver-reversing-sct' tool
+* to better understand the scripts presented, one is encouraged to
 * view the catalogs at: 
 * https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
 *
@@ -437,14 +437,14 @@ var nwilliam = call create_char(var &VAR_49, "nwilliam", int -90, int 13)
 var nfatbob = call create_char(var &VAR_51, "nfatbob", int 0, int 13)
 var nclay = call create_char(var &VAR_52, "nclay", int 0, int 13)
 var nrichard = call create_char(var &VAR_55, "nrichard", int 0, int 13)
-var VAR_68 = call add_item_to_char(var nrichard, int 16, int 0, int 1)
+var shrtswrd = call add_item_to_char(var nrichard, int 16, int 0, int 1)
 var nben = call create_char(var &VAR_53, "nben", int -90, int 13)
-var VAR_66 = call add_item_to_char(var nben, int 16, int 0, int 1)
+var shrtswrd1 = call add_item_to_char(var nben, int 16, int 0, int 1)
 var njohn = call create_char(var &VAR_54, "njohn", int 90, int 13)
-var VAR_67 = call add_item_to_char(var njohn, int 16, int 0, int 1)
+var shrtswrd2 = call add_item_to_char(var njohn, int 16, int 0, int 1)
 var nsekune = call create_char(var &VAR_50, "nsekune", int -90, int 13)
-var VAR_65 = call add_item_to_char(var nsekune, int 11, int 1, int 1)
-var DAVID = call get_char_handle(int 65536 /* DAVID */ )
+var longbow = call add_item_to_char(var nsekune, int 11, int 1, int 1)
+var DAVID = call get_char_handle(int 65536)
 gamevar script_object = var DAVID
 gamevar *character_movement_p+40 = int 0
 var GRANDAD = call get_char_handle(int 393216)
@@ -818,7 +818,7 @@ switch(var VAR_127)
 		case 3
 			if(call is_char_standing(var nsekune))
 			 {
-					call func_fd(var nsekune, var VAR_65)
+					call func_fd(var nsekune, var longbow)
 					var VAR_127 ++ 
 					var VAR_128 = int 0
 			}
@@ -861,7 +861,7 @@ switch(var VAR_127)
 		case 7
 			if(call is_char_standing(var nsekune))
 			 {
-					call toggle_or_use_char_item(var nsekune, var VAR_65)
+					call toggle_or_use_char_item(var nsekune, var longbow)
 					var VAR_127 ++ 
 					var VAR_128 = int 0
 			}
@@ -1213,11 +1213,11 @@ if(var VAR_155 == int 19)
  {
 		if(call get_input_sys() != int 4)
 		 {
-				var VAR_159 = call create_item(int 24)
-				if(var ! VAR_159)
+				var scroll = call create_item(int 24)
+				if(var ! scroll)
 				 {
-						var VAR_159 = call add_item_to_char(var DAVID, int 24, int 1, int 0)
-						call func_f9(var VAR_159, int 100)
+						var scroll = call add_item_to_char(var DAVID, int 24, int 1, int 0)
+						call func_f9(var scroll, int 100)
 						var VAR_9 = int 1
 				}
 				else
@@ -1477,16 +1477,16 @@ execute SCRIPT_14
 var VAR_186 ++ 
 
 ._SCRIPT_25
-var nfatbob = call create_char(var &VAR_51, "nfatbob" /* nfatbob */ , int 0, int 13)
-var nrichard = call create_char(var &VAR_55, "nrichard" /* nrichard */ , int 0, int 13)
-var VAR_68 = call add_item_to_char(var nrichard, int 16, int 0, int 1)
-var nben = call create_char(var &VAR_53, "nben" /* nben */ , int -90, int 13)
-var VAR_66 = call add_item_to_char(var nben, int 16, int 0, int 1)
-var njohn = call create_char(var &VAR_54, "njohn" /* njohn */ , int 90, int 13)
-var VAR_67 = call add_item_to_char(var njohn, int 16, int 0, int 1)
-var nclay = call create_char(var &VAR_52, "nclay" /* nclay */ , int 0, int 13)
-var DAVID = call get_char_handle(int 65536 /* DAVID */ )
-var GRANDAD = call get_char_handle(int 393216 /* GRANDAD */ )
+var nfatbob = call create_char(var &VAR_51, "nfatbob", int 0, int 13)
+var nrichard = call create_char(var &VAR_55, "nrichard", int 0, int 13)
+var shrtswrd = call add_item_to_char(var nrichard, int 16, int 0, int 1)
+var nben = call create_char(var &VAR_53, "nben", int -90, int 13)
+var shrtswrd1 = call add_item_to_char(var nben, int 16, int 0, int 1)
+var njohn = call create_char(var &VAR_54, "njohn", int 90, int 13)
+var shrtswrd2 = call add_item_to_char(var njohn, int 16, int 0, int 1)
+var nclay = call create_char(var &VAR_52, "nclay", int 0, int 13)
+var DAVID = call get_char_handle(int 65536)
+var GRANDAD = call get_char_handle(int 393216)
 gamevar script_object = var njohn
 gamevar *object_p+8 |= int 67108864
 gamevar script_object = var nben
@@ -1524,7 +1524,7 @@ var NFATBOB = call create_char(var &VAR_200, "NFATBOB", int 65, int 13)
 var NRICHARD = call create_char(var &VAR_201, "NRICHARD", int 75, int 13)
 var NCLAY = call create_char(var &VAR_202, "NCLAY", int 75, int 13)
 call func_108("ACT2")
-var DAVID = call get_char_handle(int 65536 /* DAVID */ )
+var DAVID = call get_char_handle(int 65536)
 call char_teleport_to_pos(var DAVID, var &VAR_203, int 94)
 if(call ! create_item(int 24))
  {
@@ -1602,13 +1602,13 @@ switch(var VAR_214)
 var VAR_215 ++ 
 
 ._SCRIPT_29
-var nduke = call create_char(var &VAR_222, "nduke" /* nduke */ , int 285, int 13)
-var nwilliam = call create_char(var &VAR_223, "nwilliam" /* nwilliam */ , int 0, int 13)
-var nrichard = call create_char(var &VAR_224, "nrichard" /* nrichard */ , int 0, int 13)
-var nclay = call create_char(var &VAR_225, "nclay" /* nclay */ , int 55, int 13)
-var nfatbob = call create_char(var &VAR_226, "nfatbob" /* nfatbob */ , int 40, int 13)
-var njohn = call create_char(var &VAR_227, "njohn" /* njohn */ , int 255, int 13)
-var nben = call create_char(var &VAR_228, "nben" /* nben */ , int 80, int 13)
+var nduke = call create_char(var &VAR_222, "nduke", int 285, int 13)
+var nwilliam = call create_char(var &VAR_223, "nwilliam", int 0, int 13)
+var nrichard = call create_char(var &VAR_224, "nrichard", int 0, int 13)
+var nclay = call create_char(var &VAR_225, "nclay", int 55, int 13)
+var nfatbob = call create_char(var &VAR_226, "nfatbob", int 40, int 13)
+var njohn = call create_char(var &VAR_227, "njohn", int 255, int 13)
+var nben = call create_char(var &VAR_228, "nben", int 80, int 13)
 call add_item_to_char(var nrichard, int 16, int 0, int 1)
 call add_item_to_char(var nclay, int 16, int 0, int 1)
 call add_item_to_char(var njohn, int 16, int 0, int 1)
@@ -1654,10 +1654,10 @@ switch(var VAR_270)
 var VAR_271 ++ 
 
 ._SCRIPT_32
-var nrichard = call create_char(var &VAR_252, "nrichard" /* nrichard */ , int 0, int 13)
-var nfatbob = call create_char(var &VAR_253, "nfatbob" /* nfatbob */ , int 40, int 13)
-var njohn = call create_char(var &VAR_254, "njohn" /* njohn */ , int 255, int 13)
-var nben = call create_char(var &VAR_255, "nben" /* nben */ , int 80, int 13)
+var nrichard = call create_char(var &VAR_252, "nrichard", int 0, int 13)
+var nfatbob = call create_char(var &VAR_253, "nfatbob", int 40, int 13)
+var njohn = call create_char(var &VAR_254, "njohn", int 255, int 13)
+var nben = call create_char(var &VAR_255, "nben", int 80, int 13)
 call add_item_to_char(var nrichard, int 16, int 0, int 1)
 call add_item_to_char(var njohn, int 16, int 0, int 1)
 call add_item_to_char(var nben, int 16, int 0, int 1)
@@ -1757,7 +1757,7 @@ var VAR_280 ++
 
 ._SCRIPT_35
 var nrebela = call create_char(var &VAR_276, "nrebela", int 140, int 13)
-var lizwarm_anim = call load_anim("lizwarm" /* lizwarm */ )
+var lizwarm_anim = call load_anim("lizwarm")
 
 ._SCRIPT_36
 if(var ! VAR_17)
@@ -1851,9 +1851,9 @@ switch(var VAR_295)
 var VAR_296 ++ 
 
 ._SCRIPT_37
-var nrichard = call create_char(var &VAR_282, "nrichard" /* nrichard */ , int 315, int 13)
-var nben = call create_char(var &VAR_283, "nben" /* nben */ , int 235, int 13)
-var nfatbob = call create_char(var &VAR_284, "nfatbob" /* nfatbob */ , int 85, int 13)
+var nrichard = call create_char(var &VAR_282, "nrichard", int 315, int 13)
+var nben = call create_char(var &VAR_283, "nben", int 235, int 13)
+var nfatbob = call create_char(var &VAR_284, "nfatbob", int 85, int 13)
 call load_char_anim(var nrichard, var &VAR_285)
 call set_input_system(int 2)
 if(call func_bf(int 808, gamevar CURRENT_LEVEL, gamevar CURRENT_SCENE))
@@ -1911,17 +1911,17 @@ if(call func_c0(int 12345, "chains", "moss"))
 		call func_50(var noldwoman, int 8192)
 		call play_char_ai_script(var noldwoman, var &VAR_312)
 }
-var nduke = call create_char(var &VAR_306, "nduke" /* nduke */ , int 310, int 13)
-var nben = call create_char("A", "nben" /* nben */ , int 10, int 13)
-var nrichard = call create_char(var &VAR_308, "nrichard" /* nrichard */ , int 0, int 13)
-var nclay = call create_char(var &VAR_309, "nclay" /* nclay */ , int 55, int 13)
+var nduke = call create_char(var &VAR_306, "nduke", int 310, int 13)
+var nben = call create_char("A", "nben", int 10, int 13)
+var nrichard = call create_char(var &VAR_308, "nrichard", int 0, int 13)
+var nclay = call create_char(var &VAR_309, "nclay", int 55, int 13)
 call add_item_to_char(var nrichard, int 16, int 0, int 1)
 call add_item_to_char(var nclay, int 16, int 0, int 1)
 call func_50(var nrichard, int 8192)
 call play_char_ai_script(var nrichard, var &VAR_310)
 call func_50(var nclay, int 8192)
 call play_char_ai_script(var nclay, var &VAR_311)
-var lizwarm_anim = call load_anim("lizwarm" /* lizwarm */ )
+var lizwarm_anim = call load_anim("lizwarm")
 var jangive_anim = call load_anim("jangive")
 if(call func_bf(int 909, gamevar CURRENT_LEVEL, gamevar CURRENT_SCENE))
  {
@@ -1986,8 +1986,8 @@ switch(var VAR_336)
 			if(call func_5c(var noldwoman))
 			 {
 					var VAR_20 = call get_selected_hero()
-					var VAR_315 = call add_item_to_char(var VAR_20, int 78, int 0, int 0)
-					call func_f9(var VAR_315, int 100)
+					var ringb = call add_item_to_char(var VAR_20, int 78, int 0, int 0)
+					call func_f9(var ringb, int 100)
 					var VAR_336 ++ 
 					var VAR_337 = int 0
 			}
@@ -2224,8 +2224,8 @@ switch(var VAR_352)
 			if(call func_5c(var DAVID))
 			 {
 					call resume_conversation()
-					var VAR_159 = call add_item_to_char(var DAVID, int 30, int 1, int 0)
-					call func_f9(var VAR_159, int 100)
+					var scroll = call add_item_to_char(var DAVID, int 30, int 1, int 0)
+					call func_f9(var scroll, int 100)
 					var VAR_352 ++ 
 					var VAR_353 = int 0
 			}
@@ -2283,11 +2283,11 @@ switch(var VAR_352)
 var VAR_353 ++ 
 
 ._SCRIPT_43
-var nben = call create_char(var &VAR_339, "nben" /* nben */ , int 23, int 13)
+var nben = call create_char(var &VAR_339, "nben", int 23, int 13)
 call add_item_to_char(var nben, int 16, int 0, int 0)
-var nduke = call create_char(var &VAR_340, "nduke" /* nduke */ , int 295, int 13)
-var nrichard = call create_char(var &VAR_308, "nrichard" /* nrichard */ , int 0, int 13)
-var nclay = call create_char(var &VAR_309, "nclay" /* nclay */ , int 55, int 13)
+var nduke = call create_char(var &VAR_340, "nduke", int 295, int 13)
+var nrichard = call create_char(var &VAR_308, "nrichard", int 0, int 13)
+var nclay = call create_char(var &VAR_309, "nclay", int 55, int 13)
 call add_item_to_char(var nrichard, int 16, int 0, int 1)
 call func_50(var nrichard, int 8192)
 call play_char_ai_script(var nrichard, var &VAR_310)
@@ -2303,9 +2303,9 @@ else
 		if(call func_c0(int 12345, "chains", "moss"))
 		 {
 				var VAR_317 = int 1
-				var noldwoman = call create_char(var &VAR_304, "noldwoman" /* noldwoman */ , int 75, int 13)
+				var noldwoman = call create_char(var &VAR_304, "noldwoman", int 75, int 13)
 				call func_109(var noldwoman, int 0)
-				var nmoss = call create_char(var &VAR_305, "nmoss" /* nmoss */ , int 255, int 13)
+				var nmoss = call create_char(var &VAR_305, "nmoss", int 255, int 13)
 				var VAR_16 = int 0
 				call func_50(var nmoss, int 8192)
 				call play_char_ai_script(var nmoss, var &VAR_313)
@@ -2313,9 +2313,9 @@ else
 				call play_char_ai_script(var noldwoman, var &VAR_312)
 		}
 }
-var lizwarm_anim = call load_anim("lizwarm" /* lizwarm */ )
-var jangive_anim = call load_anim("jangive" /* jangive */ )
-var DAVID = call get_char_handle(int 65536 /* DAVID */ )
+var lizwarm_anim = call load_anim("lizwarm")
+var jangive_anim = call load_anim("jangive")
+var DAVID = call get_char_handle(int 65536)
 if(call create_item(int 30))
  {
 		call set_input_system(int 1)
@@ -2415,8 +2415,8 @@ switch(var VAR_403)
 			if(call func_5c(var noldwoman))
 			 {
 					var VAR_20 = call get_selected_hero()
-					var VAR_315 = call add_item_to_char(var VAR_20, int 78, int 0, int 0)
-					call func_f9(var VAR_315, int 100)
+					var ringb = call add_item_to_char(var VAR_20, int 78, int 0, int 0)
+					call func_f9(var ringb, int 100)
 					var VAR_403 ++ 
 					var VAR_404 = int 0
 			}
@@ -2544,8 +2544,8 @@ switch(var VAR_418)
 					gamevar compile_init_character = int 0
 					var npc_glass7 = call create_enemy(int 62, int 0, var &VAR_411, int 310)
 					gamevar compile_init_character = int 1
-					var VAR_422 = call add_item_to_char(var npc_glass7, int 3, int 0, int 0)
-					call func_f7(var VAR_422, int 1)
+					var lightning = call add_item_to_char(var npc_glass7, int 3, int 0, int 0)
+					call func_f7(var lightning, int 1)
 					var VAR_418 ++ 
 					var VAR_419 = int 0
 			}
@@ -2620,7 +2620,7 @@ switch(var VAR_418)
 		case 15
 			if(var VAR_419 > int 75)
 			 {
-					call func_60(var npc_glass7, var VAR_422)
+					call func_60(var npc_glass7, var lightning)
 					var VAR_420 = call func_e8(var &VAR_421, int 0)
 					var VAR_418 ++ 
 					var VAR_419 = int 0
@@ -2645,8 +2645,8 @@ switch(var VAR_418)
 		case 18
 			if(call func_6d() == int 17)
 			 {
-					var VAR_423 = call add_item_to_char(var DAVID, int 15, int 0, int 0)
-					call func_f9(var VAR_423, int 100)
+					var thglaiv = call add_item_to_char(var DAVID, int 15, int 0, int 0)
+					call func_f9(var thglaiv, int 100)
 					call resume_conversation()
 					var VAR_418 ++ 
 					var VAR_419 = int 0
@@ -2685,9 +2685,9 @@ switch(var VAR_418)
 var VAR_419 ++ 
 
 ._SCRIPT_48
-var nduke = call create_char(var &VAR_408, "nduke" /* nduke */ , int 210, int 13)
+var nduke = call create_char(var &VAR_408, "nduke", int 210, int 13)
 var nrebel = call create_char(var &VAR_409, "nrebel", int 20, int 13)
-var nben = call create_char(var &VAR_410, "nben" /* nben */ , int 55, int 13)
+var nben = call create_char(var &VAR_410, "nben", int 55, int 13)
 call add_item_to_char(var nrebel, int 16, int 0, int 0)
 if(call func_bf(int 1, gamevar CURRENT_LEVEL, gamevar CURRENT_SCENE))
  {
@@ -2708,18 +2708,18 @@ if(var VAR_441 == int 0&&var VAR_442 > int 120)
 }
 
 ._SCRIPT_51
-var nduke = call create_char(var &VAR_306, "nduke" /* nduke */ , int 310, int 13)
-var nwilliam = call create_char(var &VAR_92, "nwilliam" /* nwilliam */ , int 50, int 13)
-var nrichard = call create_char(var &VAR_308, "nrichard" /* nrichard */ , int 0, int 13)
-var nclay = call create_char(var &VAR_309, "nclay" /* nclay */ , int 55, int 13)
-var nben = call create_char(var &VAR_53, "nben" /* nben */ , int -90, int 13)
-var njohn = call create_char(var &VAR_54, "njohn" /* njohn */ , int 90, int 13)
-var nfatbob = call create_char(var &VAR_226, "nfatbob" /* nfatbob */ , int 40, int 13)
+var nduke = call create_char(var &VAR_306, "nduke", int 310, int 13)
+var nwilliam = call create_char(var &VAR_92, "nwilliam", int 50, int 13)
+var nrichard = call create_char(var &VAR_308, "nrichard", int 0, int 13)
+var nclay = call create_char(var &VAR_309, "nclay", int 55, int 13)
+var nben = call create_char(var &VAR_53, "nben", int -90, int 13)
+var njohn = call create_char(var &VAR_54, "njohn", int 90, int 13)
+var nfatbob = call create_char(var &VAR_226, "nfatbob", int 40, int 13)
 call add_item_to_char(var nrichard, int 16, int 0, int 1)
 call add_item_to_char(var nclay, int 16, int 0, int 1)
 call add_item_to_char(var njohn, int 16, int 0, int 1)
 call add_item_to_char(var nben, int 16, int 0, int 1)
-var lizwarm_anim = call load_anim("lizwarm" /* lizwarm */ )
+var lizwarm_anim = call load_anim("lizwarm")
 call func_50(var nrichard, int 8192)
 call play_char_ai_script(var nrichard, var &VAR_310)
 call func_50(var nclay, int 8192)
@@ -2810,7 +2810,7 @@ switch(var VAR_445)
 		case 0
 			if(call is_char_handle_in_level(int 786432 /* SEKUNE */ ))
 			 {
-					var nsekune = call get_char_handle(int 786432 /* SEKUNE */ )
+					var nsekune = call get_char_handle(int 786432)
 					var VAR_445 ++ 
 					var VAR_446 = int 0
 			}

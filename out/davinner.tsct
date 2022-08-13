@@ -1,6 +1,6 @@
 /*
-* This file was auto-generated using 'silver-reverse-sct' tool
-* to fully understand the scripts presented, one is encouraged to
+* This file was auto-generated using 'silver-reversing-sct' tool
+* to better understand the scripts presented, one is encouraged to
 * view the catalogs at: 
 * https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
 *
@@ -131,8 +131,8 @@ if(var VAR_13 == int 4)
 }
 
 ._SCRIPT_5
-var NJENNIFER = call create_char(var &VAR_9, "NJENNIFER" /* NJENNIFER */ , int 120, int 13)
-var DAVID = call get_char_handle(int 65536 /* DAVID */ )
+var NJENNIFER = call create_char(var &VAR_9, "NJENNIFER", int 120, int 13)
+var DAVID = call get_char_handle(int 65536)
 var VAR_13 = int 3
 if(call func_af(int 16))
  {
@@ -141,7 +141,7 @@ if(call func_af(int 16))
 }
 else
  {
-		if(call create_item(int 16))
+		if(call create_item(int 16 /* shrtswrd */ ))
 		 {
 				call func_10c(var NJENNIFER, "SWORD")
 				var VAR_13 = int 4
@@ -186,8 +186,10 @@ if(var VAR_21 > var VAR_22)
 var VAR_21 ++ 
 
 ._SCRIPT_10
-var VAR_26 = call play_loaded_sound(int 1, int -1, int 3, int 0)
-call set_sound_volume(var VAR_26, int 25)
-var VAR_27 = call play_loaded_sound(int 7, int -1, int 3, int 0)
-call set_sound_volume(var VAR_27, int 5)
+var bird1_sound_ref = call play_loaded_sound(int 1, int -1, int 3, int 0)
+call set_sound_volume(var bird1_sound_ref, int 25)
+var hgull1_sound_ref = call play_loaded_sound(int 7, int -1, int 3, int 0)
+call set_sound_volume(var hgull1_sound_ref, int 5)
+
+ /* play the sound 'bird2' */ 
 call play_loaded_sound(int 2, int 0, int 3, int 0)

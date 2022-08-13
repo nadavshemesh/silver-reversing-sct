@@ -1,6 +1,6 @@
 /*
-* This file was auto-generated using 'silver-reverse-sct' tool
-* to fully understand the scripts presented, one is encouraged to
+* This file was auto-generated using 'silver-reversing-sct' tool
+* to better understand the scripts presented, one is encouraged to
 * view the catalogs at: 
 * https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
 *
@@ -162,7 +162,7 @@ switch(var VAR_71)
 		case 1
 			if(var VAR_72 > int 50)
 			 {
-					call func_60(var battle_fuge, var VAR_61)
+					call func_60(var battle_fuge, var lightning)
 					var VAR_72 = int 0
 					var VAR_71 ++ 
 			}
@@ -367,8 +367,8 @@ var VAR_72 ++
 call play_bgm("FugeBPt1")
 var battle_fuge = call create_enemy(int 200, int 0, var &VAR_60, int 40)
 call freeze_enemy(var battle_fuge)
-var VAR_61 = call add_item_to_char(var battle_fuge, int 3, int 0, int 1)
-call func_f7(var VAR_61, int 2)
+var lightning = call add_item_to_char(var battle_fuge, int 3, int 0, int 1)
+call func_f7(var lightning, int 2)
 call add_item_to_char(var battle_fuge, int 68, int 1, int 0)
 call func_103(var battle_fuge)
 execute SCRIPT_10
@@ -434,12 +434,12 @@ else
  {
 		if(var fade_chronicler == int 0)
 		 {
-				var fade_chronicler = call get_char_handle(int 6291456 /* CHRONICL */ )
+				var fade_chronicler = call get_char_handle(int 6291456)
 		}
 }
 
 ._SCRIPT_13
-if(call ! is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
+if(call ! is_char_handle_in_level(int 6291456))
  {
 		exit_script 
 }
@@ -447,7 +447,7 @@ else
  {
 		if(var fade_chronicler == int 0)
 		 {
-				var fade_chronicler = call get_char_handle(int 6291456 /* CHRONICL */ )
+				var fade_chronicler = call get_char_handle(int 6291456)
 		}
 }
 if(var VAR_25 != var VAR_19)
@@ -562,7 +562,7 @@ if(call is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
  {
 		if(var fade_chronicler == int 0)
 		 {
-				var fade_chronicler = call get_char_handle(int 6291456 /* CHRONICL */ )
+				var fade_chronicler = call get_char_handle(int 6291456)
 		}
 		call func_34(var fade_chronicler)
 }
@@ -619,7 +619,7 @@ switch(var VAR_28)
 var is_BTREASURE_exist = call is_char_handle_in_level(int 1507337)
 if(var ! is_BTREASURE_exist)
  {
-		var is_BTREASURE_exist = call create_char(var VAR_42, "btreasure9" /* btreasure9 */ , var VAR_43, int 14)
+		var is_BTREASURE_exist = call create_char(var VAR_42, "btreasure9", var VAR_43, int 14)
 		call func_aa(var is_BTREASURE_exist)
 }
 else
@@ -639,11 +639,11 @@ if(var VAR_44 != int -1)
 		 {
 				if(var VAR_46 != int -1)
 				 {
-						call add_item_to_char(var is_BTREASURE_exist, int 85, var VAR_46, int 0)
+						call add_item_to_char(var is_BTREASURE_exist, int 85 /* moneybag */ , var VAR_46, int 0)
 				}
 				else
 				 {
-						call add_item_to_char(var is_BTREASURE_exist, var VAR_44, int 1, int 0)
+						call add_item_to_char(var is_BTREASURE_exist, var VAR_44 /* lstaff */ , int 1, int 0)
 				}
 		}
 }

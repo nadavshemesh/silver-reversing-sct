@@ -1,6 +1,6 @@
 /*
-* This file was auto-generated using 'silver-reverse-sct' tool
-* to fully understand the scripts presented, one is encouraged to
+* This file was auto-generated using 'silver-reversing-sct' tool
+* to better understand the scripts presented, one is encouraged to
 * view the catalogs at: 
 * https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
 *
@@ -388,7 +388,7 @@ if(gamevar *scene_info_p+4 & int 1)
 		gamevar SMACKER_Y = int 504
 		call play_2d_anim("cells", int 0, int 1, var &VAR_1)
 		execute SCRIPT_15
-		var DAVID = call get_char_handle(int 65536 /* DAVID */ )
+		var DAVID = call get_char_handle(int 65536)
 		if(call create_item(int 62))
 		 {
 				var VAR_4 = int 1
@@ -423,7 +423,7 @@ switch(var VAR_18)
 					 {
 							call set_input_system(int 2)
 							call char_stop(gamevar control_char_p)
-							var DAVID = call get_char_handle(int 65536 /* DAVID */ )
+							var DAVID = call get_char_handle(int 65536)
 							if(gamevar control_char_p != var DAVID)
 							 {
 									call set_char_running(var DAVID)

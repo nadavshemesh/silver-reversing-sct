@@ -1,6 +1,6 @@
 /*
-* This file was auto-generated using 'silver-reverse-sct' tool
-* to fully understand the scripts presented, one is encouraged to
+* This file was auto-generated using 'silver-reversing-sct' tool
+* to better understand the scripts presented, one is encouraged to
 * view the catalogs at: 
 * https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
 *
@@ -112,7 +112,7 @@ gamevar unknown_04_02_00 = int 13
 call func_a1("ntyronis")
 var TYRONIS = call get_char_handle(int 2031616)
 call char_unfollow(var TYRONIS)
-var VAR_18 = call add_item_to_char(var TYRONIS, int 75, int 0, int 0)
+var lstaff = call add_item_to_char(var TYRONIS, int 75, int 0, int 0)
 gamevar unknown_04_02_10 = int 92471296
 gamevar unknown_04_02_14 = int 1376256
 gamevar unknown_04_02_18 = int 29222502
@@ -129,7 +129,7 @@ call func_10c(var TYRONIS, "MARC")
 call func_10c(var GRANDAD, "MARC")
 
 ._SCRIPT_5
-if(call is_char_handle_in_level(int 2031616 /* TYRONIS */ ))
+if(call is_char_handle_in_level(int 2031616))
  {
 		execute SCRIPT_7
 }
@@ -221,7 +221,7 @@ switch(var VAR_15)
 		case 13
 			if(call is_char_standing(var TYRONIS))
 			 {
-					call toggle_or_use_char_item(var TYRONIS, var VAR_18)
+					call toggle_or_use_char_item(var TYRONIS, var lstaff)
 					var VAR_15 ++ 
 					var VAR_27 = int 0
 			}
@@ -246,7 +246,7 @@ switch(var VAR_15)
 			if(call func_5c(var TYRONIS))
 			 {
 					var VAR_13 = call func_e8(var &VAR_28, int 0)
-					call func_fd(var TYRONIS, var VAR_18)
+					call func_fd(var TYRONIS, var lstaff)
 					var VAR_15 ++ 
 					var VAR_27 = int 0
 			}
@@ -444,11 +444,11 @@ if(var VAR_40 == int 11)
  {
 		if(var VAR_41 > int 30)
 		 {
-				var VAR_49 = call get_char_item_if_equiped(var GRANDAD, int 16)
-				if(var VAR_49)
+				var shrtswrd = call get_char_item_if_equiped(var GRANDAD, int 16)
+				if(var shrtswrd)
 				 {
-						call func_60(var GRANDAD, var VAR_49)
-						call func_b6(var GRANDAD, var VAR_49)
+						call func_60(var GRANDAD, var shrtswrd)
+						call func_b6(var GRANDAD, var shrtswrd)
 				}
 				call remove_char(var GRANDAD)
 				var VAR_40 ++ 

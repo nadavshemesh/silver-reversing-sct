@@ -1,6 +1,6 @@
 /*
-* This file was auto-generated using 'silver-reverse-sct' tool
-* to fully understand the scripts presented, one is encouraged to
+* This file was auto-generated using 'silver-reversing-sct' tool
+* to better understand the scripts presented, one is encouraged to
 * view the catalogs at: 
 * https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
 *
@@ -33,8 +33,8 @@ VAR_49	{ -4, -1350, -516 }
 
 ._on_load
 call play_bgm("SEWERPT1")
-var VAR_20 = call create_item(int 98)
-if(var VAR_20 != int 0)
+var valve = call create_item(int 98)
+if(var valve != int 0)
  {
 		var VAR_21 = int 1
 }
@@ -81,7 +81,7 @@ switch(gamevar room_state)
 			var VAR_17 = int 2
 			if(var VAR_21)
 			 {
-					var conjure_anim = call load_anim("conjure" /* conjure */ )
+					var conjure_anim = call load_anim("conjure")
 					var VAR_15 = int 2
 			}
 			else
@@ -220,7 +220,7 @@ switch(var VAR_15)
 					gamevar *smack_object_p+2 &= int -1073741
 					call force_scroll_to_pos(var &VAR_26)
 					var VAR_15 = int 7
-					call remove_item_from_pie(var VAR_20)
+					call remove_item_from_pie(var valve)
 			}
 			break 
 		case 7
@@ -273,8 +273,8 @@ if(var ! VAR_35&&call get_num_of_enemies() == int 0&&call ! func_122(var VAR_36)
 ._SCRIPT_6
 call load_char("skaven")
 call load_char("skavenb")
-var greater_gimpv = call create_enemy(int 46 /* greater_gimpv */ , int 0, var &VAR_32, int 45)
-var greater_gimpv1 = call create_enemy(int 46 /* greater_gimpv */ , int 1, var &VAR_33, int 80)
+var greater_gimpv = call create_enemy(int 46, int 0, var &VAR_32, int 45)
+var greater_gimpv1 = call create_enemy(int 46, int 1, var &VAR_33, int 80)
 var lesser_gimp = call create_enemy(int 45, int 0, var &VAR_34, int 60)
 var confused_anim = call load_anim("confused")
 var VAR_18 = int 0

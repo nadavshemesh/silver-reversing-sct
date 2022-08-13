@@ -1,6 +1,6 @@
 /*
-* This file was auto-generated using 'silver-reverse-sct' tool
-* to fully understand the scripts presented, one is encouraged to
+* This file was auto-generated using 'silver-reversing-sct' tool
+* to better understand the scripts presented, one is encouraged to
 * view the catalogs at: 
 * https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
 *
@@ -14,7 +14,7 @@ VAR_8	{ -1338, 54, -1158, -1404, 54, -875, -687, 54, -870, -1721, 54, -955, -183
 VAR_9	{ -3163, 54, -590, -3345, 54, -1460 }	
 VAR_10	{ 0, 1, 6, VAR_8, 8, 2, 1, 2, 33, 33, -1, 4, 0, 9, 1, 5, 1, 15, 100, 6, 2, 7, 1, 2, -1 }	
 VAR_11	{ -438, 54, -994 }	
-VAR_13	{ 0, 0 }	
+pie	{ 0, 0 }	
 
 ._on_load
 call play_bgm("METALON")
@@ -131,7 +131,7 @@ if(var VAR_14 == int 0)
 call load_char("sguard")
 var sarcher = call create_enemy(int 36, int 0, var &VAR_11, int 310)
 call set_char_init_state(var sarcher, int 0)
-var VAR_13 = call add_item_to_char(var sarcher, int 46, int 1, int 0)
+var pie = call add_item_to_char(var sarcher, int 46, int 1, int 0)
 gamevar script_object = var sarcher
 gamevar *character_stats_p+15 = int 3600
 

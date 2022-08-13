@@ -1,6 +1,6 @@
 /*
-* This file was auto-generated using 'silver-reverse-sct' tool
-* to fully understand the scripts presented, one is encouraged to
+* This file was auto-generated using 'silver-reversing-sct' tool
+* to better understand the scripts presented, one is encouraged to
 * view the catalogs at: 
 * https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
 *
@@ -177,6 +177,8 @@ switch(var VAR_10)
 		case 4
 			if(call is_local_timer_greater_than(int 10))
 			 {
+
+					 /* play the sound 'hoot' */ 
 					call play_loaded_sound(int 1, int 0, int 1, var &VAR_7)
 					var VAR_25 = int 40
 					var VAR_24 = int 1
@@ -186,6 +188,8 @@ switch(var VAR_10)
 		case 5
 			if(var VAR_24 == int 0)
 			 {
+
+					 /* play the sound 'concrete' */ 
 					call play_loaded_sound(int 2, int 0, int 1, var &VAR_7)
 					call func_4e(int 0)
 					call play_char_anim(var DAVID, var stepb_anim, int 0)
@@ -297,6 +301,8 @@ switch(var VAR_10)
 					}
 					call play_bgm("STING3")
 					call func_134()
+
+					 /* play the sound 'hoot' */ 
 					call play_loaded_sound(int 1, int 0, int 1, var &VAR_7)
 					gamevar *scene_info_p+4 = int 0
 					var VAR_25 = int 40
@@ -311,6 +317,8 @@ switch(var VAR_10)
 			if(var VAR_24 == int 0)
 			 {
 					call func_58(int 1)
+
+					 /* play the sound 'concrete' */ 
 					call play_loaded_sound(int 2, int 0, int 1, var &VAR_7)
 					call func_116("haven", "h_camptp", int 4)
 					call func_116("gno", "entrance", int 4)
@@ -406,6 +414,8 @@ switch(var VAR_29)
 			var VAR_32 = int 1
 			gamevar *smack_object_p+2 &= int -1073741
 			var VAR_29 = int 2
+
+			 /* play the sound 'lforstlp' */ 
 			call play_loaded_sound(int 3, int 0, int 1, int 0)
 		case 2
 			if(var VAR_33 == var VAR_30)
@@ -417,7 +427,7 @@ switch(var VAR_29)
 }
 
 ._SCRIPT_10
-var DAVID = call get_char_handle(int 65536 /* DAVID */ )
+var DAVID = call get_char_handle(int 65536)
 var VAR_5 = int 0
 var VAR_6 = int 0
 var VAR_59 = call get_david_char()

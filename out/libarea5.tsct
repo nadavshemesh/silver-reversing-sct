@@ -1,6 +1,6 @@
 /*
-* This file was auto-generated using 'silver-reverse-sct' tool
-* to fully understand the scripts presented, one is encouraged to
+* This file was auto-generated using 'silver-reversing-sct' tool
+* to better understand the scripts presented, one is encouraged to
 * view the catalogs at: 
 * https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
 *
@@ -461,19 +461,19 @@ gamevar *character_stats_p+16 = int 30000
 ._SCRIPT_10
 if(var VAR_15 == int 1)
  {
-		if(call is_char_handle_in_level(int 917505 /* IMP */ ))
+		if(call is_char_handle_in_level(int 917505))
 		 {
 				execute SCRIPT_11
 		}
-		if(call is_char_handle_in_level(int 917506 /* IMP */ ))
+		if(call is_char_handle_in_level(int 917506))
 		 {
 				execute SCRIPT_12
 		}
-		if(call is_char_handle_in_level(int 917507 /* IMP */ ))
+		if(call is_char_handle_in_level(int 917507))
 		 {
 				execute SCRIPT_13
 		}
-		if(call is_char_handle_in_level(int 917508 /* IMP */ ))
+		if(call is_char_handle_in_level(int 917508))
 		 {
 				execute SCRIPT_14
 		}
@@ -684,9 +684,9 @@ var grow_big_yellow_imp = call create_enemy(int 119, int 0, var &VAR_103, int 0)
 call func_103(var grow_big_yellow_imp)
 
 ._SCRIPT_18
-var pfew_anim = call load_anim("pfew" /* pfew */ )
+var pfew_anim = call load_anim("pfew")
 var yibscale_anim = call load_anim("yibscale")
-var nyelimp = call create_char(var &VAR_88, "nyelimp" /* nyelimp */ , int 70, int 13)
+var nyelimp = call create_char(var &VAR_88, "nyelimp", int 70, int 13)
 gamevar script_object = var nyelimp
 gamevar *object_p+6 |= int 2048
 gamevar script_object = var nyelimp
@@ -696,11 +696,11 @@ gamevar *object_p+6 |= int 1048576
 gamevar script_object = var nyelimp
 gamevar *character_movement_p+60 = int 1
 gamevar *character_movement_p+53 = int 0
-var VAR_6 = call add_item_to_char(var nyelimp, int 33, int 0, int 0)
+var potblue = call add_item_to_char(var nyelimp, int 33, int 0, int 0)
 call set_char_running(var nyelimp)
 call char_walk_to(var nyelimp, int -603, int -997, int -4344)
-var DAVID = call get_char_handle(int 65536 /* DAVID */ )
-var GRANDAD = call get_char_handle(int 393216 /* GRANDAD */ )
+var DAVID = call get_char_handle(int 65536)
+var GRANDAD = call get_char_handle(int 393216)
 call func_108("act2")
 call set_input_system(int 2)
 call load_char("yimpboss")
@@ -711,7 +711,7 @@ call load_item(int 86)
 switch(var VAR_99)
  {
 		case 0
-			if(call is_char_handle_in_level(int 1769472 /* YELIMP */ ))
+			if(call is_char_handle_in_level(int 1769472))
 			 {
 					execute SCRIPT_20
 			}
@@ -802,7 +802,7 @@ switch(var VAR_104)
 		case 1
 			if(var VAR_105 > int 30)
 			 {
-					call toggle_or_use_char_item(var nyelimp, var VAR_6)
+					call toggle_or_use_char_item(var nyelimp, var potblue)
 					var VAR_104 ++ 
 					var VAR_105 = int 0
 			}

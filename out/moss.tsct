@@ -1,6 +1,6 @@
 /*
-* This file was auto-generated using 'silver-reverse-sct' tool
-* to fully understand the scripts presented, one is encouraged to
+* This file was auto-generated using 'silver-reversing-sct' tool
+* to better understand the scripts presented, one is encouraged to
 * view the catalogs at: 
 * https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
 *
@@ -292,8 +292,8 @@ switch(var VAR_28)
 			break 
 		case 2
 			execute SCRIPT_14
-			var VAR_30 = call get_char_item_if_equiped(gamevar control_char_p, int 90)
-			if(var VAR_30)
+			var teddy = call get_char_item_if_equiped(gamevar control_char_p, int 90)
+			if(var teddy)
 			 {
 					call set_input_system(int 2)
 					call freeze_enemy(var nmoss)
@@ -324,7 +324,7 @@ switch(var VAR_28)
 			 {
 					call set_char_running(var nmoss)
 					call func_2b(var nmoss, int 0)
-					call func_60(gamevar control_char_p, var VAR_30)
+					call func_60(gamevar control_char_p, var teddy)
 					var VAR_28 ++ 
 					var VAR_29 = int 0
 			}
@@ -334,7 +334,7 @@ switch(var VAR_28)
 			 {
 					call char_turn_to_pos(var DAVID, var &VAR_32)
 					call resume_conversation()
-					call remove_item_from_pie(var VAR_30)
+					call remove_item_from_pie(var teddy)
 					var VAR_28 ++ 
 					var VAR_29 = int 0
 			}

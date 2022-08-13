@@ -1,6 +1,6 @@
 /*
-* This file was auto-generated using 'silver-reverse-sct' tool
-* to fully understand the scripts presented, one is encouraged to
+* This file was auto-generated using 'silver-reversing-sct' tool
+* to better understand the scripts presented, one is encouraged to
 * view the catalogs at: 
 * https://github.com/nadavshemesh/silver-reversing-sct/blob/master/docs/index.md
 *
@@ -27,7 +27,7 @@ VAR_24	{ -3773, -1550, 3845, -3385, -500, 2470, -3558, -1775, 2682, -3243, -500,
 VAR_25	{ 0, 1, 4, VAR_24, 8, 1, 4, 0, 9, 0, 1, 1, 68, 90, 68, 90, -1, 5, 1, 15, 30, 6, 1, 7, 1, 2, -1 }	
 
 ._on_load
-call load_item(int 93)
+call load_item(int 93 /* cutlass */ )
 var VAR_1 = call func_6f()
 call play_bgm("DeadIn1")
 if(gamevar is_room_cleared)
@@ -103,7 +103,7 @@ switch(var VAR_19)
 ._SCRIPT_4
 var VAR_6 = call run_enemy_generator(var &VAR_8, int 10)
 var boneyfx = call create_enemy(int 61, int 0, var &VAR_11, int 190)
-var VAR_0 = call add_item_to_char(var boneyfx, int 85, int 6554113, int 0)
+var moneybag = call add_item_to_char(var boneyfx, int 85, int 6554113, int 0)
 call load_char("skel")
 call load_char("wraith")
 var lookout_anim = call load_anim("lookout")

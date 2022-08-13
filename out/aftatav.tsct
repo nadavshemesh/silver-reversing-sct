@@ -39,8 +39,8 @@ VAR_55	{ 750, 1775, 1750 }
 ._on_load
 call play_bgm("rainpt1")
 execute SCRIPT_12
-call load_item(int 93 /* cutlass */ )
-call load_item(int 91 /* rapier */ )
+call load_item(int 93)
+call load_item(int 91)
 switch(gamevar room_state)
  {
 		case 1
@@ -164,7 +164,7 @@ switch(var VAR_1)
 							var VAR_1 = int 2
 					}
 			}
-			if(call is_char_handle_in_level(int 2490368 /* MUSCLES */ ))
+			if(call is_char_handle_in_level(int 2490368))
 			 {
 					if(call func_88(var muscles))
 					 {
@@ -187,7 +187,7 @@ switch(var VAR_1)
 							gamevar script_object = var longjohn
 							gamevar *character_movement_p+60 = int 0
 					}
-					if(call is_char_handle_in_level(int 2490368 /* MUSCLES */ ))
+					if(call is_char_handle_in_level(int 2490368))
 					 {
 							call func_46(var muscles, int 13)
 							gamevar script_object = var muscles
@@ -386,8 +386,7 @@ switch(var VAR_40)
 		case 4
 			if(var VAR_41 > var VAR_43)
 			 {
-					var verwind_sound_ref = call play_loaded_sound(int 4, int 0, int 25, int 0 /* 'thunstrk' */ 
- /* 'thunstrk' */ 
+					var verwind_sound_ref = call play_loaded_sound(int 4, int 0, int 25, int 0) /* 'thunstrk' */ 
 					call set_sound_volume(var verwind_sound_ref, var VAR_44)
 					if(var ! VAR_30)
 					 {

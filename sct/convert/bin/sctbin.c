@@ -505,7 +505,7 @@ void add_hint_by_var_name_or_comment(game_fun* gf, node** exp_nodes, void* func_
                         expr_obj* func = (expr_obj*) func_obj;
                         func->hint_comment = aapts(comment);
                     }
-                    if(type == CODE_TYPE) {
+                    else if(type == CODE_TYPE) {
                         sprintf(comment, " /* play the sound '%s' */ ", sound_name);
                         code_obj* func = (code_obj*) func_obj;
                         func->hint_comment = aapts(comment);

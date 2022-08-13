@@ -155,7 +155,7 @@ call load_char("orc")
 call load_char("lizman")
 call load_char("ogre")
 call load_char("ronnie")
-call load_item(int 96 /* pick */ )
+call load_item(int 96)
 if(var VAR_82 == int 1)
  {
 		call run_wandering_generator(var &VAR_87, int 100)
@@ -308,8 +308,7 @@ switch(var VAR_13)
 		case 4
 			if(var VAR_14 > var VAR_16)
 			 {
-					var verwind_sound_ref = call play_loaded_sound(int 4, int 0, int 25, int 0 /* 'thunstrk' */ 
- /* 'thunstrk' */ 
+					var verwind_sound_ref = call play_loaded_sound(int 4, int 0, int 25, int 0) /* 'thunstrk' */ 
 					call set_sound_volume(var verwind_sound_ref, var VAR_17)
 					if(var ! VAR_3)
 					 {
@@ -330,7 +329,7 @@ switch(var VAR_13)
 var VAR_14 ++ 
 
 ._SCRIPT_13
-if(call ! is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
+if(call ! is_char_handle_in_level(int 6291456))
  {
 		exit_script 
 }
@@ -462,7 +461,7 @@ switch(var VAR_35)
 var VAR_36 ++ 
 
 ._SCRIPT_15
-if(call is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
+if(call is_char_handle_in_level(int 6291456))
  {
 		if(var fade_chronicler == int 0)
 		 {

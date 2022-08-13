@@ -216,7 +216,7 @@ switch(var VAR_48)
 			}
 			break 
 		case 9
-			if(call is_char_handle_in_level(int 6881280 /* RCAPTAIN */ ))
+			if(call is_char_handle_in_level(int 6881280))
 			 {
 					call char_walk_to(var captain, int -134, int 0, int -2344)
 			}
@@ -246,7 +246,7 @@ switch(var VAR_48)
 		case 10
 			if(var VAR_49 > int 10)
 			 {
-					if(call is_char_handle_in_level(int 6881280 /* RCAPTAIN */ ))
+					if(call is_char_handle_in_level(int 6881280))
 					 {
 							call set_char_init_state(var captain, int 0)
 					}
@@ -277,7 +277,7 @@ switch(var VAR_48)
 		case 11
 			if(var ! VAR_58)
 			 {
-					if(call is_char_handle_in_level(int 6881280 /* RCAPTAIN */ ))
+					if(call is_char_handle_in_level(int 6881280))
 					 {
 							if(call is_char_standing(var captain))
 							 {
@@ -367,7 +367,7 @@ switch(var VAR_48)
 							@VAR_58[var VAR_64]= int 0
 							var VAR_64 ++ 
 					}
-					if(call is_char_handle_in_level(int 6881280 /* RCAPTAIN */ ))
+					if(call is_char_handle_in_level(int 6881280))
 					 {
 							call char_walk_to(var captain, int -4681, int 0, int -4057)
 					}
@@ -408,7 +408,7 @@ switch(var VAR_48)
 			 {
 					if(var ! VAR_58)
 					 {
-							if(call is_char_handle_in_level(int 6881280 /* RCAPTAIN */ ))
+							if(call is_char_handle_in_level(int 6881280))
 							 {
 									if(call is_char_standing(var captain))
 									 {
@@ -609,7 +609,7 @@ if(call is_char_handle_in_level(int 7143428))
 }
 
 ._SCRIPT_7
-if(call is_char_handle_in_level(int 6881280 /* RCAPTAIN */ ))
+if(call is_char_handle_in_level(int 6881280))
  {
 		call set_char_template(var captain, int 14)
 		call func_106(var captain, int 1, int 0, int 1)
@@ -819,8 +819,7 @@ switch(var VAR_13)
 		case 4
 			if(var VAR_14 > var VAR_16)
 			 {
-					var verwind_sound_ref = call play_loaded_sound(int 4, int 0, int 25, int 0 /* 'thunstrk' */ 
- /* 'thunstrk' */ 
+					var verwind_sound_ref = call play_loaded_sound(int 4, int 0, int 25, int 0) /* 'thunstrk' */ 
 					call set_sound_volume(var verwind_sound_ref, var VAR_17)
 					if(var ! VAR_3)
 					 {
@@ -864,11 +863,11 @@ if(var VAR_21 != int -1)
 		 {
 				if(var VAR_23 != int -1)
 				 {
-						call add_item_to_char(var is_BTREASURE_exist, int 85 /* moneybag */ , var VAR_23, int 0)
+						call add_item_to_char(var is_BTREASURE_exist, int 85, var VAR_23, int 0)
 				}
 				else
 				 {
-						call add_item_to_char(var is_BTREASURE_exist, var VAR_21 /* potred */ , int 1, int 0)
+						call add_item_to_char(var is_BTREASURE_exist, var VAR_21, int 1, int 0)
 				}
 		}
 }

@@ -18,8 +18,8 @@ VAR_24	{ -7755, 1825, 5210 }
 VAR_25	{ -3295, 1825, 3290 }	
 
 ._on_load
-call load_item(int 93 /* cutlass */ )
-call load_item(int 91 /* rapier */ )
+call load_item(int 93)
+call load_item(int 91)
 execute SCRIPT_5
 switch(gamevar room_state)
  {
@@ -213,8 +213,7 @@ switch(var VAR_19)
 		case 4
 			if(var VAR_20 > var VAR_22)
 			 {
-					var verwind_sound_ref = call play_loaded_sound(int 4, int 0, int 25, int 0 /* 'thunstrk' */ 
- /* 'thunstrk' */ 
+					var verwind_sound_ref = call play_loaded_sound(int 4, int 0, int 25, int 0) /* 'thunstrk' */ 
 					call set_sound_volume(var verwind_sound_ref, var VAR_23)
 					if(var ! VAR_9)
 					 {

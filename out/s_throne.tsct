@@ -682,7 +682,7 @@ switch(var VAR_104)
 							var VAR_149 = int 1
 					}
 			}
-			if(call get_char_item_if_equiped(var silver, int 3 /* lightning */ ))
+			if(call get_char_item_if_equiped(var silver, int 3))
 			 {
 					call func_1e(var silver, var nwilliam)
 					var VAR_104 = int 13
@@ -690,7 +690,7 @@ switch(var VAR_104)
 			}
 			break 
 		case 13
-			if(call ! is_char_handle_in_level(int 4784128 /* WILLIAM */ ))
+			if(call ! is_char_handle_in_level(int 4784128))
 			 {
 					call func_fd(var silver, var lightning)
 					call reset_local_timer()
@@ -698,7 +698,7 @@ switch(var VAR_104)
 			}
 			break 
 		case 14
-			if(call is_local_timer_greater_than(int 20)&&call ! get_char_item_if_equiped(var silver, int 3 /* lightning */ ))
+			if(call is_local_timer_greater_than(int 20)&&call ! get_char_item_if_equiped(var silver, int 3))
 			 {
 					call char_turn_to_pos(var silver, var &VAR_137)
 					call reset_local_timer()
@@ -1388,8 +1388,8 @@ switch(var VAR_104)
 								call char_walk_to_pos(var VAR_106, var &VAR_155)
 								gamevar script_object = var VAR_106
 								gamevar *object_p+6 &= int -2
-								call add_item_to_char(var VAR_106, int 113 /* nemshld */ , int 0, int 1)
-								call add_item_to_char(var VAR_106, int 114 /* nemshld */ , int 0, int 1)
+								call add_item_to_char(var VAR_106, int 113, int 0, int 1)
+								call add_item_to_char(var VAR_106, int 114, int 0, int 1)
 								call reset_local_timer()
 								var VAR_149 ++ 
 						}
@@ -1511,8 +1511,8 @@ call func_8f("jennifer")
 call func_8f("beth")
 call func_8f("bonnie")
 call load_char("silv_orb")
-call load_item(int 113 /* nemshld */ )
-call load_item(int 114 /* nemshld */ )
+call load_item(int 113)
+call load_item(int 114)
 execute SCRIPT_15
 if(var ! VAR_102)
  {
@@ -1630,8 +1630,7 @@ switch(var VAR_198)
 			if(var VAR_136 == int -1)
 			 {
 					call stop_playing_sound(var DoorCls3_sound_ref)
-					var DoorCls3_sound_ref = call play_loaded_sound(int 3, int 0, int 51, int 0 /* 'bigfire' */ 
- /* 'bigfire' */ 
+					var DoorCls3_sound_ref = call play_loaded_sound(int 3, int 0, int 51, int 0) /* 'bigfire' */ 
 					call set_sound_volume(var DoorCls3_sound_ref, int 90)
 					var VAR_198 ++ 
 					var VAR_201 = int 0

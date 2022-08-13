@@ -27,8 +27,8 @@ VAR_56	{ -374, -1417, -208 }
 ._on_load
 execute SCRIPT_9
 call play_bgm("RainPt1")
-call load_item(int 93 /* cutlass */ )
-call load_item(int 91 /* rapier */ )
+call load_item(int 93)
+call load_item(int 91)
 call load_sound_set(int 32)
 
  /* play the sound 'trickle' */ 
@@ -122,7 +122,7 @@ var VAR_0 = int 0
 var VAR_1 = int 5
 
 ._SCRIPT_4
-if(call ! is_char_handle_in_level(int 6356992 /* CAPTAIN */ ))
+if(call ! is_char_handle_in_level(int 6356992))
  {
 		var pirate_captain = int 0
 }
@@ -163,7 +163,7 @@ switch(var VAR_0)
 			}
 			if(var VAR_11)
 			 {
-					if(call ! is_char_handle_in_level(int 6356992 /* CAPTAIN */ ))
+					if(call ! is_char_handle_in_level(int 6356992))
 					 {
 							var pirate_captain = int 0
 					}
@@ -587,8 +587,7 @@ switch(var VAR_32)
 		case 4
 			if(var VAR_33 > var VAR_35)
 			 {
-					var verwind_sound_ref = call play_loaded_sound(int 4, int 0, int 25, int 0 /* 'thunstrk' */ 
- /* 'thunstrk' */ 
+					var verwind_sound_ref = call play_loaded_sound(int 4, int 0, int 25, int 0) /* 'thunstrk' */ 
 					call set_sound_volume(var verwind_sound_ref, var VAR_36)
 					if(var ! VAR_22)
 					 {

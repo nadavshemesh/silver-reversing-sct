@@ -297,7 +297,7 @@ call play_2d_anim("bloodtwo", int 1, int 1, int 0)
 ._SCRIPT_10
 execute SCRIPT_8
 var VAR_68 = call get_selected_hero()
-if(call ! create_item(int 84 /* analect */ )&&gamevar is_room_cleared != int 1)
+if(call ! create_item(int 84)&&gamevar is_room_cleared != int 1)
  {
 		gamevar SMACKER_X = int 288
 		gamevar SMACKER_Y = int 132
@@ -306,7 +306,7 @@ if(call ! create_item(int 84 /* analect */ )&&gamevar is_room_cleared != int 1)
 }
 
 ._SCRIPT_11
-if(call ! is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
+if(call ! is_char_handle_in_level(int 6291456))
  {
 		exit_script 
 }
@@ -438,7 +438,7 @@ switch(var VAR_17)
 var VAR_18 ++ 
 
 ._SCRIPT_13
-if(call is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
+if(call is_char_handle_in_level(int 6291456))
  {
 		if(var fade_chronicler == int 0)
 		 {

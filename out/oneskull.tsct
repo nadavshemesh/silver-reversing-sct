@@ -51,7 +51,7 @@ VAR_84	1
 ._on_load
 call play_bgm("DEADPT1")
 execute SCRIPT_10
-call load_item(int 93 /* cutlass */ )
+call load_item(int 93)
 call load_char("boney")
 call load_char("wraith")
 call load_char("skel")
@@ -177,12 +177,12 @@ switch(var VAR_24)
 			if(var VAR_25 == int 20)
 			 {
 					call char_walk_to(var npc_skel, int 113, int -2275, int 7465)
-					if(call is_char_handle_in_level(int 8126464 /* SKEL */ ))
+					if(call is_char_handle_in_level(int 8126464))
 					 {
 							call func_46(var skel1, int 13)
 							call set_char_running(var skel1)
 					}
-					if(call is_char_handle_in_level(int 8126465 /* SKEL */ ))
+					if(call is_char_handle_in_level(int 8126465))
 					 {
 							call func_46(var skel2, int 13)
 							call set_char_running(var skel2)
@@ -190,7 +190,7 @@ switch(var VAR_24)
 			}
 			if(var VAR_25 == int 50)
 			 {
-					if(call is_char_handle_in_level(int 8126464 /* SKEL */ ))
+					if(call is_char_handle_in_level(int 8126464))
 					 {
 							call char_walk_to(var skel1, int 813, int -2275, int 7433)
 					}
@@ -201,7 +201,7 @@ switch(var VAR_24)
 					var VAR_24 ++ 
 					var VAR_7 = int 1
 					var VAR_37 = var npc_skel
-					if(call is_char_handle_in_level(int 8126465 /* SKEL */ ))
+					if(call is_char_handle_in_level(int 8126465))
 					 {
 							call char_walk_to(var skel2, int 303, int -2075, int 7151)
 					}
@@ -215,7 +215,7 @@ switch(var VAR_24)
 			var VAR_25 ++ 
 			if(var VAR_25 > int 180)
 			 {
-					if(call is_char_handle_in_level(int 8126467 /* SKEL */ ))
+					if(call is_char_handle_in_level(int 8126467))
 					 {
 							call char_walk_to(var skel, int 606, int -2275, int 7745)
 					}

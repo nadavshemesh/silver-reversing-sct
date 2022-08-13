@@ -194,7 +194,7 @@ void write_asm_script(script* script, sct_f* sf) {
     char script_name[256];
     int script_number = script->number;
 
-    if(script_number > 2) {
+    if(script_number > 3) {
         sprintf(script_name, "\n._SCRIPT_%d\n", script_number);
     } else {
         switch(script_number) {

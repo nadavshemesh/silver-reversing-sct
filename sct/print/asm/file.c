@@ -194,7 +194,7 @@ void write_asm_script(script* script, sct_f* sf) {
     char script_name[256];
     int script_number = script->number;
 
-    if(script_number > 3) {
+    if(script_number > 2) {
         sprintf(script_name, "\n._SCRIPT_%d\n", script_number);
     } else {
         switch(script_number) {
@@ -206,9 +206,6 @@ void write_asm_script(script* script, sct_f* sf) {
                 break;
             case 2:
                 sprintf(script_name, "\n._on_exit\n", script_number);
-                break;
-            case 3:
-                sprintf(script_name, "\n._shuffle_background_noises\n", script_number);
                 break;
         }
     }

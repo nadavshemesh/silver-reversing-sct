@@ -18,6 +18,11 @@ This project is made of 3 major parts:
 
 ## Examples
 
+#### Reversed .sct files:
+All the game's decompiled files can be found inside the [./out](./out) folder.
+[veranda.tsct](./out/veranda.tsct), [gnolib2.tsct](./out/gnolib2.tsct), [davhouse.tsct](./out/davhouse.tsct), [courtyrd.tsct](./out/courtyrd.tsct)
+
+
 #### Mods:
 This example mod was created using this tool thanks to a steam user @theruler.
 it makes Rain's "bell code" puzzle to work as it was originally designed. 
@@ -26,9 +31,7 @@ it makes Rain's "bell code" puzzle to work as it was originally designed.
 
 _(on modern operating systems the 'bell code' timer got messed up thus the puzzle became near impossible to complete without help)_
 
-#### Reversed .sct files:
-All the game's decompiled files can be found inside the [./out](./out) folder.
-[veranda.tsct](./out/veranda.tsct), [gnolib2.tsct](./out/gnolib2.tsct), [davhouse.tsct](./out/davhouse.tsct), [courtyrd.tsct](./out/courtyrd.tsct)
+
 
 ## Docs
 Further information can be found [here](./docs/index.md).

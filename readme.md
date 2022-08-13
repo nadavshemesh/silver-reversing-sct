@@ -10,9 +10,9 @@ A tool created to read and modify internal scripts of a game called '[Silver](ht
 This tool’s purpose is to translate the game’s .sct files to a readable file format (a somewhat arbitrary scripting language I came up with to make sense of it’s binary format) and to translate it back into .sct format that the game’s engine can read. This tool was created to further investigate the game’s inner workings.
 
 This project is made of 3 major parts:
-1. *Reverse engineering* -> the .sct binary files and related assets.
-2. *A Decompiler* -> from .sct binary to a scripting language (.tsct - "Translated SCT").
-3. *A Compiler* -> from .tsct scripting language back to .sct binary format.
+1. **Reverse engineering** -> the .sct binary files and related assets.
+2. **A Decompiler** -> from .sct binary to a scripting language (.tsct - "Translated SCT").
+3. **A Compiler** -> from .tsct scripting language back to .sct binary format.
 
 ## Examples
 

@@ -2,6 +2,7 @@
 #define MAX_FUNC_NAME 256
 
 #include "sct\catalog.h"
+#include "sct\structure\object.h"
 
 typedef struct catalog_ref {
     cat_type type;
@@ -10,6 +11,11 @@ typedef struct catalog_ref {
     char* postfix;
 } catalog_ref;
 
+typedef struct type_forcing {
+    data_type type;
+    int var_index;
+} forced_type;
+
 typedef struct game_function {
     int id;
     int params;
@@ -17,6 +23,7 @@ typedef struct game_function {
     char* desc;
     char* default_name;
     char* name;
+    node** forced_types;
 } game_fun;
 
 extern game_fun** game_functions;

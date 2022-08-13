@@ -17,6 +17,7 @@ VAR_19	{ 653, -3420, 7032 }
 VAR_20	{ 14, 0, 249, -3420, 6862, 1, VAR_0, 12, 1, 15, 0, 740, -3420, 5592, 16, VAR_16, 1, 0, 1446, -3420, 4216, 3, VAR_21, 0, 16, VAR_17, 1, 0, 2411, -3014, 3922, 15, 8 }	
 VAR_21	"tyrosumn"	
 VAR_22	{ 0, 0, 1, 0, -1, 8, 1, 4, 0, 9, 2, 1, 2, 75, 75, 75, 75, -1, 5, 0, 50, 6, 1, 7, 1, 1, 10, 42, 40, 42, 40, -1, -1 }	
+VAR_29	{ 1160613888, -979460096, 1167724544 }
 
 ._on_load
 execute SCRIPT_3
@@ -172,7 +173,7 @@ if(gamevar script_time > var VAR_28)
  {
 		var VAR_28 = gamevar script_time + int 60 + call randomize_int(int 0, int 40)
 		var VAR_26 = int 8 + call randomize_int(int 0, int 3)
-		call play_loaded_sound(var VAR_26, int 0, int 59, "")
+		call play_loaded_sound(var VAR_26, int 0, int 59, var &VAR_29)
 }
 if(gamevar script_time > var VAR_27)
  {

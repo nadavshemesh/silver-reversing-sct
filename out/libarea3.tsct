@@ -10,6 +10,7 @@
 
 
 ._DATA
+VAR_1	{ -8499, 2894, -16052 }	
 VAR_2	{ 0, 0, 1, 0, -1, 8, 1, 4, 0, 9, 0, 1, 4, 102, 103, -1, 2, 4, 3, 2, 5, 0, 50, 6, 1, 7, 1, 4, -1 }	
 VAR_3	{ 11, 200, 300, 0, -8499, 2894, -16552, 11, 200, 300, 0, -8499, 2894, -16052, 11, 200, 300, 0, -8499, 2894, -15552, 7, 8 }	
 horn_impefs	{ 0, 0 }	
@@ -140,7 +141,7 @@ else
 }
 
 ._SCRIPT_6
-var horn_impefs = call create_enemy(int 108, int 3, "ÍÞÿÿN", int 270)
+var horn_impefs = call create_enemy(int 108, int 3, var &VAR_1, int 270)
 call freeze_enemy(var horn_impefs)
 call func_50(var horn_impefs, int 10249)
 call play_char_ai_script(var horn_impefs, var &VAR_3)

@@ -23,6 +23,19 @@ catalog_ref* create_cat_ref(cat_type type, int var_index, char* prefix, char* po
     return cref;
 }
 
+void add_forced_type(game_fun* gf, data_type type, int var_index) {
+    forced_type* ft = w_malloc(sizeof(forced_type));
+    ft->type = type;
+    ft->var_index = var_index;
+
+    node* node = create_node(ft);
+    if(gf->forced_types == NULL || *gf->forced_types == NULL) {
+        *gf->forced_types = node;
+    } else {
+        insert_node(gf->forced_types, node);
+    }
+}
+
 void print_game_function_i(int num, game_fun** functions_arr) {
     game_fun* gf = functions_arr[num];
     if(gf == NULL) { print_err_and_exit("error - game_functions uninitialized.\n", -2); }
@@ -33,6 +46,7 @@ void init_game_functions(game_fun** functions_arr) {
     for(int i=0; i<GAME_FUNCTIONS_NUM; i++) {
         game_fun* gf = w_malloc(sizeof(game_fun));
         gf->id = i;
+        gf->forced_types = w_malloc(sizeof(node*));
         char* name = w_malloc(MAX_FUNC_NAME);
         char* prefix = "func_";
         gf->cat_ref = NULL;
@@ -180,6 +194,7 @@ void init_game_functions(game_fun** functions_arr) {
     functions_arr[0xa4]->name = aapts("run_enemy_generator");
     functions_arr[0xa4]->params = 2;
     functions_arr[0xa4]->desc = aapts("(var runtime_script_ptr , int time_delay)");
+    add_forced_type(functions_arr[0xa4], ARRAY, 0);
     functions_arr[0xe5]->name = aapts("toggle_or_use_char_item");
     functions_arr[0xe5]->params = 2;
     functions_arr[0xe5]->desc = aapts("(var char_ptr , var item_ptr)");
@@ -193,6 +208,7 @@ void init_game_functions(game_fun** functions_arr) {
     functions_arr[0xa5]->name = aapts("run_wandering_generator");
     functions_arr[0xa5]->params = 2;
     functions_arr[0xa5]->desc = aapts("(var runtime_script_ptr , int time_delay)");
+    add_forced_type(functions_arr[0xa5], ARRAY, 0);
     functions_arr[0xf6]->name = aapts("apply_effect_on_char");
     functions_arr[0xf6]->params = 4;
     functions_arr[0xf6]->desc = aapts("(var src_fx_ptr, int set, int num, var char_ptr)");
@@ -256,6 +272,7 @@ void init_game_functions(game_fun** functions_arr) {
     functions_arr[0xcd]->name = aapts("log");
     functions_arr[0xcd]->params = 1;
     functions_arr[0xcd]->desc = aapts("(var string_ptr)");
+    add_forced_type(functions_arr[0xcd], STRING, 0);
     functions_arr[0xce]->name = aapts("log_obj");
     functions_arr[0xce]->params = 1;
     functions_arr[0xce]->desc = aapts("(var obj_ptr)");
@@ -275,6 +292,7 @@ void init_game_functions(game_fun** functions_arr) {
     functions_arr[0x107]->name = aapts("play_char_ai_script");
     functions_arr[0x107]->params = 2;
     functions_arr[0x107]->desc = aapts("(var char_ptr, var anim_table_ptr)");
+    add_forced_type(functions_arr[0x107], ARRAY, 1);
     functions_arr[0x20]->name = aapts("set_char_running");
     functions_arr[0x20]->params = 1;
     functions_arr[0x20]->desc = aapts("(var char_ptr)");

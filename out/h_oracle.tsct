@@ -12,10 +12,11 @@
 ._DATA
 VAR_1	65536	
 VAR_2	65536	
+VAR_8	{ 1665, -665, 327 }	
 VAR_9	{ -335, -665, 353 }	
 VAR_10	{ 676, 500, 725 }	
 VAR_11	665	
-VAR_12	"py"	
+VAR_12	{ -400, 1145 }	
 VAR_14	500	
 VAR_15	{ 10, 120 }	
 VAR_32	{ 0, 0 }	
@@ -23,6 +24,7 @@ VAR_34	{ 0, 0 }
 VAR_35	{ 0, 0, 0 }	
 VAR_44	{ 1790, -765, 750 }	
 VAR_45	{ 1024, 634, 1310 }	
+VAR_46	{ 674, -665, 374 }	
 VAR_47	{ 674, -200, 374 }	
 VAR_48	{ 1605, -300, 813 }	
 VAR_53	-1	
@@ -197,7 +199,7 @@ switch(var VAR_41)
 			if(var VAR_42 > int 30)
 			 {
 					gamevar compile_init_character = int 0
-					var i1horn = call create_char("¢", "i1horn", int 0, int 13)
+					var i1horn = call create_char(var &VAR_46, "i1horn", int 0, int 13)
 					gamevar compile_init_character = int 1
 					var VAR_41 ++ 
 					var VAR_42 = int 0
@@ -272,7 +274,7 @@ switch(var VAR_41)
 var VAR_42 ++ 
 
 ._SCRIPT_4
-var nduke = call create_char("Å", "nduke", int 275, int 13)
+var nduke = call create_char(var &VAR_8, "nduke", int 275, int 13)
 var nbuzuki = call create_char(var &VAR_9, "nbuzuki", int 35, int 13)
 var noracle = call create_char(var &VAR_10, "noracle", int 210, int 13)
 gamevar script_object = var noracle

@@ -34,6 +34,7 @@ expression* create_and_init_expression() {
 
 void init_data_obj(data_obj* d_obj) {
     d_obj->id = -1;
+    d_obj->type = UNDEFINED_TYPE;
     d_obj->ignore = false;
     d_obj->was_renamed = false;
     d_obj->references = 0;

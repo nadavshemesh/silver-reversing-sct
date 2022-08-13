@@ -564,6 +564,21 @@ expr_obj* bin_read_function_call_expr(expr_pattern* expr_p, int* vars, void** to
             insert_node(exp_nodes, new_node);
         }
         exp_nodes_len++;
+
+        // force type recognition
+        if(gf->forced_types != NULL && *gf->forced_types != NULL) {
+            node* ft_node = *gf->forced_types;
+            while(ft_node != NULL) {
+                forced_type* ft = ft_node->item;
+                if(ft->var_index == i){
+                    expr_obj* eo = exp->expr_objs;
+                    if(eo->expr_p->type == VAR_PTR || eo->expr_p->type == ADDROF_VAR_PTR) {
+                        eo->data->type = ft->type;
+                    }
+                }
+                ft_node = ft_node->next;
+            }
+        }
     }
 
     e_obj->expression_nodes = w_malloc(sizeof(node*));

@@ -11,6 +11,8 @@
 
 ._DATA
 finnegan	0	
+VAR_2	{ 875, -937, -712 }	
+VAR_4	{ 587, -937, -649 }	
 VAR_6	{ 1147, -937, -2656 }	
 VAR_7	{ 7, 8 }	
 VAR_8	{ 9, finnegan, 7, 8 }	
@@ -59,8 +61,8 @@ switch(gamevar room_state)
 }
 
 ._SCRIPT_3
-var finnegan = call create_enemy(int 32, int 0, "k", int 295)
-var muscles = call create_enemy(int 30, int 0, "K", int 85)
+var finnegan = call create_enemy(int 32, int 0, var &VAR_2, int 295)
+var muscles = call create_enemy(int 30, int 0, var &VAR_4, int 85)
 var longjohn = call create_enemy(int 28, int 0, var &VAR_6, int 270)
 call add_item_to_char(var finnegan, int 42, int 1, int 0)
 call play_char_ai_script(var finnegan, var &VAR_7)

@@ -1,12 +1,16 @@
+#ifndef FILE_OBJ_INCL
+#define FILE_OBJ_INCL
 #include "sct\structure\pattern.h"
 
 typedef enum o_type { OBJ_CODE, OBJ_DATA, OBJ_EXPR } o_type;
+typedef enum data_type { UNDEFINED_TYPE, STRING, NUMBER, ARRAY } data_type;
 
 typedef struct data_object {
     int id;
     int references;
     int data_references;
     int byte_size;
+    data_type type;
     bool ignore;
     bool was_renamed;
     char* name;
@@ -61,3 +65,5 @@ expr_obj* get_last_expr_obj(expression* exp);
 expr_obj* create_and_init_expr_obj();
 data_obj* create_and_init_data_obj();
 expression* create_and_init_expression();
+
+#endif

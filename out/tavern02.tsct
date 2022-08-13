@@ -22,9 +22,10 @@ VAR_19	{ -753, 0, -423 }
 VAR_21	{ -866, 0, -224 }	
 VAR_23	{ 7, 8 }	
 VAR_24	{ 9, NTAVMAN, 7, 8 }	
+VAR_42	{ -993263616, 1136885760, 1133608960 }	
 VAR_43	{ 1, 0, 0 }	
 VAR_45	{ 1, 0, 0 }	
-VAR_47	{ 1, 0, 0 }	
+VAR_47	""	
 
 ._on_load
 execute SCRIPT_6
@@ -240,7 +241,7 @@ call play_loaded_sound(int 198, int -1, int 0, "")
 call load_sound_set(int 30)
 
  /* play the sound 'torches2' */ 
-call play_loaded_sound(int 1, int -1, int 30, "")
+call play_loaded_sound(int 1, int -1, int 30, var &VAR_42)
 gamevar SMACKER_X = int 248
 gamevar SMACKER_Y = int 120
 call play_2d_anim("torch01", int 1, int 1, var &VAR_43)

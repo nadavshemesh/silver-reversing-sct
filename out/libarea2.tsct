@@ -25,6 +25,8 @@ VAR_36	-1
 ._on_load
 call play_bgm("GNO")
 call load_sound_set(int 63)
+
+ /* play the sound 'gnoamb1' */ 
 call play_loaded_sound(int 1, int -1, int 63, int 0)
 if(gamevar is_room_cleared)
  {
@@ -122,6 +124,8 @@ if(gamevar script_time > var VAR_43)
 		var VAR_43 = gamevar script_time + int 100 + call randomize_int(int 0, int 200)
 		if(call get_num_of_enemies())
 		 {
+
+				 /* play the sound 'cavelp' */ 
 				call play_loaded_sound(int 13, int 0, int 63, int 0)
 		}
 }

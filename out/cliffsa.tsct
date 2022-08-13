@@ -42,6 +42,8 @@ execute SCRIPT_3
 execute SCRIPT_12
 execute SCRIPT_14
 call load_sound_set(int 65)
+
+ /* play the sound 'dog1' */ 
 call play_loaded_sound(int 7, int -1, int 65, int 0)
 call load_sound_set(int 40)
 if(gamevar is_room_cleared)
@@ -122,11 +124,15 @@ call play_3d_fx("SNOW", var &VAR_58, var &VAR_59, int 0)
 if(gamevar script_time > var VAR_115)
  {
 		var VAR_115 = gamevar script_time + int 300 + call randomize_int(int 0, int 300)
+
+		 /* play the sound 'hwave1' */ 
 		call play_loaded_sound(int 8, int 0, int 65, int 0)
 }
 if(gamevar script_time > var VAR_114)
  {
 		var VAR_114 = gamevar script_time + int 60 + call randomize_int(int 0, int 60)
+
+		 /* play the sound 'inwindlp' */ 
 		call play_loaded_sound(int 2, int 0, int 65, int 0)
 }
 
@@ -336,6 +342,8 @@ switch(var VAR_100)
 			else
 			 {
 					var VAR_46 = int 1
+
+					 /* play the sound 'dwavesLp' */ 
 					call play_loaded_sound(int 1, int 0, int 40, int 0)
 					call func_4e(int 0)
 					gamevar *scene_info_p+1 = int 1

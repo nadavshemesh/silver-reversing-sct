@@ -27,7 +27,11 @@ VAR_31	{ VAR_24, VAR_25, VAR_26, VAR_27, VAR_28, VAR_29, VAR_30 }
 ._on_load
 call load_sound_set(int 74)
 call load_sound_set(int 76)
+
+ /* play the sound 'atrolp2' */ 
 call play_loaded_sound(int 1, int -1, int 76, int 0)
+
+ /* play the sound 'atroamb1' */ 
 call play_loaded_sound(int 2, int -1, int 76, int 0)
 execute SCRIPT_10
 var VAR_4 = int 0
@@ -213,12 +217,16 @@ if(gamevar script_time > var VAR_21)
  {
 		var VAR_21 = gamevar script_time + int 100 + call randomize_int(int 0, int 150)
 		var VAR_23 = call randomize_int(int 0, int 7)
+
+		 /* play the sound 'atroamb4' */ 
 		call play_loaded_sound(int 3, int 0, int 76, @VAR_31[var VAR_23])
 }
 if(gamevar script_time > var VAR_22)
  {
 		var VAR_22 = gamevar script_time + int 200 + call randomize_int(int 0, int 150)
 		var VAR_23 = call randomize_int(int 0, int 7)
+
+		 /* play the sound 'bees' */ 
 		call play_loaded_sound(int 4, int 0, int 76, @VAR_31[var VAR_23])
 }
 

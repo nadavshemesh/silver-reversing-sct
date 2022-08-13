@@ -25,6 +25,8 @@ VAR_20	-1
 
 ._on_load
 call load_sound_set(int 66)
+
+ /* play the sound 'in2wind1' */ 
 call play_loaded_sound(int 5, int -1, int 66, int 0)
 call play_bgm("WPALPT1")
 if(gamevar is_room_cleared)
@@ -172,5 +174,7 @@ call add_item_to_char(var viking3, int 42, int 1, int 0)
 if(gamevar script_time > var VAR_22)
  {
 		var VAR_22 = gamevar script_time + int 100 + call randomize_int(int 0, int 50)
+
+		 /* play the sound 'wwindlp' */ 
 		call play_loaded_sound(int 6, int 0, int 66, int 0)
 }

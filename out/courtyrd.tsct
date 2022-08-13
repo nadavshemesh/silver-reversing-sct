@@ -129,6 +129,8 @@ if(gamevar script_time > var VAR_123)
 		var VAR_123 = gamevar script_time + int 100 + call randomize_int(int 0, int 100)
 		if(call get_num_of_enemies())
 		 {
+
+				 /* play the sound 'gnoamblp' */ 
 				call play_loaded_sound(int 8, int 0, int 62, int 0)
 		}
 }
@@ -334,6 +336,8 @@ if(var VAR_80 == int 1)
 		 {
 				call log("Sound horn...")
 				call play_char_anim(var FIMP5, var imphorn_anim, int 0)
+
+				 /* play the sound 'dwavesLp' */ 
 				call play_loaded_sound(int 8, int 0, int 11, call get_char_movement_ptr(var FIMP5))
 				if(var VAR_95 == int 0)
 				 {

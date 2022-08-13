@@ -20,8 +20,12 @@ VAR_19	{ -1, 0 }
 
 ._on_load
 call load_sound_set(int 30)
+
+ /* play the sound 'torches2' */ 
 call play_loaded_sound(int 1, int -1, int 30, int 0)
 call load_sound_set(int 65)
+
+ /* play the sound 'inwind1' */ 
 call play_loaded_sound(int 3, int -1, int 65, int 0)
 execute SCRIPT_4
 if(gamevar is_room_cleared)
@@ -150,5 +154,7 @@ call load_char("mystmonk")
 if(gamevar script_time > var VAR_20)
  {
 		var VAR_20 = gamevar script_time + int 150 + call randomize_int(int 0, int 80)
+
+		 /* play the sound 'in2windl' */ 
 		call play_loaded_sound(int 4, int 0, int 65, int 0)
 }

@@ -1207,7 +1207,7 @@ int get_sound_index(int set, int number) {
     }
 
     int index = offset+number;
-    if(index >= 0 && index < 83)
+    if(index >= 0 && index < 527)
         return index;
 
     return -1;

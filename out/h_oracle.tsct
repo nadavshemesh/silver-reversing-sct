@@ -31,8 +31,8 @@ VAR_53	-1
 call load_sound_set(int 78)
 call load_sound_set(int 8)
 call load_sound_set(int 12)
-var VAR_4 = call play_loaded_sound(int 8, int -1, int 12, int 0)
-call set_sound_volume(var VAR_4, int 25)
+var sent1_sound_ref = call play_loaded_sound(int 8, int -1, int 12, int 0)
+call set_sound_volume(var sent1_sound_ref, int 25)
 call func_58(int 1)
 switch(gamevar room_state)
  {
@@ -121,11 +121,11 @@ switch(var VAR_41)
 		case 4
 			if(call func_6d() == int 2)
 			 {
-					var VAR_49 = call play_loaded_sound(int 3, int 0, int 78, int 0)
-					var VAR_50 = call play_loaded_sound(int 1, int -1, int 78, int 0)
-					var VAR_51 = call play_loaded_sound(int 2, int -1, int 78, int 0)
-					call func_7f(var VAR_50, int 300)
-					call func_7f(var VAR_51, int 300)
+					var apocamb_sound_ref = call play_loaded_sound(int 3, int 0, int 78, int 0)
+					var oracle2_sound_ref = call play_loaded_sound(int 1, int -1, int 78, int 0)
+					var oracle3_sound_ref = call play_loaded_sound(int 2, int -1, int 78, int 0)
+					call func_7f(var oracle2_sound_ref, int 300)
+					call func_7f(var oracle3_sound_ref, int 300)
 					var VAR_31 = int 1
 					var VAR_13 = int 20
 					var VAR_14 = int 1000
@@ -178,8 +178,8 @@ switch(var VAR_41)
 		case 7
 			if(var VAR_34 == int 18)
 			 {
-					call func_9f(var VAR_50, int 100)
-					call func_9f(var VAR_51, int 100)
+					call func_9f(var oracle2_sound_ref, int 100)
+					call func_9f(var oracle3_sound_ref, int 100)
 					var VAR_33 = int 0
 					var VAR_35 = int 1
 					var VAR_13 = int 0

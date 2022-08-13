@@ -21,8 +21,12 @@ VAR_22	{ 0, 0, 1, 0, -1, 8, 1, 4, 0, 9, 2, 1, 2, 75, 75, 75, 75, -1, 5, 0, 50, 6
 ._on_load
 execute SCRIPT_3
 call load_sound_set(int 59)
+
+ /* play the sound 'bird1' */ 
 call play_loaded_sound(int 2, int -1, int 59, int 0)
 call load_sound_set(int 65)
+
+ /* play the sound 'dog1' */ 
 call play_loaded_sound(int 7, int -1, int 65, int 0)
 if(gamevar is_room_cleared)
  {
@@ -173,5 +177,7 @@ if(gamevar script_time > var VAR_28)
 if(gamevar script_time > var VAR_27)
  {
 		var VAR_27 = gamevar script_time + int 120 + call randomize_int(int 0, int 60)
+
+		 /* play the sound 'inwindlp' */ 
 		call play_loaded_sound(int 2, int 0, int 65, int 0)
 }

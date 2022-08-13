@@ -41,8 +41,8 @@ if(gamevar room_state != int 1)
 		call play_bgm("chains")
 }
 call load_sound_set(int 27)
-var VAR_48 = call play_loaded_sound(int 1, int -1, int 27, int 0)
-call set_sound_volume(var VAR_48, int 12)
+var toilet_sound_ref = call play_loaded_sound(int 1, int -1, int 27, int 0)
+call set_sound_volume(var toilet_sound_ref, int 12)
 gamevar SMACKER_X = int 204
 gamevar SMACKER_Y = int 480
 call play_2d_anim("chain", int 1, int 1, int 0)

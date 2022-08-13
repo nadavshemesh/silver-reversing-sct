@@ -405,14 +405,14 @@ switch(var VAR_56)
 					var VAR_57 = call randomize_int(int 0, int 24)
 					call apply_effect_on_char(gamevar misc_fx_scripts, int 31, @VAR_28[var VAR_57], int 0)
 					call apply_effect_on_char(gamevar misc_fx_scripts, int 32, @VAR_28[var VAR_57], int 0)
-					var VAR_58 = call play_loaded_sound(int 2, int 0, int 79, int 0)
+					var fireexp_sound_ref = call play_loaded_sound(int 2, int 0, int 79, int 0)
 					if(var VAR_59 == int 1)
 					 {
-							call set_sound_volume(var VAR_58, call randomize_int(int 140, int 181))
+							call set_sound_volume(var fireexp_sound_ref, call randomize_int(int 140, int 181))
 					}
 					else
 					 {
-							call set_sound_volume(var VAR_58, call randomize_int(int 80, int 101))
+							call set_sound_volume(var fireexp_sound_ref, call randomize_int(int 80, int 101))
 					}
 					if(var VAR_3)
 					 {

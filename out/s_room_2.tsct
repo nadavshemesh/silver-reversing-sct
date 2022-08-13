@@ -55,7 +55,11 @@ VAR_118	{ VAR_115, VAR_116, VAR_117 }
 
 ._on_load
 call load_sound_set(int 46)
+
+ /* play the sound 'palamb1' */ 
 call play_loaded_sound(int 4, int -1, int 46, int 0)
+
+ /* play the sound 'bubbles' */ 
 call play_loaded_sound(int 9, int -1, int 46, int 0)
 if(gamevar is_room_cleared)
  {
@@ -143,77 +147,95 @@ var VAR_109 = var VAR_7
 if(var VAR_102 == int 6&&var VAR_102 != var VAR_100)
  {
 		var VAR_100 = var VAR_102
-		var VAR_105 = call play_loaded_sound(int 4, int -1, int 49, int 0)
+		var potbreak_sound_ref = call play_loaded_sound(int 4, int -1, int 49, int 0)
 		var VAR_107 = int 80
 }
 if(var VAR_102 == int 48&&var VAR_102 != var VAR_100)
  {
 		var VAR_100 = var VAR_102
-		var VAR_106 = call play_loaded_sound(int 11, int -1, int 49, int 0)
+		var steplock_sound_ref = call play_loaded_sound(int 11, int -1, int 49, int 0)
 }
 if(var VAR_102 == int 68&&var VAR_102 != var VAR_100)
  {
 		var VAR_100 = var VAR_102
+
+		 /* play the sound 'swrdatt2' */ 
 		call play_loaded_sound(int 12, int 0, int 49, int 0)
 }
 if(var VAR_102 == int 92&&var VAR_102 != var VAR_100)
  {
 		var VAR_100 = var VAR_102
+
+		 /* play the sound 'swrdatt2' */ 
 		call play_loaded_sound(int 12, int 0, int 49, int 0)
 }
 if(var VAR_102 == int 110&&var VAR_102 != var VAR_100)
  {
 		var VAR_100 = var VAR_102
+
+		 /* play the sound 'swrdatt2' */ 
 		call play_loaded_sound(int 12, int 0, int 49, int 0)
 }
 if(var VAR_103 == int 6&&var VAR_103 != var VAR_100)
  {
 		var VAR_100 = var VAR_103
-		var VAR_105 = call play_loaded_sound(int 4, int -1, int 49, int 0)
+		var potbreak_sound_ref = call play_loaded_sound(int 4, int -1, int 49, int 0 /* 'potbreak' */ 
+ /* 'potbreak' */ 
 		var VAR_107 = int 80
 }
 if(var VAR_103 == int 46&&var VAR_103 != var VAR_100)
  {
 		var VAR_100 = var VAR_103
-		var VAR_106 = call play_loaded_sound(int 11, int -1, int 49, int 0)
+		var steplock_sound_ref = call play_loaded_sound(int 11, int -1, int 49, int 0 /* 'steplock' */ 
+ /* 'steplock' */ 
 }
 if(var VAR_103 == int 67&&var VAR_103 != var VAR_100)
  {
 		var VAR_100 = var VAR_103
+
+		 /* play the sound 'swrdatt2' */ 
 		call play_loaded_sound(int 12, int 0, int 49, int 0)
 }
 if(var VAR_103 == int 92&&var VAR_103 != var VAR_100)
  {
 		var VAR_100 = var VAR_103
+
+		 /* play the sound 'swrdatt2' */ 
 		call play_loaded_sound(int 12, int 0, int 49, int 0)
 }
 if(var VAR_103 == int 112&&var VAR_103 != var VAR_100)
  {
 		var VAR_100 = var VAR_103
+
+		 /* play the sound 'swrdatt2' */ 
 		call play_loaded_sound(int 12, int 0, int 49, int 0)
 }
 if(var VAR_102 == int 112&&var VAR_102 != var VAR_100)
  {
 		var VAR_100 = var VAR_102
-		call stop_playing_sound(var VAR_106)
+		call stop_playing_sound(var steplock_sound_ref)
 		var VAR_104 = call play_loaded_sound(var VAR_111, int -1, int 49, int 0)
 }
 if(var VAR_103 == int 111&&var VAR_103 != var VAR_100)
  {
 		var VAR_100 = var VAR_103
-		call stop_playing_sound(var VAR_106)
+		call stop_playing_sound(var steplock_sound_ref)
 		var VAR_104 = call play_loaded_sound(var VAR_111, int -1, int 49, int 0)
 }
 if(var VAR_103 == int 168&&var VAR_103 != var VAR_100)
  {
 		call stop_playing_sound(var VAR_104)
 		var VAR_100 = var VAR_103
+
+		 /* play the sound 'green' */ 
 		call play_loaded_sound(int 2, int 0, int 49, int 0)
 }
 if(var VAR_102 == int 168&&var VAR_102 != var VAR_100)
  {
 		call stop_playing_sound(var VAR_104)
 		var VAR_100 = var VAR_102
+
+		 /* play the sound 'green' */ 
 		call play_loaded_sound(int 2, int 0, int 49, int 0)
 }
 if(var VAR_103 == int 150&&var VAR_103 != var VAR_101)
@@ -228,13 +250,13 @@ if(var VAR_102 == int 150&&var VAR_102 != var VAR_101)
 }
 if(var VAR_108)
  {
-		call set_sound_volume(var VAR_105, var VAR_107)
+		call set_sound_volume(var potbreak_sound_ref, var VAR_107)
 		var VAR_107 -- 
 		if(var VAR_107 < int 0)
 		 {
 				var VAR_101 = int -1
 				var VAR_108 = int 0
-				call stop_playing_sound(var VAR_105)
+				call stop_playing_sound(var potbreak_sound_ref)
 		}
 }
 
@@ -243,12 +265,16 @@ if(gamevar script_time > var VAR_112)
  {
 		var VAR_112 = gamevar script_time + int 70 + call randomize_int(int 0, int 110)
 		var VAR_114 = call randomize_int(int 0, int 3)
+
+		 /* play the sound 'flayamb1' */ 
 		call play_loaded_sound(int 5, int 0, int 46, @VAR_118[var VAR_114])
 }
 if(gamevar script_time > var VAR_113)
  {
 		var VAR_113 = gamevar script_time + int 100 + call randomize_int(int 0, int 200)
 		var VAR_114 = call randomize_int(int 0, int 3)
+
+		 /* play the sound 'torches2' */ 
 		call play_loaded_sound(int 6, int 0, int 46, @VAR_118[var VAR_114])
 }
 
@@ -491,6 +517,8 @@ switch(var VAR_57)
 					 {
 							call play_char_anim(var VAR_62, var jab_anim, int 6)
 					}
+
+					 /* play the sound 'gyro1' */ 
 					call play_loaded_sound(int 13, int 0, int 49, int 0)
 					var VAR_58 = int 0
 					var VAR_57 ++ 
@@ -501,6 +529,8 @@ switch(var VAR_57)
 			var VAR_21 = var VAR_3
 			if(var VAR_58 > int 20)
 			 {
+
+					 /* play the sound 'bloodbnk' */ 
 					call play_loaded_sound(int 5, int 0, int 49, int 0)
 					if(var VAR_66 == int 1&&var VAR_20 == int 0&&var VAR_69 == int 0)
 					 {
@@ -659,6 +689,8 @@ switch(var VAR_57)
 					call func_36(var VAR_61, int -23, int 0, int -2675)
 					call func_36(var VAR_62, int -23, int 0, int -2675)
 					var VAR_5 = int 1
+
+					 /* play the sound 'irislock' */ 
 					call play_loaded_sound(int 8, int 0, int 49, int 0)
 					if(var VAR_63)
 					 {
@@ -671,37 +703,46 @@ switch(var VAR_57)
 			var VAR_22 = var VAR_6
 			if(var VAR_22 == int 20&&var VAR_22 != var VAR_13)
 			 {
+
+					 /* play the sound 'lampshot' */ 
 					call play_loaded_sound(int 9, int 0, int 49, int 0)
 					var VAR_13 = var VAR_22
 			}
 			if(var VAR_22 == int 36&&var VAR_22 != var VAR_13)
 			 {
+
+					 /* play the sound 'irisopen' */ 
 					call play_loaded_sound(int 7, int 0, int 49, int 0)
 					var VAR_13 = var VAR_22
 			}
 			if(var VAR_22 == int 114&&var VAR_22 != var VAR_13)
 			 {
-					var VAR_12 = call play_loaded_sound(int 6, int -1, int 49, int 0)
+					var riselamp_sound_ref = call play_loaded_sound(int 6, int -1, int 49, int 0)
 					var VAR_13 = var VAR_22
 			}
 			if(var VAR_22 == int 148&&var VAR_22 != var VAR_13)
 			 {
+
+					 /* play the sound 'spike5' */ 
 					call play_loaded_sound(int 10, int 0, int 49, int 0)
 					var VAR_13 = var VAR_22
 			}
 			if(var VAR_22 == int 146&&var VAR_22 != var VAR_13)
 			 {
-					call stop_playing_sound(var VAR_12)
+					call stop_playing_sound(var riselamp_sound_ref)
 					var VAR_13 = var VAR_22
 			}
 			if(var VAR_22 == int 160&&var VAR_22 != var VAR_13)
 			 {
-					var VAR_12 = call play_loaded_sound(int 1, int -1, int 49, int 0)
+					var riselamp_sound_ref = call play_loaded_sound(int 1, int -1, int 49, int 0 /* 'spike4' */ 
+ /* 'spike4' */ 
 					var VAR_13 = var VAR_22
 			}
 			if(var VAR_22 == int 224)
 			 {
-					call stop_playing_sound(var VAR_12)
+					call stop_playing_sound(var riselamp_sound_ref)
+
+					 /* play the sound 'green' */ 
 					call play_loaded_sound(int 2, int 0, int 49, int 0)
 					var VAR_5 = int 0
 					var VAR_57 ++ 

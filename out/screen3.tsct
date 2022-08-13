@@ -30,6 +30,8 @@ VAR_49	{ 0, 0 }
 call play_bgm("GNOCVP1")
 execute SCRIPT_4
 call load_sound_set(int 64)
+
+ /* play the sound 'cavelp' */ 
 call play_loaded_sound(int 1, int -1, int 64, int 0)
 if(gamevar is_room_cleared)
  {
@@ -130,6 +132,8 @@ if(gamevar script_time > var VAR_55)
 ._SCRIPT_4
 var VAR_6 = call play_3d_fx("FIRE", var &VAR_5, int 0, int 0)
 call remove_face(var &VAR_5)
+
+ /* play the sound 'frog' */ 
 call play_loaded_sound(int 198, int -1, int 0, var &VAR_5)
 
 ._SCRIPT_5
@@ -138,6 +142,8 @@ if(gamevar *psys_p+1)
  {
 		if(call ! randomize_int(int 0, int 5))
 		 {
+
+				 /* play the sound 'frogs' */ 
 				call play_loaded_sound(int 197, int 0, int 0, var &VAR_5)
 		}
 }
@@ -320,6 +326,8 @@ switch(var VAR_33)
 					call log("Door opened")
 					var VAR_2 = int 1
 					call log("play door sound")
+
+					 /* play the sound 'lforest3' */ 
 					call play_loaded_sound(int 106, int 0, int 0, "")
 					call func_1(var nbuzuki, int 8192)
 					call set_input_system(int 2)

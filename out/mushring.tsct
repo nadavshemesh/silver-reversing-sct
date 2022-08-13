@@ -37,12 +37,14 @@ VAR_57	{ VAR_51, VAR_52, VAR_53, VAR_54, VAR_55, VAR_56 }
 
 ._on_load
 call load_sound_set(int 65)
-var VAR_0 = call play_loaded_sound(int 7, int -1, int 65, int 0)
-if(var VAR_0)
+var dog1_sound_ref = call play_loaded_sound(int 7, int -1, int 65, int 0)
+if(var dog1_sound_ref)
  {
-		call set_sound_volume(var VAR_0, int 5)
+		call set_sound_volume(var dog1_sound_ref, int 5)
 }
 call load_sound_set(int 68)
+
+ /* play the sound 'bird1' */ 
 call play_loaded_sound(int 1, int -1, int 68, var &VAR_2)
 call func_58(int 1)
 if(gamevar room_state == int 0)
@@ -105,10 +107,10 @@ var VAR_44 ++
 if(gamevar script_time > var VAR_49)
  {
 		var VAR_49 = gamevar script_time + int 120 + call randomize_int(int 0, int 60)
-		var VAR_50 = call play_loaded_sound(int 2, int 0, int 65, int 0)
-		if(var VAR_50)
+		var inwindlp_sound_ref = call play_loaded_sound(int 2, int 0, int 65, int 0)
+		if(var inwindlp_sound_ref)
 		 {
-				call set_sound_volume(var VAR_50, int 7)
+				call set_sound_volume(var inwindlp_sound_ref, int 7)
 		}
 }
 

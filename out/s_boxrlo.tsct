@@ -20,6 +20,8 @@ VAR_17	{ VAR_14, VAR_15, VAR_16 }
 
 ._on_load
 call load_sound_set(int 46)
+
+ /* play the sound 'palamb1' */ 
 call play_loaded_sound(int 4, int -1, int 46, int 0)
 if(gamevar is_room_cleared)
  {
@@ -87,12 +89,16 @@ if(gamevar script_time > var VAR_11)
  {
 		var VAR_11 = gamevar script_time + int 70 + call randomize_int(int 0, int 110)
 		var VAR_13 = call randomize_int(int 0, int 3)
+
+		 /* play the sound 'flayamb1' */ 
 		call play_loaded_sound(int 5, int 0, int 46, @VAR_17[var VAR_13])
 }
 if(gamevar script_time > var VAR_12)
  {
 		var VAR_12 = gamevar script_time + int 100 + call randomize_int(int 0, int 200)
 		var VAR_13 = call randomize_int(int 0, int 3)
+
+		 /* play the sound 'torches2' */ 
 		call play_loaded_sound(int 6, int 0, int 46, @VAR_17[var VAR_13])
 }
 

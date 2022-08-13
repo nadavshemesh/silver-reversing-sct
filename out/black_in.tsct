@@ -34,11 +34,15 @@ var mgkair_anim = call load_anim("mgkair")
 call load_sound_set(int 30)
 call load_sound_set(int 0)
 call load_sound_set(int 72)
-var VAR_28 = call play_loaded_sound(int 4, int -1, int 72, int 0)
-call set_sound_volume(var VAR_28, int 30)
+var BLANK_sound_ref = call play_loaded_sound(int 4, int -1, int 72, int 0)
+call set_sound_volume(var BLANK_sound_ref, int 30)
 call load_sound_set(int 64)
+
+ /* play the sound 'cavelp' */ 
 call play_loaded_sound(int 1, int -1, int 64, int 0)
 call load_sound_set(int 65)
+
+ /* play the sound 'in2wind1' */ 
 call play_loaded_sound(int 5, int -1, int 65, int 0)
 gamevar SMACKER_X = int 204
 gamevar SMACKER_Y = int 592
@@ -127,11 +131,11 @@ if(gamevar !is_room_cleared&&var VAR_22 == int 0)
 					if(var VAR_40 < int 0)
 					 {
 							var VAR_19 = int 0
-							call stop_playing_sound(var VAR_14)
+							call stop_playing_sound(var torches2_sound_ref)
 					}
 					if(var VAR_19)
 					 {
-							call set_sound_volume(var VAR_14, var VAR_40)
+							call set_sound_volume(var torches2_sound_ref, var VAR_40)
 					}
 			}
 			var VAR_37 = int 1
@@ -144,7 +148,7 @@ if(gamevar !is_room_cleared&&var VAR_22 == int 0)
 			call set_char_init_state(var SARCHER1, int 0)
 			var deadmous = call add_item_to_char(var SARCHER1, int 45, int 1, int 0)
 			execute SCRIPT_4
-			var VAR_14 = call play_loaded_sound(int 1, int -1, int 30, int 0)
+			var torches2_sound_ref = call play_loaded_sound(int 1, int -1, int 30, int 0)
 			var VAR_15 = int 1
 			if(gamevar zone_under_mouse_type == int 18&&var VAR_22 == int 0)
 			 {
@@ -376,7 +380,8 @@ if(gamevar !is_room_cleared&&var VAR_22 == int 0)
 			}
 			execute SCRIPT_4
 			var VAR_37 = int 1
-			var VAR_14 = call play_loaded_sound(int 1, int -1, int 30, int 0)
+			var torches2_sound_ref = call play_loaded_sound(int 1, int -1, int 30, int 0 /* 'torches2' */ 
+ /* 'torches2' */ 
 			var VAR_15 = int 1
 			execute SCRIPT_5
 			if(gamevar zone_under_mouse_type == int 18&&var VAR_22 == int 0)
@@ -518,16 +523,22 @@ if(gamevar !is_room_cleared&&var VAR_22 == int 0)
 if(gamevar script_time > var VAR_65)
  {
 		var VAR_65 = gamevar script_time + int 70 + call randomize_int(int 0, int 110)
+
+		 /* play the sound 'renddizz' */ 
 		call play_loaded_sound(int 8, int 0, int 72, int 0)
 }
 if(gamevar script_time > var VAR_66)
  {
 		var VAR_66 = gamevar script_time + int 70 + call randomize_int(int 0, int 110)
+
+		 /* play the sound 'metamb1' */ 
 		call play_loaded_sound(int 7, int 0, int 72, int 0)
 }
 if(gamevar script_time > var VAR_67)
  {
 		var VAR_67 = gamevar script_time + int 100 + call randomize_int(int 0, int 50)
+
+		 /* play the sound 'wwindlp' */ 
 		call play_loaded_sound(int 6, int 0, int 65, int 0)
 }
 
@@ -547,11 +558,11 @@ if(var VAR_15)
 		if(var VAR_40 < int 0)
 		 {
 				var VAR_19 = int 0
-				call stop_playing_sound(var VAR_14)
+				call stop_playing_sound(var torches2_sound_ref)
 		}
 		if(var VAR_19)
 		 {
-				call set_sound_volume(var VAR_14, var VAR_40)
+				call set_sound_volume(var torches2_sound_ref, var VAR_40)
 		}
 }
 
@@ -696,7 +707,8 @@ var SARCHER1 = call get_char_handle(int 11010049)
 call set_char_init_state(var SARCHER1, int 0)
 var deadmous = call add_item_to_char(var SARCHER1, int 45, int 1, int 0)
 execute SCRIPT_4
-var VAR_14 = call play_loaded_sound(int 1, int -1, int 30, int 0)
+var torches2_sound_ref = call play_loaded_sound(int 1, int -1, int 30, int 0 /* 'torches2' */ 
+ /* 'torches2' */ 
 var VAR_15 = int 1
 
 ._SCRIPT_8
@@ -806,7 +818,8 @@ var VAR_5 = call func_e8(var &VAR_6, int 0)
 ._SCRIPT_10
 execute SCRIPT_4
 var VAR_37 = int 1
-var VAR_14 = call play_loaded_sound(int 1, int -1, int 30, int 0)
+var torches2_sound_ref = call play_loaded_sound(int 1, int -1, int 30, int 0 /* 'torches2' */ 
+ /* 'torches2' */ 
 var VAR_15 = int 1
 
 ._SCRIPT_11

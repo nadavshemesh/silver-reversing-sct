@@ -26,6 +26,8 @@ VAR_22	{ 0, 0 }
 
 ._on_load
 call load_sound_set(int 66)
+
+ /* play the sound 'in2wind1' */ 
 call play_loaded_sound(int 5, int -1, int 66, int 0)
 call load_sound_set(int 0)
 var VAR_2 = call get_david_char()
@@ -60,6 +62,8 @@ if(var VAR_24)
 		if(var VAR_25 == int 17)
 		 {
 				var VAR_24 = int 0
+
+				 /* play the sound 'lforest3' */ 
 				call play_loaded_sound(int 106, int 0, int 0, "")
 		}
 }
@@ -91,8 +95,8 @@ if(gamevar room_state < int 2)
 if(gamevar script_time > var VAR_31)
  {
 		var VAR_31 = gamevar script_time + int 100 + call randomize_int(int 0, int 50)
-		var VAR_30 = call play_loaded_sound(int 6, int 0, int 66, int 0)
-		call set_sound_volume(var VAR_30, int 30)
+		var wwindlp_sound_ref = call play_loaded_sound(int 6, int 0, int 66, int 0)
+		call set_sound_volume(var wwindlp_sound_ref, int 30)
 }
 
 ._SCRIPT_4

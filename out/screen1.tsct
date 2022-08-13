@@ -22,6 +22,8 @@ VAR_49	{ -485, -600, 7337 }
 ._on_load
 call play_bgm(var &VAR_39)
 call load_sound_set(int 64)
+
+ /* play the sound 'cavelp' */ 
 call play_loaded_sound(int 1, int -1, int 64, int 0)
 execute SCRIPT_8
 switch(gamevar room_state)
@@ -66,15 +68,17 @@ switch(gamevar room_state)
 if(gamevar script_time > var VAR_52)
  {
 		var VAR_52 = gamevar script_time + int 200 + call randomize_int(int 0, int 200)
-		var VAR_50 = call play_loaded_sound(int 5, int 0, int 64, int 0)
-		if(var VAR_50 != int -1)
+		var driphit_sound_ref = call play_loaded_sound(int 5, int 0, int 64, int 0)
+		if(var driphit_sound_ref != int -1)
 		 {
-				call func_fb(var VAR_50, int 22050)
+				call func_fb(var driphit_sound_ref, int 22050)
 		}
 }
 if(gamevar script_time > var VAR_51)
  {
 		var VAR_51 = gamevar script_time + int 100 + call randomize_int(int 0, int 100)
+
+		 /* play the sound 'echdrip1' */ 
 		call play_loaded_sound(int 3, int 0, int 64, int 0)
 }
 

@@ -116,6 +116,8 @@ VAR_254	"twz"
 ._on_load
 gamevar *scene_info_p+4 = int 8
 call load_sound_set(int 46)
+
+ /* play the sound 'palamb1' */ 
 call play_loaded_sound(int 4, int -1, int 46, int 0)
 switch(gamevar room_state)
  {
@@ -177,12 +179,16 @@ if(gamevar script_time > var VAR_248)
  {
 		var VAR_248 = gamevar script_time + int 70 + call randomize_int(int 0, int 110)
 		var VAR_250 = call randomize_int(int 0, int 3)
+
+		 /* play the sound 'flayamb1' */ 
 		call play_loaded_sound(int 5, int 0, int 46, @VAR_254[var VAR_250])
 }
 if(gamevar script_time > var VAR_249)
  {
 		var VAR_249 = gamevar script_time + int 100 + call randomize_int(int 0, int 200)
 		var VAR_250 = call randomize_int(int 0, int 3)
+
+		 /* play the sound 'torches2' */ 
 		call play_loaded_sound(int 6, int 0, int 46, @VAR_254[var VAR_250])
 }
 
@@ -1195,6 +1201,8 @@ switch(var VAR_104)
 			if(call is_local_timer_greater_than(int 2))
 			 {
 					call apply_effect_on_char(gamevar misc_fx_scripts, int 7, int 0, int 0)
+
+					 /* play the sound 'verwind' */ 
 					call play_loaded_sound(int 5, int 0, int 25, int 0)
 					call apply_effect_on_char(gamevar misc_fx_scripts, int 36, call get_char_pos(var silver), int 0)
 					call reset_local_timer()
@@ -1603,8 +1611,8 @@ switch(var VAR_198)
 										gamevar *smack_object_p+2 |= int 10737418
 										var VAR_1 = int 0
 										var VAR_136 = int 1
-										var VAR_199 = call play_loaded_sound(int 2, int -1, int 51, int 0)
-										call set_sound_volume(var VAR_199, int 90)
+										var DoorCls3_sound_ref = call play_loaded_sound(int 2, int -1, int 51, int 0)
+										call set_sound_volume(var DoorCls3_sound_ref, int 90)
 										var VAR_198 ++ 
 								}
 								break 
@@ -1615,15 +1623,16 @@ switch(var VAR_198)
 			var VAR_201 -- 
 			if(var VAR_201 == int 0)
 			 {
-					var VAR_200 = call play_loaded_sound(int 5, int 0, int 22, int 0)
-					call set_sound_volume(var VAR_200, int 60)
+					var firewsh_sound_ref = call play_loaded_sound(int 5, int 0, int 22, int 0)
+					call set_sound_volume(var firewsh_sound_ref, int 60)
 					var VAR_201 = call randomize_int(int 20, int 46)
 			}
 			if(var VAR_136 == int -1)
 			 {
-					call stop_playing_sound(var VAR_199)
-					var VAR_199 = call play_loaded_sound(int 3, int 0, int 51, int 0)
-					call set_sound_volume(var VAR_199, int 90)
+					call stop_playing_sound(var DoorCls3_sound_ref)
+					var DoorCls3_sound_ref = call play_loaded_sound(int 3, int 0, int 51, int 0 /* 'bigfire' */ 
+ /* 'bigfire' */ 
+					call set_sound_volume(var DoorCls3_sound_ref, int 90)
 					var VAR_198 ++ 
 					var VAR_201 = int 0
 			}
@@ -1715,6 +1724,8 @@ var no_anim = call load_anim("no")
 
 ._SCRIPT_17
 call apply_effect_on_char(gamevar misc_fx_scripts, int 7, int 0, int 0)
+
+ /* play the sound 'verwind' */ 
 call play_loaded_sound(int 5, int 0, int 25, int 0)
 call apply_effect_on_char(gamevar misc_fx_scripts, int 15, var &VAR_221, int 0)
 call play_3d_fx("NEMDAVE", var &VAR_221, int 0, int 0)

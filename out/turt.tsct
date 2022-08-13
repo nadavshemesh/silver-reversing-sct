@@ -48,6 +48,8 @@ VAR_49	{ 0, 0 }
 call load_sound_set(int 0)
 call func_58(int 1)
 call load_sound_set(int 65)
+
+ /* play the sound 'dog1' */ 
 call play_loaded_sound(int 7, int -1, int 65, int 0)
 execute SCRIPT_11
 execute SCRIPT_12
@@ -135,16 +137,22 @@ if(gamevar !is_room_cleared)
 if(gamevar script_time > var VAR_52)
  {
 		var VAR_52 = gamevar script_time + int 100 + call randomize_int(int 0, int 100)
+
+		 /* play the sound 'cwindlp' */ 
 		call play_loaded_sound(int 9, int 0, int 65, int 0)
 }
 if(gamevar script_time > var VAR_51)
  {
 		var VAR_51 = gamevar script_time + int 300 + call randomize_int(int 0, int 300)
+
+		 /* play the sound 'hwave1' */ 
 		call play_loaded_sound(int 8, int 0, int 65, int 0)
 }
 if(gamevar script_time > var VAR_50)
  {
 		var VAR_50 = gamevar script_time + int 60 + call randomize_int(int 0, int 60)
+
+		 /* play the sound 'inwindlp' */ 
 		call play_loaded_sound(int 2, int 0, int 65, int 0)
 }
 

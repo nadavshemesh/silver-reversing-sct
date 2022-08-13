@@ -32,6 +32,8 @@ execute SCRIPT_10
 call load_sound_set(int 16)
 call load_sound_set(int 1)
 call load_sound_set(int 65)
+
+ /* play the sound 'in2wind1' */ 
 call play_loaded_sound(int 5, int -1, int 65, int 0)
 switch(gamevar room_state)
  {
@@ -68,6 +70,8 @@ switch(gamevar room_state)
 if(gamevar script_time > var VAR_60)
  {
 		var VAR_60 = gamevar script_time + int 100 + call randomize_int(int 0, int 50)
+
+		 /* play the sound 'wwindlp' */ 
 		call play_loaded_sound(int 6, int 0, int 65, int 0)
 }
 

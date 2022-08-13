@@ -116,7 +116,7 @@ switch(var VAR_119)
 ._SCRIPT_4
 var VAR_67 = call func_9a(var &VAR_64, int 1, int 0, int 0)
 var victory_anim = call load_anim("victory")
-var VAR_69 = call play_loaded_sound(int 2, int -1, int 16, int 0)
+var Magic666_sound_ref = call play_loaded_sound(int 2, int -1, int 16, int 0)
 gamevar items_in_drag_box = int 0
 execute SCRIPT_11
 call load_char("chronicl")
@@ -130,7 +130,8 @@ switch(var VAR_123)
 ._SCRIPT_6
 var VAR_67 = call func_af(int 1)
 var victory_anim = call load_anim("victory")
-var VAR_69 = call play_loaded_sound(int 2, int -1, int 16, int 0)
+var Magic666_sound_ref = call play_loaded_sound(int 2, int -1, int 16, int 0 /* 'Magic666' */ 
+ /* 'Magic666' */ 
 gamevar items_in_drag_box = int 0
 execute SCRIPT_11
 call load_char("chronicl")
@@ -145,6 +146,8 @@ call load_char("stipe")
 ._SCRIPT_10
 call load_sound_set(int 16)
 call load_sound_set(int 65)
+
+ /* play the sound 'inwind1' */ 
 call play_loaded_sound(int 3, int -1, int 65, int 0)
 
 ._SCRIPT_11
@@ -184,8 +187,9 @@ switch(var VAR_73)
 			 {
 					var VAR_51 = int 1
 					call set_input_system(int 2)
-					call stop_playing_sound(var VAR_69)
-					var VAR_69 = call play_loaded_sound(int 3, int -1, int 16, int 0)
+					call stop_playing_sound(var Magic666_sound_ref)
+					var Magic666_sound_ref = call play_loaded_sound(int 3, int -1, int 16, int 0 /* 'wetwheel' */ 
+ /* 'wetwheel' */ 
 					call char_turn_to_pos(gamevar control_char_p, var &VAR_64)
 					call func_9b(var VAR_67, var &VAR_65, int 10737418)
 					if(call func_c0(int 1001, "gno", "entrance"))
@@ -259,7 +263,7 @@ switch(var VAR_73)
 			if(call func_38(var VAR_67, int 0))
 			 {
 					call func_ca(gamevar control_char_p, var VAR_67, int 0)
-					call stop_playing_sound(var VAR_69)
+					call stop_playing_sound(var Magic666_sound_ref)
 					var VAR_73 ++ 
 					var VAR_74 = int 0
 			}

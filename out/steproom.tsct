@@ -40,16 +40,20 @@ VAR_46	{ 0, 0, 0, 1, -1, 8, 1, 19, 1070, -2275, 7082, 12, 51, 51, -1, 13, 0, 14,
 ._on_load
 execute SCRIPT_3
 call load_sound_set(int 30)
+
+ /* play the sound 'torches2' */ 
 call play_loaded_sound(int 1, int -1, int 30, int 0)
 call load_sound_set(int 64)
-var VAR_0 = call play_loaded_sound(int 1, int -1, int 64, int 0)
-if(var VAR_0)
+var cavelp_sound_ref = call play_loaded_sound(int 1, int -1, int 64, int 0)
+if(var cavelp_sound_ref)
  {
-		call set_sound_volume(var VAR_0, int 14)
+		call set_sound_volume(var cavelp_sound_ref, int 14)
 }
 call load_sound_set(int 65)
+
+ /* play the sound 'in2wind1' */ 
 call play_loaded_sound(int 5, int -1, int 65, int 0)
-call load_item(int 94 /* trident */ )
+call load_item(int 94)
 if(gamevar is_room_cleared)
  {
 		execute SCRIPT_10
@@ -261,10 +265,14 @@ call run_wandering_generator(var &VAR_46, int 70)
 if(gamevar script_time > var VAR_47)
  {
 		var VAR_47 = gamevar script_time + int 20 + call randomize_int(int 0, int 100)
+
+		 /* play the sound 'echdrip1' */ 
 		call play_loaded_sound(int 3, int 0, int 64, int 0)
 }
 if(gamevar script_time > var VAR_48)
  {
 		var VAR_48 = gamevar script_time + int 100 + call randomize_int(int 0, int 50)
+
+		 /* play the sound 'wwindlp' */ 
 		call play_loaded_sound(int 6, int 0, int 65, int 0)
 }

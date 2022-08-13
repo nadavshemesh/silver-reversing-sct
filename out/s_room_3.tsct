@@ -47,9 +47,15 @@ VAR_54	{ VAR_51, VAR_52, VAR_53 }
 execute SCRIPT_9
 call remove_face(var &VAR_0)
 call load_sound_set(int 47)
+
+ /* play the sound 'chain1' */ 
 call play_loaded_sound(int 1, int -1, int 47, int 0)
+
+ /* play the sound 'fountain' */ 
 call play_loaded_sound(int 4, int -1, int 47, var &VAR_0)
 call load_sound_set(int 46)
+
+ /* play the sound 'palamb1' */ 
 call play_loaded_sound(int 4, int -1, int 46, int 0)
 if(gamevar is_room_cleared)
  {
@@ -114,12 +120,16 @@ if(gamevar script_time > var VAR_48)
  {
 		var VAR_48 = gamevar script_time + int 70 + call randomize_int(int 0, int 110)
 		var VAR_50 = call randomize_int(int 0, int 3)
+
+		 /* play the sound 'flayamb1' */ 
 		call play_loaded_sound(int 5, int 0, int 46, @VAR_54[var VAR_50])
 }
 if(gamevar script_time > var VAR_49)
  {
 		var VAR_49 = gamevar script_time + int 100 + call randomize_int(int 0, int 200)
 		var VAR_50 = call randomize_int(int 0, int 3)
+
+		 /* play the sound 'torches2' */ 
 		call play_loaded_sound(int 6, int 0, int 46, @VAR_54[var VAR_50])
 }
 

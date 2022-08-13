@@ -27,12 +27,14 @@ VAR_29	{ 0, 1, 7, VAR_28, 8, 1, 19, 1070, -2275, 7082, 12, 147, 147, 150, -1, 13
 ._on_load
 call load_item(int 94 /* trident */ )
 call load_sound_set(int 64)
-var VAR_0 = call play_loaded_sound(int 1, int -1, int 64, int 0)
-if(var VAR_0)
+var cavelp_sound_ref = call play_loaded_sound(int 1, int -1, int 64, int 0)
+if(var cavelp_sound_ref)
  {
-		call set_sound_volume(var VAR_0, int 14)
+		call set_sound_volume(var cavelp_sound_ref, int 14)
 }
 call load_sound_set(int 65)
+
+ /* play the sound 'in2wind1' */ 
 call play_loaded_sound(int 5, int -1, int 65, int 0)
 gamevar SMACKER_X = int 240
 gamevar SMACKER_Y = int 8
@@ -43,7 +45,7 @@ call play_2d_anim("candle02", int 1, int 1, int 0)
 gamevar SMACKER_X = int 400
 gamevar SMACKER_Y = int 296
 call play_2d_anim("candle03", int 1, int 1, int 0)
-call load_item(int 94 /* trident */ )
+call load_item(int 94)
 switch(gamevar room_state)
  {
 		case 1
@@ -195,5 +197,7 @@ call run_wandering_generator(var &VAR_27, int 100)
 if(gamevar script_time > var VAR_30)
  {
 		var VAR_30 = gamevar script_time + int 100 + call randomize_int(int 0, int 50)
+
+		 /* play the sound 'wwindlp' */ 
 		call play_loaded_sound(int 6, int 0, int 65, int 0)
 }

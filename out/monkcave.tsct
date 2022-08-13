@@ -27,16 +27,18 @@ VAR_119	-1
 execute SCRIPT_3
 execute SCRIPT_4
 call load_sound_set(int 30)
+
+ /* play the sound 'torches2' */ 
 call play_loaded_sound(int 1, int -1, int 30, int 0)
 call load_sound_set(int 64)
-var VAR_50 = call play_loaded_sound(int 1, int -1, int 64, int 0)
-call set_sound_volume(var VAR_50, int 25)
+var cavelp_sound_ref = call play_loaded_sound(int 1, int -1, int 64, int 0)
+call set_sound_volume(var cavelp_sound_ref, int 25)
 call load_sound_set(int 59)
-var VAR_51 = call play_loaded_sound(int 2, int -1, int 59, int 0)
-call set_sound_volume(var VAR_51, int 12)
+var bird1_sound_ref = call play_loaded_sound(int 2, int -1, int 59, int 0)
+call set_sound_volume(var bird1_sound_ref, int 12)
 call load_sound_set(int 65)
-var VAR_52 = call play_loaded_sound(int 7, int -1, int 65, int 0)
-call set_sound_volume(var VAR_52, int 7)
+var dog1_sound_ref = call play_loaded_sound(int 7, int -1, int 65, int 0)
+call set_sound_volume(var dog1_sound_ref, int 7)
 execute SCRIPT_17
 if(gamevar is_room_cleared)
  {
@@ -690,15 +692,15 @@ if(gamevar script_time > var VAR_157)
 if(gamevar script_time > var VAR_156)
  {
 		var VAR_156 = gamevar script_time + int 120 + call randomize_int(int 0, int 60)
-		var VAR_153 = call play_loaded_sound(int 2, int 0, int 65, int 0)
-		if(var VAR_153)
+		var inwindlp_sound_ref = call play_loaded_sound(int 2, int 0, int 65, int 0)
+		if(var inwindlp_sound_ref)
 		 {
-				call set_sound_volume(var VAR_153, int 9)
+				call set_sound_volume(var inwindlp_sound_ref, int 9)
 		}
 }
 
 ._SCRIPT_17
-if(call ! is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
+if(call ! is_char_handle_in_level(int 6291456))
  {
 		exit_script 
 }

@@ -19,10 +19,10 @@ VAR_13	{ -867, 1420, 4400 }
 call func_58(int 1)
 call load_sound_set(int 46)
 call load_sound_set(int 68)
-var VAR_0 = call play_loaded_sound(int 1, int -1, int 68, int 0)
-call set_sound_volume(var VAR_0, int 19)
-var VAR_1 = call play_loaded_sound(int 3, int -1, int 46, int 0)
-call set_sound_volume(var VAR_1, int 20)
+var bird1_sound_ref = call play_loaded_sound(int 1, int -1, int 68, int 0)
+call set_sound_volume(var bird1_sound_ref, int 19)
+var palhum_sound_ref = call play_loaded_sound(int 3, int -1, int 46, int 0)
+call set_sound_volume(var palhum_sound_ref, int 20)
 if(gamevar is_room_cleared)
  {
 		execute SCRIPT_5

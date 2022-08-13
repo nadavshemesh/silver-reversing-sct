@@ -27,8 +27,12 @@ VAR_20	{ 0, 1, 1, VAR_19, 8, 2, 4, 0, 9, 1, 1, 3, 47, 47, 47, 47, 47, 47, -1, 5,
 call play_bgm("METALON")
 call load_sound_set(int 72)
 call load_sound_set(int 64)
+
+ /* play the sound 'cavelp' */ 
 call play_loaded_sound(int 1, int -1, int 64, int 0)
 call load_sound_set(int 65)
+
+ /* play the sound 'in2wind1' */ 
 call play_loaded_sound(int 5, int -1, int 65, int 0)
 if(gamevar is_room_cleared)
  {
@@ -88,11 +92,15 @@ if(gamevar !is_room_cleared)
 if(gamevar script_time > var VAR_30)
  {
 		var VAR_30 = gamevar script_time + int 70 + call randomize_int(int 0, int 110)
+
+		 /* play the sound 'renddizz' */ 
 		call play_loaded_sound(int 8, int 0, int 72, int 0)
 }
 if(gamevar script_time > var VAR_31)
  {
 		var VAR_31 = gamevar script_time + int 100 + call randomize_int(int 0, int 50)
+
+		 /* play the sound 'wwindlp' */ 
 		call play_loaded_sound(int 6, int 0, int 65, int 0)
 }
 

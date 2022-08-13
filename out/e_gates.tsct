@@ -33,10 +33,10 @@ VAR_44	4
 
 ._on_load
 call load_sound_set(int 75)
-var VAR_3 = call play_loaded_sound(int 1, int -1, int 75, int 0)
-call set_sound_volume(var VAR_3, int 120)
-var VAR_4 = call play_loaded_sound(int 2, int -1, int 75, int 0)
-call set_sound_volume(var VAR_4, int 120)
+var rumble2_sound_ref = call play_loaded_sound(int 1, int -1, int 75, int 0)
+call set_sound_volume(var rumble2_sound_ref, int 120)
+var rockbit1_sound_ref = call play_loaded_sound(int 2, int -1, int 75, int 0)
+call set_sound_volume(var rockbit1_sound_ref, int 120)
 if(gamevar room_state == int 0)
  {
 		exit_script 
@@ -200,24 +200,28 @@ if(var VAR_28 != var VAR_27)
 		switch(var VAR_27)
 		 {
 				case 30
-					var VAR_29 = call play_loaded_sound(int 22, int 0, int 75, int 0)
-					call set_sound_volume(var VAR_29, var VAR_30)
+					var rocks18_sound_ref = call play_loaded_sound(int 22, int 0, int 75, int 0)
+					call set_sound_volume(var rocks18_sound_ref, var VAR_30)
 					break 
 				case 31
-					var VAR_29 = call play_loaded_sound(int 8, int 0, int 75, int 0)
-					call set_sound_volume(var VAR_29, var VAR_30)
+					var rocks18_sound_ref = call play_loaded_sound(int 8, int 0, int 75, int 0 /* 'rocks4' */ 
+ /* 'rocks4' */ 
+					call set_sound_volume(var rocks18_sound_ref, var VAR_30)
 					break 
 				case 107
-					var VAR_29 = call play_loaded_sound(int 13, int 0, int 75, int 0)
-					call set_sound_volume(var VAR_29, var VAR_30)
+					var rocks18_sound_ref = call play_loaded_sound(int 13, int 0, int 75, int 0 /* 'rocks9' */ 
+ /* 'rocks9' */ 
+					call set_sound_volume(var rocks18_sound_ref, var VAR_30)
 					break 
 				case 120
-					var VAR_29 = call play_loaded_sound(int 4, int 0, int 75, int 0)
-					call set_sound_volume(var VAR_29, var VAR_30)
+					var rocks18_sound_ref = call play_loaded_sound(int 4, int 0, int 75, int 0 /* 'rockbit3' */ 
+ /* 'rockbit3' */ 
+					call set_sound_volume(var rocks18_sound_ref, var VAR_30)
 					break 
 				case 171
-					var VAR_29 = call play_loaded_sound(int 12, int 0, int 75, int 0)
-					call set_sound_volume(var VAR_29, int 100)
+					var rocks18_sound_ref = call play_loaded_sound(int 12, int 0, int 75, int 0 /* 'rocks8' */ 
+ /* 'rocks8' */ 
+					call set_sound_volume(var rocks18_sound_ref, int 100)
 					break 
 		}
 }

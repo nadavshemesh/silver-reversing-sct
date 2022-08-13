@@ -27,11 +27,15 @@ gamevar SMACKER_X = int 8
 gamevar SMACKER_Y = int 32
 call play_2d_anim("torch01", int 1, int 1, var &VAR_1)
 call load_sound_set(int 30)
-var VAR_2 = call play_loaded_sound(int 1, int -1, int 30, int 0)
-call set_sound_volume(var VAR_2, int 64)
+var torches2_sound_ref = call play_loaded_sound(int 1, int -1, int 30, int 0)
+call set_sound_volume(var torches2_sound_ref, int 64)
 call load_sound_set(int 64)
+
+ /* play the sound 'cavelp' */ 
 call play_loaded_sound(int 1, int -1, int 64, int 0)
 call load_sound_set(int 65)
+
+ /* play the sound 'cwind1' */ 
 call play_loaded_sound(int 1, int -1, int 65, int 0)
 switch(gamevar room_state)
  {
@@ -101,6 +105,6 @@ if(call is_char_handle_in_level(int 10551297))
 if(gamevar script_time > var VAR_15)
  {
 		var VAR_15 = gamevar script_time + int 60 + call randomize_int(int 0, int 60)
-		var VAR_14 = call play_loaded_sound(int 2, int 0, int 65, int 0)
-		call set_sound_volume(var VAR_14, int 30)
+		var inwindlp_sound_ref = call play_loaded_sound(int 2, int 0, int 65, int 0)
+		call set_sound_volume(var inwindlp_sound_ref, int 30)
 }

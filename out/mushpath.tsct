@@ -49,10 +49,12 @@ if(call play_bgm("VERDANTE"))
 call load_sound_set(int 3)
 call load_sound_set(int 68)
 call load_sound_set(int 17)
-var VAR_4 = call play_loaded_sound(int 8, int -1, int 17, int 0)
-call set_sound_volume(var VAR_4, int 11)
+var wdoor2_sound_ref = call play_loaded_sound(int 8, int -1, int 17, int 0)
+call set_sound_volume(var wdoor2_sound_ref, int 11)
 var hgull1_sound_ref = call play_loaded_sound(int 7, int -1, int 3, int 0)
 call set_sound_volume(var hgull1_sound_ref, int 6)
+
+ /* play the sound 'bird1' */ 
 call play_loaded_sound(int 1, int -1, int 68, var &VAR_3)
 if(gamevar is_room_cleared)
  {

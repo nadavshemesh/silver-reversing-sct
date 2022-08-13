@@ -24,12 +24,14 @@ VAR_27	{ 0, 0, 0, 1, 2, -1, 8, 0, 12, 78, 78, 76, 77, -1, 13, 1, 14, 0, 1, 2, 5,
 ._on_load
 call load_sound_set(int 9)
 call load_sound_set(int 65)
+
+ /* play the sound 'in2wind1' */ 
 call play_loaded_sound(int 5, int -1, int 65, int 0)
 call load_sound_set(int 25)
-var VAR_1 = call play_loaded_sound(int 3, int -1, int 25, int 0)
-call set_sound_volume(var VAR_1, int 25)
-var VAR_2 = call play_loaded_sound(int 1, int -1, int 25, int 0)
-call set_sound_volume(var VAR_2, int 12)
+var thunrumb_sound_ref = call play_loaded_sound(int 3, int -1, int 25, int 0)
+call set_sound_volume(var thunrumb_sound_ref, int 25)
+var blank_sound_ref = call play_loaded_sound(int 1, int -1, int 25, int 0)
+call set_sound_volume(var blank_sound_ref, int 12)
 if(gamevar is_room_cleared)
  {
 		execute SCRIPT_8
@@ -95,6 +97,8 @@ if(gamevar !is_room_cleared)
 if(gamevar script_time > var VAR_28)
  {
 		var VAR_28 = gamevar script_time + int 100 + call randomize_int(int 0, int 50)
+
+		 /* play the sound 'wwindlp' */ 
 		call play_loaded_sound(int 6, int 0, int 65, int 0)
 }
 
@@ -108,6 +112,8 @@ if(var ! VAR_0)
 		 {
 				call log("open door")
 				var VAR_3 = int 1
+
+				 /* play the sound 'dwavesLp' */ 
 				call play_loaded_sound(int 10, int 0, int 9, int 0)
 				var VAR_0 = int 1
 		}
@@ -169,6 +175,8 @@ if(var ! VAR_0)
 		 {
 				call log("open door")
 				var VAR_3 = int 1
+
+				 /* play the sound 'dwavesLp' */ 
 				call play_loaded_sound(int 10, int 0, int 9, int 0)
 				var VAR_0 = int 1
 		}

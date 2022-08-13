@@ -48,7 +48,11 @@ else
 		}
 }
 call load_sound_set(int 46)
+
+ /* play the sound 'palhum' */ 
 call play_loaded_sound(int 3, int -1, int 46, int 0)
+
+ /* play the sound 'piston' */ 
 call play_loaded_sound(int 8, int -1, int 46, var &VAR_0)
 
 ._infinite_loop
@@ -103,6 +107,8 @@ call play_2d_anim("s_gatops", int -2147483, int 0, var &VAR_4)
 if(gamevar script_time > var VAR_34)
  {
 		var VAR_34 = gamevar script_time + int 60 + call randomize_int(int 0, int 40)
+
+		 /* play the sound 'cricklp' */ 
 		call play_loaded_sound(int 2, int 0, int 46, int 0)
 }
 
@@ -214,12 +220,14 @@ if(var VAR_1)
 		 {
 				var VAR_10 = int 0
 		}
-		call set_sound_volume(var VAR_9, var VAR_10)
+		call set_sound_volume(var torches2_sound_ref, var VAR_10)
 		if(var VAR_20 == int 19)
 		 {
 				var VAR_1 = int 0
-				call stop_playing_sound(var VAR_9)
+				call stop_playing_sound(var torches2_sound_ref)
 				var VAR_4 = int 1
+
+				 /* play the sound 'swamp1' */ 
 				call play_loaded_sound(int 1, int 0, int 46, int 0)
 				call func_4e(int 0)
 		}
@@ -227,7 +235,7 @@ if(var VAR_1)
 
 ._SCRIPT_6
 call load_sound_set(int 30)
-var VAR_9 = call play_loaded_sound(int 1, int -1, int 30, int 0)
+var torches2_sound_ref = call play_loaded_sound(int 1, int -1, int 30, int 0)
 execute SCRIPT_3
 var VAR_3 = int 1
 var sguard = call create_enemy(int 34, int 0, var &VAR_12, int 325)

@@ -81,10 +81,10 @@ if(var VAR_62)
 		if(var VAR_63 == int 88)
 		 {
 				var VAR_62 = int 0
-				call stop_playing_sound(var VAR_59)
+				call stop_playing_sound(var DoorCls3_sound_ref)
 				call log("stop playing the portcullis sound")
-				var VAR_61 = call play_loaded_sound(int 3, int 0, int 51, int 0)
-				call set_sound_volume(var VAR_61, int 40)
+				var bigfire_sound_ref = call play_loaded_sound(int 3, int 0, int 51, int 0)
+				call set_sound_volume(var bigfire_sound_ref, int 40)
 		}
 }
 
@@ -337,11 +337,11 @@ if(var VAR_87 == int 5)
 		var VAR_57 = int 1
 		var hoot_sound_ref = call play_loaded_sound(int 1, int 0, int 1, int 0)
 		call set_sound_volume(var hoot_sound_ref, int 40)
-		var VAR_59 = call play_loaded_sound(int 2, int -1, int 51, int 0)
-		if(var VAR_59 != int -1)
+		var DoorCls3_sound_ref = call play_loaded_sound(int 2, int -1, int 51, int 0)
+		if(var DoorCls3_sound_ref != int -1)
 		 {
-				call func_fb(var VAR_59, int 29050)
-				call set_sound_volume(var VAR_59, int 50)
+				call func_fb(var DoorCls3_sound_ref, int 29050)
+				call set_sound_volume(var DoorCls3_sound_ref, int 50)
 		}
 		call func_40(int 1, int 4, int 0, int 100)
 		var VAR_62 = int 1
@@ -350,6 +350,8 @@ if(var VAR_87 == int 5)
 }
 if(var VAR_72 == int 1&&var VAR_73 == int 15)
  {
+
+		 /* play the sound 'rainhorn' */ 
 		call play_loaded_sound(int 1, int 0, int 14, "")
 }
 
@@ -406,6 +408,8 @@ if(var VAR_106 == int 3)
 }
 if(var VAR_72 == int 1&&var VAR_73 == int 15)
  {
+
+		 /* play the sound 'rainhorn' */ 
 		call play_loaded_sound(int 1, int 0, int 14, int 0)
 }
 
@@ -620,10 +624,12 @@ switch(var VAR_26)
 
 ._SCRIPT_20
 call load_sound_set(int 25)
+
+ /* play the sound 'blank' */ 
 call play_loaded_sound(int 1, int -1, int 25, int 0)
-var VAR_41 = call play_loaded_sound(int 3, int -1, int 25, int 0)
+var thunrumb_sound_ref = call play_loaded_sound(int 3, int -1, int 25, int 0)
 var VAR_40 = int 70
-call set_sound_volume(var VAR_41, var VAR_40)
+call set_sound_volume(var thunrumb_sound_ref, var VAR_40)
 var VAR_39 = int 1
 
 ._SCRIPT_21
@@ -649,7 +655,7 @@ switch(var VAR_43)
 					if(var VAR_46 == int 0)
 					 {
 							var VAR_40 += var VAR_45
-							call set_sound_volume(var VAR_41, var VAR_40)
+							call set_sound_volume(var thunrumb_sound_ref, var VAR_40)
 					}
 			}
 			else
@@ -672,7 +678,7 @@ switch(var VAR_43)
 					if(var VAR_46)
 					 {
 							var VAR_40 -= var VAR_45
-							call set_sound_volume(var VAR_41, var VAR_40)
+							call set_sound_volume(var thunrumb_sound_ref, var VAR_40)
 					}
 			}
 			else
@@ -698,9 +704,9 @@ switch(var VAR_48)
 		case 1
 			if(var VAR_49 > var VAR_50)
 			 {
-					var VAR_51 = call play_loaded_sound(int 4, int 0, int 25, int 0)
-					call set_sound_volume(var VAR_51, call randomize_int(int 100, int 201))
-					call func_11a(var VAR_51, call randomize_int(int 0, int 128))
+					var thunstrk_sound_ref = call play_loaded_sound(int 4, int 0, int 25, int 0)
+					call set_sound_volume(var thunstrk_sound_ref, call randomize_int(int 100, int 201))
+					call func_11a(var thunstrk_sound_ref, call randomize_int(int 0, int 128))
 					if(var ! VAR_42)
 					 {
 							var VAR_42 = int 1
@@ -749,8 +755,8 @@ switch(var VAR_52)
 			if(call is_local_timer_greater_than(var VAR_55))
 			 {
 					var VAR_56 -= int 4 * var VAR_55
-					var VAR_54 = call play_loaded_sound(int 5, int 0, int 25, int 0)
-					call set_sound_volume(var VAR_54, var VAR_56)
+					var verwind_sound_ref = call play_loaded_sound(int 5, int 0, int 25, int 0)
+					call set_sound_volume(var verwind_sound_ref, var VAR_56)
 					var VAR_55 = int 255 - var VAR_56
 					var VAR_53 = int 0
 					var VAR_52 ++ 
@@ -759,8 +765,9 @@ switch(var VAR_52)
 		case 4
 			if(var VAR_53 > var VAR_55)
 			 {
-					var VAR_54 = call play_loaded_sound(int 4, int 0, int 25, int 0)
-					call set_sound_volume(var VAR_54, var VAR_56)
+					var verwind_sound_ref = call play_loaded_sound(int 4, int 0, int 25, int 0 /* 'thunstrk' */ 
+ /* 'thunstrk' */ 
+					call set_sound_volume(var verwind_sound_ref, var VAR_56)
 					if(var ! VAR_42)
 					 {
 							var VAR_42 = int 1

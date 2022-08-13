@@ -31,14 +31,18 @@ VAR_65	{ 0, 1, 1, VAR_64, 8, 1, 19, -4605, 806, 9990, 12, 78, 77, 77, 78, -1, 13
 ._on_load
 execute SCRIPT_9
 call load_sound_set(int 65)
+
+ /* play the sound 'in2wind1' */ 
 call play_loaded_sound(int 5, int -1, int 65, int 0)
 call load_sound_set(int 30)
+
+ /* play the sound 'torches2' */ 
 call play_loaded_sound(int 1, int -1, int 30, int 0)
 call load_sound_set(int 25)
-var VAR_18 = call play_loaded_sound(int 3, int -1, int 25, int 0)
-call set_sound_volume(var VAR_18, int 35)
-var VAR_19 = call play_loaded_sound(int 1, int -1, int 25, int 0)
-call set_sound_volume(var VAR_19, int 19)
+var thunrumb_sound_ref = call play_loaded_sound(int 3, int -1, int 25, int 0)
+call set_sound_volume(var thunrumb_sound_ref, int 35)
+var blank_sound_ref = call play_loaded_sound(int 1, int -1, int 25, int 0)
+call set_sound_volume(var blank_sound_ref, int 19)
 if(gamevar is_room_cleared)
  {
 		execute SCRIPT_8
@@ -101,6 +105,8 @@ if(gamevar !is_room_cleared)
 if(gamevar script_time > var VAR_66)
  {
 		var VAR_66 = gamevar script_time + int 100 + call randomize_int(int 0, int 50)
+
+		 /* play the sound 'wwindlp' */ 
 		call play_loaded_sound(int 6, int 0, int 65, int 0)
 }
 
@@ -156,7 +162,7 @@ switch(var VAR_48)
 ._SCRIPT_5
 call set_input_system(int 2)
 call load_sound_set(int 30)
-var VAR_28 = call play_loaded_sound(int 1, int -1, int 30, int 0)
+var torches21_sound_ref = call play_loaded_sound(int 1, int -1, int 30, int 0)
 var fkhan = call create_char("Tõÿÿ&", "fkhan", int 260, int 13)
 call add_item_to_char(var fkhan, int 53, int 1, int 1)
 call add_item_to_char(var fkhan, int 22, int 1, int 1)
@@ -228,10 +234,12 @@ execute SCRIPT_11
 
 ._SCRIPT_11
 call load_sound_set(int 25)
+
+ /* play the sound 'blank' */ 
 call play_loaded_sound(int 1, int -1, int 25, int 0)
-var VAR_2 = call play_loaded_sound(int 3, int -1, int 25, int 0)
+var thunrumb1_sound_ref = call play_loaded_sound(int 3, int -1, int 25, int 0)
 var VAR_1 = int 70
-call set_sound_volume(var VAR_2, var VAR_1)
+call set_sound_volume(var thunrumb1_sound_ref, var VAR_1)
 var VAR_0 = int 1
 
 ._SCRIPT_12
@@ -257,7 +265,7 @@ switch(var VAR_4)
 					if(var VAR_7 == int 0)
 					 {
 							var VAR_1 += var VAR_6
-							call set_sound_volume(var VAR_2, var VAR_1)
+							call set_sound_volume(var thunrumb1_sound_ref, var VAR_1)
 					}
 			}
 			else
@@ -280,7 +288,7 @@ switch(var VAR_4)
 					if(var VAR_7)
 					 {
 							var VAR_1 -= var VAR_6
-							call set_sound_volume(var VAR_2, var VAR_1)
+							call set_sound_volume(var thunrumb1_sound_ref, var VAR_1)
 					}
 			}
 			else
@@ -306,9 +314,9 @@ switch(var VAR_9)
 		case 1
 			if(var VAR_10 > var VAR_11)
 			 {
-					var VAR_12 = call play_loaded_sound(int 4, int 0, int 25, int 0)
-					call set_sound_volume(var VAR_12, call randomize_int(int 100, int 201))
-					call func_11a(var VAR_12, call randomize_int(int 0, int 128))
+					var thunstrk_sound_ref = call play_loaded_sound(int 4, int 0, int 25, int 0)
+					call set_sound_volume(var thunstrk_sound_ref, call randomize_int(int 100, int 201))
+					call func_11a(var thunstrk_sound_ref, call randomize_int(int 0, int 128))
 					if(var ! VAR_3)
 					 {
 							var VAR_3 = int 1
@@ -357,8 +365,8 @@ switch(var VAR_13)
 			if(call is_local_timer_greater_than(var VAR_16))
 			 {
 					var VAR_17 -= int 4 * var VAR_16
-					var VAR_15 = call play_loaded_sound(int 5, int 0, int 25, int 0)
-					call set_sound_volume(var VAR_15, var VAR_17)
+					var verwind_sound_ref = call play_loaded_sound(int 5, int 0, int 25, int 0)
+					call set_sound_volume(var verwind_sound_ref, var VAR_17)
 					var VAR_16 = int 255 - var VAR_17
 					var VAR_14 = int 0
 					var VAR_13 ++ 
@@ -367,8 +375,9 @@ switch(var VAR_13)
 		case 4
 			if(var VAR_14 > var VAR_16)
 			 {
-					var VAR_15 = call play_loaded_sound(int 4, int 0, int 25, int 0)
-					call set_sound_volume(var VAR_15, var VAR_17)
+					var verwind_sound_ref = call play_loaded_sound(int 4, int 0, int 25, int 0 /* 'thunstrk' */ 
+ /* 'thunstrk' */ 
+					call set_sound_volume(var verwind_sound_ref, var VAR_17)
 					if(var ! VAR_3)
 					 {
 							var VAR_3 = int 1

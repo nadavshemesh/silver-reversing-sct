@@ -165,6 +165,8 @@ switch(var VAR_24)
 			}
 			if(var VAR_25 > int 15)
 			 {
+
+					 /* play the sound 'teleport' */ 
 					call play_loaded_sound(int 3, int 0, int 20, int 0)
 					var VAR_24 ++ 
 					var VAR_25 = int 0
@@ -297,6 +299,8 @@ switch(var VAR_24)
 					var VAR_0 = int 1
 					var VAR_25 = int 0
 					var VAR_24 ++ 
+
+					 /* play the sound 'teleport' */ 
 					call play_loaded_sound(int 3, int 0, int 20, int 0)
 					var VAR_27 = call run_enemy_generator(var &VAR_70, int 20)
 			}
@@ -442,6 +446,8 @@ if(gamevar global_collision_type == int 18)
  {
 		gamevar global_collision_type = int 0
 		call log("HIT THE GONG")
+
+		 /* play the sound 'teleport' */ 
 		call play_loaded_sound(int 3, int 0, int 20, int 0)
 		var VAR_12 = call randomize_int(int 0, int 2)
 		if(call get_num_of_enemies() == int 0)

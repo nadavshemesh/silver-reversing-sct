@@ -65,7 +65,11 @@ execute SCRIPT_14
 execute SCRIPT_18
 execute SCRIPT_3
 call load_sound_set(int 31)
+
+ /* play the sound 'WDoor2' */ 
 call play_loaded_sound(int 1, int -1, int 31, int 0)
+
+ /* play the sound 'frog' */ 
 call play_loaded_sound(int 198, int -1, int 0, var &VAR_67)
 if(call func_82("rain", "tavern02") != int 1)
  {
@@ -909,6 +913,8 @@ switch(var VAR_47)
 		case 102
 			if(call is_char_standing(var ntavman))
 			 {
+
+					 /* play the sound 'tavern' */ 
 					call play_loaded_sound(int 2, int 0, int 31, int 0)
 					var VAR_9 = int 1
 					var VAR_48 = int 150

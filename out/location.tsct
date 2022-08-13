@@ -21,8 +21,12 @@ VAR_33	{ -4698, -3110, 12091 }
 execute SCRIPT_4
 call remove_face(var &VAR_6)
 call load_sound_set(int 59)
+
+ /* play the sound 'bird1' */ 
 call play_loaded_sound(int 2, int -1, int 59, var &VAR_6)
 call load_sound_set(int 65)
+
+ /* play the sound 'dog1' */ 
 call play_loaded_sound(int 7, int -1, int 65, int 0)
 if(gamevar is_room_cleared)
  {
@@ -248,6 +252,8 @@ call set_input_system(int 2)
 if(gamevar script_time > var VAR_48)
  {
 		var VAR_48 = gamevar script_time + int 120 + call randomize_int(int 0, int 60)
+
+		 /* play the sound 'inwindlp' */ 
 		call play_loaded_sound(int 2, int 0, int 65, int 0)
 }
 

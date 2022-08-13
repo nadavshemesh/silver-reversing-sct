@@ -25,6 +25,8 @@ VAR_24	{ 0, 1, 2, VAR_23, 8, 1, 19, -861, 0, -3084, 12, 194, 194, -1, 13, 1, 14,
 call play_bgm("chains")
 execute SCRIPT_13
 call load_sound_set(int 30)
+
+ /* play the sound 'torches2' */ 
 call play_loaded_sound(int 1, int -1, int 30, int 0)
 if(gamevar is_room_cleared)
  {
@@ -185,6 +187,8 @@ if(gamevar *psys_p+1)
  {
 		if(call ! randomize_int(int 0, int 5))
 		 {
+
+				 /* play the sound 'frogs' */ 
 				call play_loaded_sound(int 197, int 0, int 0, var &VAR_1)
 		}
 }

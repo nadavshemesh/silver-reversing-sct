@@ -35,12 +35,14 @@ var VAR_5 = int 3277313
 execute SCRIPT_10
 call load_item(int 94 /* trident */ )
 call load_sound_set(int 64)
-var VAR_8 = call play_loaded_sound(int 1, int -1, int 64, int 0)
-if(var VAR_8)
+var cavelp_sound_ref = call play_loaded_sound(int 1, int -1, int 64, int 0)
+if(var cavelp_sound_ref)
  {
-		call set_sound_volume(var VAR_8, int 14)
+		call set_sound_volume(var cavelp_sound_ref, int 14)
 }
 call load_sound_set(int 65)
+
+ /* play the sound 'in2wind1' */ 
 call play_loaded_sound(int 5, int -1, int 65, int 0)
 if(gamevar is_room_cleared)
  {
@@ -128,6 +130,8 @@ call run_wandering_generator(var &VAR_22, int 300)
 if(gamevar script_time > var VAR_23)
  {
 		var VAR_23 = gamevar script_time + int 100 + call randomize_int(int 0, int 50)
+
+		 /* play the sound 'wwindlp' */ 
 		call play_loaded_sound(int 6, int 0, int 65, int 0)
 }
 

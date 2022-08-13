@@ -95,10 +95,14 @@ var VAR_15 ++
 ._SCRIPT_4
 call load_sound_set(int 68)
 call load_sound_set(int 17)
+
+ /* play the sound 'bird1' */ 
 call play_loaded_sound(int 1, int -1, int 68, var &VAR_37)
-var VAR_36 = call play_loaded_sound(int 2, int -1, int 17, int 0)
+var bird1_sound_ref = call play_loaded_sound(int 2, int -1, int 17, int 0)
+
+ /* play the sound 'wdoor2' */ 
 call play_loaded_sound(int 8, int -1, int 17, int 0)
-call set_sound_volume(var VAR_36, int 13)
+call set_sound_volume(var bird1_sound_ref, int 13)
 gamevar SMACKER_X = int 256
 gamevar SMACKER_Y = int 0
 call play_2d_anim("mushlink", int 1, int 1, int 0)

@@ -19,8 +19,12 @@ VAR_53	{ -7165, -95, -884 }
 call load_sound_set(int 73)
 call load_sound_set(int 72)
 call load_sound_set(int 64)
+
+ /* play the sound 'cavelp' */ 
 call play_loaded_sound(int 1, int -1, int 64, int 0)
 call load_sound_set(int 65)
+
+ /* play the sound 'in2wind1' */ 
 call play_loaded_sound(int 5, int -1, int 65, int 0)
 gamevar SMACKER_X = int 0
 gamevar SMACKER_Y = int 244
@@ -75,11 +79,15 @@ switch(gamevar room_state)
 if(gamevar script_time > var VAR_56)
  {
 		var VAR_56 = gamevar script_time + int 70 + call randomize_int(int 0, int 110)
+
+		 /* play the sound 'renddizz' */ 
 		call play_loaded_sound(int 8, int 0, int 72, int 0)
 }
 if(gamevar script_time > var VAR_57)
  {
 		var VAR_57 = gamevar script_time + int 100 + call randomize_int(int 0, int 50)
+
+		 /* play the sound 'wwindlp' */ 
 		call play_loaded_sound(int 6, int 0, int 65, int 0)
 }
 

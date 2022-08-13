@@ -27,6 +27,8 @@ execute SCRIPT_15
 var VAR_14 = int 37
 execute SCRIPT_15
 call load_sound_set(int 12)
+
+ /* play the sound 'sent1' */ 
 call play_loaded_sound(int 8, int -1, int 12, int 0)
 call func_58(int 1)
 if(gamevar is_room_cleared)
@@ -110,6 +112,8 @@ if(gamevar !is_room_cleared)
 ._SCRIPT_3
 var VAR_21 = call play_3d_fx("FIRE", var &VAR_20, int 0, int 0)
 call remove_face(var &VAR_20)
+
+ /* play the sound 'frog' */ 
 call play_loaded_sound(int 198, int -1, int 0, var &VAR_20)
 
 ._SCRIPT_4
@@ -211,6 +215,8 @@ if(gamevar *psys_p+1)
  {
 		if(call ! randomize_int(int 0, int 5))
 		 {
+
+				 /* play the sound 'frogs' */ 
 				call play_loaded_sound(int 197, int 0, int 0, var &VAR_20)
 		}
 }

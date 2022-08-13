@@ -22,10 +22,16 @@ VAR_11	{ -10715, 1210, -2056, -12125, 1210, -3383, -11697, 1210, -2056, -12125, 
 ._on_load
 call play_bgm("METALON")
 call load_sound_set(int 72)
+
+ /* play the sound 'BLANK' */ 
 call play_loaded_sound(int 4, int -1, int 72, int 0)
 call load_sound_set(int 64)
+
+ /* play the sound 'cavelp' */ 
 call play_loaded_sound(int 1, int -1, int 64, int 0)
 call load_sound_set(int 65)
+
+ /* play the sound 'in2wind1' */ 
 call play_loaded_sound(int 5, int -1, int 65, int 0)
 gamevar SMACKER_X = int 224
 gamevar SMACKER_Y = int 188
@@ -96,16 +102,22 @@ switch(gamevar room_state)
 if(gamevar script_time > var VAR_19)
  {
 		var VAR_19 = gamevar script_time + int 70 + call randomize_int(int 0, int 110)
+
+		 /* play the sound 'renddizz' */ 
 		call play_loaded_sound(int 8, int 0, int 72, int 0)
 }
 if(gamevar script_time > var VAR_20)
  {
 		var VAR_20 = gamevar script_time + int 70 + call randomize_int(int 0, int 110)
+
+		 /* play the sound 'metamb1' */ 
 		call play_loaded_sound(int 7, int 0, int 72, int 0)
 }
 if(gamevar script_time > var VAR_21)
  {
 		var VAR_21 = gamevar script_time + int 100 + call randomize_int(int 0, int 50)
+
+		 /* play the sound 'wwindlp' */ 
 		call play_loaded_sound(int 6, int 0, int 65, int 0)
 }
 

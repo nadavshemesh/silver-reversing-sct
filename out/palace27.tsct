@@ -19,7 +19,11 @@ VAR_10	{ 0, 0, 1, -1, 8, 0, 4, 0, 9, 1, 6, 1, 1, 1, 65, 65, -1, 7, 1, 8, 10, 46,
 
 ._on_load
 call load_sound_set(int 66)
+
+ /* play the sound 'dog1' */ 
 call play_loaded_sound(int 7, int -1, int 66, int 0)
+
+ /* play the sound 'cwind1' */ 
 call play_loaded_sound(int 1, int -1, int 66, int 0)
 var VAR_4 = call get_david_char()
 var VAR_5 = call func_7e()
@@ -63,11 +67,15 @@ if(gamevar room_state == int 1)
 if(gamevar script_time > var VAR_17)
  {
 		var VAR_17 = gamevar script_time + int 100 + call randomize_int(int 0, int 50)
+
+		 /* play the sound 'wwindlp' */ 
 		call play_loaded_sound(int 6, int 0, int 66, int 0)
 }
 if(gamevar script_time > var VAR_16)
  {
 		var VAR_16 = gamevar script_time + int 80 + call randomize_int(int 0, int 40)
+
+		 /* play the sound 'inwindlp' */ 
 		call play_loaded_sound(int 2, int 0, int 66, int 0)
 }
 

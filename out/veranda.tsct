@@ -35,8 +35,14 @@ VAR_49	-1
 call play_bgm("GNO")
 call load_sound_set(int 62)
 call load_sound_set(int 63)
+
+ /* play the sound 'gnoamb1' */ 
 call play_loaded_sound(int 1, int -1, int 63, int 0)
+
+ /* play the sound 'fbird1' */ 
 call play_loaded_sound(int 1, int -1, int 62, int 0)
+
+ /* play the sound 'imptalk1' */ 
 call play_loaded_sound(int 7, int -1, int 62, int 0)
 if(gamevar is_room_cleared)
  {
@@ -206,6 +212,8 @@ if(var VAR_30 == int 1)
 		if(call is_char_standing(var NIMP3))
 		 {
 				call play_char_anim(var NIMP3, var imphorn_anim, int 0)
+
+				 /* play the sound 'dwavesLp' */ 
 				call play_loaded_sound(int 1, int 0, int 53, call get_char_movement_ptr(var NIMP3))
 				var VAR_30 ++ 
 				var VAR_37 = int 0

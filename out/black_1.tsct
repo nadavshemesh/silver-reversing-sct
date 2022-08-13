@@ -24,8 +24,12 @@ execute SCRIPT_9
 call play_bgm("METALON")
 call load_sound_set(int 72)
 call load_sound_set(int 64)
+
+ /* play the sound 'cavelp' */ 
 call play_loaded_sound(int 1, int -1, int 64, int 0)
 call load_sound_set(int 65)
+
+ /* play the sound 'cwind1' */ 
 call play_loaded_sound(int 1, int -1, int 65, int 0)
 gamevar SMACKER_X = int 140
 gamevar SMACKER_Y = int 0
@@ -79,13 +83,15 @@ switch(gamevar room_state)
 if(gamevar script_time > var VAR_32)
  {
 		var VAR_32 = gamevar script_time + int 70 + call randomize_int(int 0, int 110)
+
+		 /* play the sound 'renddizz' */ 
 		call play_loaded_sound(int 8, int 0, int 72, int 0)
 }
 if(gamevar script_time > var VAR_33)
  {
 		var VAR_33 = gamevar script_time + int 60 + call randomize_int(int 0, int 60)
-		var VAR_31 = call play_loaded_sound(int 2, int 0, int 65, int 0)
-		call set_sound_volume(var VAR_31, int 30)
+		var inwindlp_sound_ref = call play_loaded_sound(int 2, int 0, int 65, int 0)
+		call set_sound_volume(var inwindlp_sound_ref, int 30)
 }
 
 ._SCRIPT_4

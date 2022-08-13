@@ -12,11 +12,11 @@
 ._DATA
 VAR_1	{ 0, 0 }	
 VAR_3	{ 0, 0 }	
-VAR_8	{ 0, -2798, 0, -577 }	
+blank_sound_ref	{ 0, -2798, 0, -577 }	
 VAR_22	{ 0, 0 }	
-VAR_28	-1	
+DoorCls3_sound_ref	-1	
 hoot_sound_ref	-1	
-VAR_30	-1	
+bigfire_sound_ref	-1	
 VAR_36	0	
 VAR_37	{ -1639, 0, 172, -1664, 0, -1263 }	
 VAR_38	{ -231, 0, 270, -244, 0, -1382 }	
@@ -162,24 +162,24 @@ if(var VAR_27 == int 1)
 				 {
 						case 1
 							var hoot_sound_ref = call play_loaded_sound(int 1, int 0, int 1, int 0)
-							var VAR_28 = call play_loaded_sound(int 2, int -1, int 51, int 0)
-							if(var VAR_28 != int -1)
+							var DoorCls3_sound_ref = call play_loaded_sound(int 2, int -1, int 51, int 0)
+							if(var DoorCls3_sound_ref != int -1)
 							 {
-									call func_fb(var VAR_28, int 32050)
-									call set_sound_volume(var VAR_28, int 50)
+									call func_fb(var DoorCls3_sound_ref, int 32050)
+									call set_sound_volume(var DoorCls3_sound_ref, int 50)
 							}
 							break 
 						case 11
-							if(var VAR_28 != int -1)
+							if(var DoorCls3_sound_ref != int -1)
 							 {
-									call stop_playing_sound(var VAR_28)
+									call stop_playing_sound(var DoorCls3_sound_ref)
 							}
 							break 
 						case 30
-							var VAR_30 = call play_loaded_sound(int 3, int 0, int 51, int 0)
-							if(var VAR_30 != int -1)
+							var bigfire_sound_ref = call play_loaded_sound(int 3, int 0, int 51, int 0)
+							if(var bigfire_sound_ref != int -1)
 							 {
-									call set_sound_volume(var VAR_30, int 50)
+									call set_sound_volume(var bigfire_sound_ref, int 50)
 							}
 							break 
 				}
@@ -226,7 +226,7 @@ switch(var VAR_84)
 			if(var VAR_85 > int 1)
 			 {
 					var VAR_2 = int 1
-					var VAR_87 = call play_loaded_sound(int 1, int -1, int 28, "")
+					var CellDoor_sound_ref = call play_loaded_sound(int 1, int -1, int 28, "")
 					var VAR_84 ++ 
 					var VAR_85 = int 0
 			}
@@ -241,13 +241,13 @@ switch(var VAR_84)
 			}
 			break 
 		case 2
-			if(var VAR_87 != int -999)
+			if(var CellDoor_sound_ref != int -999)
 			 {
 					if(var VAR_2 == int -1)
 					 {
 							call log("stop capstan sfx")
-							call stop_playing_sound(var VAR_87)
-							var VAR_87 = int -999
+							call stop_playing_sound(var CellDoor_sound_ref)
+							var CellDoor_sound_ref = int -999
 					}
 			}
 			if(var VAR_0 == int -1)
@@ -335,11 +335,11 @@ if(call ! is_char_handle_in_level(int 1441792 /* MIMIC */ ))
 
 ._SCRIPT_19
 call load_sound_set(int 25)
-var VAR_8 = call play_loaded_sound(int 1, int -1, int 25, int 0)
-call set_sound_volume(var VAR_8, int 12)
-var VAR_6 = call play_loaded_sound(int 3, int -1, int 25, int 0)
+var blank_sound_ref = call play_loaded_sound(int 1, int -1, int 25, int 0)
+call set_sound_volume(var blank_sound_ref, int 12)
+var thunrumb_sound_ref = call play_loaded_sound(int 3, int -1, int 25, int 0)
 var VAR_5 = int 20
-call set_sound_volume(var VAR_6, var VAR_5)
+call set_sound_volume(var thunrumb_sound_ref, var VAR_5)
 var VAR_4 = int 1
 
 ._SCRIPT_20
@@ -365,7 +365,7 @@ switch(var VAR_9)
 					if(var VAR_12 == int 0)
 					 {
 							var VAR_5 += var VAR_11
-							call set_sound_volume(var VAR_6, var VAR_5)
+							call set_sound_volume(var thunrumb_sound_ref, var VAR_5)
 					}
 			}
 			else
@@ -388,7 +388,7 @@ switch(var VAR_9)
 					if(var VAR_12)
 					 {
 							var VAR_5 -= var VAR_11
-							call set_sound_volume(var VAR_6, var VAR_5)
+							call set_sound_volume(var thunrumb_sound_ref, var VAR_5)
 					}
 			}
 			else
@@ -413,9 +413,9 @@ switch(var VAR_14)
 		case 1
 			if(var VAR_15 > var VAR_16)
 			 {
-					var VAR_17 = call play_loaded_sound(int 4, int 0, int 25, int 0)
-					call set_sound_volume(var VAR_17, call randomize_int(int 30, int 101))
-					call func_11a(var VAR_17, int 10000 - call randomize_int(int 0, int 20001))
+					var thunstrk_sound_ref = call play_loaded_sound(int 4, int 0, int 25, int 0)
+					call set_sound_volume(var thunstrk_sound_ref, call randomize_int(int 30, int 101))
+					call func_11a(var thunstrk_sound_ref, int 10000 - call randomize_int(int 0, int 20001))
 					if(var ! VAR_7)
 					 {
 							var VAR_7 = int 1
@@ -464,8 +464,8 @@ switch(var VAR_18)
 			if(call is_local_timer_greater_than(var VAR_21))
 			 {
 					var VAR_22 -= int 4 * var VAR_21
-					var VAR_20 = call play_loaded_sound(int 5, int 0, int 25, int 0)
-					call set_sound_volume(var VAR_20, var VAR_22)
+					var verwind_sound_ref = call play_loaded_sound(int 5, int 0, int 25, int 0)
+					call set_sound_volume(var verwind_sound_ref, var VAR_22)
 					var VAR_21 = int 255 - var VAR_22
 					var VAR_19 = int 0
 					var VAR_18 ++ 
@@ -474,8 +474,9 @@ switch(var VAR_18)
 		case 4
 			if(var VAR_19 > var VAR_21)
 			 {
-					var VAR_20 = call play_loaded_sound(int 4, int 0, int 25, int 0)
-					call set_sound_volume(var VAR_20, var VAR_22)
+					var verwind_sound_ref = call play_loaded_sound(int 4, int 0, int 25, int 0 /* 'thunstrk' */ 
+ /* 'thunstrk' */ 
+					call set_sound_volume(var verwind_sound_ref, var VAR_22)
 					if(var ! VAR_7)
 					 {
 							var VAR_7 = int 1

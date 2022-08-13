@@ -129,10 +129,14 @@ if(gamevar script_time > var VAR_102)
 call remove_face(var &VAR_29)
 call load_sound_set(int 43)
 call load_sound_set(int 63)
+
+ /* play the sound 'gnoamb1' */ 
 call play_loaded_sound(int 1, int -1, int 63, int 0)
 var VAR_26 = call func_ec(int 1, int -1, int 43, var &VAR_29)
 var VAR_27 = call func_ec(int 2, int -1, int 43, var &VAR_29)
 var VAR_28 = call func_ec(int 3, int -1, int 43, var &VAR_29)
+
+ /* play the sound 'dwave1' */ 
 call play_loaded_sound(int 4, int -1, int 43, int 0)
 call set_sound_volume(var VAR_26, int 10)
 call set_sound_volume(var VAR_27, int 10)
@@ -177,6 +181,8 @@ if(var VAR_86 == int 2)
 		var VAR_87 ++ 
 		if(var VAR_87 > int 90)
 		 {
+
+				 /* play the sound 'lift' */ 
 				call play_loaded_sound(int 1, int 0, int 44, int 0)
 				var VAR_8 = int 1
 				call log("play lever sfx")

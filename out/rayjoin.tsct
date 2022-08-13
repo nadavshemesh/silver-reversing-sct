@@ -27,6 +27,8 @@ VAR_22	{ 0, 1, 2, VAR_19, 8, 1, 19, 2874, 2109, 13479, 12, 118, 117, -1, 13, 0, 
 
 ._on_load
 call load_sound_set(int 65)
+
+ /* play the sound 'in2wind1' */ 
 call play_loaded_sound(int 5, int -1, int 65, int 0)
 if(gamevar is_room_cleared)
  {
@@ -89,6 +91,8 @@ if(gamevar !is_room_cleared)
 if(gamevar script_time > var VAR_23)
  {
 		var VAR_23 = gamevar script_time + int 100 + call randomize_int(int 0, int 50)
+
+		 /* play the sound 'wwindlp' */ 
 		call play_loaded_sound(int 6, int 0, int 65, int 0)
 }
 

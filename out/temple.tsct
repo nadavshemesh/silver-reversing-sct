@@ -75,6 +75,8 @@ execute SCRIPT_6
 call play_bgm("SEWERPT1")
 call load_sound_set(int 33)
 call load_sound_set(int 38)
+
+ /* play the sound 'spires1' */ 
 call play_loaded_sound(int 3, int -1, int 38, int 0)
 gamevar SMACKER_X = int 500
 gamevar SMACKER_Y = int 188
@@ -272,6 +274,8 @@ switch(var VAR_40)
 if(gamevar script_time > var VAR_114)
  {
 		var VAR_114 = gamevar script_time + int 50 + call randomize_int(int 0, int 70)
+
+		 /* play the sound 'echdrip1' */ 
 		call play_loaded_sound(int 1, int 0, int 38, int 0)
 }
 

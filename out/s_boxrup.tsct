@@ -42,6 +42,8 @@ var VAR_3 = int 55
 execute SCRIPT_11
 execute SCRIPT_9
 call load_sound_set(int 46)
+
+ /* play the sound 'palamb1' */ 
 call play_loaded_sound(int 4, int -1, int 46, int 0)
 if(gamevar is_room_cleared)
  {
@@ -105,12 +107,16 @@ if(gamevar script_time > var VAR_17)
  {
 		var VAR_17 = gamevar script_time + int 70 + call randomize_int(int 0, int 110)
 		var VAR_19 = call randomize_int(int 0, int 3)
+
+		 /* play the sound 'flayamb1' */ 
 		call play_loaded_sound(int 5, int 0, int 46, @VAR_23[var VAR_19])
 }
 if(gamevar script_time > var VAR_18)
  {
 		var VAR_18 = gamevar script_time + int 100 + call randomize_int(int 0, int 200)
 		var VAR_19 = call randomize_int(int 0, int 3)
+
+		 /* play the sound 'torches2' */ 
 		call play_loaded_sound(int 6, int 0, int 46, @VAR_23[var VAR_19])
 }
 

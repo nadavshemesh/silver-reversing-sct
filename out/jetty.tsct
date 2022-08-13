@@ -11,7 +11,7 @@
 
 ._DATA
 VAR_1	{ 350, -1503, 4055 }	
-VAR_4	{ 0, 9, 0, 0 }	
+torches2_sound_ref	{ 0, 9, 0, 0 }	
 VAR_5	{ -1154, -1702, 4368 }	
 VAR_13	{ -2705, -1550, 2240 }	
 VAR_14	{ -2879, -1550, 2708 }	
@@ -43,8 +43,8 @@ gamevar SMACKER_X = int 256
 gamevar SMACKER_Y = int 48
 call play_2d_anim("jetty2", int 1, int 1, int 0)
 call load_sound_set(int 30)
-var VAR_4 = call play_loaded_sound(int 1, int -1, int 30, int 0)
-call set_sound_volume(var VAR_4, int 60)
+var torches2_sound_ref = call play_loaded_sound(int 1, int -1, int 30, int 0)
+call set_sound_volume(var torches2_sound_ref, int 60)
 
 ._infinite_loop
 switch(gamevar room_state)

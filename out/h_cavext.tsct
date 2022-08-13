@@ -40,7 +40,11 @@ else
 		call func_58(int 1)
 }
 call load_sound_set(int 12)
+
+ /* play the sound 'sent1' */ 
 call play_loaded_sound(int 8, int -1, int 12, int 0)
+
+ /* play the sound 'RGOLHIT1' */ 
 call play_loaded_sound(int 10, int -1, int 12, int 0)
 if(gamevar is_room_cleared)
  {
@@ -115,6 +119,8 @@ if(gamevar script_time > var VAR_41)
 if(gamevar script_time > var VAR_42)
  {
 		var VAR_42 = gamevar script_time + int 30 + call randomize_int(int 0, int 30)
+
+		 /* play the sound 'sentloop' */ 
 		call play_loaded_sound(int 9, int 0, int 12, int 0)
 }
 
@@ -165,6 +171,8 @@ switch(var VAR_9)
 			}
 			if(call is_char_standing(var DAVID))
 			 {
+
+					 /* play the sound 'lforest1' */ 
 					call play_loaded_sound(int 1, int 0, int 12, int 0)
 					gamevar script_object = var DAVID
 					gamevar *character_stats_p+14 = int 98304
@@ -312,6 +320,8 @@ switch(var VAR_24)
 			}
 			if(call is_char_standing(var DAVID))
 			 {
+
+					 /* play the sound 'lforest1' */ 
 					call play_loaded_sound(int 1, int 0, int 12, int 0)
 					gamevar script_object = var DAVID
 					gamevar *character_stats_p+14 = int 98304

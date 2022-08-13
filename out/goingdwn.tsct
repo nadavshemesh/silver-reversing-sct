@@ -111,6 +111,8 @@ call load_sound_set(int 44)
 gamevar SMACKER_X = int 56
 gamevar SMACKER_Y = int 292
 call play_2d_anim("lever", int 0, int 1, var &VAR_13)
+
+ /* play the sound 'echdrip1' */ 
 call play_loaded_sound(int 2, int -1, int 64, int 0)
 
 ._SCRIPT_6
@@ -180,6 +182,8 @@ if(var VAR_23 == int 6)
 		if(call get_input_sys() != int 4)
 		 {
 				var VAR_13 = int 1
+
+				 /* play the sound 'lift' */ 
 				call play_loaded_sound(int 1, int 0, int 44, int 0)
 				var VAR_23 ++ 
 				var VAR_24 = int 0
@@ -191,6 +195,8 @@ if(var VAR_23 == int 7)
 		 {
 				var VAR_12 = int 1
 				call func_0(var VAR_17, int 1)
+
+				 /* play the sound 'raft' */ 
 				call play_loaded_sound(int 2, int -1, int 44, int 0)
 				var VAR_23 ++ 
 				var VAR_24 = int 0

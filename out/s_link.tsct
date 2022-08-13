@@ -38,6 +38,8 @@ VAR_93	"HKN"
 ._on_load
 execute SCRIPT_10
 call load_sound_set(int 46)
+
+ /* play the sound 'palamb1' */ 
 call play_loaded_sound(int 4, int -1, int 46, int 0)
 if(gamevar is_room_cleared)
  {
@@ -119,12 +121,16 @@ if(gamevar script_time > var VAR_87)
  {
 		var VAR_87 = gamevar script_time + int 70 + call randomize_int(int 0, int 110)
 		var VAR_89 = call randomize_int(int 0, int 3)
+
+		 /* play the sound 'flayamb1' */ 
 		call play_loaded_sound(int 5, int 0, int 46, @VAR_93[var VAR_89])
 }
 if(gamevar script_time > var VAR_88)
  {
 		var VAR_88 = gamevar script_time + int 100 + call randomize_int(int 0, int 200)
 		var VAR_89 = call randomize_int(int 0, int 3)
+
+		 /* play the sound 'torches2' */ 
 		call play_loaded_sound(int 6, int 0, int 46, @VAR_93[var VAR_89])
 }
 
@@ -137,7 +143,7 @@ if(var VAR_78)
 		if(var VAR_80 < int 180)
 		 {
 				var VAR_80 ++ 
-				call set_sound_volume(var VAR_77, var VAR_80)
+				call set_sound_volume(var lul1_sound_ref, var VAR_80)
 		}
 		else
 		 {
@@ -149,7 +155,7 @@ if(var VAR_79)
 		if(var VAR_80)
 		 {
 				var VAR_80 -- 
-				call set_sound_volume(var VAR_77, var VAR_80)
+				call set_sound_volume(var lul1_sound_ref, var VAR_80)
 		}
 		else
 		 {
@@ -170,7 +176,7 @@ switch(var VAR_71)
 			 {
 					var VAR_43 = int 1
 					var VAR_78 = int 1
-					var VAR_77 = call play_loaded_sound(int 1, int -1, int 57, int 0)
+					var lul1_sound_ref = call play_loaded_sound(int 1, int -1, int 57, int 0)
 					var VAR_71 ++ 
 					var VAR_40 = int 1
 					gamevar *scene_info_p+1 = int 1

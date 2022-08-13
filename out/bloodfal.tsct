@@ -26,17 +26,23 @@ VAR_76	-1
 call load_sound_set(int 0)
 call load_sound_set(int 30)
 call load_sound_set(int 72)
+
+ /* play the sound 'BLANK' */ 
 call play_loaded_sound(int 4, int -1, int 72, int 0)
 call load_sound_set(int 64)
+
+ /* play the sound 'cavelp' */ 
 call play_loaded_sound(int 1, int -1, int 64, int 0)
 call load_sound_set(int 65)
+
+ /* play the sound 'cwind1' */ 
 call play_loaded_sound(int 1, int -1, int 65, int 0)
 execute SCRIPT_11
 call play_bgm("METALON")
 switch(gamevar room_state)
  {
 		case 1
-			var VAR_40 = call play_loaded_sound(int 1, int -1, int 30, int 0)
+			var torches2_sound_ref = call play_loaded_sound(int 1, int -1, int 30, int 0)
 			execute SCRIPT_5
 			break 
 		case 2
@@ -95,18 +101,22 @@ switch(gamevar room_state)
 if(gamevar script_time > var VAR_80)
  {
 		var VAR_80 = gamevar script_time + int 70 + call randomize_int(int 0, int 110)
+
+		 /* play the sound 'renddizz' */ 
 		call play_loaded_sound(int 8, int 0, int 72, int 0)
 }
 if(gamevar script_time > var VAR_82)
  {
 		var VAR_82 = gamevar script_time + int 70 + call randomize_int(int 0, int 110)
+
+		 /* play the sound 'metamb1' */ 
 		call play_loaded_sound(int 7, int 0, int 72, int 0)
 }
 if(gamevar script_time > var VAR_81)
  {
 		var VAR_81 = gamevar script_time + int 60 + call randomize_int(int 0, int 60)
-		var VAR_79 = call play_loaded_sound(int 2, int 0, int 65, int 0)
-		call set_sound_volume(var VAR_79, int 30)
+		var inwindlp_sound_ref = call play_loaded_sound(int 2, int 0, int 65, int 0)
+		call set_sound_volume(var inwindlp_sound_ref, int 30)
 }
 
 ._SCRIPT_4
@@ -183,6 +193,8 @@ if(var VAR_66 == int 4)
 		 {
 				var VAR_42 = int 1
 				var VAR_53 = int 1
+
+				 /* play the sound 'bloodout' */ 
 				call play_loaded_sound(int 1, int 0, int 72, int 0)
 				gamevar script_object = var VAR_55
 				gamevar *smack_object_p+2 -= int 10737418
@@ -197,8 +209,12 @@ if(var VAR_66 == int 5)
 		var VAR_67 ++ 
 		if(var VAR_67 > int 30)
 		 {
-				var VAR_74 = call play_loaded_sound(int 2, int 0, int 72, int 0)
+				var bloodlp1_sound_ref = call play_loaded_sound(int 2, int 0, int 72, int 0)
+
+				 /* play the sound 'bloodlp2' */ 
 				call play_loaded_sound(int 3, int -1, int 72, int 0)
+
+				 /* play the sound 'bsplat1' */ 
 				call play_loaded_sound(int 6, int 0, int 72, int 0)
 				var VAR_67 = int 0
 				var VAR_66 ++ 
@@ -262,11 +278,11 @@ var VAR_64 = var VAR_44 - var VAR_65
 if(var VAR_64 < int 0)
  {
 		var VAR_46 = int 0
-		call stop_playing_sound(var VAR_40)
+		call stop_playing_sound(var torches2_sound_ref)
 }
 if(var VAR_46)
  {
-		call set_sound_volume(var VAR_40, var VAR_64)
+		call set_sound_volume(var torches2_sound_ref, var VAR_64)
 }
 
 ._SCRIPT_7

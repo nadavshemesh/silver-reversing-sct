@@ -38,16 +38,20 @@ VAR_40	{ -9883, 1350, 573, -10479, 1350, 1098, -9093, 1350, 1415, -8579, 1350, 1
 
 ._on_load
 call load_sound_set(int 64)
-var VAR_1 = call play_loaded_sound(int 1, int -1, int 64, int 0)
-if(var VAR_1)
+var cavelp_sound_ref = call play_loaded_sound(int 1, int -1, int 64, int 0)
+if(var cavelp_sound_ref)
  {
-		call set_sound_volume(var VAR_1, int 14)
+		call set_sound_volume(var cavelp_sound_ref, int 14)
 }
 call load_sound_set(int 65)
+
+ /* play the sound 'in2wind1' */ 
 call play_loaded_sound(int 5, int -1, int 65, int 0)
 execute SCRIPT_3
 execute SCRIPT_4
 call load_sound_set(int 33)
+
+ /* play the sound 'dwavesLp' */ 
 call play_loaded_sound(int 1, int -1, int 33, int 0)
 if(gamevar is_room_cleared)
  {
@@ -220,10 +224,14 @@ call load_char("iwarrior")
 if(gamevar script_time > var VAR_44)
  {
 		var VAR_44 = gamevar script_time + int 20 + call randomize_int(int 0, int 80)
+
+		 /* play the sound 'echdrip1' */ 
 		call play_loaded_sound(int 3, int 0, int 64, int 0)
 }
 if(gamevar script_time > var VAR_45)
  {
 		var VAR_45 = gamevar script_time + int 80 + call randomize_int(int 0, int 50)
+
+		 /* play the sound 'wwindlp' */ 
 		call play_loaded_sound(int 6, int 0, int 65, int 0)
 }

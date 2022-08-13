@@ -23,8 +23,12 @@ call play_bgm("METALON")
 execute SCRIPT_8
 call load_sound_set(int 72)
 call load_sound_set(int 64)
+
+ /* play the sound 'cavelp' */ 
 call play_loaded_sound(int 1, int -1, int 64, int 0)
 call load_sound_set(int 65)
+
+ /* play the sound 'in2wind1' */ 
 call play_loaded_sound(int 5, int -1, int 65, int 0)
 switch(gamevar room_state)
  {
@@ -71,11 +75,15 @@ switch(gamevar room_state)
 if(gamevar script_time > var VAR_31)
  {
 		var VAR_31 = gamevar script_time + int 70 + call randomize_int(int 0, int 110)
+
+		 /* play the sound 'renddizz' */ 
 		call play_loaded_sound(int 8, int 0, int 72, int 0)
 }
 if(gamevar script_time > var VAR_32)
  {
 		var VAR_32 = gamevar script_time + int 100 + call randomize_int(int 0, int 50)
+
+		 /* play the sound 'wwindlp' */ 
 		call play_loaded_sound(int 6, int 0, int 65, int 0)
 }
 
@@ -85,8 +93,12 @@ if(gamevar script_time > var VAR_32)
 if(gamevar script_time > var VAR_2)
  {
 		var VAR_2 = gamevar script_time + int 70 + call randomize_int(int 0, int 110)
+
+		 /* play the sound 'metamb1' */ 
 		call play_loaded_sound(int 7, int 0, int 72, int 0)
 }
+
+ /* play the sound 'BLANK' */ 
 call play_loaded_sound(int 4, int -1, int 72, int 0)
 
 ._SCRIPT_6

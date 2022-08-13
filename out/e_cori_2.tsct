@@ -47,10 +47,14 @@ VAR_54	2
 ._on_load
 call load_sound_set(int 30)
 call load_sound_set(int 75)
+
+ /* play the sound 'rumble2' */ 
 call play_loaded_sound(int 1, int -1, int 75, int 0)
+
+ /* play the sound 'rockbit1' */ 
 call play_loaded_sound(int 2, int -1, int 75, int 0)
-var VAR_4 = call play_loaded_sound(int 198, int -1, int 0, var &VAR_0)
-var VAR_5 = call play_loaded_sound(int 1, int -1, int 30, "")
+var frog_sound_ref = call play_loaded_sound(int 198, int -1, int 0, var &VAR_0)
+var torches2_sound_ref = call play_loaded_sound(int 1, int -1, int 30, "")
 if(gamevar room_state == int 0)
  {
 		exit_script 
@@ -112,8 +116,8 @@ switch(var VAR_16)
 			}
 			if(var VAR_17 == int 5)
 			 {
-					var VAR_6 = call play_loaded_sound(int 198, int -1, int 0, var &VAR_2)
-					var VAR_7 = call play_loaded_sound(int 1, int -1, int 30, var &VAR_3)
+					var frog1_sound_ref = call play_loaded_sound(int 198, int -1, int 0, var &VAR_2)
+					var torches21_sound_ref = call play_loaded_sound(int 1, int -1, int 30, var &VAR_3)
 					call set_char_running(var VAR_11)
 					call func_115(var VAR_11, var &VAR_27)
 					call func_50(var VAR_11, int 8192)
@@ -156,7 +160,7 @@ if(var VAR_47 != var VAR_18)
 		switch(var VAR_18)
 		 {
 				case 12
-					call func_59(var VAR_4)
+					call func_59(var frog_sound_ref)
 					break 
 				case 36
 					var VAR_20 = int 1

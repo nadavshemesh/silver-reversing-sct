@@ -188,6 +188,8 @@ VAR_440	{ 261, 237, -858 }
 ._on_load
 execute SCRIPT_5
 call load_sound_set(int 12)
+
+ /* play the sound 'sent1' */ 
 call play_loaded_sound(int 8, int -1, int 12, int 0)
 call func_58(int 1)
 switch(gamevar room_state)
@@ -375,6 +377,8 @@ var walk_anim = call load_anim("walk")
 ._SCRIPT_4
 var VAR_45 = call play_3d_fx("FIRE", var &VAR_46, int 0, int 0)
 call remove_face(var &VAR_46)
+
+ /* play the sound 'frog' */ 
 call play_loaded_sound(int 198, int -1, int 0, var &VAR_46)
 
 ._SCRIPT_5
@@ -2955,6 +2959,8 @@ if(gamevar *psys_p+1)
  {
 		if(call ! randomize_int(int 0, int 5))
 		 {
+
+				 /* play the sound 'frogs' */ 
 				call play_loaded_sound(int 197, int 0, int 0, var &VAR_46)
 		}
 }

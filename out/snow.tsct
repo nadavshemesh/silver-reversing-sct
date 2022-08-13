@@ -33,6 +33,8 @@ VAR_67	{ 0, 0, 0, 1, 2, 3, -1, 8, 1, 12, 24, 6, 6, 24, -1, 13, 1, 14, 0, 1, 3, 5
 
 ._on_load
 call load_sound_set(int 65)
+
+ /* play the sound 'dog1' */ 
 call play_loaded_sound(int 7, int -1, int 65, int 0)
 execute SCRIPT_11
 execute SCRIPT_3
@@ -104,16 +106,22 @@ call play_3d_fx("SNOW", var &VAR_41, var &VAR_42, int 0)
 if(gamevar script_time > var VAR_70)
  {
 		var VAR_70 = gamevar script_time + int 30 + call randomize_int(int 0, int 30)
+
+		 /* play the sound 'cwindlp' */ 
 		call play_loaded_sound(int 9, int 0, int 65, int 0)
 }
 if(gamevar script_time > var VAR_69)
  {
 		var VAR_69 = gamevar script_time + int 300 + call randomize_int(int 0, int 300)
+
+		 /* play the sound 'hwave1' */ 
 		call play_loaded_sound(int 8, int 0, int 65, int 0)
 }
 if(gamevar script_time > var VAR_68)
  {
 		var VAR_68 = gamevar script_time + int 60 + call randomize_int(int 0, int 60)
+
+		 /* play the sound 'inwindlp' */ 
 		call play_loaded_sound(int 2, int 0, int 65, int 0)
 }
 

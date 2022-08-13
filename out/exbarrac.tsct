@@ -65,8 +65,8 @@ call load_sound_set(int 6)
 
  /* play the sound 'hoot' */ 
 call play_loaded_sound(int 13, int -1, int 6, int 0)
-var VAR_1 = call play_loaded_sound(int 198, int -1, int 0, int 0)
-call set_sound_volume(var VAR_1, int 20)
+var frog_sound_ref = call play_loaded_sound(int 198, int -1, int 0, int 0)
+call set_sound_volume(var frog_sound_ref, int 20)
 if(gamevar *scene_info_p+1 == int 1)
  {
 
@@ -118,8 +118,9 @@ if(gamevar *psys_p+1)
  {
 		if(call ! randomize_int(int 0, int 10))
 		 {
-				var VAR_1 = call play_loaded_sound(int 197, int 0, int 0, int 0)
-				call set_sound_volume(var VAR_1, int 15)
+				var frog_sound_ref = call play_loaded_sound(int 197, int 0, int 0, int 0 /* 'frogs' */ 
+ /* 'frogs' */ 
+				call set_sound_volume(var frog_sound_ref, int 15)
 		}
 }
 if(gamevar script_time > var VAR_116)

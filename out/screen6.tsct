@@ -38,6 +38,8 @@ VAR_107	{ 887, 624, 7316 }
 ._on_load
 call func_58(int 1)
 call load_sound_set(int 64)
+
+ /* play the sound 'cavelp' */ 
 call play_loaded_sound(int 1, int -1, int 64, int 0)
 call load_sound_set(int 69)
 if(gamevar room_state == int 0)
@@ -96,7 +98,7 @@ gamevar SMACKER_Y = int 256
 var VAR_9 = call play_2d_anim("scr6goin", int 10737418, int 1, var &VAR_20)
 call set_input_system(int 2)
 call load_sound_set(int 69)
-var VAR_3 = call play_loaded_sound(int 1, int -1, int 69, int 0)
+var demobeam_sound_ref = call play_loaded_sound(int 1, int -1, int 69, int 0)
 
 ._SCRIPT_4
 if(var VAR_59 != var VAR_14)
@@ -115,7 +117,7 @@ switch(var VAR_14)
 							gamevar *smack_object_p+2 += int 10737418
 							gamevar script_object = var VAR_8
 							gamevar *smack_object_p+2 -= int 10737418
-							var VAR_2 = call play_loaded_sound(int 2, int 0, int 69, int 0)
+							var firewall_sound_ref = call play_loaded_sound(int 2, int 0, int 69, int 0)
 							var VAR_16 ++ 
 							var VAR_14 = int 1
 							var VAR_57 = int 0
@@ -196,7 +198,7 @@ switch(var VAR_14)
 					call play_char_anim(var DAVID, var victory_anim, int 0)
 					var VAR_0 = int 2
 					execute SCRIPT_7
-					call func_59(var VAR_3)
+					call func_59(var demobeam_sound_ref)
 					call reset_local_timer()
 					var VAR_14 = int 7
 					var VAR_14 = int 8
@@ -530,15 +532,17 @@ switch(var VAR_21)
 if(gamevar script_time > var VAR_117)
  {
 		var VAR_117 = gamevar script_time + int 200 + call randomize_int(int 0, int 200)
-		var VAR_115 = call play_loaded_sound(int 5, int 0, int 64, int 0)
-		if(var VAR_115 != int -1)
+		var driphit_sound_ref = call play_loaded_sound(int 5, int 0, int 64, int 0)
+		if(var driphit_sound_ref != int -1)
 		 {
-				call func_fb(var VAR_115, int 22050)
+				call func_fb(var driphit_sound_ref, int 22050)
 		}
 }
 if(gamevar script_time > var VAR_116)
  {
 		var VAR_116 = gamevar script_time + int 100 + call randomize_int(int 0, int 100)
+
+		 /* play the sound 'echdrip1' */ 
 		call play_loaded_sound(int 3, int 0, int 64, int 0)
 }
 

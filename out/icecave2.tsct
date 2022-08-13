@@ -63,6 +63,8 @@ execute SCRIPT_11
 var VAR_3 = int 35
 execute SCRIPT_11
 call load_sound_set(int 65)
+
+ /* play the sound 'in2wind1' */ 
 call play_loaded_sound(int 5, int -1, int 65, int 0)
 execute SCRIPT_3
 if(gamevar room_state == int 0)
@@ -111,6 +113,8 @@ call play_3d_fx("DRIP", var &VAR_20, int 0, int 11)
 if(gamevar script_time > var VAR_63)
  {
 		var VAR_63 = gamevar script_time + int 100 + call randomize_int(int 0, int 50)
+
+		 /* play the sound 'wwindlp' */ 
 		call play_loaded_sound(int 6, int 0, int 65, int 0)
 }
 

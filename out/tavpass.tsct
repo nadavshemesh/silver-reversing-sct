@@ -179,10 +179,14 @@ if(var VAR_0)
 		var VAR_1 ++ 
 		if(var VAR_1 == int 10)
 		 {
+
+				 /* play the sound 'tselect1' */ 
 				call play_loaded_sound(int 3, int 0, int 81, int 0)
 		}
 		if(var VAR_1 > int 15)
 		 {
+
+				 /* play the sound 'punch1' */ 
 				call play_loaded_sound(int 2, int 0, int 81, int 0)
 				var VAR_1 = int 0
 				var VAR_0 = int 0
@@ -194,6 +198,8 @@ if(var VAR_2)
 		if(var VAR_3 > int 16)
 		 {
 				var VAR_2 = int 0
+
+				 /* play the sound 'smlgrunt' */ 
 				call play_loaded_sound(int 1, int 0, int 81, int 0)
 		}
 }
@@ -227,10 +233,12 @@ execute SCRIPT_11
 
 ._SCRIPT_11
 call load_sound_set(int 25)
+
+ /* play the sound 'blank' */ 
 call play_loaded_sound(int 1, int -1, int 25, int 0)
-var VAR_33 = call play_loaded_sound(int 3, int -1, int 25, int 0)
+var thunrumb_sound_ref = call play_loaded_sound(int 3, int -1, int 25, int 0)
 var VAR_32 = int 70
-call set_sound_volume(var VAR_33, var VAR_32)
+call set_sound_volume(var thunrumb_sound_ref, var VAR_32)
 var VAR_31 = int 1
 
 ._SCRIPT_12
@@ -256,7 +264,7 @@ switch(var VAR_35)
 					if(var VAR_38 == int 0)
 					 {
 							var VAR_32 += var VAR_37
-							call set_sound_volume(var VAR_33, var VAR_32)
+							call set_sound_volume(var thunrumb_sound_ref, var VAR_32)
 					}
 			}
 			else
@@ -279,7 +287,7 @@ switch(var VAR_35)
 					if(var VAR_38)
 					 {
 							var VAR_32 -= var VAR_37
-							call set_sound_volume(var VAR_33, var VAR_32)
+							call set_sound_volume(var thunrumb_sound_ref, var VAR_32)
 					}
 			}
 			else
@@ -305,9 +313,9 @@ switch(var VAR_40)
 		case 1
 			if(var VAR_41 > var VAR_42)
 			 {
-					var VAR_43 = call play_loaded_sound(int 4, int 0, int 25, int 0)
-					call set_sound_volume(var VAR_43, call randomize_int(int 100, int 201))
-					call func_11a(var VAR_43, call randomize_int(int 0, int 128))
+					var thunstrk_sound_ref = call play_loaded_sound(int 4, int 0, int 25, int 0)
+					call set_sound_volume(var thunstrk_sound_ref, call randomize_int(int 100, int 201))
+					call func_11a(var thunstrk_sound_ref, call randomize_int(int 0, int 128))
 					if(var ! VAR_34)
 					 {
 							var VAR_34 = int 1
@@ -356,8 +364,8 @@ switch(var VAR_44)
 			if(call is_local_timer_greater_than(var VAR_47))
 			 {
 					var VAR_48 -= int 4 * var VAR_47
-					var VAR_46 = call play_loaded_sound(int 5, int 0, int 25, int 0)
-					call set_sound_volume(var VAR_46, var VAR_48)
+					var verwind_sound_ref = call play_loaded_sound(int 5, int 0, int 25, int 0)
+					call set_sound_volume(var verwind_sound_ref, var VAR_48)
 					var VAR_47 = int 255 - var VAR_48
 					var VAR_45 = int 0
 					var VAR_44 ++ 
@@ -366,8 +374,9 @@ switch(var VAR_44)
 		case 4
 			if(var VAR_45 > var VAR_47)
 			 {
-					var VAR_46 = call play_loaded_sound(int 4, int 0, int 25, int 0)
-					call set_sound_volume(var VAR_46, var VAR_48)
+					var verwind_sound_ref = call play_loaded_sound(int 4, int 0, int 25, int 0 /* 'thunstrk' */ 
+ /* 'thunstrk' */ 
+					call set_sound_volume(var verwind_sound_ref, var VAR_48)
 					if(var ! VAR_34)
 					 {
 							var VAR_34 = int 1

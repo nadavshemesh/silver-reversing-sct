@@ -10,7 +10,7 @@
 
 
 ._DATA
-VAR_5	{ 0, 9 }	
+torches2_sound_ref	{ 0, 9 }	
 VAR_7	{ -4600, -500, 2700, -3200, -500, 2500, -4800, -520, 2800, -794, -520, 3286 }	
 VAR_8	{ 0, 1, 4, VAR_7, 8, 2, 4, 0, 9, 1, 1, 1, 47, 47, 47, 47, 47, -1, 5, 1, 15, 50, 6, 1, 7, 1, 2, -1 }	
 VAR_9	{ 0, 0, 2, 1, -1, 8, 1, 1, 2, 58, 60, -1, 4, 0, 9, 1, 5, 1, 15, 200, 6, 2, 7, 1, 2, 10, 83, 40, -1, -1 }	
@@ -55,8 +55,8 @@ gamevar SMACKER_X = int 488
 gamevar SMACKER_Y = int 8
 call play_2d_anim("torch2", int 1, int 1, int 0)
 call load_sound_set(int 30)
-var VAR_5 = call play_loaded_sound(int 1, int -1, int 30, int 0)
-call set_sound_volume(var VAR_5, int 60)
+var torches2_sound_ref = call play_loaded_sound(int 1, int -1, int 30, int 0)
+call set_sound_volume(var torches2_sound_ref, int 60)
 
 ._infinite_loop
 if(gamevar !is_room_cleared)

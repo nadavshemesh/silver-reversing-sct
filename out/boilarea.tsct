@@ -54,6 +54,8 @@ VAR_87	{ 1947, -481, 679 }
 ._on_load
 call func_124()
 call load_sound_set(int 64)
+
+ /* play the sound 'cavelp' */ 
 call play_loaded_sound(int 1, int -1, int 64, int 0)
 call load_sound_set(int 39)
 if(gamevar is_room_cleared)
@@ -135,13 +137,19 @@ if(gamevar !is_room_cleared)
 }
 
 ._SCRIPT_3
+
+ /* play the sound 'conveyor' */ 
 call play_loaded_sound(int 1, int -1, int 52, int 0)
+
+ /* play the sound 'lever' */ 
 call play_loaded_sound(int 2, int -1, int 52, int 0)
 
 ._SCRIPT_4
 if(gamevar script_time > var VAR_98)
  {
 		var VAR_98 = gamevar script_time + int 100 + call randomize_int(int 0, int 100)
+
+		 /* play the sound 'echdrip1' */ 
 		call play_loaded_sound(int 3, int 0, int 64, int 0)
 }
 if(gamevar script_time > var VAR_99)
@@ -279,6 +287,8 @@ if(var VAR_45 > var VAR_47)
 		var VAR_48 = call randomize_int(int 10, int 60)
 		var VAR_46 = call randomize_int(int 0, int 5)
 		call play_3d_fx("SJET", @VAR_20[var VAR_46], @VAR_21[var VAR_46], var VAR_48)
+
+		 /* play the sound 'cogs' */ 
 		call play_loaded_sound(int 5, int 0, int 39, int 0)
 		var VAR_47 = call randomize_int(int 30, int 150)
 		var VAR_45 = int 0

@@ -31,6 +31,8 @@ var VAR_5 = int 32768513
 execute SCRIPT_11
 execute SCRIPT_3
 call load_sound_set(int 65)
+
+ /* play the sound 'dog1' */ 
 call play_loaded_sound(int 7, int -1, int 65, int 0)
 call load_sound_set(int 68)
 if(gamevar is_room_cleared)
@@ -108,6 +110,8 @@ call create_char(var &VAR_9, "btreasure", int 0, int 14)
 if(gamevar script_time > var VAR_11)
  {
 		var VAR_11 = gamevar script_time + int 100 + call randomize_int(int 0, int 80)
+
+		 /* play the sound 'inwindlp' */ 
 		call play_loaded_sound(int 2, int 0, int 65, int 0)
 }
 if(var VAR_13 > var VAR_14)

@@ -28,6 +28,8 @@ VAR_24	{ 1772, -1978, 5345 }
 ._on_load
 call play_bgm("SEWERPT1")
 call load_sound_set(int 36)
+
+ /* play the sound 'Fountain' */ 
 call play_loaded_sound(int 2, int -1, int 36, int 0)
 gamevar SMACKER_X = int 272
 gamevar SMACKER_Y = int 72
@@ -53,6 +55,8 @@ if(var VAR_1)
 		else
 		 {
 				var VAR_7 = int 0
+
+				 /* play the sound 'wterfall' */ 
 				call play_loaded_sound(int 1, int 0, int 36, int 0)
 		}
 		var VAR_4 = int 1
@@ -97,6 +101,8 @@ if(var VAR_7 == int 1)
  {
 		call set_input_system(int 1)
 		execute SCRIPT_7
+
+		 /* play the sound 'wterfall' */ 
 		call play_loaded_sound(int 1, int 0, int 36, int 0)
 		var VAR_7 = int 0
 }
@@ -226,6 +232,8 @@ else
 		 {
 				call func_4e(int 0)
 				var VAR_4 = int 1
+
+				 /* play the sound 'wterfall' */ 
 				call play_loaded_sound(int 1, int 0, int 36, int 0)
 				var VAR_1 = int 1
 				call func_7(int 0, int 1, int 0, int 0)

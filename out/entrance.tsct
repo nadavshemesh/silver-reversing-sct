@@ -45,14 +45,16 @@ VAR_90	{ 0, 0, 2, -1, 8, 1, 12, 51, 51, 148, -1, 13, 0, 14, 0, 1, 3, 5, 0, 60, 1
 call func_58(int 1)
 execute SCRIPT_3
 call load_sound_set(int 64)
-var VAR_41 = call play_loaded_sound(int 1, int -1, int 64, int 0)
-if(var VAR_41)
+var cavelp_sound_ref = call play_loaded_sound(int 1, int -1, int 64, int 0)
+if(var cavelp_sound_ref)
  {
-		call set_sound_volume(var VAR_41, int 15)
+		call set_sound_volume(var cavelp_sound_ref, int 15)
 }
 call load_sound_set(int 65)
+
+ /* play the sound 'in2wind1' */ 
 call play_loaded_sound(int 5, int -1, int 65, int 0)
-call load_item(int 94 /* trident */ )
+call load_item(int 94)
 execute SCRIPT_9
 execute SCRIPT_12
 if(gamevar is_room_cleared)
@@ -161,6 +163,8 @@ switch(var VAR_66)
 		case 2
 			if(var VAR_67 > int 60)
 			 {
+
+					 /* play the sound 'spires3' */ 
 					call play_loaded_sound(int 2, int 0, int 39, int 0)
 					var VAR_67 = int 0
 					var VAR_66 ++ 
@@ -244,41 +248,51 @@ if(var VAR_78)
 						case 0
 							if(var VAR_79 == int 12)
 							 {
+
+									 /* play the sound 'cogs' */ 
 									call play_loaded_sound(int 5, int 0, int 39, int 0)
 							}
 							if(var VAR_79 == int 24)
 							 {
+
+									 /* play the sound 'cogs' */ 
 									call play_loaded_sound(int 5, int 0, int 39, int 0)
 							}
 							if(var VAR_79 == int 48)
 							 {
+
+									 /* play the sound 'cogs' */ 
 									call play_loaded_sound(int 5, int 0, int 39, int 0)
 							}
 							if(var VAR_79 == int 2)
 							 {
-									var VAR_56 = call play_loaded_sound(int 6, int -1, int 39, int 0)
+									var DoorOpn2_sound_ref = call play_loaded_sound(int 6, int -1, int 39, int 0)
 							}
 							if(var VAR_79 == int 80)
 							 {
-									call stop_playing_sound(var VAR_56)
+									call stop_playing_sound(var DoorOpn2_sound_ref)
 									var VAR_80 ++ 
 							}
 							break 
 						case 1
 							if(var VAR_79 == int 80)
 							 {
+
+									 /* play the sound 'spires4' */ 
 									call play_loaded_sound(int 3, int 0, int 39, int 0)
 							}
 							if(var VAR_79 == int 82)
 							 {
-									var VAR_85 = call play_loaded_sound(int 4, int 0, int 39, int 0)
+									var steam_sound_ref = call play_loaded_sound(int 4, int 0, int 39, int 0)
 							}
 							if(var VAR_79 == int 150)
 							 {
-									if(var VAR_85)
+									if(var steam_sound_ref)
 									 {
-											call stop_playing_sound(var VAR_85)
+											call stop_playing_sound(var steam_sound_ref)
 									}
+
+									 /* play the sound 'spires2' */ 
 									call play_loaded_sound(int 1, int 0, int 39, int 0)
 							}
 							break 
@@ -345,11 +359,15 @@ switch(var VAR_92)
 if(gamevar script_time > var VAR_96)
  {
 		var VAR_96 = gamevar script_time + int 20 + call randomize_int(int 0, int 100)
+
+		 /* play the sound 'echdrip1' */ 
 		call play_loaded_sound(int 3, int 0, int 64, int 0)
 }
 if(gamevar script_time > var VAR_97)
  {
 		var VAR_97 = gamevar script_time + int 100 + call randomize_int(int 0, int 50)
+
+		 /* play the sound 'wwindlp' */ 
 		call play_loaded_sound(int 6, int 0, int 65, int 0)
 }
 

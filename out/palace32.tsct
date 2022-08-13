@@ -43,7 +43,11 @@ VAR_88	{ 0, 0 }
 
 ._on_load
 call load_sound_set(int 66)
+
+ /* play the sound 'dog1' */ 
 call play_loaded_sound(int 7, int -1, int 66, int 0)
+
+ /* play the sound 'cwind1' */ 
 call play_loaded_sound(int 1, int -1, int 66, int 0)
 execute SCRIPT_9
 var VAR_39 = call get_david_char()
@@ -117,14 +121,15 @@ if(gamevar !is_room_cleared)
 if(gamevar script_time > var VAR_88)
  {
 		var VAR_88 = gamevar script_time + int 100 + call randomize_int(int 0, int 50)
-		var VAR_87 = call play_loaded_sound(int 6, int 0, int 66, int 0)
-		call set_sound_volume(var VAR_87, int 30)
+		var wwindlp_sound_ref = call play_loaded_sound(int 6, int 0, int 66, int 0)
+		call set_sound_volume(var wwindlp_sound_ref, int 30)
 }
 if(gamevar script_time > var VAR_88)
  {
 		var VAR_88 = gamevar script_time + int 60 + call randomize_int(int 0, int 60)
-		var VAR_87 = call play_loaded_sound(int 2, int 0, int 66, int 0)
-		call set_sound_volume(var VAR_87, int 30)
+		var wwindlp_sound_ref = call play_loaded_sound(int 2, int 0, int 66, int 0 /* 'inwindlp' */ 
+ /* 'inwindlp' */ 
+		call set_sound_volume(var wwindlp_sound_ref, int 30)
 }
 
 ._SCRIPT_4

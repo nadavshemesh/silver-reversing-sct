@@ -41,7 +41,7 @@ if(var valve != int 0)
 call load_sound_set(int 35)
 call load_sound_set(int 30)
 call load_sound_set(int 38)
-var VAR_8 = call play_loaded_sound(int 1, int -1, int 30, int 0)
+var torches2_sound_ref = call play_loaded_sound(int 1, int -1, int 30, int 0)
 gamevar SMACKER_X = int 544
 gamevar SMACKER_Y = int 96
 var VAR_1 = call play_2d_anim("water01", int 0, int 1, var &VAR_5)
@@ -132,6 +132,8 @@ switch(var VAR_15)
 					 {
 							if(var ! VAR_16)
 							 {
+
+									 /* play the sound 'Hornblow' */ 
 									call play_loaded_sound(int 102, int 0, int 0, int 0)
 									call play_char_anim(call get_selected_hero(), var no_anim, int 0)
 									var VAR_16 = int 60
@@ -194,9 +196,10 @@ switch(var VAR_15)
 			else
 			 {
 					call func_132(var VAR_14, int 98)
-					var VAR_9 = call play_loaded_sound(int 1, int -1, int 35, int 0)
-					var VAR_10 = call play_loaded_sound(int 2, int -1, int 35, int 0)
-					call set_sound_volume(var VAR_10, int 0)
+					var dwavesLp_sound_ref = call play_loaded_sound(int 1, int -1, int 35, int 0)
+					var steam_sound_ref = call play_loaded_sound(int 2, int -1, int 35, int 0 /* 'steam' */ 
+ /* 'steam' */ 
+					call set_sound_volume(var steam_sound_ref, int 0)
 					var VAR_11 = int 0
 					var VAR_5 = int 1
 					gamevar script_object = var VAR_1
@@ -208,8 +211,10 @@ switch(var VAR_15)
 		case 6
 			if(var VAR_6 == int 149)
 			 {
-					call stop_playing_sound(var VAR_9)
-					call stop_playing_sound(var VAR_8)
+					call stop_playing_sound(var dwavesLp_sound_ref)
+					call stop_playing_sound(var torches2_sound_ref)
+
+					 /* play the sound 'gateopen' */ 
 					call play_loaded_sound(int 3, int 0, int 35, int 0)
 					call play_3d_fx("SJET", var &VAR_12, var &VAR_13, int 60)
 					var VAR_5 = int 0
@@ -350,10 +355,10 @@ if(var VAR_11 == int -1)
  {
 		exit_script 
 }
-if(var VAR_10 != int 0&&var VAR_11 < int 100)
+if(var steam_sound_ref != int 0&&var VAR_11 < int 100)
  {
 		var VAR_11 ++ 
-		call set_sound_volume(var VAR_10, var VAR_11)
+		call set_sound_volume(var steam_sound_ref, var VAR_11)
 }
 
 ._SCRIPT_9
@@ -364,5 +369,7 @@ if(var VAR_0)
 if(gamevar script_time > var VAR_65)
  {
 		var VAR_65 = gamevar script_time + int 50 + call randomize_int(int 0, int 70)
+
+		 /* play the sound 'echdrip1' */ 
 		call play_loaded_sound(int 1, int 0, int 38, int 0)
 }

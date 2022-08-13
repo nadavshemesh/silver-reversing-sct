@@ -20,21 +20,21 @@ VAR_79	{ 0, 0 }
 
 ._on_load
 call load_sound_set(int 65)
-var VAR_50 = call play_loaded_sound(int 7, int -1, int 65, int 0)
-call set_sound_volume(var VAR_50, int 30)
+var dog1_sound_ref = call play_loaded_sound(int 7, int -1, int 65, int 0)
+call set_sound_volume(var dog1_sound_ref, int 30)
 execute SCRIPT_10
 call func_124()
 switch(gamevar room_state)
  {
 		case 1
-			if(call ! is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
+			if(call ! is_char_handle_in_level(int 6291456))
 			 {
 					call load_char("chronicl")
 			}
 			execute SCRIPT_5
 			break 
 		case 2
-			if(call ! is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
+			if(call ! is_char_handle_in_level(int 6291456))
 			 {
 					call load_char("chronicl")
 			}
@@ -107,8 +107,8 @@ execute SCRIPT_15
 if(gamevar script_time > var VAR_79)
  {
 		var VAR_79 = gamevar script_time + int 60 + call randomize_int(int 0, int 120)
-		var VAR_78 = call play_loaded_sound(int 2, int 0, int 65, int 0)
-		call set_sound_volume(var VAR_78, int 40)
+		var inwindlp_sound_ref = call play_loaded_sound(int 2, int 0, int 65, int 0)
+		call set_sound_volume(var inwindlp_sound_ref, int 40)
 }
 
 ._SCRIPT_4

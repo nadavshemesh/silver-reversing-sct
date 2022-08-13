@@ -28,7 +28,7 @@ VAR_66	100
 execute SCRIPT_8
 execute SCRIPT_9
 call load_sound_set(int 22)
-var VAR_46 = call play_loaded_sound(int 1, int -1, int 22, int 0)
+var frog_sound_ref = call play_loaded_sound(int 1, int -1, int 22, int 0)
 switch(gamevar room_state)
  {
 		case 1
@@ -79,7 +79,7 @@ switch(var VAR_55)
 		case 0
 			if(gamevar scene_counter > int 400)
 			 {
-					call func_59(var VAR_46)
+					call func_59(var frog_sound_ref)
 					call play_bgm("IEVLBAT1")
 					var VAR_55 ++ 
 			}
@@ -139,7 +139,8 @@ switch(var VAR_55)
 			 {
 					call set_input_system(int 1)
 					var fade_chronicler = call create_enemy(int 178, int 0, var &VAR_41, int 55)
-					var VAR_46 = call play_loaded_sound(int 1, int -1, int 22, int 0)
+					var frog_sound_ref = call play_loaded_sound(int 1, int -1, int 22, int 0 /* 'frog' */ 
+ /* 'frog' */ 
 					var VAR_55 ++ 
 					gamevar *scene_info_p+3 &= int -17
 					gamevar *scene_info_p+3 |= int 2
@@ -164,7 +165,8 @@ var DAVID = call get_char_handle(int 65536)
 execute SCRIPT_7
 
 ._SCRIPT_6
-var VAR_46 = call play_loaded_sound(int 1, int -1, int 22, int 0)
+var frog_sound_ref = call play_loaded_sound(int 1, int -1, int 22, int 0 /* 'frog' */ 
+ /* 'frog' */ 
 
 ._SCRIPT_7
 if(var VAR_66 == int 0)

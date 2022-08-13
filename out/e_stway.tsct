@@ -19,9 +19,13 @@ VAR_12	{ -220, 0, -4200 }
 
 ._on_load
 call load_sound_set(int 30)
-var VAR_0 = call play_loaded_sound(int 1, int -1, int 30, int 0)
+var torches2_sound_ref = call play_loaded_sound(int 1, int -1, int 30, int 0)
 call load_sound_set(int 75)
+
+ /* play the sound 'rumble2' */ 
 call play_loaded_sound(int 1, int -1, int 75, int 0)
+
+ /* play the sound 'rockbit1' */ 
 call play_loaded_sound(int 2, int -1, int 75, int 0)
 if(gamevar room_state == int 0)
  {
@@ -106,7 +110,7 @@ switch(var VAR_9)
 execute SCRIPT_7
 if(var VAR_8)
  {
-		call func_59(var VAR_0)
+		call func_59(var torches2_sound_ref)
 		var VAR_8 = int 0
 }
 if(var VAR_15 != var VAR_13)

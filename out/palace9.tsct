@@ -15,6 +15,8 @@ VAR_10	{ -6896, 0, 1366 }
 
 ._on_load
 call load_sound_set(int 66)
+
+ /* play the sound 'in2wind1' */ 
 call play_loaded_sound(int 5, int -1, int 66, int 0)
 var VAR_2 = call get_david_char()
 var VAR_3 = call func_7e()
@@ -62,8 +64,8 @@ if(gamevar room_state == int 1)
 if(gamevar script_time > var VAR_13)
  {
 		var VAR_13 = gamevar script_time + int 100 + call randomize_int(int 0, int 50)
-		var VAR_12 = call play_loaded_sound(int 6, int 0, int 66, int 0)
-		call set_sound_volume(var VAR_12, int 30)
+		var wwindlp_sound_ref = call play_loaded_sound(int 6, int 0, int 66, int 0)
+		call set_sound_volume(var wwindlp_sound_ref, int 30)
 }
 
 ._SCRIPT_4

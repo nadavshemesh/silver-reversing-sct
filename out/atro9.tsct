@@ -34,7 +34,11 @@ VAR_30	{ VAR_22, VAR_23, VAR_24, VAR_25, VAR_26, VAR_27, VAR_28, VAR_29 }
 call func_58(int 1)
 call load_sound_set(int 76)
 call load_sound_set(int 0)
+
+ /* play the sound 'atrolp2' */ 
 call play_loaded_sound(int 1, int -1, int 76, int 0)
+
+ /* play the sound 'atroamb1' */ 
 call play_loaded_sound(int 2, int -1, int 76, int 0)
 execute SCRIPT_11
 if(gamevar is_room_cleared)
@@ -182,12 +186,16 @@ if(gamevar script_time > var VAR_19)
  {
 		var VAR_19 = gamevar script_time + int 100 + call randomize_int(int 0, int 150)
 		var VAR_21 = call randomize_int(int 0, int 8)
+
+		 /* play the sound 'atroamb4' */ 
 		call play_loaded_sound(int 3, int 0, int 76, @VAR_30[var VAR_21])
 }
 if(gamevar script_time > var VAR_20)
  {
 		var VAR_20 = gamevar script_time + int 200 + call randomize_int(int 0, int 150)
 		var VAR_21 = call randomize_int(int 0, int 8)
+
+		 /* play the sound 'bees' */ 
 		call play_loaded_sound(int 4, int 0, int 76, @VAR_30[var VAR_21])
 }
 var VAR_31 = var VAR_32

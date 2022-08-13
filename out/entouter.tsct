@@ -127,6 +127,8 @@ call func_64(int 0, int 1, "fimp", int 2177)
 
 ._SCRIPT_5
 call load_sound_set(int 9)
+
+ /* play the sound 'lforstlp' */ 
 call play_loaded_sound(int 12, int -1, int 9, int 0)
 execute SCRIPT_6
 
@@ -198,6 +200,8 @@ if(var VAR_9 == int 2)
 		if(gamevar scene_counter > int 150)
 		 {
 				call log("here!")
+
+				 /* play the sound 'rainhorn' */ 
 				call play_loaded_sound(int 8, int 0, int 9, int 0)
 				call set_char_running(var nimp1)
 				call char_walk_to(var nimp1, int 2060, int 3, int 895)
@@ -223,6 +227,8 @@ if(var VAR_9 == int 3)
 }
 if(var VAR_9 == int 4)
  {
+
+		 /* play the sound 'lever' */ 
 		call play_loaded_sound(int 11, int 0, int 9, int 0)
 		call func_4e(int 0)
 		gamevar scene_counter = int 0
@@ -295,6 +301,8 @@ if(var VAR_9 == int 10)
 		 {
 				if(call is_not_force_scrolling())
 				 {
+
+						 /* play the sound 'lever' */ 
 						call play_loaded_sound(int 11, int 0, int 9, int 0)
 						call func_21(var GRANDAD, var &VAR_19)
 						call play_char_anim(var GRANDAD, var barge_anim, int 0)
@@ -368,6 +376,8 @@ if(var VAR_9 == int 16)
  {
 		if(gamevar scene_counter > int 90)
 		 {
+
+				 /* play the sound 'lever' */ 
 				call play_loaded_sound(int 11, int 0, int 9, int 0)
 				call play_char_anim(var DAVID, var barge_anim, int 0)
 				var VAR_9 = int 17
@@ -378,6 +388,8 @@ if(var VAR_9 == int 17)
  {
 		if(gamevar scene_counter > int 26)
 		 {
+
+				 /* play the sound 'dwavesLp' */ 
 				call play_loaded_sound(int 10, int 0, int 9, int 0)
 				var VAR_18 = int 1
 				gamevar scene_counter = int 0

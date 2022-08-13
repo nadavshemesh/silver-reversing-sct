@@ -205,6 +205,8 @@ switch(var VAR_13)
 			 {
 					call play_char_anim(gamevar control_char_p, var rchop_anim, int 0)
 					var VAR_1 = int 1
+
+					 /* play the sound 'steps' */ 
 					call play_loaded_sound(int 2, int 0, int 27, "")
 					var VAR_13 ++ 
 					var VAR_14 = int 0
@@ -219,7 +221,7 @@ switch(var VAR_13)
 			if(var VAR_1 == int -1)
 			 {
 					var VAR_2 = int 1
-					var VAR_17 = call play_loaded_sound(int 3, int -1, int 27, int 0)
+					var capstan_sound_ref = call play_loaded_sound(int 3, int -1, int 27, int 0)
 					var VAR_13 ++ 
 					var VAR_14 = int 0
 			}
@@ -229,7 +231,7 @@ switch(var VAR_13)
 			 {
 					gamevar *scene_info_p+4 &= int -17
 					gamevar *scene_info_p+4 |= int 2
-					call func_59(var VAR_17)
+					call func_59(var capstan_sound_ref)
 					var VAR_28 = call run_enemy_generator(var &VAR_22, int 20)
 					var groad1 = call create_enemy(int 39, int 1, var &VAR_24, int 0)
 					gamevar script_object = var groad1
@@ -274,4 +276,6 @@ var VAR_14 ++
 
 ._SCRIPT_12
 call load_sound_set(int 27)
+
+ /* play the sound 'toilet' */ 
 call play_loaded_sound(int 1, int -1, int 27, int 0)

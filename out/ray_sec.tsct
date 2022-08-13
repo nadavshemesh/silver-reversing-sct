@@ -65,6 +65,8 @@ if(var ! VAR_0)
  {
 		if(gamevar global_collision_type == int 18)
 		 {
+
+				 /* play the sound 'cogs' */ 
 				call play_loaded_sound(int 1, int 0, int 34, int 0)
 				var VAR_3 = int 1
 				var VAR_2 = int 0
@@ -78,6 +80,8 @@ else
 		if(gamevar global_collision_type == int 18)
 		 {
 				call log("bell hit while ringing")
+
+				 /* play the sound 'cogs' */ 
 				call play_loaded_sound(int 1, int 0, int 34, int 0)
 				gamevar global_collision_type = int 0
 		}
@@ -87,6 +91,8 @@ else
 				var VAR_3 = int 0
 				if(var ! VAR_1)
 				 {
+
+						 /* play the sound 'valve' */ 
 						call play_loaded_sound(int 2, int 0, int 34, int 0)
 						var VAR_5 = int 1
 						var VAR_1 = int 1
@@ -131,5 +137,7 @@ call run_enemy_generator(var &VAR_18, int 200)
 if(gamevar script_time > var VAR_27)
  {
 		var VAR_27 = gamevar script_time + int 50 + call randomize_int(int 0, int 70)
+
+		 /* play the sound 'echdrip1' */ 
 		call play_loaded_sound(int 1, int 0, int 38, int 0)
 }

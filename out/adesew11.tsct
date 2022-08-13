@@ -49,9 +49,11 @@ gamevar SMACKER_Y = int 184
 call play_2d_anim("adesw11a", int 1, int 1, var &VAR_3)
 call load_sound_set(int 30)
 call load_sound_set(int 33)
+
+ /* play the sound 'torches2' */ 
 call play_loaded_sound(int 1, int -1, int 30, int 0)
-var VAR_4 = call play_loaded_sound(int 2, int -1, int 33, int 0)
-call set_sound_volume(var VAR_4, int 32)
+var buoy_sound_ref = call play_loaded_sound(int 2, int -1, int 33, int 0)
+call set_sound_volume(var buoy_sound_ref, int 32)
 call load_char("spider")
 switch(gamevar room_state)
  {

@@ -90,10 +90,12 @@ execute SCRIPT_10
 
 ._SCRIPT_10
 call load_sound_set(int 25)
+
+ /* play the sound 'blank' */ 
 call play_loaded_sound(int 1, int -1, int 25, int 0)
-var VAR_6 = call play_loaded_sound(int 3, int -1, int 25, int 0)
+var thunrumb_sound_ref = call play_loaded_sound(int 3, int -1, int 25, int 0)
 var VAR_5 = int 70
-call set_sound_volume(var VAR_6, var VAR_5)
+call set_sound_volume(var thunrumb_sound_ref, var VAR_5)
 var VAR_4 = int 1
 
 ._SCRIPT_11
@@ -119,7 +121,7 @@ switch(var VAR_8)
 					if(var VAR_11 == int 0)
 					 {
 							var VAR_5 += var VAR_10
-							call set_sound_volume(var VAR_6, var VAR_5)
+							call set_sound_volume(var thunrumb_sound_ref, var VAR_5)
 					}
 			}
 			else
@@ -142,7 +144,7 @@ switch(var VAR_8)
 					if(var VAR_11)
 					 {
 							var VAR_5 -= var VAR_10
-							call set_sound_volume(var VAR_6, var VAR_5)
+							call set_sound_volume(var thunrumb_sound_ref, var VAR_5)
 					}
 			}
 			else
@@ -168,9 +170,9 @@ switch(var VAR_13)
 		case 1
 			if(var VAR_14 > var VAR_15)
 			 {
-					var VAR_16 = call play_loaded_sound(int 4, int 0, int 25, int 0)
-					call set_sound_volume(var VAR_16, call randomize_int(int 100, int 201))
-					call func_11a(var VAR_16, call randomize_int(int 0, int 128))
+					var thunstrk_sound_ref = call play_loaded_sound(int 4, int 0, int 25, int 0)
+					call set_sound_volume(var thunstrk_sound_ref, call randomize_int(int 100, int 201))
+					call func_11a(var thunstrk_sound_ref, call randomize_int(int 0, int 128))
 					if(var ! VAR_7)
 					 {
 							var VAR_7 = int 1
@@ -219,8 +221,8 @@ switch(var VAR_17)
 			if(call is_local_timer_greater_than(var VAR_20))
 			 {
 					var VAR_21 -= int 4 * var VAR_20
-					var VAR_19 = call play_loaded_sound(int 5, int 0, int 25, int 0)
-					call set_sound_volume(var VAR_19, var VAR_21)
+					var verwind_sound_ref = call play_loaded_sound(int 5, int 0, int 25, int 0)
+					call set_sound_volume(var verwind_sound_ref, var VAR_21)
 					var VAR_20 = int 255 - var VAR_21
 					var VAR_18 = int 0
 					var VAR_17 ++ 
@@ -229,8 +231,9 @@ switch(var VAR_17)
 		case 4
 			if(var VAR_18 > var VAR_20)
 			 {
-					var VAR_19 = call play_loaded_sound(int 4, int 0, int 25, int 0)
-					call set_sound_volume(var VAR_19, var VAR_21)
+					var verwind_sound_ref = call play_loaded_sound(int 4, int 0, int 25, int 0 /* 'thunstrk' */ 
+ /* 'thunstrk' */ 
+					call set_sound_volume(var verwind_sound_ref, var VAR_21)
 					if(var ! VAR_7)
 					 {
 							var VAR_7 = int 1

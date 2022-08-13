@@ -31,8 +31,12 @@ gamevar SMACKER_X = int 144
 gamevar SMACKER_Y = int 0
 call play_2d_anim("adesew8a", int 1, int 1, var &VAR_1)
 call load_sound_set(int 38)
+
+ /* play the sound 'spires1' */ 
 call play_loaded_sound(int 3, int -1, int 38, int 0)
 call load_sound_set(int 30)
+
+ /* play the sound 'torches2' */ 
 call play_loaded_sound(int 1, int -1, int 30, int 0)
 switch(gamevar room_state)
  {
@@ -106,5 +110,7 @@ if(var ! VAR_13)
 if(gamevar script_time > var VAR_22)
  {
 		var VAR_22 = gamevar script_time + int 50 + call randomize_int(int 0, int 70)
+
+		 /* play the sound 'echdrip1' */ 
 		call play_loaded_sound(int 1, int 0, int 38, int 0)
 }

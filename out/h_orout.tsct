@@ -70,6 +70,8 @@ VAR_176	{ VAR_175, VAR_175 }
 ._on_load
 execute SCRIPT_17
 call load_sound_set(int 12)
+
+ /* play the sound 'sent1' */ 
 call play_loaded_sound(int 8, int -1, int 12, int 0)
 if(gamevar room_state != int 1)
  {
@@ -699,6 +701,8 @@ if(gamevar script_time > var VAR_172)
 if(gamevar script_time > var VAR_173)
  {
 		var VAR_173 = gamevar script_time + int 30 + call randomize_int(int 0, int 30)
+
+		 /* play the sound 'sentloop' */ 
 		call play_loaded_sound(int 9, int 0, int 12, @VAR_176[var VAR_174])
 }
 

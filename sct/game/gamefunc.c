@@ -28,11 +28,11 @@ void add_forced_type(game_fun* gf, data_type type, int var_index) {
     ft->type = type;
     ft->var_index = var_index;
 
-    node* node = create_node(ft);
-    if(gf->forced_types == NULL || *gf->forced_types == NULL) {
-        *gf->forced_types = node;
+    node* ft_node = create_node(ft);
+    if(*gf->forced_types == NULL) {
+        *gf->forced_types = ft_node;
     } else {
-        insert_node(gf->forced_types, node);
+        insert_node(gf->forced_types, ft_node);
     }
 }
 

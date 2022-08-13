@@ -225,7 +225,7 @@ bool is_string(byte* str, int len) {
         if(!is_printable_ascii(ch) && !is_exception_char(ch))
             non_printable++;
     }
-    if(non_printable >= (((float)len)/10)*5) {return false;}
+    if(non_printable >= (((float)len)/10)*6) {return false;}
     //if(null_counter >= 5) return false;
     if(letters <= 1 || printable == 0) {return false;}
     //if(letters > 10 && spaces == 0) return false;

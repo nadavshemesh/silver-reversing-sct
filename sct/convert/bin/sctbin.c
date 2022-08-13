@@ -566,7 +566,7 @@ expr_obj* bin_read_function_call_expr(expr_pattern* expr_p, int* vars, void** to
         exp_nodes_len++;
 
         // force type recognition
-        if(gf->forced_types != NULL && *gf->forced_types != NULL) {
+        if(gf->forced_types != NULL) {
             node* ft_node = *gf->forced_types;
             while(ft_node != NULL) {
                 forced_type* ft = ft_node->item;
@@ -652,6 +652,7 @@ expr_obj* bin_create_expr_obj(expr_pattern* expr, int* vars, void** token_pos_pt
                 memcpy(eo->asm_vars, &asm_vars, asm_var_num*sizeof(char*));
 
                 ignore_data_obj(data, sf);
+                data->references++;
 
                 return eo;
             }
@@ -876,6 +877,24 @@ code_obj* bin_read_code_block_cases(code_pattern* cp, int* vars, int* cases, int
     return c_obj;
 }
 
+expr_obj* make_str_var_inline(expr_obj* eo, sct_f* sf) {
+    // check if can convert to inline string
+    if(eo->data->references == 1 && eo->data->data_references == 0) {
+        expr_pattern* ep = init_aid_expr_inline_data();
+        
+        eo->expr_p = ep;
+        ignore_data_obj(eo->data, sf);
+
+        char str[256];
+        sprintf(str, "\"%s\"", (char*) eo->data->data);
+        char* asm_vars = { aapts(str) };
+        eo->asm_vars = w_malloc(sizeof(char*));
+        memcpy(eo->asm_vars, &asm_vars, sizeof(char*));
+    }
+
+    return eo;
+}
+
 code_obj* bin_read_function_call(code_pattern* cp, int* vars, void** tokens_pos_ptr, sct_f* sf) {
     code_obj* c_obj = create_and_init_c_obj();
 
@@ -902,6 +921,24 @@ code_obj* bin_read_function_call(code_pattern* cp, int* vars, void** tokens_pos_
             insert_node(exp_nodes, new_node);
         }
         exp_nodes_len++;
+
+        // force type recognition
+        if(gf->forced_types != NULL) {
+            node* ft_node = *gf->forced_types;
+            while(ft_node != NULL) {
+                forced_type* ft = ft_node->item;
+                if(ft->var_index == i){
+                    expr_obj* eo = exp->expr_objs;
+                    if(eo->expr_p->type == VAR_PTR || eo->expr_p->type == ADDROF_VAR_PTR) {
+                        eo->data->type = ft->type;
+                        if(ft->type == STRING) {
+                            exp->expr_objs = make_str_var_inline(eo, sf);
+                        }
+                    }
+                }
+                ft_node = ft_node->next;
+            }
+        }
     }
 
     c_obj->expression_node_num = exp_nodes_len;

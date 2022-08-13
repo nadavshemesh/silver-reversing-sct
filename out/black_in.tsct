@@ -544,8 +544,8 @@ if(gamevar script_time > var VAR_67)
 ._SCRIPT_4
 gamevar SMACKER_X = int 308
 gamevar SMACKER_Y = int 324
-call play_2d_anim("black_in", int 1, int 1, var &VAR_37)
-call play_2d_anim("blackfad", int -2147483, int 1, var &VAR_35)
+call play_2d_anim(var &VAR_38, int 1, int 1, var &VAR_37)
+call play_2d_anim(var &VAR_39, int -2147483, int 1, var &VAR_35)
 gamevar use_mouse_override_sprite = int 410
 
 ._SCRIPT_5
@@ -689,7 +689,7 @@ if(var VAR_48 == int 6)
 				if(var VAR_49 > int 100)
 				 {
 						var VAR_48 ++ 
-						call func_e6("lmetalon", "black_3", var &VAR_0, int 2)
+						call func_e6(var &VAR_50, var &VAR_51, var &VAR_0, int 2)
 				}
 		}
 }
@@ -803,8 +803,8 @@ if(var VAR_52 == int 5)
 				if(var VAR_53 > int 100)
 				 {
 						var VAR_52 ++ 
-						call func_e6("lmetalon", "black_3", var &VAR_0, int 2)
-						call set_scene_overwrite_act("lmetalon", "black_in", int 0)
+						call func_e6(var &VAR_54, var &VAR_55, var &VAR_0, int 2)
+						call set_scene_overwrite_act(var &VAR_56, var &VAR_57, int 0)
 				}
 		}
 }
@@ -921,7 +921,7 @@ if(var VAR_58 == int 5)
 						var VAR_26 = var VAR_25
 						var VAR_20 = call func_7e()
 				}
-				call log("TELEPORT")
+				call log(var &VAR_60)
 				var VAR_25 = int 0
 				var VAR_58 ++ 
 				var VAR_59 = int 0
@@ -949,8 +949,8 @@ if(var VAR_58 == int 6)
 				if(var VAR_59 > int 100)
 				 {
 						var VAR_58 ++ 
-						call func_e6("lmetalon", "black_3", var &VAR_0, int 2)
-						call set_scene_overwrite_act("lmetalon", "black_in", int 0)
+						call func_e6(var &VAR_61, var &VAR_62, var &VAR_0, int 2)
+						call set_scene_overwrite_act(var &VAR_63, var &VAR_64, int 0)
 				}
 		}
 }

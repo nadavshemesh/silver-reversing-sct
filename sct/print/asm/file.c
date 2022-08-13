@@ -207,6 +207,9 @@ void write_asm_script(script* script, sct_f* sf) {
             case 2:
                 sprintf(script_name, "\n._on_exit\n", script_number);
                 break;
+            case 3:
+                sprintf(script_name, "\n._shuffle_background_noises\n", script_number);
+                break;
         }
     }
     fprintf(sf->out_file, script_name);

@@ -12,7 +12,7 @@
 ._DATA
 VAR_18	{ 0, 0, -1 }	
 VAR_23	-1	
-VAR_58	{ 0, 0 }	
+david1	{ 0, 0 }	
 VAR_60	{ 0, 0 }	
 VAR_72	{ -1119, -189, 593 }	
 VAR_90	{ -6295, -1265, 625 }	
@@ -80,14 +80,14 @@ if(gamevar !is_room_cleared)
 					execute SCRIPT_7
 					if(var VAR_53 == int 6)
 					 {
-							var VAR_54 = call get_david_char()
-							while(var VAR_54)
+							var david0 = call get_david_char()
+							while(var david0)
 							 {
 									if(call create_item(int 105 /* unknown */ ))
 									 {
 											var VAR_55 = int 1
 									}
-									var VAR_54 = call func_7e()
+									var david0 = call func_7e()
 							}
 							if(var VAR_55 == int 0)
 							 {
@@ -123,19 +123,19 @@ if(gamevar !is_room_cleared)
 					if(var VAR_57)
 					 {
 							gamevar room_state ++ 
-							var VAR_58 = call get_david_char()
-							while(var VAR_58)
+							var david1 = call get_david_char()
+							while(var david1)
 							 {
-									if(var VAR_58 != gamevar control_char_p)
+									if(var david1 != gamevar control_char_p)
 									 {
-											call func_34(var VAR_58)
-											var VAR_59 = var VAR_58
+											call func_34(var david1)
+											var VAR_59 = var david1
 									}
 									else
 									 {
 											var VAR_59 = int 0
 									}
-									var VAR_58 = call func_7e()
+									var david1 = call func_7e()
 									if(var VAR_59)
 									 {
 											call remove_char(var VAR_59)
@@ -163,35 +163,35 @@ gamevar SMACKER_Y = int 48
 call play_2d_anim("monkcave", int 1, int 0, int 0)
 
 ._SCRIPT_4
-var VAR_58 = call get_david_char()
-while(var VAR_58)
+var david1 = call get_david_char()
+while(var david1)
  {
-		var VAR_61 = call get_char_handle_id(var VAR_58)
+		var VAR_61 = call get_char_handle_id(var david1)
 		switch(var VAR_61)
 		 {
 				case 65536
 					call log("david")
-					var VAR_42 = var VAR_58
+					var VAR_42 = var david1
 					break 
 				case 786432
 					call log("sekune")
-					var VAR_44 = var VAR_58
+					var VAR_44 = var david1
 					break 
 				case 327680
 					call log("jug")
-					var VAR_43 = var VAR_58
+					var VAR_43 = var david1
 					break 
 				case 196608
 					call log("vivienne")
-					var VAR_45 = var VAR_58
+					var VAR_45 = var david1
 					break 
 				case 131072
 					call log("chiaro")
-					var VAR_46 = var VAR_58
+					var VAR_46 = var david1
 					break 
 				case 262144
 					call log("cagen")
-					var VAR_47 = var VAR_58
+					var VAR_47 = var david1
 					break 
 				default 
 					call log("WARNING! Unknown hero while checking heroes")
@@ -199,7 +199,7 @@ while(var VAR_58)
 					break 
 		}
 		var VAR_62 ++ 
-		var VAR_58 = call func_7e()
+		var david1 = call func_7e()
 }
 
 ._SCRIPT_5
@@ -208,10 +208,10 @@ switch(var VAR_74)
 		case 0
 			if(call ! func_127(var nmedmonk))
 			 {
-					var VAR_76 = call get_selected_hero()
-					if(var VAR_76)
+					var selectedàher0 = call get_selected_hero()
+					if(var selectedàher0)
 					 {
-							if(var VAR_76 == var VAR_42)
+							if(var selectedàher0 == var VAR_42)
 							 {
 									if(var VAR_45)
 									 {
@@ -297,8 +297,8 @@ switch(var VAR_98)
 			if(call func_6d() == int 1)
 			 {
 					call set_input_system(int 2)
-					var VAR_101 = call get_selected_hero()
-					call func_61(var VAR_101)
+					var selected1 = call get_selected_hero()
+					call func_61(var selected1)
 					var VAR_98 ++ 
 					var VAR_99 = int 0
 			}
@@ -306,16 +306,16 @@ switch(var VAR_98)
 		case 4
 			if(var VAR_99 > int 80)
 			 {
-					call play_char_anim(var VAR_101, var jangive_anim, int 0)
+					call play_char_anim(var selected1, var jangive_anim, int 0)
 					var VAR_99 = int 0
 					var VAR_98 ++ 
 			}
 			break 
 		case 5
-			if(call func_5c(var VAR_101))
+			if(call func_5c(var selected1))
 			 {
 					call func_f9(var unknown1, int 100)
-					call func_b6(var VAR_101, var unknown1)
+					call func_b6(var selected1, var unknown1)
 					var VAR_98 ++ 
 					var VAR_99 = int 0
 			}
@@ -341,7 +341,7 @@ switch(var VAR_98)
 			if(call func_5c(var nmedmonk))
 			 {
 					call func_f9(var ethpot1, int 100)
-					var ethpot = call add_item_to_char(var VAR_101, int 97, int 1, int 0)
+					var ethpot = call add_item_to_char(var selected1, int 97, int 1, int 0)
 					var VAR_98 ++ 
 					var VAR_99 = int 0
 			}
@@ -349,7 +349,7 @@ switch(var VAR_98)
 		case 9
 			if(var VAR_99 > int 60)
 			 {
-					call func_55(var VAR_101, int 97)
+					call func_55(var selected1, int 97)
 					var VAR_99 = int 0
 					var VAR_98 ++ 
 			}
@@ -359,9 +359,9 @@ switch(var VAR_98)
 			 {
 					var VAR_99 = int 0
 					var VAR_98 ++ 
-					call play_char_anim(var VAR_101, var dazed_anim, int 0)
+					call play_char_anim(var selected1, var dazed_anim, int 0)
 					var VAR_39 = int 1
-					var VAR_48 = var VAR_101
+					var VAR_48 = var selected1
 			}
 			break 
 		case 11
@@ -410,12 +410,12 @@ switch(var VAR_108)
 			}
 			break 
 		case 1
-			var VAR_58 = call get_david_char()
-			while(var VAR_58)
+			var david1 = call get_david_char()
+			while(var david1)
 			 {
-					if(var VAR_58 != gamevar control_char_p)
+					if(var david1 != gamevar control_char_p)
 					 {
-							var VAR_114 = call get_char_handle_id(var VAR_58)
+							var VAR_114 = call get_char_handle_id(var david1)
 							switch(var VAR_114)
 							 {
 									case 65536
@@ -526,7 +526,7 @@ switch(var VAR_108)
 							}
 					}
 					var VAR_62 ++ 
-					var VAR_58 = call func_7e()
+					var david1 = call func_7e()
 			}
 			if(var VAR_112)
 			 {

@@ -134,15 +134,15 @@ switch(var VAR_60)
 							call set_input_system(int 2)
 							execute SCRIPT_15
 							var DAVID = call get_char_handle(int 65536)
-							var VAR_62 = call get_david_char()
-							if(var VAR_62 == var DAVID)
+							var david0 = call get_david_char()
+							if(var david0 == var DAVID)
 							 {
-									var VAR_62 = call func_7e()
+									var david0 = call func_7e()
 							}
 							if(var VAR_39)
 							 {
-									call char_turn_to_pos(var DAVID, call get_char_pos(var VAR_62))
-									call char_turn_to_pos(var VAR_62, call get_char_pos(var DAVID))
+									call char_turn_to_pos(var DAVID, call get_char_pos(var david0))
+									call char_turn_to_pos(var david0, call get_char_pos(var DAVID))
 									call start_dialog("L_DVDORB", "NULL")
 							}
 							else
@@ -151,8 +151,8 @@ switch(var VAR_60)
 									switch(var VAR_63)
 									 {
 											case 65536
-												call char_turn_to_pos(var DAVID, call get_char_pos(var VAR_62))
-												call char_turn_to_pos(var VAR_62, call get_char_pos(var DAVID))
+												call char_turn_to_pos(var DAVID, call get_char_pos(var david0))
+												call char_turn_to_pos(var david0, call get_char_pos(var DAVID))
 												call start_dialog("I_DVDORB", "NULL")
 												break 
 											case 327680
@@ -389,15 +389,15 @@ switch(var VAR_26)
 
 ._SCRIPT_15
 var VAR_40 = int 0
-var VAR_41 = call get_david_char()
-var VAR_40 += call func_42(var VAR_41, int 0)
-var VAR_40 += call func_42(var VAR_41, int 1)
-var VAR_40 += call func_42(var VAR_41, int 2)
-var VAR_40 += call func_42(var VAR_41, int 3)
-var VAR_40 += call func_42(var VAR_41, int 4)
-var VAR_40 += call func_42(var VAR_41, int 5)
-var VAR_40 += call func_42(var VAR_41, int 6)
-var VAR_40 += call func_42(var VAR_41, int 7)
+var david1 = call get_david_char()
+var VAR_40 += call func_42(var david1, int 0)
+var VAR_40 += call func_42(var david1, int 1)
+var VAR_40 += call func_42(var david1, int 2)
+var VAR_40 += call func_42(var david1, int 3)
+var VAR_40 += call func_42(var david1, int 4)
+var VAR_40 += call func_42(var david1, int 5)
+var VAR_40 += call func_42(var david1, int 6)
+var VAR_40 += call func_42(var david1, int 7)
 if(var VAR_40 == int 8)
  {
 		call func_116("haven", "h_camptp", int 9)

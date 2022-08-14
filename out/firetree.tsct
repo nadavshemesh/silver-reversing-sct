@@ -116,8 +116,8 @@ switch(var VAR_14)
 					var VAR_16 = call func_92(int 0, "nfrink", int 0, int 13)
 					gamevar compile_init_character = int 1
 					call set_char_running(var VAR_16)
-					var VAR_17 = call get_david_char()
-					call char_walk_to_pos(var VAR_16, call get_char_pos(var VAR_17))
+					var david0 = call get_david_char()
+					call char_walk_to_pos(var VAR_16, call get_char_pos(var david0))
 					var VAR_14 ++ 
 					var VAR_15 = int 0
 			}
@@ -125,8 +125,8 @@ switch(var VAR_14)
 		case 4
 			if(call is_char_standing(var VAR_16))
 			 {
-					call char_turn_to_pos(var VAR_16, call get_char_pos(var VAR_17))
-					call char_turn_to_pos(var VAR_17, call get_char_pos(var VAR_16))
+					call char_turn_to_pos(var VAR_16, call get_char_pos(var david0))
+					call char_turn_to_pos(var david0, call get_char_pos(var VAR_16))
 					var VAR_14 ++ 
 					var VAR_15 = int 0
 			}

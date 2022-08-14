@@ -177,12 +177,12 @@ switch(var VAR_52)
 					var VAR_63 = gamevar LEVEL
 					var VAR_39 = var VAR_63 + int 1
 					execute SCRIPT_15
-					var VAR_72 = call get_david_char()
-					while(var VAR_72)
+					var david0 = call get_david_char()
+					while(var david0)
 					 {
-							call play_char_anim(var VAR_72, var victory_anim, var VAR_73)
+							call play_char_anim(var david0, var victory_anim, var VAR_73)
 							var VAR_73 ++ 
-							var VAR_72 = call func_7e()
+							var david0 = call func_7e()
 					}
 					var VAR_52 ++ 
 			}
@@ -246,10 +246,10 @@ switch(var VAR_79)
 							call set_input_system(int 2)
 							var VAR_55 = int 1
 							var DAVID = call get_char_handle(int 65536)
-							var VAR_81 = call get_david_char()
-							if(var VAR_81 == var DAVID)
+							var david1 = call get_david_char()
+							if(var david1 == var DAVID)
 							 {
-									var VAR_81 = call func_7e()
+									var david1 = call func_7e()
 							}
 							if(gamevar control_char_p == var DAVID)
 							 {
@@ -259,7 +259,7 @@ switch(var VAR_79)
 							else
 							 {
 									call set_char_running(var DAVID)
-									call char_approach_char_pos(var DAVID, var VAR_81, int 200)
+									call char_approach_char_pos(var DAVID, var david1, int 200)
 									var VAR_79 ++ 
 									var VAR_80 = int 0
 							}
@@ -275,8 +275,8 @@ switch(var VAR_79)
 			break 
 		case 2
 			execute SCRIPT_16
-			call char_turn_to_pos(var DAVID, call get_char_pos(var VAR_81))
-			call char_turn_to_pos(var VAR_81, call get_char_pos(var DAVID))
+			call char_turn_to_pos(var DAVID, call get_char_pos(var david1))
+			call char_turn_to_pos(var david1, call get_char_pos(var DAVID))
 			if(var VAR_41)
 			 {
 					call start_dialog("F_DVDORB", "NULL")
@@ -538,24 +538,24 @@ switch(var VAR_26)
 }
 
 ._SCRIPT_15
-var VAR_40 = call get_david_char()
-while(var VAR_40)
+var david2 = call get_david_char()
+while(var david2)
  {
-		call set_char_lvl(var VAR_40, var VAR_39)
-		var VAR_40 = call func_7e()
+		call set_char_lvl(var david2, var VAR_39)
+		var david2 = call func_7e()
 }
 
 ._SCRIPT_16
 var VAR_42 = int 0
-var VAR_43 = call get_david_char()
-var VAR_42 += call func_42(var VAR_43, int 0)
-var VAR_42 += call func_42(var VAR_43, int 1)
-var VAR_42 += call func_42(var VAR_43, int 2)
-var VAR_42 += call func_42(var VAR_43, int 3)
-var VAR_42 += call func_42(var VAR_43, int 4)
-var VAR_42 += call func_42(var VAR_43, int 5)
-var VAR_42 += call func_42(var VAR_43, int 6)
-var VAR_42 += call func_42(var VAR_43, int 7)
+var david3 = call get_david_char()
+var VAR_42 += call func_42(var david3, int 0)
+var VAR_42 += call func_42(var david3, int 1)
+var VAR_42 += call func_42(var david3, int 2)
+var VAR_42 += call func_42(var david3, int 3)
+var VAR_42 += call func_42(var david3, int 4)
+var VAR_42 += call func_42(var david3, int 5)
+var VAR_42 += call func_42(var david3, int 6)
+var VAR_42 += call func_42(var david3, int 7)
 if(var VAR_42 == int 8)
  {
 		call func_116("haven", "h_camptp", int 9)

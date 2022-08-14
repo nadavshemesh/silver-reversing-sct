@@ -20,6 +20,8 @@ This project is made of 3 major parts:
 
 #### Reversed .sct files:
 All the game's decompiled files can be found inside the [./out](./out) folder.
+
+some examples are:
 [veranda.tsct](./out/veranda.tsct), [gnolib2.tsct](./out/gnolib2.tsct), [davhouse.tsct](./out/davhouse.tsct), [courtyrd.tsct](./out/courtyrd.tsct)
 
 

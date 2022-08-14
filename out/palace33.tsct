@@ -104,15 +104,15 @@ switch(var VAR_59)
 					call log("Dragon Takeoff")
 					var VAR_59 = int 1
 					call func_113(int 320, int 380)
-					var VAR_63 = call get_david_char()
+					var david0 = call get_david_char()
 					var VAR_64 = call func_7e()
 					var VAR_65 = call func_7e()
 					var DAVID = call get_char_handle(int 65536)
-					if(var VAR_63)
+					if(var david0)
 					 {
-							if(var VAR_63 != var DAVID)
+							if(var david0 != var DAVID)
 							 {
-									call func_61(var VAR_63)
+									call func_61(var david0)
 							}
 					}
 					if(var VAR_64)
@@ -129,7 +129,7 @@ switch(var VAR_59)
 									call func_61(var VAR_65)
 							}
 					}
-					call char_walk_to_pos(var VAR_63, var &VAR_66)
+					call char_walk_to_pos(var david0, var &VAR_66)
 					if(var VAR_64)
 					 {
 							call char_walk_to_pos(var VAR_64, var &VAR_67)
@@ -177,9 +177,9 @@ switch(var VAR_59)
 			 {
 					call play_bgm("STING3")
 					call func_134()
-					if(var VAR_63)
+					if(var david0)
 					 {
-							call play_char_anim(var VAR_63, var victory_anim, int 0)
+							call play_char_anim(var david0, var victory_anim, int 0)
 					}
 					if(var VAR_64)
 					 {
@@ -342,9 +342,9 @@ switch(var VAR_93)
 					gamevar compile_init_character = int 0
 					var VAR_97 = call func_92(int 1, "nfrink", int 0, int 13)
 					gamevar compile_init_character = int 1
-					var VAR_89 = call get_david_char()
+					var david1 = call get_david_char()
 					call set_char_running(var VAR_97)
-					call char_walk_to_pos(var VAR_97, call get_char_pos(var VAR_89))
+					call char_walk_to_pos(var VAR_97, call get_char_pos(var david1))
 					call remove_char(var nglass)
 					var VAR_92 = int 0
 					var VAR_93 ++ 
@@ -353,8 +353,8 @@ switch(var VAR_93)
 		case 9
 			if(call is_char_standing(var VAR_97))
 			 {
-					call char_turn_to_pos(var VAR_97, call get_char_pos(var VAR_89))
-					call char_turn_to_pos(var VAR_89, call get_char_pos(var VAR_97))
+					call char_turn_to_pos(var VAR_97, call get_char_pos(var david1))
+					call char_turn_to_pos(var david1, call get_char_pos(var VAR_97))
 					var VAR_93 ++ 
 					var VAR_92 = int 0
 			}
@@ -400,21 +400,21 @@ var VAR_92 ++
 var DAVID = call is_char_handle_in_level(int 65536)
 var nduke = call create_char(var &VAR_83, "nduke", int 180, int 13)
 var nglass = call create_char(var &VAR_85, "nglass", int 321, int 13)
-var VAR_89 = call get_david_char()
-while(var VAR_89)
+var david1 = call get_david_char()
+while(var david1)
  {
-		if(var VAR_89 != var DAVID)
+		if(var david1 != var DAVID)
 		 {
 				if(var VAR_75 == int 0)
 				 {
-						var VAR_75 = var VAR_89
+						var VAR_75 = var david1
 				}
 				else
 				 {
-						var VAR_76 = var VAR_89
+						var VAR_76 = var david1
 				}
 		}
-		var VAR_89 = call func_7e()
+		var david1 = call func_7e()
 }
 call char_stop(var DAVID)
 if(var VAR_76 != int 0)
@@ -632,9 +632,9 @@ switch(var VAR_26)
 }
 
 ._SCRIPT_15
-var VAR_40 = call get_david_char()
-while(var VAR_40)
+var david3 = call get_david_char()
+while(var david3)
  {
-		call set_char_lvl(var VAR_40, var VAR_39)
-		var VAR_40 = call func_7e()
+		call set_char_lvl(var david3, var VAR_39)
+		var david3 = call func_7e()
 }

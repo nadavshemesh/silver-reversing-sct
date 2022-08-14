@@ -155,18 +155,18 @@ switch(var VAR_15)
 			if(gamevar global_zone_type == int 18)
 			 {
 					gamevar global_zone_type = int 0
-					var VAR_14 = call get_selected_hero()
+					var selected<her1 = call get_selected_hero()
 					call set_input_system(int 2)
-					call func_55(var VAR_14, int 98)
-					call set_char_running(var VAR_14)
-					call char_walk_to_pos(var VAR_14, var &VAR_26)
+					call func_55(var selected<her1, int 98)
+					call set_char_running(var selected<her1)
+					call char_walk_to_pos(var selected<her1, var &VAR_26)
 					var VAR_15 = int 3
 			}
 			break 
 		case 3
-			if(call is_char_standing(var VAR_14))
+			if(call is_char_standing(var selected<her1))
 			 {
-					call func_36(var VAR_14, int 3157, int -820, int -2099)
+					call func_36(var selected<her1, int 3157, int -820, int -2099)
 					var VAR_16 = int 30
 					var VAR_15 = int 4
 			}
@@ -186,8 +186,8 @@ switch(var VAR_15)
 		case 5
 			if(var VAR_16 == int 50)
 			 {
-					call play_char_anim(var VAR_14, var conjure_anim, int 0)
-					call func_c2(var VAR_14, int 45056)
+					call play_char_anim(var selected<her1, var conjure_anim, int 0)
+					call func_c2(var selected<her1, int 45056)
 			}
 			if(var VAR_16)
 			 {
@@ -195,7 +195,7 @@ switch(var VAR_15)
 			}
 			else
 			 {
-					call func_132(var VAR_14, int 98)
+					call func_132(var selected<her1, int 98)
 					var dwavesLp_sound_ref = call play_loaded_sound(int 1, int -1, int 35, int 0)
 					var steam_sound_ref = call play_loaded_sound /* 'steam' */ (int 2, int -1, int 35, int 0)
 					call set_sound_volume(var steam_sound_ref, int 0)

@@ -117,19 +117,19 @@ call load_char("ratrptr")
 call func_9a(var &VAR_18, int 43, int 0, int 0)
 call func_9a(var &VAR_19, int 40, int 0, int 0)
 call func_9a(var &VAR_20, int 45, int 0, int 0)
-var VAR_6 = call get_david_char()
-call char_walk_to_pos(var VAR_6, var &VAR_7)
-var VAR_6 = call func_7e()
-if(var VAR_6)
+var david0 = call get_david_char()
+call char_walk_to_pos(var david0, var &VAR_7)
+var david0 = call func_7e()
+if(var david0)
  {
-		call char_walk_to_pos(var VAR_6, var &VAR_8)
-		var VAR_6 = call func_7e()
-		if(var VAR_6)
+		call char_walk_to_pos(var david0, var &VAR_8)
+		var david0 = call func_7e()
+		if(var david0)
 		 {
-				call char_walk_to_pos(var VAR_6, var &VAR_9)
+				call char_walk_to_pos(var david0, var &VAR_9)
 		}
 }
-var VAR_6 = call get_selected_hero()
+var david0 = call get_selected_hero()
 var lesser_gimp = call create_enemy(int 45, int 0, var &VAR_21, int 0)
 var greater_gimpv = call create_enemy(int 46, int 0, var &VAR_23, int 265)
 var greater_gimpv1 = call create_enemy(int 46, int 1, var &VAR_24, int 265)
@@ -171,13 +171,13 @@ switch(var VAR_4)
 						call char_walk_to_pos(var rat_raptor_max52, var &VAR_32)
 						break 
 					case 270
-						call func_17(var greater_gimpv1, var VAR_6)
+						call func_17(var greater_gimpv1, var david0)
 						break 
 					case 300
-						call func_17(var greater_gimpv, var VAR_6)
+						call func_17(var greater_gimpv, var david0)
 						break 
 					case 370
-						call func_17(var lesser_gimp, var VAR_6)
+						call func_17(var lesser_gimp, var david0)
 						break 
 					case 400
 						call func_2(var lesser_gimp)
@@ -186,8 +186,8 @@ switch(var VAR_4)
 						call func_2(var rat_raptor_max5)
 						call func_2(var rat_raptor_max51)
 						call func_2(var rat_raptor_max52)
-						call func_19(var greater_gimpv, var VAR_6)
-						call func_19(var greater_gimpv1, var VAR_6)
+						call func_19(var greater_gimpv, var david0)
+						call func_19(var greater_gimpv1, var david0)
 						call set_input_system(int 1)
 						var VAR_4 ++ 
 						break 

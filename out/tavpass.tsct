@@ -13,7 +13,7 @@
 VAR_0	0	
 VAR_2	0	
 VAR_4	0	
-VAR_5	0	
+david0	0	
 VAR_6	0	
 VAR_12	{ 756, -924, 386 }	
 VAR_13	{ -549, -924, -1622 }	
@@ -25,7 +25,7 @@ VAR_21	{ 15, 0, 657, -924, -1115, 16, VAR_2, 1, 3, VAR_22, 0, 3, VAR_23, 0, 8 }
 VAR_22	"unc_fall"	
 VAR_23	"unc_pant"	
 VAR_24	{ 0, -277, -924, -1440, 35, 8 }	
-VAR_25	{ 15, 0, 538, -924, -1037, 1, nvillager, 16, VAR_0, 1, 3, VAR_26, 0, 5, 20, 1, nvillager, 16, VAR_16, 1, 3, VAR_27, 0, 16, VAR_4, 1, 1, VAR_5, 24, 1, 5, 120, 8 }	
+VAR_25	{ 15, 0, 538, -924, -1037, 1, nvillager, 16, VAR_0, 1, 3, VAR_26, 0, 5, 20, 1, nvillager, 16, VAR_16, 1, 3, VAR_27, 0, 16, VAR_4, 1, 1, david0, 24, 1, 5, 120, 8 }	
 VAR_26	"kiki"	
 VAR_27	"kiki"	
 VAR_28	{ 15, 0, 724, -924, -1007, 1, nvillager, 16, VAR_0, 1, 3, VAR_29, 0, 4, VAR_16, 5, 10, 1, nvillager, 16, VAR_0, 1, 3, VAR_30, 0, 16, VAR_4, 1, 1, VAR_6, 24, 1, 8 }	
@@ -44,7 +44,7 @@ execute SCRIPT_10
 var VAR_8 = call func_6f()
 var VAR_9 = int 1 - var VAR_8
 var VAR_9 = int 2
-var VAR_5 = call get_david_char()
+var david0 = call get_david_char()
 var VAR_6 = call func_7e()
 if(var VAR_6)
  {
@@ -52,11 +52,11 @@ if(var VAR_6)
 }
 else
  {
-		var VAR_6 = var VAR_5
+		var VAR_6 = var david0
 }
 if(var ! VAR_7)
  {
-		var VAR_7 = var VAR_5
+		var VAR_7 = var david0
 }
 switch(gamevar room_state)
  {
@@ -209,13 +209,13 @@ if(var VAR_2)
 ._SCRIPT_6
 if(var VAR_8 == int 1)
  {
-		call char_teleport_to_pos(var VAR_5, "A", int 0)
+		call char_teleport_to_pos(var david0, "A", int 0)
 		call char_teleport_to_pos(var VAR_6, "x", int 0)
 		call char_teleport_to_pos(var VAR_7, var &VAR_12, int 0)
 }
 else
  {
-		call char_teleport_to_pos(var VAR_5, var &VAR_13, int 0)
+		call char_teleport_to_pos(var david0, var &VAR_13, int 0)
 		call char_teleport_to_pos(var VAR_6, var &VAR_14, int 0)
 		call char_teleport_to_pos(var VAR_7, var &VAR_15, int 0)
 }

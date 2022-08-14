@@ -135,42 +135,42 @@ if(gamevar !is_room_cleared)
 }
 
 ._SCRIPT_3
-var VAR_16 = call get_david_char()
-while(var VAR_16)
+var david0 = call get_david_char()
+while(var david0)
  {
-		var VAR_17 = call get_char_handle_id(var VAR_16)
+		var VAR_17 = call get_char_handle_id(var david0)
 		switch(var VAR_17)
 		 {
 				case 65536
 					call log("david")
-					var VAR_7 = var VAR_16
+					var VAR_7 = var david0
 					break 
 				case 786432
 					call log("sekune")
-					var VAR_9 = var VAR_16
+					var VAR_9 = var david0
 					break 
 				case 327680
 					call log("jug")
-					var VAR_8 = var VAR_16
+					var VAR_8 = var david0
 					break 
 				case 196608
 					call log("vivienne")
-					var VAR_10 = var VAR_16
+					var VAR_10 = var david0
 					break 
 				case 131072
 					call log("chiaro")
-					var VAR_11 = var VAR_16
+					var VAR_11 = var david0
 					break 
 				case 262144
 					call log("cagen")
-					var VAR_12 = var VAR_16
+					var VAR_12 = var david0
 					break 
 				default 
 					call log("WARNING! Unknown hero while checking heroes")
 					call log("Get a goober -- QUICKLY!!")
 					break 
 		}
-		var VAR_16 = call func_7e()
+		var david0 = call func_7e()
 }
 
 ._SCRIPT_4
@@ -212,8 +212,8 @@ switch(var VAR_77)
 		case 2
 			if(var VAR_78 > int 250)
 			 {
-					var VAR_79 = call get_selected_hero()
-					call force_scroll_to_pos(call get_char_pos(var VAR_79))
+					var selected0 = call get_selected_hero()
+					call force_scroll_to_pos(call get_char_pos(var selected0))
 					var VAR_77 ++ 
 					var VAR_78 = int 0
 			}

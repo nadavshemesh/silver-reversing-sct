@@ -16,7 +16,7 @@ VAR_10	{ -671, -1316, -1316 }
 VAR_11	{ 489, -1117, 622 }	
 VAR_12	{ 443, -1361, -267 }	
 VAR_13	{ 14, 5, 20, 0, 578, -1362, 516, 5, 30, 0, 878, -1362, 260, 1, VAR_1, 15, 0, 427, -1362, -277, 5, 30, 12, 28, 5, 20, 1, VAR_1, 8 }	
-VAR_19	{ 0, 0 }	
+david1	{ 0, 0 }	
 VAR_27	-1	
 VAR_67	10	
 VAR_68	2	
@@ -129,27 +129,27 @@ switch(var VAR_17)
 		case 0
 			if(call func_a6(var nchiaro))
 			 {
-					var VAR_0 = call get_david_char()
-					while(var VAR_0)
+					var david0 = call get_david_char()
+					while(var david0)
 					 {
-							var VAR_20 = call get_char_handle_id(var VAR_0)
+							var VAR_20 = call get_char_handle_id(var david0)
 							if(var VAR_20 == int 131072)
 							 {
-									var VAR_0 = call func_7e()
+									var david0 = call func_7e()
 							}
 							else
 							 {
-									call char_turn_to_pos(var VAR_0, call get_char_pos(var nchiaro))
-									var VAR_0 = call func_7e()
+									call char_turn_to_pos(var david0, call get_char_pos(var nchiaro))
+									var david0 = call func_7e()
 							}
 					}
-					var VAR_19 = call get_david_char()
-					while(var VAR_19)
+					var david1 = call get_david_char()
+					while(var david1)
 					 {
-							var VAR_20 = call get_char_handle_id(var VAR_19)
+							var VAR_20 = call get_char_handle_id(var david1)
 							if(var VAR_20 == int 65536||var VAR_20 == int 131072)
 							 {
-									var VAR_19 = call func_7e()
+									var david1 = call func_7e()
 							}
 							else
 							 {
@@ -175,7 +175,7 @@ switch(var VAR_17)
 												call log("unknown hero in list")
 												break 
 									}
-									var VAR_19 = int 0
+									var david1 = int 0
 							}
 					}
 					var VAR_17 ++ 
@@ -273,42 +273,42 @@ if(gamevar global_exit_door != var VAR_7)
 ._SCRIPT_9
 
 ._SCRIPT_10
-var VAR_56 = call get_david_char()
-while(var VAR_56)
+var david2 = call get_david_char()
+while(var david2)
  {
-		var VAR_57 = call get_char_handle_id(var VAR_56)
+		var VAR_57 = call get_char_handle_id(var david2)
 		switch(var VAR_57)
 		 {
 				case 65536
 					call log("david")
-					var VAR_1 = var VAR_56
+					var VAR_1 = var david2
 					break 
 				case 786432
 					call log("sekune")
-					var VAR_3 = var VAR_56
+					var VAR_3 = var david2
 					break 
 				case 327680
 					call log("jug")
-					var VAR_2 = var VAR_56
+					var VAR_2 = var david2
 					break 
 				case 196608
 					call log("vivienne")
-					var VAR_4 = var VAR_56
+					var VAR_4 = var david2
 					break 
 				case 131072
 					call log("chiaro")
-					var nchiaro = var VAR_56
+					var nchiaro = var david2
 					break 
 				case 262144
 					call log("cagen")
-					var VAR_6 = var VAR_56
+					var VAR_6 = var david2
 					break 
 				default 
 					call log("WARNING! Unknown hero while checking heroes")
 					call log("Get a goober -- QUICKLY!!")
 					break 
 		}
-		var VAR_56 = call func_7e()
+		var david2 = call func_7e()
 }
 
 ._SCRIPT_11

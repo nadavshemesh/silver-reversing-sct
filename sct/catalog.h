@@ -12,7 +12,8 @@
 #define TOTAL_CHARS_NUM 130
 #define TOTAL_HANDLES_NUM 94
 
-typedef enum catalog_type { ENEMY_CAT, ITEM_CAT, SOUND_CAT, CHAR_CAT, SFX_CAT, HANDLE_CAT, NO_CAT_USE_PARAM_STRING } cat_type;
+typedef enum catalog_type { ENEMY_CAT, ITEM_CAT, SOUND_CAT, CHAR_CAT, SFX_CAT, HANDLE_CAT, 
+    NO_CAT_USE_PARAM_STRING, NO_CAT_USE_PREFIX_AS_HARDCODED_STRING } cat_type;
 
 typedef struct catalog {
     cat_type type;

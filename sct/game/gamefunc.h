@@ -19,11 +19,11 @@ typedef struct type_forcing {
 typedef struct game_function {
     int id;
     int params;
-    catalog_ref* cat_ref;
     char* desc;
     char* default_name;
     char* name;
     node** forced_types;
+    catalog_ref* cat_ref;
 } game_fun;
 
 extern game_fun** game_functions;

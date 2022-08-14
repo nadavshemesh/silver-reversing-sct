@@ -65,7 +65,7 @@ call play_loaded_sound(int 1, int -1, int 75, int 0)
 call play_loaded_sound(int 2, int -1, int 75, int 0)
 call func_113(int 8, int 8)
 call set_input_system(int 2)
-var VAR_4 = call get_david_char()
+var david0 = call get_david_char()
 var VAR_5 = call func_7e()
 var VAR_6 = call func_7e()
 execute SCRIPT_4
@@ -88,7 +88,7 @@ switch(var VAR_11)
 			if(var VAR_10 > int 60)
 			 {
 					var VAR_10 = int 0
-					call char_walk_to(var VAR_4, int 195, int -1100, int -4335)
+					call char_walk_to(var david0, int 195, int -1100, int -4335)
 					if(var VAR_5)
 					 {
 							call char_walk_to(var VAR_5, int 12, int -1100, int -4401)
@@ -101,17 +101,17 @@ switch(var VAR_11)
 			}
 			break 
 		case 1
-			if(call is_char_standing(var VAR_4))
+			if(call is_char_standing(var david0))
 			 {
 					var VAR_11 ++ 
-					call play_char_anim(var VAR_4, var lookout_anim, int 0)
+					call play_char_anim(var david0, var lookout_anim, int 0)
 			}
 			break 
 		case 2
-			if(call func_5c(var VAR_4))
+			if(call func_5c(var david0))
 			 {
 					var VAR_11 ++ 
-					call char_exit_door(var VAR_4, int 1)
+					call char_exit_door(var david0, int 1)
 					if(var VAR_5)
 					 {
 							call char_exit_door(var VAR_5, int 1)

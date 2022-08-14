@@ -142,42 +142,42 @@ gamevar SMACKER_Y = int 200
 var VAR_60 = call play_2d_anim("subbob", int 10737418, int 0, var &VAR_59)
 
 ._SCRIPT_5
-var VAR_26 = call get_david_char()
-while(var VAR_26)
+var david0 = call get_david_char()
+while(var david0)
  {
-		var VAR_27 = call get_char_handle_id(var VAR_26)
+		var VAR_27 = call get_char_handle_id(var david0)
 		switch(var VAR_27)
 		 {
 				case 65536
 					call log("david")
-					var VAR_18 = var VAR_26
+					var VAR_18 = var david0
 					break 
 				case 786432
 					call log("sekune")
-					var VAR_20 = var VAR_26
+					var VAR_20 = var david0
 					break 
 				case 327680
 					call log("jug")
-					var VAR_19 = var VAR_26
+					var VAR_19 = var david0
 					break 
 				case 196608
 					call log("vivienne")
-					var VAR_21 = var VAR_26
+					var VAR_21 = var david0
 					break 
 				case 131072
 					call log("chiaro")
-					var VAR_22 = var VAR_26
+					var VAR_22 = var david0
 					break 
 				case 262144
 					call log("cagen")
-					var VAR_23 = var VAR_26
+					var VAR_23 = var david0
 					break 
 				default 
 					call log("WARNING! Unknown hero while checking heroes")
 					call log("Get a goober -- QUICKLY!!")
 					break 
 		}
-		var VAR_26 = call func_7e()
+		var david0 = call func_7e()
 }
 
 ._SCRIPT_6
@@ -192,13 +192,13 @@ switch(var VAR_75)
 			if(var VAR_76 == int 5)
 			 {
 					var VAR_78 = int 0
-					var VAR_26 = call get_david_char()
-					while(var VAR_26)
+					var david0 = call get_david_char()
+					while(var david0)
 					 {
-							call char_stop(var VAR_26)
-							call char_teleport_to_pos(var VAR_26, @VAR_47[var VAR_78], int 0)
+							call char_stop(var david0)
+							call char_teleport_to_pos(var david0, @VAR_47[var VAR_78], int 0)
 							var VAR_78 ++ 
-							var VAR_26 = call func_7e()
+							var david0 = call func_7e()
 					}
 					var VAR_75 ++ 
 					var VAR_76 = int 0
@@ -207,11 +207,11 @@ switch(var VAR_75)
 		case 1
 			if(var VAR_76 == int 5)
 			 {
-					var VAR_26 = call get_david_char()
-					while(var VAR_26)
+					var david0 = call get_david_char()
+					while(var david0)
 					 {
-							call func_e1(var VAR_26, var nraft)
-							var VAR_26 = call func_7e()
+							call func_e1(var david0, var nraft)
+							var david0 = call func_7e()
 					}
 					var VAR_75 ++ 
 					var VAR_76 = int 0
@@ -341,11 +341,11 @@ switch(var VAR_75)
 					call set_input_system(int 1)
 					gamevar no_user_input = int 1
 					call func_fc(var nboatman)
-					var VAR_26 = call get_david_char()
-					while(var VAR_26)
+					var david0 = call get_david_char()
+					while(var david0)
 					 {
-							call func_fc(var VAR_26)
-							var VAR_26 = call func_7e()
+							call func_fc(var david0)
+							var david0 = call func_7e()
 					}
 			}
 			if(var VAR_76 == int 150)
@@ -376,12 +376,12 @@ switch(var VAR_75)
 					call set_input_system(int 2)
 					gamevar no_user_input = int 0
 					call char_turn_to_pos(var nboatman, var VAR_85)
-					var VAR_26 = call get_david_char()
-					while(var VAR_26)
+					var david0 = call get_david_char()
+					while(var david0)
 					 {
-							call func_fc(var VAR_26)
-							call char_turn_to_pos(var VAR_26, var VAR_85)
-							var VAR_26 = call func_7e()
+							call func_fc(var david0)
+							call char_turn_to_pos(var david0, var VAR_85)
+							var david0 = call func_7e()
 					}
 					var VAR_75 ++ 
 					var VAR_76 = int 0
@@ -390,11 +390,11 @@ switch(var VAR_75)
 		case 13
 			if(var VAR_76 == int 45)
 			 {
-					var VAR_26 = call get_david_char()
-					while(var VAR_26)
+					var david0 = call get_david_char()
+					while(var david0)
 					 {
-							call func_e1(var VAR_26, var nraft)
-							var VAR_26 = call func_7e()
+							call func_e1(var david0, var nraft)
+							var david0 = call func_7e()
 					}
 					call func_e1(var nboatman, var nraft)
 					call func_94(var nraft, var VAR_85, int 10737418)
@@ -519,23 +519,23 @@ switch(var VAR_116)
 			if(var VAR_117 == int 5)
 			 {
 					var VAR_118 = int 0
-					var VAR_26 = call get_david_char()
-					while(var VAR_26)
+					var david0 = call get_david_char()
+					while(var david0)
 					 {
-							call char_stop(var VAR_26)
+							call char_stop(var david0)
 							var VAR_118 ++ 
-							var VAR_26 = call func_7e()
+							var david0 = call func_7e()
 					}
 			}
 			if(var VAR_117 == int 10)
 			 {
 					var VAR_118 = int 0
-					var VAR_26 = call get_david_char()
-					while(var VAR_26)
+					var david0 = call get_david_char()
+					while(var david0)
 					 {
-							call char_teleport_to_pos(var VAR_26, @VAR_55[var VAR_118], int 0)
+							call char_teleport_to_pos(var david0, @VAR_55[var VAR_118], int 0)
 							var VAR_118 ++ 
-							var VAR_26 = call func_7e()
+							var david0 = call func_7e()
 					}
 					var VAR_116 ++ 
 					var VAR_117 = int 0
@@ -545,12 +545,12 @@ switch(var VAR_116)
 			if(var VAR_117 == int 5)
 			 {
 					var VAR_118 = int 0
-					var VAR_26 = call get_david_char()
-					while(var VAR_26)
+					var david0 = call get_david_char()
+					while(var david0)
 					 {
-							call func_e1(var VAR_26, var nraft)
+							call func_e1(var david0, var nraft)
 							var VAR_118 ++ 
-							var VAR_26 = call func_7e()
+							var david0 = call func_7e()
 					}
 					call set_input_system(int 1)
 					gamevar no_user_input = int 1
@@ -566,13 +566,13 @@ switch(var VAR_116)
 			if(var VAR_117 == int 5)
 			 {
 					var VAR_78 = int 0
-					var VAR_26 = call get_david_char()
-					while(var VAR_26)
+					var david0 = call get_david_char()
+					while(var david0)
 					 {
-							call char_stop(var VAR_26)
-							call char_teleport_to_pos(var VAR_26, @VAR_47[var VAR_78], int 0)
+							call char_stop(var david0)
+							call char_teleport_to_pos(var david0, @VAR_47[var VAR_78], int 0)
 							var VAR_78 ++ 
-							var VAR_26 = call func_7e()
+							var david0 = call func_7e()
 					}
 					var VAR_116 ++ 
 					var VAR_117 = int 0
@@ -581,11 +581,11 @@ switch(var VAR_116)
 		case 11
 			if(var VAR_117 == int 5)
 			 {
-					var VAR_26 = call get_david_char()
-					while(var VAR_26)
+					var david0 = call get_david_char()
+					while(var david0)
 					 {
-							call func_e1(var VAR_26, var nraft)
-							var VAR_26 = call func_7e()
+							call func_e1(var david0, var nraft)
+							var david0 = call func_7e()
 					}
 					var VAR_116 ++ 
 					var VAR_117 = int 0
@@ -630,12 +630,12 @@ switch(var VAR_116)
 			if(var VAR_85)
 			 {
 					call char_turn_to_pos(var nboatman, var VAR_85)
-					var VAR_26 = call get_david_char()
-					while(var VAR_26)
+					var david0 = call get_david_char()
+					while(var david0)
 					 {
-							call func_fc(var VAR_26)
-							call char_turn_to_pos(var VAR_26, var VAR_85)
-							var VAR_26 = call func_7e()
+							call func_fc(var david0)
+							call char_turn_to_pos(var david0, var VAR_85)
+							var david0 = call func_7e()
 					}
 					var VAR_116 ++ 
 					var VAR_117 = int 0
@@ -644,11 +644,11 @@ switch(var VAR_116)
 		case 15
 			if(var VAR_117 == int 45)
 			 {
-					var VAR_26 = call get_david_char()
-					while(var VAR_26)
+					var david0 = call get_david_char()
+					while(var david0)
 					 {
-							call func_e1(var VAR_26, var nraft)
-							var VAR_26 = call func_7e()
+							call func_e1(var david0, var nraft)
+							var david0 = call func_7e()
 					}
 					call func_e1(var nboatman, var nraft)
 					call func_94(var nraft, var VAR_85, int 10737418)
@@ -733,9 +733,9 @@ switch(var VAR_131)
 					call set_input_system(int 2)
 					gamevar no_user_input = int 0
 					var VAR_131 ++ 
-					var VAR_26 = call get_selected_hero()
-					var VAR_138 = var VAR_26
-					call char_walk_to_pos(var VAR_26, var &VAR_133)
+					var david0 = call get_selected_hero()
+					var VAR_138 = var david0
+					call char_walk_to_pos(var david0, var &VAR_133)
 			}
 			break 
 		case 1
@@ -745,7 +745,7 @@ switch(var VAR_131)
 					var VAR_131 ++ 
 					call set_scene_overwrite_act("spires", "entrance", int 0)
 					call func_116("spires", "entrance", int 2)
-					call char_exit_door(var VAR_26, int 1)
+					call char_exit_door(var david0, int 1)
 			}
 			break 
 }

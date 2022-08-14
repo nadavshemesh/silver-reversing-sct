@@ -381,8 +381,8 @@ void add_hint_by_var_name_or_comment(game_fun* gf, node** exp_nodes, void* func_
     param_cat_ref = gf->cat_ref->var_index;
 
     int param_num = 0;
-    node* exp_node = *exp_nodes;
-    while(exp_node != NULL) {
+    node* exp_node = (exp_nodes != NULL) ? *exp_nodes : NULL;
+    while(exp_node != NULL && exp_node->item != NULL) {
         // try to name the assigned var if it exists using the catalogs
         if(param_num == param_cat_ref) {
             expression* exp = (expression*) exp_node->item;
@@ -522,7 +522,6 @@ void add_hint_by_var_name_or_comment(game_fun* gf, node** exp_nodes, void* func_
             else if(gf->cat_ref->type == NO_CAT_USE_PARAM_STRING) {
                 expr_obj* eo = exp->expr_objs;
                 int num_of_uses = general_param_hint_counter;
-                // printf("%s -> found %s.\n", last_data_obj_cp->name, enemy_name);
                 char new_var_name[256];
                 sprintf(new_var_name, "%s%s%s", prefix, string_remove_special_chars((char*) eo->data->data), postfix);
 
@@ -536,10 +535,45 @@ void add_hint_by_var_name_or_comment(game_fun* gf, node** exp_nodes, void* func_
                 general_param_hint_counter++;
                 return;
             }
+
+            else if(gf->cat_ref->type == NO_CAT_USE_PREFIX_AS_HARDCODED_STRING) {
+                expr_obj* eo = exp->expr_objs;
+                int num_of_uses = gf->cat_ref->var_index; // using index as a counter
+                char new_var_name[256];
+                sprintf(new_var_name, "%s%d", string_remove_special_chars(prefix), num_of_uses);
+
+                if(during_assingment && last_data_obj_cp != NULL && !last_data_obj_cp->was_renamed) {
+                    if(last_data_obj_cp->name != NULL)
+                        free(last_data_obj_cp->name);
+                    last_data_obj_cp->name = aapts(new_var_name);
+                    last_data_obj_cp->was_renamed = true;
+                } 
+
+                gf->cat_ref->var_index++;
+                return;
+            }
         }
         exp_node = exp_node->next;
         param_num++;
     }
+
+    // in case of 0 params
+    if(gf->cat_ref->type == NO_CAT_USE_PREFIX_AS_HARDCODED_STRING) {
+        int num_of_uses = gf->cat_ref->var_index; // using index as a counter
+        char new_var_name[256];
+        sprintf(new_var_name, "%s%d", string_remove_special_chars(gf->cat_ref->prefix), num_of_uses);
+
+        if(during_assingment && last_data_obj_cp != NULL && !last_data_obj_cp->was_renamed) {
+            if(last_data_obj_cp->name != NULL)
+                free(last_data_obj_cp->name);
+            last_data_obj_cp->name = aapts(new_var_name);
+            last_data_obj_cp->was_renamed = true;
+        } 
+
+        gf->cat_ref->var_index++;
+        return;
+    }
+
 }
 
 expr_obj* bin_read_function_call_expr(expr_pattern* expr_p, int* vars, void** tokens_pos_ptr, sct_f* sf) {

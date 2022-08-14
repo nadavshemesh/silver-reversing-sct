@@ -20,7 +20,7 @@ call play_loaded_sound(int 7, int -1, int 66, int 0)
 
  /* play the sound 'cwind1' */ 
 call play_loaded_sound(int 1, int -1, int 66, int 0)
-var VAR_2 = call get_david_char()
+var david0 = call get_david_char()
 var VAR_3 = call func_7e()
 var VAR_4 = call func_7e()
 call play_bgm("WPALPT1")
@@ -162,14 +162,14 @@ if(var VAR_0 == int 6)
 		gamevar script_object = var vikingc2
 		gamevar *character_stats_p+16 = int 500
 		gamevar *character_stats_p+15 = int 3000
-		call char_attack(var vikingc1, var VAR_2)
+		call char_attack(var vikingc1, var david0)
 		if(var VAR_3)
 		 {
 				call char_attack(var vikingc2, var VAR_3)
 		}
 		else
 		 {
-				call char_attack(var vikingc2, var VAR_2)
+				call char_attack(var vikingc2, var david0)
 		}
 		if(var VAR_4)
 		 {
@@ -177,7 +177,7 @@ if(var VAR_0 == int 6)
 		}
 		else
 		 {
-				call char_attack(var vikingc, var VAR_2)
+				call char_attack(var vikingc, var david0)
 		}
 		var VAR_0 = int 7
 		call set_input_system(int 1)

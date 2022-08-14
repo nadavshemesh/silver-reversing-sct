@@ -154,10 +154,10 @@ switch(var VAR_27)
 							call set_input_system(int 2)
 							var VAR_19 = int 1
 							var DAVID = call get_char_handle(int 65536)
-							var VAR_30 = call get_david_char()
-							if(var VAR_30 == var DAVID)
+							var david0 = call get_david_char()
+							if(var david0 == var DAVID)
 							 {
-									var VAR_30 = call func_7e()
+									var david0 = call func_7e()
 							}
 							if(gamevar control_char_p == var DAVID)
 							 {
@@ -167,7 +167,7 @@ switch(var VAR_27)
 							else
 							 {
 									call set_char_running(var DAVID)
-									call char_approach_char_pos(var DAVID, var VAR_30, int 200)
+									call char_approach_char_pos(var DAVID, var david0, int 200)
 									var VAR_27 ++ 
 									var VAR_28 = int 0
 							}
@@ -183,8 +183,8 @@ switch(var VAR_27)
 			break 
 		case 2
 			execute SCRIPT_13
-			call char_turn_to_pos(var DAVID, call get_char_pos(var VAR_30))
-			call char_turn_to_pos(var VAR_30, call get_char_pos(var DAVID))
+			call char_turn_to_pos(var DAVID, call get_char_pos(var david0))
+			call char_turn_to_pos(var david0, call get_char_pos(var DAVID))
 			if(var VAR_0)
 			 {
 					call start_dialog("L_DVDORB", "NULL")
@@ -223,15 +223,15 @@ if(gamevar *psys_p+1)
 
 ._SCRIPT_13
 var VAR_1 = int 0
-var VAR_2 = call get_david_char()
-var VAR_1 += call func_42(var VAR_2, int 0)
-var VAR_1 += call func_42(var VAR_2, int 1)
-var VAR_1 += call func_42(var VAR_2, int 2)
-var VAR_1 += call func_42(var VAR_2, int 3)
-var VAR_1 += call func_42(var VAR_2, int 4)
-var VAR_1 += call func_42(var VAR_2, int 5)
-var VAR_1 += call func_42(var VAR_2, int 6)
-var VAR_1 += call func_42(var VAR_2, int 7)
+var david1 = call get_david_char()
+var VAR_1 += call func_42(var david1, int 0)
+var VAR_1 += call func_42(var david1, int 1)
+var VAR_1 += call func_42(var david1, int 2)
+var VAR_1 += call func_42(var david1, int 3)
+var VAR_1 += call func_42(var david1, int 4)
+var VAR_1 += call func_42(var david1, int 5)
+var VAR_1 += call func_42(var david1, int 6)
+var VAR_1 += call func_42(var david1, int 7)
 if(var VAR_1 == int 8)
  {
 		call func_116("haven", "h_camptp", int 9)

@@ -119,12 +119,12 @@ switch(var VAR_21)
 			 {
 					call set_input_system(int 2)
 					var VAR_22 = int 0
-					var VAR_12 = call get_david_char()
-					while(var VAR_12)
+					var david0 = call get_david_char()
+					while(var david0)
 					 {
-							call char_stop(var VAR_12)
-							call apply_effect_on_char(gamevar char_gen_fx_scripts, int 18, int 0, var VAR_12)
-							var VAR_12 = call func_7e()
+							call char_stop(var david0)
+							call apply_effect_on_char(gamevar char_gen_fx_scripts, int 18, int 0, var david0)
+							var david0 = call func_7e()
 					}
 					call func_113(int 940, int 150)
 					var VAR_21 ++ 
@@ -133,11 +133,11 @@ switch(var VAR_21)
 		case 1
 			if(var VAR_22 > int 1)
 			 {
-					var VAR_12 = call get_david_char()
-					while(var VAR_12)
+					var david0 = call get_david_char()
+					while(var david0)
 					 {
-							call char_teleport_to_pos(var VAR_12, @VAR_17[var VAR_11], @VAR_18[var VAR_11])
-							var VAR_12 = call func_7e()
+							call char_teleport_to_pos(var david0, @VAR_17[var VAR_11], @VAR_18[var VAR_11])
+							var david0 = call func_7e()
 							var VAR_11 ++ 
 					}
 					var VAR_22 = int 0
@@ -261,15 +261,15 @@ switch(var VAR_30)
 			}
 			if(var VAR_40)
 			 {
-					var VAR_12 = call get_david_char()
-					while(var VAR_12)
+					var david0 = call get_david_char()
+					while(var david0)
 					 {
-							if(var VAR_12 != var VAR_40)
+							if(var david0 != var VAR_40)
 							 {
 									call set_char_walking(var VAR_40)
-									call char_walk_to_pos(var VAR_12, var &VAR_10)
+									call char_walk_to_pos(var david0, var &VAR_10)
 							}
-							var VAR_12 = call func_7e()
+							var david0 = call func_7e()
 					}
 			}
 			break 
@@ -355,12 +355,12 @@ switch(var VAR_32)
 		case 1
 			if(var VAR_33 > int 1)
 			 {
-					var VAR_12 = call get_david_char()
-					while(var VAR_12)
+					var david0 = call get_david_char()
+					while(var david0)
 					 {
-							call char_stop(var VAR_12)
-							call apply_effect_on_char(gamevar char_gen_fx_scripts, int 18, int 0, var VAR_12)
-							var VAR_12 = call func_7e()
+							call char_stop(var david0)
+							call apply_effect_on_char(gamevar char_gen_fx_scripts, int 18, int 0, var david0)
+							var david0 = call func_7e()
 					}
 					call func_113(int 940, int 150)
 					var VAR_32 ++ 
@@ -370,12 +370,12 @@ switch(var VAR_32)
 		case 2
 			if(var VAR_33 > int 1)
 			 {
-					var VAR_12 = call get_david_char()
+					var david0 = call get_david_char()
 					var VAR_11 = int 0
-					while(var VAR_12)
+					while(var david0)
 					 {
-							call char_teleport_to_pos(var VAR_12, @VAR_17[var VAR_11], @VAR_18[var VAR_11])
-							var VAR_12 = call func_7e()
+							call char_teleport_to_pos(var david0, @VAR_17[var VAR_11], @VAR_18[var VAR_11])
+							var david0 = call func_7e()
 							var VAR_11 ++ 
 					}
 					var VAR_33 = int 0
@@ -386,14 +386,14 @@ switch(var VAR_32)
 		case 3
 			if(call is_local_timer_greater_than(int 10))
 			 {
-					var VAR_12 = call get_david_char()
+					var david0 = call get_david_char()
 					var VAR_11 = int 0
-					while(var VAR_12)
+					while(var david0)
 					 {
-							@VAR_37[var VAR_11]= var VAR_12
-							call set_char_running(var VAR_12)
-							call char_walk_to_pos(var VAR_12, @VAR_8[var VAR_11])
-							var VAR_12 = call func_7e()
+							@VAR_37[var VAR_11]= var david0
+							call set_char_running(var david0)
+							call char_walk_to_pos(var david0, @VAR_8[var VAR_11])
+							var david0 = call func_7e()
 							var VAR_11 ++ 
 					}
 					var VAR_33 = int 0

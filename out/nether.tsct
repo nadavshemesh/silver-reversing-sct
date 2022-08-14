@@ -106,22 +106,22 @@ call open_save_screen(int 2)
 ._SCRIPT_4
 call log("nem_dave")
 call func_8f("nemdave")
-var david0 = call get_david_char()
-call func_61(var david0)
-call func_8d(var david0, int 12845056)
-call char_stop(var david0)
-call add_item_to_char(var david0, int 113 /* nemshld */ , int 0, int 1)
-call add_item_to_char(var david0, int 114 /* nemshld */ , int 0, int 1)
+var david = call get_david_char()
+call func_61(var david)
+call func_8d(var david, int 12845056)
+call char_stop(var david)
+call add_item_to_char(var david, int 113 /* nemshld */ , int 0, int 1)
+call add_item_to_char(var david, int 114 /* nemshld */ , int 0, int 1)
 
 ._SCRIPT_5
 call func_49()
 call set_input_system(int 2)
 call load_char("apocalyp")
-var david0 = call get_david_char()
-call set_char_lvl(var david0, int 14)
-gamevar script_object = var david0
+var david = call get_david_char()
+call set_char_lvl(var david, int 14)
+gamevar script_object = var david
 gamevar *object_p+6 |= int 2
-call set_char_walking(var david0)
+call set_char_walking(var david)
 var lookout_anim = call load_anim("lookout")
 var victory_anim = call load_anim("victory")
 gamevar SMACKER_X = int 128
@@ -137,7 +137,7 @@ switch(var VAR_0)
 		case 0
 			call reset_local_timer()
 			var VAR_0 = int 1
-			call add_item_to_char(var david0, int 28 /* scroll */ , int 0, int 1)
+			call add_item_to_char(var david, int 28 /* scroll */ , int 0, int 1)
 			var apocalypse = call create_enemy(int 197, int 0, var &VAR_35, int 240)
 			call func_1(var apocalypse, int -1)
 			break 
@@ -166,7 +166,7 @@ switch(var VAR_0)
 		case 4
 			if(call is_local_timer_greater_than(int 30))
 			 {
-					call apply_effect_on_char(gamevar char_gen_fx_scripts, int 10, int 0, var david0)
+					call apply_effect_on_char(gamevar char_gen_fx_scripts, int 10, int 0, var david)
 					call reset_local_timer()
 					var VAR_36 = call func_e8(var &VAR_37, int 0)
 					var VAR_0 = int 5
@@ -175,8 +175,8 @@ switch(var VAR_0)
 		case 5
 			if(call is_local_timer_greater_than(int 15))
 			 {
-					call char_teleport_to_pos(var david0, var &VAR_37, int 182)
-					call apply_effect_on_char(gamevar char_gen_fx_scripts, int 18, int 0, var david0)
+					call char_teleport_to_pos(var david, var &VAR_37, int 182)
+					call apply_effect_on_char(gamevar char_gen_fx_scripts, int 18, int 0, var david)
 					call reset_local_timer()
 					var VAR_0 = int 6
 			}
@@ -184,8 +184,8 @@ switch(var VAR_0)
 		case 6
 			if(call is_local_timer_greater_than(int 10))
 			 {
-					call set_char_walking(var david0)
-					call char_walk_to_pos(var david0, var &VAR_38)
+					call set_char_walking(var david)
+					call char_walk_to_pos(var david, var &VAR_38)
 					call func_11f(var &VAR_39, int 32768)
 					call reset_local_timer()
 					var VAR_0 = int 7
@@ -200,10 +200,10 @@ switch(var VAR_0)
 							var VAR_36 = int 0
 					}
 			}
-			if(call is_char_standing(var david0))
+			if(call is_char_standing(var david))
 			 {
 					var VAR_3 = int 0
-					call play_char_anim(var david0, var lookout_anim, int 0)
+					call play_char_anim(var david, var lookout_anim, int 0)
 					call reset_local_timer()
 					var VAR_0 = int 8
 			}
@@ -252,21 +252,21 @@ switch(var VAR_0)
 					case 1
 						if(call is_local_timer_greater_than(int 10))
 						 {
-								call set_char_walking(var david0)
-								call char_walk_to_pos(var david0, var &VAR_38)
+								call set_char_walking(var david)
+								call char_walk_to_pos(var david, var &VAR_38)
 								call func_11f(var &VAR_39, int 32768)
 								var VAR_1 ++ 
 						}
 						break 
 					case 2
-						if(call is_char_standing(var david0))
+						if(call is_char_standing(var david))
 						 {
-								call play_char_anim(var david0, var lookout_anim, int 0)
+								call play_char_anim(var david, var lookout_anim, int 0)
 								var VAR_1 ++ 
 						}
 						break 
 					case 3
-						if(call func_5c(var david0))
+						if(call func_5c(var david))
 						 {
 								call reset_local_timer()
 								var VAR_1 ++ 
@@ -275,7 +275,7 @@ switch(var VAR_0)
 					case 4
 						if(call is_local_timer_greater_than(int 10))
 						 {
-								call play_char_anim(var david0, var victory_anim, int 0)
+								call play_char_anim(var david, var victory_anim, int 0)
 								call reset_local_timer()
 								var VAR_1 ++ 
 						}
@@ -303,9 +303,9 @@ switch(var VAR_0)
 					case 1
 						if(call is_local_timer_greater_than(int 30))
 						 {
-								call set_char_running(var david0)
+								call set_char_running(var david)
 								var VAR_36 = call func_e8(var &VAR_37, int 0)
-								call char_turn_to_pos(var david0, var &VAR_37)
+								call char_turn_to_pos(var david, var &VAR_37)
 								call reset_local_timer()
 								var VAR_1 ++ 
 						}
@@ -313,12 +313,12 @@ switch(var VAR_0)
 					case 2
 						if(call is_local_timer_greater_than(int 10))
 						 {
-								call char_walk_to_pos(var david0, var &VAR_37)
+								call char_walk_to_pos(var david, var &VAR_37)
 								var VAR_1 ++ 
 						}
 						break 
 					case 3
-						if(call is_char_standing(var david0))
+						if(call is_char_standing(var david))
 						 {
 								call reset_local_timer()
 								var VAR_1 ++ 
@@ -328,14 +328,14 @@ switch(var VAR_0)
 						if(call is_local_timer_greater_than(int 10))
 						 {
 								call reset_local_timer()
-								call apply_effect_on_char(gamevar char_gen_fx_scripts, int 10, int 0, var david0)
+								call apply_effect_on_char(gamevar char_gen_fx_scripts, int 10, int 0, var david)
 								var VAR_1 ++ 
 						}
 						break 
 					case 5
 						if(call is_local_timer_greater_than(int 10))
 						 {
-								call char_teleport_to_pos(var david0, var &VAR_35, int 0)
+								call char_teleport_to_pos(var david, var &VAR_35, int 0)
 								call reset_local_timer()
 								var VAR_1 ++ 
 						}
@@ -355,8 +355,8 @@ switch(var VAR_0)
 						}
 						break 
 					default 
-						call func_61(var david0)
-						call func_8d(var david0, int 65536)
+						call func_61(var david)
+						call func_8d(var david, int 65536)
 						gamevar outro_active = int 1
 						call func_e6("OUTRO", "E_THRONE", var &VAR_49, int 1)
 						var VAR_0 = int 14
@@ -372,8 +372,8 @@ switch(var VAR_0)
 ._SCRIPT_8
 if(var VAR_52 == int 0)
  {
-		var david0 = call get_david_char()
-		call func_8d(var david0, int 12845056)
+		var david = call get_david_char()
+		call func_8d(var david, int 12845056)
 		var VAR_52 ++ 
 }
 
@@ -383,14 +383,14 @@ execute SCRIPT_10
 switch(var VAR_54)
  {
 		case 0
-			var david0 = call get_david_char()
+			var david = call get_david_char()
 			var VAR_54 ++ 
 			break 
 		case 1
 			if(var VAR_53 == int 200)
 			 {
 					var VAR_53 = int 0
-					call apply_effect_on_char(gamevar misc_fx_scripts, int 19, var &VAR_55, var david0)
+					call apply_effect_on_char(gamevar misc_fx_scripts, int 19, var &VAR_55, var david)
 			}
 			break 
 }

@@ -128,27 +128,27 @@ if(var VAR_66 == int 0&&call get_num_of_enemies() == int 0)
  {
 		if(gamevar global_zone_type == int 18)
 		 {
-				var selected_hero0 = gamevar control_char_p
+				var selected_hero = gamevar control_char_p
 				var analect = call create_item(int 84)
 				if(var analect)
 				 {
 						call set_input_system(int 2)
-						call set_char_running(var selected_hero0)
-						call char_walk_to(var selected_hero0, int -3852, int -1231, int 1429)
+						call set_char_running(var selected_hero)
+						call char_walk_to(var selected_hero, int -3852, int -1231, int 1429)
 						var VAR_66 ++ 
 				}
 				else
 				 {
-						call play_char_anim(var selected_hero0, var no_anim, int 0)
+						call play_char_anim(var selected_hero, var no_anim, int 0)
 				}
 				gamevar global_zone_type = int 0
 		}
 }
 if(var VAR_66 == int 1)
  {
-		if(call is_char_standing(var selected_hero0))
+		if(call is_char_standing(var selected_hero))
 		 {
-				call func_36(var selected_hero0, int -4027, int -1231, int 474)
+				call func_36(var selected_hero, int -4027, int -1231, int 474)
 				var VAR_66 ++ 
 		}
 }
@@ -157,8 +157,8 @@ if(var VAR_66 == int 2)
 		var VAR_67 ++ 
 		if(var VAR_67 == int 100)
 		 {
-				call func_68(var selected_hero0)
-				call func_61(var selected_hero0)
+				call func_68(var selected_hero)
+				call func_61(var selected_hero)
 				var VAR_66 ++ 
 				var VAR_67 = int 0
 		}
@@ -170,7 +170,7 @@ if(var VAR_66 == int 3)
 		 {
 				var VAR_67 = int 0
 				var VAR_66 ++ 
-				call play_char_anim(var selected_hero0, var mgkair_anim, int 0)
+				call play_char_anim(var selected_hero, var mgkair_anim, int 0)
 				call func_ec(int 226, int 0, int 0, int 0)
 				var VAR_49 = int 0
 				var VAR_47 = int 1
@@ -183,7 +183,7 @@ if(var VAR_66 == int 3)
 				call func_118("lmetalon", "boarbody", int 1)
 				call func_116("LMETALON", "BOARBODY", int 2)
 				var VAR_43 = int 1
-				call func_b6(var selected_hero0, var analect)
+				call func_b6(var selected_hero, var analect)
 		}
 }
 if(var VAR_66 == int 4)
@@ -198,7 +198,7 @@ if(var VAR_66 == int 4)
 				call play_loaded_sound(int 1, int 0, int 72, int 0)
 				gamevar script_object = var VAR_55
 				gamevar *smack_object_p+2 -= int 10737418
-				call func_7d(var selected_hero0)
+				call func_7d(var selected_hero)
 				call set_input_system(int 1)
 				var VAR_67 = int 0
 				var VAR_66 ++ 
@@ -296,7 +296,7 @@ call play_2d_anim("bloodtwo", int 1, int 1, int 0)
 
 ._SCRIPT_10
 execute SCRIPT_8
-var selected_hero0 = call get_selected_hero()
+var selected_hero = call get_selected_hero()
 if(call ! create_item(int 84 /* analect */ )&&gamevar is_room_cleared != int 1)
  {
 		gamevar SMACKER_X = int 288

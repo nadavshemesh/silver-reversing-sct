@@ -77,7 +77,7 @@ switch(var VAR_39)
 		case 0
 			if(call func_127(var nrebel))
 			 {
-					var selected_hero0 = call get_selected_hero()
+					var selected_hero = call get_selected_hero()
 					var VAR_39 ++ 
 			}
 			break 
@@ -85,7 +85,7 @@ switch(var VAR_39)
 			if(call get_input_sys() != int 4)
 			 {
 					call set_input_system(int 2)
-					call func_17(var selected_hero0, var nrebel)
+					call func_17(var selected_hero, var nrebel)
 					call func_55(var nrebel, int 16)
 					var VAR_40 = int 30
 					var VAR_39 ++ 
@@ -122,14 +122,14 @@ switch(var VAR_39)
 			}
 			else
 			 {
-					call func_17(var nrebel, var selected_hero0)
-					if(call func_80(var selected_hero0) != int 1)
+					call func_17(var nrebel, var selected_hero)
+					if(call func_80(var selected_hero) != int 1)
 					 {
-							var VAR_53 = call func_e0(var selected_hero0, int 22)
+							var VAR_53 = call func_e0(var selected_hero, int 22)
 							if(var VAR_53)
 							 {
 									call log("Got a sword")
-									call toggle_or_use_char_item(var selected_hero0, var VAR_53)
+									call toggle_or_use_char_item(var selected_hero, var VAR_53)
 							}
 							else
 							 {
@@ -144,7 +144,7 @@ switch(var VAR_39)
 			if(call get_input_sys() != int 4)
 			 {
 					call set_input_system(int 2)
-					call char_turn_to_pos(var selected_hero0, var &VAR_46)
+					call char_turn_to_pos(var selected_hero, var &VAR_46)
 					var VAR_40 = int 30
 					var VAR_39 ++ 
 			}
@@ -156,8 +156,8 @@ switch(var VAR_39)
 			}
 			else
 			 {
-					call add_item_to_char(var selected_hero0, int 28 /* scroll */ , int 0, int 0)
-					call func_98(var selected_hero0, int 24)
+					call add_item_to_char(var selected_hero, int 28 /* scroll */ , int 0, int 0)
+					call func_98(var selected_hero, int 24)
 					var VAR_40 = int 120
 					var VAR_39 ++ 
 			}
@@ -169,8 +169,8 @@ switch(var VAR_39)
 			}
 			else
 			 {
-					call func_17(var selected_hero0, var nrebel)
-					call func_17(var nrebel, var selected_hero0)
+					call func_17(var selected_hero, var nrebel)
+					call func_17(var nrebel, var selected_hero)
 					var VAR_40 = int 30
 					var VAR_39 ++ 
 			}

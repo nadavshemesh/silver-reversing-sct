@@ -112,7 +112,7 @@ if(gamevar !is_room_cleared)
 }
 
 ._SCRIPT_3
-var david0 = call get_david_char()
+var david = call get_david_char()
 var VAR_2 = call func_7e()
 var VAR_3 = call func_7e()
 var VAR_4 = int 0
@@ -240,7 +240,7 @@ call load_char("aflayer")
 ._SCRIPT_8
 
 ._SCRIPT_9
-while(@david0[var VAR_11])
+while(@david[var VAR_11])
  {
 		@VAR_5[var VAR_11]= var VAR_46
 		@VAR_6[var VAR_11]= var VAR_46
@@ -249,9 +249,9 @@ while(@david0[var VAR_11])
 
 ._SCRIPT_10
 var VAR_11 = int 0
-while(@david0[var VAR_11])
+while(@david[var VAR_11])
  {
-		var VAR_9 = @david0[var VAR_11]
+		var VAR_9 = @david[var VAR_11]
 		execute SCRIPT_11
 		@VAR_5[var VAR_11]= var VAR_8
 		var VAR_11 ++ 
@@ -291,7 +291,7 @@ exit_script
 
 ._SCRIPT_12
 var VAR_11 = int 0
-while(@david0[var VAR_11])
+while(@david[var VAR_11])
  {
 		if(@VAR_5[var VAR_11] == @VAR_7[gamevar CLICKED_DOOR])
 		 {
@@ -303,7 +303,7 @@ while(@david0[var VAR_11])
 ._SCRIPT_13
 var VAR_10 = int -1
 var VAR_11 = int 0
-while(@david0[var VAR_11])
+while(@david[var VAR_11])
  {
 		if(@VAR_5[var VAR_11] != @VAR_6[var VAR_11])
 		 {

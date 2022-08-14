@@ -17,8 +17,8 @@ VAR_61	{ -5441, -375, -168 }
 VAR_62	{ -2253, -1694, -660 }	
 VAR_63	{ -2253, -1684, -59 }	
 VAR_64	0	
-selected_hero0	0	
-VAR_66	{ 5, 100, 14, 0, -3293, -1096, -324, 1, selected_hero0, 16, VAR_64, 1, 0, -2009, -1694, -343, 8 }	
+selected_hero	0	
+VAR_66	{ 5, 100, 14, 0, -3293, -1096, -324, 1, selected_hero, 16, VAR_64, 1, 0, -2009, -1694, -343, 8 }	
 VAR_67	{ 15, 28, VAR_68, 5, 0, 5, 30, 0, -5441, -375, -168, 8 }	
 VAR_68	"jenwash"	
 VAR_69	{ 15, 28, VAR_70, 5, 0, 5, 30, 0, -5441, -375, -168, 8 }	
@@ -232,18 +232,18 @@ switch(var VAR_75)
 										call start_dialog("A_CHIORB", "NULL")
 										break 
 							}
-							var david0 = call get_david_char()
-							if(var david0)
+							var david = call get_david_char()
+							if(var david)
 							 {
-									call char_turn_to_pos(gamevar control_char_p, call get_char_pos(var david0))
+									call char_turn_to_pos(gamevar control_char_p, call get_char_pos(var david))
 							}
-							while(var david0)
+							while(var david)
 							 {
-									if(var david0 != gamevar control_char_p)
+									if(var david != gamevar control_char_p)
 									 {
-											call char_turn_to_pos(var david0, call get_char_pos(gamevar control_char_p))
+											call char_turn_to_pos(var david, call get_char_pos(gamevar control_char_p))
 									}
-									var david0 = call func_7e()
+									var david = call func_7e()
 							}
 							var VAR_75 ++ 
 							var VAR_76 = int 0
@@ -290,7 +290,7 @@ call func_50(var rat_raptor, int 8192)
 call func_50(var rat_raptor1, int 8192)
 call play_char_ai_script(var rat_raptor, var &VAR_67)
 call play_char_ai_script(var rat_raptor1, var &VAR_69)
-var selected_hero0 = call get_selected_hero()
+var selected_hero = call get_selected_hero()
 call set_input_system(int 2)
 call load_char("chronicl")
 var victory_anim = call load_anim("victory")

@@ -104,15 +104,15 @@ switch(var VAR_59)
 					call log("Dragon Takeoff")
 					var VAR_59 = int 1
 					call func_113(int 320, int 380)
-					var david0 = call get_david_char()
+					var david = call get_david_char()
 					var VAR_64 = call func_7e()
 					var VAR_65 = call func_7e()
 					var DAVID = call get_char_handle(int 65536)
-					if(var david0)
+					if(var david)
 					 {
-							if(var david0 != var DAVID)
+							if(var david != var DAVID)
 							 {
-									call func_61(var david0)
+									call func_61(var david)
 							}
 					}
 					if(var VAR_64)
@@ -129,7 +129,7 @@ switch(var VAR_59)
 									call func_61(var VAR_65)
 							}
 					}
-					call char_walk_to_pos(var david0, var &VAR_66)
+					call char_walk_to_pos(var david, var &VAR_66)
 					if(var VAR_64)
 					 {
 							call char_walk_to_pos(var VAR_64, var &VAR_67)
@@ -177,9 +177,9 @@ switch(var VAR_59)
 			 {
 					call play_bgm("STING3")
 					call func_134()
-					if(var david0)
+					if(var david)
 					 {
-							call play_char_anim(var david0, var victory_anim, int 0)
+							call play_char_anim(var david, var victory_anim, int 0)
 					}
 					if(var VAR_64)
 					 {

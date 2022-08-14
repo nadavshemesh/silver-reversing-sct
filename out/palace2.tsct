@@ -30,7 +30,7 @@ call load_sound_set(int 66)
  /* play the sound 'in2wind1' */ 
 call play_loaded_sound(int 5, int -1, int 66, int 0)
 call load_sound_set(int 0)
-var david0 = call get_david_char()
+var david = call get_david_char()
 var VAR_3 = call func_7e()
 var VAR_4 = call func_7e()
 call play_bgm("WPALPT1")
@@ -174,7 +174,7 @@ if(var VAR_0 == int 6)
 }
 if(var VAR_0 == int 7)
  {
-		call force_scroll_to_pos(call get_char_pos(var david0))
+		call force_scroll_to_pos(call get_char_pos(var david))
 		call set_input_system(int 1)
 		var VAR_0 = int 8
 		var VAR_1 = int 30

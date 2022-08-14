@@ -139,15 +139,15 @@ gamevar *character_stats_p+15 = int 1000
 ._SCRIPT_7
 if(var VAR_15 == int 0)
  {
-		var david0 = call get_david_char()
-		if(call is_char_at_pos(var david0, var &VAR_16, int 320))
+		var david = call get_david_char()
+		if(call is_char_at_pos(var david, var &VAR_16, int 320))
 		 {
 				call set_input_system(int 2)
 				var VAR_15 ++ 
-				while(var david0)
+				while(var david)
 				 {
-						call apply_effect_on_char(gamevar char_gen_fx_scripts, int 18, int 0, var david0)
-						var david0 = call func_7e()
+						call apply_effect_on_char(gamevar char_gen_fx_scripts, int 18, int 0, var david)
+						var david = call func_7e()
 				}
 		}
 		else
@@ -166,13 +166,13 @@ if(var VAR_15 == int 1)
 }
 if(var VAR_15 == int 2)
  {
-		var david0 = call get_david_char()
-		while(var david0)
+		var david = call get_david_char()
+		while(var david)
 		 {
-				call set_char_running(var david0)
-				call char_walk_to_pos(var david0, @VAR_21[var VAR_26])
+				call set_char_running(var david)
+				call char_walk_to_pos(var david, @VAR_21[var VAR_26])
 				var VAR_26 ++ 
-				var david0 = call func_7e()
+				var david = call func_7e()
 		}
 		var VAR_15 ++ 
 		var VAR_26 = int 0
@@ -190,18 +190,18 @@ if(var VAR_15 == int 3)
 }
 if(var VAR_15 == int 4)
  {
-		var david0 = call get_selected_hero()
-		if(call is_char_at_pos(var david0, var &VAR_16, int 240))
+		var david = call get_selected_hero()
+		if(call is_char_at_pos(var david, var &VAR_16, int 240))
 		 {
 				call set_input_system(int 2)
-				var david0 = call get_david_char()
-				while(var david0)
+				var david = call get_david_char()
+				while(var david)
 				 {
-						call set_char_running(var david0)
-						call char_walk_to_pos(var david0, @VAR_24[var VAR_26])
+						call set_char_running(var david)
+						call char_walk_to_pos(var david, @VAR_24[var VAR_26])
 						var VAR_26 ++ 
 						var VAR_27 = var VAR_26
-						var david0 = call func_7e()
+						var david = call func_7e()
 				}
 				var VAR_26 = int 0
 				var VAR_15 ++ 
@@ -210,18 +210,18 @@ if(var VAR_15 == int 4)
 }
 if(var VAR_15 == int 5)
  {
-		var david0 = call get_david_char()
-		while(var david0)
+		var david = call get_david_char()
+		while(var david)
 		 {
-				if(call is_char_standing(var david0)&&@VAR_29[var VAR_26] == int 0)
+				if(call is_char_standing(var david)&&@VAR_29[var VAR_26] == int 0)
 				 {
 						@VAR_29[var VAR_26]= int 1
 						var VAR_28 ++ 
-						call func_36(var david0, int -2557, int 1560, int -3110)
-						call func_fa(var david0)
+						call func_36(var david, int -2557, int 1560, int -3110)
+						call func_fa(var david)
 				}
 				var VAR_26 ++ 
-				var david0 = call func_7e()
+				var david = call func_7e()
 		}
 		var VAR_26 = int 0
 		if(var VAR_28 == var VAR_27)

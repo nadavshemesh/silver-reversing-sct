@@ -161,15 +161,15 @@ if(var VAR_58 == int 3)
 }
 if(var VAR_58 == int 4)
  {
-		var david0 = call get_david_char()
-		while(var david0)
+		var david = call get_david_char()
+		while(var david)
 		 {
-				var VAR_10 = call get_char_handle_id(var david0)
+				var VAR_10 = call get_char_handle_id(var david)
 				if(var VAR_10 == int 65536)
 				 {
 						call char_turn_to_pos(var ganitos, var VAR_0)
-						var david0 = call func_7e()
-						var VAR_10 = call get_char_handle_id(var david0)
+						var david = call func_7e()
+						var VAR_10 = call get_char_handle_id(var david)
 				}
 				else
 				 {
@@ -227,7 +227,7 @@ if(var VAR_58 == int 4)
 								call start_dialog("C_DvdGan", "NULL")
 								var VAR_58 = int 10
 						}
-						var david0 = int 0
+						var david = int 0
 				}
 		}
 }
@@ -267,42 +267,42 @@ if(var VAR_58 == int 12)
 }
 
 ._SCRIPT_4
-var david0 = call get_david_char()
-while(var david0)
+var david = call get_david_char()
+while(var david)
  {
-		var VAR_10 = call get_char_handle_id(var david0)
+		var VAR_10 = call get_char_handle_id(var david)
 		switch(var VAR_10)
 		 {
 				case 65536
 					call log("david")
-					var VAR_0 = var david0
+					var VAR_0 = var david
 					break 
 				case 786432
 					call log("sekune")
-					var VAR_2 = var david0
+					var VAR_2 = var david
 					break 
 				case 327680
 					call log("jug")
-					var VAR_1 = var david0
+					var VAR_1 = var david
 					break 
 				case 196608
 					call log("vivienne")
-					var VAR_3 = var david0
+					var VAR_3 = var david
 					break 
 				case 131072
 					call log("chiaro")
-					var VAR_4 = var david0
+					var VAR_4 = var david
 					break 
 				case 262144
 					call log("cagen")
-					var VAR_5 = var david0
+					var VAR_5 = var david
 					break 
 				default 
 					call log("WARNING! Unknown hero while checking heroes")
 					call log("Get a goober -- QUICKLY!!")
 					break 
 		}
-		var david0 = call func_7e()
+		var david = call func_7e()
 }
 var wraithp = call create_enemy(int 60, int 1, var &VAR_52, int 120)
 var wraithp1 = call create_enemy(int 60, int 2, var &VAR_53, int 295)
@@ -315,35 +315,35 @@ call freeze_enemy(var wraithp1)
 gamevar *scene_info_p+4 = int 16
 
 ._SCRIPT_5
-var david0 = call get_david_char()
-while(var david0)
+var david = call get_david_char()
+while(var david)
  {
-		var VAR_10 = call get_char_handle_id(var david0)
+		var VAR_10 = call get_char_handle_id(var david)
 		switch(var VAR_10)
 		 {
 				case 65536
 					call log("david")
-					var VAR_0 = var david0
+					var VAR_0 = var david
 					break 
 				case 786432
 					call log("sekune")
-					var VAR_2 = var david0
+					var VAR_2 = var david
 					break 
 				case 327680
 					call log("jug")
-					var VAR_1 = var david0
+					var VAR_1 = var david
 					break 
 				case 196608
 					call log("vivienne")
-					var VAR_3 = var david0
+					var VAR_3 = var david
 					break 
 				case 131072
 					call log("chiaro")
-					var VAR_4 = var david0
+					var VAR_4 = var david
 					break 
 				case 262144
 					call log("cagen")
-					var VAR_5 = var david0
+					var VAR_5 = var david
 					break 
 				default 
 					call log("WARNING! Unknown hero while checking heroes")
@@ -354,21 +354,21 @@ while(var david0)
 		call add_item_to_char(var ganitos, int 64 /* keyh */ , int 1, int 0)
 		call func_10c(var ganitos, "NULL")
 		call func_108("NULL")
-		var david0 = call func_7e()
+		var david = call func_7e()
 }
 if(var VAR_11 == int 1)
  {
 		if(call get_num_of_enemies() < int 1)
 		 {
-				var david0 = call get_david_char()
-				while(var david0)
+				var david = call get_david_char()
+				while(var david)
 				 {
-						var VAR_10 = call get_char_handle_id(var david0)
+						var VAR_10 = call get_char_handle_id(var david)
 						if(var VAR_10 == int 65536)
 						 {
 								call char_turn_to_pos(var ganitos, var VAR_0)
 								call log(var &VAR_25)
-								var david0 = call func_7e()
+								var david = call func_7e()
 						}
 						else
 						 {
@@ -402,7 +402,7 @@ if(var VAR_11 == int 1)
 										call start_dialog("C_DvdGan", " NULL")
 										var VAR_11 = int 10
 								}
-								var david0 = int 0
+								var david = int 0
 						}
 				}
 		}

@@ -153,42 +153,42 @@ call func_50(var nboatman, int 8192)
 call play_char_ai_script(var nboatman, var &VAR_45)
 
 ._SCRIPT_6
-var david0 = call get_david_char()
-while(var david0)
+var david = call get_david_char()
+while(var david)
  {
-		var VAR_27 = call get_char_handle_id(var david0)
+		var VAR_27 = call get_char_handle_id(var david)
 		switch(var VAR_27)
 		 {
 				case 65536
 					call log("david")
-					var VAR_18 = var david0
+					var VAR_18 = var david
 					break 
 				case 786432
 					call log("sekune")
-					var VAR_20 = var david0
+					var VAR_20 = var david
 					break 
 				case 327680
 					call log("jug")
-					var VAR_19 = var david0
+					var VAR_19 = var david
 					break 
 				case 196608
 					call log("vivienne")
-					var VAR_21 = var david0
+					var VAR_21 = var david
 					break 
 				case 131072
 					call log("chiaro")
-					var VAR_22 = var david0
+					var VAR_22 = var david
 					break 
 				case 262144
 					call log("cagen")
-					var VAR_23 = var david0
+					var VAR_23 = var david
 					break 
 				default 
 					call log("WARNING! Unknown hero while checking heroes")
 					call log("Get a goober -- QUICKLY!!")
 					break 
 		}
-		var david0 = call func_7e()
+		var david = call func_7e()
 }
 
 ._SCRIPT_7
@@ -461,14 +461,14 @@ switch(var VAR_93)
 			if(var VAR_94 > int 100)
 			 {
 					var VAR_104 = int 0
-					var david0 = call get_david_char()
-					while(var david0)
+					var david = call get_david_char()
+					while(var david)
 					 {
-							call set_char_walking(var david0)
-							call char_walk_to_pos(var david0, @VAR_43[var VAR_104])
+							call set_char_walking(var david)
+							call char_walk_to_pos(var david, @VAR_43[var VAR_104])
 							@VAR_96[var VAR_104]= int 0
 							var VAR_104 ++ 
-							var david0 = call func_7e()
+							var david = call func_7e()
 					}
 					var VAR_93 ++ 
 					var VAR_94 = int 0
@@ -476,19 +476,19 @@ switch(var VAR_93)
 			break 
 		case 16
 			var VAR_104 = int 0
-			var david0 = call get_david_char()
-			while(var david0)
+			var david = call get_david_char()
+			while(var david)
 			 {
 					if(!VAR_96[var VAR_104])
 					 {
-							if(call is_char_standing(var david0))
+							if(call is_char_standing(var david))
 							 {
-									call char_turn_to_pos(var david0, @VAR_103[var VAR_104])
+									call char_turn_to_pos(var david, @VAR_103[var VAR_104])
 									@VAR_96[var VAR_104]= int 1
 							}
 					}
 					var VAR_104 ++ 
-					var david0 = call func_7e()
+					var david = call func_7e()
 			}
 			switch(var VAR_104)
 			 {
@@ -518,11 +518,11 @@ switch(var VAR_93)
 		case 17
 			if(var VAR_94 > int 30)
 			 {
-					var david0 = call get_david_char()
-					while(var david0)
+					var david = call get_david_char()
+					while(var david)
 					 {
-							call func_e1(var david0, var nraft)
-							var david0 = call func_7e()
+							call func_e1(var david, var nraft)
+							var david = call func_7e()
 					}
 					var VAR_93 ++ 
 					var VAR_94 = int 0
@@ -567,12 +567,12 @@ switch(var VAR_93)
 			if(var VAR_94 == int 5)
 			 {
 					var VAR_105 = int 0
-					var david0 = call get_david_char()
-					while(var david0)
+					var david = call get_david_char()
+					while(var david)
 					 {
-							call char_teleport_to_pos(var david0, @VAR_55[var VAR_105], int 65)
+							call char_teleport_to_pos(var david, @VAR_55[var VAR_105], int 65)
 							var VAR_105 ++ 
-							var david0 = call func_7e()
+							var david = call func_7e()
 					}
 					call func_108("parp")
 					var VAR_93 ++ 
@@ -583,12 +583,12 @@ switch(var VAR_93)
 			if(var VAR_94 == int 15)
 			 {
 					var VAR_105 = int 0
-					var david0 = call get_david_char()
-					while(var david0)
+					var david = call get_david_char()
+					while(var david)
 					 {
-							call func_e1(var david0, var nraft)
+							call func_e1(var david, var nraft)
 							var VAR_105 ++ 
-							var david0 = call func_7e()
+							var david = call func_7e()
 					}
 					call func_e1(var nboatman, var nraft)
 					call func_94(var nraft, var &VAR_38, int 10821304)
@@ -602,12 +602,12 @@ switch(var VAR_93)
 			 {
 					var VAR_91 = int 0
 					var VAR_105 = int 0
-					var david0 = call get_david_char()
-					while(var david0)
+					var david = call get_david_char()
+					while(var david)
 					 {
-							call func_fc(var david0)
+							call func_fc(var david)
 							var VAR_105 ++ 
-							var david0 = call func_7e()
+							var david = call func_7e()
 					}
 					call func_fc(var nboatman)
 					var VAR_93 ++ 
@@ -622,13 +622,13 @@ switch(var VAR_93)
 			if(var VAR_94 > int 10)
 			 {
 					var VAR_104 = int 0
-					var david0 = call get_david_char()
-					while(var david0)
+					var david = call get_david_char()
+					while(var david)
 					 {
-							call set_char_walking(var david0)
-							call char_walk_to_pos(var david0, @VAR_109[var VAR_104])
+							call set_char_walking(var david)
+							call char_walk_to_pos(var david, @VAR_109[var VAR_104])
 							var VAR_104 ++ 
-							var david0 = call func_7e()
+							var david = call func_7e()
 							@VAR_96[var VAR_104]= int 0
 					}
 					var VAR_93 ++ 
@@ -637,18 +637,18 @@ switch(var VAR_93)
 			break 
 		case 34
 			var VAR_104 = int 0
-			var david0 = call get_david_char()
-			while(var david0)
+			var david = call get_david_char()
+			while(var david)
 			 {
 					if(!VAR_96[var VAR_104])
 					 {
-							if(call is_char_standing(var david0))
+							if(call is_char_standing(var david))
 							 {
 									@VAR_96[var VAR_104]= int 1
 							}
 					}
 					var VAR_104 ++ 
-					var david0 = call func_7e()
+					var david = call func_7e()
 			}
 			switch(var VAR_104)
 			 {

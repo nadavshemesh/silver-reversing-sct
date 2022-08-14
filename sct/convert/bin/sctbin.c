@@ -564,7 +564,11 @@ void add_hint_by_var_name_or_comment(game_fun* gf, node** exp_nodes, void* func_
     if(gf->cat_ref->type == NO_CAT_USE_PREFIX_AS_HARDCODED_STRING) {
         int num_of_uses = gf->cat_ref->var_index; // using index as a counter
         char new_var_name[256];
-        sprintf(new_var_name, "%s%d", gf->cat_ref->prefix, num_of_uses);
+        if(num_of_uses > 0)
+            sprintf(new_var_name, "%s%d", gf->cat_ref->prefix, num_of_uses);
+        else
+            sprintf(new_var_name, "%s", gf->cat_ref->prefix);
+
 
         if(during_assingment && last_data_obj_cp != NULL && !last_data_obj_cp->was_renamed) {
             if(last_data_obj_cp->name != NULL)

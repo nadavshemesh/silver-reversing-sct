@@ -114,7 +114,7 @@ gamevar SMACKER_Y = int 92
 call play_2d_anim("s_cori1c", int 1, int 1, int 0)
 
 ._SCRIPT_4
-var david0 = call get_david_char()
+var david = call get_david_char()
 var VAR_5 = call func_7e()
 var VAR_6 = call func_7e()
 var VAR_7 = int 0
@@ -220,7 +220,7 @@ call load_char("iwarrior")
 ._SCRIPT_9
 
 ._SCRIPT_10
-while(@david0[var VAR_14])
+while(@david[var VAR_14])
  {
 		@VAR_8[var VAR_14]= var VAR_35
 		@VAR_9[var VAR_14]= var VAR_35
@@ -229,9 +229,9 @@ while(@david0[var VAR_14])
 
 ._SCRIPT_11
 var VAR_14 = int 0
-while(@david0[var VAR_14])
+while(@david[var VAR_14])
  {
-		var VAR_12 = @david0[var VAR_14]
+		var VAR_12 = @david[var VAR_14]
 		execute SCRIPT_12
 		@VAR_8[var VAR_14]= var VAR_11
 		var VAR_14 ++ 
@@ -266,7 +266,7 @@ exit_script
 
 ._SCRIPT_13
 var VAR_14 = int 0
-while(@david0[var VAR_14])
+while(@david[var VAR_14])
  {
 		if(@VAR_8[var VAR_14] == @VAR_10[gamevar CLICKED_DOOR])
 		 {
@@ -278,7 +278,7 @@ while(@david0[var VAR_14])
 ._SCRIPT_14
 var VAR_13 = int -1
 var VAR_14 = int 0
-while(@david0[var VAR_14])
+while(@david[var VAR_14])
  {
 		if(@VAR_8[var VAR_14] != @VAR_9[var VAR_14])
 		 {

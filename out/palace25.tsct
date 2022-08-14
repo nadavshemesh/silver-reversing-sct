@@ -60,7 +60,7 @@ var stepb_anim = call load_anim("stepb")
 call load_char("vikingb")
 call load_char("vikingc")
 call play_bgm("WPALPT1")
-var david0 = call get_david_char()
+var david = call get_david_char()
 var VAR_3 = call func_7e()
 var VAR_4 = call func_7e()
 if(gamevar room_state == int 1)
@@ -193,8 +193,8 @@ switch(var VAR_0)
 		case 5
 			if(var VAR_8)
 			 {
-					var selected_hero0 = call get_selected_hero()
-					call play_char_anim(var selected_hero0, var stepb_anim, int 0)
+					var selected_hero = call get_selected_hero()
+					call play_char_anim(var selected_hero, var stepb_anim, int 0)
 					var VAR_0 ++ 
 			}
 			break 
@@ -215,7 +215,7 @@ switch(var VAR_0)
 					call play_char_ai_script(var bstump, var &VAR_56)
 					var VAR_1 = int 0
 					call set_input_system(int 1)
-					call char_stop(var selected_hero0)
+					call char_stop(var selected_hero)
 					var VAR_0 ++ 
 			}
 			break 
@@ -273,8 +273,8 @@ switch(var VAR_0)
 							var VAR_6 = int 1
 							gamevar is_room_cleared = int 1
 							call set_input_system(int 2)
-							var selected_hero0 = call get_selected_hero()
-							call play_char_anim(var selected_hero0, var stepb_anim, int 0)
+							var selected_hero = call get_selected_hero()
+							call play_char_anim(var selected_hero, var stepb_anim, int 0)
 							var VAR_0 ++ 
 							var VAR_1 = int 0
 					}
@@ -299,7 +299,7 @@ switch(var VAR_0)
 			if(var VAR_1 > int 120)
 			 {
 					call set_input_system(int 1)
-					call char_stop(var selected_hero0)
+					call char_stop(var selected_hero)
 					var VAR_0 ++ 
 			}
 			break 

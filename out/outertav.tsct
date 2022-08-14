@@ -183,18 +183,18 @@ switch(var VAR_0)
 					 {
 							call char_stop(var VIVIENNE1)
 					}
-					var selected_hero0 = call get_selected_hero()
+					var selected_hero = call get_selected_hero()
 					if(var pirate_captain)
 					 {
-							call func_17(var selected_hero0, var pirate_captain)
+							call func_17(var selected_hero, var pirate_captain)
 					}
 					if(var pirate_captain)
 					 {
-							call func_17(var pirate_captain, var selected_hero0)
+							call func_17(var pirate_captain, var selected_hero)
 					}
 					if(var dick)
 					 {
-							call func_17(var dick, var selected_hero0)
+							call func_17(var dick, var selected_hero)
 					}
 					if(var pirate_captain)
 					 {
@@ -213,14 +213,14 @@ switch(var VAR_0)
 			 {
 					if(call func_d0())
 					 {
-							var selected_hero0 = call get_selected_hero()
+							var selected_hero = call get_selected_hero()
 							if(var pirate_captain)
 							 {
-									call func_17(var pirate_captain, var selected_hero0)
+									call func_17(var pirate_captain, var selected_hero)
 							}
 							if(var dick)
 							 {
-									call func_17(var dick, var selected_hero0)
+									call func_17(var dick, var selected_hero)
 							}
 							if(var pirate_captain)
 							 {
@@ -309,11 +309,11 @@ if(var VAR_4)
 switch(var VAR_3)
  {
 		case 0
-			var selected_hero0 = call get_david_char()
+			var selected_hero = call get_david_char()
 			var VAR_9 = call func_7e()
 			var VAR_10 = call func_7e()
-			call set_char_running(var selected_hero0)
-			call char_walk_to(var selected_hero0, int -427, int -1417, int 382)
+			call set_char_running(var selected_hero)
+			call char_walk_to(var selected_hero, int -427, int -1417, int 382)
 			call set_char_running(var VAR_9)
 			call char_walk_to(var VAR_9, int -313, int -1417, int 177)
 			if(var VAR_10)
@@ -324,10 +324,10 @@ switch(var VAR_3)
 			var VAR_3 ++ 
 			break 
 		case 1
-			if(call is_char_standing(var selected_hero0)&&call is_char_standing(var VAR_9))
+			if(call is_char_standing(var selected_hero)&&call is_char_standing(var VAR_9))
 			 {
-					call func_17(var selected_hero0, var dick1)
-					call func_17(var dick1, var selected_hero0)
+					call func_17(var selected_hero, var dick1)
+					call func_17(var dick1, var selected_hero)
 					call func_17(var VAR_9, var finnegan)
 					call func_17(var finnegan, var VAR_9)
 					var VAR_4 = int 30
@@ -357,7 +357,7 @@ switch(var VAR_3)
 		case 5
 			call set_char_init_state(var muscles, int 0)
 			call set_char_running(var muscles)
-			call func_19(var muscles, var selected_hero0)
+			call func_19(var muscles, var selected_hero)
 			call set_input_system(int 1)
 			var VAR_4 = int 60
 			var VAR_3 ++ 
@@ -378,7 +378,7 @@ switch(var VAR_3)
 			 {
 					var longjohn = call create_enemy_through_door(int 28, int 0, int 1, int 0)
 					call set_char_running(var longjohn)
-					call func_19(var longjohn, var selected_hero0)
+					call func_19(var longjohn, var selected_hero)
 			}
 			if(call ! is_char_handle_in_level(int 2490368 /* MUSCLES */ ))
 			 {
@@ -390,7 +390,7 @@ switch(var VAR_3)
 			 {
 					var finnegan = call create_enemy_through_door(int 32, int 0, int 1, int 0)
 					call set_char_running(var finnegan)
-					call func_19(var finnegan, var selected_hero0)
+					call func_19(var finnegan, var selected_hero)
 			}
 			if(call ! is_char_handle_in_level(int 6422528))
 			 {
@@ -411,7 +411,7 @@ switch(var VAR_3)
 			 {
 					var longjohn = call create_enemy_through_door(int 28, int 0, int 2, int 0)
 					call set_char_running(var longjohn)
-					call func_19(var longjohn, var selected_hero0)
+					call func_19(var longjohn, var selected_hero)
 			}
 			if(call ! is_char_handle_in_level(int 2490368 /* MUSCLES */ ))
 			 {
@@ -423,7 +423,7 @@ switch(var VAR_3)
 			 {
 					var finnegan = call create_enemy_through_door(int 32, int 0, int 2, int 0)
 					call set_char_running(var finnegan)
-					call func_19(var finnegan, var selected_hero0)
+					call func_19(var finnegan, var selected_hero)
 			}
 			if(call ! is_char_handle_in_level(int 6422528))
 			 {

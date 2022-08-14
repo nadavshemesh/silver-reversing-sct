@@ -80,14 +80,14 @@ if(gamevar !is_room_cleared)
 					execute SCRIPT_7
 					if(var VAR_53 == int 6)
 					 {
-							var david0 = call get_david_char()
-							while(var david0)
+							var david = call get_david_char()
+							while(var david)
 							 {
 									if(call create_item(int 105 /* unknown */ ))
 									 {
 											var VAR_55 = int 1
 									}
-									var david0 = call func_7e()
+									var david = call func_7e()
 							}
 							if(var VAR_55 == int 0)
 							 {
@@ -208,10 +208,10 @@ switch(var VAR_74)
 		case 0
 			if(call ! func_127(var nmedmonk))
 			 {
-					var selected_hero0 = call get_selected_hero()
-					if(var selected_hero0)
+					var selected_hero = call get_selected_hero()
+					if(var selected_hero)
 					 {
-							if(var selected_hero0 == var VAR_42)
+							if(var selected_hero == var VAR_42)
 							 {
 									if(var VAR_45)
 									 {

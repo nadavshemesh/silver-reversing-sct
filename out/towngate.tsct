@@ -168,8 +168,8 @@ if(var VAR_87 == int 0)
  {
 		if(gamevar global_zone_type == int 18)
 		 {
-				var selected_hero0 = call get_selected_hero()
-				if(call is_char_at_pos(var selected_hero0, var &VAR_92, int 160))
+				var selected_hero = call get_selected_hero()
+				if(call is_char_at_pos(var selected_hero, var &VAR_92, int 160))
 				 {
 						var VAR_88 = int 1
 						var VAR_89 = int 0
@@ -180,7 +180,7 @@ if(var VAR_87 == int 0)
 				}
 				else
 				 {
-						call char_walk_to_pos(var selected_hero0, var &VAR_92)
+						call char_walk_to_pos(var selected_hero, var &VAR_92)
 						var VAR_87 ++ 
 				}
 				gamevar global_zone_type = int 0
@@ -188,9 +188,9 @@ if(var VAR_87 == int 0)
 }
 if(var VAR_87 == int 1)
  {
-		if(call is_char_standing(var selected_hero0))
+		if(call is_char_standing(var selected_hero))
 		 {
-				if(call is_char_at_pos(var selected_hero0, var &VAR_92, int 160))
+				if(call is_char_at_pos(var selected_hero, var &VAR_92, int 160))
 				 {
 						call log("walked to bell")
 						var VAR_88 = int 1
@@ -220,7 +220,7 @@ if(var VAR_87 == int 2)
 								call reset_local_timer()
 								var VAR_90 = int 1
 								gamevar global_zone_type = int 0
-								call play_char_anim(var selected_hero0, var yes_anim, int 0)
+								call play_char_anim(var selected_hero, var yes_anim, int 0)
 								if(var VAR_89 == var VAR_76)
 								 {
 										var VAR_87 = int 5
@@ -360,15 +360,15 @@ if(var VAR_106 == int 0)
  {
 		if(gamevar global_zone_type == int 18)
 		 {
-				var selected_hero0 = call get_selected_hero()
-				if(call is_char_at_pos(var selected_hero0, var &VAR_92, int 160))
+				var selected_hero = call get_selected_hero()
+				if(call is_char_at_pos(var selected_hero, var &VAR_92, int 160))
 				 {
 						var VAR_72 = int 1
 						var VAR_106 = int 2
 				}
 				else
 				 {
-						call char_walk_to_pos(var selected_hero0, var &VAR_92)
+						call char_walk_to_pos(var selected_hero, var &VAR_92)
 						var VAR_87 ++ 
 				}
 				gamevar global_zone_type = int 0
@@ -376,9 +376,9 @@ if(var VAR_106 == int 0)
 }
 if(var VAR_106 == int 1)
  {
-		if(call is_char_standing(var selected_hero0))
+		if(call is_char_standing(var selected_hero))
 		 {
-				if(call is_char_at_pos(var selected_hero0, var &VAR_92, int 160))
+				if(call is_char_at_pos(var selected_hero, var &VAR_92, int 160))
 				 {
 						call log("walked to bell")
 						var VAR_72 = int 1

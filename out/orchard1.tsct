@@ -101,7 +101,7 @@ if(gamevar !is_room_cleared)
 }
 
 ._SCRIPT_3
-var david0 = call get_david_char()
+var david = call get_david_char()
 var VAR_9 = call func_7e()
 var VAR_10 = call func_7e()
 var VAR_11 = call func_7e()
@@ -220,7 +220,7 @@ call add_item_to_char(var treasure1, int 85 /* moneybag */ , int 6554113, int 0)
 
 ._SCRIPT_8
 var VAR_18 = int 0
-while(@david0[var VAR_18])
+while(@david[var VAR_18])
  {
 		@VAR_12[var VAR_18]= var VAR_37
 		@VAR_13[var VAR_18]= var VAR_37
@@ -229,9 +229,9 @@ while(@david0[var VAR_18])
 
 ._SCRIPT_9
 var VAR_18 = int 0
-while(@david0[var VAR_18])
+while(@david[var VAR_18])
  {
-		var VAR_16 = @david0[var VAR_18]
+		var VAR_16 = @david[var VAR_18]
 		execute SCRIPT_10
 		@VAR_12[var VAR_18]= var VAR_15
 		var VAR_18 ++ 
@@ -261,7 +261,7 @@ var VAR_15 = int 2
 
 ._SCRIPT_11
 var VAR_18 = int 0
-while(@david0[var VAR_18])
+while(@david[var VAR_18])
  {
 		if(@VAR_12[var VAR_18] == @VAR_14[gamevar CLICKED_DOOR])
 		 {
@@ -273,7 +273,7 @@ while(@david0[var VAR_18])
 ._SCRIPT_12
 var VAR_17 = int -1
 var VAR_18 = int 0
-while(@david0[var VAR_18])
+while(@david[var VAR_18])
  {
 		if(@VAR_12[var VAR_18] != @VAR_13[var VAR_18])
 		 {

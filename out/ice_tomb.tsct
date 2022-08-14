@@ -203,17 +203,17 @@ switch(var VAR_73)
 			 {
 					execute SCRIPT_12
 					var VAR_83 = int 0
-					var david0 = call get_david_char()
-					while(var david0)
+					var david = call get_david_char()
+					while(var david)
 					 {
-							if(var david0 != gamevar control_char_p)
+							if(var david != gamevar control_char_p)
 							 {
-									@VAR_75[var VAR_83]= var david0
-									call set_char_running(var david0)
-									call char_walk_to_pos(var david0, @VAR_82[var VAR_83])
+									@VAR_75[var VAR_83]= var david
+									call set_char_running(var david)
+									call char_walk_to_pos(var david, @VAR_82[var VAR_83])
 									var VAR_83 ++ 
 							}
-							var david0 = call func_7e()
+							var david = call func_7e()
 					}
 					call set_char_running(gamevar control_char_p)
 					call char_walk_to_pos(gamevar control_char_p, var &VAR_78)

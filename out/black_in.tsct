@@ -157,7 +157,7 @@ if(gamevar !is_room_cleared&&var VAR_22 == int 0)
 			 {
 					if(gamevar global_zone_type == int 18)
 					 {
-							var selected_hero0 = gamevar control_char_p
+							var selected_hero = gamevar control_char_p
 							if(call create_item(int 84 /* analect */ ))
 							 {
 									var VAR_22 = int 1
@@ -165,23 +165,23 @@ if(gamevar !is_room_cleared&&var VAR_22 == int 0)
 							if(var VAR_22)
 							 {
 									call set_input_system(int 2)
-									call set_char_running(var selected_hero0)
-									call char_walk_to(var selected_hero0, int 2126, int 4042, int -4935)
+									call set_char_running(var selected_hero)
+									call char_walk_to(var selected_hero, int 2126, int 4042, int -4935)
 									var VAR_48 ++ 
 									call force_scroll_to_pos(var &VAR_27)
 							}
 							else
 							 {
-									call play_char_anim(var selected_hero0, var no_anim, int 0)
+									call play_char_anim(var selected_hero, var no_anim, int 0)
 							}
 							gamevar global_zone_type = int 0
 					}
 			}
 			if(var VAR_48 == int 1)
 			 {
-					if(call is_char_standing(var selected_hero0))
+					if(call is_char_standing(var selected_hero))
 					 {
-							call func_36(var selected_hero0, int 2277, int 4041, int -4940)
+							call func_36(var selected_hero, int 2277, int 4041, int -4940)
 							var VAR_48 ++ 
 					}
 			}
@@ -190,8 +190,8 @@ if(gamevar !is_room_cleared&&var VAR_22 == int 0)
 					var VAR_49 ++ 
 					if(var VAR_49 == int 100)
 					 {
-							call func_68(var selected_hero0)
-							call func_61(var selected_hero0)
+							call func_68(var selected_hero)
+							call func_61(var selected_hero)
 							var VAR_48 ++ 
 							var VAR_49 = int 0
 					}
@@ -203,7 +203,7 @@ if(gamevar !is_room_cleared&&var VAR_22 == int 0)
 					 {
 							var VAR_49 = int 0
 							var VAR_48 ++ 
-							call play_char_anim(var selected_hero0, var mgkair_anim, int 0)
+							call play_char_anim(var selected_hero, var mgkair_anim, int 0)
 							call func_ec(int 226, int 0, int 0, int 0)
 							var VAR_37 = int 0
 							var VAR_35 = int 1
@@ -218,9 +218,9 @@ if(gamevar !is_room_cleared&&var VAR_22 == int 0)
 					var VAR_49 ++ 
 					if(var VAR_49 == int 160)
 					 {
-							call func_7d(var selected_hero0)
+							call func_7d(var selected_hero)
 							call force_scroll_to_pos(var &VAR_6)
-							call func_36(var selected_hero0, int 1845, int 2845, int -4950)
+							call func_36(var selected_hero, int 1845, int 2845, int -4950)
 					}
 					if(var VAR_49 > int 300)
 					 {
@@ -233,18 +233,18 @@ if(gamevar !is_room_cleared&&var VAR_22 == int 0)
 			}
 			if(var VAR_48 == int 5)
 			 {
-					var selected_hero0 = call get_selected_hero()
-					if(call is_char_at_pos(var selected_hero0, var &VAR_6, int 240))
+					var selected_hero = call get_selected_hero()
+					if(call is_char_at_pos(var selected_hero, var &VAR_6, int 240))
 					 {
 							call set_input_system(int 2)
-							var selected_hero0 = call get_david_char()
-							while(var selected_hero0)
+							var selected_hero = call get_david_char()
+							while(var selected_hero)
 							 {
-									call set_char_running(var selected_hero0)
-									call char_walk_to_pos(var selected_hero0, @VAR_9[var VAR_25])
+									call set_char_running(var selected_hero)
+									call char_walk_to_pos(var selected_hero, @VAR_9[var VAR_25])
 									var VAR_25 ++ 
 									var VAR_26 = var VAR_25
-									var selected_hero0 = call func_7e()
+									var selected_hero = call func_7e()
 							}
 							var VAR_25 = int 0
 							var VAR_48 ++ 
@@ -253,18 +253,18 @@ if(gamevar !is_room_cleared&&var VAR_22 == int 0)
 			}
 			if(var VAR_48 == int 6)
 			 {
-					var selected_hero0 = call get_david_char()
-					while(var selected_hero0)
+					var selected_hero = call get_david_char()
+					while(var selected_hero)
 					 {
-							if(call is_char_standing(var selected_hero0)&&@VAR_24[var VAR_25] == int 0)
+							if(call is_char_standing(var selected_hero)&&@VAR_24[var VAR_25] == int 0)
 							 {
 									@VAR_24[var VAR_25]= int 1
 									var VAR_23 ++ 
-									call func_36(var selected_hero0, int 978, int 3292, int -4943)
-									call func_fa(var selected_hero0)
+									call func_36(var selected_hero, int 978, int 3292, int -4943)
+									call func_fa(var selected_hero)
 							}
 							var VAR_25 ++ 
-							var selected_hero0 = call func_7e()
+							var selected_hero = call func_7e()
 					}
 					var VAR_25 = int 0
 					if(var VAR_23 == var VAR_26)
@@ -282,15 +282,15 @@ if(gamevar !is_room_cleared&&var VAR_22 == int 0)
 			var VAR_5 = call func_e8(var &VAR_6, int 0)
 			if(var VAR_52 == int 0)
 			 {
-					var selected_hero0 = call get_david_char()
-					if(call is_char_at_pos(var selected_hero0, var &VAR_6, int 320))
+					var selected_hero = call get_david_char()
+					if(call is_char_at_pos(var selected_hero, var &VAR_6, int 320))
 					 {
 							call set_input_system(int 2)
 							var VAR_52 ++ 
-							while(var selected_hero0)
+							while(var selected_hero)
 							 {
-									call apply_effect_on_char(gamevar char_gen_fx_scripts, int 18, int 0, var selected_hero0)
-									var selected_hero0 = call func_7e()
+									call apply_effect_on_char(gamevar char_gen_fx_scripts, int 18, int 0, var selected_hero)
+									var selected_hero = call func_7e()
 							}
 					}
 					else
@@ -309,13 +309,13 @@ if(gamevar !is_room_cleared&&var VAR_22 == int 0)
 			}
 			if(var VAR_52 == int 2)
 			 {
-					var selected_hero0 = call get_david_char()
-					while(var selected_hero0)
+					var selected_hero = call get_david_char()
+					while(var selected_hero)
 					 {
-							call set_char_running(var selected_hero0)
-							call char_walk_to_pos(var selected_hero0, @VAR_4[var VAR_25])
+							call set_char_running(var selected_hero)
+							call char_walk_to_pos(var selected_hero, @VAR_4[var VAR_25])
 							var VAR_25 ++ 
-							var selected_hero0 = call func_7e()
+							var selected_hero = call func_7e()
 					}
 					var VAR_52 ++ 
 					var VAR_25 = int 0
@@ -333,18 +333,18 @@ if(gamevar !is_room_cleared&&var VAR_22 == int 0)
 			}
 			if(var VAR_52 == int 4)
 			 {
-					var selected_hero0 = call get_selected_hero()
-					if(call is_char_at_pos(var selected_hero0, var &VAR_6, int 240))
+					var selected_hero = call get_selected_hero()
+					if(call is_char_at_pos(var selected_hero, var &VAR_6, int 240))
 					 {
 							call set_input_system(int 2)
-							var selected_hero0 = call get_david_char()
-							while(var selected_hero0)
+							var selected_hero = call get_david_char()
+							while(var selected_hero)
 							 {
-									call set_char_running(var selected_hero0)
-									call char_walk_to_pos(var selected_hero0, @VAR_9[var VAR_25])
+									call set_char_running(var selected_hero)
+									call char_walk_to_pos(var selected_hero, @VAR_9[var VAR_25])
 									var VAR_25 ++ 
 									var VAR_26 = var VAR_25
-									var selected_hero0 = call func_7e()
+									var selected_hero = call func_7e()
 							}
 							var VAR_25 = int 0
 							var VAR_52 ++ 
@@ -353,18 +353,18 @@ if(gamevar !is_room_cleared&&var VAR_22 == int 0)
 			}
 			if(var VAR_52 == int 5)
 			 {
-					var selected_hero0 = call get_david_char()
-					while(var selected_hero0)
+					var selected_hero = call get_david_char()
+					while(var selected_hero)
 					 {
-							if(call is_char_standing(var selected_hero0)&&@VAR_24[var VAR_25] == int 0)
+							if(call is_char_standing(var selected_hero)&&@VAR_24[var VAR_25] == int 0)
 							 {
 									@VAR_24[var VAR_25]= int 1
 									var VAR_23 ++ 
-									call func_36(var selected_hero0, int 1406, int 2890, int -4945)
-									call func_fa(var selected_hero0)
+									call func_36(var selected_hero, int 1406, int 2890, int -4945)
+									call func_fa(var selected_hero)
 							}
 							var VAR_25 ++ 
-							var selected_hero0 = call func_7e()
+							var selected_hero = call func_7e()
 					}
 					var VAR_25 = int 0
 					if(var VAR_23 == var VAR_26)
@@ -391,9 +391,9 @@ if(gamevar !is_room_cleared&&var VAR_22 == int 0)
 					if(gamevar global_zone_type == int 18)
 					 {
 							call set_input_system(int 2)
-							var selected_hero0 = call get_selected_hero()
-							call set_char_running(var selected_hero0)
-							call char_walk_to(var selected_hero0, int 2126, int 4042, int -4935)
+							var selected_hero = call get_selected_hero()
+							call set_char_running(var selected_hero)
+							call char_walk_to(var selected_hero, int 2126, int 4042, int -4935)
 							var VAR_58 ++ 
 							gamevar global_zone_type = int 0
 							call force_scroll_to_pos(var &VAR_27)
@@ -401,9 +401,9 @@ if(gamevar !is_room_cleared&&var VAR_22 == int 0)
 			}
 			if(var VAR_58 == int 1)
 			 {
-					if(call is_char_standing(var selected_hero0))
+					if(call is_char_standing(var selected_hero))
 					 {
-							call func_36(var selected_hero0, int 2277, int 4041, int -4940)
+							call func_36(var selected_hero, int 2277, int 4041, int -4940)
 							var VAR_58 ++ 
 							if(call create_item(int 84 /* analect */ ))
 							 {
@@ -411,7 +411,7 @@ if(gamevar !is_room_cleared&&var VAR_22 == int 0)
 							}
 							else
 							 {
-									call play_char_anim(var selected_hero0, var no_anim, int 0)
+									call play_char_anim(var selected_hero, var no_anim, int 0)
 							}
 					}
 			}
@@ -420,7 +420,7 @@ if(gamevar !is_room_cleared&&var VAR_22 == int 0)
 					var VAR_59 ++ 
 					if(var VAR_59 == int 100)
 					 {
-							call func_61(var selected_hero0)
+							call func_61(var selected_hero)
 							var VAR_58 ++ 
 							var VAR_59 = int 0
 					}
@@ -434,13 +434,13 @@ if(gamevar !is_room_cleared&&var VAR_22 == int 0)
 							var VAR_58 ++ 
 							if(var VAR_22 == int 0)
 							 {
-									call play_char_anim(var selected_hero0, var no_anim, int 0)
+									call play_char_anim(var selected_hero, var no_anim, int 0)
 									call set_input_system(int 1)
 									var VAR_58 = int 50
 							}
 							if(var VAR_22 == int 1)
 							 {
-									call play_char_anim(var selected_hero0, var mgkair_anim, int 0)
+									call play_char_anim(var selected_hero, var mgkair_anim, int 0)
 									call func_ec(int 226, int 0, int 0, int 0)
 									var VAR_37 = int 0
 									var VAR_35 = int 1
@@ -457,7 +457,7 @@ if(gamevar !is_room_cleared&&var VAR_22 == int 0)
 					if(var VAR_59 == int 160)
 					 {
 							call force_scroll_to_pos(var &VAR_6)
-							call func_36(var selected_hero0, int 1845, int 2845, int -4950)
+							call func_36(var selected_hero, int 1845, int 2845, int -4950)
 					}
 					if(var VAR_59 > int 300)
 					 {
@@ -470,18 +470,18 @@ if(gamevar !is_room_cleared&&var VAR_22 == int 0)
 			}
 			if(var VAR_58 == int 5)
 			 {
-					var selected_hero0 = call get_selected_hero()
-					if(call is_char_at_pos(var selected_hero0, var &VAR_6, int 240))
+					var selected_hero = call get_selected_hero()
+					if(call is_char_at_pos(var selected_hero, var &VAR_6, int 240))
 					 {
 							call set_input_system(int 2)
-							var selected_hero0 = call get_david_char()
-							while(var selected_hero0)
+							var selected_hero = call get_david_char()
+							while(var selected_hero)
 							 {
-									call set_char_running(var selected_hero0)
-									call char_walk_to_pos(var selected_hero0, @VAR_9[var VAR_25])
+									call set_char_running(var selected_hero)
+									call char_walk_to_pos(var selected_hero, @VAR_9[var VAR_25])
 									var VAR_25 ++ 
 									var VAR_26 = var VAR_25
-									var selected_hero0 = call func_7e()
+									var selected_hero = call func_7e()
 							}
 							call log("TELEPORT")
 							var VAR_25 = int 0
@@ -491,18 +491,18 @@ if(gamevar !is_room_cleared&&var VAR_22 == int 0)
 			}
 			if(var VAR_58 == int 6)
 			 {
-					var selected_hero0 = call get_david_char()
-					while(var selected_hero0)
+					var selected_hero = call get_david_char()
+					while(var selected_hero)
 					 {
-							if(call is_char_standing(var selected_hero0)&&@VAR_24[var VAR_25] == int 0)
+							if(call is_char_standing(var selected_hero)&&@VAR_24[var VAR_25] == int 0)
 							 {
 									@VAR_24[var VAR_25]= int 1
 									var VAR_23 ++ 
-									call func_36(var selected_hero0, int 978, int 3292, int -4943)
-									call func_fa(var selected_hero0)
+									call func_36(var selected_hero, int 978, int 3292, int -4943)
+									call func_fa(var selected_hero)
 							}
 							var VAR_25 ++ 
-							var selected_hero0 = call func_7e()
+							var selected_hero = call func_7e()
 					}
 					var VAR_25 = int 0
 					if(var VAR_23 == var VAR_26)
@@ -573,7 +573,7 @@ if(var VAR_48 == int 0&&call get_num_of_enemies() == int 0)
  {
 		if(gamevar global_zone_type == int 18)
 		 {
-				var selected_hero0 = gamevar control_char_p
+				var selected_hero = gamevar control_char_p
 				if(call create_item(int 84 /* analect */ ))
 				 {
 						var VAR_22 = int 1
@@ -581,23 +581,23 @@ if(var VAR_48 == int 0&&call get_num_of_enemies() == int 0)
 				if(var VAR_22)
 				 {
 						call set_input_system(int 2)
-						call set_char_running(var selected_hero0)
-						call char_walk_to(var selected_hero0, int 2126, int 4042, int -4935)
+						call set_char_running(var selected_hero)
+						call char_walk_to(var selected_hero, int 2126, int 4042, int -4935)
 						var VAR_48 ++ 
 						call force_scroll_to_pos(var &VAR_27)
 				}
 				else
 				 {
-						call play_char_anim(var selected_hero0, var no_anim, int 0)
+						call play_char_anim(var selected_hero, var no_anim, int 0)
 				}
 				gamevar global_zone_type = int 0
 		}
 }
 if(var VAR_48 == int 1)
  {
-		if(call is_char_standing(var selected_hero0))
+		if(call is_char_standing(var selected_hero))
 		 {
-				call func_36(var selected_hero0, int 2277, int 4041, int -4940)
+				call func_36(var selected_hero, int 2277, int 4041, int -4940)
 				var VAR_48 ++ 
 		}
 }
@@ -606,8 +606,8 @@ if(var VAR_48 == int 2)
 		var VAR_49 ++ 
 		if(var VAR_49 == int 100)
 		 {
-				call func_68(var selected_hero0)
-				call func_61(var selected_hero0)
+				call func_68(var selected_hero)
+				call func_61(var selected_hero)
 				var VAR_48 ++ 
 				var VAR_49 = int 0
 		}
@@ -619,7 +619,7 @@ if(var VAR_48 == int 3)
 		 {
 				var VAR_49 = int 0
 				var VAR_48 ++ 
-				call play_char_anim(var selected_hero0, var mgkair_anim, int 0)
+				call play_char_anim(var selected_hero, var mgkair_anim, int 0)
 				call func_ec(int 226, int 0, int 0, int 0)
 				var VAR_37 = int 0
 				var VAR_35 = int 1
@@ -634,9 +634,9 @@ if(var VAR_48 == int 4)
 		var VAR_49 ++ 
 		if(var VAR_49 == int 160)
 		 {
-				call func_7d(var selected_hero0)
+				call func_7d(var selected_hero)
 				call force_scroll_to_pos(var &VAR_6)
-				call func_36(var selected_hero0, int 1845, int 2845, int -4950)
+				call func_36(var selected_hero, int 1845, int 2845, int -4950)
 		}
 		if(var VAR_49 > int 300)
 		 {
@@ -649,18 +649,18 @@ if(var VAR_48 == int 4)
 }
 if(var VAR_48 == int 5)
  {
-		var selected_hero0 = call get_selected_hero()
-		if(call is_char_at_pos(var selected_hero0, var &VAR_6, int 240))
+		var selected_hero = call get_selected_hero()
+		if(call is_char_at_pos(var selected_hero, var &VAR_6, int 240))
 		 {
 				call set_input_system(int 2)
-				var selected_hero0 = call get_david_char()
-				while(var selected_hero0)
+				var selected_hero = call get_david_char()
+				while(var selected_hero)
 				 {
-						call set_char_running(var selected_hero0)
-						call char_walk_to_pos(var selected_hero0, @VAR_9[var VAR_25])
+						call set_char_running(var selected_hero)
+						call char_walk_to_pos(var selected_hero, @VAR_9[var VAR_25])
 						var VAR_25 ++ 
 						var VAR_26 = var VAR_25
-						var selected_hero0 = call func_7e()
+						var selected_hero = call func_7e()
 				}
 				var VAR_25 = int 0
 				var VAR_48 ++ 
@@ -669,18 +669,18 @@ if(var VAR_48 == int 5)
 }
 if(var VAR_48 == int 6)
  {
-		var selected_hero0 = call get_david_char()
-		while(var selected_hero0)
+		var selected_hero = call get_david_char()
+		while(var selected_hero)
 		 {
-				if(call is_char_standing(var selected_hero0)&&@VAR_24[var VAR_25] == int 0)
+				if(call is_char_standing(var selected_hero)&&@VAR_24[var VAR_25] == int 0)
 				 {
 						@VAR_24[var VAR_25]= int 1
 						var VAR_23 ++ 
-						call func_36(var selected_hero0, int 978, int 3292, int -4943)
-						call func_fa(var selected_hero0)
+						call func_36(var selected_hero, int 978, int 3292, int -4943)
+						call func_fa(var selected_hero)
 				}
 				var VAR_25 ++ 
-				var selected_hero0 = call func_7e()
+				var selected_hero = call func_7e()
 		}
 		var VAR_25 = int 0
 		if(var VAR_23 == var VAR_26)
@@ -712,15 +712,15 @@ var VAR_15 = int 1
 ._SCRIPT_8
 if(var VAR_52 == int 0)
  {
-		var selected_hero0 = call get_david_char()
-		if(call is_char_at_pos(var selected_hero0, var &VAR_6, int 320))
+		var selected_hero = call get_david_char()
+		if(call is_char_at_pos(var selected_hero, var &VAR_6, int 320))
 		 {
 				call set_input_system(int 2)
 				var VAR_52 ++ 
-				while(var selected_hero0)
+				while(var selected_hero)
 				 {
-						call apply_effect_on_char(gamevar char_gen_fx_scripts, int 18, int 0, var selected_hero0)
-						var selected_hero0 = call func_7e()
+						call apply_effect_on_char(gamevar char_gen_fx_scripts, int 18, int 0, var selected_hero)
+						var selected_hero = call func_7e()
 				}
 		}
 		else
@@ -739,13 +739,13 @@ if(var VAR_52 == int 1)
 }
 if(var VAR_52 == int 2)
  {
-		var selected_hero0 = call get_david_char()
-		while(var selected_hero0)
+		var selected_hero = call get_david_char()
+		while(var selected_hero)
 		 {
-				call set_char_running(var selected_hero0)
-				call char_walk_to_pos(var selected_hero0, @VAR_4[var VAR_25])
+				call set_char_running(var selected_hero)
+				call char_walk_to_pos(var selected_hero, @VAR_4[var VAR_25])
 				var VAR_25 ++ 
-				var selected_hero0 = call func_7e()
+				var selected_hero = call func_7e()
 		}
 		var VAR_52 ++ 
 		var VAR_25 = int 0
@@ -763,18 +763,18 @@ if(var VAR_52 == int 3)
 }
 if(var VAR_52 == int 4)
  {
-		var selected_hero0 = call get_selected_hero()
-		if(call is_char_at_pos(var selected_hero0, var &VAR_6, int 240))
+		var selected_hero = call get_selected_hero()
+		if(call is_char_at_pos(var selected_hero, var &VAR_6, int 240))
 		 {
 				call set_input_system(int 2)
-				var selected_hero0 = call get_david_char()
-				while(var selected_hero0)
+				var selected_hero = call get_david_char()
+				while(var selected_hero)
 				 {
-						call set_char_running(var selected_hero0)
-						call char_walk_to_pos(var selected_hero0, @VAR_9[var VAR_25])
+						call set_char_running(var selected_hero)
+						call char_walk_to_pos(var selected_hero, @VAR_9[var VAR_25])
 						var VAR_25 ++ 
 						var VAR_26 = var VAR_25
-						var selected_hero0 = call func_7e()
+						var selected_hero = call func_7e()
 				}
 				var VAR_25 = int 0
 				var VAR_52 ++ 
@@ -783,18 +783,18 @@ if(var VAR_52 == int 4)
 }
 if(var VAR_52 == int 5)
  {
-		var selected_hero0 = call get_david_char()
-		while(var selected_hero0)
+		var selected_hero = call get_david_char()
+		while(var selected_hero)
 		 {
-				if(call is_char_standing(var selected_hero0)&&@VAR_24[var VAR_25] == int 0)
+				if(call is_char_standing(var selected_hero)&&@VAR_24[var VAR_25] == int 0)
 				 {
 						@VAR_24[var VAR_25]= int 1
 						var VAR_23 ++ 
-						call func_36(var selected_hero0, int 1406, int 2890, int -4945)
-						call func_fa(var selected_hero0)
+						call func_36(var selected_hero, int 1406, int 2890, int -4945)
+						call func_fa(var selected_hero)
 				}
 				var VAR_25 ++ 
-				var selected_hero0 = call func_7e()
+				var selected_hero = call func_7e()
 		}
 		var VAR_25 = int 0
 		if(var VAR_23 == var VAR_26)
@@ -829,9 +829,9 @@ if(var VAR_58 == int 0&&call get_num_of_enemies() == int 0)
 		if(gamevar global_zone_type == int 18)
 		 {
 				call set_input_system(int 2)
-				var selected_hero0 = call get_selected_hero()
-				call set_char_running(var selected_hero0)
-				call char_walk_to(var selected_hero0, int 2126, int 4042, int -4935)
+				var selected_hero = call get_selected_hero()
+				call set_char_running(var selected_hero)
+				call char_walk_to(var selected_hero, int 2126, int 4042, int -4935)
 				var VAR_58 ++ 
 				gamevar global_zone_type = int 0
 				call force_scroll_to_pos(var &VAR_27)
@@ -839,9 +839,9 @@ if(var VAR_58 == int 0&&call get_num_of_enemies() == int 0)
 }
 if(var VAR_58 == int 1)
  {
-		if(call is_char_standing(var selected_hero0))
+		if(call is_char_standing(var selected_hero))
 		 {
-				call func_36(var selected_hero0, int 2277, int 4041, int -4940)
+				call func_36(var selected_hero, int 2277, int 4041, int -4940)
 				var VAR_58 ++ 
 				if(call create_item(int 84 /* analect */ ))
 				 {
@@ -849,7 +849,7 @@ if(var VAR_58 == int 1)
 				}
 				else
 				 {
-						call play_char_anim(var selected_hero0, var no_anim, int 0)
+						call play_char_anim(var selected_hero, var no_anim, int 0)
 				}
 		}
 }
@@ -858,7 +858,7 @@ if(var VAR_58 == int 2)
 		var VAR_59 ++ 
 		if(var VAR_59 == int 100)
 		 {
-				call func_61(var selected_hero0)
+				call func_61(var selected_hero)
 				var VAR_58 ++ 
 				var VAR_59 = int 0
 		}
@@ -872,13 +872,13 @@ if(var VAR_58 == int 3)
 				var VAR_58 ++ 
 				if(var VAR_22 == int 0)
 				 {
-						call play_char_anim(var selected_hero0, var no_anim, int 0)
+						call play_char_anim(var selected_hero, var no_anim, int 0)
 						call set_input_system(int 1)
 						var VAR_58 = int 50
 				}
 				if(var VAR_22 == int 1)
 				 {
-						call play_char_anim(var selected_hero0, var mgkair_anim, int 0)
+						call play_char_anim(var selected_hero, var mgkair_anim, int 0)
 						call func_ec(int 226, int 0, int 0, int 0)
 						var VAR_37 = int 0
 						var VAR_35 = int 1
@@ -895,7 +895,7 @@ if(var VAR_58 == int 4)
 		if(var VAR_59 == int 160)
 		 {
 				call force_scroll_to_pos(var &VAR_6)
-				call func_36(var selected_hero0, int 1845, int 2845, int -4950)
+				call func_36(var selected_hero, int 1845, int 2845, int -4950)
 		}
 		if(var VAR_59 > int 300)
 		 {
@@ -908,18 +908,18 @@ if(var VAR_58 == int 4)
 }
 if(var VAR_58 == int 5)
  {
-		var selected_hero0 = call get_selected_hero()
-		if(call is_char_at_pos(var selected_hero0, var &VAR_6, int 240))
+		var selected_hero = call get_selected_hero()
+		if(call is_char_at_pos(var selected_hero, var &VAR_6, int 240))
 		 {
 				call set_input_system(int 2)
-				var selected_hero0 = call get_david_char()
-				while(var selected_hero0)
+				var selected_hero = call get_david_char()
+				while(var selected_hero)
 				 {
-						call set_char_running(var selected_hero0)
-						call char_walk_to_pos(var selected_hero0, @VAR_9[var VAR_25])
+						call set_char_running(var selected_hero)
+						call char_walk_to_pos(var selected_hero, @VAR_9[var VAR_25])
 						var VAR_25 ++ 
 						var VAR_26 = var VAR_25
-						var selected_hero0 = call func_7e()
+						var selected_hero = call func_7e()
 				}
 				call log(var &VAR_60)
 				var VAR_25 = int 0
@@ -929,18 +929,18 @@ if(var VAR_58 == int 5)
 }
 if(var VAR_58 == int 6)
  {
-		var selected_hero0 = call get_david_char()
-		while(var selected_hero0)
+		var selected_hero = call get_david_char()
+		while(var selected_hero)
 		 {
-				if(call is_char_standing(var selected_hero0)&&@VAR_24[var VAR_25] == int 0)
+				if(call is_char_standing(var selected_hero)&&@VAR_24[var VAR_25] == int 0)
 				 {
 						@VAR_24[var VAR_25]= int 1
 						var VAR_23 ++ 
-						call func_36(var selected_hero0, int 978, int 3292, int -4943)
-						call func_fa(var selected_hero0)
+						call func_36(var selected_hero, int 978, int 3292, int -4943)
+						call func_fa(var selected_hero)
 				}
 				var VAR_25 ++ 
-				var selected_hero0 = call func_7e()
+				var selected_hero = call func_7e()
 		}
 		var VAR_25 = int 0
 		if(var VAR_23 == var VAR_26)

@@ -190,7 +190,7 @@ switch(var VAR_39)
 					call func_1(var njug, int 8192)
 					call func_1(var nstipe, int 8192)
 					execute SCRIPT_14
-					call func_17(var nstipe, var david0)
+					call func_17(var nstipe, var david)
 					execute SCRIPT_19
 					var VAR_39 ++ 
 			}
@@ -198,13 +198,13 @@ switch(var VAR_39)
 		case 2
 			if(call get_input_sys() != int 4)
 			 {
-					call func_17(var david0, var njug)
+					call func_17(var david, var njug)
 					call set_char_running(var VAR_14)
-					call func_19(var VAR_14, var david0)
+					call func_19(var VAR_14, var david)
 					if(var VAR_15)
 					 {
 							call set_char_running(var VAR_15)
-							call func_19(var VAR_15, var david0)
+							call func_19(var VAR_15, var david)
 					}
 					call resume_conversation()
 					var VAR_39 ++ 
@@ -227,8 +227,8 @@ switch(var VAR_39)
 			if(call get_input_sys() != int 4)
 			 {
 					call set_input_system(int 2)
-					call func_17(var njug, var david0)
-					call func_17(var nstipe, var david0)
+					call func_17(var njug, var david)
+					call func_17(var nstipe, var david)
 					var VAR_40 = int 40
 					var VAR_39 ++ 
 			}
@@ -243,10 +243,10 @@ switch(var VAR_39)
 					call set_input_system(int 2)
 					call func_2(var njug)
 					call func_2(var nstipe)
-					call chars_face_opposite(var david0, var VAR_14)
+					call chars_face_opposite(var david, var VAR_14)
 					if(var VAR_15)
 					 {
-							call func_17(var VAR_15, var david0)
+							call func_17(var VAR_15, var david)
 					}
 					var VAR_40 = int 10
 					var VAR_39 ++ 
@@ -272,7 +272,7 @@ switch(var VAR_39)
 			var VAR_42 = int 0
 			gamevar script_object = var njug
 			gamevar *object_p+6 |= int 67108864
-			gamevar script_object = var david0
+			gamevar script_object = var david
 			gamevar *object_p+6 |= int 67108864
 			gamevar script_object = var VAR_14
 			gamevar *object_p+6 |= int 67108864
@@ -289,17 +289,17 @@ switch(var VAR_39)
 			call func_46(var nstipe, int 13)
 			call func_17(var njug, var nlongjohn)
 			call func_17(var nstipe, var nlongjohn)
-			call func_13(var david0)
+			call func_13(var david)
 			var VAR_40 = int 30
 			var VAR_39 ++ 
 			break 
 		case 10
-			call func_19(var david0, var nlongjohn)
+			call func_19(var david, var nlongjohn)
 			var VAR_40 = int 10
 			var VAR_39 ++ 
 			break 
 		case 11
-			call func_17(var nlongjohn, var david0)
+			call func_17(var nlongjohn, var david)
 			var VAR_40 = int 30
 			var VAR_39 ++ 
 			break 
@@ -314,11 +314,11 @@ switch(var VAR_39)
 			gamevar DEXTERITY = gamevar DEXTERITY * int 4
 			gamevar script_object = var nmuscles
 			gamevar DEXTERITY = gamevar DEXTERITY * int 4
-			call func_3e(var david0)
+			call func_3e(var david)
 			execute SCRIPT_15
-			call char_attack(var nlongjohn, var david0)
-			call char_attack(var nmuscles, var david0)
-			call char_attack(var david0, var nlongjohn)
+			call char_attack(var nlongjohn, var david)
+			call char_attack(var nmuscles, var david)
+			call char_attack(var david, var nlongjohn)
 			call char_attack(var VAR_14, var nmuscles)
 			if(var VAR_15)
 			 {
@@ -334,7 +334,7 @@ switch(var VAR_39)
 					execute SCRIPT_16
 					exit_script 
 			}
-			call func_3c(var david0)
+			call func_3c(var david)
 			call func_3c(var VAR_14)
 			if(var VAR_15)
 			 {
@@ -360,7 +360,7 @@ switch(var VAR_39)
 			var VAR_42 = int 1
 			gamevar script_object = var njug
 			gamevar *object_p+6 &= int -6710886
-			gamevar script_object = var david0
+			gamevar script_object = var david
 			gamevar *object_p+6 &= int -6710886
 			gamevar script_object = var VAR_14
 			gamevar *object_p+6 &= int -6710886
@@ -372,7 +372,7 @@ switch(var VAR_39)
 			call func_3c(var njug)
 			call func_3c(var nlongjohn)
 			call func_3c(var nmuscles)
-			call func_3c(var david0)
+			call func_3c(var david)
 			call func_3c(var VAR_14)
 			if(var VAR_15)
 			 {
@@ -384,7 +384,7 @@ switch(var VAR_39)
 			call set_char_running(var nmuscles)
 			call char_walk_to_pos(var nlongjohn, var &VAR_27)
 			call char_walk_to_pos(var nmuscles, var &VAR_27)
-			call func_19(var david0, var njug)
+			call func_19(var david, var njug)
 			call func_19(var VAR_14, var njug)
 			if(var VAR_15)
 			 {
@@ -397,7 +397,7 @@ switch(var VAR_39)
 			if(call is_char_standing(var DAVID1))
 			 {
 					execute SCRIPT_16
-					call func_17(var david0, var njug)
+					call func_17(var david, var njug)
 					call func_17(var VAR_14, var njug)
 					if(var VAR_15)
 					 {
@@ -941,8 +941,8 @@ switch(var VAR_47)
 					}
 					execute SCRIPT_13
 					execute SCRIPT_14
-					call set_char_walking(var david0)
-					call char_exit_door(var david0, int 1)
+					call set_char_walking(var david)
+					call char_exit_door(var david, int 1)
 					call set_char_walking(var VAR_14)
 					call char_walk_to_pos(var VAR_14, var &VAR_10)
 					if(var VAR_15)
@@ -1054,26 +1054,26 @@ call func_4d(int 1, var &VAR_5, "rain", "tavern01")
 
 ._SCRIPT_13
 var DAVID1 = call get_char_handle(int 65536)
-var david0 = call get_david_char()
+var david = call get_david_char()
 var VAR_14 = call func_7e()
 var VAR_15 = call func_7e()
 
 ._SCRIPT_14
 if(var VAR_14 == call get_selected_hero()&&var VAR_14)
  {
-		var VAR_0 = var david0
-		var david0 = var VAR_14
+		var VAR_0 = var david
+		var david = var VAR_14
 		var VAR_14 = var VAR_0
 }
 if(var VAR_15 == call get_selected_hero()&&var VAR_15)
  {
-		var VAR_0 = var david0
-		var david0 = var VAR_15
+		var VAR_0 = var david
+		var david = var VAR_15
 		var VAR_15 = var VAR_0
 }
 
 ._SCRIPT_15
-gamevar script_object = var david0
+gamevar script_object = var david
 var VAR_187 = gamevar HP
 var VAR_191 = gamevar DEXTERITY
 gamevar DEXTERITY = gamevar DEXTERITY * int 4
@@ -1094,7 +1094,7 @@ var VAR_194 = gamevar DEXTERITY
 gamevar DEXTERITY = gamevar DEXTERITY * int 4
 
 ._SCRIPT_16
-gamevar script_object = var david0
+gamevar script_object = var david
 gamevar HP = int 100000
 gamevar script_object = var VAR_14
 gamevar HP = int 100000
@@ -1111,7 +1111,7 @@ gamevar script_object = var njug
 gamevar HP = int 100000
 
 ._SCRIPT_17
-gamevar script_object = var david0
+gamevar script_object = var david
 gamevar HP = var VAR_187
 gamevar DEXTERITY = var VAR_191
 gamevar script_object = var VAR_14
@@ -1132,7 +1132,7 @@ gamevar script_object = var nmuscles
 gamevar HP = int 100000
 
 ._SCRIPT_18
-var VAR_195 = call get_char_handle_id(var david0)
+var VAR_195 = call get_char_handle_id(var david)
 var VAR_196 = call get_char_handle_id(var VAR_14)
 if(var VAR_15)
  {
@@ -1143,13 +1143,13 @@ else
 		var VAR_197 = int 0
 }
 var VAR_16 = int 1
-call func_68(var david0)
+call func_68(var david)
 call func_68(var VAR_14)
 if(var VAR_15)
  {
 		call func_68(var VAR_15)
 }
-call func_61(var david0)
+call func_61(var david)
 call func_61(var VAR_14)
 if(var VAR_15)
  {
@@ -1157,7 +1157,7 @@ if(var VAR_15)
 }
 
 ._SCRIPT_19
-call func_61(var david0)
+call func_61(var david)
 call func_61(var VAR_14)
 if(var VAR_15)
  {

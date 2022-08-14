@@ -27,8 +27,8 @@ VAR_56	{ -374, -1417, -208 }
 ._on_load
 execute SCRIPT_9
 call play_bgm("RainPt1")
-call load_item(int 93)
-call load_item(int 91)
+call load_item(int 93 /* cutlass */ )
+call load_item(int 91 /* rapier */ )
 call load_sound_set(int 32)
 
  /* play the sound 'trickle' */ 
@@ -93,36 +93,36 @@ call func_fe(var pirate_captain)
 call func_fe(var dick)
 call func_f(var pirate_captain, int 131072)
 call func_f(var dick, int 131072)
-if(call is_char_handle_in_level(int 65536))
+if(call is_char_handle_in_level(int 65536 /* DAVID */ ))
  {
-		var DAVID = call get_char_handle(int 65536)
+		var DAVID1 = call get_char_handle(int 65536)
 }
 else
  {
-		var DAVID = int 0
+		var DAVID1 = int 0
 }
-if(call is_char_handle_in_level(int 786432))
+if(call is_char_handle_in_level(int 786432 /* SEKUNE */ ))
  {
-		var SEKUNE = call get_char_handle(int 786432)
-}
-else
- {
-		var SEKUNE = int 0
-}
-if(call is_char_handle_in_level(int 196608))
- {
-		var VIVIENNE = call get_char_handle(int 196608)
+		var SEKUNE1 = call get_char_handle(int 786432)
 }
 else
  {
-		var VIVIENNE = int 0
+		var SEKUNE1 = int 0
+}
+if(call is_char_handle_in_level(int 196608 /* VIVIENNE */ ))
+ {
+		var VIVIENNE1 = call get_char_handle(int 196608)
+}
+else
+ {
+		var VIVIENNE1 = int 0
 }
 var VAR_2 = int 0
 var VAR_0 = int 0
 var VAR_1 = int 5
 
 ._SCRIPT_4
-if(call ! is_char_handle_in_level(int 6356992))
+if(call ! is_char_handle_in_level(int 6356992 /* CAPTAIN */ ))
  {
 		var pirate_captain = int 0
 }
@@ -149,21 +149,21 @@ switch(var VAR_0)
 			break 
 		case 1
 			var VAR_11 = int 0
-			if(var DAVID)
+			if(var DAVID1)
 			 {
-					var VAR_11 = call is_char_at_pos(var DAVID, var &VAR_13, int 400)
+					var VAR_11 = call is_char_at_pos(var DAVID1, var &VAR_13, int 400)
 			}
-			if(var SEKUNE&&var ! VAR_11)
+			if(var SEKUNE1&&var ! VAR_11)
 			 {
-					var VAR_11 = call is_char_at_pos(var SEKUNE, var &VAR_13, int 400)
+					var VAR_11 = call is_char_at_pos(var SEKUNE1, var &VAR_13, int 400)
 			}
-			if(var VIVIENNE&&var ! VAR_11)
+			if(var VIVIENNE1&&var ! VAR_11)
 			 {
-					var VAR_11 = call is_char_at_pos(var VIVIENNE, var &VAR_13, int 400)
+					var VAR_11 = call is_char_at_pos(var VIVIENNE1, var &VAR_13, int 400)
 			}
 			if(var VAR_11)
 			 {
-					if(call ! is_char_handle_in_level(int 6356992))
+					if(call ! is_char_handle_in_level(int 6356992 /* CAPTAIN */ ))
 					 {
 							var pirate_captain = int 0
 					}
@@ -171,17 +171,17 @@ switch(var VAR_0)
 					 {
 							var dick = int 0
 					}
-					if(var DAVID)
+					if(var DAVID1)
 					 {
-							call char_stop(var DAVID)
+							call char_stop(var DAVID1)
 					}
-					if(var SEKUNE)
+					if(var SEKUNE1)
 					 {
-							call char_stop(var SEKUNE)
+							call char_stop(var SEKUNE1)
 					}
-					if(var VIVIENNE)
+					if(var VIVIENNE1)
 					 {
-							call char_stop(var VIVIENNE)
+							call char_stop(var VIVIENNE1)
 					}
 					var VAR_8 = call get_selected_hero()
 					if(var pirate_captain)
@@ -380,7 +380,7 @@ switch(var VAR_3)
 					call set_char_running(var longjohn)
 					call func_19(var longjohn, var VAR_8)
 			}
-			if(call ! is_char_handle_in_level(int 2490368))
+			if(call ! is_char_handle_in_level(int 2490368 /* MUSCLES */ ))
 			 {
 					var muscles = call create_enemy_through_door(int 30, int 0, int 1, int 0)
 					call set_char_running(var muscles)
@@ -413,7 +413,7 @@ switch(var VAR_3)
 					call set_char_running(var longjohn)
 					call func_19(var longjohn, var VAR_8)
 			}
-			if(call ! is_char_handle_in_level(int 2490368))
+			if(call ! is_char_handle_in_level(int 2490368 /* MUSCLES */ ))
 			 {
 					var muscles = call create_enemy_through_door(int 30, int 0, int 2, int 0)
 					call set_char_running(var muscles)
@@ -587,7 +587,7 @@ switch(var VAR_32)
 		case 4
 			if(var VAR_33 > var VAR_35)
 			 {
-					var verwind_sound_ref = call play_loaded_sound(int 4, int 0, int 25, int 0) /* 'thunstrk' */ 
+					var verwind_sound_ref = call play_loaded_sound /* 'thunstrk' */ (int 4, int 0, int 25, int 0)
 					call set_sound_volume(var verwind_sound_ref, var VAR_36)
 					if(var ! VAR_22)
 					 {

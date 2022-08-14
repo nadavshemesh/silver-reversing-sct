@@ -433,7 +433,7 @@ gamevar SMACKER_Y = int 304
 call play_2d_anim("bellring", int 1, int 1, var &VAR_72)
 
 ._SCRIPT_15
-if(call ! is_char_handle_in_level(int 6291456))
+if(call ! is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
  {
 		exit_script 
 }
@@ -446,7 +446,7 @@ else
 }
 
 ._SCRIPT_16
-if(call ! is_char_handle_in_level(int 6291456))
+if(call ! is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
  {
 		exit_script 
 }
@@ -565,7 +565,7 @@ switch(var VAR_17)
 var VAR_18 ++ 
 
 ._SCRIPT_17
-if(call is_char_handle_in_level(int 6291456))
+if(call is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
  {
 		if(var fade_chronicler == int 0)
 		 {
@@ -765,7 +765,7 @@ switch(var VAR_52)
 		case 4
 			if(var VAR_53 > var VAR_55)
 			 {
-					var verwind_sound_ref = call play_loaded_sound(int 4, int 0, int 25, int 0) /* 'thunstrk' */ 
+					var verwind_sound_ref = call play_loaded_sound /* 'thunstrk' */ (int 4, int 0, int 25, int 0)
 					call set_sound_volume(var verwind_sound_ref, var VAR_56)
 					if(var ! VAR_42)
 					 {

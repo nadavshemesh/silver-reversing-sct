@@ -76,8 +76,8 @@ var lesser_gimp1 = call create_enemy(int 45, int 1, var &VAR_9, int 300)
 var greater_gimpv = call create_enemy(int 46, int 0, var &VAR_10, int 105)
 var greater_gimpv1 = call create_enemy(int 46, int 1, var &VAR_11, int 170)
 var greater_gimpv2 = call create_enemy(int 46, int 2, var &VAR_12, int 200)
-call add_item_to_char(var greater_gimpv, int 43, int 1, int 0)
-call add_item_to_char(var lesser_gimp1, int 45, int 1, int 0)
+call add_item_to_char(var greater_gimpv, int 43 /* cheese */ , int 1, int 0)
+call add_item_to_char(var lesser_gimp1, int 45 /* deadmous */ , int 1, int 0)
 call func_106(var lesser_gimp, int 1, int 0, int 1)
 call func_106(var lesser_gimp1, int 1, int 0, int 1)
 call func_106(var greater_gimpv, int 1, int 0, int 1)
@@ -98,9 +98,9 @@ if(var ! VAR_13)
  {
 		if(call func_ab(int 200, var &VAR_2))
 		 {
-				call create_enemy(int 185, int 0, var &VAR_19, int 290)
-				call create_enemy(int 185, int 1, var &VAR_20, int 155)
-				call create_enemy(int 185, int 2, var &VAR_21, int 55)
+				call create_enemy(int 185 /* drop_rat_raptor */ , int 0, var &VAR_19, int 290)
+				call create_enemy(int 185 /* drop_rat_raptor */ , int 1, var &VAR_20, int 155)
+				call create_enemy(int 185 /* drop_rat_raptor */ , int 2, var &VAR_21, int 55)
 				call run_enemy_generator(var &VAR_14, int 100)
 				var VAR_13 = int 1
 		}

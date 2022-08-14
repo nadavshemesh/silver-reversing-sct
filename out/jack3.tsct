@@ -128,7 +128,7 @@ var VAR_62 ++
 var orc2 = call create_enemy(int 81, int 0, var &VAR_66, int 80)
 var orc21 = call create_enemy(int 81, int 1, var &VAR_68, int 340)
 var ogre = call create_enemy(int 76, int 0, var &VAR_70, int 0)
-call add_item_to_char(var ogre, int 85, int 3277313, int 0)
+call add_item_to_char(var ogre, int 85 /* moneybag */ , int 3277313, int 0)
 call func_50(var orc2, int 8192)
 call play_char_ai_script(var orc2, var &VAR_71)
 call func_50(var orc21, int 8192)
@@ -155,7 +155,7 @@ call load_char("orc")
 call load_char("lizman")
 call load_char("ogre")
 call load_char("ronnie")
-call load_item(int 96)
+call load_item(int 96 /* pick */ )
 if(var VAR_82 == int 1)
  {
 		call run_wandering_generator(var &VAR_87, int 100)
@@ -308,7 +308,7 @@ switch(var VAR_13)
 		case 4
 			if(var VAR_14 > var VAR_16)
 			 {
-					var verwind_sound_ref = call play_loaded_sound(int 4, int 0, int 25, int 0) /* 'thunstrk' */ 
+					var verwind_sound_ref = call play_loaded_sound /* 'thunstrk' */ (int 4, int 0, int 25, int 0)
 					call set_sound_volume(var verwind_sound_ref, var VAR_17)
 					if(var ! VAR_3)
 					 {
@@ -329,7 +329,7 @@ switch(var VAR_13)
 var VAR_14 ++ 
 
 ._SCRIPT_13
-if(call ! is_char_handle_in_level(int 6291456))
+if(call ! is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
  {
 		exit_script 
 }
@@ -342,7 +342,7 @@ else
 }
 
 ._SCRIPT_14
-if(call ! is_char_handle_in_level(int 6291456))
+if(call ! is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
  {
 		exit_script 
 }
@@ -461,7 +461,7 @@ switch(var VAR_35)
 var VAR_36 ++ 
 
 ._SCRIPT_15
-if(call is_char_handle_in_level(int 6291456))
+if(call is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
  {
 		if(var fade_chronicler == int 0)
 		 {

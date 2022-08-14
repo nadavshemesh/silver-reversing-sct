@@ -83,7 +83,7 @@ if(gamevar !is_room_cleared)
 		switch(gamevar room_state)
 		 {
 				case 1
-					if(call is_char_handle_in_level(int 4194304))
+					if(call is_char_handle_in_level(int 4194304 /* IMPBOSS */ ))
 					 {
 							gamevar room_state ++ 
 					}
@@ -99,7 +99,7 @@ if(gamevar !is_room_cleared)
 					}
 					else
 					 {
-							if(call ! is_char_handle_in_level(int 4194304))
+							if(call ! is_char_handle_in_level(int 4194304 /* IMPBOSS */ ))
 							 {
 									gamevar room_state = int 0
 							}
@@ -128,7 +128,7 @@ if(gamevar script_time > var VAR_29)
 }
 
 ._SCRIPT_4
-if(call is_char_handle_in_level(int 65536))
+if(call is_char_handle_in_level(int 65536 /* DAVID */ ))
  {
 		var DAVID1 = call get_char_handle(int 65536)
 }
@@ -146,10 +146,10 @@ gamevar *object_p+6 |= int 53687091
 gamevar script_object = var htyronis
 gamevar *object_p+6 |= int 8388608
 var btreasure = call create_char(var &VAR_8, "btreasure", int 270, int 14)
-call add_item_to_char(var btreasure, int 85, int 3277313, int 0)
-call add_item_to_char(var btreasure, int 40, int 1, int 0)
-call add_item_to_char(var btreasure, int 40, int 1, int 0)
-call add_item_to_char(var btreasure, int 41, int 1, int 0)
+call add_item_to_char(var btreasure, int 85 /* moneybag */ , int 3277313, int 0)
+call add_item_to_char(var btreasure, int 40 /* apple */ , int 1, int 0)
+call add_item_to_char(var btreasure, int 40 /* apple */ , int 1, int 0)
+call add_item_to_char(var btreasure, int 41 /* veggies */ , int 1, int 0)
 var fimpboss = call create_char(var &VAR_10, "fimpboss", int -90, int 13)
 call func_50(var fimpboss, int 8192)
 call play_char_ai_script(var fimpboss, var &VAR_12)
@@ -212,7 +212,7 @@ switch(var VAR_25)
 		case 1
 			if(var VAR_26 > int 100)
 			 {
-					if(call is_char_handle_in_level(int 4194304))
+					if(call is_char_handle_in_level(int 4194304 /* IMPBOSS */ ))
 					 {
 							call func_106(var fimpboss, int 3, int 1, var &VAR_22)
 					}

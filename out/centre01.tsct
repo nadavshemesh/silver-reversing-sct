@@ -18,8 +18,8 @@ VAR_24	{ -7755, 1825, 5210 }
 VAR_25	"!!"	
 
 ._on_load
-call load_item(int 93)
-call load_item(int 91)
+call load_item(int 93 /* cutlass */ )
+call load_item(int 91 /* rapier */ )
 execute SCRIPT_5
 switch(gamevar room_state)
  {
@@ -57,8 +57,8 @@ switch(gamevar room_state)
 var muscles = call create_enemy(int 30, int 0, var &VAR_5, int 105)
 var dick = call create_enemy(int 31, int 0, var &VAR_1, int 90)
 var finnegan = call create_enemy(int 32, int 0, var &VAR_3, int 80)
-call add_item_to_char(var finnegan, int 43, int 1, int 0)
-call add_item_to_char(var dick, int 26, int 1, int 0)
+call add_item_to_char(var finnegan, int 43 /* cheese */ , int 1, int 0)
+call add_item_to_char(var dick, int 26 /* scroll */ , int 1, int 0)
 call set_char_running(var muscles)
 call set_char_running(var dick)
 call set_char_running(var finnegan)
@@ -213,7 +213,7 @@ switch(var VAR_19)
 		case 4
 			if(var VAR_20 > var VAR_22)
 			 {
-					var verwind_sound_ref = call play_loaded_sound(int 4, int 0, int 25, int 0) /* 'thunstrk' */ 
+					var verwind_sound_ref = call play_loaded_sound /* 'thunstrk' */ (int 4, int 0, int 25, int 0)
 					call set_sound_volume(var verwind_sound_ref, var VAR_23)
 					if(var ! VAR_9)
 					 {

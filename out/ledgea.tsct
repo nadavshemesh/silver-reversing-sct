@@ -85,14 +85,14 @@ if(gamevar !is_room_cleared)
 					}
 					else
 					 {
-							if(call is_char_handle_in_level(int 1507328))
+							if(call is_char_handle_in_level(int 1507328 /* BTREASURE */ ))
 							 {
 									if(var btreasure)
 									 {
 											call remove_char(var btreasure)
 									}
 							}
-							if(call is_char_handle_in_level(int 1507330))
+							if(call is_char_handle_in_level(int 1507330 /* BTREASURE */ ))
 							 {
 									if(var btreasure2)
 									 {
@@ -225,10 +225,10 @@ execute SCRIPT_4
 if(var ! treasure)
  {
 		var treasure = call create_enemy(int 136, int 0, var &VAR_35, int 121)
-		call add_item_to_char(var treasure, int 42, int 1, int 0)
-		call add_item_to_char(var treasure, int 40, int 1, int 0)
-		call add_item_to_char(var treasure, int 43, int 1, int 0)
-		call add_item_to_char(var treasure, int 83, int 1, int 0)
+		call add_item_to_char(var treasure, int 42 /* bread */ , int 1, int 0)
+		call add_item_to_char(var treasure, int 40 /* apple */ , int 1, int 0)
+		call add_item_to_char(var treasure, int 43 /* cheese */ , int 1, int 0)
+		call add_item_to_char(var treasure, int 83 /* borb */ , int 1, int 0)
 }
 
 ._SCRIPT_9

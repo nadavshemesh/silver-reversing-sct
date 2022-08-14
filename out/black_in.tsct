@@ -139,11 +139,11 @@ if(gamevar !is_room_cleared&&var VAR_22 == int 0)
 					}
 			}
 			var VAR_37 = int 1
-			call create_enemy(int 36, int 0, var &VAR_42, int 238)
+			call create_enemy(int 36 /* sarcher */ , int 0, var &VAR_42, int 238)
 			var SARCHER = call get_char_handle(int 11010048)
 			call set_char_init_state(var SARCHER, int 0)
 			var pie = call add_item_to_char(var SARCHER, int 46, int 1, int 0)
-			call create_enemy(int 36, int 1, var &VAR_45, int 310)
+			call create_enemy(int 36 /* sarcher */ , int 1, var &VAR_45, int 310)
 			var SARCHER1 = call get_char_handle(int 11010049)
 			call set_char_init_state(var SARCHER1, int 0)
 			var deadmous = call add_item_to_char(var SARCHER1, int 45, int 1, int 0)
@@ -158,7 +158,7 @@ if(gamevar !is_room_cleared&&var VAR_22 == int 0)
 					if(gamevar global_zone_type == int 18)
 					 {
 							var VAR_20 = gamevar control_char_p
-							if(call create_item(int 84))
+							if(call create_item(int 84 /* analect */ ))
 							 {
 									var VAR_22 = int 1
 							}
@@ -380,7 +380,7 @@ if(gamevar !is_room_cleared&&var VAR_22 == int 0)
 			}
 			execute SCRIPT_4
 			var VAR_37 = int 1
-			var torches2_sound_ref = call play_loaded_sound(int 1, int -1, int 30, int 0) /* 'torches2' */ 
+			var torches2_sound_ref = call play_loaded_sound /* 'torches2' */ (int 1, int -1, int 30, int 0)
 			var VAR_15 = int 1
 			execute SCRIPT_5
 			if(gamevar zone_under_mouse_type == int 18&&var VAR_22 == int 0)
@@ -405,7 +405,7 @@ if(gamevar !is_room_cleared&&var VAR_22 == int 0)
 					 {
 							call func_36(var VAR_20, int 2277, int 4041, int -4940)
 							var VAR_58 ++ 
-							if(call create_item(int 84))
+							if(call create_item(int 84 /* analect */ ))
 							 {
 									var VAR_22 = int 1
 							}
@@ -574,7 +574,7 @@ if(var VAR_48 == int 0&&call get_num_of_enemies() == int 0)
 		if(gamevar global_zone_type == int 18)
 		 {
 				var VAR_20 = gamevar control_char_p
-				if(call create_item(int 84))
+				if(call create_item(int 84 /* analect */ ))
 				 {
 						var VAR_22 = int 1
 				}
@@ -697,16 +697,16 @@ execute SCRIPT_5
 
 ._SCRIPT_7
 var VAR_37 = int 1
-call create_enemy(int 36, int 0, var &VAR_42, int 238)
+call create_enemy(int 36 /* sarcher */ , int 0, var &VAR_42, int 238)
 var SARCHER = call get_char_handle(int 11010048)
 call set_char_init_state(var SARCHER, int 0)
 var pie = call add_item_to_char(var SARCHER, int 46, int 1, int 0)
-call create_enemy(int 36, int 1, var &VAR_45, int 310)
+call create_enemy(int 36 /* sarcher */ , int 1, var &VAR_45, int 310)
 var SARCHER1 = call get_char_handle(int 11010049)
 call set_char_init_state(var SARCHER1, int 0)
 var deadmous = call add_item_to_char(var SARCHER1, int 45, int 1, int 0)
 execute SCRIPT_4
-var torches2_sound_ref = call play_loaded_sound(int 1, int -1, int 30, int 0) /* 'torches2' */ 
+var torches2_sound_ref = call play_loaded_sound /* 'torches2' */ (int 1, int -1, int 30, int 0)
 var VAR_15 = int 1
 
 ._SCRIPT_8
@@ -816,7 +816,7 @@ var VAR_5 = call func_e8(var &VAR_6, int 0)
 ._SCRIPT_10
 execute SCRIPT_4
 var VAR_37 = int 1
-var torches2_sound_ref = call play_loaded_sound(int 1, int -1, int 30, int 0) /* 'torches2' */ 
+var torches2_sound_ref = call play_loaded_sound /* 'torches2' */ (int 1, int -1, int 30, int 0)
 var VAR_15 = int 1
 
 ._SCRIPT_11
@@ -843,7 +843,7 @@ if(var VAR_58 == int 1)
 		 {
 				call func_36(var VAR_20, int 2277, int 4041, int -4940)
 				var VAR_58 ++ 
-				if(call create_item(int 84))
+				if(call create_item(int 84 /* analect */ ))
 				 {
 						var VAR_22 = int 1
 				}

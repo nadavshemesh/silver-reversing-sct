@@ -18,8 +18,8 @@ VAR_31	{ -8625, 2550, 6150 }
 VAR_32	{ -850, 2550, 3150 }	
 
 ._on_load
-call load_item(int 93)
-call load_item(int 91)
+call load_item(int 93 /* cutlass */ )
+call load_item(int 91 /* rapier */ )
 execute SCRIPT_11
 switch(gamevar room_state)
  {
@@ -77,7 +77,7 @@ gamevar script_object = var dick
 gamevar *object_p+8 |= int 67108864
 gamevar script_object = var muscles
 gamevar *object_p+8 |= int 67108864
-call add_item_to_char(var longjohn, int 42, int 1, int 0)
+call add_item_to_char(var longjohn, int 42 /* bread */ , int 1, int 0)
 call func_47(var longjohn, int 528)
 gamevar script_object = var longjohn
 gamevar *character_stats_p+15 = int 700
@@ -118,7 +118,7 @@ switch(var VAR_0)
 							var VAR_37 = int 1
 					}
 			}
-			if(call is_char_handle_in_level(int 2490368))
+			if(call is_char_handle_in_level(int 2490368 /* MUSCLES */ ))
 			 {
 					if(call func_88(var muscles))
 					 {
@@ -132,7 +132,7 @@ switch(var VAR_0)
 			if(var VAR_37)
 			 {
 					call log("kick ass")
-					if(call is_char_handle_in_level(int 2097152))
+					if(call is_char_handle_in_level(int 2097152 /* VILLAGER */ ))
 					 {
 							call func_d6(var Nvillager)
 							gamevar script_object = var Nvillager
@@ -156,7 +156,7 @@ switch(var VAR_0)
 							call func_d6(var dick)
 							call func_17(var dick, call get_selected_hero())
 					}
-					if(call is_char_handle_in_level(int 2490368))
+					if(call is_char_handle_in_level(int 2490368 /* MUSCLES */ ))
 					 {
 							gamevar script_object = var muscles
 							gamevar *object_p+8 &= int -6710886
@@ -168,7 +168,7 @@ switch(var VAR_0)
 			}
 			break 
 		case 1
-			if(call is_char_handle_in_level(int 2097152))
+			if(call is_char_handle_in_level(int 2097152 /* VILLAGER */ ))
 			 {
 					call char_walk_to(var Nvillager, int 634, int -930, int -3446)
 			}
@@ -185,18 +185,18 @@ switch(var VAR_0)
 					var VAR_1 -- 
 					exit_script 
 			}
-			if(call is_char_handle_in_level(int 2097152))
+			if(call is_char_handle_in_level(int 2097152 /* VILLAGER */ ))
 			 {
 					call char_walk_to(var Nvillager, int 634, int -930, int -3446)
 			}
-			if(call is_char_handle_in_level(int 2490368))
+			if(call is_char_handle_in_level(int 2490368 /* MUSCLES */ ))
 			 {
 					call func_55(var muscles, int 91)
 			}
 			var VAR_0 ++ 
 			break 
 		case 3
-			if(call is_char_handle_in_level(int 2097152))
+			if(call is_char_handle_in_level(int 2097152 /* VILLAGER */ ))
 			 {
 					if(call is_char_standing(var Nvillager))
 					 {
@@ -214,7 +214,7 @@ switch(var VAR_0)
 					call set_char_running(var muscles1)
 					call func_19(var finnegan, call get_selected_hero())
 					call func_19(var muscles1, call get_selected_hero())
-					call add_item_to_char(var muscles1, int 40, int 1, int 0)
+					call add_item_to_char(var muscles1, int 40 /* apple */ , int 1, int 0)
 					var VAR_0 ++ 
 			}
 			break 
@@ -223,7 +223,7 @@ switch(var VAR_0)
 }
 
 ._SCRIPT_5
-if(call is_char_handle_in_level(int 2097152))
+if(call is_char_handle_in_level(int 2097152 /* VILLAGER */ ))
  {
 		call remove_char(var Nvillager)
 }
@@ -249,12 +249,12 @@ if(call is_char_handle_in_level(int 6422528))
 		gamevar script_object = var dick
 		gamevar HP = var VAR_40
 }
-if(call is_char_handle_in_level(int 2490368))
+if(call is_char_handle_in_level(int 2490368 /* MUSCLES */ ))
  {
 		gamevar script_object = var muscles
 		gamevar HP = var VAR_41
 }
-if(call is_char_handle_in_level(int 2097152))
+if(call is_char_handle_in_level(int 2097152 /* VILLAGER */ ))
  {
 		gamevar script_object = var Nvillager
 		gamevar HP = var VAR_42
@@ -414,7 +414,7 @@ switch(var VAR_25)
 		case 4
 			if(var VAR_26 > var VAR_28)
 			 {
-					var verwind_sound_ref = call play_loaded_sound(int 4, int 0, int 25, int 0) /* 'thunstrk' */ 
+					var verwind_sound_ref = call play_loaded_sound /* 'thunstrk' */ (int 4, int 0, int 25, int 0)
 					call set_sound_volume(var verwind_sound_ref, var VAR_29)
 					if(var ! VAR_15)
 					 {

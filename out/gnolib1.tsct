@@ -131,7 +131,7 @@ if(gamevar is_room_cleared == int 2)
 ._SCRIPT_5
 var pfew_anim = call load_anim("pfew")
 var catapult_imp = call create_enemy(int 104, int 8, var &VAR_14, int 90)
-call add_item_to_char(var catapult_imp, int 8, int 1, int 0)
+call add_item_to_char(var catapult_imp, int 8 /* catapult */ , int 1, int 0)
 var catapult_imp1 = call create_enemy(int 104, int 9, var &VAR_15, int 0)
 call func_10f(var catapult_imp1, int 2)
 var nyelimp = call create_char(var &VAR_17, "nyelimp", int 150, int 13)
@@ -189,15 +189,15 @@ switch(var VAR_11)
 			}
 			break 
 }
-if(call is_char_handle_in_level(int 917512))
+if(call is_char_handle_in_level(int 917512 /* IMP */ ))
  {
 		execute SCRIPT_8
 }
-if(call is_char_handle_in_level(int 917513))
+if(call is_char_handle_in_level(int 917513 /* IMP */ ))
  {
 		execute SCRIPT_9
 }
-if(call is_char_handle_in_level(int 1769472))
+if(call is_char_handle_in_level(int 1769472 /* YELIMP */ ))
  {
 		execute SCRIPT_7
 }
@@ -250,27 +250,27 @@ switch(var VAR_49)
 			 {
 					call func_12f(var VAR_51)
 					call remove_char(var nyelimp)
-					if(call is_char_handle_in_level(int 917505))
+					if(call is_char_handle_in_level(int 917505 /* IMP */ ))
 					 {
 							call set_char_template(var neutral_imp, int 102)
 					}
-					if(call is_char_handle_in_level(int 917506))
+					if(call is_char_handle_in_level(int 917506 /* IMP */ ))
 					 {
 							call set_char_template(var neutral_imp1, int 102)
 					}
-					if(call is_char_handle_in_level(int 917507))
+					if(call is_char_handle_in_level(int 917507 /* IMP */ ))
 					 {
 							call set_char_template(var cowardly_imp, int 101)
 					}
-					if(call is_char_handle_in_level(int 917508))
+					if(call is_char_handle_in_level(int 917508 /* IMP */ ))
 					 {
 							call set_char_template(var cowardly_imp1, int 101)
 					}
-					if(call is_char_handle_in_level(int 917509))
+					if(call is_char_handle_in_level(int 917509 /* IMP */ ))
 					 {
 							call set_char_template(var devious_imp, int 100)
 					}
-					if(call is_char_handle_in_level(int 917510))
+					if(call is_char_handle_in_level(int 917510 /* IMP */ ))
 					 {
 							call set_char_template(var devious_imp1, int 100)
 					}
@@ -347,11 +347,11 @@ switch(var VAR_52)
 			}
 			else
 			 {
-					if(call is_char_handle_in_level(int 393216))
+					if(call is_char_handle_in_level(int 393216 /* GRANDAD */ ))
 					 {
-							if(call func_127(var GRANDAD1))
+							if(call func_127(var GRANDAD2))
 							 {
-									call char_turn_to_pos(var nimpnerd, call get_char_pos(var GRANDAD1))
+									call char_turn_to_pos(var nimpnerd, call get_char_pos(var GRANDAD2))
 									var VAR_52 ++ 
 									var VAR_53 = int 0
 							}
@@ -384,9 +384,9 @@ var VAR_53 ++
 var nimpnerd = call create_char(var &VAR_4, "nimpnerd", int 90, int 13)
 gamevar script_object = var nimpnerd
 gamevar *object_p+6 |= int 67108864
-if(call is_char_handle_in_level(int 393216))
+if(call is_char_handle_in_level(int 393216 /* GRANDAD */ ))
  {
-		var GRANDAD1 = call get_char_handle(int 393216)
+		var GRANDAD2 = call get_char_handle(int 393216)
 }
 if(gamevar room_state == int 2)
  {

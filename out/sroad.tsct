@@ -107,7 +107,7 @@ if(var VAR_33 == int 1)
 		if(var VAR_34 == int 10)
 		 {
 				var lieutenant1 = call create_enemy(int 11, int 4, var &VAR_31, int 150)
-				call add_item_to_char(var lieutenant1, int 43, int 1, int 0)
+				call add_item_to_char(var lieutenant1, int 43 /* cheese */ , int 1, int 0)
 				call set_char_running(var lieutenant1)
 				call char_walk_to_pos(var lieutenant1, var VAR_37)
 		}
@@ -120,7 +120,7 @@ if(var VAR_33 == int 1)
 		if(var VAR_34 == int 100)
 		 {
 				var lieutenant3 = call create_enemy(int 11, int 2, var &VAR_27, int 190)
-				call add_item_to_char(var lieutenant3, int 42, int 1, int 0)
+				call add_item_to_char(var lieutenant3, int 42 /* bread */ , int 1, int 0)
 				call set_char_running(var lieutenant3)
 				call char_walk_to_pos(var lieutenant3, var VAR_37)
 				var VAR_33 ++ 
@@ -146,7 +146,7 @@ switch(gamevar is_room_cleared)
 		case 2
 			call load_char("muscles")
 			call load_char("dick")
-			call load_item(int 93)
+			call load_item(int 93 /* cutlass */ )
 			call run_wandering_generator(var &VAR_38, int 100)
 			break 
 }
@@ -294,7 +294,7 @@ switch(var VAR_13)
 		case 4
 			if(var VAR_14 > var VAR_16)
 			 {
-					var verwind_sound_ref = call play_loaded_sound(int 4, int 0, int 25, int 0) /* 'thunstrk' */ 
+					var verwind_sound_ref = call play_loaded_sound /* 'thunstrk' */ (int 4, int 0, int 25, int 0)
 					call set_sound_volume(var verwind_sound_ref, var VAR_17)
 					if(var ! VAR_3)
 					 {

@@ -577,7 +577,7 @@ if(call is_char_handle_in_level(int 5111808))
  {
 		execute SCRIPT_17
 }
-if(call is_char_handle_in_level(int 4784128))
+if(call is_char_handle_in_level(int 4784128 /* WILLIAM */ ))
  {
 		execute SCRIPT_13
 }
@@ -1503,7 +1503,7 @@ if(call func_82("haven", "h_intomb") == int 1)
 		call func_10c(var njohn, "re_entec")
 		call func_10c(var nben, "re_entec")
 }
-if(call ! create_item(int 24))
+if(call ! create_item(int 24 /* scroll */ ))
  {
 		call func_10c(var njohn, "NULL")
 		call func_10c(var nben, "NULL")
@@ -1530,7 +1530,7 @@ var NCLAY = call create_char(var &VAR_202, "NCLAY", int 75, int 13)
 call func_108("ACT2")
 var DAVID = call get_char_handle(int 65536)
 call char_teleport_to_pos(var DAVID, var &VAR_203, int 94)
-if(call ! create_item(int 24))
+if(call ! create_item(int 24 /* scroll */ ))
  {
 		call func_9a(var &VAR_204, int 24, int 0, int 0)
 }
@@ -1613,10 +1613,10 @@ var nclay = call create_char(var &VAR_225, "nclay", int 55, int 13)
 var nfatbob = call create_char(var &VAR_226, "nfatbob", int 40, int 13)
 var njohn = call create_char(var &VAR_227, "njohn", int 255, int 13)
 var nben = call create_char(var &VAR_228, "nben", int 80, int 13)
-call add_item_to_char(var nrichard, int 16, int 0, int 1)
-call add_item_to_char(var nclay, int 16, int 0, int 1)
-call add_item_to_char(var njohn, int 16, int 0, int 1)
-call add_item_to_char(var nben, int 16, int 0, int 1)
+call add_item_to_char(var nrichard, int 16 /* shrtswrd */ , int 0, int 1)
+call add_item_to_char(var nclay, int 16 /* shrtswrd */ , int 0, int 1)
+call add_item_to_char(var njohn, int 16 /* shrtswrd */ , int 0, int 1)
+call add_item_to_char(var nben, int 16 /* shrtswrd */ , int 0, int 1)
 call func_50(var nduke, int 8192)
 call play_char_ai_script(var nduke, var &VAR_229)
 call func_50(var nwilliam, int 8192)
@@ -1662,9 +1662,9 @@ var nrichard = call create_char(var &VAR_252, "nrichard", int 0, int 13)
 var nfatbob = call create_char(var &VAR_253, "nfatbob", int 40, int 13)
 var njohn = call create_char(var &VAR_254, "njohn", int 255, int 13)
 var nben = call create_char(var &VAR_255, "nben", int 80, int 13)
-call add_item_to_char(var nrichard, int 16, int 0, int 1)
-call add_item_to_char(var njohn, int 16, int 0, int 1)
-call add_item_to_char(var nben, int 16, int 0, int 1)
+call add_item_to_char(var nrichard, int 16 /* shrtswrd */ , int 0, int 1)
+call add_item_to_char(var njohn, int 16 /* shrtswrd */ , int 0, int 1)
+call add_item_to_char(var nben, int 16 /* shrtswrd */ , int 0, int 1)
 call func_50(var nfatbob, int 8192)
 call play_char_ai_script(var nfatbob, var &VAR_256)
 call func_50(var nrichard, int 8192)
@@ -1919,8 +1919,8 @@ var nduke = call create_char(var &VAR_306, "nduke", int 310, int 13)
 var nben = call create_char("A", "nben", int 10, int 13)
 var nrichard = call create_char(var &VAR_308, "nrichard", int 0, int 13)
 var nclay = call create_char(var &VAR_309, "nclay", int 55, int 13)
-call add_item_to_char(var nrichard, int 16, int 0, int 1)
-call add_item_to_char(var nclay, int 16, int 0, int 1)
+call add_item_to_char(var nrichard, int 16 /* shrtswrd */ , int 0, int 1)
+call add_item_to_char(var nclay, int 16 /* shrtswrd */ , int 0, int 1)
 call func_50(var nrichard, int 8192)
 call play_char_ai_script(var nrichard, var &VAR_310)
 call func_50(var nclay, int 8192)
@@ -2288,11 +2288,11 @@ var VAR_353 ++
 
 ._SCRIPT_43
 var nben = call create_char(var &VAR_339, "nben", int 23, int 13)
-call add_item_to_char(var nben, int 16, int 0, int 0)
+call add_item_to_char(var nben, int 16 /* shrtswrd */ , int 0, int 0)
 var nduke = call create_char(var &VAR_340, "nduke", int 295, int 13)
 var nrichard = call create_char(var &VAR_308, "nrichard", int 0, int 13)
 var nclay = call create_char(var &VAR_309, "nclay", int 55, int 13)
-call add_item_to_char(var nrichard, int 16, int 0, int 1)
+call add_item_to_char(var nrichard, int 16 /* shrtswrd */ , int 0, int 1)
 call func_50(var nrichard, int 8192)
 call play_char_ai_script(var nrichard, var &VAR_310)
 call func_50(var nclay, int 8192)
@@ -2320,7 +2320,7 @@ else
 var lizwarm_anim = call load_anim("lizwarm")
 var jangive_anim = call load_anim("jangive")
 var DAVID = call get_char_handle(int 65536)
-if(call create_item(int 30))
+if(call create_item(int 30 /* scroll */ ))
  {
 		call set_input_system(int 1)
 		var VAR_341 = int 1
@@ -2692,7 +2692,7 @@ var VAR_419 ++
 var nduke = call create_char(var &VAR_408, "nduke", int 210, int 13)
 var nrebel = call create_char(var &VAR_409, "nrebel", int 20, int 13)
 var nben = call create_char(var &VAR_410, "nben", int 55, int 13)
-call add_item_to_char(var nrebel, int 16, int 0, int 0)
+call add_item_to_char(var nrebel, int 16 /* shrtswrd */ , int 0, int 0)
 if(call func_bf(int 1, gamevar CURRENT_LEVEL, gamevar CURRENT_SCENE))
  {
 		var VAR_413 = int 1
@@ -2719,10 +2719,10 @@ var nclay = call create_char(var &VAR_309, "nclay", int 55, int 13)
 var nben = call create_char(var &VAR_53, "nben", int -90, int 13)
 var njohn = call create_char(var &VAR_54, "njohn", int 90, int 13)
 var nfatbob = call create_char(var &VAR_226, "nfatbob", int 40, int 13)
-call add_item_to_char(var nrichard, int 16, int 0, int 1)
-call add_item_to_char(var nclay, int 16, int 0, int 1)
-call add_item_to_char(var njohn, int 16, int 0, int 1)
-call add_item_to_char(var nben, int 16, int 0, int 1)
+call add_item_to_char(var nrichard, int 16 /* shrtswrd */ , int 0, int 1)
+call add_item_to_char(var nclay, int 16 /* shrtswrd */ , int 0, int 1)
+call add_item_to_char(var njohn, int 16 /* shrtswrd */ , int 0, int 1)
+call add_item_to_char(var nben, int 16 /* shrtswrd */ , int 0, int 1)
 var lizwarm_anim = call load_anim("lizwarm")
 call func_50(var nrichard, int 8192)
 call play_char_ai_script(var nrichard, var &VAR_310)
@@ -2787,23 +2787,23 @@ switch(var VAR_466)
 var VAR_467 ++ 
 
 ._SCRIPT_54
-if(call is_char_handle_in_level(int 786432))
+if(call is_char_handle_in_level(int 786432 /* SEKUNE */ ))
  {
 		execute SCRIPT_55
 }
-if(call is_char_handle_in_level(int 196608))
+if(call is_char_handle_in_level(int 196608 /* VIVIENNE */ ))
  {
 		execute SCRIPT_56
 }
-if(call is_char_handle_in_level(int 327680))
+if(call is_char_handle_in_level(int 327680 /* JUG */ ))
  {
 		execute SCRIPT_57
 }
-if(call is_char_handle_in_level(int 131072))
+if(call is_char_handle_in_level(int 131072 /* CHIARO */ ))
  {
 		execute SCRIPT_58
 }
-if(call is_char_handle_in_level(int 262144))
+if(call is_char_handle_in_level(int 262144 /* CAGEN */ ))
  {
 		execute SCRIPT_59
 }
@@ -2812,7 +2812,7 @@ if(call is_char_handle_in_level(int 262144))
 switch(var VAR_445)
  {
 		case 0
-			if(call is_char_handle_in_level(int 786432))
+			if(call is_char_handle_in_level(int 786432 /* SEKUNE */ ))
 			 {
 					var nsekune = call get_char_handle(int 786432)
 					var VAR_445 ++ 
@@ -2841,7 +2841,7 @@ var VAR_446 ++
 switch(var VAR_447)
  {
 		case 0
-			if(call is_char_handle_in_level(int 196608))
+			if(call is_char_handle_in_level(int 196608 /* VIVIENNE */ ))
 			 {
 					var VIVIENNE2 = call get_char_handle(int 196608)
 					var VAR_447 ++ 
@@ -2870,7 +2870,7 @@ var VAR_448 ++
 switch(var VAR_449)
  {
 		case 0
-			if(call is_char_handle_in_level(int 327680))
+			if(call is_char_handle_in_level(int 327680 /* JUG */ ))
 			 {
 					var JUG2 = call get_char_handle(int 327680)
 					var VAR_449 ++ 
@@ -2899,7 +2899,7 @@ var VAR_450 ++
 switch(var VAR_451)
  {
 		case 0
-			if(call is_char_handle_in_level(int 131072))
+			if(call is_char_handle_in_level(int 131072 /* CHIARO */ ))
 			 {
 					var CHIARO2 = call get_char_handle(int 131072)
 					var VAR_451 ++ 
@@ -2928,7 +2928,7 @@ var VAR_452 ++
 switch(var VAR_453)
  {
 		case 0
-			if(call is_char_handle_in_level(int 262144))
+			if(call is_char_handle_in_level(int 262144 /* CAGEN */ ))
 			 {
 					var CAGEN2 = call get_char_handle(int 262144)
 					var VAR_453 ++ 

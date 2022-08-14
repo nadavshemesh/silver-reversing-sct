@@ -99,7 +99,7 @@ execute SCRIPT_16
 var VAR_52 = call get_david_char()
 while(var VAR_52)
  {
-		if(call get_char_item_if_exists(var VAR_52, int 59))
+		if(call get_char_item_if_exists(var VAR_52, int 59 /* citykey */ ))
 		 {
 				var VAR_47 = int 1
 		}
@@ -205,11 +205,11 @@ switch(var VAR_76)
 		case 4
 			call log("david's talking")
 			call char_turn_to_pos(var VAR_41, var &VAR_88)
-			if(call is_char_handle_in_level(int 786432))
+			if(call is_char_handle_in_level(int 786432 /* SEKUNE */ ))
 			 {
 					call char_turn_to_pos(var VAR_43, var &VAR_88)
 			}
-			if(call is_char_handle_in_level(int 196608))
+			if(call is_char_handle_in_level(int 196608 /* VIVIENNE */ ))
 			 {
 					call char_turn_to_pos(var VAR_44, var &VAR_88)
 			}
@@ -220,11 +220,11 @@ switch(var VAR_76)
 		case 5
 			call log("sekune's talking")
 			call char_turn_to_pos(var VAR_43, var &VAR_88)
-			if(call is_char_handle_in_level(int 65536))
+			if(call is_char_handle_in_level(int 65536 /* DAVID */ ))
 			 {
 					call char_turn_to_pos(var VAR_41, var &VAR_88)
 			}
-			if(call is_char_handle_in_level(int 196608))
+			if(call is_char_handle_in_level(int 196608 /* VIVIENNE */ ))
 			 {
 					call char_turn_to_pos(var VAR_44, var &VAR_88)
 			}
@@ -235,11 +235,11 @@ switch(var VAR_76)
 		case 6
 			call log("vivienne's talking")
 			call char_turn_to_pos(var VAR_44, var &VAR_88)
-			if(call is_char_handle_in_level(int 786432))
+			if(call is_char_handle_in_level(int 786432 /* SEKUNE */ ))
 			 {
 					call char_turn_to_pos(var VAR_43, var &VAR_88)
 			}
-			if(call is_char_handle_in_level(int 65536))
+			if(call is_char_handle_in_level(int 65536 /* DAVID */ ))
 			 {
 					call char_turn_to_pos(var VAR_41, var &VAR_88)
 			}
@@ -251,11 +251,11 @@ switch(var VAR_76)
 			call log("david's talking clicked")
 			var VAR_115 = int 1
 			var VAR_116 = int 1
-			if(call is_char_handle_in_level(int 786432))
+			if(call is_char_handle_in_level(int 786432 /* SEKUNE */ ))
 			 {
 					call char_turn_to_pos(var VAR_43, var &VAR_88)
 			}
-			if(call is_char_handle_in_level(int 196608))
+			if(call is_char_handle_in_level(int 196608 /* VIVIENNE */ ))
 			 {
 					call char_turn_to_pos(var VAR_44, var &VAR_88)
 			}
@@ -266,11 +266,11 @@ switch(var VAR_76)
 			call log("sekune's talking clicked")
 			var VAR_115 = int 1
 			var VAR_117 = int 1
-			if(call is_char_handle_in_level(int 65536))
+			if(call is_char_handle_in_level(int 65536 /* DAVID */ ))
 			 {
 					call char_turn_to_pos(var VAR_41, var &VAR_88)
 			}
-			if(call is_char_handle_in_level(int 196608))
+			if(call is_char_handle_in_level(int 196608 /* VIVIENNE */ ))
 			 {
 					call char_turn_to_pos(var VAR_44, var &VAR_88)
 			}
@@ -281,11 +281,11 @@ switch(var VAR_76)
 			call log("vivienne's talking clicked")
 			var VAR_115 = int 1
 			var VAR_118 = int 1
-			if(call is_char_handle_in_level(int 786432))
+			if(call is_char_handle_in_level(int 786432 /* SEKUNE */ ))
 			 {
 					call char_turn_to_pos(var VAR_43, var &VAR_88)
 			}
-			if(call is_char_handle_in_level(int 65536))
+			if(call is_char_handle_in_level(int 65536 /* DAVID */ ))
 			 {
 					call char_turn_to_pos(var VAR_41, var &VAR_88)
 			}
@@ -351,7 +351,7 @@ switch(var VAR_76)
 							gamevar script_object = var flatnosr1
 							gamevar *object_p+6 |= int 8388609
 					}
-					if(call is_char_handle_in_level(int 6815744))
+					if(call is_char_handle_in_level(int 6815744 /* FLATNOSE */ ))
 					 {
 							call func_3c(var flatnose)
 							call set_char_running(var flatnose)
@@ -359,7 +359,7 @@ switch(var VAR_76)
 							gamevar script_object = var flatnose
 							gamevar *object_p+6 |= int 8388609
 					}
-					if(call is_char_handle_in_level(int 6815745))
+					if(call is_char_handle_in_level(int 6815745 /* FLATNOSE */ ))
 					 {
 							call func_3c(var flatnose1)
 							call set_char_running(var flatnose1)
@@ -372,7 +372,7 @@ switch(var VAR_76)
 			}
 			break 
 		case 15
-			if(call is_char_handle_in_level(int 6815744))
+			if(call is_char_handle_in_level(int 6815744 /* FLATNOSE */ ))
 			 {
 					if(call is_char_standing(var flatnose))
 					 {
@@ -380,7 +380,7 @@ switch(var VAR_76)
 							call remove_char(var flatnose)
 					}
 			}
-			if(call is_char_handle_in_level(int 6815745))
+			if(call is_char_handle_in_level(int 6815745 /* FLATNOSE */ ))
 			 {
 					if(call is_char_standing(var flatnose1))
 					 {
@@ -404,7 +404,7 @@ switch(var VAR_76)
 							call remove_char(var flatnosr1)
 					}
 			}
-			if(call ! is_char_handle_in_level(int 9502720)&&call ! is_char_handle_in_level(int 9502721)&&call ! is_char_handle_in_level(int 6815744)&&call ! is_char_handle_in_level(int 6815745))
+			if(call ! is_char_handle_in_level(int 9502720)&&call ! is_char_handle_in_level(int 9502721)&&call ! is_char_handle_in_level(int 6815744 /* FLATNOSE */ )&&call ! is_char_handle_in_level(int 6815745 /* FLATNOSE */ ))
 			 {
 					var VAR_77 = int 0
 					var VAR_76 ++ 
@@ -420,7 +420,7 @@ switch(var VAR_76)
 			var VAR_76 ++ 
 			break 
 		case 17
-			if(call is_char_handle_in_level(int 8519680))
+			if(call is_char_handle_in_level(int 8519680 /* MAYOR */ ))
 			 {
 					if(call is_char_standing(var NMAYOR))
 					 {
@@ -436,7 +436,7 @@ switch(var VAR_76)
 			var VAR_66 = call get_david_char()
 			while(var VAR_66)
 			 {
-					if(call get_char_item_if_exists(var VAR_66, int 59))
+					if(call get_char_item_if_exists(var VAR_66, int 59 /* citykey */ ))
 					 {
 							var VAR_119 = int 1
 					}
@@ -489,7 +489,7 @@ switch(var VAR_76)
 		case 21
 			if(call get_input_sys() == int 1&&var ! VAR_3)
 			 {
-					if(call is_char_handle_in_level(int 786432))
+					if(call is_char_handle_in_level(int 786432 /* SEKUNE */ ))
 					 {
 							call log("david & Sekune talking")
 							call start_dialog("S_DvdKey", "NULL")
@@ -536,7 +536,7 @@ switch(var VAR_76)
 							 {
 									if(var VAR_78 == var VAR_41)
 									 {
-											if(call is_char_handle_in_level(int 196608))
+											if(call is_char_handle_in_level(int 196608 /* VIVIENNE */ ))
 											 {
 													call log("david")
 													call start_dialog("S_DvdCom", "NULL")
@@ -547,7 +547,7 @@ switch(var VAR_76)
 									 {
 											if(var VAR_78 == var VAR_43)
 											 {
-													if(call is_char_handle_in_level(int 196608))
+													if(call is_char_handle_in_level(int 196608 /* VIVIENNE */ ))
 													 {
 															call log("sekune")
 															call start_dialog("S_SekCom", "NULL")
@@ -558,7 +558,7 @@ switch(var VAR_76)
 											 {
 													if(var VAR_78 == var VAR_44)
 													 {
-															if(call is_char_handle_in_level(int 786432))
+															if(call is_char_handle_in_level(int 786432 /* SEKUNE */ ))
 															 {
 																	call log("vivienne")
 																	call start_dialog("S_VivCom", "NULL")
@@ -571,7 +571,7 @@ switch(var VAR_76)
 					}
 					else
 					 {
-							if(call is_char_handle_in_level(int 786432))
+							if(call is_char_handle_in_level(int 786432 /* SEKUNE */ ))
 							 {
 									call log("sekbew")
 									call start_dialog("S_SekBew", "NULL")
@@ -629,7 +629,7 @@ var flatnosr1 = call create_enemy(int 177, int 1, var &VAR_85, int 175)
 var flatnose = call create_enemy(int 176, int 0, var &VAR_86, int 215)
 var flatnose1 = call create_enemy(int 176, int 1, var &VAR_87, int 15)
 var NMAYOR = call create_char(var &VAR_88, "NMAYOR", int 124, int 13)
-call add_item_to_char(var NMAYOR, int 59, int 1, int 0)
+call add_item_to_char(var NMAYOR, int 59 /* citykey */ , int 1, int 0)
 gamevar script_object = var flatnosr
 gamevar *character_movement_p+60 = int 1
 gamevar script_object = var flatnosr1
@@ -693,12 +693,12 @@ var VAR_58 ++
 
 ._SCRIPT_10
 var VAR_40 = int 0
-if(call is_char_handle_in_level(int 6815744))
+if(call is_char_handle_in_level(int 6815744 /* FLATNOSE */ ))
  {
 		gamevar script_object = var flatnose
 		var VAR_40 += gamevar HP
 }
-if(call is_char_handle_in_level(int 6815745))
+if(call is_char_handle_in_level(int 6815745 /* FLATNOSE */ ))
  {
 		gamevar script_object = var flatnose1
 		var VAR_40 += gamevar HP
@@ -737,7 +737,7 @@ if(gamevar *psys_p+1)
 }
 
 ._SCRIPT_14
-if(call ! is_char_handle_in_level(int 6291456))
+if(call ! is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
  {
 		exit_script 
 }
@@ -750,7 +750,7 @@ else
 }
 
 ._SCRIPT_15
-if(call ! is_char_handle_in_level(int 6291456))
+if(call ! is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
  {
 		exit_script 
 }
@@ -869,7 +869,7 @@ switch(var VAR_17)
 var VAR_18 ++ 
 
 ._SCRIPT_16
-if(call is_char_handle_in_level(int 6291456))
+if(call is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
  {
 		if(var fade_chronicler == int 0)
 		 {

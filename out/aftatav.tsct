@@ -39,8 +39,8 @@ VAR_55	{ 750, 1775, 1750 }
 ._on_load
 call play_bgm("rainpt1")
 execute SCRIPT_12
-call load_item(int 93)
-call load_item(int 91)
+call load_item(int 93 /* cutlass */ )
+call load_item(int 91 /* rapier */ )
 switch(gamevar room_state)
  {
 		case 1
@@ -108,8 +108,8 @@ var finnegan = call create_enemy(int 32, int 0, var &VAR_8, int 0)
 var muscles = call create_enemy(int 30, int 0, var &VAR_11, int 0)
 call func_fe(var finnegan)
 call func_fe(var muscles)
-call add_item_to_char(var longjohn, int 85, int 13107713, int 0)
-call add_item_to_char(var finnegan, int 43, int 1, int 0)
+call add_item_to_char(var longjohn, int 85 /* moneybag */ , int 13107713, int 0)
+call add_item_to_char(var finnegan, int 43 /* cheese */ , int 1, int 0)
 call func_46(var longjohn, int 0)
 call func_46(var finnegan, int 0)
 call func_46(var muscles, int 0)
@@ -164,7 +164,7 @@ switch(var VAR_1)
 							var VAR_1 = int 2
 					}
 			}
-			if(call is_char_handle_in_level(int 2490368))
+			if(call is_char_handle_in_level(int 2490368 /* MUSCLES */ ))
 			 {
 					if(call func_88(var muscles))
 					 {
@@ -187,7 +187,7 @@ switch(var VAR_1)
 							gamevar script_object = var longjohn
 							gamevar *character_movement_p+60 = int 0
 					}
-					if(call is_char_handle_in_level(int 2490368))
+					if(call is_char_handle_in_level(int 2490368 /* MUSCLES */ ))
 					 {
 							call func_46(var muscles, int 13)
 							gamevar script_object = var muscles
@@ -206,8 +206,8 @@ switch(var VAR_1)
 var longjohn = call create_enemy(int 28, int 0, var &VAR_6, int 0)
 var finnegan = call create_enemy(int 32, int 0, var &VAR_9, int 0)
 var muscles = call create_enemy(int 30, int 0, var &VAR_12, int 0)
-call add_item_to_char(var longjohn, int 85, int 13107713, int 0)
-call add_item_to_char(var finnegan, int 43, int 1, int 0)
+call add_item_to_char(var longjohn, int 85 /* moneybag */ , int 13107713, int 0)
+call add_item_to_char(var finnegan, int 43 /* cheese */ , int 1, int 0)
 call set_char_init_state(var longjohn, int 13)
 call set_char_init_state(var muscles, int 13)
 call set_char_init_state(var finnegan, int 13)
@@ -386,7 +386,7 @@ switch(var VAR_40)
 		case 4
 			if(var VAR_41 > var VAR_43)
 			 {
-					var verwind_sound_ref = call play_loaded_sound(int 4, int 0, int 25, int 0) /* 'thunstrk' */ 
+					var verwind_sound_ref = call play_loaded_sound /* 'thunstrk' */ (int 4, int 0, int 25, int 0)
 					call set_sound_volume(var verwind_sound_ref, var VAR_44)
 					if(var ! VAR_30)
 					 {

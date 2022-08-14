@@ -118,7 +118,7 @@ if(gamevar *psys_p+1)
  {
 		if(call ! randomize_int(int 0, int 10))
 		 {
-				var frog_sound_ref = call play_loaded_sound(int 197, int 0, int 0, int 0) /* 'frogs' */ 
+				var frog_sound_ref = call play_loaded_sound /* 'frogs' */ (int 197, int 0, int 0, int 0)
 				call set_sound_volume(var frog_sound_ref, int 15)
 		}
 }
@@ -177,12 +177,12 @@ switch(var VAR_24)
 			var VAR_24 = int 1
 			break 
 		case 1
-			if(call is_char_handle_in_level(int 4128769)&&call is_char_handle_in_level(int 4128770))
+			if(call is_char_handle_in_level(int 4128769 /* SGRUNT */ )&&call is_char_handle_in_level(int 4128770 /* SGRUNT */ ))
 			 {
 			}
 			else
 			 {
-					if(call is_char_handle_in_level(int 4128773))
+					if(call is_char_handle_in_level(int 4128773 /* SGRUNT */ ))
 					 {
 							gamevar script_object = var start_grunt2
 							if(gamevar *character_combat_p+1 == int 0)
@@ -198,7 +198,7 @@ switch(var VAR_24)
 									call set_char_running(var start_grunt2)
 							}
 					}
-					if(call is_char_handle_in_level(int 4128774))
+					if(call is_char_handle_in_level(int 4128774 /* SGRUNT */ ))
 					 {
 							gamevar script_object = var start_grunt3
 							if(gamevar *character_combat_p+1 == int 0)
@@ -215,12 +215,12 @@ switch(var VAR_24)
 							}
 					}
 			}
-			if(call is_char_handle_in_level(int 4128773)&&call is_char_handle_in_level(int 4128774))
+			if(call is_char_handle_in_level(int 4128773 /* SGRUNT */ )&&call is_char_handle_in_level(int 4128774 /* SGRUNT */ ))
 			 {
 			}
 			else
 			 {
-					if(call is_char_handle_in_level(int 4128775))
+					if(call is_char_handle_in_level(int 4128775 /* SGRUNT */ ))
 					 {
 							gamevar script_object = var grunt_wooden_shield2
 							if(gamevar *character_combat_p+1 == int 0)
@@ -236,7 +236,7 @@ switch(var VAR_24)
 									call set_char_running(var grunt_wooden_shield2)
 							}
 					}
-					if(call is_char_handle_in_level(int 4128776))
+					if(call is_char_handle_in_level(int 4128776 /* SGRUNT */ ))
 					 {
 							gamevar script_object = var grunt_wooden_shield3
 							if(gamevar *character_combat_p+1 == int 0)
@@ -253,12 +253,12 @@ switch(var VAR_24)
 							}
 					}
 			}
-			if(call is_char_handle_in_level(int 4128775)&&call is_char_handle_in_level(int 4128776))
+			if(call is_char_handle_in_level(int 4128775 /* SGRUNT */ )&&call is_char_handle_in_level(int 4128776 /* SGRUNT */ ))
 			 {
 			}
 			else
 			 {
-					if(call is_char_handle_in_level(int 4128771))
+					if(call is_char_handle_in_level(int 4128771 /* SGRUNT */ ))
 					 {
 							gamevar script_object = var start_grunt1
 							if(gamevar *character_combat_p+1 == int 0)
@@ -274,7 +274,7 @@ switch(var VAR_24)
 									call set_char_running(var start_grunt1)
 							}
 					}
-					if(call is_char_handle_in_level(int 4128772))
+					if(call is_char_handle_in_level(int 4128772 /* SGRUNT */ ))
 					 {
 							gamevar script_object = var grunt_wooden_shield1
 							if(gamevar *character_combat_p+1 == int 0)
@@ -291,7 +291,7 @@ switch(var VAR_24)
 							}
 					}
 			}
-			if(call ! is_char_handle_in_level(int 4128769)&&call ! is_char_handle_in_level(int 4128770)&&call ! is_char_handle_in_level(int 4128771)&&call ! is_char_handle_in_level(int 4128772)&&call ! is_char_handle_in_level(int 4128773)&&call ! is_char_handle_in_level(int 4128774)&&call ! is_char_handle_in_level(int 4128775)&&call ! is_char_handle_in_level(int 4128776))
+			if(call ! is_char_handle_in_level(int 4128769 /* SGRUNT */ )&&call ! is_char_handle_in_level(int 4128770 /* SGRUNT */ )&&call ! is_char_handle_in_level(int 4128771 /* SGRUNT */ )&&call ! is_char_handle_in_level(int 4128772 /* SGRUNT */ )&&call ! is_char_handle_in_level(int 4128773 /* SGRUNT */ )&&call ! is_char_handle_in_level(int 4128774 /* SGRUNT */ )&&call ! is_char_handle_in_level(int 4128775 /* SGRUNT */ )&&call ! is_char_handle_in_level(int 4128776 /* SGRUNT */ ))
 			 {
 					gamevar room_state = int 2
 					call reset_local_timer()
@@ -340,10 +340,10 @@ if(gamevar *scene_info_p+1 == int 1)
 
 ._SCRIPT_10
 var NVILOWFAT = call create_char(var &VAR_46, "NVILOWFAT", int 350, int 13)
-call add_item_to_char(var NVILOWFAT, int 40, int 0, int 0)
-call add_item_to_char(var NVILOWFAT, int 41, int 0, int 0)
-call add_item_to_char(var NVILOWFAT, int 42, int 0, int 0)
-call add_item_to_char(var NVILOWFAT, int 43, int 0, int 0)
+call add_item_to_char(var NVILOWFAT, int 40 /* apple */ , int 0, int 0)
+call add_item_to_char(var NVILOWFAT, int 41 /* veggies */ , int 0, int 0)
+call add_item_to_char(var NVILOWFAT, int 42 /* bread */ , int 0, int 0)
+call add_item_to_char(var NVILOWFAT, int 43 /* cheese */ , int 0, int 0)
 if(call func_bf(int 333, gamevar CURRENT_LEVEL, gamevar CURRENT_SCENE))
  {
 		call log("old food topic from history")
@@ -365,11 +365,11 @@ if(call func_bf(int 448, gamevar CURRENT_LEVEL, gamevar CURRENT_SCENE))
 		switch(var VAR_60)
 		 {
 				case 2
-					call add_item_to_char(var NVILOWFAT, int 47, int 0, int 0)
-					call add_item_to_char(var NVILOWFAT, int 46, int 0, int 0)
+					call add_item_to_char(var NVILOWFAT, int 47 /* drumstik */ , int 0, int 0)
+					call add_item_to_char(var NVILOWFAT, int 46 /* pie */ , int 0, int 0)
 				case 1
-					call add_item_to_char(var NVILOWFAT, int 44, int 0, int 0)
-					call add_item_to_char(var NVILOWFAT, int 45, int 0, int 0)
+					call add_item_to_char(var NVILOWFAT, int 44 /* cake */ , int 0, int 0)
+					call add_item_to_char(var NVILOWFAT, int 45 /* deadmous */ , int 0, int 0)
 					break 
 		}
 		call func_7(int 448, var VAR_60, int 0, int 0)
@@ -490,7 +490,7 @@ else
 		 {
 				if(var VAR_60 != int 2)
 				 {
-						if(call create_item(int 14))
+						if(call create_item(int 14 /* triobow */ ))
 						 {
 								var VAR_60 = int 2
 						}
@@ -499,12 +499,12 @@ else
 		switch(var VAR_60)
 		 {
 				case 2
-					call add_item_to_char(var NVILLOW, int 109, int 0, int 0)
+					call add_item_to_char(var NVILLOW, int 109 /* quiverb */ , int 0, int 0)
 				case 1
-					call add_item_to_char(var NVILLOW, int 12, int 0, int 0)
+					call add_item_to_char(var NVILLOW, int 12 /* thaxe */ , int 0, int 0)
 				case 0
-					call add_item_to_char(var NVILLOW, int 9, int 0, int 0)
-					call add_item_to_char(var NVILLOW, int 108, int 0, int 0)
+					call add_item_to_char(var NVILLOW, int 9 /* thknife */ , int 0, int 0)
+					call add_item_to_char(var NVILLOW, int 108 /* quiver */ , int 0, int 0)
 					break 
 		}
 		call func_7(int 111, var VAR_60, int 0, int 0)

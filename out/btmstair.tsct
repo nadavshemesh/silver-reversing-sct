@@ -62,8 +62,8 @@ switch(gamevar room_state)
 call load_char("finnegan")
 call load_char("dick")
 call load_char("muscles")
-call load_item(int 93)
-call load_item(int 91)
+call load_item(int 93 /* cutlass */ )
+call load_item(int 91 /* rapier */ )
 call run_enemy_generator(var &VAR_0, int 500)
 
 ._SCRIPT_4
@@ -223,7 +223,7 @@ switch(var VAR_14)
 		case 4
 			if(var VAR_15 > var VAR_17)
 			 {
-					var verwind_sound_ref = call play_loaded_sound(int 4, int 0, int 25, int 0) /* 'thunstrk' */ 
+					var verwind_sound_ref = call play_loaded_sound /* 'thunstrk' */ (int 4, int 0, int 25, int 0)
 					call set_sound_volume(var verwind_sound_ref, var VAR_18)
 					if(var ! VAR_4)
 					 {

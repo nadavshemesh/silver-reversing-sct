@@ -164,10 +164,10 @@ execute SCRIPT_8
 execute SCRIPT_11
 execute SCRIPT_12
 execute SCRIPT_17
-call add_item_to_char(var FIMP5, int 87, int 0, int 1)
+call add_item_to_char(var FIMP5, int 87 /* horn */ , int 0, int 1)
 gamevar script_object = var FIMP5
 gamevar *character_movement_p+60 = int 1
-call add_item_to_char(var FIMP3, int 8, int 0, int 1)
+call add_item_to_char(var FIMP3, int 8 /* catapult */ , int 0, int 1)
 var TYRONIS = call get_char_handle(int 2031616)
 var DAVID = call get_char_handle(int 65536)
 call char_unfollow(var TYRONIS)
@@ -217,7 +217,7 @@ if(var VAR_78 == int 1)
 		if(call get_input_sys() != int 4)
 		 {
 				call set_input_system(int 1)
-				if(call is_char_handle_in_level(int 1376256))
+				if(call is_char_handle_in_level(int 1376256 /* WINGIMP */ ))
 				 {
 						call set_char_init_state(var FWINGIMP, int 8)
 				}
@@ -227,7 +227,7 @@ if(var VAR_78 == int 1)
 }
 if(var VAR_80 == int -1)
  {
-		if(call is_char_handle_in_level(int 917509))
+		if(call is_char_handle_in_level(int 917509 /* IMP */ ))
 		 {
 				var VAR_81 = call get_num_of_enemies()
 				if(var VAR_65 - var VAR_81 >= int 2)
@@ -236,31 +236,31 @@ if(var VAR_80 == int -1)
 				}
 		}
 }
-if(call is_char_handle_in_level(int 917509))
+if(call is_char_handle_in_level(int 917509 /* IMP */ ))
  {
 		execute SCRIPT_13
 }
-if(call is_char_handle_in_level(int 917505))
+if(call is_char_handle_in_level(int 917505 /* IMP */ ))
  {
 		execute SCRIPT_19
 }
-if(call is_char_handle_in_level(int 917506))
+if(call is_char_handle_in_level(int 917506 /* IMP */ ))
  {
 		execute SCRIPT_20
 }
-if(call is_char_handle_in_level(int 917510))
+if(call is_char_handle_in_level(int 917510 /* IMP */ ))
  {
 		execute SCRIPT_21
 }
-if(call is_char_handle_in_level(int 917511))
+if(call is_char_handle_in_level(int 917511 /* IMP */ ))
  {
 		execute SCRIPT_22
 }
-if(call is_char_handle_in_level(int 917507))
+if(call is_char_handle_in_level(int 917507 /* IMP */ ))
  {
 		execute SCRIPT_23
 }
-if(call is_char_handle_in_level(int 917507)&&call is_char_handle_in_level(int 1376256))
+if(call is_char_handle_in_level(int 917507 /* IMP */ )&&call is_char_handle_in_level(int 1376256 /* WINGIMP */ ))
  {
 		execute SCRIPT_18
 }
@@ -501,7 +501,7 @@ if(var VAR_90 == int 0)
 
 ._SCRIPT_26
 call func_108("ARSE")
-if(call is_char_handle_in_level(int 6291456))
+if(call is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
  {
 		if(var fade_chronicler)
 		 {
@@ -510,7 +510,7 @@ if(call is_char_handle_in_level(int 6291456))
 }
 
 ._SCRIPT_27
-if(call ! is_char_handle_in_level(int 6291456))
+if(call ! is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
  {
 		exit_script 
 }
@@ -523,7 +523,7 @@ else
 }
 
 ._SCRIPT_28
-if(call ! is_char_handle_in_level(int 6291456))
+if(call ! is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
  {
 		exit_script 
 }
@@ -642,7 +642,7 @@ switch(var VAR_19)
 var VAR_20 ++ 
 
 ._SCRIPT_29
-if(call is_char_handle_in_level(int 6291456))
+if(call is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
  {
 		if(var fade_chronicler == int 0)
 		 {

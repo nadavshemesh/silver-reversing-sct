@@ -337,7 +337,7 @@ var fastmonk2 = call create_enemy(int 75, int 3, "M", int 180)
 var fastmonk3 = call create_enemy(int 75, int 4, "M", int 180)
 var fastmonk4 = call create_enemy(int 75, int 5, var &VAR_44, int 180)
 var fastmonk5 = call create_enemy(int 75, int 6, var &VAR_45, int 180)
-call add_item_to_char(var mystmonk, int 27, int 1, int 0)
+call add_item_to_char(var mystmonk, int 27 /* scroll */ , int 1, int 0)
 call freeze_enemy(var mystmonk)
 call freeze_enemy(var fastmonk)
 call freeze_enemy(var fastmonk1)
@@ -423,11 +423,11 @@ if(var VAR_3 != int -1)
 		 {
 				if(var VAR_5 != int -1)
 				 {
-						call add_item_to_char(var is_BTREASURE_exist, int 85, var VAR_5, int 0)
+						call add_item_to_char(var is_BTREASURE_exist, int 85 /* moneybag */ , var VAR_5, int 0)
 				}
 				else
 				 {
-						call add_item_to_char(var is_BTREASURE_exist, var VAR_3, int 1, int 0)
+						call add_item_to_char(var is_BTREASURE_exist, var VAR_3 /* lightning */ , int 1, int 0)
 				}
 		}
 }

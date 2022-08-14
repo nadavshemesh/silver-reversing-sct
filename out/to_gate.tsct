@@ -97,7 +97,7 @@ if(var VAR_23 == int 0)
 var lieutenant = call create_enemy(int 11, int 0, var &VAR_28, int 89)
 var lieutenant1 = call create_enemy(int 11, int 1, "C", int 284)
 var lieutenant2 = call create_enemy(int 11, int 2, var &VAR_30, int 29)
-call add_item_to_char(var lieutenant2, int 40, int 1, int 0)
+call add_item_to_char(var lieutenant2, int 40 /* apple */ , int 1, int 0)
 
 ._SCRIPT_6
 
@@ -115,8 +115,8 @@ switch(gamevar is_room_cleared)
 			call load_char("finnegan")
 			call load_char("muscles")
 			call load_char("dick")
-			call load_item(int 93)
-			call load_item(int 91)
+			call load_item(int 93 /* cutlass */ )
+			call load_item(int 91 /* rapier */ )
 			call run_wandering_generator(var &VAR_31, int 100)
 			break 
 }
@@ -264,7 +264,7 @@ switch(var VAR_13)
 		case 4
 			if(var VAR_14 > var VAR_16)
 			 {
-					var verwind_sound_ref = call play_loaded_sound(int 4, int 0, int 25, int 0) /* 'thunstrk' */ 
+					var verwind_sound_ref = call play_loaded_sound /* 'thunstrk' */ (int 4, int 0, int 25, int 0)
 					call set_sound_volume(var verwind_sound_ref, var VAR_17)
 					if(var ! VAR_3)
 					 {

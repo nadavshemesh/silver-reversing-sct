@@ -137,7 +137,7 @@ call func_50(var start_grunt2, int 2)
 var start_grunt3 = call create_enemy(int 156, int 3, var &VAR_20, int 270)
 call func_106(var start_grunt3, int 1, int 0, int 0)
 call func_50(var start_grunt3, int 2)
-call add_item_to_char(var start_grunt3, int 40, int 1, int 0)
+call add_item_to_char(var start_grunt3, int 40 /* apple */ , int 1, int 0)
 call func_1(var start_grunt2, int -1)
 call func_1(var start_grunt3, int -1)
 
@@ -145,7 +145,7 @@ call func_1(var start_grunt3, int -1)
 execute SCRIPT_6
 execute SCRIPT_7
 execute SCRIPT_8
-if(call ! is_char_handle_in_level(int 4128770)&&call ! is_char_handle_in_level(int 4128771)&&call ! is_char_handle_in_level(int 4128772))
+if(call ! is_char_handle_in_level(int 4128770 /* SGRUNT */ )&&call ! is_char_handle_in_level(int 4128771 /* SGRUNT */ )&&call ! is_char_handle_in_level(int 4128772 /* SGRUNT */ ))
  {
 		gamevar room_state = int 2
 		gamevar door_restriction_p = var &VAR_0
@@ -204,7 +204,7 @@ if(var VAR_27 == int 5)
 		if(var VAR_26 > int 2)
 		 {
 				var grunt_wooden_shield = call create_enemy(int 99, int 4, var &VAR_22, int 90)
-				call add_item_to_char(var grunt_wooden_shield, int 85, int 3277313, int 0)
+				call add_item_to_char(var grunt_wooden_shield, int 85 /* moneybag */ , int 3277313, int 0)
 				call set_char_running(var grunt_wooden_shield)
 				call char_walk_to_pos(var grunt_wooden_shield, var &VAR_31)
 				var VAR_27 ++ 
@@ -296,11 +296,11 @@ call func_50(var start_grunt1, int 2)
 var start_grunt2 = call create_enemy(int 99, int 2, var &VAR_42, int 235)
 call func_106(var start_grunt2, int 1, int 0, int 2)
 call func_50(var start_grunt2, int 2)
-call add_item_to_char(var start_grunt2, int 40, int 1, int 0)
+call add_item_to_char(var start_grunt2, int 40 /* apple */ , int 1, int 0)
 var start_grunt3 = call create_enemy(int 99, int 3, var &VAR_43, int 235)
 call func_106(var start_grunt3, int 1, int 0, int 2)
 call func_50(var start_grunt3, int 2)
-call add_item_to_char(var start_grunt3, int 32, int 1, int 0)
+call add_item_to_char(var start_grunt3, int 32 /* potwhite */ , int 1, int 0)
 var GRANDAD = call get_char_handle(int 393216)
 call func_10c(var GRANDAD, "ACT2")
 call reset_local_timer()
@@ -320,7 +320,7 @@ if(var VAR_45 == int 0)
 }
 if(var VAR_45 == int 1)
  {
-		if(call is_char_handle_in_level(int 4128769))
+		if(call is_char_handle_in_level(int 4128769 /* SGRUNT */ ))
 		 {
 				if(call is_char_standing(var start_grunt1))
 				 {

@@ -102,12 +102,12 @@ var is_BTREASURE_exist = call is_char_handle_in_level(int 1507328)
 if(var ! is_BTREASURE_exist)
  {
 		var is_BTREASURE_exist = call create_char(var &VAR_13, "btreasure", int 270, int 14)
-		call add_item_to_char(var is_BTREASURE_exist, int 85, int 6554113, int 0)
-		call add_item_to_char(var is_BTREASURE_exist, int 83, int 1, int 0)
-		call add_item_to_char(var is_BTREASURE_exist, int 43, int 1, int 0)
-		call add_item_to_char(var is_BTREASURE_exist, int 40, int 1, int 0)
-		call add_item_to_char(var is_BTREASURE_exist, int 40, int 1, int 0)
-		call add_item_to_char(var is_BTREASURE_exist, int 47, int 1, int 0)
+		call add_item_to_char(var is_BTREASURE_exist, int 85 /* moneybag */ , int 6554113, int 0)
+		call add_item_to_char(var is_BTREASURE_exist, int 83 /* borb */ , int 1, int 0)
+		call add_item_to_char(var is_BTREASURE_exist, int 43 /* cheese */ , int 1, int 0)
+		call add_item_to_char(var is_BTREASURE_exist, int 40 /* apple */ , int 1, int 0)
+		call add_item_to_char(var is_BTREASURE_exist, int 40 /* apple */ , int 1, int 0)
+		call add_item_to_char(var is_BTREASURE_exist, int 47 /* drumstik */ , int 1, int 0)
 }
 
 ._SCRIPT_5
@@ -140,11 +140,11 @@ if(var VAR_3 != int -1)
 		 {
 				if(var VAR_5 != int -1)
 				 {
-						call add_item_to_char(var is_BTREASURE1_exist, int 85, var VAR_5, int 0)
+						call add_item_to_char(var is_BTREASURE1_exist, int 85 /* moneybag */ , var VAR_5, int 0)
 				}
 				else
 				 {
-						call add_item_to_char(var is_BTREASURE1_exist, var VAR_3, int 1, int 0)
+						call add_item_to_char(var is_BTREASURE1_exist, var VAR_3 /* lightning */ , int 1, int 0)
 				}
 		}
 }

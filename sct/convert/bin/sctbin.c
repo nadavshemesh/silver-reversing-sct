@@ -409,12 +409,13 @@ void add_hint_by_var_name_or_comment(game_fun* gf, node** exp_nodes, void* func_
                     last_data_obj_cp->name = aapts(new_var_name);
                     last_data_obj_cp->was_renamed = true;
                 } else {
-                    if(last_data_obj_cp != NULL && last_data_obj_cp->was_renamed) return;
+                    if(during_assingment && last_data_obj_cp != NULL && last_data_obj_cp->was_renamed) return;
                     char comment[256];
                     sprintf(comment, " /* %s */ ", enemy_name);
                     eo->hint_comment = aapts(comment);
                 }
                 enemy_cat->items_used[enemy_num]++;
+                return;
             } 
             
             else if(gf->cat_ref->type == ITEM_CAT) {
@@ -436,12 +437,14 @@ void add_hint_by_var_name_or_comment(game_fun* gf, node** exp_nodes, void* func_
                     last_data_obj_cp->name = aapts(new_var_name);
                     last_data_obj_cp->was_renamed = true;
                 } else {
-                    if(last_data_obj_cp != NULL && last_data_obj_cp->was_renamed) return;
+                    if(during_assingment && last_data_obj_cp != NULL && last_data_obj_cp->was_renamed) return;
                     char comment[256];
                     sprintf(comment, " /* %s */ ", item_name);
                     eo->hint_comment = aapts(comment);
+                // printf("found %s.\n", item_name);
                 }
                 item_cat->items_used[item_num]++;
+                return;
             } 
             
             else if(gf->cat_ref->type == HANDLE_CAT) {
@@ -464,12 +467,13 @@ void add_hint_by_var_name_or_comment(game_fun* gf, node** exp_nodes, void* func_
                     last_data_obj_cp->name = aapts(new_var_name);
                     last_data_obj_cp->was_renamed = true;
                 } else {
-                    if(last_data_obj_cp != NULL && last_data_obj_cp->was_renamed) return;
+                    if(during_assingment && last_data_obj_cp != NULL && last_data_obj_cp->was_renamed) return;
                     char comment[256];
                     sprintf(comment, " /* %s */ ", char_name);
                     eo->hint_comment = aapts(comment);
                 }
                 handle_cat->items_used[index]++;
+                return;
             } 
 
             else if(gf->cat_ref->type == SOUND_CAT) {
@@ -512,6 +516,7 @@ void add_hint_by_var_name_or_comment(game_fun* gf, node** exp_nodes, void* func_
                     }
                 }
                 sound_cat->items_used[index]++;
+                return;
             } 
 
             else if(gf->cat_ref->type == NO_CAT_USE_PARAM_STRING) {
@@ -529,6 +534,7 @@ void add_hint_by_var_name_or_comment(game_fun* gf, node** exp_nodes, void* func_
                 } 
 
                 general_param_hint_counter++;
+                return;
             }
         }
         exp_node = exp_node->next;

@@ -220,9 +220,9 @@ call func_4d(int 111, var &VAR_41, "verdante", "exbarrac")
 call play_bgm("IEVLBAT1")
 var victory_anim = call load_anim("victory")
 var btreasure = call create_char(var &VAR_52, "btreasure", int 340, int 14)
-call add_item_to_char(var btreasure, int 47, int 1, int 0)
-call add_item_to_char(var btreasure, int 45, int 1, int 0)
-call add_item_to_char(var btreasure, int 40, int 1, int 0)
+call add_item_to_char(var btreasure, int 47 /* drumstik */ , int 1, int 0)
+call add_item_to_char(var btreasure, int 45 /* deadmous */ , int 1, int 0)
+call add_item_to_char(var btreasure, int 40 /* apple */ , int 1, int 0)
 gamevar *scene_info_p+3 = int 16
 gamevar *scene_info_p+4 = int 16
 gamevar *scene_info_p+5 = int 16
@@ -442,7 +442,7 @@ call load_char("chronicl")
 ._SCRIPT_9
 
 ._SCRIPT_10
-if(call ! is_char_handle_in_level(int 6291456))
+if(call ! is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
  {
 		exit_script 
 }
@@ -455,7 +455,7 @@ else
 }
 
 ._SCRIPT_11
-if(call ! is_char_handle_in_level(int 6291456))
+if(call ! is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
  {
 		exit_script 
 }
@@ -574,7 +574,7 @@ switch(var VAR_17)
 var VAR_18 ++ 
 
 ._SCRIPT_12
-if(call is_char_handle_in_level(int 6291456))
+if(call is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
  {
 		if(var fade_chronicler == int 0)
 		 {

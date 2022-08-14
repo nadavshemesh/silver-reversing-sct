@@ -53,7 +53,7 @@ call load_sound_set(int 65)
 
  /* play the sound 'in2wind1' */ 
 call play_loaded_sound(int 5, int -1, int 65, int 0)
-call load_item(int 94)
+call load_item(int 94 /* trident */ )
 if(gamevar is_room_cleared)
  {
 		execute SCRIPT_10
@@ -226,7 +226,7 @@ call func_50(var fire_fishman, int 8193)
 call play_char_ai_script(var fire_fishman, var &VAR_14)
 call set_char_running(var fire_fishman)
 execute SCRIPT_6
-call load_item(int 69)
+call load_item(int 69 /* samulet */ )
 
 ._SCRIPT_6
 var VAR_24 = call func_9a(var &VAR_27, int 83, int 20, int 1)
@@ -235,10 +235,10 @@ var VAR_26 = call func_9a(var &VAR_29, int 83, int 20, int 1)
 
 ._SCRIPT_7
 var treasure = call create_enemy(int 136, int 0, var &VAR_34, int 271)
-call add_item_to_char(var treasure, int 69, int 1, int 0)
-call add_item_to_char(var treasure, int 85, int 6554113, int 0)
-call add_item_to_char(var treasure, int 42, int 1, int 0)
-call add_item_to_char(var treasure, int 43, int 1, int 0)
+call add_item_to_char(var treasure, int 69 /* samulet */ , int 1, int 0)
+call add_item_to_char(var treasure, int 85 /* moneybag */ , int 6554113, int 0)
+call add_item_to_char(var treasure, int 42 /* bread */ , int 1, int 0)
+call add_item_to_char(var treasure, int 43 /* cheese */ , int 1, int 0)
 
 ._SCRIPT_8
 

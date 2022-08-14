@@ -41,7 +41,7 @@ call load_sound_set(int 65)
 
  /* play the sound 'in2wind1' */ 
 call play_loaded_sound(int 5, int -1, int 65, int 0)
-call load_item(int 94)
+call load_item(int 94 /* trident */ )
 if(gamevar is_room_cleared)
  {
 		execute SCRIPT_7
@@ -167,10 +167,10 @@ gamevar SMACKER_X = int 364
 gamevar SMACKER_Y = int 60
 call play_2d_anim("dooropen", int 0, int 0, var &VAR_48)
 var btreasure = call create_char(var &VAR_51, "btreasure", int 180, int 14)
-call add_item_to_char(var btreasure, int 32, int 1, int 0)
-call add_item_to_char(var btreasure, int 40, int 1, int 0)
-call add_item_to_char(var btreasure, int 40, int 1, int 0)
-call add_item_to_char(var btreasure, int 19, int 1, int 0)
+call add_item_to_char(var btreasure, int 32 /* potwhite */ , int 1, int 0)
+call add_item_to_char(var btreasure, int 40 /* apple */ , int 1, int 0)
+call add_item_to_char(var btreasure, int 40 /* apple */ , int 1, int 0)
+call add_item_to_char(var btreasure, int 19 /* longswrd */ , int 1, int 0)
 var lobster = call create_enemy(int 64, int 0, var &VAR_55, int 305)
 var lobster1 = call create_enemy(int 64, int 1, var &VAR_57, int 55)
 var lobster2 = call create_enemy(int 64, int 2, var &VAR_59, int 130)
@@ -216,7 +216,7 @@ if(gamevar script_time > var VAR_72)
 }
 
 ._SCRIPT_9
-if(call ! is_char_handle_in_level(int 6291456))
+if(call ! is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
  {
 		exit_script 
 }
@@ -229,7 +229,7 @@ else
 }
 
 ._SCRIPT_10
-if(call ! is_char_handle_in_level(int 6291456))
+if(call ! is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
  {
 		exit_script 
 }
@@ -348,7 +348,7 @@ switch(var VAR_17)
 var VAR_18 ++ 
 
 ._SCRIPT_11
-if(call is_char_handle_in_level(int 6291456))
+if(call is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
  {
 		if(var fade_chronicler == int 0)
 		 {

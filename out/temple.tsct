@@ -133,16 +133,16 @@ gamevar script_object = var nmuscles
 gamevar *object_p+6 |= int 2048
 gamevar script_object = var nmuscles
 gamevar HP = int 2
-call add_item_to_char(var nmuscles, int 85, int 19661313, int 0)
+call add_item_to_char(var nmuscles, int 85 /* moneybag */ , int 19661313, int 0)
 var greater_gimpv = call create_enemy(int 46, int 0, var &VAR_51, int 75)
 var greater_gimpv1 = call create_enemy(int 46, int 1, var &VAR_52, int 60)
-call add_item_to_char(var greater_gimpv, int 21, int 1, int 0)
+call add_item_to_char(var greater_gimpv, int 21 /* polearm */ , int 1, int 0)
 var rat_raptor_max5 = call create_enemy(int 87, int 0, var &VAR_53, int 105)
 var rat_raptor_max51 = call create_enemy(int 87, int 1, var &VAR_54, int 50)
 var rat_raptor_max52 = call create_enemy(int 87, int 2, var &VAR_55, int 65)
 var rat_raptor_max53 = call create_enemy(int 87, int 3, var &VAR_56, int 80)
-call add_item_to_char(var rat_raptor_max51, int 43, int 1, int 0)
-call add_item_to_char(var rat_raptor_max52, int 43, int 1, int 0)
+call add_item_to_char(var rat_raptor_max51, int 43 /* cheese */ , int 1, int 0)
+call add_item_to_char(var rat_raptor_max52, int 43 /* cheese */ , int 1, int 0)
 call func_46(var greater_gimpv, int 0)
 call func_46(var greater_gimpv1, int 0)
 call func_46(var rat_raptor_max5, int 0)
@@ -280,7 +280,7 @@ if(gamevar script_time > var VAR_114)
 }
 
 ._SCRIPT_6
-if(call ! is_char_handle_in_level(int 6291456))
+if(call ! is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
  {
 		exit_script 
 }
@@ -293,7 +293,7 @@ else
 }
 
 ._SCRIPT_7
-if(call ! is_char_handle_in_level(int 6291456))
+if(call ! is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
  {
 		exit_script 
 }
@@ -412,7 +412,7 @@ switch(var VAR_17)
 var VAR_18 ++ 
 
 ._SCRIPT_8
-if(call is_char_handle_in_level(int 6291456))
+if(call is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
  {
 		if(var fade_chronicler == int 0)
 		 {

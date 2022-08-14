@@ -236,19 +236,19 @@ var DAVID = call get_char_handle(int 65536)
 gamevar script_object = var sguard
 gamevar *character_stats_p+15 = int 1200
 call func_106(var sguard, int 1, int 0, int 1)
-call add_item_to_char(var sguard, int 22, int 0, int 0)
+call add_item_to_char(var sguard, int 22 /* bastswrd */ , int 0, int 0)
 gamevar script_object = var sguard1
 gamevar *character_stats_p+15 = int 1200
 call func_106(var sguard1, int 1, int 0, int 1)
-call add_item_to_char(var sguard1, int 22, int 0, int 0)
+call add_item_to_char(var sguard1, int 22 /* bastswrd */ , int 0, int 0)
 gamevar script_object = var sguard2
 gamevar *character_stats_p+15 = int 1200
 call func_106(var sguard2, int 1, int 0, int 2)
-call add_item_to_char(var sguard2, int 22, int 0, int 0)
+call add_item_to_char(var sguard2, int 22 /* bastswrd */ , int 0, int 0)
 gamevar script_object = var sguard3
 gamevar *character_stats_p+15 = int 1200
 call func_106(var sguard3, int 1, int 0, int 2)
-call add_item_to_char(var sguard3, int 22, int 0, int 0)
+call add_item_to_char(var sguard3, int 22 /* bastswrd */ , int 0, int 0)
 var VAR_57 = call func_e8(var &VAR_58, int 0)
 call set_input_system(int 2)
 call load_char("chronicl")
@@ -281,7 +281,7 @@ call play_char_ai_script(var sguard3, var &VAR_70)
 ._SCRIPT_14
 
 ._SCRIPT_15
-if(call ! is_char_handle_in_level(int 6291456))
+if(call ! is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
  {
 		exit_script 
 }
@@ -294,7 +294,7 @@ else
 }
 
 ._SCRIPT_16
-if(call ! is_char_handle_in_level(int 6291456))
+if(call ! is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
  {
 		exit_script 
 }
@@ -413,7 +413,7 @@ switch(var VAR_17)
 var VAR_18 ++ 
 
 ._SCRIPT_17
-if(call is_char_handle_in_level(int 6291456))
+if(call is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
  {
 		if(var fade_chronicler == int 0)
 		 {

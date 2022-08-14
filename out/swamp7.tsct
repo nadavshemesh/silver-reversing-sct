@@ -107,15 +107,15 @@ switch(var VAR_36)
 		case 0
 			if(call func_d1(var &VAR_37)||call func_8a(var &VAR_37))
 			 {
-					if(call is_char_handle_in_level(int 7667714))
+					if(call is_char_handle_in_level(int 7667714 /* SWAMPY */ ))
 					 {
 							call set_char_template(var swampy, int 130)
 					}
-					if(call is_char_handle_in_level(int 7667715))
+					if(call is_char_handle_in_level(int 7667715 /* SWAMPY */ ))
 					 {
 							call set_char_template(var swampy1, int 130)
 					}
-					if(call is_char_handle_in_level(int 7667716))
+					if(call is_char_handle_in_level(int 7667716 /* SWAMPY */ ))
 					 {
 							call set_char_template(var swampy2, int 130)
 					}
@@ -135,16 +135,16 @@ var VAR_35 ++
 
 ._SCRIPT_7
 var big_swampy = call create_enemy(int 138, int 1, var &VAR_23, int 235)
-call add_item_to_char(var big_swampy, int 45, int 1, int 0)
+call add_item_to_char(var big_swampy, int 45 /* deadmous */ , int 1, int 0)
 var swampy = call create_enemy(int 130, int 2, var &VAR_25, int 330)
 var swampy1 = call create_enemy(int 130, int 3, var &VAR_27, int 60)
 var swampy2 = call create_enemy(int 130, int 4, var &VAR_29, int 155)
-call add_item_to_char(var swampy2, int 45, int 1, int 0)
+call add_item_to_char(var swampy2, int 45 /* deadmous */ , int 1, int 0)
 call freeze_enemy(var big_swampy)
 call freeze_enemy(var swampy)
 call freeze_enemy(var swampy1)
 call freeze_enemy(var swampy2)
-call add_item_to_char(var big_swampy, int 11, int 1, int 1)
+call add_item_to_char(var big_swampy, int 11 /* longbow */ , int 1, int 1)
 call run_enemy_generator(var &VAR_30, int 0)
 
 ._SCRIPT_8
@@ -173,11 +173,11 @@ if(var VAR_3 != int -1)
 		 {
 				if(var VAR_5 != int -1)
 				 {
-						call add_item_to_char(var is_BTREASURE_exist, int 85, var VAR_5, int 0)
+						call add_item_to_char(var is_BTREASURE_exist, int 85 /* moneybag */ , var VAR_5, int 0)
 				}
 				else
 				 {
-						call add_item_to_char(var is_BTREASURE_exist, var VAR_3, int 1, int 0)
+						call add_item_to_char(var is_BTREASURE_exist, var VAR_3 /* lightning */ , int 1, int 0)
 				}
 		}
 }

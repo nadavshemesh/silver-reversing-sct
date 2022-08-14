@@ -176,7 +176,7 @@ switch(var VAR_57)
 							 {
 									var VAR_62 = var &VAR_58
 									var VAR_62 += var VAR_61 * int 12
-									call create_enemy(int 184, int 0, var VAR_62, int 180)
+									call create_enemy(int 184 /* apple_fade_drop */ , int 0, var VAR_62, int 180)
 									var VAR_61 ++ 
 							}
 					}
@@ -245,17 +245,17 @@ call load_char("plguebos")
 call load_char("treasure")
 call load_char("mimic")
 call load_char("chronicl")
-call load_item(int 63)
+call load_item(int 63 /* ironkey */ )
 var VAR_65 = call run_wandering_generator(var &VAR_66, int 1)
 execute SCRIPT_7
 var bmimic = call create_char(var &VAR_52, "bmimic", int 125, int 17)
-call add_item_to_char(var bmimic, int 83, int 1, int 0)
-call add_item_to_char(var bmimic, int 83, int 1, int 0)
-call add_item_to_char(var bmimic, int 85, int 8192513, int 0)
-call add_item_to_char(var bmimic, int 65, int 1, int 0)
-call add_item_to_char(var bmimic, int 79, int 1, int 0)
-call add_item_to_char(var bmimic, int 18, int 0, int 0)
-call add_item_to_char(var bmimic, int 50, int 0, int 0)
+call add_item_to_char(var bmimic, int 83 /* borb */ , int 1, int 0)
+call add_item_to_char(var bmimic, int 83 /* borb */ , int 1, int 0)
+call add_item_to_char(var bmimic, int 85 /* moneybag */ , int 8192513, int 0)
+call add_item_to_char(var bmimic, int 65 /* bonekey */ , int 1, int 0)
+call add_item_to_char(var bmimic, int 79 /* scroll */ , int 1, int 0)
+call add_item_to_char(var bmimic, int 18 /* bipennis */ , int 0, int 0)
+call add_item_to_char(var bmimic, int 50 /* ironrim */ , int 0, int 0)
 call log("end of init act1")
 var VAR_57 = int 0
 
@@ -342,7 +342,7 @@ while(var VAR_1)
 }
 
 ._SCRIPT_13
-if(call ! is_char_handle_in_level(int 6291456))
+if(call ! is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
  {
 		exit_script 
 }
@@ -355,7 +355,7 @@ else
 }
 
 ._SCRIPT_14
-if(call ! is_char_handle_in_level(int 6291456))
+if(call ! is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
  {
 		exit_script 
 }
@@ -474,7 +474,7 @@ switch(var VAR_25)
 var VAR_26 ++ 
 
 ._SCRIPT_15
-if(call is_char_handle_in_level(int 6291456))
+if(call is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
  {
 		if(var fade_chronicler == int 0)
 		 {

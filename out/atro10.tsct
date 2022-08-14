@@ -163,7 +163,7 @@ switch(var VAR_64)
 		case 0
 			if(gamevar control_char_p)
 			 {
-					if(call create_item(int 7))
+					if(call create_item(int 7 /* light */ ))
 					 {
 							var VAR_52 = int 1
 							var VAR_66 = call get_char_handle_id(gamevar control_char_p)
@@ -321,7 +321,7 @@ else
 }
 
 ._SCRIPT_15
-if(call ! is_char_handle_in_level(int 6291456))
+if(call ! is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
  {
 		exit_script 
 }
@@ -334,7 +334,7 @@ else
 }
 
 ._SCRIPT_16
-if(call ! is_char_handle_in_level(int 6291456))
+if(call ! is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
  {
 		exit_script 
 }
@@ -453,7 +453,7 @@ switch(var VAR_30)
 var VAR_31 ++ 
 
 ._SCRIPT_17
-if(call is_char_handle_in_level(int 6291456))
+if(call is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
  {
 		if(var fade_chronicler == int 0)
 		 {

@@ -90,9 +90,9 @@ call play_char_ai_script(var lieutenant, var &VAR_23)
 call func_50(var lieutenant, int 8192)
 gamevar script_object = var lieutenant
 gamevar *character_stats_p+15 = int 500
-call add_item_to_char(var lieutenant, int 108, int 1, int 0)
-call add_item_to_char(var lieutenant, int 40, int 1, int 0)
-call add_item_to_char(var lieutenant, int 42, int 1, int 0)
+call add_item_to_char(var lieutenant, int 108 /* quiver */ , int 1, int 0)
+call add_item_to_char(var lieutenant, int 40 /* apple */ , int 1, int 0)
+call add_item_to_char(var lieutenant, int 42 /* bread */ , int 1, int 0)
 
 ._SCRIPT_6
 
@@ -109,8 +109,8 @@ switch(gamevar is_room_cleared)
 			call load_char("muscles")
 			call load_char("dick")
 			call load_char("finnegan")
-			call load_item(int 91)
-			call load_item(int 93)
+			call load_item(int 91 /* rapier */ )
+			call load_item(int 93 /* cutlass */ )
 			call run_wandering_generator(var &VAR_26, int 100)
 			break 
 }
@@ -259,7 +259,7 @@ switch(var VAR_13)
 		case 4
 			if(var VAR_14 > var VAR_16)
 			 {
-					var verwind_sound_ref = call play_loaded_sound(int 4, int 0, int 25, int 0) /* 'thunstrk' */ 
+					var verwind_sound_ref = call play_loaded_sound /* 'thunstrk' */ (int 4, int 0, int 25, int 0)
 					call set_sound_volume(var verwind_sound_ref, var VAR_17)
 					if(var ! VAR_3)
 					 {

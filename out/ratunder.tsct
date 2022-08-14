@@ -208,7 +208,7 @@ switch(var VAR_75)
 		case 4
 			if(var VAR_76 > int 200)
 			 {
-					if(call ! create_item(int 5))
+					if(call ! create_item(int 5 /* acid */ ))
 					 {
 							var VAR_81 = call get_char_handle_id(gamevar control_char_p)
 							switch(var VAR_81)
@@ -332,7 +332,7 @@ if(var VAR_105 != var VAR_104)
 switch(var VAR_104)
  {
 		case 0
-			if(call create_item(int 5))
+			if(call create_item(int 5 /* acid */ ))
 			 {
 					var VAR_57 = int 1
 					execute SCRIPT_18
@@ -358,7 +358,7 @@ switch(var VAR_104)
 ._SCRIPT_11
 
 ._SCRIPT_12
-if(call ! is_char_handle_in_level(int 6291456))
+if(call ! is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
  {
 		exit_script 
 }
@@ -371,7 +371,7 @@ else
 }
 
 ._SCRIPT_13
-if(call ! is_char_handle_in_level(int 6291456))
+if(call ! is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
  {
 		exit_script 
 }
@@ -490,7 +490,7 @@ switch(var VAR_17)
 var VAR_18 ++ 
 
 ._SCRIPT_14
-if(call is_char_handle_in_level(int 6291456))
+if(call is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
  {
 		if(var fade_chronicler == int 0)
 		 {

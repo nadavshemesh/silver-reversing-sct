@@ -267,10 +267,10 @@ call set_char_running(var groad1)
 
 ._SCRIPT_6
 var neutral_little_lizman2 = call create_enemy(int 192, int 0, var &VAR_80, int 80)
-call add_item_to_char(var neutral_little_lizman2, int 40, int 0, int 0)
-call add_item_to_char(var neutral_little_lizman2, int 41, int 0, int 0)
-call add_item_to_char(var neutral_little_lizman2, int 42, int 0, int 0)
-call add_item_to_char(var neutral_little_lizman2, int 43, int 0, int 0)
+call add_item_to_char(var neutral_little_lizman2, int 40 /* apple */ , int 0, int 0)
+call add_item_to_char(var neutral_little_lizman2, int 41 /* veggies */ , int 0, int 0)
+call add_item_to_char(var neutral_little_lizman2, int 42 /* bread */ , int 0, int 0)
+call add_item_to_char(var neutral_little_lizman2, int 43 /* cheese */ , int 0, int 0)
 call freeze_enemy(var neutral_little_lizman2)
 gamevar script_object = var neutral_little_lizman2
 gamevar *character_movement_p+60 = int 1
@@ -344,11 +344,11 @@ if(var VAR_110 == int 0)
 		gamevar compile_init_character = int 1
 		if(var VAR_98 != int 0)
 		 {
-				call add_item_to_char(var VAR_92, int 16, int 0, int 1)
+				call add_item_to_char(var VAR_92, int 16 /* shrtswrd */ , int 0, int 1)
 		}
 		if(var VAR_98 == int 2)
 		 {
-				call add_item_to_char(var VAR_92, int 48, int 0, int 1)
+				call add_item_to_char(var VAR_92, int 48 /* woodshld */ , int 0, int 1)
 		}
 		call func_50(var VAR_92, int 131)
 		call func_104(var VAR_92, int 7, int 1)
@@ -369,7 +369,7 @@ if(var VAR_110 == int 1)
 				gamevar compile_init_character = int 1
 				if(var VAR_98 != int 0)
 				 {
-						call add_item_to_char(var VAR_93, int 16, int 0, int 1)
+						call add_item_to_char(var VAR_93, int 16 /* shrtswrd */ , int 0, int 1)
 				}
 				call func_50(var VAR_93, int 131)
 				call func_106(var VAR_93, int 1, int 0, int 0)
@@ -389,14 +389,14 @@ if(var VAR_110 == int 2)
 				gamevar compile_init_character = int 1
 				if(var VAR_98 != int 0)
 				 {
-						call add_item_to_char(var VAR_94, int 0, int 0, int 1)
+						call add_item_to_char(var VAR_94, int 0 /* fire */ , int 0, int 1)
 						call func_50(var VAR_94, int 723)
 						call func_106(var VAR_94, int 9, int 5, "")
 						call func_106(var VAR_94, int 9, int 6, int 4)
 				}
 				if(var VAR_98 == int 2)
 				 {
-						call add_item_to_char(var VAR_94, int 48, int 0, int 1)
+						call add_item_to_char(var VAR_94, int 48 /* woodshld */ , int 0, int 1)
 				}
 				call func_106(var VAR_94, int 1, int 0, int 0)
 				call func_106(var VAR_94, int 6, int 1, int 3)
@@ -416,7 +416,7 @@ if(var VAR_110 == int 3)
 				gamevar compile_init_character = int 1
 				if(var VAR_98 != int 0)
 				 {
-						call add_item_to_char(var VAR_95, int 16, int 0, int 1)
+						call add_item_to_char(var VAR_95, int 16 /* shrtswrd */ , int 0, int 1)
 				}
 				call func_50(var VAR_95, int 131)
 				call func_106(var VAR_95, int 1, int 0, int 0)
@@ -436,11 +436,11 @@ if(var VAR_110 == int 4)
 				gamevar compile_init_character = int 1
 				if(var VAR_98 != int 0)
 				 {
-						call add_item_to_char(var VAR_96, int 16, int 0, int 1)
+						call add_item_to_char(var VAR_96, int 16 /* shrtswrd */ , int 0, int 1)
 				}
 				if(var VAR_98 == int 2)
 				 {
-						call add_item_to_char(var VAR_96, int 48, int 0, int 1)
+						call add_item_to_char(var VAR_96, int 48 /* woodshld */ , int 0, int 1)
 				}
 				call func_50(var VAR_96, int 131)
 				call func_106(var VAR_96, int 1, int 0, int 0)
@@ -468,11 +468,11 @@ if(var VAR_110 == int 0)
 		gamevar compile_init_character = int 1
 		if(var VAR_98 != int 0)
 		 {
-				call add_item_to_char(var VAR_92, int 16, int 0, int 1)
+				call add_item_to_char(var VAR_92, int 16 /* shrtswrd */ , int 0, int 1)
 		}
 		if(var VAR_98 == int 2)
 		 {
-				call add_item_to_char(var VAR_92, int 48, int 0, int 1)
+				call add_item_to_char(var VAR_92, int 48 /* woodshld */ , int 0, int 1)
 		}
 		call func_50(var VAR_92, int 131)
 		call func_104(var VAR_92, int 7, int 1)
@@ -492,7 +492,7 @@ if(var VAR_110 == int 1)
 				gamevar compile_init_character = int 1
 				if(var VAR_98 != int 0)
 				 {
-						call add_item_to_char(var VAR_93, int 16, int 0, int 1)
+						call add_item_to_char(var VAR_93, int 16 /* shrtswrd */ , int 0, int 1)
 				}
 				call func_50(var VAR_93, int 131)
 				call func_106(var VAR_93, int 1, int 0, int 0)
@@ -512,7 +512,7 @@ if(var VAR_110 == int 2)
 				gamevar compile_init_character = int 1
 				if(var VAR_98 != int 0)
 				 {
-						call add_item_to_char(var VAR_94, int 16, int 0, int 1)
+						call add_item_to_char(var VAR_94, int 16 /* shrtswrd */ , int 0, int 1)
 				}
 				call func_50(var VAR_94, int 131)
 				call func_106(var VAR_94, int 1, int 0, int 0)
@@ -532,7 +532,7 @@ if(var VAR_110 == int 3)
 				gamevar compile_init_character = int 1
 				if(var VAR_98 != int 0)
 				 {
-						call add_item_to_char(var VAR_95, int 16, int 0, int 1)
+						call add_item_to_char(var VAR_95, int 16 /* shrtswrd */ , int 0, int 1)
 				}
 				call func_50(var VAR_95, int 131)
 				call func_106(var VAR_95, int 1, int 0, int 0)
@@ -552,11 +552,11 @@ if(var VAR_110 == int 4)
 				gamevar compile_init_character = int 1
 				if(var VAR_98 != int 0)
 				 {
-						call add_item_to_char(var VAR_96, int 16, int 0, int 1)
+						call add_item_to_char(var VAR_96, int 16 /* shrtswrd */ , int 0, int 1)
 				}
 				if(var VAR_98 == int 2)
 				 {
-						call add_item_to_char(var VAR_96, int 48, int 0, int 1)
+						call add_item_to_char(var VAR_96, int 48 /* woodshld */ , int 0, int 1)
 				}
 				call func_50(var VAR_96, int 131)
 				call func_106(var VAR_96, int 1, int 0, int 0)
@@ -637,7 +637,7 @@ if(call func_ed(int 63))
 				call set_char_init_state(var VAR_140, int 7)
 				call set_char_init_state(var VAR_140, int 11)
 				call func_106(var VAR_140, int 7, int 7, int 2)
-				call add_item_to_char(var VAR_140, int 16, int 0, int 1)
+				call add_item_to_char(var VAR_140, int 16 /* shrtswrd */ , int 0, int 1)
 		}
 		var VAR_138 = int 1
 }
@@ -656,7 +656,7 @@ if(call func_ed(int 64))
 				call set_char_init_state(var VAR_140, int 7)
 				call set_char_init_state(var VAR_140, int 11)
 				call func_106(var VAR_140, int 7, int 7, int 2)
-				call add_item_to_char(var VAR_140, int 16, int 0, int 1)
+				call add_item_to_char(var VAR_140, int 16 /* shrtswrd */ , int 0, int 1)
 				call set_char_lvl(var VAR_140, int 3)
 		}
 		var VAR_139 = int 1
@@ -725,7 +725,7 @@ else
 var ndavid = call create_char(var VAR_20, "ndavid", call randomize_int(int 0, int 360), int 13)
 gamevar script_object = var ndavid
 gamevar *object_p+8 |= int 33554432
-call add_item_to_char(var ndavid, int 22, int 0, int 1)
+call add_item_to_char(var ndavid, int 22 /* bastswrd */ , int 0, int 1)
 call func_50(var ndavid, int 129)
 call func_106(var ndavid, int 7, int 7, int 3)
 call set_char_lvl(var ndavid, int 15)
@@ -736,7 +736,7 @@ gamevar *character_stats_p+16 = int 30000
 var njug = call create_char(var VAR_21, "njug", call randomize_int(int 0, int 360), int 13)
 gamevar script_object = var njug
 gamevar *object_p+8 |= int 33554432
-call add_item_to_char(var njug, int 22, int 0, int 1)
+call add_item_to_char(var njug, int 22 /* bastswrd */ , int 0, int 1)
 call func_50(var njug, int 129)
 call func_106(var njug, int 7, int 7, int 3)
 call set_char_lvl(var njug, int 15)
@@ -747,7 +747,7 @@ gamevar *character_stats_p+16 = int 30000
 var nvivienne = call create_char(var VAR_22, "nvivienne", call randomize_int(int 0, int 360), int 13)
 gamevar script_object = var nvivienne
 gamevar *object_p+8 |= int 33554432
-call add_item_to_char(var nvivienne, int 22, int 0, int 1)
+call add_item_to_char(var nvivienne, int 22 /* bastswrd */ , int 0, int 1)
 call func_50(var nvivienne, int 129)
 call func_106(var nvivienne, int 7, int 7, int 3)
 call set_char_lvl(var nvivienne, int 15)
@@ -809,17 +809,17 @@ switch(var VAR_35)
 		case 1
 			if(call is_local_timer_greater_than(int 10))
 			 {
-					if(call is_char_handle_in_level(int 65536))
+					if(call is_char_handle_in_level(int 65536 /* DAVID */ ))
 					 {
 							gamevar script_object = var ndavid
 							gamevar HP = int 10000
 					}
-					if(call is_char_handle_in_level(int 327680))
+					if(call is_char_handle_in_level(int 327680 /* JUG */ ))
 					 {
 							gamevar script_object = var njug
 							gamevar HP = int 10000
 					}
-					if(call is_char_handle_in_level(int 196608))
+					if(call is_char_handle_in_level(int 196608 /* VIVIENNE */ ))
 					 {
 							gamevar script_object = var nvivienne
 							gamevar HP = int 10000

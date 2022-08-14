@@ -127,7 +127,7 @@ if(gamevar script_time > var VAR_88)
 if(gamevar script_time > var VAR_88)
  {
 		var VAR_88 = gamevar script_time + int 60 + call randomize_int(int 0, int 60)
-		var wwindlp_sound_ref = call play_loaded_sound(int 2, int 0, int 66, int 0) /* 'inwindlp' */ 
+		var wwindlp_sound_ref = call play_loaded_sound /* 'inwindlp' */ (int 2, int 0, int 66, int 0)
 		call set_sound_volume(var wwindlp_sound_ref, int 30)
 }
 
@@ -185,7 +185,7 @@ call load_char("chronicl")
 var viking = call create_enemy(int 145, int 0, var &VAR_49, int 190)
 var viking1 = call create_enemy(int 145, int 1, var &VAR_51, int 75)
 var viking2 = call create_enemy(int 145, int 2, var &VAR_53, int 120)
-call add_item_to_char(var viking2, int 47, int 1, int 0)
+call add_item_to_char(var viking2, int 47 /* drumstik */ , int 1, int 0)
 var nviking = call create_char(var &VAR_57, "nviking", int 55, int 13)
 var viking1 = call create_enemy(int 152, int 1, var &VAR_55, int 285)
 call set_char_init_state(var viking2, int 13)
@@ -222,7 +222,7 @@ if(var ! VAR_84)
 }
 
 ._SCRIPT_9
-if(call ! is_char_handle_in_level(int 6291456))
+if(call ! is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
  {
 		exit_script 
 }
@@ -235,7 +235,7 @@ else
 }
 
 ._SCRIPT_10
-if(call ! is_char_handle_in_level(int 6291456))
+if(call ! is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
  {
 		exit_script 
 }
@@ -354,7 +354,7 @@ switch(var VAR_17)
 var VAR_18 ++ 
 
 ._SCRIPT_11
-if(call is_char_handle_in_level(int 6291456))
+if(call is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
  {
 		if(var fade_chronicler == int 0)
 		 {

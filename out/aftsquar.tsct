@@ -62,7 +62,7 @@ switch(gamevar room_state)
 var finnegan = call create_enemy(int 32, int 0, "k", int 295)
 var muscles = call create_enemy(int 30, int 0, "K", int 85)
 var longjohn = call create_enemy(int 28, int 0, var &VAR_6, int 270)
-call add_item_to_char(var finnegan, int 42, int 1, int 0)
+call add_item_to_char(var finnegan, int 42 /* bread */ , int 1, int 0)
 call play_char_ai_script(var finnegan, var &VAR_7)
 call play_char_ai_script(var muscles, var &VAR_8)
 call func_106(var finnegan, int 1, int 0, int 1)
@@ -94,7 +94,7 @@ switch(var VAR_0)
 			 {
 					var VAR_75 = int 1
 			}
-			if(call is_char_handle_in_level(int 2490368))
+			if(call is_char_handle_in_level(int 2490368 /* MUSCLES */ ))
 			 {
 					if(call func_88(var muscles))
 					 {
@@ -111,7 +111,7 @@ switch(var VAR_0)
 					 {
 							call func_46(var finnegan, int 13)
 					}
-					if(call is_char_handle_in_level(int 2490368))
+					if(call is_char_handle_in_level(int 2490368 /* MUSCLES */ ))
 					 {
 							call func_46(var muscles, int 13)
 					}
@@ -286,7 +286,7 @@ switch(var VAR_24)
 		case 4
 			if(var VAR_25 > var VAR_27)
 			 {
-					var verwind_sound_ref = call play_loaded_sound(int 4, int 0, int 25, int 0) /* 'thunstrk' */ 
+					var verwind_sound_ref = call play_loaded_sound /* 'thunstrk' */ (int 4, int 0, int 25, int 0)
 					call set_sound_volume(var verwind_sound_ref, var VAR_28)
 					if(var ! VAR_14)
 					 {
@@ -307,7 +307,7 @@ switch(var VAR_24)
 var VAR_25 ++ 
 
 ._SCRIPT_11
-if(call ! is_char_handle_in_level(int 6291456))
+if(call ! is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
  {
 		exit_script 
 }
@@ -320,7 +320,7 @@ else
 }
 
 ._SCRIPT_12
-if(call ! is_char_handle_in_level(int 6291456))
+if(call ! is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
  {
 		exit_script 
 }
@@ -439,7 +439,7 @@ switch(var VAR_46)
 var VAR_47 ++ 
 
 ._SCRIPT_13
-if(call is_char_handle_in_level(int 6291456))
+if(call is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
  {
 		if(var fade_chronicler == int 0)
 		 {

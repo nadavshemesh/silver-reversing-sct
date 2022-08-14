@@ -216,7 +216,7 @@ switch(var VAR_55)
 		case 2
 			if(var VAR_56 > int 35)
 			 {
-					var lforest1_sound_ref = call play_loaded_sound(int 3, int 0, int 8, int 0) /* 'lforest1' */ 
+					var lforest1_sound_ref = call play_loaded_sound /* 'lforest1' */ (int 3, int 0, int 8, int 0)
 					call set_sound_volume(var lforest1_sound_ref, int 100)
 					var VAR_55 ++ 
 					var VAR_56 = int 0
@@ -297,7 +297,7 @@ var DodgeB_anim = call load_anim("DodgeB")
 ._SCRIPT_14
 
 ._SCRIPT_15
-if(call ! is_char_handle_in_level(int 6291456))
+if(call ! is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
  {
 		exit_script 
 }
@@ -310,7 +310,7 @@ else
 }
 
 ._SCRIPT_16
-if(call ! is_char_handle_in_level(int 6291456))
+if(call ! is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
  {
 		exit_script 
 }
@@ -429,7 +429,7 @@ switch(var VAR_17)
 var VAR_18 ++ 
 
 ._SCRIPT_17
-if(call is_char_handle_in_level(int 6291456))
+if(call is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
  {
 		if(var fade_chronicler == int 0)
 		 {

@@ -229,7 +229,7 @@ var VAR_71 ++
 var nbuzuki = call create_char(var &VAR_58, "nbuzuki", int 295, int 13)
 var nduke = call create_char(var &VAR_59, "nduke", int 110, int 13)
 var nfrink = call create_char(var &VAR_60, "nfrink", int 0, int 13)
-call add_item_to_char(var nduke, int 16, int 0, int 1)
+call add_item_to_char(var nduke, int 16 /* shrtswrd */ , int 0, int 1)
 call set_char_running(var nfrink)
 call func_50(var nfrink, int 8192)
 call play_char_ai_script(var nfrink, var &VAR_61)
@@ -413,7 +413,7 @@ switch(var VAR_96)
 		case 13
 			break 
 }
-if(call is_char_handle_in_level(int 4456448))
+if(call is_char_handle_in_level(int 4456448 /* DUKE */ ))
  {
 		execute SCRIPT_8
 }
@@ -427,7 +427,7 @@ var VAR_97 ++
 var nbuzuki = call create_char(var &VAR_81, "nbuzuki", int 3, int 13)
 var nduke = call create_char(var &VAR_82, "nduke", int 285, int 13)
 var nfrink = call create_char(var &VAR_83, "nfrink", int 0, int 13)
-call add_item_to_char(var nduke, int 16, int 0, int 1)
+call add_item_to_char(var nduke, int 16 /* shrtswrd */ , int 0, int 1)
 call set_char_running(var nfrink)
 call func_50(var nfrink, int 8192)
 call play_char_ai_script(var nfrink, var &VAR_85)
@@ -478,16 +478,16 @@ if(call func_bf(int 444, gamevar CURRENT_LEVEL, gamevar CURRENT_SCENE))
 switch(var VAR_132)
  {
 		case 2
-			call add_item_to_char(var nbuzuki, int 38, int 0, int 0)
-			call add_item_to_char(var nbuzuki, int 39, int 0, int 0)
+			call add_item_to_char(var nbuzuki, int 38 /* potbrown */ , int 0, int 0)
+			call add_item_to_char(var nbuzuki, int 39 /* potblack */ , int 0, int 0)
 		case 1
-			call add_item_to_char(var nbuzuki, int 36, int 0, int 0)
-			call add_item_to_char(var nbuzuki, int 37, int 0, int 0)
+			call add_item_to_char(var nbuzuki, int 36 /* potorang */ , int 0, int 0)
+			call add_item_to_char(var nbuzuki, int 37 /* potgreen */ , int 0, int 0)
 		case 0
-			call add_item_to_char(var nbuzuki, int 32, int 0, int 0)
-			call add_item_to_char(var nbuzuki, int 33, int 0, int 0)
-			call add_item_to_char(var nbuzuki, int 34, int 0, int 0)
-			call add_item_to_char(var nbuzuki, int 35, int 0, int 0)
+			call add_item_to_char(var nbuzuki, int 32 /* potwhite */ , int 0, int 0)
+			call add_item_to_char(var nbuzuki, int 33 /* potblue */ , int 0, int 0)
+			call add_item_to_char(var nbuzuki, int 34 /* potred */ , int 0, int 0)
+			call add_item_to_char(var nbuzuki, int 35 /* potpurpl */ , int 0, int 0)
 			break 
 }
 var DAVID = call get_char_handle(int 65536)
@@ -534,7 +534,7 @@ switch(var VAR_133)
 							}
 					}
 					call func_108(var VAR_140)
-					if(call is_char_handle_in_level(int 6291456))
+					if(call is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
 					 {
 							call func_10c(var fade_chronicler, int 0)
 					}
@@ -652,7 +652,7 @@ switch(var VAR_133)
 			}
 			var VAR_140 = @VAR_141[gamevar room_state - int 4]
 			call func_108(var VAR_140)
-			if(call is_char_handle_in_level(int 6291456))
+			if(call is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
 			 {
 					call func_10c(var fade_chronicler, int 0)
 			}
@@ -707,7 +707,7 @@ if(gamevar script_time > var VAR_173)
 }
 
 ._SCRIPT_17
-if(call ! is_char_handle_in_level(int 6291456))
+if(call ! is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
  {
 		exit_script 
 }
@@ -720,7 +720,7 @@ else
 }
 
 ._SCRIPT_18
-if(call ! is_char_handle_in_level(int 6291456))
+if(call ! is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
  {
 		exit_script 
 }
@@ -839,7 +839,7 @@ switch(var VAR_17)
 var VAR_18 ++ 
 
 ._SCRIPT_19
-if(call is_char_handle_in_level(int 6291456))
+if(call is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
  {
 		if(var fade_chronicler == int 0)
 		 {

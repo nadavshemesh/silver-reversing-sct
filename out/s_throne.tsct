@@ -325,10 +325,10 @@ call load_char_anim(var nsguard2, var &VAR_43)
 call load_char_anim(var nsguard3, var &VAR_45)
 call load_char_anim(var nsguard5, var &VAR_48)
 call load_char_anim(var nsguard6, var &VAR_50)
-call add_item_to_char(var nsguard2, int 16, int 0, int 1)
-call add_item_to_char(var nsguard3, int 16, int 0, int 1)
-call add_item_to_char(var nsguard5, int 16, int 0, int 1)
-call add_item_to_char(var nsguard6, int 16, int 0, int 1)
+call add_item_to_char(var nsguard2, int 16 /* shrtswrd */ , int 0, int 1)
+call add_item_to_char(var nsguard3, int 16 /* shrtswrd */ , int 0, int 1)
+call add_item_to_char(var nsguard5, int 16 /* shrtswrd */ , int 0, int 1)
+call add_item_to_char(var nsguard6, int 16 /* shrtswrd */ , int 0, int 1)
 execute SCRIPT_6
 gamevar SMACKER_X = int 236
 gamevar SMACKER_Y = int 188
@@ -532,10 +532,10 @@ call load_char_anim(var nsguard2, var &VAR_43)
 call load_char_anim(var nsguard3, var &VAR_45)
 call load_char_anim(var nsguard5, var &VAR_48)
 call load_char_anim(var nsguard6, var &VAR_50)
-call add_item_to_char(var nsguard2, int 16, int 0, int 1)
-call add_item_to_char(var nsguard3, int 16, int 0, int 1)
-call add_item_to_char(var nsguard5, int 16, int 0, int 1)
-call add_item_to_char(var nsguard6, int 16, int 0, int 1)
+call add_item_to_char(var nsguard2, int 16 /* shrtswrd */ , int 0, int 1)
+call add_item_to_char(var nsguard3, int 16 /* shrtswrd */ , int 0, int 1)
+call add_item_to_char(var nsguard5, int 16 /* shrtswrd */ , int 0, int 1)
+call add_item_to_char(var nsguard6, int 16 /* shrtswrd */ , int 0, int 1)
 var lightning = call add_item_to_char(var nsilver, int 3, int 0, int 0)
 var ice = call add_item_to_char(var nglass, int 1, int 0, int 0)
 execute SCRIPT_6
@@ -682,7 +682,7 @@ switch(var VAR_104)
 							var VAR_149 = int 1
 					}
 			}
-			if(call get_char_item_if_equiped(var silver, int 3))
+			if(call get_char_item_if_equiped(var silver, int 3 /* lightning */ ))
 			 {
 					call func_1e(var silver, var nwilliam)
 					var VAR_104 = int 13
@@ -690,7 +690,7 @@ switch(var VAR_104)
 			}
 			break 
 		case 13
-			if(call ! is_char_handle_in_level(int 4784128))
+			if(call ! is_char_handle_in_level(int 4784128 /* WILLIAM */ ))
 			 {
 					call func_fd(var silver, var lightning)
 					call reset_local_timer()
@@ -698,7 +698,7 @@ switch(var VAR_104)
 			}
 			break 
 		case 14
-			if(call is_local_timer_greater_than(int 20)&&call ! get_char_item_if_equiped(var silver, int 3))
+			if(call is_local_timer_greater_than(int 20)&&call ! get_char_item_if_equiped(var silver, int 3 /* lightning */ ))
 			 {
 					call char_turn_to_pos(var silver, var &VAR_137)
 					call reset_local_timer()
@@ -1388,8 +1388,8 @@ switch(var VAR_104)
 								call char_walk_to_pos(var VAR_106, var &VAR_155)
 								gamevar script_object = var VAR_106
 								gamevar *object_p+6 &= int -2
-								call add_item_to_char(var VAR_106, int 113, int 0, int 1)
-								call add_item_to_char(var VAR_106, int 114, int 0, int 1)
+								call add_item_to_char(var VAR_106, int 113 /* nemshld */ , int 0, int 1)
+								call add_item_to_char(var VAR_106, int 114 /* nemshld */ , int 0, int 1)
 								call reset_local_timer()
 								var VAR_149 ++ 
 						}
@@ -1511,8 +1511,8 @@ call func_8f("jennifer")
 call func_8f("beth")
 call func_8f("bonnie")
 call load_char("silv_orb")
-call load_item(int 113)
-call load_item(int 114)
+call load_item(int 113 /* nemshld */ )
+call load_item(int 114 /* nemshld */ )
 execute SCRIPT_15
 if(var ! VAR_102)
  {
@@ -1579,8 +1579,8 @@ if(var f_in_sekune1)
 }
 call func_61(var VAR_106)
 call func_8e()
-call add_item_to_char(var VAR_106, int 113, int 0, int 1)
-call add_item_to_char(var VAR_106, int 114, int 0, int 1)
+call add_item_to_char(var VAR_106, int 113 /* nemshld */ , int 0, int 1)
+call add_item_to_char(var VAR_106, int 114 /* nemshld */ , int 0, int 1)
 gamevar room_state = int 0
 
 ._SCRIPT_12
@@ -1630,7 +1630,7 @@ switch(var VAR_198)
 			if(var VAR_136 == int -1)
 			 {
 					call stop_playing_sound(var DoorCls3_sound_ref)
-					var DoorCls3_sound_ref = call play_loaded_sound(int 3, int 0, int 51, int 0) /* 'bigfire' */ 
+					var DoorCls3_sound_ref = call play_loaded_sound /* 'bigfire' */ (int 3, int 0, int 51, int 0)
 					call set_sound_volume(var DoorCls3_sound_ref, int 90)
 					var VAR_198 ++ 
 					var VAR_201 = int 0

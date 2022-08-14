@@ -169,7 +169,7 @@ if(var VAR_87 == int 0)
 ._SCRIPT_5
 var handler = call create_enemy(int 21, int 0, var &VAR_69, int 347)
 call freeze_enemy(var handler)
-call add_item_to_char(var handler, int 41, int 1, int 0)
+call add_item_to_char(var handler, int 41 /* veggies */ , int 1, int 0)
 var hound = call create_enemy(int 18, int 0, var &VAR_70, int 352)
 call freeze_enemy(var hound)
 var hound1 = call create_enemy(int 18, int 1, var &VAR_71, int 147)
@@ -336,7 +336,7 @@ switch(var VAR_13)
 		case 4
 			if(var VAR_14 > var VAR_16)
 			 {
-					var verwind_sound_ref = call play_loaded_sound(int 4, int 0, int 25, int 0) /* 'thunstrk' */ 
+					var verwind_sound_ref = call play_loaded_sound /* 'thunstrk' */ (int 4, int 0, int 25, int 0)
 					call set_sound_volume(var verwind_sound_ref, var VAR_17)
 					if(var ! VAR_3)
 					 {
@@ -357,7 +357,7 @@ switch(var VAR_13)
 var VAR_14 ++ 
 
 ._SCRIPT_12
-if(call ! is_char_handle_in_level(int 6291456))
+if(call ! is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
  {
 		exit_script 
 }
@@ -370,7 +370,7 @@ else
 }
 
 ._SCRIPT_13
-if(call ! is_char_handle_in_level(int 6291456))
+if(call ! is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
  {
 		exit_script 
 }
@@ -489,7 +489,7 @@ switch(var VAR_35)
 var VAR_36 ++ 
 
 ._SCRIPT_14
-if(call is_char_handle_in_level(int 6291456))
+if(call is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
  {
 		if(var fade_chronicler == int 0)
 		 {
@@ -565,8 +565,8 @@ switch(gamevar is_room_cleared)
 			call load_char("dick")
 			call load_char("finnegan")
 			call load_char("longjohn")
-			call load_item(int 91)
-			call load_item(int 93)
+			call load_item(int 91 /* rapier */ )
+			call load_item(int 93 /* cutlass */ )
 			if(call func_6f() == int 1)
 			 {
 					call run_wandering_generator(var &VAR_88, int 100)

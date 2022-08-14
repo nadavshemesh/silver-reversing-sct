@@ -191,10 +191,10 @@ var FSGRUNT = call create_char(var &VAR_5, "FSGRUNT!", int 270, int 13)
 var FSGRUNT2 = call create_char(var &VAR_7, "FSGRUNT2", int 230, int 13)
 var FSGRUNT3 = call create_char(var &VAR_9, "FSGRUNT3", int 225, int 13)
 var FSGRUNT = call create_char(var &VAR_11, "FSGRUNT", int 265, int 13)
-call add_item_to_char(var FSGRUNT, int 16, int 0, int 1)
-call add_item_to_char(var FSGRUNT2, int 16, int 0, int 1)
-call add_item_to_char(var FSGRUNT3, int 16, int 0, int 1)
-call add_item_to_char(var FSGRUNT, int 16, int 0, int 1)
+call add_item_to_char(var FSGRUNT, int 16 /* shrtswrd */ , int 0, int 1)
+call add_item_to_char(var FSGRUNT2, int 16 /* shrtswrd */ , int 0, int 1)
+call add_item_to_char(var FSGRUNT3, int 16 /* shrtswrd */ , int 0, int 1)
+call add_item_to_char(var FSGRUNT, int 16 /* shrtswrd */ , int 0, int 1)
 execute SCRIPT_6
 var DAVID = call get_char_handle(int 65536)
 var GRANDAD = call get_char_handle(int 393216)
@@ -316,7 +316,7 @@ if(var VAR_30 == int 8)
 }
 if(var VAR_30 == int 9)
  {
-		if(call is_char_handle_in_level(int 4128768))
+		if(call is_char_handle_in_level(int 4128768 /* SGRUNT */ ))
 		 {
 				if(call is_char_standing(var FSGRUNT))
 				 {
@@ -324,7 +324,7 @@ if(var VAR_30 == int 9)
 						call remove_char(var FSGRUNT)
 				}
 		}
-		if(call is_char_handle_in_level(int 4128770))
+		if(call is_char_handle_in_level(int 4128770 /* SGRUNT */ ))
 		 {
 				if(call is_char_standing(var FSGRUNT2))
 				 {
@@ -332,7 +332,7 @@ if(var VAR_30 == int 9)
 						call remove_char(var FSGRUNT2)
 				}
 		}
-		if(call is_char_handle_in_level(int 4128771))
+		if(call is_char_handle_in_level(int 4128771 /* SGRUNT */ ))
 		 {
 				if(call is_char_standing(var FSGRUNT3))
 				 {
@@ -363,8 +363,8 @@ gamevar door_restriction_p = var &VAR_1
 ._SCRIPT_14
 var nrebela1 = call create_char(var &VAR_46, "nrebela1", int 150, int 13)
 var nrebela2 = call create_char(var &VAR_47, "nrebela2", int 345, int 13)
-call add_item_to_char(var nrebela1, int 16, int 0, int 1)
-call add_item_to_char(var nrebela2, int 16, int 0, int 1)
+call add_item_to_char(var nrebela1, int 16 /* shrtswrd */ , int 0, int 1)
+call add_item_to_char(var nrebela2, int 16 /* shrtswrd */ , int 0, int 1)
 call func_50(var nrebela1, int 8192)
 call play_char_ai_script(var nrebela1, var &VAR_48)
 call func_50(var nrebela2, int 8192)

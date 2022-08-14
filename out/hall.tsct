@@ -322,12 +322,12 @@ if(call func_bf(int 1, gamevar CURRENT_LEVEL, gamevar CURRENT_SCENE))
 }
 
 ._SCRIPT_18
-if(call ! is_char_handle_in_level(int 1507328))
+if(call ! is_char_handle_in_level(int 1507328 /* BTREASURE */ ))
  {
 		gamevar global_inventory_p = var &VAR_74
 		call create_char(var &VAR_76, "btreasure", int 355, int 14)
 }
-if(call ! is_char_handle_in_level(int 1441792))
+if(call ! is_char_handle_in_level(int 1441792 /* MIMIC */ ))
  {
 		gamevar global_inventory_p = var &VAR_75
 		call create_char(var &VAR_77, "bmimic", int 205, int 17)
@@ -474,7 +474,7 @@ switch(var VAR_18)
 		case 4
 			if(var VAR_19 > var VAR_21)
 			 {
-					var verwind_sound_ref = call play_loaded_sound(int 4, int 0, int 25, int 0) /* 'thunstrk' */ 
+					var verwind_sound_ref = call play_loaded_sound /* 'thunstrk' */ (int 4, int 0, int 25, int 0)
 					call set_sound_volume(var verwind_sound_ref, var VAR_22)
 					if(var ! VAR_7)
 					 {

@@ -131,12 +131,12 @@ call func_50(var hellcat, int 8192)
 call play_char_ai_script(var hellcat, var &VAR_15)
 var DAVID = call get_char_handle(int 65536)
 var btreasure = call create_char(var &VAR_9, "btreasure", int 215, int 14)
-call add_item_to_char(var btreasure, int 72, int 1, int 0)
-call add_item_to_char(var btreasure, int 38, int 1, int 0)
-call add_item_to_char(var btreasure, int 32, int 1, int 0)
-call add_item_to_char(var btreasure, int 32, int 1, int 0)
-call add_item_to_char(var btreasure, int 35, int 1, int 0)
-call add_item_to_char(var btreasure, int 35, int 1, int 0)
+call add_item_to_char(var btreasure, int 72 /* keyg */ , int 1, int 0)
+call add_item_to_char(var btreasure, int 38 /* potbrown */ , int 1, int 0)
+call add_item_to_char(var btreasure, int 32 /* potwhite */ , int 1, int 0)
+call add_item_to_char(var btreasure, int 32 /* potwhite */ , int 1, int 0)
+call add_item_to_char(var btreasure, int 35 /* potpurpl */ , int 1, int 0)
+call add_item_to_char(var btreasure, int 35 /* potpurpl */ , int 1, int 0)
 
 ._SCRIPT_6
 
@@ -173,11 +173,11 @@ if(var VAR_3 != int -1)
 		 {
 				if(var VAR_5 != int -1)
 				 {
-						call add_item_to_char(var is_BTREASURE_exist, int 85, var VAR_5, int 0)
+						call add_item_to_char(var is_BTREASURE_exist, int 85 /* moneybag */ , var VAR_5, int 0)
 				}
 				else
 				 {
-						call add_item_to_char(var is_BTREASURE_exist, var VAR_3, int 1, int 0)
+						call add_item_to_char(var is_BTREASURE_exist, var VAR_3 /* lightning */ , int 1, int 0)
 				}
 		}
 }

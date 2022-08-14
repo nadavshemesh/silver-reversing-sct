@@ -161,9 +161,9 @@ if(var VAR_44 == int 1)
 ._SCRIPT_6
 var sentryg = call create_enemy(int 56, int 1, var &VAR_48, int 310)
 var sentryg1 = call create_enemy(int 56, int 2, var &VAR_49, int 25)
-call add_item_to_char(var sentryg, int 18, int 1, int 0)
-call add_item_to_char(var sentryg, int 42, int 1, int 0)
-call add_item_to_char(var sentryg1, int 43, int 1, int 0)
+call add_item_to_char(var sentryg, int 18 /* bipennis */ , int 1, int 0)
+call add_item_to_char(var sentryg, int 42 /* bread */ , int 1, int 0)
+call add_item_to_char(var sentryg1, int 43 /* cheese */ , int 1, int 0)
 var leopard = call create_enemy(int 72, int 1, var &VAR_52, int 0)
 var leopard1 = call create_enemy(int 72, int 2, var &VAR_53, int 0)
 call run_wandering_generator(var &VAR_57, int 0)
@@ -191,7 +191,7 @@ gamevar SMACKER_Y = int 400
 call play_2d_anim("snow", int 1, int 1, int 0)
 
 ._SCRIPT_11
-if(call ! is_char_handle_in_level(int 6291456))
+if(call ! is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
  {
 		exit_script 
 }
@@ -204,7 +204,7 @@ else
 }
 
 ._SCRIPT_12
-if(call ! is_char_handle_in_level(int 6291456))
+if(call ! is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
  {
 		exit_script 
 }
@@ -323,7 +323,7 @@ switch(var VAR_17)
 var VAR_18 ++ 
 
 ._SCRIPT_13
-if(call is_char_handle_in_level(int 6291456))
+if(call is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
  {
 		if(var fade_chronicler == int 0)
 		 {

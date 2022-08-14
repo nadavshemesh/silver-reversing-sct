@@ -123,9 +123,9 @@ switch(var VAR_26)
 
 ._SCRIPT_5
 var btreasure = call create_char(var &VAR_23, "btreasure", int 220, int 14)
-call add_item_to_char(var btreasure, int 66, int 1, int 0)
-call add_item_to_char(var btreasure, int 6, int 1, int 0)
-call add_item_to_char(var btreasure, int 85, int 3277313, int 0)
+call add_item_to_char(var btreasure, int 66 /* keye */ , int 1, int 0)
+call add_item_to_char(var btreasure, int 6 /* time */ , int 1, int 0)
+call add_item_to_char(var btreasure, int 85 /* moneybag */ , int 3277313, int 0)
 
 ._SCRIPT_6
 switch(var VAR_36)
@@ -149,7 +149,7 @@ switch(var VAR_27)
 		case 0
 			if(gamevar control_char_p)
 			 {
-					if(call create_item(int 6))
+					if(call create_item(int 6 /* time */ ))
 					 {
 							call set_input_system(int 2)
 							var VAR_19 = int 1
@@ -269,11 +269,11 @@ if(var VAR_14 != int -1)
 		 {
 				if(var VAR_16 != int -1)
 				 {
-						call add_item_to_char(var is_BTREASURE_exist, int 85, var VAR_16, int 0)
+						call add_item_to_char(var is_BTREASURE_exist, int 85 /* moneybag */ , var VAR_16, int 0)
 				}
 				else
 				 {
-						call add_item_to_char(var is_BTREASURE_exist, var VAR_14, int 1, int 0)
+						call add_item_to_char(var is_BTREASURE_exist, var VAR_14 /* potwhite */ , int 1, int 0)
 				}
 		}
 }

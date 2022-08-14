@@ -792,10 +792,10 @@ var nbill = call create_char(var &VAR_142, "nbill", int 96, int 13)
 var nben = call create_char(var &VAR_143, "nben", int 96, int 13)
 var nclay = call create_char(var &VAR_145, "nclay", int 96, int 13)
 var nrichard = call create_char(var &VAR_144, "nrichard", int 96, int 13)
-call add_item_to_char(var nduke, int 16, int 0, int 1)
-call add_item_to_char(var nbill, int 16, int 0, int 1)
-call add_item_to_char(var nben, int 16, int 0, int 1)
-call add_item_to_char(var nrichard, int 16, int 0, int 1)
+call add_item_to_char(var nduke, int 16 /* shrtswrd */ , int 0, int 1)
+call add_item_to_char(var nbill, int 16 /* shrtswrd */ , int 0, int 1)
+call add_item_to_char(var nben, int 16 /* shrtswrd */ , int 0, int 1)
+call add_item_to_char(var nrichard, int 16 /* shrtswrd */ , int 0, int 1)
 var DAVID = call get_char_handle(int 65536)
 var SEKUNE = call get_char_handle(int 786432)
 call func_108(var &VAR_153)
@@ -814,10 +814,10 @@ var nrebel1 = call create_char(var &VAR_193, "nrebel1", int 320, int 13)
 var nrebel2 = call create_char(var &VAR_194, "nrebel2", int 345, int 13)
 var nrebela1 = call create_char(var &VAR_195, "nrebela1", int 325, int 13)
 var nrebela2 = call create_char(var &VAR_196, "nrebela2", int 355, int 13)
-call add_item_to_char(var nrebel1, int 16, int 0, int 1)
-call add_item_to_char(var nrebel2, int 16, int 0, int 1)
-call add_item_to_char(var nrebela1, int 16, int 0, int 1)
-call add_item_to_char(var nrebela2, int 16, int 0, int 1)
+call add_item_to_char(var nrebel1, int 16 /* shrtswrd */ , int 0, int 1)
+call add_item_to_char(var nrebel2, int 16 /* shrtswrd */ , int 0, int 1)
+call add_item_to_char(var nrebela1, int 16 /* shrtswrd */ , int 0, int 1)
+call add_item_to_char(var nrebela2, int 16 /* shrtswrd */ , int 0, int 1)
 if(call play_bgm("HAVNBPT1"))
  {
 		call func_114(int 1)
@@ -832,10 +832,10 @@ var nrebel1 = call create_char(var &VAR_193, "nrebel1", int 320, int 13)
 var nrebel2 = call create_char(var &VAR_194, "nrebel2", int 345, int 13)
 var nrebela1 = call create_char(var &VAR_195, "nrebela1", int 325, int 13)
 var nrebela2 = call create_char(var &VAR_196, "nrebela2", int 355, int 13)
-call add_item_to_char(var nrebel1, int 16, int 0, int 1)
-call add_item_to_char(var nrebel2, int 16, int 0, int 1)
-call add_item_to_char(var nrebela1, int 16, int 0, int 1)
-call add_item_to_char(var nrebela2, int 16, int 0, int 1)
+call add_item_to_char(var nrebel1, int 16 /* shrtswrd */ , int 0, int 1)
+call add_item_to_char(var nrebel2, int 16 /* shrtswrd */ , int 0, int 1)
+call add_item_to_char(var nrebela1, int 16 /* shrtswrd */ , int 0, int 1)
+call add_item_to_char(var nrebela2, int 16 /* shrtswrd */ , int 0, int 1)
 if(call play_bgm("HAVNBPT1"))
  {
 		call func_114(int 1)
@@ -854,7 +854,7 @@ if(gamevar script_time > var VAR_209)
 
 ._SCRIPT_20
 var VAR_0 = int 4
-if(call ! is_char_handle_in_level(int 6291456))
+if(call ! is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
  {
 		exit_script 
 }
@@ -967,7 +967,7 @@ switch(var VAR_210)
 var VAR_211 ++ 
 
 ._SCRIPT_21
-if(call ! is_char_handle_in_level(int 6291456))
+if(call ! is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
  {
 		exit_script 
 }
@@ -980,7 +980,7 @@ else
 }
 
 ._SCRIPT_22
-if(call ! is_char_handle_in_level(int 6291456))
+if(call ! is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
  {
 		exit_script 
 }
@@ -1099,7 +1099,7 @@ switch(var VAR_17)
 var VAR_18 ++ 
 
 ._SCRIPT_23
-if(call is_char_handle_in_level(int 6291456))
+if(call is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
  {
 		if(var fade_chronicler == int 0)
 		 {

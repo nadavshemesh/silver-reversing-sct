@@ -130,10 +130,10 @@ gamevar script_object = var nyelimp
 gamevar *character_movement_p+60 = int 1
 gamevar *character_stats_p+14 = int 106000
 var btreasure = call create_char(var &VAR_4, "btreasure", int 0, int 14)
-call add_item_to_char(var btreasure, int 42, int 1, int 0)
-call add_item_to_char(var btreasure, int 43, int 1, int 0)
-call add_item_to_char(var btreasure, int 85, int 3277313, int 0)
-call add_item_to_char(var btreasure, int 32, int 1, int 0)
+call add_item_to_char(var btreasure, int 42 /* bread */ , int 1, int 0)
+call add_item_to_char(var btreasure, int 43 /* cheese */ , int 1, int 0)
+call add_item_to_char(var btreasure, int 85 /* moneybag */ , int 3277313, int 0)
+call add_item_to_char(var btreasure, int 32 /* potwhite */ , int 1, int 0)
 var DAVID = call get_char_handle(int 65536)
 var pfew_anim = call load_anim("pfew")
 var startle_anim = call load_anim("startle")
@@ -216,7 +216,7 @@ switch(var VAR_33)
 			}
 			break 
 		case 6
-			if(call is_char_handle_in_level(int 1769472))
+			if(call is_char_handle_in_level(int 1769472 /* YELIMP */ ))
 			 {
 					if(call func_ab(int 500, call get_char_pos(var nyelimp)))
 					 {

@@ -156,7 +156,7 @@ if(var VAR_44 == int 1)
 }
 if(var VAR_44 == int 2)
  {
-		if(call is_char_handle_in_level(int 6881280))
+		if(call is_char_handle_in_level(int 6881280 /* RCAPTAIN */ ))
 		 {
 				call func_106(var captain, int 1, int 0, int 1)
 				call func_104(var captain, int 1, int 4)
@@ -195,8 +195,8 @@ call set_char_init_state(var archer, int 13)
 call play_char_ai_script(var archer, var &VAR_62)
 call set_char_init_state(var archer1, int 13)
 call play_char_ai_script(var archer1, var &VAR_63)
-call add_item_to_char(var captain, int 108, int 1, int 0)
-call add_item_to_char(var lieutenant, int 40, int 1, int 0)
+call add_item_to_char(var captain, int 108 /* quiver */ , int 1, int 0)
+call add_item_to_char(var lieutenant, int 40 /* apple */ , int 1, int 0)
 
 ._SCRIPT_7
 
@@ -368,7 +368,7 @@ switch(var VAR_13)
 		case 4
 			if(var VAR_14 > var VAR_16)
 			 {
-					var verwind_sound_ref = call play_loaded_sound(int 4, int 0, int 25, int 0) /* 'thunstrk' */ 
+					var verwind_sound_ref = call play_loaded_sound /* 'thunstrk' */ (int 4, int 0, int 25, int 0)
 					call set_sound_volume(var verwind_sound_ref, var VAR_17)
 					if(var ! VAR_3)
 					 {

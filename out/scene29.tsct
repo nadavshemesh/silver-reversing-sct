@@ -25,8 +25,8 @@ VAR_34	-1
 
 ._on_load
 execute SCRIPT_9
-call load_item(int 93)
-call load_item(int 91)
+call load_item(int 93 /* cutlass */ )
+call load_item(int 91 /* rapier */ )
 switch(gamevar room_state)
  {
 		case 1
@@ -72,7 +72,7 @@ switch(gamevar room_state)
 var muscles = call create_enemy(int 30, int 0, var &VAR_3, int 175)
 var dick = call create_enemy(int 31, int 0, var &VAR_5, int 15)
 var finnegan = call create_enemy(int 32, int 0, var &VAR_4, int 300)
-call add_item_to_char(var finnegan, int 42, int 1, int 0)
+call add_item_to_char(var finnegan, int 42 /* bread */ , int 1, int 0)
 call play_char_ai_script(var muscles, var &VAR_6)
 call play_char_ai_script(var dick, var &VAR_8)
 call play_char_ai_script(var finnegan, var &VAR_7)
@@ -91,7 +91,7 @@ switch(var VAR_31)
  {
 		case 0
 			var VAR_33 = int 0
-			if(call is_char_handle_in_level(int 2490368))
+			if(call is_char_handle_in_level(int 2490368 /* MUSCLES */ ))
 			 {
 					if(call func_88(var muscles))
 					 {
@@ -126,7 +126,7 @@ switch(var VAR_31)
 			}
 			if(var VAR_32)
 			 {
-					if(call is_char_handle_in_level(int 2490368))
+					if(call is_char_handle_in_level(int 2490368 /* MUSCLES */ ))
 					 {
 							call func_46(var muscles, int 13)
 					}
@@ -151,7 +151,7 @@ switch(var VAR_31)
 		case 1
 			if(call get_num_of_enemies() <= int 1)
 			 {
-					if(call ! is_char_handle_in_level(int 2490368))
+					if(call ! is_char_handle_in_level(int 2490368 /* MUSCLES */ ))
 					 {
 							var muscles = call create_enemy_through_door(int 30, int 0, int 1, int 0)
 							call set_char_running(var muscles)
@@ -162,7 +162,7 @@ switch(var VAR_31)
 							var dick = call create_enemy_through_door(int 31, int 0, int 1, int 0)
 							call set_char_running(var dick)
 							call func_19(var dick, call get_selected_hero())
-							call add_item_to_char(var dick, int 40, int 1, int 0)
+							call add_item_to_char(var dick, int 40 /* apple */ , int 1, int 0)
 					}
 					if(call ! is_char_handle_in_level(int 5767168))
 					 {
@@ -333,7 +333,7 @@ switch(var VAR_22)
 		case 4
 			if(var VAR_23 > var VAR_25)
 			 {
-					var verwind_sound_ref = call play_loaded_sound(int 4, int 0, int 25, int 0) /* 'thunstrk' */ 
+					var verwind_sound_ref = call play_loaded_sound /* 'thunstrk' */ (int 4, int 0, int 25, int 0)
 					call set_sound_volume(var verwind_sound_ref, var VAR_26)
 					if(var ! VAR_12)
 					 {

@@ -233,12 +233,12 @@ var sentryg = call create_enemy(int 56, int 1, var &VAR_23, int 225)
 var sentryg1 = call create_enemy(int 56, int 2, var &VAR_25, int 30)
 call load_char("wamper")
 call load_char("snowsprt")
-call add_item_to_char(var sentryg, int 16, int 0, int 1)
-call add_item_to_char(var sentryg, int 85, int 1638913, int 0)
-call add_item_to_char(var sentryg, int 43, int 1, int 0)
-call add_item_to_char(var sentryg1, int 16, int 0, int 1)
-call add_item_to_char(var sentryg1, int 85, int 3277313, int 0)
-call add_item_to_char(var sentryg1, int 40, int 1, int 0)
+call add_item_to_char(var sentryg, int 16 /* shrtswrd */ , int 0, int 1)
+call add_item_to_char(var sentryg, int 85 /* moneybag */ , int 1638913, int 0)
+call add_item_to_char(var sentryg, int 43 /* cheese */ , int 1, int 0)
+call add_item_to_char(var sentryg1, int 16 /* shrtswrd */ , int 0, int 1)
+call add_item_to_char(var sentryg1, int 85 /* moneybag */ , int 3277313, int 0)
+call add_item_to_char(var sentryg1, int 40 /* apple */ , int 1, int 0)
 execute SCRIPT_7
 call set_char_init_state(var sentryg, int 13)
 call play_char_ai_script(var sentryg, var &VAR_28)
@@ -309,11 +309,11 @@ if(var VAR_3 != int -1)
 		 {
 				if(var VAR_5 != int -1)
 				 {
-						call add_item_to_char(var is_BTREASURE_exist, int 85, var VAR_5, int 0)
+						call add_item_to_char(var is_BTREASURE_exist, int 85 /* moneybag */ , var VAR_5, int 0)
 				}
 				else
 				 {
-						call add_item_to_char(var is_BTREASURE_exist, var VAR_3, int 1, int 0)
+						call add_item_to_char(var is_BTREASURE_exist, var VAR_3 /* lightning */ , int 1, int 0)
 				}
 		}
 }

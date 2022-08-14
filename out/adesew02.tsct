@@ -197,7 +197,7 @@ switch(var VAR_15)
 			 {
 					call func_132(var VAR_14, int 98)
 					var dwavesLp_sound_ref = call play_loaded_sound(int 1, int -1, int 35, int 0)
-					var steam_sound_ref = call play_loaded_sound(int 2, int -1, int 35, int 0) /* 'steam' */ 
+					var steam_sound_ref = call play_loaded_sound /* 'steam' */ (int 2, int -1, int 35, int 0)
 					call set_sound_volume(var steam_sound_ref, int 0)
 					var VAR_11 = int 0
 					var VAR_5 = int 1
@@ -264,8 +264,8 @@ call func_106(var greater_gimpv, int 1, int 0, int 1)
 call func_106(var greater_gimpv1, int 1, int 0, int 1)
 call set_char_init_state(var greater_gimpv, int 1)
 call set_char_init_state(var greater_gimpv1, int 1)
-call add_item_to_char(var greater_gimpv, int 43, int 1, int 0)
-call add_item_to_char(var greater_gimpv1, int 45, int 1, int 0)
+call add_item_to_char(var greater_gimpv, int 43 /* cheese */ , int 1, int 0)
+call add_item_to_char(var greater_gimpv1, int 45 /* deadmous */ , int 1, int 0)
 var VAR_36 = call run_enemy_generator(var &VAR_37, int 400)
 
 ._SCRIPT_5

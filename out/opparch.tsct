@@ -116,7 +116,7 @@ var DAVID = call get_char_handle(int 65536)
 call load_char("chronicl")
 call load_char("rlieuten")
 call load_char("hound")
-call add_item_to_char(var handler, int 40, int 1, int 0)
+call add_item_to_char(var handler, int 40 /* apple */ , int 1, int 0)
 
 ._SCRIPT_6
 switch(var VAR_77)
@@ -140,7 +140,7 @@ switch(var VAR_77)
 					var lieutenant = call create_enemy(int 11, int 0, "	", int 240)
 					call func_106(var lieutenant, int 1, int 0, int 2)
 					call func_50(var lieutenant, int 2)
-					call add_item_to_char(var lieutenant, int 41, int 1, int 0)
+					call add_item_to_char(var lieutenant, int 41 /* veggies */ , int 1, int 0)
 					var lieutenant1 = call create_enemy(int 11, int 1, var &VAR_63, int 200)
 					call func_106(var lieutenant1, int 1, int 0, int 2)
 					call func_50(var lieutenant1, int 2)
@@ -318,7 +318,7 @@ switch(var VAR_13)
 		case 4
 			if(var VAR_14 > var VAR_16)
 			 {
-					var verwind_sound_ref = call play_loaded_sound(int 4, int 0, int 25, int 0) /* 'thunstrk' */ 
+					var verwind_sound_ref = call play_loaded_sound /* 'thunstrk' */ (int 4, int 0, int 25, int 0)
 					call set_sound_volume(var verwind_sound_ref, var VAR_17)
 					if(var ! VAR_3)
 					 {
@@ -339,7 +339,7 @@ switch(var VAR_13)
 var VAR_14 ++ 
 
 ._SCRIPT_14
-if(call ! is_char_handle_in_level(int 6291456))
+if(call ! is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
  {
 		exit_script 
 }
@@ -352,7 +352,7 @@ else
 }
 
 ._SCRIPT_15
-if(call ! is_char_handle_in_level(int 6291456))
+if(call ! is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
  {
 		exit_script 
 }
@@ -471,7 +471,7 @@ switch(var VAR_35)
 var VAR_36 ++ 
 
 ._SCRIPT_16
-if(call is_char_handle_in_level(int 6291456))
+if(call is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
  {
 		if(var fade_chronicler == int 0)
 		 {

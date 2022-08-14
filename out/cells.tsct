@@ -171,7 +171,7 @@ switch(var VAR_74)
 			}
 			break 
 		case 2
-			if(call ! is_char_handle_in_level(int 8060931)&&call func_9(var VAR_80))
+			if(call ! is_char_handle_in_level(int 8060931 /* GROAD */ )&&call func_9(var VAR_80))
 			 {
 					call set_input_system(int 2)
 					call func_1(var nduke, int 8192)
@@ -215,7 +215,7 @@ switch(var VAR_74)
 			if(var VAR_87&&var VAR_88&&var VAR_89)
 			 {
 					call char_turn_to_pos(var nduke, call get_char_pos(var VAR_17))
-					if(call is_char_handle_in_level(int 262144))
+					if(call is_char_handle_in_level(int 262144 /* CAGEN */ ))
 					 {
 							call start_dialog("S_CAGDUK", "NULL")
 					}
@@ -283,8 +283,8 @@ var groad1 = call create_enemy(int 39, int 1, var &VAR_61, int 0)
 var groad2 = call create_enemy(int 39, int 2, var &VAR_62, int 0)
 var lizmant = call create_enemy(int 40, int 1, var &VAR_63, int 5)
 var lizmant1 = call create_enemy(int 40, int 2, var &VAR_64, int 165)
-call add_item_to_char(var lizmant, int 45, int 1, int 0)
-call add_item_to_char(var lizmant1, int 47, int 1, int 0)
+call add_item_to_char(var lizmant, int 45 /* deadmous */ , int 1, int 0)
+call add_item_to_char(var lizmant1, int 47 /* drumstik */ , int 1, int 0)
 call func_106(var groad1, int 9, int 5, var &VAR_65)
 call func_106(var groad1, int 9, int 6, int 6)
 call func_106(var groad2, int 9, int 5, var &VAR_66)
@@ -391,7 +391,7 @@ if(gamevar *scene_info_p+4 & int 1)
 		call play_2d_anim("cells", int 0, int 1, var &VAR_1)
 		execute SCRIPT_15
 		var DAVID = call get_char_handle(int 65536)
-		if(call create_item(int 62))
+		if(call create_item(int 62 /* cellkey */ ))
 		 {
 				var VAR_4 = int 1
 		}
@@ -538,7 +538,7 @@ switch(var VAR_18)
 			}
 			if(var VAR_26&&var VAR_27&&var VAR_28)
 			 {
-					if(call is_char_handle_in_level(int 131072))
+					if(call is_char_handle_in_level(int 131072 /* CHIARO */ ))
 					 {
 							call start_dialog("C_DVDDUK", "ACT_3")
 					}

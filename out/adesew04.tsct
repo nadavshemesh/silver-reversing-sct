@@ -75,8 +75,8 @@ switch(gamevar room_state)
 var rat_raptor_max3 = call create_enemy(int 86, int 0, var &VAR_8, int 160)
 var rat_raptor_max31 = call create_enemy(int 86, int 1, var &VAR_9, int 95)
 var rat_raptor_max32 = call create_enemy(int 86, int 2, var &VAR_10, int 335)
-call add_item_to_char(var rat_raptor_max3, int 45, int 1, int 0)
-call add_item_to_char(var rat_raptor_max32, int 43, int 1, int 0)
+call add_item_to_char(var rat_raptor_max3, int 45 /* deadmous */ , int 1, int 0)
+call add_item_to_char(var rat_raptor_max32, int 43 /* cheese */ , int 1, int 0)
 call create_char(var &VAR_11, "icheese", int 0, int 13)
 var VAR_3 = int 0
 var VAR_4 = int 120
@@ -103,7 +103,7 @@ switch(var VAR_3)
 		case 1
 			if(call func_ab(int 400, var &VAR_11))
 			 {
-					call create_enemy(int 189, int 0, var &VAR_11, int 0)
+					call create_enemy(int 189 /* grow_spider */ , int 0, var &VAR_11, int 0)
 					call run_enemy_generator(var &VAR_12, int 100)
 					var VAR_3 ++ 
 			}

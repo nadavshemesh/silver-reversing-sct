@@ -126,8 +126,8 @@ call create_char(var &VAR_16, "btreasure1", int 130, int 14)
 gamevar global_inventory_p = var &VAR_13
 call create_char(var &VAR_18, "btreasure2", int 315, int 14)
 var vikingc = call create_enemy(int 66, int 0, var &VAR_21, int 0)
-call add_item_to_char(var vikingc, int 40, int 1, int 0)
-call add_item_to_char(var vikingc, int 85, int 6554113, int 0)
+call add_item_to_char(var vikingc, int 40 /* apple */ , int 1, int 0)
+call add_item_to_char(var vikingc, int 85 /* moneybag */ , int 6554113, int 0)
 var bstump = call create_enemy(int 63, int 0, var &VAR_23, int 55)
 var bstump1 = call create_enemy(int 63, int 1, var &VAR_25, int 320)
 var bstump2 = call create_enemy(int 63, int 2, var &VAR_27, int 70)
@@ -167,19 +167,19 @@ if(var ! VAR_28)
 		switch(var VAR_31)
 		 {
 				case 0
-					call add_item_to_char(var bstump3, int 40, int 1, int 0)
+					call add_item_to_char(var bstump3, int 40 /* apple */ , int 1, int 0)
 					break 
 				case 1
-					call add_item_to_char(var bstump3, int 46, int 1, int 0)
+					call add_item_to_char(var bstump3, int 46 /* pie */ , int 1, int 0)
 					break 
 				case 2
 					if(var ! VAR_29)
 					 {
-							call add_item_to_char(var bstump3, int 46, int 1, int 0)
+							call add_item_to_char(var bstump3, int 46 /* pie */ , int 1, int 0)
 					}
 					break 
 				case 3
-					call add_item_to_char(var bstump3, int 47, int 1, int 0)
+					call add_item_to_char(var bstump3, int 47 /* drumstik */ , int 1, int 0)
 					break 
 		}
 }
@@ -222,11 +222,11 @@ if(var VAR_3 != int -1)
 		 {
 				if(var VAR_5 != int -1)
 				 {
-						call add_item_to_char(var is_BTREASURE_exist, int 85, var VAR_5, int 0)
+						call add_item_to_char(var is_BTREASURE_exist, int 85 /* moneybag */ , var VAR_5, int 0)
 				}
 				else
 				 {
-						call add_item_to_char(var is_BTREASURE_exist, var VAR_3, int 1, int 0)
+						call add_item_to_char(var is_BTREASURE_exist, var VAR_3 /* lightning */ , int 1, int 0)
 				}
 		}
 }

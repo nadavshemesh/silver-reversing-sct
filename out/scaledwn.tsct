@@ -176,7 +176,7 @@ var SEKUNE = call get_char_handle(int 786432)
 var unc_anim = call load_anim("unc_pant")
 execute SCRIPT_8
 call load_char_anim(var nrebela, var &VAR_46)
-call add_item_to_char(var nrebela, int 108, int 1, int 0)
+call add_item_to_char(var nrebela, int 108 /* quiver */ , int 1, int 0)
 call set_input_system(int 2)
 
 ._SCRIPT_6
@@ -460,7 +460,7 @@ switch(var VAR_13)
 		case 4
 			if(var VAR_14 > var VAR_16)
 			 {
-					var verwind_sound_ref = call play_loaded_sound(int 4, int 0, int 25, int 0) /* 'thunstrk' */ 
+					var verwind_sound_ref = call play_loaded_sound /* 'thunstrk' */ (int 4, int 0, int 25, int 0)
 					call set_sound_volume(var verwind_sound_ref, var VAR_17)
 					if(var ! VAR_3)
 					 {

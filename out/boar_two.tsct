@@ -115,7 +115,7 @@ if(var VAR_21 == int 0)
 		 {
 				var VAR_6 = call run_enemy_generator(var &VAR_8, int 1)
 				var VAR_21 ++ 
-				if(call is_char_handle_in_level(int 4128768))
+				if(call is_char_handle_in_level(int 4128768 /* SGRUNT */ ))
 				 {
 						call set_char_init_state(var SGRUNT1, int 0)
 						call func_46(var SGRUNT1, int 13)
@@ -140,11 +140,11 @@ if(var VAR_21 == int 1)
 }
 
 ._SCRIPT_5
-call create_enemy(int 9, int 0, var &VAR_3, int 275)
+call create_enemy(int 9 /* devious_grunts */ , int 0, var &VAR_3, int 275)
 var SGRUNT1 = call get_char_handle(int 4128768)
 call func_46(var SGRUNT1, int 0)
 var borb = call add_item_to_char(var SGRUNT1, int 83, int 1, int 0)
-call add_item_to_char(var SGRUNT1, int 47, int 1, int 0)
+call add_item_to_char(var SGRUNT1, int 47 /* drumstik */ , int 1, int 0)
 call load_char("sguard")
 call load_char("sarcher")
 var tyrosumn_anim = call load_anim("tyrosumn")

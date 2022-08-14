@@ -109,7 +109,7 @@ if(var VAR_33 == int 1)
 
 ._SCRIPT_5
 var ogre = call create_enemy(int 76, int 0, var &VAR_25, int 60)
-call add_item_to_char(var ogre, int 85, int 3277313, int 0)
+call add_item_to_char(var ogre, int 85 /* moneybag */ , int 3277313, int 0)
 gamevar script_object = var ogre
 gamevar *character_stats_p+15 = int 3400
 var orc2 = call create_enemy(int 81, int 3, var &VAR_26, int 245)
@@ -117,7 +117,7 @@ gamevar script_object = var orc2
 gamevar *character_stats_p+16 = int 1400
 gamevar *character_stats_p+15 = int 3400
 var orc = call create_enemy(int 78, int 4, var &VAR_27, int 53)
-call add_item_to_char(var orc, int 85, int 1638913, int 0)
+call add_item_to_char(var orc, int 85 /* moneybag */ , int 1638913, int 0)
 gamevar script_object = var orc
 gamevar *character_stats_p+16 = int 1400
 gamevar *character_stats_p+15 = int 3400
@@ -131,7 +131,7 @@ call func_106(var ogre, int 1, int 7, int 1)
 call func_104(var ogre, int 7, int 4)
 call load_char("orc")
 call load_char("ronnie")
-call load_item(int 92)
+call load_item(int 92 /* spikmace */ )
 
 ._SCRIPT_6
 
@@ -282,7 +282,7 @@ switch(var VAR_13)
 		case 4
 			if(var VAR_14 > var VAR_16)
 			 {
-					var verwind_sound_ref = call play_loaded_sound(int 4, int 0, int 25, int 0) /* 'thunstrk' */ 
+					var verwind_sound_ref = call play_loaded_sound /* 'thunstrk' */ (int 4, int 0, int 25, int 0)
 					call set_sound_volume(var verwind_sound_ref, var VAR_17)
 					if(var ! VAR_3)
 					 {

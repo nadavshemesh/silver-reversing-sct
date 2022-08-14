@@ -33,7 +33,7 @@ var VAR_3 = int 35
 execute SCRIPT_10
 var VAR_5 = int 3277313
 execute SCRIPT_10
-call load_item(int 94)
+call load_item(int 94 /* trident */ )
 call load_sound_set(int 64)
 var cavelp_sound_ref = call play_loaded_sound(int 1, int -1, int 64, int 0)
 if(var cavelp_sound_ref)
@@ -159,11 +159,11 @@ if(var VAR_3 != int -1)
 		 {
 				if(var VAR_5 != int -1)
 				 {
-						call add_item_to_char(var is_BTREASURE_exist, int 85, var VAR_5, int 0)
+						call add_item_to_char(var is_BTREASURE_exist, int 85 /* moneybag */ , var VAR_5, int 0)
 				}
 				else
 				 {
-						call add_item_to_char(var is_BTREASURE_exist, var VAR_3, int 1, int 0)
+						call add_item_to_char(var is_BTREASURE_exist, var VAR_3 /* lightning */ , int 1, int 0)
 				}
 		}
 }

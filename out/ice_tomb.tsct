@@ -130,7 +130,7 @@ switch(var VAR_123)
 ._SCRIPT_6
 var VAR_67 = call func_af(int 1)
 var victory_anim = call load_anim("victory")
-var Magic666_sound_ref = call play_loaded_sound(int 2, int -1, int 16, int 0) /* 'Magic666' */ 
+var Magic666_sound_ref = call play_loaded_sound /* 'Magic666' */ (int 2, int -1, int 16, int 0)
 gamevar items_in_drag_box = int 0
 execute SCRIPT_11
 call load_char("chronicl")
@@ -187,7 +187,7 @@ switch(var VAR_73)
 					var VAR_51 = int 1
 					call set_input_system(int 2)
 					call stop_playing_sound(var Magic666_sound_ref)
-					var Magic666_sound_ref = call play_loaded_sound(int 3, int -1, int 16, int 0) /* 'wetwheel' */ 
+					var Magic666_sound_ref = call play_loaded_sound /* 'wetwheel' */ (int 3, int -1, int 16, int 0)
 					call char_turn_to_pos(gamevar control_char_p, var &VAR_64)
 					call func_9b(var VAR_67, var &VAR_65, int 10737418)
 					if(call func_c0(int 1001, "gno", "entrance"))
@@ -274,7 +274,7 @@ switch(var VAR_73)
 			}
 			break 
 		case 5
-			if(call create_item(int 1))
+			if(call create_item(int 1 /* ice */ ))
 			 {
 					var VAR_85 = call get_char_handle_id(gamevar control_char_p)
 					execute SCRIPT_19
@@ -411,7 +411,7 @@ switch(var VAR_73)
 var VAR_74 ++ 
 
 ._SCRIPT_14
-if(call ! is_char_handle_in_level(int 6291456))
+if(call ! is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
  {
 		exit_script 
 }
@@ -424,7 +424,7 @@ else
 }
 
 ._SCRIPT_15
-if(call ! is_char_handle_in_level(int 6291456))
+if(call ! is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
  {
 		exit_script 
 }
@@ -543,7 +543,7 @@ switch(var VAR_17)
 var VAR_18 ++ 
 
 ._SCRIPT_16
-if(call is_char_handle_in_level(int 6291456))
+if(call is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
  {
 		if(var fade_chronicler == int 0)
 		 {

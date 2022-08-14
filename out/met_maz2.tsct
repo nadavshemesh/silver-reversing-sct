@@ -194,9 +194,9 @@ call play_char_ai_script(var bat2, var &VAR_49)
 var fsarcher1 = call create_char(var &VAR_54, "fsarcher1", int 220, int 13)
 var fsarcher2 = call create_char(var &VAR_55, "fsarcher2", int 220, int 13)
 var fsarcher3 = call create_char(var &VAR_56, "fsarcher3", int 220, int 13)
-call add_item_to_char(var fsarcher1, int 47, int 1, int 0)
-call add_item_to_char(var fsarcher2, int 46, int 1, int 0)
-call add_item_to_char(var fsarcher3, int 45, int 1, int 0)
+call add_item_to_char(var fsarcher1, int 47 /* drumstik */ , int 1, int 0)
+call add_item_to_char(var fsarcher2, int 46 /* pie */ , int 1, int 0)
+call add_item_to_char(var fsarcher3, int 45 /* deadmous */ , int 1, int 0)
 call func_50(var fsarcher1, int 1)
 call func_50(var fsarcher2, int 1)
 call func_50(var fsarcher3, int 1)
@@ -220,7 +220,7 @@ execute SCRIPT_10
 var ndavid = call create_char(var VAR_20, "ndavid", call randomize_int(int 0, int 360), int 13)
 gamevar script_object = var ndavid
 gamevar *object_p+8 |= int 33554432
-call add_item_to_char(var ndavid, int 22, int 0, int 1)
+call add_item_to_char(var ndavid, int 22 /* bastswrd */ , int 0, int 1)
 call func_50(var ndavid, int 129)
 call func_106(var ndavid, int 7, int 7, int 3)
 call set_char_lvl(var ndavid, int 15)
@@ -231,7 +231,7 @@ gamevar *character_stats_p+16 = int 30000
 var njug = call create_char(var VAR_21, "njug", call randomize_int(int 0, int 360), int 13)
 gamevar script_object = var njug
 gamevar *object_p+8 |= int 33554432
-call add_item_to_char(var njug, int 22, int 0, int 1)
+call add_item_to_char(var njug, int 22 /* bastswrd */ , int 0, int 1)
 call func_50(var njug, int 129)
 call func_106(var njug, int 7, int 7, int 3)
 call set_char_lvl(var njug, int 15)
@@ -242,7 +242,7 @@ gamevar *character_stats_p+16 = int 30000
 var nvivienne = call create_char(var VAR_22, "nvivienne", call randomize_int(int 0, int 360), int 13)
 gamevar script_object = var nvivienne
 gamevar *object_p+8 |= int 33554432
-call add_item_to_char(var nvivienne, int 22, int 0, int 1)
+call add_item_to_char(var nvivienne, int 22 /* bastswrd */ , int 0, int 1)
 call func_50(var nvivienne, int 129)
 call func_106(var nvivienne, int 7, int 7, int 3)
 call set_char_lvl(var nvivienne, int 15)
@@ -304,17 +304,17 @@ switch(var VAR_35)
 		case 1
 			if(call is_local_timer_greater_than(int 10))
 			 {
-					if(call is_char_handle_in_level(int 65536))
+					if(call is_char_handle_in_level(int 65536 /* DAVID */ ))
 					 {
 							gamevar script_object = var ndavid
 							gamevar HP = int 10000
 					}
-					if(call is_char_handle_in_level(int 327680))
+					if(call is_char_handle_in_level(int 327680 /* JUG */ ))
 					 {
 							gamevar script_object = var njug
 							gamevar HP = int 10000
 					}
-					if(call is_char_handle_in_level(int 196608))
+					if(call is_char_handle_in_level(int 196608 /* VIVIENNE */ ))
 					 {
 							gamevar script_object = var nvivienne
 							gamevar HP = int 10000

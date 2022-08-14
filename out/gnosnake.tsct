@@ -90,8 +90,8 @@ if(gamevar script_time > var VAR_79)
 
 ._SCRIPT_4
 var btreasure = call create_char(var &VAR_52, "btreasure", int 45, int 14)
-call add_item_to_char(var btreasure, int 85, int 3277313, int 0)
-call add_item_to_char(var btreasure, int 42, int 1, int 0)
+call add_item_to_char(var btreasure, int 85 /* moneybag */ , int 3277313, int 0)
+call add_item_to_char(var btreasure, int 42 /* bread */ , int 1, int 0)
 var pfew_anim = call load_anim("pfew")
 var cheesnif_anim = call load_anim("cheesnif")
 var startle_anim = call load_anim("startle")
@@ -109,7 +109,7 @@ call set_input_system(int 2)
 ._SCRIPT_5
 execute SCRIPT_7
 execute SCRIPT_6
-if(call is_char_handle_in_level(int 917505))
+if(call is_char_handle_in_level(int 917505 /* IMP */ ))
  {
 		execute SCRIPT_8
 }
@@ -193,7 +193,7 @@ var VAR_69 ++
 if(var VAR_62 == int 0)
  {
 		var nlloyd = call create_char(var &VAR_65, "nlloyd", int 0, int 13)
-		call add_item_to_char(var nlloyd, int 81, int 1, int 1)
+		call add_item_to_char(var nlloyd, int 81 /* lcheese */ , int 1, int 1)
 		gamevar script_object = var nlloyd
 		gamevar *character_movement_p+60 = int 1
 		var VAR_62 ++ 
@@ -312,7 +312,7 @@ if(var VAR_73 == int 0)
  {
 		if(call is_char_at_pos(var DAVID, "`èÿÿN", int 800)||call func_d1(var &VAR_76))
 		 {
-				if(call is_char_handle_in_level(int 917505))
+				if(call is_char_handle_in_level(int 917505 /* IMP */ ))
 				 {
 						call func_29(var neutral_imp)
 						var VAR_73 ++ 
@@ -328,7 +328,7 @@ if(var VAR_73 == int 1)
  {
 		if(var VAR_74 > int 120)
 		 {
-				if(call is_char_handle_in_level(int 917505))
+				if(call is_char_handle_in_level(int 917505 /* IMP */ ))
 				 {
 						call set_char_template(var neutral_imp, int 102)
 						call char_walk_to_pos(var neutral_imp, call get_char_pos(var DAVID))
@@ -344,7 +344,7 @@ var VAR_74 ++
 ._SCRIPT_10
 
 ._SCRIPT_11
-if(call ! is_char_handle_in_level(int 6291456))
+if(call ! is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
  {
 		exit_script 
 }
@@ -357,7 +357,7 @@ else
 }
 
 ._SCRIPT_12
-if(call ! is_char_handle_in_level(int 6291456))
+if(call ! is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
  {
 		exit_script 
 }
@@ -476,7 +476,7 @@ switch(var VAR_17)
 var VAR_18 ++ 
 
 ._SCRIPT_13
-if(call is_char_handle_in_level(int 6291456))
+if(call is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
  {
 		if(var fade_chronicler == int 0)
 		 {

@@ -122,11 +122,11 @@ if(var ! VAR_13&&call func_8a(var &VAR_6))
 		var drop_greater_gimp = call create_enemy(int 131, int 0, var &VAR_10, int 180)
 		var drop_greater_gimp1 = call create_enemy(int 131, int 1, var &VAR_11, int 0)
 		var drop_greater_gimp2 = call create_enemy(int 131, int 2, var &VAR_12, int 90)
-		call add_item_to_char(var drop_greater_gimp1, int 43, int 1, int 0)
+		call add_item_to_char(var drop_greater_gimp1, int 43 /* cheese */ , int 1, int 0)
 		call func_106(var drop_greater_gimp, int 0, int 3, int 360)
 		call func_106(var drop_greater_gimp1, int 0, int 3, int 360)
 		call func_106(var drop_greater_gimp2, int 0, int 3, int 360)
-		call add_item_to_char(var drop_greater_gimp1, int 45, int 1, int 0)
+		call add_item_to_char(var drop_greater_gimp1, int 45 /* deadmous */ , int 1, int 0)
 		var VAR_13 = int 1
 }
 
@@ -139,7 +139,7 @@ else
  {
 		call func_7(int 0, int 1, int 1, int 1)
 		var BTREASURE = call create_char(var &VAR_15, "btreasure", int 270, int 14)
-		call add_item_to_char(var BTREASURE, int 31, int 1, int 0)
+		call add_item_to_char(var BTREASURE, int 31 /* scroll */ , int 1, int 0)
 }
 var VAR_16 = int 0
 
@@ -175,11 +175,11 @@ if(var VAR_21 != int -1)
 		 {
 				if(var VAR_23 != int -1)
 				 {
-						call add_item_to_char(var is_BTREASURE1_exist, int 85, var VAR_23, int 0)
+						call add_item_to_char(var is_BTREASURE1_exist, int 85 /* moneybag */ , var VAR_23, int 0)
 				}
 				else
 				 {
-						call add_item_to_char(var is_BTREASURE1_exist, var VAR_21, int 1, int 0)
+						call add_item_to_char(var is_BTREASURE1_exist, var VAR_21 /* bonekey */ , int 1, int 0)
 				}
 		}
 }

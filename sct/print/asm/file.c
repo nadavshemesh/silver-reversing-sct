@@ -65,13 +65,13 @@ void write_asm_expr(expression* expr, sct_f* sf) {
                                 fprintf(sf->out_file, " "); 
                         }
                 }
+                if(expr_o->hint_comment != NULL) {
+                    fprintf(sf->out_file, expr_o->hint_comment);
+                }
                 if(expr_o->expression_node_num > 0) {
                     c_type type = FUNCTION_CALL; 
                     if(expr_p->type == DATA_INDEX_PTR) { fprintf(sf->out_file, "["); type = CP_VAR_PTR; }
                     write_asm_expression(expr_o->expression_nodes, type, true, sf);
-                    if(expr_o->hint_comment != NULL) {
-                        fprintf(sf->out_file, expr_o->hint_comment);
-                    }
                     if(expr_p->type == DATA_INDEX_PTR) { fprintf(sf->out_file, "]"); }
                 } else {
                     if(expr_o->expr_p->type == FUNCTION) { 

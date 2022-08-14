@@ -158,10 +158,10 @@ if(var VAR_61 == int 2)
 call load_char("death")
 call load_char("skel")
 call load_char("boney")
-call load_item(int 93)
-call load_item(int 111)
+call load_item(int 93 /* cutlass */ )
+call load_item(int 111 /* potwhite */ )
 var deathip = call create_enemy(int 59, int 0, var &VAR_68, int 260)
-call add_item_to_char(var deathip, int 85, int 6554113, int 0)
+call add_item_to_char(var deathip, int 85 /* moneybag */ , int 6554113, int 0)
 var skel = call create_enemy(int 58, int 0, var &VAR_69, int 260)
 var skel1 = call create_enemy(int 58, int 1, var &VAR_70, int 260)
 
@@ -184,7 +184,7 @@ else
 
 ._SCRIPT_6
 var scruttoc = call create_enemy(int 67, int 0, var &VAR_56, int 260)
-call add_item_to_char(var scruttoc, int 102, int 1, int 0)
+call add_item_to_char(var scruttoc, int 102 /* scroll */ , int 1, int 0)
 call func_10c(var scruttoc, "NULL")
 
 ._SCRIPT_7
@@ -237,7 +237,7 @@ execute SCRIPT_6
 var DAVID = call get_char_handle(int 65536)
 if(call ! func_bf(int 12345, gamevar CURRENT_LEVEL, gamevar CURRENT_SCENE))
  {
-		if(call create_item(int 102))
+		if(call create_item(int 102 /* scroll */ ))
 		 {
 				call log("set haven pondend to act3")
 				call func_116("haven", "pondend", int 3)
@@ -247,7 +247,7 @@ if(call ! func_bf(int 12345, gamevar CURRENT_LEVEL, gamevar CURRENT_SCENE))
 }
 
 ._SCRIPT_11
-if(call ! is_char_handle_in_level(int 6291456))
+if(call ! is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
  {
 		exit_script 
 }
@@ -260,7 +260,7 @@ else
 }
 
 ._SCRIPT_12
-if(call ! is_char_handle_in_level(int 6291456))
+if(call ! is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
  {
 		exit_script 
 }
@@ -379,7 +379,7 @@ switch(var VAR_23)
 var VAR_24 ++ 
 
 ._SCRIPT_13
-if(call is_char_handle_in_level(int 6291456))
+if(call is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
  {
 		if(var fade_chronicler == int 0)
 		 {

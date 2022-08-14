@@ -102,8 +102,8 @@ switch(gamevar room_state)
 call load_char("muscles")
 call load_char("dick")
 call load_char("longjohn")
-call load_item(int 93)
-call load_item(int 91)
+call load_item(int 93 /* cutlass */ )
+call load_item(int 91 /* rapier */ )
 var nvillager = call create_char(var &VAR_53, "nvillager", int 345, int 13)
 var muscles = call create_enemy(int 30, int 0, var &VAR_54, int 342)
 var dick = call create_enemy(int 31, int 0, var &VAR_55, int 350)
@@ -111,7 +111,7 @@ call func_46(var muscles, int 0)
 call func_46(var dick, int 0)
 call set_char_init_state(var nvillager, int 13)
 call play_char_ai_script(var nvillager, var &VAR_21)
-call add_item_to_char(var dick, int 42, int 1, int 0)
+call add_item_to_char(var dick, int 42 /* bread */ , int 1, int 0)
 gamevar script_object = var nvillager
 gamevar *character_movement_p+60 = int 1
 gamevar HP = int 100000
@@ -151,7 +151,7 @@ switch(var VAR_56)
 					if(var VAR_4)
 					 {
 							call set_input_system(int 1)
-							if(call is_char_handle_in_level(int 2097152))
+							if(call is_char_handle_in_level(int 2097152 /* VILLAGER */ ))
 							 {
 									call func_115(var nvillager, var &VAR_24)
 							}
@@ -374,7 +374,7 @@ switch(var VAR_44)
 		case 4
 			if(var VAR_45 > var VAR_47)
 			 {
-					var verwind_sound_ref = call play_loaded_sound(int 4, int 0, int 25, int 0) /* 'thunstrk' */ 
+					var verwind_sound_ref = call play_loaded_sound /* 'thunstrk' */ (int 4, int 0, int 25, int 0)
 					call set_sound_volume(var verwind_sound_ref, var VAR_48)
 					if(var ! VAR_34)
 					 {

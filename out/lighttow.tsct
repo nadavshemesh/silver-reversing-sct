@@ -415,7 +415,7 @@ switch(var VAR_22)
 			break 
 }
 var VAR_23 ++ 
-if(call is_char_handle_in_level(int 8847360))
+if(call is_char_handle_in_level(int 8847360 /* GONCH */ ))
  {
 		execute SCRIPT_6
 }
@@ -425,9 +425,9 @@ var gonchfx = call create_enemy(int 73, int 0, var &VAR_26, int 80)
 call func_f(var gonchfx, int 131072)
 gamevar script_object = var gonchfx
 gamevar *object_p+8 |= int 4194304
-call add_item_to_char(var gonchfx, int 76, int 1, int 0)
+call add_item_to_char(var gonchfx, int 76 /* goldring */ , int 1, int 0)
 var lightning = call add_item_to_char(var gonchfx, int 3, int 0, int 0)
-call add_item_to_char(var gonchfx, int 85, int 1638913, int 0)
+call add_item_to_char(var gonchfx, int 85 /* moneybag */ , int 1638913, int 0)
 call func_f7(var lightning, int 1)
 call set_char_init_state(var gonchfx, int 0)
 call func_106(var gonchfx, int 0, int 3, int 360)
@@ -547,7 +547,7 @@ if(var ! VAR_106)
 call load_char("orc")
 call load_char("ogre")
 call load_char("ronnie")
-call load_item(int 96)
+call load_item(int 96 /* pick */ )
 call set_input_system(int 2)
 var VAR_102 = call randomize_int(int 0, int 3)
 var VAR_103 = call randomize_int(int 0, int 3)
@@ -713,7 +713,7 @@ switch(var VAR_13)
 		case 4
 			if(var VAR_14 > var VAR_16)
 			 {
-					var verwind_sound_ref = call play_loaded_sound(int 4, int 0, int 25, int 0) /* 'thunstrk' */ 
+					var verwind_sound_ref = call play_loaded_sound /* 'thunstrk' */ (int 4, int 0, int 25, int 0)
 					call set_sound_volume(var verwind_sound_ref, var VAR_17)
 					if(var ! VAR_3)
 					 {

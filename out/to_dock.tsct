@@ -152,8 +152,8 @@ call set_char_init_state(var lieutenant1, int 13)
 call play_char_ai_script(var lieutenant1, var &VAR_73)
 call load_char("chronicl")
 gamevar *scene_info_p+3 = int 16
-call add_item_to_char(var lieutenant, int 17, int 1, int 0)
-call add_item_to_char(var lieutenant1, int 108, int 1, int 0)
+call add_item_to_char(var lieutenant, int 17 /* daveswrd */ , int 1, int 0)
+call add_item_to_char(var lieutenant1, int 108 /* quiver */ , int 1, int 0)
 
 ._SCRIPT_6
 
@@ -166,7 +166,7 @@ call add_item_to_char(var lieutenant1, int 108, int 1, int 0)
 ._SCRIPT_10
 
 ._SCRIPT_11
-if(call ! is_char_handle_in_level(int 6291456))
+if(call ! is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
  {
 		exit_script 
 }
@@ -179,7 +179,7 @@ else
 }
 
 ._SCRIPT_12
-if(call ! is_char_handle_in_level(int 6291456))
+if(call ! is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
  {
 		exit_script 
 }
@@ -298,7 +298,7 @@ switch(var VAR_17)
 var VAR_18 ++ 
 
 ._SCRIPT_13
-if(call is_char_handle_in_level(int 6291456))
+if(call is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
  {
 		if(var fade_chronicler == int 0)
 		 {
@@ -498,7 +498,7 @@ switch(var VAR_52)
 		case 4
 			if(var VAR_53 > var VAR_55)
 			 {
-					var verwind_sound_ref = call play_loaded_sound(int 4, int 0, int 25, int 0) /* 'thunstrk' */ 
+					var verwind_sound_ref = call play_loaded_sound /* 'thunstrk' */ (int 4, int 0, int 25, int 0)
 					call set_sound_volume(var verwind_sound_ref, var VAR_56)
 					if(var ! VAR_42)
 					 {

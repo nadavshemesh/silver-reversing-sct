@@ -423,7 +423,7 @@ switch(var VAR_75)
 			}
 			break 
 }
-if(call is_char_handle_in_level(int 11206656))
+if(call is_char_handle_in_level(int 11206656 /* THADDEUS */ ))
  {
 		if(var VAR_80)
 		 {
@@ -754,12 +754,12 @@ switch(var VAR_131)
 gamevar SMACKER_X = int 480
 gamevar SMACKER_Y = int 272
 call play_2d_anim("wizard", int 1, int 1, int 0)
-if(call ! is_char_handle_in_level(int 1507328))
+if(call ! is_char_handle_in_level(int 1507328 /* BTREASURE */ ))
  {
 		var btreasure = call create_char(var &VAR_135, "btreasure", int 230, int 14)
-		call add_item_to_char(var btreasure, int 109, int 1, int 0)
-		call add_item_to_char(var btreasure, int 14, int 1, int 0)
-		call add_item_to_char(var btreasure, int 43, int 1, int 0)
+		call add_item_to_char(var btreasure, int 109 /* quiverb */ , int 1, int 0)
+		call add_item_to_char(var btreasure, int 14 /* triobow */ , int 1, int 0)
+		call add_item_to_char(var btreasure, int 43 /* cheese */ , int 1, int 0)
 }
 
 ._SCRIPT_15
@@ -967,7 +967,7 @@ switch(var VAR_13)
 		case 4
 			if(var VAR_14 > var VAR_16)
 			 {
-					var verwind_sound_ref = call play_loaded_sound(int 4, int 0, int 25, int 0) /* 'thunstrk' */ 
+					var verwind_sound_ref = call play_loaded_sound /* 'thunstrk' */ (int 4, int 0, int 25, int 0)
 					call set_sound_volume(var verwind_sound_ref, var VAR_17)
 					if(var ! VAR_3)
 					 {

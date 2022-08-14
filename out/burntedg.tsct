@@ -169,16 +169,16 @@ switch(var VAR_76)
 							var VAR_53 = int 1
 							gamevar clicked_character = int 0
 							call log("clicked on char")
-							var selected0 = call get_selected_hero()
-							if(var selected0 == var VAR_41)
+							var selected_hero0 = call get_selected_hero()
+							if(var selected_hero0 == var VAR_41)
 							 {
 									var VAR_76 = int 7
 							}
-							if(var selected0 == var VAR_43)
+							if(var selected_hero0 == var VAR_43)
 							 {
 									var VAR_76 = int 8
 							}
-							if(var selected0 == var VAR_44)
+							if(var selected_hero0 == var VAR_44)
 							 {
 									var VAR_76 = int 9
 							}
@@ -187,17 +187,17 @@ switch(var VAR_76)
 			break 
 		case 2
 			call log("in radius")
-			var selected0 = call get_selected_hero()
+			var selected_hero0 = call get_selected_hero()
 			var VAR_53 = int 1
-			if(var selected0 == var VAR_41)
+			if(var selected_hero0 == var VAR_41)
 			 {
 					var VAR_76 = int 4
 			}
-			if(var selected0 == var VAR_43)
+			if(var selected_hero0 == var VAR_43)
 			 {
 					var VAR_76 = int 5
 			}
-			if(var selected0 == var VAR_44)
+			if(var selected_hero0 == var VAR_44)
 			 {
 					var VAR_76 = int 6
 			}
@@ -451,12 +451,12 @@ switch(var VAR_76)
 					if(var VAR_77 > int 240)
 					 {
 							call log("time above 240")
-							var selected0 = call get_selected_hero()
-							if(var selected0 == int 0)
+							var selected_hero0 = call get_selected_hero()
+							if(var selected_hero0 == int 0)
 							 {
-									var selected0 = var VAR_41
+									var selected_hero0 = var VAR_41
 							}
-							if(var selected0 == var VAR_41)
+							if(var selected_hero0 == var VAR_41)
 							 {
 									if(var VAR_116 == int 1)
 									 {
@@ -464,7 +464,7 @@ switch(var VAR_76)
 									}
 									else
 									 {
-											if(var selected0 == var VAR_43)
+											if(var selected_hero0 == var VAR_43)
 											 {
 													if(var VAR_117 == int 1)
 													 {
@@ -473,7 +473,7 @@ switch(var VAR_76)
 											}
 											else
 											 {
-													if(var selected0 == var VAR_44)
+													if(var selected_hero0 == var VAR_44)
 													 {
 															if(var VAR_118 == int 1)
 															 {
@@ -526,15 +526,15 @@ switch(var VAR_76)
 			 {
 					if(var VAR_115 == int 1)
 					 {
-							var selected0 = gamevar control_char_p
-							if(var selected0 == int 0)
+							var selected_hero0 = gamevar control_char_p
+							if(var selected_hero0 == int 0)
 							 {
 									var VAR_76 = int -1
 									call set_input_system(int 1)
 							}
 							else
 							 {
-									if(var selected0 == var VAR_41)
+									if(var selected_hero0 == var VAR_41)
 									 {
 											if(call is_char_handle_in_level(int 196608 /* VIVIENNE */ ))
 											 {
@@ -545,7 +545,7 @@ switch(var VAR_76)
 									}
 									else
 									 {
-											if(var selected0 == var VAR_43)
+											if(var selected_hero0 == var VAR_43)
 											 {
 													if(call is_char_handle_in_level(int 196608 /* VIVIENNE */ ))
 													 {
@@ -556,7 +556,7 @@ switch(var VAR_76)
 											}
 											else
 											 {
-													if(var selected0 == var VAR_44)
+													if(var selected_hero0 == var VAR_44)
 													 {
 															if(call is_char_handle_in_level(int 786432 /* SEKUNE */ ))
 															 {

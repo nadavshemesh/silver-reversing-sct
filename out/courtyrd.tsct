@@ -171,7 +171,7 @@ call add_item_to_char(var FIMP3, int 8 /* catapult */ , int 0, int 1)
 var TYRONIS = call get_char_handle(int 2031616)
 var DAVID = call get_char_handle(int 65536)
 call char_unfollow(var TYRONIS)
-var enemies1 = call get_num_of_enemies()
+var enemies_num1 = call get_num_of_enemies()
 execute SCRIPT_14
 call set_input_system(int 2)
 call load_char("chronicl")
@@ -229,8 +229,8 @@ if(var VAR_80 == int -1)
  {
 		if(call is_char_handle_in_level(int 917509 /* IMP */ ))
 		 {
-				var enemies3 = call get_num_of_enemies()
-				if(var enemies1 - var enemies3 >= int 2)
+				var enemies_num3 = call get_num_of_enemies()
+				if(var enemies_num1 - var enemies_num3 >= int 2)
 				 {
 						var VAR_80 = int 0
 				}
@@ -393,7 +393,7 @@ call char_walk_to_pos(var FIMP8, var VAR_102)
 call char_walk_to_pos(var FIMP9, var VAR_102)
 call set_char_running(var FIMP8)
 call set_char_running(var FIMP9)
-var enemies1 = call get_num_of_enemies()
+var enemies_num1 = call get_num_of_enemies()
 
 ._SCRIPT_16
 gamevar compile_init_character = int 0
@@ -409,7 +409,7 @@ call char_walk_to_pos(var FIMP8, var VAR_102)
 call char_walk_to_pos(var FIMP9, var VAR_102)
 call set_char_running(var FIMP8)
 call set_char_running(var FIMP9)
-var enemies1 = call get_num_of_enemies()
+var enemies_num1 = call get_num_of_enemies()
 
 ._SCRIPT_17
 call func_c5(var FWINGIMP)

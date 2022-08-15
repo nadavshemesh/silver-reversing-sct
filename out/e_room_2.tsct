@@ -26,9 +26,9 @@ VAR_24	"dodgeb"
 VAR_25	{ 2, -28, 0, -1385, 0, 293, 0, -846, 0, 55, 0, -463, 4, VAR_16, 3, VAR_26, 0, 3, VAR_27, 0, 0, 148, 0, 613, 8 }	
 VAR_26	"dodgel"	
 VAR_27	"lookout"	
-VAR_28	{ -80, 0, -2174 }	
-VAR_29	{ -70, 0, -2479 }	
-VAR_30	{ 56, 0, -2700 }	
+tele_position	{ -80, 0, -2174 }	
+tele_position1	{ -70, 0, -2479 }	
+tele_position2	{ 56, 0, -2700 }	
 VAR_36	3	
 VAR_37	1	
 VAR_38	3	
@@ -92,13 +92,13 @@ switch(var VAR_8)
 					call func_113(int 8, int 8)
 					var VAR_31 = var VAR_9
 					var VAR_8 ++ 
-					call char_teleport_to_pos(var VAR_3, var &VAR_28, int 270)
+					call char_teleport_to_pos(var VAR_3, var &tele_position, int 270)
 					call char_stop(var VAR_3)
-					call char_teleport_to_pos(var VAR_4, var &VAR_29, int 270)
+					call char_teleport_to_pos(var VAR_4, var &tele_position1, int 270)
 					call char_stop(var VAR_4)
 					if(var VAR_5)
 					 {
-							call char_teleport_to_pos(var VAR_5, var &VAR_30, int 270)
+							call char_teleport_to_pos(var VAR_5, var &tele_position2, int 270)
 							call char_stop(var VAR_5)
 					}
 					call func_cb("eroom3")

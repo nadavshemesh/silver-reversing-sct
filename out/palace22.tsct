@@ -10,14 +10,14 @@
 
 
 ._DATA
-VAR_5	{ -4690, 1625, 3771 }	
-VAR_7	{ -5730, 1625, 4139 }	
+init_position	{ -4690, 1625, 3771 }	
+init_position1	{ -5730, 1625, 4139 }	
 viking12	{ 0, 0 }	
-VAR_15	{ 0, -4690, 1625, 3771, 0, -6790, 1625, 3718, 7, 8 }	
-VAR_16	{ 0, -6790, 1625, 3718, 0, -4690, 1625, 3771, 7, 8 }	
-VAR_17	{ 0, 0, 1, -1, 8, 0, 4, 0, 9, 1, 6, 1, 1, 1, 65, 152, -1, 7, 1, 8, 10, 42, 12, -1, -1 }	
-VAR_18	{ 0, 0, 0, -1, 8, 0, 4, 0, 9, 1, 6, 1, 1, 1, 65, 152, -1, 7, 1, 8, 10, 46, -1, -1 }	
-VAR_19	{ 0, 0, 1, -1, 8, 0, 4, 0, 9, 1, 6, 1, 1, 1, 145, -1, 7, 1, 8, 10, 45, -1, -1 }	
+ai_script	{ 0, -4690, 1625, 3771, 0, -6790, 1625, 3718, 7, 8 }	
+ai_script1	{ 0, -6790, 1625, 3718, 0, -4690, 1625, 3771, 7, 8 }	
+enemy_gen_script	{ 0, 0, 1, -1, 8, 0, 4, 0, 9, 1, 6, 1, 1, 1, 65, 152, -1, 7, 1, 8, 10, 42, 12, -1, -1 }	
+enemy_gen_script1	{ 0, 0, 0, -1, 8, 0, 4, 0, 9, 1, 6, 1, 1, 1, 65, 152, -1, 7, 1, 8, 10, 46, -1, -1 }	
+enemy_gen_script2	{ 0, 0, 1, -1, 8, 0, 4, 0, 9, 1, 6, 1, 1, 1, 145, -1, 7, 1, 8, 10, 45, -1, -1 }	
 
 ._on_load
 call load_sound_set(int 66)
@@ -121,7 +121,7 @@ if(var VAR_0 == int 2)
 				if(call is_char_standing(var vikingb))
 				 {
 						call remove_char(var vikingb)
-						call run_enemy_generator(var &VAR_17, int 10)
+						call run_enemy_generator(var &enemy_gen_script, int 10)
 						var VAR_22 = int 1
 				}
 		}
@@ -134,7 +134,7 @@ if(var VAR_0 == int 2)
 				if(call is_char_standing(var vikingb1))
 				 {
 						call remove_char(var vikingb1)
-						call run_enemy_generator(var &VAR_18, int 10)
+						call run_enemy_generator(var &enemy_gen_script1, int 10)
 						var VAR_23 = int 1
 				}
 		}
@@ -158,16 +158,16 @@ if(var VAR_0 == int 3)
 				exit_script 
 		}
 		call log("State 3")
-		call run_enemy_generator(var &VAR_19, int 10)
+		call run_enemy_generator(var &enemy_gen_script2, int 10)
 		var VAR_0 = int 4
 		exit_script 
 }
 
 ._SCRIPT_5
 call load_char("vikingc")
-var viking1 = call create_enemy(int 152, int 0, var &VAR_5, int 260)
+var viking1 = call create_enemy(int 152, int 0, var &init_position, int 260)
 var viking11 = call create_enemy(int 152, int 1, "zåÿÿY", int 85)
-var viking12 = call create_enemy(int 152, int 2, var &VAR_7, int 180)
+var viking12 = call create_enemy(int 152, int 2, var &init_position1, int 180)
 var vikingb = call create_enemy(int 65, int 0, "vîÿÿY", int 35)
 var vikingb1 = call create_enemy(int 65, int 1, "wäÿÿY", int 325)
 call func_106(var viking1, int 1, int 0, int 1)
@@ -182,8 +182,8 @@ call set_char_init_state(var vikingb, int 1)
 call set_char_init_state(var vikingb1, int 1)
 call func_47(var vikingb, int 656)
 call func_47(var vikingb1, int 656)
-call play_char_ai_script(var viking1, var &VAR_15)
-call play_char_ai_script(var viking11, var &VAR_16)
+call play_char_ai_script(var viking1, var &ai_script)
+call play_char_ai_script(var viking11, var &ai_script1)
 call add_item_to_char(var viking1, int 42 /* bread */ , int 1, int 0)
 call add_item_to_char(var viking11, int 43 /* cheese */ , int 1, int 0)
 var VAR_1 = int 30

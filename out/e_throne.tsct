@@ -11,15 +11,15 @@
 
 ._DATA
 VAR_11	{ -25, -1350, -1774 }	
-VAR_19	{ -675, -1350, -2000 }	
-VAR_20	{ -509, -1350, -2178 }	
-VAR_21	{ -352, -1350, -2207 }	
-VAR_25	{ -189, -1350, -1874 }	
-VAR_26	{ -235, -1350, -954 }	
-VAR_27	{ -325, -1350, -1497 }	
-VAR_28	{ 333, -1349, -1557 }	
-VAR_35	{ -25, -1350, -1774 }	
-VAR_36	{ -84, -1350, -1582 }	
+init_position	{ -675, -1350, -2000 }	
+init_position2	{ -509, -1350, -2178 }	
+init_position1	{ -352, -1350, -2207 }	
+walk_position1	{ -189, -1350, -1874 }	
+walk_position	{ -235, -1350, -954 }	
+tele_position1	{ -325, -1350, -1497 }	
+tele_position2	{ 333, -1349, -1557 }	
+tele_position	{ -25, -1350, -1774 }	
+position	{ -84, -1350, -1582 }	
 VAR_37	{ -86, -1350, -116, 85, -1350, 61 }	
 VAR_61	1	
 VAR_62	2	
@@ -59,9 +59,9 @@ gamevar room_state = int 0
 var VAR_12 = call func_e8(var &VAR_11, int 0)
 call set_input_system(int 2)
 execute SCRIPT_5
-var njennifer = call create_char(var &VAR_19, "njennifer", int 60, int 13)
-var nbeth = call create_char(var &VAR_21, "nbeth", int 20, int 13)
-var nbonnie = call create_char(var &VAR_20, "nbonnie", int 0, int 13)
+var njennifer = call create_char(var &init_position, "njennifer", int 60, int 13)
+var nbeth = call create_char(var &init_position1, "nbeth", int 20, int 13)
+var nbonnie = call create_char(var &init_position2, "nbonnie", int 0, int 13)
 call reset_local_timer()
 gamevar outro_active = int 1
 
@@ -71,20 +71,20 @@ switch(var VAR_14)
 		case 0
 			if(var VAR_15 == int 5)
 			 {
-					call char_teleport_to_pos(var VAR_0, var &VAR_35, int 0)
+					call char_teleport_to_pos(var VAR_0, var &tele_position, int 0)
 					call char_stop(var VAR_0)
 					call apply_effect_on_char(gamevar char_gen_fx_scripts, int 18, int 0, var VAR_0)
 					if(var VAR_9)
 					 {
 							call log("force hero1 to stand")
-							call char_teleport_to_pos(var VAR_9, var &VAR_27, int 300)
+							call char_teleport_to_pos(var VAR_9, var &tele_position1, int 300)
 							call char_stop(var VAR_9)
 							call set_char_running(var VAR_9)
 					}
 					if(var VAR_10)
 					 {
 							call log("force hero2 to stand")
-							call char_teleport_to_pos(var VAR_10, var &VAR_28, int 40)
+							call char_teleport_to_pos(var VAR_10, var &tele_position2, int 40)
 							call char_stop(var VAR_10)
 							call set_char_running(var VAR_10)
 					}
@@ -93,10 +93,10 @@ switch(var VAR_14)
 			 {
 					if(var VAR_9)
 					 {
-							call char_turn_to_pos(var VAR_9, var &VAR_35)
+							call char_turn_to_pos(var VAR_9, var &tele_position)
 							if(var VAR_10)
 							 {
-									call char_turn_to_pos(var VAR_10, var &VAR_35)
+									call char_turn_to_pos(var VAR_10, var &tele_position)
 							}
 					}
 			}
@@ -129,10 +129,10 @@ switch(var VAR_14)
 					call set_char_running(var nbonnie)
 					if(var VAR_9)
 					 {
-							call char_walk_to_pos(var VAR_9, var &VAR_26)
+							call char_walk_to_pos(var VAR_9, var &walk_position)
 					}
 					call func_2b(var nbeth, int 1)
-					call char_walk_to_pos(var njennifer, var &VAR_25)
+					call char_walk_to_pos(var njennifer, var &walk_position1)
 					var VAR_14 ++ 
 			}
 			break 
@@ -143,7 +143,7 @@ switch(var VAR_14)
 
 					 /* play the sound 'rumble2' */ 
 					call play_loaded_sound(int 1, int -1, int 75, int 0)
-					call char_turn_to_pos(var VAR_0, var &VAR_19)
+					call char_turn_to_pos(var VAR_0, var &init_position)
 					var VAR_14 ++ 
 			}
 			break 
@@ -200,7 +200,7 @@ switch(var VAR_14)
 			if(call func_5c(var VAR_9))
 			 {
 					call func_2b(var nbonnie, int 1)
-					call char_turn_to_pos(var VAR_9, var &VAR_36)
+					call char_turn_to_pos(var VAR_9, var &position)
 					var VAR_14 ++ 
 			}
 			break 
@@ -221,14 +221,14 @@ switch(var VAR_14)
 					call remove_char(var nbeth)
 					call remove_char(var nbonnie)
 					call remove_char(var njennifer)
-					call char_walk_to_pos(var VAR_9, var &VAR_36)
+					call char_walk_to_pos(var VAR_9, var &position)
 					var VAR_14 ++ 
 			}
 			break 
 		case 10
 			if(call is_char_standing(var VAR_9))
 			 {
-					call char_turn_to_pos(var VAR_0, var &VAR_36)
+					call char_turn_to_pos(var VAR_0, var &position)
 					if(var VAR_10)
 					 {
 							call func_2b(var VAR_10, int 1)

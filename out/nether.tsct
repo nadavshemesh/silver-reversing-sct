@@ -34,10 +34,10 @@ VAR_24	{ -3656, -3103, -6340, -3900, -3103, -8095 }
 VAR_25	{ -4858, -3103, -7414 }	
 VAR_26	{ -4357, -3103, -7414 }	
 VAR_27	{ -5112, -3103, -7555 }	
-VAR_28	{ VAR_5, VAR_6, VAR_7, VAR_8, VAR_9, VAR_10, VAR_11, VAR_12, VAR_13, VAR_14, VAR_15, VAR_16, VAR_17, VAR_18, VAR_19, VAR_20, VAR_21, VAR_22, VAR_23, VAR_24, VAR_25, VAR_25, VAR_26, VAR_27 }	
-VAR_35	{ 45, -551, 6195, 297, -1100, -4303 }	
-VAR_37	{ 82, 90, 2595 }	
-VAR_38	{ 91, 126, 1385 }	
+arr	{ VAR_5, VAR_6, VAR_7, VAR_8, VAR_9, VAR_10, VAR_11, VAR_12, VAR_13, VAR_14, VAR_15, VAR_16, VAR_17, VAR_18, VAR_19, VAR_20, VAR_21, VAR_22, VAR_23, VAR_24, VAR_25, VAR_25, VAR_26, VAR_27 }	
+init_position	{ 45, -551, 6195, 297, -1100, -4303 }	
+tele_position	{ 82, 90, 2595 }	
+walk_position	{ 91, 126, 1385 }	
 VAR_39	{ -1511, 840, -3706 }	
 VAR_49	{ -16, -1350, -2424 }	
 VAR_54	{ 0, -14, 90, 2763 }	
@@ -138,14 +138,14 @@ switch(var VAR_0)
 			call reset_local_timer()
 			var VAR_0 = int 1
 			call add_item_to_char(var david, int 28 /* scroll */ , int 0, int 1)
-			var apocalypse = call create_enemy(int 197, int 0, var &VAR_35, int 240)
+			var apocalypse = call create_enemy(int 197, int 0, var &init_position, int 240)
 			call func_1(var apocalypse, int -1)
 			break 
 		case 1
 			if(call is_local_timer_greater_than(int 50))
 			 {
 					var VAR_3 = int 1
-					call func_11f(var &VAR_37, int 32768)
+					call func_11f(var &tele_position, int 32768)
 					var VAR_0 = int 2
 			}
 			break 
@@ -168,14 +168,14 @@ switch(var VAR_0)
 			 {
 					call apply_effect_on_char(gamevar char_gen_fx_scripts, int 10, int 0, var david)
 					call reset_local_timer()
-					var VAR_36 = call func_e8(var &VAR_37, int 0)
+					var VAR_36 = call func_e8(var &tele_position, int 0)
 					var VAR_0 = int 5
 			}
 			break 
 		case 5
 			if(call is_local_timer_greater_than(int 15))
 			 {
-					call char_teleport_to_pos(var david, var &VAR_37, int 182)
+					call char_teleport_to_pos(var david, var &tele_position, int 182)
 					call apply_effect_on_char(gamevar char_gen_fx_scripts, int 18, int 0, var david)
 					call reset_local_timer()
 					var VAR_0 = int 6
@@ -185,7 +185,7 @@ switch(var VAR_0)
 			if(call is_local_timer_greater_than(int 10))
 			 {
 					call set_char_walking(var david)
-					call char_walk_to_pos(var david, var &VAR_38)
+					call char_walk_to_pos(var david, var &walk_position)
 					call func_11f(var &VAR_39, int 32768)
 					call reset_local_timer()
 					var VAR_0 = int 7
@@ -253,7 +253,7 @@ switch(var VAR_0)
 						if(call is_local_timer_greater_than(int 10))
 						 {
 								call set_char_walking(var david)
-								call char_walk_to_pos(var david, var &VAR_38)
+								call char_walk_to_pos(var david, var &walk_position)
 								call func_11f(var &VAR_39, int 32768)
 								var VAR_1 ++ 
 						}
@@ -296,7 +296,7 @@ switch(var VAR_0)
 			switch(var VAR_1)
 			 {
 					case 0
-						call func_11f(var &VAR_37, int 32768)
+						call func_11f(var &tele_position, int 32768)
 						call reset_local_timer()
 						var VAR_1 ++ 
 						break 
@@ -304,8 +304,8 @@ switch(var VAR_0)
 						if(call is_local_timer_greater_than(int 30))
 						 {
 								call set_char_running(var david)
-								var VAR_36 = call func_e8(var &VAR_37, int 0)
-								call char_turn_to_pos(var david, var &VAR_37)
+								var VAR_36 = call func_e8(var &tele_position, int 0)
+								call char_turn_to_pos(var david, var &tele_position)
 								call reset_local_timer()
 								var VAR_1 ++ 
 						}
@@ -313,7 +313,7 @@ switch(var VAR_0)
 					case 2
 						if(call is_local_timer_greater_than(int 10))
 						 {
-								call char_walk_to_pos(var david, var &VAR_37)
+								call char_walk_to_pos(var david, var &tele_position)
 								var VAR_1 ++ 
 						}
 						break 
@@ -335,7 +335,7 @@ switch(var VAR_0)
 					case 5
 						if(call is_local_timer_greater_than(int 10))
 						 {
-								call char_teleport_to_pos(var david, var &VAR_35, int 0)
+								call char_teleport_to_pos(var david, var &init_position, int 0)
 								call reset_local_timer()
 								var VAR_1 ++ 
 						}
@@ -403,8 +403,8 @@ switch(var VAR_56)
 			if(var VAR_2 == int 0)
 			 {
 					var VAR_57 = call randomize_int(int 0, int 24)
-					call apply_effect_on_char(gamevar misc_fx_scripts, int 31, @VAR_28[var VAR_57], int 0)
-					call apply_effect_on_char(gamevar misc_fx_scripts, int 32, @VAR_28[var VAR_57], int 0)
+					call apply_effect_on_char(gamevar misc_fx_scripts, int 31, @arr[var VAR_57], int 0)
+					call apply_effect_on_char(gamevar misc_fx_scripts, int 32, @arr[var VAR_57], int 0)
 					var fireexp_sound_ref = call play_loaded_sound(int 2, int 0, int 79, int 0)
 					if(var VAR_59 == int 1)
 					 {

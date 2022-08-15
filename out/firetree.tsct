@@ -18,7 +18,7 @@ VAR_28	{ -2124, -40, 794 }
 VAR_29	{ -1795, -40, 1027 }	
 VAR_30	{ -1005, -40, 1284 }	
 VAR_31	{ -622, -40, 1493 }	
-VAR_32	{ VAR_28, VAR_29, VAR_30, VAR_31 }	
+arr	{ VAR_28, VAR_29, VAR_30, VAR_31 }	
 VAR_34	50	
 VAR_36	100	
 VAR_40	{ -4187, 13, 9437 }	
@@ -27,7 +27,7 @@ VAR_42	{ -1652, 65, 8438 }
 VAR_43	{ -3181, 273, 8576 }	
 VAR_44	{ -4041, 607, 9430 }	
 VAR_45	{ -1548, 184, 9053 }	
-VAR_46	"ILORUX"	
+arr_1	"ILORUX"	
 
 ._on_load
 call func_58(int 1)
@@ -189,7 +189,7 @@ call play_2d_anim("oneframe", int 0, int 1, int 0)
 if(var VAR_34 == int 0)
  {
 		var VAR_35 = call randomize_int(int 0, int 4)
-		var VAR_33 = call func_ec(int 5, int 0, int 22, @VAR_32[var VAR_35])
+		var VAR_33 = call func_ec(int 5, int 0, int 22, @arr[var VAR_35])
 		call set_sound_volume(var VAR_33, int 6)
 		var VAR_34 = call randomize_int(int 200, int 401)
 }
@@ -200,7 +200,7 @@ if(var VAR_36 == int 0)
  {
 		var VAR_37 = call randomize_int(int 0, int 6)
 		var VAR_38 = int 2 + call randomize_int(int 0, int 3)
-		var VAR_39 = call func_ec(var VAR_38, int 0, int 22, @VAR_46[var VAR_37])
+		var VAR_39 = call func_ec(var VAR_38, int 0, int 22, @arr_1[var VAR_37])
 		call set_sound_volume(var VAR_39, int 3)
 		var VAR_36 = call randomize_int(int 500, int 701)
 }

@@ -14,19 +14,19 @@ VAR_17	{ 0, 0 }
 VAR_23	{ 0, 0, 0 }	
 VAR_24	{ 0, 0, 0 }	
 VAR_26	{ 0, 0 }	
-VAR_28	{ 1830, 1083, 2490 }	
+fx_position	{ 1830, 1083, 2490 }	
 VAR_29	{ 3110, 1083, -1110 }	
 VAR_38	{ 1701407858, 1852142709, 1792, 0, 0, 0, 0 }	
 nrebela	{ 0, -2744, -835, -1954, -2767, -835, -2034, -2775, -835, -2133, -2794, -835, -2253 }	
-VAR_45	{ -2681, -943, -174, -1665, -60, -1002, -2610, -237, -1920 }	
+init_position	{ -2681, -943, -174, -1665, -60, -1002, -2610, -237, -1920 }	
 VAR_46	{ VAR_47, 0, 0, 5, 0, 0 }	
 VAR_47	"unc_pant"	
-VAR_48	{ -1520, -60, -1028 }	
-VAR_49	{ -2624, -238, -1628 }	
+init_position1	{ -1520, -60, -1028 }	
+init_position2	{ -2624, -238, -1628 }	
 VAR_50	{ -1520, -60, -1028 }	
 VAR_51	{ -2624, -238, -1628 }	
-VAR_56	{ 0, 0, 1, -1, 8, 0, 1, 1, 11, 11, -1, 4, 0, 9, 0, 5, 1, 50, 100, 6, 1, 7, 1, 3, 10, 40, -1, -1 }	
-VAR_57	{ 0, 0, 1, -1, 8, 0, 1, 1, 11, 11, -1, 4, 0, 9, 0, 5, 1, 50, 100, 6, 1, 7, 1, 3, 10, 41, -1, -1 }	
+enemy_gen_script	{ 0, 0, 1, -1, 8, 0, 1, 1, 11, 11, -1, 4, 0, 9, 0, 5, 1, 50, 100, 6, 1, 7, 1, 3, 10, 40, -1, -1 }	
+enemy_gen_script1	{ 0, 0, 1, -1, 8, 0, 1, 1, 11, 11, -1, 4, 0, 9, 0, 5, 1, 50, 100, 6, 1, 7, 1, 3, 10, 41, -1, -1 }	
 VAR_69	-1	
 
 ._on_load
@@ -89,7 +89,7 @@ if(gamevar !is_room_cleared)
 
 ._SCRIPT_3
 call log("it's_raining")
-call play_3d_fx("RAIN", var &VAR_28, var &VAR_29, int 0)
+call play_3d_fx("RAIN", var &fx_position, var &VAR_29, int 0)
 execute SCRIPT_12
 
 ._SCRIPT_4
@@ -166,7 +166,7 @@ if(var VAR_19&&var ! VAR_21)
 ._SCRIPT_5
 call load_char("rarcher")
 call load_char(var &VAR_38)
-var nrebela = call create_char(var &VAR_45, "nrebela", int 340, int 13)
+var nrebela = call create_char(var &init_position, "nrebela", int 340, int 13)
 gamevar script_object = var nrebela
 gamevar HP = int 1
 gamevar script_object = var nrebela
@@ -194,7 +194,7 @@ if(var VAR_33 == int 2)
 }
 if(var VAR_33 == int 4)
  {
-		if(call func_ab(int 800, var &VAR_45))
+		if(call func_ab(int 800, var &init_position))
 		 {
 				call resume_conversation()
 				var VAR_33 ++ 
@@ -237,9 +237,9 @@ if(var VAR_35 == int 2)
 				call func_4e(int 1)
 				call func_4e(int 2)
 				gamevar compile_init_character = int 0
-				var archer = call create_enemy(int 17, int 0, var &VAR_48, int 304)
+				var archer = call create_enemy(int 17, int 0, var &init_position1, int 304)
 				call freeze_enemy(var archer)
-				var archer1 = call create_enemy(int 17, int 1, var &VAR_49, int 0)
+				var archer1 = call create_enemy(int 17, int 1, var &init_position2, int 0)
 				call freeze_enemy(var archer1)
 				gamevar compile_init_character = int 1
 				gamevar script_object = var archer
@@ -254,7 +254,7 @@ if(var VAR_35 == int 3)
  {
 		call func_108("act2")
 		call log("Start grunts")
-		var VAR_52 = call run_enemy_generator(var &VAR_56, int 40)
+		var VAR_52 = call run_enemy_generator(var &enemy_gen_script, int 40)
 		var VAR_35 ++ 
 		var VAR_36 = int 0
 }
@@ -285,7 +285,7 @@ if(var VAR_35 == int 5)
  {
 		if(call get_num_of_enemies() < int 3)
 		 {
-				var VAR_52 = call run_enemy_generator(var &VAR_57, int 20)
+				var VAR_52 = call run_enemy_generator(var &enemy_gen_script1, int 20)
 				var VAR_35 ++ 
 				var VAR_36 = int 0
 		}

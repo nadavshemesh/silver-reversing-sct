@@ -11,11 +11,11 @@
 
 ._DATA
 VAR_2	{ 0, 0, 1, 0, -1, 8, 1, 4, 0, 9, 0, 1, 4, 102, 103, -1, 2, 4, 3, 2, 5, 0, 50, 6, 1, 7, 1, 4, -1 }	
-VAR_3	{ 11, 200, 300, 0, -8499, 2894, -16552, 11, 200, 300, 0, -8499, 2894, -16052, 11, 200, 300, 0, -8499, 2894, -15552, 7, 8 }	
+ai_script	{ 11, 200, 300, 0, -8499, 2894, -16552, 11, 200, 300, 0, -8499, 2894, -16052, 11, 200, 300, 0, -8499, 2894, -15552, 7, 8 }	
 horn_impefs	{ 0, 0 }	
-VAR_15	{ -8546, 2931, -16112, 0, 0 }	
-VAR_22	{ -8540, 2969, -15233, -8499, 2898, -16791, -8499, 2898, -16791 }	
-VAR_23	{ -8714, 1201, -16178 }	
+walk_position	{ -8546, 2931, -16112, 0, 0 }	
+init_position1	{ -8540, 2969, -15233, -8499, 2898, -16791, -8499, 2898, -16791 }	
+init_position	{ -8714, 1201, -16178 }	
 
 ._on_load
 call play_bgm("GNO")
@@ -143,7 +143,7 @@ else
 var horn_impefs = call create_enemy(int 108, int 3, "ÍÞÿÿN", int 270)
 call freeze_enemy(var horn_impefs)
 call func_50(var horn_impefs, int 10249)
-call play_char_ai_script(var horn_impefs, var &VAR_3)
+call play_char_ai_script(var horn_impefs, var &ai_script)
 call func_10f(var horn_impefs, int 2)
 
 ._SCRIPT_7
@@ -151,13 +151,13 @@ execute SCRIPT_6
 execute SCRIPT_9
 
 ._SCRIPT_8
-var nyelimp = call create_char(var &VAR_23, "nyelimp", int 60, int 13)
+var nyelimp = call create_char(var &init_position, "nyelimp", int 60, int 13)
 gamevar script_object = var nyelimp
 gamevar *character_movement_p+60 = int 1
 gamevar *character_movement_p+53 = int 0
 
 ._SCRIPT_9
-var bezerk_imp = call create_enemy(int 103, int 1, var &VAR_22, int 270)
+var bezerk_imp = call create_enemy(int 103, int 1, var &init_position1, int 270)
 call freeze_enemy(var bezerk_imp)
 call func_10f(var bezerk_imp, int 2)
 
@@ -315,7 +315,7 @@ switch(var VAR_13)
 			 {
 					call freeze_enemy(var horn_impefs)
 					call log("Findpath to edge...")
-					call char_walk_to_pos(var horn_impefs, var &VAR_15)
+					call char_walk_to_pos(var horn_impefs, var &walk_position)
 					var VAR_13 ++ 
 					var VAR_14 = int 0
 			}

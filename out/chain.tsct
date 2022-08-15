@@ -14,19 +14,19 @@ VAR_20	{ 0, 0, -1 }
 VAR_25	-1	
 VAR_46	-1	
 VAR_49	{ -381, 300, -1754 }	
-VAR_60	{ -1480, 299, -910 }	
-VAR_63	{ 1018, 300, -1051 }	
-VAR_64	{ 384, 300, -1051 }	
+init_position1	{ -1480, 299, -910 }	
+init_position2	{ 1018, 300, -1051 }	
+init_position3	{ 384, 300, -1051 }	
 VAR_72	{ 0, 0 }	
-VAR_75	{ -479, 300, -552 }	
-VAR_76	{ 180, 300, -389 }	
+walk_position1	{ -479, 300, -552 }	
+walk_position2	{ 180, 300, -389 }	
 VAR_80	{ 1101, 600, -1345, -816, 300, -1550, -1401, 300, 20, 85, 300, -207, -1582, 0, 1078, 9, 0, 1263, 1297, 0, 1008, 1460, 300, -379 }	
-VAR_81	{ 1297, 300, -308 }	
-VAR_83	{ 666, 300, -839 }	
+walk_position	{ 1297, 300, -308 }	
+init_position	{ 666, 300, -839 }	
 VAR_84	-1	
 
 ._on_load
-var VAR_42 = var &VAR_49
+var init_position4 = var &VAR_49
 var VAR_43 = int 345
 execute SCRIPT_17
 var VAR_44 = int 83
@@ -130,7 +130,7 @@ switch(var VAR_71)
 			}
 			if(var VAR_72 == int 20)
 			 {
-					call char_walk_to_pos(var DAVID, var &VAR_81)
+					call char_walk_to_pos(var DAVID, var &walk_position)
 			}
 			if(var VAR_72 == int 250)
 			 {
@@ -171,8 +171,8 @@ switch(var VAR_71)
 			if(var VAR_72 > int 20)
 			 {
 					call set_char_walking(var battle_fuge)
-					call char_walk_to_pos(var battle_fuge, var &VAR_75)
-					call func_11f(var &VAR_75, int 32768)
+					call char_walk_to_pos(var battle_fuge, var &walk_position1)
+					call func_11f(var &walk_position1, int 32768)
 					var VAR_72 = int 0
 					var VAR_71 ++ 
 			}
@@ -181,7 +181,7 @@ switch(var VAR_71)
 			if(var VAR_72 > int 180)
 			 {
 					call set_char_walking(var DAVID)
-					call char_walk_to_pos(var DAVID, var &VAR_76)
+					call char_walk_to_pos(var DAVID, var &walk_position2)
 					var VAR_72 = int 0
 					var VAR_71 ++ 
 			}
@@ -355,7 +355,7 @@ switch(var VAR_71)
 			 {
 					call play_bgm("chains")
 					call set_input_system(int 1)
-					var fade_chronicler = call create_enemy(int 178, int 0, var &VAR_83, int 355)
+					var fade_chronicler = call create_enemy(int 178, int 0, var &init_position, int 355)
 					var VAR_72 = int 0
 					var VAR_71 ++ 
 			}
@@ -365,7 +365,7 @@ var VAR_72 ++
 
 ._SCRIPT_4
 call play_bgm("FugeBPt1")
-var battle_fuge = call create_enemy(int 200, int 0, var &VAR_60, int 40)
+var battle_fuge = call create_enemy(int 200, int 0, var &init_position1, int 40)
 call freeze_enemy(var battle_fuge)
 var lightning = call add_item_to_char(var battle_fuge, int 3, int 0, int 1)
 call func_f7(var lightning, int 2)
@@ -387,8 +387,8 @@ if(var VAR_55)
 call func_a3(var DAVID)
 var DodgeB_anim = call load_anim("DodgeB")
 call set_input_system(int 2)
-call create_char(var &VAR_63, "ipie", int 0, int 0)
-call create_char(var &VAR_64, "idrumstik", int 0, int 0)
+call create_char(var &init_position2, "ipie", int 0, int 0)
+call create_char(var &init_position3, "idrumstik", int 0, int 0)
 var victory_anim = call load_anim("victory")
 call load_char("chronicl")
 
@@ -619,7 +619,7 @@ switch(var VAR_28)
 var is_BTREASURE_exist = call is_char_handle_in_level(int 1507337)
 if(var ! is_BTREASURE_exist)
  {
-		var is_BTREASURE_exist = call create_char(var VAR_42, "btreasure9", var VAR_43, int 14)
+		var is_BTREASURE_exist = call create_char(var init_position4, "btreasure9", var VAR_43, int 14)
 		call func_aa(var is_BTREASURE_exist)
 }
 else

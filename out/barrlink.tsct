@@ -15,10 +15,10 @@ VAR_25	{ 0, 0, -1 }
 VAR_30	-1	
 VAR_46	{ -2155, -84, -3195 }	
 VAR_48	{ -4279, -73, -3304 }	
-VAR_49	{ -2118, -84, -843 }	
+init_position	{ -2118, -84, -843 }	
 
 ._on_load
-var VAR_1 = var &VAR_46
+var init_position1 = var &VAR_46
 var VAR_2 = int 355
 execute SCRIPT_9
 var VAR_3 = int 109
@@ -69,7 +69,7 @@ switch(gamevar room_state)
 ._SCRIPT_3
 
 ._SCRIPT_4
-var fade_chronicler = call create_enemy(int 178, int 0, var &VAR_49, int 132)
+var fade_chronicler = call create_enemy(int 178, int 0, var &init_position, int 132)
 call func_108("dogseyes")
 
 ._SCRIPT_5
@@ -106,7 +106,7 @@ if(gamevar script_time > var VAR_54)
 var is_BTREASURE_exist = call is_char_handle_in_level(int 1507337)
 if(var ! is_BTREASURE_exist)
  {
-		var is_BTREASURE_exist = call create_char(var VAR_1, "btreasure9", var VAR_2, int 14)
+		var is_BTREASURE_exist = call create_char(var init_position1, "btreasure9", var VAR_2, int 14)
 		call func_aa(var is_BTREASURE_exist)
 }
 else

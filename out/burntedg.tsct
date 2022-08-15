@@ -15,29 +15,29 @@ VAR_23	-1
 VAR_59	10	
 VAR_60	2	
 VAR_61	">CMDE"	
-VAR_62	{ 181, 820, 6390 }	
-VAR_84	{ 361, 793, 6386 }	
-VAR_85	{ 253, 793, 6740 }	
-VAR_86	{ 379, 793, 6614 }	
-VAR_87	{ 180, 793, 6287 }	
-VAR_88	{ 11, 793, 6612 }	
-VAR_98	{ 5, 250, 3, VAR_99, 0, 5, 60, 3, VAR_100, 0, 5, 100, 3, VAR_101, 0, 5, 120, 7, 8 }	
+fx_position	{ 181, 820, 6390 }	
+init_position1	{ 361, 793, 6386 }	
+init_position2	{ 253, 793, 6740 }	
+init_position3	{ 379, 793, 6614 }	
+init_position4	{ 180, 793, 6287 }	
+position	{ 11, 793, 6612 }	
+ai_script	{ 5, 250, 3, VAR_99, 0, 5, 60, 3, VAR_100, 0, 5, 100, 3, VAR_101, 0, 5, 120, 7, 8 }	
 VAR_99	"eat"	
 VAR_100	"eat"	
 VAR_101	"lizwarm"	
-VAR_102	{ 5, 150, 3, VAR_103, 0, 5, 60, 3, VAR_104, 0, 5, 100, 3, VAR_105, 0, 5, 160, 7, 8 }	
+ai_script1	{ 5, 150, 3, VAR_103, 0, 5, 60, 3, VAR_104, 0, 5, 100, 3, VAR_105, 0, 5, 160, 7, 8 }	
 VAR_103	"eat"	
 VAR_104	"eat"	
 VAR_105	"lizwarm"	
-VAR_106	{ 5, 20, 3, VAR_107, 0, 5, 60, 3, VAR_108, 0, 5, 180, 3, VAR_109, 0, 5, 100, 7, 8 }	
+ai_script2	{ 5, 20, 3, VAR_107, 0, 5, 60, 3, VAR_108, 0, 5, 180, 3, VAR_109, 0, 5, 100, 7, 8 }	
 VAR_107	"eat"	
 VAR_108	"eat"	
 VAR_109	"lizwarm"	
-VAR_110	{ 5, 250, 3, VAR_111, 0, 5, 60, 3, VAR_112, 0, 5, 300, 3, VAR_113, 0, 5, 100, 7, 8 }	
+ai_script3	{ 5, 250, 3, VAR_111, 0, 5, 60, 3, VAR_112, 0, 5, 300, 3, VAR_113, 0, 5, 100, 7, 8 }	
 VAR_111	"eat"	
 VAR_112	"eat"	
 VAR_113	"lizwarm"	
-VAR_121	{ 516, 793, 5271 }	
+init_position	{ 516, 793, 5271 }	
 VAR_122	-1	
 
 ._on_load
@@ -143,7 +143,7 @@ if(var VAR_122 != var VAR_76)
 switch(var VAR_76)
  {
 		case 0
-			if(call func_ab(int 1400, var &VAR_88))
+			if(call func_ab(int 1400, var &position))
 			 {
 					var VAR_77 ++ 
 					if(var VAR_77 < int 400)
@@ -204,14 +204,14 @@ switch(var VAR_76)
 			break 
 		case 4
 			call log("david's talking")
-			call char_turn_to_pos(var VAR_41, var &VAR_88)
+			call char_turn_to_pos(var VAR_41, var &position)
 			if(call is_char_handle_in_level(int 786432 /* SEKUNE */ ))
 			 {
-					call char_turn_to_pos(var VAR_43, var &VAR_88)
+					call char_turn_to_pos(var VAR_43, var &position)
 			}
 			if(call is_char_handle_in_level(int 196608 /* VIVIENNE */ ))
 			 {
-					call char_turn_to_pos(var VAR_44, var &VAR_88)
+					call char_turn_to_pos(var VAR_44, var &position)
 			}
 			call start_dialog("S_DvdMay", "NULL")
 			var VAR_76 = int 11
@@ -219,14 +219,14 @@ switch(var VAR_76)
 			break 
 		case 5
 			call log("sekune's talking")
-			call char_turn_to_pos(var VAR_43, var &VAR_88)
+			call char_turn_to_pos(var VAR_43, var &position)
 			if(call is_char_handle_in_level(int 65536 /* DAVID */ ))
 			 {
-					call char_turn_to_pos(var VAR_41, var &VAR_88)
+					call char_turn_to_pos(var VAR_41, var &position)
 			}
 			if(call is_char_handle_in_level(int 196608 /* VIVIENNE */ ))
 			 {
-					call char_turn_to_pos(var VAR_44, var &VAR_88)
+					call char_turn_to_pos(var VAR_44, var &position)
 			}
 			call start_dialog("S_SekMay", "NULL")
 			var VAR_76 = int 11
@@ -234,14 +234,14 @@ switch(var VAR_76)
 			break 
 		case 6
 			call log("vivienne's talking")
-			call char_turn_to_pos(var VAR_44, var &VAR_88)
+			call char_turn_to_pos(var VAR_44, var &position)
 			if(call is_char_handle_in_level(int 786432 /* SEKUNE */ ))
 			 {
-					call char_turn_to_pos(var VAR_43, var &VAR_88)
+					call char_turn_to_pos(var VAR_43, var &position)
 			}
 			if(call is_char_handle_in_level(int 65536 /* DAVID */ ))
 			 {
-					call char_turn_to_pos(var VAR_41, var &VAR_88)
+					call char_turn_to_pos(var VAR_41, var &position)
 			}
 			call start_dialog("S_VivMay", "NULL")
 			var VAR_76 = int 11
@@ -253,11 +253,11 @@ switch(var VAR_76)
 			var VAR_116 = int 1
 			if(call is_char_handle_in_level(int 786432 /* SEKUNE */ ))
 			 {
-					call char_turn_to_pos(var VAR_43, var &VAR_88)
+					call char_turn_to_pos(var VAR_43, var &position)
 			}
 			if(call is_char_handle_in_level(int 196608 /* VIVIENNE */ ))
 			 {
-					call char_turn_to_pos(var VAR_44, var &VAR_88)
+					call char_turn_to_pos(var VAR_44, var &position)
 			}
 			var VAR_76 = int 11
 			var VAR_77 = int 0
@@ -268,11 +268,11 @@ switch(var VAR_76)
 			var VAR_117 = int 1
 			if(call is_char_handle_in_level(int 65536 /* DAVID */ ))
 			 {
-					call char_turn_to_pos(var VAR_41, var &VAR_88)
+					call char_turn_to_pos(var VAR_41, var &position)
 			}
 			if(call is_char_handle_in_level(int 196608 /* VIVIENNE */ ))
 			 {
-					call char_turn_to_pos(var VAR_44, var &VAR_88)
+					call char_turn_to_pos(var VAR_44, var &position)
 			}
 			var VAR_76 = int 11
 			var VAR_77 = int 0
@@ -283,11 +283,11 @@ switch(var VAR_76)
 			var VAR_118 = int 1
 			if(call is_char_handle_in_level(int 786432 /* SEKUNE */ ))
 			 {
-					call char_turn_to_pos(var VAR_43, var &VAR_88)
+					call char_turn_to_pos(var VAR_43, var &position)
 			}
 			if(call is_char_handle_in_level(int 65536 /* DAVID */ ))
 			 {
-					call char_turn_to_pos(var VAR_41, var &VAR_88)
+					call char_turn_to_pos(var VAR_41, var &position)
 			}
 			var VAR_76 = int 11
 			var VAR_77 = int 0
@@ -415,7 +415,7 @@ switch(var VAR_76)
 			call set_char_running(var NMAYOR)
 			call func_2b(var NMAYOR, int 0)
 			call func_14(var NMAYOR, int 59)
-			var fade_chronicler = call create_enemy(int 178, int 0, var &VAR_121, int 353)
+			var fade_chronicler = call create_enemy(int 178, int 0, var &init_position, int 353)
 			var VAR_77 = int 0
 			var VAR_76 ++ 
 			break 
@@ -624,11 +624,11 @@ while(var david1)
 		}
 		var david1 = call func_7e()
 }
-var flatnosr = call create_enemy(int 177, int 0, var &VAR_84, int 305)
-var flatnosr1 = call create_enemy(int 177, int 1, var &VAR_85, int 175)
-var flatnose = call create_enemy(int 176, int 0, var &VAR_86, int 215)
-var flatnose1 = call create_enemy(int 176, int 1, var &VAR_87, int 15)
-var NMAYOR = call create_char(var &VAR_88, "NMAYOR", int 124, int 13)
+var flatnosr = call create_enemy(int 177, int 0, var &init_position1, int 305)
+var flatnosr1 = call create_enemy(int 177, int 1, var &init_position2, int 175)
+var flatnose = call create_enemy(int 176, int 0, var &init_position3, int 215)
+var flatnose1 = call create_enemy(int 176, int 1, var &init_position4, int 15)
+var NMAYOR = call create_char(var &position, "NMAYOR", int 124, int 13)
 call add_item_to_char(var NMAYOR, int 59 /* citykey */ , int 1, int 0)
 gamevar script_object = var flatnosr
 gamevar *character_movement_p+60 = int 1
@@ -645,19 +645,19 @@ var lizwarm_anim = call load_anim("lizwarm")
 var pfew_anim = call load_anim("pfew")
 var cringe_anim = call load_anim("cringe")
 call set_char_init_state(var flatnose, int 13)
-call play_char_ai_script(var flatnose, var &VAR_98)
+call play_char_ai_script(var flatnose, var &ai_script)
 call set_char_init_state(var flatnosr1, int 13)
-call play_char_ai_script(var flatnosr1, var &VAR_102)
+call play_char_ai_script(var flatnosr1, var &ai_script1)
 call set_char_init_state(var flatnose1, int 13)
-call play_char_ai_script(var flatnose1, var &VAR_106)
+call play_char_ai_script(var flatnose1, var &ai_script2)
 call set_char_init_state(var flatnosr, int 13)
-call play_char_ai_script(var flatnosr, var &VAR_110)
+call play_char_ai_script(var flatnosr, var &ai_script3)
 execute SCRIPT_11
 call load_char("chronicl")
 
 ._SCRIPT_5
-var VAR_63 = call play_3d_fx("FIRE", var &VAR_62, int 0, int 0)
-call func_ec(int 198, int -1, int 0, var &VAR_62)
+var VAR_63 = call play_3d_fx("FIRE", var &fx_position, int 0, int 0)
+call func_ec(int 198, int -1, int 0, var &fx_position)
 call log("FIRE!!!!!")
 
 ._SCRIPT_6
@@ -732,7 +732,7 @@ if(gamevar *psys_p+1)
  {
 		if(call ! randomize_int(int 0, int 5))
 		 {
-				call func_ec(int 197, int 0, int 0, var &VAR_62)
+				call func_ec(int 197, int 0, int 0, var &fx_position)
 		}
 }
 

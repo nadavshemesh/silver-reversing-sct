@@ -12,17 +12,17 @@
 ._DATA
 VAR_18	{ 0, 0, -1 }	
 VAR_23	-1	
-VAR_41	{ -533, -741, 1035 }	
-VAR_43	{ -505, -741, 605 }	
-VAR_45	{ -545, -741, 1456 }	
+init_position	{ -533, -741, 1035 }	
+init_position1	{ -505, -741, 605 }	
+init_position2	{ -545, -741, 1456 }	
 VAR_46	{ -896, -741, 1050 }	
 VAR_49	{ 0, 0 }	
 VAR_53	{ 0, 0 }	
 VAR_57	{ 0, 0 }	
 VAR_62	{ -1125, -741, 2117, -1122, -741, 93 }	
-VAR_68	"yE"	
+walk_position	{ -2183, -741, 2373 }	
 VAR_69	{ 0, 0 }	
-VAR_73	{ -2162, -741, -241 }	
+init_position3	{ -2162, -741, -241 }	
 VAR_74	{ -1397, 2000, 1091 }	
 VAR_76	{ 0, 18, 0 }	
 
@@ -139,13 +139,13 @@ switch(var VAR_60)
 var VAR_61 ++ 
 
 ._SCRIPT_5
-var mini_maimip = call create_enemy(int 211, int 1, var &VAR_41, int 225)
+var mini_maimip = call create_enemy(int 211, int 1, var &init_position, int 225)
 gamevar script_object = var mini_maimip
 gamevar *object_p+6 |= int 1048576
-var mini_maimip1 = call create_enemy(int 211, int 2, var &VAR_43, int 225)
+var mini_maimip1 = call create_enemy(int 211, int 2, var &init_position1, int 225)
 gamevar script_object = var mini_maimip1
 gamevar *object_p+6 |= int 1048576
-var mini_maimip2 = call create_enemy(int 211, int 3, var &VAR_45, int 225)
+var mini_maimip2 = call create_enemy(int 211, int 3, var &init_position2, int 225)
 gamevar script_object = var mini_maimip2
 gamevar *object_p+6 |= int 1048576
 call func_1(var mini_maimip, int -1)
@@ -185,7 +185,7 @@ switch(var VAR_66)
 					gamevar global_zone_type = int 0
 					var VAR_69 = gamevar control_char_p
 					call set_char_running(var VAR_69)
-					call char_walk_to_pos(var VAR_69, var &VAR_68)
+					call char_walk_to_pos(var VAR_69, var &walk_position)
 					var VAR_66 = int 1
 					var VAR_67 = int 0
 					break 
@@ -196,7 +196,7 @@ switch(var VAR_66)
 			gamevar global_zone_type = int 0
 			if(call is_char_standing(var VAR_69))
 			 {
-					if(call is_char_at_pos(var VAR_69, var &VAR_68, int 100))
+					if(call is_char_at_pos(var VAR_69, var &walk_position, int 100))
 					 {
 							var VAR_66 = int 2
 							var VAR_67 = int 0
@@ -280,7 +280,7 @@ switch(var VAR_71)
 					var VAR_71 ++ 
 					gamevar *scene_info_p+4 = int 2
 					gamevar *scene_info_p+1 = int 1
-					var fade_chronicler = call create_enemy(int 178, int 0, var &VAR_73, int 340)
+					var fade_chronicler = call create_enemy(int 178, int 0, var &init_position3, int 340)
 			}
 			break 
 }

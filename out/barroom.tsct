@@ -12,11 +12,11 @@
 ._DATA
 VAR_18	{ 0, 0, -1 }	
 VAR_23	-1	
-VAR_43	{ -1953, -255, 1484 }	
-VAR_44	{ -2416, -256, 1468 }	
-VAR_45	{ -1423, 496, 3778 }	
-VAR_46	{ -2392, -256, 1878 }	
-VAR_47	{ -1742, 493, 1245 }	
+init_position	{ -1953, -255, 1484 }	
+position	{ -2416, -256, 1468 }	
+walk_position	{ -1423, 496, 3778 }	
+position1	{ -2392, -256, 1878 }	
+init_position1	{ -1742, 493, 1245 }	
 VAR_48	{ 1, 0, 0 }	
 
 ._on_load
@@ -67,7 +67,7 @@ switch(gamevar room_state)
 }
 
 ._SCRIPT_3
-var nrebel = call create_char(var &VAR_43, "nrebel", int 315, int 13)
+var nrebel = call create_char(var &init_position, "nrebel", int 315, int 13)
 call add_item_to_char(var nrebel, int 16 /* shrtswrd */ , int 0, int 0)
 var VAR_39 = int 0
 
@@ -98,7 +98,7 @@ switch(var VAR_39)
 			}
 			else
 			 {
-					call char_turn_to_pos(var nrebel, var &VAR_44)
+					call char_turn_to_pos(var nrebel, var &position)
 					var VAR_40 = int 25
 					var VAR_39 ++ 
 			}
@@ -144,7 +144,7 @@ switch(var VAR_39)
 			if(call get_input_sys() != int 4)
 			 {
 					call set_input_system(int 2)
-					call char_turn_to_pos(var selected_hero, var &VAR_46)
+					call char_turn_to_pos(var selected_hero, var &position1)
 					var VAR_40 = int 30
 					var VAR_39 ++ 
 			}
@@ -192,7 +192,7 @@ switch(var VAR_39)
 					call func_10c(var nrebel, "fart")
 					call func_132(var nrebel, int 16)
 					call set_char_running(var nrebel)
-					call char_walk_to_pos(var nrebel, var &VAR_45)
+					call char_walk_to_pos(var nrebel, var &walk_position)
 					call set_input_system(int 1)
 					var VAR_40 = int 100
 					var VAR_39 ++ 
@@ -205,7 +205,7 @@ switch(var VAR_39)
 			}
 			else
 			 {
-					var fade_chronicler = call create_enemy(int 178, int 0, var &VAR_47, int 315)
+					var fade_chronicler = call create_enemy(int 178, int 0, var &init_position1, int 315)
 					var VAR_39 ++ 
 			}
 			break 

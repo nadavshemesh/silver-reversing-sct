@@ -13,13 +13,13 @@
 VAR_4	{ 0, 0, 0 }	
 VAR_8	{ 4113, 400, -3793 }	
 VAR_9	{ 3945, 250, -4218, 1508, 250, -1912 }	
-VAR_10	{ 0, 1, 2, VAR_9, 8, 1, 1, 1, 48, 142, -1, 4, 0, 9, 1, 5, 0, 15, 6, 2, 7, 1, 2, 10, 41, 41, -1, -1 }	
-VAR_12	{ 2841, 1500, -820 }	
+enemy_gen_script	{ 0, 1, 2, VAR_9, 8, 1, 1, 1, 48, 142, -1, 4, 0, 9, 1, 5, 0, 15, 6, 2, 7, 1, 2, 10, 41, 41, -1, -1 }	
+init_position	{ 2841, 1500, -820 }	
 VAR_14	{ 1383, -574, -2015 }	
-VAR_15	{ 0, 0, 0, -1, 8, 1, 1, 2, 7, -1, 4, 0, 9, 1, 5, 0, 200, 6, 1, 7, 1, 3, -1 }	
-VAR_16	{ 0, 0, 1, -1, 8, 1, 1, 2, 7, -1, 4, 0, 9, 1, 5, 0, 220, 6, 1, 7, 1, 3, -1 }	
+enemy_gen_script2	{ 0, 0, 0, -1, 8, 1, 1, 2, 7, -1, 4, 0, 9, 1, 5, 0, 200, 6, 1, 7, 1, 3, -1 }	
+enemy_gen_script1	{ 0, 0, 1, -1, 8, 1, 1, 2, 7, -1, 4, 0, 9, 1, 5, 0, 220, 6, 1, 7, 1, 3, -1 }	
 VAR_21	{ 4156, 1500, -3034, 2272, 1500, -1233, 3394, 1500, -16, 3404, 1500, -911, 2339, 1500, 82 }	
-VAR_22	{ 0, 1, 5, VAR_21, 8, 2, 19, 3026, 125, 352, 12, 142, 141, 139, -1, 13, 1, 14, 0, 1, 2, 5, 0, 60, 18, 40, -1 }	
+wandering_gen_script	{ 0, 1, 5, VAR_21, 8, 2, 19, 3026, 125, 352, 12, 142, 141, 139, -1, 13, 1, 14, 0, 1, 2, 5, 0, 60, 18, 40, -1 }	
 VAR_24	{ 0, 0 }
 
 ._on_load
@@ -119,7 +119,7 @@ switch(var VAR_18)
 		case 0
 			if(var VAR_17 > int 60)
 			 {
-					var plagueman_3way = call create_enemy(int 141, int 0, var &VAR_12, int 320)
+					var plagueman_3way = call create_enemy(int 141, int 0, var &init_position, int 320)
 					gamevar script_object = var plagueman_3way
 					gamevar *character_stats_p+15 = int 5000
 					call add_item_to_char(var plagueman_3way, int 85 /* moneybag */ , int 3277313, int 0)
@@ -135,7 +135,7 @@ switch(var VAR_18)
 					var VAR_18 ++ 
 					var VAR_4 = int 1
 					call func_ec(int 1, int 0, int 24, var &VAR_8)
-					var VAR_7 = call run_enemy_generator(var &VAR_10, int 120)
+					var VAR_7 = call run_enemy_generator(var &enemy_gen_script, int 120)
 			}
 			break 
 		case 2
@@ -145,11 +145,11 @@ switch(var VAR_18)
 					 {
 							if(var VAR_0 == int 0)
 							 {
-									var VAR_7 = call run_enemy_generator(var &VAR_16, int 1)
+									var VAR_7 = call run_enemy_generator(var &enemy_gen_script1, int 1)
 							}
 							else
 							 {
-									var VAR_7 = call run_enemy_generator(var &VAR_15, int 1)
+									var VAR_7 = call run_enemy_generator(var &enemy_gen_script2, int 1)
 							}
 							var VAR_17 = int 0
 							var VAR_18 ++ 
@@ -178,7 +178,7 @@ gamevar SMACKER_X = int 328
 gamevar SMACKER_Y = int 92
 call play_2d_anim("dumpopen", int 0, int 1, int 0)
 call log("WANDERING BADDIES")
-call run_wandering_generator(var &VAR_22, int 70)
+call run_wandering_generator(var &wandering_gen_script, int 70)
 
 ._SCRIPT_10
 if(gamevar script_time > var VAR_24)

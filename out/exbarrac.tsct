@@ -10,32 +10,32 @@
 
 
 ._DATA
-VAR_7	{ 10730, -39, -1632 }	
-VAR_11	{ 5811, -39, -2669 }	
-VAR_13	{ 5811, -39, -1487 }	
-VAR_15	{ 7405, -39, -3263 }	
-VAR_17	{ 6790, -39, -2732 }	
-VAR_19	{ 5896, 1825, -3633 }	
-VAR_21	{ 5640, 1825, -3522 }	
+init_position	{ 10730, -39, -1632 }	
+init_position1	{ 5811, -39, -2669 }	
+init_position2	{ 5811, -39, -1487 }	
+init_position3	{ 7405, -39, -3263 }	
+init_position4	{ 6790, -39, -2732 }	
+init_position5	{ 5896, 1825, -3633 }	
+init_position6	{ 5640, 1825, -3522 }	
 NVILLOW	0	
 NVILLAGER	0	
-VAR_28	{ 8486, -40, -1225 }	
-VAR_30	{ 9874, -40, -5830 }	
-VAR_31	{ 8157, 105, -1292 }	
-VAR_32	{ 0, 8010, -40, -1191, 5, 100, 1, NVILLOW, 3, VAR_33, 0, 5, 275, 3, VAR_34, 0, 5, 100, 3, VAR_35, 0, 0, 10269, -40, -5485, 5, 100, 3, VAR_36, 0, 0, 10104, -40, -1028, 1, NVILLAGER, 5, 275, 3, VAR_37, 0, 7, 8 }	
+init_position7	{ 8486, -40, -1225 }	
+init_position8	{ 9874, -40, -5830 }	
+fx_position	{ 8157, 105, -1292 }	
+ai_script1	{ 0, 8010, -40, -1191, 5, 100, 1, NVILLOW, 3, VAR_33, 0, 5, 275, 3, VAR_34, 0, 5, 100, 3, VAR_35, 0, 0, 10269, -40, -5485, 5, 100, 3, VAR_36, 0, 0, 10104, -40, -1028, 1, NVILLAGER, 5, 275, 3, VAR_37, 0, 7, 8 }	
 VAR_33	"no"	
 VAR_34	"laugh"	
 VAR_35	"no"	
 VAR_36	"scratch2"	
 VAR_37	"scratch2"	
-VAR_38	{ 0, 5889, 525, -6889, 3, VAR_39, 0, 0, 8486, -40, -1225, 1, NVILLOW, 3, VAR_40, 0, 5, 50, 7, 8 }	
+ai_script	{ 0, 5889, 525, -6889, 3, VAR_39, 0, 0, 8486, -40, -1225, 1, NVILLOW, 3, VAR_40, 0, 5, 50, 7, 8 }	
 VAR_39	"scratch2"	
 VAR_40	"no"	
-VAR_44	{ 0, 0, 0, 1, -1, 8, 2, 12, 156, -1, 14, 0, 1, 1, 18, 25, -1 }	
-VAR_46	{ 6905, -39, -3322 }	
+wandering_gen_script	{ 0, 0, 0, 1, -1, 8, 2, 12, 156, -1, 14, 0, 1, 1, 18, 25, -1 }	
+init_position9	{ 6905, -39, -3322 }	
 VAR_48	VAR_49	
 VAR_49	"ACT_2"	
-VAR_50	{ VAR_51, VAR_52, VAR_53, VAR_54, VAR_55, VAR_56, VAR_57 }	
+arr	{ VAR_51, VAR_52, VAR_53, VAR_54, VAR_55, VAR_56, VAR_57 }	
 VAR_51	"GENERIC1"	
 VAR_52	"GENERIC6"	
 VAR_53	"ACT_6"	
@@ -45,10 +45,10 @@ VAR_56	"ACT_8"
 VAR_57	"GENERIC2"	
 VAR_58	-1	
 VAR_66	{ 0, 0 }	
-VAR_77	{ 8004, -40, -1559 }	
+init_position10	{ 8004, -40, -1559 }	
 VAR_80	VAR_81	
 VAR_81	"ACT_2"	
-VAR_82	{ VAR_84, VAR_85, VAR_86, VAR_87, VAR_88 }	
+arr_1	{ VAR_84, VAR_85, VAR_86, VAR_87, VAR_88 }	
 VAR_83	VAR_89	
 VAR_84	"ACT_3"	
 VAR_85	"ACT_4"	
@@ -58,7 +58,7 @@ VAR_88	"GENERIC5"
 VAR_89	"ACT_9"	
 VAR_90	-1	
 VAR_95	{ 0, 0 }	
-VAR_96	{ 8150, 105, -1277 }	
+position	{ 8150, 105, -1277 }	
 
 ._on_load
 call load_sound_set(int 6)
@@ -141,14 +141,14 @@ if(gamevar *scene_info_p+1 == int 1)
 ._SCRIPT_4
 var DAVID = call get_char_handle(int 65536)
 var GRANDAD = call get_char_handle(int 393216)
-var start_grunt = call create_enemy(int 156, int 1, var &VAR_7, int 85)
+var start_grunt = call create_enemy(int 156, int 1, var &init_position, int 85)
 var grunt_wooden_shield = call create_enemy(int 99, int 2, "j,", int 30)
-var start_grunt1 = call create_enemy(int 156, int 3, var &VAR_11, int 65)
-var grunt_wooden_shield1 = call create_enemy(int 99, int 4, var &VAR_13, int 65)
-var start_grunt2 = call create_enemy(int 156, int 5, var &VAR_15, int 250)
-var start_grunt3 = call create_enemy(int 156, int 6, var &VAR_17, int 170)
-var grunt_wooden_shield2 = call create_enemy(int 99, int 7, var &VAR_19, int 295)
-var grunt_wooden_shield3 = call create_enemy(int 99, int 8, var &VAR_21, int 60)
+var start_grunt1 = call create_enemy(int 156, int 3, var &init_position1, int 65)
+var grunt_wooden_shield1 = call create_enemy(int 99, int 4, var &init_position2, int 65)
+var start_grunt2 = call create_enemy(int 156, int 5, var &init_position3, int 250)
+var start_grunt3 = call create_enemy(int 156, int 6, var &init_position4, int 170)
+var grunt_wooden_shield2 = call create_enemy(int 99, int 7, var &init_position5, int 295)
+var grunt_wooden_shield3 = call create_enemy(int 99, int 8, var &init_position6, int 60)
 call func_106(var start_grunt, int 1, int 0, int 1)
 call func_50(var start_grunt, int 131)
 call func_106(var grunt_wooden_shield, int 1, int 0, int 1)
@@ -303,19 +303,19 @@ switch(var VAR_24)
 }
 
 ._SCRIPT_6
-var VAR_0 = call play_3d_fx("SPARK", var &VAR_31, int 0, int 0)
-var NVILLAGER = call create_char(var &VAR_28, "NVILLAGER", int 265, int 13)
-var NVILLAGRB = call create_char(var &VAR_30, "NVILLAGRB", int 101, int 13)
+var VAR_0 = call play_3d_fx("SPARK", var &fx_position, int 0, int 0)
+var NVILLAGER = call create_char(var &init_position7, "NVILLAGER", int 265, int 13)
+var NVILLAGRB = call create_char(var &init_position8, "NVILLAGRB", int 101, int 13)
 call set_char_init_state(var NVILLAGER, int 13)
-call play_char_ai_script(var NVILLAGER, var &VAR_38)
+call play_char_ai_script(var NVILLAGER, var &ai_script)
 call set_char_running(var NVILLAGER)
 call set_char_init_state(var NVILLAGRB, int 13)
-call play_char_ai_script(var NVILLAGRB, var &VAR_32)
+call play_char_ai_script(var NVILLAGRB, var &ai_script1)
 
 ._SCRIPT_7
 execute SCRIPT_6
 call load_char("sgrunt")
-call run_wandering_generator(var &VAR_44, int 100)
+call run_wandering_generator(var &wandering_gen_script, int 100)
 var VAR_24 = int 0
 call reset_local_timer()
 
@@ -339,7 +339,7 @@ if(gamevar *scene_info_p+1 == int 1)
 }
 
 ._SCRIPT_10
-var NVILOWFAT = call create_char(var &VAR_46, "NVILOWFAT", int 350, int 13)
+var NVILOWFAT = call create_char(var &init_position9, "NVILOWFAT", int 350, int 13)
 call add_item_to_char(var NVILOWFAT, int 40 /* apple */ , int 0, int 0)
 call add_item_to_char(var NVILOWFAT, int 41 /* veggies */ , int 0, int 0)
 call add_item_to_char(var NVILOWFAT, int 42 /* bread */ , int 0, int 0)
@@ -356,7 +356,7 @@ if(var VAR_58 == int -1)
 }
 else
  {
-		var VAR_47 = @VAR_50[gamevar room_state - int 2]
+		var VAR_47 = @arr[gamevar room_state - int 2]
 }
 call func_10c(var NVILOWFAT, var VAR_47)
 if(call func_bf(int 448, gamevar CURRENT_LEVEL, gamevar CURRENT_SCENE))
@@ -406,7 +406,7 @@ switch(var VAR_65)
 			 {
 					var VAR_58 ++ 
 					var VAR_58 = var VAR_58 % int 7
-					var VAR_47 = @VAR_50[var VAR_58]
+					var VAR_47 = @arr[var VAR_58]
 					call func_10c(var NVILOWFAT, var VAR_47)
 					var VAR_66 = int 0
 					var VAR_65 = int 0
@@ -441,7 +441,7 @@ switch(var VAR_65)
 			 {
 					var VAR_58 ++ 
 					var VAR_58 = var VAR_58 % int 7
-					var VAR_47 = @VAR_50[var VAR_58]
+					var VAR_47 = @arr[var VAR_58]
 					call func_10c(var NVILOWFAT, var VAR_47)
 					var VAR_66 = int 0
 					var VAR_65 = int 0
@@ -462,7 +462,7 @@ if(var NVILOWFAT)
 }
 
 ._SCRIPT_13
-var NVILLOW = call create_char(var &VAR_77, "NVILLOW", int 40, int 13)
+var NVILLOW = call create_char(var &init_position10, "NVILLOW", int 40, int 13)
 if(call func_bf(int 222, gamevar CURRENT_LEVEL, gamevar CURRENT_SCENE))
  {
 		call func_d8(int 222, var &VAR_59)
@@ -484,7 +484,7 @@ else
 		}
 		else
 		 {
-				var VAR_79 = @VAR_82[var VAR_90]
+				var VAR_79 = @arr_1[var VAR_90]
 		}
 		if(gamevar control_char_p)
 		 {
@@ -546,9 +546,9 @@ switch(var VAR_94)
 			 {
 					var VAR_90 ++ 
 					var VAR_90 = var VAR_90 % int 6
-					var VAR_79 = @VAR_82[var VAR_90]
+					var VAR_79 = @arr_1[var VAR_90]
 					call func_10c(var NVILLOW, var VAR_79)
-					call char_turn_to_pos(var NVILLOW, var &VAR_96)
+					call char_turn_to_pos(var NVILLOW, var &position)
 					var VAR_95 = int 0
 					var VAR_94 = int 5
 			}
@@ -611,9 +611,9 @@ switch(var VAR_94)
 			 {
 					var VAR_90 ++ 
 					var VAR_90 = var VAR_90 % int 6
-					var VAR_79 = @VAR_82[var VAR_90]
+					var VAR_79 = @arr_1[var VAR_90]
 					call func_10c(var NVILLOW, var VAR_79)
-					call char_turn_to_pos(var NVILLOW, var &VAR_96)
+					call char_turn_to_pos(var NVILLOW, var &position)
 					var VAR_95 = int 0
 					var VAR_94 = int 5
 			}

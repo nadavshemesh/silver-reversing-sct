@@ -11,21 +11,21 @@
 
 ._DATA
 VAR_10	{ 316, 1700, 821, 384, 1700, 1112, 355, 1700, 1506, 433, 1700, 1894, -1152, 1000, -1033, -1375, 1000, -1203 }	
-VAR_11	{ 0, 1, 6, VAR_10, 8, 1, 19, -157, 0, 3306, 12, 47, 47, 47, 47, 47, 47, 47, -1, 13, 0, 14, 1, 6, 5, 0, 0, 16, 0, 17, 2, -871, 1, 125, -985, 1, 1415, -1, 18, 100, 11, -1 }	
-VAR_12	{ 0, 0, 1, -1, 8, 1, 4, 0, 9, 2, 1, 2, 190, 190, 190, 190, -1, 5, 0, 0, 6, 1, 7, 1, 5, 10, 46, 43, -1, -1 }	
+wandering_gen_script	{ 0, 1, 6, VAR_10, 8, 1, 19, -157, 0, 3306, 12, 47, 47, 47, 47, 47, 47, 47, -1, 13, 0, 14, 1, 6, 5, 0, 0, 16, 0, 17, 2, -871, 1, 125, -985, 1, 1415, -1, 18, 100, 11, -1 }	
+enemy_gen_script	{ 0, 0, 1, -1, 8, 1, 4, 0, 9, 2, 1, 2, 190, 190, 190, 190, -1, 5, 0, 0, 6, 1, 7, 1, 5, 10, 46, 43, -1, -1 }	
 VAR_13	{ 528, 1, 2369, 528, 1, 2369 }	
 VAR_14	{ 15, 0, -412, 1, 1830, 2, -1681, -322, 2280, 8 }	
 VAR_15	{ 15, 0, -412, 1, 2291, 2, -1681, -322, 2280, 8 }	
-VAR_16	{ 0, 1, 2, VAR_13, 8, 1, 19, -200, 0, 2078, 12, 39, 39, -1, 13, 1, 14, 1, 2, 5, 0, 30, 16, 0, 15, VAR_14, VAR_15, -1, 18, 100, 11, -1 }	
+wandering_gen_script1	{ 0, 1, 2, VAR_13, 8, 1, 19, -200, 0, 2078, 12, 39, 39, -1, 13, 1, 14, 1, 2, 5, 0, 30, 16, 0, 15, VAR_14, VAR_15, -1, 18, 100, 11, -1 }	
 VAR_17	{ -2998, 1, -891, -2998, 1, -891 }	
 VAR_18	{ 15, 0, -2190, 1, 556, 2, -1681, -322, 2280, 8 }	
 VAR_19	{ 15, 0, -2745, 1, 1068, 2, -1681, -322, 2280, 8 }	
-VAR_20	{ 0, 1, 2, VAR_17, 8, 1, 19, -200, 0, 2078, 12, 39, 39, -1, 13, 1, 14, 1, 2, 5, 0, 30, 16, 0, 15, VAR_18, VAR_19, -1, 18, 100, 11, -1 }	
+wandering_gen_script2	{ 0, 1, 2, VAR_17, 8, 1, 19, -200, 0, 2078, 12, 39, 39, -1, 13, 1, 14, 1, 2, 5, 0, 30, 16, 0, 15, VAR_18, VAR_19, -1, 18, 100, 11, -1 }	
 VAR_21	{ -871, 1, 125, -985, 1, 1415 }	
 VAR_22	{ -1809, -322, 1978 }	
-VAR_24	{ -1049, -322, 1930 }	
-VAR_26	{ -2433, -322, 1930 }	
-VAR_28	{ -1315, -322, 1894 }	
+init_position	{ -1049, -322, 1930 }	
+init_position1	{ -2433, -322, 1930 }	
+init_position2	{ -1315, -322, 1894 }	
 VAR_31	{ 0, 0 }	
 VAR_32	-1	
 
@@ -113,7 +113,7 @@ if(var VAR_31 == int 0)
  {
 		if(call func_8a(var &VAR_21))
 		 {
-				var VAR_9 = call run_wandering_generator(var &VAR_11, int 10)
+				var VAR_9 = call run_wandering_generator(var &wandering_gen_script, int 10)
 				var VAR_31 ++ 
 		}
 }
@@ -123,7 +123,7 @@ if(var VAR_31 == int 1)
 		 {
 				if(call get_num_of_enemies() < int 4)
 				 {
-						var VAR_9 = call run_enemy_generator(var &VAR_12, int 10)
+						var VAR_9 = call run_enemy_generator(var &enemy_gen_script, int 10)
 						var VAR_31 ++ 
 				}
 		}
@@ -160,8 +160,8 @@ if(var VAR_31 == int 4)
 		 {
 				if(call get_num_of_enemies() < int 2)
 				 {
-						var VAR_9 = call run_wandering_generator(var &VAR_16, int 10)
-						var VAR_9 = call run_wandering_generator(var &VAR_20, int 10)
+						var VAR_9 = call run_wandering_generator(var &wandering_gen_script1, int 10)
+						var VAR_9 = call run_wandering_generator(var &wandering_gen_script2, int 10)
 						call log("suprise attack from four groads")
 						var VAR_31 ++ 
 				}
@@ -182,7 +182,7 @@ switch(var VAR_29)
 		case 0
 			if(call func_8c(int 1507328))
 			 {
-					var treasure = call create_enemy(int 136, int 0, var &VAR_24, int 0)
+					var treasure = call create_enemy(int 136, int 0, var &init_position, int 0)
 					call add_item_to_char(var treasure, int 13 /* bombs */ , int 1, int 0)
 					call add_item_to_char(var treasure, int 13 /* bombs */ , int 1, int 0)
 					var VAR_29 ++ 
@@ -191,7 +191,7 @@ switch(var VAR_29)
 		case 1
 			if(call func_8c(int 1507328))
 			 {
-					var treasure1 = call create_enemy(int 136, int 1, var &VAR_26, int 0)
+					var treasure1 = call create_enemy(int 136, int 1, var &init_position1, int 0)
 					call add_item_to_char(var treasure1, int 108 /* quiver */ , int 1, int 0)
 					call add_item_to_char(var treasure1, int 109 /* quiverb */ , int 1, int 0)
 					var VAR_29 ++ 
@@ -200,7 +200,7 @@ switch(var VAR_29)
 		case 2
 			if(call func_8c(int 1441792))
 			 {
-					var fadein_mimic = call create_enemy(int 196, int 1, var &VAR_28, int 0)
+					var fadein_mimic = call create_enemy(int 196, int 1, var &init_position2, int 0)
 					call add_item_to_char(var fadein_mimic, int 37 /* potgreen */ , int 1, int 0)
 					call add_item_to_char(var fadein_mimic, int 38 /* potbrown */ , int 1, int 0)
 					var VAR_29 ++ 

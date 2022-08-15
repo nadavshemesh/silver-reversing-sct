@@ -11,18 +11,18 @@
 
 ._DATA
 VAR_17	{ 0, 0 }	
-VAR_19	{ 982, 2615, -2736 }	
+fx_position	{ 982, 2615, -2736 }	
 VAR_20	{ 7587, 2615, 3049 }	
 lightning	0	
-VAR_26	{ -4046, 795, -1220 }	
+scroll_position	{ -4046, 795, -1220 }	
 VAR_27	{ -4910, 795, -915 }	
 VAR_28	{ -4690, 795, -500 }	
 VAR_29	{ -4252, 795, -390 }	
-VAR_30	{ VAR_27, VAR_28, VAR_29 }	
+arr	{ VAR_27, VAR_28, VAR_29 }	
 VAR_44	0	
 VAR_45	0	
 VAR_54	{ -5305, 796, -1955, -3210, 796, -1924, -3138, 796, 1074, -4743, 796, 678, -3279, 796, -291, -5159, 796, -230, -4982, 796, -1440, -5856, 796, -757, -5192, 796, -1349, -4728, 796, -2413 }	
-VAR_55	{ 34, 3, 0, 3, VAR_56, 0, 3, VAR_57, 0, 5, 30, 34, 1, 0, 3, VAR_58, 0, 34, 4, 0, 0, -4127, 795, -1700, 3, VAR_59, 0, 0, -3566, 796, -1145, 34, 5, 0, 3, VAR_60, 0, 4, VAR_44, 19, 17, 10, VAR_54, 0, 4, VAR_45, 20, 21, lightning, 23, 22, lightning, 34, 1, 0, 3, VAR_61, 0, 5, 10, 6, 13, 0, 8 }	
+ai_script	{ 34, 3, 0, 3, VAR_56, 0, 3, VAR_57, 0, 5, 30, 34, 1, 0, 3, VAR_58, 0, 34, 4, 0, 0, -4127, 795, -1700, 3, VAR_59, 0, 0, -3566, 796, -1145, 34, 5, 0, 3, VAR_60, 0, 4, VAR_44, 19, 17, 10, VAR_54, 0, 4, VAR_45, 20, 21, lightning, 23, 22, lightning, 34, 1, 0, 3, VAR_61, 0, 5, 10, 6, 13, 0, 8 }	
 VAR_56	"impjeer"	
 VAR_57	"implook"	
 VAR_58	"laugh"	
@@ -33,9 +33,9 @@ VAR_76	-1
 VAR_96	{ -6880, 1286, -2151, -7018, 796, -1436, -3033, 796, -2397, -2552, 796, 1396 }	
 VAR_97	{ -6880, 1286, -2151, -7018, 796, -1436, -3033, 796, -2397, -2552, 796, 1396 }	
 VAR_98	{ -6880, 1286, -2151, -7018, 796, -1436, -3033, 796, -2397, -2552, 796, 1396 }	
-VAR_99	{ 0, 1, 4, VAR_96, 8, 2, 4, 0, 9, 1, 1, 1, 78, -1, 5, 1, 1, 50, 6, 1, 7, 1, 1, 10, 43, -1, -1 }	
-VAR_100	{ 0, 1, 4, VAR_97, 8, 2, 4, 0, 9, 1, 1, 1, 76, -1, 5, 1, 5, 50, 6, 1, 7, 1, 1, 10, 40, -1, -1 }	
-VAR_101	{ 0, 1, 4, VAR_98, 8, 2, 4, 0, 9, 1, 1, 1, 77, -1, 5, 1, 5, 50, 6, 1, 7, 1, 1, 10, 42, -1, -1 }	
+enemy_gen_script	{ 0, 1, 4, VAR_96, 8, 2, 4, 0, 9, 1, 1, 1, 78, -1, 5, 1, 1, 50, 6, 1, 7, 1, 1, 10, 43, -1, -1 }	
+enemy_gen_script1	{ 0, 1, 4, VAR_97, 8, 2, 4, 0, 9, 1, 1, 1, 76, -1, 5, 1, 5, 50, 6, 1, 7, 1, 1, 10, 40, -1, -1 }	
+enemy_gen_script2	{ 0, 1, 4, VAR_98, 8, 2, 4, 0, 9, 1, 1, 1, 77, -1, 5, 1, 5, 50, 6, 1, 7, 1, 1, 10, 42, -1, -1 }	
 VAR_109	0	
 VAR_110	{ 5, 10, 20, 16, VAR_109, 1, 8 }	
 VAR_111	""	
@@ -98,7 +98,7 @@ if(gamevar !is_room_cleared)
 
 ._SCRIPT_3
 call log("it's_raining")
-call play_3d_fx("RAIN", var &VAR_19, var &VAR_20, int 0)
+call play_3d_fx("RAIN", var &fx_position, var &VAR_20, int 0)
 execute SCRIPT_10
 
 ._SCRIPT_4
@@ -116,7 +116,7 @@ switch(var VAR_22)
 					var david = call get_david_char()
 					while(var david)
 					 {
-							call char_walk_to_pos(var david, @VAR_30[var VAR_36])
+							call char_walk_to_pos(var david, @arr[var VAR_36])
 							var VAR_36 ++ 
 							var david = call func_7e()
 					}
@@ -127,7 +127,7 @@ switch(var VAR_22)
 		case 1
 			if(var VAR_23 > int 150)
 			 {
-					call force_scroll_to_pos(var &VAR_26)
+					call force_scroll_to_pos(var &scroll_position)
 					var VAR_23 = int 0
 					var VAR_22 ++ 
 			}
@@ -165,13 +165,13 @@ switch(var VAR_22)
 		case 5
 			if(var VAR_23 == int 220)
 			 {
-					var VAR_43 = call get_char_pos(var DAVID)
-					call char_turn_to_pos(var gonchfx, var VAR_43)
+					var position = call get_char_pos(var DAVID)
+					call char_turn_to_pos(var gonchfx, var position)
 					var david = call get_david_char()
-					var VAR_43 = call get_char_pos(var gonchfx)
+					var position = call get_char_pos(var gonchfx)
 					while(var david)
 					 {
-							call char_turn_to_pos(var david, var VAR_43)
+							call char_turn_to_pos(var david, var position)
 							var david = call func_7e()
 					}
 					var VAR_23 = int 0
@@ -278,13 +278,13 @@ switch(var VAR_22)
 			 {
 					if(var VAR_23 == int 2)
 					 {
-							var VAR_43 = call get_char_pos(var DAVID)
-							call char_turn_to_pos(var gonchfx, var VAR_43)
+							var position = call get_char_pos(var DAVID)
+							call char_turn_to_pos(var gonchfx, var position)
 					}
 					if(var VAR_23 > int 30)
 					 {
-							var VAR_43 = call get_char_pos(var gonchfx)
-							call char_turn_to_pos(var DAVID, var VAR_43)
+							var position = call get_char_pos(var gonchfx)
+							call char_turn_to_pos(var DAVID, var position)
 							call play_char_anim(var gonchfx, var stepb_anim, int 0)
 							var VAR_23 = int 0
 							var VAR_22 ++ 
@@ -368,8 +368,8 @@ switch(var VAR_22)
 			}
 			break 
 		case 13
-			var VAR_43 = call get_char_pos(var gonchfx)
-			call char_turn_to_pos(var DAVID, var VAR_43)
+			var position = call get_char_pos(var gonchfx)
+			call char_turn_to_pos(var DAVID, var position)
 			call resume_conversation()
 			var VAR_22 ++ 
 			break 
@@ -421,7 +421,7 @@ if(call is_char_handle_in_level(int 8847360 /* GONCH */ ))
 }
 
 ._SCRIPT_5
-var gonchfx = call create_enemy(int 73, int 0, var &VAR_26, int 80)
+var gonchfx = call create_enemy(int 73, int 0, var &scroll_position, int 80)
 call func_f(var gonchfx, int 131072)
 gamevar script_object = var gonchfx
 gamevar *object_p+8 |= int 4194304
@@ -475,7 +475,7 @@ while(var david)
 		var david = call func_7e()
 }
 call func_50(var gonchfx, int 8192)
-call play_char_ai_script(var gonchfx, var &VAR_55)
+call play_char_ai_script(var gonchfx, var &ai_script)
 call set_char_running(var gonchfx)
 var strut_anim = call load_anim("strut")
 var impish_anim = call load_anim("impish")
@@ -556,15 +556,15 @@ if(var VAR_103 == int 0)
  {
 		if(var ! VAR_102)
 		 {
-				call run_enemy_generator(var &VAR_99, int 10)
+				call run_enemy_generator(var &enemy_gen_script, int 10)
 		}
 		if(var VAR_102 == int 1)
 		 {
-				call run_enemy_generator(var &VAR_100, int 10)
+				call run_enemy_generator(var &enemy_gen_script1, int 10)
 		}
 		if(var VAR_102 == int 2)
 		 {
-				call run_enemy_generator(var &VAR_101, int 10)
+				call run_enemy_generator(var &enemy_gen_script2, int 10)
 		}
 }
 

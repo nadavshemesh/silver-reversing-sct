@@ -11,9 +11,15 @@ typedef struct catalog_ref {
     char* postfix;
 } catalog_ref;
 
+typedef struct var_hint_name {
+    int used_counter;
+    char* name;
+} var_hint_name;
+
 typedef struct type_forcing {
     data_type type;
     int var_index;
+    var_hint_name* hint_name;
 } forced_type;
 
 typedef struct game_function {

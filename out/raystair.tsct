@@ -11,22 +11,22 @@
 
 ._DATA
 VAR_17	{ 0, 0, 0, 0, 0, 0, 0, 0 }	
-VAR_20	{ 7825, 3375, -15675 }	
+fx_position	{ 7825, 3375, -15675 }	
 VAR_21	{ -3625, 3375, -13700 }	
-VAR_38	{ -2074, 805, 10742 }	
-VAR_39	{ -2050, 805, 10178 }	
-VAR_40	{ -2050, 805, 9635 }	
-VAR_41	{ -2032, 805, 9169 }	
-VAR_45	{ -1764, 805, 10374 }	
-VAR_46	{ -1786, 805, 9513 }	
-VAR_47	{ -1502, 805, 9925 }	
+init_position	{ -2074, 805, 10742 }	
+init_position1	{ -2050, 805, 10178 }	
+init_position2	{ -2050, 805, 9635 }	
+init_position3	{ -2032, 805, 9169 }	
+init_position4	{ -1764, 805, 10374 }	
+init_position5	{ -1786, 805, 9513 }	
+init_position6	{ -1502, 805, 9925 }	
 VAR_52	{ -4405, 806, 10012 }	
 VAR_53	{ -4803, 806, 10464 }	
 VAR_54	{ -4587, 806, 9509 }	
 VAR_55	{ -4587, 806, 9509 }	
-VAR_56	"filo"	
+arr	"filo"	
 VAR_64	{ -1673, 806, 11903, -1863, 806, 8253 }	
-VAR_65	{ 0, 1, 1, VAR_64, 8, 1, 19, -4605, 806, 9990, 12, 78, 77, 77, 78, -1, 13, 0, 14, 1, 2, 5, 0, 200, 17, 2, -4541, 806, 11272, -3916, 806, 8834, -1, 16, 0, 18, 100, -1, 0 }	
+wandering_gen_script	{ 0, 1, 1, VAR_64, 8, 1, 19, -4605, 806, 9990, 12, 78, 77, 77, 78, -1, 13, 0, 14, 1, 2, 5, 0, 200, 17, 2, -4541, 806, 11272, -3916, 806, 8834, -1, 16, 0, 18, 100, -1, 0 }	
 
 ._on_load
 execute SCRIPT_9
@@ -119,7 +119,7 @@ switch(var VAR_48)
 					var david = call get_david_char()
 					while(var david)
 					 {
-							call char_walk_to_pos(var david, @VAR_56[var VAR_51])
+							call char_walk_to_pos(var david, @arr[var VAR_51])
 							var david = call func_7e()
 							var VAR_51 ++ 
 					}
@@ -169,15 +169,15 @@ call add_item_to_char(var fkhan, int 22 /* bastswrd */ , int 1, int 1)
 call add_item_to_char(var fkhan, int 85 /* moneybag */ , int 6554113, int 0)
 call load_char("scaptain")
 call load_char("slieuten")
-var scaptainpts = call create_enemy(int 125, int 0, var &VAR_38, int 240)
-var scaptainpts1 = call create_enemy(int 125, int 1, var &VAR_39, int 245)
-var scaptainpts2 = call create_enemy(int 125, int 2, var &VAR_40, int 230)
-var scaptainpts3 = call create_enemy(int 125, int 3, var &VAR_41, int 240)
+var scaptainpts = call create_enemy(int 125, int 0, var &init_position, int 240)
+var scaptainpts1 = call create_enemy(int 125, int 1, var &init_position1, int 245)
+var scaptainpts2 = call create_enemy(int 125, int 2, var &init_position2, int 230)
+var scaptainpts3 = call create_enemy(int 125, int 3, var &init_position3, int 240)
 call add_item_to_char(var scaptainpts, int 43 /* cheese */ , int 1, int 0)
 call add_item_to_char(var scaptainpts3, int 42 /* bread */ , int 1, int 0)
-var slieutenant = call create_enemy(int 122, int 0, var &VAR_45, int 235)
-var slieutenant1 = call create_enemy(int 122, int 1, var &VAR_46, int 235)
-var slieutenant2 = call create_enemy(int 122, int 2, var &VAR_47, int 235)
+var slieutenant = call create_enemy(int 122, int 0, var &init_position4, int 235)
+var slieutenant1 = call create_enemy(int 122, int 1, var &init_position5, int 235)
+var slieutenant2 = call create_enemy(int 122, int 2, var &init_position6, int 235)
 call add_item_to_char(var slieutenant1, int 41 /* veggies */ , int 1, int 0)
 call freeze_enemy(var scaptainpts)
 call freeze_enemy(var scaptainpts1)
@@ -209,7 +209,7 @@ gamevar *character_stats_p+15 = int 3400
 call log("wandering baddies")
 call load_char("orc")
 call load_char("ronnie")
-var VAR_60 = call run_wandering_generator(var &VAR_65, int 100)
+var VAR_60 = call run_wandering_generator(var &wandering_gen_script, int 100)
 
 ._SCRIPT_9
 gamevar SMACKER_X = int 0
@@ -229,7 +229,7 @@ gamevar SMACKER_Y = int 64
 call play_2d_anim("flame05", int 1, int 1, int 0)
 
 ._SCRIPT_10
-call play_3d_fx("MRAIN", var &VAR_20, var &VAR_21, int 0)
+call play_3d_fx("MRAIN", var &fx_position, var &VAR_21, int 0)
 execute SCRIPT_11
 
 ._SCRIPT_11

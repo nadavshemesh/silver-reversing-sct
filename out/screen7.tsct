@@ -16,7 +16,7 @@ VAR_13	""
 VAR_14	{ -323, 625, 5560 }
 
 ._on_load
-var VAR_1 = var &VAR_7
+var init_position = var &VAR_7
 var VAR_2 = int 335
 execute SCRIPT_10
 var VAR_3 = int 32
@@ -133,7 +133,7 @@ if(call ! func_af(int 34))
 var is_BTREASURE_exist = call is_char_handle_in_level(int 1507337)
 if(var ! is_BTREASURE_exist)
  {
-		var is_BTREASURE_exist = call create_char(var VAR_1, "btreasure9", var VAR_2, int 14)
+		var is_BTREASURE_exist = call create_char(var init_position, "btreasure9", var VAR_2, int 14)
 		call func_aa(var is_BTREASURE_exist)
 }
 else

@@ -10,10 +10,10 @@
 
 
 ._DATA
-VAR_4	{ 0, 0, 0 }	
+arr	{ 0, 0, 0 }	
 VAR_5	{ 0, 0, 0 }	
-VAR_7	{ 3021, -2230, 1316 }	
-VAR_9	{ 0, 3527, -2230, 2093, 2, 3354, -2080, 2220, 3, VAR_10, 0, 11, 100, 200, 0, 3900, -2230, 2168, 2, 4252, -2100, 2172, 3, VAR_11, 0, 11, 100, 200, 0, 3016, -2230, 1310, 3, VAR_12, 0, 11, 100, 200, 7, 8 }	
+init_position	{ 3021, -2230, 1316 }	
+ai_script	{ 0, 3527, -2230, 2093, 2, 3354, -2080, 2220, 3, VAR_10, 0, 11, 100, 200, 0, 3900, -2230, 2168, 2, 4252, -2100, 2172, 3, VAR_11, 0, 11, 100, 200, 0, 3016, -2230, 1310, 3, VAR_12, 0, 11, 100, 200, 7, 8 }	
 VAR_10	"bigsigh"	
 VAR_11	"head_nod"	
 VAR_12	"head_sad"	
@@ -22,8 +22,8 @@ VAR_15	{ 3615, -2195, 1218 }
 VAR_21	{ 3838, -2230, 1583 }	
 VAR_22	"zJ|"	
 VAR_23	{ 3636, -2230, 1424 }	
-VAR_24	"NQT"	
-VAR_32	{ 3836, -2230, 1234 }	
+arr_1	"NQT"	
+position	{ 3836, -2230, 1234 }	
 VAR_42	{ 0, 0 }	
 VAR_43	{ 0, 0, 0, 0 }
 
@@ -133,9 +133,9 @@ switch(var VAR_18)
 					var VAR_20 = int 0
 					while(var VAR_20 < int 3)
 					 {
-							if(@VAR_4[var VAR_20])
+							if(@arr[var VAR_20])
 							 {
-									call char_stop(@VAR_4[var VAR_20])
+									call char_stop(@arr[var VAR_20])
 							}
 							var VAR_20 ++ 
 					}
@@ -167,10 +167,10 @@ switch(var VAR_18)
 					var VAR_20 = int 0
 					while(var VAR_20 < int 3)
 					 {
-							if(@VAR_4[var VAR_20])
+							if(@arr[var VAR_20])
 							 {
-									call set_char_running(@VAR_4[var VAR_20])
-									call char_walk_to_pos(@VAR_4[var VAR_20], @VAR_24[var VAR_20])
+									call set_char_running(@arr[var VAR_20])
+									call char_walk_to_pos(@arr[var VAR_20], @arr_1[var VAR_20])
 							}
 							var VAR_20 ++ 
 					}
@@ -182,24 +182,24 @@ switch(var VAR_18)
 			var VAR_20 = int 0
 			while(var VAR_20 < int 3)
 			 {
-					if(@VAR_4[var VAR_20])
+					if(@arr[var VAR_20])
 					 {
-							if(!VAR_25[var VAR_20])
+							if(!arr_2[var VAR_20])
 							 {
-									if(call is_char_standing(@VAR_4[var VAR_20]))
+									if(call is_char_standing(@arr[var VAR_20]))
 									 {
-											call char_turn_to_pos(@VAR_4[var VAR_20], call get_char_pos(var nmoss))
-											@VAR_25[var VAR_20]= int 1
+											call char_turn_to_pos(@arr[var VAR_20], call get_char_pos(var nmoss))
+											@arr_2[var VAR_20]= int 1
 									}
 							}
 					}
 					else
 					 {
-							@VAR_25[var VAR_20]= int 1
+							@arr_2[var VAR_20]= int 1
 					}
 					var VAR_20 ++ 
 			}
-			if(var VAR_25&&var VAR_26&&var VAR_27)
+			if(var arr_2&&var VAR_26&&var VAR_27)
 			 {
 					call set_input_system(int 1)
 					var VAR_18 ++ 
@@ -241,9 +241,9 @@ gamevar SMACKER_Y = int 224
 call play_2d_anim("moss", int 0, int 1, var &VAR_5)
 
 ._SCRIPT_11
-var nmoss = call create_char(var &VAR_7, "nmoss", int 130, int 13)
+var nmoss = call create_char(var &init_position, "nmoss", int 130, int 13)
 call func_50(var nmoss, int 8192)
-call play_char_ai_script(var nmoss, var &VAR_9)
+call play_char_ai_script(var nmoss, var &ai_script)
 if(call func_bf(int 303, gamevar CURRENT_LEVEL, gamevar CURRENT_SCENE))
  {
 		call func_d8(int 303, var &VAR_13)
@@ -255,7 +255,7 @@ var VAR_2 = int 0
 var david = call get_david_char()
 while(var david)
  {
-		@VAR_4[var VAR_2]= var david
+		@arr[var VAR_2]= var david
 		var VAR_2 ++ 
 		var david = call func_7e()
 }
@@ -332,7 +332,7 @@ switch(var VAR_28)
 		case 5
 			if(var VAR_29 > int 60)
 			 {
-					call char_turn_to_pos(var DAVID, var &VAR_32)
+					call char_turn_to_pos(var DAVID, var &position)
 					call resume_conversation()
 					call remove_item_from_pie(var teddy)
 					var VAR_28 ++ 

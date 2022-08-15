@@ -12,18 +12,18 @@
 ._DATA
 VAR_5	-1	
 VAR_7	{ 1301, -1100, -3612 }	
-VAR_9	{ 1801, -1100, -2024 }	
+init_position1	{ 1801, -1100, -2024 }	
 DAVID	0	
-VAR_13	{ 1216, -1100, -3146 }	
+init_position	{ 1216, -1100, -3146 }	
 VAR_14	{ 1414, -1100, -3573, 2317, -1100, -2799, 1516, -1100, -1894, 673, -1100, -2738 }	
-VAR_15	{ 14, 17, 4, VAR_14, 1, 17, 4, VAR_14, 1, 30, 143, 29, DAVID, 11, 100, 200, 7, 8 }	
+ai_script	{ 14, 17, 4, VAR_14, 1, 17, 4, VAR_14, 1, 30, 143, 29, DAVID, 11, 100, 200, 7, 8 }	
 VAR_20	{ 1151672320, -997621760, -991494144 }	
 VAR_21	{ 1151369216, -997621760, -983363584 }	
 VAR_22	{ 1158852608, -997621760, -986918912 }	
-VAR_23	{ VAR_20, VAR_21, VAR_22 }
+arr	{ VAR_20, VAR_21, VAR_22 }
 
 ._on_load
-var VAR_1 = var &VAR_7
+var init_position2 = var &VAR_7
 var VAR_2 = int 355
 execute SCRIPT_10
 var VAR_3 = int 13
@@ -109,7 +109,7 @@ if(gamevar script_time > var VAR_17)
 		var VAR_19 = call randomize_int(int 0, int 3)
 
 		 /* play the sound 'flayamb1' */ 
-		call play_loaded_sound(int 5, int 0, int 46, @VAR_23[var VAR_19])
+		call play_loaded_sound(int 5, int 0, int 46, @arr[var VAR_19])
 }
 if(gamevar script_time > var VAR_18)
  {
@@ -117,20 +117,20 @@ if(gamevar script_time > var VAR_18)
 		var VAR_19 = call randomize_int(int 0, int 3)
 
 		 /* play the sound 'torches2' */ 
-		call play_loaded_sound(int 6, int 0, int 46, @VAR_23[var VAR_19])
+		call play_loaded_sound(int 6, int 0, int 46, @arr[var VAR_19])
 }
 
 ._SCRIPT_4
 
 ._SCRIPT_5
-var hellcat = call create_enemy(int 143, int 0, var &VAR_13, int 103)
+var hellcat = call create_enemy(int 143, int 0, var &init_position, int 103)
 gamevar script_object = var hellcat
 gamevar *character_stats_p+15 = int 2000
 call freeze_enemy(var hellcat)
 call func_50(var hellcat, int 8192)
-call play_char_ai_script(var hellcat, var &VAR_15)
+call play_char_ai_script(var hellcat, var &ai_script)
 var DAVID = call get_char_handle(int 65536)
-var btreasure = call create_char(var &VAR_9, "btreasure", int 215, int 14)
+var btreasure = call create_char(var &init_position1, "btreasure", int 215, int 14)
 call add_item_to_char(var btreasure, int 72 /* keyg */ , int 1, int 0)
 call add_item_to_char(var btreasure, int 38 /* potbrown */ , int 1, int 0)
 call add_item_to_char(var btreasure, int 32 /* potwhite */ , int 1, int 0)
@@ -153,7 +153,7 @@ call play_2d_anim("s_boxrup", int 1, int 0, int 0)
 var is_BTREASURE_exist = call is_char_handle_in_level(int 1507337)
 if(var ! is_BTREASURE_exist)
  {
-		var is_BTREASURE_exist = call create_char(var VAR_1, "btreasure9", var VAR_2, int 14)
+		var is_BTREASURE_exist = call create_char(var init_position2, "btreasure9", var VAR_2, int 14)
 		call func_aa(var is_BTREASURE_exist)
 }
 else

@@ -12,18 +12,18 @@
 ._DATA
 VAR_0	{ 1710, -400, -517 }	
 VAR_3	{ 0, 0 }	
-VAR_8	{ 0, 0 }	
-VAR_9	{ 0, 0, 0 }	
-VAR_10	{ 0, 1 }	
+arr	{ 0, 0 }	
+arr_2	{ 0, 0, 0 }	
+arr_1	{ 0, 1 }	
 VAR_15	{ 3823, 200, 432, 2478, 200, 1530 }	
 VAR_16	{ 3362, 350, -965, 2460, 350, -976 }	
-VAR_19	{ 2209, 200, 955 }	
+init_position	{ 2209, 200, 955 }	
 VAR_20	{ 4259, 1715, 778, 3801, 1715, 841, 3821, 1715, 1184, 3247, 1715, 1700, 3287, 1715, 1732, 3526, 1715, 1187 }	
 VAR_21	{ 2565, 1715, 867, 2286, 1715, 690, 2175, 1715, 444, 2670, 1515, -503, 2971, 1515, -406, 3461, 1515, -497 }	
 VAR_22	{ 3671, 1515, -1894, 3528, 1515, -1703, 3211, 1515, -1738, 3023, 1515, -1832, 2896, 1515, -2007, 3073, 1515, -1194 }	
-VAR_23	{ 0, 1, 6, VAR_20, 8, 2, 4, 0, 9, 2, 1, 1, 142, 95, 142, -1, 5, 0, 0, 7, 1, 2, 6, 1, 10, 40, 40, -1, -1 }	
-VAR_24	{ 0, 1, 6, VAR_21, 8, 2, 4, 0, 9, 2, 1, 1, 95, 139, 95, -1, 5, 0, 0, 7, 1, 2, 10, 41, 40, -1, 6, 1, -1 }	
-VAR_25	{ 0, 1, 6, VAR_22, 8, 2, 4, 0, 9, 2, 1, 1, 141, 142, 95, -1, 5, 0, 0, 7, 1, 2, 6, 1, 10, 109, -1, -1 }	
+enemy_gen_script	{ 0, 1, 6, VAR_20, 8, 2, 4, 0, 9, 2, 1, 1, 142, 95, 142, -1, 5, 0, 0, 7, 1, 2, 6, 1, 10, 40, 40, -1, -1 }	
+enemy_gen_script1	{ 0, 1, 6, VAR_21, 8, 2, 4, 0, 9, 2, 1, 1, 95, 139, 95, -1, 5, 0, 0, 7, 1, 2, 10, 41, 40, -1, 6, 1, -1 }	
+enemy_gen_script2	{ 0, 1, 6, VAR_22, 8, 2, 4, 0, 9, 2, 1, 1, 141, 142, 95, -1, 5, 0, 0, 7, 1, 2, 6, 1, 10, 109, -1, -1 }	
 VAR_27	4	
 
 ._on_load
@@ -121,19 +121,19 @@ switch(var VAR_29)
 					 {
 							case 0
 								var VAR_28 ++ 
-								var VAR_31 = call run_enemy_generator(var &VAR_23, int 0)
+								var VAR_31 = call run_enemy_generator(var &enemy_gen_script, int 0)
 								var VAR_29 ++ 
 								var VAR_30 = int 0
 								break 
 							case 1
 								var VAR_28 ++ 
-								var VAR_31 = call run_enemy_generator(var &VAR_24, int 0)
+								var VAR_31 = call run_enemy_generator(var &enemy_gen_script1, int 0)
 								var VAR_29 ++ 
 								var VAR_30 = int 0
 								break 
 							case 2
 								var VAR_28 ++ 
-								var VAR_31 = call run_enemy_generator(var &VAR_25, int 0)
+								var VAR_31 = call run_enemy_generator(var &enemy_gen_script2, int 0)
 								var VAR_29 ++ 
 								var VAR_30 = int 0
 								break 
@@ -157,7 +157,7 @@ switch(var VAR_29)
 }
 
 ._SCRIPT_5
-var cyclops = call create_enemy(int 49, int 0, var &VAR_19, int 71)
+var cyclops = call create_enemy(int 49, int 0, var &init_position, int 71)
 call load_char("plguemen")
 execute SCRIPT_3
 
@@ -165,8 +165,8 @@ execute SCRIPT_3
 var VAR_14 = int 0
 while(@david[var VAR_14])
  {
-		@VAR_8[var VAR_14]= var VAR_32
-		@VAR_9[var VAR_14]= var VAR_32
+		@arr[var VAR_14]= var VAR_32
+		@arr_2[var VAR_14]= var VAR_32
 		var VAR_14 ++ 
 }
 
@@ -176,7 +176,7 @@ while(@david[var VAR_14])
  {
 		var VAR_12 = @david[var VAR_14]
 		execute SCRIPT_8
-		@VAR_8[var VAR_14]= var VAR_11
+		@arr[var VAR_14]= var VAR_11
 		var VAR_14 ++ 
 }
 execute SCRIPT_10
@@ -206,9 +206,9 @@ var VAR_11 = int 2
 var VAR_14 = int 0
 while(@david[var VAR_14])
  {
-		if(@VAR_8[var VAR_14] == @VAR_10[gamevar CLICKED_DOOR])
+		if(@arr[var VAR_14] == @arr_1[gamevar CLICKED_DOOR])
 		 {
-				var VAR_13 = @VAR_8[var VAR_14]
+				var VAR_13 = @arr[var VAR_14]
 		}
 		var VAR_14 ++ 
 }
@@ -218,10 +218,10 @@ var VAR_13 = int -1
 var VAR_14 = int 0
 while(@david[var VAR_14])
  {
-		if(@VAR_8[var VAR_14] != @VAR_9[var VAR_14])
+		if(@arr[var VAR_14] != @arr_2[var VAR_14])
 		 {
-				var VAR_13 = @VAR_8[var VAR_14]
-				@VAR_9[var VAR_14]= @VAR_8[var VAR_14]
+				var VAR_13 = @arr[var VAR_14]
+				@arr_2[var VAR_14]= @arr[var VAR_14]
 		}
 		var VAR_14 ++ 
 }

@@ -11,16 +11,16 @@
 
 ._DATA
 VAR_4	{ 0, 1, 20, 0, 0 }	
-VAR_6	{ 351, 1625, -10336 }	
+init_position	{ 351, 1625, -10336 }	
 VAR_10	"JY\"	
 VAR_11	{ 1017, 1625, -10565 }	
 VAR_12	{ 1548, 0, -7887, 1321, 0, -8025 }	
 VAR_13	{ -1485, 0, -7867 }	
-VAR_14	{ 0, 0, 2, -1, 8, 0, 4, 2, 2, VAR_12, 9, 2, 6, 1, 1, 1, 26, 26, -1, 7, 1, 8, 10, 42, -1, -1 }	
-VAR_15	{ 0, 0, 2, -1, 8, 1, 4, 2, 1, VAR_10, 9, 1, 6, 2, 1, 1, 26, -1, 7, 1, 8, 10, 40, -1, -1 }	
-VAR_16	{ 0, 0, 2, -1, 8, 1, 4, 2, 1, VAR_11, 9, 1, 6, 2, 1, 1, 26, -1, 7, 1, 8, 10, 45, -1, -1 }	
-VAR_17	{ 0, 0, 2, -1, 8, 1, 4, 0, 9, 1, 6, 1, 1, 1, 26, 26, -1, 7, 1, 2, -1 }	
-VAR_18	{ 0, 0, 2, -1, 8, 0, 4, 2, 1, VAR_13, 9, 1, 6, 1, 1, 1, 26, 26, -1, 7, 1, 8, -1 }	
+enemy_gen_script	{ 0, 0, 2, -1, 8, 0, 4, 2, 2, VAR_12, 9, 2, 6, 1, 1, 1, 26, 26, -1, 7, 1, 8, 10, 42, -1, -1 }	
+enemy_gen_script2	{ 0, 0, 2, -1, 8, 1, 4, 2, 1, VAR_10, 9, 1, 6, 2, 1, 1, 26, -1, 7, 1, 8, 10, 40, -1, -1 }	
+enemy_gen_script3	{ 0, 0, 2, -1, 8, 1, 4, 2, 1, VAR_11, 9, 1, 6, 2, 1, 1, 26, -1, 7, 1, 8, 10, 45, -1, -1 }	
+enemy_gen_script4	{ 0, 0, 2, -1, 8, 1, 4, 0, 9, 1, 6, 1, 1, 1, 26, 26, -1, 7, 1, 2, -1 }	
+enemy_gen_script1	{ 0, 0, 2, -1, 8, 0, 4, 2, 1, VAR_13, 9, 1, 6, 1, 1, 1, 26, 26, -1, 7, 1, 8, -1 }	
 VAR_19	{ 0, 0 }	
 VAR_22	{ 0, 0 }	
 
@@ -149,8 +149,8 @@ if(var VAR_0 == int 4)
 		 {
 				exit_script 
 		}
-		call run_enemy_generator(var &VAR_14, int 10)
-		call run_enemy_generator(var &VAR_18, int 10)
+		call run_enemy_generator(var &enemy_gen_script, int 10)
+		call run_enemy_generator(var &enemy_gen_script1, int 10)
 		var VAR_0 = int 5
 		exit_script 
 }
@@ -165,8 +165,8 @@ if(var VAR_0 == int 5)
 }
 if(var VAR_0 == int 6)
  {
-		call run_enemy_generator(var &VAR_15, int 10)
-		call run_enemy_generator(var &VAR_16, int 10)
+		call run_enemy_generator(var &enemy_gen_script2, int 10)
+		call run_enemy_generator(var &enemy_gen_script3, int 10)
 		var VAR_1 = int 80
 		call reset_local_timer()
 		var VAR_0 = int 7
@@ -191,7 +191,7 @@ if(var VAR_0 == int 8)
 		 {
 				call remove_char(var vikingc1)
 		}
-		call run_enemy_generator(var &VAR_17, int 10)
+		call run_enemy_generator(var &enemy_gen_script4, int 10)
 		var VAR_0 = int 9
 		exit_script 
 }
@@ -221,7 +221,7 @@ if(var VAR_0 == int 10)
 
 ._SCRIPT_5
 call load_char("viking")
-var vikingc = call create_enemy(int 66, int 0, var &VAR_6, int 330)
+var vikingc = call create_enemy(int 66, int 0, var &init_position, int 330)
 var vikingc1 = call create_enemy(int 66, int 1, "OþÿÿY", int 320)
 var come_anim = call load_anim("come")
 call set_input_system(int 2)

@@ -10,12 +10,12 @@
 
 
 ._DATA
-VAR_7	{ -3674, -768, 1000 }	
+walk_position	{ -3674, -768, 1000 }	
 VAR_8	{ -4443, -768, 824 }	
 VAR_9	{ -3666, -768, 1416 }	
-VAR_10	{ VAR_8, VAR_9 }	
-VAR_11	{ 0, 0 }	
-VAR_14	{ -1605, -789, 22 }	
+arr	{ VAR_8, VAR_9 }	
+arr_1	{ 0, 0 }	
+position	{ -1605, -789, 22 }	
 VAR_17	-1	
 
 ._on_load
@@ -118,13 +118,13 @@ switch(var VAR_3)
 					 {
 							if(var david != gamevar control_char_p)
 							 {
-									@VAR_11[var VAR_15]= var david
-									call char_walk_to_pos(var david, @VAR_10[var VAR_15])
+									@arr_1[var VAR_15]= var david
+									call char_walk_to_pos(var david, @arr[var VAR_15])
 									var VAR_15 ++ 
 							}
 							var david = call func_7e()
 					}
-					call char_walk_to_pos(gamevar control_char_p, var &VAR_7)
+					call char_walk_to_pos(gamevar control_char_p, var &walk_position)
 					var VAR_3 ++ 
 					var VAR_4 = int 0
 			}
@@ -133,20 +133,20 @@ switch(var VAR_3)
 			var VAR_15 = int 0
 			while(var VAR_15 < int 2)
 			 {
-					if(@VAR_11[var VAR_15])
+					if(@arr_1[var VAR_15])
 					 {
-							if(!VAR_12[var VAR_15])
+							if(!arr_2[var VAR_15])
 							 {
-									if(call is_char_standing(@VAR_11[var VAR_15]))
+									if(call is_char_standing(@arr_1[var VAR_15]))
 									 {
-											call char_turn_to_pos(@VAR_11[var VAR_15], var &VAR_14)
-											@VAR_12[var VAR_15]= int 1
+											call char_turn_to_pos(@arr_1[var VAR_15], var &position)
+											@arr_2[var VAR_15]= int 1
 									}
 							}
 					}
 					else
 					 {
-							@VAR_12[var VAR_15]= int 1
+							@arr_2[var VAR_15]= int 1
 					}
 					var VAR_15 ++ 
 			}
@@ -154,11 +154,11 @@ switch(var VAR_3)
 			 {
 					if(call is_char_standing(gamevar control_char_p))
 					 {
-							call char_turn_to_pos(gamevar control_char_p, var &VAR_14)
+							call char_turn_to_pos(gamevar control_char_p, var &position)
 							var VAR_16 = int 1
 					}
 			}
-			if(var VAR_12&&var VAR_13&&var VAR_16)
+			if(var arr_2&&var VAR_13&&var VAR_16)
 			 {
 					var VAR_6 = call get_char_handle_id(gamevar control_char_p)
 					switch(var VAR_6)

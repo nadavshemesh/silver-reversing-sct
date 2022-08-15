@@ -10,10 +10,10 @@
 
 
 ._DATA
-VAR_2	{ 241, -388, 2848 }	
-VAR_3	{ 2045, -388, 2847 }	
-VAR_4	{ 0, 0, 1, 1, 0, 1, 0, 1, -1, 8, 1, 1, 2, 70, 55, 70, -1, 4, 0, 9, 1, 5, 1, 50, 150, 7, 1, 4, -1 }	
-VAR_5	{ 0, 0, 0, -1, 8, 1, 1, 1, 87, 87, 87, 87, -1, 4, 0, 9, 1, 5, 1, 25, 50, 7, 1, 2, 10, 43, 45, -1, -1 }	
+init_position	{ 241, -388, 2848 }	
+init_position1	{ 2045, -388, 2847 }	
+enemy_gen_script	{ 0, 0, 1, 1, 0, 1, 0, 1, -1, 8, 1, 1, 2, 70, 55, 70, -1, 4, 0, 9, 1, 5, 1, 50, 150, 7, 1, 4, -1 }	
+enemy_gen_script1	{ 0, 0, 0, -1, 8, 1, 1, 1, 87, 87, 87, 87, -1, 4, 0, 9, 1, 5, 1, 25, 50, 7, 1, 2, 10, 43, 45, -1, -1 }	
 VAR_6	{ 1, 0, 0 }	
 VAR_9	{ 435, -388, 2812, 55, -388, 2820, -453, -388, 2825, -888, -388, 2821 }	
 VAR_10	{ 1908, -388, 2838, 2428, -388, 2848, 3059, -388, 2835 }	
@@ -62,10 +62,10 @@ switch(gamevar room_state)
 call load_char("spider")
 call load_char("ratrptr")
 call load_char("skavenb")
-call run_enemy_generator(var &VAR_4, int 0)
-call run_enemy_generator(var &VAR_5, int 500)
-var lesser_gimp = call create_enemy(int 45, int 0, var &VAR_2, int 170)
-var lesser_gimp1 = call create_enemy(int 45, int 1, var &VAR_3, int 165)
+call run_enemy_generator(var &enemy_gen_script, int 0)
+call run_enemy_generator(var &enemy_gen_script1, int 500)
+var lesser_gimp = call create_enemy(int 45, int 0, var &init_position, int 170)
+var lesser_gimp1 = call create_enemy(int 45, int 1, var &init_position1, int 165)
 call func_106(var lesser_gimp, int 0, int 3, int 360)
 call func_106(var lesser_gimp1, int 0, int 3, int 360)
 gamevar script_object = var lesser_gimp

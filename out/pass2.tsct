@@ -10,20 +10,20 @@
 
 
 ._DATA
-VAR_0	{ -3034, 14, 4392 }	
+fx_position	{ -3034, 14, 4392 }	
 VAR_1	{ 6752, 14, -3656 }	
-VAR_4	{ 5, -1825, -1231 }	
-VAR_11	{ -1645, -1825, -2128 }	
-VAR_12	{ -1820, -1825, -1701 }	
-VAR_13	{ -2197, -1825, -1572 }	
-VAR_14	{ -1967, -1825, -2011 }	
+init_position4	{ 5, -1825, -1231 }	
+init_position	{ -1645, -1825, -2128 }	
+init_position1	{ -1820, -1825, -1701 }	
+init_position2	{ -2197, -1825, -1572 }	
+init_position3	{ -1967, -1825, -2011 }	
 VAR_16	-1	
 VAR_28	{ 0, 0, 0, 0, 0 }	
 VAR_29	{ 0, 0, 0 }	
 VAR_35	{ 536, -1825, -1463, 427, -1825, -761, -51, -1825, -125, 25, -1825, -831, -119, -1825, -1620, 338, -1825, -1138, 871, -1825, -877, -171, -1825, 140, -372, -1825, 773, -703, -1825, 901, -724, -1825, 292, -933, -1825, -405, -1041, -1825, -1158, -1135, -1825, 790, -1211, -1825, -585, -1242, -1825, -1991, -1726, -1825, -955, -1795, -1825, 12, -2007, -1825, -1846, -1398, -1825, -2319 }	
 VAR_36	{ 536, -1825, -1463, 427, -1825, -761, -51, -1825, -125, 25, -1825, -831, -119, -1825, -1620, 338, -1825, -1138, 871, -1825, -877, -171, -1825, 140, -372, -1825, 773, -703, -1825, 901, -724, -1825, 292, -933, -1825, -405, -1041, -1825, -1158, -1135, -1825, 790, -1211, -1825, -585, -1242, -1825, -1991, -1726, -1825, -955, -1795, -1825, 12, -2007, -1825, -1846, -1398, -1825, -2319 }	
-VAR_37	{ 0, 1, 20, VAR_35, 8, 2, 4, 0, 9, 1, 1, 2, 5, -1, 5, 1, 50, 120, 6, 2, 7, 1, 2, 10, 45, -1, -1 }	
-VAR_38	{ 0, 1, 20, VAR_36, 8, 2, 4, 0, 9, 1, 1, 2, 24, -1, 5, 1, 50, 120, 6, 2, 7, 1, 1, -1, 0 }	
+enemy_gen_script1	{ 0, 1, 20, VAR_35, 8, 2, 4, 0, 9, 1, 1, 2, 5, -1, 5, 1, 50, 120, 6, 2, 7, 1, 2, 10, 45, -1, -1 }	
+enemy_gen_script	{ 0, 1, 20, VAR_36, 8, 2, 4, 0, 9, 1, 1, 2, 24, -1, 5, 1, 50, 120, 6, 2, 7, 1, 1, -1, 0 }	
 
 ._on_load
 call load_sound_set(int 65)
@@ -89,7 +89,7 @@ if(gamevar !is_room_cleared)
 }
 
 ._SCRIPT_3
-call play_3d_fx("SNOW", var &VAR_0, var &VAR_1, int 0)
+call play_3d_fx("SNOW", var &fx_position, var &VAR_1, int 0)
 
 ._SCRIPT_4
 if(gamevar script_time > var VAR_40)
@@ -225,10 +225,10 @@ if(call is_char_handle_in_level(int 10420224))
 }
 
 ._SCRIPT_6
-var leopard = call create_enemy(int 72, int 0, var &VAR_11, int 75)
-var leopard1 = call create_enemy(int 72, int 1, var &VAR_12, int 75)
-var leopard2 = call create_enemy(int 72, int 2, var &VAR_13, int 50)
-var sentryg = call create_enemy(int 56, int 0, var &VAR_14, int 25)
+var leopard = call create_enemy(int 72, int 0, var &init_position, int 75)
+var leopard1 = call create_enemy(int 72, int 1, var &init_position1, int 75)
+var leopard2 = call create_enemy(int 72, int 2, var &init_position2, int 50)
+var sentryg = call create_enemy(int 56, int 0, var &init_position3, int 25)
 call freeze_enemy(var leopard)
 call freeze_enemy(var leopard1)
 call freeze_enemy(var leopard2)
@@ -237,7 +237,7 @@ call func_50(var sentryg, int 1)
 call load_char("wamper")
 
 ._SCRIPT_7
-var grow_wamper = call create_enemy(int 5, int 0, var &VAR_4, int 260)
+var grow_wamper = call create_enemy(int 5, int 0, var &init_position4, int 260)
 call freeze_enemy(var grow_wamper)
 gamevar script_object = var grow_wamper
 gamevar HP = int 4
@@ -260,10 +260,10 @@ if(var VAR_27 == int 1)
  {
 		if(var VAR_28 == int 1)
 		 {
-				call run_enemy_generator(var &VAR_38, int 200)
+				call run_enemy_generator(var &enemy_gen_script, int 200)
 		}
 		else
 		 {
-				call run_enemy_generator(var &VAR_37, int 200)
+				call run_enemy_generator(var &enemy_gen_script1, int 200)
 		}
 }

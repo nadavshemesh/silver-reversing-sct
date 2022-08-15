@@ -15,17 +15,17 @@ VAR_3	999
 DAVID	{ 0, 0, 0, 0, 0, 0 }	
 VAR_24	{ 0, 0, -1 }	
 VAR_29	-1	
-VAR_45	{ -3710, -1635, 2221 }	
+init_position4	{ -3710, -1635, 2221 }	
 VAR_46	"fb"	
-VAR_56	{ -3779, -1635, 1645 }	
+init_position3	{ -3779, -1635, 1645 }	
 VAR_61	{ 0, 0, 9 }	
-VAR_68	{ -1807, -1560, 1302 }	
-VAR_69	{ -2547, -1524, 1644 }	
-VAR_70	{ -2656, -1547, 1023 }	
+init_position	{ -1807, -1560, 1302 }	
+init_position1	{ -2547, -1524, 1644 }	
+init_position2	{ -2656, -1547, 1023 }	
 VAR_71	{ -3891, -1635, 22131, -3979, -1635, 1522 }	
 VAR_72	{ 0, 0, 2, 300, 300, 8, 1, 4, 0, 9, 2, 1, 2, 68, 68, 68, -1, 5, 0, 25, 6, 1, 7, 1, 2, -1 }	
 VAR_73	{ -984, -1480, 1522, -840, -1509, 1369, -631, -1509, 1245, -624, -1509, 1150, -778, -1509, 1056, -773, -1509, 990, -841, -1509, 851 }	
-VAR_74	{ 0, 1, 7, VAR_73, 8, 1, 4, 0, 9, 1, 1, 2, 69, 68, -1, 5, 0, 60, 6, 2, 7, 1, 1, -1, 0 }	
+enemy_gen_script	{ 0, 1, 7, VAR_73, 8, 1, 4, 0, 9, 1, 1, 2, 69, 68, -1, 5, 0, 60, 6, 2, 7, 1, 1, -1, 0 }	
 VAR_75	-1	
 VAR_83	4	
 
@@ -138,7 +138,7 @@ if(var VAR_61 == int 0)
 }
 if(var VAR_61 == int 1)
  {
-		var VAR_72 = call run_enemy_generator(var &VAR_74, int 10)
+		var VAR_72 = call run_enemy_generator(var &enemy_gen_script, int 10)
 		var VAR_61 ++ 
 }
 if(var VAR_61 == int 2)
@@ -160,10 +160,10 @@ call load_char("skel")
 call load_char("boney")
 call load_item(int 93 /* cutlass */ )
 call load_item(int 111 /* potwhite */ )
-var deathip = call create_enemy(int 59, int 0, var &VAR_68, int 260)
+var deathip = call create_enemy(int 59, int 0, var &init_position, int 260)
 call add_item_to_char(var deathip, int 85 /* moneybag */ , int 6554113, int 0)
-var skel = call create_enemy(int 58, int 0, var &VAR_69, int 260)
-var skel1 = call create_enemy(int 58, int 1, var &VAR_70, int 260)
+var skel = call create_enemy(int 58, int 0, var &init_position1, int 260)
+var skel1 = call create_enemy(int 58, int 1, var &init_position2, int 260)
 
 ._SCRIPT_5
 call func_40(int 1, int 5, int 0, int -1)
@@ -183,7 +183,7 @@ else
 }
 
 ._SCRIPT_6
-var scruttoc = call create_enemy(int 67, int 0, var &VAR_56, int 260)
+var scruttoc = call create_enemy(int 67, int 0, var &init_position3, int 260)
 call add_item_to_char(var scruttoc, int 102 /* scroll */ , int 1, int 0)
 call func_10c(var scruttoc, "NULL")
 
@@ -221,7 +221,7 @@ if(var VAR_83 == int 7)
 				if(var VAR_50 == int 1)
 				 {
 						gamevar room_state = int 3
-						var fade_chronicler = call create_enemy(int 178, int 0, var &VAR_45, int 185)
+						var fade_chronicler = call create_enemy(int 178, int 0, var &init_position4, int 185)
 						var VAR_83 ++ 
 				}
 		}

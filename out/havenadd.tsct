@@ -10,26 +10,26 @@
 
 
 ._DATA
-VAR_5	{ 2567, 0, 504 }	
-VAR_7	{ 2270, 0, 599 }	
-VAR_9	{ 2160, 0, 599 }	
-VAR_11	{ 2050, 0, 599 }	
-VAR_13	{ 2800, 0, 599 }	
+init_position1	{ 2567, 0, 504 }	
+init_position2	{ 2270, 0, 599 }	
+init_position3	{ 2160, 0, 599 }	
+init_position	{ 2050, 0, 599 }	
+init_position4	{ 2800, 0, 599 }	
 VAR_15	{ -29, 13, 852 }	
 VAR_16	{ -29, 11, 60 }	
 VAR_17	{ -61, 1000, 505 }	
-VAR_26	{ 420, 0, 596 }	
-VAR_27	{ 446, 0, 435 }	
-VAR_28	{ -889, 0, 410 }	
+walk_position	{ 420, 0, 596 }	
+walk_position1	{ 446, 0, 435 }	
+walk_position2	{ -889, 0, 410 }	
 VAR_29	{ -270, 0, 417, 794, 0, 432 }	
-VAR_37	{ 740, 1, 452 }	
+walk_position3	{ 740, 1, 452 }	
 VAR_39	-1	
-VAR_47	{ 1853, 0, 594 }	
+init_position5	{ 1853, 0, 594 }	
 nrebela2	0	
-VAR_50	{ 1069, 1, -16 }	
-VAR_51	{ 257, 0, 914 }	
-VAR_52	{ 0, 1184, 1, 469, 2, 1527, 321, 517, 11, 200, 300, 0, 1988, 0, 429, 11, 500, 700, 0, 522, 1, 865, 9, nrebela2, 0, 1212, 1, -71, 11, 200, 300, 7, 8 }	
-VAR_53	{ 11, 1000, 2000, 3, VAR_54, 0, 11, 1000, 2000, 3, VAR_55, 0, 7, 8 }	
+init_position6	{ 1069, 1, -16 }	
+init_position7	{ 257, 0, 914 }	
+ai_script	{ 0, 1184, 1, 469, 2, 1527, 321, 517, 11, 200, 300, 0, 1988, 0, 429, 11, 500, 700, 0, 522, 1, 865, 9, nrebela2, 0, 1212, 1, -71, 11, 200, 300, 7, 8 }	
+ai_script1	{ 11, 1000, 2000, 3, VAR_54, 0, 11, 1000, 2000, 3, VAR_55, 0, 7, 8 }	
 VAR_54	{ 1718513507, 1684370293, -1431655936 }	
 VAR_55	{ 1735749475, -1431699352 }	
 VAR_59	""	
@@ -97,11 +97,11 @@ switch(gamevar room_state)
 var tyrosumn_anim = call load_anim("tyrosumn")
 
 ._SCRIPT_4
-var start_grunt = call create_enemy(int 156, int 1, var &VAR_11, int 265)
-var start_grunt1 = call create_enemy(int 156, int 2, var &VAR_5, int 245)
-var start_grunt2 = call create_enemy(int 156, int 3, var &VAR_7, int 245)
-var start_grunt3 = call create_enemy(int 156, int 4, var &VAR_9, int 220)
-var start_grunt4 = call create_enemy(int 156, int 5, var &VAR_13, int 220)
+var start_grunt = call create_enemy(int 156, int 1, var &init_position, int 265)
+var start_grunt1 = call create_enemy(int 156, int 2, var &init_position1, int 245)
+var start_grunt2 = call create_enemy(int 156, int 3, var &init_position2, int 245)
+var start_grunt3 = call create_enemy(int 156, int 4, var &init_position3, int 220)
+var start_grunt4 = call create_enemy(int 156, int 5, var &init_position4, int 220)
 call freeze_enemy(var start_grunt)
 call freeze_enemy(var start_grunt1)
 call freeze_enemy(var start_grunt2)
@@ -157,8 +157,8 @@ switch(var VAR_23)
  {
 		case 0
 			call set_input_system(int 2)
-			call char_walk_to_pos(var DAVID, var &VAR_26)
-			call char_walk_to_pos(var GRANDAD, var &VAR_27)
+			call char_walk_to_pos(var DAVID, var &walk_position)
+			call char_walk_to_pos(var GRANDAD, var &walk_position1)
 			var VAR_23 ++ 
 			break 
 		case 1
@@ -187,7 +187,7 @@ switch(var VAR_23)
 		case 4
 			if(call func_6d() == int 2)
 			 {
-					call char_walk_to_pos(var GRANDAD, var &VAR_28)
+					call char_walk_to_pos(var GRANDAD, var &walk_position2)
 					var VAR_23 ++ 
 			}
 			break 
@@ -395,7 +395,7 @@ switch(var VAR_23)
 			if(gamevar *object_p+5 == int 6)
 			 {
 					call func_c9()
-					call char_walk_to_pos(var GRANDAD, var &VAR_37)
+					call char_walk_to_pos(var GRANDAD, var &walk_position3)
 					var VAR_23 ++ 
 			}
 			break 
@@ -435,7 +435,7 @@ if(call get_num_of_enemies() < int 5)
 ._SCRIPT_8
 
 ._SCRIPT_9
-var start_grunt5 = call create_enemy(int 156, int 0, var &VAR_47, int 259)
+var start_grunt5 = call create_enemy(int 156, int 0, var &init_position5, int 259)
 gamevar script_object = var start_grunt5
 gamevar *character_movement_p+60 = int 1
 gamevar script_object = var start_grunt5
@@ -443,14 +443,14 @@ gamevar *character_stats_p+15 = int 14000
 call func_106(var start_grunt5, int 0, int 3, int 360)
 
 ._SCRIPT_10
-var nrebela1 = call create_char(var &VAR_50, "nrebela1", int 55, int 13)
-var nrebela2 = call create_char(var &VAR_51, "nrebela2", int 85, int 13)
+var nrebela1 = call create_char(var &init_position6, "nrebela1", int 55, int 13)
+var nrebela2 = call create_char(var &init_position7, "nrebela2", int 85, int 13)
 call add_item_to_char(var nrebela1, int 16 /* shrtswrd */ , int 0, int 1)
 call add_item_to_char(var nrebela2, int 16 /* shrtswrd */ , int 0, int 1)
 call func_50(var nrebela1, int 8192)
-call play_char_ai_script(var nrebela1, var &VAR_52)
+call play_char_ai_script(var nrebela1, var &ai_script)
 call func_50(var nrebela2, int 8192)
-call play_char_ai_script(var nrebela2, var &VAR_53)
+call play_char_ai_script(var nrebela2, var &ai_script1)
 
 ._SCRIPT_11
 

@@ -11,16 +11,16 @@
 
 ._DATA
 VAR_2	{ 0, 0, 0 }	
-VAR_5	{ -555, -118, -55 }	
+init_position	{ -555, -118, -55 }	
 VAR_8	{ 689, -118, -184, 403, -118, 996 }	
 VAR_9	{ 53, -118, -196, -206, -118, 990 }	
 VAR_10	{ -568, -118, -202, -587, -118, 989, -1004, -118, -185, -1098, -118, 999, -1482, -118, -217, -1484, -118, 939, -1958, -118, -193, -1891, -118, 747 }	
 VAR_12	{ -224, -118, 828, -86, -118, 190 }	
 VAR_13	{ -1585, -118, 80, -1337, -118, 721 }	
-VAR_14	{ 0, 0, 0, 1, -1, 8, 2, 4, 0, 9, 1, 1, 2, 34, 36, -1, 5, 1, 15, 60, 6, 1, 7, 1, 4, -1 }	
-VAR_15	{ 0, 1, 2, VAR_12, 8, 2, 4, 0, 9, 1, 1, 2, 33, 33, -1, 5, 1, 15, 60, 6, 1, 7, 1, 2, -1 }	
-VAR_16	{ 0, 1, 2, VAR_13, 8, 2, 4, 0, 9, 1, 1, 2, 33, 33, -1, 5, 1, 15, 60, 6, 1, 7, 1, 2, -1 }	
-VAR_17	{ 0, 0, 1, -1, 8, 0, 4, 0, 9, 1, 1, 2, 34, 36, -1, 5, 1, 40, 100, 6, 1, 7, 1, 4, -1 }	
+enemy_gen_script	{ 0, 0, 0, 1, -1, 8, 2, 4, 0, 9, 1, 1, 2, 34, 36, -1, 5, 1, 15, 60, 6, 1, 7, 1, 4, -1 }	
+enemy_gen_script2	{ 0, 1, 2, VAR_12, 8, 2, 4, 0, 9, 1, 1, 2, 33, 33, -1, 5, 1, 15, 60, 6, 1, 7, 1, 2, -1 }	
+enemy_gen_script3	{ 0, 1, 2, VAR_13, 8, 2, 4, 0, 9, 1, 1, 2, 33, 33, -1, 5, 1, 15, 60, 6, 1, 7, 1, 2, -1 }	
+enemy_gen_script1	{ 0, 0, 1, -1, 8, 0, 4, 0, 9, 1, 1, 2, 34, 36, -1, 5, 1, 40, 100, 6, 1, 7, 1, 4, -1 }	
 
 ._on_load
 call play_bgm("METALON")
@@ -104,7 +104,7 @@ if(var VAR_2 == int 0)
  {
 		if(call func_8a(var &VAR_8))
 		 {
-				var VAR_11 = call run_enemy_generator(var &VAR_14, int 10)
+				var VAR_11 = call run_enemy_generator(var &enemy_gen_script, int 10)
 				call log("trigger_tripwire 1 ")
 				var VAR_2 ++ 
 		}
@@ -112,7 +112,7 @@ if(var VAR_2 == int 0)
 		 {
 				if(call get_num_of_enemies() == int 0)
 				 {
-						var VAR_11 = call run_enemy_generator(var &VAR_17, int 30)
+						var VAR_11 = call run_enemy_generator(var &enemy_gen_script1, int 30)
 						var VAR_2 ++ 
 				}
 		}
@@ -121,7 +121,7 @@ if(var VAR_2 == int 1)
  {
 		if(call func_8a(var &VAR_9))
 		 {
-				var VAR_11 = call run_enemy_generator(var &VAR_15, int 220)
+				var VAR_11 = call run_enemy_generator(var &enemy_gen_script2, int 220)
 				call log("trigger_tripwire 2 ")
 				var VAR_2 ++ 
 		}
@@ -129,7 +129,7 @@ if(var VAR_2 == int 1)
 		 {
 				if(call get_num_of_enemies() == int 0)
 				 {
-						var VAR_11 = call run_enemy_generator(var &VAR_15, int 10)
+						var VAR_11 = call run_enemy_generator(var &enemy_gen_script2, int 10)
 						var VAR_2 ++ 
 				}
 		}
@@ -138,7 +138,7 @@ if(var VAR_2 == int 2)
  {
 		if(call func_8a(var &VAR_10))
 		 {
-				var VAR_11 = call run_enemy_generator(var &VAR_16, int 10)
+				var VAR_11 = call run_enemy_generator(var &enemy_gen_script3, int 10)
 				call log("trigger_tripwire 3 ")
 				var VAR_2 ++ 
 		}
@@ -146,7 +146,7 @@ if(var VAR_2 == int 2)
 		 {
 				if(call get_num_of_enemies() == int 0)
 				 {
-						var VAR_11 = call run_enemy_generator(var &VAR_16, int 10)
+						var VAR_11 = call run_enemy_generator(var &enemy_gen_script3, int 10)
 						var VAR_2 ++ 
 				}
 		}
@@ -155,7 +155,7 @@ if(var VAR_2 == int 2)
 ._SCRIPT_5
 call load_char("sguard")
 call load_char("sarcher")
-var btreasure = call create_char(var &VAR_5, "btreasure", int 360, int 14)
+var btreasure = call create_char(var &init_position, "btreasure", int 360, int 14)
 call add_item_to_char(var btreasure, int 83 /* borb */ , int 1, int 0)
 call add_item_to_char(var btreasure, int 83 /* borb */ , int 1, int 0)
 call add_item_to_char(var btreasure, int 46 /* pie */ , int 1, int 0)

@@ -16,12 +16,12 @@ VAR_41	-1
 VAR_60	{ 6100, 1026, -5025 }	
 VAR_62	{ 0, 0 }	
 VAR_63	{ 0, 0 }	
-VAR_74	{ -3398, -1055, 2573 }	
-VAR_75	{ -3249, -1055, 3113 }	
-VAR_76	{ -4572, -1055, 3039 }	
-VAR_77	{ -3639, -1055, 2277 }	
-VAR_78	{ -2623, -1055, 2961, -4576, -1055, 1123, -1678, -1055, 3153 }	
-VAR_94	{ -4029, -1055, 2948 }	
+init_position1	{ -3398, -1055, 2573 }	
+init_position2	{ -3249, -1055, 3113 }	
+init_position3	{ -4572, -1055, 3039 }	
+init_position4	{ -3639, -1055, 2277 }	
+init_position5	{ -2623, -1055, 2961, -4576, -1055, 1123, -1678, -1055, 3153 }	
+init_position	{ -4029, -1055, 2948 }	
 VAR_96	-1
 
 ._on_load
@@ -132,7 +132,7 @@ if(var VAR_95 == int 0)
  {
 		if(call get_num_of_enemies() <= int 0)
 		 {
-				var fade_chronicler = call create_enemy(int 178, int 0, var &VAR_94, int 320)
+				var fade_chronicler = call create_enemy(int 178, int 0, var &init_position, int 320)
 				var VAR_95 ++ 
 		}
 }
@@ -145,25 +145,25 @@ gamevar HP = int 2
 gamevar ARMOUR_CLASS = int 1
 gamevar STRENGTH = int 1
 gamevar DEXTERITY = int 1
-var nrebel1 = call create_char(var &VAR_74, "nrebel1", int 204, int 13)
+var nrebel1 = call create_char(var &init_position1, "nrebel1", int 204, int 13)
 call add_item_to_char(var nrebel1, int 17 /* daveswrd */ , int 0, int 1)
 gamevar script_object = var nrebel1
 gamevar HP = int 5
 gamevar ARMOUR_CLASS = int 1
 gamevar STRENGTH = int 1
 gamevar DEXTERITY = int 1
-var nrebela2 = call create_char(var &VAR_75, "nrebela2", int 49, int 13)
+var nrebela2 = call create_char(var &init_position2, "nrebela2", int 49, int 13)
 call add_item_to_char(var nrebela2, int 17 /* daveswrd */ , int 0, int 1)
 gamevar script_object = var nrebela2
 gamevar HP = int 3
 gamevar ARMOUR_CLASS = int 1
 gamevar STRENGTH = int 1
 gamevar DEXTERITY = int 1
-var lieutenant = call create_enemy(int 11, int 0, var &VAR_76, int 135)
+var lieutenant = call create_enemy(int 11, int 0, var &init_position3, int 135)
 call add_item_to_char(var lieutenant, int 40 /* apple */ , int 1, int 0)
-var lieutenant1 = call create_enemy(int 11, int 1, var &VAR_77, int 23)
+var lieutenant1 = call create_enemy(int 11, int 1, var &init_position4, int 23)
 call add_item_to_char(var lieutenant1, int 41 /* veggies */ , int 1, int 0)
-var lieutenant2 = call create_enemy(int 11, int 2, var &VAR_78, int 258)
+var lieutenant2 = call create_enemy(int 11, int 2, var &init_position5, int 258)
 call add_item_to_char(var lieutenant2, int 42 /* bread */ , int 1, int 0)
 var archer = call create_enemy_through_door(int 17, int 0, int 0, int 23)
 call freeze_enemy(var archer)

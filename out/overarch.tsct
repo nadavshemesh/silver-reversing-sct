@@ -11,14 +11,14 @@
 
 ._DATA
 VAR_17	{ 0, 0 }	
-VAR_20	{ -3600, 2331, -3000 }	
+fx_position	{ -3600, 2331, -3000 }	
 VAR_21	{ 0, 2331, -6750 }	
 VAR_22	{ 1313423698, -1431655936, 0, 0, 0, 0 }	
-VAR_23	{ 0, 1949, 173, 4476, 0, 2349, 173, 5447, 2, 1949, 173, 4476, 5, 100, 0, 1949, 173, 4476, 0, 1954, 173, 3231, 2, 1949, 173, 4476, 5, 100, 7, 8 }	
+ai_script	{ 0, 1949, 173, 4476, 0, 2349, 173, 5447, 2, 1949, 173, 4476, 5, 100, 0, 1949, 173, 4476, 0, 1954, 173, 3231, 2, 1949, 173, 4476, 5, 100, 7, 8 }	
 lieutenant	{ 0, 951, 173, 4301 }	
-VAR_25	{ 1954, 173, 3231 }	
-VAR_26	{ 0, 0, 0, 2, -1, 8, 1, 12, 30, 30, 31, 30, 32, -1, 13, 0, 14, 0, 1, 5, 5, 0, 60, 18, 75, -1 }	
-VAR_27	{ 0, 0, 0, 2, -1, 8, 1, 12, 11, 12, 13, 11, 12, -1, 13, 0, 14, 0, 1, 5, 5, 0, 60, 18, 75, -1 }	
+init_position	{ 1954, 173, 3231 }	
+wandering_gen_script1	{ 0, 0, 0, 2, -1, 8, 1, 12, 30, 30, 31, 30, 32, -1, 13, 0, 14, 0, 1, 5, 5, 0, 60, 18, 75, -1 }	
+wandering_gen_script	{ 0, 0, 0, 2, -1, 8, 1, 12, 11, 12, 13, 11, 12, -1, 13, 0, 14, 0, 1, 5, 5, 0, 60, 18, 75, -1 }	
 
 ._on_load
 execute SCRIPT_3
@@ -79,14 +79,14 @@ if(gamevar !is_room_cleared)
 
 ._SCRIPT_3
 call log("it's_raining")
-call play_3d_fx(var &VAR_22, var &VAR_20, var &VAR_21, int 0)
+call play_3d_fx(var &VAR_22, var &fx_position, var &VAR_21, int 0)
 execute SCRIPT_9
 
 ._SCRIPT_4
 
 ._SCRIPT_5
-var lieutenant = call create_enemy(int 11, int 0, var &VAR_25, int 85)
-call play_char_ai_script(var lieutenant, var &VAR_23)
+var lieutenant = call create_enemy(int 11, int 0, var &init_position, int 85)
+call play_char_ai_script(var lieutenant, var &ai_script)
 call func_50(var lieutenant, int 8192)
 gamevar script_object = var lieutenant
 gamevar *character_stats_p+15 = int 500
@@ -103,7 +103,7 @@ switch(gamevar is_room_cleared)
  {
 		case 1
 			call load_char("rlieuten")
-			call run_wandering_generator(var &VAR_27, int 100)
+			call run_wandering_generator(var &wandering_gen_script, int 100)
 			break 
 		case 2
 			call load_char("muscles")
@@ -111,7 +111,7 @@ switch(gamevar is_room_cleared)
 			call load_char("finnegan")
 			call load_item(int 91 /* rapier */ )
 			call load_item(int 93 /* cutlass */ )
-			call run_wandering_generator(var &VAR_26, int 100)
+			call run_wandering_generator(var &wandering_gen_script1, int 100)
 			break 
 }
 call log("wandering baddies")

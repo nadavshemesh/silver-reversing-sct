@@ -11,9 +11,9 @@
 
 ._DATA
 VAR_6	{ -1604, 1420, 3669, -1242, 1420, 3775, -1028, 1420, 3552, -643, 1420, 3279, -539, 1420, 3673, -182, 1420, 3926, -498, 1420, 4186, -153, 1420, 4723, -573, 1420, 4701, -864, 1420, 5182, -1546, 1420, 4991, -1497, 1420, 4392 }	
-VAR_7	{ 0, 1, 12, VAR_6, 8, 2, 4, 0, 9, 1, 1, 1, 1, 1, 1, -1, 5, 1, 15, 25, 6, 1, 7, 1, 1, 10, 83, 83, -1, -1 }	
-VAR_8	{ 0, 1, 12, VAR_6, 8, 2, 4, 0, 9, 1, 1, 3, 1, 1, -1, 5, 1, 5, 55, 6, 1, 7, 1, 2, 10, 83, 83, -1, -1 }	
-VAR_13	{ -867, 1420, 4400 }	
+enemy_gen_script	{ 0, 1, 12, VAR_6, 8, 2, 4, 0, 9, 1, 1, 1, 1, 1, 1, -1, 5, 1, 15, 25, 6, 1, 7, 1, 1, 10, 83, 83, -1, -1 }	
+enemy_gen_script1	{ 0, 1, 12, VAR_6, 8, 2, 4, 0, 9, 1, 1, 3, 1, 1, -1, 5, 1, 5, 55, 6, 1, 7, 1, 2, 10, 83, 83, -1, -1 }	
+position	{ -867, 1420, 4400 }	
 
 ._on_load
 call func_58(int 1)
@@ -70,8 +70,8 @@ switch(var VAR_11)
 					if(var is_VIVIENNE_exist&&var is_SEKUNE_exist)
 					 {
 							call start_dialog("S_SEKVIV", "NULL")
-							call char_turn_to_pos(var is_VIVIENNE_exist, var &VAR_13)
-							call char_turn_to_pos(var is_SEKUNE_exist, var &VAR_13)
+							call char_turn_to_pos(var is_VIVIENNE_exist, var &position)
+							call char_turn_to_pos(var is_SEKUNE_exist, var &position)
 							var VAR_12 = var is_VIVIENNE_exist
 					}
 					else
@@ -79,8 +79,8 @@ switch(var VAR_11)
 							if(var is_SEKUNE_exist)
 							 {
 									call start_dialog("S_SEKDVD", "NULL")
-									call char_turn_to_pos(var is_DAVID_exist, var &VAR_13)
-									call char_turn_to_pos(var is_SEKUNE_exist, var &VAR_13)
+									call char_turn_to_pos(var is_DAVID_exist, var &position)
+									call char_turn_to_pos(var is_SEKUNE_exist, var &position)
 									var VAR_12 = var is_DAVID_exist
 							}
 							else
@@ -88,8 +88,8 @@ switch(var VAR_11)
 									if(var is_JUG_exist)
 									 {
 											call start_dialog("S_JUGDVD", "NULL")
-											call char_turn_to_pos(var is_DAVID_exist, var &VAR_13)
-											call char_turn_to_pos(var is_JUG_exist, var &VAR_13)
+											call char_turn_to_pos(var is_DAVID_exist, var &position)
+											call char_turn_to_pos(var is_JUG_exist, var &position)
 											var VAR_12 = var is_DAVID_exist
 									}
 									else
@@ -97,8 +97,8 @@ switch(var VAR_11)
 											if(var is_VIVIENNE_exist)
 											 {
 													call start_dialog("S_VIVDVD", "NULL")
-													call char_turn_to_pos(var is_DAVID_exist, var &VAR_13)
-													call char_turn_to_pos(var is_VIVIENNE_exist, var &VAR_13)
+													call char_turn_to_pos(var is_DAVID_exist, var &position)
+													call char_turn_to_pos(var is_VIVIENNE_exist, var &position)
 													var VAR_12 = var is_DAVID_exist
 											}
 											else
@@ -127,7 +127,7 @@ switch(var VAR_11)
 			if(call func_6d() == int 10||call func_6d() == int 11)
 			 {
 					call set_char_walking(var VAR_12)
-					call char_walk_to_pos(var VAR_12, var &VAR_13)
+					call char_walk_to_pos(var VAR_12, var &position)
 					var VAR_11 ++ 
 					var VAR_10 = int 0
 			}
@@ -144,8 +144,8 @@ switch(var VAR_11)
 			if(call get_input_sys() != int 4)
 			 {
 					call set_input_system(int 1)
-					call run_enemy_generator(var &VAR_7, int 0)
-					call run_enemy_generator(var &VAR_8, int 500)
+					call run_enemy_generator(var &enemy_gen_script, int 0)
+					call run_enemy_generator(var &enemy_gen_script1, int 500)
 					var VAR_11 ++ 
 					var VAR_10 = int 0
 			}

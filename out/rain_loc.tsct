@@ -11,18 +11,18 @@
 
 ._DATA
 VAR_17	{ 0, 0 }	
-VAR_19	{ 3900, 4254, 7525 }	
+fx_position	{ 3900, 4254, 7525 }	
 VAR_20	{ 6850, 4254, -8625 }	
 VAR_23	{ 1, -1 }	
 VAR_37	{ 0, -5305, -1115, 2236 }	
-VAR_38	{ -5106, -1115, 1031 }	
-VAR_39	{ -5117, -1115, 2104 }	
-VAR_40	{ -4923, -1115, 1215 }	
-VAR_41	{ -5570, -1115, 1646 }	
-VAR_42	{ -4831, -1115, 1593 }	
-VAR_43	{ -5035, -1115, 1980 }	
-VAR_44	{ -4850, -1115, 1443 }	
-VAR_45	{ -4933, -1115, 1783 }	
+init_position	{ -5106, -1115, 1031 }	
+init_position1	{ -5117, -1115, 2104 }	
+init_position2	{ -4923, -1115, 1215 }	
+init_position3	{ -5570, -1115, 1646 }	
+init_position4	{ -4831, -1115, 1593 }	
+init_position5	{ -5035, -1115, 1980 }	
+init_position6	{ -4850, -1115, 1443 }	
+init_position7	{ -4933, -1115, 1783 }	
 VAR_54	-1	
 
 ._on_load
@@ -87,7 +87,7 @@ if(gamevar !is_room_cleared)
 
 ._SCRIPT_3
 call log("it's_raining")
-call play_3d_fx("RAIN", var &VAR_19, var &VAR_20, int 0)
+call play_3d_fx("RAIN", var &fx_position, var &VAR_20, int 0)
 execute SCRIPT_10
 
 ._SCRIPT_4
@@ -219,7 +219,7 @@ if(var VAR_24 == int 13)
 }
 
 ._SCRIPT_5
-var hsekune = call create_char(var &VAR_38, "hsekune", int 265, int 13)
+var hsekune = call create_char(var &init_position, "hsekune", int 265, int 13)
 call add_item_to_char(var hsekune, int 10 /* bow */ , int 0, int 1)
 call func_15(int 1, int 10)
 call add_item_to_char(var hsekune, int 8 /* catapult */ , int 0, int 0)
@@ -228,13 +228,13 @@ gamevar script_object = var DAVID
 var VAR_37 = gamevar LEVEL
 call set_char_lvl(var hsekune, var VAR_37)
 call func_7d(var DAVID)
-var njohn = call create_char(var &VAR_39, "njohn", int 197, int 13)
-var nben = call create_char(var &VAR_40, "nben", int 275, int 13)
-var nduke = call create_char(var &VAR_41, "nduke", int 70, int 13)
-var nwilliam = call create_char(var &VAR_42, "nwilliam", int 250, int 13)
-var nclay = call create_char(var &VAR_43, "nclay", int 204, int 13)
-var nrichard = call create_char(var &VAR_44, "nrichard", int 230, int 13)
-var nfatbob = call create_char(var &VAR_45, "nfatbob", int 260, int 13)
+var njohn = call create_char(var &init_position1, "njohn", int 197, int 13)
+var nben = call create_char(var &init_position2, "nben", int 275, int 13)
+var nduke = call create_char(var &init_position3, "nduke", int 70, int 13)
+var nwilliam = call create_char(var &init_position4, "nwilliam", int 250, int 13)
+var nclay = call create_char(var &init_position5, "nclay", int 204, int 13)
+var nrichard = call create_char(var &init_position6, "nrichard", int 230, int 13)
+var nfatbob = call create_char(var &init_position7, "nfatbob", int 260, int 13)
 call set_char_running(var njohn)
 call set_char_running(var nben)
 call set_char_running(var nclay)

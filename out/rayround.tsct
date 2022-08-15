@@ -11,13 +11,13 @@
 
 ._DATA
 VAR_5	{ 0, 0 }	
-VAR_10	{ 728, 308, 10471 }	
-VAR_11	{ 980, 308, 10251, 335, 308, 10271, 572, 308, 10072 }	
-VAR_12	{ 0, 2572, 308, 12069, 0, 2352, 308, 12381, 0, 325, 308, 10875, 8 }	
-VAR_13	{ 0, 2535, 308, 11605, 0, 2869, 308, 11463, 0, 1738, 308, 9891, 8, 0, 2572, 308, 12069, 0, 2352, 308, 12381, 0, 325, 308, 10875, 8, 0, 2535, 308, 11605, 0, 2869, 308, 11463, 0, 1738, 308, 9891, 8 }	
+init_position	{ 728, 308, 10471 }	
+init_position1	{ 980, 308, 10251, 335, 308, 10271, 572, 308, 10072 }	
+ai_script	{ 0, 2572, 308, 12069, 0, 2352, 308, 12381, 0, 325, 308, 10875, 8 }	
+ai_script1	{ 0, 2535, 308, 11605, 0, 2869, 308, 11463, 0, 1738, 308, 9891, 8, 0, 2572, 308, 12069, 0, 2352, 308, 12381, 0, 325, 308, 10875, 8, 0, 2535, 308, 11605, 0, 2869, 308, 11463, 0, 1738, 308, 9891, 8 }	
 VAR_15	{ 3213, 308, 10275, -22, 308, 11538 }	
-VAR_16	{ 0, 1, 2, VAR_15, 8, 1, 1, 1, 79, 79, -1, 4, 0, 9, 0, 5, 0, 25, 6, 3, 7, 1, 1, 10, 83, 20, -1, -1 }	
-VAR_17	{ 0, 1, 2, VAR_15, 8, 1, 1, 1, 80, 78, 77, 78, -1, 4, 0, 9, 0, 5, 0, 140, 6, 3, 7, 1, 2, 10, 41, 40, -1, -1, 0 }	
+enemy_gen_script1	{ 0, 1, 2, VAR_15, 8, 1, 1, 1, 79, 79, -1, 4, 0, 9, 0, 5, 0, 25, 6, 3, 7, 1, 1, 10, 83, 20, -1, -1 }	
+enemy_gen_script	{ 0, 1, 2, VAR_15, 8, 1, 1, 1, 80, 78, 77, 78, -1, 4, 0, 9, 0, 5, 0, 140, 6, 3, 7, 1, 2, 10, 41, 40, -1, -1, 0 }	
 
 ._on_load
 execute SCRIPT_9
@@ -122,33 +122,33 @@ if(var VAR_5 == int 0)
 }
 if(var VAR_5 == int 1)
  {
-		var VAR_14 = call run_enemy_generator(var &VAR_17, int 10)
+		var VAR_14 = call run_enemy_generator(var &enemy_gen_script, int 10)
 		var VAR_5 ++ 
 }
 if(var VAR_5 == int 2)
  {
 		if(call func_122(var VAR_14) == int 0)
 		 {
-				var VAR_14 = call run_enemy_generator(var &VAR_16, int 10)
+				var VAR_14 = call run_enemy_generator(var &enemy_gen_script1, int 10)
 				var VAR_5 ++ 
 		}
 }
 
 ._SCRIPT_5
-var ronnie2 = call create_enemy(int 80, int 0, var &VAR_10, int 355)
+var ronnie2 = call create_enemy(int 80, int 0, var &init_position, int 355)
 gamevar script_object = var ronnie2
 gamevar *character_stats_p+16 = int 1400
 gamevar *character_stats_p+15 = int 3400
-var ronnie21 = call create_enemy(int 80, int 1, var &VAR_11, int 350)
+var ronnie21 = call create_enemy(int 80, int 1, var &init_position1, int 350)
 gamevar script_object = var ronnie21
 gamevar *character_stats_p+16 = int 1400
 gamevar *character_stats_p+15 = int 3400
 call set_char_init_state(var ronnie2, int 13)
-call play_char_ai_script(var ronnie2, var &VAR_12)
+call play_char_ai_script(var ronnie2, var &ai_script)
 call func_106(var ronnie2, int 1, int 0, int 1)
 call set_char_init_state(var ronnie2, int 1)
 call set_char_init_state(var ronnie21, int 13)
-call play_char_ai_script(var ronnie21, var &VAR_13)
+call play_char_ai_script(var ronnie21, var &ai_script1)
 call func_106(var ronnie21, int 1, int 0, int 1)
 call set_char_init_state(var ronnie21, int 1)
 

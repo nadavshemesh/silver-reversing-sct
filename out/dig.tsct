@@ -12,12 +12,12 @@
 ._DATA
 VAR_16	-1	
 VAR_18	{ 3681, 124, -1636 }	
-VAR_20	{ 2799, 185, 581 }	
-VAR_23	{ 3134, 125, 1051 }	
+fx_position	{ 2799, 185, 581 }	
+init_position	{ 3134, 125, 1051 }	
 VAR_31	-1	
 
 ._on_load
-var VAR_12 = var &VAR_18
+var init_position1 = var &VAR_18
 var VAR_13 = int 295
 execute SCRIPT_14
 var VAR_14 = int 38
@@ -110,11 +110,11 @@ if(gamevar !is_room_cleared)
 }
 
 ._SCRIPT_3
-var VAR_21 = call play_3d_fx("FIRE", var &VAR_20, int 0, int 0)
-call remove_face(var &VAR_20)
+var VAR_21 = call play_3d_fx("FIRE", var &fx_position, int 0, int 0)
+call remove_face(var &fx_position)
 
  /* play the sound 'frog' */ 
-call play_loaded_sound(int 198, int -1, int 0, var &VAR_20)
+call play_loaded_sound(int 198, int -1, int 0, var &fx_position)
 
 ._SCRIPT_4
 switch(var VAR_26)
@@ -122,7 +122,7 @@ switch(var VAR_26)
 }
 
 ._SCRIPT_5
-var btreasure = call create_char(var &VAR_23, "btreasure", int 220, int 14)
+var btreasure = call create_char(var &init_position, "btreasure", int 220, int 14)
 call add_item_to_char(var btreasure, int 66 /* keye */ , int 1, int 0)
 call add_item_to_char(var btreasure, int 6 /* time */ , int 1, int 0)
 call add_item_to_char(var btreasure, int 85 /* moneybag */ , int 3277313, int 0)
@@ -217,7 +217,7 @@ if(gamevar *psys_p+1)
 		 {
 
 				 /* play the sound 'frogs' */ 
-				call play_loaded_sound(int 197, int 0, int 0, var &VAR_20)
+				call play_loaded_sound(int 197, int 0, int 0, var &fx_position)
 		}
 }
 
@@ -249,7 +249,7 @@ else
 var is_BTREASURE_exist = call is_char_handle_in_level(int 1507337)
 if(var ! is_BTREASURE_exist)
  {
-		var is_BTREASURE_exist = call create_char(var VAR_12, "btreasure9", var VAR_13, int 14)
+		var is_BTREASURE_exist = call create_char(var init_position1, "btreasure9", var VAR_13, int 14)
 		call func_aa(var is_BTREASURE_exist)
 }
 else

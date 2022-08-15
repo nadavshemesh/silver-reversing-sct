@@ -14,14 +14,14 @@ VAR_16	-1
 VAR_18	{ 40, 1, 43, 1, 42, 1, 3, 1, -1 }	
 VAR_25	{ 197, 89, -717 }	
 VAR_27	{ -846, 1425, -7346 }	
-VAR_39	{ -245, 89, -242 }	
+init_position	{ -245, 89, -242 }	
 VAR_43	-1	
 VAR_61	{ 0, 0 }	
 VAR_63	10	
 VAR_64	2	
 
 ._on_load
-var VAR_12 = var &VAR_25
+var init_position1 = var &VAR_25
 var VAR_13 = int 320
 execute SCRIPT_15
 var VAR_14 = int 39
@@ -131,7 +131,7 @@ var VAR_42 ++
 
 ._SCRIPT_7
 gamevar global_inventory_p = var &VAR_18
-call create_char(var &VAR_39, "btreasure", int 185, int 14)
+call create_char(var &init_position, "btreasure", int 185, int 14)
 
 ._SCRIPT_8
 switch(var VAR_61)
@@ -370,7 +370,7 @@ else
 var is_BTREASURE1_exist = call is_char_handle_in_level(int 1507337)
 if(var ! is_BTREASURE1_exist)
  {
-		var is_BTREASURE1_exist = call create_char(var VAR_12, "btreasure9", var VAR_13, int 14)
+		var is_BTREASURE1_exist = call create_char(var init_position1, "btreasure9", var VAR_13, int 14)
 		call func_aa(var is_BTREASURE1_exist)
 }
 else

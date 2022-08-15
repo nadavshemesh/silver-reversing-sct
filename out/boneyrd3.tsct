@@ -11,16 +11,16 @@
 
 ._DATA
 VAR_7	{ -601, -1913, -2384 }	
-VAR_22	""	
+init_position2	{ -526, -1913, -2420 }	
 VAR_25	"."	
-VAR_52	{ -509, -1913, -2592 }	
-VAR_53	{ -65, -1887, -1898 }	
-VAR_54	{ -601, -1913, -2384 }	
-VAR_55	{ -434, -1913, -2284 }	
+init_position	{ -509, -1913, -2592 }	
+init_position1	{ -65, -1887, -1898 }	
+position2	{ -601, -1913, -2384 }	
+position	{ -434, -1913, -2284 }	
 VAR_59	{ 0, 0, 0, 0 }	
 VAR_60	-1	
 VAR_81	"hI "	
-VAR_82	{ 0, 1, 8, VAR_81, 8, 2, 4, 0, 9, 0, 1, 1, 68, 69, -1, 5, 1, 120, 300, 6, 1, 7, 1, 2, -1 }
+enemy_gen_script	{ 0, 1, 8, VAR_81, 8, 2, 4, 0, 9, 0, 1, 1, 68, 69, -1, 5, 1, 120, 300, 6, 1, 7, 1, 2, -1 }
 
 ._on_load
 call play_bgm("DEADPT1")
@@ -139,8 +139,8 @@ if(var VAR_58 == int 2)
 				}
 				if(call is_char_handle_in_level(int 65536 /* DAVID */ ))
 				 {
-						call char_walk_to(var VAR_0, int -434, int -1913, int -2284)
-						call set_char_running(var VAR_0)
+						call char_walk_to(var position1, int -434, int -1913, int -2284)
+						call set_char_running(var position1)
 				}
 				var VAR_58 ++ 
 				var VAR_59 = int 0
@@ -154,7 +154,7 @@ if(var VAR_58 == int 3)
 				if(call func_8b())
 				 {
 						call log("david has hit path target")
-						call char_turn_to_pos(var ganitos, var &VAR_55)
+						call char_turn_to_pos(var ganitos, var &position)
 						var VAR_58 ++ 
 				}
 		}
@@ -167,7 +167,7 @@ if(var VAR_58 == int 4)
 				var VAR_10 = call get_char_handle_id(var david)
 				if(var VAR_10 == int 65536)
 				 {
-						call char_turn_to_pos(var ganitos, var VAR_0)
+						call char_turn_to_pos(var ganitos, var position1)
 						var david = call func_7e()
 						var VAR_10 = call get_char_handle_id(var david)
 				}
@@ -175,27 +175,27 @@ if(var VAR_58 == int 4)
 				 {
 						if(call is_char_handle_in_level(int 786432 /* SEKUNE */ ))
 						 {
-								call char_turn_to_pos(var VAR_2, var &VAR_54)
+								call char_turn_to_pos(var VAR_2, var &position2)
 						}
 						if(call is_char_handle_in_level(int 196608 /* VIVIENNE */ ))
 						 {
-								call char_turn_to_pos(var VAR_3, var &VAR_54)
+								call char_turn_to_pos(var VAR_3, var &position2)
 						}
 						if(call is_char_handle_in_level(int 327680 /* JUG */ ))
 						 {
-								call char_turn_to_pos(var VAR_1, var &VAR_54)
+								call char_turn_to_pos(var VAR_1, var &position2)
 						}
 						if(call is_char_handle_in_level(int 131072 /* CHIARO */ ))
 						 {
-								call char_turn_to_pos(var VAR_4, var &VAR_54)
+								call char_turn_to_pos(var VAR_4, var &position2)
 						}
 						if(call is_char_handle_in_level(int 262144 /* CAGEN */ ))
 						 {
-								call char_turn_to_pos(var VAR_5, var &VAR_54)
+								call char_turn_to_pos(var VAR_5, var &position2)
 						}
 						if(call is_char_handle_in_level(int 65536 /* DAVID */ ))
 						 {
-								call char_turn_to_pos(var VAR_0, var &VAR_54)
+								call char_turn_to_pos(var position1, var &position2)
 						}
 						if(var VAR_10 == int 786432)
 						 {
@@ -275,7 +275,7 @@ while(var david)
 		 {
 				case 65536
 					call log("david")
-					var VAR_0 = var david
+					var position1 = var david
 					break 
 				case 786432
 					call log("sekune")
@@ -304,9 +304,9 @@ while(var david)
 		}
 		var david = call func_7e()
 }
-var wraithp = call create_enemy(int 60, int 1, var &VAR_52, int 120)
-var wraithp1 = call create_enemy(int 60, int 2, var &VAR_53, int 295)
-var ganitos = call create_enemy(int 74, int 0, var &VAR_22, int 0)
+var wraithp = call create_enemy(int 60, int 1, var &init_position, int 120)
+var wraithp1 = call create_enemy(int 60, int 2, var &init_position1, int 295)
+var ganitos = call create_enemy(int 74, int 0, var &init_position2, int 0)
 call add_item_to_char(var ganitos, int 64 /* keyh */ , int 1, int 0)
 call func_10c(var ganitos, "NULL")
 call func_108("NULL")
@@ -323,7 +323,7 @@ while(var david)
 		 {
 				case 65536
 					call log("david")
-					var VAR_0 = var david
+					var position1 = var david
 					break 
 				case 786432
 					call log("sekune")
@@ -350,7 +350,7 @@ while(var david)
 					call log("Get a goober -- QUICKLY!!")
 					break 
 		}
-		var ganitos = call create_enemy(int 74, int 0, var &VAR_22, int 0)
+		var ganitos = call create_enemy(int 74, int 0, var &init_position2, int 0)
 		call add_item_to_char(var ganitos, int 64 /* keyh */ , int 1, int 0)
 		call func_10c(var ganitos, "NULL")
 		call func_108("NULL")
@@ -366,7 +366,7 @@ if(var VAR_11 == int 1)
 						var VAR_10 = call get_char_handle_id(var david)
 						if(var VAR_10 == int 65536)
 						 {
-								call char_turn_to_pos(var ganitos, var VAR_0)
+								call char_turn_to_pos(var ganitos, var position1)
 								call log(var &VAR_25)
 								var david = call func_7e()
 						}
@@ -446,7 +446,7 @@ call load_char("boney")
 call load_char("skel")
 if(var ! VAR_80)
  {
-		call run_enemy_generator(var &VAR_82, int 200)
+		call run_enemy_generator(var &enemy_gen_script, int 200)
 }
 
 ._SCRIPT_8

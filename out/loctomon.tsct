@@ -13,10 +13,10 @@
 VAR_0	0	
 VAR_16	0	
 VAR_17	0	
-VAR_19	{ 653, -3420, 7032 }	
-VAR_20	{ 14, 0, 249, -3420, 6862, 1, VAR_0, 12, 1, 15, 0, 740, -3420, 5592, 16, VAR_16, 1, 0, 1446, -3420, 4216, 3, VAR_21, 0, 16, VAR_17, 1, 0, 2411, -3014, 3922, 15, 8 }	
+init_position	{ 653, -3420, 7032 }	
+ai_script	{ 14, 0, 249, -3420, 6862, 1, VAR_0, 12, 1, 15, 0, 740, -3420, 5592, 16, VAR_16, 1, 0, 1446, -3420, 4216, 3, VAR_21, 0, 16, VAR_17, 1, 0, 2411, -3014, 3922, 15, 8 }	
 VAR_21	"tyrosumn"	
-VAR_22	{ 0, 0, 1, 0, -1, 8, 1, 4, 0, 9, 2, 1, 2, 75, 75, 75, 75, -1, 5, 0, 50, 6, 1, 7, 1, 1, 10, 42, 40, 42, 40, -1, -1 }	
+enemy_gen_script	{ 0, 0, 1, 0, -1, 8, 1, 4, 0, 9, 2, 1, 2, 75, 75, 75, 75, -1, 5, 0, 50, 6, 1, 7, 1, 1, 10, 42, 40, 42, 40, -1, -1 }	
 
 ._on_load
 execute SCRIPT_3
@@ -137,7 +137,7 @@ switch(var VAR_24)
 		case 1
 			if(var VAR_17)
 			 {
-					call run_enemy_generator(var &VAR_22, int 10)
+					call run_enemy_generator(var &enemy_gen_script, int 10)
 					var VAR_24 ++ 
 					var VAR_25 = int 0
 			}
@@ -154,11 +154,11 @@ switch(var VAR_24)
 var VAR_25 ++ 
 
 ._SCRIPT_5
-var nfastmonk = call create_char(var &VAR_19, "nfastmonk", int 205, int 13)
+var nfastmonk = call create_char(var &init_position, "nfastmonk", int 205, int 13)
 gamevar script_object = var nfastmonk
 gamevar *character_movement_p+60 = int 1
 call func_50(var nfastmonk, int 8192)
-call play_char_ai_script(var nfastmonk, var &VAR_20)
+call play_char_ai_script(var nfastmonk, var &ai_script)
 call set_input_system(int 2)
 
 ._SCRIPT_6

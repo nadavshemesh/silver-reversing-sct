@@ -11,15 +11,15 @@
 
 ._DATA
 vikingb2	0	
-VAR_7	{ 2733, 0, -1741 }	
-VAR_8	{ 2745, 0, -1996 }	
-VAR_9	{ 3111, 0, -2358 }	
-VAR_10	{ 2435, 0, -2280 }	
-VAR_11	{ 3190, 0, -1343 }	
-VAR_12	{ 2416, 0, -1385, 2980, 0, -4280 }	
-VAR_13	{ 9, vikingb2, 7, 8 }	
-VAR_14	{ 7, 8 }	
-VAR_18	{ 3430, 0, 126 }	
+init_position	{ 2733, 0, -1741 }	
+init_position1	{ 2745, 0, -1996 }	
+init_position2	{ 3111, 0, -2358 }	
+init_position3	{ 2435, 0, -2280 }	
+init_position4	{ 3190, 0, -1343 }	
+init_position5	{ 2416, 0, -1385, 2980, 0, -4280 }	
+ai_script	{ 9, vikingb2, 7, 8 }	
+ai_script1	{ 7, 8 }	
+walk_position	{ 3430, 0, 126 }	
 VAR_19	{ 0, 0, 0, 1, -1, 8, 2, 4, 0, 9, 1, 6, 3, 1, 3, 26, 26, 26, -1, 7, 1, 4, -1 }	
 VAR_20	-1	
 
@@ -103,7 +103,7 @@ switch(var VAR_15)
 			 {
 					var vikingb = call create_enemy_through_door(int 65, int 1, int 0, int 0)
 					call set_char_running(var vikingb)
-					call char_walk_to_pos(var vikingb, var &VAR_18)
+					call char_walk_to_pos(var vikingb, var &walk_position)
 					var VAR_15 ++ 
 					var VAR_16 = int 0
 			}
@@ -136,12 +136,12 @@ switch(var VAR_15)
 var VAR_16 ++ 
 
 ._SCRIPT_4
-var vikingb1 = call create_enemy(int 65, int 0, var &VAR_7, int 185)
-var vikingb2 = call create_enemy(int 65, int 1, var &VAR_8, int 0)
-var viking = call create_enemy(int 26, int 2, var &VAR_9, int 160)
-var viking1 = call create_enemy(int 26, int 3, var &VAR_10, int 220)
-var viking2 = call create_enemy(int 26, int 4, var &VAR_11, int 15)
-var viking3 = call create_enemy(int 26, int 5, var &VAR_12, int 20)
+var vikingb1 = call create_enemy(int 65, int 0, var &init_position, int 185)
+var vikingb2 = call create_enemy(int 65, int 1, var &init_position1, int 0)
+var viking = call create_enemy(int 26, int 2, var &init_position2, int 160)
+var viking1 = call create_enemy(int 26, int 3, var &init_position3, int 220)
+var viking2 = call create_enemy(int 26, int 4, var &init_position4, int 15)
+var viking3 = call create_enemy(int 26, int 5, var &init_position5, int 20)
 call add_item_to_char(var vikingb1, int 12 /* thaxe */ , int 1, int 0)
 call func_106(var vikingb1, int 1, int 0, int 1)
 call func_106(var vikingb2, int 1, int 0, int 1)
@@ -155,8 +155,8 @@ call func_50(var viking, int 2)
 call func_50(var viking1, int 2)
 call func_50(var viking2, int 2)
 call func_50(var viking3, int 2)
-call play_char_ai_script(var vikingb1, var &VAR_13)
-call play_char_ai_script(var vikingb2, var &VAR_14)
+call play_char_ai_script(var vikingb1, var &ai_script)
+call play_char_ai_script(var vikingb2, var &ai_script1)
 call add_item_to_char(var vikingb1, int 40 /* apple */ , int 1, int 0)
 call add_item_to_char(var vikingb2, int 43 /* cheese */ , int 1, int 0)
 call add_item_to_char(var viking, int 85 /* moneybag */ , int 3277313, int 0)

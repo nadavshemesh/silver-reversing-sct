@@ -13,9 +13,9 @@
 VAR_2	{ -360, 3425, 288, -423, 3455, 1388 }	
 VAR_3	{ -423, 3455, 1388, -360, 3425, 288, 0, 0 }	
 VAR_6	{ 0, 0 }	
-VAR_8	{ 0, 0, 2, -1, 8, 0, 4, 0, 9, 1, 6, 1, 1, 1, 26, 26, 65, -1, 7, 1, 8, 10, 42, 47, -1, -1 }	
-VAR_9	{ 0, 0, 1, -1, 8, 0, 4, 0, 9, 1, 6, 1, 1, 1, 26, 26, 65, -1, 7, 1, 8, 10, 46, 12, -1, -1 }	
-VAR_10	{ 0, 0, 1, -1, 8, 0, 4, 0, 9, 1, 6, 1, 1, 1, 65, 65, -1, 7, 1, 8, 10, 46, 45, -1, -1 }	
+enemy_gen_script	{ 0, 0, 2, -1, 8, 0, 4, 0, 9, 1, 6, 1, 1, 1, 26, 26, 65, -1, 7, 1, 8, 10, 42, 47, -1, -1 }	
+enemy_gen_script1	{ 0, 0, 1, -1, 8, 0, 4, 0, 9, 1, 6, 1, 1, 1, 26, 26, 65, -1, 7, 1, 8, 10, 46, 12, -1, -1 }	
+enemy_gen_script2	{ 0, 0, 1, -1, 8, 0, 4, 0, 9, 1, 6, 1, 1, 1, 65, 65, -1, 7, 1, 8, 10, 46, 45, -1, -1 }	
 
 ._on_load
 call load_sound_set(int 66)
@@ -118,7 +118,7 @@ if(var VAR_0 == int 3)
 }
 if(var VAR_0 == int 4)
  {
-		call run_enemy_generator(var &VAR_8, int 10)
+		call run_enemy_generator(var &enemy_gen_script, int 10)
 		var VAR_0 = int 5
 		var VAR_1 = int 30
 		call reset_local_timer()
@@ -130,7 +130,7 @@ if(var VAR_0 == int 5)
 		 {
 				exit_script 
 		}
-		call run_enemy_generator(var &VAR_9, int 10)
+		call run_enemy_generator(var &enemy_gen_script1, int 10)
 		var VAR_0 = int 6
 		var VAR_1 = int 30
 		call reset_local_timer()
@@ -176,7 +176,7 @@ if(var VAR_0 == int 8)
 }
 if(var VAR_0 == int 9)
  {
-		call run_enemy_generator(var &VAR_10, int 10)
+		call run_enemy_generator(var &enemy_gen_script2, int 10)
 		call reset_local_timer()
 		var VAR_1 = int 30
 		var VAR_0 = int 10

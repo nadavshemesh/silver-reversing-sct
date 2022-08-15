@@ -13,29 +13,29 @@
 VAR_17	{ 0, 0 }	
 VAR_36	{ 0, 0, -1 }	
 VAR_41	-1	
-VAR_59	{ 25, 1149, 1100 }	
+fx_position	{ 25, 1149, 1100 }	
 VAR_60	{ 4600, 1149, -1200 }	
 VAR_62	{ 0, 0 }	
-VAR_69	{ -2745, -956, -8 }	
-VAR_70	{ -2265, -956, -1021 }	
-VAR_71	{ -3736, -956, 971 }	
-VAR_72	{ -1570, -956, -54 }	
-VAR_73	{ -1635, -956, 175 }	
-VAR_74	{ 5, 200, 28, VAR_75, 1, 0, 5, 5, 28, VAR_76, 1, 0, 7, 8 }	
+init_position	{ -2745, -956, -8 }	
+init_position1	{ -2265, -956, -1021 }	
+init_position2	{ -3736, -956, 971 }	
+init_position3	{ -1570, -956, -54 }	
+init_position4	{ -1635, -956, 175 }	
+ai_script	{ 5, 200, 28, VAR_75, 1, 0, 5, 5, 28, VAR_76, 1, 0, 7, 8 }	
 VAR_75	"confused"	
 VAR_76	"gstqustn"	
-VAR_77	{ 28, VAR_78, 1, 0, 5, 5, 28, VAR_79, 1, 0, 5, 5, 28, VAR_80, 1, 0, 5, 200, 28, VAR_81, 1, 0, 7, 8 }	
+ai_script1	{ 28, VAR_78, 1, 0, 5, 5, 28, VAR_79, 1, 0, 5, 5, 28, VAR_80, 1, 0, 5, 200, 28, VAR_81, 1, 0, 7, 8 }	
 VAR_78	"talkfstb"	
 VAR_79	"gstqustn"	
 VAR_80	"talkfstb"	
 VAR_81	"no"	
-VAR_82	{ 0, -2745, -956, 8, 0, -3707, -956, 366, 0, -3289, -956, -368, 7, 8 }	
+ai_script2	{ 0, -2745, -956, 8, 0, -3707, -956, 366, 0, -3289, -956, -368, 7, 8 }	
 VAR_84	{ -922, -956, -334, -991, -956, 610 }	
 VAR_85	{ -1814, -956, -290, -1961, -956, 537 }	
-VAR_88	{ 0, 0, 0, -1, 8, 1, 12, 31, 30, 31, 30, 31, -1, 13, 1, 14, 0, 1, 3, 5, 0, 200, 17, 0, 200, -1, 18, 25, -1 }	
-VAR_89	{ 0, 0, 1, -1, 8, 1, 12, 31, 30, 31, 30, 28, -1, 13, 1, 14, 0, 1, 3, 5, 0, 200, 17, 0, 200, -1, 18, 25, -1 }	
-VAR_90	{ 0, 0, 0, -1, 8, 1, 12, 11, 12, 13, 11, -1, 13, 1, 14, 0, 1, 3, 5, 0, 60, 18, 55, -1 }	
-VAR_91	{ 0, 0, 1, -1, 8, 1, 12, 11, 12, 13, 11, -1, 13, 1, 14, 0, 1, 3, 5, 0, 60, 18, 55, -1 }	
+wandering_gen_script2	{ 0, 0, 0, -1, 8, 1, 12, 31, 30, 31, 30, 31, -1, 13, 1, 14, 0, 1, 3, 5, 0, 200, 17, 0, 200, -1, 18, 25, -1 }	
+wandering_gen_script3	{ 0, 0, 1, -1, 8, 1, 12, 31, 30, 31, 30, 28, -1, 13, 1, 14, 0, 1, 3, 5, 0, 200, 17, 0, 200, -1, 18, 25, -1 }	
+wandering_gen_script	{ 0, 0, 0, -1, 8, 1, 12, 11, 12, 13, 11, -1, 13, 1, 14, 0, 1, 3, 5, 0, 60, 18, 55, -1 }	
+wandering_gen_script1	{ 0, 0, 1, -1, 8, 1, 12, 11, 12, 13, 11, -1, 13, 1, 14, 0, 1, 3, 5, 0, 60, 18, 55, -1 }	
 
 ._on_load
 execute SCRIPT_3
@@ -81,7 +81,7 @@ switch(gamevar room_state)
 
 ._SCRIPT_3
 call log("it's_raining")
-call play_3d_fx("RAIN", var &VAR_59, var &VAR_60, int 0)
+call play_3d_fx("RAIN", var &fx_position, var &VAR_60, int 0)
 execute SCRIPT_8
 
 ._SCRIPT_4
@@ -167,25 +167,25 @@ if(var VAR_87 == int 0)
 }
 
 ._SCRIPT_5
-var handler = call create_enemy(int 21, int 0, var &VAR_69, int 347)
+var handler = call create_enemy(int 21, int 0, var &init_position, int 347)
 call freeze_enemy(var handler)
 call add_item_to_char(var handler, int 41 /* veggies */ , int 1, int 0)
-var hound = call create_enemy(int 18, int 0, var &VAR_70, int 352)
+var hound = call create_enemy(int 18, int 0, var &init_position1, int 352)
 call freeze_enemy(var hound)
-var hound1 = call create_enemy(int 18, int 1, var &VAR_71, int 147)
+var hound1 = call create_enemy(int 18, int 1, var &init_position2, int 147)
 call freeze_enemy(var hound1)
-var lieutenant = call create_enemy(int 11, int 0, var &VAR_72, int 355)
+var lieutenant = call create_enemy(int 11, int 0, var &init_position3, int 355)
 call func_106(var lieutenant, int 1, int 0, int 1)
 call freeze_enemy(var lieutenant)
-var lieutenant1 = call create_enemy(int 11, int 1, var &VAR_73, int 148)
+var lieutenant1 = call create_enemy(int 11, int 1, var &init_position4, int 148)
 call func_106(var lieutenant1, int 1, int 0, int 1)
 call freeze_enemy(var lieutenant1)
-call play_char_ai_script(var lieutenant, var &VAR_74)
+call play_char_ai_script(var lieutenant, var &ai_script)
 call func_50(var lieutenant, int 8192)
-call play_char_ai_script(var lieutenant1, var &VAR_77)
+call play_char_ai_script(var lieutenant1, var &ai_script1)
 call func_50(var lieutenant1, int 8192)
 call set_char_init_state(var handler, int 13)
-call play_char_ai_script(var handler, var &VAR_82)
+call play_char_ai_script(var handler, var &ai_script2)
 var DAVID = call get_char_handle(int 65536)
 call load_char("chronicl")
 
@@ -553,11 +553,11 @@ switch(gamevar is_room_cleared)
 			call load_char("rlieuten")
 			if(call func_6f() == int 1)
 			 {
-					call run_wandering_generator(var &VAR_90, int 100)
+					call run_wandering_generator(var &wandering_gen_script, int 100)
 			}
 			else
 			 {
-					call run_wandering_generator(var &VAR_91, int 100)
+					call run_wandering_generator(var &wandering_gen_script1, int 100)
 			}
 			break 
 		case 2
@@ -569,11 +569,11 @@ switch(gamevar is_room_cleared)
 			call load_item(int 93 /* cutlass */ )
 			if(call func_6f() == int 1)
 			 {
-					call run_wandering_generator(var &VAR_88, int 100)
+					call run_wandering_generator(var &wandering_gen_script2, int 100)
 			}
 			else
 			 {
-					call run_wandering_generator(var &VAR_89, int 100)
+					call run_wandering_generator(var &wandering_gen_script3, int 100)
 			}
 			break 
 }

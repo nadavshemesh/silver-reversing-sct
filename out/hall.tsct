@@ -38,24 +38,24 @@ VAR_53	{ -2120, 600, -1325 }
 VAR_54	{ 521, 600, -1322 }	
 VAR_55	{ 410, 600, 253 }	
 VAR_56	{ 1971, 600, -1291 }	
-VAR_57	1	
+arr	1	
 VAR_58	1	
 VAR_59	1	
 VAR_60	1	
 VAR_61	1	
 VAR_62	1	
-VAR_63	{ VAR_37, VAR_37, VAR_38, VAR_38, VAR_39, VAR_39 }	
-VAR_64	{ 182, 355, 352, 175, 335, 235 }	
-VAR_65	{ VAR_40, VAR_41, VAR_42, VAR_43, VAR_44, VAR_45 }	
-VAR_66	{ 39, 39, 39, 39, 39, 188 }	
-VAR_67	{ VAR_46, VAR_47, VAR_48, VAR_49, VAR_50, VAR_51 }	
-VAR_68	{ VAR_52, VAR_53, VAR_54, VAR_55, VAR_56, 0 }	
+arr_1	{ VAR_37, VAR_37, VAR_38, VAR_38, VAR_39, VAR_39 }	
+arr_4	{ 182, 355, 352, 175, 335, 235 }	
+arr_3	{ VAR_40, VAR_41, VAR_42, VAR_43, VAR_44, VAR_45 }	
+arr_2	{ 39, 39, 39, 39, 39, 188 }	
+arr_5	{ VAR_46, VAR_47, VAR_48, VAR_49, VAR_50, VAR_51 }	
+arr_6	{ VAR_52, VAR_53, VAR_54, VAR_55, VAR_56, 0 }	
 VAR_74	{ 85, 9830913, 46, 1, 40, 1, 43, 1, 42, 1, -1 }	
 VAR_75	{ 22, 0, 48, 0, 46, 1, -1 }	
-VAR_76	{ -911, 600, -1513 }	
-VAR_77	{ 580, 600, 532 }	
+init_position	{ -911, 600, -1513 }	
+init_position1	{ 580, 600, 532 }	
 VAR_82	-1	
-VAR_86	{ 0, 0, 1, -1, 8, 2, 4, 0, 9, 0, 1, 5, 192, 192, -1, 2, 2, 3, 2, 5, 0, 100, 7, 1, 6, 6, 1, -1 }	
+enemy_gen_script	{ 0, 0, 1, -1, 8, 2, 4, 0, 9, 0, 1, 5, 192, 192, -1, 2, 2, 3, 2, 5, 0, 100, 7, 1, 6, 6, 1, -1 }	
 
 ._on_load
 call load_sound_set(int 28)
@@ -252,7 +252,7 @@ switch(var VAR_84)
 			}
 			if(var VAR_0 == int -1)
 			 {
-					call run_enemy_generator(var &VAR_86, int 10)
+					call run_enemy_generator(var &enemy_gen_script, int 10)
 					var VAR_84 ++ 
 					var VAR_85 = int 0
 			}
@@ -267,7 +267,7 @@ var VAR_73 = int 0
 var VAR_24 = int 0
 while(var VAR_73 < int 6)
  {
-		var VAR_24 += @VAR_57[var VAR_73]
+		var VAR_24 += @arr[var VAR_73]
 		var VAR_73 ++ 
 }
 
@@ -276,18 +276,18 @@ var VAR_89 = int 0
 var VAR_24 = int 0
 while(var VAR_89 < int 6)
  {
-		if(@VAR_57[var VAR_89])
+		if(@arr[var VAR_89])
 		 {
-				if(call func_8a(@VAR_63[var VAR_89]))
+				if(call func_8a(@arr_1[var VAR_89]))
 				 {
 						gamevar compile_init_character = int 0
-						var plagueman_catapult = call create_enemy(@VAR_66[var VAR_89], var VAR_89, @VAR_65[var VAR_89], @VAR_64[var VAR_89])
+						var plagueman_catapult = call create_enemy(@arr_2[var VAR_89], var VAR_89, @arr_3[var VAR_89], @arr_4[var VAR_89])
 						gamevar compile_init_character = int 1
 						call set_char_init_state(var plagueman_catapult, int 13)
-						call play_char_ai_script(var plagueman_catapult, @VAR_67[var VAR_89])
-						if(@VAR_68[var VAR_89])
+						call play_char_ai_script(var plagueman_catapult, @arr_5[var VAR_89])
+						if(@arr_6[var VAR_89])
 						 {
-								call func_106(var plagueman_catapult, int 9, int 5, @VAR_68[var VAR_89])
+								call func_106(var plagueman_catapult, int 9, int 5, @arr_6[var VAR_89])
 								call func_106(var plagueman_catapult, int 9, int 6, int 1)
 						}
 						else
@@ -295,21 +295,21 @@ while(var VAR_89 < int 6)
 								gamevar script_object = var plagueman_catapult
 								gamevar *character_movement_p+60 = int 1
 						}
-						@VAR_57[var VAR_89]= int 0
+						@arr[var VAR_89]= int 0
 				}
 		}
 		var VAR_89 ++ 
 }
 
 ._SCRIPT_16
-call func_7(int 0, var VAR_57, var VAR_58, var VAR_59)
+call func_7(int 0, var arr, var VAR_58, var VAR_59)
 call func_7(int 1, var VAR_60, var VAR_61, var VAR_62)
 
 ._SCRIPT_17
 if(call func_bf(int 0, gamevar CURRENT_LEVEL, gamevar CURRENT_SCENE))
  {
 		call func_d8(int 0, var &VAR_69)
-		var VAR_57 = var VAR_70
+		var arr = var VAR_70
 		var VAR_58 = var VAR_71
 		var VAR_59 = var VAR_72
 }
@@ -325,12 +325,12 @@ if(call func_bf(int 1, gamevar CURRENT_LEVEL, gamevar CURRENT_SCENE))
 if(call ! is_char_handle_in_level(int 1507328 /* BTREASURE */ ))
  {
 		gamevar global_inventory_p = var &VAR_74
-		call create_char(var &VAR_76, "btreasure", int 355, int 14)
+		call create_char(var &init_position, "btreasure", int 355, int 14)
 }
 if(call ! is_char_handle_in_level(int 1441792 /* MIMIC */ ))
  {
 		gamevar global_inventory_p = var &VAR_75
-		call create_char(var &VAR_77, "bmimic", int 205, int 17)
+		call create_char(var &init_position1, "bmimic", int 205, int 17)
 }
 
 ._SCRIPT_19

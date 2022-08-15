@@ -11,8 +11,8 @@
 
 ._DATA
 VAR_0	{ 0, 1157677056, 1145241600, -979134464 }	
-VAR_5	{ 0, 0, 1, -1, 8, 0, 1, 2, 2, 2, 2, -1, 4, 0, 9, 1, 5, 1, 50, 100, 6, 1, 10, 40, -1, 7, 1, 1, -1 }	
-VAR_6	{ 0, 2, 300, 350, 8, 1, 1, 2, 3, 3, -1, 4, 0, 9, 1, 5, 1, 200, 400, 6, 2, 10, 40, 40, -1, 7, 1, 1, -1 }	
+enemy_gen_script	{ 0, 0, 1, -1, 8, 0, 1, 2, 2, 2, 2, -1, 4, 0, 9, 1, 5, 1, 50, 100, 6, 1, 10, 40, -1, 7, 1, 1, -1 }	
+enemy_gen_script1	{ 0, 2, 300, 350, 8, 1, 1, 2, 3, 3, -1, 4, 0, 9, 1, 5, 1, 200, 400, 6, 2, 10, 40, 40, -1, 7, 1, 1, -1 }	
 VAR_12	{ 40, 780, -5000 }	
 VAR_14	10	
 VAR_15	3	
@@ -32,7 +32,7 @@ VAR_30	"DCD"
 VAR_31	{ -992051200, 1145241600, -978114560 }	
 VAR_32	"CD "	
 VAR_33	"CD"	
-VAR_34	{ VAR_18, VAR_19, VAR_20, VAR_21, VAR_22, VAR_23, VAR_24, VAR_25, VAR_26, VAR_27, VAR_28, VAR_29, VAR_30, VAR_31, VAR_32, VAR_33 }
+arr	{ VAR_18, VAR_19, VAR_20, VAR_21, VAR_22, VAR_23, VAR_24, VAR_25, VAR_26, VAR_27, VAR_28, VAR_29, VAR_30, VAR_31, VAR_32, VAR_33 }
 
 ._on_load
 if(call play_bgm("VERDANTE"))
@@ -91,7 +91,7 @@ switch(var VAR_10)
 		case 0
 			if(call func_ab(int 1000, var &VAR_12))
 			 {
-					var VAR_11 = call run_enemy_generator(var &VAR_5, int 0)
+					var VAR_11 = call run_enemy_generator(var &enemy_gen_script, int 0)
 					var VAR_10 ++ 
 					var VAR_0 = int 1
 					var VAR_9 = int 0
@@ -100,7 +100,7 @@ switch(var VAR_10)
 		case 1
 			if(call func_122(var VAR_11) == int 0)
 			 {
-					var VAR_11 = call run_enemy_generator(var &VAR_6, int 0)
+					var VAR_11 = call run_enemy_generator(var &enemy_gen_script1, int 0)
 					var VAR_10 ++ 
 					var VAR_9 = int 0
 			}
@@ -129,7 +129,7 @@ if(var VAR_13 > var VAR_14)
 						var VAR_15 = int 3
 				}
 		}
-		call play_loaded_sound(var VAR_15, int 0, int 17, @VAR_34[var VAR_17])
+		call play_loaded_sound(var VAR_15, int 0, int 17, @arr[var VAR_17])
 		var VAR_17 = call randomize_int(int 0, int 16)
 		var VAR_14 = call randomize_int(int 0, int 201) + int 250
 		var VAR_13 = int 0

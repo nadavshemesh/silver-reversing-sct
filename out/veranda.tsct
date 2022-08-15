@@ -10,25 +10,25 @@
 
 
 ._DATA
-VAR_9	{ -6883, 0, -3005 }	
-VAR_10	{ -6001, 0, -2917 }	
-VAR_11	{ -7722, -800, -4195 }	
-VAR_16	{ -5933, 2000, -3650 }	
-VAR_17	{ -5493, 2200, -3457 }	
-VAR_18	{ -6307, 2000, -3877 }	
-VAR_19	{ -6877, 2200, -3439 }	
+init_position	{ -6883, 0, -3005 }	
+init_position1	{ -6001, 0, -2917 }	
+init_position2	{ -7722, -800, -4195 }	
+init_position3	{ -5933, 2000, -3650 }	
+init_position4	{ -5493, 2200, -3457 }	
+init_position5	{ -6307, 2000, -3877 }	
+init_position6	{ -6877, 2200, -3439 }	
 VAR_20	{ -5933, 2000, -3650, -5493, 2200, -3457, -6307, 2000, -3877, -6877, 2200, -3439 }	
 VAR_21	{ -5933, 400, -3650, -5493, 400, -3457, -6307, 400, -3877, -6877, 400, -3439 }	
-VAR_22	{ 0, 1, 5, VAR_20, 8, 1, 4, 2, 5, VAR_21, 9, 0, 1, 1, 105, 105, 105, 105, -1, 5, 0, 50, 6, 1, 7, 1, 1, -1 }	
-VAR_25	{ -3950, 0, -2604 }	
+enemy_gen_script	{ 0, 1, 5, VAR_20, 8, 1, 4, 2, 5, VAR_21, 9, 0, 1, 1, 105, 105, 105, 105, -1, 5, 0, 50, 6, 1, 7, 1, 1, -1 }	
+position	{ -3950, 0, -2604 }	
 VAR_30	-1	
 VAR_31	-1	
-VAR_33	{ -5933, 600, -3650 }	
-VAR_34	{ -5493, 800, -3457 }	
-VAR_35	{ -6307, 600, -3877 }	
-VAR_36	{ -6877, 800, -3439 }	
-VAR_38	{ -5424, -800, -4039 }	
-VAR_39	{ -7705, -800, -4178 }	
+fly_position	{ -5933, 600, -3650 }	
+fly_position1	{ -5493, 800, -3457 }	
+fly_position2	{ -6307, 600, -3877 }	
+fly_position3	{ -6877, 800, -3439 }	
+walk_position	{ -5424, -800, -4039 }	
+walk_position1	{ -7705, -800, -4178 }	
 VAR_49	-1	
 
 ._on_load
@@ -139,15 +139,15 @@ if(gamevar script_time > var VAR_53)
 var imphorn_anim = call load_anim("imphorn")
 
 ._SCRIPT_5
-var bezerk_imp = call create_enemy(int 103, int 1, var &VAR_9, int 25)
-var bezerk_imp1 = call create_enemy(int 103, int 2, var &VAR_10, int 330)
-var NIMP3 = call create_char(var &VAR_11, "NIMP3", int 35, int 13)
+var bezerk_imp = call create_enemy(int 103, int 1, var &init_position, int 25)
+var bezerk_imp1 = call create_enemy(int 103, int 2, var &init_position1, int 330)
+var NIMP3 = call create_char(var &init_position2, "NIMP3", int 35, int 13)
 call set_char_running(var NIMP3)
 call add_item_to_char(var NIMP3, int 87 /* horn */ , int 1, int 1)
-var flying_imps = call create_enemy(int 105, int 1, var &VAR_16, int 345)
-var flying_imps1 = call create_enemy(int 105, int 2, var &VAR_17, int 305)
-var flying_imps2 = call create_enemy(int 105, int 3, var &VAR_18, int 15)
-var flying_imps3 = call create_enemy(int 105, int 4, var &VAR_19, int 50)
+var flying_imps = call create_enemy(int 105, int 1, var &init_position3, int 345)
+var flying_imps1 = call create_enemy(int 105, int 2, var &init_position4, int 305)
+var flying_imps2 = call create_enemy(int 105, int 3, var &init_position5, int 15)
+var flying_imps3 = call create_enemy(int 105, int 4, var &init_position6, int 50)
 execute SCRIPT_4
 var DAVID = call get_char_handle(int 65536)
 var TYRONIS = call get_char_handle(int 2031616)
@@ -170,7 +170,7 @@ if(var VAR_24 == int 0)
 }
 if(var VAR_24 == int 1)
  {
-		if(call is_char_at_pos(var DAVID, var &VAR_25, int 400))
+		if(call is_char_at_pos(var DAVID, var &position, int 400))
 		 {
 				var VAR_3 = int 1
 				call char_stop(var DAVID)
@@ -203,7 +203,7 @@ var VAR_29 ++
 ._SCRIPT_8
 if(var VAR_30 == int 0)
  {
-		call char_walk_to_pos(var NIMP3, var &VAR_38)
+		call char_walk_to_pos(var NIMP3, var &walk_position)
 		var VAR_30 ++ 
 		var VAR_37 = int 0
 }
@@ -224,8 +224,8 @@ if(var VAR_30 == int 2)
 		if(call func_5c(var NIMP3))
 		 {
 				var VAR_31 ++ 
-				call char_walk_to_pos(var NIMP3, var &VAR_39)
-				call char_walk_to_pos(var NIMP3, var &VAR_39)
+				call char_walk_to_pos(var NIMP3, var &walk_position1)
+				call char_walk_to_pos(var NIMP3, var &walk_position1)
 				var VAR_30 ++ 
 				var VAR_37 = int 0
 		}
@@ -245,13 +245,13 @@ var VAR_37 ++
 if(var VAR_31 == int 0)
  {
 		call func_c5(var flying_imps)
-		call fly_to_pos(var flying_imps, int 0, var &VAR_33)
+		call fly_to_pos(var flying_imps, int 0, var &fly_position)
 		call func_c5(var flying_imps1)
-		call fly_to_pos(var flying_imps1, int 0, var &VAR_34)
+		call fly_to_pos(var flying_imps1, int 0, var &fly_position1)
 		call func_c5(var flying_imps2)
-		call fly_to_pos(var flying_imps2, int 0, var &VAR_35)
+		call fly_to_pos(var flying_imps2, int 0, var &fly_position2)
 		call func_c5(var flying_imps3)
-		call fly_to_pos(var flying_imps3, int 0, var &VAR_36)
+		call fly_to_pos(var flying_imps3, int 0, var &fly_position3)
 		var VAR_31 ++ 
 		var VAR_32 = int 0
 }
@@ -263,7 +263,7 @@ if(var VAR_31 == int 1)
 				call set_char_template(var flying_imps1, int 105)
 				call set_char_template(var flying_imps2, int 105)
 				call set_char_template(var flying_imps3, int 105)
-				call run_enemy_generator(var &VAR_22, int 10)
+				call run_enemy_generator(var &enemy_gen_script, int 10)
 				var VAR_31 ++ 
 				var VAR_32 = int 0
 		}
@@ -276,10 +276,10 @@ call remove_char(var TYRONIS)
 
 ._SCRIPT_11
 call func_d8(int 0, var &VAR_40)
-var VAR_44 = var VAR_41
+var init_position7 = var VAR_41
 var VAR_45 = var VAR_42
 var VAR_46 = var VAR_43
-var TYRONIS = call create_char(var &VAR_44, "htyronis.", int 90, int 13)
+var TYRONIS = call create_char(var &init_position7, "htyronis.", int 90, int 13)
 var DAVID = call get_char_handle(int 65536)
 call func_53(var TYRONIS, int 15)
 call char_follow_char(var TYRONIS, var DAVID)
@@ -299,7 +299,7 @@ if(var VAR_49 != var VAR_48)
 switch(var VAR_48)
  {
 		case 0
-			if(call is_char_at_pos(var DAVID, var &VAR_25, int 400))
+			if(call is_char_at_pos(var DAVID, var &position, int 400))
 			 {
 					var VAR_3 = int 1
 					call char_stop(var DAVID)

@@ -11,19 +11,19 @@
 
 ._DATA
 VAR_17	{ 0, 0 }	
-VAR_21	{ -3250, 680, 900 }	
+fx_position	{ -3250, 680, 900 }	
 VAR_22	{ -2050, 680, -2450 }	
-VAR_29	{ 113, -1055, 908 }	
-VAR_31	{ 624, -1055, 1788 }	
-VAR_32	{ 1447, -1055, 1982 }	
-VAR_33	{ 1711, -1055, 1086 }	
+init_position	{ 113, -1055, 908 }	
+init_position1	{ 624, -1055, 1788 }	
+init_position2	{ 1447, -1055, 1982 }	
+init_position3	{ 1711, -1055, 1086 }	
 VAR_35	{ 303, -1055, 984, 351, -1055, 1685, 1137, -1055, 1900, 1008, -1055, 1318, 857, -1055, 608, 1661, -1055, 951, 1634, -1055, 1591, 1759, -1055, 1980, 2070, -1055, 1659, 2157, -1055, 1253, 2496, -1055, 1213 }	
-VAR_36	{ 17, 11, VAR_35, 0, 11, 100, 200, 7, 8 }	
-VAR_37	{ 17, 11, VAR_35, 0, 11, 100, 200, 7, 8 }	
-VAR_38	{ 17, 11, VAR_35, 0, 11, 100, 200, 7, 8 }	
-VAR_39	{ 17, 11, VAR_35, 0, 11, 100, 200, 7, 8 }	
-VAR_40	{ 17, 11, VAR_35, 0, 11, 100, 200, 7, 8, 0 }	
-VAR_42	{ 0, 0, 0, 0, 0 }	
+ai_script	{ 17, 11, VAR_35, 0, 11, 100, 200, 7, 8 }	
+ai_script1	{ 17, 11, VAR_35, 0, 11, 100, 200, 7, 8 }	
+ai_script2	{ 17, 11, VAR_35, 0, 11, 100, 200, 7, 8 }	
+ai_script3	{ 17, 11, VAR_35, 0, 11, 100, 200, 7, 8 }	
+ai_script4	{ 17, 11, VAR_35, 0, 11, 100, 200, 7, 8, 0 }	
+arr	{ 0, 0, 0, 0, 0 }	
 
 ._on_load
 call play_bgm("RAINPT1")
@@ -59,7 +59,7 @@ if(gamevar !is_room_cleared)
 
 ._SCRIPT_3
 call log("it's_raining")
-call play_3d_fx("RAIN", var &VAR_21, var &VAR_22, int 0)
+call play_3d_fx("RAIN", var &fx_position, var &VAR_22, int 0)
 execute SCRIPT_9
 
 ._SCRIPT_4
@@ -70,21 +70,21 @@ call play_2d_anim("torch01", int 1, int 0, int 0)
 ._SCRIPT_5
 
 ._SCRIPT_6
-var fetch = call create_enemy(int 207, int 1, var &VAR_29, int 0)
+var fetch = call create_enemy(int 207, int 1, var &init_position, int 0)
 var fetch1 = call create_enemy(int 207, int 2, "r", int 0)
-var fetch2 = call create_enemy(int 207, int 3, var &VAR_31, int 0)
-var fetch3 = call create_enemy(int 207, int 4, var &VAR_32, int 0)
-var fetch4 = call create_enemy(int 207, int 5, var &VAR_33, int 0)
+var fetch2 = call create_enemy(int 207, int 3, var &init_position1, int 0)
+var fetch3 = call create_enemy(int 207, int 4, var &init_position2, int 0)
+var fetch4 = call create_enemy(int 207, int 5, var &init_position3, int 0)
 call func_50(var fetch, int 8192)
 call func_50(var fetch1, int 8192)
 call func_50(var fetch2, int 8192)
 call func_50(var fetch3, int 8192)
 call func_50(var fetch4, int 8192)
-call play_char_ai_script(var fetch, var &VAR_36)
-call play_char_ai_script(var fetch1, var &VAR_37)
-call play_char_ai_script(var fetch2, var &VAR_38)
-call play_char_ai_script(var fetch3, var &VAR_39)
-call play_char_ai_script(var fetch4, var &VAR_40)
+call play_char_ai_script(var fetch, var &ai_script)
+call play_char_ai_script(var fetch1, var &ai_script1)
+call play_char_ai_script(var fetch2, var &ai_script2)
+call play_char_ai_script(var fetch3, var &ai_script3)
+call play_char_ai_script(var fetch4, var &ai_script4)
 gamevar script_object = var fetch
 gamevar *character_stats_p+15 = int 20000
 gamevar script_object = var fetch
@@ -110,7 +110,7 @@ var VAR_41 = int 0
 while(var VAR_41 != var VAR_43)
  {
 		var VAR_34 = call randomize_int(int 0, int 5)
-		if(!VAR_42[var VAR_34])
+		if(!arr[var VAR_34])
 		 {
 				switch(var VAR_34)
 				 {
@@ -135,7 +135,7 @@ while(var VAR_41 != var VAR_43)
 							call add_item_to_char(var fetch4, int 85 /* moneybag */ , int 328193, int 0)
 							break 
 				}
-				@VAR_42[var VAR_34]= int 1
+				@arr[var VAR_34]= int 1
 				var VAR_41 ++ 
 		}
 }

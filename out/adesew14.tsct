@@ -14,10 +14,10 @@ VAR_0	{ 1, 0, 0 }
 VAR_1	{ 1, 0, 0 }	
 VAR_3	{ -2000, 0, 100, -2000, 0, -100 }	
 VAR_4	{ -1151, -3200, 2026 }	
-VAR_8	{ -750, -1500, 2214 }	
-VAR_9	{ -781, -1400, 1721 }	
-VAR_10	{ -570, -1700, 1941 }	
-VAR_11	{ 0, 0, 0, 0, 0, 2, 2, 2, -1, 8, 1, 1, 2, 70, 70, 70, -1, 4, 0, 9, 1, 5, 1, 50, 150, 7, 1, 4, -1 }	
+init_position	{ -750, -1500, 2214 }	
+init_position1	{ -781, -1400, 1721 }	
+init_position2	{ -570, -1700, 1941 }	
+enemy_gen_script	{ 0, 0, 0, 0, 0, 2, 2, 2, -1, 8, 1, 1, 2, 70, 70, 70, -1, 4, 0, 9, 1, 5, 1, 50, 150, 7, 1, 4, -1 }	
 
 ._on_load
 call play_bgm("SEWERPT1")
@@ -75,12 +75,12 @@ switch(var VAR_2)
 		case 0
 			if(call func_8a(var &VAR_3))
 			 {
-					var drop_greater_gimp = call create_enemy(int 131, int 0, var &VAR_8, int 265)
-					var drop_greater_gimp1 = call create_enemy(int 131, int 1, var &VAR_9, int 275)
-					var drop_greater_gimp2 = call create_enemy(int 131, int 2, var &VAR_10, int 255)
+					var drop_greater_gimp = call create_enemy(int 131, int 0, var &init_position, int 265)
+					var drop_greater_gimp1 = call create_enemy(int 131, int 1, var &init_position1, int 275)
+					var drop_greater_gimp2 = call create_enemy(int 131, int 2, var &init_position2, int 255)
 					call add_item_to_char(var drop_greater_gimp1, int 45 /* deadmous */ , int 1, int 0)
 					call add_item_to_char(var drop_greater_gimp2, int 43 /* cheese */ , int 1, int 0)
-					call run_enemy_generator(var &VAR_11, int 5)
+					call run_enemy_generator(var &enemy_gen_script, int 5)
 					var VAR_2 ++ 
 			}
 			break 

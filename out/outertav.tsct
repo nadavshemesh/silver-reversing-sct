@@ -10,19 +10,19 @@
 
 
 ._DATA
-VAR_13	{ -401, -1417, -397 }	
+init_position	{ -401, -1417, -397 }	
 dick	0	
-VAR_15	{ -647, -1417, -281 }	
-VAR_16	{ 9, dick, 7, 8 }	
-VAR_17	{ 7, 8 }	
-VAR_18	{ 0, 0, 0, -1, 1, 2, 30, 32, -1, 7, 1, 3, 5, 1, 100, 150, 8, 1, 4, 0, 9, 1, 10, 42, 43, -1, -1 }	
+init_position1	{ -647, -1417, -281 }	
+ai_script	{ 9, dick, 7, 8 }	
+ai_script1	{ 7, 8 }	
+enemy_gen_script	{ 0, 0, 0, -1, 1, 2, 30, 32, -1, 7, 1, 3, 5, 1, 100, 150, 8, 1, 4, 0, 9, 1, 10, 42, 43, -1, -1 }	
 VAR_36	{ 0, 0 }	
-VAR_39	{ -1700, 1000, 550 }	
+fx_position	{ -1700, 1000, 550 }	
 VAR_40	{ 2650, 1000, -1150 }	
-VAR_53	{ -1234, -1417, 717 }	
-VAR_54	{ -1196, -1417, 454 }	
-VAR_55	{ -652, -1417, -241 }	
-VAR_56	{ -374, -1417, -208 }	
+init_position2	{ -1234, -1417, 717 }	
+init_position3	{ -1196, -1417, 454 }	
+walk_position	{ -652, -1417, -241 }	
+walk_position1	{ -374, -1417, -208 }	
 
 ._on_load
 execute SCRIPT_9
@@ -84,9 +84,9 @@ call load_char("muscles")
 call load_char("finnegan")
 call load_char("longjohn")
 call load_char("dick")
-var pirate_captain = call create_enemy(int 29, int 0, var &VAR_13, int 295)
+var pirate_captain = call create_enemy(int 29, int 0, var &init_position, int 295)
 call func_109(var pirate_captain, int 3)
-var dick = call create_enemy(int 31, int 0, var &VAR_15, int 115)
+var dick = call create_enemy(int 31, int 0, var &init_position1, int 115)
 call func_46(var pirate_captain, int 0)
 call func_46(var dick, int 0)
 call func_fe(var pirate_captain)
@@ -142,8 +142,8 @@ switch(var VAR_0)
 			 {
 					call set_char_init_state(var pirate_captain, int 13)
 					call set_char_init_state(var dick, int 13)
-					call play_char_ai_script(var pirate_captain, var &VAR_16)
-					call play_char_ai_script(var dick, var &VAR_17)
+					call play_char_ai_script(var pirate_captain, var &ai_script)
+					call play_char_ai_script(var dick, var &ai_script1)
 					var VAR_0 ++ 
 			}
 			break 
@@ -151,15 +151,15 @@ switch(var VAR_0)
 			var VAR_11 = int 0
 			if(var DAVID1)
 			 {
-					var VAR_11 = call is_char_at_pos(var DAVID1, var &VAR_13, int 400)
+					var VAR_11 = call is_char_at_pos(var DAVID1, var &init_position, int 400)
 			}
 			if(var SEKUNE1&&var ! VAR_11)
 			 {
-					var VAR_11 = call is_char_at_pos(var SEKUNE1, var &VAR_13, int 400)
+					var VAR_11 = call is_char_at_pos(var SEKUNE1, var &init_position, int 400)
 			}
 			if(var VIVIENNE1&&var ! VAR_11)
 			 {
-					var VAR_11 = call is_char_at_pos(var VIVIENNE1, var &VAR_13, int 400)
+					var VAR_11 = call is_char_at_pos(var VIVIENNE1, var &init_position, int 400)
 			}
 			if(var VAR_11)
 			 {
@@ -271,7 +271,7 @@ switch(var VAR_0)
 					 {
 							call set_char_init_state(var dick, int 0)
 					}
-					call run_enemy_generator(var &VAR_18, int 600)
+					call run_enemy_generator(var &enemy_gen_script, int 600)
 					var VAR_0 ++ 
 			}
 			break 
@@ -294,8 +294,8 @@ call load_char("longjohn")
 call load_char("muscles")
 call load_char("dick")
 call load_char("finnegan")
-var dick1 = call create_enemy(int 31, int 0, var &VAR_53, int 175)
-var finnegan = call create_enemy(int 32, int 0, var &VAR_54, int 335)
+var dick1 = call create_enemy(int 31, int 0, var &init_position2, int 175)
+var finnegan = call create_enemy(int 32, int 0, var &init_position3, int 335)
 call func_46(var dick1, int 0)
 call func_46(var finnegan, int 0)
 call set_input_system(int 2)
@@ -339,8 +339,8 @@ switch(var VAR_3)
 			var muscles = call create_enemy_through_door(int 30, int 0, int 0, int 0)
 			call func_46(var longjohn, int 0)
 			call func_46(var muscles, int 0)
-			call char_walk_to_pos(var longjohn, var &VAR_55)
-			call char_walk_to_pos(var muscles, var &VAR_56)
+			call char_walk_to_pos(var longjohn, var &walk_position)
+			call char_walk_to_pos(var muscles, var &walk_position1)
 			var VAR_4 = int 60
 			var VAR_3 ++ 
 			break 
@@ -441,7 +441,7 @@ switch(var VAR_3)
 
 ._SCRIPT_9
 call log("it's_raining")
-call play_3d_fx("RAIN", var &VAR_39, var &VAR_40, int 0)
+call play_3d_fx("RAIN", var &fx_position, var &VAR_40, int 0)
 execute SCRIPT_10
 
 ._SCRIPT_10

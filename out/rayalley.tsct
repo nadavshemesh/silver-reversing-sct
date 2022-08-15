@@ -12,10 +12,10 @@
 ._DATA
 VAR_17	{ 0, 0 }	
 VAR_18	{ 0, 0, 0, 0 }	
-VAR_22	{ -531, 1190, -1456 }	
+fx_position	{ -531, 1190, -1456 }	
 VAR_23	{ -1160, 1190, 231 }	
-VAR_26	{ 548, 252, 322 }	
-VAR_27	{ 3, VAR_28, 0, 11, 100, 400, 7, 8 }	
+init_position	{ 548, 252, 322 }	
+ai_script	{ 3, VAR_28, 0, 11, 100, 400, 7, 8 }	
 VAR_28	"taichi"	
 VAR_36	-1	
 
@@ -117,7 +117,7 @@ if(gamevar !is_room_cleared)
 
 ._SCRIPT_3
 call log("it's_raining")
-call play_3d_fx("RAIN", var &VAR_22, var &VAR_23, int 0)
+call play_3d_fx("RAIN", var &fx_position, var &VAR_23, int 0)
 execute SCRIPT_14
 
 ._SCRIPT_4
@@ -316,9 +316,9 @@ execute SCRIPT_12
 call func_108("ARSE")
 
 ._SCRIPT_12
-var noldvill = call create_char(var &VAR_26, "noldvill", int 336, int 13)
+var noldvill = call create_char(var &init_position, "noldvill", int 336, int 13)
 call func_50(var noldvill, int 8192)
-call play_char_ai_script(var noldvill, var &VAR_27)
+call play_char_ai_script(var noldvill, var &ai_script)
 var jangive_anim = call load_anim("jangive")
 
 ._SCRIPT_13

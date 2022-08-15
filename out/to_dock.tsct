@@ -13,16 +13,16 @@
 VAR_18	{ 0, 0, -1 }	
 VAR_23	-1	
 VAR_56	{ 0, 0 }	
-VAR_62	{ -2225, 1425, -425 }	
+fx_position	{ -2225, 1425, -425 }	
 VAR_63	{ 450, 1425, -2575 }	
 VAR_66	{ 0, 0, 0 }	
 lieutenant1	0	
 VAR_69	{ 0, 0 }	
-VAR_70	{ 1085, -1057, 469 }	
-VAR_71	{ 772, -1057, 348, -511, -1057, 292, -515, -1057, 754, 1093, -1057, 1767 }	
-VAR_72	{ 9, lieutenant1, 7, 8 }	
-VAR_73	{ 7, 8 }	
-VAR_75	"`"	
+init_position1	{ 1085, -1057, 469 }	
+init_position2	{ 772, -1057, 348, -511, -1057, 292, -515, -1057, 754, 1093, -1057, 1767 }	
+ai_script	{ 9, lieutenant1, 7, 8 }	
+ai_script1	{ 7, 8 }	
+init_position	{ 1632, -1057, 2486 }	
 VAR_76	{ 2423, -1057, 1121, 2457, -1057, 2331 }
 
 ._on_load
@@ -97,7 +97,7 @@ if(gamevar !is_room_cleared)
 
 ._SCRIPT_3
 call log("it's_raining")
-call play_3d_fx("RAIN", var &VAR_62, var &VAR_63, int 0)
+call play_3d_fx("RAIN", var &fx_position, var &VAR_63, int 0)
 execute SCRIPT_16
 
 ._SCRIPT_4
@@ -132,7 +132,7 @@ switch(var VAR_65)
 		case 2
 			if(call get_num_of_enemies() == int 0)
 			 {
-					var fade_chronicler = call create_enemy(int 178, int 0, var &VAR_75, int 220)
+					var fade_chronicler = call create_enemy(int 178, int 0, var &init_position, int 220)
 					var VAR_65 ++ 
 			}
 			break 
@@ -140,16 +140,16 @@ switch(var VAR_65)
 var VAR_66 ++ 
 
 ._SCRIPT_5
-var lieutenant = call create_enemy(int 11, int 0, var &VAR_70, int 220)
-var lieutenant1 = call create_enemy(int 11, int 1, var &VAR_71, int 20)
+var lieutenant = call create_enemy(int 11, int 0, var &init_position1, int 220)
+var lieutenant1 = call create_enemy(int 11, int 1, var &init_position2, int 20)
 call func_106(var lieutenant, int 1, int 0, int 1)
 call set_char_init_state(var lieutenant, int 1)
 call func_106(var lieutenant1, int 1, int 0, int 1)
 call set_char_init_state(var lieutenant1, int 1)
 call set_char_init_state(var lieutenant, int 13)
-call play_char_ai_script(var lieutenant, var &VAR_72)
+call play_char_ai_script(var lieutenant, var &ai_script)
 call set_char_init_state(var lieutenant1, int 13)
-call play_char_ai_script(var lieutenant1, var &VAR_73)
+call play_char_ai_script(var lieutenant1, var &ai_script1)
 call load_char("chronicl")
 gamevar *scene_info_p+3 = int 16
 call add_item_to_char(var lieutenant, int 17 /* daveswrd */ , int 1, int 0)

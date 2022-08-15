@@ -11,18 +11,18 @@
 
 ._DATA
 VAR_17	{ 0, 0 }	
-VAR_19	{ -1448, 2211, -3270 }	
+fx_position	{ -1448, 2211, -3270 }	
 VAR_20	{ 2024, 2211, -459 }	
 finnegan	0	
 longjohn	0	
-VAR_25	{ -229, 433, 2188 }	
-VAR_26	{ -228, 433, 1928 }	
-VAR_27	{ -290, 433, 1691 }	
-VAR_28	{ 0, 565, 433, 1944, 1, longjohn, 8 }	
-VAR_29	{ 5, 40, 0, 568, 433, 2206, 1, longjohn, 9, longjohn, 8 }	
-VAR_30	{ 0, 594, 433, 1672, 1, finnegan, 9, finnegan, 8 }	
+init_position	{ -229, 433, 2188 }	
+init_position1	{ -228, 433, 1928 }	
+init_position2	{ -290, 433, 1691 }	
+ai_script	{ 0, 565, 433, 1944, 1, longjohn, 8 }	
+ai_script1	{ 5, 40, 0, 568, 433, 2206, 1, longjohn, 9, longjohn, 8 }	
+ai_script2	{ 0, 594, 433, 1672, 1, finnegan, 9, finnegan, 8 }	
 VAR_32	{ -483, 433, 1521, 13, 433, 1635, 384, 433, 1573, 1031, 433, 1595, 1070, 433, 1896, 1047, 433, 2311 }	
-VAR_33	{ 0, 0, 0, 1, -1, 8, 1, 4, 2, 6, VAR_32, 9, 0, 1, 2, 31, 32, 30, -1, 2, 3, 5, 0, 10, 7, 1, 3, 6, 2, 10, 42, 43, -1, -1 }	
+enemy_gen_script	{ 0, 0, 0, 1, -1, 8, 1, 4, 2, 6, VAR_32, 9, 0, 1, 2, 31, 32, 30, -1, 2, 3, 5, 0, 10, 7, 1, 3, 6, 2, 10, 42, 43, -1, -1 }	
 VAR_37	{ -760, 433, 2294, -760, 433, 1645 }	
 
 ._on_load
@@ -86,7 +86,7 @@ if(gamevar !is_room_cleared)
 
 ._SCRIPT_3
 call log("it's_raining")
-call play_3d_fx("RAIN", var &VAR_19, var &VAR_20, int 0)
+call play_3d_fx("RAIN", var &fx_position, var &VAR_20, int 0)
 execute SCRIPT_9
 
 ._SCRIPT_4
@@ -158,7 +158,7 @@ if(var VAR_35 == int 2)
 		 {
 				if(call is_char_standing(var dick))
 				 {
-						var VAR_31 = call run_enemy_generator(var &VAR_33, int 10)
+						var VAR_31 = call run_enemy_generator(var &enemy_gen_script, int 10)
 						call remove_char(var dick)
 						call log("dick's gone")
 						var VAR_35 = int 4
@@ -167,7 +167,7 @@ if(var VAR_35 == int 2)
 		}
 		else
 		 {
-				var VAR_31 = call run_enemy_generator(var &VAR_33, int 10)
+				var VAR_31 = call run_enemy_generator(var &enemy_gen_script, int 10)
 				call log("Spaz handle")
 				var VAR_35 = int 4
 				var VAR_36 = int 0
@@ -176,18 +176,18 @@ if(var VAR_35 == int 2)
 if(var VAR_35 == int 3)
  {
 		call log("dick's still here")
-		var VAR_31 = call run_enemy_generator(var &VAR_33, int 10)
+		var VAR_31 = call run_enemy_generator(var &enemy_gen_script, int 10)
 		var VAR_35 ++ 
 		var VAR_36 = int 0
 }
 
 ._SCRIPT_5
-var dick = call create_enemy(int 31, int 0, var &VAR_25, int 90)
+var dick = call create_enemy(int 31, int 0, var &init_position, int 90)
 gamevar script_object = var dick
 gamevar *character_stats_p+16 = int 800
 gamevar *character_stats_p+15 = int 3400
-var finnegan = call create_enemy(int 32, int 0, var &VAR_26, int 60)
-var longjohn = call create_enemy(int 28, int 0, var &VAR_27, int 65)
+var finnegan = call create_enemy(int 32, int 0, var &init_position1, int 60)
+var longjohn = call create_enemy(int 28, int 0, var &init_position2, int 65)
 call freeze_enemy(var dick)
 call freeze_enemy(var finnegan)
 call freeze_enemy(var longjohn)
@@ -197,9 +197,9 @@ call func_50(var longjohn, int 8192)
 call func_50(var dick, int 1)
 call func_50(var finnegan, int 1)
 call func_50(var longjohn, int 1)
-call play_char_ai_script(var dick, var &VAR_28)
-call play_char_ai_script(var finnegan, var &VAR_29)
-call play_char_ai_script(var longjohn, var &VAR_30)
+call play_char_ai_script(var dick, var &ai_script)
+call play_char_ai_script(var finnegan, var &ai_script1)
+call play_char_ai_script(var longjohn, var &ai_script2)
 call load_char("muscles")
 
 ._SCRIPT_6

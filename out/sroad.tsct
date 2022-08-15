@@ -11,15 +11,15 @@
 
 ._DATA
 VAR_17	{ 0, 0 }	
-VAR_21	{ -550, 869, 550 }	
+fx_position	{ -550, 869, 550 }	
 VAR_22	{ 2300, 869, -1525 }	
-VAR_25	{ 555, -1000, 164 }	
-VAR_27	{ 112, -1000, 769 }	
-VAR_29	{ -4709, -1000, -338 }	
-VAR_31	{ -4134, -1000, -104 }	
-VAR_35	{ -1498, -1000, 124 }	
-VAR_38	{ 0, 0, 0, 1, -1, 8, 1, 12, 31, 30, 31, -1, 13, 0, 14, 0, 1, 3, 5, 0, 60, 18, 50, -1 }	
-VAR_39	{ 0, 0, 0, 1, -1, 8, 1, 12, 11, 12, 13, -1, 13, 0, 14, 0, 1, 3, 5, 0, 60, 18, 50, -1 }	
+init_position2	{ 555, -1000, 164 }	
+init_position3	{ 112, -1000, 769 }	
+init_position	{ -4709, -1000, -338 }	
+init_position1	{ -4134, -1000, -104 }	
+position	{ -1498, -1000, 124 }	
+wandering_gen_script1	{ 0, 0, 0, 1, -1, 8, 1, 12, 31, 30, 31, -1, 13, 0, 14, 0, 1, 3, 5, 0, 60, 18, 50, -1 }	
+wandering_gen_script	{ 0, 0, 0, 1, -1, 8, 1, 12, 11, 12, 13, -1, 13, 0, 14, 0, 1, 3, 5, 0, 60, 18, 50, -1 }	
 
 ._on_load
 execute SCRIPT_3
@@ -83,19 +83,19 @@ if(gamevar !is_room_cleared)
 
 ._SCRIPT_3
 call log("it's_raining")
-call play_3d_fx("RAIN", var &VAR_21, var &VAR_22, int 0)
+call play_3d_fx("RAIN", var &fx_position, var &VAR_22, int 0)
 execute SCRIPT_9
 
 ._SCRIPT_4
 if(var VAR_33 == int 0)
  {
 		var selected_hero = call get_selected_hero()
-		if(call is_char_at_pos(var selected_hero, var &VAR_35, int 800))
+		if(call is_char_at_pos(var selected_hero, var &position, int 800))
 		 {
-				var VAR_37 = call get_char_pos(var selected_hero)
-				var lieutenant = call create_enemy(int 11, int 3, var &VAR_29, int 145)
+				var walk_position = call get_char_pos(var selected_hero)
+				var lieutenant = call create_enemy(int 11, int 3, var &init_position, int 145)
 				call set_char_running(var lieutenant)
-				call char_walk_to_pos(var lieutenant, var VAR_37)
+				call char_walk_to_pos(var lieutenant, var walk_position)
 				var VAR_19 = int 1
 				var VAR_33 ++ 
 				var VAR_34 = int 0
@@ -103,26 +103,26 @@ if(var VAR_33 == int 0)
 }
 if(var VAR_33 == int 1)
  {
-		var VAR_37 = call get_char_pos(var selected_hero)
+		var walk_position = call get_char_pos(var selected_hero)
 		if(var VAR_34 == int 10)
 		 {
-				var lieutenant1 = call create_enemy(int 11, int 4, var &VAR_31, int 150)
+				var lieutenant1 = call create_enemy(int 11, int 4, var &init_position1, int 150)
 				call add_item_to_char(var lieutenant1, int 43 /* cheese */ , int 1, int 0)
 				call set_char_running(var lieutenant1)
-				call char_walk_to_pos(var lieutenant1, var VAR_37)
+				call char_walk_to_pos(var lieutenant1, var walk_position)
 		}
 		if(var VAR_34 == int 90)
 		 {
-				var lieutenant2 = call create_enemy(int 11, int 1, var &VAR_25, int 285)
+				var lieutenant2 = call create_enemy(int 11, int 1, var &init_position2, int 285)
 				call set_char_running(var lieutenant2)
-				call char_walk_to_pos(var lieutenant2, var VAR_37)
+				call char_walk_to_pos(var lieutenant2, var walk_position)
 		}
 		if(var VAR_34 == int 100)
 		 {
-				var lieutenant3 = call create_enemy(int 11, int 2, var &VAR_27, int 190)
+				var lieutenant3 = call create_enemy(int 11, int 2, var &init_position3, int 190)
 				call add_item_to_char(var lieutenant3, int 42 /* bread */ , int 1, int 0)
 				call set_char_running(var lieutenant3)
-				call char_walk_to_pos(var lieutenant3, var VAR_37)
+				call char_walk_to_pos(var lieutenant3, var walk_position)
 				var VAR_33 ++ 
 				var VAR_34 = int 0
 		}
@@ -141,13 +141,13 @@ switch(gamevar is_room_cleared)
  {
 		case 1
 			call load_char("rlieuten")
-			call run_wandering_generator(var &VAR_39, int 100)
+			call run_wandering_generator(var &wandering_gen_script, int 100)
 			break 
 		case 2
 			call load_char("muscles")
 			call load_char("dick")
 			call load_item(int 93 /* cutlass */ )
-			call run_wandering_generator(var &VAR_38, int 100)
+			call run_wandering_generator(var &wandering_gen_script1, int 100)
 			break 
 }
 

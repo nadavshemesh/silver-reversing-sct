@@ -12,12 +12,12 @@
 ._DATA
 VAR_1	{ 350, -1503, 4055 }	
 torches2_sound_ref	{ 0, 9, 0, 0 }	
-VAR_5	{ -1154, -1702, 4368 }	
-VAR_13	{ -2705, -1550, 2240 }	
-VAR_14	{ -2879, -1550, 2708 }	
-VAR_15	{ -2990, -1550, 2621 }	
-VAR_16	{ -2756, -1555, 3130 }	
-VAR_17	""	
+init_position	{ -1154, -1702, 4368 }	
+init_position1	{ -2705, -1550, 2240 }	
+init_position2	{ -2879, -1550, 2708 }	
+init_position3	{ -2990, -1550, 2621 }	
+init_position4	{ -2756, -1555, 3130 }	
+init_position5	{ -3611, -1550, 2707 }	
 VAR_18	{ 0, 2, 300, 300, 8, 1, 1, 2, 68, 68, 68, -1, 4, 0, 9, 2, 5, 0, 25, 6, 3, 7, 1, 2, -1 }
 
 ._on_load
@@ -78,18 +78,18 @@ switch(gamevar room_state)
 ._SCRIPT_3
 
 ._SCRIPT_4
-var btreasure = call create_char(var &VAR_5, "btreasure", int 140, int 14)
+var btreasure = call create_char(var &init_position, "btreasure", int 140, int 14)
 call add_item_to_char(var btreasure, int 42 /* bread */ , int 1, int 0)
 call add_item_to_char(var btreasure, int 47 /* drumstik */ , int 1, int 0)
 call add_item_to_char(var btreasure, int 46 /* pie */ , int 1, int 0)
 call add_item_to_char(var btreasure, int 46 /* pie */ , int 1, int 0)
 call add_item_to_char(var btreasure, int 85 /* moneybag */ , int 3277313, int 0)
 call add_item_to_char(var btreasure, int 22 /* bastswrd */ , int 1, int 0)
-var deathip = call create_enemy(int 59, int 0, var &VAR_13, int 295)
-var skel = call create_enemy(int 58, int 1, var &VAR_14, int 305)
-var skel1 = call create_enemy(int 58, int 2, var &VAR_15, int 310)
-var skel2 = call create_enemy(int 58, int 3, var &VAR_16, int 275)
-var skel3 = call create_enemy(int 58, int 4, var &VAR_17, int 295)
+var deathip = call create_enemy(int 59, int 0, var &init_position1, int 295)
+var skel = call create_enemy(int 58, int 1, var &init_position2, int 305)
+var skel1 = call create_enemy(int 58, int 2, var &init_position3, int 310)
+var skel2 = call create_enemy(int 58, int 3, var &init_position4, int 275)
+var skel3 = call create_enemy(int 58, int 4, var &init_position5, int 295)
 call func_106(var deathip, int 1, int 0, int 3)
 call func_106(var skel3, int 1, int 0, int 3)
 call func_106(var skel, int 1, int 0, int 3)

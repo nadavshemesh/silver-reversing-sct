@@ -11,8 +11,8 @@
 
 ._DATA
 VAR_2	{ 347, 795, 4368 }	
-VAR_4	{ 373, 795, 6515 }	
-VAR_19	{ 366, 795, 7012 }	
+fx_position	{ 373, 795, 6515 }	
+position	{ 366, 795, 7012 }	
 VAR_22	"----------------------------"	
 VAR_24	"----------------------------"	
 VAR_25	" "	
@@ -33,7 +33,7 @@ VAR_53	"CFDE"
 VAR_54	{ 1144111104, 1145487360, 1170909184 }	
 VAR_55	{ 1145978880, 1145487360, 1171220480 }	
 VAR_56	{ 1135804416, 1145487360, 1171888128 }	
-VAR_57	{ VAR_51, VAR_52, VAR_53, VAR_54, VAR_55, VAR_56 }
+arr	{ VAR_51, VAR_52, VAR_53, VAR_54, VAR_55, VAR_56 }
 
 ._on_load
 call load_sound_set(int 65)
@@ -99,7 +99,7 @@ if(var VAR_44 > var VAR_45)
 				}
 		}
 		var VAR_48 = call randomize_int(int 0, int 6)
-		call play_loaded_sound(var VAR_46, int 0, int 68, @VAR_57[var VAR_48])
+		call play_loaded_sound(var VAR_46, int 0, int 68, @arr[var VAR_48])
 		var VAR_45 = call randomize_int(int 0, int 301) + int 250
 		var VAR_44 = int 0
 }
@@ -148,7 +148,7 @@ switch(var VAR_11)
 			if(var VAR_18 >= int 7200)
 			 {
 					call log("Mushring has now become useable")
-					var VAR_1 = call play_3d_fx("MUSHACT", var &VAR_4, var &VAR_4, int 0)
+					var VAR_1 = call play_3d_fx("MUSHACT", var &fx_position, var &fx_position, int 0)
 					var VAR_11 ++ 
 					var VAR_10 = int 0
 					break 
@@ -158,12 +158,12 @@ switch(var VAR_11)
 					var VAR_12 = int 0
 					var VAR_11 ++ 
 					var VAR_10 = int 0
-					var VAR_1 = call play_3d_fx("MUSHACT", var &VAR_4, var &VAR_4, int 0)
+					var VAR_1 = call play_3d_fx("MUSHACT", var &fx_position, var &fx_position, int 0)
 					call log("Mushring available due to act1")
 			}
 			break 
 		case 3
-			var VAR_9 = call func_ab(int 200, var &VAR_4)
+			var VAR_9 = call func_ab(int 200, var &fx_position)
 			if(var VAR_9 != int 0)
 			 {
 					gamevar script_object = var VAR_9
@@ -179,7 +179,7 @@ switch(var VAR_11)
 							call log(var &VAR_32)
 							call log(var &VAR_33)
 							call set_input_system(int 2)
-							call char_walk_to_pos(var VAR_9, var &VAR_4)
+							call char_walk_to_pos(var VAR_9, var &fx_position)
 							var VAR_11 ++ 
 							var VAR_10 = int 0
 							break 
@@ -192,7 +192,7 @@ switch(var VAR_11)
 							call log(var &VAR_36)
 							call log(var &VAR_37)
 							call set_input_system(int 2)
-							call char_walk_to_pos(var VAR_9, var &VAR_4)
+							call char_walk_to_pos(var VAR_9, var &fx_position)
 							var VAR_11 ++ 
 							var VAR_10 = int 0
 							break 
@@ -202,7 +202,7 @@ switch(var VAR_11)
 		case 4
 			if(call is_char_standing(var VAR_9))
 			 {
-					call char_turn_to_pos(var VAR_9, var &VAR_19)
+					call char_turn_to_pos(var VAR_9, var &position)
 					var VAR_11 ++ 
 					var VAR_10 = int 0
 			}
@@ -218,7 +218,7 @@ switch(var VAR_11)
 					call log(var &VAR_41)
 					call log(" ")
 					call play_char_anim(var VAR_9, var DREAM_anim, int 0)
-					call play_3d_fx("MUSH", var &VAR_4, var &VAR_4, var VAR_9)
+					call play_3d_fx("MUSH", var &fx_position, var &fx_position, var VAR_9)
 					call func_12f(var VAR_1)
 					var VAR_1 = int 0
 					var VAR_11 ++ 
@@ -248,9 +248,9 @@ var VAR_10 ++
 
 ._SCRIPT_5
 var DREAM_anim = call load_anim("DREAM")
-call play_3d_fx("MUSHGEN", var &VAR_4, var &VAR_4, int 0)
+call play_3d_fx("MUSHGEN", var &fx_position, var &fx_position, int 0)
 call func_7(int 0, int 0, int 0, int 0)
 
 ._SCRIPT_6
 var DREAM_anim = call load_anim("DREAM")
-call play_3d_fx("MUSHGEN", var &VAR_4, var &VAR_4, int 0)
+call play_3d_fx("MUSHGEN", var &fx_position, var &fx_position, int 0)

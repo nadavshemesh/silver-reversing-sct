@@ -15,7 +15,7 @@ VAR_5	{ -1235, 243, -325, -1501, 218, 715 }
 VAR_9	{ 1136984064, 1132068864, -1005682688 }	
 VAR_10	"cC7D"	
 VAR_11	")\CFC"	
-VAR_12	{ VAR_9, VAR_10, VAR_11 }
+arr	{ VAR_9, VAR_10, VAR_11 }
 
 ._on_load
 call load_sound_set(int 76)
@@ -151,7 +151,7 @@ if(gamevar script_time > var VAR_6)
 		var VAR_8 = call randomize_int(int 0, int 3)
 
 		 /* play the sound 'atroamb4' */ 
-		call play_loaded_sound(int 3, int 0, int 76, @VAR_12[var VAR_8])
+		call play_loaded_sound(int 3, int 0, int 76, @arr[var VAR_8])
 }
 if(gamevar script_time > var VAR_7)
  {
@@ -159,5 +159,5 @@ if(gamevar script_time > var VAR_7)
 		var VAR_8 = call randomize_int(int 0, int 3)
 
 		 /* play the sound 'bees' */ 
-		call play_loaded_sound(int 4, int 0, int 76, @VAR_12[var VAR_8])
+		call play_loaded_sound(int 4, int 0, int 76, @arr[var VAR_8])
 }

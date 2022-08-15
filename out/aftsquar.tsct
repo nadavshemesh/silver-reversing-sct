@@ -11,15 +11,15 @@
 
 ._DATA
 finnegan	0	
-VAR_6	{ 1147, -937, -2656 }	
-VAR_7	{ 7, 8 }	
-VAR_8	{ 9, finnegan, 7, 8 }	
-VAR_9	{ 0, 0, 0, -1, 1, 2, 18, -1, 7, 1, 2, 5, 1, 100, 150, 8, 1, 4, 0, 9, 1, -1 }	
+init_position	{ 1147, -937, -2656 }	
+ai_script	{ 7, 8 }	
+ai_script1	{ 9, finnegan, 7, 8 }	
+enemy_gen_script	{ 0, 0, 0, -1, 1, 2, 18, -1, 7, 1, 2, 5, 1, 100, 150, 8, 1, 4, 0, 9, 1, -1 }	
 VAR_28	{ 0, 0 }	
 VAR_47	{ 0, 0, -1 }	
 VAR_52	-1	
 VAR_70	{ 10, 631, 420 }	
-VAR_74	{ 1451, -937, -1532 }	
+init_position1	{ 1451, -937, -1532 }	
 VAR_77	-1
 
 ._on_load
@@ -61,17 +61,17 @@ switch(gamevar room_state)
 ._SCRIPT_3
 var finnegan = call create_enemy(int 32, int 0, "k", int 295)
 var muscles = call create_enemy(int 30, int 0, "K", int 85)
-var longjohn = call create_enemy(int 28, int 0, var &VAR_6, int 270)
+var longjohn = call create_enemy(int 28, int 0, var &init_position, int 270)
 call add_item_to_char(var finnegan, int 42 /* bread */ , int 1, int 0)
-call play_char_ai_script(var finnegan, var &VAR_7)
-call play_char_ai_script(var muscles, var &VAR_8)
+call play_char_ai_script(var finnegan, var &ai_script)
+call play_char_ai_script(var muscles, var &ai_script1)
 call func_106(var finnegan, int 1, int 0, int 1)
 call func_106(var muscles, int 1, int 0, int 1)
 call func_50(var finnegan, int 8194)
 call func_50(var muscles, int 8194)
 call load_char("hound")
 call load_char("chronicl")
-var VAR_10 = call run_enemy_generator(var &VAR_9, int 300)
+var VAR_10 = call run_enemy_generator(var &enemy_gen_script, int 300)
 var VAR_0 = int 0
 
 ._SCRIPT_4
@@ -127,7 +127,7 @@ switch(var VAR_0)
 			 {
 					if(call ! func_122(var VAR_10))
 					 {
-							var fade_chronicler = call create_enemy(int 178, int 0, var &VAR_74, int 300)
+							var fade_chronicler = call create_enemy(int 178, int 0, var &init_position1, int 300)
 							var VAR_0 ++ 
 					}
 			}

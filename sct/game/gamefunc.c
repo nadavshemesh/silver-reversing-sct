@@ -6,6 +6,7 @@
 #include "sct\game\gamefunc.h"
 
 bool game_functions_initialized = false;
+node* var_hint_names = NULL;
 
 void print_game_function(game_fun* gf) {
     printf("func_name: %s\n", gf->name);
@@ -23,10 +24,42 @@ catalog_ref* create_cat_ref(cat_type type, int var_index, char* prefix, char* po
     return cref;
 }
 
-void add_forced_type(game_fun* gf, data_type type, int var_index) {
+var_hint_name* init_vhn(char* name) {
+    var_hint_name* vhn = w_malloc(sizeof(var_hint_name));
+    vhn->name = aapts(name);
+    vhn->used_counter = 0;
+
+    return vhn;
+}
+
+var_hint_name* get_or_create_vhn(char* name) {
+    if(var_hint_names == NULL) {
+        var_hint_name* vhn = init_vhn(name);
+        var_hint_names = create_node(vhn);
+        return vhn;
+    }
+    // check the first one seperately
+    node* next_vhn = var_hint_names;
+    if(strs_identical(((var_hint_name*)next_vhn->item)->name, name)) {
+        return next_vhn->item;
+    }
+
+    while(next_vhn->next != NULL) {
+        next_vhn = next_vhn->next;
+        if(strs_identical(((var_hint_name*)next_vhn->item)->name, name)) {
+            return next_vhn->item;
+        }
+    }
+    var_hint_name* vhn = init_vhn(name);
+    next_vhn->next = create_node(vhn);
+    return vhn;
+}
+
+void add_forced_type(game_fun* gf, data_type type, int var_index, char* hint_name) {
     forced_type* ft = w_malloc(sizeof(forced_type));
     ft->type = type;
     ft->var_index = var_index;
+    ft->hint_name = (hint_name != NULL) ? get_or_create_vhn(hint_name) : NULL;
 
     node* ft_node = create_node(ft);
     if(*gf->forced_types == NULL) {
@@ -66,10 +99,12 @@ void init_game_functions(game_fun** functions_arr) {
     functions_arr[0x97]->params = 4;
     functions_arr[0x97]->desc = aapts("(int enemy_type, int id, var position_ptr, int face_direction_radius_counter_clockwise)");
     functions_arr[0x97]->cat_ref =  create_cat_ref(ENEMY_CAT, 0, NULL, NULL);
+    add_forced_type(functions_arr[0x97], ARRAY, 2, "init_position");
     functions_arr[0x93]->name = aapts("create_char");
     functions_arr[0x93]->params = 4;
     functions_arr[0x93]->desc = aapts("(var pos_ptr, var char_name_ptr, int face_direction_radius_counter_clockwise, int init_state)");
     functions_arr[0x93]->cat_ref =  create_cat_ref(NO_CAT_USE_PARAM_STRING, 1, NULL, NULL);
+    add_forced_type(functions_arr[0x93], ARRAY, 0, "init_position");
     functions_arr[0x25]->name = aapts("is_char_standing");
     functions_arr[0x25]->params = 1;
     functions_arr[0x25]->desc = aapts("(var char_ptr)");
@@ -95,6 +130,7 @@ void init_game_functions(game_fun** functions_arr) {
     functions_arr[0xa8]->name = aapts("is_char_at_pos");
     functions_arr[0xa8]->params = 3;
     functions_arr[0xa8]->desc = aapts("(var char_ptr, var pos_ptr, int radius)");
+    add_forced_type(functions_arr[0xa8], ARRAY, 1, "position");
     functions_arr[0x130]->name = aapts("char_unfollow");
     functions_arr[0x130]->params = 1;
     functions_arr[0x130]->desc = aapts("(var char1_ptr, var char2_ptr)");
@@ -120,6 +156,7 @@ void init_game_functions(game_fun** functions_arr) {
     functions_arr[0xff]->name = aapts("force_scroll_to_pos");
     functions_arr[0xff]->params = 1;
     functions_arr[0xff]->desc = aapts("(var pos_ptr)");
+    add_forced_type(functions_arr[0xff], ARRAY, 0, "scroll_position");
     functions_arr[0x69]->name = aapts("get_char_handle");
     functions_arr[0x69]->params = 1;
     functions_arr[0x69]->desc = aapts("(int char_handle_id)");
@@ -136,6 +173,7 @@ void init_game_functions(game_fun** functions_arr) {
     functions_arr[0x0d]->name = aapts("char_play_attack_anim");
     functions_arr[0x0d]->params = 4;
     functions_arr[0x0d]->desc = aapts("(var char_ptr, int attack, var pos_ptr, int unknown)");
+    add_forced_type(functions_arr[0x0d], ARRAY, 2, "att_position");
     functions_arr[0x0e]->name = aapts("remove_face");
     functions_arr[0x0e]->params = 1;
     functions_arr[0x0e]->desc = aapts("(var pos_ptr)");
@@ -154,12 +192,15 @@ void init_game_functions(game_fun** functions_arr) {
     functions_arr[0xc6]->name = aapts("fly_to_pos");
     functions_arr[0xc6]->params = 3;
     functions_arr[0xc6]->desc = aapts("(var char_ptr, int is_run, var pos_ptr)");
+    add_forced_type(functions_arr[0xc6], ARRAY, 2, "fly_position");
     functions_arr[0x1a]->name = aapts("char_walk_to_pos");
     functions_arr[0x1a]->params = 2;
     functions_arr[0x1a]->desc = aapts("(var char_ptr, var position_ptr)");
+    add_forced_type(functions_arr[0x1a], ARRAY, 1, "walk_position");
     functions_arr[0x10b]->name = aapts("char_teleport_to_pos");
     functions_arr[0x10b]->params = 3;
     functions_arr[0x10b]->desc = aapts("(var char_ptr, var position_ptr, int unknown)");
+    add_forced_type(functions_arr[0x10b], ARRAY, 1, "tele_position");
     functions_arr[0x08]->name = aapts("create_waypoint");
     functions_arr[0x08]->params = 3;
     functions_arr[0x08]->desc = aapts("(int x, int y, int z)");
@@ -197,7 +238,7 @@ void init_game_functions(game_fun** functions_arr) {
     functions_arr[0xa4]->name = aapts("run_enemy_generator");
     functions_arr[0xa4]->params = 2;
     functions_arr[0xa4]->desc = aapts("(var runtime_script_ptr , int time_delay)");
-    add_forced_type(functions_arr[0xa4], ARRAY, 0);
+    add_forced_type(functions_arr[0xa4], ARRAY, 0, "enemy_gen_script");
     functions_arr[0xe5]->name = aapts("toggle_or_use_char_item");
     functions_arr[0xe5]->params = 2;
     functions_arr[0xe5]->desc = aapts("(var char_ptr , var item_ptr)");
@@ -211,7 +252,7 @@ void init_game_functions(game_fun** functions_arr) {
     functions_arr[0xa5]->name = aapts("run_wandering_generator");
     functions_arr[0xa5]->params = 2;
     functions_arr[0xa5]->desc = aapts("(var runtime_script_ptr , int time_delay)");
-    add_forced_type(functions_arr[0xa5], ARRAY, 0);
+    add_forced_type(functions_arr[0xa5], ARRAY, 0, "wandering_gen_script");
     functions_arr[0xf6]->name = aapts("apply_effect_on_char");
     functions_arr[0xf6]->params = 4;
     functions_arr[0xf6]->desc = aapts("(var src_fx_ptr, int set, int num, var char_ptr)");
@@ -275,13 +316,14 @@ void init_game_functions(game_fun** functions_arr) {
     functions_arr[0xcd]->name = aapts("log");
     functions_arr[0xcd]->params = 1;
     functions_arr[0xcd]->desc = aapts("(var string_ptr)");
-    add_forced_type(functions_arr[0xcd], STRING, 0);
+    add_forced_type(functions_arr[0xcd], STRING, 0, NULL);
     functions_arr[0xce]->name = aapts("log_obj");
     functions_arr[0xce]->params = 1;
     functions_arr[0xce]->desc = aapts("(var obj_ptr)");
     functions_arr[0xf4]->name = aapts("play_3d_fx");
     functions_arr[0xf4]->params = 4;
     functions_arr[0xf4]->desc = aapts("(var fx_name, var pos_ptr, int unkown, int unknown)");
+    add_forced_type(functions_arr[0xf4], ARRAY, 1, "fx_position");
     functions_arr[0x4f]->name = aapts("set_char_init_state");
     functions_arr[0x4f]->params = 1;
     functions_arr[0x4f]->desc = aapts("(int init_state)");
@@ -295,7 +337,7 @@ void init_game_functions(game_fun** functions_arr) {
     functions_arr[0x107]->name = aapts("play_char_ai_script");
     functions_arr[0x107]->params = 2;
     functions_arr[0x107]->desc = aapts("(var char_ptr, var anim_table_ptr)");
-    add_forced_type(functions_arr[0x107], ARRAY, 1);
+    add_forced_type(functions_arr[0x107], ARRAY, 1, "ai_script");
     functions_arr[0x20]->name = aapts("set_char_running");
     functions_arr[0x20]->params = 1;
     functions_arr[0x20]->desc = aapts("(var char_ptr)");
@@ -314,6 +356,7 @@ void init_game_functions(game_fun** functions_arr) {
     functions_arr[0x35]->name = aapts("char_turn_to_pos");
     functions_arr[0x35]->params = 2;
     functions_arr[0x35]->desc = aapts("(var char_ptr, var pos_ptr)");
+    add_forced_type(functions_arr[0x35], ARRAY, 1, "position");
     functions_arr[0xe3]->name = aapts("chars_face_opposite");
     functions_arr[0xe3]->params = 2;
     functions_arr[0xe3]->desc = aapts("(var char1_ptr, var char2_ptr)");

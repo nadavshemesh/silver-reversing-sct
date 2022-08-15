@@ -12,17 +12,17 @@
 ._DATA
 VAR_5	-1	
 VAR_7	{ -11726, -398, 52 }	
-VAR_13	{ -10333, -422, 1673 }	
-VAR_14	{ -10653, -349, 812 }	
-VAR_15	{ -10667, -349, 2500 }	
+init_position	{ -10333, -422, 1673 }	
+init_position1	{ -10653, -349, 812 }	
+init_position2	{ -10667, -349, 2500 }	
 VAR_16	{ -11651, 1849, 402, -11660, 1849, 2907 }	
-VAR_17	{ 0, 1, 2, VAR_16, 8, 1, 1, 1, 150, 150, -1, 4, 0, 9, 0, 5, 0, 60, 6, 3, 7, 1, 2, -1 }	
+enemy_gen_script	{ 0, 1, 2, VAR_16, 8, 1, 1, 1, 150, 150, -1, 4, 0, 9, 0, 5, 0, 60, 6, 3, 7, 1, 2, -1 }	
 VAR_20	{ -10189, 1852, 971, -10177, 1852, 2410 }	
-VAR_21	{ 0, 1, 2, VAR_20, 8, 1, 12, 147, 147, 150, 147, -1, 13, 1, 14, 0, 2, 2, 5, 0, 10, 18, 50, -1 }	
-VAR_22	{ 0, 0, 0, -1, 8, 0, 12, 64, 64, 64, -1, 13, 0, 14, 0, 1, 3, 5, 0, 60, 18, 33, -1, 0, 0 }	
+wandering_gen_script	{ 0, 1, 2, VAR_20, 8, 1, 12, 147, 147, 150, 147, -1, 13, 1, 14, 0, 2, 2, 5, 0, 10, 18, 50, -1 }	
+wandering_gen_script1	{ 0, 0, 0, -1, 8, 0, 12, 64, 64, 64, -1, 13, 0, 14, 0, 1, 3, 5, 0, 60, 18, 33, -1, 0, 0 }	
 
 ._on_load
-var VAR_1 = var &VAR_7
+var init_position3 = var &VAR_7
 var VAR_2 = int 50
 execute SCRIPT_9
 var VAR_3 = int 13
@@ -105,10 +105,10 @@ if(gamevar !is_room_cleared)
 
 ._SCRIPT_4
 call load_char("fishman")
-var lobster = call create_enemy(int 64, int 0, var &VAR_13, int 270)
-var lobster1 = call create_enemy(int 64, int 1, var &VAR_14, int 320)
-var lobster2 = call create_enemy(int 64, int 2, var &VAR_15, int 220)
-call run_enemy_generator(var &VAR_17, int 60)
+var lobster = call create_enemy(int 64, int 0, var &init_position, int 270)
+var lobster1 = call create_enemy(int 64, int 1, var &init_position1, int 320)
+var lobster2 = call create_enemy(int 64, int 2, var &init_position2, int 220)
+call run_enemy_generator(var &enemy_gen_script, int 60)
 call func_106(var lobster, int 2, int 0, int 1)
 call func_106(var lobster1, int 2, int 0, int 1)
 call func_106(var lobster2, int 2, int 0, int 1)
@@ -123,8 +123,8 @@ call func_50(var lobster2, int 2)
 ._SCRIPT_7
 call load_char("lobster")
 call load_char("fishman")
-call run_wandering_generator(var &VAR_21, int 1)
-call run_wandering_generator(var &VAR_22, int 300)
+call run_wandering_generator(var &wandering_gen_script, int 1)
+call run_wandering_generator(var &wandering_gen_script1, int 300)
 
 ._SCRIPT_8
 if(gamevar script_time > var VAR_23)
@@ -139,7 +139,7 @@ if(gamevar script_time > var VAR_23)
 var is_BTREASURE_exist = call is_char_handle_in_level(int 1507337)
 if(var ! is_BTREASURE_exist)
  {
-		var is_BTREASURE_exist = call create_char(var VAR_1, "btreasure9", var VAR_2, int 14)
+		var is_BTREASURE_exist = call create_char(var init_position3, "btreasure9", var VAR_2, int 14)
 		call func_aa(var is_BTREASURE_exist)
 }
 else

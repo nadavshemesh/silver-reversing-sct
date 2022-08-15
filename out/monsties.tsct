@@ -13,12 +13,12 @@
 VAR_5	-1	
 VAR_7	{ 40, 1, 42, 1, 45, 1, 40, 1, 19, 1, -1 }	
 VAR_8	{ -2026, -585, -778 }	
-VAR_9	{ -2745, -585, -692 }	
+init_position	{ -2745, -585, -692 }	
 VAR_12	2	
 VAR_14	10	
 
 ._on_load
-var VAR_1 = var &VAR_8
+var init_position1 = var &VAR_8
 var VAR_2 = int 320
 execute SCRIPT_10
 var VAR_3 = int 39
@@ -98,7 +98,7 @@ if(gamevar !is_room_cleared)
 
 ._SCRIPT_5
 gamevar global_inventory_p = var &VAR_7
-call create_char(var &VAR_9, "btreasure", int 0, int 14)
+call create_char(var &init_position, "btreasure", int 0, int 14)
 
 ._SCRIPT_6
 
@@ -140,7 +140,7 @@ var VAR_13 ++
 var is_BTREASURE_exist = call is_char_handle_in_level(int 1507337)
 if(var ! is_BTREASURE_exist)
  {
-		var is_BTREASURE_exist = call create_char(var VAR_1, "btreasure9", var VAR_2, int 14)
+		var is_BTREASURE_exist = call create_char(var init_position1, "btreasure9", var VAR_2, int 14)
 		call func_aa(var is_BTREASURE_exist)
 }
 else

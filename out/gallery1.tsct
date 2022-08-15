@@ -12,13 +12,13 @@
 ._DATA
 VAR_17	{ 0, 0 }	
 VAR_19	7	
-VAR_25	{ -4098, -1077, 886 }	
-VAR_27	{ -4112, -1077, 195 }	
-VAR_30	{ 5, 120, 3, VAR_31, 0, 0, -4734, -1078, 2251, 3, VAR_32, 0, 0, -4991, -1078, 1023, 3, VAR_33, 0, 0, -4863, -1078, 632, 0, -4098, -1078, 886, 2, -4580, -1078, 579, 8 }	
+init_position	{ -4098, -1077, 886 }	
+init_position1	{ -4112, -1077, 195 }	
+ai_script	{ 5, 120, 3, VAR_31, 0, 0, -4734, -1078, 2251, 3, VAR_32, 0, 0, -4991, -1078, 1023, 3, VAR_33, 0, 0, -4863, -1078, 632, 0, -4098, -1078, 886, 2, -4580, -1078, 579, 8 }	
 VAR_31	"lookout"	
 VAR_32	"lookout"	
 VAR_33	{ 1802465132, 7632239 }	
-VAR_34	{ 5, 80, 3, VAR_35, 0, 0, -4516, -1078, 34, 0, -4717, -1078, -887, 3, VAR_36, 0, 0, -5018, -1078, 172, 3, VAR_37, 0, 0, -4496, -1078, 359, 0, -4112, -1077, 195, 2, -4515, -1078, 531, 8 }	
+ai_script1	{ 5, 80, 3, VAR_35, 0, 0, -4516, -1078, 34, 0, -4717, -1078, -887, 3, VAR_36, 0, 0, -5018, -1078, 172, 3, VAR_37, 0, 0, -4496, -1078, 359, 0, -4112, -1077, 195, 2, -4515, -1078, 531, 8 }	
 VAR_35	"lookout"	
 VAR_36	{ 1802465132, 7632239 }	
 VAR_37	{ 1802465132, 7632239 }	
@@ -87,16 +87,16 @@ if(var VAR_18)
 
 ._SCRIPT_5
 call func_49()
-var nsguard1 = call create_char(var &VAR_25, "nsguard1", int 220, int 13)
-var nsguard2 = call create_char(var &VAR_27, "nsguard2", int 300, int 13)
+var nsguard1 = call create_char(var &init_position, "nsguard1", int 220, int 13)
+var nsguard2 = call create_char(var &init_position1, "nsguard2", int 300, int 13)
 gamevar script_object = var nsguard1
 gamevar *object_p+6 |= int 1
 gamevar script_object = var nsguard2
 gamevar *object_p+6 |= int 1
 call set_char_init_state(var nsguard1, int 13)
-call play_char_ai_script(var nsguard1, var &VAR_30)
+call play_char_ai_script(var nsguard1, var &ai_script)
 call set_char_init_state(var nsguard2, int 13)
-call play_char_ai_script(var nsguard2, var &VAR_34)
+call play_char_ai_script(var nsguard2, var &ai_script1)
 var selected_hero = call get_selected_hero()
 gamevar script_object = var selected_hero
 gamevar *object_p+6 |= int 1

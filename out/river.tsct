@@ -11,12 +11,12 @@
 
 ._DATA
 VAR_17	{ 0, 0 }	
-VAR_21	{ 1115, 1940, 1756 }	
+fx_position	{ 1115, 1940, 1756 }	
 VAR_22	{ -984, 1940, -1938 }	
-VAR_25	{ -427, 235, 8 }	
+init_position	{ -427, 235, 8 }	
 VAR_26	{ VAR_27, 0, 0, 5, 0, 0 }	
 VAR_27	"unc_pant"	
-VAR_37	{ -315, 235, 276 }	
+walk_position	{ -315, 235, 276 }	
 VAR_40	-1	
 VAR_49	{ 0, 0, 0 }	
 VAR_53	{ -460, 235, 408 }	
@@ -92,7 +92,7 @@ if(gamevar !is_room_cleared)
 
 ._SCRIPT_3
 call log("it's_raining")
-call play_3d_fx("RAIN", var &VAR_21, var &VAR_22, int 0)
+call play_3d_fx("RAIN", var &fx_position, var &VAR_22, int 0)
 execute SCRIPT_12
 
 ._SCRIPT_4
@@ -125,7 +125,7 @@ switch(var VAR_34)
 			 {
 					var DAVID = call get_char_handle(int 65536)
 					call set_char_walking(var DAVID)
-					call char_walk_to_pos(var DAVID, var &VAR_37)
+					call char_walk_to_pos(var DAVID, var &walk_position)
 					var VAR_34 ++ 
 					var VAR_35 = int 0
 			}
@@ -190,7 +190,7 @@ switch(var VAR_34)
 var VAR_35 ++ 
 
 ._SCRIPT_5
-var fvillhat = call create_char(var &VAR_25, "fvillhat", int 48, int 13)
+var fvillhat = call create_char(var &init_position, "fvillhat", int 48, int 13)
 call load_char_anim(var fvillhat, var &VAR_26)
 gamevar script_object = var fvillhat
 gamevar *character_stats_p+15 = int 20000

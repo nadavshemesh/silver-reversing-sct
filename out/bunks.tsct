@@ -11,10 +11,10 @@
 
 ._DATA
 VAR_2	{ -534, -2113, 150, -1567, -2113, 150 }	
-VAR_4	{ 0, 0, 1, -1, 8, 0, 4, 0, 9, 1, 1, 2, 81, 81, 78, -1, 5, 0, 140, 6, 4, 7, 1, 1, -1 }	
-VAR_5	{ 0, 0, 0, 1, -1, 8, 1, 4, 0, 9, 1, 1, 1, 77, 77, -1, 5, 0, 140, 6, 4, 7, 1, 2, -1 }	
-VAR_6	{ -1595, -2112, -301 }	
-VAR_7	{ -1601, -2112, 575 }	
+enemy_gen_script	{ 0, 0, 1, -1, 8, 0, 4, 0, 9, 1, 1, 2, 81, 81, 78, -1, 5, 0, 140, 6, 4, 7, 1, 1, -1 }	
+enemy_gen_script1	{ 0, 0, 0, 1, -1, 8, 1, 4, 0, 9, 1, 1, 1, 77, 77, -1, 5, 0, 140, 6, 4, 7, 1, 2, -1 }	
+init_position1	{ -1595, -2112, -301 }	
+init_position	{ -1601, -2112, 575 }	
 VAR_15	""	
 
 ._on_load
@@ -98,7 +98,7 @@ if(var VAR_14 == int 0)
  {
 		if(call func_8a(var &VAR_2)&&call get_num_of_enemies() < int 1)
 		 {
-				var VAR_3 = call run_enemy_generator(var &VAR_4, int 10)
+				var VAR_3 = call run_enemy_generator(var &enemy_gen_script, int 10)
 				var VAR_14 ++ 
 		}
 }
@@ -106,17 +106,17 @@ if(var VAR_14 == int 1)
  {
 		if(call func_122(var VAR_3) == int 0)
 		 {
-				var VAR_3 = call run_enemy_generator(var &VAR_5, int 100)
+				var VAR_3 = call run_enemy_generator(var &enemy_gen_script1, int 100)
 				var VAR_14 ++ 
 				var VAR_15 = int 0
 		}
 }
 
 ._SCRIPT_5
-var bmimic = call create_char(var &VAR_7, "bmimic", int 90, int 17)
+var bmimic = call create_char(var &init_position, "bmimic", int 90, int 17)
 call add_item_to_char(var bmimic, int 48 /* woodshld */ , int 0, int 0)
 call add_item_to_char(var bmimic, int 16 /* shrtswrd */ , int 0, int 0)
-var btreasure = call create_char(var &VAR_6, "btreasure", int 90, int 14)
+var btreasure = call create_char(var &init_position1, "btreasure", int 90, int 14)
 call add_item_to_char(var btreasure, int 40 /* apple */ , int 1, int 0)
 call add_item_to_char(var btreasure, int 43 /* cheese */ , int 1, int 0)
 call add_item_to_char(var btreasure, int 85 /* moneybag */ , int 1638913, int 0)

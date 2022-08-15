@@ -17,17 +17,17 @@ VAR_12	0
 VAR_13	0	
 VAR_15	{ 205, 0, -2039 }	
 VAR_16	{ -1005, -1100, -4029, -153, -1100, -4134 }	
-VAR_17	{ 5, 5, 3, VAR_18, 0, 4, VAR_9, 0, -481, -1100, -5086, 4, VAR_11, 0, -731, -1100, -4309, 4, VAR_13, 3, VAR_19, 0, 0, 35, -1100, -3356, 8 }	
+ai_script	{ 5, 5, 3, VAR_18, 0, 4, VAR_9, 0, -481, -1100, -5086, 4, VAR_11, 0, -731, -1100, -4309, 4, VAR_13, 3, VAR_19, 0, 0, 35, -1100, -3356, 8 }	
 VAR_18	"lookout"	
 VAR_19	"dodgeb"	
-VAR_20	{ 5, 15, 4, VAR_9, 5, 10, 0, -232, -1100, -5203, 4, VAR_11, 0, -573, -1100, -4543, 2, -197, -1100, -5095, 4, VAR_12, 5, 25, 0, -73, -1100, -3584, 8 }	
-VAR_21	{ 5, 22, 3, VAR_22, 0, 4, VAR_9, 5, 10, 0, -388, -1100, -5330, 3, VAR_23, 0, 4, VAR_11, 5, 12, 0, -1078, -1100, -4397, 2, -723, -1100, -3948, 4, VAR_13, 3, VAR_24, 0, 4, VAR_12, 0, 94, -1100, -3174, 8 }	
+ai_script1	{ 5, 15, 4, VAR_9, 5, 10, 0, -232, -1100, -5203, 4, VAR_11, 0, -573, -1100, -4543, 2, -197, -1100, -5095, 4, VAR_12, 5, 25, 0, -73, -1100, -3584, 8 }	
+ai_script2	{ 5, 22, 3, VAR_22, 0, 4, VAR_9, 5, 10, 0, -388, -1100, -5330, 3, VAR_23, 0, 4, VAR_11, 5, 12, 0, -1078, -1100, -4397, 2, -723, -1100, -3948, 4, VAR_13, 3, VAR_24, 0, 4, VAR_12, 0, 94, -1100, -3174, 8 }	
 VAR_22	"lookout"	
 VAR_23	"teeterB"	
 VAR_24	"dodger"	
-VAR_27	{ -10, -1100, -6006 }	
-VAR_28	{ -80, -1100, -6186 }	
-VAR_29	{ 97, -1100, -6196 }	
+tele_position	{ -10, -1100, -6006 }	
+tele_position1	{ -80, -1100, -6186 }	
+tele_position2	{ 97, -1100, -6196 }	
 VAR_33	2	
 VAR_34	1	
 VAR_35	2	
@@ -86,10 +86,10 @@ call set_input_system(int 2)
 execute SCRIPT_8
 execute SCRIPT_4
 call func_50(var VAR_3, int 8192)
-call play_char_ai_script(var VAR_3, var &VAR_17)
+call play_char_ai_script(var VAR_3, var &ai_script)
 call set_char_running(var VAR_3)
 call func_50(var VAR_4, int 8192)
-call play_char_ai_script(var VAR_4, var &VAR_20)
+call play_char_ai_script(var VAR_4, var &ai_script1)
 gamevar script_object = var VAR_4
 gamevar *object_p+6 |= int 1
 call set_char_running(var VAR_4)
@@ -98,7 +98,7 @@ if(var VAR_5)
 		gamevar script_object = var VAR_5
 		gamevar *object_p+6 |= int 1
 		call func_50(var VAR_5, int 8192)
-		call play_char_ai_script(var VAR_5, var &VAR_21)
+		call play_char_ai_script(var VAR_5, var &ai_script2)
 		call set_char_running(var VAR_5)
 }
 
@@ -120,13 +120,13 @@ switch(var VAR_25)
 					var VAR_0 = int 1
 					var VAR_26 = int 0
 					var VAR_25 ++ 
-					call char_teleport_to_pos(var VAR_3, var &VAR_27, int 270)
+					call char_teleport_to_pos(var VAR_3, var &tele_position, int 270)
 					call char_stop(var VAR_3)
-					call char_teleport_to_pos(var VAR_4, var &VAR_28, int 270)
+					call char_teleport_to_pos(var VAR_4, var &tele_position1, int 270)
 					call char_stop(var VAR_4)
 					if(var VAR_5)
 					 {
-							call char_teleport_to_pos(var VAR_5, var &VAR_29, int 270)
+							call char_teleport_to_pos(var VAR_5, var &tele_position2, int 270)
 							call char_stop(var VAR_5)
 					}
 			}

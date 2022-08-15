@@ -20,12 +20,12 @@ VAR_26	{ 525, 0, -1618 }
 VAR_27	{ 938, 400, -2090 }	
 VAR_28	{ 692, 0, -1049 }	
 VAR_29	{ 1333, 400, -1145 }	
-VAR_30	{ 938, 800, -2090 }	
-VAR_31	{ 1333, 1000, -1145 }	
-VAR_33	{ -992, 1001, -2144 }	
-VAR_35	{ -1407, 901, -1181 }	
-VAR_50	{ 16, VAR_23, 1, 0, -877, 311, -1991, 27, 16, VAR_23, 2, 8 }	
-VAR_51	{ 16, VAR_24, 1, 0, -1229, 311, -1200, 27, 16, VAR_24, 2, 8 }	
+position	{ 938, 800, -2090 }	
+position1	{ 1333, 1000, -1145 }	
+position2	{ -992, 1001, -2144 }	
+init_position	{ -1407, 901, -1181 }	
+ai_script	{ 16, VAR_23, 1, 0, -877, 311, -1991, 27, 16, VAR_23, 2, 8 }	
+ai_script1	{ 16, VAR_24, 1, 0, -1229, 311, -1200, 27, 16, VAR_24, 2, 8 }	
 VAR_59	{ 0, 0, 0 }	
 VAR_60	{ 0, 0, 0, 0, 0 }	
 VAR_63	{ 0, 0 }	
@@ -33,25 +33,25 @@ VAR_71	{ 762, 0, -1443 }
 VAR_72	{ 317, 0, -1916 }	
 VAR_73	{ 482, 0, -658 }	
 VAR_74	{ 166, 0, -673 }	
-VAR_75	VAR_71	
-VAR_76	VAR_72	
-VAR_77	{ VAR_73, VAR_74 }	
+walk_position	VAR_71	
+walk_position1	VAR_72	
+walk_position2	{ VAR_73, VAR_74 }	
 VAR_78	{ -344, 0, -1925 }	
 VAR_79	{ -819, 0, -1463 }	
 VAR_80	{ -160, 0, -521 }	
 VAR_81	{ -182, 0, -709 }	
-VAR_82	VAR_78	
-VAR_83	VAR_79	
-VAR_84	{ VAR_80, VAR_81 }	
-VAR_87	{ 872, 435, -1481 }	
-VAR_88	{ 356, 395, -2011 }	
-VAR_89	{ -370, 399, -2026 }	
-VAR_90	{ -911, 397, -1508, 0, 0 }	
+walk_position3	VAR_78	
+walk_position4	VAR_79	
+walk_position5	{ VAR_80, VAR_81 }	
+position3	{ 872, 435, -1481 }	
+position4	{ 356, 395, -2011 }	
+position5	{ -370, 399, -2026 }	
+position6	{ -911, 397, -1508, 0, 0 }	
 VAR_111	1	
 VAR_115	{ 1146896384, 0, -999456768 }	
 VAR_116	{ -1038876672, 0, -989761536 }	
 VAR_117	"b"	
-VAR_118	{ VAR_115, VAR_116, VAR_117 }
+arr	{ VAR_115, VAR_116, VAR_117 }
 
 ._on_load
 call load_sound_set(int 46)
@@ -265,7 +265,7 @@ if(gamevar script_time > var VAR_112)
 		var VAR_114 = call randomize_int(int 0, int 3)
 
 		 /* play the sound 'flayamb1' */ 
-		call play_loaded_sound(int 5, int 0, int 46, @VAR_118[var VAR_114])
+		call play_loaded_sound(int 5, int 0, int 46, @arr[var VAR_114])
 }
 if(gamevar script_time > var VAR_113)
  {
@@ -273,7 +273,7 @@ if(gamevar script_time > var VAR_113)
 		var VAR_114 = call randomize_int(int 0, int 3)
 
 		 /* play the sound 'torches2' */ 
-		call play_loaded_sound(int 6, int 0, int 46, @VAR_118[var VAR_114])
+		call play_loaded_sound(int 6, int 0, int 46, @arr[var VAR_114])
 }
 
 ._SCRIPT_6
@@ -362,7 +362,7 @@ switch(var VAR_57)
 							 {
 									call set_char_running(var selected_hero)
 									var VAR_65 = var selected_hero
-									call char_walk_to_pos(var selected_hero, var VAR_75)
+									call char_walk_to_pos(var selected_hero, var walk_position)
 									var VAR_61 = var selected_hero
 									var selected_hero = call get_david_char()
 									if(var selected_hero == var VAR_65)
@@ -372,7 +372,7 @@ switch(var VAR_57)
 									if(var selected_hero)
 									 {
 											call set_char_running(var selected_hero)
-											call char_walk_to_pos(var selected_hero, var VAR_76)
+											call char_walk_to_pos(var selected_hero, var walk_position1)
 											var VAR_62 = var selected_hero
 									}
 									var selected_hero = call func_7e()
@@ -381,7 +381,7 @@ switch(var VAR_57)
 											if(var selected_hero != var VAR_65)
 											 {
 													call set_char_running(var selected_hero)
-													call char_walk_to_pos(var selected_hero, var VAR_77)
+													call char_walk_to_pos(var selected_hero, var walk_position2)
 													var VAR_63 = var selected_hero
 											}
 											var selected_hero = call func_7e()
@@ -395,7 +395,7 @@ switch(var VAR_57)
 							 {
 									var VAR_65 = var selected_hero
 									call set_char_running(var selected_hero)
-									call char_walk_to_pos(var selected_hero, var VAR_76)
+									call char_walk_to_pos(var selected_hero, var walk_position1)
 									var VAR_61 = var selected_hero
 									var selected_hero = call get_david_char()
 									if(var selected_hero == var VAR_65)
@@ -405,7 +405,7 @@ switch(var VAR_57)
 									if(var selected_hero)
 									 {
 											call set_char_running(var selected_hero)
-											call char_walk_to_pos(var selected_hero, var VAR_75)
+											call char_walk_to_pos(var selected_hero, var walk_position)
 											var VAR_62 = var selected_hero
 									}
 									var selected_hero = call func_7e()
@@ -414,7 +414,7 @@ switch(var VAR_57)
 											if(var selected_hero != var VAR_65)
 											 {
 													call set_char_running(var selected_hero)
-													call char_walk_to_pos(var selected_hero, var VAR_77)
+													call char_walk_to_pos(var selected_hero, var walk_position2)
 													var VAR_63 = var selected_hero
 											}
 											var selected_hero = call func_7e()
@@ -432,7 +432,7 @@ switch(var VAR_57)
 							 {
 									var VAR_65 = var selected_hero
 									call set_char_running(var selected_hero)
-									call char_walk_to_pos(var selected_hero, var VAR_82)
+									call char_walk_to_pos(var selected_hero, var walk_position3)
 									var VAR_61 = var selected_hero
 									var selected_hero = call get_david_char()
 									if(var selected_hero == var VAR_65)
@@ -442,7 +442,7 @@ switch(var VAR_57)
 									if(var selected_hero)
 									 {
 											call set_char_running(var selected_hero)
-											call char_walk_to_pos(var selected_hero, var VAR_83)
+											call char_walk_to_pos(var selected_hero, var walk_position4)
 											var VAR_62 = var selected_hero
 									}
 									var selected_hero = call func_7e()
@@ -451,7 +451,7 @@ switch(var VAR_57)
 											if(var selected_hero != var VAR_65)
 											 {
 													call set_char_running(var selected_hero)
-													call char_walk_to_pos(var selected_hero, var VAR_84)
+													call char_walk_to_pos(var selected_hero, var walk_position5)
 													var VAR_63 = var selected_hero
 											}
 											var selected_hero = call func_7e()
@@ -465,7 +465,7 @@ switch(var VAR_57)
 									var VAR_92 = int 1
 									var VAR_65 = var selected_hero
 									call set_char_running(var selected_hero)
-									call char_walk_to_pos(var selected_hero, var VAR_83)
+									call char_walk_to_pos(var selected_hero, var walk_position4)
 									var VAR_61 = var selected_hero
 									var selected_hero = call get_david_char()
 									if(var selected_hero == var VAR_65)
@@ -475,7 +475,7 @@ switch(var VAR_57)
 									if(var selected_hero)
 									 {
 											call set_char_running(var selected_hero)
-											call char_walk_to_pos(var selected_hero, var VAR_82)
+											call char_walk_to_pos(var selected_hero, var walk_position3)
 											var VAR_62 = var selected_hero
 									}
 									var selected_hero = call func_7e()
@@ -484,7 +484,7 @@ switch(var VAR_57)
 											if(var selected_hero != var VAR_65)
 											 {
 													call set_char_running(var selected_hero)
-													call char_walk_to_pos(var selected_hero, var VAR_84)
+													call char_walk_to_pos(var selected_hero, var walk_position5)
 													var VAR_63 = var selected_hero
 											}
 											var selected_hero = call func_7e()
@@ -566,8 +566,8 @@ switch(var VAR_57)
 		case 5
 			if(call is_char_standing(var VAR_61)&&call is_char_standing(var VAR_62))
 			 {
-					call char_turn_to_pos(var VAR_61, var &VAR_30)
-					call char_turn_to_pos(var VAR_62, var &VAR_31)
+					call char_turn_to_pos(var VAR_61, var &position)
+					call char_turn_to_pos(var VAR_62, var &position1)
 					var VAR_57 ++ 
 					var VAR_58 = int 0
 			}
@@ -597,11 +597,11 @@ switch(var VAR_57)
 			 {
 					if(var VAR_63)
 					 {
-							call char_turn_to_pos(var VAR_63, var &VAR_33)
+							call char_turn_to_pos(var VAR_63, var &position2)
 					}
 					var VAR_7 = int 0
-					var drop_flayer = call create_enemy(int 169, int 0, var &VAR_33, int 34)
-					var drop_iwarrior_med = call create_enemy(int 167, int 1, var &VAR_35, int 79)
+					var drop_flayer = call create_enemy(int 169, int 0, var &position2, int 34)
+					var drop_iwarrior_med = call create_enemy(int 167, int 1, var &init_position, int 79)
 					call char_walk_to(var VAR_61, int -204, int 0, int -1639)
 					call char_walk_to(var VAR_62, int -416, int 0, int -1087)
 					call func_1(var drop_flayer, int -1)
@@ -626,12 +626,12 @@ switch(var VAR_57)
 					if(call is_char_handle_in_level(int 12386304))
 					 {
 							call func_50(var drop_flayer, int 8192)
-							call play_char_ai_script(var drop_flayer, var &VAR_50)
+							call play_char_ai_script(var drop_flayer, var &ai_script)
 					}
 					if(call is_char_handle_in_level(int 3473409))
 					 {
 							call func_50(var drop_iwarrior_med, int 8192)
-							call play_char_ai_script(var drop_iwarrior_med, var &VAR_51)
+							call play_char_ai_script(var drop_iwarrior_med, var &ai_script1)
 					}
 					var VAR_57 ++ 
 					var VAR_58 = int 0
@@ -754,26 +754,26 @@ switch(var VAR_57)
 					 {
 							if(var ! VAR_91)
 							 {
-									call char_turn_to_pos(var VAR_61, var &VAR_87)
-									call char_turn_to_pos(var VAR_62, var &VAR_88)
+									call char_turn_to_pos(var VAR_61, var &position3)
+									call char_turn_to_pos(var VAR_62, var &position4)
 							}
 							else
 							 {
-									call char_turn_to_pos(var VAR_62, var &VAR_87)
-									call char_turn_to_pos(var VAR_61, var &VAR_88)
+									call char_turn_to_pos(var VAR_62, var &position3)
+									call char_turn_to_pos(var VAR_61, var &position4)
 							}
 					}
 					else
 					 {
 							if(var ! VAR_92)
 							 {
-									call char_turn_to_pos(var VAR_61, var &VAR_89)
-									call char_turn_to_pos(var VAR_62, var &VAR_90)
+									call char_turn_to_pos(var VAR_61, var &position5)
+									call char_turn_to_pos(var VAR_62, var &position6)
 							}
 							else
 							 {
-									call char_turn_to_pos(var VAR_62, var &VAR_89)
-									call char_turn_to_pos(var VAR_61, var &VAR_90)
+									call char_turn_to_pos(var VAR_62, var &position5)
+									call char_turn_to_pos(var VAR_61, var &position6)
 							}
 					}
 					var VAR_85 = int 0
@@ -808,8 +808,8 @@ switch(var VAR_54)
 }
 
 ._SCRIPT_7
-var VAR_0 = call func_9a(var &VAR_30, int 39, int 0, int 0)
-var VAR_1 = call func_9a(var &VAR_31, int 35, int 200, int 0)
+var VAR_0 = call func_9a(var &position, int 39, int 0, int 0)
+var VAR_1 = call func_9a(var &position1, int 35, int 200, int 0)
 var selected_hero = call get_david_char()
 while(var selected_hero)
  {

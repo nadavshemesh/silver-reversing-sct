@@ -11,25 +11,25 @@
 
 ._DATA
 VAR_17	{ 0, 0 }	
-VAR_18	{ 140, 2135, 2640 }	
+fx_position	{ 140, 2135, 2640 }	
 VAR_19	{ 2950, 2135, -2525 }	
 VAR_22	{ 0, 0 }	
 triplick_lizman1	0	
-VAR_26	{ -2684, -10, -284 }	
-VAR_27	{ -2697, -10, -741 }	
-VAR_28	{ 9, triplick_lizman1, 11, 200, 300, 7, 8 }	
-VAR_29	{ 7, 8 }	
+init_position5	{ -2684, -10, -284 }	
+init_position6	{ -2697, -10, -741 }	
+ai_script5	{ 9, triplick_lizman1, 11, 200, 300, 7, 8 }	
+ai_script6	{ 7, 8 }	
 VAR_33	{ -1365, -160, -799, -1315, -160, -306 }	
-VAR_39	{ -3562, 374, -120 }	
-VAR_40	{ -3265, 374, -543 }	
-VAR_41	{ -3364, 374, -563 }	
-VAR_42	{ -3571, 374, -460 }	
-VAR_43	{ -3907, 374, -317 }	
-VAR_44	{ 10, -2595, 660, -507, 10, -1835, 1068, 247, 10, -911, 2200, -246, 35, 8 }	
-VAR_45	{ 10, -2595, 660, -507, 10, -1719, 1068, -843, 10, -1667, 2200, -1800, 35, 8 }	
-VAR_46	{ 10, -2595, 660, -507, 10, -1719, 1068, -843, 10, -1016, 2200, -886, 35, 8 }	
-VAR_47	{ 10, -2595, 660, -507, 10, -1506, 1068, -403, 10, -264, 2200, -291, 35, 8 }	
-VAR_48	{ 10, -2595, 660, -507, 10, -1368, 1068, -780, 10, -585, 2200, -686, 35, 8 }	
+init_position4	{ -3562, 374, -120 }	
+init_position3	{ -3265, 374, -543 }	
+init_position2	{ -3364, 374, -563 }	
+init_position1	{ -3571, 374, -460 }	
+init_position	{ -3907, 374, -317 }	
+ai_script4	{ 10, -2595, 660, -507, 10, -1835, 1068, 247, 10, -911, 2200, -246, 35, 8 }	
+ai_script3	{ 10, -2595, 660, -507, 10, -1719, 1068, -843, 10, -1667, 2200, -1800, 35, 8 }	
+ai_script2	{ 10, -2595, 660, -507, 10, -1719, 1068, -843, 10, -1016, 2200, -886, 35, 8 }	
+ai_script1	{ 10, -2595, 660, -507, 10, -1506, 1068, -403, 10, -264, 2200, -291, 35, 8 }	
+ai_script	{ 10, -2595, 660, -507, 10, -1368, 1068, -780, 10, -585, 2200, -686, 35, 8 }	
 VAR_49	-1	
 
 ._on_load
@@ -161,50 +161,50 @@ switch(var VAR_31)
 			if(var VAR_32 == int 10)
 			 {
 					gamevar compile_init_character = int 0
-					var nbat5 = call create_char(var &VAR_43, "nbat5", int 65, int 16)
+					var nbat5 = call create_char(var &init_position, "nbat5", int 65, int 16)
 					gamevar compile_init_character = int 1
 					call func_50(var nbat5, int 8192)
-					call play_char_ai_script(var nbat5, var &VAR_48)
+					call play_char_ai_script(var nbat5, var &ai_script)
 					gamevar script_object = var nbat5
 					gamevar *character_movement_p+61 = int 32
 			}
 			if(var VAR_32 == int 30)
 			 {
 					gamevar compile_init_character = int 0
-					var nbat4 = call create_char(var &VAR_42, "nbat4", int 120, int 16)
+					var nbat4 = call create_char(var &init_position1, "nbat4", int 120, int 16)
 					gamevar compile_init_character = int 1
 					call func_50(var nbat4, int 8192)
-					call play_char_ai_script(var nbat4, var &VAR_47)
+					call play_char_ai_script(var nbat4, var &ai_script1)
 					gamevar script_object = var nbat4
 					gamevar *character_movement_p+61 = int 32
 			}
 			if(var VAR_32 == int 50)
 			 {
 					gamevar compile_init_character = int 0
-					var nbat3 = call create_char(var &VAR_41, "nbat3", int 85, int 16)
+					var nbat3 = call create_char(var &init_position2, "nbat3", int 85, int 16)
 					gamevar compile_init_character = int 1
 					call func_50(var nbat3, int 8192)
-					call play_char_ai_script(var nbat3, var &VAR_46)
+					call play_char_ai_script(var nbat3, var &ai_script2)
 					gamevar script_object = var nbat3
 					gamevar *character_movement_p+61 = int 32
 			}
 			if(var VAR_32 == int 70)
 			 {
 					gamevar compile_init_character = int 0
-					var nbat2 = call create_char(var &VAR_40, "nbat2", int 100, int 16)
+					var nbat2 = call create_char(var &init_position3, "nbat2", int 100, int 16)
 					gamevar compile_init_character = int 1
 					call func_50(var nbat2, int 8192)
-					call play_char_ai_script(var nbat2, var &VAR_45)
+					call play_char_ai_script(var nbat2, var &ai_script3)
 					gamevar script_object = var nbat2
 					gamevar *character_movement_p+61 = int 32
 			}
 			if(var VAR_32 == int 90)
 			 {
 					gamevar compile_init_character = int 0
-					var nbat1 = call create_char(var &VAR_39, "nbat1", int 95, int 16)
+					var nbat1 = call create_char(var &init_position4, "nbat1", int 95, int 16)
 					gamevar compile_init_character = int 1
 					call func_50(var nbat1, int 8192)
-					call play_char_ai_script(var nbat1, var &VAR_44)
+					call play_char_ai_script(var nbat1, var &ai_script4)
 					gamevar script_object = var nbat1
 					gamevar *character_movement_p+61 = int 32
 					var VAR_31 ++ 
@@ -226,14 +226,14 @@ var VAR_32 ++
 ._SCRIPT_4
 execute SCRIPT_15
 call load_sound_set(int 0)
-var triplick_lizman = call create_enemy(int 186, int 1, var &VAR_26, int 146)
-var triplick_lizman1 = call create_enemy(int 186, int 2, var &VAR_27, int 0)
+var triplick_lizman = call create_enemy(int 186, int 1, var &init_position5, int 146)
+var triplick_lizman1 = call create_enemy(int 186, int 2, var &init_position6, int 0)
 call freeze_enemy(var triplick_lizman)
 call freeze_enemy(var triplick_lizman1)
 call func_50(var triplick_lizman, int 8192)
 call func_50(var triplick_lizman1, int 8192)
-call play_char_ai_script(var triplick_lizman, var &VAR_28)
-call play_char_ai_script(var triplick_lizman1, var &VAR_29)
+call play_char_ai_script(var triplick_lizman, var &ai_script5)
+call play_char_ai_script(var triplick_lizman1, var &ai_script6)
 call add_item_to_char(var triplick_lizman, int 45 /* deadmous */ , int 1, int 0)
 call load_char("bat")
 gamevar *scene_info_p+3 = int 16
@@ -249,7 +249,7 @@ gamevar *scene_info_p+3 = int 16
 ._SCRIPT_9
 
 ._SCRIPT_10
-call play_3d_fx("RAIN", var &VAR_18, var &VAR_19, int 0)
+call play_3d_fx("RAIN", var &fx_position, var &VAR_19, int 0)
 execute SCRIPT_11
 
 ._SCRIPT_11

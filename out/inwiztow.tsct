@@ -10,18 +10,18 @@
 
 
 ._DATA
-VAR_18	{ -198, -767, -24 }	
-VAR_20	{ 194, -767, 8 }	
+walk_position1	{ -198, -767, -24 }	
+init_position	{ 194, -767, 8 }	
 VAR_21	{ 25, 1, 17, 1, 35, 1, 58, 1, -1 }	
-VAR_25	{ 0, -564, -767, 46, 2, -752, -542, 57, 28, VAR_26, 2, 0, 0, -514, -767, 815, 2, -821, -515, 663, 28, VAR_27, 2, 0, 0, -186, -767, -2, 2, -474, -544, -268, 28, VAR_28, 2, 0, 7, 8 }	
+ai_script	{ 0, -564, -767, 46, 2, -752, -542, 57, 28, VAR_26, 2, 0, 0, -514, -767, 815, 2, -821, -515, 663, 28, VAR_27, 2, 0, 0, -186, -767, -2, 2, -474, -544, -268, 28, VAR_28, 2, 0, 7, 8 }	
 VAR_26	"impread"	
 VAR_27	"impread"	
 VAR_28	"impread"	
 VAR_34	{ 0, 354, -967, 926 }	
-VAR_35	{ -187, -767, 930 }	
+walk_position	{ -187, -767, 930 }	
 VAR_39	{ 314, -892, 1059 }	
 VAR_40	{ 424, -992, 991 }	
-VAR_41	{ VAR_39, VAR_40 }	
+arr	{ VAR_39, VAR_40 }	
 BTREASURE	{ 0, 0 }	
 
 ._on_load
@@ -112,7 +112,7 @@ switch(var VAR_33)
 					 {
 							if(var david != var DAVID)
 							 {
-									call char_walk_to_pos(var david, @VAR_41[var VAR_38])
+									call char_walk_to_pos(var david, @arr[var VAR_38])
 									var VAR_38 ++ 
 							}
 							var david = call func_7e()
@@ -180,7 +180,7 @@ switch(var VAR_33)
 			if(call func_5c(var DAVID))
 			 {
 					call set_char_walking(var DAVID)
-					call char_walk_to_pos(var DAVID, var &VAR_35)
+					call char_walk_to_pos(var DAVID, var &walk_position)
 					call func_61(var nothias)
 					call resume_conversation()
 					var VAR_33 ++ 
@@ -240,7 +240,7 @@ switch(var VAR_33)
 			if(call func_5c(var nothias))
 			 {
 					call func_14(var nothias, int 0)
-					call char_walk_to_pos(var nothias, var &VAR_18)
+					call char_walk_to_pos(var nothias, var &walk_position1)
 					var VAR_33 ++ 
 					var VAR_34 = int 0
 			}
@@ -250,7 +250,7 @@ switch(var VAR_33)
 			 {
 					call set_input_system(int 1)
 					call func_50(var nothias, int 8192)
-					call play_char_ai_script(var nothias, var &VAR_25)
+					call play_char_ai_script(var nothias, var &ai_script)
 					var VAR_33 ++ 
 					var VAR_34 = int 0
 			}
@@ -262,11 +262,11 @@ switch(var VAR_33)
 var VAR_34 ++ 
 
 ._SCRIPT_4
-var nothias = call create_char(var &VAR_18, "nothias", int 180, int 13)
+var nothias = call create_char(var &walk_position1, "nothias", int 180, int 13)
 gamevar script_object = var nothias
 gamevar *object_p+6 |= int 8388608
 gamevar global_inventory_p = var &VAR_21
-var btreasure = call create_char(var &VAR_20, "btreasure", int 330, int 14)
+var btreasure = call create_char(var &init_position, "btreasure", int 330, int 14)
 var DAVID = call get_char_handle(int 65536)
 var dodgeb_anim = call load_anim("dodgeb")
 var cstabov_anim = call load_anim("cstabov")
@@ -284,7 +284,7 @@ switch(var VAR_52)
 					 {
 							if(var david != var DAVID)
 							 {
-									call char_walk_to_pos(var david, @VAR_41[var VAR_38])
+									call char_walk_to_pos(var david, @arr[var VAR_38])
 									var VAR_38 ++ 
 							}
 							var david = call func_7e()
@@ -310,7 +310,7 @@ switch(var VAR_52)
 			if(call get_input_sys() != int 4)
 			 {
 					call func_50(var nothias, int 8192)
-					call play_char_ai_script(var nothias, var &VAR_25)
+					call play_char_ai_script(var nothias, var &ai_script)
 					call set_input_system(int 1)
 					var VAR_52 ++ 
 					var VAR_53 = int 0
@@ -323,7 +323,7 @@ switch(var VAR_52)
 var VAR_53 ++ 
 
 ._SCRIPT_6
-var nothias = call create_char(var &VAR_18, "nothias", int 180, int 13)
+var nothias = call create_char(var &walk_position1, "nothias", int 180, int 13)
 gamevar script_object = var nothias
 gamevar *object_p+6 |= int 8388608
 var DAVID = call get_char_handle(int 65536)
@@ -332,11 +332,11 @@ call set_input_system(int 2)
 ._SCRIPT_7
 
 ._SCRIPT_8
-var nothias = call create_char(var &VAR_18, "nothias", int 180, int 13)
+var nothias = call create_char(var &walk_position1, "nothias", int 180, int 13)
 gamevar script_object = var nothias
 gamevar *object_p+6 |= int 8388608
 call func_50(var nothias, int 8192)
-call play_char_ai_script(var nothias, var &VAR_25)
+call play_char_ai_script(var nothias, var &ai_script)
 call func_108("DOGWANK")
 
 ._SCRIPT_9

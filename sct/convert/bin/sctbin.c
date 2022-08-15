@@ -3,6 +3,8 @@
 bool during_assingment = false;
 data_obj* last_data_obj_cp = NULL;
 int general_param_hint_counter = 0;
+int global_arr_index_name_counter = 0;
+int global_arr_name_counter = 0;
 
 void build_scripts_order(sct_f* sf) {
     unsigned long f_pos = ftell(sf->file);
@@ -621,6 +623,18 @@ expr_obj* bin_read_function_call_expr(expr_pattern* expr_p, int* vars, void** to
                     expr_obj* eo = exp->expr_objs;
                     if(eo->expr_p->type == VAR_PTR || eo->expr_p->type == ADDROF_VAR_PTR) {
                         eo->data->type = ft->type;
+                        if(ft->hint_name != NULL && !eo->data->was_renamed) {
+                            char name[256];
+                            if(ft->hint_name->used_counter == 0) {
+                                sprintf(name, "%s", ft->hint_name->name);
+                            } else {
+                                sprintf(name, "%s%d", ft->hint_name->name, ft->hint_name->used_counter);
+                            }
+                            free(eo->data->name);
+                            eo->data->name = aapts(name);
+                            eo->data->was_renamed = true;
+                            ft->hint_name->used_counter++;
+                        }
                     }
                 }
                 ft_node = ft_node->next;
@@ -668,6 +682,7 @@ expr_obj* bin_create_expr_obj(expr_pattern* expr, int* vars, void** token_pos_pt
             int i[1] = { data_var };
             sprintf(c, "%d", data_var);
             data = create_and_init_data_obj();
+            data->id = -1;
             data->name = w_malloc(10);
             data->byte_size = 4;
             data->references = 0;
@@ -706,6 +721,34 @@ expr_obj* bin_create_expr_obj(expr_pattern* expr, int* vars, void** token_pos_pt
 
             if(expr->type == DATA_INDEX_PTR) {
                 expression* exp = bin_read_expression(token_pos_ptr, true, sf);
+
+                // name the var as hint to an index
+                if(exp->expr_objs->expr_p == VAR_PTR && !exp->expr_objs->data->was_renamed) {
+                    char name[256];
+                    if(global_arr_index_name_counter == 0) {
+                        sprintf(name, "index");
+                    } else {
+                        sprintf(name, "index_%d", global_arr_index_name_counter);
+                    }
+                    global_arr_index_name_counter++;
+                    exp->expr_objs->data->name = aapts(name);
+                    exp->expr_objs->data->was_renamed = true;
+                }
+
+                // name the arr as a hint to an array
+                data_obj* arr = data;
+                if(arr != NULL && !arr->was_renamed) {
+                    char name[256];
+                    if(global_arr_name_counter == 0) {
+                        sprintf(name, "arr");
+                    } else {
+                        sprintf(name, "arr_%d", global_arr_name_counter);
+                    }
+                    global_arr_name_counter++;
+                    arr->name = aapts(name);
+                    arr->was_renamed = true;
+                }
+
                 eo->expression_node_num = 1;
                 eo->expression_nodes = w_malloc(sizeof(node*));
                 *eo->expression_nodes = create_node(exp);
@@ -978,8 +1021,17 @@ code_obj* bin_read_function_call(code_pattern* cp, int* vars, void** tokens_pos_
                     expr_obj* eo = exp->expr_objs;
                     if(eo->expr_p->type == VAR_PTR || eo->expr_p->type == ADDROF_VAR_PTR) {
                         eo->data->type = ft->type;
-                        if(ft->type == STRING) {
-                            exp->expr_objs = make_str_var_inline(eo, sf);
+                        if(ft->hint_name != NULL && !eo->data->was_renamed) {
+                            char name[256];
+                            if(ft->hint_name->used_counter == 0) {
+                                sprintf(name, "%s", ft->hint_name->name);
+                            } else {
+                                sprintf(name, "%s%d", ft->hint_name->name, ft->hint_name->used_counter);
+                            }
+                            free(eo->data->name);
+                            eo->data->name = aapts(name);
+                            eo->data->was_renamed = true;
+                            ft->hint_name->used_counter++;
                         }
                     }
                 }

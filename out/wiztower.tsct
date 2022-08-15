@@ -11,28 +11,28 @@
 
 ._DATA
 VAR_17	{ 0, 0, 0, 0, 0, 0, 0, 0 }	
-VAR_66	{ -9525, 4637, 6050 }	
+fx_position	{ -9525, 4637, 6050 }	
 VAR_67	{ 1475, 4637, -4650 }	
 nfatbob	{ 0, 0 }	
-VAR_85	{ 3279, -1016, -6869 }	
-VAR_86	{ 1902, -1016, -5028 }	
-VAR_87	{ 1489, -1016, -5455 }	
-VAR_88	{ 560, -1016, -2022 }	
-VAR_89	{ 642, -1016, -1810 }	
-VAR_90	{ 703, -1016, -2204 }	
-VAR_91	{ 476, -1016, -2229 }	
-VAR_92	{ 672, -1016, -2980 }	
-VAR_93	{ 334, -1016, -2810 }	
-VAR_94	{ 505, -1016, -2953 }	
+init_position	{ 3279, -1016, -6869 }	
+init_position1	{ 1902, -1016, -5028 }	
+init_position2	{ 1489, -1016, -5455 }	
+init_position3	{ 560, -1016, -2022 }	
+init_position4	{ 642, -1016, -1810 }	
+init_position5	{ 703, -1016, -2204 }	
+init_position6	{ 476, -1016, -2229 }	
+init_position7	{ 672, -1016, -2980 }	
+init_position8	{ 334, -1016, -2810 }	
+init_position9	{ 505, -1016, -2953 }	
 VAR_105	{ 1, 0, 0 }	
 VAR_106	{ 1, 0, 0 }	
 VAR_109	{ -365, 0, 1728 }	
 VAR_112	-1	
-VAR_122	{ 6863, -1016, 596 }	
-VAR_123	{ 7842, -923, 442 }	
+walk_position	{ 6863, -1016, 596 }	
+position	{ 7842, -923, 442 }	
 VAR_125	{ 6099, -1017, 625 }	
 VAR_126	{ 5764, -1017, 421 }	
-VAR_127	{ VAR_125, VAR_126 }	
+arr	{ VAR_125, VAR_126 }	
 VAR_131	{ 6305, -1017, 855, 6281, -1017, 306 }	
 VAR_133	-1
 
@@ -132,7 +132,7 @@ if(gamevar !is_room_cleared)
 
 ._SCRIPT_3
 call log("it's_raining")
-call play_3d_fx("RAIN", var &VAR_66, var &VAR_67, int 0)
+call play_3d_fx("RAIN", var &fx_position, var &VAR_67, int 0)
 execute SCRIPT_10
 
 ._SCRIPT_4
@@ -247,27 +247,27 @@ if(var VAR_69 == int 7)
 }
 
 ._SCRIPT_5
-var fsgrunt = call create_char(var &VAR_85, "fsgrunt", int 275, int 13)
+var fsgrunt = call create_char(var &init_position, "fsgrunt", int 275, int 13)
 call add_item_to_char(var fsgrunt, int 16 /* shrtswrd */ , int 0, int 1)
 gamevar script_object = var fsgrunt
 gamevar HP = int 10
 gamevar script_object = var fsgrunt
 gamevar *object_p+6 |= int 67108864
-var nrebel = call create_char(var &VAR_86, "nrebel!", int 95, int 13)
+var nrebel = call create_char(var &init_position1, "nrebel!", int 95, int 13)
 call add_item_to_char(var nrebel, int 16 /* shrtswrd */ , int 0, int 1)
 gamevar script_object = var nrebel
 gamevar *object_p+6 |= int 67108864
-var nrebel1 = call create_char(var &VAR_87, "nrebel1!", int 95, int 13)
+var nrebel1 = call create_char(var &init_position2, "nrebel1!", int 95, int 13)
 call add_item_to_char(var nrebel1, int 16 /* shrtswrd */ , int 0, int 1)
 gamevar script_object = var nrebel1
 gamevar *object_p+6 |= int 67108864
-var nbill = call create_char(var &VAR_88, "nbill", int 115, int 13)
-var nben = call create_char(var &VAR_89, "nben", int 115, int 13)
-var nduke = call create_char(var &VAR_90, "nduke", int 60, int 13)
-var nwilliam = call create_char(var &VAR_91, "nwilliam", int 100, int 13)
-var nclay = call create_char(var &VAR_92, "nclay", int 20, int 13)
-var nrichard = call create_char(var &VAR_93, "nrichard", int 25, int 13)
-var nfatbob = call create_char(var &VAR_94, "nfatbob", int 0, int 13)
+var nbill = call create_char(var &init_position3, "nbill", int 115, int 13)
+var nben = call create_char(var &init_position4, "nben", int 115, int 13)
+var nduke = call create_char(var &init_position5, "nduke", int 60, int 13)
+var nwilliam = call create_char(var &init_position6, "nwilliam", int 100, int 13)
+var nclay = call create_char(var &init_position7, "nclay", int 20, int 13)
+var nrichard = call create_char(var &init_position8, "nrichard", int 25, int 13)
+var nfatbob = call create_char(var &init_position9, "nfatbob", int 0, int 13)
 call set_char_running(var fsgrunt)
 call set_char_running(var nrebel)
 call set_char_running(var nrebel1)
@@ -336,7 +336,7 @@ switch(var VAR_120)
 			 {
 					gamevar CLICKED_DOOR = int -1
 					var VAR_124 = gamevar control_char_p
-					call char_walk_to_pos(var VAR_124, var &VAR_122)
+					call char_walk_to_pos(var VAR_124, var &walk_position)
 					var VAR_120 ++ 
 					var VAR_121 = int 0
 			}
@@ -347,14 +347,14 @@ switch(var VAR_120)
 					if(call func_12b(var VAR_124, var &VAR_131))
 					 {
 							call set_input_system(int 2)
-							call char_turn_to_pos(var VAR_124, var &VAR_123)
+							call char_turn_to_pos(var VAR_124, var &position)
 							var david = call get_david_char()
 							while(var david&&var ! VAR_129)
 							 {
 									if(var david != var VAR_124)
 									 {
 											call set_char_running(var david)
-											call char_walk_to_pos(var david, @VAR_127[var VAR_132])
+											call char_walk_to_pos(var david, @arr[var VAR_132])
 											var VAR_132 ++ 
 									}
 									var david = call func_7e()

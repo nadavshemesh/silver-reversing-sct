@@ -12,24 +12,24 @@
 ._DATA
 VAR_18	{ 0, 0, -1 }	
 VAR_23	-1	
-VAR_39	{ -3010, -2375, -638 }	
-VAR_41	{ -4270, 0, 3112 }	
+init_position	{ -3010, -2375, -638 }	
+fx_position	{ -4270, 0, 3112 }	
 VAR_42	{ 3887, 0, -5650 }	
 sentryg1	{ 0, 0, 0 }	
-VAR_48	{ -183, -1500, -539 }	
-VAR_49	{ -962, -1500, -517 }	
-VAR_52	{ -3053, -2374, 170 }	
-VAR_53	{ -3752, -2374, 283 }	
+init_position1	{ -183, -1500, -539 }	
+init_position2	{ -962, -1500, -517 }	
+init_position3	{ -3053, -2374, 170 }	
+init_position4	{ -3752, -2374, 283 }	
 VAR_54	{ -722, -2000, 2783, -604, -2000, 434 }	
 VAR_55	{ 0, -604, -2000, 434, 5, 30, 8 }	
 VAR_56	{ 0, -722, -2000, 2783, 5, 30, 8 }	
-VAR_57	{ 0, 1, 2, VAR_54, 8, 1, 19, -200, 0, 2078, 12, 56, 56, -1, 13, 0, 14, 1, 2, 5, 0, 0, 15, VAR_55, VAR_56, -1, 16, 0, 17, 0, 200, 3, -1, 18, 100, 11, -1 }	
+wandering_gen_script	{ 0, 1, 2, VAR_54, 8, 1, 19, -200, 0, 2078, 12, 56, 56, -1, 13, 0, 14, 1, 2, 5, 0, 0, 15, VAR_55, VAR_56, -1, 16, 0, 17, 0, 200, 3, -1, 18, 100, 11, -1 }	
 VAR_58	{ -1223, -2375, 965 }	
 VAR_59	{ -1364, -2375, 392, -1630, -2375, 903 }	
-VAR_60	{ 0, -3217, -2375, -123, 5, 50, 0, -2881, -2375, -1100, 5, 60, 0, -1802, -2375, 281, 5, 80, 0, -2257, -2375, 222, 5, 90, 7, 8 }	
-VAR_61	{ 0, -3217, -2375, -123, 5, 30, 0, -2257, -2375, 222, 5, 70, 0, -3965, -2375, 337, 5, 80, 0, -1456, -2375, 726, 5, 50, 0, -3965, -2375, 337, 5, 60, 0, -1635, -2375, 572, 7, 8 }	
+ai_script	{ 0, -3217, -2375, -123, 5, 50, 0, -2881, -2375, -1100, 5, 60, 0, -1802, -2375, 281, 5, 80, 0, -2257, -2375, 222, 5, 90, 7, 8 }	
+ai_script1	{ 0, -3217, -2375, -123, 5, 30, 0, -2257, -2375, 222, 5, 70, 0, -3965, -2375, 337, 5, 80, 0, -1456, -2375, 726, 5, 50, 0, -3965, -2375, 337, 5, 60, 0, -1635, -2375, 572, 7, 8 }	
 VAR_63	{ -1, 0 }	
-VAR_67	{ 0, 0, 0, 1, 2, 3, -1, 8, 1, 12, 24, 6, 6, 24, -1, 13, 1, 14, 0, 1, 3, 5, 0, 200, 17, 0, 200, -1, 18, 100, -1, 0 }	
+wandering_gen_script1	{ 0, 0, 0, 1, 2, 3, -1, 8, 1, 12, 24, 6, 6, 24, -1, 13, 1, 14, 0, 1, 3, 5, 0, 200, 17, 0, 200, -1, 18, 100, -1, 0 }	
 
 ._on_load
 call load_sound_set(int 65)
@@ -100,7 +100,7 @@ if(gamevar !is_room_cleared)
 }
 
 ._SCRIPT_3
-call play_3d_fx("SNOW", var &VAR_41, var &VAR_42, int 0)
+call play_3d_fx("SNOW", var &fx_position, var &VAR_42, int 0)
 
 ._SCRIPT_4
 if(gamevar script_time > var VAR_70)
@@ -153,26 +153,26 @@ if(var VAR_44 == int 1)
  {
 		if(call get_num_of_enemies() < int 1)
 		 {
-				var fade_chronicler = call create_enemy(int 178, int 0, var &VAR_39, int 325)
+				var fade_chronicler = call create_enemy(int 178, int 0, var &init_position, int 325)
 				var VAR_44 ++ 
 		}
 }
 
 ._SCRIPT_6
-var sentryg = call create_enemy(int 56, int 1, var &VAR_48, int 310)
-var sentryg1 = call create_enemy(int 56, int 2, var &VAR_49, int 25)
+var sentryg = call create_enemy(int 56, int 1, var &init_position1, int 310)
+var sentryg1 = call create_enemy(int 56, int 2, var &init_position2, int 25)
 call add_item_to_char(var sentryg, int 18 /* bipennis */ , int 1, int 0)
 call add_item_to_char(var sentryg, int 42 /* bread */ , int 1, int 0)
 call add_item_to_char(var sentryg1, int 43 /* cheese */ , int 1, int 0)
-var leopard = call create_enemy(int 72, int 1, var &VAR_52, int 0)
-var leopard1 = call create_enemy(int 72, int 2, var &VAR_53, int 0)
-call run_wandering_generator(var &VAR_57, int 0)
+var leopard = call create_enemy(int 72, int 1, var &init_position3, int 0)
+var leopard1 = call create_enemy(int 72, int 2, var &init_position4, int 0)
+call run_wandering_generator(var &wandering_gen_script, int 0)
 call freeze_enemy(var leopard)
 call set_char_init_state(var leopard, int 13)
-call play_char_ai_script(var leopard, var &VAR_60)
+call play_char_ai_script(var leopard, var &ai_script)
 call freeze_enemy(var leopard1)
 call set_char_init_state(var leopard1, int 13)
-call play_char_ai_script(var leopard1, var &VAR_61)
+call play_char_ai_script(var leopard1, var &ai_script1)
 call load_char("chronicl")
 
 ._SCRIPT_7
@@ -183,7 +183,7 @@ call load_char("chronicl")
 call load_char("snowsprt")
 call load_char("wamper")
 call log("wandering baddies")
-call run_wandering_generator(var &VAR_67, int 10)
+call run_wandering_generator(var &wandering_gen_script1, int 10)
 
 ._SCRIPT_10
 gamevar SMACKER_X = int 464

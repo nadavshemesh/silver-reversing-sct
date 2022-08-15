@@ -12,8 +12,8 @@
 ._DATA
 VAR_3	{ 0, 0 }	
 VAR_4	{ 0, 601, -350, 69, -607, -350, 92 }	
-VAR_7	{ -5, -350, -418 }	
-VAR_11	{ 9, -350, -130 }	
+scroll_position1	{ -5, -350, -418 }	
+scroll_position	{ 9, -350, -130 }	
 VAR_14	{ 590, -350, 1087, 25, -250, 1350, -542, -350, 1165, 9, -350, -130 }	
 VAR_24	"BDD"	
 VAR_25	{ -1002242048, -1011941376, 1150631936 }	
@@ -22,7 +22,7 @@ VAR_27	"oME"
 VAR_28	{ 1108869120, -996802560, 1161457664 }	
 VAR_29	{ 1097859072, -1007026176, 1157292032 }	
 VAR_30	{ 1092616192, -1011941376, -1029439488 }	
-VAR_31	{ VAR_24, VAR_25, VAR_26, VAR_27, VAR_28, VAR_29, VAR_30 }
+arr	{ VAR_24, VAR_25, VAR_26, VAR_27, VAR_28, VAR_29, VAR_30 }
 
 ._on_load
 call load_sound_set(int 74)
@@ -136,7 +136,7 @@ switch(var VAR_4)
 		case 2
 			if(call func_5c(var DAVID))
 			 {
-					call force_scroll_to_pos(var &VAR_11)
+					call force_scroll_to_pos(var &scroll_position)
 					var VAR_4 = int 3
 			}
 			break 
@@ -152,7 +152,7 @@ switch(var VAR_4)
 }
 
 ._SCRIPT_4
-var dead_queen = call create_enemy(int 206, int 0, var &VAR_11, int 0)
+var dead_queen = call create_enemy(int 206, int 0, var &scroll_position, int 0)
 call func_103(var dead_queen)
 call func_106(var dead_queen, int 2, int 1, var &VAR_14)
 call func_106(var dead_queen, int 2, int 3, int 4)
@@ -191,7 +191,7 @@ switch(var VAR_6)
 			 {
 					var VAR_6 ++ 
 					call set_input_system(int 2)
-					call force_scroll_to_pos(var &VAR_7)
+					call force_scroll_to_pos(var &scroll_position1)
 			}
 			break 
 		case 2
@@ -219,7 +219,7 @@ if(gamevar script_time > var VAR_21)
 		var VAR_23 = call randomize_int(int 0, int 7)
 
 		 /* play the sound 'atroamb4' */ 
-		call play_loaded_sound(int 3, int 0, int 76, @VAR_31[var VAR_23])
+		call play_loaded_sound(int 3, int 0, int 76, @arr[var VAR_23])
 }
 if(gamevar script_time > var VAR_22)
  {
@@ -227,7 +227,7 @@ if(gamevar script_time > var VAR_22)
 		var VAR_23 = call randomize_int(int 0, int 7)
 
 		 /* play the sound 'bees' */ 
-		call play_loaded_sound(int 4, int 0, int 76, @VAR_31[var VAR_23])
+		call play_loaded_sound(int 4, int 0, int 76, @arr[var VAR_23])
 }
 
 ._SCRIPT_13

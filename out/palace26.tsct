@@ -10,11 +10,11 @@
 
 
 ._DATA
-VAR_5	{ 1433, 3425, 17 }	
+init_position	{ 1433, 3425, 17 }	
 bstump	{ 0, 0 }	
-VAR_7	{ 0, 0, 0, -1, 8, 0, 4, 0, 9, 1, 6, 1, 1, 1, 63, 63, 63, 63, 63, 63, 63, -1, 7, 1, 8, 10, 42, -1, -1 }	
-VAR_8	{ 0, 0, 1, -1, 8, 0, 4, 0, 9, 1, 6, 1, 1, 1, 63, 63, -1, 7, 1, 8, 10, 46, -1, -1 }	
-VAR_9	{ 0, 0, 0, -1, 8, 0, 4, 0, 9, 1, 6, 1, 1, 1, 63, 63, -1, 7, 1, 8, 10, 45, -1, -1 }	
+enemy_gen_script	{ 0, 0, 0, -1, 8, 0, 4, 0, 9, 1, 6, 1, 1, 1, 63, 63, 63, 63, 63, 63, 63, -1, 7, 1, 8, 10, 42, -1, -1 }	
+enemy_gen_script1	{ 0, 0, 1, -1, 8, 0, 4, 0, 9, 1, 6, 1, 1, 1, 63, 63, -1, 7, 1, 8, 10, 46, -1, -1 }	
+enemy_gen_script2	{ 0, 0, 0, -1, 8, 0, 4, 0, 9, 1, 6, 1, 1, 1, 63, 63, -1, 7, 1, 8, 10, 45, -1, -1 }	
 
 ._on_load
 call load_sound_set(int 66)
@@ -101,7 +101,7 @@ if(var VAR_0 == int 1)
 if(var VAR_0 == int 2)
  {
 		var VAR_0 = int 3
-		call run_enemy_generator(var &VAR_7, int 10)
+		call run_enemy_generator(var &enemy_gen_script, int 10)
 		var VAR_1 = int 30
 		call reset_local_timer()
 		exit_script 
@@ -112,7 +112,7 @@ if(var VAR_0 == int 3)
 		 {
 				exit_script 
 		}
-		call run_enemy_generator(var &VAR_8, int 1)
+		call run_enemy_generator(var &enemy_gen_script1, int 1)
 		var VAR_0 = int 4
 		var VAR_1 = int 30
 		call reset_local_timer()
@@ -124,7 +124,7 @@ if(var VAR_0 == int 4)
 		 {
 				exit_script 
 		}
-		call run_enemy_generator(var &VAR_9, int 1)
+		call run_enemy_generator(var &enemy_gen_script2, int 1)
 		var VAR_0 = int 5
 		var VAR_1 = int 30
 		call reset_local_timer()
@@ -136,7 +136,7 @@ if(var VAR_0 == int 5)
 		 {
 				exit_script 
 		}
-		call run_enemy_generator(var &VAR_8, int 1)
+		call run_enemy_generator(var &enemy_gen_script1, int 1)
 		var VAR_0 = int 6
 		var VAR_1 = int 30
 		call reset_local_timer()
@@ -148,7 +148,7 @@ if(var VAR_0 == int 6)
 		 {
 				exit_script 
 		}
-		call run_enemy_generator(var &VAR_9, int 1)
+		call run_enemy_generator(var &enemy_gen_script2, int 1)
 		var VAR_0 = int 7
 		var VAR_1 = int 30
 		call reset_local_timer()
@@ -156,7 +156,7 @@ if(var VAR_0 == int 6)
 }
 
 ._SCRIPT_5
-var bstump = call create_enemy(int 63, int 0, var &VAR_5, int 0)
+var bstump = call create_enemy(int 63, int 0, var &init_position, int 0)
 gamevar script_object = var bstump
 gamevar *character_stats_p+16 = int 500
 gamevar *character_stats_p+15 = int 3000

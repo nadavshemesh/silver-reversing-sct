@@ -12,8 +12,8 @@
 ._DATA
 VAR_20	{ 0, 0, -1 }	
 VAR_25	-1	
-VAR_42	{ -2425, -436, -950 }	
-VAR_53	{ -7165, -95, -884 }	
+init_position1	{ -2425, -436, -950 }	
+init_position	{ -7165, -95, -884 }	
 
 ._on_load
 call load_sound_set(int 73)
@@ -136,7 +136,7 @@ switch(var VAR_49)
 			if(call func_5c(var DAVID))
 			 {
 					call set_input_system(int 1)
-					var fade_chronicler = call create_enemy(int 178, int 0, var &VAR_53, int 125)
+					var fade_chronicler = call create_enemy(int 178, int 0, var &init_position, int 125)
 					var VAR_48 = int 0
 					var VAR_49 ++ 
 			}
@@ -145,7 +145,7 @@ switch(var VAR_49)
 var VAR_48 ++ 
 
 ._SCRIPT_5
-var rend = call create_enemy(int 121, int 0, var &VAR_42, int 270)
+var rend = call create_enemy(int 121, int 0, var &init_position1, int 270)
 var victory_anim = call load_anim("victory")
 call load_char("chronicl")
 call load_char("moonmine")

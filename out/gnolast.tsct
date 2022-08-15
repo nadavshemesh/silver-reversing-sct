@@ -11,11 +11,11 @@
 
 ._DATA
 VAR_20	{ 73, 1, -1 }	
-VAR_28	{ 1218, 21, 5832, 0, 0, 0, 0, 0, 0 }	
-VAR_29	{ 0, 1543, 21, 5901, 2, 1798, 210, 5886, 28, VAR_30, 10, 0, 0, 1301, 21, 6065, 2, 1607, 248, 6380, 28, VAR_31, 15, 0, 0, 1543, 21, 5901, 6, 1, 0, 8 }	
+position	{ 1218, 21, 5832, 0, 0, 0, 0, 0, 0 }	
+ai_script	{ 0, 1543, 21, 5901, 2, 1798, 210, 5886, 28, VAR_30, 10, 0, 0, 1301, 21, 6065, 2, 1607, 248, 6380, 28, VAR_31, 15, 0, 0, 1543, 21, 5901, 6, 1, 0, 8 }	
 VAR_30	"impread"	
 VAR_31	"impread"	
-VAR_32	{ 1123, 21, 4137 }	
+walk_position	{ 1123, 21, 4137 }	
 VAR_33	-1	
 VAR_42	{ 1991, 3, 1964 }	
 VAR_56	{ 0, 0 }	
@@ -170,7 +170,7 @@ switch(var VAR_15)
 			}
 			if(var VAR_27 == int 60)
 			 {
-					call char_walk_to_pos(var GRANDAD, var &VAR_32)
+					call char_walk_to_pos(var GRANDAD, var &walk_position)
 			}
 			if(var VAR_27 > int 420)
 			 {
@@ -198,7 +198,7 @@ switch(var VAR_15)
 			 {
 					call set_input_system(int 1)
 					call func_50(var TYRONIS, int 8192)
-					call play_char_ai_script(var TYRONIS, var &VAR_29)
+					call play_char_ai_script(var TYRONIS, var &ai_script)
 					var VAR_15 ++ 
 					var VAR_27 = int 0
 			}
@@ -255,7 +255,7 @@ switch(var VAR_15)
 		case 16
 			if(call func_5c(var TYRONIS))
 			 {
-					var VAR_13 = call func_e8(var &VAR_28, int 0)
+					var VAR_13 = call func_e8(var &position, int 0)
 					call func_fd(var TYRONIS, var lstaff)
 					var VAR_15 ++ 
 					var VAR_27 = int 0
@@ -381,7 +381,7 @@ if(var VAR_40 == int 2)
 }
 if(var VAR_40 == int 3)
  {
-		if(call is_char_at_pos(var DAVID, var &VAR_28, int 400) == int 1)
+		if(call is_char_at_pos(var DAVID, var &position, int 400) == int 1)
 		 {
 				call char_stop(var DAVID)
 				call set_input_system(int 2)

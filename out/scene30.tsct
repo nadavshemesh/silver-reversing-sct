@@ -11,15 +11,15 @@
 
 ._DATA
 VAR_17	{ 0, 0 }	
-VAR_20	{ -2600, 2199, -4625 }	
+fx_position	{ -2600, 2199, -4625 }	
 VAR_27	{ 0, 0 }	
-VAR_40	{ 2197, -950, 6015 }	
-VAR_41	{ 1921, -950, 6291 }	
-VAR_42	{ 2071, -950, 6141 }	
-VAR_43	{ 1935, 169, 4296 }	
-VAR_44	{ -34, 169, 5493 }	
-VAR_45	{ 0, 898, 169, 4944, 0, 1935, 169, 4296, 7, 8 }	
-VAR_46	{ 0, 652, 169, 5089, 0, -34, 169, 5493, 7, 8 }	
+init_position	{ 2197, -950, 6015 }	
+init_position1	{ 1921, -950, 6291 }	
+init_position4	{ 2071, -950, 6141 }	
+init_position2	{ 1935, 169, 4296 }	
+init_position3	{ -34, 169, 5493 }	
+ai_script	{ 0, 898, 169, 4944, 0, 1935, 169, 4296, 7, 8 }	
+ai_script1	{ 0, 652, 169, 5089, 0, -34, 169, 5493, 7, 8 }	
 VAR_47	{ 848, 169, 4975 }	
 VAR_48	{ 630, 169, 5085, 1936, 35, 5384, 2183, 35, 5535 }	
 VAR_55	{ 287, -878, 5488, 1375, -878, 4835 }
@@ -83,7 +83,7 @@ if(gamevar !is_room_cleared)
 
 ._SCRIPT_3
 call log("it's_raining")
-call play_3d_fx("RAIN", var &VAR_20, "w", int 0)
+call play_3d_fx("RAIN", var &fx_position, "w", int 0)
 execute SCRIPT_10
 
 ._SCRIPT_4
@@ -130,19 +130,19 @@ var no_anim = call load_anim("no")
 var yes_anim = call load_anim("yes")
 var confused_anim = call load_anim("confused")
 var talkfstb_anim = call load_anim("talkfstb")
-var lieutenant = call create_enemy(int 11, int 0, var &VAR_40, int 270)
+var lieutenant = call create_enemy(int 11, int 0, var &init_position, int 270)
 gamevar script_object = var lieutenant
 gamevar *character_stats_p+15 = int 0
 gamevar *character_stats_p+16 = int 0
 call func_106(var lieutenant, int 1, int 0, int 1)
 call func_50(var lieutenant, int 2)
-var lieutenant1 = call create_enemy(int 11, int 1, var &VAR_41, int 132)
+var lieutenant1 = call create_enemy(int 11, int 1, var &init_position1, int 132)
 gamevar script_object = var lieutenant1
 gamevar *character_stats_p+15 = int 0
 gamevar *character_stats_p+16 = int 0
 call func_106(var lieutenant1, int 1, int 0, int 1)
 call func_50(var lieutenant1, int 2)
-var archer = call create_enemy(int 17, int 0, var &VAR_43, int 304)
+var archer = call create_enemy(int 17, int 0, var &init_position2, int 304)
 gamevar script_object = var archer
 gamevar *character_stats_p+15 = int 3000
 gamevar *character_stats_p+16 = int 0
@@ -152,8 +152,8 @@ call func_106(var archer, int 9, int 5, var &VAR_47)
 call func_106(var archer, int 9, int 6, int 1)
 call func_106(var archer, int 0, int 3, int 180)
 call set_char_init_state(var archer, int 13)
-call play_char_ai_script(var archer, var &VAR_45)
-var archer1 = call create_enemy(int 17, int 1, var &VAR_44, int 114)
+call play_char_ai_script(var archer, var &ai_script)
+var archer1 = call create_enemy(int 17, int 1, var &init_position3, int 114)
 gamevar script_object = var archer1
 gamevar *character_stats_p+15 = int 3000
 gamevar *character_stats_p+16 = int 0
@@ -163,8 +163,8 @@ call func_106(var archer1, int 9, int 5, var &VAR_48)
 call func_106(var archer1, int 9, int 6, int 1)
 call func_106(var archer1, int 0, int 3, int 180)
 call set_char_init_state(var archer1, int 13)
-call play_char_ai_script(var archer1, var &VAR_46)
-var nflatnose = call create_char(var &VAR_42, "nflatnose", int 285, int 13)
+call play_char_ai_script(var archer1, var &ai_script1)
+var nflatnose = call create_char(var &init_position4, "nflatnose", int 285, int 13)
 call set_char_running(var nflatnose)
 gamevar script_object = var nflatnose
 gamevar *character_movement_p+60 = int 1

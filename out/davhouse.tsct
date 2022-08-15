@@ -12,31 +12,31 @@
 ._DATA
 VAR_2	{ 0, 1, -1 }	
 VAR_3	{ 1, -1 }	
-VAR_8	{ -1053, 1435, -3599 }	
-VAR_9	{ 2106, 785, -6620 }	
+init_position	{ -1053, 1435, -3599 }	
+init_position1	{ 2106, 785, -6620 }	
 VAR_11	{ VAR_12, 0, 0, 5, 0, 0 }	
 VAR_12	"stdstill"	
-VAR_18	{ 3046, 785, -6855 }	
-VAR_30	{ 2268, 785, -6754 }	
-VAR_32	{ 1851, 785, -5094 }	
-VAR_34	{ -1573, 785, -8332 }	
-VAR_36	{ -1670, 785, -8265 }	
-VAR_38	{ -1424, 785, -8468 }	
-VAR_40	{ -1818, 785, -8502 }	
-VAR_42	{ -1317, 785, -8396 }	
+att_position	{ 3046, 785, -6855 }	
+init_position2	{ 2268, 785, -6754 }	
+init_position3	{ 1851, 785, -5094 }	
+init_position4	{ -1573, 785, -8332 }	
+init_position5	{ -1670, 785, -8265 }	
+init_position6	{ -1424, 785, -8468 }	
+init_position7	{ -1818, 785, -8502 }	
+init_position8	{ -1317, 785, -8396 }	
 VAR_55	5	
 VAR_154	{ 1079, 785, -6381 }	
 VAR_162	10	
 VAR_163	2	
 VAR_167	{ -846, 1425, -7346 }	
 VAR_174	{ 1786, 785, -5861 }	
-VAR_175	{ 1079, 785, -5755 }	
+scroll_position	{ 1079, 785, -5755 }	
 VAR_176	{ 1750, 785, -5250, 0 }	
 VAR_178	{ 0, 1786, 785, -5861, 3, VAR_179, 0, 7, 8 }	
 VAR_179	"impjump"	
-VAR_180	{ 0, 1, 1, VAR_176, 8, 0, 12, 2, -1, 13, 0, 15, VAR_178, -1, 16, 0, 18, 100, 17, 0, 1500, 2, 680, 785, -7294, 932, 785, -7635, 3, -1, 11, -1 }	
+wandering_gen_script	{ 0, 1, 1, VAR_176, 8, 0, 12, 2, -1, 13, 0, 15, VAR_178, -1, 16, 0, 18, 100, 17, 0, 1500, 2, 680, 785, -7294, 932, 785, -7635, 3, -1, 11, -1 }	
 VAR_181	{ 1500, 785, -5985, 2032, 785, -5916, 3587, 1435, -3812, 3351, 1435, -3532, 3039, 1435, -3263 }	
-VAR_182	{ 0, 1, 5, VAR_181, 8, 2, 4, 0, 9, 1, 1, 1, 4, 4, 4, 4, 4, -1, 5, 0, 25, 6, 2, 7, 1, 2, 10, 40, 40, 40, -1, 11, -1, -2, 2, 680, 785, -7294, 932, 785, -7635, 3, -1, -1 }	
+enemy_gen_script	{ 0, 1, 5, VAR_181, 8, 2, 4, 0, 9, 1, 1, 1, 4, 4, 4, 4, 4, -1, 5, 0, 25, 6, 2, 7, 1, 2, 10, 40, 40, 40, -1, 11, -1, -2, 2, 680, 785, -7294, 932, 785, -7635, 3, -1, -1 }	
 VAR_186	-1	
 
 ._on_load
@@ -144,8 +144,8 @@ switch(gamevar room_state)
 ._SCRIPT_3
 call log("act1")
 gamevar door_restriction_p = var &VAR_2
-var HDAVID = call create_char(var &VAR_8, "HDAVID", int 75, int 13)
-var grandad = call create_enemy(int 98, int 0, var &VAR_9, int 125)
+var HDAVID = call create_char(var &init_position, "HDAVID", int 75, int 13)
+var grandad = call create_enemy(int 98, int 0, var &init_position1, int 125)
 call func_1(var grandad, int -1)
 var shrtswrd = call create_item(int 16)
 var pfew_anim = call load_anim("pfew")
@@ -252,7 +252,7 @@ if(var VAR_21 == int 2)
  {
 		if(var VAR_22 == int 0)
 		 {
-				call char_play_attack_anim(var grandad, int 28, var &VAR_18, int 0)
+				call char_play_attack_anim(var grandad, int 28, var &att_position, int 0)
 				var VAR_22 ++ 
 				var VAR_23 = gamevar time
 		}
@@ -263,7 +263,7 @@ if(var VAR_21 == int 2)
 						var VAR_24 = gamevar time - var VAR_23
 						if(var VAR_24 >= int 10)
 						 {
-								call char_play_attack_anim(var grandad, int 31, var &VAR_18, int 0)
+								call char_play_attack_anim(var grandad, int 31, var &att_position, int 0)
 								var VAR_22 ++ 
 								var VAR_23 = gamevar time
 						}
@@ -287,7 +287,7 @@ if(var VAR_21 == int 2)
 										var VAR_24 = gamevar time - var VAR_23
 										if(var VAR_24 >= int 15)
 										 {
-												call char_play_attack_anim(var grandad, int 30, var &VAR_18, int 0)
+												call char_play_attack_anim(var grandad, int 30, var &att_position, int 0)
 												var VAR_22 ++ 
 												var VAR_23 = gamevar time
 										}
@@ -311,7 +311,7 @@ if(var VAR_21 == int 2)
 														var VAR_24 = gamevar time - var VAR_23
 														if(var VAR_24 >= int 10)
 														 {
-																call char_play_attack_anim(var grandad, int 31, var &VAR_18, int 0)
+																call char_play_attack_anim(var grandad, int 31, var &att_position, int 0)
 																var VAR_22 ++ 
 																var VAR_23 = gamevar time
 														}
@@ -335,7 +335,7 @@ if(var VAR_21 == int 2)
 																		var VAR_24 = gamevar time - var VAR_23
 																		if(var VAR_24 >= int 10)
 																		 {
-																				call char_play_attack_anim(var grandad, int 30, var &VAR_18, int 0)
+																				call char_play_attack_anim(var grandad, int 30, var &att_position, int 0)
 																				var VAR_22 ++ 
 																				var VAR_23 = gamevar time
 																		}
@@ -369,10 +369,10 @@ if(var VAR_21 == int 2)
 call log("act2")
 gamevar door_restriction_p = var &VAR_2
 var HDAVID = call get_char_handle(int 65536)
-var grandad = call create_enemy(int 98, int 0, var &VAR_30, int 300)
+var grandad = call create_enemy(int 98, int 0, var &init_position2, int 300)
 call func_1(var grandad, int -1)
 var shrtswrd = call create_item(int 16)
-var jennifer = call create_enemy(int 96, int 0, var &VAR_32, int 33)
+var jennifer = call create_enemy(int 96, int 0, var &init_position3, int 33)
 gamevar script_object = var jennifer
 gamevar *object_p+8 |= int 13421772
 gamevar script_object = var jennifer
@@ -720,7 +720,7 @@ if(var VAR_4 == int 13)
  {
 		if(call is_local_timer_greater_than(int 10))
 		 {
-				call char_play_attack_anim(var grandad, int 29, var &VAR_18, int 0)
+				call char_play_attack_anim(var grandad, int 29, var &att_position, int 0)
 				call reset_local_timer()
 				var VAR_4 = int 14
 		}
@@ -849,7 +849,7 @@ if(var VAR_4 == int 47)
  {
 		if(call is_local_timer_greater_than(int 10))
 		 {
-				call char_play_attack_anim(var grandad, int 31, var &VAR_18, int 0)
+				call char_play_attack_anim(var grandad, int 31, var &att_position, int 0)
 				call reset_local_timer()
 				var VAR_4 = int 48
 		}
@@ -978,7 +978,7 @@ if(var VAR_4 == int 36)
  {
 		if(call is_local_timer_greater_than(int 10))
 		 {
-				call char_play_attack_anim(var grandad, int 30, var &VAR_18, int 0)
+				call char_play_attack_anim(var grandad, int 30, var &att_position, int 0)
 				call reset_local_timer()
 				var VAR_4 = int 37
 		}
@@ -1107,7 +1107,7 @@ if(var VAR_4 == int 58)
  {
 		if(call is_local_timer_greater_than(int 10))
 		 {
-				call char_play_attack_anim(var grandad, int 16, var &VAR_18, int 0)
+				call char_play_attack_anim(var grandad, int 16, var &att_position, int 0)
 				call reset_local_timer()
 				var VAR_4 = int 59
 		}
@@ -1189,7 +1189,7 @@ if(var VAR_4 == int 63)
 				if(call is_char_standing(var HDAVID))
 				 {
 						call char_turn_to_pos(var HDAVID, call get_char_pos(var grandad))
-						call char_turn_to_pos(var grandad, var &VAR_18)
+						call char_turn_to_pos(var grandad, var &att_position)
 						call reset_local_timer()
 						var VAR_4 = int 58
 				}
@@ -1339,7 +1339,7 @@ if(var VAR_4 == int 75)
 				if(call is_char_standing(var HDAVID))
 				 {
 						call char_turn_to_pos(var HDAVID, call get_char_pos(var grandad))
-						call char_turn_to_pos(var grandad, var &VAR_18)
+						call char_turn_to_pos(var grandad, var &att_position)
 						call reset_local_timer()
 						var VAR_4 = int 70
 				}
@@ -1473,7 +1473,7 @@ if(var VAR_4 == int 86)
 				if(call is_char_standing(var HDAVID))
 				 {
 						call char_turn_to_pos(var HDAVID, call get_char_pos(var grandad))
-						call char_turn_to_pos(var grandad, var &VAR_18)
+						call char_turn_to_pos(var grandad, var &att_position)
 						call reset_local_timer()
 						var VAR_4 = int 82
 				}
@@ -1511,11 +1511,11 @@ if(var VAR_4 == int 90)
 		 {
 				call set_input_system(int 1)
 				call char_walk_to(var jennifer, int 1773, int 785, int -5862)
-				var fuge = call create_enemy(int 97, int 0, var &VAR_34, int 45)
-				var start_grunt = call create_enemy(int 156, int 0, var &VAR_36, int 45)
-				var start_grunt1 = call create_enemy(int 156, int 1, var &VAR_38, int 35)
-				var start_grunt2 = call create_enemy(int 156, int 2, var &VAR_40, int 40)
-				var start_grunt3 = call create_enemy(int 156, int 3, var &VAR_42, int 50)
+				var fuge = call create_enemy(int 97, int 0, var &init_position4, int 45)
+				var start_grunt = call create_enemy(int 156, int 0, var &init_position5, int 45)
+				var start_grunt1 = call create_enemy(int 156, int 1, var &init_position6, int 35)
+				var start_grunt2 = call create_enemy(int 156, int 2, var &init_position7, int 40)
+				var start_grunt3 = call create_enemy(int 156, int 3, var &init_position8, int 50)
 				call func_1(var start_grunt, int -1)
 				call func_1(var start_grunt1, int -1)
 				call func_1(var start_grunt2, int -1)
@@ -1537,7 +1537,7 @@ if(var VAR_4 == int 90)
 }
 if(var VAR_4 == int 91)
  {
-		if(call is_char_at_pos(var grandad, var &VAR_30, int 1000) == int 0)
+		if(call is_char_at_pos(var grandad, var &init_position2, int 1000) == int 0)
 		 {
 				call func_d6(var grandad)
 				call set_char_running(var grandad)
@@ -1577,7 +1577,7 @@ if(var VAR_4 == int 92)
  {
 		if(call is_char_standing(var grandad))
 		 {
-				if(call is_char_at_pos(var HDAVID, var &VAR_30, int 1000) == int 0)
+				if(call is_char_at_pos(var HDAVID, var &init_position2, int 1000) == int 0)
 				 {
 						call char_turn_to_pos(var grandad, call get_char_pos(var HDAVID))
 						call reset_local_timer()
@@ -1599,7 +1599,7 @@ if(var VAR_4 == int 93)
 				call reset_local_timer()
 				var VAR_4 = int 94
 		}
-		if(call is_char_at_pos(var HDAVID, var &VAR_30, int 1000) == int 1)
+		if(call is_char_at_pos(var HDAVID, var &init_position2, int 1000) == int 1)
 		 {
 				call set_char_walking(var grandad)
 				call char_attack(var grandad, var HDAVID)
@@ -1614,7 +1614,7 @@ if(var VAR_4 == int 94)
 				call reset_local_timer()
 				var VAR_4 = int 93
 		}
-		if(call is_char_at_pos(var HDAVID, var &VAR_30, int 1000) == int 1)
+		if(call is_char_at_pos(var HDAVID, var &init_position2, int 1000) == int 1)
 		 {
 				call set_char_walking(var grandad)
 				call char_attack(var grandad, var HDAVID)
@@ -1645,7 +1645,7 @@ if(var VAR_4 == int 96)
 if(var VAR_4 == int 97)
  {
 		call log("ACT2_REAL_FIGHT7")
-		if(call is_char_at_pos(var grandad, var &VAR_30, int 1000) == int 0)
+		if(call is_char_at_pos(var grandad, var &init_position2, int 1000) == int 0)
 		 {
 				call func_d6(var grandad)
 				call set_char_running(var grandad)
@@ -1658,7 +1658,7 @@ if(var VAR_4 == int 98)
 		call log("ACT2_REAL_FIGHT8")
 		if(call is_char_standing(var grandad))
 		 {
-				if(call is_char_at_pos(var HDAVID, var &VAR_30, int 1000) == int 0)
+				if(call is_char_at_pos(var HDAVID, var &init_position2, int 1000) == int 0)
 				 {
 						call char_turn_to_pos(var grandad, call get_char_pos(var HDAVID))
 						call reset_local_timer()
@@ -1681,7 +1681,7 @@ if(var VAR_4 == int 99)
 				call reset_local_timer()
 				var VAR_4 = int 100
 		}
-		if(call is_char_at_pos(var HDAVID, var &VAR_30, int 1000) == int 1)
+		if(call is_char_at_pos(var HDAVID, var &init_position2, int 1000) == int 1)
 		 {
 				call set_char_walking(var grandad)
 				call char_attack(var grandad, var HDAVID)
@@ -1697,7 +1697,7 @@ if(var VAR_4 == int 100)
 				call reset_local_timer()
 				var VAR_4 = int 99
 		}
-		if(call is_char_at_pos(var HDAVID, var &VAR_30, int 1000) == int 1)
+		if(call is_char_at_pos(var HDAVID, var &init_position2, int 1000) == int 1)
 		 {
 				call set_char_walking(var grandad)
 				call char_attack(var grandad, var HDAVID)
@@ -1742,7 +1742,7 @@ if(var VAR_4 == int 111)
 }
 if(var VAR_4 == int 112)
  {
-		if(call is_char_at_pos(var HDAVID, var &VAR_30, int 300) == int 1)
+		if(call is_char_at_pos(var HDAVID, var &init_position2, int 300) == int 1)
 		 {
 				call char_stop(var HDAVID)
 				var VAR_4 = int 113
@@ -2075,7 +2075,7 @@ if(var VAR_54 == int 119)
 
 ._SCRIPT_10
 var VAR_160 = int 0
-if(call is_char_at_pos(var HDAVID, var &VAR_30, int 2000) == int 0)
+if(call is_char_at_pos(var HDAVID, var &init_position2, int 2000) == int 0)
  {
 		var VAR_160 = int 1
 }
@@ -2113,7 +2113,7 @@ call log("act4")
 call log("act5")
 var SEKUNE = call get_char_handle(int 786432)
 call set_input_system(int 2)
-call force_scroll_to_pos(var &VAR_175)
+call force_scroll_to_pos(var &scroll_position)
 call load_char("treesprt")
 call func_58(int 1)
 var VAR_183 = call func_ec(int 10, int -1, int 2, int 0)
@@ -2161,8 +2161,8 @@ switch(var VAR_170)
 			 {
 					var VAR_185 = call func_ec(int 8, int 0, int 2, int 0)
 					call set_sound_volume(var VAR_185, int 70)
-					var VAR_172 = call run_wandering_generator(var &VAR_180, int 40)
-					var VAR_172 = call run_enemy_generator(var &VAR_182, int 10)
+					var VAR_172 = call run_wandering_generator(var &wandering_gen_script, int 40)
+					var VAR_172 = call run_enemy_generator(var &enemy_gen_script, int 10)
 			}
 			if(var VAR_171 == int 40)
 			 {

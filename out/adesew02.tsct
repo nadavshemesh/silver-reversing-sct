@@ -15,20 +15,20 @@ VAR_4	{ 1, 0, 0 }
 VAR_6	{ 0, 0 }	
 VAR_7	{ 0, 0, 0 }	
 VAR_11	-1	
-VAR_12	{ 972, 58, -2241 }	
+fx_position	{ 972, 58, -2241 }	
 VAR_13	{ 0, 100, 0 }	
 VAR_25	{ 2319, 2500, -5156 }	
-VAR_26	{ -78, -825, -1880, 2300, 0, 1, 2300, 0, 0 }	
+walk_position	{ -78, -825, -1880, 2300, 0, 1, 2300, 0, 0 }	
 greater_gimpv1	{ 0, 0, 0, 0, 0, 0, 0 }	
 lesser_gimp	{ 0, 0 }	
-VAR_30	{ -15, -820, -1773 }	
-VAR_31	{ -43, -820, -2051, 2943, -20, -3065, 2962, -220, -1666 }	
-VAR_32	{ 3314, -370, -4433 }	
-VAR_33	{ 3314, -820, -3476 }	
-VAR_34	{ 3182, -370, -4212 }	
+init_position	{ -15, -820, -1773 }	
+init_position1	{ -43, -820, -2051, 2943, -20, -3065, 2962, -220, -1666 }	
+init_position2	{ 3314, -370, -4433 }	
+init_position3	{ 3314, -820, -3476 }	
+init_position4	{ 3182, -370, -4212 }	
 VAR_35	1	
-VAR_37	{ 0, 0, 0, 1, 0, -1, 8, 1, 1, 2, 86, 86, 70, 70, -1, 4, 0, 9, 1, 5, 1, 50, 150, 7, 1, 4, -1 }	
-VAR_38	{ 0, 0, 0, 1, -1, 8, 1, 1, 2, 46, 45, 46, -1, 4, 0, 9, 1, 5, 1, 50, 150, 7, 1, 2, 10, 43, 45, -1, -1 }	
+enemy_gen_script	{ 0, 0, 0, 1, 0, -1, 8, 1, 1, 2, 86, 86, 70, 70, -1, 4, 0, 9, 1, 5, 1, 50, 150, 7, 1, 4, -1 }	
+enemy_gen_script1	{ 0, 0, 0, 1, -1, 8, 1, 1, 2, 46, 45, 46, -1, 4, 0, 9, 1, 5, 1, 50, 150, 7, 1, 2, 10, 43, 45, -1, -1 }	
 VAR_49	{ -4, -1350, -516 }	
 
 ._on_load
@@ -159,7 +159,7 @@ switch(var VAR_15)
 					call set_input_system(int 2)
 					call func_55(var selected_hero1, int 98)
 					call set_char_running(var selected_hero1)
-					call char_walk_to_pos(var selected_hero1, var &VAR_26)
+					call char_walk_to_pos(var selected_hero1, var &walk_position)
 					var VAR_15 = int 3
 			}
 			break 
@@ -215,14 +215,14 @@ switch(var VAR_15)
 
 					 /* play the sound 'gateopen' */ 
 					call play_loaded_sound(int 3, int 0, int 35, int 0)
-					call play_3d_fx("SJET", var &VAR_12, var &VAR_13, int 60)
+					call play_3d_fx("SJET", var &fx_position, var &VAR_13, int 60)
 					var VAR_5 = int 0
 					gamevar script_object = var VAR_1
 					gamevar *smack_object_p+2 |= int 10737418
 					var VAR_7 = int 1
 					gamevar script_object = var VAR_2
 					gamevar *smack_object_p+2 &= int -1073741
-					call force_scroll_to_pos(var &VAR_26)
+					call force_scroll_to_pos(var &walk_position)
 					var VAR_15 = int 7
 					call remove_item_from_pie(var valve)
 			}
@@ -252,8 +252,8 @@ var VAR_50 ++
 
 ._SCRIPT_4
 var VAR_35 = int 0
-var greater_gimpv = call create_enemy(int 46, int 0, var &VAR_30, int 95)
-var greater_gimpv1 = call create_enemy(int 46, int 1, var &VAR_31, int 30)
+var greater_gimpv = call create_enemy(int 46, int 0, var &init_position, int 95)
+var greater_gimpv1 = call create_enemy(int 46, int 1, var &init_position1, int 30)
 gamevar script_object = var greater_gimpv
 gamevar *character_stats_p+15 = int 10000
 gamevar script_object = var greater_gimpv1
@@ -266,7 +266,7 @@ call set_char_init_state(var greater_gimpv, int 1)
 call set_char_init_state(var greater_gimpv1, int 1)
 call add_item_to_char(var greater_gimpv, int 43 /* cheese */ , int 1, int 0)
 call add_item_to_char(var greater_gimpv1, int 45 /* deadmous */ , int 1, int 0)
-var VAR_36 = call run_enemy_generator(var &VAR_37, int 400)
+var VAR_36 = call run_enemy_generator(var &enemy_gen_script, int 400)
 
 ._SCRIPT_5
 if(var ! VAR_35&&call get_num_of_enemies() == int 0&&call ! func_122(var VAR_36))
@@ -277,9 +277,9 @@ if(var ! VAR_35&&call get_num_of_enemies() == int 0&&call ! func_122(var VAR_36)
 ._SCRIPT_6
 call load_char("skaven")
 call load_char("skavenb")
-var greater_gimpv = call create_enemy(int 46, int 0, var &VAR_32, int 45)
-var greater_gimpv1 = call create_enemy(int 46, int 1, var &VAR_33, int 80)
-var lesser_gimp = call create_enemy(int 45, int 0, var &VAR_34, int 60)
+var greater_gimpv = call create_enemy(int 46, int 0, var &init_position2, int 45)
+var greater_gimpv1 = call create_enemy(int 46, int 1, var &init_position3, int 80)
+var lesser_gimp = call create_enemy(int 45, int 0, var &init_position4, int 60)
 var confused_anim = call load_anim("confused")
 var VAR_18 = int 0
 var VAR_19 = int 0
@@ -342,7 +342,7 @@ switch(var VAR_18)
 			 {
 					call func_17(var lesser_gimp, call get_selected_hero())
 			}
-			call run_enemy_generator(var &VAR_38, int 500)
+			call run_enemy_generator(var &enemy_gen_script1, int 500)
 			var VAR_18 ++ 
 			break 
 		default 

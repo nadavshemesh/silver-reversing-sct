@@ -10,8 +10,8 @@
 
 
 ._DATA
-VAR_6	{ -7056, 0, 760 }	
-VAR_10	{ -6896, 0, 1366 }	
+init_position	{ -7056, 0, 760 }	
+init_position1	{ -6896, 0, 1366 }	
 
 ._on_load
 call load_sound_set(int 66)
@@ -81,11 +81,11 @@ if(var VAR_1)
 ._SCRIPT_5
 var VAR_1 = int 0
 var VAR_0 = int 1
-var btreasure1 = call create_char(var &VAR_6, "btreasure1", int 70, int 14)
+var btreasure1 = call create_char(var &init_position, "btreasure1", int 70, int 14)
 call add_item_to_char(var btreasure1, int 67 /* keyj */ , int 1, int 0)
 call add_item_to_char(var btreasure1, int 46 /* pie */ , int 1, int 0)
 call add_item_to_char(var btreasure1, int 40 /* apple */ , int 1, int 0)
-var bmimic = call create_char(var &VAR_10, "bmimic", int 150, int 17)
+var bmimic = call create_char(var &init_position1, "bmimic", int 150, int 17)
 call add_item_to_char(var bmimic, int 85 /* moneybag */ , int 3277313, int 0)
 call add_item_to_char(var bmimic, int 47 /* drumstik */ , int 1, int 0)
 call add_item_to_char(var bmimic, int 45 /* deadmous */ , int 1, int 0)

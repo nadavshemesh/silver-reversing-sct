@@ -14,31 +14,31 @@ VAR_5	-1
 VAR_8	{ 0, 0, 0 }	
 VAR_9	{ 0, 0, 0 }	
 VAR_10	{ -2574, -1183, -234 }	
-VAR_14	{ -1467, -1183, 1955 }	
-VAR_15	{ -465, -1183, 3571 }	
-VAR_16	{ -235, -1183, 3600 }	
-VAR_17	{ 43, -1183, 3468 }	
+init_position	{ -1467, -1183, 1955 }	
+init_position1	{ -465, -1183, 3571 }	
+init_position2	{ -235, -1183, 3600 }	
+init_position3	{ 43, -1183, 3468 }	
 VAR_29	{ -986611712, -996933632, -1019543552 }	
 VAR_37	{ 0, 0, 0, 0, 1, 1, 1, -1, 8, 1, 4, 0, 9, 0, 1, 16, 100, 103, 103, 103, -1, 2, 1, 3, 1, 5, 0, 50, 6, 1, 7, 1, 4, -1, 0, 0 }	
-VAR_40	{ 233, -1130, 3763 }	
-VAR_41	{ 560, -78, 3970 }	
-VAR_42	{ -1572, -1183, 2232 }	
+walk_position1	{ 233, -1130, 3763 }	
+walk_position2	{ 560, -78, 3970 }	
+position	{ -1572, -1183, 2232 }	
 VAR_43	1	
-VAR_44	{ -1902, -1183, 1918 }	
+walk_position	{ -1902, -1183, 1918 }	
 VAR_45	-1	
 VAR_61	{ 0, -3344, -1682, 828, -3459, -1682, 807, 1082, 16, 915 }	
 VAR_76	-1	
-VAR_77	{ -87, -183, 2014 }	
-VAR_78	{ -242, -183, 1816 }	
+tele_position	{ -87, -183, 2014 }	
+tele_position1	{ -242, -183, 1816 }	
 VAR_87	{ 0, -913, 15, -23 }	
 VAR_88	{ 1737, 1572, 290 }	
-VAR_91	{ 859, 1577, -1247 }	
+scroll_position	{ 859, 1577, -1247 }	
 VAR_101	""	
 
 ._on_load
 call load_sound_set(int 84)
 call load_sound_set(int 44)
-var VAR_1 = var &VAR_10
+var init_position4 = var &VAR_10
 var VAR_2 = int 15
 execute SCRIPT_15
 var VAR_3 = int 13
@@ -161,7 +161,7 @@ if(var VAR_86 == int 0)
 				var VAR_86 ++ 
 				var VAR_87 = int 0
 				gamevar global_zone_type = int 0
-				call force_scroll_to_pos(var &VAR_91)
+				call force_scroll_to_pos(var &scroll_position)
 		}
 		exit_script 
 }
@@ -295,26 +295,26 @@ if(var VAR_86 == int 11)
 }
 
 ._SCRIPT_7
-var ntyronis = call create_char(var &VAR_14, "ntyronis", int -45, int 13)
+var ntyronis = call create_char(var &init_position, "ntyronis", int -45, int 13)
 call set_char_lvl(var ntyronis, int 15)
 gamevar script_object = var ntyronis
 gamevar *character_movement_p+60 = int 1
 call set_char_running(var ntyronis)
 call char_unfollow(var ntyronis)
 var lightning = call add_item_to_char(var ntyronis, int 3, int 0, int 0)
-var neutral_imp = call create_enemy(int 102, int 1, var &VAR_15, int -90)
+var neutral_imp = call create_enemy(int 102, int 1, var &init_position1, int -90)
 call set_char_running(var neutral_imp)
 gamevar script_object = var neutral_imp
 gamevar *character_movement_p+53 = int 0
 gamevar script_object = var neutral_imp
 gamevar *object_p+6 |= int 67108864
-var neutral_imp1 = call create_enemy(int 102, int 2, var &VAR_16, int -90)
+var neutral_imp1 = call create_enemy(int 102, int 2, var &init_position2, int -90)
 call set_char_running(var neutral_imp1)
 gamevar script_object = var neutral_imp1
 gamevar *character_movement_p+53 = int 0
 gamevar script_object = var neutral_imp1
 gamevar *object_p+6 |= int 67108864
-var neutral_imp2 = call create_enemy(int 102, int 3, var &VAR_17, int -90)
+var neutral_imp2 = call create_enemy(int 102, int 3, var &init_position3, int -90)
 call set_char_running(var neutral_imp2)
 gamevar script_object = var neutral_imp2
 gamevar *character_movement_p+53 = int 0
@@ -453,8 +453,8 @@ switch(var VAR_36)
 					var VAR_38 = call randomize_int(int 100, int 150)
 					call set_char_running(var DAVID)
 					call set_char_running(var GRANDAD)
-					call char_walk_to_pos(var GRANDAD, var &VAR_44)
-					call char_walk_to_pos(var DAVID, var &VAR_44)
+					call char_walk_to_pos(var GRANDAD, var &walk_position)
+					call char_walk_to_pos(var DAVID, var &walk_position)
 					var VAR_36 ++ 
 					var VAR_37 = int 0
 			}
@@ -496,13 +496,13 @@ switch(var VAR_36)
 					call set_input_system(int 1)
 					if(var VAR_43)
 					 {
-							call char_walk_to_pos(var ntyronis, var &VAR_40)
+							call char_walk_to_pos(var ntyronis, var &walk_position1)
 							var VAR_36 = int 20
 							var VAR_37 = int 0
 					}
 					else
 					 {
-							call char_walk_to_pos(var ntyronis, var &VAR_41)
+							call char_walk_to_pos(var ntyronis, var &walk_position2)
 							var VAR_36 ++ 
 							var VAR_37 = int 0
 					}
@@ -536,7 +536,7 @@ switch(var VAR_36)
 		case 22
 			if(call get_input_sys() != int 4)
 			 {
-					call char_walk_to_pos(var ntyronis, var &VAR_41)
+					call char_walk_to_pos(var ntyronis, var &walk_position2)
 					var VAR_36 ++ 
 					var VAR_37 = int 0
 			}
@@ -550,7 +550,7 @@ switch(var VAR_36)
 			}
 			break 
 }
-if(call is_char_at_pos(var DAVID, var &VAR_42, int 1100))
+if(call is_char_at_pos(var DAVID, var &position, int 1100))
  {
 		var VAR_43 = int 1
 }
@@ -581,8 +581,8 @@ if(var VAR_58 == int 0)
 				call set_input_system(int 2)
 				call log("duke walks on")
 				call func_108("act2")
-				call char_teleport_to_pos(var VAR_60, var &VAR_77, int 182)
-				call char_teleport_to_pos(var VAR_61, var &VAR_78, int 44)
+				call char_teleport_to_pos(var VAR_60, var &tele_position, int 182)
+				call char_teleport_to_pos(var VAR_61, var &tele_position1, int 44)
 				call char_teleport_to_pos(var DAVID, "L", int 268)
 		}
 		if(var VAR_59 > int 100)
@@ -758,7 +758,7 @@ var talkslow_anim = call load_anim("talkslow")
 var is_BTREASURE_exist = call is_char_handle_in_level(int 1507337)
 if(var ! is_BTREASURE_exist)
  {
-		var is_BTREASURE_exist = call create_char(var VAR_1, "btreasure9", var VAR_2, int 14)
+		var is_BTREASURE_exist = call create_char(var init_position4, "btreasure9", var VAR_2, int 14)
 		call func_aa(var is_BTREASURE_exist)
 }
 else

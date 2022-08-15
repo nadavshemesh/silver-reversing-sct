@@ -12,21 +12,21 @@
 ._DATA
 VAR_18	""	
 VAR_23	-1	
-VAR_52	{ 2690, 450, -7986 }	
-VAR_53	{ 2799, 450, -7986 }	
-VAR_54	{ 2981, 460, -7986 }	
-VAR_55	{ 3122, 430, -7986 }	
-VAR_64	{ 2955, 470, -8031 }	
+fx_position	{ 2690, 450, -7986 }	
+fx_position1	{ 2799, 450, -7986 }	
+fx_position2	{ 2981, 460, -7986 }	
+fx_position3	{ 3122, 430, -7986 }	
+position	{ 2955, 470, -8031 }	
 VAR_65	{ 2944, 470, -7611 }	
-VAR_66	{ 2944, 0, -7611 }	
-VAR_75	{ 0, 0 }	
-VAR_78	{ 2625, 0, -7602 }	
+position1	{ 2944, 0, -7611 }	
+arr_1	{ 0, 0 }	
+walk_position	{ 2625, 0, -7602 }	
 VAR_80	{ 3313, 0, -7552 }	
 VAR_81	{ 2437, 0, -7963 }	
-VAR_82	{ VAR_80, VAR_81 }	
-VAR_86	{ 2593, 0, -7551 }	
-VAR_87	{ 3025, 0, -6837 }	
-VAR_88	{ 3050, 0, -7621, 2917, 0, -7391 }	
+arr	{ VAR_80, VAR_81 }	
+init_position1	{ 2593, 0, -7551 }	
+init_position	{ 3025, 0, -6837 }	
+walk_position1	{ 3050, 0, -7621, 2917, 0, -7391 }	
 VAR_92	-1	
 
 ._on_load
@@ -114,7 +114,7 @@ switch(var VAR_119)
 }
 
 ._SCRIPT_4
-var VAR_67 = call func_9a(var &VAR_64, int 1, int 0, int 0)
+var VAR_67 = call func_9a(var &position, int 1, int 0, int 0)
 var victory_anim = call load_anim("victory")
 var Magic666_sound_ref = call play_loaded_sound(int 2, int -1, int 16, int 0)
 gamevar items_in_drag_box = int 0
@@ -150,10 +150,10 @@ call load_sound_set(int 65)
 call play_loaded_sound(int 3, int -1, int 65, int 0)
 
 ._SCRIPT_11
-var VAR_56 = call play_3d_fx("TOMB", var &VAR_52, var &VAR_52, int 0)
-var VAR_57 = call play_3d_fx("TOMB", var &VAR_53, var &VAR_53, int 0)
-var VAR_58 = call play_3d_fx("TOMB", var &VAR_54, var &VAR_54, int 0)
-var VAR_59 = call play_3d_fx("TOMB", var &VAR_55, var &VAR_55, int 0)
+var VAR_56 = call play_3d_fx("TOMB", var &fx_position, var &fx_position, int 0)
+var VAR_57 = call play_3d_fx("TOMB", var &fx_position1, var &fx_position1, int 0)
+var VAR_58 = call play_3d_fx("TOMB", var &fx_position2, var &fx_position2, int 0)
+var VAR_59 = call play_3d_fx("TOMB", var &fx_position3, var &fx_position3, int 0)
 
 ._SCRIPT_12
 if(var VAR_56)
@@ -188,7 +188,7 @@ switch(var VAR_73)
 					call set_input_system(int 2)
 					call stop_playing_sound(var Magic666_sound_ref)
 					var Magic666_sound_ref = call play_loaded_sound /* 'wetwheel' */ (int 3, int -1, int 16, int 0)
-					call char_turn_to_pos(gamevar control_char_p, var &VAR_64)
+					call char_turn_to_pos(gamevar control_char_p, var &position)
 					call func_9b(var VAR_67, var &VAR_65, int 10737418)
 					if(call func_c0(int 1001, "gno", "entrance"))
 					 {
@@ -208,15 +208,15 @@ switch(var VAR_73)
 					 {
 							if(var david != gamevar control_char_p)
 							 {
-									@VAR_75[var VAR_83]= var david
+									@arr_1[var VAR_83]= var david
 									call set_char_running(var david)
-									call char_walk_to_pos(var david, @VAR_82[var VAR_83])
+									call char_walk_to_pos(var david, @arr[var VAR_83])
 									var VAR_83 ++ 
 							}
 							var david = call func_7e()
 					}
 					call set_char_running(gamevar control_char_p)
-					call char_walk_to_pos(gamevar control_char_p, var &VAR_78)
+					call char_walk_to_pos(gamevar control_char_p, var &walk_position)
 					var VAR_73 ++ 
 					var VAR_74 = int 0
 			}
@@ -225,20 +225,20 @@ switch(var VAR_73)
 			var VAR_83 = int 0
 			while(var VAR_83 < int 2)
 			 {
-					if(@VAR_75[var VAR_83])
+					if(@arr_1[var VAR_83])
 					 {
-							if(!VAR_76[var VAR_83])
+							if(!arr_2[var VAR_83])
 							 {
-									if(call is_char_standing(@VAR_75[var VAR_83]))
+									if(call is_char_standing(@arr_1[var VAR_83]))
 									 {
-											@VAR_76[var VAR_83]= int 1
-											call char_turn_to_pos(@VAR_75[var VAR_83], var &VAR_66)
+											@arr_2[var VAR_83]= int 1
+											call char_turn_to_pos(@arr_1[var VAR_83], var &position1)
 									}
 							}
 					}
 					else
 					 {
-							@VAR_76[var VAR_83]= int 1
+							@arr_2[var VAR_83]= int 1
 					}
 					var VAR_83 ++ 
 			}
@@ -246,13 +246,13 @@ switch(var VAR_73)
 			 {
 					if(call is_char_standing(gamevar control_char_p))
 					 {
-							call char_turn_to_pos(gamevar control_char_p, var &VAR_66)
+							call char_turn_to_pos(gamevar control_char_p, var &position1)
 							var VAR_79 = int 1
 					}
 			}
-			if(var VAR_76&&var VAR_77&&var VAR_79)
+			if(var arr_2&&var VAR_77&&var VAR_79)
 			 {
-					call func_9b(var VAR_67, var &VAR_66, int 10821304)
+					call func_9b(var VAR_67, var &position1, int 10821304)
 					var VAR_73 ++ 
 					var VAR_74 = int 0
 			}
@@ -333,9 +333,9 @@ switch(var VAR_73)
 					var VAR_83 = int 0
 					while(var VAR_83 < int 2)
 					 {
-							if(@VAR_75[var VAR_83])
+							if(@arr_1[var VAR_83])
 							 {
-									call play_char_anim(@VAR_75[var VAR_83], var victory_anim, var VAR_83 + int 1)
+									call play_char_anim(@arr_1[var VAR_83], var victory_anim, var VAR_83 + int 1)
 							}
 							var VAR_83 ++ 
 					}
@@ -349,10 +349,10 @@ switch(var VAR_73)
 					if(var ! VAR_91)
 					 {
 							gamevar compile_init_character = int 0
-							var nstipe = call create_char(var &VAR_87, "nstipe", int 140, int 13)
+							var nstipe = call create_char(var &init_position, "nstipe", int 140, int 13)
 							gamevar compile_init_character = int 1
 							call set_char_running(var nstipe)
-							call char_walk_to_pos(var nstipe, var &VAR_88)
+							call char_walk_to_pos(var nstipe, var &walk_position1)
 							call func_7(int 808, int 1, int 0, int 0)
 							var VAR_73 ++ 
 							var VAR_74 = int 0
@@ -387,7 +387,7 @@ switch(var VAR_73)
 			if(call get_input_sys() != int 4)
 			 {
 					call set_char_running(var nstipe)
-					call char_walk_to_pos(var nstipe, var &VAR_87)
+					call char_walk_to_pos(var nstipe, var &init_position)
 					var VAR_73 ++ 
 					var VAR_74 = int 0
 			}
@@ -402,8 +402,8 @@ switch(var VAR_73)
 			}
 			break 
 		case 12
-			var fade_chronicler = call create_enemy(int 178, int 0, var &VAR_86, int 65)
-			call char_turn_to_pos(gamevar control_char_p, var &VAR_86)
+			var fade_chronicler = call create_enemy(int 178, int 0, var &init_position1, int 65)
+			call char_turn_to_pos(gamevar control_char_p, var &init_position1)
 			var VAR_73 ++ 
 			var VAR_74 = int 0
 			break 

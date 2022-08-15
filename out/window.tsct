@@ -12,9 +12,9 @@
 ._DATA
 VAR_18	{ 0, 0, -1 }	
 VAR_23	-1	
-VAR_57	{ -10176, 601, 2771 }	
-VAR_60	{ -9570, 601, 2774, -10685, 1801, 2784 }	
-VAR_61	{ -11282, 601, 2765 }	
+init_position2	{ -10176, 601, 2771 }	
+init_position1	{ -9570, 601, 2774, -10685, 1801, 2784 }	
+init_position	{ -11282, 601, 2765 }	
 VAR_74	-1	
 VAR_80	{ 0, 0 }	
 VAR_83	-1	
@@ -198,7 +198,7 @@ switch(var VAR_52)
 		case 9
 			if(call is_local_timer_greater_than(int 20))
 			 {
-					var fade_chronicler = call create_enemy(int 178, int 0, var &VAR_61, int 90)
+					var fade_chronicler = call create_enemy(int 178, int 0, var &init_position, int 90)
 					var VAR_52 ++ 
 			}
 			break 
@@ -209,14 +209,14 @@ switch(var VAR_52)
 var VAR_53 ++ 
 
 ._SCRIPT_4
-call create_char(var &VAR_60, "ilife", int 0, int 13)
+call create_char(var &init_position1, "ilife", int 0, int 13)
 call load_char("dragade")
 call load_char("chronicl")
 gamevar compile_init_character = int 0
 var aqua_dragon = call create_enemy(int 208, int 0, "CÖÿÿY", int 90)
 gamevar compile_init_character = int 1
 call func_1(var aqua_dragon, int 4)
-var fjag = call create_char(var &VAR_57, "fjag", int 90, int 13)
+var fjag = call create_char(var &init_position2, "fjag", int 90, int 13)
 var VAR_53 = int 0
 call set_input_system(int 2)
 var stepb_anim = call load_anim("stepb")

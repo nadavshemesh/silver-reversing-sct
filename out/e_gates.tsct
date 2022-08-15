@@ -17,16 +17,16 @@ VAR_11	"lookout"
 VAR_12	"lookout"	
 VAR_13	"lookout"	
 VAR_14	"teeter"	
-VAR_20	{ 341, -7, 723 }	
-VAR_21	{ 475, 3, 752 }	
-VAR_22	{ 604, 0, 584 }	
+init_position	{ 341, -7, 723 }	
+init_position2	{ 475, 3, 752 }	
+init_position1	{ 604, 0, 584 }	
 VAR_30	190	
 VAR_31	{ -25, -1350, -1774 }	
-VAR_32	{ 129, 5, 103 }	
-VAR_33	{ -115, 6, 122 }	
-VAR_34	{ 122, 10, -308 }	
-VAR_37	{ -244, -15, 1787 }	
-VAR_38	{ -389, -15, 1666 }	
+tele_position	{ 129, 5, 103 }	
+tele_position1	{ -115, 6, 122 }	
+tele_position2	{ 122, 10, -308 }	
+tele_position3	{ -244, -15, 1787 }	
+tele_position4	{ -389, -15, 1666 }	
 VAR_42	1	
 VAR_43	2	
 VAR_44	4	
@@ -81,9 +81,9 @@ call set_input_system(int 2)
 execute SCRIPT_8
 call func_113(int 8, int 8)
 execute SCRIPT_4
-var njennifer = call create_char(var &VAR_20, "njennifer", int 190, int 13)
-var nbeth = call create_char(var &VAR_22, "nbeth", int 265, int 13)
-var nbonnie = call create_char(var &VAR_21, "nbonnie", int 180, int 13)
+var njennifer = call create_char(var &init_position, "njennifer", int 190, int 13)
+var nbeth = call create_char(var &init_position1, "nbeth", int 265, int 13)
+var nbonnie = call create_char(var &init_position2, "nbonnie", int 180, int 13)
 
 ._SCRIPT_4
 gamevar SMACKER_X = int 0
@@ -100,13 +100,13 @@ switch(var VAR_15)
 					call func_113(int 8, int 8)
 					var VAR_16 = int 0
 					var VAR_15 ++ 
-					call char_teleport_to_pos(var VAR_2, var &VAR_32, int 0)
+					call char_teleport_to_pos(var VAR_2, var &tele_position, int 0)
 					call char_stop(var VAR_2)
-					call char_teleport_to_pos(var VAR_5, var &VAR_33, int 0)
+					call char_teleport_to_pos(var VAR_5, var &tele_position1, int 0)
 					call char_stop(var VAR_5)
 					if(var VAR_6)
 					 {
-							call char_teleport_to_pos(var VAR_6, var &VAR_34, int 0)
+							call char_teleport_to_pos(var VAR_6, var &tele_position2, int 0)
 							call char_stop(var VAR_6)
 					}
 			}
@@ -138,7 +138,7 @@ switch(var VAR_15)
 			 {
 					call remove_char(var nbeth)
 					call func_47(var VAR_5, int 8192)
-					call char_teleport_to_pos(var VAR_5, var &VAR_37, int 117)
+					call char_teleport_to_pos(var VAR_5, var &tele_position3, int 117)
 					var VAR_15 ++ 
 					var VAR_16 = int 0
 			}
@@ -166,7 +166,7 @@ switch(var VAR_15)
 					if(var VAR_6)
 					 {
 							call func_47(var VAR_6, int 8192)
-							call char_teleport_to_pos(var VAR_6, var &VAR_38, int 102)
+							call char_teleport_to_pos(var VAR_6, var &tele_position4, int 102)
 					}
 					call remove_char(var nbonnie)
 					call remove_char(var njennifer)

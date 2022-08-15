@@ -15,13 +15,13 @@ VAR_23	-1
 VAR_46	{ 530, 0, -2774, 1302, 0, -2774 }	
 VAR_47	{ 14, 0, 530, 0, -4289, 8 }	
 VAR_48	{ 14, 0, 1302, 0, -4289, 8 }	
-VAR_49	{ 0, 1, 2, VAR_46, 8, 1, 19, -200, 0, 2078, 12, 39, 39, -1, 13, 1, 14, 1, 2, 5, 0, 0, 16, 0, 15, VAR_47, VAR_48, -1, 17, 0, 200, 3, -1, 18, 100, 11, -1 }	
+wandering_gen_script2	{ 0, 1, 2, VAR_46, 8, 1, 19, -200, 0, 2078, 12, 39, 39, -1, 13, 1, 14, 1, 2, 5, 0, 0, 16, 0, 15, VAR_47, VAR_48, -1, 17, 0, 200, 3, -1, 18, 100, 11, -1 }	
 VAR_50	{ 329, 1214, -3266, 543, 1214, -3694, 947, 1214, -4040, 1192, 1214, -3959, 1322, 1214, -3726, 1366, 1214, -3109, 811, 1214, -2552, 565, 1214, -2607 }	
-VAR_51	{ 0, 1, 6, VAR_50, 8, 1, 19, -200, 0, 2078, 12, 198, 198, 198, 198, 198, 198, 198, 198, -1, 13, 1, 14, 1, 6, 5, 0, 0, 16, 0, 18, 100, -1 }	
+wandering_gen_script	{ 0, 1, 6, VAR_50, 8, 1, 19, -200, 0, 2078, 12, 198, 198, 198, 198, 198, 198, 198, 198, -1, 13, 1, 14, 1, 6, 5, 0, 0, 16, 0, 18, 100, -1 }	
 VAR_52	{ -3, 0, -4643, 73, 0, -5077, 606, 0, -5541, 1003, 0, -5665, 1271, 0, -5486, 1294, 0, -5009 }	
-VAR_53	{ 0, 1, 6, VAR_52, 8, 1, 19, 663, 0, -4852, 12, 194, 194, 194, 194, 194, 194, -1, 13, 1, 14, 1, 6, 5, 0, 25, 16, 0, 18, 100, -1, 266, 0, -3311, 1142, 0, -3311, 911, 0, -3520 }	
+wandering_gen_script1	{ 0, 1, 6, VAR_52, 8, 1, 19, 663, 0, -4852, 12, 194, 194, 194, 194, 194, 194, -1, 13, 1, 14, 1, 6, 5, 0, 25, 16, 0, 18, 100, -1, 266, 0, -3311, 1142, 0, -3311, 911, 0, -3520 }	
 VAR_55	{ 0, 0 }	
-VAR_56	{ -300, 0, -4433 }	
+init_position	{ -300, 0, -4433 }	
 VAR_57	""	
 VAR_58	-1
 
@@ -118,21 +118,21 @@ switch(var VAR_55)
 		case 0
 			if(call func_8a(var &VAR_57))
 			 {
-					var VAR_45 = call run_wandering_generator(var &VAR_51, int 1)
+					var VAR_45 = call run_wandering_generator(var &wandering_gen_script, int 1)
 					var VAR_55 ++ 
 			}
 			break 
 		case 1
 			if(call func_123(var VAR_45) == int 0)
 			 {
-					var VAR_45 = call run_wandering_generator(var &VAR_53, int 1)
+					var VAR_45 = call run_wandering_generator(var &wandering_gen_script1, int 1)
 					var VAR_55 ++ 
 			}
 			break 
 		case 2
 			if(call get_num_of_enemies() == int 0)
 			 {
-					var fade_chronicler = call create_enemy(int 178, int 0, var &VAR_56, int 170)
+					var fade_chronicler = call create_enemy(int 178, int 0, var &init_position, int 170)
 					var VAR_55 ++ 
 			}
 			break 
@@ -142,7 +142,7 @@ switch(var VAR_55)
 call load_char("groad")
 call load_char("lizman")
 call load_char("litl_liz")
-var VAR_45 = call run_wandering_generator(var &VAR_49, int 1)
+var VAR_45 = call run_wandering_generator(var &wandering_gen_script2, int 1)
 call load_char("chronicl")
 
 ._SCRIPT_5

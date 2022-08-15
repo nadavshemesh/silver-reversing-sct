@@ -10,27 +10,27 @@
 
 
 ._DATA
-VAR_6	{ -2255, -1450, 5430 }	
-VAR_8	{ -2878, -1750, 2505 }	
-VAR_10	{ -1834, -1450, 2833 }	
-VAR_11	{ 0, -2980, -1750, 2660, 0, -2670, -1750, 2170, 7, 8 }	
-VAR_12	{ 0, -1292, -1450, 3030, 0, -2230, -1450, 2580, 0, -1270, -1450, 3100, 0, -2426, -1450, 5565, 7, 8 }	
+init_position	{ -2255, -1450, 5430 }	
+init_position1	{ -2878, -1750, 2505 }	
+init_position2	{ -1834, -1450, 2833 }	
+ai_script	{ 0, -2980, -1750, 2660, 0, -2670, -1750, 2170, 7, 8 }	
+ai_script1	{ 0, -1292, -1450, 3030, 0, -2230, -1450, 2580, 0, -1270, -1450, 3100, 0, -2426, -1450, 5565, 7, 8 }	
 VAR_14	{ -1900, 1000, 3800, -1800, 1200, 3900 }	
-VAR_15	{ 0, 1, 2, VAR_14, 8, 2, 4, 0, 9, 1, 1, 1, 47, 47, -1, 5, 1, 5, 50, 6, 1, 7, 1, 1, -1 }	
+enemy_gen_script	{ 0, 1, 2, VAR_14, 8, 2, 4, 0, 9, 1, 1, 1, 47, 47, -1, 5, 1, 5, 50, 6, 1, 7, 1, 1, -1 }	
 VAR_26	{ 0, -2230, -1450, 5128, 2, -3918, -2375, 4169, 8 }	
 VAR_27	{ 0, -2611, -1746, 4411, 2, -3918, -2375, 4169, 8 }	
 VAR_28	{ 0, -1322, -1450, 3038, 2, -3918, -2375, 4169, 3, VAR_29, 0, 8 }	
 VAR_29	{ 1802465132, 7632239 }	
 VAR_30	{ -364, -1400, 5673, -364, -1400, 5673, -364, -1400, 5673, -364, -1400, 5673 }	
-VAR_31	{ 0, 1, 4, VAR_30, 8, 1, 19, -3918, -2375, 4169, 12, 58, 58, 59, -1, 13, 0, 14, 0, 1, 3, 15, VAR_26, VAR_27, VAR_28, -1, 16, 1, 5, 0, 60, 17, 1, -2821, -1750, 2383, 400, -1, 18, 25, 11, -1 }	
+wandering_gen_script1	{ 0, 1, 4, VAR_30, 8, 1, 19, -3918, -2375, 4169, 12, 58, 58, 59, -1, 13, 0, 14, 0, 1, 3, 15, VAR_26, VAR_27, VAR_28, -1, 16, 1, 5, 0, 60, 17, 1, -2821, -1750, 2383, 400, -1, 18, 25, 11, -1 }	
 VAR_32	{ 0, -3572, -2100, 2294, 2, -1965, -1450, 4741, 8 }	
 VAR_33	{ 0, -4058, -2100, 3030, 2, -1965, -1450, 4741, 8 }	
 VAR_34	{ 0, -4480, -2100, 3779, 2, -1965, -1450, 4741, 3, VAR_35, 0, 8 }	
 VAR_35	"lookout"	
 VAR_36	{ -4386, -2375, 4928, -4386, -2375, 4928, -4386, -2375, 4928, -4386, -2375, 4928 }	
-VAR_37	{ 0, 1, 4, VAR_36, 8, 1, 19, -1965, -1450, 4741, 12, 60, 60, 61, -1, 13, 0, 14, 0, 1, 3, 15, VAR_32, VAR_33, VAR_34, -1, 16, 0, 5, 0, 60, 17, 1, -2821, -1750, 2383, 400, -1, 18, 25, 11, -1 }	
+wandering_gen_script	{ 0, 1, 4, VAR_36, 8, 1, 19, -1965, -1450, 4741, 12, 60, 60, 61, -1, 13, 0, 14, 0, 1, 3, 15, VAR_32, VAR_33, VAR_34, -1, 16, 0, 5, 0, 60, 17, 1, -2821, -1750, 2383, 400, -1, 18, 25, 11, -1 }	
 VAR_38	{ -2821, -1750, 2377, -2126, -1450, 2658, -3572, -2100, 2294, -2913, -1750, 2704 }	
-VAR_39	{ 0, 1, 4, VAR_38, 8, 2, 4, 0, 9, 0, 1, 3, 68, -1, 5, 1, 30, 100, 6, 1, 7, 1, 2, -1 }
+enemy_gen_script1	{ 0, 1, 4, VAR_38, 8, 2, 4, 0, 9, 0, 1, 3, 68, -1, 5, 1, 30, 100, 6, 1, 7, 1, 2, -1 }
 
 ._on_load
 call load_item(int 93 /* cutlass */ )
@@ -137,14 +137,14 @@ switch(var VAR_17)
 		case 2
 			if(call get_num_of_enemies() == int 0)
 			 {
-					var VAR_13 = call run_enemy_generator(var &VAR_15, int 1)
+					var VAR_13 = call run_enemy_generator(var &enemy_gen_script, int 1)
 					var VAR_17 ++ 
 			}
 			break 
 }
 
 ._SCRIPT_4
-var boneyfx = call create_enemy(int 61, int 0, var &VAR_6, int 220)
+var boneyfx = call create_enemy(int 61, int 0, var &init_position, int 220)
 call set_char_running(var boneyfx)
 call func_106(var boneyfx, int 1, int 0, int 3)
 call func_104(var boneyfx, int 1, int 4)
@@ -152,16 +152,16 @@ call set_char_init_state(var boneyfx, int 1)
 gamevar script_object = var boneyfx
 gamevar *character_stats_p+15 = int 1400
 gamevar *character_stats_p+16 = int 1400
-var skel = call create_enemy(int 58, int 0, var &VAR_8, int 140)
-var skel1 = call create_enemy(int 58, int 0, var &VAR_10, int 60)
+var skel = call create_enemy(int 58, int 0, var &init_position1, int 140)
+var skel1 = call create_enemy(int 58, int 0, var &init_position2, int 60)
 gamevar script_object = var skel
 gamevar *character_stats_p+15 = int 1200
 call set_char_init_state(var skel, int 13)
-call play_char_ai_script(var skel, var &VAR_11)
+call play_char_ai_script(var skel, var &ai_script)
 gamevar script_object = var skel1
 gamevar *character_stats_p+15 = int 1000
 call set_char_init_state(var skel1, int 13)
-call play_char_ai_script(var skel1, var &VAR_12)
+call play_char_ai_script(var skel1, var &ai_script1)
 call func_106(var skel, int 1, int 0, int 3)
 call func_106(var skel1, int 1, int 0, int 3)
 call func_50(var skel, int 3)
@@ -183,14 +183,14 @@ if(var ! VAR_25)
  {
 		if(var VAR_24 == int 1)
 		 {
-				call run_wandering_generator(var &VAR_37, int 100)
+				call run_wandering_generator(var &wandering_gen_script, int 100)
 		}
 		else
 		 {
-				call run_wandering_generator(var &VAR_31, int 100)
+				call run_wandering_generator(var &wandering_gen_script1, int 100)
 		}
 }
 if(var VAR_25 == int 1)
  {
-		call run_enemy_generator(var &VAR_39, int 100)
+		call run_enemy_generator(var &enemy_gen_script1, int 100)
 }

@@ -12,14 +12,14 @@
 ._DATA
 finnegan	0	
 dick	0	
-VAR_3	{ 2737, 123, 4056 }	
-VAR_4	{ 2787, 123, 3780 }	
-VAR_5	{ 2580, 123, 3821 }	
-VAR_6	{ 9, 2, finnegan, 3, dick, 3, dick, 3, dick, 8 }	
-VAR_7	{ 7, 8 }	
-VAR_8	{ 7, 8 }	
+init_position	{ 2737, 123, 4056 }	
+init_position2	{ 2787, 123, 3780 }	
+init_position1	{ 2580, 123, 3821 }	
+ai_script	{ 9, 2, finnegan, 3, dick, 3, dick, 3, dick, 8 }	
+ai_script2	{ 7, 8 }	
+ai_script1	{ 7, 8 }	
 VAR_26	{ 0, 0 }	
-VAR_28	{ -3830, 2300, -2210 }	
+fx_position	{ -3830, 2300, -2210 }	
 VAR_29	{ -2165, 2300, -3895 }	
 VAR_34	-1
 
@@ -69,13 +69,13 @@ switch(gamevar room_state)
 }
 
 ._SCRIPT_3
-var muscles = call create_enemy(int 30, int 0, var &VAR_3, int 175)
-var dick = call create_enemy(int 31, int 0, var &VAR_5, int 15)
-var finnegan = call create_enemy(int 32, int 0, var &VAR_4, int 300)
+var muscles = call create_enemy(int 30, int 0, var &init_position, int 175)
+var dick = call create_enemy(int 31, int 0, var &init_position1, int 15)
+var finnegan = call create_enemy(int 32, int 0, var &init_position2, int 300)
 call add_item_to_char(var finnegan, int 42 /* bread */ , int 1, int 0)
-call play_char_ai_script(var muscles, var &VAR_6)
-call play_char_ai_script(var dick, var &VAR_8)
-call play_char_ai_script(var finnegan, var &VAR_7)
+call play_char_ai_script(var muscles, var &ai_script)
+call play_char_ai_script(var dick, var &ai_script1)
+call play_char_ai_script(var finnegan, var &ai_script2)
 call func_50(var muscles, int 8192)
 call func_50(var dick, int 8192)
 call func_50(var finnegan, int 8192)
@@ -187,7 +187,7 @@ switch(var VAR_31)
 
 ._SCRIPT_9
 call log("it's_raining")
-call play_3d_fx("RAIN", var &VAR_28, var &VAR_29, int 0)
+call play_3d_fx("RAIN", var &fx_position, var &VAR_29, int 0)
 execute SCRIPT_10
 
 ._SCRIPT_10

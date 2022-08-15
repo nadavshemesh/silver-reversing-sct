@@ -10,30 +10,30 @@
 
 
 ._DATA
-VAR_15	{ 545, 640, 7725 }	
+init_position	{ 545, 640, 7725 }	
 VAR_17	{ 0, 0 }	
 VAR_19	{ 0, 0 }	
 VAR_20	{ 0, 0, 0 }	
-VAR_27	{ 3255, 625, 5025 }	
-VAR_28	{ 3235, 625, 4855 }	
-VAR_30	{ 3295, 625, 4700 }	
-VAR_31	{ 3505, 625, 4855 }	
-VAR_32	{ 1555, 625, 7722 }	
-VAR_33	{ 1843, 625, 7967 }	
-VAR_34	{ 1652, 625, 7480 }	
-VAR_35	{ 2044, 625, 7488 }	
-VAR_36	{ 1729, 625, 6948 }	
-VAR_37	{ 1974, 625, 6179 }	
-VAR_38	{ 2290, 625, 5814 }	
-VAR_39	{ 2435, 625, 6101 }	
-VAR_40	{ 1894, 625, 6569 }	
-VAR_41	{ 1774, 625, 6251 }	
-VAR_42	{ 1240, 625, 7728 }	
-VAR_43	{ 2254, 625, 6252, 0 }	
-VAR_56	{ 1231, 2225, 7091 }	
+init_position1	{ 3255, 625, 5025 }	
+init_position2	{ 3235, 625, 4855 }	
+init_position3	{ 3295, 625, 4700 }	
+init_position4	{ 3505, 625, 4855 }	
+walk_position	{ 1555, 625, 7722 }	
+walk_position1	{ 1843, 625, 7967 }	
+walk_position2	{ 1652, 625, 7480 }	
+walk_position3	{ 2044, 625, 7488 }	
+walk_position4	{ 1729, 625, 6948 }	
+walk_position9	{ 1974, 625, 6179 }	
+walk_position6	{ 2290, 625, 5814 }	
+walk_position7	{ 2435, 625, 6101 }	
+walk_position10	{ 1894, 625, 6569 }	
+walk_position11	{ 1774, 625, 6251 }	
+walk_position5	{ 1240, 625, 7728 }	
+walk_position8	{ 2254, 625, 6252, 0 }	
+fx_position	{ 1231, 2225, 7091 }	
 VAR_59	-1	
-VAR_106	{ 998, 625, 7426 }	
-VAR_107	{ 887, 624, 7316 }	
+init_position5	{ 998, 625, 7426 }	
+init_position6	{ 887, 624, 7316 }	
 
 ._on_load
 call func_58(int 1)
@@ -81,7 +81,7 @@ call load_char("tyronis")
 call load_char("rebel")
 call load_char("rebela")
 var DAVID = call get_char_handle(int 65536)
-var fdemonb = call create_char(var &VAR_15, "fdemonb", int 45, int 16)
+var fdemonb = call create_char(var &init_position, "fdemonb", int 45, int 16)
 call func_103(var fdemonb)
 call func_53(var fdemonb, int 2)
 var victory_anim = call load_anim("victory")
@@ -130,7 +130,7 @@ switch(var VAR_14)
 		case 1
 			if(gamevar scene_counter == int 50)
 			 {
-					call play_3d_fx("ROCKFALL", var &VAR_56, int 0, int 2500)
+					call play_3d_fx("ROCKFALL", var &fx_position, int 0, int 2500)
 			}
 			var VAR_57 ++ 
 			call play_bgm("IEVLBAT1")
@@ -226,11 +226,11 @@ switch(var VAR_14)
 			gamevar compile_init_character = int 0
 			if(gamevar scene_counter == int 200)
 			 {
-					var nprofess = call create_char(var &VAR_27, "nprofess", int 282, int 13)
+					var nprofess = call create_char(var &init_position1, "nprofess", int 282, int 13)
 			}
 			if(gamevar scene_counter == int 210)
 			 {
-					var nduke = call create_char(var &VAR_28, "nduke", int 282, int 13)
+					var nduke = call create_char(var &init_position2, "nduke", int 282, int 13)
 			}
 			if(gamevar scene_counter == int 220)
 			 {
@@ -238,25 +238,25 @@ switch(var VAR_14)
 			}
 			if(gamevar scene_counter == int 230)
 			 {
-					var nrebel = call create_char(var &VAR_30, "nrebel", int 282, int 13)
+					var nrebel = call create_char(var &init_position3, "nrebel", int 282, int 13)
 			}
 			if(gamevar scene_counter == int 240)
 			 {
-					var nrebela = call create_char(var &VAR_31, "nrebela", int 282, int 13)
+					var nrebela = call create_char(var &init_position4, "nrebela", int 282, int 13)
 					call char_unfollow(var ntyronis)
 					call set_char_running(var nprofess)
 					call set_char_running(var nduke)
 					call set_char_running(var ntyronis)
 					call set_char_running(var nrebel)
 					call set_char_running(var nrebela)
-					call char_walk_to_pos(var nprofess, var &VAR_32)
-					call char_walk_to_pos(var nduke, var &VAR_33)
-					call char_walk_to_pos(var ntyronis, var &VAR_34)
-					call char_walk_to_pos(var nrebel, var &VAR_35)
-					call char_walk_to_pos(var nrebela, var &VAR_36)
+					call char_walk_to_pos(var nprofess, var &walk_position)
+					call char_walk_to_pos(var nduke, var &walk_position1)
+					call char_walk_to_pos(var ntyronis, var &walk_position2)
+					call char_walk_to_pos(var nrebel, var &walk_position3)
+					call char_walk_to_pos(var nrebela, var &walk_position4)
 					call set_char_running(var DAVID)
-					call char_walk_to_pos(var DAVID, var &VAR_42)
-					call force_scroll_to_pos(var &VAR_35)
+					call char_walk_to_pos(var DAVID, var &walk_position5)
+					call force_scroll_to_pos(var &walk_position3)
 					var VAR_58 = int 0
 					gamevar compile_init_character = int 1
 					var VAR_14 = int 11
@@ -266,7 +266,7 @@ switch(var VAR_14)
 		case 11
 			if(call is_char_standing(var DAVID)&&gamevar scene_counter > int 300)
 			 {
-					call char_turn_to_pos(var DAVID, var &VAR_32)
+					call char_turn_to_pos(var DAVID, var &walk_position)
 					var VAR_14 = int 12
 			}
 			break 
@@ -275,7 +275,7 @@ switch(var VAR_14)
 			 {
 					if(call is_char_standing(var nprofess))
 					 {
-							call char_turn_to_pos(var nprofess, var &VAR_42)
+							call char_turn_to_pos(var nprofess, var &walk_position5)
 							var VAR_58 ++ 
 					}
 			}
@@ -283,7 +283,7 @@ switch(var VAR_14)
 			 {
 					if(call is_char_standing(var ntyronis))
 					 {
-							call char_turn_to_pos(var ntyronis, var &VAR_42)
+							call char_turn_to_pos(var ntyronis, var &walk_position5)
 							var VAR_58 ++ 
 					}
 			}
@@ -291,7 +291,7 @@ switch(var VAR_14)
 			 {
 					if(call is_char_standing(var nduke))
 					 {
-							call char_turn_to_pos(var nduke, var &VAR_42)
+							call char_turn_to_pos(var nduke, var &walk_position5)
 							var VAR_58 ++ 
 					}
 			}
@@ -299,7 +299,7 @@ switch(var VAR_14)
 			 {
 					if(call is_char_standing(var nrebel))
 					 {
-							call char_turn_to_pos(var nrebel, var &VAR_42)
+							call char_turn_to_pos(var nrebel, var &walk_position5)
 							var VAR_58 ++ 
 					}
 			}
@@ -307,7 +307,7 @@ switch(var VAR_14)
 			 {
 					if(call is_char_standing(var nrebela))
 					 {
-							call char_turn_to_pos(var nrebela, var &VAR_42)
+							call char_turn_to_pos(var nrebela, var &walk_position5)
 							var VAR_58 ++ 
 					}
 			}
@@ -331,27 +331,27 @@ switch(var VAR_14)
 			 {
 					if(gamevar scene_counter == int 30)
 					 {
-							call char_walk_to_pos(var nduke, var &VAR_38)
+							call char_walk_to_pos(var nduke, var &walk_position6)
 					}
 					if(gamevar scene_counter == int 80)
 					 {
-							call char_walk_to_pos(var ntyronis, var &VAR_39)
+							call char_walk_to_pos(var ntyronis, var &walk_position7)
 					}
 					if(gamevar scene_counter == int 130)
 					 {
-							call char_walk_to_pos(var DAVID, var &VAR_43)
+							call char_walk_to_pos(var DAVID, var &walk_position8)
 					}
 					if(gamevar scene_counter == int 230)
 					 {
-							call char_walk_to_pos(var nprofess, var &VAR_37)
+							call char_walk_to_pos(var nprofess, var &walk_position9)
 					}
 					if(gamevar scene_counter == int 300)
 					 {
-							call char_walk_to_pos(var nrebel, var &VAR_40)
+							call char_walk_to_pos(var nrebel, var &walk_position10)
 					}
 					if(gamevar scene_counter == int 380)
 					 {
-							call char_walk_to_pos(var nrebela, var &VAR_41)
+							call char_walk_to_pos(var nrebela, var &walk_position11)
 					}
 					if(gamevar scene_counter > int 30)
 					 {
@@ -359,7 +359,7 @@ switch(var VAR_14)
 							 {
 									if(call is_char_standing(var nduke))
 									 {
-											call char_turn_to_pos(var nduke, var &VAR_43)
+											call char_turn_to_pos(var nduke, var &walk_position8)
 											var VAR_58 ++ 
 									}
 							}
@@ -370,7 +370,7 @@ switch(var VAR_14)
 							 {
 									if(call is_char_standing(var ntyronis))
 									 {
-											call char_turn_to_pos(var ntyronis, var &VAR_43)
+											call char_turn_to_pos(var ntyronis, var &walk_position8)
 											var VAR_58 ++ 
 									}
 							}
@@ -381,7 +381,7 @@ switch(var VAR_14)
 							 {
 									if(call is_char_standing(var DAVID))
 									 {
-											call char_turn_to_pos(var DAVID, var &VAR_38)
+											call char_turn_to_pos(var DAVID, var &walk_position6)
 											var VAR_58 ++ 
 									}
 							}
@@ -392,7 +392,7 @@ switch(var VAR_14)
 							 {
 									if(call is_char_standing(var nprofess))
 									 {
-											call char_turn_to_pos(var nprofess, var &VAR_43)
+											call char_turn_to_pos(var nprofess, var &walk_position8)
 											var VAR_58 ++ 
 									}
 							}
@@ -403,7 +403,7 @@ switch(var VAR_14)
 							 {
 									if(call is_char_standing(var nrebel))
 									 {
-											call char_turn_to_pos(var nrebel, var &VAR_43)
+											call char_turn_to_pos(var nrebel, var &walk_position8)
 											var VAR_58 ++ 
 									}
 							}
@@ -414,7 +414,7 @@ switch(var VAR_14)
 							 {
 									if(call is_char_standing(var nrebela))
 									 {
-											call char_turn_to_pos(var nrebela, var &VAR_38)
+											call char_turn_to_pos(var nrebela, var &walk_position6)
 											var VAR_58 ++ 
 									}
 							}
@@ -434,9 +434,9 @@ switch(var VAR_14)
 		case 15
 			if(call get_input_sys() != int 4)
 			 {
-					call char_walk_to_pos(var nprofess, var &VAR_32)
-					call char_walk_to_pos(var nrebel, var &VAR_35)
-					call char_walk_to_pos(var nrebela, var &VAR_36)
+					call char_walk_to_pos(var nprofess, var &walk_position)
+					call char_walk_to_pos(var nrebel, var &walk_position3)
+					call char_walk_to_pos(var nrebela, var &walk_position4)
 					gamevar scene_counter = int 0
 					var VAR_14 = int 16
 			}
@@ -480,8 +480,8 @@ switch(var VAR_21)
 					var temper_anim = call load_anim("temper")
 					var impoint_anim = call load_anim("impoint")
 					var startle_anim = call load_anim("startle")
-					var fimp1 = call create_char(var &VAR_106, "fimp1", int 290, int 13)
-					var fimp2 = call create_char(var &VAR_107, "fimp2", int 285, int 13)
+					var fimp1 = call create_char(var &init_position5, "fimp1", int 290, int 13)
+					var fimp2 = call create_char(var &init_position6, "fimp2", int 285, int 13)
 					call set_char_init_state(var fimp1, int 0)
 					call set_char_init_state(var fimp2, int 0)
 			}

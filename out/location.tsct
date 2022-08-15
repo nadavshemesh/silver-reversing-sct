@@ -13,9 +13,9 @@
 VAR_6	{ 1491, -3410, 10402 }	
 VAR_8	1	
 VAR_10	{ 1455, -3410, 10956, 974, -3410, 10870 }	
-VAR_22	{ -3029, -3410, 12070 }	
+init_position	{ -3029, -3410, 12070 }	
 VAR_27	{ 0, 0, 0 }	
-VAR_33	{ -4698, -3110, 12091 }	
+walk_position	{ -4698, -3110, 12091 }	
 
 ._on_load
 execute SCRIPT_4
@@ -135,7 +135,7 @@ switch(var VAR_26)
 			if(var VAR_27 == int 5)
 			 {
 					call set_char_walking(var ncagen)
-					call char_walk_to_pos(var ncagen, var &VAR_33)
+					call char_walk_to_pos(var ncagen, var &walk_position)
 					var VAR_26 ++ 
 					var VAR_27 = int 0
 			}
@@ -235,7 +235,7 @@ switch(var VAR_26)
 var VAR_27 ++ 
 
 ._SCRIPT_6
-var ncagen = call create_char(var &VAR_22, "ncagen", int 251, int 13)
+var ncagen = call create_char(var &init_position, "ncagen", int 251, int 13)
 var DAVID = call get_char_handle(int 65536)
 gamevar script_object = var DAVID
 var VAR_24 = gamevar LEVEL

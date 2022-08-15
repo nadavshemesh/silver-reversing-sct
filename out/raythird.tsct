@@ -12,31 +12,31 @@
 ._DATA
 VAR_0	{ 0, 0 }	
 VAR_1	0	
-VAR_8	{ -1949, -128, -628 }	
-VAR_9	{ -821, 94, -1218 }	
-VAR_10	{ -797, -172, -2000 }	
-VAR_11	{ -1547, -560, -1686 }	
-VAR_12	{ -1773, -560, -1341 }	
-VAR_13	{ -1684, -560, -1111 }	
+init_position	{ -1949, -128, -628 }	
+init_position1	{ -821, 94, -1218 }	
+init_position2	{ -797, -172, -2000 }	
+init_position3	{ -1547, -560, -1686 }	
+init_position4	{ -1773, -560, -1341 }	
+init_position5	{ -1684, -560, -1111 }	
 VAR_17	{ -2987, -560, -760 }	
-VAR_18	{ -2800, 0, -352 }	
-VAR_19	{ -2787, 0, -1107 }	
-VAR_20	{ -3340, 0, -650 }	
-VAR_21	{ -2445, -128, -74, -2267, -561, -357, -2122, -600, -2174 }	
+init_position6	{ -2800, 0, -352 }	
+init_position7	{ -2787, 0, -1107 }	
+init_position8	{ -3340, 0, -650 }	
+walk_position	{ -2445, -128, -74, -2267, -561, -357, -2122, -600, -2174 }	
 VAR_23	{ 0, 0, 0, 0 }	
-VAR_24	{ 3, VAR_25, 0, 16, VAR_1, 1, 2, -1684, -560, -1111, 11, 60, 120, 16, VAR_1, 0, 3, VAR_26, 0, 16, VAR_1, 1, 11, 60, 120, 16, VAR_1, 0, 7, 8 }	
+ai_script	{ 3, VAR_25, 0, 16, VAR_1, 1, 2, -1684, -560, -1111, 11, 60, 120, 16, VAR_1, 0, 3, VAR_26, 0, 16, VAR_1, 1, 11, 60, 120, 16, VAR_1, 0, 7, 8 }	
 VAR_25	"talkfast"	
 VAR_26	"talkfstb"	
-VAR_27	{ 4, VAR_1, 11, 0, 50, 3, VAR_28, 0, 5, 50, 4, VAR_1, 11, 0, 50, 3, VAR_29, 0, 5, 50, 7, 8 }	
+ai_script1	{ 4, VAR_1, 11, 0, 50, 3, VAR_28, 0, 5, 50, 4, VAR_1, 11, 0, 50, 3, VAR_29, 0, 5, 50, 7, 8 }	
 VAR_28	"yes"	
 VAR_29	"yes"	
-VAR_30	{ 4, VAR_1, 11, 0, 50, 3, VAR_31, 0, 5, 50, 4, VAR_1, 11, 0, 50, 3, VAR_32, 0, 5, 50, 7, 8 }	
+ai_script2	{ 4, VAR_1, 11, 0, 50, 3, VAR_31, 0, 5, 50, 4, VAR_1, 11, 0, 50, 3, VAR_32, 0, 5, 50, 7, 8 }	
 VAR_31	"yes"	
 VAR_32	"no"	
-VAR_33	{ 4, VAR_1, 11, 50, 100, 3, VAR_34, 0, 5, 50, 4, VAR_1, 11, 50, 100, 3, VAR_35, 0, 5, 50, 7, 8 }	
+ai_script3	{ 4, VAR_1, 11, 50, 100, 3, VAR_34, 0, 5, 50, 4, VAR_1, 11, 50, 100, 3, VAR_35, 0, 5, 50, 7, 8 }	
 VAR_34	"no"	
 VAR_35	7562617	
-VAR_36	{ 4, VAR_1, 11, 25, 75, 3, VAR_37, 0, 5, 50, 7, 8 }	
+ai_script4	{ 4, VAR_1, 11, 25, 75, 3, VAR_37, 0, 5, 50, 7, 8 }	
 VAR_37	-1442812050	
 
 ._on_load
@@ -89,19 +89,19 @@ switch(gamevar room_state)
 call load_char("skaven")
 call load_char("skavenb")
 call load_char("ratrptr")
-var lesser_gimp = call create_enemy(int 45, int 0, var &VAR_8, int 105)
-var greater_gimpv = call create_enemy(int 46, int 0, var &VAR_9, int 260)
-var rat_raptor = call create_enemy(int 55, int 0, var &VAR_10, int 355)
-var rat_raptor1 = call create_enemy(int 55, int 1, var &VAR_11, int 20)
-var rat_raptor2 = call create_enemy(int 55, int 2, var &VAR_12, int 65)
-var rat_raptor3 = call create_enemy(int 55, int 3, var &VAR_13, int 85)
+var lesser_gimp = call create_enemy(int 45, int 0, var &init_position, int 105)
+var greater_gimpv = call create_enemy(int 46, int 0, var &init_position1, int 260)
+var rat_raptor = call create_enemy(int 55, int 0, var &init_position2, int 355)
+var rat_raptor1 = call create_enemy(int 55, int 1, var &init_position3, int 20)
+var rat_raptor2 = call create_enemy(int 55, int 2, var &init_position4, int 65)
+var rat_raptor3 = call create_enemy(int 55, int 3, var &init_position5, int 85)
 call add_item_to_char(var rat_raptor, int 43 /* cheese */ , int 1, int 0)
 call add_item_to_char(var rat_raptor2, int 43 /* cheese */ , int 1, int 0)
-call play_char_ai_script(var greater_gimpv, var &VAR_24)
-call play_char_ai_script(var rat_raptor, var &VAR_27)
-call play_char_ai_script(var rat_raptor1, var &VAR_30)
-call play_char_ai_script(var rat_raptor2, var &VAR_33)
-call play_char_ai_script(var rat_raptor3, var &VAR_36)
+call play_char_ai_script(var greater_gimpv, var &ai_script)
+call play_char_ai_script(var rat_raptor, var &ai_script1)
+call play_char_ai_script(var rat_raptor1, var &ai_script2)
+call play_char_ai_script(var rat_raptor2, var &ai_script3)
+call play_char_ai_script(var rat_raptor3, var &ai_script4)
 call set_char_init_state(var lesser_gimp, int 1)
 call func_50(var greater_gimpv, int 8194)
 call func_50(var rat_raptor, int 8194)

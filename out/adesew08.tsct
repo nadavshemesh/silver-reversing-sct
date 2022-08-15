@@ -13,15 +13,15 @@
 VAR_0	{ 1, 0, 0 }	
 VAR_1	{ 1, 0, 0 }	
 VAR_2	{ -171, -637, 2976, 0 }	
-VAR_8	{ -144, -386, 1048 }	
-VAR_9	{ 183, -386, 1083 }	
-VAR_10	{ -410, -386, 1509 }	
-VAR_11	{ -45, -386, 1546 }	
-VAR_12	{ 339, -386, 1510 }	
-VAR_14	{ 0, 0, 0, -1, 8, 1, 1, 1, 86, 86, 86, -1, 4, 0, 9, 1, 5, 1, 10, 50, 7, 1, 2, -1 }	
-VAR_19	{ 19, -1, 2752 }	
-VAR_20	{ -67, -1, 3368 }	
-VAR_21	""	
+init_position	{ -144, -386, 1048 }	
+init_position1	{ 183, -386, 1083 }	
+init_position2	{ -410, -386, 1509 }	
+init_position3	{ -45, -386, 1546 }	
+init_position4	{ 339, -386, 1510 }	
+enemy_gen_script	{ 0, 0, 0, -1, 8, 1, 1, 1, 86, 86, 86, -1, 4, 0, 9, 1, 5, 1, 10, 50, 7, 1, 2, -1 }	
+init_position5	{ 19, -1, 2752 }	
+init_position6	{ -67, -1, 3368 }	
+init_position7	{ -527, -1, 2811 }	
 
 ._on_load
 gamevar SMACKER_X = int 0
@@ -71,11 +71,11 @@ switch(gamevar room_state)
 }
 
 ._SCRIPT_3
-var lesser_gimp = call create_enemy(int 45, int 0, var &VAR_8, int 10)
-var lesser_gimp1 = call create_enemy(int 45, int 1, var &VAR_9, int 300)
-var greater_gimpv = call create_enemy(int 46, int 0, var &VAR_10, int 105)
-var greater_gimpv1 = call create_enemy(int 46, int 1, var &VAR_11, int 170)
-var greater_gimpv2 = call create_enemy(int 46, int 2, var &VAR_12, int 200)
+var lesser_gimp = call create_enemy(int 45, int 0, var &init_position, int 10)
+var lesser_gimp1 = call create_enemy(int 45, int 1, var &init_position1, int 300)
+var greater_gimpv = call create_enemy(int 46, int 0, var &init_position2, int 105)
+var greater_gimpv1 = call create_enemy(int 46, int 1, var &init_position3, int 170)
+var greater_gimpv2 = call create_enemy(int 46, int 2, var &init_position4, int 200)
 call add_item_to_char(var greater_gimpv, int 43 /* cheese */ , int 1, int 0)
 call add_item_to_char(var lesser_gimp1, int 45 /* deadmous */ , int 1, int 0)
 call func_106(var lesser_gimp, int 1, int 0, int 1)
@@ -98,10 +98,10 @@ if(var ! VAR_13)
  {
 		if(call func_ab(int 200, var &VAR_2))
 		 {
-				call create_enemy(int 185 /* drop_rat_raptor */ , int 0, var &VAR_19, int 290)
-				call create_enemy(int 185 /* drop_rat_raptor */ , int 1, var &VAR_20, int 155)
-				call create_enemy(int 185 /* drop_rat_raptor */ , int 2, var &VAR_21, int 55)
-				call run_enemy_generator(var &VAR_14, int 100)
+				call create_enemy(int 185 /* drop_rat_raptor */ , int 0, var &init_position5, int 290)
+				call create_enemy(int 185 /* drop_rat_raptor */ , int 1, var &init_position6, int 155)
+				call create_enemy(int 185 /* drop_rat_raptor */ , int 2, var &init_position7, int 55)
+				call run_enemy_generator(var &enemy_gen_script, int 100)
 				var VAR_13 = int 1
 		}
 }

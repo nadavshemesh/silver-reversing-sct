@@ -12,8 +12,8 @@
 ._DATA
 VAR_0	1	
 VAR_1	{ 0, 0 }	
-VAR_7	{ 188, 1, -50 }	
-VAR_8	{ 194, 1, 818 }	
+init_position	{ 188, 1, -50 }	
+init_position1	{ 194, 1, 818 }	
 
 ._on_load
 execute SCRIPT_7
@@ -66,8 +66,8 @@ switch(gamevar room_state)
 ._SCRIPT_3
 
 ._SCRIPT_4
-var nrebel = call create_char(var &VAR_7, "nrebel", int 80, int 13)
-var nrebela = call create_char(var &VAR_8, "nrebela", int 110, int 13)
+var nrebel = call create_char(var &init_position, "nrebel", int 80, int 13)
+var nrebela = call create_char(var &init_position1, "nrebela", int 110, int 13)
 call add_item_to_char(var nrebel, int 16 /* shrtswrd */ , int 0, int 1)
 call add_item_to_char(var nrebela, int 16 /* shrtswrd */ , int 0, int 1)
 

@@ -11,15 +11,15 @@
 
 ._DATA
 DAVID1	0	
-VAR_22	{ -11000, 1250, -12050 }	
-VAR_24	{ -9329, 1250, -15047 }	
-VAR_25	{ -8546, 1250, -14898 }	
-VAR_26	{ -8713, 1250, -15047 }	
-VAR_27	{ -8937, 1250, -14860 }	
+init_position	{ -11000, 1250, -12050 }	
+init_position1	{ -9329, 1250, -15047 }	
+init_position2	{ -8546, 1250, -14898 }	
+init_position3	{ -8713, 1250, -15047 }	
+init_position4	{ -8937, 1250, -14860 }	
 VAR_29	0	
 VAR_30	0	
-VAR_31	{ -8159, 1202, -12023 }	
-VAR_32	{ 5, 300, 15, 29, DAVID1, 1, DAVID1, 32, VAR_33, VAR_34, 16, VAR_30, 1, 4, VAR_29, 14, 0, -8193, 1203, -12014, 2, -8125, 1203, -11964, 28, VAR_35, 5, 0, 0, -9102, 1203, -11980, 2, -8981, 1203, -11981, 28, VAR_36, 5, 0, 0, -10650, 1203, -11984, 2, -10654, 1947, -11963, 28, VAR_37, 5, 0, 0, -11524, 1203, -11988, 2, -11471, 2068, -11963, 28, VAR_38, 5, 0, 0, -11587, 1203, -14435, 2, -11578, 1203, -14447, 28, VAR_39, 5, 0, 0, -10631, 1203, -14405, 2, -10624, 2023, -14472, 28, VAR_40, 5, 0, 0, -9009, 1203, -14395, 2, -9002, 2019, -14472, 28, VAR_41, 5, 0, 0, -7957, 1203, -14366, 2, -8077, 2036, -14472, 28, VAR_42, 5, 0, 6, 8, 0, 8 }	
+init_position5	{ -8159, 1202, -12023 }	
+ai_script	{ 5, 300, 15, 29, DAVID1, 1, DAVID1, 32, VAR_33, VAR_34, 16, VAR_30, 1, 4, VAR_29, 14, 0, -8193, 1203, -12014, 2, -8125, 1203, -11964, 28, VAR_35, 5, 0, 0, -9102, 1203, -11980, 2, -8981, 1203, -11981, 28, VAR_36, 5, 0, 0, -10650, 1203, -11984, 2, -10654, 1947, -11963, 28, VAR_37, 5, 0, 0, -11524, 1203, -11988, 2, -11471, 2068, -11963, 28, VAR_38, 5, 0, 0, -11587, 1203, -14435, 2, -11578, 1203, -14447, 28, VAR_39, 5, 0, 0, -10631, 1203, -14405, 2, -10624, 2023, -14472, 28, VAR_40, 5, 0, 0, -9009, 1203, -14395, 2, -9002, 2019, -14472, 28, VAR_41, 5, 0, 0, -7957, 1203, -14366, 2, -8077, 2036, -14472, 28, VAR_42, 5, 0, 6, 8, 0, 8 }	
 VAR_33	"DVDWIT"	
 VAR_34	"NULL"	
 VAR_35	"impread"	
@@ -310,12 +310,12 @@ if(var VAR_4 == int 9)
 }
 
 ._SCRIPT_7
-var nwhittle = call create_char(var &VAR_22, "nwhittle", int 0, int 13)
+var nwhittle = call create_char(var &init_position, "nwhittle", int 0, int 13)
 gamevar script_object = var nwhittle
 gamevar *character_movement_p+60 = int 1
 
 ._SCRIPT_8
-var neutral_imp = call create_enemy(int 102, int 0, var &VAR_24, int 0)
+var neutral_imp = call create_enemy(int 102, int 0, var &init_position1, int 0)
 gamevar script_object = var neutral_imp
 gamevar *character_movement_p+60 = int 1
 call freeze_enemy(var neutral_imp)
@@ -324,19 +324,19 @@ gamevar script_object = var neutral_imp
 gamevar *object_p+6 |= int 8388608
 
 ._SCRIPT_9
-var neutral_imp1 = call create_enemy(int 102, int 1, var &VAR_25, int 0)
+var neutral_imp1 = call create_enemy(int 102, int 1, var &init_position2, int 0)
 gamevar script_object = var neutral_imp1
 gamevar *character_movement_p+60 = int 1
 call func_f(var neutral_imp1, int 131072)
 gamevar script_object = var neutral_imp1
 gamevar *object_p+6 |= int 8388608
-var neutral_imp2 = call create_enemy(int 102, int 2, var &VAR_26, int 0)
+var neutral_imp2 = call create_enemy(int 102, int 2, var &init_position3, int 0)
 gamevar script_object = var neutral_imp2
 gamevar *character_movement_p+60 = int 1
 call func_f(var neutral_imp2, int 131072)
 gamevar script_object = var neutral_imp2
 gamevar *object_p+6 |= int 8388608
-var neutral_imp3 = call create_enemy(int 102, int 3, var &VAR_27, int 0)
+var neutral_imp3 = call create_enemy(int 102, int 3, var &init_position4, int 0)
 gamevar script_object = var neutral_imp3
 gamevar *character_movement_p+60 = int 1
 call func_f(var neutral_imp3, int 131072)
@@ -352,7 +352,7 @@ var confused_anim = call load_anim("confused")
 var come_anim = call load_anim("come")
 
 ._SCRIPT_11
-var nwhittle = call create_char(var &VAR_31, "nwhittle", int 342, int 13)
+var nwhittle = call create_char(var &init_position5, "nwhittle", int 342, int 13)
 var DAVID1 = call get_char_handle(int 65536)
 call set_input_system(int 2)
 
@@ -363,7 +363,7 @@ switch(var VAR_44)
 			if(var VAR_45 > int 100)
 			 {
 					call func_50(var nwhittle, int 8192)
-					call play_char_ai_script(var nwhittle, var &VAR_32)
+					call play_char_ai_script(var nwhittle, var &ai_script)
 					var VAR_44 ++ 
 					var VAR_45 = int 0
 			}

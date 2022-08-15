@@ -19,13 +19,13 @@ VAR_6	{ -1912, 10600, -40 }
 VAR_7	"0h)p"	
 VAR_8	{ 1010, 10600, 1600 }	
 VAR_9	{ -820, 10600, -20 }	
-VAR_10	{ VAR_1, VAR_2, VAR_3, VAR_4, VAR_5, VAR_6, VAR_7, VAR_8, VAR_9 }	
+fx_position	{ VAR_1, VAR_2, VAR_3, VAR_4, VAR_5, VAR_6, VAR_7, VAR_8, VAR_9 }	
 VAR_12	{ 0, 0, 0 }	
 VAR_13	{ 0, 0, 0 }	
 VAR_16	{ -1630, -478, -930 }	
-VAR_25	{ -1616, 5955, -681 }	
-VAR_26	{ -1643, 5955, -980 }	
-VAR_27	{ 727, 5955, 591 }	
+position	{ -1616, 5955, -681 }	
+walk_position1	{ -1643, 5955, -980 }	
+walk_position	{ 727, 5955, 591 }	
 VAR_28	{ -1609, -481, -830 }	
 VAR_29	{ -1023, 5956, -486, -1926, 5953, -482 }	
 
@@ -92,7 +92,7 @@ if(gamevar !is_room_cleared)
 }
 
 ._SCRIPT_3
-call play_3d_fx("DRIP", var &VAR_10, int 0, int 8)
+call play_3d_fx("DRIP", var &fx_position, int 0, int 8)
 
 ._SCRIPT_4
 if(gamevar script_time > var VAR_38)
@@ -134,7 +134,7 @@ if(var VAR_23 == int 1)
  {
 		if(call get_input_sys() != int 4)
 		 {
-				call char_walk_to_pos(var TYRONIS, var &VAR_27)
+				call char_walk_to_pos(var TYRONIS, var &walk_position)
 				var VAR_23 ++ 
 				var VAR_24 = int 0
 		}
@@ -153,7 +153,7 @@ if(var VAR_23 == int 2)
 if(var VAR_23 == int 3&&var VAR_24 > int 2)
  {
 		call force_scroll_to_pos(call get_char_pos(var DAVID))
-		call char_turn_to_pos(var DAVID, var &VAR_27)
+		call char_turn_to_pos(var DAVID, var &walk_position)
 		call start_dialog("TERDVD", "NULL")
 		var VAR_23 ++ 
 		var VAR_24 = int 0
@@ -162,7 +162,7 @@ if(var VAR_23 == int 4)
  {
 		if(call func_6d() == int 1)
 		 {
-				call char_walk_to_pos(var DAVID, var &VAR_26)
+				call char_walk_to_pos(var DAVID, var &walk_position1)
 				var VAR_23 ++ 
 				var VAR_24 = int 0
 		}
@@ -171,7 +171,7 @@ if(var VAR_23 == int 5)
  {
 		if(call is_char_standing(var DAVID))
 		 {
-				call char_turn_to_pos(var DAVID, var &VAR_25)
+				call char_turn_to_pos(var DAVID, var &position)
 				call resume_conversation()
 				var VAR_23 ++ 
 				var VAR_24 = int 0

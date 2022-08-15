@@ -15,13 +15,13 @@ VAR_6	0
 VAR_7	0	
 VAR_8	0	
 VAR_9	{ 0, 0 }	
-VAR_14	{ 3021, 85, -4985 }	
-VAR_15	{ 3422, 85, -5222 }	
-VAR_16	{ 2991, 85, -5497 }	
-VAR_17	{ 3258, 85, -5426 }	
-VAR_18	{ 3017, 85, -5105 }	
-VAR_19	{ 2758, 85, -5137 }	
-VAR_20	{ 2731, 85, -5356 }	
+init_position2	{ 3021, 85, -4985 }	
+init_position	{ 3422, 85, -5222 }	
+init_position1	{ 2991, 85, -5497 }	
+init_position3	{ 3258, 85, -5426 }	
+tele_position2	{ 3017, 85, -5105 }	
+tele_position	{ 2758, 85, -5137 }	
+tele_position1	{ 2731, 85, -5356 }	
 VAR_21	{ 19, 4, VAR_8, 4, VAR_6, 20, 8 }	
 VAR_22	{ 19, 5, 120, 16, VAR_9, 1, 4, VAR_7, 20, 4, VAR_5, 16, VAR_8, 1, 8 }	
 VAR_23	{ 19, 5, 120, 16, VAR_9, 1, 4, VAR_7, 20, 5, 30, 16, VAR_8, 1, 8 }	
@@ -77,10 +77,10 @@ if(gamevar room_state > int 2)
 ._SCRIPT_3
 call load_sound_set(int 4)
 call set_input_system(int 2)
-var nglass = call create_char(var &VAR_15, "nglass", int 280, int 13)
-var nduke = call create_char(var &VAR_16, "nduke", int 340, int 13)
-var nlongjohn = call create_char(var &VAR_14, "nlongjohn", int 345, int 13)
-var nnemesis = call create_char(var &VAR_17, "nnemesis", int 285, int 13)
+var nglass = call create_char(var &init_position, "nglass", int 280, int 13)
+var nduke = call create_char(var &init_position1, "nduke", int 340, int 13)
+var nlongjohn = call create_char(var &init_position2, "nlongjohn", int 345, int 13)
+var nnemesis = call create_char(var &init_position3, "nnemesis", int 285, int 13)
 execute SCRIPT_7
 call load_char_anim(var nlongjohn, var &VAR_24)
 call load_char_anim(var nnemesis, var &VAR_30)
@@ -134,11 +134,11 @@ switch(var VAR_37)
 		case 2
 			if(var VAR_9)
 			 {
-					call char_teleport_to_pos(var VAR_1, var &VAR_19, int 100)
+					call char_teleport_to_pos(var VAR_1, var &tele_position, int 100)
 					call char_stop(var VAR_1)
 					if(var VAR_2)
 					 {
-							call char_teleport_to_pos(var VAR_2, var &VAR_20, int 75)
+							call char_teleport_to_pos(var VAR_2, var &tele_position1, int 75)
 							call char_stop(var VAR_2)
 					}
 					var VAR_36 = int 0
@@ -158,7 +158,7 @@ switch(var VAR_37)
 			if(var VAR_8)
 			 {
 					var VAR_37 ++ 
-					call char_teleport_to_pos(var VAR_0, var &VAR_18, int 135)
+					call char_teleport_to_pos(var VAR_0, var &tele_position2, int 135)
 					call char_stop(var VAR_0)
 					var VAR_36 = int 0
 			}

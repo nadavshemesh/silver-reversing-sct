@@ -14,13 +14,13 @@ VAR_18	{ 0, 0, -1 }
 VAR_23	-1	
 VAR_41	1	
 VAR_42	{ 0, 0 }	
-VAR_52	{ 165, 0, -55 }	
-VAR_59	{ -300, 0, 28 }	
+init_position	{ 165, 0, -55 }	
+init_position1	{ -300, 0, 28 }	
 VAR_60	{ -161, 0, 337 }	
 VAR_61	{ 157, 0, 624 }	
-VAR_62	VAR_60	
-VAR_63	VAR_61	
-VAR_64	{ -1264, 0, 901 }	
+walk_position	VAR_60	
+walk_position1	VAR_61	
+position	{ -1264, 0, 901 }	
 VAR_65	-1	
 
 ._on_load
@@ -175,7 +175,7 @@ var VAR_45 ++
 execute SCRIPT_8
 
 ._SCRIPT_7
-var NVILLBOY = call create_char(var &VAR_52, "NVILLBOY", int 325, int 13)
+var NVILLBOY = call create_char(var &init_position, "NVILLBOY", int 325, int 13)
 var horn = call add_item_to_char(var NVILLBOY, int 87, int 1, int 1)
 execute SCRIPT_9
 var DAVID = call get_char_handle(int 65536)
@@ -197,8 +197,8 @@ switch(var VAR_55)
 			}
 			if(var VAR_56 > int 60)
 			 {
-					call char_walk_to_pos(var DAVID, var VAR_62)
-					call char_walk_to_pos(var GRANDAD, var VAR_63)
+					call char_walk_to_pos(var DAVID, var walk_position)
+					call char_walk_to_pos(var GRANDAD, var walk_position1)
 					var VAR_55 ++ 
 					var VAR_56 = int 0
 			}
@@ -255,11 +255,11 @@ switch(var VAR_55)
 		case 6
 			if(var VAR_56 == int 70)
 			 {
-					call char_turn_to_pos(var GRANDAD, var &VAR_64)
+					call char_turn_to_pos(var GRANDAD, var &position)
 			}
 			if(var VAR_56 == int 75)
 			 {
-					call char_turn_to_pos(var DAVID, var &VAR_64)
+					call char_turn_to_pos(var DAVID, var &position)
 			}
 			if(call is_char_standing(var NVILLBOY))
 			 {
@@ -272,7 +272,7 @@ switch(var VAR_55)
 			 {
 					call remove_char(var NVILLBOY)
 					call set_input_system(int 1)
-					var fade_chronicler = call create_enemy(int 178, int 0, var &VAR_59, int 5)
+					var fade_chronicler = call create_enemy(int 178, int 0, var &init_position1, int 5)
 					call func_116("haven", "h_cavext", int 3)
 					call set_scene_overwrite_act("haven", "h_cavext", int 1)
 					var VAR_55 ++ 

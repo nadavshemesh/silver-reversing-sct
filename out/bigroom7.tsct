@@ -10,25 +10,25 @@
 
 
 ._DATA
-VAR_4	{ -5320, 695, 509 }	
-VAR_5	{ -5468, 695, 3695 }	
+init_position	{ -5320, 695, 509 }	
+init_position1	{ -5468, 695, 3695 }	
 VAR_6	{ -5140, 695, 391, -5131, 695, 987, -5132, 695, 1772, -5157, 695, 2567, -5122, 695, 3463 }	
-VAR_7	{ 17, 5, VAR_6, 0, 11, 100, 200, 7, 8 }	
-VAR_8	{ 17, 5, VAR_6, 0, 11, 100, 200, 7, 8 }	
+ai_script	{ 17, 5, VAR_6, 0, 11, 100, 200, 7, 8 }	
+ai_script1	{ 17, 5, VAR_6, 0, 11, 100, 200, 7, 8 }	
 lizmant1	0	
-VAR_11	{ -2248, 145, 942 }	
-VAR_12	{ -3910, 145, 4108 }	
+init_position2	{ -2248, 145, 942 }	
+init_position3	{ -3910, 145, 4108 }	
 VAR_13	{ -315, 145, 548, -688, 145, -862, -1659, 145, 93, -863, 145, 1663, -1961, 420, -1627, -2321, 145, 919, -2127, 145, 2007, -3940, 145, 708, -3134, 145, 1975, -4319, 145, 2833, -3780, 145, 3708, -3805, 145, 2846 }	
-VAR_14	{ 14, 9, lizmant1, 17, 12, VAR_13, 0, 11, 100, 200, 17, 12, VAR_13, 0, 11, 100, 200, 17, 12, VAR_13, 0, 11, 100, 200, 17, 12, VAR_13, 0, 11, 100, 200, 7, 8 }	
-VAR_15	{ 14, 17, 12, VAR_13, 0, 11, 100, 200, 17, 12, VAR_13, 0, 11, 100, 200, 17, 12, VAR_13, 0, 11, 100, 200, 17, 12, VAR_13, 0, 11, 100, 200, 7, 8 }	
+ai_script2	{ 14, 9, lizmant1, 17, 12, VAR_13, 0, 11, 100, 200, 17, 12, VAR_13, 0, 11, 100, 200, 17, 12, VAR_13, 0, 11, 100, 200, 17, 12, VAR_13, 0, 11, 100, 200, 7, 8 }	
+ai_script3	{ 14, 17, 12, VAR_13, 0, 11, 100, 200, 17, 12, VAR_13, 0, 11, 100, 200, 17, 12, VAR_13, 0, 11, 100, 200, 17, 12, VAR_13, 0, 11, 100, 200, 7, 8 }	
 VAR_16	{ 0, 0 }	
 VAR_19	{ -313, 145, 639 }	
 VAR_20	{ -276, -1150, 2005 }	
 VAR_22	"PS=PSPPpPPfPPgPbPaP8JPJ"	
-VAR_23	{ 0, 1, 12, VAR_22, 8, 2, 4, 0, 9, 0, 1, 16, 194, 194, -1, 2, 1, 3, 2, 5, 1, 30, 50, 7, 1, 8, 6, 1, -1 }	
+enemy_gen_script1	{ 0, 1, 12, VAR_22, 8, 2, 4, 0, 9, 0, 1, 16, 194, 194, -1, 2, 1, 3, 2, 5, 1, 30, 50, 7, 1, 8, 6, 1, -1 }	
 VAR_24	{ -624, 1700, -612, -253, 1700, 514, -1390, 1700, 83, -822, 1700, 1274, -2022, 1700, 415, -1046, 1700, 1761, -2743, 1700, 650, -2249, 1700, 1701, -283, 1700, 927, -273, 1700, 1451, -288, 1700, 1745 }	
 VAR_25	{ -624, 400, -612, -253, 400, 514, -1390, 400, 83, -822, 400, 1274, -2022, 400, 415, -1046, 400, 1761, -2743, 400, 650, -2249, 400, 1701, -283, 400, 927, -273, 400, 1451, -288, 400, 1745 }	
-VAR_26	{ 0, 1, 11, VAR_24, 8, 2, 4, 2, 11, VAR_25, 9, 0, 1, 28, 47, -1, 2, 1, 5, 1, 10, 30, 7, 1, 7, 6, 2, -1 }	
+enemy_gen_script	{ 0, 1, 11, VAR_24, 8, 2, 4, 2, 11, VAR_25, 9, 0, 1, 28, 47, -1, 2, 1, 5, 1, 10, 30, 7, 1, 7, 6, 2, -1 }	
 VAR_27	-1	
 
 ._on_load
@@ -110,8 +110,8 @@ switch(var VAR_16)
 }
 
 ._SCRIPT_4
-var groad = call create_enemy(int 39, int 1, var &VAR_4, int 0)
-var groad1 = call create_enemy(int 39, int 2, var &VAR_5, int 195)
+var groad = call create_enemy(int 39, int 1, var &init_position, int 0)
+var groad1 = call create_enemy(int 39, int 2, var &init_position1, int 195)
 call func_106(var groad, int 9, int 5, var &VAR_6)
 call func_106(var groad, int 9, int 6, int 5)
 call func_106(var groad1, int 9, int 5, var &VAR_6)
@@ -130,11 +130,11 @@ call func_50(var groad, int 8194)
 call func_50(var groad1, int 8194)
 call func_50(var groad, int 8192)
 call func_50(var groad1, int 8192)
-call play_char_ai_script(var groad, var &VAR_7)
-call play_char_ai_script(var groad1, var &VAR_8)
+call play_char_ai_script(var groad, var &ai_script)
+call play_char_ai_script(var groad1, var &ai_script1)
 call add_item_to_char(var groad, int 42 /* bread */ , int 1, int 0)
-var lizmant = call create_enemy(int 40, int 1, var &VAR_11, int 290)
-var lizmant1 = call create_enemy(int 40, int 2, var &VAR_12, int 175)
+var lizmant = call create_enemy(int 40, int 1, var &init_position2, int 290)
+var lizmant1 = call create_enemy(int 40, int 2, var &init_position3, int 175)
 gamevar script_object = var lizmant
 gamevar *character_stats_p+15 = int 2000
 gamevar script_object = var lizmant
@@ -149,8 +149,8 @@ call func_50(var lizmant, int 8194)
 call func_50(var lizmant1, int 8194)
 call func_50(var lizmant, int 8192)
 call func_50(var lizmant1, int 8192)
-call play_char_ai_script(var lizmant, var &VAR_14)
-call play_char_ai_script(var lizmant1, var &VAR_15)
+call play_char_ai_script(var lizmant, var &ai_script2)
+call play_char_ai_script(var lizmant1, var &ai_script3)
 call add_item_to_char(var lizmant, int 45 /* deadmous */ , int 1, int 0)
 call add_item_to_char(var lizmant1, int 47 /* drumstik */ , int 1, int 0)
 execute SCRIPT_11
@@ -178,7 +178,7 @@ switch(var VAR_21)
 			if(call func_ab(int 300, var &VAR_19))
 			 {
 					call log("yup")
-					call run_enemy_generator(var &VAR_26, int 20)
+					call run_enemy_generator(var &enemy_gen_script, int 20)
 					var VAR_21 ++ 
 			}
 			break 
@@ -186,7 +186,7 @@ switch(var VAR_21)
 			if(call func_ab(int 300, var &VAR_20))
 			 {
 					call log("yup")
-					call run_enemy_generator(var &VAR_23, int 20)
+					call run_enemy_generator(var &enemy_gen_script1, int 20)
 					var VAR_21 ++ 
 			}
 			break 

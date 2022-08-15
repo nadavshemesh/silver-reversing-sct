@@ -19,8 +19,8 @@ VAR_55	{ VAR_53, 200, VAR_54 }
 VAR_56	{ -1153, -850, 1196 }	
 VAR_57	{ -1715, 0, 518 }	
 VAR_58	{ VAR_56, 200, VAR_57 }	
-VAR_59	{ -769, 0, 221 }	
-VAR_61	{ 760, 0, 290 }	
+init_position	{ -769, 0, 221 }	
+init_position1	{ 760, 0, 290 }	
 VAR_92	{ 1153851392, -1001095168, 1152040960 }	
 VAR_93	{ -1047527424, -1001095168, 1154686976 }	
 VAR_94	{ -993796096, -1001095168, 1151827968 }	
@@ -29,7 +29,7 @@ VAR_96	{ -993968128, 0, 1135411200 }
 VAR_97	{ 1156718592, 0, 1143390208 }	
 VAR_98	{ 1144913920, 0, 1133608960 }	
 VAR_99	{ -1001848832, 0, 1128202240 }	
-VAR_100	{ VAR_92, VAR_93, VAR_94, VAR_95, VAR_96, VAR_97, VAR_98, VAR_99 }	
+arr	{ VAR_92, VAR_93, VAR_94, VAR_95, VAR_96, VAR_97, VAR_98, VAR_99 }	
 
 ._on_load
 execute SCRIPT_12
@@ -143,8 +143,8 @@ switch(var VAR_63)
 }
 
 ._SCRIPT_4
-var ilight = call create_char(var &VAR_59, "ilight", int 0, int 0)
-var fade_chronicler = call create_enemy(int 178, int 0, var &VAR_61, int 0)
+var ilight = call create_char(var &init_position, "ilight", int 0, int 0)
+var fade_chronicler = call create_enemy(int 178, int 0, var &init_position1, int 0)
 
 ._SCRIPT_5
 switch(var VAR_84)
@@ -277,7 +277,7 @@ if(gamevar script_time > var VAR_89)
 		var VAR_91 = call randomize_int(int 0, int 8)
 
 		 /* play the sound 'atroamb4' */ 
-		call play_loaded_sound(int 3, int 0, int 76, @VAR_100[var VAR_91])
+		call play_loaded_sound(int 3, int 0, int 76, @arr[var VAR_91])
 }
 if(gamevar script_time > var VAR_90)
  {
@@ -285,7 +285,7 @@ if(gamevar script_time > var VAR_90)
 		var VAR_91 = call randomize_int(int 0, int 8)
 
 		 /* play the sound 'bees' */ 
-		call play_loaded_sound(int 4, int 0, int 76, @VAR_100[var VAR_91])
+		call play_loaded_sound(int 4, int 0, int 76, @arr[var VAR_91])
 }
 var VAR_101 = var VAR_102
 var VAR_102 = var VAR_1

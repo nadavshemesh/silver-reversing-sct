@@ -15,19 +15,19 @@ VAR_4	{ -2602, 1560, -2358 }
 VAR_5	{ 0, 0 }	
 VAR_8	{ -6530, 1212, -2264, -6518, 1212, -4803 }	
 VAR_9	{ -5868, 1212, -3890, -6833, 1212, -3065, -5318, 1212, -3652 }	
-VAR_10	{ 0, 1, 3, VAR_9, 8, 2, 4, 0, 9, 1, 1, 3, 33, -1, 5, 1, 15, 100, 6, 1, 7, 1, 2, -1 }	
-VAR_12	{ -4947, 1212, -3424 }	
-VAR_13	{ 0, -4968, 1212, -4332, 0, -4947, 1212, -3424, 7, 8 }	
-VAR_16	{ -2602, 1560, -2358 }	
+enemy_gen_script	{ 0, 1, 3, VAR_9, 8, 2, 4, 0, 9, 1, 1, 3, 33, -1, 5, 1, 15, 100, 6, 1, 7, 1, 2, -1 }	
+init_position	{ -4947, 1212, -3424 }	
+ai_script	{ 0, -4968, 1212, -4332, 0, -4947, 1212, -3424, 7, 8 }	
+position	{ -2602, 1560, -2358 }	
 VAR_17	{ 1845, 2845, -4950 }	
 VAR_18	{ -2557, 1560, -3110 }	
 VAR_19	{ -2217, 1560, -2814 }	
 VAR_20	{ -2907, 1560, -2910 }	
-VAR_21	"NQT"	
+arr	"NQT"	
 VAR_22	{ -2455, 1560, -2452 }	
 VAR_23	{ -2713, 1560, -2397 }	
-VAR_24	{ VAR_16, VAR_23, VAR_22 }	
-VAR_29	{ 0, 0, 0 }	
+arr_1	{ position, VAR_23, VAR_22 }	
+arr_2	{ 0, 0, 0 }	
 
 ._on_load
 call play_bgm("METALON")
@@ -129,10 +129,10 @@ switch(var VAR_5)
 
 ._SCRIPT_6
 call load_char("sguard")
-var sguard = call create_enemy(int 34, int 0, var &VAR_12, int 200)
+var sguard = call create_enemy(int 34, int 0, var &init_position, int 200)
 call func_106(var sguard, int 1, int 0, int 1)
 call set_char_init_state(var sguard, int 13)
-call play_char_ai_script(var sguard, var &VAR_13)
+call play_char_ai_script(var sguard, var &ai_script)
 gamevar script_object = var sguard
 gamevar *character_stats_p+15 = int 1000
 
@@ -140,7 +140,7 @@ gamevar *character_stats_p+15 = int 1000
 if(var VAR_15 == int 0)
  {
 		var david = call get_david_char()
-		if(call is_char_at_pos(var david, var &VAR_16, int 320))
+		if(call is_char_at_pos(var david, var &position, int 320))
 		 {
 				call set_input_system(int 2)
 				var VAR_15 ++ 
@@ -170,7 +170,7 @@ if(var VAR_15 == int 2)
 		while(var david)
 		 {
 				call set_char_running(var david)
-				call char_walk_to_pos(var david, @VAR_21[var VAR_26])
+				call char_walk_to_pos(var david, @arr[var VAR_26])
 				var VAR_26 ++ 
 				var david = call func_7e()
 		}
@@ -191,14 +191,14 @@ if(var VAR_15 == int 3)
 if(var VAR_15 == int 4)
  {
 		var david = call get_selected_hero()
-		if(call is_char_at_pos(var david, var &VAR_16, int 240))
+		if(call is_char_at_pos(var david, var &position, int 240))
 		 {
 				call set_input_system(int 2)
 				var david = call get_david_char()
 				while(var david)
 				 {
 						call set_char_running(var david)
-						call char_walk_to_pos(var david, @VAR_24[var VAR_26])
+						call char_walk_to_pos(var david, @arr_1[var VAR_26])
 						var VAR_26 ++ 
 						var VAR_27 = var VAR_26
 						var david = call func_7e()
@@ -213,9 +213,9 @@ if(var VAR_15 == int 5)
 		var david = call get_david_char()
 		while(var david)
 		 {
-				if(call is_char_standing(var david)&&@VAR_29[var VAR_26] == int 0)
+				if(call is_char_standing(var david)&&@arr_2[var VAR_26] == int 0)
 				 {
-						@VAR_29[var VAR_26]= int 1
+						@arr_2[var VAR_26]= int 1
 						var VAR_28 ++ 
 						call func_36(var david, int -2557, int 1560, int -3110)
 						call func_fa(var david)

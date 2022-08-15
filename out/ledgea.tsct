@@ -10,23 +10,23 @@
 
 
 ._DATA
-VAR_3	{ -3363, 962, 7947 }	
+fx_position	{ -3363, 962, 7947 }	
 VAR_4	{ 5936, 962, -2607 }	
-VAR_10	{ 0, 0 }	
-VAR_11	{ 0, 0, 0 }	
-VAR_12	{ 0, 1 }	
+arr	{ 0, 0 }	
+arr_2	{ 0, 0, 0 }	
+arr_1	{ 0, 1 }	
 VAR_17	{ -2236, -1790, -2555, -262, -1790, -2330 }	
 VAR_18	{ -2253, -1790, -164, -1050, -1790, -95 }	
-VAR_20	{ -760, -1789, 760 }	
-VAR_21	{ -1739, -1789, 1603 }	
+init_position	{ -760, -1789, 760 }	
+init_position1	{ -1739, -1789, 1603 }	
 VAR_24	{ -576, -1790, -3422, -402, -1790, -3990, -652, -1790, -4398, -1066, -1790, -3602, -1418, -1790, -3068, -909, -1790, -3091, -969, -1790, -907, -883, -1790, -1493, -1434, -1790, -816, -1526, -1790, -1361, -1995, -1790, -804, -1908, -1790, -1487 }	
 VAR_25	{ -974, -1790, 1243, -963, -1790, 921, -1089, -1790, 620, -1392, -1790, 728, -1473, -1790, 1300, -1812, -1790, 462, -2026, -1790, 430, -2356, -1790, 624, -2705, -1790, 445, -1740, -1790, 1393 }	
-VAR_26	{ 0, 1, 6, VAR_24, 8, 2, 4, 0, 9, 2, 1, 1, 144, 144, 144, -1, 5, 0, 0, 7, 1, 2, 6, 1, -1 }	
-VAR_27	{ 0, 0, 1, -1, 8, 2, 4, 0, 9, 2, 1, 1, 72, 72, -1, 5, 0, 60, 7, 1, 2, 6, 1, -1 }	
-VAR_28	{ 0, 1, 6, VAR_25, 8, 2, 4, 0, 9, 2, 1, 1, 144, 144, -1, 5, 0, 0, 7, 1, 2, 10, 83, 20, 46, -1, 6, 1, -1 }	
+enemy_gen_script1	{ 0, 1, 6, VAR_24, 8, 2, 4, 0, 9, 2, 1, 1, 144, 144, 144, -1, 5, 0, 0, 7, 1, 2, 6, 1, -1 }	
+enemy_gen_script2	{ 0, 0, 1, -1, 8, 2, 4, 0, 9, 2, 1, 1, 72, 72, -1, 5, 0, 60, 7, 1, 2, 6, 1, -1 }	
+enemy_gen_script3	{ 0, 1, 6, VAR_25, 8, 2, 4, 0, 9, 2, 1, 1, 144, 144, -1, 5, 0, 0, 7, 1, 2, 10, 83, 20, 46, -1, 6, 1, -1 }	
 VAR_29	{ -765, -1789, 765, -1744, -1789, 1608 }	
-VAR_30	{ 0, 1, 2, VAR_29, 8, 2, 4, 0, 9, 2, 1, 1, 24, 24, -1, 5, 0, 2, 7, 1, 2, 6, 1, -1 }	
-VAR_35	{ -1739, -1789, 1603 }	
+enemy_gen_script	{ 0, 1, 2, VAR_29, 8, 2, 4, 0, 9, 2, 1, 1, 24, 24, -1, 5, 0, 2, 7, 1, 2, 6, 1, -1 }	
+init_position2	{ -1739, -1789, 1603 }	
 VAR_36	2	
 VAR_41	{ -2573, -1729, 1089, -900, -1729, -52 }	
 
@@ -114,7 +114,7 @@ if(gamevar !is_room_cleared)
 }
 
 ._SCRIPT_3
-call play_3d_fx("SNOW", var &VAR_3, var &VAR_4, int 0)
+call play_3d_fx("SNOW", var &fx_position, var &VAR_4, int 0)
 
 ._SCRIPT_4
 var david = call get_david_char()
@@ -150,7 +150,7 @@ switch(var VAR_38)
 					var VAR_0 = int 1
 					call apply_effect_on_char(gamevar char_gen_fx_scripts, int 10, int 0, var btreasure)
 					call apply_effect_on_char(gamevar char_gen_fx_scripts, int 10, int 0, var btreasure2)
-					var VAR_40 = call run_enemy_generator(var &VAR_30, int 1)
+					var VAR_40 = call run_enemy_generator(var &enemy_gen_script, int 1)
 					var VAR_38 = int 2
 					call reset_local_timer()
 			}
@@ -170,19 +170,19 @@ switch(var VAR_38)
 					 {
 							case 0
 								var VAR_37 ++ 
-								var VAR_40 = call run_enemy_generator(var &VAR_26, int 10)
+								var VAR_40 = call run_enemy_generator(var &enemy_gen_script1, int 10)
 								var VAR_38 = int 3
 								var VAR_39 = int 0
 								break 
 							case 1
 								var VAR_37 ++ 
-								var VAR_40 = call run_enemy_generator(var &VAR_27, int 10)
+								var VAR_40 = call run_enemy_generator(var &enemy_gen_script2, int 10)
 								var VAR_38 = int 3
 								var VAR_39 = int 0
 								break 
 							case 2
 								var VAR_37 ++ 
-								var VAR_40 = call run_enemy_generator(var &VAR_28, int 10)
+								var VAR_40 = call run_enemy_generator(var &enemy_gen_script3, int 10)
 								var VAR_38 = int 3
 								var VAR_39 = int 0
 								break 
@@ -214,8 +214,8 @@ switch(var VAR_38)
 }
 
 ._SCRIPT_7
-var btreasure = call create_char(var &VAR_20, "btreasure", int 290, int 14)
-var btreasure2 = call create_char(var &VAR_21, "btreasure2", int 170, int 14)
+var btreasure = call create_char(var &init_position, "btreasure", int 290, int 14)
+var btreasure2 = call create_char(var &init_position1, "btreasure2", int 170, int 14)
 call load_char("wamper")
 call load_char("snowsprt")
 call load_char("leopard")
@@ -224,7 +224,7 @@ execute SCRIPT_4
 ._SCRIPT_8
 if(var ! treasure)
  {
-		var treasure = call create_enemy(int 136, int 0, var &VAR_35, int 121)
+		var treasure = call create_enemy(int 136, int 0, var &init_position2, int 121)
 		call add_item_to_char(var treasure, int 42 /* bread */ , int 1, int 0)
 		call add_item_to_char(var treasure, int 40 /* apple */ , int 1, int 0)
 		call add_item_to_char(var treasure, int 43 /* cheese */ , int 1, int 0)
@@ -235,8 +235,8 @@ if(var ! treasure)
 var VAR_16 = int 0
 while(@david[var VAR_16])
  {
-		@VAR_10[var VAR_16]= var VAR_42
-		@VAR_11[var VAR_16]= var VAR_42
+		@arr[var VAR_16]= var VAR_42
+		@arr_2[var VAR_16]= var VAR_42
 		var VAR_16 ++ 
 }
 
@@ -246,7 +246,7 @@ while(@david[var VAR_16])
  {
 		var VAR_14 = @david[var VAR_16]
 		execute SCRIPT_11
-		@VAR_10[var VAR_16]= var VAR_13
+		@arr[var VAR_16]= var VAR_13
 		var VAR_16 ++ 
 }
 execute SCRIPT_13
@@ -276,9 +276,9 @@ var VAR_13 = int 2
 var VAR_16 = int 0
 while(@david[var VAR_16])
  {
-		if(@VAR_10[var VAR_16] == @VAR_12[gamevar CLICKED_DOOR])
+		if(@arr[var VAR_16] == @arr_1[gamevar CLICKED_DOOR])
 		 {
-				var VAR_15 = @VAR_10[var VAR_16]
+				var VAR_15 = @arr[var VAR_16]
 		}
 		var VAR_16 ++ 
 }
@@ -288,10 +288,10 @@ var VAR_15 = int -1
 var VAR_16 = int 0
 while(@david[var VAR_16])
  {
-		if(@VAR_10[var VAR_16] != @VAR_11[var VAR_16])
+		if(@arr[var VAR_16] != @arr_2[var VAR_16])
 		 {
-				var VAR_15 = @VAR_10[var VAR_16]
-				@VAR_11[var VAR_16]= @VAR_10[var VAR_16]
+				var VAR_15 = @arr[var VAR_16]
+				@arr_2[var VAR_16]= @arr[var VAR_16]
 		}
 		var VAR_16 ++ 
 }

@@ -11,11 +11,11 @@
 
 ._DATA
 VAR_0	{ 16, 1, 48, 1, -1 }	
-VAR_3	{ 1869, 672, -4318 }	
-VAR_4	{ 928, 1347, -5117 }	
+init_position1	{ 1869, 672, -4318 }	
+init_position2	{ 928, 1347, -5117 }	
 VAR_5	{ VAR_6, 0, 0, 5, 0, 0 }	
 VAR_6	"stdstill"	
-VAR_9	"LI"	
+init_position	{ 1356, 672, -4791 }	
 VAR_22	10	
 VAR_23	2	
 
@@ -83,11 +83,11 @@ if(gamevar room_state == int 4)
 }
 
 ._SCRIPT_3
-var NJENNIFER = call create_char(var &VAR_9, "NJENNIFER", int 120, int 13)
+var NJENNIFER = call create_char(var &init_position, "NJENNIFER", int 120, int 13)
 var DAVID = call get_char_handle(int 65536)
-call create_char(var &VAR_3, "iapple", int 0, int 13)
+call create_char(var &init_position1, "iapple", int 0, int 13)
 gamevar global_inventory_p = var &VAR_0
-call create_char(var &VAR_4, "btreasure", int 55, int 14)
+call create_char(var &init_position2, "btreasure", int 55, int 14)
 call load_char_anim(var DAVID, var &VAR_5)
 call set_input_system(int 2)
 
@@ -131,7 +131,7 @@ if(var VAR_13 == int 4)
 }
 
 ._SCRIPT_5
-var NJENNIFER = call create_char(var &VAR_9, "NJENNIFER", int 120, int 13)
+var NJENNIFER = call create_char(var &init_position, "NJENNIFER", int 120, int 13)
 var DAVID = call get_char_handle(int 65536)
 var VAR_13 = int 3
 if(call func_af(int 16))

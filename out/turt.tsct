@@ -10,7 +10,7 @@
 
 
 ._DATA
-VAR_2	{ -587, 0, 7000 }	
+fx_position	{ -587, 0, 7000 }	
 VAR_3	{ 4000, 0, -1742 }	
 VAR_5	{ 0, 0, 0 }	
 VAR_10	{ -1006567424, -992919552, 1101004800 }	
@@ -32,16 +32,16 @@ VAR_25	{ 10, -1970, -2600, 636, 24, 257, 8 }
 VAR_26	{ 10, -784, -2600, -1780, 24, 257, 8 }	
 VAR_27	{ 10, -642, -2600, -2494, 24, 257, 8 }	
 VAR_28	{ 10, -799, -2600, -3258, 24, 257, 8 }	
-VAR_29	{ VAR_11, VAR_12, VAR_13, VAR_14, VAR_15, VAR_16 }	
-VAR_30	1	
+arr_1	{ VAR_11, VAR_12, VAR_13, VAR_14, VAR_15, VAR_16 }	
+arr	1	
 VAR_31	1	
 VAR_32	1	
 VAR_33	1	
 VAR_34	1	
 VAR_35	1	
-VAR_36	{ VAR_17, VAR_18, VAR_19, VAR_20, VAR_21, VAR_22 }	
-VAR_37	{ 341, 341, 341, 285, 285, 285 }	
-VAR_38	{ VAR_23, VAR_24, VAR_25, VAR_26, VAR_27, VAR_28 }	
+arr_2	{ VAR_17, VAR_18, VAR_19, VAR_20, VAR_21, VAR_22 }	
+arr_3	{ 341, 341, 341, 285, 285, 285 }	
+arr_4	{ VAR_23, VAR_24, VAR_25, VAR_26, VAR_27, VAR_28 }	
 VAR_49	{ 0, 0 }	
 
 ._on_load
@@ -189,7 +189,7 @@ execute SCRIPT_18
 ._SCRIPT_10
 
 ._SCRIPT_11
-call play_3d_fx("SNOW", var &VAR_2, var &VAR_3, int 0)
+call play_3d_fx("SNOW", var &fx_position, var &VAR_3, int 0)
 
 ._SCRIPT_12
 if(gamevar *scene_info_p+4 & int 1)
@@ -217,7 +217,7 @@ var VAR_42 = int 0
 var VAR_1 = int 0
 while(var VAR_42 < int 6)
  {
-		var VAR_1 += @VAR_30[var VAR_42]
+		var VAR_1 += @arr[var VAR_42]
 		var VAR_42 ++ 
 }
 
@@ -225,32 +225,32 @@ while(var VAR_42 < int 6)
 var VAR_43 = int 0
 while(var VAR_43 < int 6)
  {
-		if(@VAR_30[var VAR_43])
+		if(@arr[var VAR_43])
 		 {
-				var VAR_44 = call func_ab(int 300, @VAR_29[var VAR_43])
+				var VAR_44 = call func_ab(int 300, @arr_1[var VAR_43])
 				if(var VAR_44)
 				 {
-						var draco_wyvern = call create_enemy(int 151, var VAR_43, @VAR_36[var VAR_43], @VAR_37[var VAR_43])
+						var draco_wyvern = call create_enemy(int 151, var VAR_43, @arr_2[var VAR_43], @arr_3[var VAR_43])
 						call freeze_enemy(var draco_wyvern)
 						call func_106(var draco_wyvern, int 1, int 0, int 1)
 						call set_char_init_state(var draco_wyvern, int 13)
 						call set_char_init_state(var draco_wyvern, int 13)
-						call play_char_ai_script(var draco_wyvern, @VAR_38[var VAR_43])
-						@VAR_30[var VAR_43]= int 0
+						call play_char_ai_script(var draco_wyvern, @arr_4[var VAR_43])
+						@arr[var VAR_43]= int 0
 				}
 		}
 		var VAR_43 ++ 
 }
 
 ._SCRIPT_16
-call func_7(int 0, var VAR_30, var VAR_31, var VAR_32)
+call func_7(int 0, var arr, var VAR_31, var VAR_32)
 call func_7(int 1, var VAR_33, var VAR_34, var VAR_35)
 
 ._SCRIPT_17
 if(call func_bf(int 0, gamevar CURRENT_LEVEL, gamevar CURRENT_SCENE))
  {
 		call func_d8(int 0, var &VAR_46)
-		var VAR_30 = var VAR_47
+		var arr = var VAR_47
 		var VAR_31 = var VAR_48
 		var VAR_32 = var VAR_49
 }

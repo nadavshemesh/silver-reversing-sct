@@ -10,8 +10,8 @@
 
 
 ._DATA
-VAR_8	{ 181, 237, -655 }	
-VAR_11	{ 0, 0, 1, -1, 8, 0, 4, 0, 9, 1, 1, 2, 34, -1, 5, 1, 15, 60, 6, 1, 7, 1, 2, -1 }	
+init_position	{ 181, 237, -655 }	
+enemy_gen_script	{ 0, 0, 1, -1, 8, 0, 4, 0, 9, 1, 1, 2, 34, -1, 5, 1, 15, 60, 6, 1, 7, 1, 2, -1 }	
 VAR_12	{ -1236, -111, 1555 }	
 
 ._on_load
@@ -100,7 +100,7 @@ switch(var VAR_6)
 		case 0
 			if(call is_not_force_scrolling())
 			 {
-					var teleport_mini_maim = call create_enemy(int 210, int 0, var &VAR_8, int 295)
+					var teleport_mini_maim = call create_enemy(int 210, int 0, var &init_position, int 295)
 					gamevar *character_movement_p+60 = int 1
 					call reset_local_timer()
 					var VAR_6 ++ 
@@ -142,7 +142,7 @@ switch(var VAR_6)
 							call char_walk_to(var VAR_9, int -701, int 178, int 1444)
 							call func_50(var VAR_9, int 129)
 					}
-					var VAR_10 = call run_enemy_generator(var &VAR_11, int 10)
+					var VAR_10 = call run_enemy_generator(var &enemy_gen_script, int 10)
 					call set_input_system(int 1)
 					var VAR_6 ++ 
 			}
@@ -156,7 +156,7 @@ call set_input_system(int 2)
 var VAR_9 = call func_92(int 1, "fsguard", int 295, int 13)
 call add_item_to_char(var VAR_9, int 22 /* bastswrd */ , int 0, int 1)
 call load_char("maims")
-call force_scroll_to_pos(var &VAR_8)
+call force_scroll_to_pos(var &init_position)
 
 ._SCRIPT_6
 

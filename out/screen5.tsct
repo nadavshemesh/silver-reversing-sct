@@ -12,14 +12,14 @@
 ._DATA
 VAR_18	{ 0, 0, -1 }	
 VAR_23	-1	
-VAR_50	{ 1827, 3100, 2488 }	
-VAR_51	{ 978, 3100, 2208 }	
-VAR_52	{ 1998, 1900, 4756 }	
-VAR_53	{ 899, 1900, 4685 }	
-VAR_57	{ 1772, 650, 5825 }	
-VAR_58	{ 1383, 649, 5930 }	
+init_position	{ 1827, 3100, 2488 }	
+init_position1	{ 978, 3100, 2208 }	
+init_position2	{ 1998, 1900, 4756 }	
+init_position3	{ 899, 1900, 4685 }	
+init_position5	{ 1772, 650, 5825 }	
+init_position6	{ 1383, 649, 5930 }	
 VAR_63	{ 0, 0 }	
-VAR_66	{ 2275, 650, 5498 }	
+init_position4	{ 2275, 650, 5498 }	
 
 ._on_load
 call load_sound_set(int 64)
@@ -132,10 +132,10 @@ var impish_anim = call load_anim("impish")
 ._SCRIPT_5
 
 ._SCRIPT_6
-var golem = call create_enemy(int 137, int 1, var &VAR_50, int 330)
-var golem1 = call create_enemy(int 137, int 2, var &VAR_51, int 0)
-var golem2 = call create_enemy(int 137, int 3, var &VAR_52, int 270)
-var golem3 = call create_enemy(int 137, int 4, var &VAR_53, int 75)
+var golem = call create_enemy(int 137, int 1, var &init_position, int 330)
+var golem1 = call create_enemy(int 137, int 2, var &init_position1, int 0)
+var golem2 = call create_enemy(int 137, int 3, var &init_position2, int 270)
+var golem3 = call create_enemy(int 137, int 4, var &init_position3, int 75)
 execute SCRIPT_13
 
 ._SCRIPT_7
@@ -231,7 +231,7 @@ switch(var VAR_62)
 		case 7
 			if(call get_num_of_enemies() == int 0)
 			 {
-					var fade_chronicler = call create_enemy(int 178, int 0, var &VAR_66, int 305)
+					var fade_chronicler = call create_enemy(int 178, int 0, var &init_position4, int 305)
 					var VAR_62 ++ 
 					var VAR_63 = int 0
 			}
@@ -240,8 +240,8 @@ switch(var VAR_62)
 var VAR_63 ++ 
 
 ._SCRIPT_13
-var nimp1 = call create_char(var &VAR_57, "nimp1", int 0, int 13)
-var nimp2 = call create_char(var &VAR_58, "nimp2", int 330, int 13)
+var nimp1 = call create_char(var &init_position5, "nimp1", int 0, int 13)
+var nimp2 = call create_char(var &init_position6, "nimp2", int 330, int 13)
 var DAVID = call get_char_handle(int 65536)
 gamevar script_object = var nimp1
 gamevar *character_movement_p+53 = int 0

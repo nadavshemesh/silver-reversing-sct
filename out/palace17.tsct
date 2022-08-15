@@ -10,28 +10,28 @@
 
 
 ._DATA
-VAR_5	{ -5997, 1625, -3637 }	
+init_position	{ -5997, 1625, -3637 }	
 VAR_6	{ 79, 1, -1 }	
-VAR_7	{ -5733, 1625, -3393 }	
-VAR_8	{ -5895, 1625, -3187 }	
-VAR_9	{ -6251, 1624, -3359 }	
-VAR_10	{ -6080, 1625, -3183 }	
+init_position1	{ -5733, 1625, -3393 }	
+init_position2	{ -5895, 1625, -3187 }	
+init_position3	{ -6251, 1624, -3359 }	
+init_position4	{ -6080, 1625, -3183 }	
 VAR_15	{ -5318, 1648, -3231, -6462, 1625, -1797 }	
-VAR_16	{ 3, VAR_17, 0, 5, 50, 3, VAR_18, 0, 5, 20, 3, VAR_19, 0, 5, 25, 3, VAR_20, 0, 5, 10, 7, 8 }	
+ai_script	{ 3, VAR_17, 0, 5, 50, 3, VAR_18, 0, 5, 20, 3, VAR_19, 0, 5, 25, 3, VAR_20, 0, 5, 10, 7, 8 }	
 VAR_17	"no"	
 VAR_18	"laugh"	
 VAR_19	"gstqustn"	
 VAR_20	"no"	
-VAR_21	{ 5, 30, 3, VAR_22, 0, 5, 70, 3, VAR_23, 0, 5, 10, 3, VAR_24, 0, 5, 35, 3, VAR_25, 0, 7, 8 }	
+ai_script1	{ 5, 30, 3, VAR_22, 0, 5, 70, 3, VAR_23, 0, 5, 10, 3, VAR_24, 0, 5, 35, 3, VAR_25, 0, 7, 8 }	
 VAR_22	"no"	
 VAR_23	"laugh"	
 VAR_24	"gstqustn"	
 VAR_25	"no"	
-VAR_26	{ 3, VAR_27, 0, 5, 50, 3, VAR_28, 0, 5, 30, 3, VAR_29, 0, 5, 20, 7, 8 }	
+ai_script2	{ 3, VAR_27, 0, 5, 50, 3, VAR_28, 0, 5, 30, 3, VAR_29, 0, 5, 20, 7, 8 }	
 VAR_27	"laugh"	
 VAR_28	"no"	
 VAR_29	{ 1903457127, 1853125493, -1431655936 }	
-VAR_30	{ 3, VAR_31, 0, 5, 10, 3, VAR_32, 0, 5, 25, 3, VAR_33, 0, 5, 20, 7, 8 }	
+ai_script3	{ 3, VAR_31, 0, 5, 10, 3, VAR_32, 0, 5, 25, 3, VAR_33, 0, 5, 20, 7, 8 }	
 VAR_31	{ 1735745900, -1431699352 }	
 VAR_32	{ 1903457127, 1853125493, -1431655936 }	
 VAR_33	{ 1735745900, -1431699352 }	
@@ -123,13 +123,13 @@ if(var VAR_0 == int 1)
 
 ._SCRIPT_5
 gamevar global_inventory_p = var &VAR_6
-var btreasure1 = call create_char(var &VAR_5, "btreasure1", int 10, int 14)
+var btreasure1 = call create_char(var &init_position, "btreasure1", int 10, int 14)
 call add_item_to_char(var btreasure1, int 85 /* moneybag */ , int 6554113, int 0)
 call add_item_to_char(var btreasure1, int 20 /* hammer */ , int 1, int 0)
-var bstump = call create_enemy(int 63, int 0, var &VAR_7, int 255)
-var bstump1 = call create_enemy(int 63, int 1, var &VAR_8, int 215)
-var bstump2 = call create_enemy(int 63, int 2, var &VAR_9, int 115)
-var bstump3 = call create_enemy(int 63, int 3, var &VAR_10, int 175)
+var bstump = call create_enemy(int 63, int 0, var &init_position1, int 255)
+var bstump1 = call create_enemy(int 63, int 1, var &init_position2, int 215)
+var bstump2 = call create_enemy(int 63, int 2, var &init_position3, int 115)
+var bstump3 = call create_enemy(int 63, int 3, var &init_position4, int 175)
 gamevar script_object = var bstump
 gamevar *character_stats_p+16 = int 500
 gamevar *character_stats_p+15 = int 3000
@@ -152,10 +152,10 @@ call func_50(var bstump, int 8194)
 call func_50(var bstump1, int 8194)
 call func_50(var bstump2, int 8194)
 call func_50(var bstump3, int 8194)
-call play_char_ai_script(var bstump, var &VAR_16)
-call play_char_ai_script(var bstump1, var &VAR_21)
-call play_char_ai_script(var bstump2, var &VAR_26)
-call play_char_ai_script(var bstump3, var &VAR_30)
+call play_char_ai_script(var bstump, var &ai_script)
+call play_char_ai_script(var bstump1, var &ai_script1)
+call play_char_ai_script(var bstump2, var &ai_script2)
+call play_char_ai_script(var bstump3, var &ai_script3)
 var VAR_1 = int 0
 var VAR_0 = int 1
 

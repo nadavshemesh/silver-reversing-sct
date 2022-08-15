@@ -13,17 +13,17 @@
 VAR_18	{ 0, 0, -1 }	
 VAR_23	-1	
 VAR_57	{ 0, 4 }	
-VAR_61	{ -5441, -375, -168 }	
-VAR_62	{ -2253, -1694, -660 }	
-VAR_63	{ -2253, -1684, -59 }	
+init_position1	{ -5441, -375, -168 }	
+init_position2	{ -2253, -1694, -660 }	
+init_position3	{ -2253, -1684, -59 }	
 VAR_64	0	
 selected_hero	0	
-VAR_66	{ 5, 100, 14, 0, -3293, -1096, -324, 1, selected_hero, 16, VAR_64, 1, 0, -2009, -1694, -343, 8 }	
-VAR_67	{ 15, 28, VAR_68, 5, 0, 5, 30, 0, -5441, -375, -168, 8 }	
+ai_script	{ 5, 100, 14, 0, -3293, -1096, -324, 1, selected_hero, 16, VAR_64, 1, 0, -2009, -1694, -343, 8 }	
+ai_script1	{ 15, 28, VAR_68, 5, 0, 5, 30, 0, -5441, -375, -168, 8 }	
 VAR_68	"jenwash"	
-VAR_69	{ 15, 28, VAR_70, 5, 0, 5, 30, 0, -5441, -375, -168, 8 }	
+ai_script2	{ 15, 28, VAR_70, 5, 0, 5, 30, 0, -5441, -375, -168, 8 }	
 VAR_70	"jenwash"	
-VAR_79	{ -2530, -1694, 227 }	
+init_position	{ -2530, -1694, 227 }	
 VAR_80	{ 0, 0 }	
 VAR_105	-1	
 
@@ -173,7 +173,7 @@ switch(var VAR_75)
 					call func_116("rain", "river", int 2)
 					call set_scene_overwrite_act("rain", "river", int 0)
 					call func_118("rain", "river", int 1)
-					var fade_chronicler = call create_enemy(int 178, int 0, var &VAR_79, int 95)
+					var fade_chronicler = call create_enemy(int 178, int 0, var &init_position, int 95)
 					call set_input_system(int 2)
 					var VAR_75 ++ 
 					var VAR_76 = int 0
@@ -271,10 +271,10 @@ switch(var VAR_75)
 var VAR_76 ++ 
 
 ._SCRIPT_4
-var ratgod = call create_enemy(int 146, int 0, var &VAR_61, int 100)
+var ratgod = call create_enemy(int 146, int 0, var &init_position1, int 100)
 call func_103(var ratgod)
-var rat_raptor = call create_enemy(int 55, int 1, var &VAR_62, int 285)
-var rat_raptor1 = call create_enemy(int 55, int 2, var &VAR_63, int 225)
+var rat_raptor = call create_enemy(int 55, int 1, var &init_position2, int 285)
+var rat_raptor1 = call create_enemy(int 55, int 2, var &init_position3, int 225)
 gamevar script_object = var rat_raptor
 gamevar *character_movement_p+60 = int 1
 gamevar script_object = var rat_raptor1
@@ -283,13 +283,13 @@ call func_f(var rat_raptor, int 131072)
 call func_f(var rat_raptor1, int 131072)
 call freeze_enemy(var ratgod)
 call func_50(var ratgod, int 8192)
-call play_char_ai_script(var ratgod, var &VAR_66)
+call play_char_ai_script(var ratgod, var &ai_script)
 call freeze_enemy(var rat_raptor)
 call freeze_enemy(var rat_raptor1)
 call func_50(var rat_raptor, int 8192)
 call func_50(var rat_raptor1, int 8192)
-call play_char_ai_script(var rat_raptor, var &VAR_67)
-call play_char_ai_script(var rat_raptor1, var &VAR_69)
+call play_char_ai_script(var rat_raptor, var &ai_script1)
+call play_char_ai_script(var rat_raptor1, var &ai_script2)
 var selected_hero = call get_selected_hero()
 call set_input_system(int 2)
 call load_char("chronicl")

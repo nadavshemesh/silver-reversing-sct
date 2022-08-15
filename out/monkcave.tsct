@@ -14,13 +14,13 @@ VAR_18	{ 0, 0, -1 }
 VAR_23	-1	
 david1	{ 0, 0 }	
 VAR_60	{ 0, 0 }	
-VAR_72	{ -1119, -189, 593 }	
+init_position	{ -1119, -189, 593 }	
 VAR_90	{ -6295, -1265, 625 }	
 VAR_103	-1	
-VAR_107	{ 315, -189, 143 }	
-VAR_111	{ -587, -189, 1050 }	
+init_position1	{ 315, -189, 143 }	
+walk_position	{ -587, -189, 1050 }	
 VAR_113	{ 0, 0 }	
-VAR_118	{ -490, -189, 818 }	
+position	{ -490, -189, 818 }	
 VAR_119	-1	
 
 ._on_load
@@ -254,7 +254,7 @@ switch(var VAR_74)
 var VAR_75 ++ 
 
 ._SCRIPT_6
-var nmedmonk = call create_char(var &VAR_72, "nmedmonk", int 25, int 13)
+var nmedmonk = call create_char(var &init_position, "nmedmonk", int 25, int 13)
 
 ._SCRIPT_7
 if(var VAR_103 != var VAR_98)
@@ -380,7 +380,7 @@ if(var VAR_39)
 }
 
 ._SCRIPT_8
-var nmedmonk = call create_char(var &VAR_72, "nmedmonk", int 25, int 13)
+var nmedmonk = call create_char(var &init_position, "nmedmonk", int 25, int 13)
 var ethpot1 = call add_item_to_char(var nmedmonk, int 97, int 0, int 0)
 execute SCRIPT_9
 
@@ -536,7 +536,7 @@ switch(var VAR_108)
 			if(var VAR_113)
 			 {
 					call set_char_running(var VAR_113)
-					call char_walk_to_pos(var VAR_113, var &VAR_111)
+					call char_walk_to_pos(var VAR_113, var &walk_position)
 			}
 			var VAR_108 ++ 
 			var VAR_109 = int 0
@@ -574,7 +574,7 @@ switch(var VAR_108)
 			}
 			if(var VAR_115&&var VAR_116)
 			 {
-					call char_turn_to_pos(gamevar control_char_p, var &VAR_118)
+					call char_turn_to_pos(gamevar control_char_p, var &position)
 					var VAR_108 ++ 
 					var VAR_109 = int 0
 			}
@@ -649,11 +649,11 @@ switch(var VAR_108)
 var VAR_109 ++ 
 
 ._SCRIPT_11
-var fade_chronicler = call create_enemy(int 178, int 0, var &VAR_107, int 325)
+var fade_chronicler = call create_enemy(int 178, int 0, var &init_position1, int 325)
 call set_input_system(int 2)
 
 ._SCRIPT_12
-var nmedmonk = call create_char(var &VAR_72, "nmedmonk", int 25, int 13)
+var nmedmonk = call create_char(var &init_position, "nmedmonk", int 25, int 13)
 call func_108("DOGWANK")
 call log("init_act20")
 

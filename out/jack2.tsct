@@ -12,14 +12,14 @@
 ._DATA
 VAR_3	{ 0, 0, 0 }	
 ronnie	{ 0, 0, 0 }	
-VAR_9	{ 1683, 2585, 11405 }	
-VAR_10	{ 3, VAR_11, 0, 3, VAR_12, 0, 5, 30, 24, 129, 8 }	
+init_position	{ 1683, 2585, 11405 }	
+ai_script	{ 3, VAR_11, 0, 3, VAR_12, 0, 5, 30, 24, 129, 8 }	
 VAR_11	"lookout"	
 VAR_12	"fast180%*"	
-VAR_13	{ 0, 0, 1, -1, 8, 0, 4, 0, 9, 1, 1, 1, 81, 81, 78, -1, 5, 1, 5, 40, 6, 2, 7, 1, 1, 10, 40, 42, -1, -1 }	
-VAR_14	{ 0, 0, 2, -1, 8, 0, 4, 0, 9, 1, 1, 1, 81, 81, -1, 5, 1, 5, 40, 6, 1, 7, 1, 1, 10, 41, -1, -1 }	
-VAR_22	{ 0, 0, 2, -1, 8, 0, 4, 0, 9, 1, 1, 1, 81, 81, -1, 5, 1, 5, 40, 6, 1, 7, 1, 1, 10, 40, -1, -1 }	
-VAR_27	{ 0, 0, 0, 1, 2, -1, 8, 0, 12, 78, 78, 76, 77, -1, 13, 1, 14, 0, 1, 2, 5, 0, 100, 18, 30, -1, 0 }	
+enemy_gen_script	{ 0, 0, 1, -1, 8, 0, 4, 0, 9, 1, 1, 1, 81, 81, 78, -1, 5, 1, 5, 40, 6, 2, 7, 1, 1, 10, 40, 42, -1, -1 }	
+enemy_gen_script1	{ 0, 0, 2, -1, 8, 0, 4, 0, 9, 1, 1, 1, 81, 81, -1, 5, 1, 5, 40, 6, 1, 7, 1, 1, 10, 41, -1, -1 }	
+enemy_gen_script2	{ 0, 0, 2, -1, 8, 0, 4, 0, 9, 1, 1, 1, 81, 81, -1, 5, 1, 5, 40, 6, 1, 7, 1, 1, 10, 40, -1, -1 }	
+wandering_gen_script	{ 0, 0, 0, 1, 2, -1, 8, 0, 12, 78, 78, 76, 77, -1, 13, 1, 14, 0, 1, 2, 5, 0, 100, 18, 30, -1, 0 }	
 
 ._on_load
 call load_sound_set(int 9)
@@ -123,7 +123,7 @@ switch(var VAR_15)
 		case 0
 			if(var VAR_16 > int 120)
 			 {
-					var VAR_17 = call run_enemy_generator(var &VAR_13, int 10)
+					var VAR_17 = call run_enemy_generator(var &enemy_gen_script, int 10)
 					var VAR_16 = int 0
 					var VAR_15 ++ 
 			}
@@ -140,7 +140,7 @@ switch(var VAR_15)
 		case 2
 			if(var VAR_16 == int 100)
 			 {
-					var VAR_17 = call run_enemy_generator(var &VAR_14, int 10)
+					var VAR_17 = call run_enemy_generator(var &enemy_gen_script1, int 10)
 			}
 			if(var VAR_16 > int 200)
 			 {
@@ -156,14 +156,14 @@ var VAR_16 ++
 ._SCRIPT_5
 call load_char("ogre")
 call load_char("orc")
-var ronnie = call create_enemy(int 77, int 0, var &VAR_9, int 260)
+var ronnie = call create_enemy(int 77, int 0, var &init_position, int 260)
 call add_item_to_char(var ronnie, int 85 /* moneybag */ , int 1638913, int 0)
 gamevar script_object = var ronnie
 gamevar *character_stats_p+15 = int 3000
 call func_106(var ronnie, int 1, int 0, int 1)
 call func_50(var ronnie, int 130)
 call set_char_init_state(var ronnie, int 13)
-call play_char_ai_script(var ronnie, var &VAR_10)
+call play_char_ai_script(var ronnie, var &ai_script)
 
 ._SCRIPT_6
 if(var ! VAR_0)
@@ -202,7 +202,7 @@ switch(var VAR_19)
 		case 2
 			if(var VAR_20 == int 100)
 			 {
-					var VAR_17 = call run_enemy_generator(var &VAR_22, int 10)
+					var VAR_17 = call run_enemy_generator(var &enemy_gen_script2, int 10)
 			}
 			if(var VAR_20 > int 200)
 			 {
@@ -222,4 +222,4 @@ call load_char("orc")
 call load_char("orc")
 call load_char("ogre")
 call load_char("ronnie")
-call run_wandering_generator(var &VAR_27, int 100)
+call run_wandering_generator(var &wandering_gen_script, int 100)

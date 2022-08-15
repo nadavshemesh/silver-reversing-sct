@@ -10,11 +10,11 @@
 
 
 ._DATA
-VAR_7	{ 2145, -1857, -1243 }	
-VAR_8	{ -280, -1857, -1378 }	
-VAR_9	{ 1851, -1857, -1449 }	
-VAR_10	{ -31, -1857, -1437 }	
-VAR_11	{ -360, -1857, -1126 }	
+init_position	{ 2145, -1857, -1243 }	
+init_position1	{ -280, -1857, -1378 }	
+init_position2	{ 1851, -1857, -1449 }	
+init_position3	{ -31, -1857, -1437 }	
+init_position4	{ -360, -1857, -1126 }	
 VAR_12	{ 0, 0, 0, 1, -1, 8, 1, 1, 6, 55, 55, -1, 4, 0, 9, 1, 5, 1, 50, 150, 7, 1, 4, -1 }	
 VAR_13	{ 0, 2, 300, 300, 8, 1, 1, 6, 189, 189, -1, 4, 0, 9, 1, 5, 1, 50, 150, 7, 1, 4, -1 }	
 
@@ -63,17 +63,17 @@ if(gamevar script_time > var VAR_17)
 ._SCRIPT_4
 call load_char("spider")
 call load_char("ratrptr")
-var lesser_gimp = call create_enemy(int 45, int 0, var &VAR_7, int 290)
-var lesser_gimp1 = call create_enemy(int 45, int 1, var &VAR_8, int 40)
-call func_106(var lesser_gimp, int 9, int 5, var &VAR_7)
-call func_106(var lesser_gimp1, int 9, int 5, var &VAR_8)
+var lesser_gimp = call create_enemy(int 45, int 0, var &init_position, int 290)
+var lesser_gimp1 = call create_enemy(int 45, int 1, var &init_position1, int 40)
+call func_106(var lesser_gimp, int 9, int 5, var &init_position)
+call func_106(var lesser_gimp1, int 9, int 5, var &init_position1)
 call set_char_init_state(var lesser_gimp, int 3)
 call set_char_init_state(var lesser_gimp1, int 3)
 call func_106(var lesser_gimp, int 3, int 1, var &VAR_12)
 call func_106(var lesser_gimp1, int 3, int 1, var &VAR_13)
-var greater_gimpv = call create_enemy(int 46, int 0, var &VAR_9, int 310)
-var greater_gimpv1 = call create_enemy(int 46, int 1, var &VAR_10, int 50)
-var greater_gimpv2 = call create_enemy(int 46, int 2, var &VAR_11, int 40)
+var greater_gimpv = call create_enemy(int 46, int 0, var &init_position2, int 310)
+var greater_gimpv1 = call create_enemy(int 46, int 1, var &init_position3, int 50)
+var greater_gimpv2 = call create_enemy(int 46, int 2, var &init_position4, int 40)
 call add_item_to_char(var greater_gimpv, int 45 /* deadmous */ , int 1, int 0)
 call add_item_to_char(var greater_gimpv2, int 43 /* cheese */ , int 1, int 0)
 call func_106(var greater_gimpv, int 1, int 0, int 1)

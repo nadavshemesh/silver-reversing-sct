@@ -15,17 +15,17 @@ VAR_23	-1
 VAR_40	{ 1177042944, -985751552, -974903296 }	
 VAR_43	{ 0, 0 }	
 VAR_46	{ 9793, -2050, -5378, 8758, -2050, -6031, 8973, -2050, -7506 }	
-VAR_47	{ 0, 1, 3, VAR_46, 8, 2, 4, 0, 9, 2, 1, 1, 142, 142, 95, -1, 5, 0, 0, 7, 1, 2, 10, 40, 41, -1, 6, 1, -1 }	
+enemy_gen_script1	{ 0, 1, 3, VAR_46, 8, 2, 4, 0, 9, 2, 1, 1, 142, 142, 95, -1, 5, 0, 0, 7, 1, 2, 10, 40, 41, -1, 6, 1, -1 }	
 VAR_48	{ 10982, -2045, -6315, 10310, -2025, -5798, 9441, -2050, -5485 }	
-VAR_49	{ 0, 1, 3, VAR_48, 8, 2, 4, 0, 9, 2, 1, 1, 139, 139, 95, -1, 5, 0, 0, 7, 1, 2, 10, 41, -1, 6, 1, -1 }	
+enemy_gen_script	{ 0, 1, 3, VAR_48, 8, 2, 4, 0, 9, 2, 1, 1, 139, 139, 95, -1, 5, 0, 0, 7, 1, 2, 10, 41, -1, 6, 1, -1 }	
 VAR_54	{ 10955, -3050, -5550, 10223, -3050, -5125 }	
 VAR_55	{ 8041, -3475, -5180, 8157, -3475, -5021 }	
-VAR_58	{ 5621, -3850, -2123 }	
-VAR_59	{ 4739, -3850, -2888 }	
+init_position1	{ 5621, -3850, -2123 }	
+init_position2	{ 4739, -3850, -2888 }	
 treasure1	{ 0, 0 }	
-VAR_65	{ 8845, -3850, -4371 }	
-VAR_66	{ 9318, -3050, -8150 }	
-VAR_72	{ 6511, -3849, -6233 }	
+init_position3	{ 8845, -3850, -4371 }	
+init_position4	{ 9318, -3050, -8150 }	
+init_position	{ 6511, -3849, -6233 }	
 
 ._on_load
 execute SCRIPT_11
@@ -108,7 +108,7 @@ switch(var VAR_70)
 		case 0
 			if(call func_8a(var &VAR_54))
 			 {
-					var VAR_44 = call run_enemy_generator(var &VAR_49, int 1)
+					var VAR_44 = call run_enemy_generator(var &enemy_gen_script, int 1)
 					var VAR_70 ++ 
 					var VAR_71 = int 0
 					var VAR_39 = int 1
@@ -119,7 +119,7 @@ switch(var VAR_70)
 			 {
 					if(call func_9(var VAR_44))
 					 {
-							var VAR_45 = call run_enemy_generator(var &VAR_47, int 60)
+							var VAR_45 = call run_enemy_generator(var &enemy_gen_script1, int 60)
 							var VAR_70 ++ 
 					}
 			}
@@ -151,7 +151,7 @@ switch(var VAR_70)
 		case 5
 			if(call get_num_of_enemies() == int 0)
 			 {
-					var fade_chronicler = call create_enemy(int 178, int 0, var &VAR_72, int 0)
+					var fade_chronicler = call create_enemy(int 178, int 0, var &init_position, int 0)
 					var VAR_70 ++ 
 			}
 			break 
@@ -169,7 +169,7 @@ switch(var VAR_60)
 		case 0
 			if(call func_8c(int 7602176))
 			 {
-					var cyclops = call create_enemy(int 49, int 0, var &VAR_58, int 117)
+					var cyclops = call create_enemy(int 49, int 0, var &init_position1, int 117)
 					gamevar script_object = var cyclops
 					gamevar *character_stats_p+16 = int 1400
 					gamevar *character_stats_p+15 = int 5400
@@ -182,7 +182,7 @@ switch(var VAR_60)
 			 {
 					if(call func_8c(int 7602176))
 					 {
-							var cyclops1 = call create_enemy(int 49, int 1, var &VAR_59, int 117)
+							var cyclops1 = call create_enemy(int 49, int 1, var &init_position2, int 117)
 							gamevar script_object = var cyclops1
 							gamevar *character_stats_p+16 = int 1400
 							gamevar *character_stats_p+15 = int 5400
@@ -201,7 +201,7 @@ switch(var VAR_67)
 		case 0
 			if(call func_8c(int 1507328))
 			 {
-					var treasure = call create_enemy(int 136, int 0, var &VAR_65, int 310)
+					var treasure = call create_enemy(int 136, int 0, var &init_position3, int 310)
 					call add_item_to_char(var treasure, int 83 /* borb */ , int 1, int 0)
 					call add_item_to_char(var treasure, int 83 /* borb */ , int 1, int 0)
 					var VAR_67 ++ 
@@ -213,7 +213,7 @@ switch(var VAR_67)
 			 {
 					if(var VAR_68 > int 60)
 					 {
-							var treasure1 = call create_enemy(int 136, int 1, var &VAR_66, int 310)
+							var treasure1 = call create_enemy(int 136, int 1, var &init_position4, int 310)
 							call add_item_to_char(var treasure1, int 13 /* bombs */ , int 1, int 0)
 							call add_item_to_char(var treasure1, int 13 /* bombs */ , int 1, int 0)
 							call add_item_to_char(var treasure1, int 13 /* bombs */ , int 1, int 0)

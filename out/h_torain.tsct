@@ -12,25 +12,25 @@
 ._DATA
 VAR_0	{ 0, 2, -1 }	
 VAR_1	{ 0, 2, -1 }	
-VAR_5	{ 395, 0, 172 }	
-VAR_7	{ 1428, 0, 363 }	
-VAR_9	{ 1574, 0, 466 }	
-VAR_11	{ 224, 0, 359 }	
+init_position	{ 395, 0, 172 }	
+init_position1	{ 1428, 0, 363 }	
+init_position2	{ 1574, 0, 466 }	
+init_position3	{ 224, 0, 359 }	
 VAR_16	{ -89, 1277, 492 }	
 VAR_17	1	
 VAR_18	{ 0, 0 }	
-VAR_32	{ 78, 0, 345 }	
-VAR_33	{ -520, 0, 378 }	
-VAR_34	{ -1202, 0, -11 }	
-VAR_35	{ 4259, 0, 430 }	
+walk_position1	{ 78, 0, 345 }	
+walk_position2	{ -520, 0, 378 }	
+walk_position	{ -1202, 0, -11 }	
+walk_position3	{ 4259, 0, 430 }	
 VAR_40	-1	
 nrebela1	0	
-VAR_46	{ 22, 0, 744 }	
-VAR_47	{ 345, 0, 93 }	
-VAR_48	{ 11, 1000, 2000, 3, VAR_49, 0, 11, 1000, 2000, 3, VAR_50, 0, 7, 8 }	
+init_position4	{ 22, 0, 744 }	
+init_position5	{ 345, 0, 93 }	
+ai_script	{ 11, 1000, 2000, 3, VAR_49, 0, 11, 1000, 2000, 3, VAR_50, 0, 7, 8 }	
 VAR_49	{ 1718513507, 1684370293, -1431655936 }	
 VAR_50	{ 1735749475, -1431699352 }	
-VAR_51	{ 0, 3887, 0, 493, 11, 1000, 2000, 0, -16, 0, 449, 9, nrebela1, 0, 363, 0, 119, 11, 400, 500, 7, 8 }	
+ai_script1	{ 0, 3887, 0, 493, 11, 1000, 2000, 0, -16, 0, 449, 9, nrebela1, 0, 363, 0, 119, 11, 400, 500, 7, 8 }	
 
 ._on_load
 execute SCRIPT_4
@@ -187,10 +187,10 @@ var electro_anim = call load_anim("electro")
 
 ._SCRIPT_7
 gamevar door_restriction_p = var &VAR_0
-var FSGRUNT = call create_char(var &VAR_5, "FSGRUNT!", int 270, int 13)
-var FSGRUNT2 = call create_char(var &VAR_7, "FSGRUNT2", int 230, int 13)
-var FSGRUNT3 = call create_char(var &VAR_9, "FSGRUNT3", int 225, int 13)
-var FSGRUNT = call create_char(var &VAR_11, "FSGRUNT", int 265, int 13)
+var FSGRUNT = call create_char(var &init_position, "FSGRUNT!", int 270, int 13)
+var FSGRUNT2 = call create_char(var &init_position1, "FSGRUNT2", int 230, int 13)
+var FSGRUNT3 = call create_char(var &init_position2, "FSGRUNT3", int 225, int 13)
+var FSGRUNT = call create_char(var &init_position3, "FSGRUNT", int 265, int 13)
 call add_item_to_char(var FSGRUNT, int 16 /* shrtswrd */ , int 0, int 1)
 call add_item_to_char(var FSGRUNT2, int 16 /* shrtswrd */ , int 0, int 1)
 call add_item_to_char(var FSGRUNT3, int 16 /* shrtswrd */ , int 0, int 1)
@@ -215,8 +215,8 @@ if(var VAR_30 == int 0)
 		 {
 				call set_input_system(int 2)
 				call set_char_running(var DAVID)
-				call char_walk_to_pos(var DAVID, var &VAR_34)
-				call char_teleport_to_pos(var GRANDAD, var &VAR_34, int 75)
+				call char_walk_to_pos(var DAVID, var &walk_position)
+				call char_teleport_to_pos(var GRANDAD, var &walk_position, int 75)
 		}
 		if(var VAR_31 > int 60)
 		 {
@@ -239,7 +239,7 @@ if(var VAR_30 == int 2)
  {
 		if(call func_6d() == int 1)
 		 {
-				call char_walk_to_pos(var FSGRUNT, var &VAR_32)
+				call char_walk_to_pos(var FSGRUNT, var &walk_position1)
 				var VAR_30 ++ 
 				var VAR_31 = int 0
 		}
@@ -267,7 +267,7 @@ if(var VAR_30 == int 5)
 		if(var VAR_31 > int 50)
 		 {
 				call set_char_running(var FSGRUNT)
-				call char_walk_to_pos(var FSGRUNT, var &VAR_33)
+				call char_walk_to_pos(var FSGRUNT, var &walk_position2)
 				var VAR_30 ++ 
 				var VAR_31 = int 0
 		}
@@ -306,9 +306,9 @@ if(var VAR_30 == int 8)
 				call set_char_running(var FSGRUNT)
 				call set_char_running(var FSGRUNT2)
 				call set_char_running(var FSGRUNT3)
-				call char_walk_to_pos(var FSGRUNT, var &VAR_35)
-				call char_walk_to_pos(var FSGRUNT2, var &VAR_35)
-				call char_walk_to_pos(var FSGRUNT3, var &VAR_35)
+				call char_walk_to_pos(var FSGRUNT, var &walk_position3)
+				call char_walk_to_pos(var FSGRUNT2, var &walk_position3)
+				call char_walk_to_pos(var FSGRUNT3, var &walk_position3)
 				call play_bgm("HAVENPT1")
 				var VAR_30 ++ 
 				var VAR_31 = int 0
@@ -361,13 +361,13 @@ gamevar door_restriction_p = var &VAR_1
 ._SCRIPT_13
 
 ._SCRIPT_14
-var nrebela1 = call create_char(var &VAR_46, "nrebela1", int 150, int 13)
-var nrebela2 = call create_char(var &VAR_47, "nrebela2", int 345, int 13)
+var nrebela1 = call create_char(var &init_position4, "nrebela1", int 150, int 13)
+var nrebela2 = call create_char(var &init_position5, "nrebela2", int 345, int 13)
 call add_item_to_char(var nrebela1, int 16 /* shrtswrd */ , int 0, int 1)
 call add_item_to_char(var nrebela2, int 16 /* shrtswrd */ , int 0, int 1)
 call func_50(var nrebela1, int 8192)
-call play_char_ai_script(var nrebela1, var &VAR_48)
+call play_char_ai_script(var nrebela1, var &ai_script)
 call func_50(var nrebela2, int 8192)
-call play_char_ai_script(var nrebela2, var &VAR_51)
+call play_char_ai_script(var nrebela2, var &ai_script1)
 
 ._SCRIPT_15

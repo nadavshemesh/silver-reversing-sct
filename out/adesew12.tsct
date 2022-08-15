@@ -12,8 +12,8 @@
 ._DATA
 VAR_0	{ 1, 0, 0 }	
 VAR_1	{ 1, 0, 0 }	
-VAR_5	{ 152, -1980, 4128 }	
-VAR_6	{ -345, -1980, 5280 }	
+init_position	{ 152, -1980, 4128 }	
+init_position1	{ -345, -1980, 5280 }	
 VAR_7	{ 0, 2, 300, 300, 8, 1, 1, 100, 189, -1, 4, 0, 9, 1, 5, 1, 250, 300, 7, 1, 5, 6, 1, -1 }	
 VAR_8	{ 0, 2, 300, 300, 8, 1, 1, 100, 189, -1, 4, 0, 9, 1, 5, 1, 250, 300, 7, 1, 5, 6, 1, -1 }	
 VAR_12	200	
@@ -69,8 +69,8 @@ switch(gamevar room_state)
 
 ._SCRIPT_3
 call load_char("spider")
-var greater_gimpv = call create_enemy(int 46, int 0, var &VAR_5, int 50)
-var greater_gimpv1 = call create_enemy(int 46, int 1, var &VAR_6, int 40)
+var greater_gimpv = call create_enemy(int 46, int 0, var &init_position, int 50)
+var greater_gimpv1 = call create_enemy(int 46, int 1, var &init_position1, int 40)
 call add_item_to_char(var greater_gimpv, int 43 /* cheese */ , int 1, int 0)
 call add_item_to_char(var greater_gimpv1, int 45 /* deadmous */ , int 1, int 0)
 call func_104(var greater_gimpv, int 7, int 4)

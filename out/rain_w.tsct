@@ -11,11 +11,11 @@
 
 ._DATA
 VAR_17	{ 0, 0 }	
-VAR_20	{ -754, 1693, -1830 }	
+fx_position	{ -754, 1693, -1830 }	
 VAR_21	{ 1560, 1693, 993 }	
 VAR_27	{ -60, 346, 349, -520, 346, 374 }	
 VAR_28	{ 0, -413, 346, -833, -299, 346, -914, -277, 346, -1082 }	
-VAR_29	{ 0, 0, 1, -1, 8, 1, 4, 0, 9, 1, 1, 2, 30, 31, 32, 31, -1, 5, 1, 15, 80, 6, 1, 7, 1, 1, 10, 42, 40, -1, -1 }	
+enemy_gen_script	{ 0, 0, 1, -1, 8, 1, 4, 0, 9, 1, 1, 2, 30, 31, 32, 31, -1, 5, 1, 15, 80, 6, 1, 7, 1, 1, 10, 42, 40, -1, -1 }	
 
 ._on_load
 execute SCRIPT_3
@@ -81,7 +81,7 @@ if(gamevar !is_room_cleared)
 
 ._SCRIPT_3
 call log("it's_raining")
-call play_3d_fx("RAIN", var &VAR_20, var &VAR_21, int 0)
+call play_3d_fx("RAIN", var &fx_position, var &VAR_21, int 0)
 execute SCRIPT_9
 
 ._SCRIPT_4
@@ -89,7 +89,7 @@ if(var VAR_30 == int 0)
  {
 		if(call func_8a(var &VAR_27))
 		 {
-				var VAR_28 = call run_enemy_generator(var &VAR_29, int 10)
+				var VAR_28 = call run_enemy_generator(var &enemy_gen_script, int 10)
 				var VAR_18 = int 1
 				var VAR_30 ++ 
 				var VAR_31 = int 0

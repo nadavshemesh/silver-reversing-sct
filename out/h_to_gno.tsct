@@ -10,10 +10,10 @@
 
 
 ._DATA
-VAR_4	{ 1431, -1000, -592 }	
-VAR_6	{ 1350, -1000, -592 }	
-VAR_7	{ 10, 2300, -800, 2025, 5, 400, 10, 2300, -1000, -900, 5, 400, 5, 40, 7, 8 }	
-VAR_8	{ 5, 45, 10, 2500, -500, 2025, 5, 400, 10, 2222, -600, -900, 5, 400, 7, 8 }	
+init_position	{ 1431, -1000, -592 }	
+init_position1	{ 1350, -1000, -592 }	
+ai_script	{ 10, 2300, -800, 2025, 5, 400, 10, 2300, -1000, -900, 5, 400, 5, 40, 7, 8 }	
+ai_script1	{ 5, 45, 10, 2500, -500, 2025, 5, 400, 10, 2222, -600, -900, 5, 400, 7, 8 }	
 VAR_17	{ 0, 0 }	
 
 ._on_load
@@ -133,14 +133,14 @@ if(gamevar script_time > var VAR_16)
 ._SCRIPT_4
 
 ._SCRIPT_5
-var NGULL1 = call create_char(var &VAR_4, "NGULL1", int 325, int 16)
-var NGULL2 = call create_char(var &VAR_6, "NGULL2", int 144, int 16)
+var NGULL1 = call create_char(var &init_position, "NGULL1", int 325, int 16)
+var NGULL2 = call create_char(var &init_position1, "NGULL2", int 144, int 16)
 call set_char_init_state(var NGULL1, int 13)
-call play_char_ai_script(var NGULL1, var &VAR_7)
+call play_char_ai_script(var NGULL1, var &ai_script)
 gamevar script_object = var NGULL1
 gamevar *character_stats_p+14 = int 91750
 call set_char_init_state(var NGULL2, int 13)
-call play_char_ai_script(var NGULL2, var &VAR_8)
+call play_char_ai_script(var NGULL2, var &ai_script1)
 
 ._SCRIPT_6
 call load_sound_set(int 61)

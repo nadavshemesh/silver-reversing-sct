@@ -10,19 +10,19 @@
 
 
 ._DATA
-VAR_8	{ 1180, 334, 115, -2873, 1334, -1161 }	
+init_position	{ 1180, 334, 115, -2873, 1334, -1161 }	
 VAR_9	{ 2779, 654, 115, -2519, 554, -1466, -3579, 947, -2185, -4173, 755, -1040, -3585, 755, -560, -2367, 655, -804 }	
-VAR_10	{ 13, 6, VAR_9, 0, 7, 8 }	
-VAR_11	{ 13, 6, VAR_9, 0, 7, 8 }	
-VAR_13	{ -1143, 55, -1158 }	
-VAR_15	{ -1166, 54, -1765 }	
-VAR_18	{ 0, -3756, 55, -1166, 0, -1143, 55, -1158, 7, 8 }	
-VAR_19	{ 0, -3737, 54, -1761, 0, -1166, 54, -1765, 7, 8, -979, 55, -1019 }	
+ai_script	{ 13, 6, VAR_9, 0, 7, 8 }	
+ai_script1	{ 13, 6, VAR_9, 0, 7, 8 }	
+init_position1	{ -1143, 55, -1158 }	
+init_position2	{ -1166, 54, -1765 }	
+ai_script2	{ 0, -3756, 55, -1166, 0, -1143, 55, -1158, 7, 8 }	
+ai_script3	{ 0, -3737, 54, -1761, 0, -1166, 54, -1765, 7, 8, -979, 55, -1019 }	
 VAR_20	{ -3769, 55, -1882, -3785, 55, -477 }	
 VAR_22	{ -3520, 55, -776, -3493, 54, -1686, -818, 54, -1602, -827, 55, -747, -2441, 54, -1665, -2444, 55, -830 }	
-VAR_23	{ 0, 1, 5, VAR_22, 8, 2, 4, 0, 9, 1, 1, 3, 33, 33, -1, 5, 1, 15, 60, 6, 1, 7, 1, 2, -1 }	
+enemy_gen_script	{ 0, 1, 5, VAR_22, 8, 2, 4, 0, 9, 1, 1, 3, 33, 33, -1, 5, 1, 15, 60, 6, 1, 7, 1, 2, -1 }	
 VAR_24	{ -1508, 55, -600, -1502, 55, -994, -1479, 55, -1666 }	
-VAR_25	{ 0, 1, 3, VAR_24, 8, 1, 4, 0, 9, 1, 1, 1, 35, 35, 35, -1, 5, 1, 15, 60, 6, 1, 7, 1, 2, 10, 45, 47, -1, -1 }	
+enemy_gen_script1	{ 0, 1, 3, VAR_24, 8, 1, 4, 0, 9, 1, 1, 1, 35, 35, 35, -1, 5, 1, 15, 60, 6, 1, 7, 1, 2, 10, 45, 47, -1, -1 }	
 
 ._on_load
 call play_bgm("METALON")
@@ -109,7 +109,7 @@ if(gamevar script_time > var VAR_30)
 ._SCRIPT_4
 if(var VAR_4 == int 0)
  {
-		var VAR_21 = call run_enemy_generator(var &VAR_23, int 10)
+		var VAR_21 = call run_enemy_generator(var &enemy_gen_script, int 10)
 		call log("wave2")
 		var VAR_4 ++ 
 		var VAR_5 = int 0
@@ -120,7 +120,7 @@ if(var VAR_4 == int 1)
 		 {
 				if(call func_8a(var &VAR_20))
 				 {
-						var VAR_21 = call run_enemy_generator(var &VAR_25, int 10)
+						var VAR_21 = call run_enemy_generator(var &enemy_gen_script1, int 10)
 						call log("wave2")
 						var VAR_4 ++ 
 						var VAR_5 = int 0
@@ -129,7 +129,7 @@ if(var VAR_4 == int 1)
 				 {
 						if(call get_num_of_enemies() == int 0)
 						 {
-								var VAR_21 = call run_enemy_generator(var &VAR_25, int 10)
+								var VAR_21 = call run_enemy_generator(var &enemy_gen_script1, int 10)
 								var VAR_4 ++ 
 						}
 				}
@@ -139,22 +139,22 @@ if(var VAR_4 == int 1)
 ._SCRIPT_5
 call load_char("sarcher")
 call load_char("sguard")
-var bat = call create_enemy(int 47, int 0, var &VAR_8, int 33)
-var bat1 = call create_enemy(int 47, int 1, var &VAR_8, int 33)
+var bat = call create_enemy(int 47, int 0, var &init_position, int 33)
+var bat1 = call create_enemy(int 47, int 1, var &init_position, int 33)
 call func_50(var bat, int 8192)
-call play_char_ai_script(var bat, var &VAR_10)
+call play_char_ai_script(var bat, var &ai_script)
 call func_50(var bat1, int 8192)
-call play_char_ai_script(var bat1, var &VAR_11)
-var fsguard = call create_char(var &VAR_13, "fsguard", int 240, int 13)
+call play_char_ai_script(var bat1, var &ai_script1)
+var fsguard = call create_char(var &init_position1, "fsguard", int 240, int 13)
 call add_item_to_char(var fsguard, int 22 /* bastswrd */ , int 0, int 1)
-var fsguard1 = call create_char(var &VAR_15, "fsguard1", int 240, int 13)
+var fsguard1 = call create_char(var &init_position2, "fsguard1", int 240, int 13)
 call add_item_to_char(var fsguard1, int 22 /* bastswrd */ , int 0, int 1)
 call func_106(var fsguard, int 1, int 0, int 1)
 call func_50(var fsguard, int 8323)
-call play_char_ai_script(var fsguard, var &VAR_18)
+call play_char_ai_script(var fsguard, var &ai_script2)
 call func_106(var fsguard1, int 1, int 0, int 1)
 call func_50(var fsguard1, int 8323)
-call play_char_ai_script(var fsguard1, var &VAR_19)
+call play_char_ai_script(var fsguard1, var &ai_script3)
 
 ._SCRIPT_6
 

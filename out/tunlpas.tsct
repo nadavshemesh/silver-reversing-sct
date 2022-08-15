@@ -11,19 +11,19 @@
 
 ._DATA
 VAR_17	{ 0, 0 }	
-VAR_41	{ 2575, 1150, -5350 }	
+fx_position	{ 2575, 1150, -5350 }	
 VAR_42	{ 3775, 1150, -4050 }	
 VAR_45	{ 0, 0, 0 }	
 captain	{ 0, 0 }	
-VAR_53	{ -2389, -995, 3468 }	
-VAR_54	{ -2903, -995, 3184 }	
-VAR_55	{ -2475, -995, 2944 }	
-VAR_56	{ -1391, -34, 2604 }	
-VAR_57	{ -2879, -34, 2396, -2979, -995, 3910 }	
+init_position	{ -2389, -995, 3468 }	
+init_position1	{ -2903, -995, 3184 }	
+init_position2	{ -2475, -995, 2944 }	
+init_position3	{ -1391, -34, 2604 }	
+init_position4	{ -2879, -34, 2396, -2979, -995, 3910 }	
 VAR_60	{ -1995, -34, 2438 }	
 VAR_61	{ -2424, -34, 2177 }	
-VAR_62	{ 0, -2049, -34, 2512, 0, -1391, -34, 2604, 7, 8 }	
-VAR_63	{ 0, -2424, -34, 2177, 0, -2879, -34, 2396, 5, 100, 7, 8 }	
+ai_script	{ 0, -2049, -34, 2512, 0, -1391, -34, 2604, 7, 8 }	
+ai_script1	{ 0, -2424, -34, 2177, 0, -2879, -34, 2396, 5, 100, 7, 8 }	
 VAR_64	{ 0, 0, 0, -1, 8, 0, 1, 2, 13, -1, 4, 0, 9, 0, 5, 0, 100, 6, 1, 7, 1, 4, -1 }	
 VAR_65	-1	
 VAR_66	{ 0, 0, 0 }	
@@ -112,7 +112,7 @@ if(gamevar !is_room_cleared)
 
 ._SCRIPT_3
 call log("it's_raining")
-call play_3d_fx("RAIN", var &VAR_41, var &VAR_42, int 0)
+call play_3d_fx("RAIN", var &fx_position, var &VAR_42, int 0)
 execute SCRIPT_12
 
 ._SCRIPT_4
@@ -177,14 +177,14 @@ if(var VAR_44 == int 2)
 }
 
 ._SCRIPT_6
-var lieutenant = call create_enemy(int 11, int 0, var &VAR_53, int 300)
-var lieutenant1 = call create_enemy(int 11, int 0, var &VAR_54, int 315)
-var captain = call create_enemy(int 14, int 0, var &VAR_55, int 355)
-var archer = call create_enemy(int 17, int 0, var &VAR_56, int 308)
+var lieutenant = call create_enemy(int 11, int 0, var &init_position, int 300)
+var lieutenant1 = call create_enemy(int 11, int 0, var &init_position1, int 315)
+var captain = call create_enemy(int 14, int 0, var &init_position2, int 355)
+var archer = call create_enemy(int 17, int 0, var &init_position3, int 308)
 gamevar script_object = var archer
 gamevar *character_stats_p+15 = int 3400
 call freeze_enemy(var archer)
-var archer1 = call create_enemy(int 17, int 1, var &VAR_57, int 338)
+var archer1 = call create_enemy(int 17, int 1, var &init_position4, int 338)
 gamevar script_object = var archer1
 gamevar *character_stats_p+15 = int 3400
 call freeze_enemy(var archer1)
@@ -192,9 +192,9 @@ var DAVID = call get_char_handle(int 65536)
 var SEKUNE = call get_char_handle(int 786432)
 var conjure_anim = call load_anim("conjure")
 call set_char_init_state(var archer, int 13)
-call play_char_ai_script(var archer, var &VAR_62)
+call play_char_ai_script(var archer, var &ai_script)
 call set_char_init_state(var archer1, int 13)
-call play_char_ai_script(var archer1, var &VAR_63)
+call play_char_ai_script(var archer1, var &ai_script1)
 call add_item_to_char(var captain, int 108 /* quiver */ , int 1, int 0)
 call add_item_to_char(var lieutenant, int 40 /* apple */ , int 1, int 0)
 

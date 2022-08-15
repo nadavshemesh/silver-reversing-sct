@@ -11,19 +11,19 @@
 
 ._DATA
 VAR_2	{ 3739, 1137, 13264, 2062, 1137, 13290 }	
-VAR_5	{ 3277, 1137, 14836 }	
-VAR_6	{ 2521, 1137, 14903 }	
+init_position	{ 3277, 1137, 14836 }	
+init_position1	{ 2521, 1137, 14903 }	
 VAR_7	{ 4207, 2109, 13381, 1500, 2109, 13275, 4207, 2109, 13381, 1500, 2109, 13275, 4207, 2109, 13381, 1500, 2109, 13275, 4207, 2109, 13381, 1500, 2109, 13275 }	
 VAR_8	{ 0, 3779, 2109, 13381, 2, 2874, 2109, 13479, 27, 8 }	
 VAR_9	{ 0, 1987, 2109, 13431, 2, 2874, 2109, 13479, 27, 8 }	
 VAR_10	{ 0, 3779, 2109, 13381, 2, 2874, 2109, 13479, 27, 8 }	
 VAR_11	{ 0, 1987, 2109, 13431, 2, 2874, 2109, 13479, 27, 8 }	
-VAR_12	{ 0, 1, 8, VAR_7, 8, 1, 19, 2874, 2109, 13479, 12, 118, 117, 117, 118, -1, 13, 0, 14, 1, 4, 5, 0, 200, 15, VAR_8, VAR_9, VAR_10, VAR_11, -1, 16, 0, 6, 1, 18, 100, 11, -1 }	
+wandering_gen_script	{ 0, 1, 8, VAR_7, 8, 1, 19, 2874, 2109, 13479, 12, 118, 117, 117, 118, -1, 13, 0, 14, 1, 4, 5, 0, 200, 15, VAR_8, VAR_9, VAR_10, VAR_11, -1, 16, 0, 6, 1, 18, 100, 11, -1 }	
 VAR_14	{ 0, 0 }	
 VAR_19	{ 4207, 2109, 13381, 1500, 2109, 13275 }	
 VAR_20	{ 0, 3779, 2109, 13381, 2, 2874, 2109, 13479, 27, 8 }	
 VAR_21	{ 0, 1987, 2109, 13431, 2, 2874, 2109, 13479, 27, 8 }	
-VAR_22	{ 0, 1, 2, VAR_19, 8, 1, 19, 2874, 2109, 13479, 12, 118, 117, -1, 13, 0, 14, 1, 2, 5, 0, 200, 17, 0, 200, -1, 15, VAR_20, VAR_21, -1, 16, 0, 18, 25, 11, -1, 0 }	
+wandering_gen_script1	{ 0, 1, 2, VAR_19, 8, 1, 19, 2874, 2109, 13479, 12, 118, 117, -1, 13, 0, 14, 1, 2, 5, 0, 200, 17, 0, 200, -1, 15, VAR_20, VAR_21, -1, 16, 0, 18, 25, 11, -1, 0 }	
 
 ._on_load
 call load_sound_set(int 65)
@@ -102,7 +102,7 @@ if(var VAR_14 == int 0)
 		if(call func_8a(var &VAR_2))
 		 {
 				call log("here they come")
-				var VAR_13 = call run_wandering_generator(var &VAR_12, int 10)
+				var VAR_13 = call run_wandering_generator(var &wandering_gen_script, int 10)
 				var VAR_14 ++ 
 		}
 }
@@ -112,8 +112,8 @@ call load_char("orc")
 call load_char("ronnie")
 call load_item(int 96 /* pick */ )
 call load_item(int 92 /* spikmace */ )
-var ogre = call create_enemy(int 76, int 0, var &VAR_5, int 165)
-var ogre1 = call create_enemy(int 76, int 1, var &VAR_6, int 140)
+var ogre = call create_enemy(int 76, int 0, var &init_position, int 165)
+var ogre1 = call create_enemy(int 76, int 1, var &init_position1, int 140)
 call add_item_to_char(var ogre, int 43 /* cheese */ , int 1, int 0)
 call add_item_to_char(var ogre1, int 42 /* bread */ , int 1, int 0)
 
@@ -125,4 +125,4 @@ call add_item_to_char(var ogre1, int 42 /* bread */ , int 1, int 0)
 call load_char("orc")
 call load_char("ronnie")
 call log("wandering baddies")
-call run_wandering_generator(var &VAR_22, int 100)
+call run_wandering_generator(var &wandering_gen_script1, int 100)

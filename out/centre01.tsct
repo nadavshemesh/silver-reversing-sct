@@ -10,11 +10,11 @@
 
 
 ._DATA
-VAR_1	{ 4615, -929, -3947 }	
-VAR_3	{ 4639, -930, -3630 }	
-VAR_5	{ 4848, -929, -3795 }	
+init_position1	{ 4615, -929, -3947 }	
+init_position2	{ 4639, -930, -3630 }	
+init_position	{ 4848, -929, -3795 }	
 VAR_23	{ 0, 0 }	
-VAR_24	{ -7755, 1825, 5210 }	
+fx_position	{ -7755, 1825, 5210 }	
 VAR_25	"!!"	
 
 ._on_load
@@ -54,9 +54,9 @@ switch(gamevar room_state)
 ._SCRIPT_3
 
 ._SCRIPT_4
-var muscles = call create_enemy(int 30, int 0, var &VAR_5, int 105)
-var dick = call create_enemy(int 31, int 0, var &VAR_1, int 90)
-var finnegan = call create_enemy(int 32, int 0, var &VAR_3, int 80)
+var muscles = call create_enemy(int 30, int 0, var &init_position, int 105)
+var dick = call create_enemy(int 31, int 0, var &init_position1, int 90)
+var finnegan = call create_enemy(int 32, int 0, var &init_position2, int 80)
 call add_item_to_char(var finnegan, int 43 /* cheese */ , int 1, int 0)
 call add_item_to_char(var dick, int 26 /* scroll */ , int 1, int 0)
 call set_char_running(var muscles)
@@ -67,7 +67,7 @@ call func_19(var finnegan, call get_selected_hero())
 call func_19(var dick, call get_selected_hero())
 
 ._SCRIPT_5
-call play_3d_fx("RAIN", var &VAR_24, var &VAR_25, int 0)
+call play_3d_fx("RAIN", var &fx_position, var &VAR_25, int 0)
 execute SCRIPT_6
 
 ._SCRIPT_6

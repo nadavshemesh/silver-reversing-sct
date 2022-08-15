@@ -12,8 +12,8 @@
 ._DATA
 VAR_1	65536	
 VAR_2	65536	
-VAR_9	{ -335, -665, 353 }	
-VAR_10	{ 676, 500, 725 }	
+init_position	{ -335, -665, 353 }	
+init_position1	{ 676, 500, 725 }	
 VAR_11	665	
 VAR_12	"py"	
 VAR_14	500	
@@ -21,7 +21,7 @@ VAR_15	{ 10, 120 }
 VAR_32	{ 0, 0 }	
 VAR_34	{ 0, 0 }	
 VAR_35	{ 0, 0, 0 }	
-VAR_44	{ 1790, -765, 750 }	
+tele_position	{ 1790, -765, 750 }	
 VAR_45	{ 1024, 634, 1310 }	
 VAR_47	{ 674, -200, 374 }	
 VAR_48	{ 1605, -300, 813 }	
@@ -88,7 +88,7 @@ switch(var VAR_41)
 		case 0
 			if(var VAR_42 > int 5)
 			 {
-					call char_teleport_to_pos(var DAVID, var &VAR_44, int 250)
+					call char_teleport_to_pos(var DAVID, var &tele_position, int 250)
 					var VAR_41 ++ 
 					var VAR_42 = int 0
 			}
@@ -223,7 +223,7 @@ switch(var VAR_41)
 		case 11
 			if(call func_38(var i1horn, int 0))
 			 {
-					call func_9b(var i1horn, var &VAR_44, int 10779361)
+					call func_9b(var i1horn, var &tele_position, int 10779361)
 					var VAR_41 ++ 
 					var VAR_42 = int 0
 			}
@@ -234,7 +234,7 @@ switch(var VAR_41)
 					call func_12f(var VAR_52)
 					call set_char_walking(var DAVID)
 					call func_ca(var DAVID, var i1horn, int 0)
-					call char_turn_to_pos(var nduke, var &VAR_44)
+					call char_turn_to_pos(var nduke, var &tele_position)
 					var VAR_41 ++ 
 					var VAR_42 = int 0
 			}
@@ -273,8 +273,8 @@ var VAR_42 ++
 
 ._SCRIPT_4
 var nduke = call create_char("Å", "nduke", int 275, int 13)
-var nbuzuki = call create_char(var &VAR_9, "nbuzuki", int 35, int 13)
-var noracle = call create_char(var &VAR_10, "noracle", int 210, int 13)
+var nbuzuki = call create_char(var &init_position, "nbuzuki", int 35, int 13)
+var noracle = call create_char(var &init_position1, "noracle", int 210, int 13)
 gamevar script_object = var noracle
 gamevar *character_movement_p+62 = int 1
 call add_item_to_char(var nduke, int 16 /* shrtswrd */ , int 0, int 1)

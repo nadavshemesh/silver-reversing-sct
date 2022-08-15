@@ -11,14 +11,14 @@
 
 ._DATA
 VAR_5	-1	
-VAR_10	{ -239, 0, 2564 }	
+init_position	{ -239, 0, 2564 }	
 VAR_11	{ 85, 6554113, 45, 1, 46, 1, 47, 1, 40, 1, 41, 1, 42, 1, -1 }	
-VAR_12	{ -285, 160, 2050 }	
+fx_position	{ -285, 160, 2050 }	
 VAR_13	{ -784, 0, 2742 }	
 
 ._on_load
 call func_10e()
-var VAR_1 = var &VAR_13
+var init_position1 = var &VAR_13
 var VAR_2 = int 184
 execute SCRIPT_10
 var VAR_3 = int 109
@@ -33,7 +33,7 @@ call play_2d_anim("rope", int 1, int 1, int 0)
 gamevar SMACKER_X = int 92
 gamevar SMACKER_Y = int 312
 call play_2d_anim("glowfire", int 1, int 1, int 0)
-var VAR_9 = call play_3d_fx("FIRE", var &VAR_12, int 0, int 0)
+var VAR_9 = call play_3d_fx("FIRE", var &fx_position, int 0, int 0)
 if(gamevar room_state == int 1)
  {
 		execute SCRIPT_4
@@ -85,7 +85,7 @@ if(var VAR_8)
 
 ._SCRIPT_4
 gamevar global_inventory_p = var &VAR_11
-call create_char(var &VAR_10, "btreasure1", int 225, int 14)
+call create_char(var &init_position, "btreasure1", int 225, int 14)
 var VAR_8 = int 0
 var VAR_7 = int 1
 
@@ -127,7 +127,7 @@ if(gamevar *psys_p+1)
 var is_BTREASURE_exist = call is_char_handle_in_level(int 1507337)
 if(var ! is_BTREASURE_exist)
  {
-		var is_BTREASURE_exist = call create_char(var VAR_1, "btreasure9", var VAR_2, int 14)
+		var is_BTREASURE_exist = call create_char(var init_position1, "btreasure9", var VAR_2, int 14)
 		call func_aa(var is_BTREASURE_exist)
 }
 else

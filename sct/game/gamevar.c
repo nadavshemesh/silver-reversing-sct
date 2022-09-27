@@ -233,7 +233,7 @@ game_var* get_game_var_by_name(char* name) {
     if(*name == '*') {
         char gvname[256];
         int to;
-        sscanf(name, "*%[a-zA-Z\_]\+%d", gvname, &to);
+        sscanf(name, "*%[a-zA-Z_]+%d", gvname, &to);
         for(int i=0; i < GAME_VARS_NUM; i++) {
             game_var* gv = game_vars[i];
             if(strlen(gv->name) == strlen(gvname) && strcmp(gv->name, gvname) == 0) {

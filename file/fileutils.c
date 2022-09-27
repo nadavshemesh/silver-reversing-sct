@@ -1,4 +1,4 @@
-#include "\file\fileutils.h"
+#include "file\fileutils.h"
 
 long getFileSize(FILE* f) {
 	fseek(f, 0, SEEK_END);

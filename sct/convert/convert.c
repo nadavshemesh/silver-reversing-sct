@@ -270,7 +270,7 @@ int main(int argc, char* argv[]) {
     switch(op) {
         case 0:
             ext = getFilenameExt(filepath);
-            if(!strs_identical(ext, ".sct")) {
+            if(!(strs_identical(ext, ".sct") || strs_identical(ext, ".SCT"))) {
                 print_err_and_exit("Wrong extension. should be an .sct file", -2);
             }
 
@@ -284,7 +284,7 @@ int main(int argc, char* argv[]) {
 
         case 1:
             ext = getFilenameExt(filepath);
-            if(!strs_identical(ext, ".tsct")) {
+            if(!(strs_identical(ext, ".tsct") || strs_identical(ext, ".TSCT"))) {
                 print_err_and_exit("Wrong extension. should be a .tsct file", -4);
             }
 

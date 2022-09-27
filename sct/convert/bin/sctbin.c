@@ -723,7 +723,7 @@ expr_obj* bin_create_expr_obj(expr_pattern* expr, int* vars, void** token_pos_pt
                 expression* exp = bin_read_expression(token_pos_ptr, true, sf);
 
                 // name the var as hint to an index
-                if(exp->expr_objs->expr_p == VAR_PTR && !exp->expr_objs->data->was_renamed) {
+                if(exp->expr_objs->expr_p->type == VAR_PTR && !exp->expr_objs->data->was_renamed) {
                     char name[256];
                     if(global_arr_index_name_counter == 0) {
                         sprintf(name, "index");

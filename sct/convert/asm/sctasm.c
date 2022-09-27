@@ -75,9 +75,9 @@ int read_word(FILE* f, char* dest) {
     }
     
     // ignore multi line comments
-    if(c == '/' && peek_next_char(f) == '\*') {
+    if(c == '/' && peek_next_char(f) == '*') {
         // printf("found multiline comment\n");
-        while(!(c == '\*' && peek_next_char(f) == '/')) {
+        while(!(c == '*' && peek_next_char(f) == '/')) {
             c = getc(f);
         }
         c = getc(f);
@@ -1605,8 +1605,8 @@ code_obj* asm_read_switch_case(code_pattern* cp, char** vars, char*** tokens_pos
     
     // sf->structure->code_section_word_counter += switch_block_cp->bin_token_num;
 
-    int start_token_addr = (int) *tokens_pos_ptr;
-    int end_token_addr = (start_token_addr + tokens_to_read*sizeof(char*));
+    intptr_t start_token_addr = (intptr_t) *tokens_pos_ptr;
+    intptr_t end_token_addr = (start_token_addr + tokens_to_read*sizeof(char*));
     // printf("end at token: %s\n", ((char*)end_token_addr));
 
     unsigned long before_block_code_word_count = get_sct_code_word_count(sf);
@@ -1617,7 +1617,7 @@ code_obj* asm_read_switch_case(code_pattern* cp, char** vars, char*** tokens_pos
     int block_word_size = 0;
     node** code_nodes = w_malloc(sizeof(node*));
     int code_nodes_num = 0;
-    while(*tokens_pos_ptr != NULL && ((int)*tokens_pos_ptr) < end_token_addr) {
+    while(*tokens_pos_ptr != NULL && ((intptr_t)*tokens_pos_ptr) < end_token_addr) {
         // Check for case
         char** token_ptr = *tokens_pos_ptr;
         if(strlen(*token_ptr) == strlen(default_case_token) && strcmp(*token_ptr, default_case_token) == 0) {
@@ -2052,11 +2052,11 @@ code_obj* asm_read_code_block(int tokens_to_read, char*** tokens_pos_ptr, sct_f*
     if(tokens_to_read > 0) {
         // sf->structure->code_section_word_counter += cp->bin_token_num;
 
-        int start_token_addr = (int) *tokens_pos_ptr;
-        int end_token_addr = (start_token_addr + tokens_to_read*sizeof(char*));
+        intptr_t start_token_addr = (intptr_t) *tokens_pos_ptr;
+        intptr_t end_token_addr = (start_token_addr + tokens_to_read*sizeof(char*));
         node** code_nodes = w_malloc(sizeof(node*));
         int code_nodes_num = 0;
-        while(*tokens_pos_ptr != NULL && ((int)*tokens_pos_ptr) < end_token_addr) {
+        while(*tokens_pos_ptr != NULL && ((intptr_t)*tokens_pos_ptr) < end_token_addr) {
             cp_cmp_result res = asm_identify_cp(tokens_pos_ptr, sf);
             if(res.is_identified) {
                 char msg[256];

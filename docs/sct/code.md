@@ -453,7 +453,7 @@ Let's call the function that creates an enemy, for it we need the following prop
     - Enemy number (check [this list](../catalog/enemies.md) for reference), for this purpose let us choose number 105(0x69), a winged imp - Integer
     - An id for that enemy (just some number, it does'nt matter), Let's say 01 - Integer
     - A position pointer - Pointer to an array of 3 Integers
-    - Radius number for that enemy to respond to a hero when it's close enough, Let's say 100 - Integer
+    - A number of degrees (0-360) for that enemy to face towards, Let's say 100 - Integer
 - It's return value is a pointer to that enemy after it has been created. so we can use it for different purposes.
 
 Using the above information we can perform a function call like so:

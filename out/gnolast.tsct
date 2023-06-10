@@ -10,488 +10,488 @@
 
 
 ._DATA
-VAR_20	{ 73, 1, -1 }	
-position	{ 1218, 21, 5832, 0, 0, 0, 0, 0, 0 }	
-ai_script	{ 0, 1543, 21, 5901, 2, 1798, 210, 5886, 28, VAR_30, 10, 0, 0, 1301, 21, 6065, 2, 1607, 248, 6380, 28, VAR_31, 15, 0, 0, 1543, 21, 5901, 6, 1, 0, 8 }	
-VAR_30	"impread"	
-VAR_31	"impread"	
-walk_position	{ 1123, 21, 4137 }	
-VAR_33	-1	
-VAR_42	{ 1991, 3, 1964 }	
-VAR_56	{ 0, 0 }	
+	VAR_20	{ 73, 1, -1 }	
+	position	{ 1218, 21, 5832, 0, 0, 0, 0, 0, 0 }	
+	ai_script	{ 0, 1543, 21, 5901, 2, 1798, 210, 5886, 28, VAR_30, 10, 0, 0, 1301, 21, 6065, 2, 1607, 248, 6380, 28, VAR_31, 15, 0, 0, 1543, 21, 5901, 6, 1, 0, 8 }	
+	VAR_30	"impread"	
+	VAR_31	"impread"	
+	walk_position	{ 1123, 21, 4137 }	
+	VAR_33	-1	
+	VAR_42	{ 1991, 3, 1964 }	
+	VAR_56	{ 0, 0 }	
 
 ._on_load
-call play_bgm("GNO")
-execute SCRIPT_3
-if(gamevar is_room_cleared)
- {
-		execute SCRIPT_17
-}
-else
- {
-		switch(gamevar room_state)
-		 {
-				case 1
-					execute SCRIPT_6
-					break 
-				case 2
-					execute SCRIPT_13
-					break 
-				case 3
-					execute SCRIPT_16
-					break 
-				case 0
-					break 
-		}
-}
+	call play_bgm("GNO")
+	execute SCRIPT_3
+	if(gamevar is_room_cleared)
+	 {
+			execute SCRIPT_17
+	}
+	else
+	 {
+			switch(gamevar room_state)
+			 {
+					case 1
+						execute SCRIPT_6
+						break 
+					case 2
+						execute SCRIPT_13
+						break 
+					case 3
+						execute SCRIPT_16
+						break 
+					case 0
+						break 
+			}
+	}
 
 ._infinite_loop
-execute SCRIPT_14
-if(gamevar !is_room_cleared)
- {
-		switch(gamevar room_state)
-		 {
-				case 1
-					execute SCRIPT_5
-					break 
-				case 2
-					execute SCRIPT_12
-					break 
-				case 3
-					execute SCRIPT_15
-					break 
-				case 0
-					break 
-		}
-}
+	execute SCRIPT_14
+	if(gamevar !is_room_cleared)
+	 {
+			switch(gamevar room_state)
+			 {
+					case 1
+						execute SCRIPT_5
+						break 
+					case 2
+						execute SCRIPT_12
+						break 
+					case 3
+						execute SCRIPT_15
+						break 
+					case 0
+						break 
+			}
+	}
 
 ._on_exit
-if(gamevar !is_room_cleared)
- {
-		switch(gamevar room_state)
-		 {
-				case 1
-					call func_58(int 1)
-					gamevar room_state ++ 
-					break 
-				case 2
-					gamevar room_state ++ 
-					gamevar is_room_cleared = int 1
-					break 
-				case 3
-					break 
-				case 0
-					break 
-				default 
-					gamevar room_state = int 0
-					break 
-		}
-}
+	if(gamevar !is_room_cleared)
+	 {
+			switch(gamevar room_state)
+			 {
+					case 1
+						call func_58(int 1)
+						gamevar room_state ++ 
+						break 
+					case 2
+						gamevar room_state ++ 
+						gamevar is_room_cleared = int 1
+						break 
+					case 3
+						break 
+					case 0
+						break 
+					default 
+						gamevar room_state = int 0
+						break 
+			}
+	}
 
 ._SCRIPT_3
-gamevar SMACKER_X = int 0
-gamevar SMACKER_Y = int 0
-call play_2d_anim("gnolast", int 1, int 0, int 0)
-gamevar SMACKER_X = int 524
-gamevar SMACKER_Y = int 0
-call play_2d_anim("sea", int 1, int 1, int 0)
-call load_sound_set(int 43)
-call load_sound_set(int 63)
+	gamevar SMACKER_X = int 0
+	gamevar SMACKER_Y = int 0
+	call play_2d_anim("gnolast", int 1, int 0, int 0)
+	gamevar SMACKER_X = int 524
+	gamevar SMACKER_Y = int 0
+	call play_2d_anim("sea", int 1, int 1, int 0)
+	call load_sound_set(int 43)
+	call load_sound_set(int 63)
 
- /* play the sound 'gnoamb1' */ 
-call play_loaded_sound(int 1, int -1, int 63, int 0)
+	 /* play the sound 'gnoamb1' */ 
+	call play_loaded_sound(int 1, int -1, int 63, int 0)
 
- /* play the sound 'gyro2' */ 
-call play_loaded_sound(int 1, int -1, int 43, int 0)
+	 /* play the sound 'gyro2' */ 
+	call play_loaded_sound(int 1, int -1, int 43, int 0)
 
- /* play the sound 'gyro2' */ 
-call play_loaded_sound(int 2, int -1, int 43, int 0)
+	 /* play the sound 'gyro2' */ 
+	call play_loaded_sound(int 2, int -1, int 43, int 0)
 
- /* play the sound 'dwavesLp' */ 
-call play_loaded_sound(int 3, int -1, int 43, int 0)
+	 /* play the sound 'dwavesLp' */ 
+	call play_loaded_sound(int 3, int -1, int 43, int 0)
 
- /* play the sound 'dwave1' */ 
-call play_loaded_sound(int 4, int -1, int 43, int 0)
+	 /* play the sound 'dwave1' */ 
+	call play_loaded_sound(int 4, int -1, int 43, int 0)
 
 ._SCRIPT_4
-gamevar unknown_04_02_10 = int 10118758
-gamevar unknown_04_02_14 = int 1376256
-gamevar unknown_04_02_18 = int 27734835
-gamevar unknown_04_02_1c = int 0
-gamevar unknown_04_02_00 = int 13
-call func_a1("ntyronis")
-var TYRONIS = call get_char_handle(int 2031616)
-call char_unfollow(var TYRONIS)
-var lstaff = call add_item_to_char(var TYRONIS, int 75, int 0, int 0)
-gamevar unknown_04_02_10 = int 92471296
-gamevar unknown_04_02_14 = int 1376256
-gamevar unknown_04_02_18 = int 29222502
-gamevar unknown_04_02_1c = int -20
-gamevar unknown_04_02_00 = int 14
-gamevar global_inventory_p = var &VAR_20
-call func_a1("btreasure")
-var BTREASURE = call get_char_handle(int 1507328)
-var DAVID = call get_char_handle(int 65536)
-var GRANDAD = call get_char_handle(int 393216)
-gamevar script_object = var GRANDAD
-gamevar *character_movement_p+60 = int 1
-call func_10c(var TYRONIS, "MARC")
-call func_10c(var GRANDAD, "MARC")
+	gamevar unknown_04_02_10 = int 10118758
+	gamevar unknown_04_02_14 = int 1376256
+	gamevar unknown_04_02_18 = int 27734835
+	gamevar unknown_04_02_1c = int 0
+	gamevar unknown_04_02_00 = int 13
+	call func_a1("ntyronis")
+	var TYRONIS = call get_char_handle(int 2031616)
+	call char_unfollow(var TYRONIS)
+	var lstaff = call add_item_to_char(var TYRONIS, int 75, int 0, int 0)
+	gamevar unknown_04_02_10 = int 92471296
+	gamevar unknown_04_02_14 = int 1376256
+	gamevar unknown_04_02_18 = int 29222502
+	gamevar unknown_04_02_1c = int -20
+	gamevar unknown_04_02_00 = int 14
+	gamevar global_inventory_p = var &VAR_20
+	call func_a1("btreasure")
+	var BTREASURE = call get_char_handle(int 1507328)
+	var DAVID = call get_char_handle(int 65536)
+	var GRANDAD = call get_char_handle(int 393216)
+	gamevar script_object = var GRANDAD
+	gamevar *character_movement_p+60 = int 1
+	call func_10c(var TYRONIS, "MARC")
+	call func_10c(var GRANDAD, "MARC")
 
 ._SCRIPT_5
-if(call is_char_handle_in_level(int 2031616 /* TYRONIS */ ))
- {
-		execute SCRIPT_7
-}
-if(var VAR_19)
- {
-		execute SCRIPT_11
-}
+	if(call is_char_handle_in_level(int 2031616 /* TYRONIS */ ))
+	 {
+			execute SCRIPT_7
+	}
+	if(var VAR_19)
+	 {
+			execute SCRIPT_11
+	}
 
 ._SCRIPT_6
-execute SCRIPT_4
-execute SCRIPT_8
-call log("override door 0")
-gamevar *scene_info_p+3 = int 16
+	execute SCRIPT_4
+	execute SCRIPT_8
+	call log("override door 0")
+	gamevar *scene_info_p+3 = int 16
 
 ._SCRIPT_7
-if(var VAR_33 != var VAR_15)
- {
-		var VAR_33 = var VAR_15
-		call log_obj(var VAR_15)
-}
-switch(var VAR_15)
- {
-		case 0
-			if(var VAR_27 == int 0)
+	if(var VAR_33 != var VAR_15)
+	 {
+			var VAR_33 = var VAR_15
+			call log_obj(var VAR_15)
+	}
+	switch(var VAR_15)
+	 {
+			case 0
+				if(var VAR_27 == int 0)
+				 {
+						call play_char_anim(var TYRONIS, var impread_anim, int 0)
+						call set_input_system(int 2)
+				}
+				if(var VAR_27 == int 60)
+				 {
+						call char_walk_to_pos(var GRANDAD, var &walk_position)
+				}
+				if(var VAR_27 > int 420)
+				 {
+						if(call is_char_standing(var DAVID))
+						 {
+								call play_char_anim(var TYRONIS, var tyrosumn_anim, int 0)
+								var VAR_15 ++ 
+								var VAR_27 = int 0
+						}
+				}
+				break 
+			case 1
+				if(call func_5c(var TYRONIS))
+				 {
+						call func_10c(var TYRONIS, int 0)
+						call func_10c(var GRANDAD, int 0)
+						call char_turn_to_pos(var DAVID, call get_char_pos(var TYRONIS))
+						call start_dialog("TERCHEST", "NULL")
+						var VAR_15 ++ 
+						var VAR_27 = int 0
+				}
+				break 
+			case 2
+				if(call get_input_sys() != int 4)
+				 {
+						call set_input_system(int 1)
+						call func_50(var TYRONIS, int 8192)
+						call play_char_ai_script(var TYRONIS, var &ai_script)
+						var VAR_15 ++ 
+						var VAR_27 = int 0
+				}
+				break 
+			case 10
+				if(var VAR_27 > int 30)
+				 {
+						call chars_face_opposite(var TYRONIS, var DAVID)
+						var VAR_15 ++ 
+						var VAR_27 = int 0
+				}
+				break 
+			case 11
+				if(var VAR_27 > int 30)
+				 {
+						call start_dialog("CHEST", "NULL")
+						var VAR_15 ++ 
+						var VAR_27 = int 0
+				}
+				break 
+			case 12
+				if(call get_input_sys() != int 4)
+				 {
+						call set_input_system(int 2)
+						call char_walk_to(var TYRONIS, int 1578, int 21, int 5103)
+						var VAR_15 ++ 
+						var VAR_27 = int 0
+				}
+				break 
+			case 13
+				if(call is_char_standing(var TYRONIS))
+				 {
+						call toggle_or_use_char_item(var TYRONIS, var lstaff)
+						var VAR_15 ++ 
+						var VAR_27 = int 0
+				}
+				break 
+			case 14
+				if(var VAR_27 > int 60)
+				 {
+						call func_36(var TYRONIS, int 1218, int 21, int 5832)
+						var VAR_15 ++ 
+						var VAR_27 = int 0
+				}
+				break 
+			case 15
+				if(var VAR_27 > int 60)
+				 {
+						call play_char_anim(var TYRONIS, var conjure_anim, int 0)
+						var VAR_15 ++ 
+						var VAR_27 = int 0
+				}
+				break 
+			case 16
+				if(call func_5c(var TYRONIS))
+				 {
+						var VAR_13 = call func_e8(var &position, int 0)
+						call func_fd(var TYRONIS, var lstaff)
+						var VAR_15 ++ 
+						var VAR_27 = int 0
+				}
+				break 
+			case 17
+				if(var VAR_27 > int 100)
+				 {
+						call char_walk_to(var TYRONIS, int 1218, int 21, int 5832)
+						var VAR_15 ++ 
+						var VAR_27 = int 0
+				}
+				break 
+			case 18
+				if(call is_char_standing(var TYRONIS))
+				 {
+						call char_turn_to_pos(var TYRONIS, call get_char_pos(var DAVID))
+						call char_turn_to_pos(var DAVID, call get_char_pos(var TYRONIS))
+						var VAR_15 ++ 
+						var VAR_27 = int 0
+				}
+				break 
+			case 19
+				if(var VAR_27 > int 30)
+				 {
+						call start_dialog("S_DVDTER", "NULL")
+						var VAR_15 ++ 
+						var VAR_27 = int 0
+				}
+				break 
+			case 20
+				if(call get_input_sys() != int 4)
+				 {
+						var VAR_19 = int 1
+						call func_fa(var TYRONIS)
+						var VAR_15 ++ 
+						var VAR_27 = int 0
+				}
+				break 
+			case 21
+				if(var VAR_27 > int 160)
+				 {
+						call remove_char(var TYRONIS)
+						var VAR_15 ++ 
+						var VAR_27 = int 0
+				}
+				break 
+	}
+	execute SCRIPT_9
+	var VAR_27 ++ 
+
+._SCRIPT_8
+	var tyrosumn_anim = call load_anim("tyrosumn")
+	var conjure_anim = call load_anim("conjure")
+	var gstqustn_anim = call load_anim("gstqustn")
+	var impread_anim = call load_anim("impread")
+	var come_anim = call load_anim("come")
+
+._SCRIPT_9
+	switch(var VAR_50)
+	 {
+			case 0
+				if(call func_af(int 73) != int 0)
+				 {
+						call log("Chest opened")
+						call func_10c(var TYRONIS, "MARC")
+						var VAR_50 ++ 
+				}
+				break 
+			case 1
+				if(call func_af(int 73) == int 0)
+				 {
+						call log("icewand picked up")
+						call func_10c(var GRANDAD, "MARC")
+						call freeze_enemy(var TYRONIS)
+						var VAR_15 = int 10
+						var VAR_27 = int 0
+						var VAR_50 ++ 
+				}
+				break 
+	}
+
+._SCRIPT_10
+	gamevar script_object = var BTREASURE
+	if(gamevar *object_p+5 == int 14)
+	 {
+			gamevar room_state = int 2
+	}
+	else
+	 {
+			gamevar room_state = int 3
+	}
+
+._SCRIPT_11
+	if(var VAR_40 == int 0)
+	 {
+			call func_36(var GRANDAD, int 1160, int 21, int 5344)
+			var VAR_40 ++ 
+			var VAR_41 = int 0
+	}
+	if(var VAR_40 == int 1)
+	 {
+			if(var VAR_41 == int 220)
 			 {
-					call play_char_anim(var TYRONIS, var impread_anim, int 0)
-					call set_input_system(int 2)
+					call char_turn_to_pos(var DAVID, call get_char_pos(var GRANDAD))
 			}
-			if(var VAR_27 == int 60)
+			if(var VAR_41 > int 240)
 			 {
-					call char_walk_to_pos(var GRANDAD, var &walk_position)
+					call start_dialog("DVDTELE", "NULL")
+					call play_char_anim(var GRANDAD, var gstqustn_anim, int 0)
+					var VAR_40 ++ 
+					var VAR_41 = int 0
 			}
-			if(var VAR_27 > int 420)
-			 {
-					if(call is_char_standing(var DAVID))
-					 {
-							call play_char_anim(var TYRONIS, var tyrosumn_anim, int 0)
-							var VAR_15 ++ 
-							var VAR_27 = int 0
-					}
-			}
-			break 
-		case 1
-			if(call func_5c(var TYRONIS))
-			 {
-					call func_10c(var TYRONIS, int 0)
-					call func_10c(var GRANDAD, int 0)
-					call char_turn_to_pos(var DAVID, call get_char_pos(var TYRONIS))
-					call start_dialog("TERCHEST", "NULL")
-					var VAR_15 ++ 
-					var VAR_27 = int 0
-			}
-			break 
-		case 2
+	}
+	if(var VAR_40 == int 2)
+	 {
 			if(call get_input_sys() != int 4)
 			 {
 					call set_input_system(int 1)
-					call func_50(var TYRONIS, int 8192)
-					call play_char_ai_script(var TYRONIS, var &ai_script)
-					var VAR_15 ++ 
-					var VAR_27 = int 0
+					var VAR_40 ++ 
+					var VAR_41 = int 0
 			}
-			break 
-		case 10
-			if(var VAR_27 > int 30)
+	}
+	if(var VAR_40 == int 3)
+	 {
+			if(call is_char_at_pos(var DAVID, var &position, int 400) == int 1)
 			 {
-					call chars_face_opposite(var TYRONIS, var DAVID)
-					var VAR_15 ++ 
-					var VAR_27 = int 0
-			}
-			break 
-		case 11
-			if(var VAR_27 > int 30)
-			 {
-					call start_dialog("CHEST", "NULL")
-					var VAR_15 ++ 
-					var VAR_27 = int 0
-			}
-			break 
-		case 12
-			if(call get_input_sys() != int 4)
-			 {
+					call char_stop(var DAVID)
 					call set_input_system(int 2)
-					call char_walk_to(var TYRONIS, int 1578, int 21, int 5103)
-					var VAR_15 ++ 
-					var VAR_27 = int 0
+					var VAR_40 ++ 
+					var VAR_41 = int 0
 			}
-			break 
-		case 13
-			if(call is_char_standing(var TYRONIS))
+	}
+	if(var VAR_40 == int 4)
+	 {
+			if(var VAR_41 > int 20)
 			 {
-					call toggle_or_use_char_item(var TYRONIS, var lstaff)
-					var VAR_15 ++ 
-					var VAR_27 = int 0
+					var VAR_40 ++ 
+					var VAR_41 = int 0
 			}
-			break 
-		case 14
-			if(var VAR_27 > int 60)
-			 {
-					call func_36(var TYRONIS, int 1218, int 21, int 5832)
-					var VAR_15 ++ 
-					var VAR_27 = int 0
-			}
-			break 
-		case 15
-			if(var VAR_27 > int 60)
-			 {
-					call play_char_anim(var TYRONIS, var conjure_anim, int 0)
-					var VAR_15 ++ 
-					var VAR_27 = int 0
-			}
-			break 
-		case 16
-			if(call func_5c(var TYRONIS))
-			 {
-					var VAR_13 = call func_e8(var &position, int 0)
-					call func_fd(var TYRONIS, var lstaff)
-					var VAR_15 ++ 
-					var VAR_27 = int 0
-			}
-			break 
-		case 17
-			if(var VAR_27 > int 100)
-			 {
-					call char_walk_to(var TYRONIS, int 1218, int 21, int 5832)
-					var VAR_15 ++ 
-					var VAR_27 = int 0
-			}
-			break 
-		case 18
-			if(call is_char_standing(var TYRONIS))
-			 {
-					call char_turn_to_pos(var TYRONIS, call get_char_pos(var DAVID))
-					call char_turn_to_pos(var DAVID, call get_char_pos(var TYRONIS))
-					var VAR_15 ++ 
-					var VAR_27 = int 0
-			}
-			break 
-		case 19
-			if(var VAR_27 > int 30)
-			 {
-					call start_dialog("S_DVDTER", "NULL")
-					var VAR_15 ++ 
-					var VAR_27 = int 0
-			}
-			break 
-		case 20
+	}
+	if(var VAR_40 == int 5)
+	 {
+			call start_dialog("GRATEL", "NULL")
+			call play_char_anim(var DAVID, var come_anim, int 0)
+			var VAR_40 ++ 
+			var VAR_41 = int 0
+	}
+	if(var VAR_40 == int 6)
+	 {
 			if(call get_input_sys() != int 4)
 			 {
-					var VAR_19 = int 1
-					call func_fa(var TYRONIS)
-					var VAR_15 ++ 
-					var VAR_27 = int 0
+					call char_walk_to(var DAVID, int 1218, int 21, int 5832)
+					call set_char_running(var GRANDAD)
+					call char_walk_to(var GRANDAD, int -690, int -328, int 3480)
+					var VAR_40 ++ 
+					var VAR_41 = int 0
 			}
-			break 
-		case 21
-			if(var VAR_27 > int 160)
+	}
+	if(var VAR_40 == int 7)
+	 {
+			if(call is_char_standing(var DAVID))
 			 {
-					call remove_char(var TYRONIS)
-					var VAR_15 ++ 
-					var VAR_27 = int 0
+					var VAR_40 ++ 
+					var VAR_41 = int 0
 			}
-			break 
-}
-execute SCRIPT_9
-var VAR_27 ++ 
-
-._SCRIPT_8
-var tyrosumn_anim = call load_anim("tyrosumn")
-var conjure_anim = call load_anim("conjure")
-var gstqustn_anim = call load_anim("gstqustn")
-var impread_anim = call load_anim("impread")
-var come_anim = call load_anim("come")
-
-._SCRIPT_9
-switch(var VAR_50)
- {
-		case 0
-			if(call func_af(int 73) != int 0)
+	}
+	if(var VAR_40 == int 8)
+	 {
+			if(var VAR_41 > int 60)
 			 {
-					call log("Chest opened")
-					call func_10c(var TYRONIS, "MARC")
-					var VAR_50 ++ 
+					call func_fa(var DAVID)
+					var VAR_40 ++ 
+					var VAR_41 = int 0
 			}
-			break 
-		case 1
-			if(call func_af(int 73) == int 0)
+	}
+	if(var VAR_40 == int 9)
+	 {
+			if(var VAR_41 > int 150)
 			 {
-					call log("icewand picked up")
-					call func_10c(var GRANDAD, "MARC")
-					call freeze_enemy(var TYRONIS)
-					var VAR_15 = int 10
-					var VAR_27 = int 0
-					var VAR_50 ++ 
+					call func_11e(var VAR_13)
+					var VAR_40 ++ 
+					var VAR_41 = int 0
 			}
-			break 
-}
-
-._SCRIPT_10
-gamevar script_object = var BTREASURE
-if(gamevar *object_p+5 == int 14)
- {
-		gamevar room_state = int 2
-}
-else
- {
-		gamevar room_state = int 3
-}
-
-._SCRIPT_11
-if(var VAR_40 == int 0)
- {
-		call func_36(var GRANDAD, int 1160, int 21, int 5344)
-		var VAR_40 ++ 
-		var VAR_41 = int 0
-}
-if(var VAR_40 == int 1)
- {
-		if(var VAR_41 == int 220)
-		 {
-				call char_turn_to_pos(var DAVID, call get_char_pos(var GRANDAD))
-		}
-		if(var VAR_41 > int 240)
-		 {
-				call start_dialog("DVDTELE", "NULL")
-				call play_char_anim(var GRANDAD, var gstqustn_anim, int 0)
-				var VAR_40 ++ 
-				var VAR_41 = int 0
-		}
-}
-if(var VAR_40 == int 2)
- {
-		if(call get_input_sys() != int 4)
-		 {
-				call set_input_system(int 1)
-				var VAR_40 ++ 
-				var VAR_41 = int 0
-		}
-}
-if(var VAR_40 == int 3)
- {
-		if(call is_char_at_pos(var DAVID, var &position, int 400) == int 1)
-		 {
-				call char_stop(var DAVID)
-				call set_input_system(int 2)
-				var VAR_40 ++ 
-				var VAR_41 = int 0
-		}
-}
-if(var VAR_40 == int 4)
- {
-		if(var VAR_41 > int 20)
-		 {
-				var VAR_40 ++ 
-				var VAR_41 = int 0
-		}
-}
-if(var VAR_40 == int 5)
- {
-		call start_dialog("GRATEL", "NULL")
-		call play_char_anim(var DAVID, var come_anim, int 0)
-		var VAR_40 ++ 
-		var VAR_41 = int 0
-}
-if(var VAR_40 == int 6)
- {
-		if(call get_input_sys() != int 4)
-		 {
-				call char_walk_to(var DAVID, int 1218, int 21, int 5832)
-				call set_char_running(var GRANDAD)
-				call char_walk_to(var GRANDAD, int -690, int -328, int 3480)
-				var VAR_40 ++ 
-				var VAR_41 = int 0
-		}
-}
-if(var VAR_40 == int 7)
- {
-		if(call is_char_standing(var DAVID))
-		 {
-				var VAR_40 ++ 
-				var VAR_41 = int 0
-		}
-}
-if(var VAR_40 == int 8)
- {
-		if(var VAR_41 > int 60)
-		 {
-				call func_fa(var DAVID)
-				var VAR_40 ++ 
-				var VAR_41 = int 0
-		}
-}
-if(var VAR_40 == int 9)
- {
-		if(var VAR_41 > int 150)
-		 {
-				call func_11e(var VAR_13)
-				var VAR_40 ++ 
-				var VAR_41 = int 0
-		}
-}
-if(var VAR_40 == int 10)
- {
-		if(var VAR_41 > int 30)
-		 {
-				call func_e6("gno", "entouter", var &VAR_42, int 3)
-				var VAR_40 ++ 
-				var VAR_41 = int 0
-		}
-}
-if(var VAR_40 == int 11)
- {
-		if(var VAR_41 > int 30)
-		 {
-				var shrtswrd = call get_char_item_if_equiped(var GRANDAD, int 16)
-				if(var shrtswrd)
-				 {
-						call func_60(var GRANDAD, var shrtswrd)
-						call func_b6(var GRANDAD, var shrtswrd)
-				}
-				call remove_char(var GRANDAD)
-				var VAR_40 ++ 
-				var VAR_41 = int 0
-		}
-}
-var VAR_41 ++ 
+	}
+	if(var VAR_40 == int 10)
+	 {
+			if(var VAR_41 > int 30)
+			 {
+					call func_e6("gno", "entouter", var &VAR_42, int 3)
+					var VAR_40 ++ 
+					var VAR_41 = int 0
+			}
+	}
+	if(var VAR_40 == int 11)
+	 {
+			if(var VAR_41 > int 30)
+			 {
+					var shrtswrd = call get_char_item_if_equiped(var GRANDAD, int 16)
+					if(var shrtswrd)
+					 {
+							call func_60(var GRANDAD, var shrtswrd)
+							call func_b6(var GRANDAD, var shrtswrd)
+					}
+					call remove_char(var GRANDAD)
+					var VAR_40 ++ 
+					var VAR_41 = int 0
+			}
+	}
+	var VAR_41 ++ 
 
 ._SCRIPT_12
 
 ._SCRIPT_13
-gamevar *scene_info_p+3 = int 2
-call func_108("ARSE")
+	gamevar *scene_info_p+3 = int 2
+	call func_108("ARSE")
 
 ._SCRIPT_14
-if(gamevar script_time > var VAR_58)
- {
-		var VAR_58 = gamevar script_time + int 600 + call randomize_int(int 0, int 400)
-		var VAR_56 = int 5 + call randomize_int(int 0, int 4)
-		call play_loaded_sound(var VAR_56, int 0, int 63, int 0)
-}
-if(gamevar script_time > var VAR_59)
- {
-		var VAR_59 = gamevar script_time + int 250 + call randomize_int(int 0, int 150)
-		var VAR_56 = int 9 + call randomize_int(int 0, int 4)
-		call play_loaded_sound(var VAR_56, int 0, int 63, int 0)
-}
-if(gamevar script_time > var VAR_57)
- {
-		var VAR_57 = gamevar script_time + int 300 + call randomize_int(int 0, int 200)
-		var VAR_56 = int 2 + call randomize_int(int 0, int 3)
-		call play_loaded_sound(var VAR_56, int 0, int 63, int 0)
-}
+	if(gamevar script_time > var VAR_58)
+	 {
+			var VAR_58 = gamevar script_time + int 600 + call randomize_int(int 0, int 400)
+			var VAR_56 = int 5 + call randomize_int(int 0, int 4)
+			call play_loaded_sound(var VAR_56, int 0, int 63, int 0)
+	}
+	if(gamevar script_time > var VAR_59)
+	 {
+			var VAR_59 = gamevar script_time + int 250 + call randomize_int(int 0, int 150)
+			var VAR_56 = int 9 + call randomize_int(int 0, int 4)
+			call play_loaded_sound(var VAR_56, int 0, int 63, int 0)
+	}
+	if(gamevar script_time > var VAR_57)
+	 {
+			var VAR_57 = gamevar script_time + int 300 + call randomize_int(int 0, int 200)
+			var VAR_56 = int 2 + call randomize_int(int 0, int 3)
+			call play_loaded_sound(var VAR_56, int 0, int 63, int 0)
+	}
 
 ._SCRIPT_15
 

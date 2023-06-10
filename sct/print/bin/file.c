@@ -146,11 +146,12 @@ void write_bin_code_obj(code_obj* co, sct_f* sf) {
 }
 
 void write_bin_data_obj(data_obj* data_o, sct_f* sf) {
-    fwrite(data_o->data, data_o->byte_size, 1, sf->out_file);
+    fwrite(data_o->data, 1, data_o->byte_size, sf->out_file);
 }
 
 void write_bin_data_section(sct_f* sf) {
     data_obj** ds = sf->data_section;
+    // print_data_section(sf);
 
     for(int i=0; i < sf->data_objs_num; i++) {
         data_obj* data_o = ds[i];
@@ -158,10 +159,22 @@ void write_bin_data_section(sct_f* sf) {
     }
 }
 
+int* get_link_offset(data_ref* dr) {
+    if(dr->type == DATA_CODE) return dr->offset;
+
+    int data_offset = dr->data_parent->id + dr->id;
+    int* offset = w_malloc(sizeof(int));
+    *offset = data_offset;
+    *offset |= 0xC0000000;
+
+    return offset;
+}
+
 void write_bin_link_table(sct_f* sf) {
     node* link = *sf->data_link_table;
     while(link != NULL) {
-        fwrite(link->item, sizeof(int), 1, sf->out_file);
+        data_ref* dr = (data_ref*) link->item;
+        fwrite(get_link_offset(dr), sizeof(int), 1, sf->out_file);
         link = link->next;
     }
 }

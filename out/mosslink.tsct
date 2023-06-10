@@ -10,157 +10,157 @@
 
 
 ._DATA
-lizmant	0	
-init_position1	{ 3536, -2224, 308 }	
-ai_script3	{ 9, lizmant, 7, 8 }	
-ai_script4	{ 7, 8 }	
-VAR_10	{ 0, 0, 1, -1, 8, 2, 4, 0, 9, 0, 1, 2, 40, -1, 2, 2, 3, 2, 5, 1, 30, 50, 7, 1, 2, 6, 1, 10, 45, 47, -1, -1 }	
-VAR_15	{ 2546, -250, 169, 2631, -250, -393, 2661, -250, -701, 3427, -250, 105, 3055, -250, -251, 3426, -250, -329, 3428, -250, -555, 4031, -250, 169, 4028, -250, -161, 4163, -250, -551, 4592, -250, -42 }	
-VAR_16	{ 2546, -1586, 169, 2631, -1586, -393, 2661, -1586, -701, 3427, -1586, 105, 3055, -1586, -251, 3426, -1586, -329, 3428, -1586, -555, 4031, -1586, 169, 4028, -1586, -161, 4163, -1586, -551, 4592, -1586, -42 }	
-enemy_gen_script	{ 0, 1, 11, VAR_15, 8, 2, 4, 2, 11, VAR_16, 9, 0, 1, 16, 47, -1, 2, 1, 5, 1, 10, 30, 7, 1, 8, 6, 2, -1 }	
-VAR_22	{ 4387, -2224, 179, 4278, -2224, -452, 3290, -2224, 291, 3321, -2224, -521, 2782, -2224, -687, 2371, -2224, 272 }	
-ai_script	{ 15, 0, 4153, -1221, 596, 2, 4153, -1221, -529, 27, 5, 30, 30, 39, 8 }	
-ai_script1	{ 15, 0, 4153, -1221, 596, 2, 4153, -1221, -529, 27, 5, 30, 30, 39, 8 }	
-ai_script2	{ 15, 0, 4153, -1221, 596, 2, 4153, -1221, -529, 27, 5, 30, 30, 39, 8 }	
-init_position	{ 5044, -1221, 2150 }
+	lizmant	0	
+	init_position1	{ 3536, -2224, 308 }	
+	ai_script3	{ 9, lizmant, 7, 8 }	
+	ai_script4	{ 7, 8 }	
+	VAR_10	{ 0, 0, 1, -1, 8, 2, 4, 0, 9, 0, 1, 2, 40, -1, 2, 2, 3, 2, 5, 1, 30, 50, 7, 1, 2, 6, 1, 10, 45, 47, -1, -1 }	
+	VAR_15	{ 2546, -250, 169, 2631, -250, -393, 2661, -250, -701, 3427, -250, 105, 3055, -250, -251, 3426, -250, -329, 3428, -250, -555, 4031, -250, 169, 4028, -250, -161, 4163, -250, -551, 4592, -250, -42 }	
+	VAR_16	{ 2546, -1586, 169, 2631, -1586, -393, 2661, -1586, -701, 3427, -1586, 105, 3055, -1586, -251, 3426, -1586, -329, 3428, -1586, -555, 4031, -1586, 169, 4028, -1586, -161, 4163, -1586, -551, 4592, -1586, -42 }	
+	enemy_gen_script	{ 0, 1, 11, VAR_15, 8, 2, 4, 2, 11, VAR_16, 9, 0, 1, 16, 47, -1, 2, 1, 5, 1, 10, 30, 7, 1, 8, 6, 2, -1 }	
+	VAR_22	{ 4387, -2224, 179, 4278, -2224, -452, 3290, -2224, 291, 3321, -2224, -521, 2782, -2224, -687, 2371, -2224, 272 }	
+	ai_script	{ 15, 0, 4153, -1221, 596, 2, 4153, -1221, -529, 27, 5, 30, 30, 39, 8 }	
+	ai_script1	{ 15, 0, 4153, -1221, 596, 2, 4153, -1221, -529, 27, 5, 30, 30, 39, 8 }	
+	ai_script2	{ 15, 0, 4153, -1221, 596, 2, 4153, -1221, -529, 27, 5, 30, 30, 39, 8 }	
+	init_position	{ 5044, -1221, 2150 }
 
 ._on_load
-execute SCRIPT_10
-if(gamevar is_room_cleared)
- {
-		execute SCRIPT_9
-}
-else
- {
-		switch(gamevar room_state)
-		 {
-				case 1
-					execute SCRIPT_4
-					break 
-				case 2
-					execute SCRIPT_6
-					break 
-				case 3
-					execute SCRIPT_8
-					break 
-				case 0
-					break 
-		}
-}
+	execute SCRIPT_10
+	if(gamevar is_room_cleared)
+	 {
+			execute SCRIPT_9
+	}
+	else
+	 {
+			switch(gamevar room_state)
+			 {
+					case 1
+						execute SCRIPT_4
+						break 
+					case 2
+						execute SCRIPT_6
+						break 
+					case 3
+						execute SCRIPT_8
+						break 
+					case 0
+						break 
+			}
+	}
 
 ._infinite_loop
-if(gamevar !is_room_cleared)
- {
-		switch(gamevar room_state)
-		 {
-				case 1
-					execute SCRIPT_3
-					break 
-				case 2
-					execute SCRIPT_5
-					break 
-				case 3
-					execute SCRIPT_7
-					break 
-				case 0
-					break 
-		}
-}
+	if(gamevar !is_room_cleared)
+	 {
+			switch(gamevar room_state)
+			 {
+					case 1
+						execute SCRIPT_3
+						break 
+					case 2
+						execute SCRIPT_5
+						break 
+					case 3
+						execute SCRIPT_7
+						break 
+					case 0
+						break 
+			}
+	}
 
 ._on_exit
-if(gamevar !is_room_cleared)
- {
-		switch(gamevar room_state)
-		 {
-				case 1
-					gamevar room_state ++ 
-					gamevar is_room_cleared = int 1
-					break 
-				case 2
-					gamevar room_state ++ 
-					gamevar is_room_cleared = int 1
-					break 
-				case 3
-					gamevar room_state ++ 
-					gamevar is_room_cleared = int 1
-					break 
-				case 0
-					break 
-				default 
-					gamevar room_state = int 0
-					break 
-		}
-}
+	if(gamevar !is_room_cleared)
+	 {
+			switch(gamevar room_state)
+			 {
+					case 1
+						gamevar room_state ++ 
+						gamevar is_room_cleared = int 1
+						break 
+					case 2
+						gamevar room_state ++ 
+						gamevar is_room_cleared = int 1
+						break 
+					case 3
+						gamevar room_state ++ 
+						gamevar is_room_cleared = int 1
+						break 
+					case 0
+						break 
+					default 
+						gamevar room_state = int 0
+						break 
+			}
+	}
 
 ._SCRIPT_3
-switch(var VAR_13)
- {
-		case 0
-			if(call get_num_of_enemies() == int 0)
-			 {
-					var VAR_18 = call run_enemy_generator(var &enemy_gen_script, int 10)
-					var VAR_13 ++ 
-					var VAR_14 = int 0
-			}
-			break 
-		case 1
-			if(call func_9(var VAR_18))
-			 {
-					var groad = call create_enemy(int 39, int 1, var &init_position, int 226)
-					call freeze_enemy(var groad)
-					call func_50(var groad, int 8192)
-					call play_char_ai_script(var groad, var &ai_script)
-					call func_106(var groad, int 9, int 5, var &VAR_22)
-					call func_106(var groad, int 9, int 6, int 6)
-					gamevar script_object = var groad
-					gamevar *character_stats_p+15 = int 8000
-					gamevar *character_stats_p+16 = int 8000
-					var VAR_13 ++ 
-					var VAR_14 = int 0
-			}
-			break 
-		case 2
-			if(var VAR_14 == int 150)
-			 {
-					var groad1 = call create_enemy(int 39, int 2, var &init_position, int 226)
-					call freeze_enemy(var groad1)
-					call func_50(var groad1, int 8192)
-					call play_char_ai_script(var groad1, var &ai_script1)
-					call func_106(var groad1, int 9, int 5, var &VAR_22)
-					call func_106(var groad1, int 9, int 6, int 6)
-					gamevar script_object = var groad1
-					gamevar *character_stats_p+15 = int 8000
-					gamevar *character_stats_p+16 = int 8000
-			}
-			if(var VAR_14 == int 300)
-			 {
-					var groad2 = call create_enemy(int 39, int 3, var &init_position, int 226)
-					call freeze_enemy(var groad2)
-					call func_50(var groad2, int 8192)
-					call play_char_ai_script(var groad2, var &ai_script2)
-					call func_106(var groad2, int 9, int 5, var &VAR_22)
-					call func_106(var groad2, int 9, int 6, int 6)
-					gamevar script_object = var groad2
-					gamevar *character_stats_p+15 = int 8000
-					gamevar *character_stats_p+16 = int 8000
-					var VAR_13 ++ 
-					var VAR_14 = int 0
-			}
-			break 
-}
-var VAR_14 ++ 
+	switch(var VAR_13)
+	 {
+			case 0
+				if(call get_num_of_enemies() == int 0)
+				 {
+						var VAR_18 = call run_enemy_generator(var &enemy_gen_script, int 10)
+						var VAR_13 ++ 
+						var VAR_14 = int 0
+				}
+				break 
+			case 1
+				if(call func_9(var VAR_18))
+				 {
+						var groad = call create_enemy(int 39, int 1, var &init_position, int 226)
+						call freeze_enemy(var groad)
+						call func_50(var groad, int 8192)
+						call play_char_ai_script(var groad, var &ai_script)
+						call func_106(var groad, int 9, int 5, var &VAR_22)
+						call func_106(var groad, int 9, int 6, int 6)
+						gamevar script_object = var groad
+						gamevar *character_stats_p+15 = int 8000
+						gamevar *character_stats_p+16 = int 8000
+						var VAR_13 ++ 
+						var VAR_14 = int 0
+				}
+				break 
+			case 2
+				if(var VAR_14 == int 150)
+				 {
+						var groad1 = call create_enemy(int 39, int 2, var &init_position, int 226)
+						call freeze_enemy(var groad1)
+						call func_50(var groad1, int 8192)
+						call play_char_ai_script(var groad1, var &ai_script1)
+						call func_106(var groad1, int 9, int 5, var &VAR_22)
+						call func_106(var groad1, int 9, int 6, int 6)
+						gamevar script_object = var groad1
+						gamevar *character_stats_p+15 = int 8000
+						gamevar *character_stats_p+16 = int 8000
+				}
+				if(var VAR_14 == int 300)
+				 {
+						var groad2 = call create_enemy(int 39, int 3, var &init_position, int 226)
+						call freeze_enemy(var groad2)
+						call func_50(var groad2, int 8192)
+						call play_char_ai_script(var groad2, var &ai_script2)
+						call func_106(var groad2, int 9, int 5, var &VAR_22)
+						call func_106(var groad2, int 9, int 6, int 6)
+						gamevar script_object = var groad2
+						gamevar *character_stats_p+15 = int 8000
+						gamevar *character_stats_p+16 = int 8000
+						var VAR_13 ++ 
+						var VAR_14 = int 0
+				}
+				break 
+	}
+	var VAR_14 ++ 
 
 ._SCRIPT_4
-var warden = call create_enemy(int 199, int 0, "h", int 275)
-var lizmant = call create_enemy(int 40, int 0, var &init_position1, int 60)
-call add_item_to_char(var warden, int 62 /* cellkey */ , int 1, int 0)
-call func_50(var warden, int 8192)
-call func_50(var lizmant, int 8192)
-call play_char_ai_script(var warden, var &ai_script3)
-call play_char_ai_script(var lizmant, var &ai_script4)
-call func_106(var warden, int 3, int 1, var &VAR_10)
-call load_char("bat")
-call load_char("groad")
+	var warden = call create_enemy(int 199, int 0, "h", int 275)
+	var lizmant = call create_enemy(int 40, int 0, var &init_position1, int 60)
+	call add_item_to_char(var warden, int 62 /* cellkey */ , int 1, int 0)
+	call func_50(var warden, int 8192)
+	call func_50(var lizmant, int 8192)
+	call play_char_ai_script(var warden, var &ai_script3)
+	call play_char_ai_script(var lizmant, var &ai_script4)
+	call func_106(var warden, int 3, int 1, var &VAR_10)
+	call load_char("bat")
+	call load_char("groad")
 
 ._SCRIPT_5
 
@@ -173,22 +173,22 @@ call load_char("groad")
 ._SCRIPT_9
 
 ._SCRIPT_10
-if(gamevar room_state != int 1)
- {
-		gamevar SMACKER_X = int 360
-		gamevar SMACKER_Y = int 216
-		call play_2d_anim("oneframe", int 0, int 1, int 0)
-}
-gamevar SMACKER_X = int 140
-gamevar SMACKER_Y = int 196
-call play_2d_anim("torches", int 1, int 1, int 0)
-gamevar SMACKER_X = int 444
-gamevar SMACKER_Y = int 200
-call play_2d_anim("onetorch", int 1, int 1, int 0)
-gamevar SMACKER_X = int 156
-gamevar SMACKER_Y = int 0
-call play_2d_anim("mosslink", int 1, int 1, int 0)
-call load_sound_set(int 30)
+	if(gamevar room_state != int 1)
+	 {
+			gamevar SMACKER_X = int 360
+			gamevar SMACKER_Y = int 216
+			call play_2d_anim("oneframe", int 0, int 1, int 0)
+	}
+	gamevar SMACKER_X = int 140
+	gamevar SMACKER_Y = int 196
+	call play_2d_anim("torches", int 1, int 1, int 0)
+	gamevar SMACKER_X = int 444
+	gamevar SMACKER_Y = int 200
+	call play_2d_anim("onetorch", int 1, int 1, int 0)
+	gamevar SMACKER_X = int 156
+	gamevar SMACKER_Y = int 0
+	call play_2d_anim("mosslink", int 1, int 1, int 0)
+	call load_sound_set(int 30)
 
- /* play the sound 'torches2' */ 
-call play_loaded_sound(int 1, int -1, int 30, int 0)
+	 /* play the sound 'torches2' */ 
+	call play_loaded_sound(int 1, int -1, int 30, int 0)

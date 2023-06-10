@@ -7,7 +7,7 @@ A tool created to read and modify internal scripts of a game called '[Silver](ht
 
 ## Introduction
 
-This tool’s purpose is to translate the game’s .sct files to a readable file format and to translate it back into .sct format that the game’s engine can read.
+This tool’s purpose is to decompile the game’s .sct files to a readable file format (.tsct) and to compile it back into .sct format that the game’s engine can read.
 
 This tool was created to further investigate the game’s inner workings.
 
@@ -26,8 +26,8 @@ some examples are:
 
 
 #### Mods:
-This example mod was created using this tool thanks to a steam user @theruler.
-it makes Rain's "bell code" puzzle to work as it was originally designed. 
+An example mod was created with this tool to satisfy the request of @theruler (steam user).
+This mod makes Rain's "bell code" puzzle to work as it was originally designed on older computers. 
 
 [Towngate Mod](./out/mods/easier_bell_pwd)  ( [tsct](./out/mods/easier_bell_pwd/towngate.tsct) | [sct](./out/mods/easier_bell_pwd/towngate.sct) | [readme](./out/mods/easier_bell_pwd/how%20to%20use.txt) )
 
@@ -39,23 +39,23 @@ _(on modern operating systems the 'bell code' timer got messed up thus the puzzl
 Further information can be found [here](./docs/index.md).
 
 ## Usage
-**Note:** The files generated will **overwrite** the file so you definately should **backup** your files first!
-- The 0 command is used to decompile from .sct to .tsct
-- the 1 command is used to compile from .tsct to .sct
+**Note:** The files generated will **overwrite** your original files so you probably should **backup** your files first!
+- The 'decompile' command is used to decompile from .sct to .tsct
+- the 'compile' command is used to compile from .tsct to .sct
 
 ```
-Usage: ./sct.exe [operation (ie 1 or 0)] [full_path_to_sct/tsct file]
+Usage: ./sct.exe [operation] [full_path_to_sct/tsct file]
 ```
 for instance:
 In order to translate veranda.sct file, We can use the command:
 ```
-.\sct.exe 0 "D:\SteamLibrary\steamapps\common\Silver\silver\levels\gno\veranda\veranda.sct"
+.\sct.exe decompile "D:\SteamLibrary\steamapps\common\Silver\silver\levels\gno\veranda\veranda.sct"
 ```
 The above command will generate a veranda.tsct file in the same directory as the path.
 
 In order to translate veranda.tsct back to veranda.sct we use:
 ```
-.\sct.exe 1 "D:\SteamLibrary\steamapps\common\Silver\silver\levels\gno\veranda\veranda.tsct"
+.\sct.exe compile "D:\SteamLibrary\steamapps\common\Silver\silver\levels\gno\veranda\veranda.tsct"
 ```
 
 ## Building

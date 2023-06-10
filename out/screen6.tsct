@@ -10,546 +10,546 @@
 
 
 ._DATA
-init_position	{ 545, 640, 7725 }	
-VAR_17	{ 0, 0 }	
-VAR_19	{ 0, 0 }	
-VAR_20	{ 0, 0, 0 }	
-init_position1	{ 3255, 625, 5025 }	
-init_position2	{ 3235, 625, 4855 }	
-init_position3	{ 3295, 625, 4700 }	
-init_position4	{ 3505, 625, 4855 }	
-walk_position	{ 1555, 625, 7722 }	
-walk_position1	{ 1843, 625, 7967 }	
-walk_position2	{ 1652, 625, 7480 }	
-walk_position3	{ 2044, 625, 7488 }	
-walk_position4	{ 1729, 625, 6948 }	
-walk_position9	{ 1974, 625, 6179 }	
-walk_position6	{ 2290, 625, 5814 }	
-walk_position7	{ 2435, 625, 6101 }	
-walk_position10	{ 1894, 625, 6569 }	
-walk_position11	{ 1774, 625, 6251 }	
-walk_position5	{ 1240, 625, 7728 }	
-walk_position8	{ 2254, 625, 6252, 0 }	
-fx_position	{ 1231, 2225, 7091 }	
-VAR_59	-1	
-init_position5	{ 998, 625, 7426 }	
-init_position6	{ 887, 624, 7316 }	
+	init_position	{ 545, 640, 7725 }	
+	VAR_17	{ 0, 0 }	
+	VAR_19	{ 0, 0 }	
+	VAR_20	{ 0, 0, 0 }	
+	init_position1	{ 3255, 625, 5025 }	
+	init_position2	{ 3235, 625, 4855 }	
+	init_position3	{ 3295, 625, 4700 }	
+	init_position4	{ 3505, 625, 4855 }	
+	walk_position	{ 1555, 625, 7722 }	
+	walk_position1	{ 1843, 625, 7967 }	
+	walk_position2	{ 1652, 625, 7480 }	
+	walk_position3	{ 2044, 625, 7488 }	
+	walk_position4	{ 1729, 625, 6948 }	
+	walk_position9	{ 1974, 625, 6179 }	
+	walk_position6	{ 2290, 625, 5814 }	
+	walk_position7	{ 2435, 625, 6101 }	
+	walk_position10	{ 1894, 625, 6569 }	
+	walk_position11	{ 1774, 625, 6251 }	
+	walk_position5	{ 1240, 625, 7728 }	
+	walk_position8	{ 2254, 625, 6252, 0 }	
+	fx_position	{ 1231, 2225, 7091 }	
+	VAR_59	-1	
+	init_position5	{ 998, 625, 7426 }	
+	init_position6	{ 887, 624, 7316 }	
 
 ._on_load
-call func_58(int 1)
-call load_sound_set(int 64)
+	call func_58(int 1)
+	call load_sound_set(int 64)
 
- /* play the sound 'cavelp' */ 
-call play_loaded_sound(int 1, int -1, int 64, int 0)
-call load_sound_set(int 69)
-if(gamevar room_state == int 0)
- {
-		exit_script 
-}
-if(gamevar room_state == int 1)
- {
-		execute SCRIPT_3
-}
+	 /* play the sound 'cavelp' */ 
+	call play_loaded_sound(int 1, int -1, int 64, int 0)
+	call load_sound_set(int 69)
+	if(gamevar room_state == int 0)
+	 {
+			exit_script 
+	}
+	if(gamevar room_state == int 1)
+	 {
+			execute SCRIPT_3
+	}
 
 ._infinite_loop
-execute SCRIPT_6
-if(gamevar room_state == int 0)
- {
-		exit_script 
-}
-if(gamevar room_state == int 1)
- {
-		execute SCRIPT_4
-}
+	execute SCRIPT_6
+	if(gamevar room_state == int 0)
+	 {
+			exit_script 
+	}
+	if(gamevar room_state == int 1)
+	 {
+			execute SCRIPT_4
+	}
 
 ._on_exit
-if(gamevar room_state == int 0)
- {
-		exit_script 
-}
-call set_scene_overwrite_act("GNO", "teleroom", int 0)
-gamevar room_state = int 0
-gamevar *scene_info_p+1 = int 1
-call func_58(int 1)
-call func_108("FIN")
+	if(gamevar room_state == int 0)
+	 {
+			exit_script 
+	}
+	call set_scene_overwrite_act("GNO", "teleroom", int 0)
+	gamevar room_state = int 0
+	gamevar *scene_info_p+1 = int 1
+	call func_58(int 1)
+	call func_108("FIN")
 
 ._SCRIPT_3
-call load_char("wingimp")
-call load_char("profess")
-call load_char("duke")
-call load_char("tyronis")
-call load_char("rebel")
-call load_char("rebela")
-var DAVID = call get_char_handle(int 65536)
-var fdemonb = call create_char(var &init_position, "fdemonb", int 45, int 16)
-call func_103(var fdemonb)
-call func_53(var fdemonb, int 2)
-var victory_anim = call load_anim("victory")
-var pfew_anim = call load_anim("pfew")
-gamevar SMACKER_X = int 320
-gamevar SMACKER_Y = int 0
-var VAR_8 = call play_2d_anim("scr6beam", int 10737418, int 1, var &VAR_16)
-gamevar SMACKER_X = int 400
-gamevar SMACKER_Y = int 304
-var VAR_7 = call play_2d_anim("scr6pool", int 1, int 1, var &VAR_18)
-var VAR_18 ++ 
-gamevar SMACKER_X = int 384
-gamevar SMACKER_Y = int 256
-var VAR_9 = call play_2d_anim("scr6goin", int 10737418, int 1, var &VAR_20)
-call set_input_system(int 2)
-call load_sound_set(int 69)
-var demobeam_sound_ref = call play_loaded_sound(int 1, int -1, int 69, int 0)
+	call load_char("wingimp")
+	call load_char("profess")
+	call load_char("duke")
+	call load_char("tyronis")
+	call load_char("rebel")
+	call load_char("rebela")
+	var DAVID = call get_char_handle(int 65536)
+	var fdemonb = call create_char(var &init_position, "fdemonb", int 45, int 16)
+	call func_103(var fdemonb)
+	call func_53(var fdemonb, int 2)
+	var victory_anim = call load_anim("victory")
+	var pfew_anim = call load_anim("pfew")
+	gamevar SMACKER_X = int 320
+	gamevar SMACKER_Y = int 0
+	var VAR_8 = call play_2d_anim("scr6beam", int 10737418, int 1, var &VAR_16)
+	gamevar SMACKER_X = int 400
+	gamevar SMACKER_Y = int 304
+	var VAR_7 = call play_2d_anim("scr6pool", int 1, int 1, var &VAR_18)
+	var VAR_18 ++ 
+	gamevar SMACKER_X = int 384
+	gamevar SMACKER_Y = int 256
+	var VAR_9 = call play_2d_anim("scr6goin", int 10737418, int 1, var &VAR_20)
+	call set_input_system(int 2)
+	call load_sound_set(int 69)
+	var demobeam_sound_ref = call play_loaded_sound(int 1, int -1, int 69, int 0)
 
 ._SCRIPT_4
-if(var VAR_59 != var VAR_14)
- {
-		var VAR_59 = var VAR_14
-		call log_obj(var VAR_14)
-}
-switch(var VAR_14)
- {
-		case 0
-			if(gamevar scene_counter > int 100)
-			 {
-					if(var VAR_19 == int 29)
-					 {
-							gamevar script_object = var VAR_7
-							gamevar *smack_object_p+2 += int 10737418
-							gamevar script_object = var VAR_8
-							gamevar *smack_object_p+2 -= int 10737418
-							var firewall_sound_ref = call play_loaded_sound(int 2, int 0, int 69, int 0)
-							var VAR_16 ++ 
-							var VAR_14 = int 1
-							var VAR_57 = int 0
-							gamevar scene_counter = int 0
-							gamevar scroll_x_shake = int 1
-					}
-			}
-			execute SCRIPT_5
-			break 
-		case 1
-			if(gamevar scene_counter == int 50)
-			 {
-					call play_3d_fx("ROCKFALL", var &fx_position, int 0, int 2500)
-			}
-			var VAR_57 ++ 
-			call play_bgm("IEVLBAT1")
-			if(var VAR_17 == int 82)
-			 {
-					call func_12d(var fdemonb)
-					var VAR_14 = int 2
-					gamevar scroll_x_shake = int 0
-					call set_input_system(int 1)
-					call play_bgm("IEVLBAT1")
-			}
-			execute SCRIPT_5
-			break 
-		case 2
-			if(var VAR_16 == int -1)
-			 {
-					var VAR_21 = int 2
-					execute SCRIPT_5
-					gamevar script_object = var VAR_7
-					gamevar *smack_object_p+2 -= int 10737418
-					var VAR_14 = int 3
-			}
-			break 
-		case 3
-			gamevar script_object = var fdemonb
-			if(gamevar *object_p+5 == int 27)
-			 {
-					call func_b1()
-					gamevar scene_counter = int 0
-					call set_input_system(int 2)
-					var VAR_14 = int 4
-			}
-			break 
-		case 4
-			gamevar script_object = var DAVID
-			if(gamevar *object_p+6 & int 13421772)
-			 {
-			}
-			else
-			 {
-					call func_85()
-					call play_char_anim(var DAVID, var pfew_anim, int 0)
-					gamevar scene_counter = int 0
-					var VAR_14 = int 5
-			}
-			break 
-		case 5
-			if(gamevar scene_counter >= int 200)
-			 {
-					call reset_local_timer()
-					var VAR_14 = int 7
-			}
-			break 
-		case 7
-			if(call is_local_timer_greater_than(int 20))
-			 {
-					var VAR_14 = int 6
-			}
-			break 
-		case 6
-			if(call get_num_of_enemies() == int 0)
-			 {
-					call play_bgm("DSTING")
-					call func_134()
-					call play_char_anim(var DAVID, var victory_anim, int 0)
-					var VAR_0 = int 2
-					execute SCRIPT_7
-					call func_59(var demobeam_sound_ref)
-					call reset_local_timer()
-					var VAR_14 = int 7
-					var VAR_14 = int 8
-			}
-			break 
-		case 8
-			if(call func_5c(var DAVID))
-			 {
-					var VAR_14 = int 9
-			}
-			break 
-		case 9
-			if(var VAR_19 == int 29)
-			 {
-					gamevar script_object = var VAR_7
-					gamevar *smack_object_p+2 += int 10737418
-					gamevar script_object = var VAR_9
-					gamevar *smack_object_p+2 -= int 10737418
-					var VAR_20 ++ 
-					var VAR_14 = int 10
-					gamevar scene_counter = int 0
-			}
-			break 
-		case 10
-			gamevar compile_init_character = int 0
-			if(gamevar scene_counter == int 200)
-			 {
-					var nprofess = call create_char(var &init_position1, "nprofess", int 282, int 13)
-			}
-			if(gamevar scene_counter == int 210)
-			 {
-					var nduke = call create_char(var &init_position2, "nduke", int 282, int 13)
-			}
-			if(gamevar scene_counter == int 220)
-			 {
-					var ntyronis = call create_char("R", "ntyronis", int 282, int 13)
-			}
-			if(gamevar scene_counter == int 230)
-			 {
-					var nrebel = call create_char(var &init_position3, "nrebel", int 282, int 13)
-			}
-			if(gamevar scene_counter == int 240)
-			 {
-					var nrebela = call create_char(var &init_position4, "nrebela", int 282, int 13)
-					call char_unfollow(var ntyronis)
-					call set_char_running(var nprofess)
-					call set_char_running(var nduke)
-					call set_char_running(var ntyronis)
-					call set_char_running(var nrebel)
-					call set_char_running(var nrebela)
-					call char_walk_to_pos(var nprofess, var &walk_position)
-					call char_walk_to_pos(var nduke, var &walk_position1)
-					call char_walk_to_pos(var ntyronis, var &walk_position2)
-					call char_walk_to_pos(var nrebel, var &walk_position3)
-					call char_walk_to_pos(var nrebela, var &walk_position4)
-					call set_char_running(var DAVID)
-					call char_walk_to_pos(var DAVID, var &walk_position5)
-					call force_scroll_to_pos(var &walk_position3)
-					var VAR_58 = int 0
-					gamevar compile_init_character = int 1
-					var VAR_14 = int 11
-					gamevar scene_counter = int 0
-			}
-			break 
-		case 11
-			if(call is_char_standing(var DAVID)&&gamevar scene_counter > int 300)
-			 {
-					call char_turn_to_pos(var DAVID, var &walk_position)
-					var VAR_14 = int 12
-			}
-			break 
-		case 12
-			if(var VAR_58 == int 0)
-			 {
-					if(call is_char_standing(var nprofess))
-					 {
-							call char_turn_to_pos(var nprofess, var &walk_position5)
-							var VAR_58 ++ 
-					}
-			}
-			if(var VAR_58 == int 1)
-			 {
-					if(call is_char_standing(var ntyronis))
-					 {
-							call char_turn_to_pos(var ntyronis, var &walk_position5)
-							var VAR_58 ++ 
-					}
-			}
-			if(var VAR_58 == int 2)
-			 {
-					if(call is_char_standing(var nduke))
-					 {
-							call char_turn_to_pos(var nduke, var &walk_position5)
-							var VAR_58 ++ 
-					}
-			}
-			if(var VAR_58 == int 3)
-			 {
-					if(call is_char_standing(var nrebel))
-					 {
-							call char_turn_to_pos(var nrebel, var &walk_position5)
-							var VAR_58 ++ 
-					}
-			}
-			if(var VAR_58 == int 4)
-			 {
-					if(call is_char_standing(var nrebela))
-					 {
-							call char_turn_to_pos(var nrebela, var &walk_position5)
-							var VAR_58 ++ 
-					}
-			}
-			if(var VAR_58 == int 5)
-			 {
-					call start_dialog("DVDLATE", "NULL")
-					var VAR_14 = int 13
-			}
-			break 
-		case 13
-			if(call func_6d() == int 1)
-			 {
-					call resume_conversation()
-					var VAR_14 = int 14
-					gamevar scene_counter = int 0
-					var VAR_58 = int 0
-			}
-			break 
-		case 14
-			if(call get_input_sys() != int 4)
-			 {
-					if(gamevar scene_counter == int 30)
-					 {
-							call char_walk_to_pos(var nduke, var &walk_position6)
-					}
-					if(gamevar scene_counter == int 80)
-					 {
-							call char_walk_to_pos(var ntyronis, var &walk_position7)
-					}
-					if(gamevar scene_counter == int 130)
-					 {
-							call char_walk_to_pos(var DAVID, var &walk_position8)
-					}
-					if(gamevar scene_counter == int 230)
-					 {
-							call char_walk_to_pos(var nprofess, var &walk_position9)
-					}
-					if(gamevar scene_counter == int 300)
-					 {
-							call char_walk_to_pos(var nrebel, var &walk_position10)
-					}
-					if(gamevar scene_counter == int 380)
-					 {
-							call char_walk_to_pos(var nrebela, var &walk_position11)
-					}
-					if(gamevar scene_counter > int 30)
-					 {
-							if(var VAR_58 == int 0)
-							 {
-									if(call is_char_standing(var nduke))
-									 {
-											call char_turn_to_pos(var nduke, var &walk_position8)
-											var VAR_58 ++ 
-									}
-							}
-					}
-					if(gamevar scene_counter > int 80)
-					 {
-							if(var VAR_58 == int 1)
-							 {
-									if(call is_char_standing(var ntyronis))
-									 {
-											call char_turn_to_pos(var ntyronis, var &walk_position8)
-											var VAR_58 ++ 
-									}
-							}
-					}
-					if(gamevar scene_counter > int 130)
-					 {
-							if(var VAR_58 == int 2)
-							 {
-									if(call is_char_standing(var DAVID))
-									 {
-											call char_turn_to_pos(var DAVID, var &walk_position6)
-											var VAR_58 ++ 
-									}
-							}
-					}
-					if(gamevar scene_counter > int 230)
-					 {
-							if(var VAR_58 == int 3)
-							 {
-									if(call is_char_standing(var nprofess))
-									 {
-											call char_turn_to_pos(var nprofess, var &walk_position8)
-											var VAR_58 ++ 
-									}
-							}
-					}
-					if(gamevar scene_counter > int 300)
-					 {
-							if(var VAR_58 == int 4)
-							 {
-									if(call is_char_standing(var nrebel))
-									 {
-											call char_turn_to_pos(var nrebel, var &walk_position8)
-											var VAR_58 ++ 
-									}
-							}
-					}
-					if(gamevar scene_counter > int 380)
-					 {
-							if(var VAR_58 == int 5)
-							 {
-									if(call is_char_standing(var nrebela))
-									 {
-											call char_turn_to_pos(var nrebela, var &walk_position6)
-											var VAR_58 ++ 
-									}
-							}
-							if(call is_char_standing(var nrebela))
-							 {
-									call start_dialog("DUKLEAVE", "NULL")
-									var VAR_14 = int 15
-									gamevar scene_counter = int 0
-							}
-					}
-			}
-			else
-			 {
-					gamevar scene_counter = int 0
-			}
-			break 
-		case 15
-			if(call get_input_sys() != int 4)
-			 {
-					call char_walk_to_pos(var nprofess, var &walk_position)
-					call char_walk_to_pos(var nrebel, var &walk_position3)
-					call char_walk_to_pos(var nrebela, var &walk_position4)
-					gamevar scene_counter = int 0
-					var VAR_14 = int 16
-			}
-			break 
-		case 16
-			if(gamevar scene_counter > int 20)
-			 {
-					call func_2b(var DAVID, int 0)
-					call func_2b(var ntyronis, int 0)
-					call char_exit_door(var nduke, int 0)
-					call func_c1(var nduke, "GNO", "BOILAREA", int 3)
-					call func_116("gno", "gnolib1", int 3)
-					call set_scene_overwrite_act("gno", "gnolib1", int 1)
-					call func_71("gno", "boilarea", int 2, int 2)
-					call func_71("gno", "boilarea", int 1, int 16)
-					call func_118("gno", "boilarea", int 1)
-					call func_71("gno", "entrance", int 0, int 2)
-					call func_71("gno", "entrance", int 1, int 2)
-					call func_71("gno", "entouter", int 0, int 2)
-					call func_71("gno", "entouter", int 1, int 2)
-					call func_116("gno", "secret", int 0)
-					call set_scene_overwrite_act("gno", "secret", int 1)
-					call func_116("gno", "tosecret", int 0)
-					call set_scene_overwrite_act("gno", "tosecret", int 1)
-					var VAR_14 = int 17
-			}
-			break 
-		case 17
-			break 
-}
+	if(var VAR_59 != var VAR_14)
+	 {
+			var VAR_59 = var VAR_14
+			call log_obj(var VAR_14)
+	}
+	switch(var VAR_14)
+	 {
+			case 0
+				if(gamevar scene_counter > int 100)
+				 {
+						if(var VAR_19 == int 29)
+						 {
+								gamevar script_object = var VAR_7
+								gamevar *smack_object_p+2 += int 10737418
+								gamevar script_object = var VAR_8
+								gamevar *smack_object_p+2 -= int 10737418
+								var firewall_sound_ref = call play_loaded_sound(int 2, int 0, int 69, int 0)
+								var VAR_16 ++ 
+								var VAR_14 = int 1
+								var VAR_57 = int 0
+								gamevar scene_counter = int 0
+								gamevar scroll_x_shake = int 1
+						}
+				}
+				execute SCRIPT_5
+				break 
+			case 1
+				if(gamevar scene_counter == int 50)
+				 {
+						call play_3d_fx("ROCKFALL", var &fx_position, int 0, int 2500)
+				}
+				var VAR_57 ++ 
+				call play_bgm("IEVLBAT1")
+				if(var VAR_17 == int 82)
+				 {
+						call func_12d(var fdemonb)
+						var VAR_14 = int 2
+						gamevar scroll_x_shake = int 0
+						call set_input_system(int 1)
+						call play_bgm("IEVLBAT1")
+				}
+				execute SCRIPT_5
+				break 
+			case 2
+				if(var VAR_16 == int -1)
+				 {
+						var VAR_21 = int 2
+						execute SCRIPT_5
+						gamevar script_object = var VAR_7
+						gamevar *smack_object_p+2 -= int 10737418
+						var VAR_14 = int 3
+				}
+				break 
+			case 3
+				gamevar script_object = var fdemonb
+				if(gamevar *object_p+5 == int 27)
+				 {
+						call func_b1()
+						gamevar scene_counter = int 0
+						call set_input_system(int 2)
+						var VAR_14 = int 4
+				}
+				break 
+			case 4
+				gamevar script_object = var DAVID
+				if(gamevar *object_p+6 & int 13421772)
+				 {
+				}
+				else
+				 {
+						call func_85()
+						call play_char_anim(var DAVID, var pfew_anim, int 0)
+						gamevar scene_counter = int 0
+						var VAR_14 = int 5
+				}
+				break 
+			case 5
+				if(gamevar scene_counter >= int 200)
+				 {
+						call reset_local_timer()
+						var VAR_14 = int 7
+				}
+				break 
+			case 7
+				if(call is_local_timer_greater_than(int 20))
+				 {
+						var VAR_14 = int 6
+				}
+				break 
+			case 6
+				if(call get_num_of_enemies() == int 0)
+				 {
+						call play_bgm("DSTING")
+						call func_134()
+						call play_char_anim(var DAVID, var victory_anim, int 0)
+						var VAR_0 = int 2
+						execute SCRIPT_7
+						call func_59(var demobeam_sound_ref)
+						call reset_local_timer()
+						var VAR_14 = int 7
+						var VAR_14 = int 8
+				}
+				break 
+			case 8
+				if(call func_5c(var DAVID))
+				 {
+						var VAR_14 = int 9
+				}
+				break 
+			case 9
+				if(var VAR_19 == int 29)
+				 {
+						gamevar script_object = var VAR_7
+						gamevar *smack_object_p+2 += int 10737418
+						gamevar script_object = var VAR_9
+						gamevar *smack_object_p+2 -= int 10737418
+						var VAR_20 ++ 
+						var VAR_14 = int 10
+						gamevar scene_counter = int 0
+				}
+				break 
+			case 10
+				gamevar compile_init_character = int 0
+				if(gamevar scene_counter == int 200)
+				 {
+						var nprofess = call create_char(var &init_position1, "nprofess", int 282, int 13)
+				}
+				if(gamevar scene_counter == int 210)
+				 {
+						var nduke = call create_char(var &init_position2, "nduke", int 282, int 13)
+				}
+				if(gamevar scene_counter == int 220)
+				 {
+						var ntyronis = call create_char("R", "ntyronis", int 282, int 13)
+				}
+				if(gamevar scene_counter == int 230)
+				 {
+						var nrebel = call create_char(var &init_position3, "nrebel", int 282, int 13)
+				}
+				if(gamevar scene_counter == int 240)
+				 {
+						var nrebela = call create_char(var &init_position4, "nrebela", int 282, int 13)
+						call char_unfollow(var ntyronis)
+						call set_char_running(var nprofess)
+						call set_char_running(var nduke)
+						call set_char_running(var ntyronis)
+						call set_char_running(var nrebel)
+						call set_char_running(var nrebela)
+						call char_walk_to_pos(var nprofess, var &walk_position)
+						call char_walk_to_pos(var nduke, var &walk_position1)
+						call char_walk_to_pos(var ntyronis, var &walk_position2)
+						call char_walk_to_pos(var nrebel, var &walk_position3)
+						call char_walk_to_pos(var nrebela, var &walk_position4)
+						call set_char_running(var DAVID)
+						call char_walk_to_pos(var DAVID, var &walk_position5)
+						call force_scroll_to_pos(var &walk_position3)
+						var VAR_58 = int 0
+						gamevar compile_init_character = int 1
+						var VAR_14 = int 11
+						gamevar scene_counter = int 0
+				}
+				break 
+			case 11
+				if(call is_char_standing(var DAVID)&&gamevar scene_counter > int 300)
+				 {
+						call char_turn_to_pos(var DAVID, var &walk_position)
+						var VAR_14 = int 12
+				}
+				break 
+			case 12
+				if(var VAR_58 == int 0)
+				 {
+						if(call is_char_standing(var nprofess))
+						 {
+								call char_turn_to_pos(var nprofess, var &walk_position5)
+								var VAR_58 ++ 
+						}
+				}
+				if(var VAR_58 == int 1)
+				 {
+						if(call is_char_standing(var ntyronis))
+						 {
+								call char_turn_to_pos(var ntyronis, var &walk_position5)
+								var VAR_58 ++ 
+						}
+				}
+				if(var VAR_58 == int 2)
+				 {
+						if(call is_char_standing(var nduke))
+						 {
+								call char_turn_to_pos(var nduke, var &walk_position5)
+								var VAR_58 ++ 
+						}
+				}
+				if(var VAR_58 == int 3)
+				 {
+						if(call is_char_standing(var nrebel))
+						 {
+								call char_turn_to_pos(var nrebel, var &walk_position5)
+								var VAR_58 ++ 
+						}
+				}
+				if(var VAR_58 == int 4)
+				 {
+						if(call is_char_standing(var nrebela))
+						 {
+								call char_turn_to_pos(var nrebela, var &walk_position5)
+								var VAR_58 ++ 
+						}
+				}
+				if(var VAR_58 == int 5)
+				 {
+						call start_dialog("DVDLATE", "NULL")
+						var VAR_14 = int 13
+				}
+				break 
+			case 13
+				if(call func_6d() == int 1)
+				 {
+						call resume_conversation()
+						var VAR_14 = int 14
+						gamevar scene_counter = int 0
+						var VAR_58 = int 0
+				}
+				break 
+			case 14
+				if(call get_input_sys() != int 4)
+				 {
+						if(gamevar scene_counter == int 30)
+						 {
+								call char_walk_to_pos(var nduke, var &walk_position6)
+						}
+						if(gamevar scene_counter == int 80)
+						 {
+								call char_walk_to_pos(var ntyronis, var &walk_position7)
+						}
+						if(gamevar scene_counter == int 130)
+						 {
+								call char_walk_to_pos(var DAVID, var &walk_position8)
+						}
+						if(gamevar scene_counter == int 230)
+						 {
+								call char_walk_to_pos(var nprofess, var &walk_position9)
+						}
+						if(gamevar scene_counter == int 300)
+						 {
+								call char_walk_to_pos(var nrebel, var &walk_position10)
+						}
+						if(gamevar scene_counter == int 380)
+						 {
+								call char_walk_to_pos(var nrebela, var &walk_position11)
+						}
+						if(gamevar scene_counter > int 30)
+						 {
+								if(var VAR_58 == int 0)
+								 {
+										if(call is_char_standing(var nduke))
+										 {
+												call char_turn_to_pos(var nduke, var &walk_position8)
+												var VAR_58 ++ 
+										}
+								}
+						}
+						if(gamevar scene_counter > int 80)
+						 {
+								if(var VAR_58 == int 1)
+								 {
+										if(call is_char_standing(var ntyronis))
+										 {
+												call char_turn_to_pos(var ntyronis, var &walk_position8)
+												var VAR_58 ++ 
+										}
+								}
+						}
+						if(gamevar scene_counter > int 130)
+						 {
+								if(var VAR_58 == int 2)
+								 {
+										if(call is_char_standing(var DAVID))
+										 {
+												call char_turn_to_pos(var DAVID, var &walk_position6)
+												var VAR_58 ++ 
+										}
+								}
+						}
+						if(gamevar scene_counter > int 230)
+						 {
+								if(var VAR_58 == int 3)
+								 {
+										if(call is_char_standing(var nprofess))
+										 {
+												call char_turn_to_pos(var nprofess, var &walk_position8)
+												var VAR_58 ++ 
+										}
+								}
+						}
+						if(gamevar scene_counter > int 300)
+						 {
+								if(var VAR_58 == int 4)
+								 {
+										if(call is_char_standing(var nrebel))
+										 {
+												call char_turn_to_pos(var nrebel, var &walk_position8)
+												var VAR_58 ++ 
+										}
+								}
+						}
+						if(gamevar scene_counter > int 380)
+						 {
+								if(var VAR_58 == int 5)
+								 {
+										if(call is_char_standing(var nrebela))
+										 {
+												call char_turn_to_pos(var nrebela, var &walk_position6)
+												var VAR_58 ++ 
+										}
+								}
+								if(call is_char_standing(var nrebela))
+								 {
+										call start_dialog("DUKLEAVE", "NULL")
+										var VAR_14 = int 15
+										gamevar scene_counter = int 0
+								}
+						}
+				}
+				else
+				 {
+						gamevar scene_counter = int 0
+				}
+				break 
+			case 15
+				if(call get_input_sys() != int 4)
+				 {
+						call char_walk_to_pos(var nprofess, var &walk_position)
+						call char_walk_to_pos(var nrebel, var &walk_position3)
+						call char_walk_to_pos(var nrebela, var &walk_position4)
+						gamevar scene_counter = int 0
+						var VAR_14 = int 16
+				}
+				break 
+			case 16
+				if(gamevar scene_counter > int 20)
+				 {
+						call func_2b(var DAVID, int 0)
+						call func_2b(var ntyronis, int 0)
+						call char_exit_door(var nduke, int 0)
+						call func_c1(var nduke, "GNO", "BOILAREA", int 3)
+						call func_116("gno", "gnolib1", int 3)
+						call set_scene_overwrite_act("gno", "gnolib1", int 1)
+						call func_71("gno", "boilarea", int 2, int 2)
+						call func_71("gno", "boilarea", int 1, int 16)
+						call func_118("gno", "boilarea", int 1)
+						call func_71("gno", "entrance", int 0, int 2)
+						call func_71("gno", "entrance", int 1, int 2)
+						call func_71("gno", "entouter", int 0, int 2)
+						call func_71("gno", "entouter", int 1, int 2)
+						call func_116("gno", "secret", int 0)
+						call set_scene_overwrite_act("gno", "secret", int 1)
+						call func_116("gno", "tosecret", int 0)
+						call set_scene_overwrite_act("gno", "tosecret", int 1)
+						var VAR_14 = int 17
+				}
+				break 
+			case 17
+				break 
+	}
 
 ._SCRIPT_5
-var VAR_101 ++ 
-switch(var VAR_21)
- {
-		case 4
-			exit_script 
-		case 0
-			if(var VAR_101 == int 1)
-			 {
-					var temper_anim = call load_anim("temper")
-					var impoint_anim = call load_anim("impoint")
-					var startle_anim = call load_anim("startle")
-					var fimp1 = call create_char(var &init_position5, "fimp1", int 290, int 13)
-					var fimp2 = call create_char(var &init_position6, "fimp2", int 285, int 13)
-					call set_char_init_state(var fimp1, int 0)
-					call set_char_init_state(var fimp2, int 0)
-			}
-			if(var VAR_101 > int 10)
-			 {
-					call play_char_anim(var fimp1, var temper_anim, int 0)
-					call play_char_anim(var fimp2, var temper_anim, int 10)
-					call func_95(var fimp1, int 2, int 0)
-					var VAR_21 = int 1
-			}
-			break 
-		case 1
-			if(call func_5c(var fimp1))
-			 {
-					call play_char_anim(var fimp1, @temper_anim[call randomize_int(int 0, int 2)], call randomize_int(int 0, int 3))
-					var VAR_109 ++ 
-					if(var VAR_109 == int 4)
-					 {
-							var VAR_109 = int 0
-							call func_95(var fimp2, int 3, int 0)
-					}
-			}
-			if(call func_5c(var fimp2))
-			 {
-					call play_char_anim(var fimp2, @temper_anim[call randomize_int(int 0, int 2)], call randomize_int(int 0, int 3))
-					var VAR_109 ++ 
-					if(var VAR_109 == int 4)
-					 {
-							call func_95(var fimp1, int 4, int 0)
-							var VAR_109 = int 0
-					}
-			}
-			break 
-		case 2
-			call set_char_init_state(var fimp1, int 7)
-			call func_32(var fimp1)
-			call func_32(var fimp2)
-			call set_char_init_state(var fimp2, int 7)
-			call play_char_anim(var fimp1, var startle_anim, int 0)
-			call play_char_anim(var fimp2, var startle_anim, int 4)
-			call func_95(var fimp1, int 2, int 0)
-			call func_95(var fimp2, int 4, int 0)
-			var VAR_21 = int 4
-			break 
-}
+	var VAR_101 ++ 
+	switch(var VAR_21)
+	 {
+			case 4
+				exit_script 
+			case 0
+				if(var VAR_101 == int 1)
+				 {
+						var temper_anim = call load_anim("temper")
+						var impoint_anim = call load_anim("impoint")
+						var startle_anim = call load_anim("startle")
+						var fimp1 = call create_char(var &init_position5, "fimp1", int 290, int 13)
+						var fimp2 = call create_char(var &init_position6, "fimp2", int 285, int 13)
+						call set_char_init_state(var fimp1, int 0)
+						call set_char_init_state(var fimp2, int 0)
+				}
+				if(var VAR_101 > int 10)
+				 {
+						call play_char_anim(var fimp1, var temper_anim, int 0)
+						call play_char_anim(var fimp2, var temper_anim, int 10)
+						call func_95(var fimp1, int 2, int 0)
+						var VAR_21 = int 1
+				}
+				break 
+			case 1
+				if(call func_5c(var fimp1))
+				 {
+						call play_char_anim(var fimp1, @temper_anim[call randomize_int(int 0, int 2)], call randomize_int(int 0, int 3))
+						var VAR_109 ++ 
+						if(var VAR_109 == int 4)
+						 {
+								var VAR_109 = int 0
+								call func_95(var fimp2, int 3, int 0)
+						}
+				}
+				if(call func_5c(var fimp2))
+				 {
+						call play_char_anim(var fimp2, @temper_anim[call randomize_int(int 0, int 2)], call randomize_int(int 0, int 3))
+						var VAR_109 ++ 
+						if(var VAR_109 == int 4)
+						 {
+								call func_95(var fimp1, int 4, int 0)
+								var VAR_109 = int 0
+						}
+				}
+				break 
+			case 2
+				call set_char_init_state(var fimp1, int 7)
+				call func_32(var fimp1)
+				call func_32(var fimp2)
+				call set_char_init_state(var fimp2, int 7)
+				call play_char_anim(var fimp1, var startle_anim, int 0)
+				call play_char_anim(var fimp2, var startle_anim, int 4)
+				call func_95(var fimp1, int 2, int 0)
+				call func_95(var fimp2, int 4, int 0)
+				var VAR_21 = int 4
+				break 
+	}
 
 ._SCRIPT_6
-if(gamevar script_time > var VAR_117)
- {
-		var VAR_117 = gamevar script_time + int 200 + call randomize_int(int 0, int 200)
-		var driphit_sound_ref = call play_loaded_sound(int 5, int 0, int 64, int 0)
-		if(var driphit_sound_ref != int -1)
-		 {
-				call func_fb(var driphit_sound_ref, int 22050)
-		}
-}
-if(gamevar script_time > var VAR_116)
- {
-		var VAR_116 = gamevar script_time + int 100 + call randomize_int(int 0, int 100)
+	if(gamevar script_time > var VAR_117)
+	 {
+			var VAR_117 = gamevar script_time + int 200 + call randomize_int(int 0, int 200)
+			var driphit_sound_ref = call play_loaded_sound(int 5, int 0, int 64, int 0)
+			if(var driphit_sound_ref != int -1)
+			 {
+					call func_fb(var driphit_sound_ref, int 22050)
+			}
+	}
+	if(gamevar script_time > var VAR_116)
+	 {
+			var VAR_116 = gamevar script_time + int 100 + call randomize_int(int 0, int 100)
 
-		 /* play the sound 'echdrip1' */ 
-		call play_loaded_sound(int 3, int 0, int 64, int 0)
-}
+			 /* play the sound 'echdrip1' */ 
+			call play_loaded_sound(int 3, int 0, int 64, int 0)
+	}
 
 ._SCRIPT_7
-var david = call get_david_char()
-while(var david)
- {
-		call set_char_lvl(var david, var VAR_0)
-		var david = call func_7e()
-}
+	var david = call get_david_char()
+	while(var david)
+	 {
+			call set_char_lvl(var david, var VAR_0)
+			var david = call func_7e()
+	}

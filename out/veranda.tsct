@@ -10,311 +10,311 @@
 
 
 ._DATA
-init_position	{ -6883, 0, -3005 }	
-init_position1	{ -6001, 0, -2917 }	
-init_position2	{ -7722, -800, -4195 }	
-init_position3	{ -5933, 2000, -3650 }	
-init_position4	{ -5493, 2200, -3457 }	
-init_position5	{ -6307, 2000, -3877 }	
-init_position6	{ -6877, 2200, -3439 }	
-VAR_20	{ -5933, 2000, -3650, -5493, 2200, -3457, -6307, 2000, -3877, -6877, 2200, -3439 }	
-VAR_21	{ -5933, 400, -3650, -5493, 400, -3457, -6307, 400, -3877, -6877, 400, -3439 }	
-enemy_gen_script	{ 0, 1, 5, VAR_20, 8, 1, 4, 2, 5, VAR_21, 9, 0, 1, 1, 105, 105, 105, 105, -1, 5, 0, 50, 6, 1, 7, 1, 1, -1 }	
-position	{ -3950, 0, -2604 }	
-VAR_30	-1	
-VAR_31	-1	
-fly_position	{ -5933, 600, -3650 }	
-fly_position1	{ -5493, 800, -3457 }	
-fly_position2	{ -6307, 600, -3877 }	
-fly_position3	{ -6877, 800, -3439 }	
-walk_position	{ -5424, -800, -4039 }	
-walk_position1	{ -7705, -800, -4178 }	
-VAR_49	-1	
+	init_position	{ -6883, 0, -3005 }	
+	init_position1	{ -6001, 0, -2917 }	
+	init_position2	{ -7722, -800, -4195 }	
+	init_position3	{ -5933, 2000, -3650 }	
+	init_position4	{ -5493, 2200, -3457 }	
+	init_position5	{ -6307, 2000, -3877 }	
+	init_position6	{ -6877, 2200, -3439 }	
+	VAR_20	{ -5933, 2000, -3650, -5493, 2200, -3457, -6307, 2000, -3877, -6877, 2200, -3439 }	
+	VAR_21	{ -5933, 400, -3650, -5493, 400, -3457, -6307, 400, -3877, -6877, 400, -3439 }	
+	enemy_gen_script	{ 0, 1, 5, VAR_20, 8, 1, 4, 2, 5, VAR_21, 9, 0, 1, 1, 105, 105, 105, 105, -1, 5, 0, 50, 6, 1, 7, 1, 1, -1 }	
+	position	{ -3950, 0, -2604 }	
+	VAR_30	-1	
+	VAR_31	-1	
+	fly_position	{ -5933, 600, -3650 }	
+	fly_position1	{ -5493, 800, -3457 }	
+	fly_position2	{ -6307, 600, -3877 }	
+	fly_position3	{ -6877, 800, -3439 }	
+	walk_position	{ -5424, -800, -4039 }	
+	walk_position1	{ -7705, -800, -4178 }	
+	VAR_49	-1	
 
 ._on_load
-call play_bgm("GNO")
-call load_sound_set(int 62)
-call load_sound_set(int 63)
+	call play_bgm("GNO")
+	call load_sound_set(int 62)
+	call load_sound_set(int 63)
 
- /* play the sound 'gnoamb1' */ 
-call play_loaded_sound(int 1, int -1, int 63, int 0)
+	 /* play the sound 'gnoamb1' */ 
+	call play_loaded_sound(int 1, int -1, int 63, int 0)
 
- /* play the sound 'fbird1' */ 
-call play_loaded_sound(int 1, int -1, int 62, int 0)
+	 /* play the sound 'fbird1' */ 
+	call play_loaded_sound(int 1, int -1, int 62, int 0)
 
- /* play the sound 'imptalk1' */ 
-call play_loaded_sound(int 7, int -1, int 62, int 0)
-if(gamevar is_room_cleared)
- {
-		execute SCRIPT_15
-}
-else
- {
-		switch(gamevar room_state)
-		 {
-				case 1
-					execute SCRIPT_5
-					break 
-				case 2
-					execute SCRIPT_11
-					break 
-				case 3
-					execute SCRIPT_13
-					break 
-				case 0
-					break 
-		}
-}
+	 /* play the sound 'imptalk1' */ 
+	call play_loaded_sound(int 7, int -1, int 62, int 0)
+	if(gamevar is_room_cleared)
+	 {
+			execute SCRIPT_15
+	}
+	else
+	 {
+			switch(gamevar room_state)
+			 {
+					case 1
+						execute SCRIPT_5
+						break 
+					case 2
+						execute SCRIPT_11
+						break 
+					case 3
+						execute SCRIPT_13
+						break 
+					case 0
+						break 
+			}
+	}
 
 ._infinite_loop
-execute SCRIPT_3
-if(gamevar !is_room_cleared)
- {
-		switch(gamevar room_state)
-		 {
-				case 1
-					execute SCRIPT_6
-					break 
-				case 2
-					execute SCRIPT_12
-					break 
-				case 3
-					execute SCRIPT_14
-					break 
-				case 0
-					break 
-		}
-}
+	execute SCRIPT_3
+	if(gamevar !is_room_cleared)
+	 {
+			switch(gamevar room_state)
+			 {
+					case 1
+						execute SCRIPT_6
+						break 
+					case 2
+						execute SCRIPT_12
+						break 
+					case 3
+						execute SCRIPT_14
+						break 
+					case 0
+						break 
+			}
+	}
 
 ._on_exit
-if(gamevar !is_room_cleared)
- {
-		switch(gamevar room_state)
-		 {
-				case 1
-					if(var VAR_3)
-					 {
-							execute SCRIPT_10
-							gamevar room_state ++ 
-					}
-					else
-					 {
-							gamevar room_state = int 3
-					}
-					break 
-				case 2
-					gamevar room_state = int 4
-					gamevar is_room_cleared = int 1
-					break 
-				case 3
-					if(var VAR_3)
-					 {
-							execute SCRIPT_10
-							gamevar room_state = int 2
-					}
-					break 
-				case 0
-					break 
-				default 
-					gamevar room_state = int 0
-					break 
-		}
-}
+	if(gamevar !is_room_cleared)
+	 {
+			switch(gamevar room_state)
+			 {
+					case 1
+						if(var VAR_3)
+						 {
+								execute SCRIPT_10
+								gamevar room_state ++ 
+						}
+						else
+						 {
+								gamevar room_state = int 3
+						}
+						break 
+					case 2
+						gamevar room_state = int 4
+						gamevar is_room_cleared = int 1
+						break 
+					case 3
+						if(var VAR_3)
+						 {
+								execute SCRIPT_10
+								gamevar room_state = int 2
+						}
+						break 
+					case 0
+						break 
+					default 
+						gamevar room_state = int 0
+						break 
+			}
+	}
 
 ._SCRIPT_3
-if(gamevar script_time > var VAR_54)
- {
-		var VAR_54 = gamevar script_time + int 300 + call randomize_int(int 0, int 200)
-		var VAR_52 = int 2 + call randomize_int(int 0, int 3)
-		call play_loaded_sound(var VAR_52, int 0, int 63, int 0)
-}
-if(gamevar script_time > var VAR_53)
- {
-		var VAR_53 = gamevar script_time + int 60 + call randomize_int(int 0, int 40)
-		var VAR_52 = int 2 + call randomize_int(int 0, int 5)
-		call play_loaded_sound(var VAR_52, int 0, int 62, int 0)
-}
+	if(gamevar script_time > var VAR_54)
+	 {
+			var VAR_54 = gamevar script_time + int 300 + call randomize_int(int 0, int 200)
+			var VAR_52 = int 2 + call randomize_int(int 0, int 3)
+			call play_loaded_sound(var VAR_52, int 0, int 63, int 0)
+	}
+	if(gamevar script_time > var VAR_53)
+	 {
+			var VAR_53 = gamevar script_time + int 60 + call randomize_int(int 0, int 40)
+			var VAR_52 = int 2 + call randomize_int(int 0, int 5)
+			call play_loaded_sound(var VAR_52, int 0, int 62, int 0)
+	}
 
 ._SCRIPT_4
-var imphorn_anim = call load_anim("imphorn")
+	var imphorn_anim = call load_anim("imphorn")
 
 ._SCRIPT_5
-var bezerk_imp = call create_enemy(int 103, int 1, var &init_position, int 25)
-var bezerk_imp1 = call create_enemy(int 103, int 2, var &init_position1, int 330)
-var NIMP3 = call create_char(var &init_position2, "NIMP3", int 35, int 13)
-call set_char_running(var NIMP3)
-call add_item_to_char(var NIMP3, int 87 /* horn */ , int 1, int 1)
-var flying_imps = call create_enemy(int 105, int 1, var &init_position3, int 345)
-var flying_imps1 = call create_enemy(int 105, int 2, var &init_position4, int 305)
-var flying_imps2 = call create_enemy(int 105, int 3, var &init_position5, int 15)
-var flying_imps3 = call create_enemy(int 105, int 4, var &init_position6, int 50)
-execute SCRIPT_4
-var DAVID = call get_char_handle(int 65536)
-var TYRONIS = call get_char_handle(int 2031616)
-call freeze_enemy(var flying_imps)
-call freeze_enemy(var flying_imps1)
-call freeze_enemy(var flying_imps2)
-call freeze_enemy(var flying_imps3)
-call load_sound_set(int 53)
+	var bezerk_imp = call create_enemy(int 103, int 1, var &init_position, int 25)
+	var bezerk_imp1 = call create_enemy(int 103, int 2, var &init_position1, int 330)
+	var NIMP3 = call create_char(var &init_position2, "NIMP3", int 35, int 13)
+	call set_char_running(var NIMP3)
+	call add_item_to_char(var NIMP3, int 87 /* horn */ , int 1, int 1)
+	var flying_imps = call create_enemy(int 105, int 1, var &init_position3, int 345)
+	var flying_imps1 = call create_enemy(int 105, int 2, var &init_position4, int 305)
+	var flying_imps2 = call create_enemy(int 105, int 3, var &init_position5, int 15)
+	var flying_imps3 = call create_enemy(int 105, int 4, var &init_position6, int 50)
+	execute SCRIPT_4
+	var DAVID = call get_char_handle(int 65536)
+	var TYRONIS = call get_char_handle(int 2031616)
+	call freeze_enemy(var flying_imps)
+	call freeze_enemy(var flying_imps1)
+	call freeze_enemy(var flying_imps2)
+	call freeze_enemy(var flying_imps3)
+	call load_sound_set(int 53)
 
 ._SCRIPT_6
-if(var VAR_24 == int 0)
- {
-		execute SCRIPT_7
-		execute SCRIPT_8
-		execute SCRIPT_9
-		if(call get_num_of_enemies() == int 0)
-		 {
-				var VAR_24 ++ 
-		}
-}
-if(var VAR_24 == int 1)
- {
-		if(call is_char_at_pos(var DAVID, var &position, int 400))
-		 {
-				var VAR_3 = int 1
-				call char_stop(var DAVID)
-				call start_dialog("TerImp", "NULL")
-				call char_unfollow(var TYRONIS)
-				var VAR_24 ++ 
-		}
-}
-if(var VAR_24 == int 2)
- {
-		if(call get_input_sys() != int 4)
-		 {
-				call char_exit_door(var DAVID, int 1)
-				var VAR_24 ++ 
-		}
-}
-
-._SCRIPT_7
-if(var VAR_28 == int 0)
- {
-		if(call get_num_of_enemies() < int 6)
-		 {
-				var VAR_30 = int 0
-				var VAR_28 ++ 
-				var VAR_29 = int 0
-		}
-}
-var VAR_29 ++ 
-
-._SCRIPT_8
-if(var VAR_30 == int 0)
- {
-		call char_walk_to_pos(var NIMP3, var &walk_position)
-		var VAR_30 ++ 
-		var VAR_37 = int 0
-}
-if(var VAR_30 == int 1)
- {
-		if(call is_char_standing(var NIMP3))
-		 {
-				call play_char_anim(var NIMP3, var imphorn_anim, int 0)
-
-				 /* play the sound 'dwavesLp' */ 
-				call play_loaded_sound(int 1, int 0, int 53, call get_char_movement_ptr(var NIMP3))
-				var VAR_30 ++ 
-				var VAR_37 = int 0
-		}
-}
-if(var VAR_30 == int 2)
- {
-		if(call func_5c(var NIMP3))
-		 {
-				var VAR_31 ++ 
-				call char_walk_to_pos(var NIMP3, var &walk_position1)
-				call char_walk_to_pos(var NIMP3, var &walk_position1)
-				var VAR_30 ++ 
-				var VAR_37 = int 0
-		}
-}
-if(var VAR_30 == int 3)
- {
-		if(call is_char_standing(var NIMP3))
-		 {
-				call remove_char(var NIMP3)
-				var VAR_30 ++ 
-				var VAR_37 = int 0
-		}
-}
-var VAR_37 ++ 
-
-._SCRIPT_9
-if(var VAR_31 == int 0)
- {
-		call func_c5(var flying_imps)
-		call fly_to_pos(var flying_imps, int 0, var &fly_position)
-		call func_c5(var flying_imps1)
-		call fly_to_pos(var flying_imps1, int 0, var &fly_position1)
-		call func_c5(var flying_imps2)
-		call fly_to_pos(var flying_imps2, int 0, var &fly_position2)
-		call func_c5(var flying_imps3)
-		call fly_to_pos(var flying_imps3, int 0, var &fly_position3)
-		var VAR_31 ++ 
-		var VAR_32 = int 0
-}
-if(var VAR_31 == int 1)
- {
-		if(var VAR_32 > int 150)
-		 {
-				call set_char_template(var flying_imps, int 105)
-				call set_char_template(var flying_imps1, int 105)
-				call set_char_template(var flying_imps2, int 105)
-				call set_char_template(var flying_imps3, int 105)
-				call run_enemy_generator(var &enemy_gen_script, int 10)
-				var VAR_31 ++ 
-				var VAR_32 = int 0
-		}
-}
-var VAR_32 ++ 
-
-._SCRIPT_10
-call func_7(int 0, call get_char_x(var TYRONIS), call get_char_y(var TYRONIS), call get_char_z(var TYRONIS))
-call remove_char(var TYRONIS)
-
-._SCRIPT_11
-call func_d8(int 0, var &VAR_40)
-var init_position7 = var VAR_41
-var VAR_45 = var VAR_42
-var VAR_46 = var VAR_43
-var TYRONIS = call create_char(var &init_position7, "htyronis.", int 90, int 13)
-var DAVID = call get_char_handle(int 65536)
-call func_53(var TYRONIS, int 15)
-call char_follow_char(var TYRONIS, var DAVID)
-
-._SCRIPT_12
-
-._SCRIPT_13
-var DAVID = call get_char_handle(int 65536)
-var TYRONIS = call get_char_handle(int 2031616)
-
-._SCRIPT_14
-if(var VAR_49 != var VAR_48)
- {
-		var VAR_49 = var VAR_48
-		call log_obj(var VAR_48)
-}
-switch(var VAR_48)
- {
-		case 0
+	if(var VAR_24 == int 0)
+	 {
+			execute SCRIPT_7
+			execute SCRIPT_8
+			execute SCRIPT_9
+			if(call get_num_of_enemies() == int 0)
+			 {
+					var VAR_24 ++ 
+			}
+	}
+	if(var VAR_24 == int 1)
+	 {
 			if(call is_char_at_pos(var DAVID, var &position, int 400))
 			 {
 					var VAR_3 = int 1
 					call char_stop(var DAVID)
 					call start_dialog("TerImp", "NULL")
 					call char_unfollow(var TYRONIS)
-					var VAR_48 ++ 
+					var VAR_24 ++ 
 			}
-			break 
-		case 1
+	}
+	if(var VAR_24 == int 2)
+	 {
 			if(call get_input_sys() != int 4)
 			 {
 					call char_exit_door(var DAVID, int 1)
-					var VAR_48 ++ 
+					var VAR_24 ++ 
 			}
-			break 
-}
+	}
+
+._SCRIPT_7
+	if(var VAR_28 == int 0)
+	 {
+			if(call get_num_of_enemies() < int 6)
+			 {
+					var VAR_30 = int 0
+					var VAR_28 ++ 
+					var VAR_29 = int 0
+			}
+	}
+	var VAR_29 ++ 
+
+._SCRIPT_8
+	if(var VAR_30 == int 0)
+	 {
+			call char_walk_to_pos(var NIMP3, var &walk_position)
+			var VAR_30 ++ 
+			var VAR_37 = int 0
+	}
+	if(var VAR_30 == int 1)
+	 {
+			if(call is_char_standing(var NIMP3))
+			 {
+					call play_char_anim(var NIMP3, var imphorn_anim, int 0)
+
+					 /* play the sound 'dwavesLp' */ 
+					call play_loaded_sound(int 1, int 0, int 53, call get_char_movement_ptr(var NIMP3))
+					var VAR_30 ++ 
+					var VAR_37 = int 0
+			}
+	}
+	if(var VAR_30 == int 2)
+	 {
+			if(call func_5c(var NIMP3))
+			 {
+					var VAR_31 ++ 
+					call char_walk_to_pos(var NIMP3, var &walk_position1)
+					call char_walk_to_pos(var NIMP3, var &walk_position1)
+					var VAR_30 ++ 
+					var VAR_37 = int 0
+			}
+	}
+	if(var VAR_30 == int 3)
+	 {
+			if(call is_char_standing(var NIMP3))
+			 {
+					call remove_char(var NIMP3)
+					var VAR_30 ++ 
+					var VAR_37 = int 0
+			}
+	}
+	var VAR_37 ++ 
+
+._SCRIPT_9
+	if(var VAR_31 == int 0)
+	 {
+			call func_c5(var flying_imps)
+			call fly_to_pos(var flying_imps, int 0, var &fly_position)
+			call func_c5(var flying_imps1)
+			call fly_to_pos(var flying_imps1, int 0, var &fly_position1)
+			call func_c5(var flying_imps2)
+			call fly_to_pos(var flying_imps2, int 0, var &fly_position2)
+			call func_c5(var flying_imps3)
+			call fly_to_pos(var flying_imps3, int 0, var &fly_position3)
+			var VAR_31 ++ 
+			var VAR_32 = int 0
+	}
+	if(var VAR_31 == int 1)
+	 {
+			if(var VAR_32 > int 150)
+			 {
+					call set_char_template(var flying_imps, int 105)
+					call set_char_template(var flying_imps1, int 105)
+					call set_char_template(var flying_imps2, int 105)
+					call set_char_template(var flying_imps3, int 105)
+					call run_enemy_generator(var &enemy_gen_script, int 10)
+					var VAR_31 ++ 
+					var VAR_32 = int 0
+			}
+	}
+	var VAR_32 ++ 
+
+._SCRIPT_10
+	call save_pos_to_room_memory(int 0, call get_char_x(var TYRONIS), call get_char_y(var TYRONIS), call get_char_z(var TYRONIS))
+	call remove_char(var TYRONIS)
+
+._SCRIPT_11
+	call load_pos_from_room_memory(int 0, var &VAR_40)
+	var VAR_44 = var VAR_41
+	var VAR_45 = var VAR_42
+	var VAR_46 = var VAR_43
+	var TYRONIS = call create_char(var &VAR_44, "htyronis.", int 90, int 13)
+	var DAVID = call get_char_handle(int 65536)
+	call func_53(var TYRONIS, int 15)
+	call char_follow_char(var TYRONIS, var DAVID)
+
+._SCRIPT_12
+
+._SCRIPT_13
+	var DAVID = call get_char_handle(int 65536)
+	var TYRONIS = call get_char_handle(int 2031616)
+
+._SCRIPT_14
+	if(var VAR_49 != var VAR_48)
+	 {
+			var VAR_49 = var VAR_48
+			call log_obj(var VAR_48)
+	}
+	switch(var VAR_48)
+	 {
+			case 0
+				if(call is_char_at_pos(var DAVID, var &position, int 400))
+				 {
+						var VAR_3 = int 1
+						call char_stop(var DAVID)
+						call start_dialog("TerImp", "NULL")
+						call char_unfollow(var TYRONIS)
+						var VAR_48 ++ 
+				}
+				break 
+			case 1
+				if(call get_input_sys() != int 4)
+				 {
+						call char_exit_door(var DAVID, int 1)
+						var VAR_48 ++ 
+				}
+				break 
+	}
 
 ._SCRIPT_15

@@ -10,136 +10,136 @@
 
 
 ._DATA
-VAR_2	{ 0, 0 }	
-VAR_5	2	
-VAR_6	1	
-VAR_7	2	
-VAR_11	{ -188, -900, -2090, 189, -900, -2067 }	
-VAR_12	{ -220, 0, -4200 }	
+	VAR_2	{ 0, 0 }	
+	VAR_5	2	
+	VAR_6	1	
+	VAR_7	2	
+	VAR_11	{ -188, -900, -2090, 189, -900, -2067 }	
+	VAR_12	{ -220, 0, -4200 }	
 
 ._on_load
-call load_sound_set(int 30)
-var torches2_sound_ref = call play_loaded_sound(int 1, int -1, int 30, int 0)
-call load_sound_set(int 75)
+	call load_sound_set(int 30)
+	var torches2_sound_ref = call play_loaded_sound(int 1, int -1, int 30, int 0)
+	call load_sound_set(int 75)
 
- /* play the sound 'rumble2' */ 
-call play_loaded_sound(int 1, int -1, int 75, int 0)
+	 /* play the sound 'rumble2' */ 
+	call play_loaded_sound(int 1, int -1, int 75, int 0)
 
- /* play the sound 'rockbit1' */ 
-call play_loaded_sound(int 2, int -1, int 75, int 0)
-if(gamevar room_state == int 0)
- {
-		exit_script 
-}
-if(gamevar room_state == int 1)
- {
-		execute SCRIPT_3
-}
-if(gamevar room_state == int 2)
- {
-		execute SCRIPT_9
-}
+	 /* play the sound 'rockbit1' */ 
+	call play_loaded_sound(int 2, int -1, int 75, int 0)
+	if(gamevar room_state == int 0)
+	 {
+			exit_script 
+	}
+	if(gamevar room_state == int 1)
+	 {
+			execute SCRIPT_3
+	}
+	if(gamevar room_state == int 2)
+	 {
+			execute SCRIPT_9
+	}
 
 ._infinite_loop
-if(gamevar room_state == int 0)
- {
-		exit_script 
-}
-if(gamevar room_state == int 1)
- {
-		execute SCRIPT_5
-}
-if(gamevar room_state == int 2)
- {
-		execute SCRIPT_10
-}
+	if(gamevar room_state == int 0)
+	 {
+			exit_script 
+	}
+	if(gamevar room_state == int 1)
+	 {
+			execute SCRIPT_5
+	}
+	if(gamevar room_state == int 2)
+	 {
+			execute SCRIPT_10
+	}
 
 ._on_exit
-if(gamevar room_state == int 0)
- {
-		exit_script 
-}
-gamevar room_state ++ 
-if(gamevar room_state > int 2)
- {
-		gamevar room_state = int 0
-}
+	if(gamevar room_state == int 0)
+	 {
+			exit_script 
+	}
+	gamevar room_state ++ 
+	if(gamevar room_state > int 2)
+	 {
+			gamevar room_state = int 0
+	}
 
 ._SCRIPT_3
-execute SCRIPT_4
-var VAR_1 = int 1
-call set_input_system(int 2)
+	execute SCRIPT_4
+	var VAR_1 = int 1
+	call set_input_system(int 2)
 
 ._SCRIPT_4
-gamevar SMACKER_X = int 0
-gamevar SMACKER_Y = int 128
-call play_2d_anim("e_stway", int 0, int 0, var &VAR_1)
+	gamevar SMACKER_X = int 0
+	gamevar SMACKER_Y = int 128
+	call play_2d_anim("e_stway", int 0, int 0, var &VAR_1)
 
 ._SCRIPT_5
-execute SCRIPT_8
-var VAR_15 = var VAR_13
-var VAR_13 = var VAR_2
-switch(var VAR_9)
- {
-		case 0
-			if(var VAR_10 == int 2)
+	execute SCRIPT_8
+	var VAR_15 = var VAR_13
+	var VAR_13 = var VAR_2
+	switch(var VAR_9)
+	 {
+			case 0
+				if(var VAR_10 == int 2)
+				 {
+						call func_113(int 8, int 8)
+				}
+				if(var VAR_13 == int 56)
+				 {
+						var VAR_9 ++ 
+						var VAR_8 = int 1
+						var david = call get_david_char()
+						while(var david)
+						 {
+								call set_char_running(var david)
+								call func_2b(var david, int 1)
+								var david = call func_7e()
+						}
+				}
+				break 
+			case 1
+				if(call func_8a(var &VAR_11))
+				 {
+						var VAR_9 ++ 
+						call func_e6("outro", "e_cori_1", var &VAR_12, int 1)
+				}
+				break 
+	}
+	execute SCRIPT_7
+	if(var VAR_8)
+	 {
+			call func_59(var torches2_sound_ref)
+			var VAR_8 = int 0
+	}
+	if(var VAR_15 != var VAR_13)
+	 {
+			switch(var VAR_13)
 			 {
-					call func_113(int 8, int 8)
 			}
-			if(var VAR_13 == int 56)
-			 {
-					var VAR_9 ++ 
-					var VAR_8 = int 1
-					var david = call get_david_char()
-					while(var david)
-					 {
-							call set_char_running(var david)
-							call func_2b(var david, int 1)
-							var david = call func_7e()
-					}
-			}
-			break 
-		case 1
-			if(call func_8a(var &VAR_11))
-			 {
-					var VAR_9 ++ 
-					call func_e6("outro", "e_cori_1", var &VAR_12, int 1)
-			}
-			break 
-}
-execute SCRIPT_7
-if(var VAR_8)
- {
-		call func_59(var torches2_sound_ref)
-		var VAR_8 = int 0
-}
-if(var VAR_15 != var VAR_13)
- {
-		switch(var VAR_13)
-		 {
-		}
-}
-var VAR_10 ++ 
+	}
+	var VAR_10 ++ 
 
 ._SCRIPT_6
 
 ._SCRIPT_7
-if(call is_local_timer_greater_than(var VAR_6))
- {
-		var VAR_4 = call randomize_int(int 0, var VAR_5 + int 1)
-		var VAR_6 = call randomize_int(int 1, var VAR_7 + int 1)
-		gamevar scroll_x_shake = var VAR_4
-		call reset_local_timer()
-}
+	if(call is_local_timer_greater_than(var VAR_6))
+	 {
+			var VAR_4 = call randomize_int(int 0, var VAR_5 + int 1)
+			var VAR_6 = call randomize_int(int 1, var VAR_7 + int 1)
+			gamevar scroll_x_shake = var VAR_4
+			call reset_local_timer()
+	}
 
 ._SCRIPT_8
-if(gamevar script_time > var VAR_20)
- {
-		var VAR_20 = gamevar script_time + int 10 + call randomize_int(int 0, int 15)
-		var VAR_19 = int 3 + call randomize_int(int 0, int 25)
-		var VAR_18 = call play_loaded_sound(var VAR_19, int 0, int 75, int 0)
-		call set_sound_volume(var VAR_18, int 100 + call randomize_int(int 0, int 40))
-}
+	if(gamevar script_time > var VAR_20)
+	 {
+			var VAR_20 = gamevar script_time + int 10 + call randomize_int(int 0, int 15)
+			var VAR_19 = int 3 + call randomize_int(int 0, int 25)
+			var VAR_18 = call play_loaded_sound(var VAR_19, int 0, int 75, int 0)
+			call set_sound_volume(var VAR_18, int 100 + call randomize_int(int 0, int 40))
+	}
 
 ._SCRIPT_9
 

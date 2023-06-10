@@ -10,518 +10,518 @@
 
 
 ._DATA
-VAR_17	{ 0, 0 }	
-fx_position	{ -2075, 2025, 4625 }	
-VAR_23	{ 800, 2025, -4025 }	
-SEKUNE3	{ 0, 0 }	
-init_position	{ 366, 0, -272 }	
-init_position1	{ 514, 0, -714 }	
-init_position2	{ -178, 0, -578 }	
-init_position3	{ -32, 0, -722 }	
-init_position4	{ 237, 0, -795 }	
-VAR_42	{ 154, 0, -471 }	
-init_position5	{ 154, 0, -471 }	
-VAR_44	{ 154, 0, -471 }	
-scroll_position	{ 237, 0, -795, -546, 0, -534 }	
-scroll_position1	{ -283, 0, 470 }	
-VAR_62	{ 0, 0, 1, -1, 8, 0, 1, 1, 11, 11, 12, 13, -1, 4, 0, 9, 0, 5, 0, 100, 6, 1, 7, 1, 3, -1 }	
-VAR_63	-1	
-VAR_64	10	
-VAR_66	2	
-VAR_67	1	
+	VAR_17	{ 0, 0 }	
+	fx_position	{ -2075, 2025, 4625 }	
+	VAR_23	{ 800, 2025, -4025 }	
+	SEKUNE3	{ 0, 0 }	
+	init_position	{ 366, 0, -272 }	
+	init_position1	{ 514, 0, -714 }	
+	init_position2	{ -178, 0, -578 }	
+	init_position3	{ -32, 0, -722 }	
+	init_position4	{ 237, 0, -795 }	
+	VAR_42	{ 154, 0, -471 }	
+	init_position5	{ 154, 0, -471 }	
+	VAR_44	{ 154, 0, -471 }	
+	scroll_position	{ 237, 0, -795, -546, 0, -534 }	
+	scroll_position1	{ -283, 0, 470 }	
+	VAR_62	{ 0, 0, 1, -1, 8, 0, 1, 1, 11, 11, 12, 13, -1, 4, 0, 9, 0, 5, 0, 100, 6, 1, 7, 1, 3, -1 }	
+	VAR_63	-1	
+	VAR_64	10	
+	VAR_66	2	
+	VAR_67	1	
 
 ._on_load
-var DAVID = call get_char_handle(int 65536)
-call load_sound_set(int 67)
-execute SCRIPT_3
-call play_bgm("RAINPT1")
-if(gamevar is_room_cleared)
- {
-		execute SCRIPT_9
-}
-else
- {
-		switch(gamevar room_state)
-		 {
-				case 1
-					execute SCRIPT_5
-					break 
-				case 2
-					execute SCRIPT_8
-					break 
-				case 0
-					break 
-		}
-}
+	var DAVID = call get_char_handle(int 65536)
+	call load_sound_set(int 67)
+	execute SCRIPT_3
+	call play_bgm("RAINPT1")
+	if(gamevar is_room_cleared)
+	 {
+			execute SCRIPT_9
+	}
+	else
+	 {
+			switch(gamevar room_state)
+			 {
+					case 1
+						execute SCRIPT_5
+						break 
+					case 2
+						execute SCRIPT_8
+						break 
+					case 0
+						break 
+			}
+	}
 
 ._infinite_loop
-execute SCRIPT_11
-if(gamevar !is_room_cleared)
- {
-		switch(gamevar room_state)
-		 {
-				case 1
-					execute SCRIPT_4
-					break 
-				case 2
-					execute SCRIPT_7
-					break 
-				case 0
-					break 
-		}
-}
+	execute SCRIPT_11
+	if(gamevar !is_room_cleared)
+	 {
+			switch(gamevar room_state)
+			 {
+					case 1
+						execute SCRIPT_4
+						break 
+					case 2
+						execute SCRIPT_7
+						break 
+					case 0
+						break 
+			}
+	}
 
 ._on_exit
-if(gamevar !is_room_cleared)
- {
-		switch(gamevar room_state)
-		 {
-				case 1
-					gamevar room_state ++ 
-					break 
-				case 2
-					break 
-				case 0
-					break 
-				default 
-					gamevar room_state = int 0
-					break 
-		}
-}
+	if(gamevar !is_room_cleared)
+	 {
+			switch(gamevar room_state)
+			 {
+					case 1
+						gamevar room_state ++ 
+						break 
+					case 2
+						break 
+					case 0
+						break 
+					default 
+						gamevar room_state = int 0
+						break 
+			}
+	}
 
 ._SCRIPT_3
-call log("it's_raining")
-call play_3d_fx("RAIN", var &fx_position, var &VAR_23, int 0)
-execute SCRIPT_10
+	call log("it's_raining")
+	call play_3d_fx("RAIN", var &fx_position, var &VAR_23, int 0)
+	execute SCRIPT_10
 
 ._SCRIPT_4
-execute SCRIPT_6
-switch(var VAR_25)
- {
-		case 0
-			call force_scroll_to_pos(var &scroll_position)
-			var VAR_26 = int 0
-			var VAR_25 ++ 
-			break 
-		case 1
-			if(call is_not_force_scrolling())
-			 {
-					call start_dialog("VWMHelp", "NULL")
-					var VAR_26 = int 0
-					var VAR_25 ++ 
-			}
-			break 
-		case 2
-			if(call get_input_sys() != int 4)
-			 {
-					call force_scroll_to_pos(call get_char_pos(var DAVID1))
-					var VAR_26 = int 0
-					var VAR_25 ++ 
-			}
-			break 
-		case 3
-			if(call is_not_force_scrolling())
-			 {
-					var VAR_26 = int 0
-					var VAR_25 ++ 
-			}
-			break 
-		case 4
-			if(call func_ab(int 2500, var &VAR_42))
-			 {
-					call log("next_step")
-					if(call is_char_handle_in_level(int 6881280 /* RCAPTAIN */ ))
-					 {
-							gamevar script_object = var captain_knives
-							gamevar *character_stats_p+15 = int 3000
-					}
-					if(call is_char_handle_in_level(int 7143427))
-					 {
-							gamevar script_object = var lieutenant2
-							gamevar *character_stats_p+15 = int 3000
-					}
-					if(call is_char_handle_in_level(int 7143428))
-					 {
-							gamevar script_object = var lieutenant3
-							gamevar *character_stats_p+15 = int 3000
-					}
-					var VAR_20 = int 1
-					var VAR_27 = int 8
-					var VAR_26 = int 0
-					var VAR_25 ++ 
-			}
-			break 
-		case 5
-			var VAR_26 ++ 
-			if(var VAR_26 > int 120)
-			 {
-					if(call is_char_handle_in_level(int 7143425))
-					 {
-							call func_17(var lieutenant, var DAVID1)
-					}
-					if(call is_char_handle_in_level(int 7143426))
-					 {
-							call func_17(var lieutenant1, var DAVID1)
-					}
-					if(call is_char_handle_in_level(int 7143427)&&call is_char_handle_in_level(int 786432 /* SEKUNE */ ))
-					 {
-							call func_17(var lieutenant2, var SEKUNE3)
-					}
-					if(call is_char_handle_in_level(int 7143428)&&call is_char_handle_in_level(int 786432 /* SEKUNE */ ))
-					 {
-							call func_17(var lieutenant3, var SEKUNE3)
-					}
-					var VAR_25 ++ 
-					var VAR_26 = int 0
-			}
-			break 
-		case 6
-			var VAR_26 ++ 
-			if(var VAR_26 > int 80)
-			 {
-					if(call is_char_handle_in_level(int 7143427))
-					 {
-							call set_char_init_state(var lieutenant2, int 0)
-							call set_char_init_state(var lieutenant2, int 7)
-							call func_106(var lieutenant2, int 1, int 0, int 1)
-							call set_char_init_state(var lieutenant2, int 1)
-							call func_104(var lieutenant2, int 7, int 3)
-					}
-					if(call is_char_handle_in_level(int 7143428))
-					 {
-							call set_char_init_state(var lieutenant3, int 0)
-							call set_char_init_state(var lieutenant3, int 7)
-							call func_106(var lieutenant3, int 1, int 0, int 1)
-							call set_char_init_state(var lieutenant3, int 1)
-					}
-					var VAR_26 = int 0
-					var VAR_25 ++ 
-			}
-			break 
-		case 7
-			var VAR_26 ++ 
-			if(var VAR_26 > int 180)
-			 {
-					if(call is_char_handle_in_level(int 7143425))
-					 {
-							call set_char_init_state(var lieutenant, int 0)
-							call set_char_init_state(var lieutenant, int 7)
-							call func_106(var lieutenant, int 1, int 0, int 1)
-							call set_char_init_state(var lieutenant, int 1)
-					}
-					if(call is_char_handle_in_level(int 7143426))
-					 {
-							call set_char_init_state(var lieutenant1, int 0)
-							call set_char_init_state(var lieutenant1, int 7)
-							call func_106(var lieutenant1, int 1, int 0, int 1)
-							call set_char_init_state(var lieutenant1, int 1)
-							call func_104(var lieutenant1, int 7, int 3)
-					}
-					var VAR_26 = int 0
-					var VAR_25 ++ 
-			}
-			break 
-		case 8
-			var VAR_26 ++ 
-			if(var VAR_26 > int 180)
-			 {
-					if(call is_char_handle_in_level(int 6881280 /* RCAPTAIN */ ))
-					 {
-							call func_106(var captain_knives, int 1, int 0, int 1)
-							call func_106(var captain_knives, int 1, int 7, int 1)
-							call func_104(var captain_knives, int 1, int 4)
-							call func_104(var captain_knives, int 7, int 2)
-							call func_106(var captain_knives, int 3, int 1, var &VAR_62)
-							call func_50(var captain_knives, int 667)
-							var VAR_26 = int 0
-							var VAR_25 ++ 
-					}
-			}
-			break 
-}
-if(var ! VAR_70)
- {
-		if(call get_num_of_enemies() == int 0)
-		 {
-				var VAR_70 = int 1
-				var VAR_71 = int 1
-				var VAR_27 = int 9
-				var VAR_25 = int 10
-				if(call get_char_handle_id(call get_selected_hero()) == int 786432)
+	execute SCRIPT_6
+	switch(var VAR_25)
+	 {
+			case 0
+				call force_scroll_to_pos(var &scroll_position)
+				var VAR_26 = int 0
+				var VAR_25 ++ 
+				break 
+			case 1
+				if(call is_not_force_scrolling())
 				 {
-						var VAR_68 = int 1
+						call start_dialog("VWMHelp", "NULL")
+						var VAR_26 = int 0
+						var VAR_25 ++ 
 				}
-		}
-}
-switch(var VAR_71)
- {
-		case 1
-			call set_input_system(int 2)
-			call force_scroll_to_pos(var &scroll_position1)
-			if(var ! VAR_68)
+				break 
+			case 2
+				if(call get_input_sys() != int 4)
+				 {
+						call force_scroll_to_pos(call get_char_pos(var DAVID1))
+						var VAR_26 = int 0
+						var VAR_25 ++ 
+				}
+				break 
+			case 3
+				if(call is_not_force_scrolling())
+				 {
+						var VAR_26 = int 0
+						var VAR_25 ++ 
+				}
+				break 
+			case 4
+				if(call func_ab(int 2500, var &VAR_42))
+				 {
+						call log("next_step")
+						if(call is_char_handle_in_level(int 6881280 /* RCAPTAIN */ ))
+						 {
+								gamevar script_object = var captain_knives
+								gamevar *character_stats_p+15 = int 3000
+						}
+						if(call is_char_handle_in_level(int 7143427))
+						 {
+								gamevar script_object = var lieutenant2
+								gamevar *character_stats_p+15 = int 3000
+						}
+						if(call is_char_handle_in_level(int 7143428))
+						 {
+								gamevar script_object = var lieutenant3
+								gamevar *character_stats_p+15 = int 3000
+						}
+						var VAR_20 = int 1
+						var VAR_27 = int 8
+						var VAR_26 = int 0
+						var VAR_25 ++ 
+				}
+				break 
+			case 5
+				var VAR_26 ++ 
+				if(var VAR_26 > int 120)
+				 {
+						if(call is_char_handle_in_level(int 7143425))
+						 {
+								call func_17(var lieutenant, var DAVID1)
+						}
+						if(call is_char_handle_in_level(int 7143426))
+						 {
+								call func_17(var lieutenant1, var DAVID1)
+						}
+						if(call is_char_handle_in_level(int 7143427)&&call is_char_handle_in_level(int 786432 /* SEKUNE */ ))
+						 {
+								call func_17(var lieutenant2, var SEKUNE3)
+						}
+						if(call is_char_handle_in_level(int 7143428)&&call is_char_handle_in_level(int 786432 /* SEKUNE */ ))
+						 {
+								call func_17(var lieutenant3, var SEKUNE3)
+						}
+						var VAR_25 ++ 
+						var VAR_26 = int 0
+				}
+				break 
+			case 6
+				var VAR_26 ++ 
+				if(var VAR_26 > int 80)
+				 {
+						if(call is_char_handle_in_level(int 7143427))
+						 {
+								call set_char_init_state(var lieutenant2, int 0)
+								call set_char_init_state(var lieutenant2, int 7)
+								call func_106(var lieutenant2, int 1, int 0, int 1)
+								call set_char_init_state(var lieutenant2, int 1)
+								call func_104(var lieutenant2, int 7, int 3)
+						}
+						if(call is_char_handle_in_level(int 7143428))
+						 {
+								call set_char_init_state(var lieutenant3, int 0)
+								call set_char_init_state(var lieutenant3, int 7)
+								call func_106(var lieutenant3, int 1, int 0, int 1)
+								call set_char_init_state(var lieutenant3, int 1)
+						}
+						var VAR_26 = int 0
+						var VAR_25 ++ 
+				}
+				break 
+			case 7
+				var VAR_26 ++ 
+				if(var VAR_26 > int 180)
+				 {
+						if(call is_char_handle_in_level(int 7143425))
+						 {
+								call set_char_init_state(var lieutenant, int 0)
+								call set_char_init_state(var lieutenant, int 7)
+								call func_106(var lieutenant, int 1, int 0, int 1)
+								call set_char_init_state(var lieutenant, int 1)
+						}
+						if(call is_char_handle_in_level(int 7143426))
+						 {
+								call set_char_init_state(var lieutenant1, int 0)
+								call set_char_init_state(var lieutenant1, int 7)
+								call func_106(var lieutenant1, int 1, int 0, int 1)
+								call set_char_init_state(var lieutenant1, int 1)
+								call func_104(var lieutenant1, int 7, int 3)
+						}
+						var VAR_26 = int 0
+						var VAR_25 ++ 
+				}
+				break 
+			case 8
+				var VAR_26 ++ 
+				if(var VAR_26 > int 180)
+				 {
+						if(call is_char_handle_in_level(int 6881280 /* RCAPTAIN */ ))
+						 {
+								call func_106(var captain_knives, int 1, int 0, int 1)
+								call func_106(var captain_knives, int 1, int 7, int 1)
+								call func_104(var captain_knives, int 1, int 4)
+								call func_104(var captain_knives, int 7, int 2)
+								call func_106(var captain_knives, int 3, int 1, var &VAR_62)
+								call func_50(var captain_knives, int 667)
+								var VAR_26 = int 0
+								var VAR_25 ++ 
+						}
+				}
+				break 
+	}
+	if(var ! VAR_70)
+	 {
+			if(call get_num_of_enemies() == int 0)
 			 {
-					call set_char_running(var DAVID)
-					call char_walk_to(var DAVID, int -325, int 0, int 413)
-			}
-			else
-			 {
-					call set_char_running(var SEKUNE3)
-					call set_char_running(var DAVID)
-					call char_walk_to(var DAVID, int -634, int 0, int 360)
-					call char_walk_to(var SEKUNE3, int -325, int 0, int 413)
-			}
-			var VAR_71 ++ 
-			break 
-		case 2
-			if(var ! VAR_68)
-			 {
-					if(call is_not_force_scrolling()&&call is_char_standing(var DAVID))
+					var VAR_70 = int 1
+					var VAR_71 = int 1
+					var VAR_27 = int 9
+					var VAR_25 = int 10
+					if(call get_char_handle_id(call get_selected_hero()) == int 786432)
 					 {
-							call chars_face_opposite(var DAVID, var noldwoman)
-							call start_dialog("S_DVDVWM", "NULL")
-							var VAR_71 ++ 
+							var VAR_68 = int 1
 					}
 			}
-			else
-			 {
-					if(call is_not_force_scrolling()&&call is_char_standing(var SEKUNE3)&&call is_char_standing(var DAVID))
-					 {
-							call chars_face_opposite(var DAVID, var noldwoman)
-							call chars_face_opposite(var SEKUNE3, var noldwoman)
-							call start_dialog("SEKVWM", "NULL")
-							var VAR_71 ++ 
-					}
-			}
-			break 
-}
+	}
+	switch(var VAR_71)
+	 {
+			case 1
+				call set_input_system(int 2)
+				call force_scroll_to_pos(var &scroll_position1)
+				if(var ! VAR_68)
+				 {
+						call set_char_running(var DAVID)
+						call char_walk_to(var DAVID, int -325, int 0, int 413)
+				}
+				else
+				 {
+						call set_char_running(var SEKUNE3)
+						call set_char_running(var DAVID)
+						call char_walk_to(var DAVID, int -634, int 0, int 360)
+						call char_walk_to(var SEKUNE3, int -325, int 0, int 413)
+				}
+				var VAR_71 ++ 
+				break 
+			case 2
+				if(var ! VAR_68)
+				 {
+						if(call is_not_force_scrolling()&&call is_char_standing(var DAVID))
+						 {
+								call chars_face_opposite(var DAVID, var noldwoman)
+								call start_dialog("S_DVDVWM", "NULL")
+								var VAR_71 ++ 
+						}
+				}
+				else
+				 {
+						if(call is_not_force_scrolling()&&call is_char_standing(var SEKUNE3)&&call is_char_standing(var DAVID))
+						 {
+								call chars_face_opposite(var DAVID, var noldwoman)
+								call chars_face_opposite(var SEKUNE3, var noldwoman)
+								call start_dialog("SEKVWM", "NULL")
+								var VAR_71 ++ 
+						}
+				}
+				break 
+	}
 
 ._SCRIPT_5
-var captain_knives = call create_enemy(int 209, int 0, var &init_position, int 207)
-call freeze_enemy(var captain_knives)
-var lieutenant = call create_enemy(int 11, int 1, var &init_position1, int 295)
-call freeze_enemy(var lieutenant)
-var lieutenant1 = call create_enemy(int 11, int 2, var &init_position2, int 25)
-call freeze_enemy(var lieutenant1)
-var lieutenant2 = call create_enemy(int 11, int 3, var &init_position3, int 5)
-call freeze_enemy(var lieutenant2)
-var lieutenant3 = call create_enemy(int 11, int 4, var &init_position4, int 350)
-call freeze_enemy(var lieutenant3)
-var noldwoman = call create_char(var &init_position5, "noldwoman", int 22, int 13)
-call add_item_to_char(var noldwoman, int 90 /* teddy */ , int 1, int 1)
-gamevar script_object = var noldwoman
-gamevar *object_p+6 |= int 8388608
-call func_109(var noldwoman, int 0)
-var DAVID1 = call get_char_handle(int 65536)
-if(call is_char_handle_in_level(int 786432 /* SEKUNE */ ))
- {
-		var SEKUNE3 = call get_char_handle(int 786432)
-}
-call set_char_running(var lieutenant1)
-call set_char_running(var lieutenant2)
-call set_char_running(var lieutenant3)
-var gstqustn_anim = call load_anim("gstqustn")
-var no_anim = call load_anim("no")
-var yes_anim = call load_anim("yes")
-var confused_anim = call load_anim("confused")
-var talkfstb_anim = call load_anim("talkfstb")
-var dypunch_anim = call load_anim("dypunch")
-var hitface_anim = call load_anim("hitface")
+	var captain_knives = call create_enemy(int 209, int 0, var &init_position, int 207)
+	call freeze_enemy(var captain_knives)
+	var lieutenant = call create_enemy(int 11, int 1, var &init_position1, int 295)
+	call freeze_enemy(var lieutenant)
+	var lieutenant1 = call create_enemy(int 11, int 2, var &init_position2, int 25)
+	call freeze_enemy(var lieutenant1)
+	var lieutenant2 = call create_enemy(int 11, int 3, var &init_position3, int 5)
+	call freeze_enemy(var lieutenant2)
+	var lieutenant3 = call create_enemy(int 11, int 4, var &init_position4, int 350)
+	call freeze_enemy(var lieutenant3)
+	var noldwoman = call create_char(var &init_position5, "noldwoman", int 22, int 13)
+	call add_item_to_char(var noldwoman, int 90 /* teddy */ , int 1, int 1)
+	gamevar script_object = var noldwoman
+	gamevar *object_p+6 |= int 8388608
+	call func_109(var noldwoman, int 0)
+	var DAVID1 = call get_char_handle(int 65536)
+	if(call is_char_handle_in_level(int 786432 /* SEKUNE */ ))
+	 {
+			var SEKUNE3 = call get_char_handle(int 786432)
+	}
+	call set_char_running(var lieutenant1)
+	call set_char_running(var lieutenant2)
+	call set_char_running(var lieutenant3)
+	var gstqustn_anim = call load_anim("gstqustn")
+	var no_anim = call load_anim("no")
+	var yes_anim = call load_anim("yes")
+	var confused_anim = call load_anim("confused")
+	var talkfstb_anim = call load_anim("talkfstb")
+	var dypunch_anim = call load_anim("dypunch")
+	var hitface_anim = call load_anim("hitface")
 
 ._SCRIPT_6
-if(var VAR_63 != var VAR_27)
- {
-		var VAR_63 = var VAR_27
-		call log_obj(var VAR_27)
-}
-switch(var VAR_27)
- {
-		case 0
-			var VAR_28 ++ 
-			if(var VAR_28 > int 100)
-			 {
-					if(call is_char_handle_in_level(int 6881280 /* RCAPTAIN */ ))
-					 {
-							call play_char_anim(var captain_knives, var talkfstb_anim, int 0)
-							var VAR_27 = int 3
-					}
-					else
-					 {
-							var VAR_27 = int 8
-					}
-					var VAR_28 = int 0
-			}
-			break 
-		case 1
-			if(call is_char_handle_in_level(int 6881280 /* RCAPTAIN */ ))
-			 {
-					if(call func_5c(var captain_knives))
-					 {
-							call play_char_anim(var noldwoman, var gstqustn_anim, int 0)
-							var VAR_27 ++ 
-							var VAR_28 = int 0
-					}
-			}
-			else
-			 {
-					var VAR_27 = int 8
-					var VAR_28 = int 0
-			}
-			break 
-		case 2
-			if(call func_5c(var noldwoman))
-			 {
-					if(call is_char_handle_in_level(int 6881280 /* RCAPTAIN */ ))
-					 {
-							call play_char_anim(var captain_knives, var talkfstb_anim, int 0)
-							var VAR_27 ++ 
-							var VAR_28 = int 0
-					}
-					else
-					 {
-							var VAR_28 = int 0
-							var VAR_27 = int 8
-					}
-			}
-			break 
-		case 3
-			if(var VAR_64)
-			 {
-					var VAR_64 -- 
-			}
-			if(var ! VAR_64)
-			 {
-					if(call is_char_handle_in_level(int 6881280 /* RCAPTAIN */ ))
-					 {
-							if(call func_5c(var captain_knives))
-							 {
-									if(var VAR_67)
-									 {
-											call play_char_anim(var noldwoman, var no_anim, int 0)
-									}
-									var VAR_27 ++ 
-									var VAR_67 = int 1
-									var VAR_28 = int 0
-							}
-					}
-					else
-					 {
-							var VAR_27 = int 8
-							var VAR_28 = int 0
-					}
-			}
-			break 
-		case 4
-			if(call func_5c(var noldwoman))
-			 {
-					if(call is_char_handle_in_level(int 6881280 /* RCAPTAIN */ ))
-					 {
-							call play_char_anim(var captain_knives, var dypunch_anim, int 0)
-							var VAR_27 ++ 
-							var VAR_28 = int 0
-					}
-					else
-					 {
-							var VAR_28 = int 0
-							var VAR_27 = int 8
-					}
-			}
-			break 
-		case 5
-			var VAR_28 ++ 
-			if(var VAR_28 == int 24)
-			 {
-					call func_ec(int 1, int 0, int 67, var &VAR_44)
-			}
-			if(var VAR_28 > int 30)
-			 {
-					call func_ec(int 2, int 0, int 67, var &VAR_44)
-					call play_char_anim(var noldwoman, var hitface_anim, int 0)
-					var VAR_27 ++ 
-					var VAR_28 = int 0
-			}
-			break 
-		case 6
-			if(call is_char_handle_in_level(int 6881280 /* RCAPTAIN */ ))
-			 {
-					if(call func_5c(var captain_knives))
-					 {
-							if(call func_5c(var noldwoman))
-							 {
-									call play_char_anim(var noldwoman, var no_anim, int 0)
-									var VAR_27 = int 3
-									var VAR_65 ++ 
-									if(var VAR_65 == var VAR_66)
-									 {
-											call func_ec(int 3, int 0, int 67, var &VAR_44)
-											var VAR_64 = call randomize_int(int 200, int 501)
-											var VAR_65 = int 0
-											var VAR_66 = call randomize_int(int 1, int 4)
-											var VAR_67 = int 0
-									}
-									var VAR_28 = int 0
-							}
-					}
-			}
-			break 
-		case 7
-			if(call is_char_handle_in_level(int 6881280 /* RCAPTAIN */ ))
-			 {
-					if(call func_5c(var captain_knives))
-					 {
-							call play_char_anim(var noldwoman, var no_anim, int 0)
-							var VAR_27 = int 2
-							var VAR_28 = int 0
-					}
-			}
-			else
-			 {
-					var VAR_27 = int 8
-					var VAR_28 = int 0
-			}
-			break 
-		case 8
-			var VAR_28 ++ 
-			if(var VAR_28 > int 240)
-			 {
-					call char_walk_to(var noldwoman, int -546, int 0, int 534)
-					var VAR_27 ++ 
-					var VAR_28 = int 0
-			}
-			break 
-		case 9
-			if(call get_input_sys() == int 4)
-			 {
-					var VAR_27 = int 15
-					gamevar clicked_character = int 0
-			}
-			break 
-		case 15
-			if(call func_6d() == int 1)
-			 {
-					call func_14(var noldwoman, int 90)
-					var VAR_27 ++ 
-					var VAR_28 = int 0
-			}
-			break 
-		case 16
-			if(call func_6d() == int 1)
-			 {
-					call resume_conversation()
-					var VAR_27 ++ 
-					var VAR_28 = int 0
-			}
-			break 
-		case 17
-			if(call get_input_sys() != int 4)
-			 {
-					call func_108("arse")
-					call char_walk_to(var noldwoman, int -768, int 0, int 458)
-					call set_input_system(int 1)
-					var VAR_27 ++ 
-					var VAR_28 = int 0
-			}
-			break 
-}
+	if(var VAR_63 != var VAR_27)
+	 {
+			var VAR_63 = var VAR_27
+			call log_obj(var VAR_27)
+	}
+	switch(var VAR_27)
+	 {
+			case 0
+				var VAR_28 ++ 
+				if(var VAR_28 > int 100)
+				 {
+						if(call is_char_handle_in_level(int 6881280 /* RCAPTAIN */ ))
+						 {
+								call play_char_anim(var captain_knives, var talkfstb_anim, int 0)
+								var VAR_27 = int 3
+						}
+						else
+						 {
+								var VAR_27 = int 8
+						}
+						var VAR_28 = int 0
+				}
+				break 
+			case 1
+				if(call is_char_handle_in_level(int 6881280 /* RCAPTAIN */ ))
+				 {
+						if(call func_5c(var captain_knives))
+						 {
+								call play_char_anim(var noldwoman, var gstqustn_anim, int 0)
+								var VAR_27 ++ 
+								var VAR_28 = int 0
+						}
+				}
+				else
+				 {
+						var VAR_27 = int 8
+						var VAR_28 = int 0
+				}
+				break 
+			case 2
+				if(call func_5c(var noldwoman))
+				 {
+						if(call is_char_handle_in_level(int 6881280 /* RCAPTAIN */ ))
+						 {
+								call play_char_anim(var captain_knives, var talkfstb_anim, int 0)
+								var VAR_27 ++ 
+								var VAR_28 = int 0
+						}
+						else
+						 {
+								var VAR_28 = int 0
+								var VAR_27 = int 8
+						}
+				}
+				break 
+			case 3
+				if(var VAR_64)
+				 {
+						var VAR_64 -- 
+				}
+				if(var ! VAR_64)
+				 {
+						if(call is_char_handle_in_level(int 6881280 /* RCAPTAIN */ ))
+						 {
+								if(call func_5c(var captain_knives))
+								 {
+										if(var VAR_67)
+										 {
+												call play_char_anim(var noldwoman, var no_anim, int 0)
+										}
+										var VAR_27 ++ 
+										var VAR_67 = int 1
+										var VAR_28 = int 0
+								}
+						}
+						else
+						 {
+								var VAR_27 = int 8
+								var VAR_28 = int 0
+						}
+				}
+				break 
+			case 4
+				if(call func_5c(var noldwoman))
+				 {
+						if(call is_char_handle_in_level(int 6881280 /* RCAPTAIN */ ))
+						 {
+								call play_char_anim(var captain_knives, var dypunch_anim, int 0)
+								var VAR_27 ++ 
+								var VAR_28 = int 0
+						}
+						else
+						 {
+								var VAR_28 = int 0
+								var VAR_27 = int 8
+						}
+				}
+				break 
+			case 5
+				var VAR_28 ++ 
+				if(var VAR_28 == int 24)
+				 {
+						call func_ec(int 1, int 0, int 67, var &VAR_44)
+				}
+				if(var VAR_28 > int 30)
+				 {
+						call func_ec(int 2, int 0, int 67, var &VAR_44)
+						call play_char_anim(var noldwoman, var hitface_anim, int 0)
+						var VAR_27 ++ 
+						var VAR_28 = int 0
+				}
+				break 
+			case 6
+				if(call is_char_handle_in_level(int 6881280 /* RCAPTAIN */ ))
+				 {
+						if(call func_5c(var captain_knives))
+						 {
+								if(call func_5c(var noldwoman))
+								 {
+										call play_char_anim(var noldwoman, var no_anim, int 0)
+										var VAR_27 = int 3
+										var VAR_65 ++ 
+										if(var VAR_65 == var VAR_66)
+										 {
+												call func_ec(int 3, int 0, int 67, var &VAR_44)
+												var VAR_64 = call randomize_int(int 200, int 501)
+												var VAR_65 = int 0
+												var VAR_66 = call randomize_int(int 1, int 4)
+												var VAR_67 = int 0
+										}
+										var VAR_28 = int 0
+								}
+						}
+				}
+				break 
+			case 7
+				if(call is_char_handle_in_level(int 6881280 /* RCAPTAIN */ ))
+				 {
+						if(call func_5c(var captain_knives))
+						 {
+								call play_char_anim(var noldwoman, var no_anim, int 0)
+								var VAR_27 = int 2
+								var VAR_28 = int 0
+						}
+				}
+				else
+				 {
+						var VAR_27 = int 8
+						var VAR_28 = int 0
+				}
+				break 
+			case 8
+				var VAR_28 ++ 
+				if(var VAR_28 > int 240)
+				 {
+						call char_walk_to(var noldwoman, int -546, int 0, int 534)
+						var VAR_27 ++ 
+						var VAR_28 = int 0
+				}
+				break 
+			case 9
+				if(call get_input_sys() == int 4)
+				 {
+						var VAR_27 = int 15
+						gamevar clicked_character = int 0
+				}
+				break 
+			case 15
+				if(call func_6d() == int 1)
+				 {
+						call func_14(var noldwoman, int 90)
+						var VAR_27 ++ 
+						var VAR_28 = int 0
+				}
+				break 
+			case 16
+				if(call func_6d() == int 1)
+				 {
+						call resume_conversation()
+						var VAR_27 ++ 
+						var VAR_28 = int 0
+				}
+				break 
+			case 17
+				if(call get_input_sys() != int 4)
+				 {
+						call func_108("arse")
+						call char_walk_to(var noldwoman, int -768, int 0, int 458)
+						call set_input_system(int 1)
+						var VAR_27 ++ 
+						var VAR_28 = int 0
+				}
+				break 
+	}
 
 ._SCRIPT_7
 
@@ -530,164 +530,164 @@ switch(var VAR_27)
 ._SCRIPT_9
 
 ._SCRIPT_10
-call load_sound_set(int 25)
+	call load_sound_set(int 25)
 
- /* play the sound 'blank' */ 
-call play_loaded_sound(int 1, int -1, int 25, int 0)
-var thunrumb_sound_ref = call play_loaded_sound(int 3, int -1, int 25, int 0)
-var VAR_1 = int 70
-call set_sound_volume(var thunrumb_sound_ref, var VAR_1)
-var VAR_0 = int 1
+	 /* play the sound 'blank' */ 
+	call play_loaded_sound(int 1, int -1, int 25, int 0)
+	var thunrumb_sound_ref = call play_loaded_sound(int 3, int -1, int 25, int 0)
+	var VAR_1 = int 70
+	call set_sound_volume(var thunrumb_sound_ref, var VAR_1)
+	var VAR_0 = int 1
 
 ._SCRIPT_11
-if(var ! VAR_0)
- {
-		call log("random_rain_fx: Rain SFX not initialised! See Marc")
-		exit_script 
-}
-switch(var VAR_4)
- {
-		case 0
-			if(var VAR_3)
-			 {
-					var VAR_6 = int 1
-					var VAR_4 ++ 
-					var VAR_5 = int 0
-			}
-			break 
-		case 1
-			if(var VAR_1 < int 200)
-			 {
-					var VAR_7 = var VAR_5 % int 2
-					if(var VAR_7 == int 0)
-					 {
-							var VAR_1 += var VAR_6
-							call set_sound_volume(var thunrumb_sound_ref, var VAR_1)
-					}
-			}
-			else
-			 {
-					var VAR_4 ++ 
-					var VAR_5 = int 0
-			}
-			break 
-		case 2
-			if(var VAR_5 > int 150)
-			 {
-					var VAR_4 ++ 
-					var VAR_5 = int 0
-			}
-			break 
-		case 3
-			if(var VAR_1 > int 70)
-			 {
-					var VAR_7 = var VAR_5 % int 2
-					if(var VAR_7)
-					 {
-							var VAR_1 -= var VAR_6
-							call set_sound_volume(var thunrumb_sound_ref, var VAR_1)
-					}
-			}
-			else
-			 {
-					var VAR_3 = int 0
-					var VAR_4 = int 0
-					var VAR_5 = int 0
-			}
-			break 
-}
-execute SCRIPT_12
-execute SCRIPT_13
-var VAR_5 ++ 
+	if(var ! VAR_0)
+	 {
+			call log("random_rain_fx: Rain SFX not initialised! See Marc")
+			exit_script 
+	}
+	switch(var VAR_4)
+	 {
+			case 0
+				if(var VAR_3)
+				 {
+						var VAR_6 = int 1
+						var VAR_4 ++ 
+						var VAR_5 = int 0
+				}
+				break 
+			case 1
+				if(var VAR_1 < int 200)
+				 {
+						var VAR_7 = var VAR_5 % int 2
+						if(var VAR_7 == int 0)
+						 {
+								var VAR_1 += var VAR_6
+								call set_sound_volume(var thunrumb_sound_ref, var VAR_1)
+						}
+				}
+				else
+				 {
+						var VAR_4 ++ 
+						var VAR_5 = int 0
+				}
+				break 
+			case 2
+				if(var VAR_5 > int 150)
+				 {
+						var VAR_4 ++ 
+						var VAR_5 = int 0
+				}
+				break 
+			case 3
+				if(var VAR_1 > int 70)
+				 {
+						var VAR_7 = var VAR_5 % int 2
+						if(var VAR_7)
+						 {
+								var VAR_1 -= var VAR_6
+								call set_sound_volume(var thunrumb_sound_ref, var VAR_1)
+						}
+				}
+				else
+				 {
+						var VAR_3 = int 0
+						var VAR_4 = int 0
+						var VAR_5 = int 0
+				}
+				break 
+	}
+	execute SCRIPT_12
+	execute SCRIPT_13
+	var VAR_5 ++ 
 
 ._SCRIPT_12
-switch(var VAR_9)
- {
-		case 0
-			var VAR_10 = int 0
-			var VAR_11 = call randomize_int(int 1200, int 1801)
-			var VAR_9 ++ 
-			break 
-		case 1
-			if(var VAR_10 > var VAR_11)
-			 {
-					var thunstrk_sound_ref = call play_loaded_sound(int 4, int 0, int 25, int 0)
-					call set_sound_volume(var thunstrk_sound_ref, call randomize_int(int 100, int 201))
-					call func_11a(var thunstrk_sound_ref, call randomize_int(int 0, int 128))
-					if(var ! VAR_3)
-					 {
-							var VAR_3 = int 1
-					}
-					var VAR_9 ++ 
-					var VAR_10 = int 0
-			}
-			break 
-		case 2
-			if(var VAR_10 > int 200)
-			 {
-					var VAR_9 = int 0
-					var VAR_10 = int 0
-			}
-			break 
-}
-var VAR_10 ++ 
+	switch(var VAR_9)
+	 {
+			case 0
+				var VAR_10 = int 0
+				var VAR_11 = call randomize_int(int 1200, int 1801)
+				var VAR_9 ++ 
+				break 
+			case 1
+				if(var VAR_10 > var VAR_11)
+				 {
+						var thunstrk_sound_ref = call play_loaded_sound(int 4, int 0, int 25, int 0)
+						call set_sound_volume(var thunstrk_sound_ref, call randomize_int(int 100, int 201))
+						call func_11a(var thunstrk_sound_ref, call randomize_int(int 0, int 128))
+						if(var ! VAR_3)
+						 {
+								var VAR_3 = int 1
+						}
+						var VAR_9 ++ 
+						var VAR_10 = int 0
+				}
+				break 
+			case 2
+				if(var VAR_10 > int 200)
+				 {
+						var VAR_9 = int 0
+						var VAR_10 = int 0
+				}
+				break 
+	}
+	var VAR_10 ++ 
 
 ._SCRIPT_13
-switch(var VAR_13)
- {
-		case 0
-			if(gamevar scene_counter > int 600)
-			 {
-					var VAR_13 ++ 
-			}
-			break 
-		case 1
-			var VAR_14 = int 0
-			call reset_local_timer()
-			var VAR_16 = call randomize_int(int 400, int 601)
-			var VAR_13 ++ 
-			break 
-		case 2
-			if(call is_local_timer_greater_than(var VAR_16))
-			 {
-					call apply_effect_on_char(gamevar misc_fx_scripts, int 6, int 0, int 0)
-					call reset_local_timer()
-					var VAR_17 = int 255
-					var VAR_16 = call randomize_int(int 1, int 31)
-					var VAR_14 = int 0
-					var VAR_13 ++ 
-			}
-			break 
-		case 3
-			if(call is_local_timer_greater_than(var VAR_16))
-			 {
-					var VAR_17 -= int 4 * var VAR_16
-					var verwind_sound_ref = call play_loaded_sound(int 5, int 0, int 25, int 0)
-					call set_sound_volume(var verwind_sound_ref, var VAR_17)
-					var VAR_16 = int 255 - var VAR_17
-					var VAR_14 = int 0
-					var VAR_13 ++ 
-			}
-			break 
-		case 4
-			if(var VAR_14 > var VAR_16)
-			 {
-					var verwind_sound_ref = call play_loaded_sound /* 'thunstrk' */ (int 4, int 0, int 25, int 0)
-					call set_sound_volume(var verwind_sound_ref, var VAR_17)
-					if(var ! VAR_3)
-					 {
-							var VAR_3 = int 1
-					}
-					var VAR_13 ++ 
-					var VAR_14 = int 0
-			}
-			break 
-		case 5
-			if(var VAR_14 > int 100)
-			 {
-					var VAR_13 = int 1
-					var VAR_14 = int 0
-			}
-			break 
-}
-var VAR_14 ++ 
+	switch(var VAR_13)
+	 {
+			case 0
+				if(gamevar scene_counter > int 600)
+				 {
+						var VAR_13 ++ 
+				}
+				break 
+			case 1
+				var VAR_14 = int 0
+				call reset_local_timer()
+				var VAR_16 = call randomize_int(int 400, int 601)
+				var VAR_13 ++ 
+				break 
+			case 2
+				if(call is_local_timer_greater_than(var VAR_16))
+				 {
+						call apply_effect_on_char(gamevar misc_fx_scripts, int 6, int 0, int 0)
+						call reset_local_timer()
+						var VAR_17 = int 255
+						var VAR_16 = call randomize_int(int 1, int 31)
+						var VAR_14 = int 0
+						var VAR_13 ++ 
+				}
+				break 
+			case 3
+				if(call is_local_timer_greater_than(var VAR_16))
+				 {
+						var VAR_17 -= int 4 * var VAR_16
+						var verwind_sound_ref = call play_loaded_sound(int 5, int 0, int 25, int 0)
+						call set_sound_volume(var verwind_sound_ref, var VAR_17)
+						var VAR_16 = int 255 - var VAR_17
+						var VAR_14 = int 0
+						var VAR_13 ++ 
+				}
+				break 
+			case 4
+				if(var VAR_14 > var VAR_16)
+				 {
+						var verwind_sound_ref = call play_loaded_sound /* 'thunstrk' */ (int 4, int 0, int 25, int 0)
+						call set_sound_volume(var verwind_sound_ref, var VAR_17)
+						if(var ! VAR_3)
+						 {
+								var VAR_3 = int 1
+						}
+						var VAR_13 ++ 
+						var VAR_14 = int 0
+				}
+				break 
+			case 5
+				if(var VAR_14 > int 100)
+				 {
+						var VAR_13 = int 1
+						var VAR_14 = int 0
+				}
+				break 
+	}
+	var VAR_14 ++ 

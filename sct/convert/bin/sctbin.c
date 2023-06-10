@@ -624,6 +624,7 @@ expr_obj* bin_read_function_call_expr(expr_pattern* expr_p, int* vars, void** to
                     if(eo->expr_p->type == VAR_PTR || eo->expr_p->type == ADDROF_VAR_PTR) {
                         eo->data->type = ft->type;
                         if(ft->hint_name != NULL && !eo->data->was_renamed) {
+                            if(ft->type == ARRAY && eo->data->byte_size == 4) { break; }
                             char name[256];
                             if(ft->hint_name->used_counter == 0) {
                                 sprintf(name, "%s", ft->hint_name->name);

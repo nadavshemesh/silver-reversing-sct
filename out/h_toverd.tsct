@@ -10,162 +10,162 @@
 
 
 ._DATA
-VAR_0	1	
-VAR_1	{ 0, 0 }	
-init_position	{ 285, 0, -68 }	
-init_position1	{ 182, 0, 869 }	
+	VAR_0	1	
+	VAR_1	{ 0, 0 }	
+	init_position	{ 285, 0, -68 }	
+	init_position1	{ 182, 0, 869 }	
 
 ._on_load
-execute SCRIPT_7
-call load_sound_set(int 12)
+	execute SCRIPT_7
+	call load_sound_set(int 12)
 
- /* play the sound 'sent1' */ 
-call play_loaded_sound(int 8, int -1, int 12, int 0)
-call func_58(int 1)
-switch(gamevar room_state)
- {
-		case 1
-			execute SCRIPT_4
-			break 
-		case 2
-			execute SCRIPT_6
-			break 
-		case 0
-			break 
-}
+	 /* play the sound 'sent1' */ 
+	call play_loaded_sound(int 8, int -1, int 12, int 0)
+	call func_58(int 1)
+	switch(gamevar room_state)
+	 {
+			case 1
+				execute SCRIPT_4
+				break 
+			case 2
+				execute SCRIPT_6
+				break 
+			case 0
+				break 
+	}
 
 ._infinite_loop
-execute SCRIPT_8
-execute SCRIPT_9
-switch(gamevar room_state)
- {
-		case 1
-			execute SCRIPT_3
-			break 
-		case 2
-			execute SCRIPT_5
-			break 
-		case 0
-			break 
-}
+	execute SCRIPT_8
+	execute SCRIPT_9
+	switch(gamevar room_state)
+	 {
+			case 1
+				execute SCRIPT_3
+				break 
+			case 2
+				execute SCRIPT_5
+				break 
+			case 0
+				break 
+	}
 
 ._on_exit
-switch(gamevar room_state)
- {
-		case 1
-			break 
-		case 2
-			break 
-		case 0
-			break 
-		default 
-			gamevar room_state = int 0
-			break 
-}
+	switch(gamevar room_state)
+	 {
+			case 1
+				break 
+			case 2
+				break 
+			case 0
+				break 
+			default 
+				gamevar room_state = int 0
+				break 
+	}
 
 ._SCRIPT_3
 
 ._SCRIPT_4
-var nrebel = call create_char(var &init_position, "nrebel", int 70, int 13)
-var nrebela = call create_char(var &init_position1, "nrebela", int 70, int 13)
-call add_item_to_char(var nrebel, int 16 /* shrtswrd */ , int 0, int 1)
-call add_item_to_char(var nrebela, int 16 /* shrtswrd */ , int 0, int 1)
+	var nrebel = call create_char(var &init_position, "nrebel", int 70, int 13)
+	var nrebela = call create_char(var &init_position1, "nrebela", int 70, int 13)
+	call add_item_to_char(var nrebel, int 16 /* shrtswrd */ , int 0, int 1)
+	call add_item_to_char(var nrebela, int 16 /* shrtswrd */ , int 0, int 1)
 
 ._SCRIPT_5
 
 ._SCRIPT_6
 
 ._SCRIPT_7
-gamevar SMACKER_X = int 132
-gamevar SMACKER_Y = int 140
-call play_2d_anim("h_toverd", int 1, int 1, var &VAR_0)
-call load_sound_set(int 54)
+	gamevar SMACKER_X = int 132
+	gamevar SMACKER_Y = int 140
+	call play_2d_anim("h_toverd", int 1, int 1, var &VAR_0)
+	call load_sound_set(int 54)
 
- /* play the sound 'dwavesLp' */ 
-call play_loaded_sound(int 1, int -1, int 54, int 0)
+	 /* play the sound 'dwavesLp' */ 
+	call play_loaded_sound(int 1, int -1, int 54, int 0)
 
 ._SCRIPT_8
-switch(var VAR_3)
- {
-		case 0
-			if(var VAR_1 == int 1)
-			 {
-					var dwavesLp_sound_ref = call play_loaded_sound(int 2, int 0, int 54, int 0)
-					call set_sound_volume(var dwavesLp_sound_ref, int 10)
-					var VAR_4 = int 0
-					var VAR_3 ++ 
-			}
-			break 
-		case 1
-			if(var VAR_1 == int 4)
-			 {
-					var dwavesLp_sound_ref = call play_loaded_sound /* 'dwavesLp' */ (int 2, int 0, int 54, int 0)
-					call set_sound_volume(var dwavesLp_sound_ref, int 10)
-					var VAR_4 = int 0
-					var VAR_3 ++ 
-			}
-			break 
-		case 2
-			if(var VAR_1 == int 8)
-			 {
-					var dwavesLp_sound_ref = call play_loaded_sound /* 'dwavesLp' */ (int 2, int 0, int 54, int 0)
-					call set_sound_volume(var dwavesLp_sound_ref, int 10)
-					var VAR_4 = int 0
-					var VAR_3 ++ 
-			}
-			break 
-		case 3
-			if(var VAR_1 == int 10)
-			 {
-					var dwavesLp_sound_ref = call play_loaded_sound /* 'dwavesLp' */ (int 2, int 0, int 54, int 0)
-					call set_sound_volume(var dwavesLp_sound_ref, int 10)
-					var VAR_4 = int 0
-					var VAR_3 ++ 
-			}
-			break 
-		case 4
-			if(var VAR_1 == int 12)
-			 {
-					var dwavesLp_sound_ref = call play_loaded_sound /* 'dwavesLp' */ (int 2, int 0, int 54, int 0)
-					call set_sound_volume(var dwavesLp_sound_ref, int 10)
-					var VAR_4 = int 0
-					var VAR_3 ++ 
-			}
-			break 
-		case 5
-			if(var VAR_1 == int 19)
-			 {
-					var dwavesLp_sound_ref = call play_loaded_sound /* 'dwavesLp' */ (int 2, int 0, int 54, int 0)
-					call set_sound_volume(var dwavesLp_sound_ref, int 10)
-					var VAR_4 = int 0
-					var VAR_3 ++ 
-			}
-			break 
-		case 6
-			if(var VAR_1 == int 23)
-			 {
-					var dwavesLp_sound_ref = call play_loaded_sound /* 'dwavesLp' */ (int 2, int 0, int 54, int 0)
-					call set_sound_volume(var dwavesLp_sound_ref, int 10)
-					var VAR_4 = int 0
-					var VAR_3 ++ 
-			}
-			break 
-		case 7
-			if(var VAR_1 == int 25)
-			 {
-					var dwavesLp_sound_ref = call play_loaded_sound /* 'dwavesLp' */ (int 2, int 0, int 54, int 0)
-					call set_sound_volume(var dwavesLp_sound_ref, int 10)
-					var VAR_4 = int 0
-					var VAR_3 = int 0
-			}
-			break 
-}
-var VAR_4 ++ 
+	switch(var VAR_3)
+	 {
+			case 0
+				if(var VAR_1 == int 1)
+				 {
+						var dwavesLp_sound_ref = call play_loaded_sound(int 2, int 0, int 54, int 0)
+						call set_sound_volume(var dwavesLp_sound_ref, int 10)
+						var VAR_4 = int 0
+						var VAR_3 ++ 
+				}
+				break 
+			case 1
+				if(var VAR_1 == int 4)
+				 {
+						var dwavesLp_sound_ref = call play_loaded_sound /* 'dwavesLp' */ (int 2, int 0, int 54, int 0)
+						call set_sound_volume(var dwavesLp_sound_ref, int 10)
+						var VAR_4 = int 0
+						var VAR_3 ++ 
+				}
+				break 
+			case 2
+				if(var VAR_1 == int 8)
+				 {
+						var dwavesLp_sound_ref = call play_loaded_sound /* 'dwavesLp' */ (int 2, int 0, int 54, int 0)
+						call set_sound_volume(var dwavesLp_sound_ref, int 10)
+						var VAR_4 = int 0
+						var VAR_3 ++ 
+				}
+				break 
+			case 3
+				if(var VAR_1 == int 10)
+				 {
+						var dwavesLp_sound_ref = call play_loaded_sound /* 'dwavesLp' */ (int 2, int 0, int 54, int 0)
+						call set_sound_volume(var dwavesLp_sound_ref, int 10)
+						var VAR_4 = int 0
+						var VAR_3 ++ 
+				}
+				break 
+			case 4
+				if(var VAR_1 == int 12)
+				 {
+						var dwavesLp_sound_ref = call play_loaded_sound /* 'dwavesLp' */ (int 2, int 0, int 54, int 0)
+						call set_sound_volume(var dwavesLp_sound_ref, int 10)
+						var VAR_4 = int 0
+						var VAR_3 ++ 
+				}
+				break 
+			case 5
+				if(var VAR_1 == int 19)
+				 {
+						var dwavesLp_sound_ref = call play_loaded_sound /* 'dwavesLp' */ (int 2, int 0, int 54, int 0)
+						call set_sound_volume(var dwavesLp_sound_ref, int 10)
+						var VAR_4 = int 0
+						var VAR_3 ++ 
+				}
+				break 
+			case 6
+				if(var VAR_1 == int 23)
+				 {
+						var dwavesLp_sound_ref = call play_loaded_sound /* 'dwavesLp' */ (int 2, int 0, int 54, int 0)
+						call set_sound_volume(var dwavesLp_sound_ref, int 10)
+						var VAR_4 = int 0
+						var VAR_3 ++ 
+				}
+				break 
+			case 7
+				if(var VAR_1 == int 25)
+				 {
+						var dwavesLp_sound_ref = call play_loaded_sound /* 'dwavesLp' */ (int 2, int 0, int 54, int 0)
+						call set_sound_volume(var dwavesLp_sound_ref, int 10)
+						var VAR_4 = int 0
+						var VAR_3 = int 0
+				}
+				break 
+	}
+	var VAR_4 ++ 
 
 ._SCRIPT_9
-if(gamevar script_time > var VAR_13)
- {
-		var VAR_13 = gamevar script_time + int 80 + call randomize_int(int 0, int 60)
-		var VAR_12 = int 2 + call randomize_int(int 0, int 6)
-		call play_loaded_sound(var VAR_12, int 0, int 12, int 0)
-}
+	if(gamevar script_time > var VAR_13)
+	 {
+			var VAR_13 = gamevar script_time + int 80 + call randomize_int(int 0, int 60)
+			var VAR_12 = int 2 + call randomize_int(int 0, int 6)
+			call play_loaded_sound(var VAR_12, int 0, int 12, int 0)
+	}

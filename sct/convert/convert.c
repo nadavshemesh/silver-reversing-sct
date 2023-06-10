@@ -227,7 +227,7 @@ void write_sct_bin_file(char* filepath, sct_f* sf) {
 
 int main(int argc, char* argv[]) {
     if(argc < 3) {
-        printf("Usage: [op] [file]\n");
+        printf(ANSI_COLOR_YELLOW "Usage: [operation (compile/ decompile)] [file path]\n" ANSI_COLOR_RESET);
         return 1;
     }
 
@@ -264,7 +264,20 @@ int main(int argc, char* argv[]) {
         }
     }
 
-    int op = atoi(argv[1]);
+    int op = 0;
+    char* arg1 = argv[1];
+    if(is_string(arg1, strlen(arg1))) {
+        if(strs_identical(arg1, "compile")) {
+            op = 1;
+        } else if(strs_identical(arg1, "decompile")) {
+            op = 0;
+        } else {
+            printf(ANSI_COLOR_YELLOW "Usage: [operation (compile/ decompile)] [file path]\nUnknown command %s.\n" ANSI_COLOR_RESET, arg1);
+            exit(-1);
+        }
+    } else {
+        op = atoi(argv[1]);
+    }
     sct_f* sct_file;
     char* ext;
     switch(op) {

@@ -10,200 +10,200 @@
 
 
 ._DATA
-VAR_5	{ -5025, -366, -2580, -6999, -366, -2632 }	
-VAR_6	{ -6999, -366, -2632, -7068, -366, -789 }	
-init_position	{ -8061, -366, -1587 }	
-init_position1	{ -5963, 366, -1134 }	
-ai_script	{ 10, -7137, 566, -2049, 10, -7258, 666, -1185, 10, -6601, 466, -969, 10, -5963, 366, -1134, 10, -5447, 266, -1588, 10, -5484, 166, -2321, 10, -5799, 366, -2762, 10, -4770, 365, -1572, 7, 8 }	
-VAR_14	{ -6384, -366, -2570, -6622, -366, -2013, -6844, -366, -1557, -7014, -366, -1160, -7306, -366, -760 }	
-VAR_15	{ -5094, -366, -2257, -5588, -366, -1761, -6191, -366, -1249, -6874, -366, -927 }	
-enemy_gen_script	{ 0, 1, 5, VAR_14, 8, 2, 4, 0, 9, 1, 1, 1, 52, 52, -1, 5, 1, 15, 25, 6, 1, 7, 1, 1, -1 }	
-enemy_gen_script1	{ 0, 1, 5, VAR_14, 8, 2, 4, 0, 9, 1, 1, 1, 33, 33, -1, 5, 0, 50, 6, 2, 7, 1, 3, -1 }	
-enemy_gen_script2	{ 0, 1, 4, VAR_15, 8, 2, 4, 0, 9, 1, 1, 1, 33, 33, 33, -1, 5, 0, 60, 6, 3, 7, 1, 2, -1 }	
-VAR_19	{ -6039, 2347, -2349 }	
-enemy_gen_script3	{ 0, 1, 1, VAR_19, 8, 2, 4, 0, 9, 1, 1, 3, 47, 47, 47, 47, 47, 47, -1, 5, 0, 10, 6, 4, 7, 1, 3, -1 }	
+	VAR_5	{ -5025, -366, -2580, -6999, -366, -2632 }	
+	VAR_6	{ -6999, -366, -2632, -7068, -366, -789 }	
+	init_position	{ -8061, -366, -1587 }	
+	init_position1	{ -5963, 366, -1134 }	
+	ai_script	{ 10, -7137, 566, -2049, 10, -7258, 666, -1185, 10, -6601, 466, -969, 10, -5963, 366, -1134, 10, -5447, 266, -1588, 10, -5484, 166, -2321, 10, -5799, 366, -2762, 10, -4770, 365, -1572, 7, 8 }	
+	VAR_14	{ -6384, -366, -2570, -6622, -366, -2013, -6844, -366, -1557, -7014, -366, -1160, -7306, -366, -760 }	
+	VAR_15	{ -5094, -366, -2257, -5588, -366, -1761, -6191, -366, -1249, -6874, -366, -927 }	
+	enemy_gen_script	{ 0, 1, 5, VAR_14, 8, 2, 4, 0, 9, 1, 1, 1, 52, 52, -1, 5, 1, 15, 25, 6, 1, 7, 1, 1, -1 }	
+	enemy_gen_script1	{ 0, 1, 5, VAR_14, 8, 2, 4, 0, 9, 1, 1, 1, 33, 33, -1, 5, 0, 50, 6, 2, 7, 1, 3, -1 }	
+	enemy_gen_script2	{ 0, 1, 4, VAR_15, 8, 2, 4, 0, 9, 1, 1, 1, 33, 33, 33, -1, 5, 0, 60, 6, 3, 7, 1, 2, -1 }	
+	VAR_19	{ -6039, 2347, -2349 }	
+	enemy_gen_script3	{ 0, 1, 1, VAR_19, 8, 2, 4, 0, 9, 1, 1, 3, 47, 47, 47, 47, 47, 47, -1, 5, 0, 10, 6, 4, 7, 1, 3, -1 }	
 
 ._on_load
-call play_bgm("METALON")
-call load_sound_set(int 72)
-call load_sound_set(int 64)
+	call play_bgm("METALON")
+	call load_sound_set(int 72)
+	call load_sound_set(int 64)
 
- /* play the sound 'cavelp' */ 
-call play_loaded_sound(int 1, int -1, int 64, int 0)
-call load_sound_set(int 65)
+	 /* play the sound 'cavelp' */ 
+	call play_loaded_sound(int 1, int -1, int 64, int 0)
+	call load_sound_set(int 65)
 
- /* play the sound 'in2wind1' */ 
-call play_loaded_sound(int 5, int -1, int 65, int 0)
-if(gamevar is_room_cleared)
- {
-		execute SCRIPT_8
-}
-else
- {
-		switch(gamevar room_state)
-		 {
-				case 1
-					execute SCRIPT_5
-					break 
-				case 2
-					execute SCRIPT_7
-					break 
-				case 0
-					break 
-		}
-}
+	 /* play the sound 'in2wind1' */ 
+	call play_loaded_sound(int 5, int -1, int 65, int 0)
+	if(gamevar is_room_cleared)
+	 {
+			execute SCRIPT_8
+	}
+	else
+	 {
+			switch(gamevar room_state)
+			 {
+					case 1
+						execute SCRIPT_5
+						break 
+					case 2
+						execute SCRIPT_7
+						break 
+					case 0
+						break 
+			}
+	}
 
 ._infinite_loop
-execute SCRIPT_3
-if(gamevar !is_room_cleared)
- {
-		switch(gamevar room_state)
-		 {
-				case 1
-					execute SCRIPT_4
-					break 
-				case 2
-					execute SCRIPT_6
-					break 
-				case 0
-					break 
-		}
-}
+	execute SCRIPT_3
+	if(gamevar !is_room_cleared)
+	 {
+			switch(gamevar room_state)
+			 {
+					case 1
+						execute SCRIPT_4
+						break 
+					case 2
+						execute SCRIPT_6
+						break 
+					case 0
+						break 
+			}
+	}
 
 ._on_exit
-if(gamevar !is_room_cleared)
- {
-		switch(gamevar room_state)
-		 {
-				case 1
-					break 
-				case 2
-					gamevar is_room_cleared = int 1
-					break 
-				case 0
-					break 
-				default 
-					gamevar room_state = int 0
-					break 
-		}
-}
+	if(gamevar !is_room_cleared)
+	 {
+			switch(gamevar room_state)
+			 {
+					case 1
+						break 
+					case 2
+						gamevar is_room_cleared = int 1
+						break 
+					case 0
+						break 
+					default 
+						gamevar room_state = int 0
+						break 
+			}
+	}
 
 ._SCRIPT_3
-if(gamevar script_time > var VAR_30)
- {
-		var VAR_30 = gamevar script_time + int 70 + call randomize_int(int 0, int 110)
+	if(gamevar script_time > var VAR_30)
+	 {
+			var VAR_30 = gamevar script_time + int 70 + call randomize_int(int 0, int 110)
 
-		 /* play the sound 'renddizz' */ 
-		call play_loaded_sound(int 8, int 0, int 72, int 0)
-}
-if(gamevar script_time > var VAR_31)
- {
-		var VAR_31 = gamevar script_time + int 100 + call randomize_int(int 0, int 50)
+			 /* play the sound 'renddizz' */ 
+			call play_loaded_sound(int 8, int 0, int 72, int 0)
+	}
+	if(gamevar script_time > var VAR_31)
+	 {
+			var VAR_31 = gamevar script_time + int 100 + call randomize_int(int 0, int 50)
 
-		 /* play the sound 'wwindlp' */ 
-		call play_loaded_sound(int 6, int 0, int 65, int 0)
-}
+			 /* play the sound 'wwindlp' */ 
+			call play_loaded_sound(int 6, int 0, int 65, int 0)
+	}
 
 ._SCRIPT_4
-switch(var VAR_1)
- {
-		case 0
-			if(call get_num_of_enemies() < int 1)
-			 {
-					var VAR_13 = call run_enemy_generator(var &enemy_gen_script, int 1)
-					var VAR_13 = call run_enemy_generator(var &enemy_gen_script1, int 10)
-					call log("trigger_tripwire")
-					var VAR_1 ++ 
-					var VAR_2 = int 0
-			}
-			else
-			 {
-					if(call func_8a(var &VAR_5)||call func_8a(var &VAR_6))
-					 {
-							var VAR_13 = call run_enemy_generator(var &enemy_gen_script, int 1)
-							var VAR_13 = call run_enemy_generator(var &enemy_gen_script1, int 10)
-							call log("trigger_tripwire")
-							var VAR_1 ++ 
-							var VAR_2 = int 0
-					}
-			}
-			break 
-		case 1
-			if(call func_122(var VAR_13) == int 0)
-			 {
-					var VAR_13 = call run_enemy_generator(var &enemy_gen_script2, int 10)
-					call log("wave2")
-					var VAR_1 ++ 
-					var VAR_2 = int 0
-			}
-			break 
-		case 2
-			if(call func_122(var VAR_13) == int 0)
-			 {
-					if(call is_char_handle_in_level(int 7536640))
-					 {
-							call func_f(var bat, int 8)
-							call func_46(var bat, int 13)
-							call func_36(var bat, int -6275, int -366, int -1603)
-							call set_char_template(var bat, int 47)
-					}
-					call log("BATS")
-					var VAR_13 = call run_enemy_generator(var &enemy_gen_script3, int 10)
-					var VAR_1 ++ 
-					var VAR_2 = int 0
-			}
-			break 
-		case 3
-			if(call func_122(var VAR_13) == int 0)
-			 {
-					call log("GUARDS2")
-					var VAR_13 = call run_enemy_generator(var &enemy_gen_script, int 10)
-					var VAR_1 ++ 
-					var VAR_2 = int 0
-			}
-			break 
-		case 4
-			if(call get_num_of_enemies() < int 2)
-			 {
-					call log("GUARDS3")
-					var VAR_13 = call run_enemy_generator(var &enemy_gen_script1, int 10)
-					var VAR_1 ++ 
-					var VAR_2 = int 0
-			}
-			break 
-		case 5
-			if(call func_122(var VAR_13) == int 0)
-			 {
-					if(call get_num_of_enemies() < int 1)
-					 {
-							call func_116("LMETALON", "METLEFT", int 2)
-							var VAR_21 = int 1
-							var VAR_1 ++ 
-							var VAR_2 = int 0
-					}
-			}
-			break 
-}
+	switch(var VAR_1)
+	 {
+			case 0
+				if(call get_num_of_enemies() < int 1)
+				 {
+						var VAR_13 = call run_enemy_generator(var &enemy_gen_script, int 1)
+						var VAR_13 = call run_enemy_generator(var &enemy_gen_script1, int 10)
+						call log("trigger_tripwire")
+						var VAR_1 ++ 
+						var VAR_2 = int 0
+				}
+				else
+				 {
+						if(call func_8a(var &VAR_5)||call func_8a(var &VAR_6))
+						 {
+								var VAR_13 = call run_enemy_generator(var &enemy_gen_script, int 1)
+								var VAR_13 = call run_enemy_generator(var &enemy_gen_script1, int 10)
+								call log("trigger_tripwire")
+								var VAR_1 ++ 
+								var VAR_2 = int 0
+						}
+				}
+				break 
+			case 1
+				if(call func_122(var VAR_13) == int 0)
+				 {
+						var VAR_13 = call run_enemy_generator(var &enemy_gen_script2, int 10)
+						call log("wave2")
+						var VAR_1 ++ 
+						var VAR_2 = int 0
+				}
+				break 
+			case 2
+				if(call func_122(var VAR_13) == int 0)
+				 {
+						if(call is_char_handle_in_level(int 7536640))
+						 {
+								call func_f(var bat, int 8)
+								call func_46(var bat, int 13)
+								call func_36(var bat, int -6275, int -366, int -1603)
+								call set_char_template(var bat, int 47)
+						}
+						call log("BATS")
+						var VAR_13 = call run_enemy_generator(var &enemy_gen_script3, int 10)
+						var VAR_1 ++ 
+						var VAR_2 = int 0
+				}
+				break 
+			case 3
+				if(call func_122(var VAR_13) == int 0)
+				 {
+						call log("GUARDS2")
+						var VAR_13 = call run_enemy_generator(var &enemy_gen_script, int 10)
+						var VAR_1 ++ 
+						var VAR_2 = int 0
+				}
+				break 
+			case 4
+				if(call get_num_of_enemies() < int 2)
+				 {
+						call log("GUARDS3")
+						var VAR_13 = call run_enemy_generator(var &enemy_gen_script1, int 10)
+						var VAR_1 ++ 
+						var VAR_2 = int 0
+				}
+				break 
+			case 5
+				if(call func_122(var VAR_13) == int 0)
+				 {
+						if(call get_num_of_enemies() < int 1)
+						 {
+								call func_116("LMETALON", "METLEFT", int 2)
+								var VAR_21 = int 1
+								var VAR_1 ++ 
+								var VAR_2 = int 0
+						}
+				}
+				break 
+	}
 
 ._SCRIPT_5
-call load_char("sguard")
-call load_char("bat")
-var btreasure = call create_char(var &init_position, "btreasure", int 90, int 14)
-call add_item_to_char(var btreasure, int 85 /* moneybag */ , int 983553, int 0)
-call add_item_to_char(var btreasure, int 83 /* borb */ , int 1, int 0)
-call add_item_to_char(var btreasure, int 83 /* borb */ , int 1, int 0)
-call add_item_to_char(var btreasure, int 47 /* drumstik */ , int 1, int 0)
-call add_item_to_char(var btreasure, int 47 /* drumstik */ , int 1, int 0)
-call add_item_to_char(var btreasure, int 46 /* pie */ , int 1, int 0)
-call add_item_to_char(var btreasure, int 46 /* pie */ , int 1, int 0)
-var bat = call create_enemy(int 47, int 0, var &init_position1, int 33)
-gamevar script_object = var bat
-gamevar *character_movement_p+60 = int 1
-call freeze_enemy(var bat)
-call func_50(var bat, int 8192)
-call play_char_ai_script(var bat, var &ai_script)
-gamevar script_object = var bat
-gamevar *character_stats_p+14 = int 91750
+	call load_char("sguard")
+	call load_char("bat")
+	var btreasure = call create_char(var &init_position, "btreasure", int 90, int 14)
+	call add_item_to_char(var btreasure, int 85 /* moneybag */ , int 983553, int 0)
+	call add_item_to_char(var btreasure, int 83 /* borb */ , int 1, int 0)
+	call add_item_to_char(var btreasure, int 83 /* borb */ , int 1, int 0)
+	call add_item_to_char(var btreasure, int 47 /* drumstik */ , int 1, int 0)
+	call add_item_to_char(var btreasure, int 47 /* drumstik */ , int 1, int 0)
+	call add_item_to_char(var btreasure, int 46 /* pie */ , int 1, int 0)
+	call add_item_to_char(var btreasure, int 46 /* pie */ , int 1, int 0)
+	var bat = call create_enemy(int 47, int 0, var &init_position1, int 33)
+	gamevar script_object = var bat
+	gamevar *character_movement_p+60 = int 1
+	call freeze_enemy(var bat)
+	call func_50(var bat, int 8192)
+	call play_char_ai_script(var bat, var &ai_script)
+	gamevar script_object = var bat
+	gamevar *character_stats_p+14 = int 91750
 
 ._SCRIPT_6
 

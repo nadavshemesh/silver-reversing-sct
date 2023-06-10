@@ -10,243 +10,243 @@
 
 
 ._DATA
-walk_position2	{ -533, 0, -485 }	
-walk_position1	{ -761, 0, -57 }	
-walk_position	{ -585, 0, -173 }	
-walk_position3	{ -637, 501, -1540 }	
-init_position3	{ -1264, 0, 438 }	
-init_position4	{ -1039, 0, 443 }	
-init_position2	{ -1125, 0, 689 }	
-NTAVMAN	0	
-init_position	{ -753, 0, -423 }	
-init_position1	{ -866, 0, -224 }	
-ai_script	{ 7, 8 }	
-ai_script1	{ 9, NTAVMAN, 7, 8 }	
-VAR_43	{ 1, 0, 0 }	
-VAR_45	{ 1, 0, 0 }	
-VAR_47	""	
+	walk_position2	{ -533, 0, -485 }	
+	walk_position1	{ -761, 0, -57 }	
+	walk_position	{ -585, 0, -173 }	
+	walk_position3	{ -637, 501, -1540 }	
+	init_position3	{ -1264, 0, 438 }	
+	init_position4	{ -1039, 0, 443 }	
+	init_position2	{ -1125, 0, 689 }	
+	NTAVMAN	0	
+	init_position	{ -753, 0, -423 }	
+	init_position1	{ -866, 0, -224 }	
+	ai_script	{ 7, 8 }	
+	ai_script1	{ 9, NTAVMAN, 7, 8 }	
+	VAR_43	{ 1, 0, 0 }	
+	VAR_45	{ 1, 0, 0 }	
+	VAR_47	{ 1, 0, 0 }	
 
 ._on_load
-execute SCRIPT_6
-switch(gamevar room_state)
- {
-		case 1
-			call set_input_system(int 2)
-			var NTAVMAN = call create_char(var &init_position, "NTAVMAN", int 334, int 13)
-			var NSTIPE = call create_char(var &init_position1, "NSTIPE", int 160, int 13)
-			var NWILLIAM = call create_char(var &init_position2, "NWILLIAM", int 152, int 13)
-			call set_char_init_state(var NTAVMAN, int 13)
-			call set_char_init_state(var NSTIPE, int 13)
-			call play_char_ai_script(var NTAVMAN, var &ai_script)
-			call play_char_ai_script(var NSTIPE, var &ai_script1)
-			var VAR_0 = int 0
-			var VAR_2 = int 0
-			var DAVID = call get_char_handle(int 65536)
-		default 
-			var NREBEL = call create_char(var &init_position3, "NREBEL", int 70, int 13)
-			var NREBELA = call create_char(var &init_position4, "NREBELA", int 295, int 13)
-			var talkslow_anim = call load_anim("talkslow")
-			var VAR_3 = int 0
-			break 
-}
+	execute SCRIPT_6
+	switch(gamevar room_state)
+	 {
+			case 1
+				call set_input_system(int 2)
+				var NTAVMAN = call create_char(var &init_position, "NTAVMAN", int 334, int 13)
+				var NSTIPE = call create_char(var &init_position1, "NSTIPE", int 160, int 13)
+				var NWILLIAM = call create_char(var &init_position2, "NWILLIAM", int 152, int 13)
+				call set_char_init_state(var NTAVMAN, int 13)
+				call set_char_init_state(var NSTIPE, int 13)
+				call play_char_ai_script(var NTAVMAN, var &ai_script)
+				call play_char_ai_script(var NSTIPE, var &ai_script1)
+				var VAR_0 = int 0
+				var VAR_2 = int 0
+				var DAVID = call get_char_handle(int 65536)
+			default 
+				var NREBEL = call create_char(var &init_position3, "NREBEL", int 70, int 13)
+				var NREBELA = call create_char(var &init_position4, "NREBELA", int 295, int 13)
+				var talkslow_anim = call load_anim("talkslow")
+				var VAR_3 = int 0
+				break 
+	}
 
 ._infinite_loop
-if(gamevar room_state == int 1)
- {
-		execute SCRIPT_3
-		execute SCRIPT_4
-}
-execute SCRIPT_5
+	if(gamevar room_state == int 1)
+	 {
+			execute SCRIPT_3
+			execute SCRIPT_4
+	}
+	execute SCRIPT_5
 
 ._on_exit
-switch(gamevar room_state)
- {
-		case 1
-			gamevar room_state ++ 
-			break 
-		default 
-			break 
-}
+	switch(gamevar room_state)
+	 {
+			case 1
+				gamevar room_state ++ 
+				break 
+			default 
+				break 
+	}
 
 ._SCRIPT_3
-switch(var VAR_0)
- {
-		case 0
-			var david = call get_david_char()
-			var VAR_6 = call func_7e()
-			var VAR_7 = call func_7e()
-			if(var ! VAR_6)
-			 {
-					var VAR_6 = var david
-			}
-			if(var ! VAR_7)
-			 {
-					var VAR_7 = var david
-			}
-			call set_char_running(var david)
-			call set_char_running(var VAR_6)
-			call set_char_running(var VAR_7)
-			call char_walk_to_pos(var VAR_7, var &walk_position)
-			call char_walk_to_pos(var VAR_6, var &walk_position1)
-			call char_walk_to_pos(var david, var &walk_position2)
-			var VAR_0 ++ 
-			break 
-		case 1
-			if(call is_char_standing(var DAVID))
-			 {
-					call func_46(var NTAVMAN, int 13)
-					call func_46(var NSTIPE, int 13)
-					call func_17(var david, var NTAVMAN)
-					call func_17(var VAR_6, var NTAVMAN)
-					call func_17(var VAR_7, var NTAVMAN)
-					call func_17(var NTAVMAN, var DAVID)
-					call func_17(var NSTIPE, var DAVID)
-					var VAR_1 = int 50
-					var VAR_0 ++ 
-			}
-			break 
-		case 2
-			if(var VAR_1)
-			 {
-					var VAR_1 -- 
-			}
-			else
-			 {
-					if(call is_char_handle_in_level(int 786432 /* SEKUNE */ ))
-					 {
-							call start_dialog("T_SekTav", "Null")
-					}
-					else
-					 {
-							if(call is_char_handle_in_level(int 196608 /* VIVIENNE */ ))
-							 {
-									call start_dialog("T_VivTav", "Null")
-							}
-							else
-							 {
-									if(call is_char_handle_in_level(int 262144 /* CAGEN */ ))
-									 {
-											call start_dialog("T_CagTav", "Null")
-									}
-									else
-									 {
-											if(call is_char_handle_in_level(int 131072 /* CHIARO */ ))
-											 {
-													call start_dialog("T_ChiTav", "Null")
-											}
-											else
-											 {
-													call start_dialog("T_JugTav", "Null")
-											}
-									}
-							}
-					}
-					var VAR_0 ++ 
-			}
-			break 
-		case 3
-			if(call get_input_sys() != int 4)
-			 {
-					call set_char_walking(var NTAVMAN)
-					call set_char_walking(var NSTIPE)
-					call char_walk_to_pos(var NTAVMAN, var &walk_position3)
-					call char_walk_to_pos(var NSTIPE, var &walk_position3)
-					call set_input_system(int 1)
-					var VAR_0 ++ 
-			}
-			break 
-		case 4
-			if(var NTAVMAN)
-			 {
-					if(call is_char_standing(var NTAVMAN))
-					 {
-							call remove_char(var NTAVMAN)
-							var NTAVMAN = int 0
-							if(var ! NSTIPE)
-							 {
-									var VAR_0 ++ 
-							}
-					}
-			}
-			if(var NSTIPE)
-			 {
-					if(call is_char_standing(var NSTIPE))
-					 {
-							call remove_char(var NSTIPE)
-							var NSTIPE = int 0
-							if(var ! NTAVMAN)
-							 {
-									var VAR_0 ++ 
-							}
-					}
-			}
-			break 
-		case 5
-			break 
-}
+	switch(var VAR_0)
+	 {
+			case 0
+				var david = call get_david_char()
+				var VAR_6 = call func_7e()
+				var VAR_7 = call func_7e()
+				if(var ! VAR_6)
+				 {
+						var VAR_6 = var david
+				}
+				if(var ! VAR_7)
+				 {
+						var VAR_7 = var david
+				}
+				call set_char_running(var david)
+				call set_char_running(var VAR_6)
+				call set_char_running(var VAR_7)
+				call char_walk_to_pos(var VAR_7, var &walk_position)
+				call char_walk_to_pos(var VAR_6, var &walk_position1)
+				call char_walk_to_pos(var david, var &walk_position2)
+				var VAR_0 ++ 
+				break 
+			case 1
+				if(call is_char_standing(var DAVID))
+				 {
+						call func_46(var NTAVMAN, int 13)
+						call func_46(var NSTIPE, int 13)
+						call func_17(var david, var NTAVMAN)
+						call func_17(var VAR_6, var NTAVMAN)
+						call func_17(var VAR_7, var NTAVMAN)
+						call func_17(var NTAVMAN, var DAVID)
+						call func_17(var NSTIPE, var DAVID)
+						var VAR_1 = int 50
+						var VAR_0 ++ 
+				}
+				break 
+			case 2
+				if(var VAR_1)
+				 {
+						var VAR_1 -- 
+				}
+				else
+				 {
+						if(call is_char_handle_in_level(int 786432 /* SEKUNE */ ))
+						 {
+								call start_dialog("T_SekTav", "Null")
+						}
+						else
+						 {
+								if(call is_char_handle_in_level(int 196608 /* VIVIENNE */ ))
+								 {
+										call start_dialog("T_VivTav", "Null")
+								}
+								else
+								 {
+										if(call is_char_handle_in_level(int 262144 /* CAGEN */ ))
+										 {
+												call start_dialog("T_CagTav", "Null")
+										}
+										else
+										 {
+												if(call is_char_handle_in_level(int 131072 /* CHIARO */ ))
+												 {
+														call start_dialog("T_ChiTav", "Null")
+												}
+												else
+												 {
+														call start_dialog("T_JugTav", "Null")
+												}
+										}
+								}
+						}
+						var VAR_0 ++ 
+				}
+				break 
+			case 3
+				if(call get_input_sys() != int 4)
+				 {
+						call set_char_walking(var NTAVMAN)
+						call set_char_walking(var NSTIPE)
+						call char_walk_to_pos(var NTAVMAN, var &walk_position3)
+						call char_walk_to_pos(var NSTIPE, var &walk_position3)
+						call set_input_system(int 1)
+						var VAR_0 ++ 
+				}
+				break 
+			case 4
+				if(var NTAVMAN)
+				 {
+						if(call is_char_standing(var NTAVMAN))
+						 {
+								call remove_char(var NTAVMAN)
+								var NTAVMAN = int 0
+								if(var ! NSTIPE)
+								 {
+										var VAR_0 ++ 
+								}
+						}
+				}
+				if(var NSTIPE)
+				 {
+						if(call is_char_standing(var NSTIPE))
+						 {
+								call remove_char(var NSTIPE)
+								var NSTIPE = int 0
+								if(var ! NTAVMAN)
+								 {
+										var VAR_0 ++ 
+								}
+						}
+				}
+				break 
+			case 5
+				break 
+	}
 
 ._SCRIPT_4
-switch(var VAR_2)
- {
-		case 0
-			if(call func_127(var NWILLIAM))
-			 {
-					var VAR_2 ++ 
-			}
-			break 
-		case 1
-			if(call get_input_sys() != int 4)
-			 {
-					call char_walk_to_pos(var NWILLIAM, var &walk_position3)
-					var VAR_2 ++ 
-			}
-			break 
-		case 2
-			if(call is_char_standing(var NWILLIAM))
-			 {
-					call remove_char(var NWILLIAM)
-					var VAR_2 ++ 
-			}
-			break 
-		case 3
-			break 
-}
+	switch(var VAR_2)
+	 {
+			case 0
+				if(call func_127(var NWILLIAM))
+				 {
+						var VAR_2 ++ 
+				}
+				break 
+			case 1
+				if(call get_input_sys() != int 4)
+				 {
+						call char_walk_to_pos(var NWILLIAM, var &walk_position3)
+						var VAR_2 ++ 
+				}
+				break 
+			case 2
+				if(call is_char_standing(var NWILLIAM))
+				 {
+						call remove_char(var NWILLIAM)
+						var VAR_2 ++ 
+				}
+				break 
+			case 3
+				break 
+	}
 
 ._SCRIPT_5
-switch(var VAR_3)
- {
-		case 0
-			call play_char_anim(var NREBEL, var talkslow_anim, int 0)
-			call play_char_anim(var NREBELA, var talkslow_anim, int 41)
-			var VAR_3 ++ 
-			break 
-		case 1
-			if(call func_5c(var NREBEL)||call func_5c(var NREBELA))
-			 {
-					call play_char_anim(var NREBEL, var talkslow_anim, int 0)
-					call play_char_anim(var NREBELA, var talkslow_anim, int 41)
-			}
-			break 
-}
+	switch(var VAR_3)
+	 {
+			case 0
+				call play_char_anim(var NREBEL, var talkslow_anim, int 0)
+				call play_char_anim(var NREBELA, var talkslow_anim, int 41)
+				var VAR_3 ++ 
+				break 
+			case 1
+				if(call func_5c(var NREBEL)||call func_5c(var NREBELA))
+				 {
+						call play_char_anim(var NREBEL, var talkslow_anim, int 0)
+						call play_char_anim(var NREBELA, var talkslow_anim, int 41)
+				}
+				break 
+	}
 
 ._SCRIPT_6
-call load_sound_set(int 32)
+	call load_sound_set(int 32)
 
- /* play the sound 'trickle' */ 
-call play_loaded_sound(int 1, int -1, int 32, int 0)
+	 /* play the sound 'trickle' */ 
+	call play_loaded_sound(int 1, int -1, int 32, int 0)
 
- /* play the sound 'frog' */ 
-call play_loaded_sound(int 198, int -1, int 0, "")
-call load_sound_set(int 30)
+	 /* play the sound 'frog' */ 
+	call play_loaded_sound(int 198, int -1, int 0, "")
+	call load_sound_set(int 30)
 
- /* play the sound 'torches2' */ 
-call play_loaded_sound(int 1, int -1, int 30, "")
-gamevar SMACKER_X = int 248
-gamevar SMACKER_Y = int 120
-call play_2d_anim("torch01", int 1, int 1, var &VAR_43)
-gamevar SMACKER_X = int 592
-gamevar SMACKER_Y = int 208
-call play_2d_anim("torch02", int 1, int 1, var &VAR_45)
-gamevar SMACKER_X = int 336
-gamevar SMACKER_Y = int 272
-call play_2d_anim("fire01", int 1, int 1, var &VAR_47)
+	 /* play the sound 'torches2' */ 
+	call play_loaded_sound(int 1, int -1, int 30, "")
+	gamevar SMACKER_X = int 248
+	gamevar SMACKER_Y = int 120
+	call play_2d_anim("torch01", int 1, int 1, var &VAR_43)
+	gamevar SMACKER_X = int 592
+	gamevar SMACKER_Y = int 208
+	call play_2d_anim("torch02", int 1, int 1, var &VAR_45)
+	gamevar SMACKER_X = int 336
+	gamevar SMACKER_Y = int 272
+	call play_2d_anim("fire01", int 1, int 1, var &VAR_47)

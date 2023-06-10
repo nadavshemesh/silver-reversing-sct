@@ -10,218 +10,218 @@
 
 
 ._DATA
-VAR_0	{ 0, 0 }	
-VAR_1	0	
-init_position	{ -1949, -128, -628 }	
-init_position1	{ -821, 94, -1218 }	
-init_position2	{ -797, -172, -2000 }	
-init_position3	{ -1547, -560, -1686 }	
-init_position4	{ -1773, -560, -1341 }	
-init_position5	{ -1684, -560, -1111 }	
-VAR_17	{ -2987, -560, -760 }	
-init_position6	{ -2800, 0, -352 }	
-init_position7	{ -2787, 0, -1107 }	
-init_position8	{ -3340, 0, -650 }	
-walk_position	{ -2445, -128, -74, -2267, -561, -357, -2122, -600, -2174 }	
-VAR_23	{ 0, 0, 0, 0 }	
-ai_script	{ 3, VAR_25, 0, 16, VAR_1, 1, 2, -1684, -560, -1111, 11, 60, 120, 16, VAR_1, 0, 3, VAR_26, 0, 16, VAR_1, 1, 11, 60, 120, 16, VAR_1, 0, 7, 8 }	
-VAR_25	"talkfast"	
-VAR_26	"talkfstb"	
-ai_script1	{ 4, VAR_1, 11, 0, 50, 3, VAR_28, 0, 5, 50, 4, VAR_1, 11, 0, 50, 3, VAR_29, 0, 5, 50, 7, 8 }	
-VAR_28	"yes"	
-VAR_29	"yes"	
-ai_script2	{ 4, VAR_1, 11, 0, 50, 3, VAR_31, 0, 5, 50, 4, VAR_1, 11, 0, 50, 3, VAR_32, 0, 5, 50, 7, 8 }	
-VAR_31	"yes"	
-VAR_32	"no"	
-ai_script3	{ 4, VAR_1, 11, 50, 100, 3, VAR_34, 0, 5, 50, 4, VAR_1, 11, 50, 100, 3, VAR_35, 0, 5, 50, 7, 8 }	
-VAR_34	"no"	
-VAR_35	7562617	
-ai_script4	{ 4, VAR_1, 11, 25, 75, 3, VAR_37, 0, 5, 50, 7, 8 }	
-VAR_37	-1442812050	
+	VAR_0	{ 0, 0 }	
+	VAR_1	0	
+	init_position	{ -1949, -128, -628 }	
+	init_position1	{ -821, 94, -1218 }	
+	init_position2	{ -797, -172, -2000 }	
+	init_position3	{ -1547, -560, -1686 }	
+	init_position4	{ -1773, -560, -1341 }	
+	init_position5	{ -1684, -560, -1111 }	
+	VAR_17	{ -2987, -560, -760 }	
+	init_position6	{ -2800, 0, -352 }	
+	init_position7	{ -2787, 0, -1107 }	
+	init_position8	{ -3340, 0, -650 }	
+	walk_position	{ -2445, -128, -74, -2267, -561, -357, -2122, -600, -2174 }	
+	VAR_23	{ 0, 0, 0, 0 }	
+	ai_script	{ 3, VAR_25, 0, 16, VAR_1, 1, 2, -1684, -560, -1111, 11, 60, 120, 16, VAR_1, 0, 3, VAR_26, 0, 16, VAR_1, 1, 11, 60, 120, 16, VAR_1, 0, 7, 8 }	
+	VAR_25	"talkfast"	
+	VAR_26	"talkfstb"	
+	ai_script1	{ 4, VAR_1, 11, 0, 50, 3, VAR_28, 0, 5, 50, 4, VAR_1, 11, 0, 50, 3, VAR_29, 0, 5, 50, 7, 8 }	
+	VAR_28	"yes"	
+	VAR_29	"yes"	
+	ai_script2	{ 4, VAR_1, 11, 0, 50, 3, VAR_31, 0, 5, 50, 4, VAR_1, 11, 0, 50, 3, VAR_32, 0, 5, 50, 7, 8 }	
+	VAR_31	"yes"	
+	VAR_32	"no"	
+	ai_script3	{ 4, VAR_1, 11, 50, 100, 3, VAR_34, 0, 5, 50, 4, VAR_1, 11, 50, 100, 3, VAR_35, 0, 5, 50, 7, 8 }	
+	VAR_34	"no"	
+	VAR_35	"yes"	
+	ai_script4	{ 4, VAR_1, 11, 25, 75, 3, VAR_37, 0, 5, 50, 7, 8 }	
+	VAR_37	"no"	
 
 ._on_load
-var VAR_0 = int 0
-call play_bgm("SEWERPT1")
-call load_sound_set(int 38)
-switch(gamevar room_state)
- {
-		case 1
-			execute SCRIPT_3
-			break 
-		case 2
-			execute SCRIPT_5
-			break 
-		default 
-			break 
-}
+	var VAR_0 = int 0
+	call play_bgm("SEWERPT1")
+	call load_sound_set(int 38)
+	switch(gamevar room_state)
+	 {
+			case 1
+				execute SCRIPT_3
+				break 
+			case 2
+				execute SCRIPT_5
+				break 
+			default 
+				break 
+	}
 
 ._infinite_loop
-execute SCRIPT_7
-switch(gamevar room_state)
- {
-		case 1
-			execute SCRIPT_4
-			break 
-		case 2
-			execute SCRIPT_6
-		default 
-			break 
-}
+	execute SCRIPT_7
+	switch(gamevar room_state)
+	 {
+			case 1
+				execute SCRIPT_4
+				break 
+			case 2
+				execute SCRIPT_6
+			default 
+				break 
+	}
 
 ._on_exit
-switch(gamevar room_state)
- {
-		case 1
-			gamevar room_state = int 2
-			break 
-		case 2
-			if(var VAR_0 != int 0)
-			 {
-					call func_d8(int 0, var &VAR_23)
-					gamevar room_state = int 0
-			}
-			break 
-		default 
-			break 
-}
+	switch(gamevar room_state)
+	 {
+			case 1
+				gamevar room_state = int 2
+				break 
+			case 2
+				if(var VAR_0 != int 0)
+				 {
+						call load_pos_from_room_memory(int 0, var &VAR_23)
+						gamevar room_state = int 0
+				}
+				break 
+			default 
+				break 
+	}
 
 ._SCRIPT_3
-call load_char("skaven")
-call load_char("skavenb")
-call load_char("ratrptr")
-var lesser_gimp = call create_enemy(int 45, int 0, var &init_position, int 105)
-var greater_gimpv = call create_enemy(int 46, int 0, var &init_position1, int 260)
-var rat_raptor = call create_enemy(int 55, int 0, var &init_position2, int 355)
-var rat_raptor1 = call create_enemy(int 55, int 1, var &init_position3, int 20)
-var rat_raptor2 = call create_enemy(int 55, int 2, var &init_position4, int 65)
-var rat_raptor3 = call create_enemy(int 55, int 3, var &init_position5, int 85)
-call add_item_to_char(var rat_raptor, int 43 /* cheese */ , int 1, int 0)
-call add_item_to_char(var rat_raptor2, int 43 /* cheese */ , int 1, int 0)
-call play_char_ai_script(var greater_gimpv, var &ai_script)
-call play_char_ai_script(var rat_raptor, var &ai_script1)
-call play_char_ai_script(var rat_raptor1, var &ai_script2)
-call play_char_ai_script(var rat_raptor2, var &ai_script3)
-call play_char_ai_script(var rat_raptor3, var &ai_script4)
-call set_char_init_state(var lesser_gimp, int 1)
-call func_50(var greater_gimpv, int 8194)
-call func_50(var rat_raptor, int 8194)
-call func_50(var rat_raptor1, int 8194)
-call func_50(var rat_raptor2, int 8194)
-call func_50(var rat_raptor3, int 8194)
+	call load_char("skaven")
+	call load_char("skavenb")
+	call load_char("ratrptr")
+	var lesser_gimp = call create_enemy(int 45, int 0, var &init_position, int 105)
+	var greater_gimpv = call create_enemy(int 46, int 0, var &init_position1, int 260)
+	var rat_raptor = call create_enemy(int 55, int 0, var &init_position2, int 355)
+	var rat_raptor1 = call create_enemy(int 55, int 1, var &init_position3, int 20)
+	var rat_raptor2 = call create_enemy(int 55, int 2, var &init_position4, int 65)
+	var rat_raptor3 = call create_enemy(int 55, int 3, var &init_position5, int 85)
+	call add_item_to_char(var rat_raptor, int 43 /* cheese */ , int 1, int 0)
+	call add_item_to_char(var rat_raptor2, int 43 /* cheese */ , int 1, int 0)
+	call play_char_ai_script(var greater_gimpv, var &ai_script)
+	call play_char_ai_script(var rat_raptor, var &ai_script1)
+	call play_char_ai_script(var rat_raptor1, var &ai_script2)
+	call play_char_ai_script(var rat_raptor2, var &ai_script3)
+	call play_char_ai_script(var rat_raptor3, var &ai_script4)
+	call set_char_init_state(var lesser_gimp, int 1)
+	call func_50(var greater_gimpv, int 8194)
+	call func_50(var rat_raptor, int 8194)
+	call func_50(var rat_raptor1, int 8194)
+	call func_50(var rat_raptor2, int 8194)
+	call func_50(var rat_raptor3, int 8194)
 
 ._SCRIPT_4
-switch(var VAR_0)
- {
-		case 0
-			var VAR_41 = int 0
-			if(call is_char_handle_in_level(int 10485760))
-			 {
-					if(call func_88(var lesser_gimp))
-					 {
-							var VAR_41 = int 1
-					}
-			}
-			if(call is_char_handle_in_level(int 10551296))
-			 {
-					if(call func_88(var greater_gimpv))
-					 {
-							var VAR_41 = int 1
-					}
-			}
-			if(call is_char_handle_in_level(int 9240576))
-			 {
-					if(call func_88(var rat_raptor))
-					 {
-							var VAR_41 = int 1
-					}
-			}
-			if(call is_char_handle_in_level(int 9240577))
-			 {
-					if(call func_88(var rat_raptor1))
-					 {
-							var VAR_41 = int 1
-					}
-			}
-			if(call is_char_handle_in_level(int 9240578))
-			 {
-					if(call func_88(var rat_raptor2))
-					 {
-							var VAR_41 = int 1
-					}
-			}
-			if(call is_char_handle_in_level(int 9240579))
-			 {
-					if(call func_88(var rat_raptor3))
-					 {
-							var VAR_41 = int 1
-					}
-			}
-			if(var VAR_41||call func_d0())
-			 {
-					if(call is_char_handle_in_level(int 10551296))
-					 {
-							call func_29(var greater_gimpv)
-							call func_46(var greater_gimpv, int 13)
-					}
-					if(call is_char_handle_in_level(int 10485760))
-					 {
-							call func_17(var lesser_gimp, call get_selected_hero())
-					}
-					if(call is_char_handle_in_level(int 9240576))
-					 {
-							call func_46(var rat_raptor, int 13)
-					}
-					if(call is_char_handle_in_level(int 9240577))
-					 {
-							call func_46(var rat_raptor1, int 13)
-					}
-					if(call is_char_handle_in_level(int 9240578))
-					 {
-							call func_46(var rat_raptor2, int 13)
-					}
-					if(call is_char_handle_in_level(int 9240579))
-					 {
-							call func_46(var rat_raptor3, int 13)
-					}
-					var VAR_0 ++ 
-			}
-			break 
-		case 1
-			if(call get_num_of_enemies() <= int 3)
-			 {
-					var greater_gimpv1 = call create_enemy_through_door(int 46, int 1, int 0, int 0)
-					var rat_raptor4 = call create_enemy_through_door(int 55, int 4, int 0, int 0)
-					var rat_raptor5 = call create_enemy_through_door(int 55, int 5, int 0, int 0)
-					call set_char_init_state(var greater_gimpv1, int 1)
-					call set_char_init_state(var rat_raptor4, int 1)
-					call set_char_init_state(var rat_raptor5, int 1)
-					var VAR_0 ++ 
-			}
-			break 
-		default 
-			break 
-}
+	switch(var VAR_0)
+	 {
+			case 0
+				var VAR_41 = int 0
+				if(call is_char_handle_in_level(int 10485760))
+				 {
+						if(call func_88(var lesser_gimp))
+						 {
+								var VAR_41 = int 1
+						}
+				}
+				if(call is_char_handle_in_level(int 10551296))
+				 {
+						if(call func_88(var greater_gimpv))
+						 {
+								var VAR_41 = int 1
+						}
+				}
+				if(call is_char_handle_in_level(int 9240576))
+				 {
+						if(call func_88(var rat_raptor))
+						 {
+								var VAR_41 = int 1
+						}
+				}
+				if(call is_char_handle_in_level(int 9240577))
+				 {
+						if(call func_88(var rat_raptor1))
+						 {
+								var VAR_41 = int 1
+						}
+				}
+				if(call is_char_handle_in_level(int 9240578))
+				 {
+						if(call func_88(var rat_raptor2))
+						 {
+								var VAR_41 = int 1
+						}
+				}
+				if(call is_char_handle_in_level(int 9240579))
+				 {
+						if(call func_88(var rat_raptor3))
+						 {
+								var VAR_41 = int 1
+						}
+				}
+				if(var VAR_41||call func_d0())
+				 {
+						if(call is_char_handle_in_level(int 10551296))
+						 {
+								call func_29(var greater_gimpv)
+								call func_46(var greater_gimpv, int 13)
+						}
+						if(call is_char_handle_in_level(int 10485760))
+						 {
+								call func_17(var lesser_gimp, call get_selected_hero())
+						}
+						if(call is_char_handle_in_level(int 9240576))
+						 {
+								call func_46(var rat_raptor, int 13)
+						}
+						if(call is_char_handle_in_level(int 9240577))
+						 {
+								call func_46(var rat_raptor1, int 13)
+						}
+						if(call is_char_handle_in_level(int 9240578))
+						 {
+								call func_46(var rat_raptor2, int 13)
+						}
+						if(call is_char_handle_in_level(int 9240579))
+						 {
+								call func_46(var rat_raptor3, int 13)
+						}
+						var VAR_0 ++ 
+				}
+				break 
+			case 1
+				if(call get_num_of_enemies() <= int 3)
+				 {
+						var greater_gimpv1 = call create_enemy_through_door(int 46, int 1, int 0, int 0)
+						var rat_raptor4 = call create_enemy_through_door(int 55, int 4, int 0, int 0)
+						var rat_raptor5 = call create_enemy_through_door(int 55, int 5, int 0, int 0)
+						call set_char_init_state(var greater_gimpv1, int 1)
+						call set_char_init_state(var rat_raptor4, int 1)
+						call set_char_init_state(var rat_raptor5, int 1)
+						var VAR_0 ++ 
+				}
+				break 
+			default 
+				break 
+	}
 
 ._SCRIPT_5
-var VAR_0 = int 0
-call load_char("skavenb")
-call load_char("skaven")
-if(call ! func_bf(int 0, gamevar CURRENT_LEVEL, gamevar CURRENT_SCENE))
- {
-		call func_9a(var &VAR_17, int 45, int 0, int 0)
-		call func_7(int 0, int 1, int 0, int 0)
-}
+	var VAR_0 = int 0
+	call load_char("skavenb")
+	call load_char("skaven")
+	if(call ! func_bf(int 0, gamevar CURRENT_LEVEL, gamevar CURRENT_SCENE))
+	 {
+			call func_9a(var &VAR_17, int 45, int 0, int 0)
+			call save_pos_to_room_memory(int 0, int 1, int 0, int 0)
+	}
 
 ._SCRIPT_6
-switch(var VAR_0)
- {
-}
+	switch(var VAR_0)
+	 {
+	}
 
 ._SCRIPT_7
-if(gamevar script_time > var VAR_44)
- {
-		var VAR_44 = gamevar script_time + int 50 + call randomize_int(int 0, int 70)
+	if(gamevar script_time > var VAR_44)
+	 {
+			var VAR_44 = gamevar script_time + int 50 + call randomize_int(int 0, int 70)
 
-		 /* play the sound 'echdrip1' */ 
-		call play_loaded_sound(int 1, int 0, int 38, int 0)
-}
+			 /* play the sound 'echdrip1' */ 
+			call play_loaded_sound(int 1, int 0, int 38, int 0)
+	}

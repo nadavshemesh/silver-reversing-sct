@@ -10,156 +10,156 @@
 
 
 ._DATA
-fx_position	{ -492, 153, -3776 }	
-init_position	{ -167, 0, -1985 }	
-init_position1	{ -151, 0, -3171 }	
-init_position2	{ -847, 0, -3907 }	
-VAR_19	{ -94, 0, -1119, -941, 0, -1238 }	
-VAR_20	{ -515, 0, -2366, -962, 0, -2331, -514, 0, -2610, -925, 0, -2541 }	
-VAR_21	{ -167, 0, -1985, -167, 0, -1985 }	
-wandering_gen_script	{ 0, 1, 2, VAR_21, 8, 1, 19, -832, 0, -2094, 12, 194, 194, -1, 13, 1, 14, 1, 2, 5, 0, 25, 16, 0, 18, 100, 11, -1 }	
-VAR_23	{ -151, 0, -3171, -151, 0, -3171 }	
-wandering_gen_script1	{ 0, 1, 2, VAR_23, 8, 1, 19, -861, 0, -3084, 12, 194, 194, -1, 13, 1, 14, 1, 2, 5, 0, 25, 16, 0, 18, 100, 11, -1 }	
+	fx_position	{ -492, 153, -3776 }	
+	init_position	{ -167, 0, -1985 }	
+	init_position1	{ -151, 0, -3171 }	
+	init_position2	{ -847, 0, -3907 }	
+	VAR_19	{ -94, 0, -1119, -941, 0, -1238 }	
+	VAR_20	{ -515, 0, -2366, -962, 0, -2331, -514, 0, -2610, -925, 0, -2541 }	
+	VAR_21	{ -167, 0, -1985, -167, 0, -1985 }	
+	wandering_gen_script	{ 0, 1, 2, VAR_21, 8, 1, 19, -832, 0, -2094, 12, 194, 194, -1, 13, 1, 14, 1, 2, 5, 0, 25, 16, 0, 18, 100, 11, -1 }	
+	VAR_23	{ -151, 0, -3171, -151, 0, -3171 }	
+	wandering_gen_script1	{ 0, 1, 2, VAR_23, 8, 1, 19, -861, 0, -3084, 12, 194, 194, -1, 13, 1, 14, 1, 2, 5, 0, 25, 16, 0, 18, 100, 11, -1 }	
 
 ._on_load
-call play_bgm("chains")
-execute SCRIPT_13
-call load_sound_set(int 30)
+	call play_bgm("chains")
+	execute SCRIPT_13
+	call load_sound_set(int 30)
 
- /* play the sound 'torches2' */ 
-call play_loaded_sound(int 1, int -1, int 30, int 0)
-if(gamevar is_room_cleared)
- {
-		execute SCRIPT_12
-}
-else
- {
-		switch(gamevar room_state)
-		 {
-				case 1
-					execute SCRIPT_4
-					break 
-				case 2
-					execute SCRIPT_9
-					break 
-				case 3
-					execute SCRIPT_11
-					break 
-				case 0
-					break 
-		}
-}
+	 /* play the sound 'torches2' */ 
+	call play_loaded_sound(int 1, int -1, int 30, int 0)
+	if(gamevar is_room_cleared)
+	 {
+			execute SCRIPT_12
+	}
+	else
+	 {
+			switch(gamevar room_state)
+			 {
+					case 1
+						execute SCRIPT_4
+						break 
+					case 2
+						execute SCRIPT_9
+						break 
+					case 3
+						execute SCRIPT_11
+						break 
+					case 0
+						break 
+			}
+	}
 
 ._infinite_loop
-execute SCRIPT_14
-if(gamevar !is_room_cleared)
- {
-		switch(gamevar room_state)
-		 {
-				case 1
-					execute SCRIPT_3
-					break 
-				case 2
-					execute SCRIPT_8
-					break 
-				case 3
-					execute SCRIPT_10
-					break 
-				case 0
-					break 
-		}
-}
+	execute SCRIPT_14
+	if(gamevar !is_room_cleared)
+	 {
+			switch(gamevar room_state)
+			 {
+					case 1
+						execute SCRIPT_3
+						break 
+					case 2
+						execute SCRIPT_8
+						break 
+					case 3
+						execute SCRIPT_10
+						break 
+					case 0
+						break 
+			}
+	}
 
 ._on_exit
-if(gamevar !is_room_cleared)
- {
-		switch(gamevar room_state)
-		 {
-				case 1
-					gamevar room_state ++ 
-					gamevar is_room_cleared = int 1
-					break 
-				case 2
-					gamevar room_state ++ 
-					gamevar is_room_cleared = int 1
-					break 
-				case 3
-					gamevar room_state ++ 
-					gamevar is_room_cleared = int 1
-					break 
-				case 0
-					break 
-				default 
-					gamevar room_state = int 0
-					break 
-		}
-}
+	if(gamevar !is_room_cleared)
+	 {
+			switch(gamevar room_state)
+			 {
+					case 1
+						gamevar room_state ++ 
+						gamevar is_room_cleared = int 1
+						break 
+					case 2
+						gamevar room_state ++ 
+						gamevar is_room_cleared = int 1
+						break 
+					case 3
+						gamevar room_state ++ 
+						gamevar is_room_cleared = int 1
+						break 
+					case 0
+						break 
+					default 
+						gamevar room_state = int 0
+						break 
+			}
+	}
 
 ._SCRIPT_3
-if(var VAR_25 == int 0)
- {
-		call log("start 1")
-		execute SCRIPT_5
-		var VAR_25 ++ 
-		var VAR_26 = int 0
-}
-if(var VAR_25 == int 1)
- {
-		if(call func_8a(var &VAR_19))
-		 {
-				call remove_char(var treasure)
-				var VAR_18 = call run_wandering_generator(var &wandering_gen_script, int 1)
-				call log("treasure 2")
-				execute SCRIPT_6
-				var VAR_26 = int 0
-				var VAR_25 ++ 
-		}
-}
-if(var VAR_25 == int 2)
- {
-		if(call func_8a(var &VAR_20))
-		 {
-				call log("treasure 3")
-				execute SCRIPT_7
-				var VAR_25 ++ 
-		}
-}
-if(var VAR_25 == int 3)
- {
-		call remove_char(var treasure1)
-		var VAR_18 = call run_wandering_generator(var &wandering_gen_script1, int 1)
-		if(call func_8a(var &VAR_20))
-		 {
-				call log("treasure 3")
-				var VAR_25 ++ 
-		}
-}
+	if(var VAR_25 == int 0)
+	 {
+			call log("start 1")
+			execute SCRIPT_5
+			var VAR_25 ++ 
+			var VAR_26 = int 0
+	}
+	if(var VAR_25 == int 1)
+	 {
+			if(call func_8a(var &VAR_19))
+			 {
+					call remove_char(var treasure)
+					var VAR_18 = call run_wandering_generator(var &wandering_gen_script, int 1)
+					call log("treasure 2")
+					execute SCRIPT_6
+					var VAR_26 = int 0
+					var VAR_25 ++ 
+			}
+	}
+	if(var VAR_25 == int 2)
+	 {
+			if(call func_8a(var &VAR_20))
+			 {
+					call log("treasure 3")
+					execute SCRIPT_7
+					var VAR_25 ++ 
+			}
+	}
+	if(var VAR_25 == int 3)
+	 {
+			call remove_char(var treasure1)
+			var VAR_18 = call run_wandering_generator(var &wandering_gen_script1, int 1)
+			if(call func_8a(var &VAR_20))
+			 {
+					call log("treasure 3")
+					var VAR_25 ++ 
+			}
+	}
 
 ._SCRIPT_4
-call load_char("groad")
-call load_char("lizman")
-call load_char("bat")
-call load_char("litl_liz")
-call load_char("treasure")
-call load_char("mimic")
+	call load_char("groad")
+	call load_char("lizman")
+	call load_char("bat")
+	call load_char("litl_liz")
+	call load_char("treasure")
+	call load_char("mimic")
 
 ._SCRIPT_5
-var treasure = call create_enemy(int 136, int 0, var &init_position, int 275)
-call add_item_to_char(var treasure, int 45 /* deadmous */ , int 1, int 0)
+	var treasure = call create_enemy(int 136, int 0, var &init_position, int 275)
+	call add_item_to_char(var treasure, int 45 /* deadmous */ , int 1, int 0)
 
 ._SCRIPT_6
-var treasure1 = call create_enemy(int 136, int 0, var &init_position1, int 275)
-call add_item_to_char(var treasure1, int 45 /* deadmous */ , int 1, int 0)
-call add_item_to_char(var treasure1, int 45 /* deadmous */ , int 1, int 0)
+	var treasure1 = call create_enemy(int 136, int 0, var &init_position1, int 275)
+	call add_item_to_char(var treasure1, int 45 /* deadmous */ , int 1, int 0)
+	call add_item_to_char(var treasure1, int 45 /* deadmous */ , int 1, int 0)
 
 ._SCRIPT_7
-var treasure2 = call create_enemy(int 136, int 0, var &init_position2, int 45)
-call add_item_to_char(var treasure2, int 38 /* potbrown */ , int 1, int 0)
-call add_item_to_char(var treasure2, int 34 /* potred */ , int 1, int 0)
-call add_item_to_char(var treasure2, int 36 /* potorang */ , int 1, int 0)
-call add_item_to_char(var treasure2, int 36 /* potorang */ , int 1, int 0)
-call add_item_to_char(var treasure2, int 37 /* potgreen */ , int 1, int 0)
-call add_item_to_char(var treasure2, int 37 /* potgreen */ , int 1, int 0)
+	var treasure2 = call create_enemy(int 136, int 0, var &init_position2, int 45)
+	call add_item_to_char(var treasure2, int 38 /* potbrown */ , int 1, int 0)
+	call add_item_to_char(var treasure2, int 34 /* potred */ , int 1, int 0)
+	call add_item_to_char(var treasure2, int 36 /* potorang */ , int 1, int 0)
+	call add_item_to_char(var treasure2, int 36 /* potorang */ , int 1, int 0)
+	call add_item_to_char(var treasure2, int 37 /* potgreen */ , int 1, int 0)
+	call add_item_to_char(var treasure2, int 37 /* potgreen */ , int 1, int 0)
 
 ._SCRIPT_8
 
@@ -172,23 +172,23 @@ call add_item_to_char(var treasure2, int 37 /* potgreen */ , int 1, int 0)
 ._SCRIPT_12
 
 ._SCRIPT_13
-gamevar SMACKER_X = int 660
-gamevar SMACKER_Y = int 152
-call play_2d_anim("TORCH1", int 1, int 1, int 0)
-gamevar SMACKER_X = int 876
-gamevar SMACKER_Y = int 140
-call play_2d_anim("TORCH2", int 1, int 1, int 0)
-var VAR_4 = call play_3d_fx("FIRE", var &fx_position, int 0, int 0)
-call func_ec(int 198, int -1, int 0, var &fx_position)
+	gamevar SMACKER_X = int 660
+	gamevar SMACKER_Y = int 152
+	call play_2d_anim("TORCH1", int 1, int 1, int 0)
+	gamevar SMACKER_X = int 876
+	gamevar SMACKER_Y = int 140
+	call play_2d_anim("TORCH2", int 1, int 1, int 0)
+	var VAR_4 = call play_3d_fx("FIRE", var &fx_position, int 0, int 0)
+	call func_ec(int 198, int -1, int 0, var &fx_position)
 
 ._SCRIPT_14
-gamevar script_object = var VAR_4
-if(gamevar *psys_p+1)
- {
-		if(call ! randomize_int(int 0, int 5))
-		 {
+	gamevar script_object = var VAR_4
+	if(gamevar *psys_p+1)
+	 {
+			if(call ! randomize_int(int 0, int 5))
+			 {
 
-				 /* play the sound 'frogs' */ 
-				call play_loaded_sound(int 197, int 0, int 0, var &fx_position)
-		}
-}
+					 /* play the sound 'frogs' */ 
+					call play_loaded_sound(int 197, int 0, int 0, var &fx_position)
+			}
+	}

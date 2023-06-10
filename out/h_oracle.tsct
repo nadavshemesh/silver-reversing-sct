@@ -10,322 +10,322 @@
 
 
 ._DATA
-VAR_1	65536	
-VAR_2	65536	
-init_position	{ -335, -665, 353 }	
-init_position1	{ 676, 500, 725 }	
-VAR_11	665	
-VAR_12	"py"	
-VAR_14	500	
-VAR_15	{ 10, 120 }	
-VAR_32	{ 0, 0 }	
-VAR_34	{ 0, 0 }	
-VAR_35	{ 0, 0, 0 }	
-tele_position	{ 1790, -765, 750 }	
-VAR_45	{ 1024, 634, 1310 }	
-VAR_47	{ 674, -200, 374 }	
-VAR_48	{ 1605, -300, 813 }	
-VAR_53	-1	
+	VAR_1	65536	
+	VAR_2	65536	
+	init_position	{ -335, -665, 353 }	
+	init_position1	{ 676, 500, 725 }	
+	VAR_11	665	
+	VAR_12	"py"	
+	VAR_14	500	
+	VAR_15	{ 10, 120 }	
+	VAR_32	{ 0, 0 }	
+	VAR_34	{ 0, 0 }	
+	VAR_35	{ 0, 0, 0 }	
+	tele_position	{ 1790, -765, 750 }	
+	VAR_45	{ 1024, 634, 1310 }	
+	VAR_47	{ 674, -200, 374 }	
+	VAR_48	{ 1605, -300, 813 }	
+	VAR_53	-1	
 
 ._on_load
-call load_sound_set(int 78)
-call load_sound_set(int 8)
-call load_sound_set(int 12)
-var sent1_sound_ref = call play_loaded_sound(int 8, int -1, int 12, int 0)
-call set_sound_volume(var sent1_sound_ref, int 25)
-call func_58(int 1)
-switch(gamevar room_state)
- {
-		case 1
-			execute SCRIPT_4
-			break 
-		case 2
-			execute SCRIPT_9
-			break 
-		case 0
-			break 
-}
+	call load_sound_set(int 78)
+	call load_sound_set(int 8)
+	call load_sound_set(int 12)
+	var sent1_sound_ref = call play_loaded_sound(int 8, int -1, int 12, int 0)
+	call set_sound_volume(var sent1_sound_ref, int 25)
+	call func_58(int 1)
+	switch(gamevar room_state)
+	 {
+			case 1
+				execute SCRIPT_4
+				break 
+			case 2
+				execute SCRIPT_9
+				break 
+			case 0
+				break 
+	}
 
 ._infinite_loop
-execute SCRIPT_7
-switch(gamevar room_state)
- {
-		case 1
-			execute SCRIPT_3
-			break 
-		case 2
-			execute SCRIPT_8
-			break 
-		case 0
-			break 
-}
+	execute SCRIPT_7
+	switch(gamevar room_state)
+	 {
+			case 1
+				execute SCRIPT_3
+				break 
+			case 2
+				execute SCRIPT_8
+				break 
+			case 0
+				break 
+	}
 
 ._on_exit
-switch(gamevar room_state)
- {
-		case 1
-			gamevar room_state ++ 
-			break 
-		case 2
-			gamevar room_state ++ 
-			break 
-		case 0
-			break 
-		default 
-			gamevar room_state = int 0
-			break 
-}
+	switch(gamevar room_state)
+	 {
+			case 1
+				gamevar room_state ++ 
+				break 
+			case 2
+				gamevar room_state ++ 
+				break 
+			case 0
+				break 
+			default 
+				gamevar room_state = int 0
+				break 
+	}
 
 ._SCRIPT_3
-if(var VAR_53 != var VAR_41)
- {
-		var VAR_53 = var VAR_41
-		call log_obj(var VAR_41)
-}
-execute SCRIPT_10
-switch(var VAR_41)
- {
-		case 0
-			if(var VAR_42 > int 5)
-			 {
-					call char_teleport_to_pos(var DAVID, var &tele_position, int 250)
-					var VAR_41 ++ 
-					var VAR_42 = int 0
-			}
-			break 
-		case 1
-			if(var VAR_42 > int 100)
-			 {
-					call start_dialog("S_ORACLE", "NULL")
-					var VAR_41 ++ 
-					var VAR_42 = int 0
-			}
-			break 
-		case 2
-			if(call func_6d() == int 1)
-			 {
-					call play_char_anim(var DAVID, var confused_anim, int 0)
-					var VAR_41 ++ 
-					var VAR_42 = int 0
-			}
-			break 
-		case 3
-			if(call func_5c(var DAVID))
-			 {
-					call resume_conversation()
-					var VAR_13 = int 3
-					var VAR_41 ++ 
-					var VAR_42 = int 0
-			}
-			break 
-		case 4
-			if(call func_6d() == int 2)
-			 {
-					var apocamb_sound_ref = call play_loaded_sound(int 3, int 0, int 78, int 0)
-					var oracle2_sound_ref = call play_loaded_sound(int 1, int -1, int 78, int 0)
-					var oracle3_sound_ref = call play_loaded_sound(int 2, int -1, int 78, int 0)
-					call func_7f(var oracle2_sound_ref, int 300)
-					call func_7f(var oracle3_sound_ref, int 300)
-					var VAR_31 = int 1
-					var VAR_13 = int 20
-					var VAR_14 = int 1000
-					var VAR_15 = int 50
-					var VAR_2 = int 196608
-					var VAR_3 = int 2000
-					var VAR_41 ++ 
-					var VAR_42 = int 0
-			}
-			break 
-		case 5
-			if(var VAR_32 == int 10)
-			 {
-					call play_char_anim(var DAVID, var DodgeB_anim, int 0)
-					var VAR_2 = int 98304
-					var VAR_3 = int -2000
-					var VAR_14 = int 600
-					var VAR_15 = int 20
-			}
-			if(var VAR_32 == int 14)
-			 {
-					call play_char_anim(var nduke, var DodgeB_anim, int 0)
-			}
-			if(var VAR_32 == int 20)
-			 {
-					call play_char_anim(var nbuzuki, var laugh_anim, int 0)
-			}
-			if(var VAR_32 < int 20&&var VAR_32 > int 8)
-			 {
-					var VAR_12 ++ 
-			}
-			if(var VAR_31 == int -1)
-			 {
-					var VAR_13 = int 10
-					var VAR_33 = int 1
-					gamevar script_object = var VAR_36
-					gamevar *smack_object_p+2 -= int 10737418
-					call resume_conversation()
-					var VAR_41 ++ 
-					var VAR_42 = int 0
-			}
-			break 
-		case 6
-			if(call get_input_sys() != int 4)
-			 {
-					var VAR_41 ++ 
-					var VAR_42 = int 0
-			}
-			break 
-		case 7
-			if(var VAR_34 == int 18)
-			 {
-					call func_9f(var oracle2_sound_ref, int 100)
-					call func_9f(var oracle3_sound_ref, int 100)
-					var VAR_33 = int 0
-					var VAR_35 = int 1
-					var VAR_13 = int 0
-					var VAR_2 = int 65536
-					var VAR_3 = int -2000
-					gamevar script_object = var VAR_36
-					gamevar *smack_object_p+2 += int 10737418
-					gamevar script_object = var VAR_37
-					gamevar *smack_object_p+2 -= int 10737418
-					var VAR_41 ++ 
-					var VAR_42 = int 0
-			}
-			break 
-		case 8
-			if(var VAR_42 > int 30)
-			 {
-					gamevar compile_init_character = int 0
-					var i1horn = call create_char("¢", "i1horn", int 0, int 13)
-					gamevar compile_init_character = int 1
-					var VAR_41 ++ 
-					var VAR_42 = int 0
-			}
-			break 
-		case 9
-			if(var VAR_42 > int 20)
-			 {
-					call func_9b(var i1horn, var &VAR_47, int 10863247)
-					var VAR_52 = call play_3d_fx("ORACLE", int 0, int 0, var i1horn)
-					var VAR_41 ++ 
-					var VAR_42 = int 0
-			}
-			break 
-		case 10
-			if(call func_38(var i1horn, int 0))
-			 {
-					call func_9b(var i1horn, var &VAR_48, int 10779361)
-					var VAR_41 ++ 
-					var VAR_42 = int 0
-			}
-			break 
-		case 11
-			if(call func_38(var i1horn, int 0))
-			 {
-					call func_9b(var i1horn, var &tele_position, int 10779361)
-					var VAR_41 ++ 
-					var VAR_42 = int 0
-			}
-			break 
-		case 12
-			if(call func_38(var i1horn, int 0))
-			 {
-					call func_12f(var VAR_52)
-					call set_char_walking(var DAVID)
-					call func_ca(var DAVID, var i1horn, int 0)
-					call char_turn_to_pos(var nduke, var &tele_position)
-					var VAR_41 ++ 
-					var VAR_42 = int 0
-			}
-			break 
-		case 13
-			if(var VAR_42 > int 20)
-			 {
-					call set_char_walking(var nbuzuki)
-					call func_2b(var nbuzuki, int 0)
-					var VAR_41 ++ 
-					var VAR_42 = int 0
-			}
-			break 
-		case 14
-			if(var VAR_42 == int 60)
-			 {
-					call func_2b(var DAVID, int 0)
-			}
-			if(var VAR_42 == int 120)
-			 {
-					call func_2b(var nduke, int 0)
-					var VAR_41 ++ 
-					var VAR_42 = int 0
-			}
-			break 
-		case 15
-			if(var VAR_42 > int 90)
-			 {
-					call func_e6("haven", "h_orout", var &VAR_45, int 2)
-					var VAR_41 ++ 
-					var VAR_42 = int 0
-			}
-			break 
-}
-var VAR_42 ++ 
+	if(var VAR_53 != var VAR_41)
+	 {
+			var VAR_53 = var VAR_41
+			call log_obj(var VAR_41)
+	}
+	execute SCRIPT_10
+	switch(var VAR_41)
+	 {
+			case 0
+				if(var VAR_42 > int 5)
+				 {
+						call char_teleport_to_pos(var DAVID, var &tele_position, int 250)
+						var VAR_41 ++ 
+						var VAR_42 = int 0
+				}
+				break 
+			case 1
+				if(var VAR_42 > int 100)
+				 {
+						call start_dialog("S_ORACLE", "NULL")
+						var VAR_41 ++ 
+						var VAR_42 = int 0
+				}
+				break 
+			case 2
+				if(call func_6d() == int 1)
+				 {
+						call play_char_anim(var DAVID, var confused_anim, int 0)
+						var VAR_41 ++ 
+						var VAR_42 = int 0
+				}
+				break 
+			case 3
+				if(call func_5c(var DAVID))
+				 {
+						call resume_conversation()
+						var VAR_13 = int 3
+						var VAR_41 ++ 
+						var VAR_42 = int 0
+				}
+				break 
+			case 4
+				if(call func_6d() == int 2)
+				 {
+						var apocamb_sound_ref = call play_loaded_sound(int 3, int 0, int 78, int 0)
+						var oracle2_sound_ref = call play_loaded_sound(int 1, int -1, int 78, int 0)
+						var oracle3_sound_ref = call play_loaded_sound(int 2, int -1, int 78, int 0)
+						call func_7f(var oracle2_sound_ref, int 300)
+						call func_7f(var oracle3_sound_ref, int 300)
+						var VAR_31 = int 1
+						var VAR_13 = int 20
+						var VAR_14 = int 1000
+						var VAR_15 = int 50
+						var VAR_2 = int 196608
+						var VAR_3 = int 2000
+						var VAR_41 ++ 
+						var VAR_42 = int 0
+				}
+				break 
+			case 5
+				if(var VAR_32 == int 10)
+				 {
+						call play_char_anim(var DAVID, var DodgeB_anim, int 0)
+						var VAR_2 = int 98304
+						var VAR_3 = int -2000
+						var VAR_14 = int 600
+						var VAR_15 = int 20
+				}
+				if(var VAR_32 == int 14)
+				 {
+						call play_char_anim(var nduke, var DodgeB_anim, int 0)
+				}
+				if(var VAR_32 == int 20)
+				 {
+						call play_char_anim(var nbuzuki, var laugh_anim, int 0)
+				}
+				if(var VAR_32 < int 20&&var VAR_32 > int 8)
+				 {
+						var VAR_12 ++ 
+				}
+				if(var VAR_31 == int -1)
+				 {
+						var VAR_13 = int 10
+						var VAR_33 = int 1
+						gamevar script_object = var VAR_36
+						gamevar *smack_object_p+2 -= int 10737418
+						call resume_conversation()
+						var VAR_41 ++ 
+						var VAR_42 = int 0
+				}
+				break 
+			case 6
+				if(call get_input_sys() != int 4)
+				 {
+						var VAR_41 ++ 
+						var VAR_42 = int 0
+				}
+				break 
+			case 7
+				if(var VAR_34 == int 18)
+				 {
+						call func_9f(var oracle2_sound_ref, int 100)
+						call func_9f(var oracle3_sound_ref, int 100)
+						var VAR_33 = int 0
+						var VAR_35 = int 1
+						var VAR_13 = int 0
+						var VAR_2 = int 65536
+						var VAR_3 = int -2000
+						gamevar script_object = var VAR_36
+						gamevar *smack_object_p+2 += int 10737418
+						gamevar script_object = var VAR_37
+						gamevar *smack_object_p+2 -= int 10737418
+						var VAR_41 ++ 
+						var VAR_42 = int 0
+				}
+				break 
+			case 8
+				if(var VAR_42 > int 30)
+				 {
+						gamevar compile_init_character = int 0
+						var i1horn = call create_char("¢", "i1horn", int 0, int 13)
+						gamevar compile_init_character = int 1
+						var VAR_41 ++ 
+						var VAR_42 = int 0
+				}
+				break 
+			case 9
+				if(var VAR_42 > int 20)
+				 {
+						call func_9b(var i1horn, var &VAR_47, int 10863247)
+						var VAR_52 = call play_3d_fx("ORACLE", int 0, int 0, var i1horn)
+						var VAR_41 ++ 
+						var VAR_42 = int 0
+				}
+				break 
+			case 10
+				if(call func_38(var i1horn, int 0))
+				 {
+						call func_9b(var i1horn, var &VAR_48, int 10779361)
+						var VAR_41 ++ 
+						var VAR_42 = int 0
+				}
+				break 
+			case 11
+				if(call func_38(var i1horn, int 0))
+				 {
+						call func_9b(var i1horn, var &tele_position, int 10779361)
+						var VAR_41 ++ 
+						var VAR_42 = int 0
+				}
+				break 
+			case 12
+				if(call func_38(var i1horn, int 0))
+				 {
+						call func_12f(var VAR_52)
+						call set_char_walking(var DAVID)
+						call func_ca(var DAVID, var i1horn, int 0)
+						call char_turn_to_pos(var nduke, var &tele_position)
+						var VAR_41 ++ 
+						var VAR_42 = int 0
+				}
+				break 
+			case 13
+				if(var VAR_42 > int 20)
+				 {
+						call set_char_walking(var nbuzuki)
+						call func_2b(var nbuzuki, int 0)
+						var VAR_41 ++ 
+						var VAR_42 = int 0
+				}
+				break 
+			case 14
+				if(var VAR_42 == int 60)
+				 {
+						call func_2b(var DAVID, int 0)
+				}
+				if(var VAR_42 == int 120)
+				 {
+						call func_2b(var nduke, int 0)
+						var VAR_41 ++ 
+						var VAR_42 = int 0
+				}
+				break 
+			case 15
+				if(var VAR_42 > int 90)
+				 {
+						call func_e6("haven", "h_orout", var &VAR_45, int 2)
+						var VAR_41 ++ 
+						var VAR_42 = int 0
+				}
+				break 
+	}
+	var VAR_42 ++ 
 
 ._SCRIPT_4
-var nduke = call create_char("", "nduke", int 275, int 13)
-var nbuzuki = call create_char(var &init_position, "nbuzuki", int 35, int 13)
-var noracle = call create_char(var &init_position1, "noracle", int 210, int 13)
-gamevar script_object = var noracle
-gamevar *character_movement_p+62 = int 1
-call add_item_to_char(var nduke, int 16 /* shrtswrd */ , int 0, int 1)
-var DAVID = call get_char_handle(int 65536)
-execute SCRIPT_5
-execute SCRIPT_6
-call func_9e(var &VAR_11)
-var VAR_16 = int 111
-var VAR_17 = int 0
-var VAR_18 = int 0
-var VAR_19 = int 0
-call func_4d(int 111, var &VAR_16, "verdante", "exbarrac")
-call load_item(int 99 /* 1horn */ )
-call set_input_system(int 2)
+	var nduke = call create_char("", "nduke", int 275, int 13)
+	var nbuzuki = call create_char(var &init_position, "nbuzuki", int 35, int 13)
+	var noracle = call create_char(var &init_position1, "noracle", int 210, int 13)
+	gamevar script_object = var noracle
+	gamevar *character_movement_p+62 = int 1
+	call add_item_to_char(var nduke, int 16 /* shrtswrd */ , int 0, int 1)
+	var DAVID = call get_char_handle(int 65536)
+	execute SCRIPT_5
+	execute SCRIPT_6
+	call func_9e(var &VAR_11)
+	var VAR_16 = int 111
+	var VAR_17 = int 0
+	var VAR_18 = int 0
+	var VAR_19 = int 0
+	call func_4d(int 111, var &VAR_16, "verdante", "exbarrac")
+	call load_item(int 99 /* 1horn */ )
+	call set_input_system(int 2)
 
 ._SCRIPT_5
-var confused_anim = call load_anim("confused")
-var DodgeB_anim = call load_anim("DodgeB")
-var laugh_anim = call load_anim("laugh")
+	var confused_anim = call load_anim("confused")
+	var DodgeB_anim = call load_anim("DodgeB")
+	var laugh_anim = call load_anim("laugh")
 
 ._SCRIPT_6
-gamevar SMACKER_X = int 160
-gamevar SMACKER_Y = int 0
-call play_2d_anim("h_oracle", int 0, int 0, var &VAR_31)
-gamevar SMACKER_X = int 300
-gamevar SMACKER_Y = int 196
-var VAR_36 = call play_2d_anim("h_orloop", int 10737418, int 1, var &VAR_33)
-gamevar SMACKER_X = int 300
-gamevar SMACKER_Y = int 188
-var VAR_37 = call play_2d_anim("h_orend", int 10737418, int 1, var &VAR_35)
+	gamevar SMACKER_X = int 160
+	gamevar SMACKER_Y = int 0
+	call play_2d_anim("h_oracle", int 0, int 0, var &VAR_31)
+	gamevar SMACKER_X = int 300
+	gamevar SMACKER_Y = int 196
+	var VAR_36 = call play_2d_anim("h_orloop", int 10737418, int 1, var &VAR_33)
+	gamevar SMACKER_X = int 300
+	gamevar SMACKER_Y = int 188
+	var VAR_37 = call play_2d_anim("h_orend", int 10737418, int 1, var &VAR_35)
 
 ._SCRIPT_7
-if(gamevar script_time > var VAR_61)
- {
-		var VAR_61 = gamevar script_time + int 60 + call randomize_int(int 0, int 40)
-		var VAR_60 = int 4 + call randomize_int(int 0, int 3)
-		call play_loaded_sound(var VAR_60, int 0, int 8, int 0)
-}
+	if(gamevar script_time > var VAR_61)
+	 {
+			var VAR_61 = gamevar script_time + int 60 + call randomize_int(int 0, int 40)
+			var VAR_60 = int 4 + call randomize_int(int 0, int 3)
+			call play_loaded_sound(var VAR_60, int 0, int 8, int 0)
+	}
 
 ._SCRIPT_8
 
 ._SCRIPT_9
 
 ._SCRIPT_10
-if(var VAR_3 > int 0&&var VAR_1 < var VAR_2)
- {
-		var VAR_1 += var VAR_3
-		call func_f3(var VAR_1)
-}
-if(var VAR_3 < int 0&&var VAR_1 > var VAR_2)
- {
-		var VAR_1 += var VAR_3
-		call func_f3(var VAR_1)
-}
+	if(var VAR_3 > int 0&&var VAR_1 < var VAR_2)
+	 {
+			var VAR_1 += var VAR_3
+			call func_f3(var VAR_1)
+	}
+	if(var VAR_3 < int 0&&var VAR_1 > var VAR_2)
+	 {
+			var VAR_1 += var VAR_3
+			call func_f3(var VAR_1)
+	}

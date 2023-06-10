@@ -25,6 +25,8 @@ int count_file_sections(sct_f* sf);
 void build_scripts_lables_and_order(sct_f* sf);
 char* get_script_label_by_id(int id, sct_f* sf);
 void create_data_data_link(int data_offset, sct_f* sf);
+void create_data_data_link_with_dr(data_ref* dr, sct_f* sf);
+void create_data_code_link_with_dr(sct_f* sf);
 expression* asm_read_expression(char*** token_pos_ptr, bool allow_var_decl, sct_f* sf);
 char* peek_next_token(char** tokens_ptr);
 char* peek_prev_token(char** tokens_ptr);

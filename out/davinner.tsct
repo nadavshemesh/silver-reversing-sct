@@ -10,186 +10,186 @@
 
 
 ._DATA
-VAR_0	{ 16, 1, 48, 1, -1 }	
-init_position1	{ 1869, 672, -4318 }	
-init_position2	{ 928, 1347, -5117 }	
-VAR_5	{ VAR_6, 0, 0, 5, 0, 0 }	
-VAR_6	"stdstill"	
-init_position	{ 1356, 672, -4791 }	
-VAR_22	10	
-VAR_23	2	
+	VAR_0	{ 16, 1, 48, 1, -1 }	
+	init_position1	{ 1869, 672, -4318 }	
+	init_position2	{ 928, 1347, -5117 }	
+	VAR_5	{ VAR_6, 0, 0, 5, 0, 0 }	
+	VAR_6	"stdstill"	
+	init_position	{ 1356, 672, -4791 }	
+	VAR_22	10	
+	VAR_23	2	
 
 ._on_load
-call func_10e()
-if(gamevar room_state == int 0)
- {
-		exit_script 
-}
-if(gamevar room_state == int 1)
- {
-		execute SCRIPT_3
-}
-if(gamevar room_state == int 2)
- {
-		execute SCRIPT_5
-}
-if(gamevar room_state == int 3)
- {
-		execute SCRIPT_7
-}
-call load_sound_set(int 3)
-execute SCRIPT_10
+	call func_10e()
+	if(gamevar room_state == int 0)
+	 {
+			exit_script 
+	}
+	if(gamevar room_state == int 1)
+	 {
+			execute SCRIPT_3
+	}
+	if(gamevar room_state == int 2)
+	 {
+			execute SCRIPT_5
+	}
+	if(gamevar room_state == int 3)
+	 {
+			execute SCRIPT_7
+	}
+	call load_sound_set(int 3)
+	execute SCRIPT_10
 
 ._infinite_loop
-if(gamevar room_state == int 0)
- {
-		exit_script 
-}
-if(gamevar room_state == int 1)
- {
-		execute SCRIPT_4
-}
-if(gamevar room_state == int 2)
- {
-		execute SCRIPT_6
-}
-if(gamevar room_state == int 3)
- {
-		execute SCRIPT_8
-}
-execute SCRIPT_9
+	if(gamevar room_state == int 0)
+	 {
+			exit_script 
+	}
+	if(gamevar room_state == int 1)
+	 {
+			execute SCRIPT_4
+	}
+	if(gamevar room_state == int 2)
+	 {
+			execute SCRIPT_6
+	}
+	if(gamevar room_state == int 3)
+	 {
+			execute SCRIPT_8
+	}
+	execute SCRIPT_9
 
 ._on_exit
-call func_3d()
-if(gamevar room_state == int 1)
- {
-		gamevar room_state ++ 
-		call func_116("verdante", "davhouse", int 2)
-		exit_script 
-}
-if(gamevar room_state == int 2)
- {
-		exit_script 
-}
-if(gamevar room_state == int 3)
- {
-		gamevar room_state ++ 
-		exit_script 
-}
-if(gamevar room_state == int 4)
- {
-		gamevar room_state = int 0
-		exit_script 
-}
+	call func_3d()
+	if(gamevar room_state == int 1)
+	 {
+			gamevar room_state ++ 
+			call func_116("verdante", "davhouse", int 2)
+			exit_script 
+	}
+	if(gamevar room_state == int 2)
+	 {
+			exit_script 
+	}
+	if(gamevar room_state == int 3)
+	 {
+			gamevar room_state ++ 
+			exit_script 
+	}
+	if(gamevar room_state == int 4)
+	 {
+			gamevar room_state = int 0
+			exit_script 
+	}
 
 ._SCRIPT_3
-var NJENNIFER = call create_char(var &init_position, "NJENNIFER", int 120, int 13)
-var DAVID = call get_char_handle(int 65536)
-call create_char(var &init_position1, "iapple", int 0, int 13)
-gamevar global_inventory_p = var &VAR_0
-call create_char(var &init_position2, "btreasure", int 55, int 14)
-call load_char_anim(var DAVID, var &VAR_5)
-call set_input_system(int 2)
+	var NJENNIFER = call create_char(var &init_position, "NJENNIFER", int 120, int 13)
+	var DAVID = call get_char_handle(int 65536)
+	call create_char(var &init_position1, "iapple", int 0, int 13)
+	gamevar global_inventory_p = var &VAR_0
+	call create_char(var &init_position2, "btreasure", int 55, int 14)
+	call load_char_anim(var DAVID, var &VAR_5)
+	call set_input_system(int 2)
 
 ._SCRIPT_4
-if(var VAR_13 == int 0)
- {
-		if(gamevar scene_counter > int 10)
-		 {
-				var VAR_13 = int 1
-				call reset_local_timer()
-		}
-}
-if(var VAR_13 == int 1)
- {
-		if(call is_local_timer_greater_than(int 20))
-		 {
-				call char_turn_to_pos(var NJENNIFER, call get_char_pos(var DAVID))
-				call set_input_system(int 1)
-				call start_dialog("S_DvdJen", "null")
-				var VAR_13 = int 2
-				call reset_local_timer()
-		}
-}
-if(var VAR_13 == int 2)
- {
-		if(call get_input_sys() != int 4)
-		 {
-				var VAR_13 = int 3
-		}
-}
-if(var VAR_13 == int 3)
- {
-		if(call func_af(int 16))
-		 {
-				call func_10c(var NJENNIFER, "SWORD")
-				var VAR_13 = int 4
-		}
-}
-if(var VAR_13 == int 4)
- {
-}
+	if(var VAR_13 == int 0)
+	 {
+			if(gamevar scene_counter > int 10)
+			 {
+					var VAR_13 = int 1
+					call reset_local_timer()
+			}
+	}
+	if(var VAR_13 == int 1)
+	 {
+			if(call is_local_timer_greater_than(int 20))
+			 {
+					call char_turn_to_pos(var NJENNIFER, call get_char_pos(var DAVID))
+					call set_input_system(int 1)
+					call start_dialog("S_DvdJen", "null")
+					var VAR_13 = int 2
+					call reset_local_timer()
+			}
+	}
+	if(var VAR_13 == int 2)
+	 {
+			if(call get_input_sys() != int 4)
+			 {
+					var VAR_13 = int 3
+			}
+	}
+	if(var VAR_13 == int 3)
+	 {
+			if(call func_af(int 16))
+			 {
+					call func_10c(var NJENNIFER, "SWORD")
+					var VAR_13 = int 4
+			}
+	}
+	if(var VAR_13 == int 4)
+	 {
+	}
 
 ._SCRIPT_5
-var NJENNIFER = call create_char(var &init_position, "NJENNIFER", int 120, int 13)
-var DAVID = call get_char_handle(int 65536)
-var VAR_13 = int 3
-if(call func_af(int 16))
- {
-		call func_10c(var NJENNIFER, "SWORD")
-		var VAR_13 = int 4
-}
-else
- {
-		if(call create_item(int 16 /* shrtswrd */ ))
-		 {
-				call func_10c(var NJENNIFER, "SWORD")
-				var VAR_13 = int 4
-		}
-}
+	var NJENNIFER = call create_char(var &init_position, "NJENNIFER", int 120, int 13)
+	var DAVID = call get_char_handle(int 65536)
+	var VAR_13 = int 3
+	if(call func_af(int 16))
+	 {
+			call func_10c(var NJENNIFER, "SWORD")
+			var VAR_13 = int 4
+	}
+	else
+	 {
+			if(call create_item(int 16 /* shrtswrd */ ))
+			 {
+					call func_10c(var NJENNIFER, "SWORD")
+					var VAR_13 = int 4
+			}
+	}
 
 ._SCRIPT_6
-if(var VAR_13 == int 3)
- {
-		if(call func_af(int 16))
-		 {
-				call func_10c(var NJENNIFER, "SWORD")
-				var VAR_13 = int 4
-		}
-}
-if(var VAR_13 == int 4)
- {
-}
+	if(var VAR_13 == int 3)
+	 {
+			if(call func_af(int 16))
+			 {
+					call func_10c(var NJENNIFER, "SWORD")
+					var VAR_13 = int 4
+			}
+	}
+	if(var VAR_13 == int 4)
+	 {
+	}
 
 ._SCRIPT_7
 
 ._SCRIPT_8
 
 ._SCRIPT_9
-if(var VAR_21 > var VAR_22)
- {
-		var VAR_24 = var VAR_23
-		var VAR_23 = int 2 + call randomize_int(int 0, int 5)
-		if(var VAR_23 == var VAR_24)
-		 {
-				var VAR_23 ++ 
-				if(var VAR_23 > int 6)
-				 {
-						var VAR_23 = int 2
-				}
-		}
-		var VAR_25 = call play_loaded_sound(var VAR_23, int 0, int 3, int 0)
-		call set_sound_volume(var VAR_25, int 10)
-		var VAR_22 = call randomize_int(int 0, int 151) + int 250
-		var VAR_21 = int 0
-}
-var VAR_21 ++ 
+	if(var VAR_21 > var VAR_22)
+	 {
+			var VAR_24 = var VAR_23
+			var VAR_23 = int 2 + call randomize_int(int 0, int 5)
+			if(var VAR_23 == var VAR_24)
+			 {
+					var VAR_23 ++ 
+					if(var VAR_23 > int 6)
+					 {
+							var VAR_23 = int 2
+					}
+			}
+			var VAR_25 = call play_loaded_sound(var VAR_23, int 0, int 3, int 0)
+			call set_sound_volume(var VAR_25, int 10)
+			var VAR_22 = call randomize_int(int 0, int 151) + int 250
+			var VAR_21 = int 0
+	}
+	var VAR_21 ++ 
 
 ._SCRIPT_10
-var bird1_sound_ref = call play_loaded_sound(int 1, int -1, int 3, int 0)
-call set_sound_volume(var bird1_sound_ref, int 25)
-var hgull1_sound_ref = call play_loaded_sound(int 7, int -1, int 3, int 0)
-call set_sound_volume(var hgull1_sound_ref, int 5)
+	var bird1_sound_ref = call play_loaded_sound(int 1, int -1, int 3, int 0)
+	call set_sound_volume(var bird1_sound_ref, int 25)
+	var hgull1_sound_ref = call play_loaded_sound(int 7, int -1, int 3, int 0)
+	call set_sound_volume(var hgull1_sound_ref, int 5)
 
- /* play the sound 'bird2' */ 
-call play_loaded_sound(int 2, int 0, int 3, int 0)
+	 /* play the sound 'bird2' */ 
+	call play_loaded_sound(int 2, int 0, int 3, int 0)

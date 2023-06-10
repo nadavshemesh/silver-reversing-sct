@@ -10,208 +10,208 @@
 
 
 ._DATA
-VAR_8	{ 0, 0 }	
-VAR_9	{ 0, 0, 0 }	
-VAR_15	{ 0, 350, 900, 6899 }	
-VAR_22	-1	
-VAR_28	{ -2124, -40, 794 }	
-VAR_29	{ -1795, -40, 1027 }	
-VAR_30	{ -1005, -40, 1284 }	
-VAR_31	{ -622, -40, 1493 }	
-arr	{ VAR_28, VAR_29, VAR_30, VAR_31 }	
-VAR_34	50	
-VAR_36	100	
-VAR_40	{ -4187, 13, 9437 }	
-VAR_41	{ -3447, 164, 10378 }	
-VAR_42	{ -1652, 65, 8438 }	
-VAR_43	{ -3181, 273, 8576 }	
-VAR_44	{ -4041, 607, 9430 }	
-VAR_45	{ -1548, 184, 9053 }	
-arr_1	"ILORUX"	
+	VAR_8	{ 0, 0 }	
+	VAR_9	{ 0, 0, 0 }	
+	VAR_15	{ 0, 350, 900, 6899 }	
+	VAR_22	-1	
+	VAR_28	{ -2124, -40, 794 }	
+	VAR_29	{ -1795, -40, 1027 }	
+	VAR_30	{ -1005, -40, 1284 }	
+	VAR_31	{ -622, -40, 1493 }	
+	arr	{ VAR_28, VAR_29, VAR_30, VAR_31 }	
+	VAR_34	50	
+	VAR_36	100	
+	VAR_40	{ -4187, 13, 9437 }	
+	VAR_41	{ -3447, 164, 10378 }	
+	VAR_42	{ -1652, 65, 8438 }	
+	VAR_43	{ -3181, 273, 8576 }	
+	VAR_44	{ -4041, 607, 9430 }	
+	VAR_45	{ -1548, 184, 9053 }	
+	arr_1	"ILORUX"	
 
 ._on_load
-call func_58(int 1)
-call load_sound_set(int 22)
-call load_sound_set(int 46)
-execute SCRIPT_9
-if(gamevar is_room_cleared)
- {
-		execute SCRIPT_6
-		execute SCRIPT_5
-}
-else
- {
-		switch(gamevar room_state)
-		 {
-		}
-}
+	call func_58(int 1)
+	call load_sound_set(int 22)
+	call load_sound_set(int 46)
+	execute SCRIPT_9
+	if(gamevar is_room_cleared)
+	 {
+			execute SCRIPT_6
+			execute SCRIPT_5
+	}
+	else
+	 {
+			switch(gamevar room_state)
+			 {
+			}
+	}
 
 ._infinite_loop
-execute SCRIPT_10
-if(gamevar !is_room_cleared)
- {
-		switch(gamevar room_state)
-		 {
-		}
-}
+	execute SCRIPT_10
+	if(gamevar !is_room_cleared)
+	 {
+			switch(gamevar room_state)
+			 {
+			}
+	}
 
 ._on_exit
-if(gamevar !is_room_cleared)
- {
-		switch(gamevar room_state)
-		 {
-		}
-}
+	if(gamevar !is_room_cleared)
+	 {
+			switch(gamevar room_state)
+			 {
+			}
+	}
 
 ._SCRIPT_3
-if(var VAR_22 != var VAR_14)
- {
-		var VAR_22 = var VAR_14
-		call log_obj(var VAR_14)
-}
-switch(var VAR_14)
- {
-		case 0
-			if(gamevar *scene_info_p+4 & int 1)
-			 {
-			}
-			else
-			 {
-					call set_input_system(int 2)
-					var VAR_14 ++ 
-					var VAR_15 ++ 
-					var VAR_0 = int 1
-					gamevar *scene_info_p+4 = int 16
-			}
-			break 
-		case 1
-			if(var VAR_8 == int 38)
-			 {
-					gamevar script_object = var VAR_4
-					gamevar *smack_object_p+2 += int 10737418
-					gamevar script_object = var VAR_5
-					gamevar *smack_object_p+2 -= int 10737418
-					var VAR_9 ++ 
-					var VAR_14 ++ 
-					var VAR_15 = int 0
-					call func_4e(int 0)
-					call func_59(var boothiss_sound_ref)
-			}
-			break 
-		case 2
-			if(var VAR_15 > int 200)
-			 {
-					gamevar *scene_info_p+4 &= int -17
-					call set_input_system(int 1)
-					call create_enemy_through_door(int 1 /* fire_sprite */ , int 0, int 0, int 0)
-					var VAR_14 ++ 
-					var VAR_15 = int 0
-			}
-			break 
-		case 3
-			if(call get_num_of_enemies() == int 0)
-			 {
-					call set_input_system(int 2)
-					gamevar compile_init_character = int 0
-					var VAR_16 = call func_92(int 0, "nfrink", int 0, int 13)
-					gamevar compile_init_character = int 1
-					call set_char_running(var VAR_16)
-					var david = call get_david_char()
-					call char_walk_to_pos(var VAR_16, call get_char_pos(var david))
-					var VAR_14 ++ 
-					var VAR_15 = int 0
-			}
-			break 
-		case 4
-			if(call is_char_standing(var VAR_16))
-			 {
-					call char_turn_to_pos(var VAR_16, call get_char_pos(var david))
-					call char_turn_to_pos(var david, call get_char_pos(var VAR_16))
-					var VAR_14 ++ 
-					var VAR_15 = int 0
-			}
-			break 
-		case 5
-			if(var VAR_15 > int 30)
-			 {
-					var VAR_18 = int 444
-					var VAR_19 = int 1
-					var VAR_20 = int 0
-					var VAR_21 = int 0
-					call func_4d(int 444, var &VAR_18, "haven", "h_orout")
-					call start_dialog("FRIHER", "NULL")
-					var VAR_14 ++ 
-					var VAR_15 = int 0
-			}
-			break 
-		case 6
-			if(call get_input_sys() != int 4)
-			 {
-					call func_2b(var VAR_16, int 0)
-					call set_input_system(int 1)
-					var VAR_14 ++ 
-					var VAR_15 = int 0
-			}
-			break 
-		case 7
-			if(call is_char_standing(var VAR_16))
-			 {
-					call remove_char(var VAR_16)
-					var VAR_14 ++ 
-					var VAR_15 = int 0
-			}
-			break 
-}
-var VAR_15 ++ 
+	if(var VAR_22 != var VAR_14)
+	 {
+			var VAR_22 = var VAR_14
+			call log_obj(var VAR_14)
+	}
+	switch(var VAR_14)
+	 {
+			case 0
+				if(gamevar *scene_info_p+4 & int 1)
+				 {
+				}
+				else
+				 {
+						call set_input_system(int 2)
+						var VAR_14 ++ 
+						var VAR_15 ++ 
+						var VAR_0 = int 1
+						gamevar *scene_info_p+4 = int 16
+				}
+				break 
+			case 1
+				if(var VAR_8 == int 38)
+				 {
+						gamevar script_object = var VAR_4
+						gamevar *smack_object_p+2 += int 10737418
+						gamevar script_object = var VAR_5
+						gamevar *smack_object_p+2 -= int 10737418
+						var VAR_9 ++ 
+						var VAR_14 ++ 
+						var VAR_15 = int 0
+						call func_4e(int 0)
+						call func_59(var boothiss_sound_ref)
+				}
+				break 
+			case 2
+				if(var VAR_15 > int 200)
+				 {
+						gamevar *scene_info_p+4 &= int -17
+						call set_input_system(int 1)
+						call create_enemy_through_door(int 1 /* fire_sprite */ , int 0, int 0, int 0)
+						var VAR_14 ++ 
+						var VAR_15 = int 0
+				}
+				break 
+			case 3
+				if(call get_num_of_enemies() == int 0)
+				 {
+						call set_input_system(int 2)
+						gamevar compile_init_character = int 0
+						var VAR_16 = call func_92(int 0, "nfrink", int 0, int 13)
+						gamevar compile_init_character = int 1
+						call set_char_running(var VAR_16)
+						var david = call get_david_char()
+						call char_walk_to_pos(var VAR_16, call get_char_pos(var david))
+						var VAR_14 ++ 
+						var VAR_15 = int 0
+				}
+				break 
+			case 4
+				if(call is_char_standing(var VAR_16))
+				 {
+						call char_turn_to_pos(var VAR_16, call get_char_pos(var david))
+						call char_turn_to_pos(var david, call get_char_pos(var VAR_16))
+						var VAR_14 ++ 
+						var VAR_15 = int 0
+				}
+				break 
+			case 5
+				if(var VAR_15 > int 30)
+				 {
+						var VAR_18 = int 444
+						var VAR_19 = int 1
+						var VAR_20 = int 0
+						var VAR_21 = int 0
+						call func_4d(int 444, var &VAR_18, "haven", "h_orout")
+						call start_dialog("FRIHER", "NULL")
+						var VAR_14 ++ 
+						var VAR_15 = int 0
+				}
+				break 
+			case 6
+				if(call get_input_sys() != int 4)
+				 {
+						call func_2b(var VAR_16, int 0)
+						call set_input_system(int 1)
+						var VAR_14 ++ 
+						var VAR_15 = int 0
+				}
+				break 
+			case 7
+				if(call is_char_standing(var VAR_16))
+				 {
+						call remove_char(var VAR_16)
+						var VAR_14 ++ 
+						var VAR_15 = int 0
+				}
+				break 
+	}
+	var VAR_15 ++ 
 
 ._SCRIPT_4
-gamevar SMACKER_X = int 168
-gamevar SMACKER_Y = int 32
-var VAR_4 = call play_2d_anim("FIRETREE", int 1, int 1, var &VAR_7)
-var VAR_7 ++ 
-gamevar SMACKER_X = int 168
-gamevar SMACKER_Y = int 32
-var VAR_5 = call play_2d_anim("FIREFADE", int 10737418, int 1, var &VAR_9)
-call load_char("firesprt")
-call load_char("frink")
-call load_sound_set(int 70)
-var boothiss_sound_ref = call play_loaded_sound(int 1, int -1, int 70, int 0)
+	gamevar SMACKER_X = int 168
+	gamevar SMACKER_Y = int 32
+	var VAR_4 = call play_2d_anim("FIRETREE", int 1, int 1, var &VAR_7)
+	var VAR_7 ++ 
+	gamevar SMACKER_X = int 168
+	gamevar SMACKER_Y = int 32
+	var VAR_5 = call play_2d_anim("FIREFADE", int 10737418, int 1, var &VAR_9)
+	call load_char("firesprt")
+	call load_char("frink")
+	call load_sound_set(int 70)
+	var boothiss_sound_ref = call play_loaded_sound(int 1, int -1, int 70, int 0)
 
 ._SCRIPT_5
-call func_4e(int 0)
+	call func_4e(int 0)
 
 ._SCRIPT_6
-gamevar SMACKER_X = int 168
-gamevar SMACKER_Y = int 32
-call play_2d_anim("oneframe", int 0, int 1, int 0)
+	gamevar SMACKER_X = int 168
+	gamevar SMACKER_Y = int 32
+	call play_2d_anim("oneframe", int 0, int 1, int 0)
 
 ._SCRIPT_7
-if(var VAR_34 == int 0)
- {
-		var VAR_35 = call randomize_int(int 0, int 4)
-		var VAR_33 = call func_ec(int 5, int 0, int 22, @arr[var VAR_35])
-		call set_sound_volume(var VAR_33, int 6)
-		var VAR_34 = call randomize_int(int 200, int 401)
-}
-var VAR_34 -- 
+	if(var VAR_34 == int 0)
+	 {
+			var index = call randomize_int(int 0, int 4)
+			var VAR_33 = call func_ec(int 5, int 0, int 22, @arr[var VAR_35])
+			call set_sound_volume(var VAR_33, int 6)
+			var VAR_34 = call randomize_int(int 200, int 401)
+	}
+	var VAR_34 -- 
 
 ._SCRIPT_8
-if(var VAR_36 == int 0)
- {
-		var VAR_37 = call randomize_int(int 0, int 6)
-		var VAR_38 = int 2 + call randomize_int(int 0, int 3)
-		var VAR_39 = call func_ec(var VAR_38, int 0, int 22, @arr_1[var VAR_37])
-		call set_sound_volume(var VAR_39, int 3)
-		var VAR_36 = call randomize_int(int 500, int 701)
-}
-var VAR_36 -- 
+	if(var VAR_36 == int 0)
+	 {
+			var index_1 = call randomize_int(int 0, int 6)
+			var VAR_38 = int 2 + call randomize_int(int 0, int 3)
+			var VAR_39 = call func_ec(var VAR_38, int 0, int 22, @arr_1[var VAR_37])
+			call set_sound_volume(var VAR_39, int 3)
+			var VAR_36 = call randomize_int(int 500, int 701)
+	}
+	var VAR_36 -- 
 
 ._SCRIPT_9
-var frog_sound_ref = call play_loaded_sound(int 1, int -1, int 22, int 0)
-call set_sound_volume(var frog_sound_ref, int 3)
-var palhum_sound_ref = call play_loaded_sound(int 3, int -1, int 46, int 0)
-call set_sound_volume(var palhum_sound_ref, int 19)
+	var frog_sound_ref = call play_loaded_sound(int 1, int -1, int 22, int 0)
+	call set_sound_volume(var frog_sound_ref, int 3)
+	var palhum_sound_ref = call play_loaded_sound(int 3, int -1, int 46, int 0)
+	call set_sound_volume(var palhum_sound_ref, int 19)
 
 ._SCRIPT_10
-execute SCRIPT_7
-execute SCRIPT_8
+	execute SCRIPT_7
+	execute SCRIPT_8

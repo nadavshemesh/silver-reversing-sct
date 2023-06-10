@@ -10,85 +10,85 @@
 
 
 ._DATA
-init_position	{ 1840, 862, -4539 }	
-init_position1	{ 2433, 863, -4409 }	
-init_position2	{ 2217, 863, -4213 }	
-init_position3	{ 2300, 863, -4416 }	
-ai_script	{ 0, 1639, 863, -5381, 11, 10, 50, 0, 1142, 863, -5143, 11, 10, 50, 0, 1075, 863, -4180, 11, 10, 50, 0, 1847, 863, -4492, 11, 100, 200, 7, 8 }	
-VAR_13	{ 0, 0 }
+	init_position	{ 1840, 862, -4539 }	
+	init_position1	{ 2433, 863, -4409 }	
+	init_position2	{ 2217, 863, -4213 }	
+	init_position3	{ 2300, 863, -4416 }	
+	ai_script	{ 0, 1639, 863, -5381, 11, 10, 50, 0, 1142, 863, -5143, 11, 10, 50, 0, 1075, 863, -4180, 11, 10, 50, 0, 1847, 863, -4492, 11, 100, 200, 7, 8 }	
+	VAR_13	{ 0, 0 }
 
 ._on_load
-call load_sound_set(int 12)
+	call load_sound_set(int 12)
 
- /* play the sound 'sent1' */ 
-call play_loaded_sound(int 8, int -1, int 12, int 0)
-call load_sound_set(int 37)
-call func_ec(int 2, int -1, int 37, "")
-if(call play_bgm("HAVNBPT1"))
- {
-		call func_114(int 1)
-		call func_5a(int -1)
-}
-switch(gamevar room_state)
- {
-		case 1
-			execute SCRIPT_5
-			break 
-		case 2
-			execute SCRIPT_7
-			break 
-		case 0
-			break 
-}
+	 /* play the sound 'sent1' */ 
+	call play_loaded_sound(int 8, int -1, int 12, int 0)
+	call load_sound_set(int 37)
+	call func_ec(int 2, int -1, int 37, "")
+	if(call play_bgm("HAVNBPT1"))
+	 {
+			call func_114(int 1)
+			call func_5a(int -1)
+	}
+	switch(gamevar room_state)
+	 {
+			case 1
+				execute SCRIPT_5
+				break 
+			case 2
+				execute SCRIPT_7
+				break 
+			case 0
+				break 
+	}
 
 ._infinite_loop
-execute SCRIPT_3
-switch(gamevar room_state)
- {
-		case 1
-			execute SCRIPT_4
-			break 
-		case 2
-			execute SCRIPT_6
-			break 
-		case 0
-			break 
-}
+	execute SCRIPT_3
+	switch(gamevar room_state)
+	 {
+			case 1
+				execute SCRIPT_4
+				break 
+			case 2
+				execute SCRIPT_6
+				break 
+			case 0
+				break 
+	}
 
 ._on_exit
-switch(gamevar room_state)
- {
-		case 1
-			gamevar room_state ++ 
-			break 
-		case 2
-			gamevar room_state ++ 
-			break 
-		case 0
-			break 
-		default 
-			gamevar room_state = int 0
-			break 
-}
+	switch(gamevar room_state)
+	 {
+			case 1
+				gamevar room_state ++ 
+				break 
+			case 2
+				gamevar room_state ++ 
+				break 
+			case 0
+				break 
+			default 
+				gamevar room_state = int 0
+				break 
+	}
 
 ._SCRIPT_3
-if(gamevar script_time > var VAR_13)
- {
-		var VAR_13 = gamevar script_time + int 80 + call randomize_int(int 0, int 60)
-		var VAR_12 = int 2 + call randomize_int(int 0, int 6)
-		call play_loaded_sound(var VAR_12, int 0, int 12, int 0)
-}
+	if(gamevar script_time > var VAR_13)
+	 {
+			var VAR_13 = gamevar script_time + int 80 + call randomize_int(int 0, int 60)
+			var VAR_12 = int 2 + call randomize_int(int 0, int 6)
+			call play_loaded_sound(var VAR_12, int 0, int 12, int 0)
+	}
 
 ._SCRIPT_4
 
 ._SCRIPT_5
-var fbear = call create_char(var &init_position, "fbear", int 240, int 13)
-call create_char(var &init_position1, "iapple", int 0, int 13)
-call create_char(var &init_position2, "iapple", int 0, int 13)
-call create_char(var &init_position3, "iapple", int 0, int 13)
-call func_50(var fbear, int 8193)
-call func_53(var fbear, int 5)
-call play_char_ai_script(var fbear, var &ai_script)
+	var fbear = call create_char(var &init_position, "fbear", int 240, int 13)
+	call create_char(var &init_position1, "iapple", int 0, int 13)
+	call create_char(var &init_position2, "iapple", int 0, int 13)
+	call create_char(var &init_position3, "iapple", int 0, int 13)
+	call func_50(var fbear, int 8193)
+	call func_53(var fbear, int 5)
+	call play_char_ai_script(var fbear, var &ai_script)
 
 ._SCRIPT_6
 

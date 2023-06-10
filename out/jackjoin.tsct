@@ -10,117 +10,117 @@
 
 
 ._DATA
-VAR_3	{ 0, 0 }	
-enemy_gen_script1	{ 0, 0, 1, -1, 8, 0, 4, 0, 9, 1, 1, 2, 81, 81, 76, -1, 5, 1, 50, 140, 6, 1, 7, 1, 5, 10, 40, 41, -1, -1 }	
-enemy_gen_script	{ 0, 0, 1, -1, 8, 0, 4, 0, 9, 1, 1, 1, 79, 79, 81, -1, 5, 1, 5, 40, 6, 1, 7, 1, 3, 10, 42, -1, -1 }	
-ronnie	{ 0, 0 }	
-ogre2	{ 0, 0 }	
-init_position1	{ -688, -1789, 145 }	
-init_position	{ -2319, -1789, 228 }	
-wandering_gen_script	{ 0, 0, 0, -1, 8, 0, 12, 78, 78, 78, 78, 76, 77, -1, 13, 1, 14, 0, 2, 3, 5, 0, 100, 17, 2, -3137, -1789, 539, 260, -1789, 862, -1, 18, 50, 11, -1 }	
-wandering_gen_script1	{ 0, 0, 1, -1, 8, 0, 12, 78, 78, 40, 78, -1, 13, 1, 14, 0, 1, 4, 5, 0, 100, 17, 2, 260, -1789, 1996, -3111, -1789, 1216, -1, 18, 50, 11, -1, 0 }	
+	VAR_3	{ 0, 0 }	
+	enemy_gen_script1	{ 0, 0, 1, -1, 8, 0, 4, 0, 9, 1, 1, 2, 81, 81, 76, -1, 5, 1, 50, 140, 6, 1, 7, 1, 5, 10, 40, 41, -1, -1 }	
+	enemy_gen_script	{ 0, 0, 1, -1, 8, 0, 4, 0, 9, 1, 1, 1, 79, 79, 81, -1, 5, 1, 5, 40, 6, 1, 7, 1, 3, 10, 42, -1, -1 }	
+	ronnie	{ 0, 0 }	
+	ogre2	{ 0, 0 }	
+	init_position1	{ -688, -1789, 145 }	
+	init_position	{ -2319, -1789, 228 }	
+	wandering_gen_script	{ 0, 0, 0, -1, 8, 0, 12, 78, 78, 78, 78, 76, 77, -1, 13, 1, 14, 0, 2, 3, 5, 0, 100, 17, 2, -3137, -1789, 539, 260, -1789, 862, -1, 18, 50, 11, -1 }	
+	wandering_gen_script1	{ 0, 0, 1, -1, 8, 0, 12, 78, 78, 40, 78, -1, 13, 1, 14, 0, 1, 4, 5, 0, 100, 17, 2, 260, -1789, 1996, -3111, -1789, 1216, -1, 18, 50, 11, -1, 0 }	
 
 ._on_load
-call load_sound_set(int 65)
+	call load_sound_set(int 65)
 
- /* play the sound 'in2wind1' */ 
-call play_loaded_sound(int 5, int -1, int 65, int 0)
-if(gamevar is_room_cleared)
- {
-		execute SCRIPT_8
-}
-else
- {
-		switch(gamevar room_state)
-		 {
-				case 1
-					execute SCRIPT_5
-					break 
-				case 2
-					execute SCRIPT_7
-					break 
-				case 0
-					break 
-		}
-}
+	 /* play the sound 'in2wind1' */ 
+	call play_loaded_sound(int 5, int -1, int 65, int 0)
+	if(gamevar is_room_cleared)
+	 {
+			execute SCRIPT_8
+	}
+	else
+	 {
+			switch(gamevar room_state)
+			 {
+					case 1
+						execute SCRIPT_5
+						break 
+					case 2
+						execute SCRIPT_7
+						break 
+					case 0
+						break 
+			}
+	}
 
 ._infinite_loop
-execute SCRIPT_3
-if(gamevar !is_room_cleared)
- {
-		switch(gamevar room_state)
-		 {
-				case 1
-					execute SCRIPT_4
-					break 
-				case 2
-					execute SCRIPT_6
-					break 
-				case 0
-					break 
-		}
-}
+	execute SCRIPT_3
+	if(gamevar !is_room_cleared)
+	 {
+			switch(gamevar room_state)
+			 {
+					case 1
+						execute SCRIPT_4
+						break 
+					case 2
+						execute SCRIPT_6
+						break 
+					case 0
+						break 
+			}
+	}
 
 ._on_exit
-if(gamevar !is_room_cleared)
- {
-		switch(gamevar room_state)
-		 {
-				case 1
-					gamevar room_state ++ 
-					gamevar is_room_cleared = int 1
-					break 
-				case 2
-					gamevar room_state ++ 
-					gamevar is_room_cleared = int 1
-					break 
-				case 0
-					break 
-				default 
-					gamevar room_state = int 0
-					break 
-		}
-}
+	if(gamevar !is_room_cleared)
+	 {
+			switch(gamevar room_state)
+			 {
+					case 1
+						gamevar room_state ++ 
+						gamevar is_room_cleared = int 1
+						break 
+					case 2
+						gamevar room_state ++ 
+						gamevar is_room_cleared = int 1
+						break 
+					case 0
+						break 
+					default 
+						gamevar room_state = int 0
+						break 
+			}
+	}
 
 ._SCRIPT_3
-if(gamevar script_time > var VAR_18)
- {
-		var VAR_18 = gamevar script_time + int 100 + call randomize_int(int 0, int 50)
+	if(gamevar script_time > var VAR_18)
+	 {
+			var VAR_18 = gamevar script_time + int 100 + call randomize_int(int 0, int 50)
 
-		 /* play the sound 'wwindlp' */ 
-		call play_loaded_sound(int 6, int 0, int 65, int 0)
-}
+			 /* play the sound 'wwindlp' */ 
+			call play_loaded_sound(int 6, int 0, int 65, int 0)
+	}
 
 ._SCRIPT_4
-switch(var VAR_3)
- {
-}
+	switch(var VAR_3)
+	 {
+	}
 
 ._SCRIPT_5
-call load_char("orc")
-call load_char("lizman")
-var ronnie = call create_enemy(int 77, int 0, var &init_position, int 20)
-call add_item_to_char(var ronnie, int 85 /* moneybag */ , int 1638913, int 0)
-call add_item_to_char(var ronnie, int 85 /* moneybag */ , int 1638913, int 0)
-var ogre2 = call create_enemy(int 79, int 0, var &init_position1, int 315)
-var VAR_2 = call run_enemy_generator(var &enemy_gen_script1, int 300)
+	call load_char("orc")
+	call load_char("lizman")
+	var ronnie = call create_enemy(int 77, int 0, var &init_position, int 20)
+	call add_item_to_char(var ronnie, int 85 /* moneybag */ , int 1638913, int 0)
+	call add_item_to_char(var ronnie, int 85 /* moneybag */ , int 1638913, int 0)
+	var ogre2 = call create_enemy(int 79, int 0, var &init_position1, int 315)
+	var VAR_2 = call run_enemy_generator(var &enemy_gen_script1, int 300)
 
 ._SCRIPT_6
 
 ._SCRIPT_7
 
 ._SCRIPT_8
-call log("wandering baddies")
-var VAR_11 = call func_6f()
-call load_char("orc")
-call load_char("lizman")
-call load_char("ogre")
-call load_char("ronnie")
-if(var VAR_11 == int 1)
- {
-		call run_wandering_generator(var &wandering_gen_script, int 100)
-}
-else
- {
-		call run_wandering_generator(var &wandering_gen_script1, int 120)
-}
+	call log("wandering baddies")
+	var VAR_11 = call func_6f()
+	call load_char("orc")
+	call load_char("lizman")
+	call load_char("ogre")
+	call load_char("ronnie")
+	if(var VAR_11 == int 1)
+	 {
+			call run_wandering_generator(var &wandering_gen_script, int 100)
+	}
+	else
+	 {
+			call run_wandering_generator(var &wandering_gen_script1, int 120)
+	}

@@ -596,14 +596,19 @@ data_obj* asm_create_inline_data_obj(char*** tokens_pos_ptr, sct_f* sf) {
                     node* data_node = data_nodes;
                     bool found = false;
                     while(data_node != NULL && !found) {
-                        data_obj* data_o = data_node->item;
-                        if(strlen(str) == strlen(data_o->name) && strcmp(data_o->name, str) == 0) {
+                        data_obj* data_item = data_node->item;
+                        if(strlen(str) == strlen(data_item->name) && strcmp(data_item->name, str) == 0) {
                             found = true;
-                            int num = data_o->id;
-                            int num_id = id+j;
+                            data_ref* dr = create_and_init_data_ref();
+                            dr->id = j;
+                            dr->data_parent = data_o;
+                            dr->data_item = data_item;
+                            int num = data_item->id;
+                            // int num_id = id+j;
                             integers[j] = num;
                             // printf("offset: %08x\n", id+j);
-                            create_data_data_link(num_id, sf);
+                            // create_data_data_link(num_id, sf);
+                            create_data_data_link_with_dr(dr, sf);
                         }
                         data_node = data_node->next;
                     }
@@ -688,8 +693,7 @@ data_obj* asm_create_inline_data_obj(char*** tokens_pos_ptr, sct_f* sf) {
     return data_o;
 }
 
-data_obj* asm_create_data_obj(char*** tokens_pos_ptr, int id, node* data_nodes, 
-        int* unfound_var_ids, char** unfound_var_names, int* unfound_var_index, sct_f* sf) {
+data_obj* asm_create_data_obj(char*** tokens_pos_ptr, int id, node* data_nodes, sct_f* sf) {
     char** token_ptr = *tokens_pos_ptr;
     if(*token_ptr == NULL)
         print_err_and_exit("Error, data obj ptr is null.", -4);
@@ -720,16 +724,19 @@ data_obj* asm_create_data_obj(char*** tokens_pos_ptr, int id, node* data_nodes,
                     node* data_node = data_nodes;
                     bool found = false;
                     while(data_node != NULL && !found) {
-                        data_obj* data_o = data_node->item;
+                        data_obj* data_item = data_node->item;
 
-                        if(strs_identical(str, data_o->name)) {
+                        if(strs_identical(str, data_item->name)) {
                             found = true;
-                            int num = data_o->id;
-                            int num_id = id+j;
+                            data_ref* dr = create_and_init_data_ref();
+                            dr->id = j;
+                            dr->data_parent = data_o;
+                            dr->data_item = data_item;
+                            int num = data_item->id;
                             integers[j] = num;
                             // printf("offset: %08x\n", id+j);
                             // printf("%s var was found.\n", str);
-                            create_data_data_link(num_id, sf);
+                            create_data_data_link_with_dr(dr, sf);
                         }
                         data_node = data_node->next;
                     }
@@ -738,13 +745,13 @@ data_obj* asm_create_data_obj(char*** tokens_pos_ptr, int id, node* data_nodes,
                         // sprintf(err, "Error, %s var was not found.", str);
                         // print_err_and_exit(err, -4); 
                         // printf("%s var was not found.\n", str);
-                        int num_id = id+j;
+                        data_ref* dr = create_and_init_data_ref();
+                        dr->id = j;
+                        dr->data_parent = data_o;
+                        dr->unfound_name = aapts(str);
                         int num = -9;
                         integers[j] = num;
-                        unfound_var_ids[*unfound_var_index] = num_id;
-                        unfound_var_names[*unfound_var_index] = aapts(str);
-                        *unfound_var_index += 1;
-                        create_data_data_link(num_id, sf);
+                        create_data_data_link_with_dr(dr, sf);
                     }
                 } else { // not a letter, assuming it is an int, todo: validate
                     int num = atoi(*(token_ptr+i));
@@ -811,14 +818,18 @@ data_obj* asm_create_data_obj(char*** tokens_pos_ptr, int id, node* data_nodes,
                     node* data_node = data_nodes;
                     bool found = false;
                     while(data_node != NULL && !found) {
-                        data_obj* data_o = data_node->item;
-                        if(strlen(str) == strlen(data_o->name) && strcmp(data_o->name, str) == 0) {
+                        data_obj* data_item = data_node->item;
+                        if(strlen(str) == strlen(data_item->name) && strcmp(data_item->name, str) == 0) {
                             found = true;
+                            data_ref* dr = create_and_init_data_ref();
+                            dr->id = id;
+                            dr->data_parent = data_o;
+                            dr->data_item = data_item;
                             int num = data_o->id;
                             int num_id = id;
                             // printf("offset: %08x\n", id+j);
                             // printf("%s var was found.\n", str);
-                            create_data_data_link(num_id, sf);
+                            create_data_data_link_with_dr(dr, sf);
                         }
                         data_node = data_node->next;
                     }
@@ -827,12 +838,12 @@ data_obj* asm_create_data_obj(char*** tokens_pos_ptr, int id, node* data_nodes,
                         // sprintf(err, "Error, %s var was not found.", str);
                         // print_err_and_exit(err, -4); 
                         // printf("%s var was not found.\n", str);
-                        int num_id = id;
+                        data_ref* dr = create_and_init_data_ref();
+                        dr->id = id;
+                        dr->data_parent = data_o;
+                        dr->unfound_name = aapts(str);
                         is_unfound_data_ref = true;
-                        unfound_var_ids[*unfound_var_index] = num_id;
-                        unfound_var_names[*unfound_var_index] = aapts(str);
-                        *unfound_var_index += 1;
-                        create_data_data_link(num_id, sf);
+                        create_data_data_link_with_dr(dr, sf);
                     }
                 }
             // todo: validate structure
@@ -874,6 +885,150 @@ void flush_data_nodes_to_data_section(sct_f* sf) {
     }
 }
 
+int get_original_var_name_num_if_exists(char *var_name) {
+    char prefix[5] = "VAR_";
+    if(strlen(var_name) > 4 && strncmp(prefix, var_name, 4) == 0) {
+        int var_num_len = strlen(var_name)-4;
+        char var_num_str[var_num_len];
+        strncpy(var_num_str, var_name+4, var_num_len); 
+        int var_num = atoi(var_num_str);
+
+        return var_num;
+    }
+    return -1; // format is not VAR_
+}
+
+void increment_data_nodes_ids(node* start) {
+    node* prev = start;
+    if(prev != NULL && prev->next != NULL) {
+        node* next = prev->next;
+        while(next != NULL) {
+            int prev_id = ((data_obj*)prev->item)->id;
+            int prev_size = ((data_obj*)prev->item)->byte_size;
+            ((data_obj*)next->item)->id = prev_id + prev_size/4;
+
+            prev = next;
+            next = next->next;
+        }
+    }
+}
+
+void copy_data_nodes_with_new_item(sct_f* sf, data_obj* data, int var_num) {
+    node* next_new = NULL;
+    node* next = *sf->data_nodes;
+    int id = ((data_obj*)next->item)->id;
+    bool found = false;
+    node* new;
+    
+    while(next != NULL) {
+        node* new_node = create_node(next->item);
+        ((data_obj*)next->item)->id = id;
+
+        char* cur_name = ((data_obj*)next->item)->name;
+        int cur_var_num = get_original_var_name_num_if_exists(cur_name);
+        int size = ((data_obj*)next->item)->byte_size;
+        id += (size%4==0)?size/4:size/4+1;
+
+        if(next_new == NULL) {
+            next_new = new_node;
+            new = new_node;
+        } else {
+            if(!found && cur_var_num > var_num) {
+                found = true;
+                data->id = id;
+                node* new_node = create_node(data);
+                next_new->next = new_node;
+                next_new = new_node;
+                id++;
+            }
+            next_new->next = new_node;
+            next_new = new_node;
+        }
+        next = next->next;
+    }
+    if(!found) {
+        data->id = id;
+        node* new_node = create_node(data);
+        next_new->next = new_node;
+    }
+
+    *sf->data_nodes = new;
+}
+
+void update_data_id_for_referees(data_obj* data_o) {
+    if(data_o->c_referees != NULL) {
+        node* cnode = *data_o->c_referees;
+        while(cnode != NULL) {
+            code_obj* cref = (code_obj*)cnode->item;
+            cref->bin_vars[0] = data_o->id;
+            cnode = cnode->next;
+        }
+    }
+    if(data_o->e_referees != NULL) {
+        node* enode = *data_o->e_referees;
+        while(enode != NULL) {
+            expr_obj* eref = (expr_obj*)enode->item;
+            eref->bin_vars[0] = data_o->id;
+            enode = enode->next;
+        }
+    }
+    if(data_o->d_references != NULL) {
+        node* dnode = *(data_o->d_references);
+        while(dnode != NULL) {
+            data_ref* dref = (data_ref*)dnode->item;
+            // printf("%d\n", dref->id);
+            // print_data_obj(dref->data_item);
+            int* offset = (int*)data_o->data;
+            *(offset+(dref->id)) = dref->data_item->id;
+            dnode = dnode->next;
+        }
+    }
+}
+
+void sync_data_refs_ids(sct_f* sf) {
+    node* next = *sf->data_nodes;
+    while(next != NULL) {
+        data_obj* data_o = (data_obj*)next->item;
+        update_data_id_for_referees(data_o);
+        next = next->next;
+    }
+}
+
+void add_new_var_to_data_nodes_by_num(sct_f* sf, data_obj* data, int var_num) {
+    node* prev = NULL;
+    node* next = *sf->data_nodes;
+    node* new_node = create_node(data);
+    int id = 0;
+    bool found = false;
+    
+    while(next != NULL) {
+        ((data_obj*)next->item)->id = id;
+
+        char* cur_name = ((data_obj*)next->item)->name;
+        int cur_var_num = get_original_var_name_num_if_exists(cur_name);
+        int size = ((data_obj*)next->item)->byte_size;
+        id += size/4;
+
+        if(!found && cur_var_num > var_num) {
+            found = true;
+            data->id = id;
+            if(prev == NULL) {
+                *sf->data_nodes = new_node;
+            } else {
+                prev->next = new_node;
+            }
+            new_node->next = next;
+        }
+
+        prev = (prev == NULL)? next:prev->next;
+        next = next->next;
+    }
+    if(!found) {
+        data->id = id;
+        prev->next = new_node;
+    }
+}
+
 data_obj* add_and_init_data_var_by_name(char* var_name, sct_f* sf) {
     data_obj* data_o = create_and_init_data_obj();
     
@@ -890,14 +1045,29 @@ data_obj* add_and_init_data_var_by_name(char* var_name, sct_f* sf) {
     sf->structure->data_sec_size += 4;
 
     node* data_node = *sf->data_nodes;
-    while(data_node->next != NULL) { 
-        data_node = data_node->next;
+    node* new_node = create_node(data_o);
+
+    // check if it has a VAR_ format to try and not break the order
+    int var_num = get_original_var_name_num_if_exists(var_name);
+
+    if(var_num != -1) { // the var has VAR_ format, check where it should fit in order
+        copy_data_nodes_with_new_item(sf, data_o, var_num);
+    } else { // the var doesnt have VAR_ format, go to the end of the list
+        while(data_node->next != NULL) {
+            data_node = data_node->next;
+        }
+
+        data_node->next = new_node;
     }
 
-    node* new_node = create_node(data_o);
-    data_node->next = new_node;
-
+    sync_data_refs_ids(sf);
     flush_data_nodes_to_data_section(sf);
+        // while(data_node->next != NULL) {
+        //     data_node = data_node->next;
+        // }
+
+        // data_node->next = new_node;
+
 
     return data_o;
 }
@@ -929,19 +1099,13 @@ void build_data_section(sct_f* sf) {
     tokens_pos_ptr = &tokens;
 
     int i = 0;
-    char** unfound_var_names = w_malloc(MAX_DATA_REFS_ALLOCATED*sizeof(char*));
-    int* unfound_var_ids = w_malloc(MAX_DATA_REFS_ALLOCATED*sizeof(int));
-    int unfound_var_index = 0;
     node* data_next = NULL;
     node* data_nodes = NULL;
     while(**tokens_pos_ptr != NULL) {
         int ds_size = sf->structure->data_sec_size;
         int id = (ds_size % 4 == 0) ? ds_size/4 : (ds_size/4+1);
-        // unfound_var_names = realloc(unfound_var_names, (i+500)*sizeof(char*));
-        // unfound_var_ids = realloc(unfound_var_ids, (i+500)*sizeof(int));
         // printf("id: %08x\n", id);
-        data_obj* data_o = asm_create_data_obj(tokens_pos_ptr, id, data_nodes, 
-                            unfound_var_ids, unfound_var_names, &unfound_var_index, sf);
+        data_obj* data_o = asm_create_data_obj(tokens_pos_ptr, id, data_nodes, sf);
         sf->structure->data_sec_size += data_o->byte_size;
         node* n = create_node(data_o);
         if(data_next == NULL) { 
@@ -961,29 +1125,21 @@ void build_data_section(sct_f* sf) {
     flush_data_nodes_to_data_section(sf);
 
     // attempt to find prev unfound var names
-    for(int k=0; k < unfound_var_index; k++) {
-        if(unfound_var_names[k] != NULL) {
-            char* unfound_name = unfound_var_names[k];
-            int byte_id = unfound_var_ids[k];
-            // printf("unfound_name: %s, byte_id: %d\n", unfound_name, byte_id);
-            node* data_node = data_nodes;
-            while(data_node->next != NULL) {
-                data_obj* data_o = data_node->item;
-                data_obj* next_data_o = data_node->next->item;
-                if(byte_id >= data_o->id && byte_id < next_data_o->id) {
-                    int byte_num = (byte_id - data_o->id);
-                    // print_data_obj(data_o);
-                    // printf("byte_num: %d\n", byte_num);
-                    // byte_num = (byte_num == 0)? byte_num : byte_num-1;
-                    data_obj* ref_obj = get_data_obj_by_name(unfound_name, false, sf);
-                    if(*((int*) data_o->data+byte_num) != -9) break;
-                    // printf("Found %s, byte_num: %d(val: %d), ref_id: %d\n", unfound_name,
-                    //          byte_num, *((int*) data_o->data+byte_num), ref_obj->id);
-                    *((int*) data_o->data+byte_num) = ref_obj->id;
-                }
-                data_node = data_node->next;
+    node* links = *sf->data_link_table;
+    while(sf->structure->link_table_size > 0 && links != NULL) {
+        data_ref* dr = (data_ref*) links->item;
+        if(dr->type == DATA_DATA && dr->data_item == NULL) {
+            data_obj* ref_obj = get_data_obj_by_name(dr->unfound_name, false, sf);
+            if(ref_obj == NULL) {
+                char err[256];
+                sprintf(err, "%s is not found. (unfound both times).", dr->unfound_name);
+                print_err_and_exit(err, -4);
             }
-        }
+            dr->data_item = ref_obj;
+            int* offset = (int*)dr->data_parent->data;
+            *(offset+(dr->id)) = ref_obj->id;
+        } 
+        links = links->next;
     }
 }
 
@@ -1221,6 +1377,28 @@ void create_data_code_link(sct_f* sf) {
     sf->structure->link_table_size++;
 }
 
+void create_data_code_link_with_dr(sct_f* sf) {
+    node** link_nodes = sf->data_link_table;
+    if(link_nodes == NULL) {  print_err_and_exit("Error, data link table undefined.", -4); }
+
+    int* offset = w_malloc(sizeof(int));
+    *offset = sf->structure->code_section_word_counter-1;
+    *offset |= 0x40000000;
+
+    data_ref* dr = create_and_init_data_ref();
+    dr->offset = offset;
+    dr->type = DATA_CODE;
+
+    node* link_node = *link_nodes;
+    node* new_link_node = create_node(dr); 
+    if(sf->structure->link_table_size == 0 || link_node == NULL) {
+        *sf->data_link_table = new_link_node;
+    } else {
+        insert_node(link_nodes, new_link_node);
+    }
+    sf->structure->link_table_size++;
+}
+
 void create_data_data_link(int data_offset, sct_f* sf) {
     node** link_nodes = sf->data_link_table;
     if(link_nodes == NULL) {  print_err_and_exit("Error, data link table undefined.", -4); }
@@ -1237,6 +1415,25 @@ void create_data_data_link(int data_offset, sct_f* sf) {
         insert_node(link_nodes, new_link_node);
     }
     sf->structure->link_table_size++;
+}
+
+void create_data_data_link_with_dr(data_ref* dr, sct_f* sf) {
+    node** link_nodes = sf->data_link_table;
+    if(link_nodes == NULL) {  print_err_and_exit("Error, data link table undefined.", -4); }
+
+    dr->type = DATA_DATA;
+    node* link_node = *link_nodes;
+    node* new_link_node = create_node(dr); 
+    if(sf->structure->link_table_size == 0 || link_node == NULL) {
+        *sf->data_link_table = new_link_node;
+    } else {
+        insert_node(link_nodes, new_link_node);
+    }
+    sf->structure->link_table_size++;
+
+    node* dref_node = create_node(dr);
+
+    dr->data_parent->d_references = insert_node_create_head_if_needed(dr->data_parent->d_references, dref_node);
 }
 
 expr_obj* asm_create_expr_obj(expr_pattern* expr_p, char** vars, char*** token_pos_ptr, sct_f* sf) {
@@ -1266,7 +1463,7 @@ expr_obj* asm_create_expr_obj(expr_pattern* expr_p, char** vars, char*** token_p
         case DATA_INDEX_PTR:
         case VAR_PTR:
         case ADDROF_VAR_PTR: {
-            create_data_code_link(sf);
+            create_data_code_link_with_dr(sf);
             // print_bin_link_table(sf);
             char* data_name = vars[0];
             bool is_negated = false;
@@ -1288,6 +1485,17 @@ expr_obj* asm_create_expr_obj(expr_pattern* expr_p, char** vars, char*** token_p
             }
             eo->data = data_o;
             data_o->references++;
+
+            node* ref = create_node(eo);
+            if(data_o->e_referees == NULL) {
+                data_o->e_referees = w_malloc(sizeof(node*));
+                *data_o->e_referees = ref;
+            } else {
+                node* next = *data_o->e_referees;
+                while(next->next != NULL) { next = next->next; }
+                next->next = ref;
+            }
+
             if(is_negated) {
                 expr_pattern* neg_var_p = init_expr_neg_var_ptr();
                 eo->expr_p = neg_var_p;
@@ -1432,9 +1640,19 @@ expression* asm_read_expression(char*** token_pos_ptr, bool allow_var_decl, sct_
 
             data_obj* data_o = add_inline_var_declaration_to_data_section(sf, token_pos_ptr);
 
-            create_data_code_link(sf);
+            create_data_code_link_with_dr(sf);
             eo->data = data_o;
             data_o->references++;
+            
+            node* ref = create_node(eo);
+            if(data_o->e_referees == NULL) {
+                data_o->e_referees = w_malloc(sizeof(node*));
+                *data_o->e_referees = ref;
+            } else {
+                node* next = *data_o->e_referees;
+                while(next->next != NULL) { next = next->next; }
+                next->next = ref;
+            }
 
             char* asm_vars[1] = { aapts(data_o->name) };
             int bin_vars[1] = { data_o->id }; 
@@ -1888,7 +2106,7 @@ code_obj* asm_read_var_ptr(code_pattern* cp, char** vars, char*** token_pos_ptr,
     code_obj* c_obj = create_and_init_c_obj();
 
     c_obj->cp = cp;
-    create_data_code_link(sf);
+    create_data_code_link_with_dr(sf);
     // print_bin_link_table(sf);
     char* data_name = vars[0];
     data_obj* data_o = get_data_obj_by_name(data_name, true, sf);
@@ -1899,6 +2117,16 @@ code_obj* asm_read_var_ptr(code_pattern* cp, char** vars, char*** token_pos_ptr,
     }
     c_obj->data = data_o;
     data_o->references++;
+
+    node* ref = create_node(c_obj);
+    if(data_o->c_referees == NULL) {
+        data_o->c_referees = w_malloc(sizeof(node*));
+        *data_o->c_referees = ref;
+    } else {
+        node* next = *data_o->c_referees;
+        while(next->next != NULL) { next = next->next; }
+        next->next = ref;
+    }
 
     char* asm_vars[1] = { aapts(data_name) };
     int bin_vars[1] = { data_o->id }; 

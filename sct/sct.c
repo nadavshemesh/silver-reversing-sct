@@ -206,6 +206,7 @@ data_obj* get_data_obj_by_name(char* name, bool silent_err, sct_f* sf) {
     data_obj** ds = sf->data_section;
 
     if(ds == NULL) { print_err_and_exit("called get_data with no data section.", -3); }
+    if(name == NULL) { print_err_and_exit("called get_data_by_name with NULL as a name.", -3); }
 
     data_obj* data_o = search_data_by_name(name, sf);
     if(data_o == NULL) { 

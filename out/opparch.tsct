@@ -10,164 +10,164 @@
 
 
 ._DATA
-VAR_17	{ 0, 0 }	
-VAR_36	{ 0, 0, -1 }	
-VAR_41	-1	
-fx_position	{ -2600, 1967, 3025 }	
-VAR_60	{ 200, 1967, -7825 }	
-init_position2	{ 1992, -927, 7317 }	
-VAR_67	{ 0, 0, 1, -1, 8, 1, 4, 0, 9, 0, 1, 2, 18, 18, -1, 2, 1, 3, 1, 5, 0, 90, 6, 1, 7, 1, 5, -1 }	
-ai_script	{ 0, 1606, 175, 5188, 2, 1374, -927, 6094, 24, 139, 8 }	
-init_position1	{ 1759, 175, 4118 }	
-init_position	{ 1979, -927, 5923 }	
-VAR_76	-1	
+	VAR_17	{ 0, 0 }	
+	VAR_36	{ 0, 0, -1 }	
+	VAR_41	-1	
+	fx_position	{ -2600, 1967, 3025 }	
+	VAR_60	{ 200, 1967, -7825 }	
+	init_position2	{ 1992, -927, 7317 }	
+	VAR_67	{ 0, 0, 1, -1, 8, 1, 4, 0, 9, 0, 1, 2, 18, 18, -1, 2, 1, 3, 1, 5, 0, 90, 6, 1, 7, 1, 5, -1 }	
+	ai_script	{ 0, 1606, 175, 5188, 2, 1374, -927, 6094, 24, 139, 8 }	
+	init_position1	{ 1759, 175, 4118 }	
+	init_position	{ 1979, -927, 5923 }	
+	VAR_76	-1	
 
 ._on_load
-execute SCRIPT_3
-execute SCRIPT_14
-call play_bgm("RAINPT1")
-if(gamevar is_room_cleared)
- {
-		execute SCRIPT_9
-}
-else
- {
-		switch(gamevar room_state)
-		 {
-				case 1
-					execute SCRIPT_5
-					break 
-				case 2
-					execute SCRIPT_8
-					break 
-				case 0
-					break 
-		}
-}
+	execute SCRIPT_3
+	execute SCRIPT_14
+	call play_bgm("RAINPT1")
+	if(gamevar is_room_cleared)
+	 {
+			execute SCRIPT_9
+	}
+	else
+	 {
+			switch(gamevar room_state)
+			 {
+					case 1
+						execute SCRIPT_5
+						break 
+					case 2
+						execute SCRIPT_8
+						break 
+					case 0
+						break 
+			}
+	}
 
 ._infinite_loop
-execute SCRIPT_11
-var VAR_18 = int 20
-execute SCRIPT_15
-if(gamevar !is_room_cleared)
- {
-		switch(gamevar room_state)
-		 {
-				case 1
-					execute SCRIPT_4
-					break 
-				case 2
-					execute SCRIPT_7
-					break 
-				case 0
-					break 
-		}
-}
+	execute SCRIPT_11
+	var VAR_18 = int 20
+	execute SCRIPT_15
+	if(gamevar !is_room_cleared)
+	 {
+			switch(gamevar room_state)
+			 {
+					case 1
+						execute SCRIPT_4
+						break 
+					case 2
+						execute SCRIPT_7
+						break 
+					case 0
+						break 
+			}
+	}
 
 ._on_exit
-execute SCRIPT_16
-if(gamevar !is_room_cleared)
- {
-		switch(gamevar room_state)
-		 {
-				case 1
-					gamevar room_state ++ 
-					break 
-				case 2
-					break 
-				case 20
-					gamevar is_room_cleared = int 1
-					break 
-				case 0
-					break 
-				default 
-					gamevar room_state = int 0
-					break 
-		}
-}
+	execute SCRIPT_16
+	if(gamevar !is_room_cleared)
+	 {
+			switch(gamevar room_state)
+			 {
+					case 1
+						gamevar room_state ++ 
+						break 
+					case 2
+						break 
+					case 20
+						gamevar is_room_cleared = int 1
+						break 
+					case 0
+						break 
+					default 
+						gamevar room_state = int 0
+						break 
+			}
+	}
 
 ._SCRIPT_3
-call log("it's_raining")
-call play_3d_fx("RAIN", var &fx_position, var &VAR_60, int 0)
-execute SCRIPT_10
+	call log("it's_raining")
+	call play_3d_fx("RAIN", var &fx_position, var &VAR_60, int 0)
+	execute SCRIPT_10
 
 ._SCRIPT_4
-if(var VAR_76 != var VAR_74)
- {
-		var VAR_76 = var VAR_74
-		call log_obj(var VAR_74)
-}
-switch(var VAR_74)
- {
-}
+	if(var VAR_76 != var VAR_74)
+	 {
+			var VAR_76 = var VAR_74
+			call log_obj(var VAR_74)
+	}
+	switch(var VAR_74)
+	 {
+	}
 
 ._SCRIPT_5
-var handler = call create_enemy(int 21, int 0, var &init_position1, int 235)
-call freeze_enemy(var handler)
-call func_106(var handler, int 1, int 0, int 1)
-call func_104(var handler, int 1, int 4)
-call func_106(var handler, int 1, int 7, int 1)
-call func_104(var handler, int 7, int 4)
-call func_106(var handler, int 3, int 1, var &VAR_67)
-call set_char_running(var handler)
-call set_char_init_state(var handler, int 13)
-call play_char_ai_script(var handler, var &ai_script)
-var DAVID = call get_char_handle(int 65536)
-call load_char("chronicl")
-call load_char("rlieuten")
-call load_char("hound")
-call add_item_to_char(var handler, int 40 /* apple */ , int 1, int 0)
+	var handler = call create_enemy(int 21, int 0, var &init_position1, int 235)
+	call freeze_enemy(var handler)
+	call func_106(var handler, int 1, int 0, int 1)
+	call func_104(var handler, int 1, int 4)
+	call func_106(var handler, int 1, int 7, int 1)
+	call func_104(var handler, int 7, int 4)
+	call func_106(var handler, int 3, int 1, var &VAR_67)
+	call set_char_running(var handler)
+	call set_char_init_state(var handler, int 13)
+	call play_char_ai_script(var handler, var &ai_script)
+	var DAVID = call get_char_handle(int 65536)
+	call load_char("chronicl")
+	call load_char("rlieuten")
+	call load_char("hound")
+	call add_item_to_char(var handler, int 40 /* apple */ , int 1, int 0)
 
 ._SCRIPT_6
-switch(var VAR_77)
- {
-		case 0
-			if(var VAR_78 > int 2000)
+	switch(var VAR_77)
+	 {
+			case 0
+				if(var VAR_78 > int 2000)
+				 {
+						var VAR_78 = int 0
+						var VAR_77 ++ 
+				}
+				break 
+			case 1
+				if(call get_num_of_enemies() < int 2)
+				 {
+						if(call is_char_handle_in_level(int 6684672))
+						 {
+								call func_106(var handler, int 1, int 0, int 2)
+								call func_104(var handler, int 7, int 1)
+								call func_50(var handler, int 131)
+						}
+						var lieutenant = call create_enemy(int 11, int 0, "	", int 240)
+						call func_106(var lieutenant, int 1, int 0, int 2)
+						call func_50(var lieutenant, int 2)
+						call add_item_to_char(var lieutenant, int 41 /* veggies */ , int 1, int 0)
+						var lieutenant1 = call create_enemy(int 11, int 1, var &init_position2, int 200)
+						call func_106(var lieutenant1, int 1, int 0, int 2)
+						call func_50(var lieutenant1, int 2)
+						var VAR_77 = int 2
+				}
+				break 
+			case 2
+				var VAR_77 ++ 
+				break 
+	}
+	if(var is_HOUND_exist == int 0)
+	 {
+			var is_HOUND_exist = call is_char_handle_in_level(int 7241760)
+			if(var is_HOUND_exist != int 0)
 			 {
-					var VAR_78 = int 0
-					var VAR_77 ++ 
+					call func_10f(var is_HOUND_exist, int 1)
 			}
-			break 
-		case 1
-			if(call get_num_of_enemies() < int 2)
+	}
+	if(var is_HOUND1_exist == int 0)
+	 {
+			var is_HOUND1_exist = call is_char_handle_in_level(int 7241761)
+			if(var is_HOUND1_exist != int 0)
 			 {
-					if(call is_char_handle_in_level(int 6684672))
-					 {
-							call func_106(var handler, int 1, int 0, int 2)
-							call func_104(var handler, int 7, int 1)
-							call func_50(var handler, int 131)
-					}
-					var lieutenant = call create_enemy(int 11, int 0, "	", int 240)
-					call func_106(var lieutenant, int 1, int 0, int 2)
-					call func_50(var lieutenant, int 2)
-					call add_item_to_char(var lieutenant, int 41 /* veggies */ , int 1, int 0)
-					var lieutenant1 = call create_enemy(int 11, int 1, var &init_position2, int 200)
-					call func_106(var lieutenant1, int 1, int 0, int 2)
-					call func_50(var lieutenant1, int 2)
-					var VAR_77 = int 2
+					call func_10f(var is_HOUND1_exist, int 1)
 			}
-			break 
-		case 2
-			var VAR_77 ++ 
-			break 
-}
-if(var is_HOUND_exist == int 0)
- {
-		var is_HOUND_exist = call is_char_handle_in_level(int 7241760)
-		if(var is_HOUND_exist != int 0)
-		 {
-				call func_10f(var is_HOUND_exist, int 1)
-		}
-}
-if(var is_HOUND1_exist == int 0)
- {
-		var is_HOUND1_exist = call is_char_handle_in_level(int 7241761)
-		if(var is_HOUND1_exist != int 0)
-		 {
-				call func_10f(var is_HOUND1_exist, int 1)
-		}
-}
-var VAR_78 ++ 
+	}
+	var VAR_78 ++ 
 
 ._SCRIPT_7
 
@@ -176,354 +176,354 @@ var VAR_78 ++
 ._SCRIPT_9
 
 ._SCRIPT_10
-call load_sound_set(int 25)
+	call load_sound_set(int 25)
 
- /* play the sound 'blank' */ 
-call play_loaded_sound(int 1, int -1, int 25, int 0)
-var thunrumb_sound_ref = call play_loaded_sound(int 3, int -1, int 25, int 0)
-var VAR_1 = int 70
-call set_sound_volume(var thunrumb_sound_ref, var VAR_1)
-var VAR_0 = int 1
+	 /* play the sound 'blank' */ 
+	call play_loaded_sound(int 1, int -1, int 25, int 0)
+	var thunrumb_sound_ref = call play_loaded_sound(int 3, int -1, int 25, int 0)
+	var VAR_1 = int 70
+	call set_sound_volume(var thunrumb_sound_ref, var VAR_1)
+	var VAR_0 = int 1
 
 ._SCRIPT_11
-if(var ! VAR_0)
- {
-		call log("random_rain_fx: Rain SFX not initialised! See Marc")
-		exit_script 
-}
-switch(var VAR_4)
- {
-		case 0
-			if(var VAR_3)
-			 {
-					var VAR_6 = int 1
-					var VAR_4 ++ 
-					var VAR_5 = int 0
-			}
-			break 
-		case 1
-			if(var VAR_1 < int 200)
-			 {
-					var VAR_7 = var VAR_5 % int 2
-					if(var VAR_7 == int 0)
-					 {
-							var VAR_1 += var VAR_6
-							call set_sound_volume(var thunrumb_sound_ref, var VAR_1)
-					}
-			}
-			else
-			 {
-					var VAR_4 ++ 
-					var VAR_5 = int 0
-			}
-			break 
-		case 2
-			if(var VAR_5 > int 150)
-			 {
-					var VAR_4 ++ 
-					var VAR_5 = int 0
-			}
-			break 
-		case 3
-			if(var VAR_1 > int 70)
-			 {
-					var VAR_7 = var VAR_5 % int 2
-					if(var VAR_7)
-					 {
-							var VAR_1 -= var VAR_6
-							call set_sound_volume(var thunrumb_sound_ref, var VAR_1)
-					}
-			}
-			else
-			 {
-					var VAR_3 = int 0
-					var VAR_4 = int 0
-					var VAR_5 = int 0
-			}
-			break 
-}
-execute SCRIPT_12
-execute SCRIPT_13
-var VAR_5 ++ 
+	if(var ! VAR_0)
+	 {
+			call log("random_rain_fx: Rain SFX not initialised! See Marc")
+			exit_script 
+	}
+	switch(var VAR_4)
+	 {
+			case 0
+				if(var VAR_3)
+				 {
+						var VAR_6 = int 1
+						var VAR_4 ++ 
+						var VAR_5 = int 0
+				}
+				break 
+			case 1
+				if(var VAR_1 < int 200)
+				 {
+						var VAR_7 = var VAR_5 % int 2
+						if(var VAR_7 == int 0)
+						 {
+								var VAR_1 += var VAR_6
+								call set_sound_volume(var thunrumb_sound_ref, var VAR_1)
+						}
+				}
+				else
+				 {
+						var VAR_4 ++ 
+						var VAR_5 = int 0
+				}
+				break 
+			case 2
+				if(var VAR_5 > int 150)
+				 {
+						var VAR_4 ++ 
+						var VAR_5 = int 0
+				}
+				break 
+			case 3
+				if(var VAR_1 > int 70)
+				 {
+						var VAR_7 = var VAR_5 % int 2
+						if(var VAR_7)
+						 {
+								var VAR_1 -= var VAR_6
+								call set_sound_volume(var thunrumb_sound_ref, var VAR_1)
+						}
+				}
+				else
+				 {
+						var VAR_3 = int 0
+						var VAR_4 = int 0
+						var VAR_5 = int 0
+				}
+				break 
+	}
+	execute SCRIPT_12
+	execute SCRIPT_13
+	var VAR_5 ++ 
 
 ._SCRIPT_12
-switch(var VAR_9)
- {
-		case 0
-			var VAR_10 = int 0
-			var VAR_11 = call randomize_int(int 1200, int 1801)
-			var VAR_9 ++ 
-			break 
-		case 1
-			if(var VAR_10 > var VAR_11)
-			 {
-					var thunstrk_sound_ref = call play_loaded_sound(int 4, int 0, int 25, int 0)
-					call set_sound_volume(var thunstrk_sound_ref, call randomize_int(int 100, int 201))
-					call func_11a(var thunstrk_sound_ref, call randomize_int(int 0, int 128))
-					if(var ! VAR_3)
-					 {
-							var VAR_3 = int 1
-					}
-					var VAR_9 ++ 
-					var VAR_10 = int 0
-			}
-			break 
-		case 2
-			if(var VAR_10 > int 200)
-			 {
-					var VAR_9 = int 0
-					var VAR_10 = int 0
-			}
-			break 
-}
-var VAR_10 ++ 
+	switch(var VAR_9)
+	 {
+			case 0
+				var VAR_10 = int 0
+				var VAR_11 = call randomize_int(int 1200, int 1801)
+				var VAR_9 ++ 
+				break 
+			case 1
+				if(var VAR_10 > var VAR_11)
+				 {
+						var thunstrk_sound_ref = call play_loaded_sound(int 4, int 0, int 25, int 0)
+						call set_sound_volume(var thunstrk_sound_ref, call randomize_int(int 100, int 201))
+						call func_11a(var thunstrk_sound_ref, call randomize_int(int 0, int 128))
+						if(var ! VAR_3)
+						 {
+								var VAR_3 = int 1
+						}
+						var VAR_9 ++ 
+						var VAR_10 = int 0
+				}
+				break 
+			case 2
+				if(var VAR_10 > int 200)
+				 {
+						var VAR_9 = int 0
+						var VAR_10 = int 0
+				}
+				break 
+	}
+	var VAR_10 ++ 
 
 ._SCRIPT_13
-switch(var VAR_13)
- {
-		case 0
-			if(gamevar scene_counter > int 600)
-			 {
-					var VAR_13 ++ 
-			}
-			break 
-		case 1
-			var VAR_14 = int 0
-			call reset_local_timer()
-			var VAR_16 = call randomize_int(int 400, int 601)
-			var VAR_13 ++ 
-			break 
-		case 2
-			if(call is_local_timer_greater_than(var VAR_16))
-			 {
-					call apply_effect_on_char(gamevar misc_fx_scripts, int 6, int 0, int 0)
-					call reset_local_timer()
-					var VAR_17 = int 255
-					var VAR_16 = call randomize_int(int 1, int 31)
-					var VAR_14 = int 0
-					var VAR_13 ++ 
-			}
-			break 
-		case 3
-			if(call is_local_timer_greater_than(var VAR_16))
-			 {
-					var VAR_17 -= int 4 * var VAR_16
-					var verwind_sound_ref = call play_loaded_sound(int 5, int 0, int 25, int 0)
-					call set_sound_volume(var verwind_sound_ref, var VAR_17)
-					var VAR_16 = int 255 - var VAR_17
-					var VAR_14 = int 0
-					var VAR_13 ++ 
-			}
-			break 
-		case 4
-			if(var VAR_14 > var VAR_16)
-			 {
-					var verwind_sound_ref = call play_loaded_sound /* 'thunstrk' */ (int 4, int 0, int 25, int 0)
-					call set_sound_volume(var verwind_sound_ref, var VAR_17)
-					if(var ! VAR_3)
-					 {
-							var VAR_3 = int 1
-					}
-					var VAR_13 ++ 
-					var VAR_14 = int 0
-			}
-			break 
-		case 5
-			if(var VAR_14 > int 100)
-			 {
-					var VAR_13 = int 1
-					var VAR_14 = int 0
-			}
-			break 
-}
-var VAR_14 ++ 
+	switch(var VAR_13)
+	 {
+			case 0
+				if(gamevar scene_counter > int 600)
+				 {
+						var VAR_13 ++ 
+				}
+				break 
+			case 1
+				var VAR_14 = int 0
+				call reset_local_timer()
+				var VAR_16 = call randomize_int(int 400, int 601)
+				var VAR_13 ++ 
+				break 
+			case 2
+				if(call is_local_timer_greater_than(var VAR_16))
+				 {
+						call apply_effect_on_char(gamevar misc_fx_scripts, int 6, int 0, int 0)
+						call reset_local_timer()
+						var VAR_17 = int 255
+						var VAR_16 = call randomize_int(int 1, int 31)
+						var VAR_14 = int 0
+						var VAR_13 ++ 
+				}
+				break 
+			case 3
+				if(call is_local_timer_greater_than(var VAR_16))
+				 {
+						var VAR_17 -= int 4 * var VAR_16
+						var verwind_sound_ref = call play_loaded_sound(int 5, int 0, int 25, int 0)
+						call set_sound_volume(var verwind_sound_ref, var VAR_17)
+						var VAR_16 = int 255 - var VAR_17
+						var VAR_14 = int 0
+						var VAR_13 ++ 
+				}
+				break 
+			case 4
+				if(var VAR_14 > var VAR_16)
+				 {
+						var verwind_sound_ref = call play_loaded_sound /* 'thunstrk' */ (int 4, int 0, int 25, int 0)
+						call set_sound_volume(var verwind_sound_ref, var VAR_17)
+						if(var ! VAR_3)
+						 {
+								var VAR_3 = int 1
+						}
+						var VAR_13 ++ 
+						var VAR_14 = int 0
+				}
+				break 
+			case 5
+				if(var VAR_14 > int 100)
+				 {
+						var VAR_13 = int 1
+						var VAR_14 = int 0
+				}
+				break 
+	}
+	var VAR_14 ++ 
 
 ._SCRIPT_14
-if(call ! is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
- {
-		exit_script 
-}
-else
- {
-		if(var fade_chronicler == int 0)
-		 {
-				var fade_chronicler = call get_char_handle(int 6291456)
-		}
-}
+	if(call ! is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
+	 {
+			exit_script 
+	}
+	else
+	 {
+			if(var fade_chronicler == int 0)
+			 {
+					var fade_chronicler = call get_char_handle(int 6291456)
+			}
+	}
 
 ._SCRIPT_15
-if(call ! is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
- {
-		exit_script 
-}
-else
- {
-		if(var fade_chronicler == int 0)
-		 {
-				var fade_chronicler = call get_char_handle(int 6291456)
-		}
-}
-if(var VAR_41 != var VAR_35)
- {
-		var VAR_41 = var VAR_35
-		call log_obj(var VAR_35)
-}
-switch(var VAR_35)
- {
-		case 0
-			if(gamevar chronicler_variation != int -1)
+	if(call ! is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
+	 {
+			exit_script 
+	}
+	else
+	 {
+			if(var fade_chronicler == int 0)
 			 {
-					execute SCRIPT_17
+					var fade_chronicler = call get_char_handle(int 6291456)
 			}
-			gamevar script_object = var fade_chronicler
-			var VAR_38 = gamevar *character_movement_p+3
-			var VAR_39 = gamevar *character_movement_p+4
-			var VAR_40 = gamevar *character_movement_p+5
-			var VAR_21 = int 0
-			call func_10c(var fade_chronicler, int 0)
-			var VAR_35 ++ 
-			var VAR_36 = int 0
-			break 
-		case 1
-			if(call func_127(var fade_chronicler))
-			 {
-					var VAR_37 = gamevar saved_games_count
-					var VAR_21 = int 1
-					var VAR_35 ++ 
-					var VAR_36 = int 0
-			}
-			break 
-		case 2
-			if(call get_input_sys() != int 4)
-			 {
-					call set_input_system(int 2)
-					var VAR_35 ++ 
-					var VAR_36 = int 0
-			}
-			break 
-		case 3
-			if(var VAR_36 > int 40)
-			 {
-					call open_save_screen(var VAR_18)
-					var VAR_35 ++ 
-					var VAR_36 = int 0
-			}
-			break 
-		case 4
-			if(var VAR_36 > int 10)
-			 {
-					if(gamevar !current_menu_level_p)
-					 {
-							var VAR_35 ++ 
-							var VAR_36 = int 0
-					}
-			}
-			break 
-		case 5
-			if(var VAR_37 != gamevar saved_games_count)
-			 {
-					call log("game saved")
-					call func_11d()
-					var VAR_35 = int 7
-					var VAR_36 = int 0
-			}
-			else
-			 {
-					call log("game not saved")
-					call func_2a(var fade_chronicler, var &VAR_38)
-					execute SCRIPT_18
-					gamevar chronicler_variation = var VAR_20
-					var VAR_35 ++ 
-					var VAR_36 = int 0
-			}
-			break 
-		case 6
-			if(var VAR_36 > int 30)
-			 {
-					call set_input_system(int 1)
-					gamevar clicked_character = int 0
-					var VAR_21 = int 0
-					var VAR_35 = int 1
-					var VAR_36 = int 0
-			}
-			break 
-		case 7
-			if(var VAR_36 > int 40)
-			 {
-					call apply_effect_on_char(gamevar char_gen_fx_scripts, int 8, int 0, var fade_chronicler)
-					execute SCRIPT_18
-					gamevar chronicler_variation = var VAR_20
-					var VAR_35 ++ 
-					var VAR_36 = int 0
-			}
-			break 
-		case 8
-			if(var VAR_36 > int 100)
-			 {
-					call remove_char(var fade_chronicler)
-					call set_input_system(int 1)
-					var VAR_21 = int 0
-					var VAR_35 ++ 
-					var VAR_36 = int 0
-			}
-			break 
-}
-var VAR_36 ++ 
+	}
+	if(var VAR_41 != var VAR_35)
+	 {
+			var VAR_41 = var VAR_35
+			call log_obj(var VAR_35)
+	}
+	switch(var VAR_35)
+	 {
+			case 0
+				if(gamevar chronicler_variation != int -1)
+				 {
+						execute SCRIPT_17
+				}
+				gamevar script_object = var fade_chronicler
+				var VAR_38 = gamevar *character_movement_p+3
+				var VAR_39 = gamevar *character_movement_p+4
+				var VAR_40 = gamevar *character_movement_p+5
+				var VAR_21 = int 0
+				call func_10c(var fade_chronicler, int 0)
+				var VAR_35 ++ 
+				var VAR_36 = int 0
+				break 
+			case 1
+				if(call func_127(var fade_chronicler))
+				 {
+						var VAR_37 = gamevar saved_games_count
+						var VAR_21 = int 1
+						var VAR_35 ++ 
+						var VAR_36 = int 0
+				}
+				break 
+			case 2
+				if(call get_input_sys() != int 4)
+				 {
+						call set_input_system(int 2)
+						var VAR_35 ++ 
+						var VAR_36 = int 0
+				}
+				break 
+			case 3
+				if(var VAR_36 > int 40)
+				 {
+						call open_save_screen(var VAR_18)
+						var VAR_35 ++ 
+						var VAR_36 = int 0
+				}
+				break 
+			case 4
+				if(var VAR_36 > int 10)
+				 {
+						if(gamevar !current_menu_level_p)
+						 {
+								var VAR_35 ++ 
+								var VAR_36 = int 0
+						}
+				}
+				break 
+			case 5
+				if(var VAR_37 != gamevar saved_games_count)
+				 {
+						call log("game saved")
+						call func_11d()
+						var VAR_35 = int 7
+						var VAR_36 = int 0
+				}
+				else
+				 {
+						call log("game not saved")
+						call func_2a(var fade_chronicler, var &VAR_38)
+						execute SCRIPT_18
+						gamevar chronicler_variation = var VAR_20
+						var VAR_35 ++ 
+						var VAR_36 = int 0
+				}
+				break 
+			case 6
+				if(var VAR_36 > int 30)
+				 {
+						call set_input_system(int 1)
+						gamevar clicked_character = int 0
+						var VAR_21 = int 0
+						var VAR_35 = int 1
+						var VAR_36 = int 0
+				}
+				break 
+			case 7
+				if(var VAR_36 > int 40)
+				 {
+						call apply_effect_on_char(gamevar char_gen_fx_scripts, int 8, int 0, var fade_chronicler)
+						execute SCRIPT_18
+						gamevar chronicler_variation = var VAR_20
+						var VAR_35 ++ 
+						var VAR_36 = int 0
+				}
+				break 
+			case 8
+				if(var VAR_36 > int 100)
+				 {
+						call remove_char(var fade_chronicler)
+						call set_input_system(int 1)
+						var VAR_21 = int 0
+						var VAR_35 ++ 
+						var VAR_36 = int 0
+				}
+				break 
+	}
+	var VAR_36 ++ 
 
 ._SCRIPT_16
-if(call is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
- {
-		if(var fade_chronicler == int 0)
-		 {
-				var fade_chronicler = call get_char_handle(int 6291456)
-		}
-		call func_34(var fade_chronicler)
-}
+	if(call is_char_handle_in_level(int 6291456 /* CHRONICL */ ))
+	 {
+			if(var fade_chronicler == int 0)
+			 {
+					var fade_chronicler = call get_char_handle(int 6291456)
+			}
+			call func_34(var fade_chronicler)
+	}
 
 ._SCRIPT_17
-var VAR_22 = call get_char_handle_id(gamevar control_char_p)
-switch(var VAR_22)
- {
-		case 65536
-			call load_dialog_by_number("DVDCHR", "NULL", gamevar chronicler_variation)
-			break 
-		case 786432
-			call load_dialog_by_number("SEKCHR", "NULL", gamevar chronicler_variation)
-			break 
-		case 262144
-			call load_dialog_by_number("CAGCHR", "NULL", gamevar chronicler_variation)
-			break 
-		case 327680
-			call load_dialog_by_number("JUGCHR", "NULL", gamevar chronicler_variation)
-			break 
-		case 131072
-			call load_dialog_by_number("CHICHR", "NULL", gamevar chronicler_variation)
-			break 
-		case 196608
-			call load_dialog_by_number("VIVCHR", "NULL", gamevar chronicler_variation)
-			break 
-}
+	var VAR_22 = call get_char_handle_id(gamevar control_char_p)
+	switch(var VAR_22)
+	 {
+			case 65536
+				call load_dialog_by_number("DVDCHR", "NULL", gamevar chronicler_variation)
+				break 
+			case 786432
+				call load_dialog_by_number("SEKCHR", "NULL", gamevar chronicler_variation)
+				break 
+			case 262144
+				call load_dialog_by_number("CAGCHR", "NULL", gamevar chronicler_variation)
+				break 
+			case 327680
+				call load_dialog_by_number("JUGCHR", "NULL", gamevar chronicler_variation)
+				break 
+			case 131072
+				call load_dialog_by_number("CHICHR", "NULL", gamevar chronicler_variation)
+				break 
+			case 196608
+				call load_dialog_by_number("VIVCHR", "NULL", gamevar chronicler_variation)
+				break 
+	}
 
 ._SCRIPT_18
-var VAR_44 = call get_char_handle_id(gamevar control_char_p)
-switch(var VAR_44)
- {
-		case 65536
-			var VAR_20 = call load_next_dialog("DVDCHR", "NULL")
-			break 
-		case 786432
-			var VAR_20 = call load_next_dialog("SEKCHR", "NULL")
-			break 
-		case 262144
-			var VAR_20 = call load_next_dialog("CAGCHR", "NULL")
-			break 
-		case 327680
-			var VAR_20 = call load_next_dialog("JUGCHR", "NULL")
-			break 
-		case 131072
-			var VAR_20 = call load_next_dialog("CHICHR", "NULL")
-			break 
-		case 196608
-			var VAR_20 = call load_next_dialog("VIVCHR", "NULL")
-			break 
-}
+	var VAR_44 = call get_char_handle_id(gamevar control_char_p)
+	switch(var VAR_44)
+	 {
+			case 65536
+				var VAR_20 = call load_next_dialog("DVDCHR", "NULL")
+				break 
+			case 786432
+				var VAR_20 = call load_next_dialog("SEKCHR", "NULL")
+				break 
+			case 262144
+				var VAR_20 = call load_next_dialog("CAGCHR", "NULL")
+				break 
+			case 327680
+				var VAR_20 = call load_next_dialog("JUGCHR", "NULL")
+				break 
+			case 131072
+				var VAR_20 = call load_next_dialog("CHICHR", "NULL")
+				break 
+			case 196608
+				var VAR_20 = call load_next_dialog("VIVCHR", "NULL")
+				break 
+	}

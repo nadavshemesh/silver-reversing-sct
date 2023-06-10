@@ -10,455 +10,455 @@
 
 
 ._DATA
-init_position	{ 6026, -700, 691 }	
-ai_script	{ 10, 3990, -600, -6834, 10, 4108, 0, 1174, 10, 2125, 500, 2015, 5, 100, 10, 6610, -700, 86, 5, 100, 7, 8 }	
-ai_script1	{ 10, 2125, 700, 2015, 5, 100, 10, 4043, 300, 1937, 10, 3990, -700, -6834, 10, 5609, -200, 1552, 5, 100, 7, 8 }	
-VAR_9	{ 0, 1 }	
-VAR_17	{ 0, 0, 0 }	
-VAR_18	{ 0, 0, 0 }	
-scroll_position	{ 2671, 3, 677, 5284, -997, -4070 }	
-init_position1	{ 2827, 3, 700 }	
-init_position2	{ 2827, 3, 864 }	
-VAR_22	{ 1, -1 }	
-VAR_29	-1	
-VAR_40	{ 0, 0, 5315, -996, -4339, 2919, 3, 775 }	
-VAR_41	{ -1001, -397, 200 }	
-init_position3	{ 5315, -996, -4339 }	
-init_position4	{ 5305, -996, -4720 }	
-init_position5	{ 5294, -996, -5050, 2775, 3, -46 }	
-nsgrunt2	{ 0, 0, 0, 0 }	
+	init_position	{ 6026, -700, 691 }	
+	ai_script	{ 10, 3990, -600, -6834, 10, 4108, 0, 1174, 10, 2125, 500, 2015, 5, 100, 10, 6610, -700, 86, 5, 100, 7, 8 }	
+	ai_script1	{ 10, 2125, 700, 2015, 5, 100, 10, 4043, 300, 1937, 10, 3990, -700, -6834, 10, 5609, -200, 1552, 5, 100, 7, 8 }	
+	VAR_9	{ 0, 1 }	
+	VAR_17	{ 0, 0, 0 }	
+	VAR_18	{ 0, 0, 0 }	
+	scroll_position	{ 2671, 3, 677, 5284, -997, -4070 }	
+	init_position1	{ 2827, 3, 700 }	
+	init_position2	{ 2827, 3, 864 }	
+	VAR_22	{ 1, -1 }	
+	VAR_29	-1	
+	VAR_40	{ 0, 0, 5315, -996, -4339, 2919, 3, 775 }	
+	VAR_41	{ -1001, -397, 200 }	
+	init_position3	{ 5315, -996, -4339 }	
+	init_position4	{ 5305, -996, -4720 }	
+	init_position5	{ 5294, -996, -5050, 2775, 3, -46 }	
+	nsgrunt2	{ 0, 0, 0, 0 }	
 
 ._on_load
-if(gamevar room_state == int 3)
- {
-		call play_bgm("FugeBPt1")
-}
-execute SCRIPT_5
-if(gamevar is_room_cleared)
- {
-		execute SCRIPT_15
-}
-else
- {
-		switch(gamevar room_state)
-		 {
-				case 1
-					execute SCRIPT_7
-					break 
-				case 2
-					execute SCRIPT_9
-					break 
-				case 3
-					execute SCRIPT_11
-					break 
-				case 0
-					break 
-		}
-}
+	if(gamevar room_state == int 3)
+	 {
+			call play_bgm("FugeBPt1")
+	}
+	execute SCRIPT_5
+	if(gamevar is_room_cleared)
+	 {
+			execute SCRIPT_15
+	}
+	else
+	 {
+			switch(gamevar room_state)
+			 {
+					case 1
+						execute SCRIPT_7
+						break 
+					case 2
+						execute SCRIPT_9
+						break 
+					case 3
+						execute SCRIPT_11
+						break 
+					case 0
+						break 
+			}
+	}
 
 ._infinite_loop
-execute SCRIPT_3
-if(gamevar !is_room_cleared)
- {
-		switch(gamevar room_state)
-		 {
-				case 1
-					execute SCRIPT_8
-					break 
-				case 2
-					execute SCRIPT_10
-					break 
-				case 3
-					execute SCRIPT_14
-					break 
-				case 0
-					break 
-		}
-}
+	execute SCRIPT_3
+	if(gamevar !is_room_cleared)
+	 {
+			switch(gamevar room_state)
+			 {
+					case 1
+						execute SCRIPT_8
+						break 
+					case 2
+						execute SCRIPT_10
+						break 
+					case 3
+						execute SCRIPT_14
+						break 
+					case 0
+						break 
+			}
+	}
 
 ._on_exit
-if(gamevar !is_room_cleared)
- {
-		switch(gamevar room_state)
-		 {
-				case 1
-					gamevar *scene_info_p+1 = int 1
-					gamevar room_state ++ 
-					break 
-				case 2
-					break 
-				case 3
-					gamevar room_state ++ 
-					break 
-				case 0
-					break 
-				default 
-					gamevar room_state = int 0
-					break 
-		}
-}
+	if(gamevar !is_room_cleared)
+	 {
+			switch(gamevar room_state)
+			 {
+					case 1
+						gamevar *scene_info_p+1 = int 1
+						gamevar room_state ++ 
+						break 
+					case 2
+						break 
+					case 3
+						gamevar room_state ++ 
+						break 
+					case 0
+						break 
+					default 
+						gamevar room_state = int 0
+						break 
+			}
+	}
 
 ._SCRIPT_3
-if(gamevar script_time > var VAR_60)
- {
-		var VAR_60 = gamevar script_time + int 60 + call randomize_int(int 0, int 40)
-		var VAR_59 = int 1 + call randomize_int(int 0, int 3)
-		call play_loaded_sound(var VAR_59, int 0, int 9, int 0)
-}
-if(gamevar script_time > var VAR_61)
- {
-		var VAR_61 = gamevar script_time + int 60 + call randomize_int(int 0, int 40)
-		var VAR_59 = int 4 + call randomize_int(int 0, int 4)
-		var is_GULL_exist = call is_char_handle_in_level(int 1966080)
-		if(var is_GULL_exist)
-		 {
-				var VAR_62 = call get_char_movement_ptr(var is_GULL_exist)
-				call play_loaded_sound(var VAR_59, int 0, int 9, var VAR_62)
-		}
-		else
-		 {
-				call play_loaded_sound(var VAR_59, int 0, int 9, int 0)
-		}
-}
+	if(gamevar script_time > var VAR_60)
+	 {
+			var VAR_60 = gamevar script_time + int 60 + call randomize_int(int 0, int 40)
+			var VAR_59 = int 1 + call randomize_int(int 0, int 3)
+			call play_loaded_sound(var VAR_59, int 0, int 9, int 0)
+	}
+	if(gamevar script_time > var VAR_61)
+	 {
+			var VAR_61 = gamevar script_time + int 60 + call randomize_int(int 0, int 40)
+			var VAR_59 = int 4 + call randomize_int(int 0, int 4)
+			var is_GULL_exist = call is_char_handle_in_level(int 1966080)
+			if(var is_GULL_exist)
+			 {
+					var VAR_62 = call get_char_movement_ptr(var is_GULL_exist)
+					call play_loaded_sound(var VAR_59, int 0, int 9, var VAR_62)
+			}
+			else
+			 {
+					call play_loaded_sound(var VAR_59, int 0, int 9, int 0)
+			}
+	}
 
 ._SCRIPT_4
-gamevar room_monster_percent = int 90
-call func_64(int 0, int 1, "fimp", int 2177)
+	gamevar room_monster_percent = int 90
+	call func_64(int 0, int 1, "fimp", int 2177)
 
 ._SCRIPT_5
-call load_sound_set(int 9)
+	call load_sound_set(int 9)
 
- /* play the sound 'lforstlp' */ 
-call play_loaded_sound(int 12, int -1, int 9, int 0)
-execute SCRIPT_6
+	 /* play the sound 'lforstlp' */ 
+	call play_loaded_sound(int 12, int -1, int 9, int 0)
+	execute SCRIPT_6
 
 ._SCRIPT_6
-var NGULL1 = call create_char("Ò", "NGULL1", int 325, int 16)
-call set_char_init_state(var NGULL1, int 13)
-call play_char_ai_script(var NGULL1, var &ai_script)
-gamevar script_object = var NGULL1
-gamevar *character_stats_p+14 = int 91750
-var NGULL2 = call create_char(var &init_position, "NGULL2", int 325, int 16)
-call set_char_init_state(var NGULL2, int 13)
-call play_char_ai_script(var NGULL2, var &ai_script1)
+	var NGULL1 = call create_char("Ò", "NGULL1", int 325, int 16)
+	call set_char_init_state(var NGULL1, int 13)
+	call play_char_ai_script(var NGULL1, var &ai_script)
+	gamevar script_object = var NGULL1
+	gamevar *character_stats_p+14 = int 91750
+	var NGULL2 = call create_char(var &init_position, "NGULL2", int 325, int 16)
+	call set_char_init_state(var NGULL2, int 13)
+	call play_char_ai_script(var NGULL2, var &ai_script1)
 
 ._SCRIPT_7
-gamevar door_restriction_p = var &VAR_22
-var GRANDAD = call get_char_handle(int 393216)
-var DAVID = call get_char_handle(int 65536)
-var nimp1 = call create_char(var &init_position1, "nimp1", int 90, int 13)
-gamevar script_object = var nimp1
-gamevar *character_stats_p+14 = int 106000
-var nimp2 = call create_char(var &init_position2, "nimp2", int 90, int 13)
-gamevar script_object = var nimp2
-gamevar *character_stats_p+14 = int 106000
-gamevar SMACKER_X = int 696
-gamevar SMACKER_Y = int 180
-call play_2d_anim("entopen", int -2147483, int 1, var &VAR_18)
-call play_2d_anim("entslams", int 0, int 1, var &VAR_17)
-var knock_anim = call load_anim("knock")
-var barge_anim = call load_anim("barge")
-call set_char_running(var DAVID)
-call char_walk_to(var DAVID, int 5362, int -996, int -828)
-call set_char_running(var GRANDAD)
-call char_walk_to(var GRANDAD, int 5195, int -996, int -933)
-call set_input_system(int 2)
-call func_46(var GRANDAD, int 2)
+	gamevar door_restriction_p = var &VAR_22
+	var GRANDAD = call get_char_handle(int 393216)
+	var DAVID = call get_char_handle(int 65536)
+	var nimp1 = call create_char(var &init_position1, "nimp1", int 90, int 13)
+	gamevar script_object = var nimp1
+	gamevar *character_stats_p+14 = int 106000
+	var nimp2 = call create_char(var &init_position2, "nimp2", int 90, int 13)
+	gamevar script_object = var nimp2
+	gamevar *character_stats_p+14 = int 106000
+	gamevar SMACKER_X = int 696
+	gamevar SMACKER_Y = int 180
+	call play_2d_anim("entopen", int -2147483, int 1, var &VAR_18)
+	call play_2d_anim("entslams", int 0, int 1, var &VAR_17)
+	var knock_anim = call load_anim("knock")
+	var barge_anim = call load_anim("barge")
+	call set_char_running(var DAVID)
+	call char_walk_to(var DAVID, int 5362, int -996, int -828)
+	call set_char_running(var GRANDAD)
+	call char_walk_to(var GRANDAD, int 5195, int -996, int -933)
+	call set_input_system(int 2)
+	call func_46(var GRANDAD, int 2)
 
 ._SCRIPT_8
-if(var VAR_29 != var VAR_9)
- {
-		var VAR_29 = var VAR_9
-		call log_obj(var VAR_9)
-}
-if(var VAR_9 == int 1000)
- {
-		exit_script 
-}
-if(var VAR_9 == int 0)
- {
-		if(call is_char_standing(var DAVID))
-		 {
-				if(call is_char_standing(var GRANDAD))
-				 {
-						call start_dialog("dvdwoz", "null")
-						var VAR_9 ++ 
-				}
-		}
-}
-if(var VAR_9 == int 1)
- {
-		if(call func_6d() == int 1)
-		 {
-				call func_100(call get_char_movement_ptr(var nimp1))
-				var VAR_9 = int 2
-				gamevar scene_counter = int 0
-		}
-}
-if(var VAR_9 == int 2)
- {
-		if(gamevar scene_counter > int 150)
-		 {
-				call log("here!")
+	if(var VAR_29 != var VAR_9)
+	 {
+			var VAR_29 = var VAR_9
+			call log_obj(var VAR_9)
+	}
+	if(var VAR_9 == int 1000)
+	 {
+			exit_script 
+	}
+	if(var VAR_9 == int 0)
+	 {
+			if(call is_char_standing(var DAVID))
+			 {
+					if(call is_char_standing(var GRANDAD))
+					 {
+							call start_dialog("dvdwoz", "null")
+							var VAR_9 ++ 
+					}
+			}
+	}
+	if(var VAR_9 == int 1)
+	 {
+			if(call func_6d() == int 1)
+			 {
+					call func_100(call get_char_movement_ptr(var nimp1))
+					var VAR_9 = int 2
+					gamevar scene_counter = int 0
+			}
+	}
+	if(var VAR_9 == int 2)
+	 {
+			if(gamevar scene_counter > int 150)
+			 {
+					call log("here!")
 
-				 /* play the sound 'rainhorn' */ 
-				call play_loaded_sound(int 8, int 0, int 9, int 0)
-				call set_char_running(var nimp1)
-				call char_walk_to(var nimp1, int 2060, int 3, int 895)
-				call set_char_running(var nimp2)
-				call char_walk_to(var nimp2, int 1525, int 3, int 895)
-				gamevar scene_counter = int 0
-				var VAR_9 = int 3
-		}
-}
-if(var VAR_9 == int 3)
- {
-		if(call is_char_standing(var nimp1))
-		 {
-				if(call is_char_standing(var nimp2))
-				 {
-						var VAR_17 = int 1
-						call remove_char(var nimp1)
-						call remove_char(var nimp2)
-						var VAR_9 = int 4
-						gamevar scene_counter = int 0
-				}
-		}
-}
-if(var VAR_9 == int 4)
- {
+					 /* play the sound 'rainhorn' */ 
+					call play_loaded_sound(int 8, int 0, int 9, int 0)
+					call set_char_running(var nimp1)
+					call char_walk_to(var nimp1, int 2060, int 3, int 895)
+					call set_char_running(var nimp2)
+					call char_walk_to(var nimp2, int 1525, int 3, int 895)
+					gamevar scene_counter = int 0
+					var VAR_9 = int 3
+			}
+	}
+	if(var VAR_9 == int 3)
+	 {
+			if(call is_char_standing(var nimp1))
+			 {
+					if(call is_char_standing(var nimp2))
+					 {
+							var VAR_17 = int 1
+							call remove_char(var nimp1)
+							call remove_char(var nimp2)
+							var VAR_9 = int 4
+							gamevar scene_counter = int 0
+					}
+			}
+	}
+	if(var VAR_9 == int 4)
+	 {
 
-		 /* play the sound 'lever' */ 
-		call play_loaded_sound(int 11, int 0, int 9, int 0)
-		call func_4e(int 0)
-		gamevar scene_counter = int 0
-		var VAR_9 = int 5
-}
-if(var VAR_9 == int 5)
- {
-		if(gamevar scene_counter > int 30)
-		 {
-				call func_100(call get_char_movement_ptr(var DAVID))
-				var VAR_9 = int 6
-		}
-}
-if(var VAR_9 == int 6)
- {
-		if(call is_not_force_scrolling())
-		 {
-				call resume_conversation()
-				var VAR_9 ++ 
-		}
-}
-if(var VAR_9 == int 7)
- {
-		if(call func_6d() == int 2)
-		 {
-				call resume_conversation()
-				var VAR_9 = int 8
-		}
-}
-if(var VAR_9 == int 8)
- {
-		if(call get_input_sys() != int 4)
-		 {
-				call set_char_running(var GRANDAD)
-				call char_walk_to(var GRANDAD, int 2902, int 3, int 706)
-				call func_10c(var GRANDAD, "Robbie")
-				gamevar *scene_info_p+3 = int 16
-				gamevar *scene_info_p+4 = int 16
-				call set_input_system(int 1)
-				var VAR_9 = int 9
-		}
-}
-if(var VAR_9 == int 9)
- {
-		if(call func_74() > int -396||gamevar CLICKED_DOOR == int 0)
-		 {
-				call set_input_system(int 2)
-				call func_dc()
-				if(call get_char_y(var GRANDAD) < int -20)
-				 {
-						call set_char_running(var GRANDAD)
-						call char_walk_to(var GRANDAD, int 2902, int 3, int 706)
-				}
-				call force_scroll_to_pos(var &scroll_position)
-				gamevar scene_counter = int 0
-				var VAR_9 = int 10
-				call set_char_running(var DAVID)
-				call char_walk_to(var DAVID, int 3578, int -196, int 795)
-				var VAR_16 = int 3
-		}
-}
-if(var VAR_9 == int 10)
- {
-		if(call get_char_y(var GRANDAD) < int -20)
-		 {
-				gamevar scene_counter = int 0
-				exit_script 
-		}
-		if(gamevar scene_counter > int 30)
-		 {
-				if(call is_not_force_scrolling())
-				 {
+			 /* play the sound 'lever' */ 
+			call play_loaded_sound(int 11, int 0, int 9, int 0)
+			call func_4e(int 0)
+			gamevar scene_counter = int 0
+			var VAR_9 = int 5
+	}
+	if(var VAR_9 == int 5)
+	 {
+			if(gamevar scene_counter > int 30)
+			 {
+					call func_100(call get_char_movement_ptr(var DAVID))
+					var VAR_9 = int 6
+			}
+	}
+	if(var VAR_9 == int 6)
+	 {
+			if(call is_not_force_scrolling())
+			 {
+					call resume_conversation()
+					var VAR_9 ++ 
+			}
+	}
+	if(var VAR_9 == int 7)
+	 {
+			if(call func_6d() == int 2)
+			 {
+					call resume_conversation()
+					var VAR_9 = int 8
+			}
+	}
+	if(var VAR_9 == int 8)
+	 {
+			if(call get_input_sys() != int 4)
+			 {
+					call set_char_running(var GRANDAD)
+					call char_walk_to(var GRANDAD, int 2902, int 3, int 706)
+					call func_10c(var GRANDAD, "Robbie")
+					gamevar *scene_info_p+3 = int 16
+					gamevar *scene_info_p+4 = int 16
+					call set_input_system(int 1)
+					var VAR_9 = int 9
+			}
+	}
+	if(var VAR_9 == int 9)
+	 {
+			if(call func_74() > int -396||gamevar CLICKED_DOOR == int 0)
+			 {
+					call set_input_system(int 2)
+					call func_dc()
+					if(call get_char_y(var GRANDAD) < int -20)
+					 {
+							call set_char_running(var GRANDAD)
+							call char_walk_to(var GRANDAD, int 2902, int 3, int 706)
+					}
+					call force_scroll_to_pos(var &scroll_position)
+					gamevar scene_counter = int 0
+					var VAR_9 = int 10
+					call set_char_running(var DAVID)
+					call char_walk_to(var DAVID, int 3578, int -196, int 795)
+					var VAR_16 = int 3
+			}
+	}
+	if(var VAR_9 == int 10)
+	 {
+			if(call get_char_y(var GRANDAD) < int -20)
+			 {
+					gamevar scene_counter = int 0
+					exit_script 
+			}
+			if(gamevar scene_counter > int 30)
+			 {
+					if(call is_not_force_scrolling())
+					 {
 
-						 /* play the sound 'lever' */ 
-						call play_loaded_sound(int 11, int 0, int 9, int 0)
-						call func_21(var GRANDAD, var &scroll_position)
-						call play_char_anim(var GRANDAD, var barge_anim, int 0)
-						var VAR_9 = int 11
-				}
-		}
-}
-if(var VAR_9 == int 11)
- {
-		if(call func_5c(var GRANDAD))
-		 {
-				var VAR_16 -- 
-				if(var VAR_16 == int 0)
-				 {
-						call set_char_running(var DAVID)
-						call char_walk_to(var DAVID, int 3116, int 3, int 731)
-						var VAR_9 = int 12
-				}
-				else
-				 {
-						gamevar scene_counter = int 0
-						var VAR_9 = int 10
-				}
-		}
-}
-if(var VAR_9 == int 12)
- {
-		if(call is_char_standing(var DAVID))
-		 {
-				call func_10c(var GRANDAD, int 0)
-				call start_dialog("dvdgra", "null")
-				var VAR_9 = int 13
-		}
-}
-if(var VAR_9 == int 13)
- {
-		if(call get_input_sys() == int 4)
-		 {
-				var VAR_9 ++ 
-		}
-}
-if(var VAR_9 == int 14)
- {
-		if(call get_input_sys() != int 4)
-		 {
-				call set_input_system(int 2)
-				call set_char_walking(var GRANDAD)
-				call set_char_walking(var DAVID)
-				call char_walk_to(var GRANDAD, int 2834, int 3, int 1182)
-				call char_walk_to(var DAVID, int 2902, int 3, int 706)
-				var VAR_9 = int 15
-		}
-}
-if(var VAR_9 == int 15)
- {
-		if(call get_input_sys() != int 4)
-		 {
-				if(call is_char_standing(var DAVID))
-				 {
-						if(call is_char_standing(var GRANDAD))
-						 {
-								call char_turn_to_pos(var DAVID, var &scroll_position)
-								call char_turn_to_pos(var GRANDAD, var &scroll_position)
-								var VAR_9 = int 16
-								gamevar scene_counter = int 0
-						}
-				}
-		}
-}
-if(var VAR_9 == int 16)
- {
-		if(gamevar scene_counter > int 90)
-		 {
+							 /* play the sound 'lever' */ 
+							call play_loaded_sound(int 11, int 0, int 9, int 0)
+							call func_21(var GRANDAD, var &scroll_position)
+							call play_char_anim(var GRANDAD, var barge_anim, int 0)
+							var VAR_9 = int 11
+					}
+			}
+	}
+	if(var VAR_9 == int 11)
+	 {
+			if(call func_5c(var GRANDAD))
+			 {
+					var VAR_16 -- 
+					if(var VAR_16 == int 0)
+					 {
+							call set_char_running(var DAVID)
+							call char_walk_to(var DAVID, int 3116, int 3, int 731)
+							var VAR_9 = int 12
+					}
+					else
+					 {
+							gamevar scene_counter = int 0
+							var VAR_9 = int 10
+					}
+			}
+	}
+	if(var VAR_9 == int 12)
+	 {
+			if(call is_char_standing(var DAVID))
+			 {
+					call func_10c(var GRANDAD, int 0)
+					call start_dialog("dvdgra", "null")
+					var VAR_9 = int 13
+			}
+	}
+	if(var VAR_9 == int 13)
+	 {
+			if(call get_input_sys() == int 4)
+			 {
+					var VAR_9 ++ 
+			}
+	}
+	if(var VAR_9 == int 14)
+	 {
+			if(call get_input_sys() != int 4)
+			 {
+					call set_input_system(int 2)
+					call set_char_walking(var GRANDAD)
+					call set_char_walking(var DAVID)
+					call char_walk_to(var GRANDAD, int 2834, int 3, int 1182)
+					call char_walk_to(var DAVID, int 2902, int 3, int 706)
+					var VAR_9 = int 15
+			}
+	}
+	if(var VAR_9 == int 15)
+	 {
+			if(call get_input_sys() != int 4)
+			 {
+					if(call is_char_standing(var DAVID))
+					 {
+							if(call is_char_standing(var GRANDAD))
+							 {
+									call char_turn_to_pos(var DAVID, var &scroll_position)
+									call char_turn_to_pos(var GRANDAD, var &scroll_position)
+									var VAR_9 = int 16
+									gamevar scene_counter = int 0
+							}
+					}
+			}
+	}
+	if(var VAR_9 == int 16)
+	 {
+			if(gamevar scene_counter > int 90)
+			 {
 
-				 /* play the sound 'lever' */ 
-				call play_loaded_sound(int 11, int 0, int 9, int 0)
-				call play_char_anim(var DAVID, var barge_anim, int 0)
-				var VAR_9 = int 17
-				gamevar scene_counter = int 0
-		}
-}
-if(var VAR_9 == int 17)
- {
-		if(gamevar scene_counter > int 26)
-		 {
+					 /* play the sound 'lever' */ 
+					call play_loaded_sound(int 11, int 0, int 9, int 0)
+					call play_char_anim(var DAVID, var barge_anim, int 0)
+					var VAR_9 = int 17
+					gamevar scene_counter = int 0
+			}
+	}
+	if(var VAR_9 == int 17)
+	 {
+			if(gamevar scene_counter > int 26)
+			 {
 
-				 /* play the sound 'dwavesLp' */ 
-				call play_loaded_sound(int 10, int 0, int 9, int 0)
-				var VAR_18 = int 1
-				gamevar scene_counter = int 0
-				var VAR_9 = int 18
-		}
-}
-if(var VAR_9 == int 18)
- {
-		if(gamevar scene_counter > int 240)
-		 {
-				var VAR_9 = int 19
-				gamevar scene_counter = int 0
-				call start_dialog("gracre", "dooropen")
-		}
-}
-if(var VAR_9 == int 19)
- {
-		if(call get_input_sys() != int 4)
-		 {
-				call char_exit_door(var DAVID, int 0)
-				call char_exit_door(var GRANDAD, int 0)
-				gamevar *scene_info_p+3 = int 2
-				var VAR_9 = int 1000
-		}
-}
+					 /* play the sound 'dwavesLp' */ 
+					call play_loaded_sound(int 10, int 0, int 9, int 0)
+					var VAR_18 = int 1
+					gamevar scene_counter = int 0
+					var VAR_9 = int 18
+			}
+	}
+	if(var VAR_9 == int 18)
+	 {
+			if(gamevar scene_counter > int 240)
+			 {
+					var VAR_9 = int 19
+					gamevar scene_counter = int 0
+					call start_dialog("gracre", "dooropen")
+			}
+	}
+	if(var VAR_9 == int 19)
+	 {
+			if(call get_input_sys() != int 4)
+			 {
+					call char_exit_door(var DAVID, int 0)
+					call char_exit_door(var GRANDAD, int 0)
+					gamevar *scene_info_p+3 = int 2
+					var VAR_9 = int 1000
+			}
+	}
 
 ._SCRIPT_9
 
 ._SCRIPT_10
 
 ._SCRIPT_11
-execute SCRIPT_12
-execute SCRIPT_13
-call set_input_system(int 2)
+	execute SCRIPT_12
+	execute SCRIPT_13
+	call set_input_system(int 2)
 
 ._SCRIPT_12
-var nfuge = call create_char(var &init_position3, "nfuge", int 0, int 13)
-call set_char_running(var nfuge)
-var nsgrunt1 = call create_char(var &init_position4, "nsgrunt1", int 15, int 13)
-call add_item_to_char(var nsgrunt1, int 16 /* shrtswrd */ , int 0, int 1)
-call set_char_running(var nsgrunt1)
-var nsgrunt2 = call create_char(var &init_position5, "nsgrunt2", int 0, int 13)
-call add_item_to_char(var nsgrunt2, int 16 /* shrtswrd */ , int 0, int 1)
-call set_char_running(var nsgrunt2)
+	var nfuge = call create_char(var &init_position3, "nfuge", int 0, int 13)
+	call set_char_running(var nfuge)
+	var nsgrunt1 = call create_char(var &init_position4, "nsgrunt1", int 15, int 13)
+	call add_item_to_char(var nsgrunt1, int 16 /* shrtswrd */ , int 0, int 1)
+	call set_char_running(var nsgrunt1)
+	var nsgrunt2 = call create_char(var &init_position5, "nsgrunt2", int 0, int 13)
+	call add_item_to_char(var nsgrunt2, int 16 /* shrtswrd */ , int 0, int 1)
+	call set_char_running(var nsgrunt2)
 
 ._SCRIPT_13
-var lookout_anim = call load_anim("lookout")
-var tyrosumn_anim = call load_anim("tyrosumn")
-var come_anim = call load_anim("come")
+	var lookout_anim = call load_anim("lookout")
+	var tyrosumn_anim = call load_anim("tyrosumn")
+	var come_anim = call load_anim("come")
 
 ._SCRIPT_14
-if(var VAR_39 == int 0)
- {
-		if(var VAR_40 == int 0)
-		 {
-				call char_walk_to(var nfuge, int 4516, int -596, int -85)
-				call char_walk_to(var nsgrunt2, int 4432, int -796, int -785)
-				call func_100(call get_char_movement_ptr(var nfuge))
-		}
-		var VAR_40 ++ 
-		if(var VAR_40 == int 20)
-		 {
-				call char_walk_to(var nsgrunt1, int 3684, int -396, int -74)
-		}
-		if(var VAR_40 == int 320)
-		 {
-				call func_e6("gno", "entrance", var &VAR_41, int 3)
-				call func_58(int 1)
-		}
-}
+	if(var VAR_39 == int 0)
+	 {
+			if(var VAR_40 == int 0)
+			 {
+					call char_walk_to(var nfuge, int 4516, int -596, int -85)
+					call char_walk_to(var nsgrunt2, int 4432, int -796, int -785)
+					call func_100(call get_char_movement_ptr(var nfuge))
+			}
+			var VAR_40 ++ 
+			if(var VAR_40 == int 20)
+			 {
+					call char_walk_to(var nsgrunt1, int 3684, int -396, int -74)
+			}
+			if(var VAR_40 == int 320)
+			 {
+					call func_e6("gno", "entrance", var &VAR_41, int 3)
+					call func_58(int 1)
+			}
+	}
 
 ._SCRIPT_15

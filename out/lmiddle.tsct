@@ -10,165 +10,165 @@
 
 
 ._DATA
-init_position	{ 181, 237, -655 }	
-enemy_gen_script	{ 0, 0, 1, -1, 8, 0, 4, 0, 9, 1, 1, 2, 34, -1, 5, 1, 15, 60, 6, 1, 7, 1, 2, -1 }	
-VAR_12	{ -1236, -111, 1555 }	
+	init_position	{ 181, 237, -655 }	
+	enemy_gen_script	{ 0, 0, 1, -1, 8, 0, 4, 0, 9, 1, 1, 2, 34, -1, 5, 1, 15, 60, 6, 1, 7, 1, 2, -1 }	
+	VAR_12	{ -1236, -111, 1555 }	
 
 ._on_load
-call play_bgm("METALON")
-call load_sound_set(int 72)
+	call play_bgm("METALON")
+	call load_sound_set(int 72)
 
- /* play the sound 'BLANK' */ 
-call play_loaded_sound(int 4, int -1, int 72, int 0)
-call load_sound_set(int 64)
+	 /* play the sound 'BLANK' */ 
+	call play_loaded_sound(int 4, int -1, int 72, int 0)
+	call load_sound_set(int 64)
 
- /* play the sound 'cavelp' */ 
-call play_loaded_sound(int 1, int -1, int 64, int 0)
-call load_sound_set(int 65)
+	 /* play the sound 'cavelp' */ 
+	call play_loaded_sound(int 1, int -1, int 64, int 0)
+	call load_sound_set(int 65)
 
- /* play the sound 'in2wind1' */ 
-call play_loaded_sound(int 5, int -1, int 65, int 0)
-execute SCRIPT_8
-switch(gamevar room_state)
- {
-		case 1
-			execute SCRIPT_5
-			break 
-		case 2
-			execute SCRIPT_7
-			break 
-		case 0
-			break 
-}
+	 /* play the sound 'in2wind1' */ 
+	call play_loaded_sound(int 5, int -1, int 65, int 0)
+	execute SCRIPT_8
+	switch(gamevar room_state)
+	 {
+			case 1
+				execute SCRIPT_5
+				break 
+			case 2
+				execute SCRIPT_7
+				break 
+			case 0
+				break 
+	}
 
 ._infinite_loop
-execute SCRIPT_3
-switch(gamevar room_state)
- {
-		case 1
-			execute SCRIPT_4
-			break 
-		case 2
-			execute SCRIPT_6
-			break 
-		case 0
-			break 
-}
+	execute SCRIPT_3
+	switch(gamevar room_state)
+	 {
+			case 1
+				execute SCRIPT_4
+				break 
+			case 2
+				execute SCRIPT_6
+				break 
+			case 0
+				break 
+	}
 
 ._on_exit
-switch(gamevar room_state)
- {
-		case 1
-			gamevar room_state ++ 
-			break 
-		case 2
-			gamevar room_state ++ 
-			break 
-		case 0
-			break 
-		default 
-			gamevar room_state = int 0
-			break 
-}
+	switch(gamevar room_state)
+	 {
+			case 1
+				gamevar room_state ++ 
+				break 
+			case 2
+				gamevar room_state ++ 
+				break 
+			case 0
+				break 
+			default 
+				gamevar room_state = int 0
+				break 
+	}
 
 ._SCRIPT_3
-if(gamevar script_time > var VAR_17)
- {
-		var VAR_17 = gamevar script_time + int 70 + call randomize_int(int 0, int 110)
+	if(gamevar script_time > var VAR_17)
+	 {
+			var VAR_17 = gamevar script_time + int 70 + call randomize_int(int 0, int 110)
 
-		 /* play the sound 'renddizz' */ 
-		call play_loaded_sound(int 8, int 0, int 72, int 0)
-}
-if(gamevar script_time > var VAR_18)
- {
-		var VAR_18 = gamevar script_time + int 70 + call randomize_int(int 0, int 110)
+			 /* play the sound 'renddizz' */ 
+			call play_loaded_sound(int 8, int 0, int 72, int 0)
+	}
+	if(gamevar script_time > var VAR_18)
+	 {
+			var VAR_18 = gamevar script_time + int 70 + call randomize_int(int 0, int 110)
 
-		 /* play the sound 'metamb1' */ 
-		call play_loaded_sound(int 7, int 0, int 72, int 0)
-}
-if(gamevar script_time > var VAR_19)
- {
-		var VAR_19 = gamevar script_time + int 100 + call randomize_int(int 0, int 50)
+			 /* play the sound 'metamb1' */ 
+			call play_loaded_sound(int 7, int 0, int 72, int 0)
+	}
+	if(gamevar script_time > var VAR_19)
+	 {
+			var VAR_19 = gamevar script_time + int 100 + call randomize_int(int 0, int 50)
 
-		 /* play the sound 'wwindlp' */ 
-		call play_loaded_sound(int 6, int 0, int 65, int 0)
-}
+			 /* play the sound 'wwindlp' */ 
+			call play_loaded_sound(int 6, int 0, int 65, int 0)
+	}
 
 ._SCRIPT_4
-switch(var VAR_6)
- {
-		case 0
-			if(call is_not_force_scrolling())
-			 {
-					var teleport_mini_maim = call create_enemy(int 210, int 0, var &init_position, int 295)
-					gamevar *character_movement_p+60 = int 1
-					call reset_local_timer()
-					var VAR_6 ++ 
-			}
-			break 
-		case 1
-			if(call is_local_timer_greater_than(int 30))
-			 {
-					call char_turn_to_pos(var david, call get_char_pos(var teleport_mini_maim))
-					if(var VAR_1)
-					 {
-							call char_turn_to_pos(var VAR_1, call get_char_pos(var teleport_mini_maim))
-					}
-					if(var VAR_2)
-					 {
-							call char_turn_to_pos(var VAR_2, call get_char_pos(var teleport_mini_maim))
-					}
-					call func_11f(var &VAR_12, int 61440)
-					call char_walk_to(var teleport_mini_maim, int -1416, int -111, int 2218)
-					var VAR_6 ++ 
-			}
-			break 
-		case 2
-			if(call is_char_standing(var teleport_mini_maim))
-			 {
-					call remove_char(var teleport_mini_maim)
-					var VAR_6 ++ 
-			}
-			break 
-		case 3
-			call start_dialog("S_DvdMai", "NULL")
-			var VAR_6 ++ 
-			break 
-		case 4
-			if(call get_input_sys() != int 4)
-			 {
-					if(call is_char_handle_in_level(int 1179648))
-					 {
-							call char_walk_to(var VAR_9, int -701, int 178, int 1444)
-							call func_50(var VAR_9, int 129)
-					}
-					var VAR_10 = call run_enemy_generator(var &enemy_gen_script, int 10)
-					call set_input_system(int 1)
-					var VAR_6 ++ 
-			}
-			break 
-		case 5
-			break 
-}
+	switch(var VAR_6)
+	 {
+			case 0
+				if(call is_not_force_scrolling())
+				 {
+						var teleport_mini_maim = call create_enemy(int 210, int 0, var &init_position, int 295)
+						gamevar *character_movement_p+60 = int 1
+						call reset_local_timer()
+						var VAR_6 ++ 
+				}
+				break 
+			case 1
+				if(call is_local_timer_greater_than(int 30))
+				 {
+						call char_turn_to_pos(var david, call get_char_pos(var teleport_mini_maim))
+						if(var VAR_1)
+						 {
+								call char_turn_to_pos(var VAR_1, call get_char_pos(var teleport_mini_maim))
+						}
+						if(var VAR_2)
+						 {
+								call char_turn_to_pos(var VAR_2, call get_char_pos(var teleport_mini_maim))
+						}
+						call func_11f(var &VAR_12, int 61440)
+						call char_walk_to(var teleport_mini_maim, int -1416, int -111, int 2218)
+						var VAR_6 ++ 
+				}
+				break 
+			case 2
+				if(call is_char_standing(var teleport_mini_maim))
+				 {
+						call remove_char(var teleport_mini_maim)
+						var VAR_6 ++ 
+				}
+				break 
+			case 3
+				call start_dialog("S_DvdMai", "NULL")
+				var VAR_6 ++ 
+				break 
+			case 4
+				if(call get_input_sys() != int 4)
+				 {
+						if(call is_char_handle_in_level(int 1179648))
+						 {
+								call char_walk_to(var VAR_9, int -701, int 178, int 1444)
+								call func_50(var VAR_9, int 129)
+						}
+						var VAR_10 = call run_enemy_generator(var &enemy_gen_script, int 10)
+						call set_input_system(int 1)
+						var VAR_6 ++ 
+				}
+				break 
+			case 5
+				break 
+	}
 
 ._SCRIPT_5
-call set_input_system(int 2)
-var VAR_9 = call func_92(int 1, "fsguard", int 295, int 13)
-call add_item_to_char(var VAR_9, int 22 /* bastswrd */ , int 0, int 1)
-call load_char("maims")
-call force_scroll_to_pos(var &init_position)
+	call set_input_system(int 2)
+	var VAR_9 = call func_92(int 1, "fsguard", int 295, int 13)
+	call add_item_to_char(var VAR_9, int 22 /* bastswrd */ , int 0, int 1)
+	call load_char("maims")
+	call force_scroll_to_pos(var &init_position)
 
 ._SCRIPT_6
 
 ._SCRIPT_7
 
 ._SCRIPT_8
-var david = call get_david_char()
-var VAR_1 = call func_7e()
-var VAR_2 = call func_7e()
-gamevar SMACKER_X = int 160
-gamevar SMACKER_Y = int 488
-call play_2d_anim("leftshrk", int 1, int 1, int 0)
-gamevar SMACKER_X = int 452
-gamevar SMACKER_Y = int 624
-call play_2d_anim("righshrk", int 1, int 1, int 0)
+	var david = call get_david_char()
+	var VAR_1 = call func_7e()
+	var VAR_2 = call func_7e()
+	gamevar SMACKER_X = int 160
+	gamevar SMACKER_Y = int 488
+	call play_2d_anim("leftshrk", int 1, int 1, int 0)
+	gamevar SMACKER_X = int 452
+	gamevar SMACKER_Y = int 624
+	call play_2d_anim("righshrk", int 1, int 1, int 0)

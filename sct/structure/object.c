@@ -41,6 +41,24 @@ void init_data_obj(data_obj* d_obj) {
     d_obj->byte_size = 0;
     d_obj->name = NULL;
     d_obj->data = NULL;
+    d_obj->c_referees = NULL;
+    d_obj->e_referees = NULL;
+    d_obj->d_references = NULL;
+}
+
+void init_data_ref(data_ref* dr) { 
+    dr->id = -1;
+    dr->offset = NULL;
+    dr->unfound_name = NULL;
+    dr->data_parent = NULL;
+    dr->data_item = NULL;
+}
+
+data_ref* create_and_init_data_ref() {
+    data_ref* dr = w_malloc(sizeof(data_ref));
+    init_data_ref(dr);
+
+    return dr;
 }
 
 data_obj* create_and_init_data_obj() {

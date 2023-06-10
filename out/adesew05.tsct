@@ -10,84 +10,84 @@
 
 
 ._DATA
-init_position	{ 241, -388, 2848 }	
-init_position1	{ 2045, -388, 2847 }	
-enemy_gen_script	{ 0, 0, 1, 1, 0, 1, 0, 1, -1, 8, 1, 1, 2, 70, 55, 70, -1, 4, 0, 9, 1, 5, 1, 50, 150, 7, 1, 4, -1 }	
-enemy_gen_script1	{ 0, 0, 0, -1, 8, 1, 1, 1, 87, 87, 87, 87, -1, 4, 0, 9, 1, 5, 1, 25, 50, 7, 1, 2, 10, 43, 45, -1, -1 }	
-VAR_6	{ 1, 0, 0 }	
-VAR_9	{ 435, -388, 2812, 55, -388, 2820, -453, -388, 2825, -888, -388, 2821 }	
-VAR_10	{ 1908, -388, 2838, 2428, -388, 2848, 3059, -388, 2835 }	
+	init_position	{ 241, -388, 2848 }	
+	init_position1	{ 2045, -388, 2847 }	
+	enemy_gen_script	{ 0, 0, 1, 1, 0, 1, 0, 1, -1, 8, 1, 1, 2, 70, 55, 70, -1, 4, 0, 9, 1, 5, 1, 50, 150, 7, 1, 4, -1 }	
+	enemy_gen_script1	{ 0, 0, 0, -1, 8, 1, 1, 1, 87, 87, 87, 87, -1, 4, 0, 9, 1, 5, 1, 25, 50, 7, 1, 2, 10, 43, 45, -1, -1 }	
+	VAR_6	{ 1, 0, 0 }	
+	VAR_9	{ 435, -388, 2812, 55, -388, 2820, -453, -388, 2825, -888, -388, 2821 }	
+	VAR_10	{ 1908, -388, 2838, 2428, -388, 2848, 3059, -388, 2835 }	
 
 ._on_load
-gamevar SMACKER_X = int 0
-gamevar SMACKER_Y = int 304
-call play_2d_anim("adesew05", int 1, int 1, var &VAR_6)
-call play_bgm("SEWERPT1")
-call load_sound_set(int 33)
-call load_sound_set(int 38)
+	gamevar SMACKER_X = int 0
+	gamevar SMACKER_Y = int 304
+	call play_2d_anim("adesew05", int 1, int 1, var &VAR_6)
+	call play_bgm("SEWERPT1")
+	call load_sound_set(int 33)
+	call load_sound_set(int 38)
 
- /* play the sound 'spires1' */ 
-call play_loaded_sound(int 3, int -1, int 38, int 0)
-switch(gamevar room_state)
- {
-		case 1
-			execute SCRIPT_3
-			break 
-		default 
-			break 
-}
+	 /* play the sound 'spires1' */ 
+	call play_loaded_sound(int 3, int -1, int 38, int 0)
+	switch(gamevar room_state)
+	 {
+			case 1
+				execute SCRIPT_3
+				break 
+			default 
+				break 
+	}
 
 ._infinite_loop
-execute SCRIPT_5
-switch(gamevar room_state)
- {
-		case 1
-			execute SCRIPT_4
-			break 
-		default 
-			break 
-}
+	execute SCRIPT_5
+	switch(gamevar room_state)
+	 {
+			case 1
+				execute SCRIPT_4
+				break 
+			default 
+				break 
+	}
 
 ._on_exit
-switch(gamevar room_state)
- {
-		case 1
-			gamevar room_state = int 0
-			break 
-		default 
-			break 
-}
+	switch(gamevar room_state)
+	 {
+			case 1
+				gamevar room_state = int 0
+				break 
+			default 
+				break 
+	}
 
 ._SCRIPT_3
-call load_char("spider")
-call load_char("ratrptr")
-call load_char("skavenb")
-call run_enemy_generator(var &enemy_gen_script, int 0)
-call run_enemy_generator(var &enemy_gen_script1, int 500)
-var lesser_gimp = call create_enemy(int 45, int 0, var &init_position, int 170)
-var lesser_gimp1 = call create_enemy(int 45, int 1, var &init_position1, int 165)
-call func_106(var lesser_gimp, int 0, int 3, int 360)
-call func_106(var lesser_gimp1, int 0, int 3, int 360)
-gamevar script_object = var lesser_gimp
-gamevar *character_stats_p+15 = int 30000
-gamevar script_object = var lesser_gimp1
-gamevar *character_stats_p+15 = int 30000
-gamevar script_object = var lesser_gimp
-gamevar *character_stats_p+16 = int 30000
-gamevar script_object = var lesser_gimp1
-gamevar *character_stats_p+16 = int 30000
-call func_106(var lesser_gimp, int 9, int 5, var &VAR_9)
-call func_106(var lesser_gimp, int 9, int 6, int 4)
-call func_106(var lesser_gimp1, int 9, int 5, var &VAR_10)
-call func_106(var lesser_gimp1, int 9, int 6, int 3)
+	call load_char("spider")
+	call load_char("ratrptr")
+	call load_char("skavenb")
+	call run_enemy_generator(var &enemy_gen_script, int 0)
+	call run_enemy_generator(var &enemy_gen_script1, int 500)
+	var lesser_gimp = call create_enemy(int 45, int 0, var &init_position, int 170)
+	var lesser_gimp1 = call create_enemy(int 45, int 1, var &init_position1, int 165)
+	call func_106(var lesser_gimp, int 0, int 3, int 360)
+	call func_106(var lesser_gimp1, int 0, int 3, int 360)
+	gamevar script_object = var lesser_gimp
+	gamevar *character_stats_p+15 = int 30000
+	gamevar script_object = var lesser_gimp1
+	gamevar *character_stats_p+15 = int 30000
+	gamevar script_object = var lesser_gimp
+	gamevar *character_stats_p+16 = int 30000
+	gamevar script_object = var lesser_gimp1
+	gamevar *character_stats_p+16 = int 30000
+	call func_106(var lesser_gimp, int 9, int 5, var &VAR_9)
+	call func_106(var lesser_gimp, int 9, int 6, int 4)
+	call func_106(var lesser_gimp1, int 9, int 5, var &VAR_10)
+	call func_106(var lesser_gimp1, int 9, int 6, int 3)
 
 ._SCRIPT_4
 
 ._SCRIPT_5
-if(gamevar script_time > var VAR_14)
- {
-		var VAR_14 = gamevar script_time + int 50 + call randomize_int(int 0, int 70)
+	if(gamevar script_time > var VAR_14)
+	 {
+			var VAR_14 = gamevar script_time + int 50 + call randomize_int(int 0, int 70)
 
-		 /* play the sound 'echdrip1' */ 
-		call play_loaded_sound(int 1, int 0, int 38, int 0)
-}
+			 /* play the sound 'echdrip1' */ 
+			call play_loaded_sound(int 1, int 0, int 38, int 0)
+	}

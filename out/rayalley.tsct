@@ -10,478 +10,478 @@
 
 
 ._DATA
-VAR_17	{ 0, 0 }	
-VAR_18	{ 0, 0, 0, 0 }	
-fx_position	{ -531, 1190, -1456 }	
-VAR_23	{ -1160, 1190, 231 }	
-init_position	{ 548, 252, 322 }	
-ai_script	{ 3, VAR_28, 0, 11, 100, 400, 7, 8 }	
-VAR_28	"taichi"	
-VAR_36	-1	
+	VAR_17	{ 0, 0 }	
+	VAR_18	{ 0, 0, 0, 0 }	
+	fx_position	{ -531, 1190, -1456 }	
+	VAR_23	{ -1160, 1190, 231 }	
+	init_position	{ 548, 252, 322 }	
+	ai_script	{ 3, VAR_28, 0, 11, 100, 400, 7, 8 }	
+	VAR_28	"taichi"	
+	VAR_36	-1	
 
 ._on_load
-execute SCRIPT_3
-if(gamevar is_room_cleared)
- {
-		execute SCRIPT_13
-}
-else
- {
-		switch(gamevar room_state)
-		 {
-				case 1
-					execute SCRIPT_5
-					break 
-				case 2
-					execute SCRIPT_7
-					break 
-				case 3
-					if(call func_bf(int 0, gamevar CURRENT_LEVEL, gamevar CURRENT_SCENE))
-					 {
-							call func_d8(int 0, var &VAR_18)
-							gamevar room_state = int 4
-							execute SCRIPT_11
-					}
-					else
-					 {
-							execute SCRIPT_9
-					}
-					break 
-				case 4
-					execute SCRIPT_11
-					break 
-				case 0
-					break 
-		}
-}
+	execute SCRIPT_3
+	if(gamevar is_room_cleared)
+	 {
+			execute SCRIPT_13
+	}
+	else
+	 {
+			switch(gamevar room_state)
+			 {
+					case 1
+						execute SCRIPT_5
+						break 
+					case 2
+						execute SCRIPT_7
+						break 
+					case 3
+						if(call func_bf(int 0, gamevar CURRENT_LEVEL, gamevar CURRENT_SCENE))
+						 {
+								call load_pos_from_room_memory(int 0, var &VAR_18)
+								gamevar room_state = int 4
+								execute SCRIPT_11
+						}
+						else
+						 {
+								execute SCRIPT_9
+						}
+						break 
+					case 4
+						execute SCRIPT_11
+						break 
+					case 0
+						break 
+			}
+	}
 
 ._infinite_loop
-execute SCRIPT_15
-if(gamevar !is_room_cleared)
- {
-		switch(gamevar room_state)
-		 {
-				case 1
-					execute SCRIPT_4
-					break 
-				case 2
-					execute SCRIPT_6
-					break 
-				case 3
-					execute SCRIPT_8
-					break 
-				case 4
-					execute SCRIPT_10
-					break 
-				case 0
-					break 
-		}
-}
+	execute SCRIPT_15
+	if(gamevar !is_room_cleared)
+	 {
+			switch(gamevar room_state)
+			 {
+					case 1
+						execute SCRIPT_4
+						break 
+					case 2
+						execute SCRIPT_6
+						break 
+					case 3
+						execute SCRIPT_8
+						break 
+					case 4
+						execute SCRIPT_10
+						break 
+					case 0
+						break 
+			}
+	}
 
 ._on_exit
-if(gamevar !is_room_cleared)
- {
-		switch(gamevar room_state)
-		 {
-				case 1
-					if(var VAR_19)
-					 {
-							gamevar room_state ++ 
-					}
-					if(var VAR_20)
-					 {
-							gamevar room_state = int 4
-							call func_7(int 0, var VAR_20, int 0, int 0)
-					}
-					break 
-				case 2
-					if(var VAR_20)
-					 {
-							gamevar room_state = int 4
-							call func_7(int 0, var VAR_20, int 0, int 0)
-					}
-					break 
-				case 3
-					gamevar room_state ++ 
-					break 
-				case 4
-					gamevar room_state = int 0
-					break 
-				case 0
-					break 
-				default 
-					gamevar room_state = int 0
-					break 
-		}
-}
+	if(gamevar !is_room_cleared)
+	 {
+			switch(gamevar room_state)
+			 {
+					case 1
+						if(var VAR_19)
+						 {
+								gamevar room_state ++ 
+						}
+						if(var VAR_20)
+						 {
+								gamevar room_state = int 4
+								call save_pos_to_room_memory(int 0, var VAR_20, int 0, int 0)
+						}
+						break 
+					case 2
+						if(var VAR_20)
+						 {
+								gamevar room_state = int 4
+								call save_pos_to_room_memory(int 0, var VAR_20, int 0, int 0)
+						}
+						break 
+					case 3
+						gamevar room_state ++ 
+						break 
+					case 4
+						gamevar room_state = int 0
+						break 
+					case 0
+						break 
+					default 
+						gamevar room_state = int 0
+						break 
+			}
+	}
 
 ._SCRIPT_3
-call log("it's_raining")
-call play_3d_fx("RAIN", var &fx_position, var &VAR_23, int 0)
-execute SCRIPT_14
+	call log("it's_raining")
+	call play_3d_fx("RAIN", var &fx_position, var &VAR_23, int 0)
+	execute SCRIPT_14
 
 ._SCRIPT_4
-if(var VAR_36 != var VAR_32)
- {
-		var VAR_36 = var VAR_32
-		call log_obj(var VAR_32)
-}
-switch(var VAR_32)
- {
-		case 0
-			if(call func_65(var noldvill, int 13) == int 17)
-			 {
-					call log("talking to villager")
-					var VAR_19 = int 1
-					var VAR_32 ++ 
-					var VAR_33 = int 0
-			}
-			break 
-		case 1
-			var VAR_34 = call func_86()
-			switch(call func_4a())
-			 {
-					case 1
-						if(var VAR_34 > int 50)
-						 {
-								call log("yes! with money")
-								var selected_hero = call get_selected_hero()
-								switch(call get_char_handle_id(var selected_hero))
-								 {
-										case 65536
-											call start_dialog("O_DVDYES", "NULL")
-											break 
-										case 786432
-											call start_dialog("O_SEKYES", "NULL")
-											break 
-										case 196608
-											call start_dialog("O_VIVYES", "NULL")
-											break 
-										case 327680
-											call start_dialog("O_JUGYES", "NULL")
-											break 
-										default 
-											call log("shouldn't have that hero here!")
-											break 
-								}
-								var VAR_20 = int 1
-								call play_char_anim(var noldvill, var jangive_anim, int 0)
-								call add_item_to_char(gamevar control_char_p, int 115, int 0, int 0)
-								call func_f8(int 115, int 100)
-								call func_110(var VAR_34 - int 50)
-								var VAR_32 = int 3
-								var VAR_33 = int 0
-						}
-						else
-						 {
-								call log("yes! with no money")
-								call start_dialog("O_HERMON", "NULL")
-								call func_db()
-								var VAR_32 ++ 
-								var VAR_33 = int 0
-						}
-						break 
-					case 0
-						call start_dialog("O_HERNO", "NULL")
-						call func_db()
+	if(var VAR_36 != var VAR_32)
+	 {
+			var VAR_36 = var VAR_32
+			call log_obj(var VAR_32)
+	}
+	switch(var VAR_32)
+	 {
+			case 0
+				if(call func_65(var noldvill, int 13) == int 17)
+				 {
+						call log("talking to villager")
+						var VAR_19 = int 1
 						var VAR_32 ++ 
 						var VAR_33 = int 0
-						break 
-			}
-			break 
-		case 2
-			if(call get_input_sys() != int 4)
-			 {
-					call func_108("ACT_2")
-					var VAR_32 = int 0
-					var VAR_33 = int 0
-			}
-			break 
-		case 3
-			if(call get_input_sys() != int 4)
-			 {
-					call func_108("ARSE")
-					var VAR_32 ++ 
-					var VAR_33 = int 0
-			}
-			break 
-}
-var VAR_33 ++ 
+				}
+				break 
+			case 1
+				var VAR_34 = call func_86()
+				switch(call func_4a())
+				 {
+						case 1
+							if(var VAR_34 > int 50)
+							 {
+									call log("yes! with money")
+									var selected_hero = call get_selected_hero()
+									switch(call get_char_handle_id(var selected_hero))
+									 {
+											case 65536
+												call start_dialog("O_DVDYES", "NULL")
+												break 
+											case 786432
+												call start_dialog("O_SEKYES", "NULL")
+												break 
+											case 196608
+												call start_dialog("O_VIVYES", "NULL")
+												break 
+											case 327680
+												call start_dialog("O_JUGYES", "NULL")
+												break 
+											default 
+												call log("shouldn't have that hero here!")
+												break 
+									}
+									var VAR_20 = int 1
+									call play_char_anim(var noldvill, var jangive_anim, int 0)
+									call add_item_to_char(gamevar control_char_p, int 115, int 0, int 0)
+									call func_f8(int 115, int 100)
+									call func_110(var VAR_34 - int 50)
+									var VAR_32 = int 3
+									var VAR_33 = int 0
+							}
+							else
+							 {
+									call log("yes! with no money")
+									call start_dialog("O_HERMON", "NULL")
+									call func_db()
+									var VAR_32 ++ 
+									var VAR_33 = int 0
+							}
+							break 
+						case 0
+							call start_dialog("O_HERNO", "NULL")
+							call func_db()
+							var VAR_32 ++ 
+							var VAR_33 = int 0
+							break 
+				}
+				break 
+			case 2
+				if(call get_input_sys() != int 4)
+				 {
+						call func_108("ACT_2")
+						var VAR_32 = int 0
+						var VAR_33 = int 0
+				}
+				break 
+			case 3
+				if(call get_input_sys() != int 4)
+				 {
+						call func_108("ARSE")
+						var VAR_32 ++ 
+						var VAR_33 = int 0
+				}
+				break 
+	}
+	var VAR_33 ++ 
 
 ._SCRIPT_5
-execute SCRIPT_12
+	execute SCRIPT_12
 
 ._SCRIPT_6
-switch(var VAR_55)
- {
-		case 0
-			if(var VAR_56 == int 5)
-			 {
-					call func_108("ACT_2")
-					var VAR_55 ++ 
-					var VAR_56 = int 0
-			}
-			break 
-		case 1
-			if(call func_65(var noldvill, int 13) == int 17)
-			 {
-					call log("talking to villager")
-					var VAR_19 = int 1
-					var VAR_55 ++ 
-					var VAR_56 = int 0
-			}
-			break 
-		case 2
-			var VAR_57 = call func_86()
-			switch(call func_4a())
-			 {
-					case 1
-						if(var VAR_57)
-						 {
-								call log("yes! with money")
-								var selected_hero1 = call get_selected_hero()
-								switch(call get_char_handle_id(var selected_hero1))
-								 {
-										case 65536
-											call start_dialog("O_DVDYES", "NULL")
-											break 
-										case 786432
-											call start_dialog("O_SEKYES", "NULL")
-											break 
-										case 196608
-											call start_dialog("O_VIVYES", "NULL")
-											break 
-										case 327680
-											call start_dialog("O_JUGYES", "NULL")
-											break 
-										default 
-											call log("shouldn't have that hero here!")
-											break 
-								}
-								var VAR_20 = int 1
-								call play_char_anim(var noldvill, var jangive_anim, int 0)
-								call add_item_to_char(gamevar control_char_p, int 115, int 0, int 0)
-								call func_f8(int 115, int 100)
-								call func_110(var VAR_57 - int 50)
-								var VAR_55 = int 4
-								var VAR_56 = int 0
-						}
-						else
-						 {
-								call log("yes! with no money")
-								call start_dialog("O_HERMON", "NULL")
-								call func_db()
-								var VAR_55 ++ 
-								var VAR_56 = int 0
-						}
-						break 
-					case 0
-						call start_dialog("O_HERNO", "NULL")
-						call func_db()
+	switch(var VAR_55)
+	 {
+			case 0
+				if(var VAR_56 == int 5)
+				 {
+						call func_108("ACT_2")
 						var VAR_55 ++ 
 						var VAR_56 = int 0
-						break 
-			}
-			break 
-		case 3
-			if(call get_input_sys() != int 4)
-			 {
-					var VAR_55 = int 1
-					var VAR_56 = int 0
-			}
-			break 
-		case 4
-			if(call get_input_sys() != int 4)
-			 {
-					var VAR_55 ++ 
-					var VAR_56 = int 0
-			}
-			break 
-}
-var VAR_56 ++ 
+				}
+				break 
+			case 1
+				if(call func_65(var noldvill, int 13) == int 17)
+				 {
+						call log("talking to villager")
+						var VAR_19 = int 1
+						var VAR_55 ++ 
+						var VAR_56 = int 0
+				}
+				break 
+			case 2
+				var VAR_57 = call func_86()
+				switch(call func_4a())
+				 {
+						case 1
+							if(var VAR_57)
+							 {
+									call log("yes! with money")
+									var selected_hero1 = call get_selected_hero()
+									switch(call get_char_handle_id(var selected_hero1))
+									 {
+											case 65536
+												call start_dialog("O_DVDYES", "NULL")
+												break 
+											case 786432
+												call start_dialog("O_SEKYES", "NULL")
+												break 
+											case 196608
+												call start_dialog("O_VIVYES", "NULL")
+												break 
+											case 327680
+												call start_dialog("O_JUGYES", "NULL")
+												break 
+											default 
+												call log("shouldn't have that hero here!")
+												break 
+									}
+									var VAR_20 = int 1
+									call play_char_anim(var noldvill, var jangive_anim, int 0)
+									call add_item_to_char(gamevar control_char_p, int 115, int 0, int 0)
+									call func_f8(int 115, int 100)
+									call func_110(var VAR_57 - int 50)
+									var VAR_55 = int 4
+									var VAR_56 = int 0
+							}
+							else
+							 {
+									call log("yes! with no money")
+									call start_dialog("O_HERMON", "NULL")
+									call func_db()
+									var VAR_55 ++ 
+									var VAR_56 = int 0
+							}
+							break 
+						case 0
+							call start_dialog("O_HERNO", "NULL")
+							call func_db()
+							var VAR_55 ++ 
+							var VAR_56 = int 0
+							break 
+				}
+				break 
+			case 3
+				if(call get_input_sys() != int 4)
+				 {
+						var VAR_55 = int 1
+						var VAR_56 = int 0
+				}
+				break 
+			case 4
+				if(call get_input_sys() != int 4)
+				 {
+						var VAR_55 ++ 
+						var VAR_56 = int 0
+				}
+				break 
+	}
+	var VAR_56 ++ 
 
 ._SCRIPT_7
-execute SCRIPT_12
+	execute SCRIPT_12
 
 ._SCRIPT_8
 
 ._SCRIPT_9
-execute SCRIPT_12
-call func_108("WOLF")
+	execute SCRIPT_12
+	call func_108("WOLF")
 
 ._SCRIPT_10
 
 ._SCRIPT_11
-execute SCRIPT_12
-call func_108("ARSE")
+	execute SCRIPT_12
+	call func_108("ARSE")
 
 ._SCRIPT_12
-var noldvill = call create_char(var &init_position, "noldvill", int 336, int 13)
-call func_50(var noldvill, int 8192)
-call play_char_ai_script(var noldvill, var &ai_script)
-var jangive_anim = call load_anim("jangive")
+	var noldvill = call create_char(var &init_position, "noldvill", int 336, int 13)
+	call func_50(var noldvill, int 8192)
+	call play_char_ai_script(var noldvill, var &ai_script)
+	var jangive_anim = call load_anim("jangive")
 
 ._SCRIPT_13
 
 ._SCRIPT_14
-call load_sound_set(int 25)
+	call load_sound_set(int 25)
 
- /* play the sound 'blank' */ 
-call play_loaded_sound(int 1, int -1, int 25, int 0)
-var thunrumb_sound_ref = call play_loaded_sound(int 3, int -1, int 25, int 0)
-var VAR_1 = int 70
-call set_sound_volume(var thunrumb_sound_ref, var VAR_1)
-var VAR_0 = int 1
+	 /* play the sound 'blank' */ 
+	call play_loaded_sound(int 1, int -1, int 25, int 0)
+	var thunrumb_sound_ref = call play_loaded_sound(int 3, int -1, int 25, int 0)
+	var VAR_1 = int 70
+	call set_sound_volume(var thunrumb_sound_ref, var VAR_1)
+	var VAR_0 = int 1
 
 ._SCRIPT_15
-if(var ! VAR_0)
- {
-		call log("random_rain_fx: Rain SFX not initialised! See Marc")
-		exit_script 
-}
-switch(var VAR_4)
- {
-		case 0
-			if(var VAR_3)
-			 {
-					var VAR_6 = int 1
-					var VAR_4 ++ 
-					var VAR_5 = int 0
-			}
-			break 
-		case 1
-			if(var VAR_1 < int 200)
-			 {
-					var VAR_7 = var VAR_5 % int 2
-					if(var VAR_7 == int 0)
-					 {
-							var VAR_1 += var VAR_6
-							call set_sound_volume(var thunrumb_sound_ref, var VAR_1)
-					}
-			}
-			else
-			 {
-					var VAR_4 ++ 
-					var VAR_5 = int 0
-			}
-			break 
-		case 2
-			if(var VAR_5 > int 150)
-			 {
-					var VAR_4 ++ 
-					var VAR_5 = int 0
-			}
-			break 
-		case 3
-			if(var VAR_1 > int 70)
-			 {
-					var VAR_7 = var VAR_5 % int 2
-					if(var VAR_7)
-					 {
-							var VAR_1 -= var VAR_6
-							call set_sound_volume(var thunrumb_sound_ref, var VAR_1)
-					}
-			}
-			else
-			 {
-					var VAR_3 = int 0
-					var VAR_4 = int 0
-					var VAR_5 = int 0
-			}
-			break 
-}
-execute SCRIPT_16
-execute SCRIPT_17
-var VAR_5 ++ 
+	if(var ! VAR_0)
+	 {
+			call log("random_rain_fx: Rain SFX not initialised! See Marc")
+			exit_script 
+	}
+	switch(var VAR_4)
+	 {
+			case 0
+				if(var VAR_3)
+				 {
+						var VAR_6 = int 1
+						var VAR_4 ++ 
+						var VAR_5 = int 0
+				}
+				break 
+			case 1
+				if(var VAR_1 < int 200)
+				 {
+						var VAR_7 = var VAR_5 % int 2
+						if(var VAR_7 == int 0)
+						 {
+								var VAR_1 += var VAR_6
+								call set_sound_volume(var thunrumb_sound_ref, var VAR_1)
+						}
+				}
+				else
+				 {
+						var VAR_4 ++ 
+						var VAR_5 = int 0
+				}
+				break 
+			case 2
+				if(var VAR_5 > int 150)
+				 {
+						var VAR_4 ++ 
+						var VAR_5 = int 0
+				}
+				break 
+			case 3
+				if(var VAR_1 > int 70)
+				 {
+						var VAR_7 = var VAR_5 % int 2
+						if(var VAR_7)
+						 {
+								var VAR_1 -= var VAR_6
+								call set_sound_volume(var thunrumb_sound_ref, var VAR_1)
+						}
+				}
+				else
+				 {
+						var VAR_3 = int 0
+						var VAR_4 = int 0
+						var VAR_5 = int 0
+				}
+				break 
+	}
+	execute SCRIPT_16
+	execute SCRIPT_17
+	var VAR_5 ++ 
 
 ._SCRIPT_16
-switch(var VAR_9)
- {
-		case 0
-			var VAR_10 = int 0
-			var VAR_11 = call randomize_int(int 1200, int 1801)
-			var VAR_9 ++ 
-			break 
-		case 1
-			if(var VAR_10 > var VAR_11)
-			 {
-					var thunstrk_sound_ref = call play_loaded_sound(int 4, int 0, int 25, int 0)
-					call set_sound_volume(var thunstrk_sound_ref, call randomize_int(int 100, int 201))
-					call func_11a(var thunstrk_sound_ref, call randomize_int(int 0, int 128))
-					if(var ! VAR_3)
-					 {
-							var VAR_3 = int 1
-					}
-					var VAR_9 ++ 
-					var VAR_10 = int 0
-			}
-			break 
-		case 2
-			if(var VAR_10 > int 200)
-			 {
-					var VAR_9 = int 0
-					var VAR_10 = int 0
-			}
-			break 
-}
-var VAR_10 ++ 
+	switch(var VAR_9)
+	 {
+			case 0
+				var VAR_10 = int 0
+				var VAR_11 = call randomize_int(int 1200, int 1801)
+				var VAR_9 ++ 
+				break 
+			case 1
+				if(var VAR_10 > var VAR_11)
+				 {
+						var thunstrk_sound_ref = call play_loaded_sound(int 4, int 0, int 25, int 0)
+						call set_sound_volume(var thunstrk_sound_ref, call randomize_int(int 100, int 201))
+						call func_11a(var thunstrk_sound_ref, call randomize_int(int 0, int 128))
+						if(var ! VAR_3)
+						 {
+								var VAR_3 = int 1
+						}
+						var VAR_9 ++ 
+						var VAR_10 = int 0
+				}
+				break 
+			case 2
+				if(var VAR_10 > int 200)
+				 {
+						var VAR_9 = int 0
+						var VAR_10 = int 0
+				}
+				break 
+	}
+	var VAR_10 ++ 
 
 ._SCRIPT_17
-switch(var VAR_13)
- {
-		case 0
-			if(gamevar scene_counter > int 600)
-			 {
-					var VAR_13 ++ 
-			}
-			break 
-		case 1
-			var VAR_14 = int 0
-			call reset_local_timer()
-			var VAR_16 = call randomize_int(int 400, int 601)
-			var VAR_13 ++ 
-			break 
-		case 2
-			if(call is_local_timer_greater_than(var VAR_16))
-			 {
-					call apply_effect_on_char(gamevar misc_fx_scripts, int 6, int 0, int 0)
-					call reset_local_timer()
-					var VAR_17 = int 255
-					var VAR_16 = call randomize_int(int 1, int 31)
-					var VAR_14 = int 0
-					var VAR_13 ++ 
-			}
-			break 
-		case 3
-			if(call is_local_timer_greater_than(var VAR_16))
-			 {
-					var VAR_17 -= int 4 * var VAR_16
-					var verwind_sound_ref = call play_loaded_sound(int 5, int 0, int 25, int 0)
-					call set_sound_volume(var verwind_sound_ref, var VAR_17)
-					var VAR_16 = int 255 - var VAR_17
-					var VAR_14 = int 0
-					var VAR_13 ++ 
-			}
-			break 
-		case 4
-			if(var VAR_14 > var VAR_16)
-			 {
-					var verwind_sound_ref = call play_loaded_sound /* 'thunstrk' */ (int 4, int 0, int 25, int 0)
-					call set_sound_volume(var verwind_sound_ref, var VAR_17)
-					if(var ! VAR_3)
-					 {
-							var VAR_3 = int 1
-					}
-					var VAR_13 ++ 
-					var VAR_14 = int 0
-			}
-			break 
-		case 5
-			if(var VAR_14 > int 100)
-			 {
-					var VAR_13 = int 1
-					var VAR_14 = int 0
-			}
-			break 
-}
-var VAR_14 ++ 
+	switch(var VAR_13)
+	 {
+			case 0
+				if(gamevar scene_counter > int 600)
+				 {
+						var VAR_13 ++ 
+				}
+				break 
+			case 1
+				var VAR_14 = int 0
+				call reset_local_timer()
+				var VAR_16 = call randomize_int(int 400, int 601)
+				var VAR_13 ++ 
+				break 
+			case 2
+				if(call is_local_timer_greater_than(var VAR_16))
+				 {
+						call apply_effect_on_char(gamevar misc_fx_scripts, int 6, int 0, int 0)
+						call reset_local_timer()
+						var VAR_17 = int 255
+						var VAR_16 = call randomize_int(int 1, int 31)
+						var VAR_14 = int 0
+						var VAR_13 ++ 
+				}
+				break 
+			case 3
+				if(call is_local_timer_greater_than(var VAR_16))
+				 {
+						var VAR_17 -= int 4 * var VAR_16
+						var verwind_sound_ref = call play_loaded_sound(int 5, int 0, int 25, int 0)
+						call set_sound_volume(var verwind_sound_ref, var VAR_17)
+						var VAR_16 = int 255 - var VAR_17
+						var VAR_14 = int 0
+						var VAR_13 ++ 
+				}
+				break 
+			case 4
+				if(var VAR_14 > var VAR_16)
+				 {
+						var verwind_sound_ref = call play_loaded_sound /* 'thunstrk' */ (int 4, int 0, int 25, int 0)
+						call set_sound_volume(var verwind_sound_ref, var VAR_17)
+						if(var ! VAR_3)
+						 {
+								var VAR_3 = int 1
+						}
+						var VAR_13 ++ 
+						var VAR_14 = int 0
+				}
+				break 
+			case 5
+				if(var VAR_14 > int 100)
+				 {
+						var VAR_13 = int 1
+						var VAR_14 = int 0
+				}
+				break 
+	}
+	var VAR_14 ++ 

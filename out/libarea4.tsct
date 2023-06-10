@@ -10,293 +10,293 @@
 
 
 ._DATA
-shaman_imp	{ 0, 0, 0, 0, 0, 0, 0, -12481, 3, -18801, -12363, 3, -19113, -11545, 3, -17815, -11943, 3, -17859, -10929, 3, -18178, -10713, 3, -17278 }	
-init_position1	{ -13717, 4, -19532 }	
-init_position	{ -9880, 1205, -18195 }	
-VAR_6	{ -11886, 3, -19531, -11998, 3, -20060, -12568, 3, -19210, -12944, 3, -19882, -14018, 3, -19824, -13992, 3, -19395, -13669, 3, -19208, -12664, 3, -18219, -12206, 3, -18151, -11821, 3, -17805, -11560, 3, -17130, -10782, 3, -17066, -10598, 3, -17501, -10899, 3, -18326, -10899, 3, -17936, -11189, 3, -17337, -11515, 3, -17799, -11899, 3, -17772, -11672, 403, -18894, -10151, 1003, -19083 }	
-VAR_7	{ -12107, 3, -19740, -12177, 3, -18750, -12021, 3, -17781, -11254, 3, -17941, -10838, 3, -18496, -10750, 3, -17313, -11873, 3, -17399, -13005, 3, -18403, -13759, 3, -19124, -13211, 3, -20018 }	
-VAR_8	{ 0, 1, 20, VAR_6, 8, 2, 4, 0, 9, 0, 1, 16, 107, 114, -1, 2, 2, 3, 2, 5, 0, 100, 7, 1, 6, 6, 1, -1 }	
-impoint_anim	{ 0, 17, 18, VAR_6, 0, 11, 100, 200, 7, 8, 17, 18, VAR_6, 0, 11, 100, 200, 7, 8, 17, 18, VAR_6, 0, 11, 100, 200, 7, 8, 17, 18, VAR_6, 0, 11, 100, 200, 7, 8, 17, 18, VAR_6, 0, 11, 100, 200, 7, 8, 17, 18, VAR_6, 0, 11, 100, 200, 7, 8 }	
-ai_script	{ 17, 10, VAR_7, 1, 11, 300, 500, 7, 8 }	
-VAR_14	{ 0, 0, 0, 0 }	
-position	{ 0, 0, 0 }	
-scroll_position	{ -11505, 2353, -20091 }	
-VAR_40	-1	
+	shaman_imp	{ 0, 0, 0, 0, 0, 0, 0, -12481, 3, -18801, -12363, 3, -19113, -11545, 3, -17815, -11943, 3, -17859, -10929, 3, -18178, -10713, 3, -17278 }	
+	init_position1	{ -13717, 4, -19532 }	
+	init_position	{ -9880, 1205, -18195 }	
+	VAR_6	{ -11886, 3, -19531, -11998, 3, -20060, -12568, 3, -19210, -12944, 3, -19882, -14018, 3, -19824, -13992, 3, -19395, -13669, 3, -19208, -12664, 3, -18219, -12206, 3, -18151, -11821, 3, -17805, -11560, 3, -17130, -10782, 3, -17066, -10598, 3, -17501, -10899, 3, -18326, -10899, 3, -17936, -11189, 3, -17337, -11515, 3, -17799, -11899, 3, -17772, -11672, 403, -18894, -10151, 1003, -19083 }	
+	VAR_7	{ -12107, 3, -19740, -12177, 3, -18750, -12021, 3, -17781, -11254, 3, -17941, -10838, 3, -18496, -10750, 3, -17313, -11873, 3, -17399, -13005, 3, -18403, -13759, 3, -19124, -13211, 3, -20018 }	
+	VAR_8	{ 0, 1, 20, VAR_6, 8, 2, 4, 0, 9, 0, 1, 16, 107, 114, -1, 2, 2, 3, 2, 5, 0, 100, 7, 1, 6, 6, 1, -1 }	
+	impoint_anim	{ 0, 17, 18, VAR_6, 0, 11, 100, 200, 7, 8, 17, 18, VAR_6, 0, 11, 100, 200, 7, 8, 17, 18, VAR_6, 0, 11, 100, 200, 7, 8, 17, 18, VAR_6, 0, 11, 100, 200, 7, 8, 17, 18, VAR_6, 0, 11, 100, 200, 7, 8, 17, 18, VAR_6, 0, 11, 100, 200, 7, 8 }	
+	ai_script	{ 17, 10, VAR_7, 1, 11, 300, 500, 7, 8 }	
+	VAR_14	{ 0, 0, 0, 0 }	
+	position	{ 0, 0, 0 }	
+	scroll_position	{ -11505, 2353, -20091 }	
+	VAR_40	-1	
 
 ._on_load
-call play_bgm("GNO")
-call load_sound_set(int 63)
+	call play_bgm("GNO")
+	call load_sound_set(int 63)
 
- /* play the sound 'gnoamb1' */ 
-call play_loaded_sound(int 1, int -1, int 63, int 0)
-if(gamevar is_room_cleared)
- {
-		execute SCRIPT_4
-}
-else
- {
-		switch(gamevar room_state)
-		 {
-				case 1
-					execute SCRIPT_5
-					break 
-				case 2
-					execute SCRIPT_8
-					break 
-				case 0
-					break 
-		}
-}
+	 /* play the sound 'gnoamb1' */ 
+	call play_loaded_sound(int 1, int -1, int 63, int 0)
+	if(gamevar is_room_cleared)
+	 {
+			execute SCRIPT_4
+	}
+	else
+	 {
+			switch(gamevar room_state)
+			 {
+					case 1
+						execute SCRIPT_5
+						break 
+					case 2
+						execute SCRIPT_8
+						break 
+					case 0
+						break 
+			}
+	}
 
 ._infinite_loop
-execute SCRIPT_3
-if(gamevar !is_room_cleared)
- {
-		switch(gamevar room_state)
-		 {
-				case 1
-					execute SCRIPT_6
-					break 
-				case 2
-					execute SCRIPT_9
-					break 
-				case 0
-					break 
-		}
-}
+	execute SCRIPT_3
+	if(gamevar !is_room_cleared)
+	 {
+			switch(gamevar room_state)
+			 {
+					case 1
+						execute SCRIPT_6
+						break 
+					case 2
+						execute SCRIPT_9
+						break 
+					case 0
+						break 
+			}
+	}
 
 ._on_exit
-if(gamevar !is_room_cleared)
- {
-		switch(gamevar room_state)
-		 {
-				case 1
-					gamevar room_state ++ 
-					gamevar is_room_cleared = int 1
-					break 
-				case 2
-					gamevar room_state ++ 
-					gamevar is_room_cleared = int 1
-					break 
-				case 3
-					gamevar room_state ++ 
-					gamevar is_room_cleared = int 1
-					break 
-				case 0
-					break 
-				default 
-					gamevar room_state = int 0
-					break 
-		}
-}
+	if(gamevar !is_room_cleared)
+	 {
+			switch(gamevar room_state)
+			 {
+					case 1
+						gamevar room_state ++ 
+						gamevar is_room_cleared = int 1
+						break 
+					case 2
+						gamevar room_state ++ 
+						gamevar is_room_cleared = int 1
+						break 
+					case 3
+						gamevar room_state ++ 
+						gamevar is_room_cleared = int 1
+						break 
+					case 0
+						break 
+					default 
+						gamevar room_state = int 0
+						break 
+			}
+	}
 
 ._SCRIPT_3
-if(gamevar script_time > var VAR_44)
- {
-		var VAR_44 = gamevar script_time + int 600 + call randomize_int(int 0, int 400)
-		var VAR_42 = int 5 + call randomize_int(int 0, int 4)
-		call play_loaded_sound(var VAR_42, int 0, int 63, int 0)
-}
-if(gamevar script_time > var VAR_45)
- {
-		var VAR_45 = gamevar script_time + int 250 + call randomize_int(int 0, int 150)
-		var VAR_42 = int 9 + call randomize_int(int 0, int 4)
-		call play_loaded_sound(var VAR_42, int 0, int 63, int 0)
-}
-if(gamevar script_time > var VAR_43)
- {
-		var VAR_43 = gamevar script_time + int 300 + call randomize_int(int 0, int 200)
-		var VAR_42 = int 2 + call randomize_int(int 0, int 3)
-		call play_loaded_sound(var VAR_42, int 0, int 63, int 0)
-}
+	if(gamevar script_time > var VAR_44)
+	 {
+			var VAR_44 = gamevar script_time + int 600 + call randomize_int(int 0, int 400)
+			var VAR_42 = int 5 + call randomize_int(int 0, int 4)
+			call play_loaded_sound(var VAR_42, int 0, int 63, int 0)
+	}
+	if(gamevar script_time > var VAR_45)
+	 {
+			var VAR_45 = gamevar script_time + int 250 + call randomize_int(int 0, int 150)
+			var VAR_42 = int 9 + call randomize_int(int 0, int 4)
+			call play_loaded_sound(var VAR_42, int 0, int 63, int 0)
+	}
+	if(gamevar script_time > var VAR_43)
+	 {
+			var VAR_43 = gamevar script_time + int 300 + call randomize_int(int 0, int 200)
+			var VAR_42 = int 2 + call randomize_int(int 0, int 3)
+			call play_loaded_sound(var VAR_42, int 0, int 63, int 0)
+	}
 
 ._SCRIPT_4
-if(gamevar is_room_cleared == int 2)
- {
-		call func_108("bug1205")
-}
+	if(gamevar is_room_cleared == int 2)
+	 {
+			call func_108("bug1205")
+	}
 
 ._SCRIPT_5
-var shaman_imp = call create_enemy(int 106, int 0, "mÐÿÿ", int 90)
-call func_106(var shaman_imp, int 3, int 1, var &VAR_8)
-call set_char_running(var shaman_imp)
-call freeze_enemy(var shaman_imp)
-call set_char_init_state(var shaman_imp, int 11)
-gamevar *character_movement_p+57 = int 60
-gamevar *character_movement_p+58 = int 90
-gamevar *character_movement_p+59 = int 30
-var nyelimp = call create_char(var &init_position, "nyelimp!", int 150, int 13)
-gamevar script_object = var nyelimp
-gamevar *character_movement_p+60 = int 1
-gamevar *character_stats_p+14 = int 106000
-var btreasure = call create_char(var &init_position1, "btreasure", int 0, int 14)
-call add_item_to_char(var btreasure, int 42 /* bread */ , int 1, int 0)
-call add_item_to_char(var btreasure, int 43 /* cheese */ , int 1, int 0)
-call add_item_to_char(var btreasure, int 85 /* moneybag */ , int 3277313, int 0)
-call add_item_to_char(var btreasure, int 32 /* potwhite */ , int 1, int 0)
-var DAVID = call get_char_handle(int 65536)
-var pfew_anim = call load_anim("pfew")
-var startle_anim = call load_anim("startle")
-var impoint_anim = call load_anim("impoint")
-var no_anim = call load_anim("no")
-var no_anim = call load_anim("no")
-var conjure_anim = call load_anim("conjure")
-call set_input_system(int 2)
-if(call func_c0(int 0, "gno", "libarea2"))
- {
-		call func_108("Imp")
-		call func_7c(int 0, var &VAR_14, "gno", "libarea2")
-}
-call load_char("imp")
+	var shaman_imp = call create_enemy(int 106, int 0, "mÐÿÿ", int 90)
+	call func_106(var shaman_imp, int 3, int 1, var &VAR_8)
+	call set_char_running(var shaman_imp)
+	call freeze_enemy(var shaman_imp)
+	call set_char_init_state(var shaman_imp, int 11)
+	gamevar *character_movement_p+57 = int 60
+	gamevar *character_movement_p+58 = int 90
+	gamevar *character_movement_p+59 = int 30
+	var nyelimp = call create_char(var &init_position, "nyelimp!", int 150, int 13)
+	gamevar script_object = var nyelimp
+	gamevar *character_movement_p+60 = int 1
+	gamevar *character_stats_p+14 = int 106000
+	var btreasure = call create_char(var &init_position1, "btreasure", int 0, int 14)
+	call add_item_to_char(var btreasure, int 42 /* bread */ , int 1, int 0)
+	call add_item_to_char(var btreasure, int 43 /* cheese */ , int 1, int 0)
+	call add_item_to_char(var btreasure, int 85 /* moneybag */ , int 3277313, int 0)
+	call add_item_to_char(var btreasure, int 32 /* potwhite */ , int 1, int 0)
+	var DAVID = call get_char_handle(int 65536)
+	var pfew_anim = call load_anim("pfew")
+	var startle_anim = call load_anim("startle")
+	var impoint_anim = call load_anim("impoint")
+	var no_anim = call load_anim("no")
+	var no_anim = call load_anim("no")
+	var conjure_anim = call load_anim("conjure")
+	call set_input_system(int 2)
+	if(call func_c0(int 0, "gno", "libarea2"))
+	 {
+			call func_108("Imp")
+			call func_7c(int 0, var &VAR_14, "gno", "libarea2")
+	}
+	call load_char("imp")
 
 ._SCRIPT_6
-execute SCRIPT_7
+	execute SCRIPT_7
 
 ._SCRIPT_7
-if(var VAR_40 != var VAR_33)
- {
-		var VAR_40 = var VAR_33
-		call log_obj(var VAR_33)
-}
-switch(var VAR_33)
- {
-		case 0
-			var VAR_35 = call func_41(var nyelimp, int 0)
-			call set_char_running(var nyelimp)
-			call func_19(var nyelimp, var shaman_imp)
-			call force_scroll_to_pos(call get_char_pos(var shaman_imp))
-			var VAR_33 ++ 
-			var VAR_34 = int 0
-			break 
-		case 1
-			if(call is_char_standing(var nyelimp))
-			 {
-					call func_12f(var VAR_35)
-					var position = call get_char_pos(var shaman_imp)
-					call char_turn_to_pos(var nyelimp, var position)
-					call char_turn_to_pos(var shaman_imp, call get_char_pos(var nyelimp))
-					var VAR_34 = int 0
-					var VAR_33 ++ 
-			}
-			break 
-		case 2
-			if(var VAR_34 > int 30)
-			 {
-					call play_char_anim(var nyelimp, var startle_anim, int 0)
-					var VAR_34 = int 0
-					var VAR_33 ++ 
-			}
-			break 
-		case 3
-			if(call func_5c(var nyelimp))
-			 {
-					call play_char_anim(var shaman_imp, var no_anim, int 0)
-					call play_char_anim(var nyelimp, var impoint_anim, int 0)
-					var VAR_34 = int 0
-					var VAR_33 ++ 
-			}
-			break 
-		case 4
-			if(call func_5c(var nyelimp))
-			 {
-					call play_char_anim(var nyelimp, var no_anim, int 0)
-					var VAR_34 = int 0
-					var VAR_33 ++ 
-			}
-			break 
-		case 5
-			if(call func_5c(var shaman_imp))
-			 {
-					call set_input_system(int 1)
-					call force_scroll_to_pos(call get_char_pos(var DAVID))
-					call func_50(var shaman_imp, int 8192)
-					call play_char_ai_script(var shaman_imp, var &ai_script)
-					var VAR_34 = int 0
-					var VAR_33 ++ 
-			}
-			break 
-		case 6
-			if(call is_char_handle_in_level(int 1769472 /* YELIMP */ ))
-			 {
-					if(call func_ab(int 500, call get_char_pos(var nyelimp)))
-					 {
-							var VAR_39 = int 1
-					}
-					gamevar script_object = var nyelimp
-					if(gamevar *object_p+7 & int 4)
-					 {
-							gamevar *object_p+7 &= int -5
-							var VAR_39 = int 1
-					}
-			}
-			if(call is_char_handle_in_level(int 3866624))
-			 {
-					if(call func_ab(int 500, call get_char_pos(var shaman_imp)))
-					 {
-							var VAR_39 = int 1
-					}
-					gamevar script_object = var shaman_imp
-					if(gamevar *object_p+7 & int 4)
-					 {
-							gamevar *object_p+7 &= int -5
-							var VAR_39 = int 1
-					}
-			}
-			if(var VAR_39)
-			 {
-					gamevar script_object = var nyelimp
-					gamevar *object_p+6 |= int 8388608
-					var VAR_34 = int 0
-					var VAR_33 ++ 
-			}
-			break 
-		case 7
-			if(var VAR_34 > int 5)
-			 {
-					call apply_effect_on_char(gamevar char_gen_fx_scripts, int 11, call get_char_pos(var nyelimp), int 0)
-					var VAR_37 = call apply_effect_on_char(gamevar char_gen_fx_scripts, int 10, int 0, var nyelimp)
-					call force_scroll_to_pos(var &scroll_position)
-					var VAR_34 = int 0
-					var VAR_33 ++ 
-			}
-			break 
-		case 8
-			if(var VAR_34 > int 75)
-			 {
-					call char_teleport_to_pos(var nyelimp, var &scroll_position, int 227)
-					call apply_effect_on_char(gamevar char_gen_fx_scripts, int 11, var &scroll_position, int 0)
-					var VAR_37 = call apply_effect_on_char(gamevar char_gen_fx_scripts, int 9, int 0, var nyelimp)
-					call set_input_system(int 1)
-					var VAR_34 = int 0
-					var VAR_33 ++ 
-			}
-			break 
-		case 9
-			if(var VAR_34 > int 75)
-			 {
-					if(call is_char_handle_in_level(int 3866624))
-					 {
-							call set_char_template(var shaman_imp, int 106)
-					}
-					call set_char_running(var nyelimp)
-					var VAR_35 = call func_41(var nyelimp, int 0)
-					call func_2b(var nyelimp, int 1)
-					call force_scroll_to_pos(call get_char_pos(var DAVID))
-					var VAR_34 = int 0
-					var VAR_33 ++ 
-			}
-			break 
-		case 10
-			if(call is_char_standing(var nyelimp))
-			 {
-					call func_12f(var VAR_35)
-					call remove_char(var nyelimp)
-					var VAR_34 = int 0
-					var VAR_33 ++ 
-			}
-			break 
-}
-var VAR_34 ++ 
+	if(var VAR_40 != var VAR_33)
+	 {
+			var VAR_40 = var VAR_33
+			call log_obj(var VAR_33)
+	}
+	switch(var VAR_33)
+	 {
+			case 0
+				var VAR_35 = call func_41(var nyelimp, int 0)
+				call set_char_running(var nyelimp)
+				call func_19(var nyelimp, var shaman_imp)
+				call force_scroll_to_pos(call get_char_pos(var shaman_imp))
+				var VAR_33 ++ 
+				var VAR_34 = int 0
+				break 
+			case 1
+				if(call is_char_standing(var nyelimp))
+				 {
+						call func_12f(var VAR_35)
+						var position = call get_char_pos(var shaman_imp)
+						call char_turn_to_pos(var nyelimp, var position)
+						call char_turn_to_pos(var shaman_imp, call get_char_pos(var nyelimp))
+						var VAR_34 = int 0
+						var VAR_33 ++ 
+				}
+				break 
+			case 2
+				if(var VAR_34 > int 30)
+				 {
+						call play_char_anim(var nyelimp, var startle_anim, int 0)
+						var VAR_34 = int 0
+						var VAR_33 ++ 
+				}
+				break 
+			case 3
+				if(call func_5c(var nyelimp))
+				 {
+						call play_char_anim(var shaman_imp, var no_anim, int 0)
+						call play_char_anim(var nyelimp, var impoint_anim, int 0)
+						var VAR_34 = int 0
+						var VAR_33 ++ 
+				}
+				break 
+			case 4
+				if(call func_5c(var nyelimp))
+				 {
+						call play_char_anim(var nyelimp, var no_anim, int 0)
+						var VAR_34 = int 0
+						var VAR_33 ++ 
+				}
+				break 
+			case 5
+				if(call func_5c(var shaman_imp))
+				 {
+						call set_input_system(int 1)
+						call force_scroll_to_pos(call get_char_pos(var DAVID))
+						call func_50(var shaman_imp, int 8192)
+						call play_char_ai_script(var shaman_imp, var &ai_script)
+						var VAR_34 = int 0
+						var VAR_33 ++ 
+				}
+				break 
+			case 6
+				if(call is_char_handle_in_level(int 1769472 /* YELIMP */ ))
+				 {
+						if(call func_ab(int 500, call get_char_pos(var nyelimp)))
+						 {
+								var VAR_39 = int 1
+						}
+						gamevar script_object = var nyelimp
+						if(gamevar *object_p+7 & int 4)
+						 {
+								gamevar *object_p+7 &= int -5
+								var VAR_39 = int 1
+						}
+				}
+				if(call is_char_handle_in_level(int 3866624))
+				 {
+						if(call func_ab(int 500, call get_char_pos(var shaman_imp)))
+						 {
+								var VAR_39 = int 1
+						}
+						gamevar script_object = var shaman_imp
+						if(gamevar *object_p+7 & int 4)
+						 {
+								gamevar *object_p+7 &= int -5
+								var VAR_39 = int 1
+						}
+				}
+				if(var VAR_39)
+				 {
+						gamevar script_object = var nyelimp
+						gamevar *object_p+6 |= int 8388608
+						var VAR_34 = int 0
+						var VAR_33 ++ 
+				}
+				break 
+			case 7
+				if(var VAR_34 > int 5)
+				 {
+						call apply_effect_on_char(gamevar char_gen_fx_scripts, int 11, call get_char_pos(var nyelimp), int 0)
+						var VAR_37 = call apply_effect_on_char(gamevar char_gen_fx_scripts, int 10, int 0, var nyelimp)
+						call force_scroll_to_pos(var &scroll_position)
+						var VAR_34 = int 0
+						var VAR_33 ++ 
+				}
+				break 
+			case 8
+				if(var VAR_34 > int 75)
+				 {
+						call char_teleport_to_pos(var nyelimp, var &scroll_position, int 227)
+						call apply_effect_on_char(gamevar char_gen_fx_scripts, int 11, var &scroll_position, int 0)
+						var VAR_37 = call apply_effect_on_char(gamevar char_gen_fx_scripts, int 9, int 0, var nyelimp)
+						call set_input_system(int 1)
+						var VAR_34 = int 0
+						var VAR_33 ++ 
+				}
+				break 
+			case 9
+				if(var VAR_34 > int 75)
+				 {
+						if(call is_char_handle_in_level(int 3866624))
+						 {
+								call set_char_template(var shaman_imp, int 106)
+						}
+						call set_char_running(var nyelimp)
+						var VAR_35 = call func_41(var nyelimp, int 0)
+						call func_2b(var nyelimp, int 1)
+						call force_scroll_to_pos(call get_char_pos(var DAVID))
+						var VAR_34 = int 0
+						var VAR_33 ++ 
+				}
+				break 
+			case 10
+				if(call is_char_standing(var nyelimp))
+				 {
+						call func_12f(var VAR_35)
+						call remove_char(var nyelimp)
+						var VAR_34 = int 0
+						var VAR_33 ++ 
+				}
+				break 
+	}
+	var VAR_34 ++ 
 
 ._SCRIPT_8
 

@@ -10,849 +10,849 @@
 
 
 ._DATA
-VAR_4	{ 0, 0 }	
-VAR_6	{ 0, 0 }	
-VAR_8	{ 0, 0 }	
-VAR_13	{ 0, 0, 1 }	
-VAR_23	0	
-VAR_24	0	
-VAR_26	{ 525, 0, -1618 }	
-VAR_27	{ 938, 400, -2090 }	
-VAR_28	{ 692, 0, -1049 }	
-VAR_29	{ 1333, 400, -1145 }	
-position	{ 938, 800, -2090 }	
-position1	{ 1333, 1000, -1145 }	
-position2	{ -992, 1001, -2144 }	
-init_position	{ -1407, 901, -1181 }	
-ai_script	{ 16, VAR_23, 1, 0, -877, 311, -1991, 27, 16, VAR_23, 2, 8 }	
-ai_script1	{ 16, VAR_24, 1, 0, -1229, 311, -1200, 27, 16, VAR_24, 2, 8 }	
-VAR_59	{ 0, 0, 0 }	
-VAR_60	{ 0, 0, 0, 0, 0 }	
-VAR_63	{ 0, 0 }	
-VAR_71	{ 762, 0, -1443 }	
-VAR_72	{ 317, 0, -1916 }	
-VAR_73	{ 482, 0, -658 }	
-VAR_74	{ 166, 0, -673 }	
-walk_position	VAR_71	
-walk_position1	VAR_72	
-walk_position2	{ VAR_73, VAR_74 }	
-VAR_78	{ -344, 0, -1925 }	
-VAR_79	{ -819, 0, -1463 }	
-VAR_80	{ -160, 0, -521 }	
-VAR_81	{ -182, 0, -709 }	
-walk_position3	VAR_78	
-walk_position4	VAR_79	
-walk_position5	{ VAR_80, VAR_81 }	
-position3	{ 872, 435, -1481 }	
-position4	{ 356, 395, -2011 }	
-position5	{ -370, 399, -2026 }	
-position6	{ -911, 397, -1508, 0, 0 }	
-VAR_111	1	
-VAR_115	{ 1146896384, 0, -999456768 }	
-VAR_116	{ -1038876672, 0, -989761536 }	
-VAR_117	"b"	
-arr	{ VAR_115, VAR_116, VAR_117 }
+	VAR_4	{ 0, 0 }	
+	VAR_6	{ 0, 0 }	
+	VAR_8	{ 0, 0 }	
+	VAR_13	{ 0, 0, 1 }	
+	VAR_23	0	
+	VAR_24	0	
+	VAR_26	{ 525, 0, -1618 }	
+	VAR_27	{ 938, 400, -2090 }	
+	VAR_28	{ 692, 0, -1049 }	
+	VAR_29	{ 1333, 400, -1145 }	
+	position	{ 938, 800, -2090 }	
+	position1	{ 1333, 1000, -1145 }	
+	position2	{ -992, 1001, -2144 }	
+	init_position	{ -1407, 901, -1181 }	
+	ai_script	{ 16, VAR_23, 1, 0, -877, 311, -1991, 27, 16, VAR_23, 2, 8 }	
+	ai_script1	{ 16, VAR_24, 1, 0, -1229, 311, -1200, 27, 16, VAR_24, 2, 8 }	
+	VAR_59	{ 0, 0, 0 }	
+	VAR_60	{ 0, 0, 0, 0, 0 }	
+	VAR_63	{ 0, 0 }	
+	VAR_71	{ 762, 0, -1443 }	
+	VAR_72	{ 317, 0, -1916 }	
+	VAR_73	{ 482, 0, -658 }	
+	VAR_74	{ 166, 0, -673 }	
+	walk_position	VAR_71	
+	walk_position1	VAR_72	
+	walk_position2	{ VAR_73, VAR_74 }	
+	VAR_78	{ -344, 0, -1925 }	
+	VAR_79	{ -819, 0, -1463 }	
+	VAR_80	{ -160, 0, -521 }	
+	VAR_81	{ -182, 0, -709 }	
+	walk_position3	VAR_78	
+	walk_position4	VAR_79	
+	walk_position5	{ VAR_80, VAR_81 }	
+	position3	{ 872, 435, -1481 }	
+	position4	{ 356, 395, -2011 }	
+	position5	{ -370, 399, -2026 }	
+	position6	{ -911, 397, -1508, 0, 0 }	
+	VAR_111	1	
+	VAR_115	{ 1146896384, 0, -999456768 }	
+	VAR_116	{ -1038876672, 0, -989761536 }	
+	VAR_117	{ -1000210432, 0, -998277120 }	
+	arr	{ VAR_115, VAR_116, VAR_117 }
 
 ._on_load
-call load_sound_set(int 46)
+	call load_sound_set(int 46)
 
- /* play the sound 'palamb1' */ 
-call play_loaded_sound(int 4, int -1, int 46, int 0)
+	 /* play the sound 'palamb1' */ 
+	call play_loaded_sound(int 4, int -1, int 46, int 0)
 
- /* play the sound 'bubbles' */ 
-call play_loaded_sound(int 9, int -1, int 46, int 0)
-if(gamevar is_room_cleared)
- {
-		execute SCRIPT_10
-}
-else
- {
-		switch(gamevar room_state)
-		 {
-				case 1
-					execute SCRIPT_7
-					break 
-				case 2
-					execute SCRIPT_9
-					break 
-				case 0
-					break 
-		}
-}
-call load_sound_set(int 49)
+	 /* play the sound 'bubbles' */ 
+	call play_loaded_sound(int 9, int -1, int 46, int 0)
+	if(gamevar is_room_cleared)
+	 {
+			execute SCRIPT_10
+	}
+	else
+	 {
+			switch(gamevar room_state)
+			 {
+					case 1
+						execute SCRIPT_7
+						break 
+					case 2
+						execute SCRIPT_9
+						break 
+					case 0
+						break 
+			}
+	}
+	call load_sound_set(int 49)
 
 ._infinite_loop
-execute SCRIPT_5
-if(gamevar !is_room_cleared)
- {
-		switch(gamevar room_state)
-		 {
-				case 1
-					execute SCRIPT_6
-					break 
-				case 2
-					execute SCRIPT_8
-					break 
-				case 0
-					break 
-		}
-}
+	execute SCRIPT_5
+	if(gamevar !is_room_cleared)
+	 {
+			switch(gamevar room_state)
+			 {
+					case 1
+						execute SCRIPT_6
+						break 
+					case 2
+						execute SCRIPT_8
+						break 
+					case 0
+						break 
+			}
+	}
 
 ._on_exit
-if(gamevar !is_room_cleared)
- {
-		switch(gamevar room_state)
-		 {
-				case 1
-					if(var VAR_2)
-					 {
-							gamevar *scene_info_p+1 = int 1
-							gamevar room_state ++ 
-							gamevar is_room_cleared = int 1
-					}
-					else
-					 {
-							call func_ee(var VAR_0)
-							call func_ee(var VAR_1)
-					}
-					break 
-				case 2
-					gamevar room_state ++ 
-					gamevar is_room_cleared = int 1
-					break 
-				case 0
-					break 
-				default 
-					gamevar room_state = int 0
-					break 
-		}
-}
+	if(gamevar !is_room_cleared)
+	 {
+			switch(gamevar room_state)
+			 {
+					case 1
+						if(var VAR_2)
+						 {
+								gamevar *scene_info_p+1 = int 1
+								gamevar room_state ++ 
+								gamevar is_room_cleared = int 1
+						}
+						else
+						 {
+								call func_ee(var VAR_0)
+								call func_ee(var VAR_1)
+						}
+						break 
+					case 2
+						gamevar room_state ++ 
+						gamevar is_room_cleared = int 1
+						break 
+					case 0
+						break 
+					default 
+						gamevar room_state = int 0
+						break 
+			}
+	}
 
 ._SCRIPT_3
-gamevar SMACKER_X = int 272
-gamevar SMACKER_Y = int 0
-call play_2d_anim("lamp", int -2147483, int 0, var &VAR_5)
-gamevar SMACKER_X = int 360
-gamevar SMACKER_Y = int 0
-call play_2d_anim("rightsid", int -2147483, int 0, var &VAR_7)
-gamevar SMACKER_X = int 0
-gamevar SMACKER_Y = int 0
-call play_2d_anim("leftside", int -2147483, int 0, var &VAR_3)
+	gamevar SMACKER_X = int 272
+	gamevar SMACKER_Y = int 0
+	call play_2d_anim("lamp", int -2147483, int 0, var &VAR_5)
+	gamevar SMACKER_X = int 360
+	gamevar SMACKER_Y = int 0
+	call play_2d_anim("rightsid", int -2147483, int 0, var &VAR_7)
+	gamevar SMACKER_X = int 0
+	gamevar SMACKER_Y = int 0
+	call play_2d_anim("leftside", int -2147483, int 0, var &VAR_3)
 
 ._SCRIPT_4
-var VAR_102 = var VAR_4
-var VAR_110 = var VAR_3
-var VAR_103 = var VAR_8
-var VAR_109 = var VAR_7
-if(var VAR_102 == int 6&&var VAR_102 != var VAR_100)
- {
-		var VAR_100 = var VAR_102
-		var potbreak_sound_ref = call play_loaded_sound(int 4, int -1, int 49, int 0)
-		var VAR_107 = int 80
-}
-if(var VAR_102 == int 48&&var VAR_102 != var VAR_100)
- {
-		var VAR_100 = var VAR_102
-		var steplock_sound_ref = call play_loaded_sound(int 11, int -1, int 49, int 0)
-}
-if(var VAR_102 == int 68&&var VAR_102 != var VAR_100)
- {
-		var VAR_100 = var VAR_102
+	var VAR_102 = var VAR_4
+	var VAR_110 = var VAR_3
+	var VAR_103 = var VAR_8
+	var VAR_109 = var VAR_7
+	if(var VAR_102 == int 6&&var VAR_102 != var VAR_100)
+	 {
+			var VAR_100 = var VAR_102
+			var potbreak_sound_ref = call play_loaded_sound(int 4, int -1, int 49, int 0)
+			var VAR_107 = int 80
+	}
+	if(var VAR_102 == int 48&&var VAR_102 != var VAR_100)
+	 {
+			var VAR_100 = var VAR_102
+			var steplock_sound_ref = call play_loaded_sound(int 11, int -1, int 49, int 0)
+	}
+	if(var VAR_102 == int 68&&var VAR_102 != var VAR_100)
+	 {
+			var VAR_100 = var VAR_102
 
-		 /* play the sound 'swrdatt2' */ 
-		call play_loaded_sound(int 12, int 0, int 49, int 0)
-}
-if(var VAR_102 == int 92&&var VAR_102 != var VAR_100)
- {
-		var VAR_100 = var VAR_102
+			 /* play the sound 'swrdatt2' */ 
+			call play_loaded_sound(int 12, int 0, int 49, int 0)
+	}
+	if(var VAR_102 == int 92&&var VAR_102 != var VAR_100)
+	 {
+			var VAR_100 = var VAR_102
 
-		 /* play the sound 'swrdatt2' */ 
-		call play_loaded_sound(int 12, int 0, int 49, int 0)
-}
-if(var VAR_102 == int 110&&var VAR_102 != var VAR_100)
- {
-		var VAR_100 = var VAR_102
+			 /* play the sound 'swrdatt2' */ 
+			call play_loaded_sound(int 12, int 0, int 49, int 0)
+	}
+	if(var VAR_102 == int 110&&var VAR_102 != var VAR_100)
+	 {
+			var VAR_100 = var VAR_102
 
-		 /* play the sound 'swrdatt2' */ 
-		call play_loaded_sound(int 12, int 0, int 49, int 0)
-}
-if(var VAR_103 == int 6&&var VAR_103 != var VAR_100)
- {
-		var VAR_100 = var VAR_103
-		var potbreak_sound_ref = call play_loaded_sound /* 'potbreak' */ (int 4, int -1, int 49, int 0)
-		var VAR_107 = int 80
-}
-if(var VAR_103 == int 46&&var VAR_103 != var VAR_100)
- {
-		var VAR_100 = var VAR_103
-		var steplock_sound_ref = call play_loaded_sound /* 'steplock' */ (int 11, int -1, int 49, int 0)
-}
-if(var VAR_103 == int 67&&var VAR_103 != var VAR_100)
- {
-		var VAR_100 = var VAR_103
+			 /* play the sound 'swrdatt2' */ 
+			call play_loaded_sound(int 12, int 0, int 49, int 0)
+	}
+	if(var VAR_103 == int 6&&var VAR_103 != var VAR_100)
+	 {
+			var VAR_100 = var VAR_103
+			var potbreak_sound_ref = call play_loaded_sound /* 'potbreak' */ (int 4, int -1, int 49, int 0)
+			var VAR_107 = int 80
+	}
+	if(var VAR_103 == int 46&&var VAR_103 != var VAR_100)
+	 {
+			var VAR_100 = var VAR_103
+			var steplock_sound_ref = call play_loaded_sound /* 'steplock' */ (int 11, int -1, int 49, int 0)
+	}
+	if(var VAR_103 == int 67&&var VAR_103 != var VAR_100)
+	 {
+			var VAR_100 = var VAR_103
 
-		 /* play the sound 'swrdatt2' */ 
-		call play_loaded_sound(int 12, int 0, int 49, int 0)
-}
-if(var VAR_103 == int 92&&var VAR_103 != var VAR_100)
- {
-		var VAR_100 = var VAR_103
+			 /* play the sound 'swrdatt2' */ 
+			call play_loaded_sound(int 12, int 0, int 49, int 0)
+	}
+	if(var VAR_103 == int 92&&var VAR_103 != var VAR_100)
+	 {
+			var VAR_100 = var VAR_103
 
-		 /* play the sound 'swrdatt2' */ 
-		call play_loaded_sound(int 12, int 0, int 49, int 0)
-}
-if(var VAR_103 == int 112&&var VAR_103 != var VAR_100)
- {
-		var VAR_100 = var VAR_103
+			 /* play the sound 'swrdatt2' */ 
+			call play_loaded_sound(int 12, int 0, int 49, int 0)
+	}
+	if(var VAR_103 == int 112&&var VAR_103 != var VAR_100)
+	 {
+			var VAR_100 = var VAR_103
 
-		 /* play the sound 'swrdatt2' */ 
-		call play_loaded_sound(int 12, int 0, int 49, int 0)
-}
-if(var VAR_102 == int 112&&var VAR_102 != var VAR_100)
- {
-		var VAR_100 = var VAR_102
-		call stop_playing_sound(var steplock_sound_ref)
-		var VAR_104 = call play_loaded_sound(var VAR_111, int -1, int 49, int 0)
-}
-if(var VAR_103 == int 111&&var VAR_103 != var VAR_100)
- {
-		var VAR_100 = var VAR_103
-		call stop_playing_sound(var steplock_sound_ref)
-		var VAR_104 = call play_loaded_sound(var VAR_111, int -1, int 49, int 0)
-}
-if(var VAR_103 == int 168&&var VAR_103 != var VAR_100)
- {
-		call stop_playing_sound(var VAR_104)
-		var VAR_100 = var VAR_103
+			 /* play the sound 'swrdatt2' */ 
+			call play_loaded_sound(int 12, int 0, int 49, int 0)
+	}
+	if(var VAR_102 == int 112&&var VAR_102 != var VAR_100)
+	 {
+			var VAR_100 = var VAR_102
+			call stop_playing_sound(var steplock_sound_ref)
+			var VAR_104 = call play_loaded_sound(var VAR_111, int -1, int 49, int 0)
+	}
+	if(var VAR_103 == int 111&&var VAR_103 != var VAR_100)
+	 {
+			var VAR_100 = var VAR_103
+			call stop_playing_sound(var steplock_sound_ref)
+			var VAR_104 = call play_loaded_sound(var VAR_111, int -1, int 49, int 0)
+	}
+	if(var VAR_103 == int 168&&var VAR_103 != var VAR_100)
+	 {
+			call stop_playing_sound(var VAR_104)
+			var VAR_100 = var VAR_103
 
-		 /* play the sound 'green' */ 
-		call play_loaded_sound(int 2, int 0, int 49, int 0)
-}
-if(var VAR_102 == int 168&&var VAR_102 != var VAR_100)
- {
-		call stop_playing_sound(var VAR_104)
-		var VAR_100 = var VAR_102
+			 /* play the sound 'green' */ 
+			call play_loaded_sound(int 2, int 0, int 49, int 0)
+	}
+	if(var VAR_102 == int 168&&var VAR_102 != var VAR_100)
+	 {
+			call stop_playing_sound(var VAR_104)
+			var VAR_100 = var VAR_102
 
-		 /* play the sound 'green' */ 
-		call play_loaded_sound(int 2, int 0, int 49, int 0)
-}
-if(var VAR_103 == int 150&&var VAR_103 != var VAR_101)
- {
-		var VAR_108 = int 1
-		var VAR_101 = var VAR_103
-}
-if(var VAR_102 == int 150&&var VAR_102 != var VAR_101)
- {
-		var VAR_108 = int 1
-		var VAR_101 = var VAR_102
-}
-if(var VAR_108)
- {
-		call set_sound_volume(var potbreak_sound_ref, var VAR_107)
-		var VAR_107 -- 
-		if(var VAR_107 < int 0)
-		 {
-				var VAR_101 = int -1
-				var VAR_108 = int 0
-				call stop_playing_sound(var potbreak_sound_ref)
-		}
-}
+			 /* play the sound 'green' */ 
+			call play_loaded_sound(int 2, int 0, int 49, int 0)
+	}
+	if(var VAR_103 == int 150&&var VAR_103 != var VAR_101)
+	 {
+			var VAR_108 = int 1
+			var VAR_101 = var VAR_103
+	}
+	if(var VAR_102 == int 150&&var VAR_102 != var VAR_101)
+	 {
+			var VAR_108 = int 1
+			var VAR_101 = var VAR_102
+	}
+	if(var VAR_108)
+	 {
+			call set_sound_volume(var potbreak_sound_ref, var VAR_107)
+			var VAR_107 -- 
+			if(var VAR_107 < int 0)
+			 {
+					var VAR_101 = int -1
+					var VAR_108 = int 0
+					call stop_playing_sound(var potbreak_sound_ref)
+			}
+	}
 
 ._SCRIPT_5
-if(gamevar script_time > var VAR_112)
- {
-		var VAR_112 = gamevar script_time + int 70 + call randomize_int(int 0, int 110)
-		var VAR_114 = call randomize_int(int 0, int 3)
+	if(gamevar script_time > var VAR_112)
+	 {
+			var VAR_112 = gamevar script_time + int 70 + call randomize_int(int 0, int 110)
+			var index = call randomize_int(int 0, int 3)
 
-		 /* play the sound 'flayamb1' */ 
-		call play_loaded_sound(int 5, int 0, int 46, @arr[var VAR_114])
-}
-if(gamevar script_time > var VAR_113)
- {
-		var VAR_113 = gamevar script_time + int 100 + call randomize_int(int 0, int 200)
-		var VAR_114 = call randomize_int(int 0, int 3)
+			 /* play the sound 'flayamb1' */ 
+			call play_loaded_sound(int 5, int 0, int 46, @arr[var VAR_114])
+	}
+	if(gamevar script_time > var VAR_113)
+	 {
+			var VAR_113 = gamevar script_time + int 100 + call randomize_int(int 0, int 200)
+			var index = call randomize_int(int 0, int 3)
 
-		 /* play the sound 'torches2' */ 
-		call play_loaded_sound(int 6, int 0, int 46, @arr[var VAR_114])
-}
+			 /* play the sound 'torches2' */ 
+			call play_loaded_sound(int 6, int 0, int 46, @arr[var index])
+	}
 
 ._SCRIPT_6
-if(var ! VAR_70)
- {
-		if(var VAR_25)
-		 {
-				gamevar *scene_info_p+3 = int 16
-		}
-		gamevar *scene_info_p+4 = int 16
-		gamevar *scene_info_p+5 = int 16
-		gamevar *scene_info_p+6 = int 16
-		gamevar *scene_info_p+7 = int 16
-		gamevar *scene_info_p+8 = int 16
-}
-else
- {
-		gamevar *scene_info_p+3 = int 2
-		gamevar *scene_info_p+4 = int 2
-		gamevar *scene_info_p+5 = int 2
-		gamevar *scene_info_p+6 = int 2
-		gamevar *scene_info_p+7 = int 2
-		gamevar *scene_info_p+8 = int 2
-}
-switch(var VAR_57)
- {
-		case 0
-			if(var ! VAR_68)
+	if(var ! VAR_70)
+	 {
+			if(var VAR_25)
 			 {
-					if(gamevar global_zone_type == int 18)
-					 {
-							call log("USE1")
-							var VAR_85 = int 1
-							gamevar pnc_look_use_mask |= int 6
-							gamevar global_zone_type = int 0
-							var VAR_57 ++ 
-							var VAR_64 = int 1
-					}
-					if(gamevar global_zone_type == int 19)
-					 {
-							call log("USE2")
-							var VAR_85 = int 1
-							gamevar pnc_look_use_mask |= int 6
-							gamevar global_zone_type = int 0
-							var VAR_57 ++ 
-							var VAR_64 = int 2
-					}
+					gamevar *scene_info_p+3 = int 16
 			}
-			if(var ! VAR_69)
-			 {
-					if(gamevar global_zone_type == int 20)
-					 {
-							call log("USE3")
-							var VAR_86 = int 1
-							gamevar pnc_look_use_mask |= int 24
-							gamevar global_zone_type = int 0
-							var VAR_57 ++ 
-							var VAR_64 = int 3
-					}
-					if(gamevar global_zone_type == int 21)
-					 {
-							call log("USE4")
-							var VAR_86 = int 1
-							gamevar pnc_look_use_mask |= int 24
-							gamevar global_zone_type = int 0
-							var VAR_57 ++ 
-							var VAR_64 = int 4
-					}
-			}
-			if(var VAR_68 == int 1&&var VAR_69 == int 1)
-			 {
-					var VAR_57 = int 20
-			}
-			break 
-		case 1
-			call set_input_system(int 2)
-			var VAR_25 = int 1
-			var VAR_2 = int 1
-			if(var VAR_85 == int 1)
-			 {
-					var VAR_67 = int 1
-					var selected_hero = call get_selected_hero()
-					if(var VAR_64 == int 1)
-					 {
-							if(var selected_hero)
-							 {
-									call set_char_running(var selected_hero)
-									var VAR_65 = var selected_hero
-									call char_walk_to_pos(var selected_hero, var walk_position)
-									var VAR_61 = var selected_hero
-									var selected_hero = call get_david_char()
-									if(var selected_hero == var VAR_65)
-									 {
-											var selected_hero = call func_7e()
-									}
-									if(var selected_hero)
-									 {
-											call set_char_running(var selected_hero)
-											call char_walk_to_pos(var selected_hero, var walk_position1)
-											var VAR_62 = var selected_hero
-									}
-									var selected_hero = call func_7e()
-									while(var selected_hero)
-									 {
-											if(var selected_hero != var VAR_65)
-											 {
-													call set_char_running(var selected_hero)
-													call char_walk_to_pos(var selected_hero, var walk_position2)
-													var VAR_63 = var selected_hero
-											}
-											var selected_hero = call func_7e()
-									}
-							}
-					}
-					else
-					 {
-							var VAR_91 = int 1
-							if(var selected_hero)
-							 {
-									var VAR_65 = var selected_hero
-									call set_char_running(var selected_hero)
-									call char_walk_to_pos(var selected_hero, var walk_position1)
-									var VAR_61 = var selected_hero
-									var selected_hero = call get_david_char()
-									if(var selected_hero == var VAR_65)
-									 {
-											var selected_hero = call func_7e()
-									}
-									if(var selected_hero)
-									 {
-											call set_char_running(var selected_hero)
-											call char_walk_to_pos(var selected_hero, var walk_position)
-											var VAR_62 = var selected_hero
-									}
-									var selected_hero = call func_7e()
-									while(var selected_hero)
-									 {
-											if(var selected_hero != var VAR_65)
-											 {
-													call set_char_running(var selected_hero)
-													call char_walk_to_pos(var selected_hero, var walk_position2)
-													var VAR_63 = var selected_hero
-											}
-											var selected_hero = call func_7e()
-									}
-							}
-					}
-			}
-			else
-			 {
-					var VAR_66 = int 1
-					var selected_hero = call get_selected_hero()
-					if(var VAR_64 == int 3)
-					 {
-							if(var selected_hero)
-							 {
-									var VAR_65 = var selected_hero
-									call set_char_running(var selected_hero)
-									call char_walk_to_pos(var selected_hero, var walk_position3)
-									var VAR_61 = var selected_hero
-									var selected_hero = call get_david_char()
-									if(var selected_hero == var VAR_65)
-									 {
-											var selected_hero = call func_7e()
-									}
-									if(var selected_hero)
-									 {
-											call set_char_running(var selected_hero)
-											call char_walk_to_pos(var selected_hero, var walk_position4)
-											var VAR_62 = var selected_hero
-									}
-									var selected_hero = call func_7e()
-									while(var selected_hero)
-									 {
-											if(var selected_hero != var VAR_65)
-											 {
-													call set_char_running(var selected_hero)
-													call char_walk_to_pos(var selected_hero, var walk_position5)
-													var VAR_63 = var selected_hero
-											}
-											var selected_hero = call func_7e()
-									}
-							}
-					}
-					else
-					 {
-							if(var selected_hero)
-							 {
-									var VAR_92 = int 1
-									var VAR_65 = var selected_hero
-									call set_char_running(var selected_hero)
-									call char_walk_to_pos(var selected_hero, var walk_position4)
-									var VAR_61 = var selected_hero
-									var selected_hero = call get_david_char()
-									if(var selected_hero == var VAR_65)
-									 {
-											var selected_hero = call func_7e()
-									}
-									if(var selected_hero)
-									 {
-											call set_char_running(var selected_hero)
-											call char_walk_to_pos(var selected_hero, var walk_position3)
-											var VAR_62 = var selected_hero
-									}
-									var selected_hero = call func_7e()
-									while(var selected_hero)
-									 {
-											if(var selected_hero != var VAR_65)
-											 {
-													call set_char_running(var selected_hero)
-													call char_walk_to_pos(var selected_hero, var walk_position5)
-													var VAR_63 = var selected_hero
-											}
-											var selected_hero = call func_7e()
-									}
-							}
-					}
-			}
-			var VAR_57 = int 30
-			break 
-		case 2
-			if(var VAR_58 > int 40)
-			 {
-					if(call get_char_handle_id(var VAR_61) != int 327680)
-					 {
-							call play_char_anim(var VAR_61, var cagkixr_anim, int 0)
-							call log("roundhouse")
-					}
-					else
-					 {
-							call play_char_anim(var VAR_61, var jab_anim, int 6)
-					}
-					if(call get_char_handle_id(var VAR_62) != int 327680)
-					 {
-							call play_char_anim(var VAR_62, var cagkixr_anim, int 0)
-							call log("roundhouse")
-					}
-					else
-					 {
-							call play_char_anim(var VAR_62, var jab_anim, int 6)
-					}
+			gamevar *scene_info_p+4 = int 16
+			gamevar *scene_info_p+5 = int 16
+			gamevar *scene_info_p+6 = int 16
+			gamevar *scene_info_p+7 = int 16
+			gamevar *scene_info_p+8 = int 16
+	}
+	else
+	 {
+			gamevar *scene_info_p+3 = int 2
+			gamevar *scene_info_p+4 = int 2
+			gamevar *scene_info_p+5 = int 2
+			gamevar *scene_info_p+6 = int 2
+			gamevar *scene_info_p+7 = int 2
+			gamevar *scene_info_p+8 = int 2
+	}
+	switch(var VAR_57)
+	 {
+			case 0
+				if(var ! VAR_68)
+				 {
+						if(gamevar global_zone_type == int 18)
+						 {
+								call log("USE1")
+								var VAR_85 = int 1
+								gamevar pnc_look_use_mask |= int 6
+								gamevar global_zone_type = int 0
+								var VAR_57 ++ 
+								var VAR_64 = int 1
+						}
+						if(gamevar global_zone_type == int 19)
+						 {
+								call log("USE2")
+								var VAR_85 = int 1
+								gamevar pnc_look_use_mask |= int 6
+								gamevar global_zone_type = int 0
+								var VAR_57 ++ 
+								var VAR_64 = int 2
+						}
+				}
+				if(var ! VAR_69)
+				 {
+						if(gamevar global_zone_type == int 20)
+						 {
+								call log("USE3")
+								var VAR_86 = int 1
+								gamevar pnc_look_use_mask |= int 24
+								gamevar global_zone_type = int 0
+								var VAR_57 ++ 
+								var VAR_64 = int 3
+						}
+						if(gamevar global_zone_type == int 21)
+						 {
+								call log("USE4")
+								var VAR_86 = int 1
+								gamevar pnc_look_use_mask |= int 24
+								gamevar global_zone_type = int 0
+								var VAR_57 ++ 
+								var VAR_64 = int 4
+						}
+				}
+				if(var VAR_68 == int 1&&var VAR_69 == int 1)
+				 {
+						var VAR_57 = int 20
+				}
+				break 
+			case 1
+				call set_input_system(int 2)
+				var VAR_25 = int 1
+				var VAR_2 = int 1
+				if(var VAR_85 == int 1)
+				 {
+						var VAR_67 = int 1
+						var selected_hero = call get_selected_hero()
+						if(var VAR_64 == int 1)
+						 {
+								if(var selected_hero)
+								 {
+										call set_char_running(var selected_hero)
+										var VAR_65 = var selected_hero
+										call char_walk_to_pos(var selected_hero, var walk_position)
+										var VAR_61 = var selected_hero
+										var selected_hero = call get_david_char()
+										if(var selected_hero == var VAR_65)
+										 {
+												var selected_hero = call func_7e()
+										}
+										if(var selected_hero)
+										 {
+												call set_char_running(var selected_hero)
+												call char_walk_to_pos(var selected_hero, var walk_position1)
+												var VAR_62 = var selected_hero
+										}
+										var selected_hero = call func_7e()
+										while(var selected_hero)
+										 {
+												if(var selected_hero != var VAR_65)
+												 {
+														call set_char_running(var selected_hero)
+														call char_walk_to_pos(var selected_hero, var walk_position2)
+														var VAR_63 = var selected_hero
+												}
+												var selected_hero = call func_7e()
+										}
+								}
+						}
+						else
+						 {
+								var VAR_91 = int 1
+								if(var selected_hero)
+								 {
+										var VAR_65 = var selected_hero
+										call set_char_running(var selected_hero)
+										call char_walk_to_pos(var selected_hero, var walk_position1)
+										var VAR_61 = var selected_hero
+										var selected_hero = call get_david_char()
+										if(var selected_hero == var VAR_65)
+										 {
+												var selected_hero = call func_7e()
+										}
+										if(var selected_hero)
+										 {
+												call set_char_running(var selected_hero)
+												call char_walk_to_pos(var selected_hero, var walk_position)
+												var VAR_62 = var selected_hero
+										}
+										var selected_hero = call func_7e()
+										while(var selected_hero)
+										 {
+												if(var selected_hero != var VAR_65)
+												 {
+														call set_char_running(var selected_hero)
+														call char_walk_to_pos(var selected_hero, var walk_position2)
+														var VAR_63 = var selected_hero
+												}
+												var selected_hero = call func_7e()
+										}
+								}
+						}
+				}
+				else
+				 {
+						var VAR_66 = int 1
+						var selected_hero = call get_selected_hero()
+						if(var VAR_64 == int 3)
+						 {
+								if(var selected_hero)
+								 {
+										var VAR_65 = var selected_hero
+										call set_char_running(var selected_hero)
+										call char_walk_to_pos(var selected_hero, var walk_position3)
+										var VAR_61 = var selected_hero
+										var selected_hero = call get_david_char()
+										if(var selected_hero == var VAR_65)
+										 {
+												var selected_hero = call func_7e()
+										}
+										if(var selected_hero)
+										 {
+												call set_char_running(var selected_hero)
+												call char_walk_to_pos(var selected_hero, var walk_position4)
+												var VAR_62 = var selected_hero
+										}
+										var selected_hero = call func_7e()
+										while(var selected_hero)
+										 {
+												if(var selected_hero != var VAR_65)
+												 {
+														call set_char_running(var selected_hero)
+														call char_walk_to_pos(var selected_hero, var walk_position5)
+														var VAR_63 = var selected_hero
+												}
+												var selected_hero = call func_7e()
+										}
+								}
+						}
+						else
+						 {
+								if(var selected_hero)
+								 {
+										var VAR_92 = int 1
+										var VAR_65 = var selected_hero
+										call set_char_running(var selected_hero)
+										call char_walk_to_pos(var selected_hero, var walk_position4)
+										var VAR_61 = var selected_hero
+										var selected_hero = call get_david_char()
+										if(var selected_hero == var VAR_65)
+										 {
+												var selected_hero = call func_7e()
+										}
+										if(var selected_hero)
+										 {
+												call set_char_running(var selected_hero)
+												call char_walk_to_pos(var selected_hero, var walk_position3)
+												var VAR_62 = var selected_hero
+										}
+										var selected_hero = call func_7e()
+										while(var selected_hero)
+										 {
+												if(var selected_hero != var VAR_65)
+												 {
+														call set_char_running(var selected_hero)
+														call char_walk_to_pos(var selected_hero, var walk_position5)
+														var VAR_63 = var selected_hero
+												}
+												var selected_hero = call func_7e()
+										}
+								}
+						}
+				}
+				var VAR_57 = int 30
+				break 
+			case 2
+				if(var VAR_58 > int 40)
+				 {
+						if(call get_char_handle_id(var VAR_61) != int 327680)
+						 {
+								call play_char_anim(var VAR_61, var cagkixr_anim, int 0)
+								call log("roundhouse")
+						}
+						else
+						 {
+								call play_char_anim(var VAR_61, var jab_anim, int 6)
+						}
+						if(call get_char_handle_id(var VAR_62) != int 327680)
+						 {
+								call play_char_anim(var VAR_62, var cagkixr_anim, int 0)
+								call log("roundhouse")
+						}
+						else
+						 {
+								call play_char_anim(var VAR_62, var jab_anim, int 6)
+						}
 
-					 /* play the sound 'gyro1' */ 
-					call play_loaded_sound(int 13, int 0, int 49, int 0)
-					var VAR_58 = int 0
-					var VAR_57 ++ 
-			}
-			break 
-		case 3
-			var VAR_20 = var VAR_7
-			var VAR_21 = var VAR_3
-			if(var VAR_58 > int 20)
-			 {
+						 /* play the sound 'gyro1' */ 
+						call play_loaded_sound(int 13, int 0, int 49, int 0)
+						var VAR_58 = int 0
+						var VAR_57 ++ 
+				}
+				break 
+			case 3
+				var VAR_20 = var VAR_7
+				var VAR_21 = var VAR_3
+				if(var VAR_58 > int 20)
+				 {
 
-					 /* play the sound 'bloodbnk' */ 
-					call play_loaded_sound(int 5, int 0, int 49, int 0)
-					if(var VAR_66 == int 1&&var VAR_20 == int 0&&var VAR_69 == int 0)
-					 {
-							var VAR_7 = int 1
-							var VAR_69 = int 1
-							var VAR_57 = int 10
-							var VAR_58 = int 0
-					}
-					if(var VAR_67 == int 1&&var VAR_21 == int 0&&var VAR_68 == int 0)
-					 {
-							var VAR_3 = int 1
-							var VAR_68 = int 1
-							var VAR_57 ++ 
-							var VAR_58 = int 0
-					}
-			}
-			break 
-		case 4
-			var VAR_21 = var VAR_4
-			if(var VAR_3 == int -1)
-			 {
-					call func_9c(var VAR_1, var &VAR_59)
-					call func_9c(var VAR_0, var &VAR_60)
-					var VAR_3 = int 0
-					call char_walk_to(var VAR_61, int 474, int 0, int -1582)
-					call char_walk_to(var VAR_62, int 644, int 0, int -1038)
-					if(var VAR_63)
-					 {
-							call func_36(var VAR_63, int 793, int 0, int -1081)
-					}
-					var VAR_21 = int 0
-					var VAR_57 ++ 
-			}
-			break 
-		case 5
-			if(call is_char_standing(var VAR_61)&&call is_char_standing(var VAR_62))
-			 {
-					call char_turn_to_pos(var VAR_61, var &position)
-					call char_turn_to_pos(var VAR_62, var &position1)
-					var VAR_57 ++ 
-					var VAR_58 = int 0
-			}
-			break 
-		case 6
-			if(var VAR_58 > int 120)
-			 {
-					call func_9b(var VAR_0, var &VAR_27, int 10695475)
-					call func_9b(var VAR_1, var &VAR_29, int 10695475)
-					var VAR_58 = int 0
-					var VAR_57 ++ 
-					call set_input_system(int 1)
-			}
-			break 
-		case 7
-			if(var VAR_58 > int 100)
-			 {
-					call func_9b(var VAR_0, var &VAR_26, int 10821304)
-					call func_9b(var VAR_1, var &VAR_28, int 10779361)
-					var VAR_58 = int 0
-					var VAR_57 = int 0
-			}
-			break 
-		case 10
-			var VAR_20 = var VAR_8
-			if(var VAR_7 == int -1)
-			 {
-					if(var VAR_63)
-					 {
-							call char_turn_to_pos(var VAR_63, var &position2)
-					}
-					var VAR_7 = int 0
-					var drop_flayer = call create_enemy(int 169, int 0, var &position2, int 34)
-					var drop_iwarrior_med = call create_enemy(int 167, int 1, var &init_position, int 79)
-					call char_walk_to(var VAR_61, int -204, int 0, int -1639)
-					call char_walk_to(var VAR_62, int -416, int 0, int -1087)
-					call func_1(var drop_flayer, int -1)
-					call func_1(var drop_iwarrior_med, int -1)
-					var VAR_57 ++ 
-					var VAR_58 = int 0
-					var VAR_20 = int 0
-			}
-			break 
-		case 11
-			if(call is_char_standing(var VAR_61)&&call is_char_standing(var VAR_62))
-			 {
-					var VAR_57 ++ 
-					call func_36(var VAR_61, int -672, int 0, int -1769)
-					call func_36(var VAR_62, int -910, int 0, int -1086)
-					call set_input_system(int 1)
-			}
-			break 
-		case 12
-			if(var VAR_58 > int 160)
-			 {
-					if(call is_char_handle_in_level(int 12386304))
-					 {
-							call func_50(var drop_flayer, int 8192)
-							call play_char_ai_script(var drop_flayer, var &ai_script)
-					}
-					if(call is_char_handle_in_level(int 3473409))
-					 {
-							call func_50(var drop_iwarrior_med, int 8192)
-							call play_char_ai_script(var drop_iwarrior_med, var &ai_script1)
-					}
-					var VAR_57 ++ 
-					var VAR_58 = int 0
-			}
-			if(call get_num_of_enemies() == int 0)
-			 {
-					var VAR_57 = int 0
-					var VAR_58 = int 0
-			}
-			break 
-		case 13
-			if(call get_num_of_enemies() == int 0)
-			 {
-					var VAR_57 = int 0
-					var VAR_58 = int 0
-			}
-			if(var VAR_23 == int 2&&var VAR_24 == int 2)
-			 {
-					var VAR_57 ++ 
-					if(call is_char_handle_in_level(int 12386304))
-					 {
-							call func_47(var drop_flayer, int 8192)
-							call func_2(var drop_flayer)
-					}
-					if(call is_char_handle_in_level(int 3473409))
-					 {
-							call func_47(var drop_iwarrior_med, int 8192)
-							call func_2(var drop_iwarrior_med)
-					}
-			}
-			break 
-		case 14
-			if(call get_num_of_enemies() == int 0)
-			 {
-					var VAR_57 = int 0
-					var VAR_58 = int 0
-			}
-			break 
-		case 20
-			var VAR_57 ++ 
-			call set_input_system(int 2)
-			call char_walk_to(var VAR_61, int 438, int 0, int -1588)
-			call char_walk_to(var VAR_62, int -452, int 0, int -1579)
-			if(var VAR_63)
-			 {
-					call char_walk_to(var VAR_63, int -427, int 0, int -1343)
-			}
-			break 
-		case 21
-			if(call func_8b())
-			 {
-					call func_4e(int 0)
-					call func_36(var VAR_61, int -23, int 0, int -2675)
-					call func_36(var VAR_62, int -23, int 0, int -2675)
-					var VAR_5 = int 1
+						 /* play the sound 'bloodbnk' */ 
+						call play_loaded_sound(int 5, int 0, int 49, int 0)
+						if(var VAR_66 == int 1&&var VAR_20 == int 0&&var VAR_69 == int 0)
+						 {
+								var VAR_7 = int 1
+								var VAR_69 = int 1
+								var VAR_57 = int 10
+								var VAR_58 = int 0
+						}
+						if(var VAR_67 == int 1&&var VAR_21 == int 0&&var VAR_68 == int 0)
+						 {
+								var VAR_3 = int 1
+								var VAR_68 = int 1
+								var VAR_57 ++ 
+								var VAR_58 = int 0
+						}
+				}
+				break 
+			case 4
+				var VAR_21 = var VAR_4
+				if(var VAR_3 == int -1)
+				 {
+						call func_9c(var VAR_1, var &VAR_59)
+						call func_9c(var VAR_0, var &VAR_60)
+						var VAR_3 = int 0
+						call char_walk_to(var VAR_61, int 474, int 0, int -1582)
+						call char_walk_to(var VAR_62, int 644, int 0, int -1038)
+						if(var VAR_63)
+						 {
+								call func_36(var VAR_63, int 793, int 0, int -1081)
+						}
+						var VAR_21 = int 0
+						var VAR_57 ++ 
+				}
+				break 
+			case 5
+				if(call is_char_standing(var VAR_61)&&call is_char_standing(var VAR_62))
+				 {
+						call char_turn_to_pos(var VAR_61, var &position)
+						call char_turn_to_pos(var VAR_62, var &position1)
+						var VAR_57 ++ 
+						var VAR_58 = int 0
+				}
+				break 
+			case 6
+				if(var VAR_58 > int 120)
+				 {
+						call func_9b(var VAR_0, var &VAR_27, int 10695475)
+						call func_9b(var VAR_1, var &VAR_29, int 10695475)
+						var VAR_58 = int 0
+						var VAR_57 ++ 
+						call set_input_system(int 1)
+				}
+				break 
+			case 7
+				if(var VAR_58 > int 100)
+				 {
+						call func_9b(var VAR_0, var &VAR_26, int 10821304)
+						call func_9b(var VAR_1, var &VAR_28, int 10779361)
+						var VAR_58 = int 0
+						var VAR_57 = int 0
+				}
+				break 
+			case 10
+				var VAR_20 = var VAR_8
+				if(var VAR_7 == int -1)
+				 {
+						if(var VAR_63)
+						 {
+								call char_turn_to_pos(var VAR_63, var &position2)
+						}
+						var VAR_7 = int 0
+						var drop_flayer = call create_enemy(int 169, int 0, var &position2, int 34)
+						var drop_iwarrior_med = call create_enemy(int 167, int 1, var &init_position, int 79)
+						call char_walk_to(var VAR_61, int -204, int 0, int -1639)
+						call char_walk_to(var VAR_62, int -416, int 0, int -1087)
+						call func_1(var drop_flayer, int -1)
+						call func_1(var drop_iwarrior_med, int -1)
+						var VAR_57 ++ 
+						var VAR_58 = int 0
+						var VAR_20 = int 0
+				}
+				break 
+			case 11
+				if(call is_char_standing(var VAR_61)&&call is_char_standing(var VAR_62))
+				 {
+						var VAR_57 ++ 
+						call func_36(var VAR_61, int -672, int 0, int -1769)
+						call func_36(var VAR_62, int -910, int 0, int -1086)
+						call set_input_system(int 1)
+				}
+				break 
+			case 12
+				if(var VAR_58 > int 160)
+				 {
+						if(call is_char_handle_in_level(int 12386304))
+						 {
+								call func_50(var drop_flayer, int 8192)
+								call play_char_ai_script(var drop_flayer, var &ai_script)
+						}
+						if(call is_char_handle_in_level(int 3473409))
+						 {
+								call func_50(var drop_iwarrior_med, int 8192)
+								call play_char_ai_script(var drop_iwarrior_med, var &ai_script1)
+						}
+						var VAR_57 ++ 
+						var VAR_58 = int 0
+				}
+				if(call get_num_of_enemies() == int 0)
+				 {
+						var VAR_57 = int 0
+						var VAR_58 = int 0
+				}
+				break 
+			case 13
+				if(call get_num_of_enemies() == int 0)
+				 {
+						var VAR_57 = int 0
+						var VAR_58 = int 0
+				}
+				if(var VAR_23 == int 2&&var VAR_24 == int 2)
+				 {
+						var VAR_57 ++ 
+						if(call is_char_handle_in_level(int 12386304))
+						 {
+								call func_47(var drop_flayer, int 8192)
+								call func_2(var drop_flayer)
+						}
+						if(call is_char_handle_in_level(int 3473409))
+						 {
+								call func_47(var drop_iwarrior_med, int 8192)
+								call func_2(var drop_iwarrior_med)
+						}
+				}
+				break 
+			case 14
+				if(call get_num_of_enemies() == int 0)
+				 {
+						var VAR_57 = int 0
+						var VAR_58 = int 0
+				}
+				break 
+			case 20
+				var VAR_57 ++ 
+				call set_input_system(int 2)
+				call char_walk_to(var VAR_61, int 438, int 0, int -1588)
+				call char_walk_to(var VAR_62, int -452, int 0, int -1579)
+				if(var VAR_63)
+				 {
+						call char_walk_to(var VAR_63, int -427, int 0, int -1343)
+				}
+				break 
+			case 21
+				if(call func_8b())
+				 {
+						call func_4e(int 0)
+						call func_36(var VAR_61, int -23, int 0, int -2675)
+						call func_36(var VAR_62, int -23, int 0, int -2675)
+						var VAR_5 = int 1
 
-					 /* play the sound 'irislock' */ 
-					call play_loaded_sound(int 8, int 0, int 49, int 0)
-					if(var VAR_63)
-					 {
-							call func_36(var VAR_63, int -23, int 0, int -2675)
-					}
-					var VAR_57 ++ 
-			}
-			break 
-		case 22
-			var VAR_22 = var VAR_6
-			if(var VAR_22 == int 20&&var VAR_22 != var VAR_13)
-			 {
+						 /* play the sound 'irislock' */ 
+						call play_loaded_sound(int 8, int 0, int 49, int 0)
+						if(var VAR_63)
+						 {
+								call func_36(var VAR_63, int -23, int 0, int -2675)
+						}
+						var VAR_57 ++ 
+				}
+				break 
+			case 22
+				var VAR_22 = var VAR_6
+				if(var VAR_22 == int 20&&var VAR_22 != var VAR_13)
+				 {
 
-					 /* play the sound 'lampshot' */ 
-					call play_loaded_sound(int 9, int 0, int 49, int 0)
-					var VAR_13 = var VAR_22
-			}
-			if(var VAR_22 == int 36&&var VAR_22 != var VAR_13)
-			 {
+						 /* play the sound 'lampshot' */ 
+						call play_loaded_sound(int 9, int 0, int 49, int 0)
+						var VAR_13 = var VAR_22
+				}
+				if(var VAR_22 == int 36&&var VAR_22 != var VAR_13)
+				 {
 
-					 /* play the sound 'irisopen' */ 
-					call play_loaded_sound(int 7, int 0, int 49, int 0)
-					var VAR_13 = var VAR_22
-			}
-			if(var VAR_22 == int 114&&var VAR_22 != var VAR_13)
-			 {
-					var riselamp_sound_ref = call play_loaded_sound(int 6, int -1, int 49, int 0)
-					var VAR_13 = var VAR_22
-			}
-			if(var VAR_22 == int 148&&var VAR_22 != var VAR_13)
-			 {
+						 /* play the sound 'irisopen' */ 
+						call play_loaded_sound(int 7, int 0, int 49, int 0)
+						var VAR_13 = var VAR_22
+				}
+				if(var VAR_22 == int 114&&var VAR_22 != var VAR_13)
+				 {
+						var riselamp_sound_ref = call play_loaded_sound(int 6, int -1, int 49, int 0)
+						var VAR_13 = var VAR_22
+				}
+				if(var VAR_22 == int 148&&var VAR_22 != var VAR_13)
+				 {
 
-					 /* play the sound 'spike5' */ 
-					call play_loaded_sound(int 10, int 0, int 49, int 0)
-					var VAR_13 = var VAR_22
-			}
-			if(var VAR_22 == int 146&&var VAR_22 != var VAR_13)
-			 {
-					call stop_playing_sound(var riselamp_sound_ref)
-					var VAR_13 = var VAR_22
-			}
-			if(var VAR_22 == int 160&&var VAR_22 != var VAR_13)
-			 {
-					var riselamp_sound_ref = call play_loaded_sound /* 'spike4' */ (int 1, int -1, int 49, int 0)
-					var VAR_13 = var VAR_22
-			}
-			if(var VAR_22 == int 224)
-			 {
-					call stop_playing_sound(var riselamp_sound_ref)
+						 /* play the sound 'spike5' */ 
+						call play_loaded_sound(int 10, int 0, int 49, int 0)
+						var VAR_13 = var VAR_22
+				}
+				if(var VAR_22 == int 146&&var VAR_22 != var VAR_13)
+				 {
+						call stop_playing_sound(var riselamp_sound_ref)
+						var VAR_13 = var VAR_22
+				}
+				if(var VAR_22 == int 160&&var VAR_22 != var VAR_13)
+				 {
+						var riselamp_sound_ref = call play_loaded_sound /* 'spike4' */ (int 1, int -1, int 49, int 0)
+						var VAR_13 = var VAR_22
+				}
+				if(var VAR_22 == int 224)
+				 {
+						call stop_playing_sound(var riselamp_sound_ref)
 
-					 /* play the sound 'green' */ 
-					call play_loaded_sound(int 2, int 0, int 49, int 0)
-					var VAR_5 = int 0
-					var VAR_57 ++ 
-					var VAR_70 = int 1
-					call set_input_system(int 1)
-			}
-			break 
-		case 30
-			if(call func_8b())
-			 {
-					if(var VAR_85 == int 1)
-					 {
-							if(var ! VAR_91)
-							 {
-									call char_turn_to_pos(var VAR_61, var &position3)
-									call char_turn_to_pos(var VAR_62, var &position4)
-							}
-							else
-							 {
-									call char_turn_to_pos(var VAR_62, var &position3)
-									call char_turn_to_pos(var VAR_61, var &position4)
-							}
-					}
-					else
-					 {
-							if(var ! VAR_92)
-							 {
-									call char_turn_to_pos(var VAR_61, var &position5)
-									call char_turn_to_pos(var VAR_62, var &position6)
-							}
-							else
-							 {
-									call char_turn_to_pos(var VAR_62, var &position5)
-									call char_turn_to_pos(var VAR_61, var &position6)
-							}
-					}
-					var VAR_85 = int 0
-					var VAR_86 = int 0
-					var VAR_57 = int 2
-					var VAR_58 = int 0
-			}
-			break 
-}
-var VAR_58 ++ 
-execute SCRIPT_4
-switch(var VAR_54)
- {
-		case 0
-			var VAR_5 = int 1
-			var VAR_3 = int 1
-			var VAR_7 = int 1
-			var VAR_54 ++ 
-			break 
-		case 1
-			var VAR_55 = var VAR_4
-			var VAR_56 = var VAR_8
-			var VAR_99 = var VAR_6
-			if(var VAR_55 == int 2&&var VAR_56 == int 2&&var VAR_99 == int 2)
-			 {
-					var VAR_54 ++ 
-					var VAR_5 = int 0
-					var VAR_3 = int 0
-					var VAR_7 = int 0
-			}
-			break 
-}
+						 /* play the sound 'green' */ 
+						call play_loaded_sound(int 2, int 0, int 49, int 0)
+						var VAR_5 = int 0
+						var VAR_57 ++ 
+						var VAR_70 = int 1
+						call set_input_system(int 1)
+				}
+				break 
+			case 30
+				if(call func_8b())
+				 {
+						if(var VAR_85 == int 1)
+						 {
+								if(var ! VAR_91)
+								 {
+										call char_turn_to_pos(var VAR_61, var &position3)
+										call char_turn_to_pos(var VAR_62, var &position4)
+								}
+								else
+								 {
+										call char_turn_to_pos(var VAR_62, var &position3)
+										call char_turn_to_pos(var VAR_61, var &position4)
+								}
+						}
+						else
+						 {
+								if(var ! VAR_92)
+								 {
+										call char_turn_to_pos(var VAR_61, var &position5)
+										call char_turn_to_pos(var VAR_62, var &position6)
+								}
+								else
+								 {
+										call char_turn_to_pos(var VAR_62, var &position5)
+										call char_turn_to_pos(var VAR_61, var &position6)
+								}
+						}
+						var VAR_85 = int 0
+						var VAR_86 = int 0
+						var VAR_57 = int 2
+						var VAR_58 = int 0
+				}
+				break 
+	}
+	var VAR_58 ++ 
+	execute SCRIPT_4
+	switch(var VAR_54)
+	 {
+			case 0
+				var VAR_5 = int 1
+				var VAR_3 = int 1
+				var VAR_7 = int 1
+				var VAR_54 ++ 
+				break 
+			case 1
+				var VAR_55 = var VAR_4
+				var VAR_56 = var VAR_8
+				var VAR_99 = var VAR_6
+				if(var VAR_55 == int 2&&var VAR_56 == int 2&&var VAR_99 == int 2)
+				 {
+						var VAR_54 ++ 
+						var VAR_5 = int 0
+						var VAR_3 = int 0
+						var VAR_7 = int 0
+				}
+				break 
+	}
 
 ._SCRIPT_7
-var VAR_0 = call func_9a(var &position, int 39, int 0, int 0)
-var VAR_1 = call func_9a(var &position1, int 35, int 200, int 0)
-var selected_hero = call get_david_char()
-while(var selected_hero)
- {
-		var VAR_37 = call get_char_handle_id(var selected_hero)
-		switch(var VAR_37)
-		 {
-				case 65536
-					call log("david")
-					var VAR_14 = var selected_hero
-					break 
-				case 786432
-					call log("sekune")
-					var VAR_15 = var selected_hero
-					break 
-				case 327680
-					call log("jug")
-					var VAR_16 = var selected_hero
-					break 
-				case 196608
-					call log("vivienne")
-					var VAR_17 = var selected_hero
-					break 
-				case 131072
-					call log("chiaro")
-					var VAR_18 = var selected_hero
-					break 
-				case 262144
-					call log("cagen")
-					var VAR_19 = var selected_hero
-					break 
-				default 
-					call log("WARNING! Unknown hero while checking heroes")
-					call log("Get a goober -- QUICKLY!!")
-					break 
-		}
-		var selected_hero = call func_7e()
-}
-var cagkixr_anim = call load_anim("cagkixr")
-var jab_anim = call load_anim("jab")
-call load_char("iwarrior")
-call load_char("flayer")
-execute SCRIPT_3
-gamevar global_zone_type = int 0
+	var VAR_0 = call func_9a(var &position, int 39, int 0, int 0)
+	var VAR_1 = call func_9a(var &position1, int 35, int 200, int 0)
+	var selected_hero = call get_david_char()
+	while(var selected_hero)
+	 {
+			var VAR_37 = call get_char_handle_id(var selected_hero)
+			switch(var VAR_37)
+			 {
+					case 65536
+						call log("david")
+						var VAR_14 = var selected_hero
+						break 
+					case 786432
+						call log("sekune")
+						var VAR_15 = var selected_hero
+						break 
+					case 327680
+						call log("jug")
+						var VAR_16 = var selected_hero
+						break 
+					case 196608
+						call log("vivienne")
+						var VAR_17 = var selected_hero
+						break 
+					case 131072
+						call log("chiaro")
+						var VAR_18 = var selected_hero
+						break 
+					case 262144
+						call log("cagen")
+						var VAR_19 = var selected_hero
+						break 
+					default 
+						call log("WARNING! Unknown hero while checking heroes")
+						call log("Get a goober -- QUICKLY!!")
+						break 
+			}
+			var selected_hero = call func_7e()
+	}
+	var cagkixr_anim = call load_anim("cagkixr")
+	var jab_anim = call load_anim("jab")
+	call load_char("iwarrior")
+	call load_char("flayer")
+	execute SCRIPT_3
+	gamevar global_zone_type = int 0
 
 ._SCRIPT_8
 

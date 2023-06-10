@@ -10,95 +10,95 @@
 
 
 ._DATA
-VAR_5	-1	
-VAR_7	{ 40, 1, 42, 1, 45, 1, 40, 1, 19, 1, -1 }	
-VAR_8	{ -2026, -585, -778 }	
-init_position	{ -2745, -585, -692 }	
-VAR_12	2	
-VAR_14	10	
+	VAR_5	-1	
+	VAR_7	{ 40, 1, 42, 1, 45, 1, 40, 1, 19, 1, -1 }	
+	VAR_8	{ -2026, -585, -778 }	
+	init_position	{ -2745, -585, -692 }	
+	VAR_12	2	
+	VAR_14	10	
 
 ._on_load
-var init_position1 = var &VAR_8
-var VAR_2 = int 320
-execute SCRIPT_10
-var VAR_3 = int 39
-execute SCRIPT_11
-var VAR_3 = int 38
-execute SCRIPT_11
-var VAR_3 = int 37
-execute SCRIPT_11
-var VAR_5 = int 32768513
-execute SCRIPT_11
-execute SCRIPT_3
-call load_sound_set(int 65)
+	var VAR_1 = var &VAR_8
+	var VAR_2 = int 320
+	execute SCRIPT_10
+	var VAR_3 = int 39
+	execute SCRIPT_11
+	var VAR_3 = int 38
+	execute SCRIPT_11
+	var VAR_3 = int 37
+	execute SCRIPT_11
+	var VAR_5 = int 32768513
+	execute SCRIPT_11
+	execute SCRIPT_3
+	call load_sound_set(int 65)
 
- /* play the sound 'dog1' */ 
-call play_loaded_sound(int 7, int -1, int 65, int 0)
-call load_sound_set(int 68)
-if(gamevar is_room_cleared)
- {
-		execute SCRIPT_8
-}
-else
- {
-		switch(gamevar room_state)
-		 {
-				case 1
-					execute SCRIPT_5
-					break 
-				case 2
-					execute SCRIPT_7
-					break 
-				case 0
-					break 
-		}
-}
+	 /* play the sound 'dog1' */ 
+	call play_loaded_sound(int 7, int -1, int 65, int 0)
+	call load_sound_set(int 68)
+	if(gamevar is_room_cleared)
+	 {
+			execute SCRIPT_8
+	}
+	else
+	 {
+			switch(gamevar room_state)
+			 {
+					case 1
+						execute SCRIPT_5
+						break 
+					case 2
+						execute SCRIPT_7
+						break 
+					case 0
+						break 
+			}
+	}
 
 ._infinite_loop
-execute SCRIPT_9
-if(gamevar !is_room_cleared)
- {
-		switch(gamevar room_state)
-		 {
-				case 1
-					execute SCRIPT_4
-					break 
-				case 2
-					execute SCRIPT_6
-					break 
-				case 0
-					break 
-		}
-}
+	execute SCRIPT_9
+	if(gamevar !is_room_cleared)
+	 {
+			switch(gamevar room_state)
+			 {
+					case 1
+						execute SCRIPT_4
+						break 
+					case 2
+						execute SCRIPT_6
+						break 
+					case 0
+						break 
+			}
+	}
 
 ._on_exit
-if(gamevar !is_room_cleared)
- {
-		switch(gamevar room_state)
-		 {
-				case 1
-					gamevar room_state ++ 
-					gamevar is_room_cleared = int 1
-					break 
-				case 2
-					gamevar room_state ++ 
-					gamevar is_room_cleared = int 1
-					break 
-				case 0
-					break 
-				default 
-					gamevar room_state = int 0
-					break 
-		}
-}
+	if(gamevar !is_room_cleared)
+	 {
+			switch(gamevar room_state)
+			 {
+					case 1
+						gamevar room_state ++ 
+						gamevar is_room_cleared = int 1
+						break 
+					case 2
+						gamevar room_state ++ 
+						gamevar is_room_cleared = int 1
+						break 
+					case 0
+						break 
+					default 
+						gamevar room_state = int 0
+						break 
+			}
+	}
 
 ._SCRIPT_3
 
 ._SCRIPT_4
 
 ._SCRIPT_5
-gamevar global_inventory_p = var &VAR_7
-call create_char(var &init_position, "btreasure", int 0, int 14)
+	gamevar global_inventory_p = var &VAR_7
+	call create_char(var &init_position, "btreasure", int 0, int 14)
 
 ._SCRIPT_6
 
@@ -107,65 +107,65 @@ call create_char(var &init_position, "btreasure", int 0, int 14)
 ._SCRIPT_8
 
 ._SCRIPT_9
-if(gamevar script_time > var VAR_11)
- {
-		var VAR_11 = gamevar script_time + int 100 + call randomize_int(int 0, int 80)
+	if(gamevar script_time > var VAR_11)
+	 {
+			var VAR_11 = gamevar script_time + int 100 + call randomize_int(int 0, int 80)
 
-		 /* play the sound 'inwindlp' */ 
-		call play_loaded_sound(int 2, int 0, int 65, int 0)
-}
-if(var VAR_13 > var VAR_14)
- {
-		var VAR_15 = var VAR_12
-		var VAR_12 = int 2 + call randomize_int(int 0, int 5)
-		if(var VAR_12 == var VAR_15)
-		 {
-				var VAR_12 ++ 
-				if(var VAR_12 > int 6)
-				 {
-						var VAR_12 = int 2
-				}
-		}
-		var VAR_16 = call play_loaded_sound(var VAR_12, int 0, int 68, int 0)
-		if(var VAR_16)
-		 {
-				call set_sound_volume(var VAR_16, int 7)
-		}
-		var VAR_14 = call randomize_int(int 0, int 301) + int 600
-		var VAR_13 = int 0
-}
-var VAR_13 ++ 
+			 /* play the sound 'inwindlp' */ 
+			call play_loaded_sound(int 2, int 0, int 65, int 0)
+	}
+	if(var VAR_13 > var VAR_14)
+	 {
+			var VAR_15 = var VAR_12
+			var VAR_12 = int 2 + call randomize_int(int 0, int 5)
+			if(var VAR_12 == var VAR_15)
+			 {
+					var VAR_12 ++ 
+					if(var VAR_12 > int 6)
+					 {
+							var VAR_12 = int 2
+					}
+			}
+			var VAR_16 = call play_loaded_sound(var VAR_12, int 0, int 68, int 0)
+			if(var VAR_16)
+			 {
+					call set_sound_volume(var VAR_16, int 7)
+			}
+			var VAR_14 = call randomize_int(int 0, int 301) + int 600
+			var VAR_13 = int 0
+	}
+	var VAR_13 ++ 
 
 ._SCRIPT_10
-var is_BTREASURE_exist = call is_char_handle_in_level(int 1507337)
-if(var ! is_BTREASURE_exist)
- {
-		var is_BTREASURE_exist = call create_char(var init_position1, "btreasure9", var VAR_2, int 14)
-		call func_aa(var is_BTREASURE_exist)
-}
-else
- {
-		var VAR_4 = int 1
-		gamevar script_object = var is_BTREASURE_exist
-		if(gamevar *object_p+7 == int 4194304)
-		 {
-				call func_aa(var is_BTREASURE_exist)
-		}
-}
+	var is_BTREASURE_exist = call is_char_handle_in_level(int 1507337)
+	if(var ! is_BTREASURE_exist)
+	 {
+			var is_BTREASURE_exist = call create_char(var VAR_1, "btreasure9", var VAR_2, int 14)
+			call func_aa(var is_BTREASURE_exist)
+	}
+	else
+	 {
+			var VAR_4 = int 1
+			gamevar script_object = var is_BTREASURE_exist
+			if(gamevar *object_p+7 == int 4194304)
+			 {
+					call func_aa(var is_BTREASURE_exist)
+			}
+	}
 
 ._SCRIPT_11
-if(var VAR_3 != int -1)
- {
-		if(var ! VAR_4)
-		 {
-				if(var VAR_5 != int -1)
-				 {
-						call add_item_to_char(var is_BTREASURE_exist, int 85 /* moneybag */ , var VAR_5, int 0)
-				}
-				else
-				 {
-						call add_item_to_char(var is_BTREASURE_exist, var VAR_3 /* lightning */ , int 1, int 0)
-				}
-		}
-}
-var VAR_5 = int -1
+	if(var VAR_3 != int -1)
+	 {
+			if(var ! VAR_4)
+			 {
+					if(var VAR_5 != int -1)
+					 {
+							call add_item_to_char(var is_BTREASURE_exist, int 85 /* moneybag */ , var VAR_5, int 0)
+					}
+					else
+					 {
+							call add_item_to_char(var is_BTREASURE_exist, var VAR_3 /* lightning */ , int 1, int 0)
+					}
+			}
+	}
+	var VAR_5 = int -1

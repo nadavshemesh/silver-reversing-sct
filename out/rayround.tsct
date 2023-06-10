@@ -10,147 +10,147 @@
 
 
 ._DATA
-VAR_5	{ 0, 0 }	
-init_position	{ 728, 308, 10471 }	
-init_position1	{ 980, 308, 10251, 335, 308, 10271, 572, 308, 10072 }	
-ai_script	{ 0, 2572, 308, 12069, 0, 2352, 308, 12381, 0, 325, 308, 10875, 8 }	
-ai_script1	{ 0, 2535, 308, 11605, 0, 2869, 308, 11463, 0, 1738, 308, 9891, 8, 0, 2572, 308, 12069, 0, 2352, 308, 12381, 0, 325, 308, 10875, 8, 0, 2535, 308, 11605, 0, 2869, 308, 11463, 0, 1738, 308, 9891, 8 }	
-VAR_15	{ 3213, 308, 10275, -22, 308, 11538 }	
-enemy_gen_script1	{ 0, 1, 2, VAR_15, 8, 1, 1, 1, 79, 79, -1, 4, 0, 9, 0, 5, 0, 25, 6, 3, 7, 1, 1, 10, 83, 20, -1, -1 }	
-enemy_gen_script	{ 0, 1, 2, VAR_15, 8, 1, 1, 1, 80, 78, 77, 78, -1, 4, 0, 9, 0, 5, 0, 140, 6, 3, 7, 1, 2, 10, 41, 40, -1, -1, 0 }	
+	VAR_5	{ 0, 0 }	
+	init_position	{ 728, 308, 10471 }	
+	init_position1	{ 980, 308, 10251, 335, 308, 10271, 572, 308, 10072 }	
+	ai_script	{ 0, 2572, 308, 12069, 0, 2352, 308, 12381, 0, 325, 308, 10875, 8 }	
+	ai_script1	{ 0, 2535, 308, 11605, 0, 2869, 308, 11463, 0, 1738, 308, 9891, 8, 0, 2572, 308, 12069, 0, 2352, 308, 12381, 0, 325, 308, 10875, 8, 0, 2535, 308, 11605, 0, 2869, 308, 11463, 0, 1738, 308, 9891, 8 }	
+	VAR_15	{ 3213, 308, 10275, -22, 308, 11538 }	
+	enemy_gen_script1	{ 0, 1, 2, VAR_15, 8, 1, 1, 1, 79, 79, -1, 4, 0, 9, 0, 5, 0, 25, 6, 3, 7, 1, 1, 10, 83, 20, -1, -1 }	
+	enemy_gen_script	{ 0, 1, 2, VAR_15, 8, 1, 1, 1, 80, 78, 77, 78, -1, 4, 0, 9, 0, 5, 0, 140, 6, 3, 7, 1, 2, 10, 41, 40, -1, -1, 0 }	
 
 ._on_load
-execute SCRIPT_9
-call load_sound_set(int 65)
+	execute SCRIPT_9
+	call load_sound_set(int 65)
 
- /* play the sound 'in2wind1' */ 
-call play_loaded_sound(int 5, int -1, int 65, int 0)
-call load_sound_set(int 30)
+	 /* play the sound 'in2wind1' */ 
+	call play_loaded_sound(int 5, int -1, int 65, int 0)
+	call load_sound_set(int 30)
 
- /* play the sound 'torches2' */ 
-call play_loaded_sound(int 1, int -1, int 30, int 0)
-if(gamevar is_room_cleared)
- {
-		execute SCRIPT_8
-}
-else
- {
-		switch(gamevar room_state)
-		 {
-				case 1
-					execute SCRIPT_5
-					break 
-				case 2
-					execute SCRIPT_7
-					break 
-				case 0
-					break 
-		}
-}
+	 /* play the sound 'torches2' */ 
+	call play_loaded_sound(int 1, int -1, int 30, int 0)
+	if(gamevar is_room_cleared)
+	 {
+			execute SCRIPT_8
+	}
+	else
+	 {
+			switch(gamevar room_state)
+			 {
+					case 1
+						execute SCRIPT_5
+						break 
+					case 2
+						execute SCRIPT_7
+						break 
+					case 0
+						break 
+			}
+	}
 
 ._infinite_loop
-execute SCRIPT_3
-if(gamevar !is_room_cleared)
- {
-		switch(gamevar room_state)
-		 {
-				case 1
-					execute SCRIPT_4
-					break 
-				case 2
-					execute SCRIPT_6
-					break 
-				case 0
-					break 
-		}
-}
+	execute SCRIPT_3
+	if(gamevar !is_room_cleared)
+	 {
+			switch(gamevar room_state)
+			 {
+					case 1
+						execute SCRIPT_4
+						break 
+					case 2
+						execute SCRIPT_6
+						break 
+					case 0
+						break 
+			}
+	}
 
 ._on_exit
-if(gamevar !is_room_cleared)
- {
-		switch(gamevar room_state)
-		 {
-				case 1
-					gamevar room_state ++ 
-					gamevar is_room_cleared = int 1
-					break 
-				case 2
-					gamevar room_state ++ 
-					gamevar is_room_cleared = int 1
-					break 
-				case 0
-					break 
-				default 
-					gamevar room_state = int 0
-					break 
-		}
-}
+	if(gamevar !is_room_cleared)
+	 {
+			switch(gamevar room_state)
+			 {
+					case 1
+						gamevar room_state ++ 
+						gamevar is_room_cleared = int 1
+						break 
+					case 2
+						gamevar room_state ++ 
+						gamevar is_room_cleared = int 1
+						break 
+					case 0
+						break 
+					default 
+						gamevar room_state = int 0
+						break 
+			}
+	}
 
 ._SCRIPT_3
-if(gamevar script_time > var VAR_18)
- {
-		var VAR_18 = gamevar script_time + int 100 + call randomize_int(int 0, int 50)
+	if(gamevar script_time > var VAR_18)
+	 {
+			var VAR_18 = gamevar script_time + int 100 + call randomize_int(int 0, int 50)
 
-		 /* play the sound 'wwindlp' */ 
-		call play_loaded_sound(int 6, int 0, int 65, int 0)
-}
+			 /* play the sound 'wwindlp' */ 
+			call play_loaded_sound(int 6, int 0, int 65, int 0)
+	}
 
 ._SCRIPT_4
-if(var VAR_5 == int 0)
- {
-		if(call is_char_handle_in_level(int 3604480))
-		 {
-				if(call func_88(var ronnie2))
-				 {
-						call func_46(var ronnie2, int 13)
-						call func_46(var ronnie21, int 13)
-						call func_46(var VAR_8, int 13)
-						call func_46(var VAR_9, int 13)
-				}
-		}
-		if(call is_char_handle_in_level(int 3604481))
-		 {
-				if(call func_88(var ronnie21))
-				 {
-						call func_46(var ronnie2, int 13)
-						call func_46(var ronnie21, int 13)
-						call func_46(var VAR_8, int 13)
-						call func_46(var VAR_9, int 13)
-				}
-		}
-		var VAR_5 ++ 
-}
-if(var VAR_5 == int 1)
- {
-		var VAR_14 = call run_enemy_generator(var &enemy_gen_script, int 10)
-		var VAR_5 ++ 
-}
-if(var VAR_5 == int 2)
- {
-		if(call func_122(var VAR_14) == int 0)
-		 {
-				var VAR_14 = call run_enemy_generator(var &enemy_gen_script1, int 10)
-				var VAR_5 ++ 
-		}
-}
+	if(var VAR_5 == int 0)
+	 {
+			if(call is_char_handle_in_level(int 3604480))
+			 {
+					if(call func_88(var ronnie2))
+					 {
+							call func_46(var ronnie2, int 13)
+							call func_46(var ronnie21, int 13)
+							call func_46(var VAR_8, int 13)
+							call func_46(var VAR_9, int 13)
+					}
+			}
+			if(call is_char_handle_in_level(int 3604481))
+			 {
+					if(call func_88(var ronnie21))
+					 {
+							call func_46(var ronnie2, int 13)
+							call func_46(var ronnie21, int 13)
+							call func_46(var VAR_8, int 13)
+							call func_46(var VAR_9, int 13)
+					}
+			}
+			var VAR_5 ++ 
+	}
+	if(var VAR_5 == int 1)
+	 {
+			var VAR_14 = call run_enemy_generator(var &enemy_gen_script, int 10)
+			var VAR_5 ++ 
+	}
+	if(var VAR_5 == int 2)
+	 {
+			if(call func_122(var VAR_14) == int 0)
+			 {
+					var VAR_14 = call run_enemy_generator(var &enemy_gen_script1, int 10)
+					var VAR_5 ++ 
+			}
+	}
 
 ._SCRIPT_5
-var ronnie2 = call create_enemy(int 80, int 0, var &init_position, int 355)
-gamevar script_object = var ronnie2
-gamevar *character_stats_p+16 = int 1400
-gamevar *character_stats_p+15 = int 3400
-var ronnie21 = call create_enemy(int 80, int 1, var &init_position1, int 350)
-gamevar script_object = var ronnie21
-gamevar *character_stats_p+16 = int 1400
-gamevar *character_stats_p+15 = int 3400
-call set_char_init_state(var ronnie2, int 13)
-call play_char_ai_script(var ronnie2, var &ai_script)
-call func_106(var ronnie2, int 1, int 0, int 1)
-call set_char_init_state(var ronnie2, int 1)
-call set_char_init_state(var ronnie21, int 13)
-call play_char_ai_script(var ronnie21, var &ai_script1)
-call func_106(var ronnie21, int 1, int 0, int 1)
-call set_char_init_state(var ronnie21, int 1)
+	var ronnie2 = call create_enemy(int 80, int 0, var &init_position, int 355)
+	gamevar script_object = var ronnie2
+	gamevar *character_stats_p+16 = int 1400
+	gamevar *character_stats_p+15 = int 3400
+	var ronnie21 = call create_enemy(int 80, int 1, var &init_position1, int 350)
+	gamevar script_object = var ronnie21
+	gamevar *character_stats_p+16 = int 1400
+	gamevar *character_stats_p+15 = int 3400
+	call set_char_init_state(var ronnie2, int 13)
+	call play_char_ai_script(var ronnie2, var &ai_script)
+	call func_106(var ronnie2, int 1, int 0, int 1)
+	call set_char_init_state(var ronnie2, int 1)
+	call set_char_init_state(var ronnie21, int 13)
+	call play_char_ai_script(var ronnie21, var &ai_script1)
+	call func_106(var ronnie21, int 1, int 0, int 1)
+	call set_char_init_state(var ronnie21, int 1)
 
 ._SCRIPT_6
 
@@ -159,15 +159,15 @@ call set_char_init_state(var ronnie21, int 1)
 ._SCRIPT_8
 
 ._SCRIPT_9
-call load_char("ogre")
-call load_char("orc")
-call load_item(int 96 /* pick */ )
-gamevar SMACKER_X = int 264
-gamevar SMACKER_Y = int 144
-call play_2d_anim("flame01", int 1, int 1, int 0)
-gamevar SMACKER_X = int 384
-gamevar SMACKER_Y = int 156
-call play_2d_anim("flame02", int 1, int 1, int 0)
-gamevar SMACKER_X = int 492
-gamevar SMACKER_Y = int 140
-call play_2d_anim("flame03", int 1, int 1, int 0)
+	call load_char("ogre")
+	call load_char("orc")
+	call load_item(int 96 /* pick */ )
+	gamevar SMACKER_X = int 264
+	gamevar SMACKER_Y = int 144
+	call play_2d_anim("flame01", int 1, int 1, int 0)
+	gamevar SMACKER_X = int 384
+	gamevar SMACKER_Y = int 156
+	call play_2d_anim("flame02", int 1, int 1, int 0)
+	gamevar SMACKER_X = int 492
+	gamevar SMACKER_Y = int 140
+	call play_2d_anim("flame03", int 1, int 1, int 0)

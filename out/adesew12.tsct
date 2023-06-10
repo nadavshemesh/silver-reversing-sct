@@ -10,101 +10,101 @@
 
 
 ._DATA
-VAR_0	{ 1, 0, 0 }	
-VAR_1	{ 1, 0, 0 }	
-init_position	{ 152, -1980, 4128 }	
-init_position1	{ -345, -1980, 5280 }	
-VAR_7	{ 0, 2, 300, 300, 8, 1, 1, 100, 189, -1, 4, 0, 9, 1, 5, 1, 250, 300, 7, 1, 5, 6, 1, -1 }	
-VAR_8	{ 0, 2, 300, 300, 8, 1, 1, 100, 189, -1, 4, 0, 9, 1, 5, 1, 250, 300, 7, 1, 5, 6, 1, -1 }	
-VAR_12	200	
+	VAR_0	{ 1, 0, 0 }	
+	VAR_1	{ 1, 0, 0 }	
+	init_position	{ 152, -1980, 4128 }	
+	init_position1	{ -345, -1980, 5280 }	
+	VAR_7	{ 0, 2, 300, 300, 8, 1, 1, 100, 189, -1, 4, 0, 9, 1, 5, 1, 250, 300, 7, 1, 5, 6, 1, -1 }	
+	VAR_8	{ 0, 2, 300, 300, 8, 1, 1, 100, 189, -1, 4, 0, 9, 1, 5, 1, 250, 300, 7, 1, 5, 6, 1, -1 }	
+	VAR_12	200	
 
 ._on_load
-call play_bgm("SEWERPT1")
-gamevar SMACKER_X = int 248
-gamevar SMACKER_Y = int 168
-call play_2d_anim("smoke01", int 1, int 1, var &VAR_0)
-gamevar SMACKER_X = int 8
-gamevar SMACKER_Y = int 32
-call play_2d_anim("torch01", int 1, int 1, var &VAR_1)
-call load_sound_set(int 30)
-var torches2_sound_ref = call play_loaded_sound(int 1, int -1, int 30, int 0)
-call set_sound_volume(var torches2_sound_ref, int 64)
-call load_sound_set(int 64)
+	call play_bgm("SEWERPT1")
+	gamevar SMACKER_X = int 248
+	gamevar SMACKER_Y = int 168
+	call play_2d_anim("smoke01", int 1, int 1, var &VAR_0)
+	gamevar SMACKER_X = int 8
+	gamevar SMACKER_Y = int 32
+	call play_2d_anim("torch01", int 1, int 1, var &VAR_1)
+	call load_sound_set(int 30)
+	var torches2_sound_ref = call play_loaded_sound(int 1, int -1, int 30, int 0)
+	call set_sound_volume(var torches2_sound_ref, int 64)
+	call load_sound_set(int 64)
 
- /* play the sound 'cavelp' */ 
-call play_loaded_sound(int 1, int -1, int 64, int 0)
-call load_sound_set(int 65)
+	 /* play the sound 'cavelp' */ 
+	call play_loaded_sound(int 1, int -1, int 64, int 0)
+	call load_sound_set(int 65)
 
- /* play the sound 'cwind1' */ 
-call play_loaded_sound(int 1, int -1, int 65, int 0)
-switch(gamevar room_state)
- {
-		case 1
-			execute SCRIPT_3
-			break 
-		case 0
-			break 
-}
+	 /* play the sound 'cwind1' */ 
+	call play_loaded_sound(int 1, int -1, int 65, int 0)
+	switch(gamevar room_state)
+	 {
+			case 1
+				execute SCRIPT_3
+				break 
+			case 0
+				break 
+	}
 
 ._infinite_loop
-execute SCRIPT_5
-switch(gamevar room_state)
- {
-		case 1
-			execute SCRIPT_4
-			break 
-		case 0
-			break 
-}
+	execute SCRIPT_5
+	switch(gamevar room_state)
+	 {
+			case 1
+				execute SCRIPT_4
+				break 
+			case 0
+				break 
+	}
 
 ._on_exit
-switch(gamevar room_state)
- {
-		case 1
-			gamevar room_state = int 0
-			break 
-		case 0
-			break 
-}
+	switch(gamevar room_state)
+	 {
+			case 1
+				gamevar room_state = int 0
+				break 
+			case 0
+				break 
+	}
 
 ._SCRIPT_3
-call load_char("spider")
-var greater_gimpv = call create_enemy(int 46, int 0, var &init_position, int 50)
-var greater_gimpv1 = call create_enemy(int 46, int 1, var &init_position1, int 40)
-call add_item_to_char(var greater_gimpv, int 43 /* cheese */ , int 1, int 0)
-call add_item_to_char(var greater_gimpv1, int 45 /* deadmous */ , int 1, int 0)
-call func_104(var greater_gimpv, int 7, int 4)
-call func_104(var greater_gimpv1, int 7, int 4)
-call set_char_init_state(var greater_gimpv, int 3)
-call set_char_init_state(var greater_gimpv1, int 3)
-call func_106(var greater_gimpv, int 3, int 1, var &VAR_7)
-call func_106(var greater_gimpv1, int 3, int 1, var &VAR_8)
-call func_1(var greater_gimpv, int -1)
-call func_1(var greater_gimpv1, int -1)
+	call load_char("spider")
+	var greater_gimpv = call create_enemy(int 46, int 0, var &init_position, int 50)
+	var greater_gimpv1 = call create_enemy(int 46, int 1, var &init_position1, int 40)
+	call add_item_to_char(var greater_gimpv, int 43 /* cheese */ , int 1, int 0)
+	call add_item_to_char(var greater_gimpv1, int 45 /* deadmous */ , int 1, int 0)
+	call func_104(var greater_gimpv, int 7, int 4)
+	call func_104(var greater_gimpv1, int 7, int 4)
+	call set_char_init_state(var greater_gimpv, int 3)
+	call set_char_init_state(var greater_gimpv1, int 3)
+	call func_106(var greater_gimpv, int 3, int 1, var &VAR_7)
+	call func_106(var greater_gimpv1, int 3, int 1, var &VAR_8)
+	call func_1(var greater_gimpv, int -1)
+	call func_1(var greater_gimpv1, int -1)
 
 ._SCRIPT_4
-if(var VAR_12 == int 0)
- {
-		exit_script 
-}
-if(var VAR_12 > int 1)
- {
-		var VAR_12 -- 
-		exit_script 
-}
-if(call is_char_handle_in_level(int 10551296))
- {
-		call func_2(var greater_gimpv)
-}
-if(call is_char_handle_in_level(int 10551297))
- {
-		call func_2(var greater_gimpv1)
-}
+	if(var VAR_12 == int 0)
+	 {
+			exit_script 
+	}
+	if(var VAR_12 > int 1)
+	 {
+			var VAR_12 -- 
+			exit_script 
+	}
+	if(call is_char_handle_in_level(int 10551296))
+	 {
+			call func_2(var greater_gimpv)
+	}
+	if(call is_char_handle_in_level(int 10551297))
+	 {
+			call func_2(var greater_gimpv1)
+	}
 
 ._SCRIPT_5
-if(gamevar script_time > var VAR_15)
- {
-		var VAR_15 = gamevar script_time + int 60 + call randomize_int(int 0, int 60)
-		var inwindlp_sound_ref = call play_loaded_sound(int 2, int 0, int 65, int 0)
-		call set_sound_volume(var inwindlp_sound_ref, int 30)
-}
+	if(gamevar script_time > var VAR_15)
+	 {
+			var VAR_15 = gamevar script_time + int 60 + call randomize_int(int 0, int 60)
+			var inwindlp_sound_ref = call play_loaded_sound(int 2, int 0, int 65, int 0)
+			call set_sound_volume(var inwindlp_sound_ref, int 30)
+	}

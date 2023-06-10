@@ -10,239 +10,239 @@
 
 
 ._DATA
-VAR_0	{ -919, 900, -60 }	
-VAR_2	{ 0, 0 }	
-VAR_3	{ 0, 0, 0 }	
-VAR_5	{ 0, 0 }	
-init_position	{ 255, -4, 247 }	
-init_position1	{ -457, -1, 201 }	
-VAR_15	{ 461, -1, 664, -539, -10, 622, -185, -10, 364, 332, -7, 1182, -528, -10, 1014, -791, 5, 584, 94, -15, 1233 }	
-enemy_gen_script	{ 0, 1, 7, 32, VAR_15, 2, 4, 0, 9, 1, 1, 2, 33, -1, 5, 0, 100, 6, 1, 7, 1, 1, -1 }	
-VAR_17	{ 490, 7, 858, -810, 7, 891 }	
-VAR_18	{ 0, 0 }	
-VAR_23	{ -94, -15, 559 }	
-VAR_24	{ 94, -15, 667 }	
-VAR_25	{ -129, -15, 814 }	
-VAR_26	{ -41, -15, 793 }	
-arr	{ 88, VAR_23, VAR_24, VAR_25 }	
-arr_1	VAR_26	
-VAR_33	""	
+	VAR_0	{ -919, 900, -60 }	
+	VAR_2	{ 0, 0 }	
+	VAR_3	{ 0, 0, 0 }	
+	VAR_5	{ 0, 0 }	
+	init_position	{ 255, -4, 247 }	
+	init_position1	{ -457, -1, 201 }	
+	VAR_15	{ 461, -1, 664, -539, -10, 622, -185, -10, 364, 332, -7, 1182, -528, -10, 1014, -791, 5, 584, 94, -15, 1233 }	
+	enemy_gen_script	{ 0, 1, 7, 32, VAR_15, 2, 4, 0, 9, 1, 1, 2, 33, -1, 5, 0, 100, 6, 1, 7, 1, 1, -1 }	
+	VAR_17	{ 490, 7, 858, -810, 7, 891 }	
+	VAR_18	{ 0, 0 }	
+	VAR_23	{ -94, -15, 559 }	
+	VAR_24	{ 94, -15, 667 }	
+	VAR_25	{ -129, -15, 814 }	
+	VAR_26	{ -41, -15, 793 }	
+	arr	{ 88, VAR_23, VAR_24, VAR_25 }	
+	arr_1	VAR_26	
+	VAR_33	-1	
 
 ._on_load
-if(gamevar is_room_cleared)
- {
-		execute SCRIPT_9
-}
-else
- {
-		switch(gamevar room_state)
-		 {
-				case 1
-					execute SCRIPT_6
-					break 
-				case 2
-					execute SCRIPT_8
-					break 
-				case 0
-					break 
-		}
-}
-call load_sound_set(int 46)
+	if(gamevar is_room_cleared)
+	 {
+			execute SCRIPT_9
+	}
+	else
+	 {
+			switch(gamevar room_state)
+			 {
+					case 1
+						execute SCRIPT_6
+						break 
+					case 2
+						execute SCRIPT_8
+						break 
+					case 0
+						break 
+			}
+	}
+	call load_sound_set(int 46)
 
- /* play the sound 'palhum' */ 
-call play_loaded_sound(int 3, int -1, int 46, int 0)
+	 /* play the sound 'palhum' */ 
+	call play_loaded_sound(int 3, int -1, int 46, int 0)
 
- /* play the sound 'piston' */ 
-call play_loaded_sound(int 8, int -1, int 46, var &VAR_0)
+	 /* play the sound 'piston' */ 
+	call play_loaded_sound(int 8, int -1, int 46, var &VAR_0)
 
 ._infinite_loop
-execute SCRIPT_4
-if(gamevar !is_room_cleared)
- {
-		switch(gamevar room_state)
-		 {
-				case 1
-					execute SCRIPT_5
-					break 
-				case 2
-					execute SCRIPT_7
-					break 
-				case 0
-					break 
-		}
-}
+	execute SCRIPT_4
+	if(gamevar !is_room_cleared)
+	 {
+			switch(gamevar room_state)
+			 {
+					case 1
+						execute SCRIPT_5
+						break 
+					case 2
+						execute SCRIPT_7
+						break 
+					case 0
+						break 
+			}
+	}
 
 ._on_exit
-if(gamevar !is_room_cleared)
- {
-		switch(gamevar room_state)
-		 {
-				case 1
-					gamevar *scene_info_p+1 = int 1
-					gamevar room_state ++ 
-					gamevar is_room_cleared = int 1
-					break 
-				case 2
-					gamevar room_state ++ 
-					gamevar is_room_cleared = int 1
-					break 
-				case 0
-					break 
-				default 
-					gamevar room_state = int 0
-					break 
-		}
-}
+	if(gamevar !is_room_cleared)
+	 {
+			switch(gamevar room_state)
+			 {
+					case 1
+						gamevar *scene_info_p+1 = int 1
+						gamevar room_state ++ 
+						gamevar is_room_cleared = int 1
+						break 
+					case 2
+						gamevar room_state ++ 
+						gamevar is_room_cleared = int 1
+						break 
+					case 0
+						break 
+					default 
+						gamevar room_state = int 0
+						break 
+			}
+	}
 
 ._SCRIPT_3
-gamevar SMACKER_X = int 196
-gamevar SMACKER_Y = int 60
-call play_2d_anim("flamloop", int 1, int 0, var &VAR_3)
-call play_2d_anim("flamfade", int -2147483, int 1, var &VAR_1)
-gamevar SMACKER_X = int 260
-gamevar SMACKER_Y = int 132
-call play_2d_anim("s_gatops", int -2147483, int 0, var &VAR_4)
+	gamevar SMACKER_X = int 196
+	gamevar SMACKER_Y = int 60
+	call play_2d_anim("flamloop", int 1, int 0, var &VAR_3)
+	call play_2d_anim("flamfade", int -2147483, int 1, var &VAR_1)
+	gamevar SMACKER_X = int 260
+	gamevar SMACKER_Y = int 132
+	call play_2d_anim("s_gatops", int -2147483, int 0, var &VAR_4)
 
 ._SCRIPT_4
-if(gamevar script_time > var VAR_34)
- {
-		var VAR_34 = gamevar script_time + int 60 + call randomize_int(int 0, int 40)
+	if(gamevar script_time > var VAR_34)
+	 {
+			var VAR_34 = gamevar script_time + int 60 + call randomize_int(int 0, int 40)
 
-		 /* play the sound 'cricklp' */ 
-		call play_loaded_sound(int 2, int 0, int 46, int 0)
-}
+			 /* play the sound 'cricklp' */ 
+			call play_loaded_sound(int 2, int 0, int 46, int 0)
+	}
 
 ._SCRIPT_5
-if(var VAR_33 != var VAR_18)
- {
-		var VAR_33 = var VAR_18
-		call log_obj(var VAR_18)
-}
-switch(var VAR_18)
- {
-		case 0
-			if(call func_8a(var &VAR_17))
+	if(var VAR_33 != var VAR_18)
+	 {
+			var VAR_33 = var VAR_18
+			call log_obj(var VAR_18)
+	}
+	switch(var VAR_18)
+	 {
+			case 0
+				if(call func_8a(var &VAR_17))
+				 {
+						if(call is_char_handle_in_level(int 1179648))
+						 {
+								call func_50(var sguard, int 129)
+						}
+						if(call is_char_handle_in_level(int 1179649))
+						 {
+								call func_50(var sguard1, int 129)
+						}
+						var VAR_18 = int 1
+				}
+				if(call func_d1(var &VAR_17))
+				 {
+						if(call is_char_handle_in_level(int 1179648))
+						 {
+								call func_50(var sguard, int 129)
+						}
+						if(call is_char_handle_in_level(int 1179649))
+						 {
+								call func_50(var sguard1, int 129)
+						}
+						var VAR_18 = int 1
+				}
+				break 
+			case 1
+				if(call get_num_of_enemies() < int 1)
+				 {
+						var VAR_18 ++ 
+						var VAR_19 = call run_enemy_generator(var &enemy_gen_script, int 10)
+				}
+				break 
+			case 2
+				if(call func_122(var VAR_19) == int 0&&call get_num_of_enemies() < int 1)
+				 {
+						call set_input_system(int 2)
+						var VAR_18 ++ 
+						var VAR_32 = int 0
+				}
+				break 
+			case 3
+				if(var VAR_32 > int 150)
+				 {
+						var david = call get_david_char()
+						while(var david)
+						 {
+								call char_walk_to_pos(var david, @arr[var VAR_22])
+								var david = call func_7e()
+								var index ++ 
+						}
+						var VAR_18 ++ 
+				}
+				break 
+			case 4
+				var index_1 = int 0
+				var david = call get_david_char()
+				while(var david)
+				 {
+						if(!arr_1[var VAR_31])
+						 {
+								if(call is_char_standing(var david))
+								 {
+										@arr_1[var index_1]= int 1
+										call func_36(var david, int -51, int 10, int -204)
+								}
+						}
+						var index_1 ++ 
+						var david = call func_7e()
+				}
+				if(var index_1 != int 3)
+				 {
+						var VAR_30 = int 1
+				}
+				if(var arr_1&&var VAR_29&&var VAR_30)
+				 {
+						var VAR_3 = int 0
+						var VAR_1 = int 1
+						var VAR_18 ++ 
+				}
+				break 
+			case 5
+				var VAR_20 = var VAR_5
+				if(var VAR_20 == int 50)
+				 {
+						gamevar *scene_info_p+3 = int 2
+						call set_input_system(int 1)
+						var VAR_18 ++ 
+				}
+				break 
+	}
+	var VAR_32 ++ 
+	if(var VAR_1)
+	 {
+			var VAR_20 = var VAR_2
+			var VAR_10 = int 18 - var VAR_20
+			if(var VAR_10 < int 0)
 			 {
-					if(call is_char_handle_in_level(int 1179648))
-					 {
-							call func_50(var sguard, int 129)
-					}
-					if(call is_char_handle_in_level(int 1179649))
-					 {
-							call func_50(var sguard1, int 129)
-					}
-					var VAR_18 = int 1
+					var VAR_10 = int 0
 			}
-			if(call func_d1(var &VAR_17))
+			call set_sound_volume(var torches2_sound_ref, var VAR_10)
+			if(var VAR_20 == int 19)
 			 {
-					if(call is_char_handle_in_level(int 1179648))
-					 {
-							call func_50(var sguard, int 129)
-					}
-					if(call is_char_handle_in_level(int 1179649))
-					 {
-							call func_50(var sguard1, int 129)
-					}
-					var VAR_18 = int 1
-			}
-			break 
-		case 1
-			if(call get_num_of_enemies() < int 1)
-			 {
-					var VAR_18 ++ 
-					var VAR_19 = call run_enemy_generator(var &enemy_gen_script, int 10)
-			}
-			break 
-		case 2
-			if(call func_122(var VAR_19) == int 0&&call get_num_of_enemies() < int 1)
-			 {
-					call set_input_system(int 2)
-					var VAR_18 ++ 
-					var VAR_32 = int 0
-			}
-			break 
-		case 3
-			if(var VAR_32 > int 150)
-			 {
-					var david = call get_david_char()
-					while(var david)
-					 {
-							call char_walk_to_pos(var david, @arr[var VAR_22])
-							var david = call func_7e()
-							var VAR_22 ++ 
-					}
-					var VAR_18 ++ 
-			}
-			break 
-		case 4
-			var VAR_31 = int 0
-			var david = call get_david_char()
-			while(var david)
-			 {
-					if(!arr_1[var VAR_31])
-					 {
-							if(call is_char_standing(var david))
-							 {
-									@arr_1[var VAR_31]= int 1
-									call func_36(var david, int -51, int 10, int -204)
-							}
-					}
-					var VAR_31 ++ 
-					var david = call func_7e()
-			}
-			if(var VAR_31 != int 3)
-			 {
-					var VAR_30 = int 1
-			}
-			if(var arr_1&&var VAR_29&&var VAR_30)
-			 {
-					var VAR_3 = int 0
-					var VAR_1 = int 1
-					var VAR_18 ++ 
-			}
-			break 
-		case 5
-			var VAR_20 = var VAR_5
-			if(var VAR_20 == int 50)
-			 {
-					gamevar *scene_info_p+3 = int 2
-					call set_input_system(int 1)
-					var VAR_18 ++ 
-			}
-			break 
-}
-var VAR_32 ++ 
-if(var VAR_1)
- {
-		var VAR_20 = var VAR_2
-		var VAR_10 = int 18 - var VAR_20
-		if(var VAR_10 < int 0)
-		 {
-				var VAR_10 = int 0
-		}
-		call set_sound_volume(var torches2_sound_ref, var VAR_10)
-		if(var VAR_20 == int 19)
-		 {
-				var VAR_1 = int 0
-				call stop_playing_sound(var torches2_sound_ref)
-				var VAR_4 = int 1
+					var VAR_1 = int 0
+					call stop_playing_sound(var torches2_sound_ref)
+					var VAR_4 = int 1
 
-				 /* play the sound 'swamp1' */ 
-				call play_loaded_sound(int 1, int 0, int 46, int 0)
-				call func_4e(int 0)
-		}
-}
+					 /* play the sound 'swamp1' */ 
+					call play_loaded_sound(int 1, int 0, int 46, int 0)
+					call func_4e(int 0)
+			}
+	}
 
 ._SCRIPT_6
-call load_sound_set(int 30)
-var torches2_sound_ref = call play_loaded_sound(int 1, int -1, int 30, int 0)
-execute SCRIPT_3
-var VAR_3 = int 1
-var sguard = call create_enemy(int 34, int 0, var &init_position, int 325)
-var sguard1 = call create_enemy(int 34, int 1, var &init_position1, int 30)
-call func_47(var sguard, int 129)
-call func_47(var sguard1, int 129)
-gamevar *scene_info_p+3 = int 16
+	call load_sound_set(int 30)
+	var torches2_sound_ref = call play_loaded_sound(int 1, int -1, int 30, int 0)
+	execute SCRIPT_3
+	var VAR_3 = int 1
+	var sguard = call create_enemy(int 34, int 0, var &init_position, int 325)
+	var sguard1 = call create_enemy(int 34, int 1, var &init_position1, int 30)
+	call func_47(var sguard, int 129)
+	call func_47(var sguard1, int 129)
+	gamevar *scene_info_p+3 = int 16
 
 ._SCRIPT_7
 

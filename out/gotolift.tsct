@@ -10,252 +10,252 @@
 
 
 ._DATA
-init_position	{ -2813, -996, 5953 }	
-init_position1	{ -2575, -996, 5960 }	
-init_position2	{ -2680, -996, 5806 }	
-imp_boss	{ 0, -7204, -996, 5228 }	
-imp_boss1	{ 0, -7333, -996, 5199 }	
-init_position3	{ -2384, 2, 3983 }	
-VAR_12	{ -1914, 3, 4430, -2435, 3, 4006, -1893, 3, 3557 }	
-VAR_13	{ -4766, 1750, 4586, -3379, 1750, 4624, -3387, 1750, 5763, -4524, 1750, 5805, -3954, 1750, 5201 }	
-VAR_14	{ -4766, -997, 4586, -3379, -997, 4624, -3387, -997, 5763, -4524, -997, 5805, -3954, -597, 5201 }	
-VAR_15	{ 0, 0, 0, -1, 8, 1, 4, 0, 9, 0, 1, 4, 100, 103, 102, 101, -1, 2, 1, 3, 1, 5, 0, 50, 6, 1, 7, 1, 5, -1 }	
-VAR_16	{ 0, 1, 5, VAR_13, 8, 1, 4, 2, 5, VAR_14, 9, 0, 1, 3, 105, -1, 5, 0, 50, 6, 1, 7, 1, 3, -1 }	
-VAR_22	0	
-ai_script	{ 15, 0, -5950, -997, 5244, 33, 8, 0, 62, 0, 3, VAR_25, 0, 0, -7204, -996, 5228, 16, VAR_22, 1, 8 }	
-VAR_25	{ 1886217588, -1442811291 }	
-ai_script1	{ 15, 0, -5950, -997, 5244, 8 }	
-ai_script2	{ 15, 0, -5950, -997, 5244, 8 }	
-VAR_28	-1	
+	init_position	{ -2813, -996, 5953 }	
+	init_position1	{ -2575, -996, 5960 }	
+	init_position2	{ -2680, -996, 5806 }	
+	imp_boss	{ 0, -7204, -996, 5228 }	
+	imp_boss1	{ 0, -7333, -996, 5199 }	
+	init_position3	{ -2384, 2, 3983 }	
+	VAR_12	{ -1914, 3, 4430, -2435, 3, 4006, -1893, 3, 3557 }	
+	VAR_13	{ -4766, 1750, 4586, -3379, 1750, 4624, -3387, 1750, 5763, -4524, 1750, 5805, -3954, 1750, 5201 }	
+	VAR_14	{ -4766, -997, 4586, -3379, -997, 4624, -3387, -997, 5763, -4524, -997, 5805, -3954, -597, 5201 }	
+	VAR_15	{ 0, 0, 0, -1, 8, 1, 4, 0, 9, 0, 1, 4, 100, 103, 102, 101, -1, 2, 1, 3, 1, 5, 0, 50, 6, 1, 7, 1, 5, -1 }	
+	VAR_16	{ 0, 1, 5, VAR_13, 8, 1, 4, 2, 5, VAR_14, 9, 0, 1, 3, 105, -1, 5, 0, 50, 6, 1, 7, 1, 3, -1 }	
+	VAR_22	0	
+	ai_script	{ 15, 0, -5950, -997, 5244, 33, 8, 0, 62, 0, 3, VAR_25, 0, 0, -7204, -996, 5228, 16, VAR_22, 1, 8 }	
+	VAR_25	"temper"	
+	ai_script1	{ 15, 0, -5950, -997, 5244, 8 }	
+	ai_script2	{ 15, 0, -5950, -997, 5244, 8 }	
+	VAR_28	-1	
 
 ._on_load
-call play_bgm("GNO")
-call load_sound_set(int 62)
-call load_sound_set(int 63)
+	call play_bgm("GNO")
+	call load_sound_set(int 62)
+	call load_sound_set(int 63)
 
- /* play the sound 'gnoamb1' */ 
-call play_loaded_sound(int 1, int -1, int 63, int 0)
+	 /* play the sound 'gnoamb1' */ 
+	call play_loaded_sound(int 1, int -1, int 63, int 0)
 
- /* play the sound 'fbird1' */ 
-call play_loaded_sound(int 1, int -1, int 62, int 0)
+	 /* play the sound 'fbird1' */ 
+	call play_loaded_sound(int 1, int -1, int 62, int 0)
 
- /* play the sound 'imptalk1' */ 
-call play_loaded_sound(int 7, int -1, int 62, int 0)
-if(gamevar is_room_cleared)
- {
-		execute SCRIPT_8
-}
-else
- {
-		switch(gamevar room_state)
-		 {
-				case 1
-					execute SCRIPT_4
-					break 
-				case 2
-					execute SCRIPT_6
-					break 
-				case 0
-					break 
-		}
-}
+	 /* play the sound 'imptalk1' */ 
+	call play_loaded_sound(int 7, int -1, int 62, int 0)
+	if(gamevar is_room_cleared)
+	 {
+			execute SCRIPT_8
+	}
+	else
+	 {
+			switch(gamevar room_state)
+			 {
+					case 1
+						execute SCRIPT_4
+						break 
+					case 2
+						execute SCRIPT_6
+						break 
+					case 0
+						break 
+			}
+	}
 
 ._infinite_loop
-execute SCRIPT_3
-if(gamevar !is_room_cleared)
- {
-		switch(gamevar room_state)
-		 {
-				case 1
-					execute SCRIPT_5
-					break 
-				case 2
-					execute SCRIPT_7
-					break 
-				case 0
-					break 
-		}
-}
+	execute SCRIPT_3
+	if(gamevar !is_room_cleared)
+	 {
+			switch(gamevar room_state)
+			 {
+					case 1
+						execute SCRIPT_5
+						break 
+					case 2
+						execute SCRIPT_7
+						break 
+					case 0
+						break 
+			}
+	}
 
 ._on_exit
-if(gamevar !is_room_cleared)
- {
-		switch(gamevar room_state)
-		 {
-				case 1
-					gamevar room_state ++ 
-					gamevar is_room_cleared = int 1
-					break 
-				case 2
-					gamevar room_state ++ 
-					gamevar is_room_cleared = int 1
-					break 
-				case 0
-					break 
-				default 
-					gamevar room_state = int 0
-					break 
-		}
-}
+	if(gamevar !is_room_cleared)
+	 {
+			switch(gamevar room_state)
+			 {
+					case 1
+						gamevar room_state ++ 
+						gamevar is_room_cleared = int 1
+						break 
+					case 2
+						gamevar room_state ++ 
+						gamevar is_room_cleared = int 1
+						break 
+					case 0
+						break 
+					default 
+						gamevar room_state = int 0
+						break 
+			}
+	}
 
 ._SCRIPT_3
-if(gamevar script_time > var VAR_34)
- {
-		var VAR_34 = gamevar script_time + int 300 + call randomize_int(int 0, int 200)
-		var VAR_32 = int 2 + call randomize_int(int 0, int 3)
-		call play_loaded_sound(var VAR_32, int 0, int 63, int 0)
-}
-if(gamevar script_time > var VAR_33)
- {
-		var VAR_33 = gamevar script_time + int 60 + call randomize_int(int 0, int 40)
-		var VAR_32 = int 2 + call randomize_int(int 0, int 5)
-		call play_loaded_sound(var VAR_32, int 0, int 62, int 0)
-}
+	if(gamevar script_time > var VAR_34)
+	 {
+			var VAR_34 = gamevar script_time + int 300 + call randomize_int(int 0, int 200)
+			var VAR_32 = int 2 + call randomize_int(int 0, int 3)
+			call play_loaded_sound(var VAR_32, int 0, int 63, int 0)
+	}
+	if(gamevar script_time > var VAR_33)
+	 {
+			var VAR_33 = gamevar script_time + int 60 + call randomize_int(int 0, int 40)
+			var VAR_32 = int 2 + call randomize_int(int 0, int 5)
+			call play_loaded_sound(var VAR_32, int 0, int 62, int 0)
+	}
 
 ._SCRIPT_4
-call load_item(int 110 /* impclub */ )
-var devious_imp = call create_enemy(int 100, int 1, var &init_position, int 101)
-var devious_imp1 = call create_enemy(int 100, int 2, var &init_position1, int 205)
-var devious_imp2 = call create_enemy(int 100, int 3, var &init_position2, int 345)
-var catapult_imp = call create_enemy(int 104, int 4, var &init_position3, int 265)
-call func_106(var devious_imp, int 1, int 0, int 1)
-call func_106(var devious_imp1, int 1, int 0, int 1)
-call func_106(var devious_imp2, int 1, int 0, int 1)
-call func_50(var devious_imp, int 2)
-call func_50(var devious_imp1, int 2)
-call func_50(var devious_imp2, int 2)
-call freeze_enemy(var catapult_imp)
-call load_char("impboss")
-call load_char("wingimp")
-call set_input_system(int 2)
-var DAVID = call get_char_handle(int 65536)
+	call load_item(int 110 /* impclub */ )
+	var devious_imp = call create_enemy(int 100, int 1, var &init_position, int 101)
+	var devious_imp1 = call create_enemy(int 100, int 2, var &init_position1, int 205)
+	var devious_imp2 = call create_enemy(int 100, int 3, var &init_position2, int 345)
+	var catapult_imp = call create_enemy(int 104, int 4, var &init_position3, int 265)
+	call func_106(var devious_imp, int 1, int 0, int 1)
+	call func_106(var devious_imp1, int 1, int 0, int 1)
+	call func_106(var devious_imp2, int 1, int 0, int 1)
+	call func_50(var devious_imp, int 2)
+	call func_50(var devious_imp1, int 2)
+	call func_50(var devious_imp2, int 2)
+	call freeze_enemy(var catapult_imp)
+	call load_char("impboss")
+	call load_char("wingimp")
+	call set_input_system(int 2)
+	var DAVID = call get_char_handle(int 65536)
 
 ._SCRIPT_5
-if(var VAR_28 != var VAR_20)
- {
-		var VAR_28 = var VAR_20
-		call log_obj(var VAR_20)
-}
-switch(var VAR_20)
- {
-		case 0
-			call force_scroll_to_pos(var &init_position)
-			var VAR_20 ++ 
-			var VAR_19 = int 0
-			break 
-		case 1
-			if(call is_not_force_scrolling())
-			 {
-					var VAR_20 ++ 
-					var VAR_19 = int 0
-			}
-			break 
-		case 2
-			if(var VAR_19 > int 100)
-			 {
-					call force_scroll_to_pos(call get_char_pos(var DAVID))
-					var VAR_20 ++ 
-					var VAR_19 = int 0
-			}
-			break 
-		case 3
-			if(call is_not_force_scrolling())
-			 {
-					call start_dialog("TERDVD", "NULL")
-					var VAR_20 ++ 
-					var VAR_19 = int 0
-			}
-			break 
-		case 4
-			if(call get_input_sys() != int 4)
-			 {
-					call set_input_system(int 1)
-					call func_106(var catapult_imp, int 9, int 5, var &VAR_12)
-					call func_106(var catapult_imp, int 9, int 6, int 3)
-					call set_char_template(var catapult_imp, int 104)
-					var VAR_20 ++ 
-					var VAR_19 = int 0
-			}
-			break 
-		case 5
-			if(call get_num_of_enemies() < int 2)
-			 {
-					var VAR_21 = int 0
-					if(call is_char_handle_in_level(int 917505 /* IMP */ ))
-					 {
-							var VAR_21 = var devious_imp
-					}
-					if(call is_char_handle_in_level(int 917506 /* IMP */ ))
-					 {
-							var VAR_21 = var devious_imp1
-					}
-					if(call is_char_handle_in_level(int 917507 /* IMP */ ))
-					 {
-							var VAR_21 = var devious_imp2
-					}
-					if(var ! VAR_21)
-					 {
-							var VAR_20 = int 6
-							var VAR_19 = int 0
-					}
-					else
-					 {
-							var VAR_23 = call get_char_handle_id(var VAR_21)
-							call freeze_enemy(var VAR_21)
-							call func_50(var VAR_21, int 8192)
-							call play_char_ai_script(var VAR_21, var &ai_script)
-							gamevar script_object = var VAR_21
-							gamevar *character_movement_p+60 = int 1
-							gamevar *character_stats_p+14 = int 106000
-							var VAR_20 ++ 
-							var VAR_19 = int 0
-					}
-			}
-			break 
-		case 6
-			if(var VAR_22||call get_num_of_enemies() == int 0)
-			 {
-					var imp_boss = call create_enemy_through_door(int 129, int 1, int 1, int 285)
-					var imp_boss1 = call create_enemy_through_door(int 129, int 2, int 1, int 325)
-					call func_106(var imp_boss, int 3, int 1, var &VAR_15)
-					call func_106(var imp_boss1, int 3, int 1, var &VAR_16)
-					call set_char_running(var imp_boss)
-					call set_char_running(var imp_boss1)
-					call func_50(var imp_boss, int 8192)
-					call play_char_ai_script(var imp_boss, var &ai_script1)
-					call func_50(var imp_boss1, int 8192)
-					call play_char_ai_script(var imp_boss1, var &ai_script2)
-					var VAR_20 ++ 
-					var VAR_19 = int 0
-			}
-			break 
-		case 7
-			if(var VAR_21)
-			 {
-					if(call is_char_handle_in_level(var VAR_23))
-					 {
-							if(call func_a6(var VAR_21))
-							 {
-									call log("imp_killed")
-									call remove_char(var VAR_21)
-									var VAR_20 ++ 
-									var VAR_19 = int 0
-							}
-					}
-					else
-					 {
-							var VAR_20 ++ 
-							var VAR_19 = int 0
-					}
-			}
-			else
-			 {
-					var VAR_20 ++ 
-					var VAR_19 = int 0
-			}
-			break 
-}
-var VAR_19 ++ 
+	if(var VAR_28 != var VAR_20)
+	 {
+			var VAR_28 = var VAR_20
+			call log_obj(var VAR_20)
+	}
+	switch(var VAR_20)
+	 {
+			case 0
+				call force_scroll_to_pos(var &init_position)
+				var VAR_20 ++ 
+				var VAR_19 = int 0
+				break 
+			case 1
+				if(call is_not_force_scrolling())
+				 {
+						var VAR_20 ++ 
+						var VAR_19 = int 0
+				}
+				break 
+			case 2
+				if(var VAR_19 > int 100)
+				 {
+						call force_scroll_to_pos(call get_char_pos(var DAVID))
+						var VAR_20 ++ 
+						var VAR_19 = int 0
+				}
+				break 
+			case 3
+				if(call is_not_force_scrolling())
+				 {
+						call start_dialog("TERDVD", "NULL")
+						var VAR_20 ++ 
+						var VAR_19 = int 0
+				}
+				break 
+			case 4
+				if(call get_input_sys() != int 4)
+				 {
+						call set_input_system(int 1)
+						call func_106(var catapult_imp, int 9, int 5, var &VAR_12)
+						call func_106(var catapult_imp, int 9, int 6, int 3)
+						call set_char_template(var catapult_imp, int 104)
+						var VAR_20 ++ 
+						var VAR_19 = int 0
+				}
+				break 
+			case 5
+				if(call get_num_of_enemies() < int 2)
+				 {
+						var VAR_21 = int 0
+						if(call is_char_handle_in_level(int 917505 /* IMP */ ))
+						 {
+								var VAR_21 = var devious_imp
+						}
+						if(call is_char_handle_in_level(int 917506 /* IMP */ ))
+						 {
+								var VAR_21 = var devious_imp1
+						}
+						if(call is_char_handle_in_level(int 917507 /* IMP */ ))
+						 {
+								var VAR_21 = var devious_imp2
+						}
+						if(var ! VAR_21)
+						 {
+								var VAR_20 = int 6
+								var VAR_19 = int 0
+						}
+						else
+						 {
+								var VAR_23 = call get_char_handle_id(var VAR_21)
+								call freeze_enemy(var VAR_21)
+								call func_50(var VAR_21, int 8192)
+								call play_char_ai_script(var VAR_21, var &ai_script)
+								gamevar script_object = var VAR_21
+								gamevar *character_movement_p+60 = int 1
+								gamevar *character_stats_p+14 = int 106000
+								var VAR_20 ++ 
+								var VAR_19 = int 0
+						}
+				}
+				break 
+			case 6
+				if(var VAR_22||call get_num_of_enemies() == int 0)
+				 {
+						var imp_boss = call create_enemy_through_door(int 129, int 1, int 1, int 285)
+						var imp_boss1 = call create_enemy_through_door(int 129, int 2, int 1, int 325)
+						call func_106(var imp_boss, int 3, int 1, var &VAR_15)
+						call func_106(var imp_boss1, int 3, int 1, var &VAR_16)
+						call set_char_running(var imp_boss)
+						call set_char_running(var imp_boss1)
+						call func_50(var imp_boss, int 8192)
+						call play_char_ai_script(var imp_boss, var &ai_script1)
+						call func_50(var imp_boss1, int 8192)
+						call play_char_ai_script(var imp_boss1, var &ai_script2)
+						var VAR_20 ++ 
+						var VAR_19 = int 0
+				}
+				break 
+			case 7
+				if(var VAR_21)
+				 {
+						if(call is_char_handle_in_level(var VAR_23))
+						 {
+								if(call func_a6(var VAR_21))
+								 {
+										call log("imp_killed")
+										call remove_char(var VAR_21)
+										var VAR_20 ++ 
+										var VAR_19 = int 0
+								}
+						}
+						else
+						 {
+								var VAR_20 ++ 
+								var VAR_19 = int 0
+						}
+				}
+				else
+				 {
+						var VAR_20 ++ 
+						var VAR_19 = int 0
+				}
+				break 
+	}
+	var VAR_19 ++ 
 
 ._SCRIPT_6
 

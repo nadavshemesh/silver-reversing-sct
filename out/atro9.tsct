@@ -10,154 +10,154 @@
 
 
 ._DATA
-VAR_1	{ 0, 0 }	
-VAR_3	{ -3610, 1075, -1708 }	
-VAR_4	{ -3170, -625, -1022 }	
-VAR_5	{ VAR_3, 200, VAR_4 }	
-VAR_10	{ -99, -401, -959, 98, -401, -973 }	
-init_position	{ 1366, -625, -176 }	
-init_position1	{ -1685, -625, -44 }	
-init_position2	{ -3566, 1075, -1612 }	
-VAR_15	{ 1457, -625, -890, 1442, -625, -118, 377, -625, 155, -40, -375, -1198, 1463, -375, -1228, -1504, -375, -1414, -1200, -625, 116, -992, -625, -775, -2193, -625, -2025, -2145, -625, -602 }	
-VAR_16	{ 1457, -625, -890, 1442, -625, -118, 377, -625, 155, -40, -375, -1198, 1463, -375, -1228, -1504, -375, -1414, -1200, -625, 116, -992, -625, -775, -2193, -625, -2025, -2145, -625, -602, -3158, 1075, -1741, -4727, 1075, -1580 }	
-VAR_22	{ -980867072, 1149657088, -994451456 }	
-VAR_23	"kB"	
-VAR_24	{ -996835328, -1004781568, 1132888064 }	
-VAR_25	{ -992387072, -1011122176, -989474816 }	
-VAR_26	"Dw"	
-VAR_27	{ 1156227072, -1010892800, -989233152 }	
-VAR_28	{ 1133936640, -1004781568, -1005355008 }	
-VAR_29	{ -988758016, -1004781568, -1007190016 }	
-arr	{ VAR_22, VAR_23, VAR_24, VAR_25, VAR_26, VAR_27, VAR_28, VAR_29 }	
+	VAR_1	{ 0, 0 }	
+	VAR_3	{ -3610, 1075, -1708 }	
+	VAR_4	{ -3170, -625, -1022 }	
+	VAR_5	{ VAR_3, 200, VAR_4 }	
+	VAR_10	{ -99, -401, -959, 98, -401, -973 }	
+	init_position	{ 1366, -625, -176 }	
+	init_position1	{ -1685, -625, -44 }	
+	init_position2	{ -3566, 1075, -1612 }	
+	VAR_15	{ 1457, -625, -890, 1442, -625, -118, 377, -625, 155, -40, -375, -1198, 1463, -375, -1228, -1504, -375, -1414, -1200, -625, 116, -992, -625, -775, -2193, -625, -2025, -2145, -625, -602 }	
+	VAR_16	{ 1457, -625, -890, 1442, -625, -118, 377, -625, 155, -40, -375, -1198, 1463, -375, -1228, -1504, -375, -1414, -1200, -625, 116, -992, -625, -775, -2193, -625, -2025, -2145, -625, -602, -3158, 1075, -1741, -4727, 1075, -1580 }	
+	VAR_22	{ -980867072, 1149657088, -994451456 }	
+	VAR_23	"kB"	
+	VAR_24	{ -996835328, -1004781568, 1132888064 }	
+	VAR_25	{ -992387072, -1011122176, -989474816 }	
+	VAR_26	"Dw"	
+	VAR_27	{ 1156227072, -1010892800, -989233152 }	
+	VAR_28	{ 1133936640, -1004781568, -1005355008 }	
+	VAR_29	{ -988758016, -1004781568, -1007190016 }	
+	arr	{ VAR_22, VAR_23, VAR_24, VAR_25, VAR_26, VAR_27, VAR_28, VAR_29 }	
 
 ._on_load
-call func_58(int 1)
-call load_sound_set(int 76)
-call load_sound_set(int 0)
+	call func_58(int 1)
+	call load_sound_set(int 76)
+	call load_sound_set(int 0)
 
- /* play the sound 'atrolp2' */ 
-call play_loaded_sound(int 1, int -1, int 76, int 0)
+	 /* play the sound 'atrolp2' */ 
+	call play_loaded_sound(int 1, int -1, int 76, int 0)
 
- /* play the sound 'atroamb1' */ 
-call play_loaded_sound(int 2, int -1, int 76, int 0)
-execute SCRIPT_11
-if(gamevar is_room_cleared)
- {
-		execute SCRIPT_10
-}
-else
- {
-		switch(gamevar room_state)
-		 {
-				case 1
-					execute SCRIPT_4
-					break 
-				case 2
-					execute SCRIPT_6
-					break 
-				case 3
-					execute SCRIPT_8
-					break 
-				case 0
-					break 
-		}
-}
-execute SCRIPT_9
+	 /* play the sound 'atroamb1' */ 
+	call play_loaded_sound(int 2, int -1, int 76, int 0)
+	execute SCRIPT_11
+	if(gamevar is_room_cleared)
+	 {
+			execute SCRIPT_10
+	}
+	else
+	 {
+			switch(gamevar room_state)
+			 {
+					case 1
+						execute SCRIPT_4
+						break 
+					case 2
+						execute SCRIPT_6
+						break 
+					case 3
+						execute SCRIPT_8
+						break 
+					case 0
+						break 
+			}
+	}
+	execute SCRIPT_9
 
 ._infinite_loop
-execute SCRIPT_12
-if(gamevar !is_room_cleared)
- {
-		switch(gamevar room_state)
-		 {
-				case 1
-					execute SCRIPT_3
-					break 
-				case 2
-					execute SCRIPT_5
-					break 
-				case 3
-					execute SCRIPT_7
-					break 
-				case 0
-					break 
-		}
-}
+	execute SCRIPT_12
+	if(gamevar !is_room_cleared)
+	 {
+			switch(gamevar room_state)
+			 {
+					case 1
+						execute SCRIPT_3
+						break 
+					case 2
+						execute SCRIPT_5
+						break 
+					case 3
+						execute SCRIPT_7
+						break 
+					case 0
+						break 
+			}
+	}
 
 ._on_exit
-call func_73()
-if(gamevar !is_room_cleared)
- {
-		switch(gamevar room_state)
-		 {
-				case 1
-					if(var VAR_2)
-					 {
-							gamevar room_state ++ 
-							gamevar is_room_cleared = int 1
-					}
-					break 
-				case 2
-					gamevar room_state ++ 
-					gamevar is_room_cleared = int 1
-					break 
-				case 3
-					gamevar room_state ++ 
-					gamevar is_room_cleared = int 1
-					break 
-				case 0
-					break 
-				default 
-					gamevar room_state = int 0
-					break 
-		}
-}
+	call func_73()
+	if(gamevar !is_room_cleared)
+	 {
+			switch(gamevar room_state)
+			 {
+					case 1
+						if(var VAR_2)
+						 {
+								gamevar room_state ++ 
+								gamevar is_room_cleared = int 1
+						}
+						break 
+					case 2
+						gamevar room_state ++ 
+						gamevar is_room_cleared = int 1
+						break 
+					case 3
+						gamevar room_state ++ 
+						gamevar is_room_cleared = int 1
+						break 
+					case 0
+						break 
+					default 
+						gamevar room_state = int 0
+						break 
+			}
+	}
 
 ._SCRIPT_3
-switch(var VAR_8)
- {
-		case 0
-			if(call func_8a(var &VAR_10))
-			 {
-					var VAR_2 = int 1
-					var beholder_red1 = call create_enemy(int 154, int 1, var &init_position, int 218)
-					call func_106(var beholder_red1, int 9, int 5, var &VAR_15)
-					call func_106(var beholder_red1, int 9, int 6, int 10)
-					gamevar script_object = var beholder_red1
-					gamevar *character_stats_p+15 = int 64000
-					gamevar script_object = var beholder_red1
-					gamevar *character_stats_p+16 = int 64000
-					var beholder_red1 = call create_enemy(int 154, int 2, var &init_position1, int 104)
-					call func_106(var beholder_red1, int 9, int 5, var &VAR_15)
-					call func_106(var beholder_red1, int 9, int 6, int 10)
-					gamevar script_object = var beholder_red1
-					gamevar *character_stats_p+15 = int 64000
-					gamevar script_object = var beholder_red1
-					gamevar *character_stats_p+16 = int 64000
-					var VAR_8 ++ 
-					var VAR_9 = int 0
-			}
-			break 
-		case 1
-			if(call get_num_of_enemies() == int 0)
-			 {
-					var beholder_red1 = call create_enemy(int 155, int 2, var &init_position2, int 45)
-					call func_106(var beholder_red1, int 2, int 1, var &VAR_16)
-					call func_106(var beholder_red1, int 2, int 3, int 12)
-					gamevar script_object = var beholder_red1
-					gamevar *character_stats_p+15 = int 64000
-					gamevar script_object = var beholder_red1
-					gamevar *character_stats_p+16 = int 64000
-					var VAR_8 ++ 
-					var VAR_9 = int 0
-			}
-			break 
-}
-var VAR_9 ++ 
+	switch(var VAR_8)
+	 {
+			case 0
+				if(call func_8a(var &VAR_10))
+				 {
+						var VAR_2 = int 1
+						var beholder_red1 = call create_enemy(int 154, int 1, var &init_position, int 218)
+						call func_106(var beholder_red1, int 9, int 5, var &VAR_15)
+						call func_106(var beholder_red1, int 9, int 6, int 10)
+						gamevar script_object = var beholder_red1
+						gamevar *character_stats_p+15 = int 64000
+						gamevar script_object = var beholder_red1
+						gamevar *character_stats_p+16 = int 64000
+						var beholder_red1 = call create_enemy(int 154, int 2, var &init_position1, int 104)
+						call func_106(var beholder_red1, int 9, int 5, var &VAR_15)
+						call func_106(var beholder_red1, int 9, int 6, int 10)
+						gamevar script_object = var beholder_red1
+						gamevar *character_stats_p+15 = int 64000
+						gamevar script_object = var beholder_red1
+						gamevar *character_stats_p+16 = int 64000
+						var VAR_8 ++ 
+						var VAR_9 = int 0
+				}
+				break 
+			case 1
+				if(call get_num_of_enemies() == int 0)
+				 {
+						var beholder_red1 = call create_enemy(int 155, int 2, var &init_position2, int 45)
+						call func_106(var beholder_red1, int 2, int 1, var &VAR_16)
+						call func_106(var beholder_red1, int 2, int 3, int 12)
+						gamevar script_object = var beholder_red1
+						gamevar *character_stats_p+15 = int 64000
+						gamevar script_object = var beholder_red1
+						gamevar *character_stats_p+16 = int 64000
+						var VAR_8 ++ 
+						var VAR_9 = int 0
+				}
+				break 
+	}
+	var VAR_9 ++ 
 
 ._SCRIPT_4
-call load_char("behold")
-call load_char("beholdp")
+	call load_char("behold")
+	call load_char("beholdp")
 
 ._SCRIPT_5
 
@@ -168,41 +168,41 @@ call load_char("beholdp")
 ._SCRIPT_8
 
 ._SCRIPT_9
-gamevar SMACKER_X = int 1368
-gamevar SMACKER_Y = int 100
-call play_2d_anim("top", int 1, int 0, var &VAR_0)
-var VAR_0 = int 1
-gamevar SMACKER_X = int 1288
-gamevar SMACKER_Y = int 428
-call play_2d_anim("bottom", int 1, int 1, int 0)
+	gamevar SMACKER_X = int 1368
+	gamevar SMACKER_Y = int 100
+	call play_2d_anim("top", int 1, int 0, var &VAR_0)
+	var VAR_0 = int 1
+	gamevar SMACKER_X = int 1288
+	gamevar SMACKER_Y = int 428
+	call play_2d_anim("bottom", int 1, int 1, int 0)
 
 ._SCRIPT_10
 
 ._SCRIPT_11
-call func_99(int 1, var &VAR_5)
+	call func_99(int 1, var &VAR_5)
 
 ._SCRIPT_12
-if(gamevar script_time > var VAR_19)
- {
-		var VAR_19 = gamevar script_time + int 100 + call randomize_int(int 0, int 150)
-		var VAR_21 = call randomize_int(int 0, int 8)
+	if(gamevar script_time > var VAR_19)
+	 {
+			var VAR_19 = gamevar script_time + int 100 + call randomize_int(int 0, int 150)
+			var index = call randomize_int(int 0, int 8)
 
-		 /* play the sound 'atroamb4' */ 
-		call play_loaded_sound(int 3, int 0, int 76, @arr[var VAR_21])
-}
-if(gamevar script_time > var VAR_20)
- {
-		var VAR_20 = gamevar script_time + int 200 + call randomize_int(int 0, int 150)
-		var VAR_21 = call randomize_int(int 0, int 8)
+			 /* play the sound 'atroamb4' */ 
+			call play_loaded_sound(int 3, int 0, int 76, @arr[var VAR_21])
+	}
+	if(gamevar script_time > var VAR_20)
+	 {
+			var VAR_20 = gamevar script_time + int 200 + call randomize_int(int 0, int 150)
+			var index = call randomize_int(int 0, int 8)
 
-		 /* play the sound 'bees' */ 
-		call play_loaded_sound(int 4, int 0, int 76, @arr[var VAR_21])
-}
-var VAR_31 = var VAR_32
-var VAR_32 = var VAR_1
-if(var VAR_31 != var VAR_32)
- {
-		switch(var VAR_32)
-		 {
-		}
-}
+			 /* play the sound 'bees' */ 
+			call play_loaded_sound(int 4, int 0, int 76, @arr[var index])
+	}
+	var VAR_31 = var VAR_32
+	var VAR_32 = var VAR_1
+	if(var VAR_31 != var VAR_32)
+	 {
+			switch(var VAR_32)
+			 {
+			}
+	}

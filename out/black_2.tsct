@@ -10,145 +10,145 @@
 
 
 ._DATA
-VAR_0	{ -8925, 1210, -2377, -8925, 1210, -4971 }	
-VAR_5	{ -10786, 1211, -4847, -11242, 1211, -3022, -10775, 1211, -3384, -10426, 1211, -2432, -9111, 1214, -3016, -10621, 1211, -2705, -11718, 1211, -3041, -11750, 1211, -3446, -11139, 1211, -2158, -10720, 1211, -2481, -11603, 1213, -2284, -11768, 1211, -2210, -10657, 1211, -2890, -11845, 1211, -3265, -11193, 1211, -3581, -11023, 1211, -4104, -9463, 1211, -3253, -10304, 1211, -4009 }	
-enemy_gen_script	{ 0, 1, 18, VAR_5, 8, 2, 1, 2, 43, 35, -1, 4, 0, 9, 1, 5, 1, 1, 30, 6, 2, 7, 1, 2, 10, 47, -1, -1 }	
-enemy_gen_script1	{ 0, 1, 18, VAR_5, 8, 2, 1, 2, 35, -1, 4, 0, 9, 1, 5, 1, 1, 30, 6, 3, 7, 1, 2, 10, 46, -1, -1 }	
-VAR_8	{ 15, 0, -12202, 1211, -3107, 2, -11083, 1211, -2944, 8 }	
-VAR_9	{ -12805, 1210, -2780, -12805, 1210, -2780 }	
-wandering_gen_script	{ 0, 1, 2, VAR_9, 8, 1, 19, -11083, 1211, -2944, 12, 36, -1, 13, 0, 14, 1, 1, 5, 0, 0, 15, VAR_8, -1, 16, 0, 17, 0, 400, 3, -1, 18, 100, 11, -1 }	
-VAR_11	{ -10715, 1210, -2056, -12125, 1210, -3383, -11697, 1210, -2056, -12125, 1210, -3383 }	
+	VAR_0	{ -8925, 1210, -2377, -8925, 1210, -4971 }	
+	VAR_5	{ -10786, 1211, -4847, -11242, 1211, -3022, -10775, 1211, -3384, -10426, 1211, -2432, -9111, 1214, -3016, -10621, 1211, -2705, -11718, 1211, -3041, -11750, 1211, -3446, -11139, 1211, -2158, -10720, 1211, -2481, -11603, 1213, -2284, -11768, 1211, -2210, -10657, 1211, -2890, -11845, 1211, -3265, -11193, 1211, -3581, -11023, 1211, -4104, -9463, 1211, -3253, -10304, 1211, -4009 }	
+	enemy_gen_script	{ 0, 1, 18, VAR_5, 8, 2, 1, 2, 43, 35, -1, 4, 0, 9, 1, 5, 1, 1, 30, 6, 2, 7, 1, 2, 10, 47, -1, -1 }	
+	enemy_gen_script1	{ 0, 1, 18, VAR_5, 8, 2, 1, 2, 35, -1, 4, 0, 9, 1, 5, 1, 1, 30, 6, 3, 7, 1, 2, 10, 46, -1, -1 }	
+	VAR_8	{ 15, 0, -12202, 1211, -3107, 2, -11083, 1211, -2944, 8 }	
+	VAR_9	{ -12805, 1210, -2780, -12805, 1210, -2780 }	
+	wandering_gen_script	{ 0, 1, 2, VAR_9, 8, 1, 19, -11083, 1211, -2944, 12, 36, -1, 13, 0, 14, 1, 1, 5, 0, 0, 15, VAR_8, -1, 16, 0, 17, 0, 400, 3, -1, 18, 100, 11, -1 }	
+	VAR_11	{ -10715, 1210, -2056, -12125, 1210, -3383, -11697, 1210, -2056, -12125, 1210, -3383 }	
 
 ._on_load
-call play_bgm("METALON")
-call load_sound_set(int 72)
+	call play_bgm("METALON")
+	call load_sound_set(int 72)
 
- /* play the sound 'BLANK' */ 
-call play_loaded_sound(int 4, int -1, int 72, int 0)
-call load_sound_set(int 64)
+	 /* play the sound 'BLANK' */ 
+	call play_loaded_sound(int 4, int -1, int 72, int 0)
+	call load_sound_set(int 64)
 
- /* play the sound 'cavelp' */ 
-call play_loaded_sound(int 1, int -1, int 64, int 0)
-call load_sound_set(int 65)
+	 /* play the sound 'cavelp' */ 
+	call play_loaded_sound(int 1, int -1, int 64, int 0)
+	call load_sound_set(int 65)
 
- /* play the sound 'in2wind1' */ 
-call play_loaded_sound(int 5, int -1, int 65, int 0)
-gamevar SMACKER_X = int 224
-gamevar SMACKER_Y = int 188
-call play_2d_anim("water", int 1, int 1, int 0)
-switch(gamevar room_state)
- {
-		case 1
-			execute SCRIPT_5
-			break 
-		case 2
-			execute SCRIPT_7
-			break 
-		case 0
-			break 
-}
+	 /* play the sound 'in2wind1' */ 
+	call play_loaded_sound(int 5, int -1, int 65, int 0)
+	gamevar SMACKER_X = int 224
+	gamevar SMACKER_Y = int 188
+	call play_2d_anim("water", int 1, int 1, int 0)
+	switch(gamevar room_state)
+	 {
+			case 1
+				execute SCRIPT_5
+				break 
+			case 2
+				execute SCRIPT_7
+				break 
+			case 0
+				break 
+	}
 
 ._infinite_loop
-execute SCRIPT_3
-switch(gamevar room_state)
- {
-		case 1
-			execute SCRIPT_4
-			break 
-		case 2
-			execute SCRIPT_6
-			break 
-		case 0
-			break 
-}
-if(call get_num_of_enemies() == int 0)
- {
-		if(call func_8a(var &VAR_0))
-		 {
-				gamevar *scene_info_p+3 = int 16
-				gamevar *scene_info_p+4 = int 16
-				gamevar *scene_info_p+5 = int 2
-				gamevar *scene_info_p+6 = int 2
-		}
-		else
-		 {
-				gamevar *scene_info_p+5 = int 16
-				gamevar *scene_info_p+6 = int 16
-				gamevar *scene_info_p+3 = int 2
-				gamevar *scene_info_p+4 = int 2
-		}
-}
+	execute SCRIPT_3
+	switch(gamevar room_state)
+	 {
+			case 1
+				execute SCRIPT_4
+				break 
+			case 2
+				execute SCRIPT_6
+				break 
+			case 0
+				break 
+	}
+	if(call get_num_of_enemies() == int 0)
+	 {
+			if(call func_8a(var &VAR_0))
+			 {
+					gamevar *scene_info_p+3 = int 16
+					gamevar *scene_info_p+4 = int 16
+					gamevar *scene_info_p+5 = int 2
+					gamevar *scene_info_p+6 = int 2
+			}
+			else
+			 {
+					gamevar *scene_info_p+5 = int 16
+					gamevar *scene_info_p+6 = int 16
+					gamevar *scene_info_p+3 = int 2
+					gamevar *scene_info_p+4 = int 2
+			}
+	}
 
 ._on_exit
-switch(gamevar room_state)
- {
-		case 1
-			if(var VAR_2)
-			 {
-					gamevar room_state ++ 
-			}
-			break 
-		case 2
-			gamevar room_state ++ 
-			break 
-		case 0
-			break 
-		default 
-			gamevar room_state = int 0
-			break 
-}
+	switch(gamevar room_state)
+	 {
+			case 1
+				if(var VAR_2)
+				 {
+						gamevar room_state ++ 
+				}
+				break 
+			case 2
+				gamevar room_state ++ 
+				break 
+			case 0
+				break 
+			default 
+				gamevar room_state = int 0
+				break 
+	}
 
 ._SCRIPT_3
-if(gamevar script_time > var VAR_19)
- {
-		var VAR_19 = gamevar script_time + int 70 + call randomize_int(int 0, int 110)
+	if(gamevar script_time > var VAR_19)
+	 {
+			var VAR_19 = gamevar script_time + int 70 + call randomize_int(int 0, int 110)
 
-		 /* play the sound 'renddizz' */ 
-		call play_loaded_sound(int 8, int 0, int 72, int 0)
-}
-if(gamevar script_time > var VAR_20)
- {
-		var VAR_20 = gamevar script_time + int 70 + call randomize_int(int 0, int 110)
+			 /* play the sound 'renddizz' */ 
+			call play_loaded_sound(int 8, int 0, int 72, int 0)
+	}
+	if(gamevar script_time > var VAR_20)
+	 {
+			var VAR_20 = gamevar script_time + int 70 + call randomize_int(int 0, int 110)
 
-		 /* play the sound 'metamb1' */ 
-		call play_loaded_sound(int 7, int 0, int 72, int 0)
-}
-if(gamevar script_time > var VAR_21)
- {
-		var VAR_21 = gamevar script_time + int 100 + call randomize_int(int 0, int 50)
+			 /* play the sound 'metamb1' */ 
+			call play_loaded_sound(int 7, int 0, int 72, int 0)
+	}
+	if(gamevar script_time > var VAR_21)
+	 {
+			var VAR_21 = gamevar script_time + int 100 + call randomize_int(int 0, int 50)
 
-		 /* play the sound 'wwindlp' */ 
-		call play_loaded_sound(int 6, int 0, int 65, int 0)
-}
+			 /* play the sound 'wwindlp' */ 
+			call play_loaded_sound(int 6, int 0, int 65, int 0)
+	}
 
 ._SCRIPT_4
-if(var VAR_16 == int 0)
- {
-		if(call func_8a(var &VAR_11))
-		 {
-				call log("generate enemies")
-				var VAR_4 = call run_enemy_generator(var &enemy_gen_script, int 10)
-				call run_wandering_generator(var &wandering_gen_script, int 5)
-				var VAR_2 = int 1
-				var VAR_16 ++ 
-		}
-}
-if(var VAR_16 == int 1)
- {
-		var VAR_15 ++ 
-		if(call func_122(var VAR_4) == int 0&&call get_num_of_enemies() < int 3&&var VAR_15 > int 100)
-		 {
-				var VAR_4 = call run_enemy_generator(var &enemy_gen_script1, int 1)
-				call log("generate archers")
-				var VAR_16 ++ 
-				var VAR_15 = int 0
-		}
-}
+	if(var VAR_16 == int 0)
+	 {
+			if(call func_8a(var &VAR_11))
+			 {
+					call log("generate enemies")
+					var VAR_4 = call run_enemy_generator(var &enemy_gen_script, int 10)
+					call run_wandering_generator(var &wandering_gen_script, int 5)
+					var VAR_2 = int 1
+					var VAR_16 ++ 
+			}
+	}
+	if(var VAR_16 == int 1)
+	 {
+			var VAR_15 ++ 
+			if(call func_122(var VAR_4) == int 0&&call get_num_of_enemies() < int 3&&var VAR_15 > int 100)
+			 {
+					var VAR_4 = call run_enemy_generator(var &enemy_gen_script1, int 1)
+					call log("generate archers")
+					var VAR_16 ++ 
+					var VAR_15 = int 0
+			}
+	}
 
 ._SCRIPT_5
-call load_char("sguard")
-call load_char("sarcher")
-call load_char("maims")
+	call load_char("sguard")
+	call load_char("sarcher")
+	call load_char("maims")
 
 ._SCRIPT_6
 

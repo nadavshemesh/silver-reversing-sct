@@ -10,151 +10,151 @@
 
 
 ._DATA
-VAR_5	-1	
-VAR_7	{ -2051, 94, 3974 }	
-enemy_gen_script	{ 0, 0, 1, 1, 0, -1, 8, 1, 1, 2, 55, 55, 55, 55, -1, 10, 43, 43, -1, 4, 0, 9, 1, 5, 1, 25, 50, 7, 1, 2, -1 }	
-VAR_12	{ 559, -256, 2741, 1, 0, 0, 1, 0, 0 }	
-init_position	{ -2126, 0, 2863 }	
-init_position1	{ -1655, 0, 2902 }	
-VAR_19	""	
+	VAR_5	-1	
+	VAR_7	{ -2051, 94, 3974 }	
+	enemy_gen_script	{ 0, 0, 1, 1, 0, -1, 8, 1, 1, 2, 55, 55, 55, 55, -1, 10, 43, 43, -1, 4, 0, 9, 1, 5, 1, 25, 50, 7, 1, 2, -1 }	
+	VAR_12	{ 559, -256, 2741, 1, 0, 0, 1, 0, 0 }	
+	init_position	{ -2126, 0, 2863 }	
+	init_position1	{ -1655, 0, 2902 }	
+	VAR_19	20	
 
 ._on_load
-var init_position2 = var &VAR_12
-var VAR_2 = int 245
-execute SCRIPT_6
-var VAR_3 = int 13
-execute SCRIPT_7
-var VAR_3 = int 13
-execute SCRIPT_7
-var VAR_3 = int 33
-execute SCRIPT_7
-var VAR_3 = int 37
-execute SCRIPT_7
-call play_bgm("SEWERPT1")
-call load_sound_set(int 33)
-call load_sound_set(int 38)
+	var VAR_1 = var &VAR_12
+	var VAR_2 = int 245
+	execute SCRIPT_6
+	var VAR_3 = int 13
+	execute SCRIPT_7
+	var VAR_3 = int 13
+	execute SCRIPT_7
+	var VAR_3 = int 33
+	execute SCRIPT_7
+	var VAR_3 = int 37
+	execute SCRIPT_7
+	call play_bgm("SEWERPT1")
+	call load_sound_set(int 33)
+	call load_sound_set(int 38)
 
- /* play the sound 'spires1' */ 
-call play_loaded_sound(int 3, int -1, int 38, int 0)
-gamevar SMACKER_X = int 0
-gamevar SMACKER_Y = int 328
-call play_2d_anim("sludge", int 1, int 0, int 0)
-switch(gamevar room_state)
- {
-		case 1
-			var VAR_8 = int 0
-			call load_char("ratrptr")
-			call load_char("spider")
-			break 
-		default 
-			break 
-}
+	 /* play the sound 'spires1' */ 
+	call play_loaded_sound(int 3, int -1, int 38, int 0)
+	gamevar SMACKER_X = int 0
+	gamevar SMACKER_Y = int 328
+	call play_2d_anim("sludge", int 1, int 0, int 0)
+	switch(gamevar room_state)
+	 {
+			case 1
+				var VAR_8 = int 0
+				call load_char("ratrptr")
+				call load_char("spider")
+				break 
+			default 
+				break 
+	}
 
 ._infinite_loop
-execute SCRIPT_4
-execute SCRIPT_5
-switch(gamevar room_state)
- {
-		case 1
-			execute SCRIPT_3
-			break 
-		default 
-			break 
-}
+	execute SCRIPT_4
+	execute SCRIPT_5
+	switch(gamevar room_state)
+	 {
+			case 1
+				execute SCRIPT_3
+				break 
+			default 
+				break 
+	}
 
 ._on_exit
-switch(gamevar room_state)
- {
-		case 1
-			if(var VAR_8 != int 0)
-			 {
-					gamevar room_state = int 0
-			}
-			break 
-		default 
-			break 
-}
+	switch(gamevar room_state)
+	 {
+			case 1
+				if(var VAR_8 != int 0)
+				 {
+						gamevar room_state = int 0
+				}
+				break 
+			default 
+				break 
+	}
 
 ._SCRIPT_3
-switch(var VAR_8)
- {
-		case 0
-			if(call func_ab(int 400, var &VAR_7))
-			 {
-					var rat_raptor_max3 = call create_enemy_through_door(int 86, int 0, int 0, int 0)
-					var rat_raptor_max31 = call create_enemy_through_door(int 86, int 1, int 0, int 0)
-					call set_char_running(var rat_raptor_max3)
-					call set_char_running(var rat_raptor_max31)
-					call func_19(var rat_raptor_max3, call get_selected_hero())
-					call func_19(var rat_raptor_max31, call get_selected_hero())
-					call create_enemy(int 132 /* drop_spider */ , int 0, var &init_position, int 30)
-					call create_enemy(int 132 /* drop_spider */ , int 1, var &init_position1, int 330)
-					var VAR_8 ++ 
-			}
-			break 
-		case 1
-			if(call get_num_of_enemies() <= int 2)
-			 {
-					call run_enemy_generator(var &enemy_gen_script, int 50)
-					var VAR_8 ++ 
-			}
-			break 
-		case 2
-			break 
-}
+	switch(var VAR_8)
+	 {
+			case 0
+				if(call func_ab(int 400, var &VAR_7))
+				 {
+						var rat_raptor_max3 = call create_enemy_through_door(int 86, int 0, int 0, int 0)
+						var rat_raptor_max31 = call create_enemy_through_door(int 86, int 1, int 0, int 0)
+						call set_char_running(var rat_raptor_max3)
+						call set_char_running(var rat_raptor_max31)
+						call func_19(var rat_raptor_max3, call get_selected_hero())
+						call func_19(var rat_raptor_max31, call get_selected_hero())
+						call create_enemy(int 132 /* drop_spider */ , int 0, var &init_position, int 30)
+						call create_enemy(int 132 /* drop_spider */ , int 1, var &init_position1, int 330)
+						var VAR_8 ++ 
+				}
+				break 
+			case 1
+				if(call get_num_of_enemies() <= int 2)
+				 {
+						call run_enemy_generator(var &enemy_gen_script, int 50)
+						var VAR_8 ++ 
+				}
+				break 
+			case 2
+				break 
+	}
 
 ._SCRIPT_4
-if(var VAR_19)
- {
-		var VAR_19 -- 
-}
-else
- {
+	if(var VAR_19)
+	 {
+			var VAR_19 -- 
+	}
+	else
+	 {
 
-		 /* play the sound 'arbell' */ 
-		call play_loaded_sound(int 3, int 0, int 33, int 0)
-		var VAR_19 = call randomize_int(int 80, int 241)
-}
+			 /* play the sound 'arbell' */ 
+			call play_loaded_sound(int 3, int 0, int 33, int 0)
+			var VAR_19 = call randomize_int(int 80, int 241)
+	}
 
 ._SCRIPT_5
-if(gamevar script_time > var VAR_20)
- {
-		var VAR_20 = gamevar script_time + int 50 + call randomize_int(int 0, int 70)
+	if(gamevar script_time > var VAR_20)
+	 {
+			var VAR_20 = gamevar script_time + int 50 + call randomize_int(int 0, int 70)
 
-		 /* play the sound 'echdrip1' */ 
-		call play_loaded_sound(int 1, int 0, int 38, int 0)
-}
+			 /* play the sound 'echdrip1' */ 
+			call play_loaded_sound(int 1, int 0, int 38, int 0)
+	}
 
 ._SCRIPT_6
-var is_BTREASURE_exist = call is_char_handle_in_level(int 1507337)
-if(var ! is_BTREASURE_exist)
- {
-		var is_BTREASURE_exist = call create_char(var init_position2, "btreasure9", var VAR_2, int 14)
-		call func_aa(var is_BTREASURE_exist)
-}
-else
- {
-		var VAR_4 = int 1
-		gamevar script_object = var is_BTREASURE_exist
-		if(gamevar *object_p+7 == int 4194304)
-		 {
-				call func_aa(var is_BTREASURE_exist)
-		}
-}
+	var is_BTREASURE_exist = call is_char_handle_in_level(int 1507337)
+	if(var ! is_BTREASURE_exist)
+	 {
+			var is_BTREASURE_exist = call create_char(var VAR_1, "btreasure9", var VAR_2, int 14)
+			call func_aa(var is_BTREASURE_exist)
+	}
+	else
+	 {
+			var VAR_4 = int 1
+			gamevar script_object = var is_BTREASURE_exist
+			if(gamevar *object_p+7 == int 4194304)
+			 {
+					call func_aa(var is_BTREASURE_exist)
+			}
+	}
 
 ._SCRIPT_7
-if(var VAR_3 != int -1)
- {
-		if(var ! VAR_4)
-		 {
-				if(var VAR_5 != int -1)
-				 {
-						call add_item_to_char(var is_BTREASURE_exist, int 85 /* moneybag */ , var VAR_5, int 0)
-				}
-				else
-				 {
-						call add_item_to_char(var is_BTREASURE_exist, var VAR_3 /* lightning */ , int 1, int 0)
-				}
-		}
-}
-var VAR_5 = int -1
+	if(var VAR_3 != int -1)
+	 {
+			if(var ! VAR_4)
+			 {
+					if(var VAR_5 != int -1)
+					 {
+							call add_item_to_char(var is_BTREASURE_exist, int 85 /* moneybag */ , var VAR_5, int 0)
+					}
+					else
+					 {
+							call add_item_to_char(var is_BTREASURE_exist, var VAR_3 /* lightning */ , int 1, int 0)
+					}
+			}
+	}
+	var VAR_5 = int -1

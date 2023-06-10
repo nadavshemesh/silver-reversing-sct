@@ -10,135 +10,135 @@
 
 
 ._DATA
-init_position	{ 2145, -1857, -1243 }	
-init_position1	{ -280, -1857, -1378 }	
-init_position2	{ 1851, -1857, -1449 }	
-init_position3	{ -31, -1857, -1437 }	
-init_position4	{ -360, -1857, -1126 }	
-VAR_12	{ 0, 0, 0, 1, -1, 8, 1, 1, 6, 55, 55, -1, 4, 0, 9, 1, 5, 1, 50, 150, 7, 1, 4, -1 }	
-VAR_13	{ 0, 2, 300, 300, 8, 1, 1, 6, 189, 189, -1, 4, 0, 9, 1, 5, 1, 50, 150, 7, 1, 4, -1 }	
+	init_position	{ 2145, -1857, -1243 }	
+	init_position1	{ -280, -1857, -1378 }	
+	init_position2	{ 1851, -1857, -1449 }	
+	init_position3	{ -31, -1857, -1437 }	
+	init_position4	{ -360, -1857, -1126 }	
+	VAR_12	{ 0, 0, 0, 1, -1, 8, 1, 1, 6, 55, 55, -1, 4, 0, 9, 1, 5, 1, 50, 150, 7, 1, 4, -1 }	
+	VAR_13	{ 0, 2, 300, 300, 8, 1, 1, 6, 189, 189, -1, 4, 0, 9, 1, 5, 1, 50, 150, 7, 1, 4, -1 }	
 
 ._on_load
-call play_bgm("SEWERPT1")
-call load_sound_set(int 38)
-switch(gamevar room_state)
- {
-		case 1
-			execute SCRIPT_4
-			break 
-		default 
-			break 
-}
+	call play_bgm("SEWERPT1")
+	call load_sound_set(int 38)
+	switch(gamevar room_state)
+	 {
+			case 1
+				execute SCRIPT_4
+				break 
+			default 
+				break 
+	}
 
 ._infinite_loop
-execute SCRIPT_3
-switch(gamevar room_state)
- {
-		case 1
-			execute SCRIPT_5
-			break 
-		default 
-			break 
-}
+	execute SCRIPT_3
+	switch(gamevar room_state)
+	 {
+			case 1
+				execute SCRIPT_5
+				break 
+			default 
+				break 
+	}
 
 ._on_exit
-switch(gamevar room_state)
- {
-		case 1
-			gamevar room_state = int 0
-			break 
-		default 
-			break 
-}
+	switch(gamevar room_state)
+	 {
+			case 1
+				gamevar room_state = int 0
+				break 
+			default 
+				break 
+	}
 
 ._SCRIPT_3
-if(gamevar script_time > var VAR_17)
- {
-		var VAR_17 = gamevar script_time + int 50 + call randomize_int(int 0, int 70)
+	if(gamevar script_time > var VAR_17)
+	 {
+			var VAR_17 = gamevar script_time + int 50 + call randomize_int(int 0, int 70)
 
-		 /* play the sound 'echdrip1' */ 
-		call play_loaded_sound(int 1, int 0, int 38, int 0)
-}
+			 /* play the sound 'echdrip1' */ 
+			call play_loaded_sound(int 1, int 0, int 38, int 0)
+	}
 
 ._SCRIPT_4
-call load_char("spider")
-call load_char("ratrptr")
-var lesser_gimp = call create_enemy(int 45, int 0, var &init_position, int 290)
-var lesser_gimp1 = call create_enemy(int 45, int 1, var &init_position1, int 40)
-call func_106(var lesser_gimp, int 9, int 5, var &init_position)
-call func_106(var lesser_gimp1, int 9, int 5, var &init_position1)
-call set_char_init_state(var lesser_gimp, int 3)
-call set_char_init_state(var lesser_gimp1, int 3)
-call func_106(var lesser_gimp, int 3, int 1, var &VAR_12)
-call func_106(var lesser_gimp1, int 3, int 1, var &VAR_13)
-var greater_gimpv = call create_enemy(int 46, int 0, var &init_position2, int 310)
-var greater_gimpv1 = call create_enemy(int 46, int 1, var &init_position3, int 50)
-var greater_gimpv2 = call create_enemy(int 46, int 2, var &init_position4, int 40)
-call add_item_to_char(var greater_gimpv, int 45 /* deadmous */ , int 1, int 0)
-call add_item_to_char(var greater_gimpv2, int 43 /* cheese */ , int 1, int 0)
-call func_106(var greater_gimpv, int 1, int 0, int 1)
-call func_106(var greater_gimpv1, int 1, int 0, int 1)
-call func_106(var greater_gimpv2, int 1, int 0, int 1)
-call set_char_init_state(var greater_gimpv, int 1)
-call set_char_init_state(var greater_gimpv1, int 1)
-call set_char_init_state(var greater_gimpv2, int 1)
-call func_1(var greater_gimpv, int -1)
-call func_1(var greater_gimpv1, int -1)
-call func_1(var greater_gimpv2, int -1)
-gamevar script_object = var greater_gimpv
-gamevar *character_stats_p+16 = int 850
-call func_106(var greater_gimpv, int 0, int 3, int 80)
-var VAR_0 = int 0
-var VAR_1 = int 150
+	call load_char("spider")
+	call load_char("ratrptr")
+	var lesser_gimp = call create_enemy(int 45, int 0, var &init_position, int 290)
+	var lesser_gimp1 = call create_enemy(int 45, int 1, var &init_position1, int 40)
+	call func_106(var lesser_gimp, int 9, int 5, var &init_position)
+	call func_106(var lesser_gimp1, int 9, int 5, var &init_position1)
+	call set_char_init_state(var lesser_gimp, int 3)
+	call set_char_init_state(var lesser_gimp1, int 3)
+	call func_106(var lesser_gimp, int 3, int 1, var &VAR_12)
+	call func_106(var lesser_gimp1, int 3, int 1, var &VAR_13)
+	var greater_gimpv = call create_enemy(int 46, int 0, var &init_position2, int 310)
+	var greater_gimpv1 = call create_enemy(int 46, int 1, var &init_position3, int 50)
+	var greater_gimpv2 = call create_enemy(int 46, int 2, var &init_position4, int 40)
+	call add_item_to_char(var greater_gimpv, int 45 /* deadmous */ , int 1, int 0)
+	call add_item_to_char(var greater_gimpv2, int 43 /* cheese */ , int 1, int 0)
+	call func_106(var greater_gimpv, int 1, int 0, int 1)
+	call func_106(var greater_gimpv1, int 1, int 0, int 1)
+	call func_106(var greater_gimpv2, int 1, int 0, int 1)
+	call set_char_init_state(var greater_gimpv, int 1)
+	call set_char_init_state(var greater_gimpv1, int 1)
+	call set_char_init_state(var greater_gimpv2, int 1)
+	call func_1(var greater_gimpv, int -1)
+	call func_1(var greater_gimpv1, int -1)
+	call func_1(var greater_gimpv2, int -1)
+	gamevar script_object = var greater_gimpv
+	gamevar *character_stats_p+16 = int 850
+	call func_106(var greater_gimpv, int 0, int 3, int 80)
+	var VAR_0 = int 0
+	var VAR_1 = int 150
 
 ._SCRIPT_5
-switch(var VAR_0)
- {
-		case 0
-			if(var VAR_1)
-			 {
-					var VAR_1 -- 
-			}
-			else
-			 {
-					if(call is_char_handle_in_level(int 10551296))
-					 {
-							call func_29(var greater_gimpv)
-					}
-					if(call is_char_handle_in_level(int 10551297))
-					 {
-							call func_29(var greater_gimpv1)
-					}
-					if(call is_char_handle_in_level(int 10551298))
-					 {
-							call func_29(var greater_gimpv2)
-					}
-					var VAR_1 = int 20
-					var VAR_0 ++ 
-			}
-			break 
-		case 1
-			if(var VAR_1)
-			 {
-					var VAR_1 -- 
-			}
-			else
-			 {
-					if(call is_char_handle_in_level(int 10551296))
-					 {
-							call func_2(var greater_gimpv)
-					}
-					if(call is_char_handle_in_level(int 10551297))
-					 {
-							call func_2(var greater_gimpv1)
-					}
-					if(call is_char_handle_in_level(int 10551298))
-					 {
-							call func_2(var greater_gimpv2)
-					}
-					var VAR_0 ++ 
-			}
-			break 
-		default 
-			break 
-}
+	switch(var VAR_0)
+	 {
+			case 0
+				if(var VAR_1)
+				 {
+						var VAR_1 -- 
+				}
+				else
+				 {
+						if(call is_char_handle_in_level(int 10551296))
+						 {
+								call func_29(var greater_gimpv)
+						}
+						if(call is_char_handle_in_level(int 10551297))
+						 {
+								call func_29(var greater_gimpv1)
+						}
+						if(call is_char_handle_in_level(int 10551298))
+						 {
+								call func_29(var greater_gimpv2)
+						}
+						var VAR_1 = int 20
+						var VAR_0 ++ 
+				}
+				break 
+			case 1
+				if(var VAR_1)
+				 {
+						var VAR_1 -- 
+				}
+				else
+				 {
+						if(call is_char_handle_in_level(int 10551296))
+						 {
+								call func_2(var greater_gimpv)
+						}
+						if(call is_char_handle_in_level(int 10551297))
+						 {
+								call func_2(var greater_gimpv1)
+						}
+						if(call is_char_handle_in_level(int 10551298))
+						 {
+								call func_2(var greater_gimpv2)
+						}
+						var VAR_0 ++ 
+				}
+				break 
+			default 
+				break 
+	}

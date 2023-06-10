@@ -10,165 +10,165 @@
 
 
 ._DATA
-VAR_2	{ 0, 0, 0 }	
-init_position	{ -555, -118, -55 }	
-VAR_8	{ 689, -118, -184, 403, -118, 996 }	
-VAR_9	{ 53, -118, -196, -206, -118, 990 }	
-VAR_10	{ -568, -118, -202, -587, -118, 989, -1004, -118, -185, -1098, -118, 999, -1482, -118, -217, -1484, -118, 939, -1958, -118, -193, -1891, -118, 747 }	
-VAR_12	{ -224, -118, 828, -86, -118, 190 }	
-VAR_13	{ -1585, -118, 80, -1337, -118, 721 }	
-enemy_gen_script	{ 0, 0, 0, 1, -1, 8, 2, 4, 0, 9, 1, 1, 2, 34, 36, -1, 5, 1, 15, 60, 6, 1, 7, 1, 4, -1 }	
-enemy_gen_script2	{ 0, 1, 2, VAR_12, 8, 2, 4, 0, 9, 1, 1, 2, 33, 33, -1, 5, 1, 15, 60, 6, 1, 7, 1, 2, -1 }	
-enemy_gen_script3	{ 0, 1, 2, VAR_13, 8, 2, 4, 0, 9, 1, 1, 2, 33, 33, -1, 5, 1, 15, 60, 6, 1, 7, 1, 2, -1 }	
-enemy_gen_script1	{ 0, 0, 1, -1, 8, 0, 4, 0, 9, 1, 1, 2, 34, 36, -1, 5, 1, 40, 100, 6, 1, 7, 1, 4, -1 }	
+	VAR_2	{ 0, 0, 0 }	
+	init_position	{ -555, -118, -55 }	
+	VAR_8	{ 689, -118, -184, 403, -118, 996 }	
+	VAR_9	{ 53, -118, -196, -206, -118, 990 }	
+	VAR_10	{ -568, -118, -202, -587, -118, 989, -1004, -118, -185, -1098, -118, 999, -1482, -118, -217, -1484, -118, 939, -1958, -118, -193, -1891, -118, 747 }	
+	VAR_12	{ -224, -118, 828, -86, -118, 190 }	
+	VAR_13	{ -1585, -118, 80, -1337, -118, 721 }	
+	enemy_gen_script	{ 0, 0, 0, 1, -1, 8, 2, 4, 0, 9, 1, 1, 2, 34, 36, -1, 5, 1, 15, 60, 6, 1, 7, 1, 4, -1 }	
+	enemy_gen_script2	{ 0, 1, 2, VAR_12, 8, 2, 4, 0, 9, 1, 1, 2, 33, 33, -1, 5, 1, 15, 60, 6, 1, 7, 1, 2, -1 }	
+	enemy_gen_script3	{ 0, 1, 2, VAR_13, 8, 2, 4, 0, 9, 1, 1, 2, 33, 33, -1, 5, 1, 15, 60, 6, 1, 7, 1, 2, -1 }	
+	enemy_gen_script1	{ 0, 0, 1, -1, 8, 0, 4, 0, 9, 1, 1, 2, 34, 36, -1, 5, 1, 40, 100, 6, 1, 7, 1, 4, -1 }	
 
 ._on_load
-call play_bgm("METALON")
-execute SCRIPT_8
-call load_sound_set(int 72)
+	call play_bgm("METALON")
+	execute SCRIPT_8
+	call load_sound_set(int 72)
 
- /* play the sound 'BLANK' */ 
-call play_loaded_sound(int 4, int -1, int 72, int 0)
-call load_sound_set(int 64)
+	 /* play the sound 'BLANK' */ 
+	call play_loaded_sound(int 4, int -1, int 72, int 0)
+	call load_sound_set(int 64)
 
- /* play the sound 'cavelp' */ 
-call play_loaded_sound(int 1, int -1, int 64, int 0)
-call load_sound_set(int 65)
+	 /* play the sound 'cavelp' */ 
+	call play_loaded_sound(int 1, int -1, int 64, int 0)
+	call load_sound_set(int 65)
 
- /* play the sound 'in2wind1' */ 
-call play_loaded_sound(int 5, int -1, int 65, int 0)
-if(gamevar room_state == int 0)
- {
-		exit_script 
-}
-if(gamevar room_state == int 1)
- {
-		execute SCRIPT_5
-}
-if(gamevar room_state == int 2)
- {
-		execute SCRIPT_7
-}
+	 /* play the sound 'in2wind1' */ 
+	call play_loaded_sound(int 5, int -1, int 65, int 0)
+	if(gamevar room_state == int 0)
+	 {
+			exit_script 
+	}
+	if(gamevar room_state == int 1)
+	 {
+			execute SCRIPT_5
+	}
+	if(gamevar room_state == int 2)
+	 {
+			execute SCRIPT_7
+	}
 
 ._infinite_loop
-execute SCRIPT_3
-if(gamevar room_state == int 0)
- {
-		exit_script 
-}
-if(gamevar room_state == int 1)
- {
-		execute SCRIPT_4
-}
-if(gamevar room_state == int 2)
- {
-		execute SCRIPT_6
-}
+	execute SCRIPT_3
+	if(gamevar room_state == int 0)
+	 {
+			exit_script 
+	}
+	if(gamevar room_state == int 1)
+	 {
+			execute SCRIPT_4
+	}
+	if(gamevar room_state == int 2)
+	 {
+			execute SCRIPT_6
+	}
 
 ._on_exit
-if(gamevar room_state == int 0)
- {
-		exit_script 
-}
-gamevar room_state ++ 
-if(gamevar room_state > int 2)
- {
-		gamevar room_state = int 0
-}
+	if(gamevar room_state == int 0)
+	 {
+			exit_script 
+	}
+	gamevar room_state ++ 
+	if(gamevar room_state > int 2)
+	 {
+			gamevar room_state = int 0
+	}
 
 ._SCRIPT_3
-if(gamevar script_time > var VAR_21)
- {
-		var VAR_21 = gamevar script_time + int 70 + call randomize_int(int 0, int 110)
+	if(gamevar script_time > var VAR_21)
+	 {
+			var VAR_21 = gamevar script_time + int 70 + call randomize_int(int 0, int 110)
 
-		 /* play the sound 'renddizz' */ 
-		call play_loaded_sound(int 8, int 0, int 72, int 0)
-}
-if(gamevar script_time > var VAR_22)
- {
-		var VAR_22 = gamevar script_time + int 70 + call randomize_int(int 0, int 110)
+			 /* play the sound 'renddizz' */ 
+			call play_loaded_sound(int 8, int 0, int 72, int 0)
+	}
+	if(gamevar script_time > var VAR_22)
+	 {
+			var VAR_22 = gamevar script_time + int 70 + call randomize_int(int 0, int 110)
 
-		 /* play the sound 'metamb1' */ 
-		call play_loaded_sound(int 7, int 0, int 72, int 0)
-}
-if(gamevar script_time > var VAR_23)
- {
-		var VAR_23 = gamevar script_time + int 100 + call randomize_int(int 0, int 50)
+			 /* play the sound 'metamb1' */ 
+			call play_loaded_sound(int 7, int 0, int 72, int 0)
+	}
+	if(gamevar script_time > var VAR_23)
+	 {
+			var VAR_23 = gamevar script_time + int 100 + call randomize_int(int 0, int 50)
 
-		 /* play the sound 'wwindlp' */ 
-		call play_loaded_sound(int 6, int 0, int 65, int 0)
-}
+			 /* play the sound 'wwindlp' */ 
+			call play_loaded_sound(int 6, int 0, int 65, int 0)
+	}
 
 ._SCRIPT_4
-if(var VAR_2 == int 0)
- {
-		if(call func_8a(var &VAR_8))
-		 {
-				var VAR_11 = call run_enemy_generator(var &enemy_gen_script, int 10)
-				call log("trigger_tripwire 1 ")
-				var VAR_2 ++ 
-		}
-		else
-		 {
-				if(call get_num_of_enemies() == int 0)
-				 {
-						var VAR_11 = call run_enemy_generator(var &enemy_gen_script1, int 30)
-						var VAR_2 ++ 
-				}
-		}
-}
-if(var VAR_2 == int 1)
- {
-		if(call func_8a(var &VAR_9))
-		 {
-				var VAR_11 = call run_enemy_generator(var &enemy_gen_script2, int 220)
-				call log("trigger_tripwire 2 ")
-				var VAR_2 ++ 
-		}
-		else
-		 {
-				if(call get_num_of_enemies() == int 0)
-				 {
-						var VAR_11 = call run_enemy_generator(var &enemy_gen_script2, int 10)
-						var VAR_2 ++ 
-				}
-		}
-}
-if(var VAR_2 == int 2)
- {
-		if(call func_8a(var &VAR_10))
-		 {
-				var VAR_11 = call run_enemy_generator(var &enemy_gen_script3, int 10)
-				call log("trigger_tripwire 3 ")
-				var VAR_2 ++ 
-		}
-		else
-		 {
-				if(call get_num_of_enemies() == int 0)
-				 {
-						var VAR_11 = call run_enemy_generator(var &enemy_gen_script3, int 10)
-						var VAR_2 ++ 
-				}
-		}
-}
+	if(var VAR_2 == int 0)
+	 {
+			if(call func_8a(var &VAR_8))
+			 {
+					var VAR_11 = call run_enemy_generator(var &enemy_gen_script, int 10)
+					call log("trigger_tripwire 1 ")
+					var VAR_2 ++ 
+			}
+			else
+			 {
+					if(call get_num_of_enemies() == int 0)
+					 {
+							var VAR_11 = call run_enemy_generator(var &enemy_gen_script1, int 30)
+							var VAR_2 ++ 
+					}
+			}
+	}
+	if(var VAR_2 == int 1)
+	 {
+			if(call func_8a(var &VAR_9))
+			 {
+					var VAR_11 = call run_enemy_generator(var &enemy_gen_script2, int 220)
+					call log("trigger_tripwire 2 ")
+					var VAR_2 ++ 
+			}
+			else
+			 {
+					if(call get_num_of_enemies() == int 0)
+					 {
+							var VAR_11 = call run_enemy_generator(var &enemy_gen_script2, int 10)
+							var VAR_2 ++ 
+					}
+			}
+	}
+	if(var VAR_2 == int 2)
+	 {
+			if(call func_8a(var &VAR_10))
+			 {
+					var VAR_11 = call run_enemy_generator(var &enemy_gen_script3, int 10)
+					call log("trigger_tripwire 3 ")
+					var VAR_2 ++ 
+			}
+			else
+			 {
+					if(call get_num_of_enemies() == int 0)
+					 {
+							var VAR_11 = call run_enemy_generator(var &enemy_gen_script3, int 10)
+							var VAR_2 ++ 
+					}
+			}
+	}
 
 ._SCRIPT_5
-call load_char("sguard")
-call load_char("sarcher")
-var btreasure = call create_char(var &init_position, "btreasure", int 360, int 14)
-call add_item_to_char(var btreasure, int 83 /* borb */ , int 1, int 0)
-call add_item_to_char(var btreasure, int 83 /* borb */ , int 1, int 0)
-call add_item_to_char(var btreasure, int 46 /* pie */ , int 1, int 0)
-call add_item_to_char(var btreasure, int 45 /* deadmous */ , int 1, int 0)
-call add_item_to_char(var btreasure, int 45 /* deadmous */ , int 1, int 0)
-call add_item_to_char(var btreasure, int 40 /* apple */ , int 1, int 0)
-call add_item_to_char(var btreasure, int 40 /* apple */ , int 1, int 0)
+	call load_char("sguard")
+	call load_char("sarcher")
+	var btreasure = call create_char(var &init_position, "btreasure", int 360, int 14)
+	call add_item_to_char(var btreasure, int 83 /* borb */ , int 1, int 0)
+	call add_item_to_char(var btreasure, int 83 /* borb */ , int 1, int 0)
+	call add_item_to_char(var btreasure, int 46 /* pie */ , int 1, int 0)
+	call add_item_to_char(var btreasure, int 45 /* deadmous */ , int 1, int 0)
+	call add_item_to_char(var btreasure, int 45 /* deadmous */ , int 1, int 0)
+	call add_item_to_char(var btreasure, int 40 /* apple */ , int 1, int 0)
+	call add_item_to_char(var btreasure, int 40 /* apple */ , int 1, int 0)
 
 ._SCRIPT_6
 
 ._SCRIPT_7
 
 ._SCRIPT_8
-gamevar SMACKER_X = int 144
-gamevar SMACKER_Y = int 356
-call play_2d_anim("boar", int 1, int 1, int 0)
+	gamevar SMACKER_X = int 144
+	gamevar SMACKER_Y = int 356
+	call play_2d_anim("boar", int 1, int 1, int 0)

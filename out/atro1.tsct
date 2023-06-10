@@ -10,129 +10,129 @@
 
 
 ._DATA
-VAR_1	{ 0, 0, 0 }	
-VAR_5	{ -1235, 243, -325, -1501, 218, 715 }	
-VAR_9	{ 1136984064, 1132068864, -1005682688 }	
-VAR_10	"cC7D"	
-VAR_11	")\CFC"	
-arr	{ VAR_9, VAR_10, VAR_11 }
+	VAR_1	{ 0, 0, 0 }	
+	VAR_5	{ -1235, 243, -325, -1501, 218, 715 }	
+	VAR_9	{ 1136984064, 1132068864, -1005682688 }	
+	VAR_10	"cC7D"	
+	VAR_11	")\CFC"	
+	arr	{ VAR_9, VAR_10, VAR_11 }
 
 ._on_load
-call load_sound_set(int 76)
+	call load_sound_set(int 76)
 
- /* play the sound 'atrolp2' */ 
-call play_loaded_sound(int 1, int -1, int 76, int 0)
+	 /* play the sound 'atrolp2' */ 
+	call play_loaded_sound(int 1, int -1, int 76, int 0)
 
- /* play the sound 'atroamb1' */ 
-call play_loaded_sound(int 2, int -1, int 76, int 0)
-call load_sound_set(int 80)
-if(gamevar is_room_cleared)
- {
-		execute SCRIPT_10
-}
-else
- {
-		switch(gamevar room_state)
-		 {
-				case 1
-					execute SCRIPT_5
-					break 
-				case 2
-					execute SCRIPT_7
-					break 
-				case 3
-					execute SCRIPT_9
-					break 
-				case 0
-					break 
-		}
-}
+	 /* play the sound 'atroamb1' */ 
+	call play_loaded_sound(int 2, int -1, int 76, int 0)
+	call load_sound_set(int 80)
+	if(gamevar is_room_cleared)
+	 {
+			execute SCRIPT_10
+	}
+	else
+	 {
+			switch(gamevar room_state)
+			 {
+					case 1
+						execute SCRIPT_5
+						break 
+					case 2
+						execute SCRIPT_7
+						break 
+					case 3
+						execute SCRIPT_9
+						break 
+					case 0
+						break 
+			}
+	}
 
 ._infinite_loop
-execute SCRIPT_11
-if(gamevar !is_room_cleared)
- {
-		switch(gamevar room_state)
-		 {
-				case 1
-					execute SCRIPT_4
-					break 
-				case 2
-					execute SCRIPT_6
-					break 
-				case 3
-					execute SCRIPT_8
-					break 
-				case 0
-					break 
-		}
-}
+	execute SCRIPT_11
+	if(gamevar !is_room_cleared)
+	 {
+			switch(gamevar room_state)
+			 {
+					case 1
+						execute SCRIPT_4
+						break 
+					case 2
+						execute SCRIPT_6
+						break 
+					case 3
+						execute SCRIPT_8
+						break 
+					case 0
+						break 
+			}
+	}
 
 ._on_exit
-if(gamevar !is_room_cleared)
- {
-		switch(gamevar room_state)
-		 {
-				case 1
-					if(var VAR_0)
-					 {
-							gamevar room_state ++ 
-							gamevar is_room_cleared = int 1
-					}
-					break 
-				case 2
-					gamevar room_state ++ 
-					gamevar is_room_cleared = int 1
-					break 
-				case 3
-					gamevar room_state ++ 
-					gamevar is_room_cleared = int 1
-					break 
-				case 0
-					break 
-				default 
-					gamevar room_state = int 0
-					break 
-		}
-}
+	if(gamevar !is_room_cleared)
+	 {
+			switch(gamevar room_state)
+			 {
+					case 1
+						if(var VAR_0)
+						 {
+								gamevar room_state ++ 
+								gamevar is_room_cleared = int 1
+						}
+						break 
+					case 2
+						gamevar room_state ++ 
+						gamevar is_room_cleared = int 1
+						break 
+					case 3
+						gamevar room_state ++ 
+						gamevar is_room_cleared = int 1
+						break 
+					case 0
+						break 
+					default 
+						gamevar room_state = int 0
+						break 
+			}
+	}
 
 ._SCRIPT_3
-gamevar SMACKER_X = int 404
-gamevar SMACKER_Y = int 108
-call play_2d_anim("atro1", int 0, int 1, var &VAR_1)
+	gamevar SMACKER_X = int 404
+	gamevar SMACKER_Y = int 108
+	call play_2d_anim("atro1", int 0, int 1, var &VAR_1)
 
 ._SCRIPT_4
-switch(var VAR_3)
- {
-		case 0
-			var VAR_1 = int 1
-			var VAR_3 ++ 
-			var VAR_4 = int 0
-			break 
-		case 1
-			if(var VAR_4 > int 2)
-			 {
-					var VAR_4 = int 0
-					var VAR_1 = int 0
-					var VAR_3 ++ 
-			}
-			break 
-		case 2
-			if(call func_8a(var &VAR_5))
-			 {
+	switch(var VAR_3)
+	 {
+			case 0
+				var VAR_1 = int 1
+				var VAR_3 ++ 
+				var VAR_4 = int 0
+				break 
+			case 1
+				if(var VAR_4 > int 2)
+				 {
+						var VAR_4 = int 0
+						var VAR_1 = int 0
+						var VAR_3 ++ 
+				}
+				break 
+			case 2
+				if(call func_8a(var &VAR_5))
+				 {
 
-					 /* play the sound 'uncon2' */ 
-					call play_loaded_sound(int 1, int 0, int 80, int 0)
-					var VAR_1 = int 1
-					var VAR_3 ++ 
-					var VAR_0 = int 1
-			}
-			break 
-}
-var VAR_4 ++ 
+						 /* play the sound 'uncon2' */ 
+						call play_loaded_sound(int 1, int 0, int 80, int 0)
+						var VAR_1 = int 1
+						var VAR_3 ++ 
+						var VAR_0 = int 1
+				}
+				break 
+	}
+	var VAR_4 ++ 
 
 ._SCRIPT_5
-execute SCRIPT_3
+	execute SCRIPT_3
 
 ._SCRIPT_6
 
@@ -145,19 +145,19 @@ execute SCRIPT_3
 ._SCRIPT_10
 
 ._SCRIPT_11
-if(gamevar script_time > var VAR_6)
- {
-		var VAR_6 = gamevar script_time + int 100 + call randomize_int(int 0, int 150)
-		var VAR_8 = call randomize_int(int 0, int 3)
+	if(gamevar script_time > var VAR_6)
+	 {
+			var VAR_6 = gamevar script_time + int 100 + call randomize_int(int 0, int 150)
+			var index = call randomize_int(int 0, int 3)
 
-		 /* play the sound 'atroamb4' */ 
-		call play_loaded_sound(int 3, int 0, int 76, @arr[var VAR_8])
-}
-if(gamevar script_time > var VAR_7)
- {
-		var VAR_7 = gamevar script_time + int 200 + call randomize_int(int 0, int 150)
-		var VAR_8 = call randomize_int(int 0, int 3)
+			 /* play the sound 'atroamb4' */ 
+			call play_loaded_sound(int 3, int 0, int 76, @arr[var VAR_8])
+	}
+	if(gamevar script_time > var VAR_7)
+	 {
+			var VAR_7 = gamevar script_time + int 200 + call randomize_int(int 0, int 150)
+			var index = call randomize_int(int 0, int 3)
 
-		 /* play the sound 'bees' */ 
-		call play_loaded_sound(int 4, int 0, int 76, @arr[var VAR_8])
-}
+			 /* play the sound 'bees' */ 
+			call play_loaded_sound(int 4, int 0, int 76, @arr[var index])
+	}

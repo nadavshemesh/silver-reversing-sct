@@ -10,159 +10,159 @@
 
 
 ._DATA
-VAR_0	{ 0, 0, 0, 0 }	
-VAR_1	{ -1810, -481, 263 }	
-VAR_8	{ -70, -485, 1760 }	
-VAR_9	{ 0, 100, 0 }	
-VAR_10	{ -2273, -530, 1050 }	
-VAR_11	{ -47, 89, 0 }	
-VAR_12	{ -655, -485, 1880 }	
-VAR_13	{ 0, 100, 0 }	
-VAR_14	{ -1486, -215, 567 }	
-VAR_15	{ -47, 89, 0 }	
-VAR_16	{ -75, -650, 1875 }	
-VAR_17	{ 0, -35, 80 }	
-VAR_18	{ -146, -337, 935 }	
-VAR_19	{ 0, 0, 100 }	
-arr	{ VAR_8, VAR_10, VAR_12, VAR_14, VAR_16, VAR_18 }	
-arr_1	{ VAR_9, VAR_11, VAR_13, VAR_15, VAR_17, VAR_19 }	
-VAR_22	{ 75, 2000, 1420 }	
-VAR_23	{ -1610, 2000, 1372 }	
-VAR_24	{ -300, 2000, 1925 }	
-VAR_25	{ -240, 2000, 1920 }	
-VAR_26	{ -2040, 2000, 846 }	
-VAR_27	{ -1710, 2000, 1226 }	
-fx_position	{ VAR_22, VAR_23, VAR_24, VAR_25, VAR_26, VAR_27, -1632, -481, -780, 0, 0, -1 }	
-init_position	{ -740, -480, 775 }	
-init_position1	{ -740, -480, 575 }	
-VAR_36	{ 1, 0, 0 }	
-VAR_47	100	
-VAR_52	{ 1052, -481, 641, -2011, -481, 426 }	
-VAR_54	1	
-VAR_55	1	
-VAR_56	{ -2026, -481, 1060, -1434, -481, 821 }	
-position	{ -939, -481, 1068 }	
-VAR_59	-1	
-VAR_67	5	
-njanbook	{ 0, 0, -1912, -481, 875 }	
-init_position2	{ -1496, -481, -527 }	
-position1	{ -664, 891, -555 }	
-VAR_72	{ -2671, -1183, 1000 }	
-jgestnos_anim	{ 0, 0 }	
-tele_position	{ 1947, -481, 679 }	
+	VAR_0	{ 0, 0, 0, 0 }	
+	VAR_1	{ -1810, -481, 263 }	
+	VAR_8	{ -70, -485, 1760 }	
+	VAR_9	{ 0, 100, 0 }	
+	VAR_10	{ -2273, -530, 1050 }	
+	VAR_11	{ -47, 89, 0 }	
+	VAR_12	{ -655, -485, 1880 }	
+	VAR_13	{ 0, 100, 0 }	
+	VAR_14	{ -1486, -215, 567 }	
+	VAR_15	{ -47, 89, 0 }	
+	VAR_16	{ -75, -650, 1875 }	
+	VAR_17	{ 0, -35, 80 }	
+	VAR_18	{ -146, -337, 935 }	
+	VAR_19	{ 0, 0, 100 }	
+	arr	{ VAR_8, VAR_10, VAR_12, VAR_14, VAR_16, VAR_18 }	
+	arr_1	{ VAR_9, VAR_11, VAR_13, VAR_15, VAR_17, VAR_19 }	
+	VAR_22	{ 75, 2000, 1420 }	
+	VAR_23	{ -1610, 2000, 1372 }	
+	VAR_24	{ -300, 2000, 1925 }	
+	VAR_25	{ -240, 2000, 1920 }	
+	VAR_26	{ -2040, 2000, 846 }	
+	VAR_27	{ -1710, 2000, 1226 }	
+	fx_position	{ VAR_22, VAR_23, VAR_24, VAR_25, VAR_26, VAR_27, -1632, -481, -780, 0, 0, -1 }	
+	init_position	{ -740, -480, 775 }	
+	init_position1	{ -740, -480, 575 }	
+	VAR_36	{ 1, 0, 0 }	
+	VAR_47	100	
+	VAR_52	{ 1052, -481, 641, -2011, -481, 426 }	
+	VAR_54	1	
+	VAR_55	1	
+	VAR_56	{ -2026, -481, 1060, -1434, -481, 821 }	
+	position	{ -939, -481, 1068 }	
+	VAR_59	-1	
+	VAR_67	5	
+	njanbook	{ 0, 0, -1912, -481, 875 }	
+	init_position2	{ -1496, -481, -527 }	
+	position1	{ -664, 891, -555 }	
+	VAR_72	{ -2671, -1183, 1000 }	
+	jgestnos_anim	{ 0, 0 }	
+	tele_position	{ 1947, -481, 679 }	
 
 ._on_load
-call func_124()
-call load_sound_set(int 64)
+	call func_124()
+	call load_sound_set(int 64)
 
- /* play the sound 'cavelp' */ 
-call play_loaded_sound(int 1, int -1, int 64, int 0)
-call load_sound_set(int 39)
-if(gamevar is_room_cleared)
- {
-		execute SCRIPT_18
-}
-else
- {
-		switch(gamevar room_state)
-		 {
-				case 1
-					execute SCRIPT_10
-					break 
-				case 2
-					execute SCRIPT_12
-					break 
-				case 3
-					execute SCRIPT_14
-					break 
-				case 4
-					if(call ! func_c0(int 101, "gno", "boilintr"))
-					 {
-							call func_9a(var &VAR_1, int 57, int 0, int 0)
-					}
-					break 
-				case 0
-					break 
-		}
-}
+	 /* play the sound 'cavelp' */ 
+	call play_loaded_sound(int 1, int -1, int 64, int 0)
+	call load_sound_set(int 39)
+	if(gamevar is_room_cleared)
+	 {
+			execute SCRIPT_18
+	}
+	else
+	 {
+			switch(gamevar room_state)
+			 {
+					case 1
+						execute SCRIPT_10
+						break 
+					case 2
+						execute SCRIPT_12
+						break 
+					case 3
+						execute SCRIPT_14
+						break 
+					case 4
+						if(call ! func_c0(int 101, "gno", "boilintr"))
+						 {
+								call func_9a(var &VAR_1, int 57, int 0, int 0)
+						}
+						break 
+					case 0
+						break 
+			}
+	}
 
 ._infinite_loop
-execute SCRIPT_4
-if(gamevar !is_room_cleared)
- {
-		switch(gamevar room_state)
-		 {
-				case 1
-					execute SCRIPT_11
-					break 
-				case 2
-					execute SCRIPT_13
-					break 
-				case 3
-					execute SCRIPT_15
-					break 
-				case 4
-					break 
-				case 0
-					break 
-		}
-}
+	execute SCRIPT_4
+	if(gamevar !is_room_cleared)
+	 {
+			switch(gamevar room_state)
+			 {
+					case 1
+						execute SCRIPT_11
+						break 
+					case 2
+						execute SCRIPT_13
+						break 
+					case 3
+						execute SCRIPT_15
+						break 
+					case 4
+						break 
+					case 0
+						break 
+			}
+	}
 
 ._on_exit
-if(gamevar !is_room_cleared)
- {
-		switch(gamevar room_state)
-		 {
-				case 1
-					gamevar room_state ++ 
-					break 
-				case 2
-					break 
-				case 3
-					gamevar *scene_info_p+1 = int 1
-					gamevar room_state ++ 
-					call func_116("gno", "boilintr", int 4)
-					call set_scene_overwrite_act("gno", "boilintr", int 1)
-					break 
-				case 0
-					break 
-				case 4
-					gamevar room_state ++ 
-					break 
-				default 
-					gamevar room_state = int 0
-					gamevar *scene_info_p+1 = int 0
-					break 
-		}
-}
+	if(gamevar !is_room_cleared)
+	 {
+			switch(gamevar room_state)
+			 {
+					case 1
+						gamevar room_state ++ 
+						break 
+					case 2
+						break 
+					case 3
+						gamevar *scene_info_p+1 = int 1
+						gamevar room_state ++ 
+						call func_116("gno", "boilintr", int 4)
+						call set_scene_overwrite_act("gno", "boilintr", int 1)
+						break 
+					case 0
+						break 
+					case 4
+						gamevar room_state ++ 
+						break 
+					default 
+						gamevar room_state = int 0
+						gamevar *scene_info_p+1 = int 0
+						break 
+			}
+	}
 
 ._SCRIPT_3
 
- /* play the sound 'conveyor' */ 
-call play_loaded_sound(int 1, int -1, int 52, int 0)
+	 /* play the sound 'conveyor' */ 
+	call play_loaded_sound(int 1, int -1, int 52, int 0)
 
- /* play the sound 'lever' */ 
-call play_loaded_sound(int 2, int -1, int 52, int 0)
+	 /* play the sound 'lever' */ 
+	call play_loaded_sound(int 2, int -1, int 52, int 0)
 
 ._SCRIPT_4
-if(gamevar script_time > var VAR_98)
- {
-		var VAR_98 = gamevar script_time + int 100 + call randomize_int(int 0, int 100)
+	if(gamevar script_time > var VAR_98)
+	 {
+			var VAR_98 = gamevar script_time + int 100 + call randomize_int(int 0, int 100)
 
-		 /* play the sound 'echdrip1' */ 
-		call play_loaded_sound(int 3, int 0, int 64, int 0)
-}
-if(gamevar script_time > var VAR_99)
- {
-		var VAR_99 = gamevar script_time + int 20 + call randomize_int(int 0, int 20)
-		var is_IMP_exist = call is_char_handle_in_level(int 917504)
-		if(var is_IMP_exist)
-		 {
-				var VAR_0 = call get_char_movement_ptr(var is_IMP_exist)
-				call func_75(int 7, int 0, int 64, var VAR_0)
-				call log("init imp sound")
-		}
-}
+			 /* play the sound 'echdrip1' */ 
+			call play_loaded_sound(int 3, int 0, int 64, int 0)
+	}
+	if(gamevar script_time > var VAR_99)
+	 {
+			var VAR_99 = gamevar script_time + int 20 + call randomize_int(int 0, int 20)
+			var is_IMP_exist = call is_char_handle_in_level(int 917504)
+			if(var is_IMP_exist)
+			 {
+					var VAR_0 = call get_char_movement_ptr(var is_IMP_exist)
+					call func_75(int 7, int 0, int 64, var VAR_0)
+					call log("init imp sound")
+			}
+	}
 
 ._SCRIPT_5
 
@@ -171,271 +171,271 @@ if(gamevar script_time > var VAR_99)
 ._SCRIPT_7
 
 ._SCRIPT_8
-if(var VAR_59 != var VAR_51)
- {
-		var VAR_59 = var VAR_51
-		call log_obj(var VAR_51)
-}
-switch(var VAR_51)
- {
-		case 0
-			if(call func_8a(var &VAR_56))
-			 {
-					call set_input_system(int 2)
-					gamevar script_object = var VAR_35
-					gamevar *smack_object_p+2 -= int 10737418
-					var VAR_58 = call func_ec(int 90, int 0, int 0, var &position)
-					call set_sound_volume(var VAR_58, int 100)
-					var VAR_51 ++ 
-					var VAR_50 = int 0
-			}
-			break 
-		case 1
-			if(var VAR_50 == int 15)
-			 {
-					call char_stop(var DAVID)
-					call char_turn_to_pos(var DAVID, var &position)
-					var VAR_51 ++ 
-					var VAR_50 = int 0
-			}
-			break 
-		case 2
-			if(var VAR_50 == int 188)
-			 {
-					var VAR_58 = call func_ec(int 108, int 0, int 0, var &position)
-					call set_sound_volume(var VAR_58, int 100)
-			}
-			if(var VAR_36 == int -1)
-			 {
-					gamevar compile_init_character = int 0
-					var nimp = call create_char(var &init_position, "nimp", int 90, int 13)
-					gamevar compile_init_character = int 1
-					gamevar script_object = var nimp
-					gamevar *character_movement_p+60 = int 1
-					gamevar *scene_info_p+4 &= int -17
-					gamevar *scene_info_p+4 |= int 2
-					var VAR_51 ++ 
-					var VAR_50 = int 0
-			}
-			break 
-		case 3
-			if(var VAR_50 > int 20)
-			 {
-					gamevar compile_init_character = int 0
-					var nimp = call create_char(var &init_position1, "nimp", int 90, int 13)
-					gamevar compile_init_character = int 1
-					gamevar script_object = var nimp
-					gamevar *character_movement_p+60 = int 1
-					var VAR_53 = call alloc_space_in_general_heap()
-					call func_4(var VAR_53, var nimp)
-					call func_4(var VAR_53, var nimp)
-					call set_char_running(var nimp)
-					call set_char_running(var nimp)
-					call func_63(var VAR_53, var &VAR_52)
-					var VAR_51 ++ 
-					var VAR_50 = int 0
-			}
-			break 
-		case 4
-			if(var VAR_54)
-			 {
-					if(call is_char_standing(var nimp))
-					 {
-							call play_char_anim(var nimp, var impish_anim, int 0)
-							var VAR_54 = int 0
-					}
-			}
-			if(var VAR_55)
-			 {
-					if(call is_char_standing(var nimp))
-					 {
-							call play_char_anim(var nimp, var impish_anim, int 0)
-							var VAR_55 = int 0
-					}
-			}
-			if(var VAR_54 + var VAR_55 == int 0)
-			 {
-					var VAR_51 ++ 
-					var VAR_50 = int 0
-			}
-			break 
-		case 5
-			if(var VAR_50 > int 50)
-			 {
-					call func_2e(var VAR_53, int 0)
-					var VAR_51 ++ 
-					var VAR_50 = int 0
-			}
-			break 
-		case 6
-			if(call func_2d(var VAR_53))
-			 {
-					call set_input_system(int 1)
-					call remove_char(var nimp)
-					call remove_char(var nimp)
-					call func_45(var VAR_53)
-					var VAR_51 ++ 
-					var VAR_50 = int 0
-			}
-			break 
-}
-var VAR_50 ++ 
+	if(var VAR_59 != var VAR_51)
+	 {
+			var VAR_59 = var VAR_51
+			call log_obj(var VAR_51)
+	}
+	switch(var VAR_51)
+	 {
+			case 0
+				if(call func_8a(var &VAR_56))
+				 {
+						call set_input_system(int 2)
+						gamevar script_object = var VAR_35
+						gamevar *smack_object_p+2 -= int 10737418
+						var VAR_58 = call func_ec(int 90, int 0, int 0, var &position)
+						call set_sound_volume(var VAR_58, int 100)
+						var VAR_51 ++ 
+						var VAR_50 = int 0
+				}
+				break 
+			case 1
+				if(var VAR_50 == int 15)
+				 {
+						call char_stop(var DAVID)
+						call char_turn_to_pos(var DAVID, var &position)
+						var VAR_51 ++ 
+						var VAR_50 = int 0
+				}
+				break 
+			case 2
+				if(var VAR_50 == int 188)
+				 {
+						var VAR_58 = call func_ec(int 108, int 0, int 0, var &position)
+						call set_sound_volume(var VAR_58, int 100)
+				}
+				if(var VAR_36 == int -1)
+				 {
+						gamevar compile_init_character = int 0
+						var nimp = call create_char(var &init_position, "nimp", int 90, int 13)
+						gamevar compile_init_character = int 1
+						gamevar script_object = var nimp
+						gamevar *character_movement_p+60 = int 1
+						gamevar *scene_info_p+4 &= int -17
+						gamevar *scene_info_p+4 |= int 2
+						var VAR_51 ++ 
+						var VAR_50 = int 0
+				}
+				break 
+			case 3
+				if(var VAR_50 > int 20)
+				 {
+						gamevar compile_init_character = int 0
+						var nimp = call create_char(var &init_position1, "nimp", int 90, int 13)
+						gamevar compile_init_character = int 1
+						gamevar script_object = var nimp
+						gamevar *character_movement_p+60 = int 1
+						var VAR_53 = call alloc_space_in_general_heap()
+						call func_4(var VAR_53, var nimp)
+						call func_4(var VAR_53, var nimp)
+						call set_char_running(var nimp)
+						call set_char_running(var nimp)
+						call func_63(var VAR_53, var &VAR_52)
+						var VAR_51 ++ 
+						var VAR_50 = int 0
+				}
+				break 
+			case 4
+				if(var VAR_54)
+				 {
+						if(call is_char_standing(var nimp))
+						 {
+								call play_char_anim(var nimp, var impish_anim, int 0)
+								var VAR_54 = int 0
+						}
+				}
+				if(var VAR_55)
+				 {
+						if(call is_char_standing(var nimp))
+						 {
+								call play_char_anim(var nimp, var impish_anim, int 0)
+								var VAR_55 = int 0
+						}
+				}
+				if(var VAR_54 + var VAR_55 == int 0)
+				 {
+						var VAR_51 ++ 
+						var VAR_50 = int 0
+				}
+				break 
+			case 5
+				if(var VAR_50 > int 50)
+				 {
+						call func_2e(var VAR_53, int 0)
+						var VAR_51 ++ 
+						var VAR_50 = int 0
+				}
+				break 
+			case 6
+				if(call func_2d(var VAR_53))
+				 {
+						call set_input_system(int 1)
+						call remove_char(var nimp)
+						call remove_char(var nimp)
+						call func_45(var VAR_53)
+						var VAR_51 ++ 
+						var VAR_50 = int 0
+				}
+				break 
+	}
+	var VAR_50 ++ 
 
 ._SCRIPT_9
-if(var VAR_45 > var VAR_47)
- {
-		var VAR_48 = call randomize_int(int 10, int 60)
-		var VAR_46 = call randomize_int(int 0, int 5)
-		call play_3d_fx("SJET", @arr[var VAR_46], @arr_1[var VAR_46], var VAR_48)
+	if(var VAR_45 > var VAR_47)
+	 {
+			var VAR_48 = call randomize_int(int 10, int 60)
+			var index = call randomize_int(int 0, int 5)
+			call play_3d_fx("SJET", @arr[var VAR_46], @arr_1[var index], var VAR_48)
 
-		 /* play the sound 'cogs' */ 
-		call play_loaded_sound(int 5, int 0, int 39, int 0)
-		var VAR_47 = call randomize_int(int 30, int 150)
-		var VAR_45 = int 0
-}
-var VAR_45 ++ 
+			 /* play the sound 'cogs' */ 
+			call play_loaded_sound(int 5, int 0, int 39, int 0)
+			var VAR_47 = call randomize_int(int 30, int 150)
+			var VAR_45 = int 0
+	}
+	var VAR_45 ++ 
 
 ._SCRIPT_10
-var impish_anim = call load_anim("impish")
-execute SCRIPT_17
-execute SCRIPT_6
-call play_3d_fx("DRIP", var &fx_position, int 0, int 6)
-var DAVID = call get_char_handle(int 65536)
-call load_char("imp")
-gamevar SMACKER_X = int 268
-gamevar SMACKER_Y = int 248
-var VAR_35 = call play_2d_anim("boildoor", int 10737418, int 1, var &VAR_36)
-gamevar *scene_info_p+4 |= int 16
-gamevar *scene_info_p+5 |= int 16
-call func_116("gno", "veranda", int 4)
-call set_scene_overwrite_act("gno", "veranda", int 1)
+	var impish_anim = call load_anim("impish")
+	execute SCRIPT_17
+	execute SCRIPT_6
+	call play_3d_fx("DRIP", var &fx_position, int 0, int 6)
+	var DAVID = call get_char_handle(int 65536)
+	call load_char("imp")
+	gamevar SMACKER_X = int 268
+	gamevar SMACKER_Y = int 248
+	var VAR_35 = call play_2d_anim("boildoor", int 10737418, int 1, var &VAR_36)
+	gamevar *scene_info_p+4 |= int 16
+	gamevar *scene_info_p+5 |= int 16
+	call func_116("gno", "veranda", int 4)
+	call set_scene_overwrite_act("gno", "veranda", int 1)
 
 ._SCRIPT_11
-switch(var VAR_62)
- {
-		case 0
-			if(var VAR_63 == int 0)
-			 {
-			}
-			if(var VAR_63 == int 32)
-			 {
-					var VAR_62 ++ 
-					var VAR_63 = int 0
-			}
-			break 
-		case 1
-			if(var VAR_63 > int 260)
-			 {
-					var VAR_62 ++ 
-					var VAR_63 = int 0
-			}
-			break 
-}
-execute SCRIPT_8
-var VAR_63 ++ 
+	switch(var VAR_62)
+	 {
+			case 0
+				if(var VAR_63 == int 0)
+				 {
+				}
+				if(var VAR_63 == int 32)
+				 {
+						var VAR_62 ++ 
+						var VAR_63 = int 0
+				}
+				break 
+			case 1
+				if(var VAR_63 > int 260)
+				 {
+						var VAR_62 ++ 
+						var VAR_63 = int 0
+				}
+				break 
+	}
+	execute SCRIPT_8
+	var VAR_63 ++ 
 
 ._SCRIPT_12
-execute SCRIPT_6
-call play_3d_fx("DRIP", var &fx_position, int 0, int 6)
-execute SCRIPT_17
-execute SCRIPT_19
-if(gamevar *scene_info_p+4 & int 16)
- {
-		gamevar *scene_info_p+4 &= int -17
-}
+	execute SCRIPT_6
+	call play_3d_fx("DRIP", var &fx_position, int 0, int 6)
+	execute SCRIPT_17
+	execute SCRIPT_19
+	if(gamevar *scene_info_p+4 & int 16)
+	 {
+			gamevar *scene_info_p+4 &= int -17
+	}
 
 ._SCRIPT_13
 
 ._SCRIPT_14
-gamevar SMACKER_X = int 224
-gamevar SMACKER_Y = int 144
-call play_2d_anim("boilbelt", int 1, int 1, int 0)
-execute SCRIPT_7
-execute SCRIPT_6
-call play_3d_fx("DRIP", var &fx_position, int 0, int 6)
-var njanbook = call create_char(var &init_position2, "njanbook", int 340, int 13)
-gamevar script_object = var njanbook
-gamevar *character_stats_p+14 = int 100750
-var jgestbak_anim = call load_anim("jgestbak")
-var jgestsnz_anim = call load_anim("jgestsnz")
-var jgestnos_anim = call load_anim("jgestnos")
-var jbukdrop_anim = call load_anim("jbukdrop")
-execute SCRIPT_17
-gamevar *scene_info_p+4 |= int 16
-call load_sound_set(int 52)
-execute SCRIPT_3
+	gamevar SMACKER_X = int 224
+	gamevar SMACKER_Y = int 144
+	call play_2d_anim("boilbelt", int 1, int 1, int 0)
+	execute SCRIPT_7
+	execute SCRIPT_6
+	call play_3d_fx("DRIP", var &fx_position, int 0, int 6)
+	var njanbook = call create_char(var &init_position2, "njanbook", int 340, int 13)
+	gamevar script_object = var njanbook
+	gamevar *character_stats_p+14 = int 100750
+	var jgestbak_anim = call load_anim("jgestbak")
+	var jgestsnz_anim = call load_anim("jgestsnz")
+	var jgestnos_anim = call load_anim("jgestnos")
+	var jbukdrop_anim = call load_anim("jbukdrop")
+	execute SCRIPT_17
+	gamevar *scene_info_p+4 |= int 16
+	call load_sound_set(int 52)
+	execute SCRIPT_3
 
 ._SCRIPT_15
-execute SCRIPT_9
-execute SCRIPT_16
-var david = call get_david_char()
-if(var VAR_84 == int 0)
- {
-		var VAR_85 ++ 
-		if(var VAR_85 > int 5)
-		 {
-				call set_input_system(int 2)
-				call char_stop(var david)
-				var VAR_84 ++ 
-				var VAR_85 = int 0
-		}
-}
-if(var VAR_84 == int 1)
- {
-		var VAR_85 ++ 
-		if(var VAR_85 > int 2)
-		 {
-				call char_teleport_to_pos(var david, var &tele_position, int 50)
-				var VAR_85 ++ 
-		}
-}
+	execute SCRIPT_9
+	execute SCRIPT_16
+	var david = call get_david_char()
+	if(var VAR_84 == int 0)
+	 {
+			var VAR_85 ++ 
+			if(var VAR_85 > int 5)
+			 {
+					call set_input_system(int 2)
+					call char_stop(var david)
+					var VAR_84 ++ 
+					var VAR_85 = int 0
+			}
+	}
+	if(var VAR_84 == int 1)
+	 {
+			var VAR_85 ++ 
+			if(var VAR_85 > int 2)
+			 {
+					call char_teleport_to_pos(var david, var &tele_position, int 50)
+					var VAR_85 ++ 
+			}
+	}
 
 ._SCRIPT_16
-if(var VAR_67 == int 5)
- {
-		call char_walk_to(var njanbook, int -758, int -481, int 1401)
-		var VAR_68 = int 0
-		var VAR_67 ++ 
-}
-if(var VAR_67 == int 6)
- {
-		if(call is_char_standing(var njanbook))
-		 {
-				call log("turn to face")
-				call char_turn_to_pos(var njanbook, var &position1)
-				var VAR_68 = int 0
-				var VAR_67 ++ 
-		}
-}
-if(var VAR_67 == int 7)
- {
-		call log("fade")
-		call func_116("gno", "teleroom", int 2)
-		call set_scene_overwrite_act("gno", "teleroom", int 0)
-		call func_e6("gno", "teleroom", var &VAR_72, int 2)
-		var VAR_67 ++ 
-}
-if(var VAR_67 == int 8)
- {
-		var VAR_68 ++ 
-		if(var VAR_68 == int 30)
-		 {
-				call log("place book")
-				call play_char_anim(var njanbook, var jbukdrop_anim, int 0)
-				var VAR_67 ++ 
-		}
-}
+	if(var VAR_67 == int 5)
+	 {
+			call char_walk_to(var njanbook, int -758, int -481, int 1401)
+			var VAR_68 = int 0
+			var VAR_67 ++ 
+	}
+	if(var VAR_67 == int 6)
+	 {
+			if(call is_char_standing(var njanbook))
+			 {
+					call log("turn to face")
+					call char_turn_to_pos(var njanbook, var &position1)
+					var VAR_68 = int 0
+					var VAR_67 ++ 
+			}
+	}
+	if(var VAR_67 == int 7)
+	 {
+			call log("fade")
+			call func_116("gno", "teleroom", int 2)
+			call set_scene_overwrite_act("gno", "teleroom", int 0)
+			call func_e6("gno", "teleroom", var &VAR_72, int 2)
+			var VAR_67 ++ 
+	}
+	if(var VAR_67 == int 8)
+	 {
+			var VAR_68 ++ 
+			if(var VAR_68 == int 30)
+			 {
+					call log("place book")
+					call play_char_anim(var njanbook, var jbukdrop_anim, int 0)
+					var VAR_67 ++ 
+			}
+	}
 
 ._SCRIPT_17
-gamevar SMACKER_X = int 424
-gamevar SMACKER_Y = int 0
-switch(gamevar room_state)
- {
-}
+	gamevar SMACKER_X = int 424
+	gamevar SMACKER_Y = int 0
+	switch(gamevar room_state)
+	 {
+	}
 
 ._SCRIPT_18
 
 ._SCRIPT_19
-gamevar SMACKER_X = int 268
-gamevar SMACKER_Y = int 248
-call play_2d_anim("doordump", int 0, int 1, int 0)
+	gamevar SMACKER_X = int 268
+	gamevar SMACKER_Y = int 248
+	call play_2d_anim("doordump", int 0, int 1, int 0)

@@ -10,451 +10,451 @@
 
 
 ._DATA
-VAR_2	100	
-VAR_5	{ 2871, -3103, -6461 }	
-VAR_6	{ 2104, -3103, -4459 }	
-VAR_7	{ 1648, -3103, -4173 }	
-VAR_8	{ 1956, -3103, -6261 }	
-VAR_9	{ 1249, -3103, -4761 }	
-VAR_10	{ 1053, -3103, -6301 }	
-VAR_11	{ 707, -3103, -5346 }	
-VAR_12	{ 186, -3103, -4669 }	
-VAR_13	{ 6, -3103, -5145 }	
-VAR_14	{ 256, -3103, -5879 }	
-VAR_15	{ -166, -3103, -6461 }	
-VAR_16	{ -1162, -3103, -6750 }	
-VAR_17	{ -1521, -3103, -7844 }	
-VAR_18	{ -1051, -3103, -8842 }	
-VAR_19	{ -813, -3103, -8197 }	
-VAR_20	{ -1459, -3103, -9069 }	
-VAR_21	{ -3392, -3103, -7186 }	
-VAR_22	{ -3317, -3103, -6222 }	
-VAR_23	{ -3019, -3103, -5278 }	
-VAR_24	{ -3656, -3103, -6340, -3900, -3103, -8095 }	
-VAR_25	{ -4858, -3103, -7414 }	
-VAR_26	{ -4357, -3103, -7414 }	
-VAR_27	{ -5112, -3103, -7555 }	
-arr	{ VAR_5, VAR_6, VAR_7, VAR_8, VAR_9, VAR_10, VAR_11, VAR_12, VAR_13, VAR_14, VAR_15, VAR_16, VAR_17, VAR_18, VAR_19, VAR_20, VAR_21, VAR_22, VAR_23, VAR_24, VAR_25, VAR_25, VAR_26, VAR_27 }	
-init_position	{ 45, -551, 6195, 297, -1100, -4303 }	
-tele_position	{ 82, 90, 2595 }	
-walk_position	{ 91, 126, 1385 }	
-VAR_39	{ -1511, 840, -3706 }	
-VAR_49	{ -16, -1350, -2424 }	
-VAR_54	{ 0, -14, 90, 2763 }	
-VAR_55	{ 800, 0, 2583 }	
-VAR_59	""	
-VAR_60	100
+	VAR_2	100	
+	VAR_5	{ 2871, -3103, -6461 }	
+	VAR_6	{ 2104, -3103, -4459 }	
+	VAR_7	{ 1648, -3103, -4173 }	
+	VAR_8	{ 1956, -3103, -6261 }	
+	VAR_9	{ 1249, -3103, -4761 }	
+	VAR_10	{ 1053, -3103, -6301 }	
+	VAR_11	{ 707, -3103, -5346 }	
+	VAR_12	{ 186, -3103, -4669 }	
+	VAR_13	{ 6, -3103, -5145 }	
+	VAR_14	{ 256, -3103, -5879 }	
+	VAR_15	{ -166, -3103, -6461 }	
+	VAR_16	{ -1162, -3103, -6750 }	
+	VAR_17	{ -1521, -3103, -7844 }	
+	VAR_18	{ -1051, -3103, -8842 }	
+	VAR_19	{ -813, -3103, -8197 }	
+	VAR_20	{ -1459, -3103, -9069 }	
+	VAR_21	{ -3392, -3103, -7186 }	
+	VAR_22	{ -3317, -3103, -6222 }	
+	VAR_23	{ -3019, -3103, -5278 }	
+	VAR_24	{ -3656, -3103, -6340, -3900, -3103, -8095 }	
+	VAR_25	{ -4858, -3103, -7414 }	
+	VAR_26	{ -4357, -3103, -7414 }	
+	VAR_27	{ -5112, -3103, -7555 }	
+	arr	{ VAR_5, VAR_6, VAR_7, VAR_8, VAR_9, VAR_10, VAR_11, VAR_12, VAR_13, VAR_14, VAR_15, VAR_16, VAR_17, VAR_18, VAR_19, VAR_20, VAR_21, VAR_22, VAR_23, VAR_24, VAR_25, VAR_25, VAR_26, VAR_27 }	
+	init_position	{ 45, -551, 6195, 297, -1100, -4303 }	
+	tele_position	{ 82, 90, 2595 }	
+	walk_position	{ 91, 126, 1385 }	
+	VAR_39	{ -1511, 840, -3706 }	
+	VAR_49	{ -16, -1350, -2424 }	
+	VAR_54	{ 0, -14, 90, 2763 }	
+	VAR_55	{ 800, 0, 2583 }	
+	VAR_59	1	
+	VAR_60	100
 
 ._on_load
-call load_sound_set(int 79)
-call log("init_script")
-call log_obj(gamevar room_state)
-switch(gamevar room_state)
- {
-		case 1
-			execute SCRIPT_3
-			execute SCRIPT_5
-			break 
-		case 2
-			execute SCRIPT_4
-			execute SCRIPT_5
-			break 
-		case 0
-			break 
-}
+	call load_sound_set(int 79)
+	call log("init_script")
+	call log_obj(gamevar room_state)
+	switch(gamevar room_state)
+	 {
+			case 1
+				execute SCRIPT_3
+				execute SCRIPT_5
+				break 
+			case 2
+				execute SCRIPT_4
+				execute SCRIPT_5
+				break 
+			case 0
+				break 
+	}
 
 ._infinite_loop
-switch(gamevar room_state)
- {
-		case 1
-			execute SCRIPT_6
-			execute SCRIPT_10
-			break 
-		case 2
-			execute SCRIPT_6
-			execute SCRIPT_10
-			break 
-		case 5
-			execute SCRIPT_9
-			execute SCRIPT_10
-			break 
-		case 0
-			break 
-}
+	switch(gamevar room_state)
+	 {
+			case 1
+				execute SCRIPT_6
+				execute SCRIPT_10
+				break 
+			case 2
+				execute SCRIPT_6
+				execute SCRIPT_10
+				break 
+			case 5
+				execute SCRIPT_9
+				execute SCRIPT_10
+				break 
+			case 0
+				break 
+	}
 
 ._on_exit
-call log("end_script")
-call log_obj(gamevar room_state)
-switch(gamevar room_state)
- {
-		case 1
-			execute SCRIPT_7
-			break 
-		case 2
-			execute SCRIPT_7
-			break 
-		case 0
-			break 
-		default 
-			gamevar room_state = int 0
-			break 
-}
+	call log("end_script")
+	call log_obj(gamevar room_state)
+	switch(gamevar room_state)
+	 {
+			case 1
+				execute SCRIPT_7
+				break 
+			case 2
+				execute SCRIPT_7
+				break 
+			case 0
+				break 
+			default 
+				gamevar room_state = int 0
+				break 
+	}
 
 ._SCRIPT_3
-call open_save_screen(int 2)
+	call open_save_screen(int 2)
 
 ._SCRIPT_4
-call log("nem_dave")
-call func_8f("nemdave")
-var david = call get_david_char()
-call func_61(var david)
-call func_8d(var david, int 12845056)
-call char_stop(var david)
-call add_item_to_char(var david, int 113 /* nemshld */ , int 0, int 1)
-call add_item_to_char(var david, int 114 /* nemshld */ , int 0, int 1)
+	call log("nem_dave")
+	call func_8f("nemdave")
+	var david = call get_david_char()
+	call func_61(var david)
+	call func_8d(var david, int 12845056)
+	call char_stop(var david)
+	call add_item_to_char(var david, int 113 /* nemshld */ , int 0, int 1)
+	call add_item_to_char(var david, int 114 /* nemshld */ , int 0, int 1)
 
 ._SCRIPT_5
-call func_49()
-call set_input_system(int 2)
-call load_char("apocalyp")
-var david = call get_david_char()
-call set_char_lvl(var david, int 14)
-gamevar script_object = var david
-gamevar *object_p+6 |= int 2
-call set_char_walking(var david)
-var lookout_anim = call load_anim("lookout")
-var victory_anim = call load_anim("victory")
-gamevar SMACKER_X = int 128
-gamevar SMACKER_Y = int 328
-call play_2d_anim("nether2", int 1, int 1, int 0)
-call func_ec(int 1, int 0, int 79, int 0)
-call log("init_act1")
-var VAR_0 = int 0
+	call func_49()
+	call set_input_system(int 2)
+	call load_char("apocalyp")
+	var david = call get_david_char()
+	call set_char_lvl(var david, int 14)
+	gamevar script_object = var david
+	gamevar *object_p+6 |= int 2
+	call set_char_walking(var david)
+	var lookout_anim = call load_anim("lookout")
+	var victory_anim = call load_anim("victory")
+	gamevar SMACKER_X = int 128
+	gamevar SMACKER_Y = int 328
+	call play_2d_anim("nether2", int 1, int 1, int 0)
+	call func_ec(int 1, int 0, int 79, int 0)
+	call log("init_act1")
+	var VAR_0 = int 0
 
 ._SCRIPT_6
-switch(var VAR_0)
- {
-		case 0
-			call reset_local_timer()
-			var VAR_0 = int 1
-			call add_item_to_char(var david, int 28 /* scroll */ , int 0, int 1)
-			var apocalypse = call create_enemy(int 197, int 0, var &init_position, int 240)
-			call func_1(var apocalypse, int -1)
-			break 
-		case 1
-			if(call is_local_timer_greater_than(int 50))
-			 {
-					var VAR_3 = int 1
-					call func_11f(var &tele_position, int 32768)
-					var VAR_0 = int 2
-			}
-			break 
-		case 2
-			if(call is_not_force_scrolling())
-			 {
-					call reset_local_timer()
-					var VAR_0 = int 3
-			}
-			break 
-		case 3
-			if(call is_local_timer_greater_than(int 10))
-			 {
-					call reset_local_timer()
-					var VAR_0 = int 4
-			}
-			break 
-		case 4
-			if(call is_local_timer_greater_than(int 30))
-			 {
-					call apply_effect_on_char(gamevar char_gen_fx_scripts, int 10, int 0, var david)
-					call reset_local_timer()
-					var VAR_36 = call func_e8(var &tele_position, int 0)
-					var VAR_0 = int 5
-			}
-			break 
-		case 5
-			if(call is_local_timer_greater_than(int 15))
-			 {
-					call char_teleport_to_pos(var david, var &tele_position, int 182)
-					call apply_effect_on_char(gamevar char_gen_fx_scripts, int 18, int 0, var david)
-					call reset_local_timer()
-					var VAR_0 = int 6
-			}
-			break 
-		case 6
-			if(call is_local_timer_greater_than(int 10))
-			 {
-					call set_char_walking(var david)
-					call char_walk_to_pos(var david, var &walk_position)
-					call func_11f(var &VAR_39, int 32768)
-					call reset_local_timer()
-					var VAR_0 = int 7
-			}
-			break 
-		case 7
-			if(var VAR_36)
-			 {
-					if(call is_local_timer_greater_than(int 10))
-					 {
-							call func_11e(var VAR_36)
-							var VAR_36 = int 0
-					}
-			}
-			if(call is_char_standing(var david))
-			 {
-					var VAR_3 = int 0
-					call play_char_anim(var david, var lookout_anim, int 0)
-					call reset_local_timer()
-					var VAR_0 = int 8
-			}
-			break 
-		case 8
-			if(call is_local_timer_greater_than(int 30))
-			 {
-					call start_dialog("S_DVDAPO", "NULL")
-					var VAR_0 = int 9
-			}
-			break 
-		case 9
-			if(call func_6d() == int 18)
-			 {
-					call func_2(var apocalypse)
-					var VAR_0 = int 10
-					var VAR_2 = int 0
-			}
-			break 
-		case 10
-			if(call get_input_sys() == int 1)
-			 {
-					call func_103(var apocalypse)
-					var VAR_0 = int 11
-					call func_f8(int 28, int 200)
-			}
-			break 
-		case 11
-			if(call ! get_num_of_enemies())
-			 {
-					var VAR_2 = int 100
-					var VAR_3 = int 1
-					var VAR_4 = int 1
-					var VAR_1 = int 0
-					var VAR_0 = int 12
-					call set_input_system(int 2)
-			}
-			break 
-		case 12
-			switch(var VAR_1)
-			 {
-					case 0
-						call reset_local_timer()
-						var VAR_1 ++ 
-						break 
-					case 1
-						if(call is_local_timer_greater_than(int 10))
-						 {
-								call set_char_walking(var david)
-								call char_walk_to_pos(var david, var &walk_position)
-								call func_11f(var &VAR_39, int 32768)
-								var VAR_1 ++ 
-						}
-						break 
-					case 2
-						if(call is_char_standing(var david))
-						 {
-								call play_char_anim(var david, var lookout_anim, int 0)
-								var VAR_1 ++ 
-						}
-						break 
-					case 3
-						if(call func_5c(var david))
-						 {
-								call reset_local_timer()
-								var VAR_1 ++ 
-						}
-						break 
-					case 4
-						if(call is_local_timer_greater_than(int 10))
-						 {
-								call play_char_anim(var david, var victory_anim, int 0)
-								call reset_local_timer()
-								var VAR_1 ++ 
-						}
-						break 
-					case 5
-						if(call is_local_timer_greater_than(int 60))
-						 {
-								var VAR_1 ++ 
-						}
-						break 
-					default 
-						var VAR_1 = int 0
-						var VAR_0 = int 13
-						break 
-			}
-			break 
-		case 13
-			switch(var VAR_1)
-			 {
-					case 0
+	switch(var VAR_0)
+	 {
+			case 0
+				call reset_local_timer()
+				var VAR_0 = int 1
+				call add_item_to_char(var david, int 28 /* scroll */ , int 0, int 1)
+				var apocalypse = call create_enemy(int 197, int 0, var &init_position, int 240)
+				call func_1(var apocalypse, int -1)
+				break 
+			case 1
+				if(call is_local_timer_greater_than(int 50))
+				 {
+						var VAR_3 = int 1
 						call func_11f(var &tele_position, int 32768)
+						var VAR_0 = int 2
+				}
+				break 
+			case 2
+				if(call is_not_force_scrolling())
+				 {
 						call reset_local_timer()
-						var VAR_1 ++ 
-						break 
-					case 1
-						if(call is_local_timer_greater_than(int 30))
-						 {
-								call set_char_running(var david)
-								var VAR_36 = call func_e8(var &tele_position, int 0)
-								call char_turn_to_pos(var david, var &tele_position)
-								call reset_local_timer()
-								var VAR_1 ++ 
-						}
-						break 
-					case 2
+						var VAR_0 = int 3
+				}
+				break 
+			case 3
+				if(call is_local_timer_greater_than(int 10))
+				 {
+						call reset_local_timer()
+						var VAR_0 = int 4
+				}
+				break 
+			case 4
+				if(call is_local_timer_greater_than(int 30))
+				 {
+						call apply_effect_on_char(gamevar char_gen_fx_scripts, int 10, int 0, var david)
+						call reset_local_timer()
+						var VAR_36 = call func_e8(var &tele_position, int 0)
+						var VAR_0 = int 5
+				}
+				break 
+			case 5
+				if(call is_local_timer_greater_than(int 15))
+				 {
+						call char_teleport_to_pos(var david, var &tele_position, int 182)
+						call apply_effect_on_char(gamevar char_gen_fx_scripts, int 18, int 0, var david)
+						call reset_local_timer()
+						var VAR_0 = int 6
+				}
+				break 
+			case 6
+				if(call is_local_timer_greater_than(int 10))
+				 {
+						call set_char_walking(var david)
+						call char_walk_to_pos(var david, var &walk_position)
+						call func_11f(var &VAR_39, int 32768)
+						call reset_local_timer()
+						var VAR_0 = int 7
+				}
+				break 
+			case 7
+				if(var VAR_36)
+				 {
 						if(call is_local_timer_greater_than(int 10))
-						 {
-								call char_walk_to_pos(var david, var &tele_position)
-								var VAR_1 ++ 
-						}
-						break 
-					case 3
-						if(call is_char_standing(var david))
-						 {
-								call reset_local_timer()
-								var VAR_1 ++ 
-						}
-						break 
-					case 4
-						if(call is_local_timer_greater_than(int 10))
-						 {
-								call reset_local_timer()
-								call apply_effect_on_char(gamevar char_gen_fx_scripts, int 10, int 0, var david)
-								var VAR_1 ++ 
-						}
-						break 
-					case 5
-						if(call is_local_timer_greater_than(int 10))
-						 {
-								call char_teleport_to_pos(var david, var &init_position, int 0)
-								call reset_local_timer()
-								var VAR_1 ++ 
-						}
-						break 
-					case 6
-						if(call is_local_timer_greater_than(int 20))
 						 {
 								call func_11e(var VAR_36)
-								call reset_local_timer()
-								var VAR_1 ++ 
+								var VAR_36 = int 0
 						}
-						break 
-					case 7
-						if(call is_local_timer_greater_than(int 30))
-						 {
-								var VAR_1 ++ 
-						}
-						break 
-					default 
-						call func_61(var david)
-						call func_8d(var david, int 65536)
-						gamevar outro_active = int 1
-						call func_e6("OUTRO", "E_THRONE", var &VAR_49, int 1)
-						var VAR_0 = int 14
-						break 
-			}
-			break 
-		case 14
-			break 
-}
+				}
+				if(call is_char_standing(var david))
+				 {
+						var VAR_3 = int 0
+						call play_char_anim(var david, var lookout_anim, int 0)
+						call reset_local_timer()
+						var VAR_0 = int 8
+				}
+				break 
+			case 8
+				if(call is_local_timer_greater_than(int 30))
+				 {
+						call start_dialog("S_DVDAPO", "NULL")
+						var VAR_0 = int 9
+				}
+				break 
+			case 9
+				if(call func_6d() == int 18)
+				 {
+						call func_2(var apocalypse)
+						var VAR_0 = int 10
+						var VAR_2 = int 0
+				}
+				break 
+			case 10
+				if(call get_input_sys() == int 1)
+				 {
+						call func_103(var apocalypse)
+						var VAR_0 = int 11
+						call func_f8(int 28, int 200)
+				}
+				break 
+			case 11
+				if(call ! get_num_of_enemies())
+				 {
+						var VAR_2 = int 100
+						var VAR_3 = int 1
+						var VAR_4 = int 1
+						var VAR_1 = int 0
+						var VAR_0 = int 12
+						call set_input_system(int 2)
+				}
+				break 
+			case 12
+				switch(var VAR_1)
+				 {
+						case 0
+							call reset_local_timer()
+							var VAR_1 ++ 
+							break 
+						case 1
+							if(call is_local_timer_greater_than(int 10))
+							 {
+									call set_char_walking(var david)
+									call char_walk_to_pos(var david, var &walk_position)
+									call func_11f(var &VAR_39, int 32768)
+									var VAR_1 ++ 
+							}
+							break 
+						case 2
+							if(call is_char_standing(var david))
+							 {
+									call play_char_anim(var david, var lookout_anim, int 0)
+									var VAR_1 ++ 
+							}
+							break 
+						case 3
+							if(call func_5c(var david))
+							 {
+									call reset_local_timer()
+									var VAR_1 ++ 
+							}
+							break 
+						case 4
+							if(call is_local_timer_greater_than(int 10))
+							 {
+									call play_char_anim(var david, var victory_anim, int 0)
+									call reset_local_timer()
+									var VAR_1 ++ 
+							}
+							break 
+						case 5
+							if(call is_local_timer_greater_than(int 60))
+							 {
+									var VAR_1 ++ 
+							}
+							break 
+						default 
+							var VAR_1 = int 0
+							var VAR_0 = int 13
+							break 
+				}
+				break 
+			case 13
+				switch(var VAR_1)
+				 {
+						case 0
+							call func_11f(var &tele_position, int 32768)
+							call reset_local_timer()
+							var VAR_1 ++ 
+							break 
+						case 1
+							if(call is_local_timer_greater_than(int 30))
+							 {
+									call set_char_running(var david)
+									var VAR_36 = call func_e8(var &tele_position, int 0)
+									call char_turn_to_pos(var david, var &tele_position)
+									call reset_local_timer()
+									var VAR_1 ++ 
+							}
+							break 
+						case 2
+							if(call is_local_timer_greater_than(int 10))
+							 {
+									call char_walk_to_pos(var david, var &tele_position)
+									var VAR_1 ++ 
+							}
+							break 
+						case 3
+							if(call is_char_standing(var david))
+							 {
+									call reset_local_timer()
+									var VAR_1 ++ 
+							}
+							break 
+						case 4
+							if(call is_local_timer_greater_than(int 10))
+							 {
+									call reset_local_timer()
+									call apply_effect_on_char(gamevar char_gen_fx_scripts, int 10, int 0, var david)
+									var VAR_1 ++ 
+							}
+							break 
+						case 5
+							if(call is_local_timer_greater_than(int 10))
+							 {
+									call char_teleport_to_pos(var david, var &init_position, int 0)
+									call reset_local_timer()
+									var VAR_1 ++ 
+							}
+							break 
+						case 6
+							if(call is_local_timer_greater_than(int 20))
+							 {
+									call func_11e(var VAR_36)
+									call reset_local_timer()
+									var VAR_1 ++ 
+							}
+							break 
+						case 7
+							if(call is_local_timer_greater_than(int 30))
+							 {
+									var VAR_1 ++ 
+							}
+							break 
+						default 
+							call func_61(var david)
+							call func_8d(var david, int 65536)
+							gamevar outro_active = int 1
+							call func_e6("OUTRO", "E_THRONE", var &VAR_49, int 1)
+							var VAR_0 = int 14
+							break 
+				}
+				break 
+			case 14
+				break 
+	}
 
 ._SCRIPT_7
 
 ._SCRIPT_8
-if(var VAR_52 == int 0)
- {
-		var david = call get_david_char()
-		call func_8d(var david, int 12845056)
-		var VAR_52 ++ 
-}
+	if(var VAR_52 == int 0)
+	 {
+			var david = call get_david_char()
+			call func_8d(var david, int 12845056)
+			var VAR_52 ++ 
+	}
 
 ._SCRIPT_9
-var VAR_4 = int 1
-execute SCRIPT_10
-switch(var VAR_54)
- {
-		case 0
-			var david = call get_david_char()
-			var VAR_54 ++ 
-			break 
-		case 1
-			if(var VAR_53 == int 200)
-			 {
-					var VAR_53 = int 0
-					call apply_effect_on_char(gamevar misc_fx_scripts, int 19, var &VAR_55, var david)
-			}
-			break 
-}
-var VAR_53 ++ 
+	var VAR_4 = int 1
+	execute SCRIPT_10
+	switch(var VAR_54)
+	 {
+			case 0
+				var david = call get_david_char()
+				var VAR_54 ++ 
+				break 
+			case 1
+				if(var VAR_53 == int 200)
+				 {
+						var VAR_53 = int 0
+						call apply_effect_on_char(gamevar misc_fx_scripts, int 19, var &VAR_55, var david)
+				}
+				break 
+	}
+	var VAR_53 ++ 
 
 ._SCRIPT_10
-switch(var VAR_56)
- {
-		case 0
-			if(var VAR_2 == int 0)
-			 {
-					var VAR_57 = call randomize_int(int 0, int 24)
-					call apply_effect_on_char(gamevar misc_fx_scripts, int 31, @arr[var VAR_57], int 0)
-					call apply_effect_on_char(gamevar misc_fx_scripts, int 32, @arr[var VAR_57], int 0)
-					var fireexp_sound_ref = call play_loaded_sound(int 2, int 0, int 79, int 0)
-					if(var VAR_59 == int 1)
-					 {
-							call set_sound_volume(var fireexp_sound_ref, call randomize_int(int 140, int 181))
-					}
-					else
-					 {
-							call set_sound_volume(var fireexp_sound_ref, call randomize_int(int 80, int 101))
-					}
-					if(var VAR_3)
-					 {
-							if(call randomize_int(int 0, int 3) == int 2)
-							 {
-									var VAR_2 = call randomize_int(int 15, int 46)
-									var VAR_59 = int 0
-							}
-							else
-							 {
-									var VAR_2 = call randomize_int(int 70, int 141)
-									var VAR_59 = int 1
-							}
-					}
-					else
-					 {
-							if(call randomize_int(int 0, int 4) == int 3)
-							 {
-									var VAR_2 = call randomize_int(int 15, int 56)
-									var VAR_59 = int 0
-							}
-							else
-							 {
-									var VAR_2 = call randomize_int(int 450, int 751)
-									var VAR_59 = int 1
-							}
-					}
-			}
-			if(var VAR_4)
-			 {
-					if(var VAR_60 == int 0)
-					 {
-							call apply_effect_on_char(gamevar misc_fx_scripts, int 34, int 0, int 0)
-							var VAR_60 = call randomize_int(int 160, int 301)
-					}
-					else
-					 {
-							var VAR_60 -- 
-					}
-			}
-			break 
-		default 
-			break 
-}
-var VAR_2 -- 
+	switch(var VAR_56)
+	 {
+			case 0
+				if(var VAR_2 == int 0)
+				 {
+						var index = call randomize_int(int 0, int 24)
+						call apply_effect_on_char(gamevar misc_fx_scripts, int 31, @arr[var VAR_57], int 0)
+						call apply_effect_on_char(gamevar misc_fx_scripts, int 32, @arr[var index], int 0)
+						var fireexp_sound_ref = call play_loaded_sound(int 2, int 0, int 79, int 0)
+						if(var VAR_59 == int 1)
+						 {
+								call set_sound_volume(var fireexp_sound_ref, call randomize_int(int 140, int 181))
+						}
+						else
+						 {
+								call set_sound_volume(var fireexp_sound_ref, call randomize_int(int 80, int 101))
+						}
+						if(var VAR_3)
+						 {
+								if(call randomize_int(int 0, int 3) == int 2)
+								 {
+										var VAR_2 = call randomize_int(int 15, int 46)
+										var VAR_59 = int 0
+								}
+								else
+								 {
+										var VAR_2 = call randomize_int(int 70, int 141)
+										var VAR_59 = int 1
+								}
+						}
+						else
+						 {
+								if(call randomize_int(int 0, int 4) == int 3)
+								 {
+										var VAR_2 = call randomize_int(int 15, int 56)
+										var VAR_59 = int 0
+								}
+								else
+								 {
+										var VAR_2 = call randomize_int(int 450, int 751)
+										var VAR_59 = int 1
+								}
+						}
+				}
+				if(var VAR_4)
+				 {
+						if(var VAR_60 == int 0)
+						 {
+								call apply_effect_on_char(gamevar misc_fx_scripts, int 34, int 0, int 0)
+								var VAR_60 = call randomize_int(int 160, int 301)
+						}
+						else
+						 {
+								var VAR_60 -- 
+						}
+				}
+				break 
+			default 
+				break 
+	}
+	var VAR_2 -- 

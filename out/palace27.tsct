@@ -10,211 +10,211 @@
 
 
 ._DATA
-VAR_2	{ -360, 3425, 288, -423, 3455, 1388 }	
-VAR_3	{ -423, 3455, 1388, -360, 3425, 288, 0, 0 }	
-VAR_6	{ 0, 0 }	
-enemy_gen_script	{ 0, 0, 2, -1, 8, 0, 4, 0, 9, 1, 6, 1, 1, 1, 26, 26, 65, -1, 7, 1, 8, 10, 42, 47, -1, -1 }	
-enemy_gen_script1	{ 0, 0, 1, -1, 8, 0, 4, 0, 9, 1, 6, 1, 1, 1, 26, 26, 65, -1, 7, 1, 8, 10, 46, 12, -1, -1 }	
-enemy_gen_script2	{ 0, 0, 1, -1, 8, 0, 4, 0, 9, 1, 6, 1, 1, 1, 65, 65, -1, 7, 1, 8, 10, 46, 45, -1, -1 }	
+	VAR_2	{ -360, 3425, 288, -423, 3455, 1388 }	
+	VAR_3	{ -423, 3455, 1388, -360, 3425, 288, 0, 0 }	
+	VAR_6	{ 0, 0 }	
+	enemy_gen_script	{ 0, 0, 2, -1, 8, 0, 4, 0, 9, 1, 6, 1, 1, 1, 26, 26, 65, -1, 7, 1, 8, 10, 42, 47, -1, -1 }	
+	enemy_gen_script1	{ 0, 0, 1, -1, 8, 0, 4, 0, 9, 1, 6, 1, 1, 1, 26, 26, 65, -1, 7, 1, 8, 10, 46, 12, -1, -1 }	
+	enemy_gen_script2	{ 0, 0, 1, -1, 8, 0, 4, 0, 9, 1, 6, 1, 1, 1, 65, 65, -1, 7, 1, 8, 10, 46, 45, -1, -1 }	
 
 ._on_load
-call load_sound_set(int 66)
+	call load_sound_set(int 66)
 
- /* play the sound 'dog1' */ 
-call play_loaded_sound(int 7, int -1, int 66, int 0)
+	 /* play the sound 'dog1' */ 
+	call play_loaded_sound(int 7, int -1, int 66, int 0)
 
- /* play the sound 'cwind1' */ 
-call play_loaded_sound(int 1, int -1, int 66, int 0)
-var david = call get_david_char()
-var VAR_5 = call func_7e()
-var VAR_6 = call func_7e()
-call play_bgm("WPALPT1")
-if(gamevar room_state == int 1)
- {
-		execute SCRIPT_5
-}
-if(gamevar room_state == int 2)
- {
-		execute SCRIPT_7
-}
-if(gamevar room_state == int 3)
- {
-		execute SCRIPT_9
-}
+	 /* play the sound 'cwind1' */ 
+	call play_loaded_sound(int 1, int -1, int 66, int 0)
+	var david = call get_david_char()
+	var VAR_5 = call func_7e()
+	var VAR_6 = call func_7e()
+	call play_bgm("WPALPT1")
+	if(gamevar room_state == int 1)
+	 {
+			execute SCRIPT_5
+	}
+	if(gamevar room_state == int 2)
+	 {
+			execute SCRIPT_7
+	}
+	if(gamevar room_state == int 3)
+	 {
+			execute SCRIPT_9
+	}
 
 ._infinite_loop
-execute SCRIPT_3
-if(gamevar room_state == int 1)
- {
-		execute SCRIPT_4
-}
-if(gamevar room_state == int 2)
- {
-		execute SCRIPT_6
-}
-if(gamevar room_state == int 3)
- {
-		execute SCRIPT_8
-}
+	execute SCRIPT_3
+	if(gamevar room_state == int 1)
+	 {
+			execute SCRIPT_4
+	}
+	if(gamevar room_state == int 2)
+	 {
+			execute SCRIPT_6
+	}
+	if(gamevar room_state == int 3)
+	 {
+			execute SCRIPT_8
+	}
 
 ._on_exit
-if(gamevar room_state == int 1)
- {
-		gamevar room_state ++ 
-}
+	if(gamevar room_state == int 1)
+	 {
+			gamevar room_state ++ 
+	}
 
 ._SCRIPT_3
-if(gamevar script_time > var VAR_17)
- {
-		var VAR_17 = gamevar script_time + int 100 + call randomize_int(int 0, int 50)
+	if(gamevar script_time > var VAR_17)
+	 {
+			var VAR_17 = gamevar script_time + int 100 + call randomize_int(int 0, int 50)
 
-		 /* play the sound 'wwindlp' */ 
-		call play_loaded_sound(int 6, int 0, int 66, int 0)
-}
-if(gamevar script_time > var VAR_16)
- {
-		var VAR_16 = gamevar script_time + int 80 + call randomize_int(int 0, int 40)
+			 /* play the sound 'wwindlp' */ 
+			call play_loaded_sound(int 6, int 0, int 66, int 0)
+	}
+	if(gamevar script_time > var VAR_16)
+	 {
+			var VAR_16 = gamevar script_time + int 80 + call randomize_int(int 0, int 40)
 
-		 /* play the sound 'inwindlp' */ 
-		call play_loaded_sound(int 2, int 0, int 66, int 0)
-}
+			 /* play the sound 'inwindlp' */ 
+			call play_loaded_sound(int 2, int 0, int 66, int 0)
+	}
 
 ._SCRIPT_4
-if(var VAR_1)
- {
-		if(call ! is_local_timer_greater_than(var VAR_1))
-		 {
-				exit_script 
-		}
-		var VAR_1 = int 0
-}
-if(var VAR_0 == int 1)
- {
-		if(call func_6f() == int 0)
-		 {
-				var VAR_0 = int 3
-		}
-		else
-		 {
-				var VAR_0 = int 2
-		}
-		exit_script 
-}
-if(var VAR_0 == int 2)
- {
-		if(call func_8a(var &VAR_2))
-		 {
-				var VAR_0 = int 4
-		}
-		exit_script 
-}
-if(var VAR_0 == int 3)
- {
-		if(call func_8a(var &VAR_3))
-		 {
-				var VAR_0 = int 4
-		}
-		exit_script 
-}
-if(var VAR_0 == int 4)
- {
-		call run_enemy_generator(var &enemy_gen_script, int 10)
-		var VAR_0 = int 5
-		var VAR_1 = int 30
-		call reset_local_timer()
-		exit_script 
-}
-if(var VAR_0 == int 5)
- {
-		if(call get_num_of_enemies() > int 1)
-		 {
-				exit_script 
-		}
-		call run_enemy_generator(var &enemy_gen_script1, int 10)
-		var VAR_0 = int 6
-		var VAR_1 = int 30
-		call reset_local_timer()
-		exit_script 
-}
-if(var VAR_0 == int 6)
- {
-		if(call get_num_of_enemies())
-		 {
-				exit_script 
-		}
-		var vikingb = call create_enemy_through_door(int 65, int 0, int 1, int 0)
-		call char_walk_to(var vikingb, int 837, int 3425, int 691)
-		var VAR_0 = int 7
-		call reset_local_timer()
-		var VAR_1 = int 30
-		exit_script 
-}
-if(var VAR_0 == int 7)
- {
-		if(call is_char_handle_in_level(int 8454144))
-		 {
-				if(call ! is_char_standing(var vikingb))
-				 {
-						exit_script 
-				}
-		}
-		call reset_local_timer()
-		var VAR_1 = int 30
-		var VAR_0 = int 8
-		exit_script 
-}
-if(var VAR_0 == int 8)
- {
-		if(call is_char_handle_in_level(int 8454144))
-		 {
-				call play_char_anim(var vikingb, var come_anim, int 0)
-		}
-		call reset_local_timer()
-		var VAR_1 = int 30
-		var VAR_0 = int 9
-		exit_script 
-}
-if(var VAR_0 == int 9)
- {
-		call run_enemy_generator(var &enemy_gen_script2, int 10)
-		call reset_local_timer()
-		var VAR_1 = int 30
-		var VAR_0 = int 10
-		exit_script 
-}
+	if(var VAR_1)
+	 {
+			if(call ! is_local_timer_greater_than(var VAR_1))
+			 {
+					exit_script 
+			}
+			var VAR_1 = int 0
+	}
+	if(var VAR_0 == int 1)
+	 {
+			if(call func_6f() == int 0)
+			 {
+					var VAR_0 = int 3
+			}
+			else
+			 {
+					var VAR_0 = int 2
+			}
+			exit_script 
+	}
+	if(var VAR_0 == int 2)
+	 {
+			if(call func_8a(var &VAR_2))
+			 {
+					var VAR_0 = int 4
+			}
+			exit_script 
+	}
+	if(var VAR_0 == int 3)
+	 {
+			if(call func_8a(var &VAR_3))
+			 {
+					var VAR_0 = int 4
+			}
+			exit_script 
+	}
+	if(var VAR_0 == int 4)
+	 {
+			call run_enemy_generator(var &enemy_gen_script, int 10)
+			var VAR_0 = int 5
+			var VAR_1 = int 30
+			call reset_local_timer()
+			exit_script 
+	}
+	if(var VAR_0 == int 5)
+	 {
+			if(call get_num_of_enemies() > int 1)
+			 {
+					exit_script 
+			}
+			call run_enemy_generator(var &enemy_gen_script1, int 10)
+			var VAR_0 = int 6
+			var VAR_1 = int 30
+			call reset_local_timer()
+			exit_script 
+	}
+	if(var VAR_0 == int 6)
+	 {
+			if(call get_num_of_enemies())
+			 {
+					exit_script 
+			}
+			var vikingb = call create_enemy_through_door(int 65, int 0, int 1, int 0)
+			call char_walk_to(var vikingb, int 837, int 3425, int 691)
+			var VAR_0 = int 7
+			call reset_local_timer()
+			var VAR_1 = int 30
+			exit_script 
+	}
+	if(var VAR_0 == int 7)
+	 {
+			if(call is_char_handle_in_level(int 8454144))
+			 {
+					if(call ! is_char_standing(var vikingb))
+					 {
+							exit_script 
+					}
+			}
+			call reset_local_timer()
+			var VAR_1 = int 30
+			var VAR_0 = int 8
+			exit_script 
+	}
+	if(var VAR_0 == int 8)
+	 {
+			if(call is_char_handle_in_level(int 8454144))
+			 {
+					call play_char_anim(var vikingb, var come_anim, int 0)
+			}
+			call reset_local_timer()
+			var VAR_1 = int 30
+			var VAR_0 = int 9
+			exit_script 
+	}
+	if(var VAR_0 == int 9)
+	 {
+			call run_enemy_generator(var &enemy_gen_script2, int 10)
+			call reset_local_timer()
+			var VAR_1 = int 30
+			var VAR_0 = int 10
+			exit_script 
+	}
 
 ._SCRIPT_5
-call load_char("viking")
-call load_char("vikingb")
-var come_anim = call load_anim("come")
-call reset_local_timer()
-var VAR_1 = int 30
-var VAR_0 = int 1
+	call load_char("viking")
+	call load_char("vikingb")
+	var come_anim = call load_anim("come")
+	call reset_local_timer()
+	var VAR_1 = int 30
+	var VAR_0 = int 1
 
 ._SCRIPT_6
-if(var VAR_1)
- {
-		if(call ! is_local_timer_greater_than(var VAR_1))
-		 {
-				exit_script 
-		}
-		var VAR_1 = int 0
-}
+	if(var VAR_1)
+	 {
+			if(call ! is_local_timer_greater_than(var VAR_1))
+			 {
+					exit_script 
+			}
+			var VAR_1 = int 0
+	}
 
 ._SCRIPT_7
-var VAR_1 = int 0
-var VAR_0 = int 1
+	var VAR_1 = int 0
+	var VAR_0 = int 1
 
 ._SCRIPT_8
-if(var VAR_1)
- {
-		if(call ! is_local_timer_greater_than(var VAR_1))
-		 {
-				exit_script 
-		}
-		var VAR_1 = int 0
-}
+	if(var VAR_1)
+	 {
+			if(call ! is_local_timer_greater_than(var VAR_1))
+			 {
+					exit_script 
+			}
+			var VAR_1 = int 0
+	}
 
 ._SCRIPT_9
-var VAR_1 = int 0
-var VAR_0 = int 1
+	var VAR_1 = int 0
+	var VAR_0 = int 1

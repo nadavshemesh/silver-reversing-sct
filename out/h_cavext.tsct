@@ -10,404 +10,404 @@
 
 
 ._DATA
-VAR_11	{ -324, 0, -1346 }	
-VAR_12	{ 664, 0, 1217 }	
-VAR_22	{ 0, 0, 0 }	
-VAR_26	{ -324, 0, -1346 }	
-VAR_27	{ 664, 0, 1217 }	
-init_position	{ 761, 0, 241 }	
-init_position1	{ -268, 0, 768 }	
+	VAR_11	{ -324, 0, -1346 }	
+	VAR_12	{ 664, 0, 1217 }	
+	VAR_22	{ 0, 0, 0 }	
+	VAR_26	{ -324, 0, -1346 }	
+	VAR_27	{ 664, 0, 1217 }	
+	init_position	{ 761, 0, 241 }	
+	init_position1	{ -268, 0, 768 }	
 
 ._on_load
-var is_GRANDAD_exist = call is_char_handle_in_level(int 393216)
-if(var is_GRANDAD_exist)
- {
-		if(call func_6f() == int 2)
-		 {
-				call char_walk_to(var is_GRANDAD_exist, int 707, int 0, int 1874)
-		}
-}
-if(gamevar room_state > int 2)
- {
-		if(call play_bgm("HAVNBPT1"))
-		 {
-				call func_114(int 1)
-				call func_5a(int -1)
-		}
-}
-else
- {
-		call func_58(int 1)
-}
-call load_sound_set(int 12)
+	var is_GRANDAD_exist = call is_char_handle_in_level(int 393216)
+	if(var is_GRANDAD_exist)
+	 {
+			if(call func_6f() == int 2)
+			 {
+					call char_walk_to(var is_GRANDAD_exist, int 707, int 0, int 1874)
+			}
+	}
+	if(gamevar room_state > int 2)
+	 {
+			if(call play_bgm("HAVNBPT1"))
+			 {
+					call func_114(int 1)
+					call func_5a(int -1)
+			}
+	}
+	else
+	 {
+			call func_58(int 1)
+	}
+	call load_sound_set(int 12)
 
- /* play the sound 'sent1' */ 
-call play_loaded_sound(int 8, int -1, int 12, int 0)
+	 /* play the sound 'sent1' */ 
+	call play_loaded_sound(int 8, int -1, int 12, int 0)
 
- /* play the sound 'RGOLHIT1' */ 
-call play_loaded_sound(int 10, int -1, int 12, int 0)
-if(gamevar is_room_cleared)
- {
-		execute SCRIPT_4
-}
-else
- {
-		switch(gamevar room_state)
-		 {
-				case 1
-					execute SCRIPT_6
-					break 
-				case 2
-					execute SCRIPT_11
-					break 
-				case 3
-					execute SCRIPT_14
-					break 
-				case 0
-					break 
-		}
-}
+	 /* play the sound 'RGOLHIT1' */ 
+	call play_loaded_sound(int 10, int -1, int 12, int 0)
+	if(gamevar is_room_cleared)
+	 {
+			execute SCRIPT_4
+	}
+	else
+	 {
+			switch(gamevar room_state)
+			 {
+					case 1
+						execute SCRIPT_6
+						break 
+					case 2
+						execute SCRIPT_11
+						break 
+					case 3
+						execute SCRIPT_14
+						break 
+					case 0
+						break 
+			}
+	}
 
 ._infinite_loop
-execute SCRIPT_3
-if(gamevar !is_room_cleared)
- {
-		switch(gamevar room_state)
-		 {
-				case 1
-					execute SCRIPT_5
-					break 
-				case 2
-					execute SCRIPT_10
-					break 
-				case 3
-					execute SCRIPT_13
-					break 
-				case 0
-					break 
-		}
-}
+	execute SCRIPT_3
+	if(gamevar !is_room_cleared)
+	 {
+			switch(gamevar room_state)
+			 {
+					case 1
+						execute SCRIPT_5
+						break 
+					case 2
+						execute SCRIPT_10
+						break 
+					case 3
+						execute SCRIPT_13
+						break 
+					case 0
+						break 
+			}
+	}
 
 ._on_exit
-if(gamevar !is_room_cleared)
- {
-		switch(gamevar room_state)
-		 {
-				case 1
-					execute SCRIPT_9
-					gamevar room_state ++ 
-					break 
-				case 2
-					break 
-				case 3
-					break 
-				case 0
-					break 
-				default 
-					gamevar room_state = int 0
-					break 
-		}
-}
+	if(gamevar !is_room_cleared)
+	 {
+			switch(gamevar room_state)
+			 {
+					case 1
+						execute SCRIPT_9
+						gamevar room_state ++ 
+						break 
+					case 2
+						break 
+					case 3
+						break 
+					case 0
+						break 
+					default 
+						gamevar room_state = int 0
+						break 
+			}
+	}
 
 ._SCRIPT_3
-if(gamevar script_time > var VAR_41)
- {
-		var VAR_41 = gamevar script_time + int 80 + call randomize_int(int 0, int 60)
-		var VAR_40 = int 2 + call randomize_int(int 0, int 6)
-		call play_loaded_sound(var VAR_40, int 0, int 12, int 0)
-}
-if(gamevar script_time > var VAR_42)
- {
-		var VAR_42 = gamevar script_time + int 30 + call randomize_int(int 0, int 30)
+	if(gamevar script_time > var VAR_41)
+	 {
+			var VAR_41 = gamevar script_time + int 80 + call randomize_int(int 0, int 60)
+			var VAR_40 = int 2 + call randomize_int(int 0, int 6)
+			call play_loaded_sound(var VAR_40, int 0, int 12, int 0)
+	}
+	if(gamevar script_time > var VAR_42)
+	 {
+			var VAR_42 = gamevar script_time + int 30 + call randomize_int(int 0, int 30)
 
-		 /* play the sound 'sentloop' */ 
-		call play_loaded_sound(int 9, int 0, int 12, int 0)
-}
+			 /* play the sound 'sentloop' */ 
+			call play_loaded_sound(int 9, int 0, int 12, int 0)
+	}
 
 ._SCRIPT_4
 
 ._SCRIPT_5
-if(gamevar CLICKED_DOOR == int 1)
- {
-		var VAR_8 = int 1
-}
-if(var VAR_8)
- {
-		execute SCRIPT_7
-}
+	if(gamevar CLICKED_DOOR == int 1)
+	 {
+			var VAR_8 = int 1
+	}
+	if(var VAR_8)
+	 {
+			execute SCRIPT_7
+	}
 
 ._SCRIPT_6
-var DAVID = call get_char_handle(int 65536)
-var is_GRANDAD_exist = call get_char_handle(int 393216)
-execute SCRIPT_8
+	var DAVID = call get_char_handle(int 65536)
+	var is_GRANDAD_exist = call get_char_handle(int 393216)
+	execute SCRIPT_8
 
 ._SCRIPT_7
-switch(var VAR_9)
- {
-		case 0
-			call set_input_system(int 2)
-			call set_char_running(var DAVID)
-			call set_char_running(var is_GRANDAD_exist)
-			var VAR_16 = call alloc_space_in_general_heap()
-			call func_4(var VAR_16, var DAVID)
-			switch(var VAR_15)
-			 {
-					case 0
-						call func_4(var VAR_16, var is_GRANDAD_exist)
-						break 
-					default 
-						call func_1(var is_GRANDAD_exist, int -1)
-						call char_stop(var is_GRANDAD_exist)
-						break 
-			}
-			call func_63(var VAR_16, var &VAR_11)
-			var VAR_9 ++ 
-			var VAR_10 = int 0
-			break 
-		case 1
-			if(var VAR_10 == int 10)
-			 {
-					call func_3b(var DAVID)
-			}
-			if(call is_char_standing(var DAVID))
-			 {
-
-					 /* play the sound 'lforest1' */ 
-					call play_loaded_sound(int 1, int 0, int 12, int 0)
-					gamevar script_object = var DAVID
-					gamevar *character_stats_p+14 = int 98304
-					gamevar script_object = var is_GRANDAD_exist
-					gamevar *character_stats_p+14 = int 98304
-					var VAR_13 = call func_41(var DAVID, int 0)
-					switch(var VAR_15)
-					 {
-							case 0
-								var VAR_14 = call func_41(var is_GRANDAD_exist, int 0)
-								break 
-							default 
-								call char_turn_to_pos(var is_GRANDAD_exist, call get_char_pos(var DAVID))
-								break 
-					}
-					call func_63(var VAR_16, var &VAR_12)
-					var VAR_9 ++ 
-					var VAR_10 = int 0
-			}
-			break 
-		case 2
-			if(call is_char_standing(var DAVID))
-			 {
-					gamevar script_object = var DAVID
-					gamevar *character_stats_p+14 = int 65536
-					gamevar script_object = var is_GRANDAD_exist
-					gamevar *character_stats_p+14 = int 65536
-					call func_12f(var VAR_13)
-					call func_45(var VAR_16)
-					switch(var VAR_15)
-					 {
-							case 0
-								call func_12f(var VAR_14)
-								call start_dialog("GRACAVE", "NULL")
-								var VAR_9 ++ 
-								break 
-							case 1
-								call start_dialog("DVDGRA", "DB_ACT1")
-								var VAR_9 ++ 
-								call func_2(var is_GRANDAD_exist)
-								break 
-							default 
-								call play_char_anim(var is_GRANDAD_exist, var no_anim, int 0)
-								var VAR_9 = int 10
-								break 
-					}
-					var VAR_10 = int 0
-			}
-			break 
-		case 3
-			if(call get_input_sys() != int 4)
-			 {
-					call set_input_system(int 1)
-					var VAR_8 = int 0
-					call char_turn_to_pos(var is_GRANDAD_exist, call get_char_pos(var DAVID))
-					var VAR_2 = int 1
-					var VAR_9 = int 0
-					var VAR_10 = int 0
-					var VAR_15 ++ 
-			}
-			break 
-		case 10
-			if(call func_5c(var is_GRANDAD_exist))
-			 {
-					call set_input_system(int 1)
-					var VAR_8 = int 0
-					var VAR_2 = int 1
-					call func_2(var is_GRANDAD_exist)
-					var VAR_9 = int 0
-					var VAR_10 = int 0
-					var VAR_15 ++ 
-			}
-			break 
-}
-var VAR_10 ++ 
-
-._SCRIPT_8
-var tyrosumn_anim = call load_anim("tyrosumn")
-var no_anim = call load_anim("no")
-
-._SCRIPT_9
-call func_7(int 0, var VAR_2, int 0, int 0)
-
-._SCRIPT_10
-if(gamevar CLICKED_DOOR == int 1)
- {
-		var VAR_23 = int 1
-}
-if(var VAR_23)
- {
-		execute SCRIPT_12
-}
-
-._SCRIPT_11
-if(call func_bf(int 0, gamevar CURRENT_LEVEL, gamevar CURRENT_SCENE))
- {
-		call func_d8(int 0, var &VAR_21)
-		var VAR_2 = var VAR_22
-}
-else
- {
-		var VAR_2 = int 0
-}
-var DAVID = call get_char_handle(int 65536)
-var is_GRANDAD_exist = call get_char_handle(int 393216)
-execute SCRIPT_8
-
-._SCRIPT_12
-switch(var VAR_24)
- {
-		case 0
-			var torch = call get_char_item_if_equiped(var DAVID, int 89)
-			if(var torch != int 0)
-			 {
-					var VAR_23 = int 0
-					var VAR_2 = int 1
-					var VAR_24 = int 0
-					var VAR_25 = int 0
-			}
-			else
-			 {
-					call set_input_system(int 2)
-					call set_char_running(var DAVID)
-					call set_char_running(var is_GRANDAD_exist)
-					var VAR_28 = call alloc_space_in_general_heap()
-					call func_4(var VAR_28, var DAVID)
-					if(var ! VAR_2)
-					 {
-							call func_4(var VAR_28, var is_GRANDAD_exist)
-					}
-					else
-					 {
+	switch(var VAR_9)
+	 {
+			case 0
+				call set_input_system(int 2)
+				call set_char_running(var DAVID)
+				call set_char_running(var is_GRANDAD_exist)
+				var VAR_16 = call alloc_space_in_general_heap()
+				call func_4(var VAR_16, var DAVID)
+				switch(var VAR_15)
+				 {
+						case 0
+							call func_4(var VAR_16, var is_GRANDAD_exist)
+							break 
+						default 
 							call func_1(var is_GRANDAD_exist, int -1)
 							call char_stop(var is_GRANDAD_exist)
-					}
-					call func_63(var VAR_28, var &VAR_26)
-					var VAR_24 ++ 
-					var VAR_25 = int 0
-			}
-			break 
-		case 1
-			if(var VAR_25 == int 10)
-			 {
-					call func_3b(var DAVID)
-			}
-			if(call is_char_standing(var DAVID))
-			 {
+							break 
+				}
+				call func_63(var VAR_16, var &VAR_11)
+				var VAR_9 ++ 
+				var VAR_10 = int 0
+				break 
+			case 1
+				if(var VAR_10 == int 10)
+				 {
+						call func_3b(var DAVID)
+				}
+				if(call is_char_standing(var DAVID))
+				 {
 
-					 /* play the sound 'lforest1' */ 
-					call play_loaded_sound(int 1, int 0, int 12, int 0)
-					gamevar script_object = var DAVID
-					gamevar *character_stats_p+14 = int 98304
-					gamevar script_object = var is_GRANDAD_exist
-					gamevar *character_stats_p+14 = int 98304
-					var VAR_13 = call func_41(var DAVID, int 0)
-					if(var ! VAR_2)
-					 {
-							var VAR_14 = call func_41(var is_GRANDAD_exist, int 0)
-					}
-					else
-					 {
-							call char_turn_to_pos(var is_GRANDAD_exist, call get_char_pos(var DAVID))
-					}
-					call func_63(var VAR_28, var &VAR_27)
-					var VAR_24 ++ 
-					var VAR_25 = int 0
-			}
-			break 
-		case 2
-			if(call is_char_standing(var DAVID))
-			 {
-					gamevar script_object = var DAVID
-					gamevar *character_stats_p+14 = int 65536
-					gamevar script_object = var is_GRANDAD_exist
-					gamevar *character_stats_p+14 = int 65536
-					call func_12f(var VAR_13)
-					call func_45(var VAR_28)
-					if(var VAR_2)
-					 {
-							switch(var VAR_15)
-							 {
-									case 0
-										call start_dialog("DVDGRA", "DB_ACT2")
-										var VAR_24 ++ 
-										break 
-									default 
-										call play_char_anim(var is_GRANDAD_exist, var no_anim, int 0)
-										var VAR_24 = int 10
-										break 
-							}
-					}
-					else
-					 {
-							call func_12f(var VAR_14)
-							call start_dialog("GRACAVE", "NULL")
-							var VAR_2 = int 1
-							var VAR_15 = int -1
-							var VAR_24 ++ 
-					}
-					var VAR_25 = int 0
-			}
-			break 
-		case 3
-			if(call get_input_sys() != int 4)
-			 {
-					call set_input_system(int 1)
-					var VAR_23 = int 0
-					call func_2(var is_GRANDAD_exist)
-					call char_turn_to_pos(var is_GRANDAD_exist, call get_char_pos(var DAVID))
-					var VAR_2 = int 1
-					var VAR_24 = int 0
-					var VAR_25 = int 0
-					var VAR_15 ++ 
-			}
-			break 
-		case 10
-			if(call func_5c(var is_GRANDAD_exist))
-			 {
-					call set_input_system(int 1)
-					var VAR_23 = int 0
-					call char_turn_to_pos(var is_GRANDAD_exist, call get_char_pos(var DAVID))
-					var VAR_2 = int 1
-					call func_2(var is_GRANDAD_exist)
-					var VAR_24 = int 0
-					var VAR_25 = int 0
-					var VAR_15 ++ 
-			}
-			break 
-}
-var VAR_25 ++ 
+						 /* play the sound 'lforest1' */ 
+						call play_loaded_sound(int 1, int 0, int 12, int 0)
+						gamevar script_object = var DAVID
+						gamevar *character_stats_p+14 = int 98304
+						gamevar script_object = var is_GRANDAD_exist
+						gamevar *character_stats_p+14 = int 98304
+						var VAR_13 = call func_41(var DAVID, int 0)
+						switch(var VAR_15)
+						 {
+								case 0
+									var VAR_14 = call func_41(var is_GRANDAD_exist, int 0)
+									break 
+								default 
+									call char_turn_to_pos(var is_GRANDAD_exist, call get_char_pos(var DAVID))
+									break 
+						}
+						call func_63(var VAR_16, var &VAR_12)
+						var VAR_9 ++ 
+						var VAR_10 = int 0
+				}
+				break 
+			case 2
+				if(call is_char_standing(var DAVID))
+				 {
+						gamevar script_object = var DAVID
+						gamevar *character_stats_p+14 = int 65536
+						gamevar script_object = var is_GRANDAD_exist
+						gamevar *character_stats_p+14 = int 65536
+						call func_12f(var VAR_13)
+						call func_45(var VAR_16)
+						switch(var VAR_15)
+						 {
+								case 0
+									call func_12f(var VAR_14)
+									call start_dialog("GRACAVE", "NULL")
+									var VAR_9 ++ 
+									break 
+								case 1
+									call start_dialog("DVDGRA", "DB_ACT1")
+									var VAR_9 ++ 
+									call func_2(var is_GRANDAD_exist)
+									break 
+								default 
+									call play_char_anim(var is_GRANDAD_exist, var no_anim, int 0)
+									var VAR_9 = int 10
+									break 
+						}
+						var VAR_10 = int 0
+				}
+				break 
+			case 3
+				if(call get_input_sys() != int 4)
+				 {
+						call set_input_system(int 1)
+						var VAR_8 = int 0
+						call char_turn_to_pos(var is_GRANDAD_exist, call get_char_pos(var DAVID))
+						var VAR_2 = int 1
+						var VAR_9 = int 0
+						var VAR_10 = int 0
+						var VAR_15 ++ 
+				}
+				break 
+			case 10
+				if(call func_5c(var is_GRANDAD_exist))
+				 {
+						call set_input_system(int 1)
+						var VAR_8 = int 0
+						var VAR_2 = int 1
+						call func_2(var is_GRANDAD_exist)
+						var VAR_9 = int 0
+						var VAR_10 = int 0
+						var VAR_15 ++ 
+				}
+				break 
+	}
+	var VAR_10 ++ 
+
+._SCRIPT_8
+	var tyrosumn_anim = call load_anim("tyrosumn")
+	var no_anim = call load_anim("no")
+
+._SCRIPT_9
+	call save_pos_to_room_memory(int 0, var VAR_2, int 0, int 0)
+
+._SCRIPT_10
+	if(gamevar CLICKED_DOOR == int 1)
+	 {
+			var VAR_23 = int 1
+	}
+	if(var VAR_23)
+	 {
+			execute SCRIPT_12
+	}
+
+._SCRIPT_11
+	if(call func_bf(int 0, gamevar CURRENT_LEVEL, gamevar CURRENT_SCENE))
+	 {
+			call load_pos_from_room_memory(int 0, var &VAR_21)
+			var VAR_2 = var VAR_22
+	}
+	else
+	 {
+			var VAR_2 = int 0
+	}
+	var DAVID = call get_char_handle(int 65536)
+	var is_GRANDAD_exist = call get_char_handle(int 393216)
+	execute SCRIPT_8
+
+._SCRIPT_12
+	switch(var VAR_24)
+	 {
+			case 0
+				var torch = call get_char_item_if_equiped(var DAVID, int 89)
+				if(var torch != int 0)
+				 {
+						var VAR_23 = int 0
+						var VAR_2 = int 1
+						var VAR_24 = int 0
+						var VAR_25 = int 0
+				}
+				else
+				 {
+						call set_input_system(int 2)
+						call set_char_running(var DAVID)
+						call set_char_running(var is_GRANDAD_exist)
+						var VAR_28 = call alloc_space_in_general_heap()
+						call func_4(var VAR_28, var DAVID)
+						if(var ! VAR_2)
+						 {
+								call func_4(var VAR_28, var is_GRANDAD_exist)
+						}
+						else
+						 {
+								call func_1(var is_GRANDAD_exist, int -1)
+								call char_stop(var is_GRANDAD_exist)
+						}
+						call func_63(var VAR_28, var &VAR_26)
+						var VAR_24 ++ 
+						var VAR_25 = int 0
+				}
+				break 
+			case 1
+				if(var VAR_25 == int 10)
+				 {
+						call func_3b(var DAVID)
+				}
+				if(call is_char_standing(var DAVID))
+				 {
+
+						 /* play the sound 'lforest1' */ 
+						call play_loaded_sound(int 1, int 0, int 12, int 0)
+						gamevar script_object = var DAVID
+						gamevar *character_stats_p+14 = int 98304
+						gamevar script_object = var is_GRANDAD_exist
+						gamevar *character_stats_p+14 = int 98304
+						var VAR_13 = call func_41(var DAVID, int 0)
+						if(var ! VAR_2)
+						 {
+								var VAR_14 = call func_41(var is_GRANDAD_exist, int 0)
+						}
+						else
+						 {
+								call char_turn_to_pos(var is_GRANDAD_exist, call get_char_pos(var DAVID))
+						}
+						call func_63(var VAR_28, var &VAR_27)
+						var VAR_24 ++ 
+						var VAR_25 = int 0
+				}
+				break 
+			case 2
+				if(call is_char_standing(var DAVID))
+				 {
+						gamevar script_object = var DAVID
+						gamevar *character_stats_p+14 = int 65536
+						gamevar script_object = var is_GRANDAD_exist
+						gamevar *character_stats_p+14 = int 65536
+						call func_12f(var VAR_13)
+						call func_45(var VAR_28)
+						if(var VAR_2)
+						 {
+								switch(var VAR_15)
+								 {
+										case 0
+											call start_dialog("DVDGRA", "DB_ACT2")
+											var VAR_24 ++ 
+											break 
+										default 
+											call play_char_anim(var is_GRANDAD_exist, var no_anim, int 0)
+											var VAR_24 = int 10
+											break 
+								}
+						}
+						else
+						 {
+								call func_12f(var VAR_14)
+								call start_dialog("GRACAVE", "NULL")
+								var VAR_2 = int 1
+								var VAR_15 = int -1
+								var VAR_24 ++ 
+						}
+						var VAR_25 = int 0
+				}
+				break 
+			case 3
+				if(call get_input_sys() != int 4)
+				 {
+						call set_input_system(int 1)
+						var VAR_23 = int 0
+						call func_2(var is_GRANDAD_exist)
+						call char_turn_to_pos(var is_GRANDAD_exist, call get_char_pos(var DAVID))
+						var VAR_2 = int 1
+						var VAR_24 = int 0
+						var VAR_25 = int 0
+						var VAR_15 ++ 
+				}
+				break 
+			case 10
+				if(call func_5c(var is_GRANDAD_exist))
+				 {
+						call set_input_system(int 1)
+						var VAR_23 = int 0
+						call char_turn_to_pos(var is_GRANDAD_exist, call get_char_pos(var DAVID))
+						var VAR_2 = int 1
+						call func_2(var is_GRANDAD_exist)
+						var VAR_24 = int 0
+						var VAR_25 = int 0
+						var VAR_15 ++ 
+				}
+				break 
+	}
+	var VAR_25 ++ 
 
 ._SCRIPT_13
 
 ._SCRIPT_14
-var nrebel1 = call create_char(var &init_position, "nrebel1", int 355, int 13)
-var nrebel2 = call create_char(var &init_position1, "nrebel2", int 15, int 13)
-call add_item_to_char(var nrebel1, int 16 /* shrtswrd */ , int 0, int 1)
-call add_item_to_char(var nrebel2, int 16 /* shrtswrd */ , int 0, int 1)
+	var nrebel1 = call create_char(var &init_position, "nrebel1", int 355, int 13)
+	var nrebel2 = call create_char(var &init_position1, "nrebel2", int 15, int 13)
+	call add_item_to_char(var nrebel1, int 16 /* shrtswrd */ , int 0, int 1)
+	call add_item_to_char(var nrebel2, int 16 /* shrtswrd */ , int 0, int 1)

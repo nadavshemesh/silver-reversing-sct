@@ -10,146 +10,146 @@
 
 
 ._DATA
-VAR_8	{ -1338, 54, -1158, -1404, 54, -875, -687, 54, -870, -1721, 54, -955, -1836, 54, -1379, -1939, 54, -706 }	
-VAR_9	{ -3163, 54, -590, -3345, 54, -1460 }	
-enemy_gen_script	{ 0, 1, 6, VAR_8, 8, 2, 1, 2, 33, 33, -1, 4, 0, 9, 1, 5, 1, 15, 100, 6, 2, 7, 1, 2, -1 }	
-init_position	{ -438, 54, -994 }	
-pie	{ 0, 0 }	
+	VAR_8	{ -1338, 54, -1158, -1404, 54, -875, -687, 54, -870, -1721, 54, -955, -1836, 54, -1379, -1939, 54, -706 }	
+	VAR_9	{ -3163, 54, -590, -3345, 54, -1460 }	
+	enemy_gen_script	{ 0, 1, 6, VAR_8, 8, 2, 1, 2, 33, 33, -1, 4, 0, 9, 1, 5, 1, 15, 100, 6, 2, 7, 1, 2, -1 }	
+	init_position	{ -438, 54, -994 }	
+	pie	{ 0, 0 }	
 
 ._on_load
-call play_bgm("METALON")
-call load_sound_set(int 72)
+	call play_bgm("METALON")
+	call load_sound_set(int 72)
 
- /* play the sound 'BLANK' */ 
-call play_loaded_sound(int 4, int -1, int 72, int 0)
-call load_sound_set(int 64)
+	 /* play the sound 'BLANK' */ 
+	call play_loaded_sound(int 4, int -1, int 72, int 0)
+	call load_sound_set(int 64)
 
- /* play the sound 'cavelp' */ 
-call play_loaded_sound(int 1, int -1, int 64, int 0)
-call load_sound_set(int 65)
+	 /* play the sound 'cavelp' */ 
+	call play_loaded_sound(int 1, int -1, int 64, int 0)
+	call load_sound_set(int 65)
 
- /* play the sound 'in2wind1' */ 
-call play_loaded_sound(int 5, int -1, int 65, int 0)
-gamevar SMACKER_X = int 0
-gamevar SMACKER_Y = int 348
-call play_2d_anim("water", int 1, int 1, int 0)
-switch(gamevar room_state)
- {
-		case 1
-			execute SCRIPT_5
-			break 
-		case 2
-			execute SCRIPT_8
-			break 
-		case 3
-			execute SCRIPT_10
-			break 
-		case 4
-			execute SCRIPT_12
-			break 
-		case 0
-			break 
-}
+	 /* play the sound 'in2wind1' */ 
+	call play_loaded_sound(int 5, int -1, int 65, int 0)
+	gamevar SMACKER_X = int 0
+	gamevar SMACKER_Y = int 348
+	call play_2d_anim("water", int 1, int 1, int 0)
+	switch(gamevar room_state)
+	 {
+			case 1
+				execute SCRIPT_5
+				break 
+			case 2
+				execute SCRIPT_8
+				break 
+			case 3
+				execute SCRIPT_10
+				break 
+			case 4
+				execute SCRIPT_12
+				break 
+			case 0
+				break 
+	}
 
 ._infinite_loop
-execute SCRIPT_3
-switch(gamevar room_state)
- {
-		case 1
-			execute SCRIPT_4
-			break 
-		case 2
-			execute SCRIPT_7
-			break 
-		case 3
-			execute SCRIPT_9
-			break 
-		case 4
-			execute SCRIPT_11
-			break 
-		case 0
-			break 
-}
+	execute SCRIPT_3
+	switch(gamevar room_state)
+	 {
+			case 1
+				execute SCRIPT_4
+				break 
+			case 2
+				execute SCRIPT_7
+				break 
+			case 3
+				execute SCRIPT_9
+				break 
+			case 4
+				execute SCRIPT_11
+				break 
+			case 0
+				break 
+	}
 
 ._on_exit
-switch(gamevar room_state)
- {
-		case 1
-			gamevar room_state ++ 
-			break 
-		case 2
-			gamevar room_state ++ 
-			break 
-		case 3
-			gamevar room_state ++ 
-			break 
-		case 4
-			gamevar room_state ++ 
-			break 
-		case 0
-			break 
-		default 
-			gamevar room_state = int 0
-			break 
-}
+	switch(gamevar room_state)
+	 {
+			case 1
+				gamevar room_state ++ 
+				break 
+			case 2
+				gamevar room_state ++ 
+				break 
+			case 3
+				gamevar room_state ++ 
+				break 
+			case 4
+				gamevar room_state ++ 
+				break 
+			case 0
+				break 
+			default 
+				gamevar room_state = int 0
+				break 
+	}
 
 ._SCRIPT_3
-if(gamevar script_time > var VAR_16)
- {
-		var VAR_16 = gamevar script_time + int 70 + call randomize_int(int 0, int 110)
+	if(gamevar script_time > var VAR_16)
+	 {
+			var VAR_16 = gamevar script_time + int 70 + call randomize_int(int 0, int 110)
 
-		 /* play the sound 'renddizz' */ 
-		call play_loaded_sound(int 8, int 0, int 72, int 0)
-}
-if(gamevar script_time > var VAR_17)
- {
-		var VAR_17 = gamevar script_time + int 70 + call randomize_int(int 0, int 110)
+			 /* play the sound 'renddizz' */ 
+			call play_loaded_sound(int 8, int 0, int 72, int 0)
+	}
+	if(gamevar script_time > var VAR_17)
+	 {
+			var VAR_17 = gamevar script_time + int 70 + call randomize_int(int 0, int 110)
 
-		 /* play the sound 'metamb1' */ 
-		call play_loaded_sound(int 7, int 0, int 72, int 0)
-}
-if(gamevar script_time > var VAR_18)
- {
-		var VAR_18 = gamevar script_time + int 100 + call randomize_int(int 0, int 50)
+			 /* play the sound 'metamb1' */ 
+			call play_loaded_sound(int 7, int 0, int 72, int 0)
+	}
+	if(gamevar script_time > var VAR_18)
+	 {
+			var VAR_18 = gamevar script_time + int 100 + call randomize_int(int 0, int 50)
 
-		 /* play the sound 'wwindlp' */ 
-		call play_loaded_sound(int 6, int 0, int 65, int 0)
-}
+			 /* play the sound 'wwindlp' */ 
+			call play_loaded_sound(int 6, int 0, int 65, int 0)
+	}
 
 ._SCRIPT_4
-if(var VAR_14 == int 0)
- {
-		if(call func_8a(var &VAR_9))
-		 {
-				call log("generate enemies")
-				var VAR_7 = call run_enemy_generator(var &enemy_gen_script, int 10)
-				if(call is_char_handle_in_level(int 11010048 /* SARCHER */ ))
-				 {
-						call set_char_init_state(var sarcher, int 0)
-				}
-				var VAR_14 ++ 
-		}
-		else
-		 {
-				if(call get_num_of_enemies() == int 0)
-				 {
-						var VAR_7 = call run_enemy_generator(var &enemy_gen_script, int 10)
-						var VAR_14 ++ 
-				}
-		}
-}
+	if(var VAR_14 == int 0)
+	 {
+			if(call func_8a(var &VAR_9))
+			 {
+					call log("generate enemies")
+					var VAR_7 = call run_enemy_generator(var &enemy_gen_script, int 10)
+					if(call is_char_handle_in_level(int 11010048 /* SARCHER */ ))
+					 {
+							call set_char_init_state(var sarcher, int 0)
+					}
+					var VAR_14 ++ 
+			}
+			else
+			 {
+					if(call get_num_of_enemies() == int 0)
+					 {
+							var VAR_7 = call run_enemy_generator(var &enemy_gen_script, int 10)
+							var VAR_14 ++ 
+					}
+			}
+	}
 
 ._SCRIPT_5
-call load_char("sguard")
-var sarcher = call create_enemy(int 36, int 0, var &init_position, int 310)
-call set_char_init_state(var sarcher, int 0)
-var pie = call add_item_to_char(var sarcher, int 46, int 1, int 0)
-gamevar script_object = var sarcher
-gamevar *character_stats_p+15 = int 3600
+	call load_char("sguard")
+	var sarcher = call create_enemy(int 36, int 0, var &init_position, int 310)
+	call set_char_init_state(var sarcher, int 0)
+	var pie = call add_item_to_char(var sarcher, int 46, int 1, int 0)
+	gamevar script_object = var sarcher
+	gamevar *character_stats_p+15 = int 3600
 
 ._SCRIPT_6
-var lookout_anim = call load_anim("lookout")
-var stan180a_anim = call load_anim("stan180a")
+	var lookout_anim = call load_anim("lookout")
+	var stan180a_anim = call load_anim("stan180a")
 
 ._SCRIPT_7
 

@@ -10,166 +10,166 @@
 
 
 ._DATA
-fx_position	{ -2865, -1045, -250 }	
-fx_position1	{ -2833, -1045, -220 }	
-VAR_3	{ 0, 0, 0 }	
-VAR_5	0	
-VAR_6	0	
-VAR_7	0	
-VAR_8	0	
-init_position1	{ -3440, -1075, 660, -3006, -1075, 600 }	
-init_position	{ -3381, -1075, 498, -3027, -1075, 435 }	
-init_position2	{ -3525, -1075, 400, -3081, -1075, 216 }	
-nreuben	0	
-init_position3	{ -2300, -1075, -463, -2875, -1075, -167 }	
-init_position4	{ -3047, -1075, 989 }	
-ai_script	{ 5, 20, 14, 0, -3081, -1075, 216, 2, -2622, -1075, 45, 5, 15, 16, 15, VAR_6, 3, 114, VAR_29, 5, 100, 0, -3027, -1075, 435, 2, -3316, -1075, 246, 3, 116, VAR_30, 16, 14, VAR_5, 5, 30, 16, 16, VAR_7, 5, 15, 0, -1905, -825, 475, 8 }	
-VAR_29	"silzapp"	
-VAR_30	"come"	
-ai_script1	{ 5, 20, 14, 0, -3027, -1075, 435, 2, -2875, -1075, -167, 5, 80, 0, -2096, -825, 475, 8 }	
-ai_script2	{ 5, 15, 14, 0, -3006, -1075, 600, 1, 43, nreuben, 200, 0, -2314, -825, 475, 8 }	
-ai_script3	{ 5, 75, 15, 0, -2940, -1075, -40, 5, 12, 16, 17, VAR_8, 5, 32, 0, -2670, -1075, -532, 8 }	
-VAR_35	{ -782, -189, 642, 0, 0 }	
-VAR_46	{ -6242, -1265, 606 }	
+	fx_position	{ -2865, -1045, -250 }	
+	fx_position1	{ -2833, -1045, -220 }	
+	VAR_3	{ 0, 0, 0 }	
+	VAR_5	0	
+	VAR_6	0	
+	VAR_7	0	
+	VAR_8	0	
+	init_position1	{ -3440, -1075, 660, -3006, -1075, 600 }	
+	init_position	{ -3381, -1075, 498, -3027, -1075, 435 }	
+	init_position2	{ -3525, -1075, 400, -3081, -1075, 216 }	
+	nreuben	0	
+	init_position3	{ -2300, -1075, -463, -2875, -1075, -167 }	
+	init_position4	{ -3047, -1075, 989 }	
+	ai_script	{ 5, 20, 14, 0, -3081, -1075, 216, 2, -2622, -1075, 45, 5, 15, 16, 15, VAR_6, 3, 114, VAR_29, 5, 100, 0, -3027, -1075, 435, 2, -3316, -1075, 246, 3, 116, VAR_30, 16, 14, VAR_5, 5, 30, 16, 16, VAR_7, 5, 15, 0, -1905, -825, 475, 8 }	
+	VAR_29	"silzapp"	
+	VAR_30	"come"	
+	ai_script1	{ 5, 20, 14, 0, -3027, -1075, 435, 2, -2875, -1075, -167, 5, 80, 0, -2096, -825, 475, 8 }	
+	ai_script2	{ 5, 15, 14, 0, -3006, -1075, 600, 1, 43, nreuben, 200, 0, -2314, -825, 475, 8 }	
+	ai_script3	{ 5, 75, 15, 0, -2940, -1075, -40, 5, 12, 16, 17, VAR_8, 5, 32, 0, -2670, -1075, -532, 8 }	
+	VAR_35	{ -782, -189, 642, 0, 0 }	
+	VAR_46	{ -6242, -1265, 606 }	
 
 ._on_load
-call load_sound_set(int 71)
-call load_sound_set(int 46)
-var palhum_sound_ref = call play_loaded_sound(int 3, int -1, int 46, int 0)
-call set_sound_volume(var palhum_sound_ref, int 4)
-gamevar SMACKER_X = int 200
-gamevar SMACKER_Y = int 312
-call play_2d_anim("gallery2", int 0, int 1, var &VAR_3)
-switch(gamevar room_state)
- {
-		case 1
-			execute SCRIPT_4
-			break 
-		case 2
-			execute SCRIPT_6
-			break 
-		case 0
-			break 
-}
+	call load_sound_set(int 71)
+	call load_sound_set(int 46)
+	var palhum_sound_ref = call play_loaded_sound(int 3, int -1, int 46, int 0)
+	call set_sound_volume(var palhum_sound_ref, int 4)
+	gamevar SMACKER_X = int 200
+	gamevar SMACKER_Y = int 312
+	call play_2d_anim("gallery2", int 0, int 1, var &VAR_3)
+	switch(gamevar room_state)
+	 {
+			case 1
+				execute SCRIPT_4
+				break 
+			case 2
+				execute SCRIPT_6
+				break 
+			case 0
+				break 
+	}
 
 ._infinite_loop
-switch(gamevar room_state)
- {
-		case 1
-			execute SCRIPT_3
-			break 
-		case 2
-			execute SCRIPT_5
-			break 
-		case 0
-			break 
-}
+	switch(gamevar room_state)
+	 {
+			case 1
+				execute SCRIPT_3
+				break 
+			case 2
+				execute SCRIPT_5
+				break 
+			case 0
+				break 
+	}
 
 ._on_exit
-switch(gamevar room_state)
- {
-		case 1
-			gamevar room_state ++ 
-			gamevar is_room_cleared = int 1
-			break 
-		case 2
-			gamevar room_state ++ 
-			gamevar is_room_cleared = int 1
-			break 
-		case 0
-			break 
-		default 
-			gamevar room_state = int 0
-			break 
-}
+	switch(gamevar room_state)
+	 {
+			case 1
+				gamevar room_state ++ 
+				gamevar is_room_cleared = int 1
+				break 
+			case 2
+				gamevar room_state ++ 
+				gamevar is_room_cleared = int 1
+				break 
+			case 0
+				break 
+			default 
+				gamevar room_state = int 0
+				break 
+	}
 
 ._SCRIPT_3
-switch(var VAR_6)
- {
-		case 1
-			var VAR_5 ++ 
-			if(var VAR_5 > int 50)
-			 {
-					call log("Poor Reuben gets rubbed out, but `What is that?`")
-					call log(" .....yes, he's dropped the WOODEN KEY")
-					var VAR_6 ++ 
-					call func_46(var nreuben, int 13)
-					call apply_effect_on_char(gamevar misc_fx_scripts, int 7, int 0, int 0)
-					call func_b3(var nreuben, "")
-					var VAR_3 = int 1
-					call func_ec(int 1, int -1, int 71, var &fx_position)
-					call play_3d_fx("WISP", var &fx_position, int 0, int 0)
-					call play_3d_fx("WISP", var &fx_position1, int 0, int 0)
-			}
-			break 
-		case 2
-			if(var VAR_7)
-			 {
-					var VAR_5 -- 
-					if(var ! VAR_5)
-					 {
-							call char_walk_to(var nguide, int -1905, int -825, int 475)
-							var VAR_6 ++ 
-							call set_input_system(int 1)
-					}
-			}
-			break 
-		case 3
-			if(call is_char_standing(var nsilver))
-			 {
-					call remove_char(var nsilver)
-					call remove_char(var nglass)
-					call remove_char(var nfuge)
-					call remove_char(var nguide)
-					var VAR_6 ++ 
-			}
-			break 
-}
-if(var VAR_8)
- {
-		call play_char_anim(var nreuben, var stepb_anim, int 0)
-		var VAR_8 = int 0
-}
-switch(var VAR_36)
- {
-}
+	switch(var VAR_6)
+	 {
+			case 1
+				var VAR_5 ++ 
+				if(var VAR_5 > int 50)
+				 {
+						call log("Poor Reuben gets rubbed out, but `What is that?`")
+						call log(" .....yes, he's dropped the WOODEN KEY")
+						var VAR_6 ++ 
+						call func_46(var nreuben, int 13)
+						call apply_effect_on_char(gamevar misc_fx_scripts, int 7, int 0, int 0)
+						call func_b3(var nreuben, "")
+						var VAR_3 = int 1
+						call func_ec(int 1, int -1, int 71, var &fx_position)
+						call play_3d_fx("WISP", var &fx_position, int 0, int 0)
+						call play_3d_fx("WISP", var &fx_position1, int 0, int 0)
+				}
+				break 
+			case 2
+				if(var VAR_7)
+				 {
+						var VAR_5 -- 
+						if(var ! VAR_5)
+						 {
+								call char_walk_to(var nguide, int -1905, int -825, int 475)
+								var VAR_6 ++ 
+								call set_input_system(int 1)
+						}
+				}
+				break 
+			case 3
+				if(call is_char_standing(var nsilver))
+				 {
+						call remove_char(var nsilver)
+						call remove_char(var nglass)
+						call remove_char(var nfuge)
+						call remove_char(var nguide)
+						var VAR_6 ++ 
+				}
+				break 
+	}
+	if(var VAR_8)
+	 {
+			call play_char_anim(var nreuben, var stepb_anim, int 0)
+			var VAR_8 = int 0
+	}
+	switch(var VAR_36)
+	 {
+	}
 
 ._SCRIPT_4
-var david = call get_david_char()
-call func_f1(var david, int 5)
-gamevar script_object = var david
-gamevar *object_p+6 |= int 1
-call func_49()
-call set_input_system(int 2)
-var nfuge = call create_char(var &init_position, "nfuge", int 85, int 13)
-gamevar script_object = var nfuge
-gamevar *object_p+6 |= int 1
-var nglass = call create_char(var &init_position1, "nglass", int 95, int 13)
-gamevar script_object = var nglass
-gamevar *object_p+6 |= int 1
-var nsilver = call create_char(var &init_position2, "nsilver", int 110, int 13)
-call add_item_to_char(var nsilver, int 106 /* silvstaf */ , int 0, int 1)
-gamevar script_object = var nsilver
-gamevar *object_p+6 |= int 1
-var nreuben = call create_char(var &init_position3, "nreuben", int 0, int 13)
-var stepb_anim = call load_anim("stepb")
-var nguide = call create_char(var &init_position4, "nguide", int 180, int 13)
-call set_char_init_state(var nsilver, int 13)
-call play_char_ai_script(var nsilver, var &ai_script)
-call set_char_init_state(var nfuge, int 13)
-call play_char_ai_script(var nfuge, var &ai_script1)
-call set_char_init_state(var nglass, int 13)
-call play_char_ai_script(var nglass, var &ai_script2)
-call set_char_init_state(var nreuben, int 13)
-call play_char_ai_script(var nreuben, var &ai_script3)
-var keyd1 = call add_item_to_char(var nreuben, int 61, int 1, int 0)
+	var david = call get_david_char()
+	call func_f1(var david, int 5)
+	gamevar script_object = var david
+	gamevar *object_p+6 |= int 1
+	call func_49()
+	call set_input_system(int 2)
+	var nfuge = call create_char(var &init_position, "nfuge", int 85, int 13)
+	gamevar script_object = var nfuge
+	gamevar *object_p+6 |= int 1
+	var nglass = call create_char(var &init_position1, "nglass", int 95, int 13)
+	gamevar script_object = var nglass
+	gamevar *object_p+6 |= int 1
+	var nsilver = call create_char(var &init_position2, "nsilver", int 110, int 13)
+	call add_item_to_char(var nsilver, int 106 /* silvstaf */ , int 0, int 1)
+	gamevar script_object = var nsilver
+	gamevar *object_p+6 |= int 1
+	var nreuben = call create_char(var &init_position3, "nreuben", int 0, int 13)
+	var stepb_anim = call load_anim("stepb")
+	var nguide = call create_char(var &init_position4, "nguide", int 180, int 13)
+	call set_char_init_state(var nsilver, int 13)
+	call play_char_ai_script(var nsilver, var &ai_script)
+	call set_char_init_state(var nfuge, int 13)
+	call play_char_ai_script(var nfuge, var &ai_script1)
+	call set_char_init_state(var nglass, int 13)
+	call play_char_ai_script(var nglass, var &ai_script2)
+	call set_char_init_state(var nreuben, int 13)
+	call play_char_ai_script(var nreuben, var &ai_script3)
+	var keyd1 = call add_item_to_char(var nreuben, int 61, int 1, int 0)
 
 ._SCRIPT_5
-if(var VAR_45 == int 300)
- {
-		call func_e6("monarea", "gallery1", var &VAR_46, int 1)
-}
-var VAR_45 ++ 
+	if(var VAR_45 == int 300)
+	 {
+			call func_e6("monarea", "gallery1", var &VAR_46, int 1)
+	}
+	var VAR_45 ++ 
 
 ._SCRIPT_6
 

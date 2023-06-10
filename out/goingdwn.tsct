@@ -10,219 +10,219 @@
 
 
 ._DATA
-VAR_1	{ 40, 10070, 1380 }	
-VAR_2	{ 60, 10930, 1480 }	
-VAR_3	{ -1605, 9315, 1340 }	
-VAR_4	{ -1640, 10600, 950 }	
-VAR_5	{ 956, 7832, 504 }	
-VAR_6	{ -1912, 10600, -40 }	
-VAR_7	"0h)p"	
-VAR_8	{ 1010, 10600, 1600 }	
-VAR_9	{ -820, 10600, -20 }	
-fx_position	{ VAR_1, VAR_2, VAR_3, VAR_4, VAR_5, VAR_6, VAR_7, VAR_8, VAR_9 }	
-VAR_12	{ 0, 0, 0 }	
-VAR_13	{ 0, 0, 0 }	
-VAR_16	{ -1630, -478, -930 }	
-position	{ -1616, 5955, -681 }	
-walk_position1	{ -1643, 5955, -980 }	
-walk_position	{ 727, 5955, 591 }	
-VAR_28	{ -1609, -481, -830 }	
-VAR_29	{ -1023, 5956, -486, -1926, 5953, -482 }	
+	VAR_1	{ 40, 10070, 1380 }	
+	VAR_2	{ 60, 10930, 1480 }	
+	VAR_3	{ -1605, 9315, 1340 }	
+	VAR_4	{ -1640, 10600, 950 }	
+	VAR_5	{ 956, 7832, 504 }	
+	VAR_6	{ -1912, 10600, -40 }	
+	VAR_7	"0h)p"	
+	VAR_8	{ 1010, 10600, 1600 }	
+	VAR_9	{ -820, 10600, -20 }	
+	fx_position	{ VAR_1, VAR_2, VAR_3, VAR_4, VAR_5, VAR_6, VAR_7, VAR_8, VAR_9 }	
+	VAR_12	{ 0, 0, 0 }	
+	VAR_13	{ 0, 0, 0 }	
+	VAR_16	{ -1630, -478, -930 }	
+	position	{ -1616, 5955, -681 }	
+	walk_position1	{ -1643, 5955, -980 }	
+	walk_position	{ 727, 5955, 591 }	
+	VAR_28	{ -1609, -481, -830 }	
+	VAR_29	{ -1023, 5956, -486, -1926, 5953, -482 }	
 
 ._on_load
-execute SCRIPT_3
-call func_58(int 1)
-if(gamevar is_room_cleared)
- {
-}
-else
- {
-		switch(gamevar room_state)
-		 {
-				case 1
-					execute SCRIPT_6
-					break 
-				case 2
-					execute SCRIPT_8
-					break 
-				case 0
-					break 
-		}
-}
+	execute SCRIPT_3
+	call func_58(int 1)
+	if(gamevar is_room_cleared)
+	 {
+	}
+	else
+	 {
+			switch(gamevar room_state)
+			 {
+					case 1
+						execute SCRIPT_6
+						break 
+					case 2
+						execute SCRIPT_8
+						break 
+					case 0
+						break 
+			}
+	}
 
 ._infinite_loop
-execute SCRIPT_4
-if(gamevar !is_room_cleared)
- {
-		switch(gamevar room_state)
-		 {
-				case 1
-					execute SCRIPT_7
-					break 
-				case 2
-					execute SCRIPT_9
-					break 
-				case 0
-					break 
-		}
-}
+	execute SCRIPT_4
+	if(gamevar !is_room_cleared)
+	 {
+			switch(gamevar room_state)
+			 {
+					case 1
+						execute SCRIPT_7
+						break 
+					case 2
+						execute SCRIPT_9
+						break 
+					case 0
+						break 
+			}
+	}
 
 ._on_exit
-if(gamevar !is_room_cleared)
- {
-		switch(gamevar room_state)
-		 {
-				case 1
-					if(var VAR_0)
-					 {
-							gamevar room_state ++ 
-							gamevar is_room_cleared = int 1
-					}
-					break 
-				case 2
-					gamevar room_state ++ 
-					gamevar is_room_cleared = int 1
-					break 
-				case 0
-					break 
-				default 
-					gamevar room_state = int 0
-					break 
-		}
-}
+	if(gamevar !is_room_cleared)
+	 {
+			switch(gamevar room_state)
+			 {
+					case 1
+						if(var VAR_0)
+						 {
+								gamevar room_state ++ 
+								gamevar is_room_cleared = int 1
+						}
+						break 
+					case 2
+						gamevar room_state ++ 
+						gamevar is_room_cleared = int 1
+						break 
+					case 0
+						break 
+					default 
+						gamevar room_state = int 0
+						break 
+			}
+	}
 
 ._SCRIPT_3
-call play_3d_fx("DRIP", var &fx_position, int 0, int 8)
+	call play_3d_fx("DRIP", var &fx_position, int 0, int 8)
 
 ._SCRIPT_4
-if(gamevar script_time > var VAR_38)
- {
-		var VAR_38 = gamevar script_time + int 300 + call randomize_int(int 0, int 200)
-		var VAR_37 = int 2 + call randomize_int(int 0, int 3)
-		call play_loaded_sound(var VAR_37, int 0, int 63, int 0)
-}
+	if(gamevar script_time > var VAR_38)
+	 {
+			var VAR_38 = gamevar script_time + int 300 + call randomize_int(int 0, int 200)
+			var VAR_37 = int 2 + call randomize_int(int 0, int 3)
+			call play_loaded_sound(var VAR_37, int 0, int 63, int 0)
+	}
 
 ._SCRIPT_5
-gamevar SMACKER_X = int 520
-gamevar SMACKER_Y = int 0
-call play_2d_anim("goingdwn", int 0, int 1, var &VAR_12)
-call load_sound_set(int 64)
-call load_sound_set(int 44)
-gamevar SMACKER_X = int 56
-gamevar SMACKER_Y = int 292
-call play_2d_anim("lever", int 0, int 1, var &VAR_13)
+	gamevar SMACKER_X = int 520
+	gamevar SMACKER_Y = int 0
+	call play_2d_anim("goingdwn", int 0, int 1, var &VAR_12)
+	call load_sound_set(int 64)
+	call load_sound_set(int 44)
+	gamevar SMACKER_X = int 56
+	gamevar SMACKER_Y = int 292
+	call play_2d_anim("lever", int 0, int 1, var &VAR_13)
 
- /* play the sound 'echdrip1' */ 
-call play_loaded_sound(int 2, int -1, int 64, int 0)
+	 /* play the sound 'echdrip1' */ 
+	call play_loaded_sound(int 2, int -1, int 64, int 0)
 
 ._SCRIPT_6
-execute SCRIPT_5
-var liftdwna_anim = call load_anim("liftdwna")
-var VAR_17 = call func_9d("lift", var &VAR_16, int 0, var liftdwna_anim)
-var DAVID = call get_char_handle(int 65536)
-var TYRONIS = call get_char_handle(int 2031616)
-call char_unfollow(var TYRONIS)
+	execute SCRIPT_5
+	var liftdwna_anim = call load_anim("liftdwna")
+	var VAR_17 = call func_9d("lift", var &VAR_16, int 0, var liftdwna_anim)
+	var DAVID = call get_char_handle(int 65536)
+	var TYRONIS = call get_char_handle(int 2031616)
+	call char_unfollow(var TYRONIS)
 
 ._SCRIPT_7
-if(var VAR_23 == int 0)
- {
-		call start_dialog("TERLIFT", "NULL")
-		var VAR_23 ++ 
-		var VAR_24 = int 0
-}
-if(var VAR_23 == int 1)
- {
-		if(call get_input_sys() != int 4)
-		 {
-				call char_walk_to_pos(var TYRONIS, var &walk_position)
-				var VAR_23 ++ 
-				var VAR_24 = int 0
-		}
-}
-if(var VAR_23 == int 2)
- {
-		if(call func_8a(var &VAR_29))
-		 {
-				call set_input_system(int 2)
-				call log("David is near lift...")
-				call char_stop(var DAVID)
-				var VAR_23 ++ 
-				var VAR_24 = int 0
-		}
-}
-if(var VAR_23 == int 3&&var VAR_24 > int 2)
- {
-		call force_scroll_to_pos(call get_char_pos(var DAVID))
-		call char_turn_to_pos(var DAVID, var &walk_position)
-		call start_dialog("TERDVD", "NULL")
-		var VAR_23 ++ 
-		var VAR_24 = int 0
-}
-if(var VAR_23 == int 4)
- {
-		if(call func_6d() == int 1)
-		 {
-				call char_walk_to_pos(var DAVID, var &walk_position1)
-				var VAR_23 ++ 
-				var VAR_24 = int 0
-		}
-}
-if(var VAR_23 == int 5)
- {
-		if(call is_char_standing(var DAVID))
-		 {
-				call char_turn_to_pos(var DAVID, var &position)
-				call resume_conversation()
-				var VAR_23 ++ 
-				var VAR_24 = int 0
-		}
-}
-if(var VAR_23 == int 6)
- {
-		if(call get_input_sys() != int 4)
-		 {
-				var VAR_13 = int 1
+	if(var VAR_23 == int 0)
+	 {
+			call start_dialog("TERLIFT", "NULL")
+			var VAR_23 ++ 
+			var VAR_24 = int 0
+	}
+	if(var VAR_23 == int 1)
+	 {
+			if(call get_input_sys() != int 4)
+			 {
+					call char_walk_to_pos(var TYRONIS, var &walk_position)
+					var VAR_23 ++ 
+					var VAR_24 = int 0
+			}
+	}
+	if(var VAR_23 == int 2)
+	 {
+			if(call func_8a(var &VAR_29))
+			 {
+					call set_input_system(int 2)
+					call log("David is near lift...")
+					call char_stop(var DAVID)
+					var VAR_23 ++ 
+					var VAR_24 = int 0
+			}
+	}
+	if(var VAR_23 == int 3&&var VAR_24 > int 2)
+	 {
+			call force_scroll_to_pos(call get_char_pos(var DAVID))
+			call char_turn_to_pos(var DAVID, var &walk_position)
+			call start_dialog("TERDVD", "NULL")
+			var VAR_23 ++ 
+			var VAR_24 = int 0
+	}
+	if(var VAR_23 == int 4)
+	 {
+			if(call func_6d() == int 1)
+			 {
+					call char_walk_to_pos(var DAVID, var &walk_position1)
+					var VAR_23 ++ 
+					var VAR_24 = int 0
+			}
+	}
+	if(var VAR_23 == int 5)
+	 {
+			if(call is_char_standing(var DAVID))
+			 {
+					call char_turn_to_pos(var DAVID, var &position)
+					call resume_conversation()
+					var VAR_23 ++ 
+					var VAR_24 = int 0
+			}
+	}
+	if(var VAR_23 == int 6)
+	 {
+			if(call get_input_sys() != int 4)
+			 {
+					var VAR_13 = int 1
 
-				 /* play the sound 'lift' */ 
-				call play_loaded_sound(int 1, int 0, int 44, int 0)
-				var VAR_23 ++ 
-				var VAR_24 = int 0
-		}
-}
-if(var VAR_23 == int 7)
- {
-		if(var VAR_24 > int 80)
-		 {
-				var VAR_12 = int 1
-				call func_0(var VAR_17, int 1)
+					 /* play the sound 'lift' */ 
+					call play_loaded_sound(int 1, int 0, int 44, int 0)
+					var VAR_23 ++ 
+					var VAR_24 = int 0
+			}
+	}
+	if(var VAR_23 == int 7)
+	 {
+			if(var VAR_24 > int 80)
+			 {
+					var VAR_12 = int 1
+					call func_0(var VAR_17, int 1)
 
-				 /* play the sound 'raft' */ 
-				call play_loaded_sound(int 2, int -1, int 44, int 0)
-				var VAR_23 ++ 
-				var VAR_24 = int 0
-		}
-}
-if(var VAR_23 == int 8)
- {
-		if(var VAR_24 > int 50)
-		 {
-				var VAR_0 = int 1
-				call func_e6("gno", "boilarea", var &VAR_28, int 1)
-				gamevar *scene_info_p+1 = int 1
-				var VAR_23 ++ 
-				var VAR_24 = int 0
-		}
-}
-if(var VAR_23 == int 9)
- {
-		if(var VAR_24 > int 44)
-		 {
-				call remove_char(var TYRONIS)
-				var VAR_23 ++ 
-				var VAR_24 = int 0
-		}
-}
-var VAR_24 ++ 
+					 /* play the sound 'raft' */ 
+					call play_loaded_sound(int 2, int -1, int 44, int 0)
+					var VAR_23 ++ 
+					var VAR_24 = int 0
+			}
+	}
+	if(var VAR_23 == int 8)
+	 {
+			if(var VAR_24 > int 50)
+			 {
+					var VAR_0 = int 1
+					call func_e6("gno", "boilarea", var &VAR_28, int 1)
+					gamevar *scene_info_p+1 = int 1
+					var VAR_23 ++ 
+					var VAR_24 = int 0
+			}
+	}
+	if(var VAR_23 == int 9)
+	 {
+			if(var VAR_24 > int 44)
+			 {
+					call remove_char(var TYRONIS)
+					var VAR_23 ++ 
+					var VAR_24 = int 0
+			}
+	}
+	var VAR_24 ++ 
 
 ._SCRIPT_8
 

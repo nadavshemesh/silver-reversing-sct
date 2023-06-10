@@ -10,215 +10,215 @@
 
 
 ._DATA
-init_position	{ -2149, 1625, 1233 }	
+	init_position	{ -2149, 1625, 1233 }	
 
 ._on_load
-call load_sound_set(int 66)
+	call load_sound_set(int 66)
 
- /* play the sound 'dog1' */ 
-call play_loaded_sound(int 7, int -1, int 66, int 0)
+	 /* play the sound 'dog1' */ 
+	call play_loaded_sound(int 7, int -1, int 66, int 0)
 
- /* play the sound 'cwind1' */ 
-call play_loaded_sound(int 1, int -1, int 66, int 0)
-var david = call get_david_char()
-var VAR_3 = call func_7e()
-var VAR_4 = call func_7e()
-call play_bgm("WPALPT1")
-if(gamevar room_state == int 1)
- {
-		execute SCRIPT_5
-}
-if(gamevar room_state == int 2)
- {
-		execute SCRIPT_7
-}
-if(gamevar room_state == int 3)
- {
-		execute SCRIPT_9
-}
+	 /* play the sound 'cwind1' */ 
+	call play_loaded_sound(int 1, int -1, int 66, int 0)
+	var david = call get_david_char()
+	var VAR_3 = call func_7e()
+	var VAR_4 = call func_7e()
+	call play_bgm("WPALPT1")
+	if(gamevar room_state == int 1)
+	 {
+			execute SCRIPT_5
+	}
+	if(gamevar room_state == int 2)
+	 {
+			execute SCRIPT_7
+	}
+	if(gamevar room_state == int 3)
+	 {
+			execute SCRIPT_9
+	}
 
 ._infinite_loop
-execute SCRIPT_3
-if(gamevar room_state == int 1)
- {
-		execute SCRIPT_4
-}
-if(gamevar room_state == int 2)
- {
-		execute SCRIPT_6
-}
-if(gamevar room_state == int 3)
- {
-		execute SCRIPT_8
-}
+	execute SCRIPT_3
+	if(gamevar room_state == int 1)
+	 {
+			execute SCRIPT_4
+	}
+	if(gamevar room_state == int 2)
+	 {
+			execute SCRIPT_6
+	}
+	if(gamevar room_state == int 3)
+	 {
+			execute SCRIPT_8
+	}
 
 ._on_exit
-if(gamevar room_state == int 2)
- {
-		gamevar room_state ++ 
-}
-if(gamevar room_state == int 1)
- {
-		gamevar room_state ++ 
-}
+	if(gamevar room_state == int 2)
+	 {
+			gamevar room_state ++ 
+	}
+	if(gamevar room_state == int 1)
+	 {
+			gamevar room_state ++ 
+	}
 
 ._SCRIPT_3
-if(gamevar script_time > var VAR_14)
- {
-		var VAR_14 = gamevar script_time + int 100 + call randomize_int(int 0, int 50)
+	if(gamevar script_time > var VAR_14)
+	 {
+			var VAR_14 = gamevar script_time + int 100 + call randomize_int(int 0, int 50)
 
-		 /* play the sound 'wwindlp' */ 
-		call play_loaded_sound(int 6, int 0, int 66, int 0)
-}
-if(gamevar script_time > var VAR_13)
- {
-		var VAR_13 = gamevar script_time + int 80 + call randomize_int(int 0, int 40)
+			 /* play the sound 'wwindlp' */ 
+			call play_loaded_sound(int 6, int 0, int 66, int 0)
+	}
+	if(gamevar script_time > var VAR_13)
+	 {
+			var VAR_13 = gamevar script_time + int 80 + call randomize_int(int 0, int 40)
 
-		 /* play the sound 'inwindlp' */ 
-		call play_loaded_sound(int 2, int 0, int 66, int 0)
-}
+			 /* play the sound 'inwindlp' */ 
+			call play_loaded_sound(int 2, int 0, int 66, int 0)
+	}
 
 ._SCRIPT_4
-if(var VAR_1)
- {
-		if(call ! is_local_timer_greater_than(var VAR_1))
-		 {
-				exit_script 
-		}
-		var VAR_1 = int 0
-}
-if(var VAR_0 == int 0)
- {
-		call func_113(int 0, int 100)
-		call reset_local_timer()
-		var VAR_1 = int 10
-		var VAR_0 = int 1
-		exit_script 
-}
-if(var VAR_0 == int 1)
- {
-		if(call ! func_8b())
-		 {
-				exit_script 
-		}
-		call char_turn_to_pos(var vikingc2, call get_char_pos(call get_david_char()))
-		var VAR_1 = int 7
-		var VAR_0 = int 2
-		call reset_local_timer()
-		exit_script 
-}
-if(var VAR_0 == int 2)
- {
-		call play_char_anim(var vikingc2, var come_anim, int 0)
-		var VAR_0 = int 3
-		var VAR_1 = int 8
-		call reset_local_timer()
-		exit_script 
-}
-if(var VAR_0 == int 3)
- {
-		var vikingc = call create_enemy_through_door(int 66, int 0, int 1, int 0)
-		call func_1(var vikingc, int -1)
-		call char_walk_to(var vikingc, int -1708, int 1625, int 1709)
-		call set_char_running(var vikingc)
-		var VAR_1 = int 10
-		call reset_local_timer()
-		var VAR_0 = int 4
-		exit_script 
-}
-if(var VAR_0 == int 4)
- {
-		if(call ! is_char_standing(var vikingc))
-		 {
-				exit_script 
-		}
-		var VAR_1 = int 3
-		call reset_local_timer()
-		var VAR_0 = int 5
-		exit_script 
-}
-if(var VAR_0 == int 5)
- {
-		var VAR_1 = int 5
-		call reset_local_timer()
-		call char_turn_to_pos(var vikingc2, call get_char_pos(call get_david_char()))
-		call char_turn_to_pos(var vikingc, call get_char_pos(call get_david_char()))
-		var VAR_0 = int 6
-}
-if(var VAR_0 == int 6)
- {
-		call func_2(var vikingc1)
-		call func_2(var vikingc2)
-		call func_2(var vikingc)
-		call func_106(var vikingc1, int 1, int 0, int 1)
-		call func_106(var vikingc2, int 1, int 0, int 1)
-		call func_106(var vikingc, int 1, int 0, int 1)
-		call set_char_init_state(var vikingc1, int 1)
-		call set_char_init_state(var vikingc2, int 1)
-		call set_char_init_state(var vikingc, int 1)
-		gamevar script_object = var vikingc1
-		gamevar *character_stats_p+16 = int 500
-		gamevar *character_stats_p+15 = int 3000
-		gamevar script_object = var vikingc2
-		gamevar *character_stats_p+16 = int 500
-		gamevar *character_stats_p+15 = int 3000
-		call char_attack(var vikingc1, var david)
-		if(var VAR_3)
-		 {
-				call char_attack(var vikingc2, var VAR_3)
-		}
-		else
-		 {
-				call char_attack(var vikingc2, var david)
-		}
-		if(var VAR_4)
-		 {
-				call char_attack(var vikingc, var VAR_4)
-		}
-		else
-		 {
-				call char_attack(var vikingc, var david)
-		}
-		var VAR_0 = int 7
-		call set_input_system(int 1)
-		exit_script 
-}
+	if(var VAR_1)
+	 {
+			if(call ! is_local_timer_greater_than(var VAR_1))
+			 {
+					exit_script 
+			}
+			var VAR_1 = int 0
+	}
+	if(var VAR_0 == int 0)
+	 {
+			call func_113(int 0, int 100)
+			call reset_local_timer()
+			var VAR_1 = int 10
+			var VAR_0 = int 1
+			exit_script 
+	}
+	if(var VAR_0 == int 1)
+	 {
+			if(call ! func_8b())
+			 {
+					exit_script 
+			}
+			call char_turn_to_pos(var vikingc2, call get_char_pos(call get_david_char()))
+			var VAR_1 = int 7
+			var VAR_0 = int 2
+			call reset_local_timer()
+			exit_script 
+	}
+	if(var VAR_0 == int 2)
+	 {
+			call play_char_anim(var vikingc2, var come_anim, int 0)
+			var VAR_0 = int 3
+			var VAR_1 = int 8
+			call reset_local_timer()
+			exit_script 
+	}
+	if(var VAR_0 == int 3)
+	 {
+			var vikingc = call create_enemy_through_door(int 66, int 0, int 1, int 0)
+			call func_1(var vikingc, int -1)
+			call char_walk_to(var vikingc, int -1708, int 1625, int 1709)
+			call set_char_running(var vikingc)
+			var VAR_1 = int 10
+			call reset_local_timer()
+			var VAR_0 = int 4
+			exit_script 
+	}
+	if(var VAR_0 == int 4)
+	 {
+			if(call ! is_char_standing(var vikingc))
+			 {
+					exit_script 
+			}
+			var VAR_1 = int 3
+			call reset_local_timer()
+			var VAR_0 = int 5
+			exit_script 
+	}
+	if(var VAR_0 == int 5)
+	 {
+			var VAR_1 = int 5
+			call reset_local_timer()
+			call char_turn_to_pos(var vikingc2, call get_char_pos(call get_david_char()))
+			call char_turn_to_pos(var vikingc, call get_char_pos(call get_david_char()))
+			var VAR_0 = int 6
+	}
+	if(var VAR_0 == int 6)
+	 {
+			call func_2(var vikingc1)
+			call func_2(var vikingc2)
+			call func_2(var vikingc)
+			call func_106(var vikingc1, int 1, int 0, int 1)
+			call func_106(var vikingc2, int 1, int 0, int 1)
+			call func_106(var vikingc, int 1, int 0, int 1)
+			call set_char_init_state(var vikingc1, int 1)
+			call set_char_init_state(var vikingc2, int 1)
+			call set_char_init_state(var vikingc, int 1)
+			gamevar script_object = var vikingc1
+			gamevar *character_stats_p+16 = int 500
+			gamevar *character_stats_p+15 = int 3000
+			gamevar script_object = var vikingc2
+			gamevar *character_stats_p+16 = int 500
+			gamevar *character_stats_p+15 = int 3000
+			call char_attack(var vikingc1, var david)
+			if(var VAR_3)
+			 {
+					call char_attack(var vikingc2, var VAR_3)
+			}
+			else
+			 {
+					call char_attack(var vikingc2, var david)
+			}
+			if(var VAR_4)
+			 {
+					call char_attack(var vikingc, var VAR_4)
+			}
+			else
+			 {
+					call char_attack(var vikingc, var david)
+			}
+			var VAR_0 = int 7
+			call set_input_system(int 1)
+			exit_script 
+	}
 
 ._SCRIPT_5
-var vikingc1 = call create_enemy(int 66, int 0, var &init_position, int 45)
-var vikingc2 = call create_enemy(int 66, int 0, "\÷ÿÿY", int 100)
-call func_1(var vikingc1, int -1)
-call func_1(var vikingc2, int -1)
-var come_anim = call load_anim("come")
-call set_input_system(int 2)
-call reset_local_timer()
-var VAR_1 = int 5
-var VAR_0 = int 0
+	var vikingc1 = call create_enemy(int 66, int 0, var &init_position, int 45)
+	var vikingc2 = call create_enemy(int 66, int 0, "\÷ÿÿY", int 100)
+	call func_1(var vikingc1, int -1)
+	call func_1(var vikingc2, int -1)
+	var come_anim = call load_anim("come")
+	call set_input_system(int 2)
+	call reset_local_timer()
+	var VAR_1 = int 5
+	var VAR_0 = int 0
 
 ._SCRIPT_6
-if(var VAR_1)
- {
-		if(call ! is_local_timer_greater_than(var VAR_1))
-		 {
-				exit_script 
-		}
-		var VAR_1 = int 0
-}
+	if(var VAR_1)
+	 {
+			if(call ! is_local_timer_greater_than(var VAR_1))
+			 {
+					exit_script 
+			}
+			var VAR_1 = int 0
+	}
 
 ._SCRIPT_7
-var VAR_1 = int 0
-var VAR_0 = int 1
+	var VAR_1 = int 0
+	var VAR_0 = int 1
 
 ._SCRIPT_8
-if(var VAR_1)
- {
-		if(call ! is_local_timer_greater_than(var VAR_1))
-		 {
-				exit_script 
-		}
-		var VAR_1 = int 0
-}
+	if(var VAR_1)
+	 {
+			if(call ! is_local_timer_greater_than(var VAR_1))
+			 {
+					exit_script 
+			}
+			var VAR_1 = int 0
+	}
 
 ._SCRIPT_9
-var VAR_1 = int 0
-var VAR_0 = int 1
+	var VAR_1 = int 0
+	var VAR_0 = int 1

@@ -10,242 +10,242 @@
 
 
 ._DATA
-VAR_0	{ 1, 0, 0 }	
-VAR_1	{ 1, 0, 0 }	
-VAR_2	{ 1, 0, 0 }	
-VAR_3	{ 1, 0, 0 }	
-walk_position	{ -2467, -3145, 2496 }	
-walk_position1	{ -2664, -3145, 2532 }	
-walk_position2	{ -2573, -3145, 2247 }	
-drop_lesser_gimp1	{ 0, 0 }	
-VAR_18	{ -220, -1698, 5226 }	
-VAR_19	{ 346, -1698, 5366 }	
-VAR_20	{ 313, -1698, 5055 }	
-init_position	{ -33, -1698, 770 }	
-walk_position3	{ -1747, -2167, 3118 }	
-init_position1	{ -1923, -1698, 1105 }	
-init_position2	{ -1932, -1698, 674 }	
-init_position10	{ -504, -1698, 969 }	
-init_position11	{ -458, -1698, 550 }	
-init_position3	{ -1777, -2683, 5372 }	
-init_position4	{ -1855, -2683, 5047 }	
-init_position5	{ -1980, -2672, 5466 }	
-walk_position4	{ -2640, -3145, 3887 }	
-walk_position5	{ -2325, -3145, 3799 }	
-walk_position6	{ -2900, -3145, 3619 }	
-VAR_33	{ 1015, -1698, 5164 }	
-init_position6	{ 2023, -500, -723 }	
-init_position7	{ 1949, -500, 6341 }	
-init_position8	{ 2023, -1257, -723 }	
-init_position9	{ 1949, -1257, 6341 }	
-enemy_gen_script	{ 0, 0, 0, -1, 8, 1, 1, 2, 215, 215, 215, -1, 4, 0, 9, 1, 5, 1, 50, 150, 7, 1, 4, 10, 45, -1, -1 }	
-VAR_39	-1	
+	VAR_0	{ 1, 0, 0 }	
+	VAR_1	{ 1, 0, 0 }	
+	VAR_2	{ 1, 0, 0 }	
+	VAR_3	{ 1, 0, 0 }	
+	walk_position	{ -2467, -3145, 2496 }	
+	walk_position1	{ -2664, -3145, 2532 }	
+	walk_position2	{ -2573, -3145, 2247 }	
+	drop_lesser_gimp1	{ 0, 0 }	
+	VAR_18	{ -220, -1698, 5226 }	
+	VAR_19	{ 346, -1698, 5366 }	
+	VAR_20	{ 313, -1698, 5055 }	
+	init_position	{ -33, -1698, 770 }	
+	walk_position3	{ -1747, -2167, 3118 }	
+	init_position1	{ -1923, -1698, 1105 }	
+	init_position2	{ -1932, -1698, 674 }	
+	init_position10	{ -504, -1698, 969 }	
+	init_position11	{ -458, -1698, 550 }	
+	init_position3	{ -1777, -2683, 5372 }	
+	init_position4	{ -1855, -2683, 5047 }	
+	init_position5	{ -1980, -2672, 5466 }	
+	walk_position4	{ -2640, -3145, 3887 }	
+	walk_position5	{ -2325, -3145, 3799 }	
+	walk_position6	{ -2900, -3145, 3619 }	
+	VAR_33	{ 1015, -1698, 5164 }	
+	init_position6	{ 2023, -500, -723 }	
+	init_position7	{ 1949, -500, 6341 }	
+	init_position8	{ 2023, -1257, -723 }	
+	init_position9	{ 1949, -1257, 6341 }	
+	enemy_gen_script	{ 0, 0, 0, -1, 8, 1, 1, 2, 215, 215, 215, -1, 4, 0, 9, 1, 5, 1, 50, 150, 7, 1, 4, 10, 45, -1, -1 }	
+	VAR_39	-1	
 
 ._on_load
-var VAR_39 = call func_6f()
-call log("entry door num:")
-call log_obj(var VAR_39)
-call play_bgm("SEWERPT1")
-call load_sound_set(int 30)
+	var VAR_39 = call func_6f()
+	call log("entry door num:")
+	call log_obj(var VAR_39)
+	call play_bgm("SEWERPT1")
+	call load_sound_set(int 30)
 
- /* play the sound 'torches2' */ 
-call play_loaded_sound(int 1, int -1, int 30, int 0)
-call load_sound_set(int 38)
-gamevar SMACKER_X = int 320
-gamevar SMACKER_Y = int 392
-call play_2d_anim("torch01", int 1, int 1, var &VAR_0)
-gamevar SMACKER_X = int 584
-gamevar SMACKER_Y = int 376
-call play_2d_anim("torch02", int 1, int 1, var &VAR_1)
-gamevar SMACKER_X = int 352
-gamevar SMACKER_Y = int 624
-call play_2d_anim("torch03", int 1, int 1, var &VAR_2)
-gamevar SMACKER_X = int 816
-gamevar SMACKER_Y = int 544
-call play_2d_anim("torch04", int 1, int 1, var &VAR_3)
-switch(gamevar room_state)
- {
-		case 1
-			if(var VAR_39 == int 0)
-			 {
-					execute SCRIPT_5
-			}
-			else
-			 {
-					execute SCRIPT_3
-			}
-			break 
-		default 
-			break 
-}
+	 /* play the sound 'torches2' */ 
+	call play_loaded_sound(int 1, int -1, int 30, int 0)
+	call load_sound_set(int 38)
+	gamevar SMACKER_X = int 320
+	gamevar SMACKER_Y = int 392
+	call play_2d_anim("torch01", int 1, int 1, var &VAR_0)
+	gamevar SMACKER_X = int 584
+	gamevar SMACKER_Y = int 376
+	call play_2d_anim("torch02", int 1, int 1, var &VAR_1)
+	gamevar SMACKER_X = int 352
+	gamevar SMACKER_Y = int 624
+	call play_2d_anim("torch03", int 1, int 1, var &VAR_2)
+	gamevar SMACKER_X = int 816
+	gamevar SMACKER_Y = int 544
+	call play_2d_anim("torch04", int 1, int 1, var &VAR_3)
+	switch(gamevar room_state)
+	 {
+			case 1
+				if(var VAR_39 == int 0)
+				 {
+						execute SCRIPT_5
+				}
+				else
+				 {
+						execute SCRIPT_3
+				}
+				break 
+			default 
+				break 
+	}
 
 ._infinite_loop
-execute SCRIPT_7
-switch(gamevar room_state)
- {
-		case 1
-			if(var VAR_39 == int 0)
-			 {
-					execute SCRIPT_6
-			}
-			else
-			 {
-					execute SCRIPT_4
-			}
-			break 
-		default 
-			break 
-}
+	execute SCRIPT_7
+	switch(gamevar room_state)
+	 {
+			case 1
+				if(var VAR_39 == int 0)
+				 {
+						execute SCRIPT_6
+				}
+				else
+				 {
+						execute SCRIPT_4
+				}
+				break 
+			default 
+				break 
+	}
 
 ._on_exit
-switch(gamevar room_state)
- {
-		case 1
-			if(var VAR_4 > int 2||var VAR_39 == int 0)
-			 {
-					gamevar room_state = int 0
-			}
-			break 
-		default 
-			break 
-}
+	switch(gamevar room_state)
+	 {
+			case 1
+				if(var VAR_4 > int 2||var VAR_39 == int 0)
+				 {
+						gamevar room_state = int 0
+				}
+				break 
+			default 
+				break 
+	}
 
 ._SCRIPT_3
-call set_input_system(int 2)
-call load_char("skaven")
-call load_char("ratrptr")
-call func_9a(var &VAR_18, int 43, int 0, int 0)
-call func_9a(var &VAR_19, int 40, int 0, int 0)
-call func_9a(var &VAR_20, int 45, int 0, int 0)
-var david = call get_david_char()
-call char_walk_to_pos(var david, var &walk_position)
-var david = call func_7e()
-if(var david)
- {
-		call char_walk_to_pos(var david, var &walk_position1)
-		var david = call func_7e()
-		if(var david)
-		 {
-				call char_walk_to_pos(var david, var &walk_position2)
-		}
-}
-var david = call get_selected_hero()
-var lesser_gimp = call create_enemy(int 45, int 0, var &init_position, int 0)
-var greater_gimpv = call create_enemy(int 46, int 0, var &init_position1, int 265)
-var greater_gimpv1 = call create_enemy(int 46, int 1, var &init_position2, int 265)
-var rat_raptor_max5 = call create_enemy(int 87, int 0, var &init_position3, int 0)
-var rat_raptor_max51 = call create_enemy(int 87, int 1, var &init_position4, int 0)
-var rat_raptor_max52 = call create_enemy(int 87, int 2, var &init_position5, int 0)
-call func_1(var lesser_gimp, int -1)
-call func_1(var greater_gimpv, int -1)
-call func_1(var greater_gimpv1, int -1)
-call func_1(var rat_raptor_max5, int -1)
-call func_1(var rat_raptor_max51, int -1)
-call func_1(var rat_raptor_max52, int -1)
-var VAR_4 = int 0
-var VAR_5 = int 0
+	call set_input_system(int 2)
+	call load_char("skaven")
+	call load_char("ratrptr")
+	call func_9a(var &VAR_18, int 43, int 0, int 0)
+	call func_9a(var &VAR_19, int 40, int 0, int 0)
+	call func_9a(var &VAR_20, int 45, int 0, int 0)
+	var david = call get_david_char()
+	call char_walk_to_pos(var david, var &walk_position)
+	var david = call func_7e()
+	if(var david)
+	 {
+			call char_walk_to_pos(var david, var &walk_position1)
+			var david = call func_7e()
+			if(var david)
+			 {
+					call char_walk_to_pos(var david, var &walk_position2)
+			}
+	}
+	var david = call get_selected_hero()
+	var lesser_gimp = call create_enemy(int 45, int 0, var &init_position, int 0)
+	var greater_gimpv = call create_enemy(int 46, int 0, var &init_position1, int 265)
+	var greater_gimpv1 = call create_enemy(int 46, int 1, var &init_position2, int 265)
+	var rat_raptor_max5 = call create_enemy(int 87, int 0, var &init_position3, int 0)
+	var rat_raptor_max51 = call create_enemy(int 87, int 1, var &init_position4, int 0)
+	var rat_raptor_max52 = call create_enemy(int 87, int 2, var &init_position5, int 0)
+	call func_1(var lesser_gimp, int -1)
+	call func_1(var greater_gimpv, int -1)
+	call func_1(var greater_gimpv1, int -1)
+	call func_1(var rat_raptor_max5, int -1)
+	call func_1(var rat_raptor_max51, int -1)
+	call func_1(var rat_raptor_max52, int -1)
+	var VAR_4 = int 0
+	var VAR_5 = int 0
 
 ._SCRIPT_4
-switch(var VAR_4)
- {
-		case 0
-			var VAR_5 ++ 
-			switch(var VAR_5)
-			 {
-					case 1
-						call set_char_running(var lesser_gimp)
-						call char_walk_to_pos(var lesser_gimp, var &walk_position3)
-						break 
-					case 80
-						call func_29(var greater_gimpv1)
-						break 
-					case 100
-						call func_29(var greater_gimpv)
-						break 
-					case 150
-						call set_char_running(var rat_raptor_max5)
-						call set_char_running(var rat_raptor_max51)
-						call set_char_running(var rat_raptor_max52)
-						call char_walk_to_pos(var rat_raptor_max5, var &walk_position4)
-						call char_walk_to_pos(var rat_raptor_max51, var &walk_position5)
-						call char_walk_to_pos(var rat_raptor_max52, var &walk_position6)
-						break 
-					case 270
-						call func_17(var greater_gimpv1, var david)
-						break 
-					case 300
-						call func_17(var greater_gimpv, var david)
-						break 
-					case 370
-						call func_17(var lesser_gimp, var david)
-						break 
-					case 400
-						call func_2(var lesser_gimp)
-						call func_2(var greater_gimpv)
-						call func_2(var greater_gimpv1)
-						call func_2(var rat_raptor_max5)
-						call func_2(var rat_raptor_max51)
-						call func_2(var rat_raptor_max52)
-						call func_19(var greater_gimpv, var david)
-						call func_19(var greater_gimpv1, var david)
-						call set_input_system(int 1)
+	switch(var VAR_4)
+	 {
+			case 0
+				var VAR_5 ++ 
+				switch(var VAR_5)
+				 {
+						case 1
+							call set_char_running(var lesser_gimp)
+							call char_walk_to_pos(var lesser_gimp, var &walk_position3)
+							break 
+						case 80
+							call func_29(var greater_gimpv1)
+							break 
+						case 100
+							call func_29(var greater_gimpv)
+							break 
+						case 150
+							call set_char_running(var rat_raptor_max5)
+							call set_char_running(var rat_raptor_max51)
+							call set_char_running(var rat_raptor_max52)
+							call char_walk_to_pos(var rat_raptor_max5, var &walk_position4)
+							call char_walk_to_pos(var rat_raptor_max51, var &walk_position5)
+							call char_walk_to_pos(var rat_raptor_max52, var &walk_position6)
+							break 
+						case 270
+							call func_17(var greater_gimpv1, var david)
+							break 
+						case 300
+							call func_17(var greater_gimpv, var david)
+							break 
+						case 370
+							call func_17(var lesser_gimp, var david)
+							break 
+						case 400
+							call func_2(var lesser_gimp)
+							call func_2(var greater_gimpv)
+							call func_2(var greater_gimpv1)
+							call func_2(var rat_raptor_max5)
+							call func_2(var rat_raptor_max51)
+							call func_2(var rat_raptor_max52)
+							call func_19(var greater_gimpv, var david)
+							call func_19(var greater_gimpv1, var david)
+							call set_input_system(int 1)
+							var VAR_4 ++ 
+							break 
+				}
+				break 
+			case 1
+				if(call func_ab(int 500, var &VAR_33))
+				 {
+						call run_enemy_generator(var &enemy_gen_script, int 1)
+						var VAR_5 = int 150
 						var VAR_4 ++ 
-						break 
-			}
-			break 
-		case 1
-			if(call func_ab(int 500, var &VAR_33))
-			 {
-					call run_enemy_generator(var &enemy_gen_script, int 1)
-					var VAR_5 = int 150
-					var VAR_4 ++ 
-			}
-			break 
-		case 2
-			if(var VAR_5)
-			 {
-					var VAR_5 -- 
-			}
-			else
-			 {
-					var drop_lesser_gimp = call create_enemy(int 113, int 0, var &init_position6, int 0)
-					var drop_lesser_gimp1 = call create_enemy(int 113, int 1, var &init_position7, int 180)
-					call func_106(var drop_lesser_gimp, int 9, int 5, var &init_position8)
-					call func_106(var drop_lesser_gimp1, int 9, int 5, var &init_position9)
-					gamevar script_object = var drop_lesser_gimp
-					gamevar *character_stats_p+15 = int 10000
-					gamevar script_object = var drop_lesser_gimp1
-					gamevar *character_stats_p+15 = int 10000
-					var VAR_4 ++ 
-			}
-			break 
-		default 
-			break 
-}
+				}
+				break 
+			case 2
+				if(var VAR_5)
+				 {
+						var VAR_5 -- 
+				}
+				else
+				 {
+						var drop_lesser_gimp = call create_enemy(int 113, int 0, var &init_position6, int 0)
+						var drop_lesser_gimp1 = call create_enemy(int 113, int 1, var &init_position7, int 180)
+						call func_106(var drop_lesser_gimp, int 9, int 5, var &init_position8)
+						call func_106(var drop_lesser_gimp1, int 9, int 5, var &init_position9)
+						gamevar script_object = var drop_lesser_gimp
+						gamevar *character_stats_p+15 = int 10000
+						gamevar script_object = var drop_lesser_gimp1
+						gamevar *character_stats_p+15 = int 10000
+						var VAR_4 ++ 
+				}
+				break 
+			default 
+				break 
+	}
 
 ._SCRIPT_5
-var drop_lesser_gimp = call create_enemy(int 45, int 0, var &init_position8, int 0)
-var drop_lesser_gimp1 = call create_enemy(int 45, int 1, var &init_position9, int 180)
-call func_106(var drop_lesser_gimp, int 9, int 5, var &init_position8)
-call func_106(var drop_lesser_gimp1, int 9, int 5, var &init_position9)
-gamevar script_object = var drop_lesser_gimp
-gamevar *character_stats_p+15 = int 10000
-gamevar script_object = var drop_lesser_gimp1
-gamevar *character_stats_p+15 = int 10000
-var greater_gimpv = call create_enemy(int 46, int 0, var &init_position10, int 190)
-var greater_gimpv1 = call create_enemy(int 46, int 1, var &init_position11, int 320)
-call add_item_to_char(var greater_gimpv, int 43 /* cheese */ , int 1, int 0)
-call add_item_to_char(var greater_gimpv1, int 45 /* deadmous */ , int 1, int 0)
-call load_char("ratrptr")
-call run_enemy_generator(var &enemy_gen_script, int 500)
+	var drop_lesser_gimp = call create_enemy(int 45, int 0, var &init_position8, int 0)
+	var drop_lesser_gimp1 = call create_enemy(int 45, int 1, var &init_position9, int 180)
+	call func_106(var drop_lesser_gimp, int 9, int 5, var &init_position8)
+	call func_106(var drop_lesser_gimp1, int 9, int 5, var &init_position9)
+	gamevar script_object = var drop_lesser_gimp
+	gamevar *character_stats_p+15 = int 10000
+	gamevar script_object = var drop_lesser_gimp1
+	gamevar *character_stats_p+15 = int 10000
+	var greater_gimpv = call create_enemy(int 46, int 0, var &init_position10, int 190)
+	var greater_gimpv1 = call create_enemy(int 46, int 1, var &init_position11, int 320)
+	call add_item_to_char(var greater_gimpv, int 43 /* cheese */ , int 1, int 0)
+	call add_item_to_char(var greater_gimpv1, int 45 /* deadmous */ , int 1, int 0)
+	call load_char("ratrptr")
+	call run_enemy_generator(var &enemy_gen_script, int 500)
 
 ._SCRIPT_6
 
 ._SCRIPT_7
-if(gamevar script_time > var VAR_49)
- {
-		var VAR_49 = gamevar script_time + int 50 + call randomize_int(int 0, int 70)
+	if(gamevar script_time > var VAR_49)
+	 {
+			var VAR_49 = gamevar script_time + int 50 + call randomize_int(int 0, int 70)
 
-		 /* play the sound 'echdrip1' */ 
-		call play_loaded_sound(int 1, int 0, int 38, int 0)
-}
+			 /* play the sound 'echdrip1' */ 
+			call play_loaded_sound(int 1, int 0, int 38, int 0)
+	}

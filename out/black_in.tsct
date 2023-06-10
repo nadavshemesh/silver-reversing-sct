@@ -10,199 +10,874 @@
 
 
 ._DATA
-VAR_0	{ -2602, 1560, -2358 }	
-VAR_1	{ 1406, 2890, -4945 }	
-VAR_2	{ 1484, 2845, -5100 }	
-VAR_3	{ 1543, 2845, -4766 }	
-arr_2	{ VAR_1, VAR_2, VAR_3 }	
-scroll_position1	{ 1845, 2845, -4950 }	
-VAR_7	{ 1808, 2845, -4813 }	
-VAR_8	{ 1821, 2845, -5052 }	
-arr	{ scroll_position1, VAR_7, VAR_8 }	
-VAR_17	160	
-arr_1	{ 0, 0, 0 }	
-scroll_position	{ 2492, 4381, -4951, 0 }	
-VAR_36	{ 0, 0 }	
-VAR_37	{ 0, 0, 0 }	
-VAR_41	{ 0, 12 }	
-init_position	{ 2069, 4041, -4026 }	
-init_position1	{ 2116, 4041, -5955 }	
+	VAR_0	{ -2602, 1560, -2358 }	
+	VAR_1	{ 1406, 2890, -4945 }	
+	VAR_2	{ 1484, 2845, -5100 }	
+	VAR_3	{ 1543, 2845, -4766 }	
+	arr_2	{ VAR_1, VAR_2, VAR_3 }	
+	scroll_position1	{ 1845, 2845, -4950 }	
+	VAR_7	{ 1808, 2845, -4813 }	
+	VAR_8	{ 1821, 2845, -5052 }	
+	arr	{ scroll_position1, VAR_7, VAR_8 }	
+	VAR_17	160	
+	arr_1	{ 0, 0, 0 }	
+	scroll_position	{ 2492, 4381, -4951, 0 }	
+	VAR_36	{ 0, 0 }	
+	VAR_37	{ 0, 0, 0 }	
+	VAR_41	{ 0, 12 }	
+	init_position	{ 2069, 4041, -4026 }	
+	init_position1	{ 2116, 4041, -5955 }	
 
 ._on_load
-var no_anim = call load_anim("no")
-var mgkair_anim = call load_anim("mgkair")
-call load_sound_set(int 30)
-call load_sound_set(int 0)
-call load_sound_set(int 72)
-var BLANK_sound_ref = call play_loaded_sound(int 4, int -1, int 72, int 0)
-call set_sound_volume(var BLANK_sound_ref, int 30)
-call load_sound_set(int 64)
+	var no_anim = call load_anim("no")
+	var mgkair_anim = call load_anim("mgkair")
+	call load_sound_set(int 30)
+	call load_sound_set(int 0)
+	call load_sound_set(int 72)
+	var BLANK_sound_ref = call play_loaded_sound(int 4, int -1, int 72, int 0)
+	call set_sound_volume(var BLANK_sound_ref, int 30)
+	call load_sound_set(int 64)
 
- /* play the sound 'cavelp' */ 
-call play_loaded_sound(int 1, int -1, int 64, int 0)
-call load_sound_set(int 65)
+	 /* play the sound 'cavelp' */ 
+	call play_loaded_sound(int 1, int -1, int 64, int 0)
+	call load_sound_set(int 65)
 
- /* play the sound 'in2wind1' */ 
-call play_loaded_sound(int 5, int -1, int 65, int 0)
-gamevar SMACKER_X = int 204
-gamevar SMACKER_Y = int 592
-call play_2d_anim("blackcrk", int 1, int 1, int 0)
-call play_bgm("METALON")
-if(gamevar is_room_cleared)
- {
-		execute SCRIPT_10
-}
-else
- {
-		switch(gamevar room_state)
-		 {
-				case 1
-					execute SCRIPT_7
-					break 
-				case 2
-					execute SCRIPT_9
-					break 
-				case 0
-					break 
-		}
-}
+	 /* play the sound 'in2wind1' */ 
+	call play_loaded_sound(int 5, int -1, int 65, int 0)
+	gamevar SMACKER_X = int 204
+	gamevar SMACKER_Y = int 592
+	call play_2d_anim("blackcrk", int 1, int 1, int 0)
+	call play_bgm("METALON")
+	if(gamevar is_room_cleared)
+	 {
+			execute SCRIPT_10
+	}
+	else
+	 {
+			switch(gamevar room_state)
+			 {
+					case 1
+						execute SCRIPT_7
+						break 
+					case 2
+						execute SCRIPT_9
+						break 
+					case 0
+						break 
+			}
+	}
 
 ._infinite_loop
-execute SCRIPT_3
-if(gamevar is_room_cleared)
- {
-		execute SCRIPT_11
-}
-else
- {
-		switch(gamevar room_state)
-		 {
-				case 1
-					execute SCRIPT_6
-					break 
-				case 2
-					execute SCRIPT_8
-					break 
-				case 0
-					break 
-		}
-}
+	execute SCRIPT_3
+	if(gamevar is_room_cleared)
+	 {
+			execute SCRIPT_11
+	}
+	else
+	 {
+			switch(gamevar room_state)
+			 {
+					case 1
+						execute SCRIPT_6
+						break 
+					case 2
+						execute SCRIPT_8
+						break 
+					case 0
+						break 
+			}
+	}
 
 ._on_exit
-if(var VAR_22 == int 1)
- {
-		call set_scene_overwrite_act("lmetalon", "black_in", int 0)
-		call func_116("lmetalon", "black_3", int 2)
-		gamevar room_state = int 2
-}
-if(gamevar !is_room_cleared&&var VAR_22 == int 0)
- {
-		switch(gamevar room_state)
-		 {
-				case 1
-					if(var VAR_16 == int 1)
+	if(var VAR_22 == int 1)
+	 {
+			call set_scene_overwrite_act("lmetalon", "black_in", int 0)
+			call func_116("lmetalon", "black_3", int 2)
+			gamevar room_state = int 2
+	}
+	if(gamevar !is_room_cleared&&var VAR_22 == int 0)
+	 {
+			switch(gamevar room_state)
+			 {
+					case 1
+						if(var VAR_16 == int 1)
+						 {
+								gamevar room_state ++ 
+						}
+						else
+						 {
+								gamevar is_room_cleared = int 1
+								gamevar room_state ++ 
+						}
+						break 
+					case 2
+						break 
+					case 0
+						break 
+					default 
+						gamevar room_state = int 0
+						break 
+			}
+				gamevar SMACKER_X = int 308
+				gamevar SMACKER_Y = int 324
+				call play_2d_anim("black_in", int 1, int 1, var &VAR_37)
+				call play_2d_anim("blackfad", int -2147483, int 1, var &VAR_35)
+				gamevar use_mouse_override_sprite = int 410
+				if(var VAR_15)
+				 {
+						var VAR_41 = var VAR_18 * int 4
+						var VAR_18 = var VAR_36
+						var VAR_40 = var VAR_17 - var VAR_41
+						if(var VAR_40 < int 0)
+						 {
+								var VAR_19 = int 0
+								call stop_playing_sound(var torches2_sound_ref)
+						}
+						if(var VAR_19)
+						 {
+								call set_sound_volume(var torches2_sound_ref, var VAR_40)
+						}
+				}
+				var VAR_37 = int 1
+				call create_enemy(int 36 /* sarcher */ , int 0, var &init_position, int 238)
+				var SARCHER = call get_char_handle(int 11010048)
+				call set_char_init_state(var SARCHER, int 0)
+				var pie = call add_item_to_char(var SARCHER, int 46, int 1, int 0)
+				call create_enemy(int 36 /* sarcher */ , int 1, var &init_position1, int 310)
+				var SARCHER1 = call get_char_handle(int 11010049)
+				call set_char_init_state(var SARCHER1, int 0)
+				var deadmous = call add_item_to_char(var SARCHER1, int 45, int 1, int 0)
+				execute SCRIPT_4
+				var torches2_sound_ref = call play_loaded_sound(int 1, int -1, int 30, int 0)
+				var VAR_15 = int 1
+				if(gamevar zone_under_mouse_type == int 18&&var VAR_22 == int 0)
+				 {
+				}
+				if(var VAR_48 == int 0&&call get_num_of_enemies() == int 0)
+				 {
+						if(gamevar global_zone_type == int 18)
+						 {
+								var selected_hero = gamevar control_char_p
+								if(call create_item(int 84 /* analect */ ))
+								 {
+										var VAR_22 = int 1
+								}
+								if(var VAR_22)
+								 {
+										call set_input_system(int 2)
+										call set_char_running(var selected_hero)
+										call char_walk_to(var selected_hero, int 2126, int 4042, int -4935)
+										var VAR_48 ++ 
+										call force_scroll_to_pos(var &scroll_position)
+								}
+								else
+								 {
+										call play_char_anim(var selected_hero, var no_anim, int 0)
+								}
+								gamevar global_zone_type = int 0
+						}
+				}
+				if(var VAR_48 == int 1)
+				 {
+						if(call is_char_standing(var selected_hero))
+						 {
+								call func_36(var selected_hero, int 2277, int 4041, int -4940)
+								var VAR_48 ++ 
+						}
+				}
+				if(var VAR_48 == int 2)
+				 {
+						var VAR_49 ++ 
+						if(var VAR_49 == int 100)
+						 {
+								call func_68(var selected_hero)
+								call func_61(var selected_hero)
+								var VAR_48 ++ 
+								var VAR_49 = int 0
+						}
+				}
+				if(var VAR_48 == int 3)
+				 {
+						var VAR_49 ++ 
+						if(var VAR_49 > int 100)
+						 {
+								var VAR_49 = int 0
+								var VAR_48 ++ 
+								call play_char_anim(var selected_hero, var mgkair_anim, int 0)
+								call func_ec(int 226, int 0, int 0, int 0)
+								var VAR_37 = int 0
+								var VAR_35 = int 1
+								gamevar pnc_look_use_mask = int 2
+								gamevar use_mouse_override_sprite = int 131072
+								var analect1 = call create_item(int 84)
+								var VAR_19 = int 1
+						}
+				}
+				if(var VAR_48 == int 4)
+				 {
+						var VAR_49 ++ 
+						if(var VAR_49 == int 160)
+						 {
+								call func_7d(var selected_hero)
+								call force_scroll_to_pos(var &scroll_position1)
+								call func_36(var selected_hero, int 1845, int 2845, int -4950)
+						}
+						if(var VAR_49 > int 300)
+						 {
+								var VAR_5 = call func_e8(var &scroll_position1, int 0)
+								var VAR_49 = int 0
+								var VAR_48 ++ 
+								call set_input_system(int 1)
+								var VAR_16 ++ 
+						}
+				}
+				if(var VAR_48 == int 5)
+				 {
+						var selected_hero = call get_selected_hero()
+						if(call is_char_at_pos(var selected_hero, var &scroll_position1, int 240))
+						 {
+								call set_input_system(int 2)
+								var selected_hero = call get_david_char()
+								while(var selected_hero)
+								 {
+										call set_char_running(var selected_hero)
+										call char_walk_to_pos(var selected_hero, @arr[var VAR_25])
+										var index ++ 
+										var VAR_26 = var index
+										var selected_hero = call func_7e()
+								}
+								var index = int 0
+								var VAR_48 ++ 
+								var VAR_49 = int 0
+						}
+				}
+				if(var VAR_48 == int 6)
+				 {
+						var selected_hero = call get_david_char()
+						while(var selected_hero)
+						 {
+								if(call is_char_standing(var selected_hero)&&@arr_1[var index] == int 0)
+								 {
+										@arr_1[var index]= int 1
+										var VAR_23 ++ 
+										call func_36(var selected_hero, int 978, int 3292, int -4943)
+										call func_fa(var selected_hero)
+								}
+								var index ++ 
+								var selected_hero = call func_7e()
+						}
+						var index = int 0
+						if(var VAR_23 == var VAR_26)
+						 {
+								var VAR_49 ++ 
+								if(var VAR_49 > int 100)
+								 {
+										var VAR_48 ++ 
+										call func_e6("lmetalon", "black_3", var &VAR_0, int 2)
+								}
+						}
+				}
+				execute SCRIPT_5
+				gamevar pnc_look_use_mask = int 2
+				var VAR_5 = call func_e8(var &scroll_position1, int 0)
+				if(var VAR_52 == int 0)
+				 {
+						var selected_hero = call get_david_char()
+						if(call is_char_at_pos(var selected_hero, var &scroll_position1, int 320))
+						 {
+								call set_input_system(int 2)
+								var VAR_52 ++ 
+								while(var selected_hero)
+								 {
+										call apply_effect_on_char(gamevar char_gen_fx_scripts, int 18, int 0, var selected_hero)
+										var selected_hero = call func_7e()
+								}
+						}
+						else
+						 {
+								var VAR_52 = int 4
+						}
+				}
+				if(var VAR_52 == int 1)
+				 {
+						var VAR_53 ++ 
+						if(var VAR_53 > int 100)
+						 {
+								var VAR_53 = int 0
+								var VAR_52 ++ 
+						}
+				}
+				if(var VAR_52 == int 2)
+				 {
+						var selected_hero = call get_david_char()
+						while(var selected_hero)
+						 {
+								call set_char_running(var selected_hero)
+								call char_walk_to_pos(var selected_hero, @arr_2[var index])
+								var index ++ 
+								var selected_hero = call func_7e()
+						}
+						var VAR_52 ++ 
+						var index = int 0
+				}
+				if(var VAR_52 == int 3)
+				 {
+						var VAR_53 ++ 
+						if(var VAR_53 > int 180)
+						 {
+								var VAR_53 = int 0
+								var VAR_52 ++ 
+								call set_input_system(int 1)
+								var index = int 0
+						}
+				}
+				if(var VAR_52 == int 4)
+				 {
+						var selected_hero = call get_selected_hero()
+						if(call is_char_at_pos(var selected_hero, var &scroll_position1, int 240))
+						 {
+								call set_input_system(int 2)
+								var selected_hero = call get_david_char()
+								while(var selected_hero)
+								 {
+										call set_char_running(var selected_hero)
+										call char_walk_to_pos(var selected_hero, @arr[var index])
+										var index ++ 
+										var VAR_26 = var index
+										var selected_hero = call func_7e()
+								}
+								var index = int 0
+								var VAR_52 ++ 
+								var VAR_53 = int 0
+						}
+				}
+				if(var VAR_52 == int 5)
+				 {
+						var selected_hero = call get_david_char()
+						while(var selected_hero)
+						 {
+								if(call is_char_standing(var selected_hero)&&@arr_1[var index] == int 0)
+								 {
+										@arr_1[var index]= int 1
+										var VAR_23 ++ 
+										call func_36(var selected_hero, int 1406, int 2890, int -4945)
+										call func_fa(var selected_hero)
+								}
+								var index ++ 
+								var selected_hero = call func_7e()
+						}
+						var index = int 0
+						if(var VAR_23 == var VAR_26)
+						 {
+								var VAR_53 ++ 
+								if(var VAR_53 > int 100)
+								 {
+										var VAR_52 ++ 
+										call func_e6("lmetalon", "black_3", var &VAR_0, int 2)
+										call set_scene_overwrite_act("lmetalon", "black_in", int 0)
+								}
+						}
+				}
+				execute SCRIPT_4
+				var VAR_37 = int 1
+				var torches2_sound_ref = call play_loaded_sound /* 'torches2' */ (int 1, int -1, int 30, int 0)
+				var VAR_15 = int 1
+				execute SCRIPT_5
+				if(gamevar zone_under_mouse_type == int 18&&var VAR_22 == int 0)
+				 {
+				}
+				if(var VAR_58 == int 0&&call get_num_of_enemies() == int 0)
+				 {
+						if(gamevar global_zone_type == int 18)
+						 {
+								call set_input_system(int 2)
+								var selected_hero = call get_selected_hero()
+								call set_char_running(var selected_hero)
+								call char_walk_to(var selected_hero, int 2126, int 4042, int -4935)
+								var VAR_58 ++ 
+								gamevar global_zone_type = int 0
+								call force_scroll_to_pos(var &scroll_position)
+						}
+				}
+				if(var VAR_58 == int 1)
+				 {
+						if(call is_char_standing(var selected_hero))
+						 {
+								call func_36(var selected_hero, int 2277, int 4041, int -4940)
+								var VAR_58 ++ 
+								if(call create_item(int 84 /* analect */ ))
+								 {
+										var VAR_22 = int 1
+								}
+								else
+								 {
+										call play_char_anim(var selected_hero, var no_anim, int 0)
+								}
+						}
+				}
+				if(var VAR_58 == int 2)
+				 {
+						var VAR_59 ++ 
+						if(var VAR_59 == int 100)
+						 {
+								call func_61(var selected_hero)
+								var VAR_58 ++ 
+								var VAR_59 = int 0
+						}
+				}
+				if(var VAR_58 == int 3)
+				 {
+						var VAR_59 ++ 
+						if(var VAR_59 > int 100)
+						 {
+								var VAR_59 = int 0
+								var VAR_58 ++ 
+								if(var VAR_22 == int 0)
+								 {
+										call play_char_anim(var selected_hero, var no_anim, int 0)
+										call set_input_system(int 1)
+										var VAR_58 = int 50
+								}
+								if(var VAR_22 == int 1)
+								 {
+										call play_char_anim(var selected_hero, var mgkair_anim, int 0)
+										call func_ec(int 226, int 0, int 0, int 0)
+										var VAR_37 = int 0
+										var VAR_35 = int 1
+										gamevar pnc_look_use_mask = int 2
+										gamevar use_mouse_override_sprite = int 131072
+										var analect1 = call create_item(int 84)
+										var VAR_19 = int 1
+								}
+						}
+				}
+				if(var VAR_58 == int 4)
+				 {
+						var VAR_59 ++ 
+						if(var VAR_59 == int 160)
+						 {
+								call force_scroll_to_pos(var &scroll_position1)
+								call func_36(var selected_hero, int 1845, int 2845, int -4950)
+						}
+						if(var VAR_59 > int 300)
+						 {
+								var VAR_5 = call func_e8(var &scroll_position1, int 0)
+								var VAR_59 = int 0
+								var VAR_58 ++ 
+								call set_input_system(int 1)
+								var VAR_16 ++ 
+						}
+				}
+				if(var VAR_58 == int 5)
+				 {
+						var selected_hero = call get_selected_hero()
+						if(call is_char_at_pos(var selected_hero, var &scroll_position1, int 240))
+						 {
+								call set_input_system(int 2)
+								var selected_hero = call get_david_char()
+								while(var selected_hero)
+								 {
+										call set_char_running(var selected_hero)
+										call char_walk_to_pos(var selected_hero, @arr[var index])
+										var index ++ 
+										var VAR_26 = var index
+										var selected_hero = call func_7e()
+								}
+								call log("TELEPORT")
+								var index = int 0
+								var VAR_58 ++ 
+								var VAR_59 = int 0
+						}
+				}
+				if(var VAR_58 == int 6)
+				 {
+						var selected_hero = call get_david_char()
+						while(var selected_hero)
+						 {
+								if(call is_char_standing(var selected_hero)&&@arr_1[var index] == int 0)
+								 {
+										@arr_1[var index]= int 1
+										var VAR_23 ++ 
+										call func_36(var selected_hero, int 978, int 3292, int -4943)
+										call func_fa(var selected_hero)
+								}
+								var index ++ 
+								var selected_hero = call func_7e()
+						}
+						var index = int 0
+						if(var VAR_23 == var VAR_26)
+						 {
+								var VAR_59 ++ 
+								if(var VAR_59 > int 100)
+								 {
+										var VAR_58 ++ 
+										call func_e6("lmetalon", "black_3", var &VAR_0, int 2)
+										call set_scene_overwrite_act("lmetalon", "black_in", int 0)
+								}
+						}
+				}
+	}
+
+._SCRIPT_3
+	if(gamevar script_time > var VAR_65)
+	 {
+			var VAR_65 = gamevar script_time + int 70 + call randomize_int(int 0, int 110)
+
+			 /* play the sound 'renddizz' */ 
+			call play_loaded_sound(int 8, int 0, int 72, int 0)
+	}
+	if(gamevar script_time > var VAR_66)
+	 {
+			var VAR_66 = gamevar script_time + int 70 + call randomize_int(int 0, int 110)
+
+			 /* play the sound 'metamb1' */ 
+			call play_loaded_sound(int 7, int 0, int 72, int 0)
+	}
+	if(gamevar script_time > var VAR_67)
+	 {
+			var VAR_67 = gamevar script_time + int 100 + call randomize_int(int 0, int 50)
+
+			 /* play the sound 'wwindlp' */ 
+			call play_loaded_sound(int 6, int 0, int 65, int 0)
+	}
+
+._SCRIPT_4
+	gamevar SMACKER_X = int 308
+	gamevar SMACKER_Y = int 324
+	call play_2d_anim(var &VAR_38, int 1, int 1, var &VAR_37)
+	call play_2d_anim(var &VAR_39, int -2147483, int 1, var &VAR_35)
+	gamevar use_mouse_override_sprite = int 410
+
+._SCRIPT_5
+	if(var VAR_15)
+	 {
+			var VAR_41 = var VAR_18 * int 4
+			var VAR_18 = var VAR_36
+			var VAR_40 = var VAR_17 - var VAR_41
+			if(var VAR_40 < int 0)
+			 {
+					var VAR_19 = int 0
+					call stop_playing_sound(var torches2_sound_ref)
+			}
+			if(var VAR_19)
+			 {
+					call set_sound_volume(var torches2_sound_ref, var VAR_40)
+			}
+	}
+
+._SCRIPT_6
+	if(gamevar zone_under_mouse_type == int 18&&var VAR_22 == int 0)
+	 {
+	}
+	if(var VAR_48 == int 0&&call get_num_of_enemies() == int 0)
+	 {
+			if(gamevar global_zone_type == int 18)
+			 {
+					var selected_hero = gamevar control_char_p
+					if(call create_item(int 84 /* analect */ ))
 					 {
-							gamevar room_state ++ 
+							var VAR_22 = int 1
+					}
+					if(var VAR_22)
+					 {
+							call set_input_system(int 2)
+							call set_char_running(var selected_hero)
+							call char_walk_to(var selected_hero, int 2126, int 4042, int -4935)
+							var VAR_48 ++ 
+							call force_scroll_to_pos(var &scroll_position)
 					}
 					else
 					 {
-							gamevar is_room_cleared = int 1
-							gamevar room_state ++ 
+							call play_char_anim(var selected_hero, var no_anim, int 0)
 					}
-					break 
-				case 2
-					break 
-				case 0
-					break 
-				default 
-					gamevar room_state = int 0
-					break 
-		}
-			gamevar SMACKER_X = int 308
-			gamevar SMACKER_Y = int 324
-			call play_2d_anim("black_in", int 1, int 1, var &VAR_37)
-			call play_2d_anim("blackfad", int -2147483, int 1, var &VAR_35)
-			gamevar use_mouse_override_sprite = int 410
-			if(var VAR_15)
-			 {
-					var VAR_41 = var VAR_18 * int 4
-					var VAR_18 = var VAR_36
-					var VAR_40 = var VAR_17 - var VAR_41
-					if(var VAR_40 < int 0)
-					 {
-							var VAR_19 = int 0
-							call stop_playing_sound(var torches2_sound_ref)
-					}
-					if(var VAR_19)
-					 {
-							call set_sound_volume(var torches2_sound_ref, var VAR_40)
-					}
+					gamevar global_zone_type = int 0
 			}
-			var VAR_37 = int 1
-			call create_enemy(int 36 /* sarcher */ , int 0, var &init_position, int 238)
-			var SARCHER = call get_char_handle(int 11010048)
-			call set_char_init_state(var SARCHER, int 0)
-			var pie = call add_item_to_char(var SARCHER, int 46, int 1, int 0)
-			call create_enemy(int 36 /* sarcher */ , int 1, var &init_position1, int 310)
-			var SARCHER1 = call get_char_handle(int 11010049)
-			call set_char_init_state(var SARCHER1, int 0)
-			var deadmous = call add_item_to_char(var SARCHER1, int 45, int 1, int 0)
-			execute SCRIPT_4
-			var torches2_sound_ref = call play_loaded_sound(int 1, int -1, int 30, int 0)
-			var VAR_15 = int 1
-			if(gamevar zone_under_mouse_type == int 18&&var VAR_22 == int 0)
+	}
+	if(var VAR_48 == int 1)
+	 {
+			if(call is_char_standing(var selected_hero))
 			 {
+					call func_36(var selected_hero, int 2277, int 4041, int -4940)
+					var VAR_48 ++ 
 			}
-			if(var VAR_48 == int 0&&call get_num_of_enemies() == int 0)
+	}
+	if(var VAR_48 == int 2)
+	 {
+			var VAR_49 ++ 
+			if(var VAR_49 == int 100)
 			 {
-					if(gamevar global_zone_type == int 18)
+					call func_68(var selected_hero)
+					call func_61(var selected_hero)
+					var VAR_48 ++ 
+					var VAR_49 = int 0
+			}
+	}
+	if(var VAR_48 == int 3)
+	 {
+			var VAR_49 ++ 
+			if(var VAR_49 > int 100)
+			 {
+					var VAR_49 = int 0
+					var VAR_48 ++ 
+					call play_char_anim(var selected_hero, var mgkair_anim, int 0)
+					call func_ec(int 226, int 0, int 0, int 0)
+					var VAR_37 = int 0
+					var VAR_35 = int 1
+					gamevar pnc_look_use_mask = int 2
+					gamevar use_mouse_override_sprite = int 131072
+					var analect1 = call create_item(int 84)
+					var VAR_19 = int 1
+			}
+	}
+	if(var VAR_48 == int 4)
+	 {
+			var VAR_49 ++ 
+			if(var VAR_49 == int 160)
+			 {
+					call func_7d(var selected_hero)
+					call force_scroll_to_pos(var &scroll_position1)
+					call func_36(var selected_hero, int 1845, int 2845, int -4950)
+			}
+			if(var VAR_49 > int 300)
+			 {
+					var VAR_5 = call func_e8(var &scroll_position1, int 0)
+					var VAR_49 = int 0
+					var VAR_48 ++ 
+					call set_input_system(int 1)
+					var VAR_16 ++ 
+			}
+	}
+	if(var VAR_48 == int 5)
+	 {
+			var selected_hero = call get_selected_hero()
+			if(call is_char_at_pos(var selected_hero, var &scroll_position1, int 240))
+			 {
+					call set_input_system(int 2)
+					var selected_hero = call get_david_char()
+					while(var selected_hero)
 					 {
-							var selected_hero = gamevar control_char_p
-							if(call create_item(int 84 /* analect */ ))
-							 {
-									var VAR_22 = int 1
-							}
-							if(var VAR_22)
-							 {
-									call set_input_system(int 2)
-									call set_char_running(var selected_hero)
-									call char_walk_to(var selected_hero, int 2126, int 4042, int -4935)
-									var VAR_48 ++ 
-									call force_scroll_to_pos(var &scroll_position)
-							}
-							else
-							 {
-									call play_char_anim(var selected_hero, var no_anim, int 0)
-							}
-							gamevar global_zone_type = int 0
+							call set_char_running(var selected_hero)
+							call char_walk_to_pos(var selected_hero, @arr[var index])
+							var index ++ 
+							var VAR_26 = var index
+							var selected_hero = call func_7e()
 					}
+					var index = int 0
+					var VAR_48 ++ 
+					var VAR_49 = int 0
 			}
-			if(var VAR_48 == int 1)
+	}
+	if(var VAR_48 == int 6)
+	 {
+			var selected_hero = call get_david_char()
+			while(var selected_hero)
 			 {
-					if(call is_char_standing(var selected_hero))
+					if(call is_char_standing(var selected_hero)&&@arr_1[var index] == int 0)
 					 {
-							call func_36(var selected_hero, int 2277, int 4041, int -4940)
-							var VAR_48 ++ 
+							@arr_1[var index]= int 1
+							var VAR_23 ++ 
+							call func_36(var selected_hero, int 978, int 3292, int -4943)
+							call func_fa(var selected_hero)
 					}
+					var index ++ 
+					var selected_hero = call func_7e()
 			}
-			if(var VAR_48 == int 2)
-			 {
-					var VAR_49 ++ 
-					if(var VAR_49 == int 100)
-					 {
-							call func_68(var selected_hero)
-							call func_61(var selected_hero)
-							var VAR_48 ++ 
-							var VAR_49 = int 0
-					}
-			}
-			if(var VAR_48 == int 3)
+			var index = int 0
+			if(var VAR_23 == var VAR_26)
 			 {
 					var VAR_49 ++ 
 					if(var VAR_49 > int 100)
 					 {
-							var VAR_49 = int 0
 							var VAR_48 ++ 
+							call func_e6(var &VAR_50, var &VAR_51, var &VAR_0, int 2)
+					}
+			}
+	}
+	execute SCRIPT_5
+
+._SCRIPT_7
+	var VAR_37 = int 1
+	call create_enemy(int 36 /* sarcher */ , int 0, var &init_position, int 238)
+	var SARCHER = call get_char_handle(int 11010048)
+	call set_char_init_state(var SARCHER, int 0)
+	var pie = call add_item_to_char(var SARCHER, int 46, int 1, int 0)
+	call create_enemy(int 36 /* sarcher */ , int 1, var &init_position1, int 310)
+	var SARCHER1 = call get_char_handle(int 11010049)
+	call set_char_init_state(var SARCHER1, int 0)
+	var deadmous = call add_item_to_char(var SARCHER1, int 45, int 1, int 0)
+	execute SCRIPT_4
+	var torches2_sound_ref = call play_loaded_sound /* 'torches2' */ (int 1, int -1, int 30, int 0)
+	var VAR_15 = int 1
+
+._SCRIPT_8
+	if(var VAR_52 == int 0)
+	 {
+			var selected_hero = call get_david_char()
+			if(call is_char_at_pos(var selected_hero, var &scroll_position1, int 320))
+			 {
+					call set_input_system(int 2)
+					var VAR_52 ++ 
+					while(var selected_hero)
+					 {
+							call apply_effect_on_char(gamevar char_gen_fx_scripts, int 18, int 0, var selected_hero)
+							var selected_hero = call func_7e()
+					}
+			}
+			else
+			 {
+					var VAR_52 = int 4
+			}
+	}
+	if(var VAR_52 == int 1)
+	 {
+			var VAR_53 ++ 
+			if(var VAR_53 > int 100)
+			 {
+					var VAR_53 = int 0
+					var VAR_52 ++ 
+			}
+	}
+	if(var VAR_52 == int 2)
+	 {
+			var selected_hero = call get_david_char()
+			while(var selected_hero)
+			 {
+					call set_char_running(var selected_hero)
+					call char_walk_to_pos(var selected_hero, @arr_2[var index])
+					var index ++ 
+					var selected_hero = call func_7e()
+			}
+			var VAR_52 ++ 
+			var index = int 0
+	}
+	if(var VAR_52 == int 3)
+	 {
+			var VAR_53 ++ 
+			if(var VAR_53 > int 180)
+			 {
+					var VAR_53 = int 0
+					var VAR_52 ++ 
+					call set_input_system(int 1)
+					var index = int 0
+			}
+	}
+	if(var VAR_52 == int 4)
+	 {
+			var selected_hero = call get_selected_hero()
+			if(call is_char_at_pos(var selected_hero, var &scroll_position1, int 240))
+			 {
+					call set_input_system(int 2)
+					var selected_hero = call get_david_char()
+					while(var selected_hero)
+					 {
+							call set_char_running(var selected_hero)
+							call char_walk_to_pos(var selected_hero, @arr[var index])
+							var index ++ 
+							var VAR_26 = var index
+							var selected_hero = call func_7e()
+					}
+					var index = int 0
+					var VAR_52 ++ 
+					var VAR_53 = int 0
+			}
+	}
+	if(var VAR_52 == int 5)
+	 {
+			var selected_hero = call get_david_char()
+			while(var selected_hero)
+			 {
+					if(call is_char_standing(var selected_hero)&&@arr_1[var index] == int 0)
+					 {
+							@arr_1[var index]= int 1
+							var VAR_23 ++ 
+							call func_36(var selected_hero, int 1406, int 2890, int -4945)
+							call func_fa(var selected_hero)
+					}
+					var index ++ 
+					var selected_hero = call func_7e()
+			}
+			var index = int 0
+			if(var VAR_23 == var VAR_26)
+			 {
+					var VAR_53 ++ 
+					if(var VAR_53 > int 100)
+					 {
+							var VAR_52 ++ 
+							call func_e6(var &VAR_54, var &VAR_55, var &VAR_0, int 2)
+							call set_scene_overwrite_act(var &VAR_56, var &VAR_57, int 0)
+					}
+			}
+	}
+
+._SCRIPT_9
+	gamevar pnc_look_use_mask = int 2
+	var VAR_5 = call func_e8(var &scroll_position1, int 0)
+
+._SCRIPT_10
+	execute SCRIPT_4
+	var VAR_37 = int 1
+	var torches2_sound_ref = call play_loaded_sound /* 'torches2' */ (int 1, int -1, int 30, int 0)
+	var VAR_15 = int 1
+
+._SCRIPT_11
+	execute SCRIPT_5
+	if(gamevar zone_under_mouse_type == int 18&&var VAR_22 == int 0)
+	 {
+	}
+	if(var VAR_58 == int 0&&call get_num_of_enemies() == int 0)
+	 {
+			if(gamevar global_zone_type == int 18)
+			 {
+					call set_input_system(int 2)
+					var selected_hero = call get_selected_hero()
+					call set_char_running(var selected_hero)
+					call char_walk_to(var selected_hero, int 2126, int 4042, int -4935)
+					var VAR_58 ++ 
+					gamevar global_zone_type = int 0
+					call force_scroll_to_pos(var &scroll_position)
+			}
+	}
+	if(var VAR_58 == int 1)
+	 {
+			if(call is_char_standing(var selected_hero))
+			 {
+					call func_36(var selected_hero, int 2277, int 4041, int -4940)
+					var VAR_58 ++ 
+					if(call create_item(int 84 /* analect */ ))
+					 {
+							var VAR_22 = int 1
+					}
+					else
+					 {
+							call play_char_anim(var selected_hero, var no_anim, int 0)
+					}
+			}
+	}
+	if(var VAR_58 == int 2)
+	 {
+			var VAR_59 ++ 
+			if(var VAR_59 == int 100)
+			 {
+					call func_61(var selected_hero)
+					var VAR_58 ++ 
+					var VAR_59 = int 0
+			}
+	}
+	if(var VAR_58 == int 3)
+	 {
+			var VAR_59 ++ 
+			if(var VAR_59 > int 100)
+			 {
+					var VAR_59 = int 0
+					var VAR_58 ++ 
+					if(var VAR_22 == int 0)
+					 {
+							call play_char_anim(var selected_hero, var no_anim, int 0)
+							call set_input_system(int 1)
+							var VAR_58 = int 50
+					}
+					if(var VAR_22 == int 1)
+					 {
 							call play_char_anim(var selected_hero, var mgkair_anim, int 0)
 							call func_ec(int 226, int 0, int 0, int 0)
 							var VAR_37 = int 0
@@ -213,744 +888,69 @@ if(gamevar !is_room_cleared&&var VAR_22 == int 0)
 							var VAR_19 = int 1
 					}
 			}
-			if(var VAR_48 == int 4)
+	}
+	if(var VAR_58 == int 4)
+	 {
+			var VAR_59 ++ 
+			if(var VAR_59 == int 160)
 			 {
-					var VAR_49 ++ 
-					if(var VAR_49 == int 160)
-					 {
-							call func_7d(var selected_hero)
-							call force_scroll_to_pos(var &scroll_position1)
-							call func_36(var selected_hero, int 1845, int 2845, int -4950)
-					}
-					if(var VAR_49 > int 300)
-					 {
-							var VAR_5 = call func_e8(var &scroll_position1, int 0)
-							var VAR_49 = int 0
-							var VAR_48 ++ 
-							call set_input_system(int 1)
-							var VAR_16 ++ 
-					}
+					call force_scroll_to_pos(var &scroll_position1)
+					call func_36(var selected_hero, int 1845, int 2845, int -4950)
 			}
-			if(var VAR_48 == int 5)
+			if(var VAR_59 > int 300)
 			 {
-					var selected_hero = call get_selected_hero()
-					if(call is_char_at_pos(var selected_hero, var &scroll_position1, int 240))
-					 {
-							call set_input_system(int 2)
-							var selected_hero = call get_david_char()
-							while(var selected_hero)
-							 {
-									call set_char_running(var selected_hero)
-									call char_walk_to_pos(var selected_hero, @arr[var VAR_25])
-									var VAR_25 ++ 
-									var VAR_26 = var VAR_25
-									var selected_hero = call func_7e()
-							}
-							var VAR_25 = int 0
-							var VAR_48 ++ 
-							var VAR_49 = int 0
-					}
+					var VAR_5 = call func_e8(var &scroll_position1, int 0)
+					var VAR_59 = int 0
+					var VAR_58 ++ 
+					call set_input_system(int 1)
+					var VAR_16 ++ 
 			}
-			if(var VAR_48 == int 6)
+	}
+	if(var VAR_58 == int 5)
+	 {
+			var selected_hero = call get_selected_hero()
+			if(call is_char_at_pos(var selected_hero, var &scroll_position1, int 240))
 			 {
-					var selected_hero = call get_david_char()
-					while(var selected_hero)
-					 {
-							if(call is_char_standing(var selected_hero)&&@arr_1[var VAR_25] == int 0)
-							 {
-									@arr_1[var VAR_25]= int 1
-									var VAR_23 ++ 
-									call func_36(var selected_hero, int 978, int 3292, int -4943)
-									call func_fa(var selected_hero)
-							}
-							var VAR_25 ++ 
-							var selected_hero = call func_7e()
-					}
-					var VAR_25 = int 0
-					if(var VAR_23 == var VAR_26)
-					 {
-							var VAR_49 ++ 
-							if(var VAR_49 > int 100)
-							 {
-									var VAR_48 ++ 
-									call func_e6("lmetalon", "black_3", var &VAR_0, int 2)
-							}
-					}
-			}
-			execute SCRIPT_5
-			gamevar pnc_look_use_mask = int 2
-			var VAR_5 = call func_e8(var &scroll_position1, int 0)
-			if(var VAR_52 == int 0)
-			 {
-					var selected_hero = call get_david_char()
-					if(call is_char_at_pos(var selected_hero, var &scroll_position1, int 320))
-					 {
-							call set_input_system(int 2)
-							var VAR_52 ++ 
-							while(var selected_hero)
-							 {
-									call apply_effect_on_char(gamevar char_gen_fx_scripts, int 18, int 0, var selected_hero)
-									var selected_hero = call func_7e()
-							}
-					}
-					else
-					 {
-							var VAR_52 = int 4
-					}
-			}
-			if(var VAR_52 == int 1)
-			 {
-					var VAR_53 ++ 
-					if(var VAR_53 > int 100)
-					 {
-							var VAR_53 = int 0
-							var VAR_52 ++ 
-					}
-			}
-			if(var VAR_52 == int 2)
-			 {
+					call set_input_system(int 2)
 					var selected_hero = call get_david_char()
 					while(var selected_hero)
 					 {
 							call set_char_running(var selected_hero)
-							call char_walk_to_pos(var selected_hero, @arr_2[var VAR_25])
-							var VAR_25 ++ 
+							call char_walk_to_pos(var selected_hero, @arr[var index])
+							var index ++ 
+							var VAR_26 = var index
 							var selected_hero = call func_7e()
 					}
-					var VAR_52 ++ 
-					var VAR_25 = int 0
+					call log(var &VAR_60)
+					var index = int 0
+					var VAR_58 ++ 
+					var VAR_59 = int 0
 			}
-			if(var VAR_52 == int 3)
+	}
+	if(var VAR_58 == int 6)
+	 {
+			var selected_hero = call get_david_char()
+			while(var selected_hero)
 			 {
-					var VAR_53 ++ 
-					if(var VAR_53 > int 180)
+					if(call is_char_standing(var selected_hero)&&@arr_1[var index] == int 0)
 					 {
-							var VAR_53 = int 0
-							var VAR_52 ++ 
-							call set_input_system(int 1)
-							var VAR_25 = int 0
+							@arr_1[var index]= int 1
+							var VAR_23 ++ 
+							call func_36(var selected_hero, int 978, int 3292, int -4943)
+							call func_fa(var selected_hero)
 					}
+					var index ++ 
+					var selected_hero = call func_7e()
 			}
-			if(var VAR_52 == int 4)
-			 {
-					var selected_hero = call get_selected_hero()
-					if(call is_char_at_pos(var selected_hero, var &scroll_position1, int 240))
-					 {
-							call set_input_system(int 2)
-							var selected_hero = call get_david_char()
-							while(var selected_hero)
-							 {
-									call set_char_running(var selected_hero)
-									call char_walk_to_pos(var selected_hero, @arr[var VAR_25])
-									var VAR_25 ++ 
-									var VAR_26 = var VAR_25
-									var selected_hero = call func_7e()
-							}
-							var VAR_25 = int 0
-							var VAR_52 ++ 
-							var VAR_53 = int 0
-					}
-			}
-			if(var VAR_52 == int 5)
-			 {
-					var selected_hero = call get_david_char()
-					while(var selected_hero)
-					 {
-							if(call is_char_standing(var selected_hero)&&@arr_1[var VAR_25] == int 0)
-							 {
-									@arr_1[var VAR_25]= int 1
-									var VAR_23 ++ 
-									call func_36(var selected_hero, int 1406, int 2890, int -4945)
-									call func_fa(var selected_hero)
-							}
-							var VAR_25 ++ 
-							var selected_hero = call func_7e()
-					}
-					var VAR_25 = int 0
-					if(var VAR_23 == var VAR_26)
-					 {
-							var VAR_53 ++ 
-							if(var VAR_53 > int 100)
-							 {
-									var VAR_52 ++ 
-									call func_e6("lmetalon", "black_3", var &VAR_0, int 2)
-									call set_scene_overwrite_act("lmetalon", "black_in", int 0)
-							}
-					}
-			}
-			execute SCRIPT_4
-			var VAR_37 = int 1
-			var torches2_sound_ref = call play_loaded_sound /* 'torches2' */ (int 1, int -1, int 30, int 0)
-			var VAR_15 = int 1
-			execute SCRIPT_5
-			if(gamevar zone_under_mouse_type == int 18&&var VAR_22 == int 0)
-			 {
-			}
-			if(var VAR_58 == int 0&&call get_num_of_enemies() == int 0)
-			 {
-					if(gamevar global_zone_type == int 18)
-					 {
-							call set_input_system(int 2)
-							var selected_hero = call get_selected_hero()
-							call set_char_running(var selected_hero)
-							call char_walk_to(var selected_hero, int 2126, int 4042, int -4935)
-							var VAR_58 ++ 
-							gamevar global_zone_type = int 0
-							call force_scroll_to_pos(var &scroll_position)
-					}
-			}
-			if(var VAR_58 == int 1)
-			 {
-					if(call is_char_standing(var selected_hero))
-					 {
-							call func_36(var selected_hero, int 2277, int 4041, int -4940)
-							var VAR_58 ++ 
-							if(call create_item(int 84 /* analect */ ))
-							 {
-									var VAR_22 = int 1
-							}
-							else
-							 {
-									call play_char_anim(var selected_hero, var no_anim, int 0)
-							}
-					}
-			}
-			if(var VAR_58 == int 2)
-			 {
-					var VAR_59 ++ 
-					if(var VAR_59 == int 100)
-					 {
-							call func_61(var selected_hero)
-							var VAR_58 ++ 
-							var VAR_59 = int 0
-					}
-			}
-			if(var VAR_58 == int 3)
+			var index = int 0
+			if(var VAR_23 == var VAR_26)
 			 {
 					var VAR_59 ++ 
 					if(var VAR_59 > int 100)
 					 {
-							var VAR_59 = int 0
 							var VAR_58 ++ 
-							if(var VAR_22 == int 0)
-							 {
-									call play_char_anim(var selected_hero, var no_anim, int 0)
-									call set_input_system(int 1)
-									var VAR_58 = int 50
-							}
-							if(var VAR_22 == int 1)
-							 {
-									call play_char_anim(var selected_hero, var mgkair_anim, int 0)
-									call func_ec(int 226, int 0, int 0, int 0)
-									var VAR_37 = int 0
-									var VAR_35 = int 1
-									gamevar pnc_look_use_mask = int 2
-									gamevar use_mouse_override_sprite = int 131072
-									var analect1 = call create_item(int 84)
-									var VAR_19 = int 1
-							}
+							call func_e6(var &VAR_61, var &VAR_62, var &VAR_0, int 2)
+							call set_scene_overwrite_act(var &VAR_63, var &VAR_64, int 0)
 					}
 			}
-			if(var VAR_58 == int 4)
-			 {
-					var VAR_59 ++ 
-					if(var VAR_59 == int 160)
-					 {
-							call force_scroll_to_pos(var &scroll_position1)
-							call func_36(var selected_hero, int 1845, int 2845, int -4950)
-					}
-					if(var VAR_59 > int 300)
-					 {
-							var VAR_5 = call func_e8(var &scroll_position1, int 0)
-							var VAR_59 = int 0
-							var VAR_58 ++ 
-							call set_input_system(int 1)
-							var VAR_16 ++ 
-					}
-			}
-			if(var VAR_58 == int 5)
-			 {
-					var selected_hero = call get_selected_hero()
-					if(call is_char_at_pos(var selected_hero, var &scroll_position1, int 240))
-					 {
-							call set_input_system(int 2)
-							var selected_hero = call get_david_char()
-							while(var selected_hero)
-							 {
-									call set_char_running(var selected_hero)
-									call char_walk_to_pos(var selected_hero, @arr[var VAR_25])
-									var VAR_25 ++ 
-									var VAR_26 = var VAR_25
-									var selected_hero = call func_7e()
-							}
-							call log("TELEPORT")
-							var VAR_25 = int 0
-							var VAR_58 ++ 
-							var VAR_59 = int 0
-					}
-			}
-			if(var VAR_58 == int 6)
-			 {
-					var selected_hero = call get_david_char()
-					while(var selected_hero)
-					 {
-							if(call is_char_standing(var selected_hero)&&@arr_1[var VAR_25] == int 0)
-							 {
-									@arr_1[var VAR_25]= int 1
-									var VAR_23 ++ 
-									call func_36(var selected_hero, int 978, int 3292, int -4943)
-									call func_fa(var selected_hero)
-							}
-							var VAR_25 ++ 
-							var selected_hero = call func_7e()
-					}
-					var VAR_25 = int 0
-					if(var VAR_23 == var VAR_26)
-					 {
-							var VAR_59 ++ 
-							if(var VAR_59 > int 100)
-							 {
-									var VAR_58 ++ 
-									call func_e6("lmetalon", "black_3", var &VAR_0, int 2)
-									call set_scene_overwrite_act("lmetalon", "black_in", int 0)
-							}
-					}
-			}
-}
-
-._SCRIPT_3
-if(gamevar script_time > var VAR_65)
- {
-		var VAR_65 = gamevar script_time + int 70 + call randomize_int(int 0, int 110)
-
-		 /* play the sound 'renddizz' */ 
-		call play_loaded_sound(int 8, int 0, int 72, int 0)
-}
-if(gamevar script_time > var VAR_66)
- {
-		var VAR_66 = gamevar script_time + int 70 + call randomize_int(int 0, int 110)
-
-		 /* play the sound 'metamb1' */ 
-		call play_loaded_sound(int 7, int 0, int 72, int 0)
-}
-if(gamevar script_time > var VAR_67)
- {
-		var VAR_67 = gamevar script_time + int 100 + call randomize_int(int 0, int 50)
-
-		 /* play the sound 'wwindlp' */ 
-		call play_loaded_sound(int 6, int 0, int 65, int 0)
-}
-
-._SCRIPT_4
-gamevar SMACKER_X = int 308
-gamevar SMACKER_Y = int 324
-call play_2d_anim(var &VAR_38, int 1, int 1, var &VAR_37)
-call play_2d_anim(var &VAR_39, int -2147483, int 1, var &VAR_35)
-gamevar use_mouse_override_sprite = int 410
-
-._SCRIPT_5
-if(var VAR_15)
- {
-		var VAR_41 = var VAR_18 * int 4
-		var VAR_18 = var VAR_36
-		var VAR_40 = var VAR_17 - var VAR_41
-		if(var VAR_40 < int 0)
-		 {
-				var VAR_19 = int 0
-				call stop_playing_sound(var torches2_sound_ref)
-		}
-		if(var VAR_19)
-		 {
-				call set_sound_volume(var torches2_sound_ref, var VAR_40)
-		}
-}
-
-._SCRIPT_6
-if(gamevar zone_under_mouse_type == int 18&&var VAR_22 == int 0)
- {
-}
-if(var VAR_48 == int 0&&call get_num_of_enemies() == int 0)
- {
-		if(gamevar global_zone_type == int 18)
-		 {
-				var selected_hero = gamevar control_char_p
-				if(call create_item(int 84 /* analect */ ))
-				 {
-						var VAR_22 = int 1
-				}
-				if(var VAR_22)
-				 {
-						call set_input_system(int 2)
-						call set_char_running(var selected_hero)
-						call char_walk_to(var selected_hero, int 2126, int 4042, int -4935)
-						var VAR_48 ++ 
-						call force_scroll_to_pos(var &scroll_position)
-				}
-				else
-				 {
-						call play_char_anim(var selected_hero, var no_anim, int 0)
-				}
-				gamevar global_zone_type = int 0
-		}
-}
-if(var VAR_48 == int 1)
- {
-		if(call is_char_standing(var selected_hero))
-		 {
-				call func_36(var selected_hero, int 2277, int 4041, int -4940)
-				var VAR_48 ++ 
-		}
-}
-if(var VAR_48 == int 2)
- {
-		var VAR_49 ++ 
-		if(var VAR_49 == int 100)
-		 {
-				call func_68(var selected_hero)
-				call func_61(var selected_hero)
-				var VAR_48 ++ 
-				var VAR_49 = int 0
-		}
-}
-if(var VAR_48 == int 3)
- {
-		var VAR_49 ++ 
-		if(var VAR_49 > int 100)
-		 {
-				var VAR_49 = int 0
-				var VAR_48 ++ 
-				call play_char_anim(var selected_hero, var mgkair_anim, int 0)
-				call func_ec(int 226, int 0, int 0, int 0)
-				var VAR_37 = int 0
-				var VAR_35 = int 1
-				gamevar pnc_look_use_mask = int 2
-				gamevar use_mouse_override_sprite = int 131072
-				var analect1 = call create_item(int 84)
-				var VAR_19 = int 1
-		}
-}
-if(var VAR_48 == int 4)
- {
-		var VAR_49 ++ 
-		if(var VAR_49 == int 160)
-		 {
-				call func_7d(var selected_hero)
-				call force_scroll_to_pos(var &scroll_position1)
-				call func_36(var selected_hero, int 1845, int 2845, int -4950)
-		}
-		if(var VAR_49 > int 300)
-		 {
-				var VAR_5 = call func_e8(var &scroll_position1, int 0)
-				var VAR_49 = int 0
-				var VAR_48 ++ 
-				call set_input_system(int 1)
-				var VAR_16 ++ 
-		}
-}
-if(var VAR_48 == int 5)
- {
-		var selected_hero = call get_selected_hero()
-		if(call is_char_at_pos(var selected_hero, var &scroll_position1, int 240))
-		 {
-				call set_input_system(int 2)
-				var selected_hero = call get_david_char()
-				while(var selected_hero)
-				 {
-						call set_char_running(var selected_hero)
-						call char_walk_to_pos(var selected_hero, @arr[var VAR_25])
-						var VAR_25 ++ 
-						var VAR_26 = var VAR_25
-						var selected_hero = call func_7e()
-				}
-				var VAR_25 = int 0
-				var VAR_48 ++ 
-				var VAR_49 = int 0
-		}
-}
-if(var VAR_48 == int 6)
- {
-		var selected_hero = call get_david_char()
-		while(var selected_hero)
-		 {
-				if(call is_char_standing(var selected_hero)&&@arr_1[var VAR_25] == int 0)
-				 {
-						@arr_1[var VAR_25]= int 1
-						var VAR_23 ++ 
-						call func_36(var selected_hero, int 978, int 3292, int -4943)
-						call func_fa(var selected_hero)
-				}
-				var VAR_25 ++ 
-				var selected_hero = call func_7e()
-		}
-		var VAR_25 = int 0
-		if(var VAR_23 == var VAR_26)
-		 {
-				var VAR_49 ++ 
-				if(var VAR_49 > int 100)
-				 {
-						var VAR_48 ++ 
-						call func_e6(var &VAR_50, var &VAR_51, var &VAR_0, int 2)
-				}
-		}
-}
-execute SCRIPT_5
-
-._SCRIPT_7
-var VAR_37 = int 1
-call create_enemy(int 36 /* sarcher */ , int 0, var &init_position, int 238)
-var SARCHER = call get_char_handle(int 11010048)
-call set_char_init_state(var SARCHER, int 0)
-var pie = call add_item_to_char(var SARCHER, int 46, int 1, int 0)
-call create_enemy(int 36 /* sarcher */ , int 1, var &init_position1, int 310)
-var SARCHER1 = call get_char_handle(int 11010049)
-call set_char_init_state(var SARCHER1, int 0)
-var deadmous = call add_item_to_char(var SARCHER1, int 45, int 1, int 0)
-execute SCRIPT_4
-var torches2_sound_ref = call play_loaded_sound /* 'torches2' */ (int 1, int -1, int 30, int 0)
-var VAR_15 = int 1
-
-._SCRIPT_8
-if(var VAR_52 == int 0)
- {
-		var selected_hero = call get_david_char()
-		if(call is_char_at_pos(var selected_hero, var &scroll_position1, int 320))
-		 {
-				call set_input_system(int 2)
-				var VAR_52 ++ 
-				while(var selected_hero)
-				 {
-						call apply_effect_on_char(gamevar char_gen_fx_scripts, int 18, int 0, var selected_hero)
-						var selected_hero = call func_7e()
-				}
-		}
-		else
-		 {
-				var VAR_52 = int 4
-		}
-}
-if(var VAR_52 == int 1)
- {
-		var VAR_53 ++ 
-		if(var VAR_53 > int 100)
-		 {
-				var VAR_53 = int 0
-				var VAR_52 ++ 
-		}
-}
-if(var VAR_52 == int 2)
- {
-		var selected_hero = call get_david_char()
-		while(var selected_hero)
-		 {
-				call set_char_running(var selected_hero)
-				call char_walk_to_pos(var selected_hero, @arr_2[var VAR_25])
-				var VAR_25 ++ 
-				var selected_hero = call func_7e()
-		}
-		var VAR_52 ++ 
-		var VAR_25 = int 0
-}
-if(var VAR_52 == int 3)
- {
-		var VAR_53 ++ 
-		if(var VAR_53 > int 180)
-		 {
-				var VAR_53 = int 0
-				var VAR_52 ++ 
-				call set_input_system(int 1)
-				var VAR_25 = int 0
-		}
-}
-if(var VAR_52 == int 4)
- {
-		var selected_hero = call get_selected_hero()
-		if(call is_char_at_pos(var selected_hero, var &scroll_position1, int 240))
-		 {
-				call set_input_system(int 2)
-				var selected_hero = call get_david_char()
-				while(var selected_hero)
-				 {
-						call set_char_running(var selected_hero)
-						call char_walk_to_pos(var selected_hero, @arr[var VAR_25])
-						var VAR_25 ++ 
-						var VAR_26 = var VAR_25
-						var selected_hero = call func_7e()
-				}
-				var VAR_25 = int 0
-				var VAR_52 ++ 
-				var VAR_53 = int 0
-		}
-}
-if(var VAR_52 == int 5)
- {
-		var selected_hero = call get_david_char()
-		while(var selected_hero)
-		 {
-				if(call is_char_standing(var selected_hero)&&@arr_1[var VAR_25] == int 0)
-				 {
-						@arr_1[var VAR_25]= int 1
-						var VAR_23 ++ 
-						call func_36(var selected_hero, int 1406, int 2890, int -4945)
-						call func_fa(var selected_hero)
-				}
-				var VAR_25 ++ 
-				var selected_hero = call func_7e()
-		}
-		var VAR_25 = int 0
-		if(var VAR_23 == var VAR_26)
-		 {
-				var VAR_53 ++ 
-				if(var VAR_53 > int 100)
-				 {
-						var VAR_52 ++ 
-						call func_e6(var &VAR_54, var &VAR_55, var &VAR_0, int 2)
-						call set_scene_overwrite_act(var &VAR_56, var &VAR_57, int 0)
-				}
-		}
-}
-
-._SCRIPT_9
-gamevar pnc_look_use_mask = int 2
-var VAR_5 = call func_e8(var &scroll_position1, int 0)
-
-._SCRIPT_10
-execute SCRIPT_4
-var VAR_37 = int 1
-var torches2_sound_ref = call play_loaded_sound /* 'torches2' */ (int 1, int -1, int 30, int 0)
-var VAR_15 = int 1
-
-._SCRIPT_11
-execute SCRIPT_5
-if(gamevar zone_under_mouse_type == int 18&&var VAR_22 == int 0)
- {
-}
-if(var VAR_58 == int 0&&call get_num_of_enemies() == int 0)
- {
-		if(gamevar global_zone_type == int 18)
-		 {
-				call set_input_system(int 2)
-				var selected_hero = call get_selected_hero()
-				call set_char_running(var selected_hero)
-				call char_walk_to(var selected_hero, int 2126, int 4042, int -4935)
-				var VAR_58 ++ 
-				gamevar global_zone_type = int 0
-				call force_scroll_to_pos(var &scroll_position)
-		}
-}
-if(var VAR_58 == int 1)
- {
-		if(call is_char_standing(var selected_hero))
-		 {
-				call func_36(var selected_hero, int 2277, int 4041, int -4940)
-				var VAR_58 ++ 
-				if(call create_item(int 84 /* analect */ ))
-				 {
-						var VAR_22 = int 1
-				}
-				else
-				 {
-						call play_char_anim(var selected_hero, var no_anim, int 0)
-				}
-		}
-}
-if(var VAR_58 == int 2)
- {
-		var VAR_59 ++ 
-		if(var VAR_59 == int 100)
-		 {
-				call func_61(var selected_hero)
-				var VAR_58 ++ 
-				var VAR_59 = int 0
-		}
-}
-if(var VAR_58 == int 3)
- {
-		var VAR_59 ++ 
-		if(var VAR_59 > int 100)
-		 {
-				var VAR_59 = int 0
-				var VAR_58 ++ 
-				if(var VAR_22 == int 0)
-				 {
-						call play_char_anim(var selected_hero, var no_anim, int 0)
-						call set_input_system(int 1)
-						var VAR_58 = int 50
-				}
-				if(var VAR_22 == int 1)
-				 {
-						call play_char_anim(var selected_hero, var mgkair_anim, int 0)
-						call func_ec(int 226, int 0, int 0, int 0)
-						var VAR_37 = int 0
-						var VAR_35 = int 1
-						gamevar pnc_look_use_mask = int 2
-						gamevar use_mouse_override_sprite = int 131072
-						var analect1 = call create_item(int 84)
-						var VAR_19 = int 1
-				}
-		}
-}
-if(var VAR_58 == int 4)
- {
-		var VAR_59 ++ 
-		if(var VAR_59 == int 160)
-		 {
-				call force_scroll_to_pos(var &scroll_position1)
-				call func_36(var selected_hero, int 1845, int 2845, int -4950)
-		}
-		if(var VAR_59 > int 300)
-		 {
-				var VAR_5 = call func_e8(var &scroll_position1, int 0)
-				var VAR_59 = int 0
-				var VAR_58 ++ 
-				call set_input_system(int 1)
-				var VAR_16 ++ 
-		}
-}
-if(var VAR_58 == int 5)
- {
-		var selected_hero = call get_selected_hero()
-		if(call is_char_at_pos(var selected_hero, var &scroll_position1, int 240))
-		 {
-				call set_input_system(int 2)
-				var selected_hero = call get_david_char()
-				while(var selected_hero)
-				 {
-						call set_char_running(var selected_hero)
-						call char_walk_to_pos(var selected_hero, @arr[var VAR_25])
-						var VAR_25 ++ 
-						var VAR_26 = var VAR_25
-						var selected_hero = call func_7e()
-				}
-				call log(var &VAR_60)
-				var VAR_25 = int 0
-				var VAR_58 ++ 
-				var VAR_59 = int 0
-		}
-}
-if(var VAR_58 == int 6)
- {
-		var selected_hero = call get_david_char()
-		while(var selected_hero)
-		 {
-				if(call is_char_standing(var selected_hero)&&@arr_1[var VAR_25] == int 0)
-				 {
-						@arr_1[var VAR_25]= int 1
-						var VAR_23 ++ 
-						call func_36(var selected_hero, int 978, int 3292, int -4943)
-						call func_fa(var selected_hero)
-				}
-				var VAR_25 ++ 
-				var selected_hero = call func_7e()
-		}
-		var VAR_25 = int 0
-		if(var VAR_23 == var VAR_26)
-		 {
-				var VAR_59 ++ 
-				if(var VAR_59 > int 100)
-				 {
-						var VAR_58 ++ 
-						call func_e6(var &VAR_61, var &VAR_62, var &VAR_0, int 2)
-						call set_scene_overwrite_act(var &VAR_63, var &VAR_64, int 0)
-				}
-		}
-}
+	}

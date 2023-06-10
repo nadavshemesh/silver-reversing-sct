@@ -185,7 +185,7 @@ void write_asm_code_nodes(node* head, sct_f* sf) {
     if(node == NULL) return;
     while(node != NULL && node->item != NULL) {
         code_obj* co = (code_obj*) node->item;
-        write_asm_code_obj(co, 0, sf);
+        write_asm_code_obj(co, 1, sf);
         node = node->next;
     }
 }
@@ -221,7 +221,7 @@ void write_asm_file(sct_f* sf) {
 }
 
 void write_asm_data_object(data_obj* data_o, sct_f* sf) {
-    fprintf(sf->out_file, "%s\t", data_o->name);
+    fprintf(sf->out_file, "\t%s\t", data_o->name);
     if(data_o->type == STRING || (data_o->type == UNDEFINED_TYPE && is_string((byte*)data_o->data, data_o->byte_size))) {    
         fprintf(sf->out_file, "\"");
         for(int i=0; i < data_o->byte_size; i++) {

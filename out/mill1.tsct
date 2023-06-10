@@ -10,392 +10,392 @@
 
 
 ._DATA
-VAR_16	-1	
-VAR_18	{ 40, 1, 43, 1, 42, 1, 3, 1, -1 }	
-VAR_25	{ 197, 89, -717 }	
-VAR_27	{ -846, 1425, -7346 }	
-init_position	{ -245, 89, -242 }	
-VAR_43	-1	
-VAR_61	{ 0, 0 }	
-VAR_63	10	
-VAR_64	2	
+	VAR_16	-1	
+	VAR_18	{ 40, 1, 43, 1, 42, 1, 3, 1, -1 }	
+	VAR_25	{ 197, 89, -717 }	
+	VAR_27	{ -846, 1425, -7346 }	
+	init_position	{ -245, 89, -242 }	
+	VAR_43	-1	
+	VAR_61	{ 0, 0 }	
+	VAR_63	10	
+	VAR_64	2	
 
 ._on_load
-var init_position1 = var &VAR_25
-var VAR_13 = int 320
-execute SCRIPT_15
-var VAR_14 = int 39
-execute SCRIPT_16
-var VAR_16 = int 6554113
-execute SCRIPT_16
-execute SCRIPT_3
-execute SCRIPT_4
-execute SCRIPT_5
-execute SCRIPT_11
-if(gamevar is_room_cleared)
- {
-		execute SCRIPT_10
-}
-else
- {
-		switch(gamevar room_state)
-		 {
-				case 1
-					execute SCRIPT_7
-					break 
-				case 2
-					execute SCRIPT_9
-					break 
-				case 0
-					break 
-		}
-}
+	var VAR_12 = var &VAR_25
+	var VAR_13 = int 320
+	execute SCRIPT_15
+	var VAR_14 = int 39
+	execute SCRIPT_16
+	var VAR_16 = int 6554113
+	execute SCRIPT_16
+	execute SCRIPT_3
+	execute SCRIPT_4
+	execute SCRIPT_5
+	execute SCRIPT_11
+	if(gamevar is_room_cleared)
+	 {
+			execute SCRIPT_10
+	}
+	else
+	 {
+			switch(gamevar room_state)
+			 {
+					case 1
+						execute SCRIPT_7
+						break 
+					case 2
+						execute SCRIPT_9
+						break 
+					case 0
+						break 
+			}
+	}
 
 ._infinite_loop
-if(gamevar !is_room_cleared)
- {
-		switch(gamevar room_state)
-		 {
-				case 1
-					execute SCRIPT_6
-					break 
-				case 2
-					execute SCRIPT_8
-					break 
-				case 0
-					break 
-		}
-}
-execute SCRIPT_13
+	if(gamevar !is_room_cleared)
+	 {
+			switch(gamevar room_state)
+			 {
+					case 1
+						execute SCRIPT_6
+						break 
+					case 2
+						execute SCRIPT_8
+						break 
+					case 0
+						break 
+			}
+	}
+	execute SCRIPT_13
 
 ._on_exit
-if(gamevar !is_room_cleared)
- {
-		switch(gamevar room_state)
-		 {
-				case 1
-					if(var VAR_26)
-					 {
-							gamevar room_state = int 3
-							gamevar is_room_cleared = int 1
-					}
-					else
-					 {
-							gamevar room_state ++ 
-					}
-					break 
-				case 2
-					if(var VAR_26)
-					 {
-							gamevar room_state = int 3
-							gamevar is_room_cleared = int 1
-					}
-					break 
-				case 0
-					break 
-				default 
-					gamevar room_state = int 0
-					break 
-		}
-}
-execute SCRIPT_14
+	if(gamevar !is_room_cleared)
+	 {
+			switch(gamevar room_state)
+			 {
+					case 1
+						if(var VAR_26)
+						 {
+								gamevar room_state = int 3
+								gamevar is_room_cleared = int 1
+						}
+						else
+						 {
+								gamevar room_state ++ 
+						}
+						break 
+					case 2
+						if(var VAR_26)
+						 {
+								gamevar room_state = int 3
+								gamevar is_room_cleared = int 1
+						}
+						break 
+					case 0
+						break 
+					default 
+						gamevar room_state = int 0
+						break 
+			}
+	}
+	execute SCRIPT_14
 
 ._SCRIPT_3
-gamevar SMACKER_X = int 100
-gamevar SMACKER_Y = int 0
-call play_2d_anim("mill1", int 1, int 1, int 0)
+	gamevar SMACKER_X = int 100
+	gamevar SMACKER_Y = int 0
+	call play_2d_anim("mill1", int 1, int 1, int 0)
 
 ._SCRIPT_4
-call load_sound_set(int 18)
+	call load_sound_set(int 18)
 
- /* play the sound 'wheel' */ 
-call play_loaded_sound(int 1, int -1, int 18, int 0)
-call load_sound_set(int 3)
-call remove_face(var &VAR_27)
+	 /* play the sound 'wheel' */ 
+	call play_loaded_sound(int 1, int -1, int 18, int 0)
+	call load_sound_set(int 3)
+	call remove_face(var &VAR_27)
 
- /* play the sound 'bird1' */ 
-call play_loaded_sound(int 1, int -1, int 3, var &VAR_27)
+	 /* play the sound 'bird1' */ 
+	call play_loaded_sound(int 1, int -1, int 3, var &VAR_27)
 
 ._SCRIPT_5
 
 ._SCRIPT_6
-if(var VAR_43 != var VAR_41)
- {
-		var VAR_43 = var VAR_41
-		call log_obj(var VAR_41)
-}
-switch(var VAR_41)
- {
-}
-var VAR_42 ++ 
+	if(var VAR_43 != var VAR_41)
+	 {
+			var VAR_43 = var VAR_41
+			call log_obj(var VAR_41)
+	}
+	switch(var VAR_41)
+	 {
+	}
+	var VAR_42 ++ 
 
 ._SCRIPT_7
-gamevar global_inventory_p = var &VAR_18
-call create_char(var &init_position, "btreasure", int 185, int 14)
+	gamevar global_inventory_p = var &VAR_18
+	call create_char(var &init_position, "btreasure", int 185, int 14)
 
 ._SCRIPT_8
-switch(var VAR_61)
- {
-}
+	switch(var VAR_61)
+	 {
+	}
 
 ._SCRIPT_9
 
 ._SCRIPT_10
 
 ._SCRIPT_11
-var david = call get_david_char()
-while(var david)
- {
-		var VAR_30 = call get_char_handle_id(var david)
-		switch(var VAR_30)
-		 {
-				case 65536
-					call log("david")
-					var VAR_19 = var david
-					break 
-				case 786432
-					call log("sekune")
-					var VAR_21 = var david
-					break 
-				case 327680
-					call log("jug")
-					var VAR_20 = var david
-					break 
-				case 196608
-					call log("vivienne")
-					var VAR_22 = var david
-					break 
-				case 131072
-					call log("chiaro")
-					var VAR_23 = var david
-					break 
-				case 262144
-					call log("cagen")
-					var VAR_24 = var david
-					break 
-				default 
-					call log("WARNING! Unknown hero while checking heroes")
-					call log("Get a goober -- QUICKLY!!")
-					break 
-		}
-		var david = call func_7e()
-}
+	var david = call get_david_char()
+	while(var david)
+	 {
+			var VAR_30 = call get_char_handle_id(var david)
+			switch(var VAR_30)
+			 {
+					case 65536
+						call log("david")
+						var VAR_19 = var david
+						break 
+					case 786432
+						call log("sekune")
+						var VAR_21 = var david
+						break 
+					case 327680
+						call log("jug")
+						var VAR_20 = var david
+						break 
+					case 196608
+						call log("vivienne")
+						var VAR_22 = var david
+						break 
+					case 131072
+						call log("chiaro")
+						var VAR_23 = var david
+						break 
+					case 262144
+						call log("cagen")
+						var VAR_24 = var david
+						break 
+					default 
+						call log("WARNING! Unknown hero while checking heroes")
+						call log("Get a goober -- QUICKLY!!")
+						break 
+			}
+			var david = call func_7e()
+	}
 
 ._SCRIPT_12
-switch(var VAR_46)
- {
-		case 0
-			var BTREASURE = call get_char_handle(int 1507328)
-			gamevar script_object = var BTREASURE
-			if(gamevar *object_p+5 == int 15)
-			 {
-					var VAR_46 = int 2
-					var VAR_47 = int 0
-			}
-			else
-			 {
-					var VAR_46 ++ 
-					var VAR_47 = int 0
-			}
-			break 
-		case 1
-			if(call func_af(int 3))
-			 {
-					var VAR_46 ++ 
-					var VAR_47 = int 0
-			}
-			break 
-		case 2
-			if(call ! func_af(int 3))
-			 {
-					call set_input_system(int 2)
-					var VAR_44 += call func_42(var VAR_19, int 0)
-					var VAR_44 += call func_42(var VAR_19, int 1)
-					var VAR_44 += call func_42(var VAR_19, int 2)
-					var VAR_44 += call func_42(var VAR_19, int 3)
-					var VAR_44 += call func_42(var VAR_19, int 4)
-					var VAR_44 += call func_42(var VAR_19, int 5)
-					var VAR_44 += call func_42(var VAR_19, int 6)
-					var VAR_44 += call func_42(var VAR_19, int 7)
-					call log("orbs")
-					call log_obj(var VAR_44)
-					if(var VAR_21)
-					 {
-							var VAR_45 = var VAR_21
-					}
-					else
-					 {
-							if(var VAR_22)
-							 {
-									var VAR_45 = var VAR_22
-							}
-							else
-							 {
-									if(var VAR_20)
-									 {
-											var VAR_45 = var VAR_20
-									}
-									else
-									 {
-											if(var VAR_24)
-											 {
-													var VAR_45 = var VAR_24
-											}
-											else
-											 {
-													if(var VAR_23)
-													 {
-															var VAR_45 = var VAR_23
-													}
-											}
-									}
-							}
-					}
-					if(var VAR_45)
-					 {
-							var VAR_46 ++ 
-							var VAR_47 = int 0
-					}
-					else
-					 {
-							call set_input_system(int 1)
-							call log("ERROR!!!!!!!!!!!!!!!!!!!")
-							var VAR_46 = int -1
-							var VAR_47 = int 0
-					}
-			}
-			break 
-		case 3
-			if(var VAR_47 > int 50)
-			 {
-					if(var VAR_44 >= int 8)
-					 {
-							call start_dialog("L_DVDORB", "FINAL")
-							call char_turn_to_pos(gamevar control_char_p, call get_char_pos(var VAR_45))
-							call char_turn_to_pos(var VAR_45, call get_char_pos(gamevar control_char_p))
-					}
-					else
-					 {
-							if(gamevar control_char_p == var VAR_19)
-							 {
-									if(var VAR_23)
-									 {
-											call start_dialog("L_DVDORB", "WITH_CHI")
-											call char_turn_to_pos(gamevar control_char_p, call get_char_pos(var VAR_23))
-											call char_turn_to_pos(var VAR_23, call get_char_pos(gamevar control_char_p))
-									}
-									else
-									 {
-											call start_dialog("L_CHIDVD", "NULL")
-											call char_turn_to_pos(gamevar control_char_p, call get_char_pos(var VAR_45))
-											call char_turn_to_pos(var VAR_45, call get_char_pos(gamevar control_char_p))
-									}
-							}
-							else
-							 {
-									if(var VAR_23)
-									 {
-											call start_dialog("L_DVDCHI", "WITH_CHI")
-											call char_turn_to_pos(gamevar control_char_p, call get_char_pos(var VAR_23))
-											call char_turn_to_pos(var VAR_23, call get_char_pos(gamevar control_char_p))
-									}
-									else
-									 {
-											call start_dialog("L_DVDORB", "NULL")
-											call char_turn_to_pos(gamevar control_char_p, call get_char_pos(var VAR_19))
-											call char_turn_to_pos(var VAR_19, call get_char_pos(gamevar control_char_p))
-									}
-							}
-					}
-					var VAR_46 ++ 
-					var VAR_47 = int 0
-			}
-			break 
-		case 4
-			if(call get_input_sys() != int 4)
-			 {
-					call set_input_system(int 1)
-					var VAR_26 = int 1
-					var VAR_46 ++ 
-					var VAR_47 = int 0
-			}
-			break 
-}
-var VAR_47 ++ 
-
-._SCRIPT_13
-if(var VAR_62 > var VAR_63)
- {
-		var VAR_65 = var VAR_64
-		var VAR_64 = int 2 + call randomize_int(int 0, int 5)
-		if(var VAR_64 == var VAR_65)
-		 {
-				var VAR_64 ++ 
-				if(var VAR_64 > int 6)
+	switch(var VAR_46)
+	 {
+			case 0
+				var BTREASURE = call get_char_handle(int 1507328)
+				gamevar script_object = var BTREASURE
+				if(gamevar *object_p+5 == int 15)
 				 {
-						var VAR_64 = int 2
-				}
-		}
-		call play_loaded_sound(var VAR_64, int 0, int 3, "")
-		var VAR_63 = call randomize_int(int 0, int 151) + int 250
-		var VAR_62 = int 0
-}
-var VAR_62 ++ 
-
-._SCRIPT_14
-var VAR_1 = int 0
-var david1 = call get_david_char()
-var VAR_1 += call func_42(var david1, int 0)
-var VAR_1 += call func_42(var david1, int 1)
-var VAR_1 += call func_42(var david1, int 2)
-var VAR_1 += call func_42(var david1, int 3)
-var VAR_1 += call func_42(var david1, int 4)
-var VAR_1 += call func_42(var david1, int 5)
-var VAR_1 += call func_42(var david1, int 6)
-var VAR_1 += call func_42(var david1, int 7)
-if(var VAR_1 == int 8)
- {
-		call func_116("haven", "h_camptp", int 9)
-		call set_scene_overwrite_act("haven", "h_camptp", int 0)
-		call func_118("haven", "h_camptp", int 1)
-		var VAR_0 = int 1
-		call log("all 8 orbs taken!")
-}
-else
- {
-		call log("not got all orbs yet!")
-}
-
-._SCRIPT_15
-var is_BTREASURE1_exist = call is_char_handle_in_level(int 1507337)
-if(var ! is_BTREASURE1_exist)
- {
-		var is_BTREASURE1_exist = call create_char(var init_position1, "btreasure9", var VAR_13, int 14)
-		call func_aa(var is_BTREASURE1_exist)
-}
-else
- {
-		var VAR_15 = int 1
-		gamevar script_object = var is_BTREASURE1_exist
-		if(gamevar *object_p+7 == int 4194304)
-		 {
-				call func_aa(var is_BTREASURE1_exist)
-		}
-}
-
-._SCRIPT_16
-if(var VAR_14 != int -1)
- {
-		if(var ! VAR_15)
-		 {
-				if(var VAR_16 != int -1)
-				 {
-						call add_item_to_char(var is_BTREASURE1_exist, int 85 /* moneybag */ , var VAR_16, int 0)
+						var VAR_46 = int 2
+						var VAR_47 = int 0
 				}
 				else
 				 {
-						call add_item_to_char(var is_BTREASURE1_exist, var VAR_14 /* potwhite */ , int 1, int 0)
+						var VAR_46 ++ 
+						var VAR_47 = int 0
 				}
-		}
-}
-var VAR_16 = int -1
+				break 
+			case 1
+				if(call func_af(int 3))
+				 {
+						var VAR_46 ++ 
+						var VAR_47 = int 0
+				}
+				break 
+			case 2
+				if(call ! func_af(int 3))
+				 {
+						call set_input_system(int 2)
+						var VAR_44 += call func_42(var VAR_19, int 0)
+						var VAR_44 += call func_42(var VAR_19, int 1)
+						var VAR_44 += call func_42(var VAR_19, int 2)
+						var VAR_44 += call func_42(var VAR_19, int 3)
+						var VAR_44 += call func_42(var VAR_19, int 4)
+						var VAR_44 += call func_42(var VAR_19, int 5)
+						var VAR_44 += call func_42(var VAR_19, int 6)
+						var VAR_44 += call func_42(var VAR_19, int 7)
+						call log("orbs")
+						call log_obj(var VAR_44)
+						if(var VAR_21)
+						 {
+								var VAR_45 = var VAR_21
+						}
+						else
+						 {
+								if(var VAR_22)
+								 {
+										var VAR_45 = var VAR_22
+								}
+								else
+								 {
+										if(var VAR_20)
+										 {
+												var VAR_45 = var VAR_20
+										}
+										else
+										 {
+												if(var VAR_24)
+												 {
+														var VAR_45 = var VAR_24
+												}
+												else
+												 {
+														if(var VAR_23)
+														 {
+																var VAR_45 = var VAR_23
+														}
+												}
+										}
+								}
+						}
+						if(var VAR_45)
+						 {
+								var VAR_46 ++ 
+								var VAR_47 = int 0
+						}
+						else
+						 {
+								call set_input_system(int 1)
+								call log("ERROR!!!!!!!!!!!!!!!!!!!")
+								var VAR_46 = int -1
+								var VAR_47 = int 0
+						}
+				}
+				break 
+			case 3
+				if(var VAR_47 > int 50)
+				 {
+						if(var VAR_44 >= int 8)
+						 {
+								call start_dialog("L_DVDORB", "FINAL")
+								call char_turn_to_pos(gamevar control_char_p, call get_char_pos(var VAR_45))
+								call char_turn_to_pos(var VAR_45, call get_char_pos(gamevar control_char_p))
+						}
+						else
+						 {
+								if(gamevar control_char_p == var VAR_19)
+								 {
+										if(var VAR_23)
+										 {
+												call start_dialog("L_DVDORB", "WITH_CHI")
+												call char_turn_to_pos(gamevar control_char_p, call get_char_pos(var VAR_23))
+												call char_turn_to_pos(var VAR_23, call get_char_pos(gamevar control_char_p))
+										}
+										else
+										 {
+												call start_dialog("L_CHIDVD", "NULL")
+												call char_turn_to_pos(gamevar control_char_p, call get_char_pos(var VAR_45))
+												call char_turn_to_pos(var VAR_45, call get_char_pos(gamevar control_char_p))
+										}
+								}
+								else
+								 {
+										if(var VAR_23)
+										 {
+												call start_dialog("L_DVDCHI", "WITH_CHI")
+												call char_turn_to_pos(gamevar control_char_p, call get_char_pos(var VAR_23))
+												call char_turn_to_pos(var VAR_23, call get_char_pos(gamevar control_char_p))
+										}
+										else
+										 {
+												call start_dialog("L_DVDORB", "NULL")
+												call char_turn_to_pos(gamevar control_char_p, call get_char_pos(var VAR_19))
+												call char_turn_to_pos(var VAR_19, call get_char_pos(gamevar control_char_p))
+										}
+								}
+						}
+						var VAR_46 ++ 
+						var VAR_47 = int 0
+				}
+				break 
+			case 4
+				if(call get_input_sys() != int 4)
+				 {
+						call set_input_system(int 1)
+						var VAR_26 = int 1
+						var VAR_46 ++ 
+						var VAR_47 = int 0
+				}
+				break 
+	}
+	var VAR_47 ++ 
+
+._SCRIPT_13
+	if(var VAR_62 > var VAR_63)
+	 {
+			var VAR_65 = var VAR_64
+			var VAR_64 = int 2 + call randomize_int(int 0, int 5)
+			if(var VAR_64 == var VAR_65)
+			 {
+					var VAR_64 ++ 
+					if(var VAR_64 > int 6)
+					 {
+							var VAR_64 = int 2
+					}
+			}
+			call play_loaded_sound(var VAR_64, int 0, int 3, "")
+			var VAR_63 = call randomize_int(int 0, int 151) + int 250
+			var VAR_62 = int 0
+	}
+	var VAR_62 ++ 
+
+._SCRIPT_14
+	var VAR_1 = int 0
+	var david1 = call get_david_char()
+	var VAR_1 += call func_42(var david1, int 0)
+	var VAR_1 += call func_42(var david1, int 1)
+	var VAR_1 += call func_42(var david1, int 2)
+	var VAR_1 += call func_42(var david1, int 3)
+	var VAR_1 += call func_42(var david1, int 4)
+	var VAR_1 += call func_42(var david1, int 5)
+	var VAR_1 += call func_42(var david1, int 6)
+	var VAR_1 += call func_42(var david1, int 7)
+	if(var VAR_1 == int 8)
+	 {
+			call func_116("haven", "h_camptp", int 9)
+			call set_scene_overwrite_act("haven", "h_camptp", int 0)
+			call func_118("haven", "h_camptp", int 1)
+			var VAR_0 = int 1
+			call log("all 8 orbs taken!")
+	}
+	else
+	 {
+			call log("not got all orbs yet!")
+	}
+
+._SCRIPT_15
+	var is_BTREASURE1_exist = call is_char_handle_in_level(int 1507337)
+	if(var ! is_BTREASURE1_exist)
+	 {
+			var is_BTREASURE1_exist = call create_char(var VAR_12, "btreasure9", var VAR_13, int 14)
+			call func_aa(var is_BTREASURE1_exist)
+	}
+	else
+	 {
+			var VAR_15 = int 1
+			gamevar script_object = var is_BTREASURE1_exist
+			if(gamevar *object_p+7 == int 4194304)
+			 {
+					call func_aa(var is_BTREASURE1_exist)
+			}
+	}
+
+._SCRIPT_16
+	if(var VAR_14 != int -1)
+	 {
+			if(var ! VAR_15)
+			 {
+					if(var VAR_16 != int -1)
+					 {
+							call add_item_to_char(var is_BTREASURE1_exist, int 85 /* moneybag */ , var VAR_16, int 0)
+					}
+					else
+					 {
+							call add_item_to_char(var is_BTREASURE1_exist, var VAR_14 /* potwhite */ , int 1, int 0)
+					}
+			}
+	}
+	var VAR_16 = int -1

@@ -10,260 +10,260 @@
 
 
 ._DATA
-fx_position	{ -3034, 14, 4392 }	
-VAR_1	{ 6752, 14, -3656 }	
-init_position4	{ 5, -1825, -1231 }	
-init_position	{ -1645, -1825, -2128 }	
-init_position1	{ -1820, -1825, -1701 }	
-init_position2	{ -2197, -1825, -1572 }	
-init_position3	{ -1967, -1825, -2011 }	
-VAR_16	-1	
-VAR_28	{ 0, 0, 0, 0, 0 }	
-VAR_29	{ 0, 0, 0 }	
-VAR_35	{ 536, -1825, -1463, 427, -1825, -761, -51, -1825, -125, 25, -1825, -831, -119, -1825, -1620, 338, -1825, -1138, 871, -1825, -877, -171, -1825, 140, -372, -1825, 773, -703, -1825, 901, -724, -1825, 292, -933, -1825, -405, -1041, -1825, -1158, -1135, -1825, 790, -1211, -1825, -585, -1242, -1825, -1991, -1726, -1825, -955, -1795, -1825, 12, -2007, -1825, -1846, -1398, -1825, -2319 }	
-VAR_36	{ 536, -1825, -1463, 427, -1825, -761, -51, -1825, -125, 25, -1825, -831, -119, -1825, -1620, 338, -1825, -1138, 871, -1825, -877, -171, -1825, 140, -372, -1825, 773, -703, -1825, 901, -724, -1825, 292, -933, -1825, -405, -1041, -1825, -1158, -1135, -1825, 790, -1211, -1825, -585, -1242, -1825, -1991, -1726, -1825, -955, -1795, -1825, 12, -2007, -1825, -1846, -1398, -1825, -2319 }	
-enemy_gen_script1	{ 0, 1, 20, VAR_35, 8, 2, 4, 0, 9, 1, 1, 2, 5, -1, 5, 1, 50, 120, 6, 2, 7, 1, 2, 10, 45, -1, -1 }	
-enemy_gen_script	{ 0, 1, 20, VAR_36, 8, 2, 4, 0, 9, 1, 1, 2, 24, -1, 5, 1, 50, 120, 6, 2, 7, 1, 1, -1, 0 }	
+	fx_position	{ -3034, 14, 4392 }	
+	VAR_1	{ 6752, 14, -3656 }	
+	init_position4	{ 5, -1825, -1231 }	
+	init_position	{ -1645, -1825, -2128 }	
+	init_position1	{ -1820, -1825, -1701 }	
+	init_position2	{ -2197, -1825, -1572 }	
+	init_position3	{ -1967, -1825, -2011 }	
+	VAR_16	-1	
+	VAR_28	{ 0, 0, 0, 0, 0 }	
+	VAR_29	{ 0, 0, 0 }	
+	VAR_35	{ 536, -1825, -1463, 427, -1825, -761, -51, -1825, -125, 25, -1825, -831, -119, -1825, -1620, 338, -1825, -1138, 871, -1825, -877, -171, -1825, 140, -372, -1825, 773, -703, -1825, 901, -724, -1825, 292, -933, -1825, -405, -1041, -1825, -1158, -1135, -1825, 790, -1211, -1825, -585, -1242, -1825, -1991, -1726, -1825, -955, -1795, -1825, 12, -2007, -1825, -1846, -1398, -1825, -2319 }	
+	VAR_36	{ 536, -1825, -1463, 427, -1825, -761, -51, -1825, -125, 25, -1825, -831, -119, -1825, -1620, 338, -1825, -1138, 871, -1825, -877, -171, -1825, 140, -372, -1825, 773, -703, -1825, 901, -724, -1825, 292, -933, -1825, -405, -1041, -1825, -1158, -1135, -1825, 790, -1211, -1825, -585, -1242, -1825, -1991, -1726, -1825, -955, -1795, -1825, 12, -2007, -1825, -1846, -1398, -1825, -2319 }	
+	enemy_gen_script1	{ 0, 1, 20, VAR_35, 8, 2, 4, 0, 9, 1, 1, 2, 5, -1, 5, 1, 50, 120, 6, 2, 7, 1, 2, 10, 45, -1, -1 }	
+	enemy_gen_script	{ 0, 1, 20, VAR_36, 8, 2, 4, 0, 9, 1, 1, 2, 24, -1, 5, 1, 50, 120, 6, 2, 7, 1, 1, -1, 0 }	
 
 ._on_load
-call load_sound_set(int 65)
+	call load_sound_set(int 65)
 
- /* play the sound 'dog1' */ 
-call play_loaded_sound(int 7, int -1, int 65, int 0)
-execute SCRIPT_3
-if(gamevar is_room_cleared)
- {
-		execute SCRIPT_10
-}
-else
- {
-		switch(gamevar room_state)
-		 {
-				case 1
-					execute SCRIPT_6
-					break 
-				case 2
-					execute SCRIPT_9
-					break 
-				case 0
-					break 
-		}
-}
+	 /* play the sound 'dog1' */ 
+	call play_loaded_sound(int 7, int -1, int 65, int 0)
+	execute SCRIPT_3
+	if(gamevar is_room_cleared)
+	 {
+			execute SCRIPT_10
+	}
+	else
+	 {
+			switch(gamevar room_state)
+			 {
+					case 1
+						execute SCRIPT_6
+						break 
+					case 2
+						execute SCRIPT_9
+						break 
+					case 0
+						break 
+			}
+	}
 
 ._infinite_loop
-execute SCRIPT_4
-if(gamevar !is_room_cleared)
- {
-		switch(gamevar room_state)
-		 {
-				case 1
-					execute SCRIPT_5
-					break 
-				case 2
-					execute SCRIPT_8
-					break 
-				case 0
-					break 
-		}
-}
+	execute SCRIPT_4
+	if(gamevar !is_room_cleared)
+	 {
+			switch(gamevar room_state)
+			 {
+					case 1
+						execute SCRIPT_5
+						break 
+					case 2
+						execute SCRIPT_8
+						break 
+					case 0
+						break 
+			}
+	}
 
 ._on_exit
-if(gamevar !is_room_cleared)
- {
-		switch(gamevar room_state)
-		 {
-				case 1
-					gamevar room_state ++ 
-					gamevar is_room_cleared = int 1
-					break 
-				case 2
-					gamevar room_state ++ 
-					gamevar is_room_cleared = int 1
-					break 
-				case 0
-					break 
-				default 
-					gamevar room_state = int 0
-					break 
-		}
-}
+	if(gamevar !is_room_cleared)
+	 {
+			switch(gamevar room_state)
+			 {
+					case 1
+						gamevar room_state ++ 
+						gamevar is_room_cleared = int 1
+						break 
+					case 2
+						gamevar room_state ++ 
+						gamevar is_room_cleared = int 1
+						break 
+					case 0
+						break 
+					default 
+						gamevar room_state = int 0
+						break 
+			}
+	}
 
 ._SCRIPT_3
-call play_3d_fx("SNOW", var &fx_position, var &VAR_1, int 0)
+	call play_3d_fx("SNOW", var &fx_position, var &VAR_1, int 0)
 
 ._SCRIPT_4
-if(gamevar script_time > var VAR_40)
- {
-		var VAR_40 = gamevar script_time + int 300 + call randomize_int(int 0, int 300)
+	if(gamevar script_time > var VAR_40)
+	 {
+			var VAR_40 = gamevar script_time + int 300 + call randomize_int(int 0, int 300)
 
-		 /* play the sound 'hwave1' */ 
-		call play_loaded_sound(int 8, int 0, int 65, int 0)
-}
-if(gamevar script_time > var VAR_39)
- {
-		var VAR_39 = gamevar script_time + int 60 + call randomize_int(int 0, int 60)
+			 /* play the sound 'hwave1' */ 
+			call play_loaded_sound(int 8, int 0, int 65, int 0)
+	}
+	if(gamevar script_time > var VAR_39)
+	 {
+			var VAR_39 = gamevar script_time + int 60 + call randomize_int(int 0, int 60)
 
-		 /* play the sound 'inwindlp' */ 
-		call play_loaded_sound(int 2, int 0, int 65, int 0)
-}
+			 /* play the sound 'inwindlp' */ 
+			call play_loaded_sound(int 2, int 0, int 65, int 0)
+	}
 
 ._SCRIPT_5
-if(var VAR_16 != var VAR_5)
- {
-		var VAR_16 = var VAR_5
-		call log_obj(var VAR_5)
-}
-if(var VAR_5 == int 0)
- {
-		var VAR_6 ++ 
-		if(var VAR_6 > int 100)
-		 {
-				call set_input_system(int 2)
-				execute SCRIPT_7
-				call func_f(var grow_wamper, int 131072)
-				var VAR_6 = int 0
-				var VAR_5 ++ 
-		}
-}
-if(var VAR_5 == int 1)
- {
-		var VAR_6 ++ 
-		if(var VAR_6 > int 100)
-		 {
-				call log("fight time")
-				call char_attack(var leopard, var grow_wamper)
-				call char_attack(var leopard1, var grow_wamper)
-				call char_attack(var leopard2, var grow_wamper)
-				call char_attack(var grow_wamper, var leopard)
-				var VAR_5 ++ 
-		}
-}
-if(var VAR_5 == int 2)
- {
-		if(call is_char_handle_in_level(int 11403264))
-		 {
-				if(var VAR_17 == int 0)
-				 {
-						if(call func_87(var leopard))
-						 {
-								call log("fight1: finished")
-								call func_36(var leopard, int -1233, int -1825, int 347)
-								gamevar script_object = var leopard
-								gamevar *character_stats_p+15 = int 3000
-								call func_d6(var leopard)
-								call func_106(var leopard, int 1, int 0, int 1)
-								call func_50(var leopard, int 3)
-								call func_53(var leopard, int 5)
-								var VAR_17 = int 1
-						}
-				}
-		}
-		if(call is_char_handle_in_level(int 11403265))
-		 {
-				if(var VAR_18 == int 0)
-				 {
-						if(call func_87(var leopard1))
-						 {
-								call log("fight1: finished")
-								call func_36(var leopard1, int -1233, int -1825, int 347)
-								gamevar script_object = var leopard1
-								gamevar *character_stats_p+15 = int 3000
-								call func_d6(var leopard1)
-								call func_106(var leopard1, int 1, int 0, int 1)
-								call func_50(var leopard1, int 3)
-								call func_53(var leopard1, int 5)
-								var VAR_18 = int 1
-						}
-				}
-		}
-		if(call is_char_handle_in_level(int 11403266))
-		 {
-				if(var VAR_19 == int 0)
-				 {
-						if(call func_87(var leopard2))
-						 {
-								call log("fight1: finished")
-								call func_36(var leopard2, int -1233, int -1825, int 347)
-								gamevar script_object = var leopard2
-								gamevar *character_stats_p+15 = int 3000
-								call func_106(var leopard2, int 1, int 0, int 1)
-								call func_50(var leopard2, int 3)
-								call func_53(var leopard2, int 5)
-								var VAR_19 = int 1
-						}
-				}
-		}
-		if(var VAR_17 == int 1&&var VAR_18 == int 1&&var VAR_19 == int 1)
-		 {
-				call set_input_system(int 1)
-				var VAR_5 ++ 
-		}
-}
-if(var VAR_5 == int 3)
- {
-		if(call ! is_char_handle_in_level(int 11403264)||call ! is_char_handle_in_level(int 11403265)||call ! is_char_handle_in_level(int 11403266))
-		 {
-				if(call is_char_handle_in_level(int 2752512))
-				 {
-						call log("you killed my leopards")
-						gamevar script_object = var sentryg
-						gamevar *character_stats_p+15 = int 3000
-						call func_106(var sentryg, int 1, int 0, int 1)
-						call func_50(var sentryg, int 138)
-						var VAR_5 ++ 
-				}
-		}
-}
-if(call is_char_handle_in_level(int 10420224))
- {
-		call log("dead but not dead")
-		gamevar script_object = var grow_wamper
-		if(gamevar *object_p+5 == int 6)
-		 {
-				call kill_char(var grow_wamper)
-		}
-}
+	if(var VAR_16 != var VAR_5)
+	 {
+			var VAR_16 = var VAR_5
+			call log_obj(var VAR_5)
+	}
+	if(var VAR_5 == int 0)
+	 {
+			var VAR_6 ++ 
+			if(var VAR_6 > int 100)
+			 {
+					call set_input_system(int 2)
+					execute SCRIPT_7
+					call func_f(var grow_wamper, int 131072)
+					var VAR_6 = int 0
+					var VAR_5 ++ 
+			}
+	}
+	if(var VAR_5 == int 1)
+	 {
+			var VAR_6 ++ 
+			if(var VAR_6 > int 100)
+			 {
+					call log("fight time")
+					call char_attack(var leopard, var grow_wamper)
+					call char_attack(var leopard1, var grow_wamper)
+					call char_attack(var leopard2, var grow_wamper)
+					call char_attack(var grow_wamper, var leopard)
+					var VAR_5 ++ 
+			}
+	}
+	if(var VAR_5 == int 2)
+	 {
+			if(call is_char_handle_in_level(int 11403264))
+			 {
+					if(var VAR_17 == int 0)
+					 {
+							if(call func_87(var leopard))
+							 {
+									call log("fight1: finished")
+									call func_36(var leopard, int -1233, int -1825, int 347)
+									gamevar script_object = var leopard
+									gamevar *character_stats_p+15 = int 3000
+									call func_d6(var leopard)
+									call func_106(var leopard, int 1, int 0, int 1)
+									call func_50(var leopard, int 3)
+									call func_53(var leopard, int 5)
+									var VAR_17 = int 1
+							}
+					}
+			}
+			if(call is_char_handle_in_level(int 11403265))
+			 {
+					if(var VAR_18 == int 0)
+					 {
+							if(call func_87(var leopard1))
+							 {
+									call log("fight1: finished")
+									call func_36(var leopard1, int -1233, int -1825, int 347)
+									gamevar script_object = var leopard1
+									gamevar *character_stats_p+15 = int 3000
+									call func_d6(var leopard1)
+									call func_106(var leopard1, int 1, int 0, int 1)
+									call func_50(var leopard1, int 3)
+									call func_53(var leopard1, int 5)
+									var VAR_18 = int 1
+							}
+					}
+			}
+			if(call is_char_handle_in_level(int 11403266))
+			 {
+					if(var VAR_19 == int 0)
+					 {
+							if(call func_87(var leopard2))
+							 {
+									call log("fight1: finished")
+									call func_36(var leopard2, int -1233, int -1825, int 347)
+									gamevar script_object = var leopard2
+									gamevar *character_stats_p+15 = int 3000
+									call func_106(var leopard2, int 1, int 0, int 1)
+									call func_50(var leopard2, int 3)
+									call func_53(var leopard2, int 5)
+									var VAR_19 = int 1
+							}
+					}
+			}
+			if(var VAR_17 == int 1&&var VAR_18 == int 1&&var VAR_19 == int 1)
+			 {
+					call set_input_system(int 1)
+					var VAR_5 ++ 
+			}
+	}
+	if(var VAR_5 == int 3)
+	 {
+			if(call ! is_char_handle_in_level(int 11403264)||call ! is_char_handle_in_level(int 11403265)||call ! is_char_handle_in_level(int 11403266))
+			 {
+					if(call is_char_handle_in_level(int 2752512))
+					 {
+							call log("you killed my leopards")
+							gamevar script_object = var sentryg
+							gamevar *character_stats_p+15 = int 3000
+							call func_106(var sentryg, int 1, int 0, int 1)
+							call func_50(var sentryg, int 138)
+							var VAR_5 ++ 
+					}
+			}
+	}
+	if(call is_char_handle_in_level(int 10420224))
+	 {
+			call log("dead but not dead")
+			gamevar script_object = var grow_wamper
+			if(gamevar *object_p+5 == int 6)
+			 {
+					call kill_char(var grow_wamper)
+			}
+	}
 
 ._SCRIPT_6
-var leopard = call create_enemy(int 72, int 0, var &init_position, int 75)
-var leopard1 = call create_enemy(int 72, int 1, var &init_position1, int 75)
-var leopard2 = call create_enemy(int 72, int 2, var &init_position2, int 50)
-var sentryg = call create_enemy(int 56, int 0, var &init_position3, int 25)
-call freeze_enemy(var leopard)
-call freeze_enemy(var leopard1)
-call freeze_enemy(var leopard2)
-call freeze_enemy(var sentryg)
-call func_50(var sentryg, int 1)
-call load_char("wamper")
+	var leopard = call create_enemy(int 72, int 0, var &init_position, int 75)
+	var leopard1 = call create_enemy(int 72, int 1, var &init_position1, int 75)
+	var leopard2 = call create_enemy(int 72, int 2, var &init_position2, int 50)
+	var sentryg = call create_enemy(int 56, int 0, var &init_position3, int 25)
+	call freeze_enemy(var leopard)
+	call freeze_enemy(var leopard1)
+	call freeze_enemy(var leopard2)
+	call freeze_enemy(var sentryg)
+	call func_50(var sentryg, int 1)
+	call load_char("wamper")
 
 ._SCRIPT_7
-var grow_wamper = call create_enemy(int 5, int 0, var &init_position4, int 260)
-call freeze_enemy(var grow_wamper)
-gamevar script_object = var grow_wamper
-gamevar HP = int 4
+	var grow_wamper = call create_enemy(int 5, int 0, var &init_position4, int 260)
+	call freeze_enemy(var grow_wamper)
+	gamevar script_object = var grow_wamper
+	gamevar HP = int 4
 
 ._SCRIPT_8
 
 ._SCRIPT_9
 
 ._SCRIPT_10
-var VAR_26 = call func_6f()
-var VAR_27 = call randomize_int(int 0, int 5)
-var VAR_28 = call randomize_int(int 0, int 2)
-var VAR_29 = call randomize_int(int 1, int 4)
-call load_char("wamper")
-call load_char("snowsprt")
-call load_char("bstump")
-call load_char("sentry")
-call load_char("leopard")
-if(var VAR_27 == int 1)
- {
-		if(var VAR_28 == int 1)
-		 {
-				call run_enemy_generator(var &enemy_gen_script, int 200)
-		}
-		else
-		 {
-				call run_enemy_generator(var &enemy_gen_script1, int 200)
-		}
-}
+	var VAR_26 = call func_6f()
+	var VAR_27 = call randomize_int(int 0, int 5)
+	var VAR_28 = call randomize_int(int 0, int 2)
+	var VAR_29 = call randomize_int(int 1, int 4)
+	call load_char("wamper")
+	call load_char("snowsprt")
+	call load_char("bstump")
+	call load_char("sentry")
+	call load_char("leopard")
+	if(var VAR_27 == int 1)
+	 {
+			if(var VAR_28 == int 1)
+			 {
+					call run_enemy_generator(var &enemy_gen_script, int 200)
+			}
+			else
+			 {
+					call run_enemy_generator(var &enemy_gen_script1, int 200)
+			}
+	}

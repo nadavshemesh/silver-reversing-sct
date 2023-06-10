@@ -4,6 +4,7 @@
 
 typedef enum o_type { OBJ_CODE, OBJ_DATA, OBJ_EXPR } o_type;
 typedef enum data_type { UNDEFINED_TYPE, STRING, NUMBER, ARRAY } data_type;
+typedef enum ref_type { DATA_DATA, DATA_CODE } ref_type;
 
 typedef struct data_object {
     int id;
@@ -15,7 +16,19 @@ typedef struct data_object {
     bool was_renamed;
     char* name;
     byte* data;
+    node** e_referees;
+    node** c_referees;
+    node** d_references;
 } data_obj;
+
+typedef struct data_ref {
+    int id;
+    ref_type type;
+    int* offset;
+    char* unfound_name;
+    data_obj* data_parent;
+    data_obj* data_item;
+} data_ref;
 
 typedef struct expression_object {
     int expression_node_num;
@@ -62,6 +75,7 @@ void init_code_obj(code_obj* c_obj);
 code_obj* create_and_init_c_obj();
 void init_expr_obj(expr_obj* e_obj);
 expr_obj* get_last_expr_obj(expression* exp);
+data_ref* create_and_init_data_ref();
 expr_obj* create_and_init_expr_obj();
 data_obj* create_and_init_data_obj();
 expression* create_and_init_expression();

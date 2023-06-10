@@ -10,80 +10,80 @@
 
 
 ._DATA
-VAR_0	{ 1, 0, 0 }	
-VAR_1	{ 1, 0, 0 }	
-VAR_3	{ -2000, 0, 100, -2000, 0, -100 }	
-VAR_4	{ -1151, -3200, 2026 }	
-init_position	{ -750, -1500, 2214 }	
-init_position1	{ -781, -1400, 1721 }	
-init_position2	{ -570, -1700, 1941 }	
-enemy_gen_script	{ 0, 0, 0, 0, 0, 2, 2, 2, -1, 8, 1, 1, 2, 70, 70, 70, -1, 4, 0, 9, 1, 5, 1, 50, 150, 7, 1, 4, -1 }	
+	VAR_0	{ 1, 0, 0 }	
+	VAR_1	{ 1, 0, 0 }	
+	VAR_3	{ -2000, 0, 100, -2000, 0, -100 }	
+	VAR_4	{ -1151, -3200, 2026 }	
+	init_position	{ -750, -1500, 2214 }	
+	init_position1	{ -781, -1400, 1721 }	
+	init_position2	{ -570, -1700, 1941 }	
+	enemy_gen_script	{ 0, 0, 0, 0, 0, 2, 2, 2, -1, 8, 1, 1, 2, 70, 70, 70, -1, 4, 0, 9, 1, 5, 1, 50, 150, 7, 1, 4, -1 }	
 
 ._on_load
-call play_bgm("SEWERPT1")
-gamevar SMACKER_X = int 232
-gamevar SMACKER_Y = int 112
-call play_2d_anim("torch01", int 1, int 1, var &VAR_0)
-gamevar SMACKER_X = int 832
-gamevar SMACKER_Y = int 128
-call play_2d_anim("torch02", int 1, int 1, var &VAR_1)
-call load_sound_set(int 30)
+	call play_bgm("SEWERPT1")
+	gamevar SMACKER_X = int 232
+	gamevar SMACKER_Y = int 112
+	call play_2d_anim("torch01", int 1, int 1, var &VAR_0)
+	gamevar SMACKER_X = int 832
+	gamevar SMACKER_Y = int 128
+	call play_2d_anim("torch02", int 1, int 1, var &VAR_1)
+	call load_sound_set(int 30)
 
- /* play the sound 'torches2' */ 
-call play_loaded_sound(int 1, int -1, int 30, int 0)
-switch(gamevar room_state)
- {
-		case 1
-			execute SCRIPT_3
-			break 
-		case 0
-			break 
-}
+	 /* play the sound 'torches2' */ 
+	call play_loaded_sound(int 1, int -1, int 30, int 0)
+	switch(gamevar room_state)
+	 {
+			case 1
+				execute SCRIPT_3
+				break 
+			case 0
+				break 
+	}
 
 ._infinite_loop
-switch(gamevar room_state)
- {
-		case 1
-			execute SCRIPT_4
-			break 
-		case 0
-			break 
-}
+	switch(gamevar room_state)
+	 {
+			case 1
+				execute SCRIPT_4
+				break 
+			case 0
+				break 
+	}
 
 ._on_exit
-switch(gamevar room_state)
- {
-		case 1
-			if(var VAR_2 > int 0)
-			 {
-					gamevar room_state = int 0
-			}
-			break 
-		case 0
-			break 
-}
+	switch(gamevar room_state)
+	 {
+			case 1
+				if(var VAR_2 > int 0)
+				 {
+						gamevar room_state = int 0
+				}
+				break 
+			case 0
+				break 
+	}
 
 ._SCRIPT_3
-call func_9a(var &VAR_4, int 83, int 0, int 0)
-call load_char("skavenb")
-call load_char("spider")
-var VAR_2 = int 0
+	call func_9a(var &VAR_4, int 83, int 0, int 0)
+	call load_char("skavenb")
+	call load_char("spider")
+	var VAR_2 = int 0
 
 ._SCRIPT_4
-switch(var VAR_2)
- {
-		case 0
-			if(call func_8a(var &VAR_3))
-			 {
-					var drop_greater_gimp = call create_enemy(int 131, int 0, var &init_position, int 265)
-					var drop_greater_gimp1 = call create_enemy(int 131, int 1, var &init_position1, int 275)
-					var drop_greater_gimp2 = call create_enemy(int 131, int 2, var &init_position2, int 255)
-					call add_item_to_char(var drop_greater_gimp1, int 45 /* deadmous */ , int 1, int 0)
-					call add_item_to_char(var drop_greater_gimp2, int 43 /* cheese */ , int 1, int 0)
-					call run_enemy_generator(var &enemy_gen_script, int 5)
-					var VAR_2 ++ 
-			}
-			break 
-		case 1
-			break 
-}
+	switch(var VAR_2)
+	 {
+			case 0
+				if(call func_8a(var &VAR_3))
+				 {
+						var drop_greater_gimp = call create_enemy(int 131, int 0, var &init_position, int 265)
+						var drop_greater_gimp1 = call create_enemy(int 131, int 1, var &init_position1, int 275)
+						var drop_greater_gimp2 = call create_enemy(int 131, int 2, var &init_position2, int 255)
+						call add_item_to_char(var drop_greater_gimp1, int 45 /* deadmous */ , int 1, int 0)
+						call add_item_to_char(var drop_greater_gimp2, int 43 /* cheese */ , int 1, int 0)
+						call run_enemy_generator(var &enemy_gen_script, int 5)
+						var VAR_2 ++ 
+				}
+				break 
+			case 1
+				break 
+	}

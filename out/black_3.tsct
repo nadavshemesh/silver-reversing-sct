@@ -10,238 +10,238 @@
 
 
 ._DATA
-VAR_2	{ -6980, -95, -956, 12 }	
-VAR_4	{ -2602, 1560, -2358 }	
-VAR_5	{ 0, 0 }	
-VAR_8	{ -6530, 1212, -2264, -6518, 1212, -4803 }	
-VAR_9	{ -5868, 1212, -3890, -6833, 1212, -3065, -5318, 1212, -3652 }	
-enemy_gen_script	{ 0, 1, 3, VAR_9, 8, 2, 4, 0, 9, 1, 1, 3, 33, -1, 5, 1, 15, 100, 6, 1, 7, 1, 2, -1 }	
-init_position	{ -4947, 1212, -3424 }	
-ai_script	{ 0, -4968, 1212, -4332, 0, -4947, 1212, -3424, 7, 8 }	
-position	{ -2602, 1560, -2358 }	
-VAR_17	{ 1845, 2845, -4950 }	
-VAR_18	{ -2557, 1560, -3110 }	
-VAR_19	{ -2217, 1560, -2814 }	
-VAR_20	{ -2907, 1560, -2910 }	
-arr	"NQT"	
-VAR_22	{ -2455, 1560, -2452 }	
-VAR_23	{ -2713, 1560, -2397 }	
-arr_1	{ position, VAR_23, VAR_22 }	
-arr_2	{ 0, 0, 0 }	
+	VAR_2	{ -6980, -95, -956, 12 }	
+	VAR_4	{ -2602, 1560, -2358 }	
+	VAR_5	{ 0, 0 }	
+	VAR_8	{ -6530, 1212, -2264, -6518, 1212, -4803 }	
+	VAR_9	{ -5868, 1212, -3890, -6833, 1212, -3065, -5318, 1212, -3652 }	
+	enemy_gen_script	{ 0, 1, 3, VAR_9, 8, 2, 4, 0, 9, 1, 1, 3, 33, -1, 5, 1, 15, 100, 6, 1, 7, 1, 2, -1 }	
+	init_position	{ -4947, 1212, -3424 }	
+	ai_script	{ 0, -4968, 1212, -4332, 0, -4947, 1212, -3424, 7, 8 }	
+	position	{ -2602, 1560, -2358 }	
+	VAR_17	{ 1845, 2845, -4950 }	
+	VAR_18	{ -2557, 1560, -3110 }	
+	VAR_19	{ -2217, 1560, -2814 }	
+	VAR_20	{ -2907, 1560, -2910 }	
+	arr	"NQT"	
+	VAR_22	{ -2455, 1560, -2452 }	
+	VAR_23	{ -2713, 1560, -2397 }	
+	arr_1	{ position, VAR_23, VAR_22 }	
+	arr_2	{ 0, 0, 0 }	
 
 ._on_load
-call play_bgm("METALON")
-call load_sound_set(int 72)
+	call play_bgm("METALON")
+	call load_sound_set(int 72)
 
- /* play the sound 'BLANK' */ 
-call play_loaded_sound(int 4, int -1, int 72, int 0)
-call load_sound_set(int 64)
+	 /* play the sound 'BLANK' */ 
+	call play_loaded_sound(int 4, int -1, int 72, int 0)
+	call load_sound_set(int 64)
 
- /* play the sound 'cavelp' */ 
-call play_loaded_sound(int 1, int -1, int 64, int 0)
-call load_sound_set(int 65)
+	 /* play the sound 'cavelp' */ 
+	call play_loaded_sound(int 1, int -1, int 64, int 0)
+	call load_sound_set(int 65)
 
- /* play the sound 'in2wind1' */ 
-call play_loaded_sound(int 5, int -1, int 65, int 0)
-execute SCRIPT_4
-gamevar SMACKER_X = int 0
-gamevar SMACKER_Y = int 660
-call play_2d_anim("noshark", int 1, int 1, int 0)
-switch(gamevar room_state)
- {
-		case 1
-			execute SCRIPT_6
-			break 
-		case 2
-			execute SCRIPT_8
-			break 
-		case 3
-			break 
-		case 0
-			break 
-}
+	 /* play the sound 'in2wind1' */ 
+	call play_loaded_sound(int 5, int -1, int 65, int 0)
+	execute SCRIPT_4
+	gamevar SMACKER_X = int 0
+	gamevar SMACKER_Y = int 660
+	call play_2d_anim("noshark", int 1, int 1, int 0)
+	switch(gamevar room_state)
+	 {
+			case 1
+				execute SCRIPT_6
+				break 
+			case 2
+				execute SCRIPT_8
+				break 
+			case 3
+				break 
+			case 0
+				break 
+	}
 
 ._infinite_loop
-execute SCRIPT_3
-switch(gamevar room_state)
- {
-		case 1
-			execute SCRIPT_5
-			break 
-		case 2
-			execute SCRIPT_7
-			break 
-		case 3
-			break 
-		case 0
-			break 
-}
+	execute SCRIPT_3
+	switch(gamevar room_state)
+	 {
+			case 1
+				execute SCRIPT_5
+				break 
+			case 2
+				execute SCRIPT_7
+				break 
+			case 3
+				break 
+			case 0
+				break 
+	}
 
 ._on_exit
-switch(gamevar room_state)
- {
-		case 1
-			gamevar room_state = int 3
-			break 
-		case 2
-			break 
-		case 3
-			break 
-		case 0
-			break 
-		default 
-			gamevar room_state = int 0
-			break 
-}
+	switch(gamevar room_state)
+	 {
+			case 1
+				gamevar room_state = int 3
+				break 
+			case 2
+				break 
+			case 3
+				break 
+			case 0
+				break 
+			default 
+				gamevar room_state = int 0
+				break 
+	}
 
 ._SCRIPT_3
-if(gamevar script_time > var VAR_38)
- {
-		var VAR_38 = gamevar script_time + int 70 + call randomize_int(int 0, int 110)
+	if(gamevar script_time > var VAR_38)
+	 {
+			var VAR_38 = gamevar script_time + int 70 + call randomize_int(int 0, int 110)
 
-		 /* play the sound 'renddizz' */ 
-		call play_loaded_sound(int 8, int 0, int 72, int 0)
-}
-if(gamevar script_time > var VAR_39)
- {
-		var VAR_39 = gamevar script_time + int 70 + call randomize_int(int 0, int 110)
+			 /* play the sound 'renddizz' */ 
+			call play_loaded_sound(int 8, int 0, int 72, int 0)
+	}
+	if(gamevar script_time > var VAR_39)
+	 {
+			var VAR_39 = gamevar script_time + int 70 + call randomize_int(int 0, int 110)
 
-		 /* play the sound 'metamb1' */ 
-		call play_loaded_sound(int 7, int 0, int 72, int 0)
-}
-if(gamevar script_time > var VAR_40)
- {
-		var VAR_40 = gamevar script_time + int 100 + call randomize_int(int 0, int 50)
+			 /* play the sound 'metamb1' */ 
+			call play_loaded_sound(int 7, int 0, int 72, int 0)
+	}
+	if(gamevar script_time > var VAR_40)
+	 {
+			var VAR_40 = gamevar script_time + int 100 + call randomize_int(int 0, int 50)
 
-		 /* play the sound 'wwindlp' */ 
-		call play_loaded_sound(int 6, int 0, int 65, int 0)
-}
+			 /* play the sound 'wwindlp' */ 
+			call play_loaded_sound(int 6, int 0, int 65, int 0)
+	}
 
 ._SCRIPT_4
-switch(gamevar room_state)
- {
-}
+	switch(gamevar room_state)
+	 {
+	}
 
 ._SCRIPT_5
-switch(var VAR_5)
- {
-}
+	switch(var VAR_5)
+	 {
+	}
 
 ._SCRIPT_6
-call load_char("sguard")
-var sguard = call create_enemy(int 34, int 0, var &init_position, int 200)
-call func_106(var sguard, int 1, int 0, int 1)
-call set_char_init_state(var sguard, int 13)
-call play_char_ai_script(var sguard, var &ai_script)
-gamevar script_object = var sguard
-gamevar *character_stats_p+15 = int 1000
+	call load_char("sguard")
+	var sguard = call create_enemy(int 34, int 0, var &init_position, int 200)
+	call func_106(var sguard, int 1, int 0, int 1)
+	call set_char_init_state(var sguard, int 13)
+	call play_char_ai_script(var sguard, var &ai_script)
+	gamevar script_object = var sguard
+	gamevar *character_stats_p+15 = int 1000
 
 ._SCRIPT_7
-if(var VAR_15 == int 0)
- {
-		var david = call get_david_char()
-		if(call is_char_at_pos(var david, var &position, int 320))
-		 {
-				call set_input_system(int 2)
-				var VAR_15 ++ 
-				while(var david)
-				 {
-						call apply_effect_on_char(gamevar char_gen_fx_scripts, int 18, int 0, var david)
-						var david = call func_7e()
-				}
-		}
-		else
-		 {
-				var VAR_15 = int 4
-		}
-}
-if(var VAR_15 == int 1)
- {
-		var VAR_14 ++ 
-		if(var VAR_14 > int 100)
-		 {
-				var VAR_14 = int 0
-				var VAR_15 ++ 
-		}
-}
-if(var VAR_15 == int 2)
- {
-		var david = call get_david_char()
-		while(var david)
-		 {
-				call set_char_running(var david)
-				call char_walk_to_pos(var david, @arr[var VAR_26])
-				var VAR_26 ++ 
-				var david = call func_7e()
-		}
-		var VAR_15 ++ 
-		var VAR_26 = int 0
-}
-if(var VAR_15 == int 3)
- {
-		var VAR_14 ++ 
-		if(var VAR_14 > int 180)
-		 {
-				var VAR_14 = int 0
-				var VAR_15 ++ 
-				call set_input_system(int 1)
-				var VAR_26 = int 0
-		}
-}
-if(var VAR_15 == int 4)
- {
-		var david = call get_selected_hero()
-		if(call is_char_at_pos(var david, var &position, int 240))
-		 {
-				call set_input_system(int 2)
-				var david = call get_david_char()
-				while(var david)
-				 {
-						call set_char_running(var david)
-						call char_walk_to_pos(var david, @arr_1[var VAR_26])
-						var VAR_26 ++ 
-						var VAR_27 = var VAR_26
-						var david = call func_7e()
-				}
-				var VAR_26 = int 0
-				var VAR_15 ++ 
-				var VAR_14 = int 0
-		}
-}
-if(var VAR_15 == int 5)
- {
-		var david = call get_david_char()
-		while(var david)
-		 {
-				if(call is_char_standing(var david)&&@arr_2[var VAR_26] == int 0)
-				 {
-						@arr_2[var VAR_26]= int 1
-						var VAR_28 ++ 
-						call func_36(var david, int -2557, int 1560, int -3110)
-						call func_fa(var david)
-				}
-				var VAR_26 ++ 
-				var david = call func_7e()
-		}
-		var VAR_26 = int 0
-		if(var VAR_28 == var VAR_27)
-		 {
-				var VAR_14 ++ 
-				if(var VAR_14 > int 100)
-				 {
-						var VAR_15 ++ 
-						call set_scene_overwrite_act("lmetalon", "black_in", int 0)
-						if(call func_82("lmetalon", "bloodfal") == int 1)
-						 {
-								call func_e6("lmetalon", "black_in", var &VAR_17, int 2)
-						}
-						else
-						 {
-								call func_e6("lmetalon", "blacjohn", var &VAR_2, int 1)
-						}
-				}
-		}
-}
+	if(var VAR_15 == int 0)
+	 {
+			var david = call get_david_char()
+			if(call is_char_at_pos(var david, var &position, int 320))
+			 {
+					call set_input_system(int 2)
+					var VAR_15 ++ 
+					while(var david)
+					 {
+							call apply_effect_on_char(gamevar char_gen_fx_scripts, int 18, int 0, var david)
+							var david = call func_7e()
+					}
+			}
+			else
+			 {
+					var VAR_15 = int 4
+			}
+	}
+	if(var VAR_15 == int 1)
+	 {
+			var VAR_14 ++ 
+			if(var VAR_14 > int 100)
+			 {
+					var VAR_14 = int 0
+					var VAR_15 ++ 
+			}
+	}
+	if(var VAR_15 == int 2)
+	 {
+			var david = call get_david_char()
+			while(var david)
+			 {
+					call set_char_running(var david)
+					call char_walk_to_pos(var david, @arr[var VAR_26])
+					var index ++ 
+					var david = call func_7e()
+			}
+			var VAR_15 ++ 
+			var index = int 0
+	}
+	if(var VAR_15 == int 3)
+	 {
+			var VAR_14 ++ 
+			if(var VAR_14 > int 180)
+			 {
+					var VAR_14 = int 0
+					var VAR_15 ++ 
+					call set_input_system(int 1)
+					var index = int 0
+			}
+	}
+	if(var VAR_15 == int 4)
+	 {
+			var david = call get_selected_hero()
+			if(call is_char_at_pos(var david, var &position, int 240))
+			 {
+					call set_input_system(int 2)
+					var david = call get_david_char()
+					while(var david)
+					 {
+							call set_char_running(var david)
+							call char_walk_to_pos(var david, @arr_1[var index])
+							var index ++ 
+							var VAR_27 = var index
+							var david = call func_7e()
+					}
+					var index = int 0
+					var VAR_15 ++ 
+					var VAR_14 = int 0
+			}
+	}
+	if(var VAR_15 == int 5)
+	 {
+			var david = call get_david_char()
+			while(var david)
+			 {
+					if(call is_char_standing(var david)&&@arr_2[var index] == int 0)
+					 {
+							@arr_2[var index]= int 1
+							var VAR_28 ++ 
+							call func_36(var david, int -2557, int 1560, int -3110)
+							call func_fa(var david)
+					}
+					var index ++ 
+					var david = call func_7e()
+			}
+			var index = int 0
+			if(var VAR_28 == var VAR_27)
+			 {
+					var VAR_14 ++ 
+					if(var VAR_14 > int 100)
+					 {
+							var VAR_15 ++ 
+							call set_scene_overwrite_act("lmetalon", "black_in", int 0)
+							if(call func_82("lmetalon", "bloodfal") == int 1)
+							 {
+									call func_e6("lmetalon", "black_in", var &VAR_17, int 2)
+							}
+							else
+							 {
+									call func_e6("lmetalon", "blacjohn", var &VAR_2, int 1)
+							}
+					}
+			}
+	}
 
 ._SCRIPT_8
 

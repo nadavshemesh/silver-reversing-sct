@@ -105,10 +105,34 @@ node* get_node(node** head, int pos) {
 void insert_node(node** head, node* new) {
     if(head == NULL) return;
     node* cur_node = *head;
+    if(cur_node == NULL) {
+        cur_node = new;
+        return;
+    }
     while(cur_node->next != NULL) {
         cur_node = cur_node->next;
     }
     cur_node->next = new;
+}
+
+node** insert_node_create_head_if_needed(node** head, node* new) {
+    node** new_head = head;
+    if(new_head == NULL) {
+        new_head = w_malloc(sizeof(node*));
+        *new_head = new;
+        return new_head;
+    }
+    node* cur_node = *new_head;
+    if(cur_node == NULL) {
+        *new_head = new;
+        return new_head;
+    }
+    while(cur_node->next != NULL) {
+        cur_node = cur_node->next;
+    }
+    cur_node->next = new;
+
+    return new_head;
 }
 
 void remove_node(node** head, int pos) {

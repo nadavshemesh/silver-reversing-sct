@@ -10,413 +10,299 @@
 
 
 ._DATA
-VAR_2	{ 0, 0, 0 }	
-fx_position	{ 1319, 757, 5823 }	
-init_position	{ 789, 625, 5528 }	
-init_position1	{ 660, 774, 6632 }	
-nfrink	0	
-ai_script	{ 0, 717, 625, 5494, 2, 716, 910, 5484, 28, VAR_18, 15, 0, 0, 1945, 625, 5487, 2, 1914, 851, 5419, 28, VAR_19, 20, 0, 0, 849, 625, 6709, 1, nfrink, 3, VAR_20, 0, 0, 717, 625, 5494, 2, 716, 910, 5484, 28, VAR_21, 15, 0, 0, 1945, 625, 5487, 2, 1914, 851, 5419, 28, VAR_22, 20, 0, 0, 849, 625, 6709, 1, nfrink, 3, VAR_23, 0, 7, 8 }	
-VAR_18	"impread"	
-VAR_19	"impread"	
-VAR_20	"yes"	
-VAR_21	"impread"	
-VAR_22	"impread"	
-VAR_23	"no"	
-VAR_27	{ 0, 0 }	
-VAR_30	-1	
-VAR_49	{ 0, 0 }	
+	VAR_2	{ 0, 0, 0 }	
+	fx_position	{ 1319, 757, 5823 }	
+	init_position	{ 789, 625, 5528 }	
+	init_position1	{ 660, 774, 6632 }	
+	nfrink	0	
+	ai_script	{ 0, 717, 625, 5494, 2, 716, 910, 5484, 28, VAR_18, 15, 0, 0, 1945, 625, 5487, 2, 1914, 851, 5419, 28, VAR_19, 20, 0, 0, 849, 625, 6709, 1, nfrink, 3, VAR_20, 0, 0, 717, 625, 5494, 2, 716, 910, 5484, 28, VAR_21, 15, 0, 0, 1945, 625, 5487, 2, 1914, 851, 5419, 28, VAR_22, 20, 0, 0, 849, 625, 6709, 1, nfrink, 3, VAR_23, 0, 7, 8 }	
+	VAR_18	"impread"	
+	VAR_19	"impread"	
+	VAR_20	"yes"	
+	VAR_21	"impread"	
+	VAR_22	"impread"	
+	VAR_23	"no"	
+	VAR_27	{ 0, 0 }	
+	VAR_30	-1	
+	VAR_49	{ 0, 0 }	
 
 ._on_load
-call play_bgm("GNOCVP1")
-execute SCRIPT_4
-call load_sound_set(int 64)
+	call play_bgm("GNOCVP1")
+	execute SCRIPT_4
+	call load_sound_set(int 64)
 
- /* play the sound 'cavelp' */ 
-call play_loaded_sound(int 1, int -1, int 64, int 0)
-if(gamevar is_room_cleared)
- {
-		execute SCRIPT_8
-}
-else
- {
-		switch(gamevar room_state)
-		 {
-				case 1
-					execute SCRIPT_9
-					execute SCRIPT_7
-					break 
-				case 2
-					execute SCRIPT_13
-					execute SCRIPT_7
-					break 
-				case 3
-					execute SCRIPT_15
-					break 
-				case 4
-					execute SCRIPT_7
-					break 
-				case 0
-					break 
-		}
-}
+	 /* play the sound 'cavelp' */ 
+	call play_loaded_sound(int 1, int -1, int 64, int 0)
+	if(gamevar is_room_cleared)
+	 {
+			execute SCRIPT_8
+	}
+	else
+	 {
+			switch(gamevar room_state)
+			 {
+					case 1
+						execute SCRIPT_9
+						execute SCRIPT_7
+						break 
+					case 2
+						execute SCRIPT_13
+						execute SCRIPT_7
+						break 
+					case 3
+						execute SCRIPT_15
+						break 
+					case 4
+						execute SCRIPT_7
+						break 
+					case 0
+						break 
+			}
+	}
 
 ._infinite_loop
-execute SCRIPT_3
-execute SCRIPT_5
-if(gamevar !is_room_cleared)
- {
-		switch(gamevar room_state)
-		 {
-				case 1
-					execute SCRIPT_10
-					break 
-				case 2
-					execute SCRIPT_14
-					break 
-				case 3
-					break 
-				case 4
-					execute SCRIPT_17
-					break 
-				case 0
-					break 
-		}
-}
+	execute SCRIPT_3
+	execute SCRIPT_5
+	if(gamevar !is_room_cleared)
+	 {
+			switch(gamevar room_state)
+			 {
+					case 1
+						execute SCRIPT_10
+						break 
+					case 2
+						execute SCRIPT_14
+						break 
+					case 3
+						break 
+					case 4
+						execute SCRIPT_17
+						break 
+					case 0
+						break 
+			}
+	}
 
 ._on_exit
-if(gamevar !is_room_cleared)
- {
-		switch(gamevar room_state)
-		 {
-				case 1
-					if(var VAR_1)
-					 {
-							gamevar room_state = int 3
-					}
-					else
-					 {
-							gamevar room_state = int 2
-					}
-					break 
-				case 2
-					if(var VAR_1)
-					 {
-							gamevar room_state ++ 
-					}
-					break 
-				case 3
-					break 
-				case 4
-					if(var VAR_1)
-					 {
-							gamevar room_state ++ 
-							gamevar is_room_cleared = int 1
-					}
-					break 
-				case 0
-					break 
-				default 
-					gamevar room_state = int 0
-					break 
-		}
-}
+	if(gamevar !is_room_cleared)
+	 {
+			switch(gamevar room_state)
+			 {
+					case 1
+						if(var VAR_1)
+						 {
+								gamevar room_state = int 3
+						}
+						else
+						 {
+								gamevar room_state = int 2
+						}
+						break 
+					case 2
+						if(var VAR_1)
+						 {
+								gamevar room_state ++ 
+						}
+						break 
+					case 3
+						break 
+					case 4
+						if(var VAR_1)
+						 {
+								gamevar room_state ++ 
+								gamevar is_room_cleared = int 1
+						}
+						break 
+					case 0
+						break 
+					default 
+						gamevar room_state = int 0
+						break 
+			}
+	}
 
 ._SCRIPT_3
-if(gamevar script_time > var VAR_55)
- {
-		var VAR_55 = gamevar script_time + int 300 + call randomize_int(int 0, int 200)
-		var VAR_54 = int 2 + call randomize_int(int 0, int 3)
-		call play_loaded_sound(var VAR_54, int 0, int 63, int 0)
-}
+	if(gamevar script_time > var VAR_55)
+	 {
+			var VAR_55 = gamevar script_time + int 300 + call randomize_int(int 0, int 200)
+			var VAR_54 = int 2 + call randomize_int(int 0, int 3)
+			call play_loaded_sound(var VAR_54, int 0, int 63, int 0)
+	}
 
 ._SCRIPT_4
-var VAR_6 = call play_3d_fx("FIRE", var &fx_position, int 0, int 0)
-call remove_face(var &fx_position)
+	var VAR_6 = call play_3d_fx("FIRE", var &fx_position, int 0, int 0)
+	call remove_face(var &fx_position)
 
- /* play the sound 'frog' */ 
-call play_loaded_sound(int 198, int -1, int 0, var &fx_position)
+	 /* play the sound 'frog' */ 
+	call play_loaded_sound(int 198, int -1, int 0, var &fx_position)
 
 ._SCRIPT_5
-gamevar script_object = var VAR_6
-if(gamevar *psys_p+1)
- {
-		if(call ! randomize_int(int 0, int 5))
-		 {
+	gamevar script_object = var VAR_6
+	if(gamevar *psys_p+1)
+	 {
+			if(call ! randomize_int(int 0, int 5))
+			 {
 
-				 /* play the sound 'frogs' */ 
-				call play_loaded_sound(int 197, int 0, int 0, var &fx_position)
-		}
-}
+					 /* play the sound 'frogs' */ 
+					call play_loaded_sound(int 197, int 0, int 0, var &fx_position)
+			}
+	}
 
 ._SCRIPT_6
-var impread_anim = call load_anim("impread")
-var dodgeb_anim = call load_anim("dodgeb")
+	var impread_anim = call load_anim("impread")
+	var dodgeb_anim = call load_anim("dodgeb")
 
 ._SCRIPT_7
-if(gamevar *scene_info_p+4 & int 1)
- {
-		gamevar SMACKER_X = int 560
-		gamevar SMACKER_Y = int 176
-		call play_2d_anim("screen3", int 0, int 1, var &VAR_2)
-}
-else
- {
-		var VAR_1 = int 1
-}
+	if(gamevar *scene_info_p+4 & int 1)
+	 {
+			gamevar SMACKER_X = int 560
+			gamevar SMACKER_Y = int 176
+			call play_2d_anim("screen3", int 0, int 1, var &VAR_2)
+	}
+	else
+	 {
+			var VAR_1 = int 1
+	}
 
 ._SCRIPT_8
 
 ._SCRIPT_9
-execute SCRIPT_6
-var nbuzuki = call create_char(var &init_position, "nbuzuki", int 135, int 13)
-var nfrink = call create_char(var &init_position1, "nfrink", int 60, int 13)
-var DAVID = call get_char_handle(int 65536)
+	execute SCRIPT_6
+	var nbuzuki = call create_char(var &init_position, "nbuzuki", int 135, int 13)
+	var nfrink = call create_char(var &init_position1, "nfrink", int 60, int 13)
+	var DAVID = call get_char_handle(int 65536)
 
 ._SCRIPT_10
-if(var VAR_30 != var VAR_26)
- {
-		var VAR_30 = var VAR_26
-		call log_obj(var VAR_26)
-}
-if(var VAR_26 == int 0)
- {
-		if(var VAR_27 > int 10)
-		 {
-				call set_input_system(int 2)
-				call char_walk_to(var DAVID, int 2244, int 625, int 6080)
-				call play_char_anim(var nbuzuki, var impread_anim, int 0)
-				var VAR_26 ++ 
-				var VAR_27 = int 0
-		}
-}
-if(var VAR_26 == int 1)
- {
-		if(call is_char_standing(var DAVID))
-		 {
-				call func_55(var DAVID, int 16)
-				var VAR_26 ++ 
-				var VAR_27 = int 0
-		}
-}
-if(var VAR_26 == int 2)
- {
-		call char_walk_to(var DAVID, int 1033, int 625, int 6512)
-		var VAR_26 ++ 
-		var VAR_27 = int 0
-}
-if(var VAR_26 == int 3)
- {
-		if(call is_char_standing(var DAVID))
-		 {
-				var VAR_26 ++ 
-				var VAR_27 = int 0
-		}
-}
-if(var VAR_26 == int 4)
- {
-		if(var VAR_27 > int 60)
-		 {
-				var VAR_28 = call get_char_movement_ptr(var nfrink)
-				call func_c(var DAVID, int 30, var VAR_28, int 0)
-				var VAR_26 ++ 
-				var VAR_27 = int 0
-		}
-}
-if(var VAR_26 == int 5)
- {
-		if(call func_5c(var DAVID))
-		 {
-				call play_char_anim(var DAVID, var dodgeb_anim, int 0)
-				var VAR_26 ++ 
-				var VAR_27 = int 0
-		}
-}
-if(var VAR_26 == int 6)
- {
-		if(call func_5c(var DAVID))
-		 {
-				var VAR_28 = call get_char_movement_ptr(var nfrink)
-				call func_c(var DAVID, int 30, var VAR_28, int 0)
-				var VAR_26 ++ 
-				var VAR_27 = int 0
-		}
-}
-if(var VAR_26 == int 7)
- {
-		if(call func_5c(var DAVID))
-		 {
-				var VAR_28 = call get_char_movement_ptr(var nfrink)
-				call func_c(var DAVID, int 17, var VAR_28, int 0)
-				var VAR_26 ++ 
-				var VAR_27 = int 0
-		}
-}
-if(var VAR_26 == int 8)
- {
-		if(var VAR_27 > int 60)
-		 {
-				var VAR_28 = call get_char_movement_ptr(var nfrink)
-				call func_c(var DAVID, int 16, var VAR_28, int 0)
-				var VAR_26 ++ 
-				var VAR_27 = int 0
-		}
-}
-if(var VAR_26 == int 9)
- {
-		if(var VAR_27 > int 60)
-		 {
-				call start_dialog("ISHBUZ", "NULL")
-				var VAR_26 ++ 
-				var VAR_27 = int 0
-		}
-}
-if(var VAR_26 == int 10)
- {
-		if(call func_6d() == int 1)
-		 {
-				call func_19(var nbuzuki, var DAVID)
-				var VAR_26 ++ 
-				var VAR_27 = int 0
-		}
-}
-if(var VAR_26 == int 11)
- {
-		if(call is_char_standing(var nbuzuki))
-		 {
-				call char_turn_to_pos(var DAVID, call get_char_pos(var nbuzuki))
-				call resume_conversation()
-				var VAR_26 ++ 
-				var VAR_27 = int 0
-		}
-}
-if(var VAR_26 == int 12)
- {
-		if(call get_input_sys() != int 4)
-		 {
-				call set_input_system(int 1)
-				call func_50(var nbuzuki, int 8192)
-				call play_char_ai_script(var nbuzuki, var &ai_script)
-				var keyb = call create_item(int 57)
-				var VAR_26 ++ 
-				var VAR_27 = int 0
-		}
-}
-if(var VAR_26 == int 13)
- {
-		if(var keyb)
-		 {
-				execute SCRIPT_11
-		}
-		else
-		 {
-				execute SCRIPT_12
-		}
-}
-var VAR_27 ++ 
-
-._SCRIPT_11
-switch(var VAR_33)
- {
-		case 0
-			if(gamevar *scene_info_p+4 & int 1)
+	if(var VAR_30 != var VAR_26)
+	 {
+			var VAR_30 = var VAR_26
+			call log_obj(var VAR_26)
+	}
+	if(var VAR_26 == int 0)
+	 {
+			if(var VAR_27 > int 10)
 			 {
-			}
-			else
-			 {
-					call log("Door opened")
-					var VAR_2 = int 1
-					call log("play door sound")
-
-					 /* play the sound 'lforest3' */ 
-					call play_loaded_sound(int 106, int 0, int 0, "")
-					call func_1(var nbuzuki, int 8192)
 					call set_input_system(int 2)
-					var david = call get_david_char()
-					while(var david)
-					 {
-							call char_stop(var david)
-							var david = call func_7e()
-					}
-					call char_turn_to_pos(var nbuzuki, call get_char_pos(var DAVID))
-					call char_turn_to_pos(var DAVID, call get_char_pos(var nbuzuki))
-					var VAR_33 ++ 
-					var VAR_34 = int 0
+					call char_walk_to(var DAVID, int 2244, int 625, int 6080)
+					call play_char_anim(var nbuzuki, var impread_anim, int 0)
+					var VAR_26 ++ 
+					var VAR_27 = int 0
 			}
-			break 
-		case 1
-			if(var VAR_34 > int 60)
+	}
+	if(var VAR_26 == int 1)
+	 {
+			if(call is_char_standing(var DAVID))
 			 {
-					call start_dialog("S_DVDBUZ", "NULL")
-					var david = call get_david_char()
-					while(var david)
-					 {
-							call char_stop(var david)
-							var david = call func_7e()
-					}
-					var VAR_33 ++ 
-					var VAR_34 = int 0
+					call func_55(var DAVID, int 16)
+					var VAR_26 ++ 
+					var VAR_27 = int 0
 			}
-			break 
-		case 2
+	}
+	if(var VAR_26 == int 2)
+	 {
+			call char_walk_to(var DAVID, int 1033, int 625, int 6512)
+			var VAR_26 ++ 
+			var VAR_27 = int 0
+	}
+	if(var VAR_26 == int 3)
+	 {
+			if(call is_char_standing(var DAVID))
+			 {
+					var VAR_26 ++ 
+					var VAR_27 = int 0
+			}
+	}
+	if(var VAR_26 == int 4)
+	 {
+			if(var VAR_27 > int 60)
+			 {
+					var VAR_28 = call get_char_movement_ptr(var nfrink)
+					call func_c(var DAVID, int 30, var VAR_28, int 0)
+					var VAR_26 ++ 
+					var VAR_27 = int 0
+			}
+	}
+	if(var VAR_26 == int 5)
+	 {
+			if(call func_5c(var DAVID))
+			 {
+					call play_char_anim(var DAVID, var dodgeb_anim, int 0)
+					var VAR_26 ++ 
+					var VAR_27 = int 0
+			}
+	}
+	if(var VAR_26 == int 6)
+	 {
+			if(call func_5c(var DAVID))
+			 {
+					var VAR_28 = call get_char_movement_ptr(var nfrink)
+					call func_c(var DAVID, int 30, var VAR_28, int 0)
+					var VAR_26 ++ 
+					var VAR_27 = int 0
+			}
+	}
+	if(var VAR_26 == int 7)
+	 {
+			if(call func_5c(var DAVID))
+			 {
+					var VAR_28 = call get_char_movement_ptr(var nfrink)
+					call func_c(var DAVID, int 17, var VAR_28, int 0)
+					var VAR_26 ++ 
+					var VAR_27 = int 0
+			}
+	}
+	if(var VAR_26 == int 8)
+	 {
+			if(var VAR_27 > int 60)
+			 {
+					var VAR_28 = call get_char_movement_ptr(var nfrink)
+					call func_c(var DAVID, int 16, var VAR_28, int 0)
+					var VAR_26 ++ 
+					var VAR_27 = int 0
+			}
+	}
+	if(var VAR_26 == int 9)
+	 {
+			if(var VAR_27 > int 60)
+			 {
+					call start_dialog("ISHBUZ", "NULL")
+					var VAR_26 ++ 
+					var VAR_27 = int 0
+			}
+	}
+	if(var VAR_26 == int 10)
+	 {
+			if(call func_6d() == int 1)
+			 {
+					call func_19(var nbuzuki, var DAVID)
+					var VAR_26 ++ 
+					var VAR_27 = int 0
+			}
+	}
+	if(var VAR_26 == int 11)
+	 {
+			if(call is_char_standing(var nbuzuki))
+			 {
+					call char_turn_to_pos(var DAVID, call get_char_pos(var nbuzuki))
+					call resume_conversation()
+					var VAR_26 ++ 
+					var VAR_27 = int 0
+			}
+	}
+	if(var VAR_26 == int 12)
+	 {
 			if(call get_input_sys() != int 4)
 			 {
-					var VAR_1 = int 1
-					call func_2(var nbuzuki)
 					call set_input_system(int 1)
-					var VAR_33 ++ 
+					call func_50(var nbuzuki, int 8192)
+					call play_char_ai_script(var nbuzuki, var &ai_script)
+					var keyb = call create_item(int 57)
+					var VAR_26 ++ 
+					var VAR_27 = int 0
 			}
-			break 
-}
-var VAR_34 ++ 
-
-._SCRIPT_12
-switch(var VAR_41)
- {
-		case 0
-			if(gamevar CLICKED_DOOR == int 1)
-			 {
-					call func_1(var nbuzuki, int 8192)
-					call char_turn_to_pos(var nbuzuki, call get_char_pos(var DAVID))
-					call char_turn_to_pos(var DAVID, call get_char_pos(var nbuzuki))
-					var VAR_41 ++ 
-					var VAR_42 = int 0
-			}
-			break 
-		case 1
-			if(var VAR_42 > int 60)
-			 {
-					call start_dialog("BUZDVD", "NULL")
-					var VAR_41 ++ 
-					var VAR_42 = int 0
-			}
-			break 
-		case 2
-			if(call get_input_sys() != int 4)
-			 {
-					call func_2(var nbuzuki)
-					var VAR_41 ++ 
-			}
-			break 
-}
-var VAR_42 ++ 
-
-._SCRIPT_13
-var nbuzuki = call create_char(var &init_position, "nbuzuki", int 135, int 13)
-var nfrink = call create_char(var &init_position1, "nfrink", int 60, int 13)
-call func_50(var nbuzuki, int 8192)
-call play_char_ai_script(var nbuzuki, var &ai_script)
-var DAVID = call get_char_handle(int 65536)
-call func_108("RE_ENTER")
-
-._SCRIPT_14
-switch(var VAR_48)
- {
-		case 0
-			var keyb = call create_item(int 57)
-			var VAR_48 ++ 
-			var VAR_49 = int 0
-			break 
-		case 1
+	}
+	if(var VAR_26 == int 13)
+	 {
 			if(var keyb)
 			 {
 					execute SCRIPT_11
@@ -425,30 +311,144 @@ switch(var VAR_48)
 			 {
 					execute SCRIPT_12
 			}
-			break 
-}
-var VAR_49 ++ 
+	}
+	var VAR_27 ++ 
+
+._SCRIPT_11
+	switch(var VAR_33)
+	 {
+			case 0
+				if(gamevar *scene_info_p+4 & int 1)
+				 {
+				}
+				else
+				 {
+						call log("Door opened")
+						var VAR_2 = int 1
+						call log("play door sound")
+
+						 /* play the sound 'lforest3' */ 
+						call play_loaded_sound(int 106, int 0, int 0, "")
+						call func_1(var nbuzuki, int 8192)
+						call set_input_system(int 2)
+						var david = call get_david_char()
+						while(var david)
+						 {
+								call char_stop(var david)
+								var david = call func_7e()
+						}
+						call char_turn_to_pos(var nbuzuki, call get_char_pos(var DAVID))
+						call char_turn_to_pos(var DAVID, call get_char_pos(var nbuzuki))
+						var VAR_33 ++ 
+						var VAR_34 = int 0
+				}
+				break 
+			case 1
+				if(var VAR_34 > int 60)
+				 {
+						call start_dialog("S_DVDBUZ", "NULL")
+						var david = call get_david_char()
+						while(var david)
+						 {
+								call char_stop(var david)
+								var david = call func_7e()
+						}
+						var VAR_33 ++ 
+						var VAR_34 = int 0
+				}
+				break 
+			case 2
+				if(call get_input_sys() != int 4)
+				 {
+						var VAR_1 = int 1
+						call func_2(var nbuzuki)
+						call set_input_system(int 1)
+						var VAR_33 ++ 
+				}
+				break 
+	}
+	var VAR_34 ++ 
+
+._SCRIPT_12
+	switch(var VAR_41)
+	 {
+			case 0
+				if(gamevar CLICKED_DOOR == int 1)
+				 {
+						call func_1(var nbuzuki, int 8192)
+						call char_turn_to_pos(var nbuzuki, call get_char_pos(var DAVID))
+						call char_turn_to_pos(var DAVID, call get_char_pos(var nbuzuki))
+						var VAR_41 ++ 
+						var VAR_42 = int 0
+				}
+				break 
+			case 1
+				if(var VAR_42 > int 60)
+				 {
+						call start_dialog("BUZDVD", "NULL")
+						var VAR_41 ++ 
+						var VAR_42 = int 0
+				}
+				break 
+			case 2
+				if(call get_input_sys() != int 4)
+				 {
+						call func_2(var nbuzuki)
+						var VAR_41 ++ 
+				}
+				break 
+	}
+	var VAR_42 ++ 
+
+._SCRIPT_13
+	var nbuzuki = call create_char(var &init_position, "nbuzuki", int 135, int 13)
+	var nfrink = call create_char(var &init_position1, "nfrink", int 60, int 13)
+	call func_50(var nbuzuki, int 8192)
+	call play_char_ai_script(var nbuzuki, var &ai_script)
+	var DAVID = call get_char_handle(int 65536)
+	call func_108("RE_ENTER")
+
+._SCRIPT_14
+	switch(var VAR_48)
+	 {
+			case 0
+				var keyb = call create_item(int 57)
+				var VAR_48 ++ 
+				var VAR_49 = int 0
+				break 
+			case 1
+				if(var keyb)
+				 {
+						execute SCRIPT_11
+				}
+				else
+				 {
+						execute SCRIPT_12
+				}
+				break 
+	}
+	var VAR_49 ++ 
 
 ._SCRIPT_15
-var nbuzuki = call create_char(var &init_position, "nbuzuki", int 135, int 13)
-var nfrink = call create_char(var &init_position1, "nfrink", int 60, int 13)
-call func_50(var nbuzuki, int 8192)
-call play_char_ai_script(var nbuzuki, var &ai_script)
-var DAVID = call get_char_handle(int 65536)
-call func_108("RE_ENTER")
+	var nbuzuki = call create_char(var &init_position, "nbuzuki", int 135, int 13)
+	var nfrink = call create_char(var &init_position1, "nfrink", int 60, int 13)
+	call func_50(var nbuzuki, int 8192)
+	call play_char_ai_script(var nbuzuki, var &ai_script)
+	var DAVID = call get_char_handle(int 65536)
+	call func_108("RE_ENTER")
 
 ._SCRIPT_16
 
 ._SCRIPT_17
-switch(var VAR_53)
- {
-}
+	switch(var VAR_53)
+	 {
+	}
 
 ._SCRIPT_18
-if(var VAR_1)
- {
-		exit_script 
-}
-switch(var VAR_4)
- {
-}
+	if(var VAR_1)
+	 {
+			exit_script 
+	}
+	switch(var VAR_4)
+	 {
+	}

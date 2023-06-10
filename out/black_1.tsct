@@ -10,161 +10,161 @@
 
 
 ._DATA
-VAR_5	-1	
-VAR_7	{ -10742, 2348, -1476 }	
+	VAR_5	-1	
+	VAR_7	{ -10742, 2348, -1476 }	
 
 ._on_load
-var init_position = var &VAR_7
-var VAR_2 = int 240
-execute SCRIPT_8
-var VAR_3 = int 109
-execute SCRIPT_9
-var VAR_3 = int 55
-execute SCRIPT_9
-call play_bgm("METALON")
-call load_sound_set(int 72)
-call load_sound_set(int 64)
+	var VAR_1 = var &VAR_7
+	var VAR_2 = int 240
+	execute SCRIPT_8
+	var VAR_3 = int 109
+	execute SCRIPT_9
+	var VAR_3 = int 55
+	execute SCRIPT_9
+	call play_bgm("METALON")
+	call load_sound_set(int 72)
+	call load_sound_set(int 64)
 
- /* play the sound 'cavelp' */ 
-call play_loaded_sound(int 1, int -1, int 64, int 0)
-call load_sound_set(int 65)
+	 /* play the sound 'cavelp' */ 
+	call play_loaded_sound(int 1, int -1, int 64, int 0)
+	call load_sound_set(int 65)
 
- /* play the sound 'cwind1' */ 
-call play_loaded_sound(int 1, int -1, int 65, int 0)
-gamevar SMACKER_X = int 140
-gamevar SMACKER_Y = int 0
-call play_2d_anim("black_2", int 1, int 1, int 0)
-gamevar SMACKER_X = int 416
-gamevar SMACKER_Y = int 0
-call play_2d_anim("black_1", int 1, int 0, int 0)
-switch(gamevar room_state)
- {
-		case 1
-			execute SCRIPT_5
-			break 
-		case 2
-			execute SCRIPT_7
-			break 
-		case 0
-			break 
-}
+	 /* play the sound 'cwind1' */ 
+	call play_loaded_sound(int 1, int -1, int 65, int 0)
+	gamevar SMACKER_X = int 140
+	gamevar SMACKER_Y = int 0
+	call play_2d_anim("black_2", int 1, int 1, int 0)
+	gamevar SMACKER_X = int 416
+	gamevar SMACKER_Y = int 0
+	call play_2d_anim("black_1", int 1, int 0, int 0)
+	switch(gamevar room_state)
+	 {
+			case 1
+				execute SCRIPT_5
+				break 
+			case 2
+				execute SCRIPT_7
+				break 
+			case 0
+				break 
+	}
 
 ._infinite_loop
-execute SCRIPT_3
-switch(gamevar room_state)
- {
-		case 1
-			execute SCRIPT_4
-			break 
-		case 2
-			execute SCRIPT_6
-			break 
-		case 0
-			break 
-}
+	execute SCRIPT_3
+	switch(gamevar room_state)
+	 {
+			case 1
+				execute SCRIPT_4
+				break 
+			case 2
+				execute SCRIPT_6
+				break 
+			case 0
+				break 
+	}
 
 ._on_exit
-switch(gamevar room_state)
- {
-		case 1
-			gamevar room_state ++ 
-			break 
-		case 2
-			gamevar room_state ++ 
-			break 
-		case 0
-			break 
-		default 
-			gamevar room_state = int 0
-			break 
-}
+	switch(gamevar room_state)
+	 {
+			case 1
+				gamevar room_state ++ 
+				break 
+			case 2
+				gamevar room_state ++ 
+				break 
+			case 0
+				break 
+			default 
+				gamevar room_state = int 0
+				break 
+	}
 
 ._SCRIPT_3
-if(gamevar script_time > var VAR_32)
- {
-		var VAR_32 = gamevar script_time + int 70 + call randomize_int(int 0, int 110)
+	if(gamevar script_time > var VAR_32)
+	 {
+			var VAR_32 = gamevar script_time + int 70 + call randomize_int(int 0, int 110)
 
-		 /* play the sound 'renddizz' */ 
-		call play_loaded_sound(int 8, int 0, int 72, int 0)
-}
-if(gamevar script_time > var VAR_33)
- {
-		var VAR_33 = gamevar script_time + int 60 + call randomize_int(int 0, int 60)
-		var inwindlp_sound_ref = call play_loaded_sound(int 2, int 0, int 65, int 0)
-		call set_sound_volume(var inwindlp_sound_ref, int 30)
-}
+			 /* play the sound 'renddizz' */ 
+			call play_loaded_sound(int 8, int 0, int 72, int 0)
+	}
+	if(gamevar script_time > var VAR_33)
+	 {
+			var VAR_33 = gamevar script_time + int 60 + call randomize_int(int 0, int 60)
+			var inwindlp_sound_ref = call play_loaded_sound(int 2, int 0, int 65, int 0)
+			call set_sound_volume(var inwindlp_sound_ref, int 30)
+	}
 
 ._SCRIPT_4
-switch(var VAR_13)
- {
-		case 0
-			var david = call get_david_char()
-			while(var david)
-			 {
-					var VAR_12 = call get_char_handle_id(var david)
-					if(var VAR_12 == int 65536)
-					 {
-							var david = call func_7e()
-					}
-					else
-					 {
-							switch(var VAR_12)
-							 {
-									case 786432
-										call start_dialog("S_SekSil", "NULL")
-										var VAR_13 = int 5
-										break 
-									case 327680
-										call start_dialog("S_JugSil", "NULL")
-										var VAR_13 = int 6
-										break 
-									case 196608
-										call start_dialog("S_VivSil", "NULL")
-										var VAR_13 = int 7
-										break 
-									case 131072
-										call start_dialog("S_ChiSil", "NULL")
-										var VAR_13 = int 8
-										break 
-									case 262144
-										call start_dialog("S_CagSil", "NULL")
-										var VAR_13 = int 9
-										break 
-									default 
-										var VAR_13 = int 4
-										break 
-							}
-							var david = int 0
-					}
-			}
-			break 
-		case 1
-			call log("we'll never get here")
-			break 
-		case 4
-			call log("Not started dialog")
-			break 
-		case 5
-			call log("sekune dialog")
-			var VAR_13 = int 10
-			break 
-		case 6
-			call log("Jug dialog")
-			var VAR_13 = int 10
-			break 
-		case 7
-			call log("Vivienne dialog")
-			var VAR_13 = int 10
-			break 
-		case 8
-			call log("Chiaro dialog")
-			var VAR_13 = int 10
-			break 
-		case 9
-			call log("Cagen dialog")
-			var VAR_13 ++ 
-			break 
-}
+	switch(var VAR_13)
+	 {
+			case 0
+				var david = call get_david_char()
+				while(var david)
+				 {
+						var VAR_12 = call get_char_handle_id(var david)
+						if(var VAR_12 == int 65536)
+						 {
+								var david = call func_7e()
+						}
+						else
+						 {
+								switch(var VAR_12)
+								 {
+										case 786432
+											call start_dialog("S_SekSil", "NULL")
+											var VAR_13 = int 5
+											break 
+										case 327680
+											call start_dialog("S_JugSil", "NULL")
+											var VAR_13 = int 6
+											break 
+										case 196608
+											call start_dialog("S_VivSil", "NULL")
+											var VAR_13 = int 7
+											break 
+										case 131072
+											call start_dialog("S_ChiSil", "NULL")
+											var VAR_13 = int 8
+											break 
+										case 262144
+											call start_dialog("S_CagSil", "NULL")
+											var VAR_13 = int 9
+											break 
+										default 
+											var VAR_13 = int 4
+											break 
+								}
+								var david = int 0
+						}
+				}
+				break 
+			case 1
+				call log("we'll never get here")
+				break 
+			case 4
+				call log("Not started dialog")
+				break 
+			case 5
+				call log("sekune dialog")
+				var VAR_13 = int 10
+				break 
+			case 6
+				call log("Jug dialog")
+				var VAR_13 = int 10
+				break 
+			case 7
+				call log("Vivienne dialog")
+				var VAR_13 = int 10
+				break 
+			case 8
+				call log("Chiaro dialog")
+				var VAR_13 = int 10
+				break 
+			case 9
+				call log("Cagen dialog")
+				var VAR_13 ++ 
+				break 
+	}
 
 ._SCRIPT_5
 
@@ -173,35 +173,35 @@ switch(var VAR_13)
 ._SCRIPT_7
 
 ._SCRIPT_8
-var is_BTREASURE_exist = call is_char_handle_in_level(int 1507337)
-if(var ! is_BTREASURE_exist)
- {
-		var is_BTREASURE_exist = call create_char(var init_position, "btreasure9", var VAR_2, int 14)
-		call func_aa(var is_BTREASURE_exist)
-}
-else
- {
-		var VAR_4 = int 1
-		gamevar script_object = var is_BTREASURE_exist
-		if(gamevar *object_p+7 == int 4194304)
-		 {
-				call func_aa(var is_BTREASURE_exist)
-		}
-}
+	var is_BTREASURE_exist = call is_char_handle_in_level(int 1507337)
+	if(var ! is_BTREASURE_exist)
+	 {
+			var is_BTREASURE_exist = call create_char(var VAR_1, "btreasure9", var VAR_2, int 14)
+			call func_aa(var is_BTREASURE_exist)
+	}
+	else
+	 {
+			var VAR_4 = int 1
+			gamevar script_object = var is_BTREASURE_exist
+			if(gamevar *object_p+7 == int 4194304)
+			 {
+					call func_aa(var is_BTREASURE_exist)
+			}
+	}
 
 ._SCRIPT_9
-if(var VAR_3 != int -1)
- {
-		if(var ! VAR_4)
-		 {
-				if(var VAR_5 != int -1)
-				 {
-						call add_item_to_char(var is_BTREASURE_exist, int 85 /* moneybag */ , var VAR_5, int 0)
-				}
-				else
-				 {
-						call add_item_to_char(var is_BTREASURE_exist, var VAR_3 /* lightning */ , int 1, int 0)
-				}
-		}
-}
-var VAR_5 = int -1
+	if(var VAR_3 != int -1)
+	 {
+			if(var ! VAR_4)
+			 {
+					if(var VAR_5 != int -1)
+					 {
+							call add_item_to_char(var is_BTREASURE_exist, int 85 /* moneybag */ , var VAR_5, int 0)
+					}
+					else
+					 {
+							call add_item_to_char(var is_BTREASURE_exist, var VAR_3 /* lightning */ , int 1, int 0)
+					}
+			}
+	}
+	var VAR_5 = int -1

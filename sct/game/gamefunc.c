@@ -91,6 +91,12 @@ void init_game_functions(game_fun** functions_arr) {
         functions_arr[i] = gf;
     }
 
+    functions_arr[0x07]->name = aapts("save_pos_to_room_memory");
+    functions_arr[0x07]->params = 4;
+    functions_arr[0x07]->desc = aapts("(int id, int x, int y, int z");
+    functions_arr[0xd8]->name = aapts("load_pos_from_room_memory");
+    functions_arr[0xd8]->params = 2;
+    functions_arr[0xd8]->desc = aapts("(int id, var unpack_memory_location");
     functions_arr[0x96]->name = aapts("create_enemy_through_door");
     functions_arr[0x96]->params = 4;
     functions_arr[0x96]->desc = aapts("(int enemy_type, int id, int door, int face_direction_radius_counter_clockwise)");

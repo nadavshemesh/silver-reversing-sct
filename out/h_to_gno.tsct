@@ -10,152 +10,152 @@
 
 
 ._DATA
-init_position	{ 1431, -1000, -592 }	
-init_position1	{ 1350, -1000, -592 }	
-ai_script	{ 10, 2300, -800, 2025, 5, 400, 10, 2300, -1000, -900, 5, 400, 5, 40, 7, 8 }	
-ai_script1	{ 5, 45, 10, 2500, -500, 2025, 5, 400, 10, 2222, -600, -900, 5, 400, 7, 8 }	
-VAR_17	{ 0, 0 }	
+	init_position	{ 1431, -1000, -592 }	
+	init_position1	{ 1350, -1000, -592 }	
+	ai_script	{ 10, 2300, -800, 2025, 5, 400, 10, 2300, -1000, -900, 5, 400, 5, 40, 7, 8 }	
+	ai_script1	{ 5, 45, 10, 2500, -500, 2025, 5, 400, 10, 2222, -600, -900, 5, 400, 7, 8 }	
+	VAR_17	{ 0, 0 }	
 
 ._on_load
-call func_58(int 1)
-if(gamevar is_room_cleared)
- {
-		execute SCRIPT_4
-}
-else
- {
-		switch(gamevar room_state)
-		 {
-				case 1
-					execute SCRIPT_8
-					break 
-				case 2
-					execute SCRIPT_10
-					break 
-				case 0
-					break 
-		}
-}
-execute SCRIPT_6
+	call func_58(int 1)
+	if(gamevar is_room_cleared)
+	 {
+			execute SCRIPT_4
+	}
+	else
+	 {
+			switch(gamevar room_state)
+			 {
+					case 1
+						execute SCRIPT_8
+						break 
+					case 2
+						execute SCRIPT_10
+						break 
+					case 0
+						break 
+			}
+	}
+	execute SCRIPT_6
 
 ._infinite_loop
-execute SCRIPT_3
-if(gamevar !is_room_cleared)
- {
-		switch(gamevar room_state)
-		 {
-				case 1
-					execute SCRIPT_7
-					break 
-				case 2
-					execute SCRIPT_9
-					break 
-				case 0
-					break 
-		}
-}
-switch(var VAR_0)
- {
-		case 0
-			gamevar SMACKER_X = int 0
-			gamevar SMACKER_Y = int 356
-			call play_2d_anim("leftsea", int 1, int 0, int 0)
-			break 
-		case 1
-			gamevar SMACKER_X = int 392
-			gamevar SMACKER_Y = int 240
-			call play_2d_anim("rightsea", int 1, int 1, int 0)
-			break 
-}
-if(var VAR_0 < int 3)
- {
-		var VAR_0 ++ 
-}
+	execute SCRIPT_3
+	if(gamevar !is_room_cleared)
+	 {
+			switch(gamevar room_state)
+			 {
+					case 1
+						execute SCRIPT_7
+						break 
+					case 2
+						execute SCRIPT_9
+						break 
+					case 0
+						break 
+			}
+	}
+	switch(var VAR_0)
+	 {
+			case 0
+				gamevar SMACKER_X = int 0
+				gamevar SMACKER_Y = int 356
+				call play_2d_anim("leftsea", int 1, int 0, int 0)
+				break 
+			case 1
+				gamevar SMACKER_X = int 392
+				gamevar SMACKER_Y = int 240
+				call play_2d_anim("rightsea", int 1, int 1, int 0)
+				break 
+	}
+	if(var VAR_0 < int 3)
+	 {
+			var VAR_0 ++ 
+	}
 
 ._on_exit
-if(gamevar !is_room_cleared)
- {
-		switch(gamevar room_state)
-		 {
-				case 1
-					gamevar room_state ++ 
-					gamevar is_room_cleared = int 1
-					break 
-				case 2
-					gamevar room_state ++ 
-					gamevar is_room_cleared = int 1
-					break 
-				case 0
-					break 
-				default 
-					gamevar room_state = int 0
-					break 
-		}
-}
+	if(gamevar !is_room_cleared)
+	 {
+			switch(gamevar room_state)
+			 {
+					case 1
+						gamevar room_state ++ 
+						gamevar is_room_cleared = int 1
+						break 
+					case 2
+						gamevar room_state ++ 
+						gamevar is_room_cleared = int 1
+						break 
+					case 0
+						break 
+					default 
+						gamevar room_state = int 0
+						break 
+			}
+	}
 
 ._SCRIPT_3
-if(gamevar script_time > var VAR_15)
- {
-		var VAR_15 = gamevar script_time + int 60 + call randomize_int(int 0, int 40)
+	if(gamevar script_time > var VAR_15)
+	 {
+			var VAR_15 = gamevar script_time + int 60 + call randomize_int(int 0, int 40)
 
-		 /* play the sound 'sentloop' */ 
-		call play_loaded_sound(int 13, int 0, int 61, int 0)
-}
-if(gamevar script_time > var VAR_14)
- {
-		var VAR_14 = gamevar script_time + int 60 + call randomize_int(int 0, int 40)
-		var VAR_13 = int 6 + call randomize_int(int 0, int 6)
-		call play_loaded_sound(var VAR_13, int 0, int 61, int 0)
-}
-if(gamevar script_time > var VAR_17)
- {
-		var VAR_17 = gamevar script_time + int 420 + call randomize_int(int 0, int 200)
+			 /* play the sound 'sentloop' */ 
+			call play_loaded_sound(int 13, int 0, int 61, int 0)
+	}
+	if(gamevar script_time > var VAR_14)
+	 {
+			var VAR_14 = gamevar script_time + int 60 + call randomize_int(int 0, int 40)
+			var VAR_13 = int 6 + call randomize_int(int 0, int 6)
+			call play_loaded_sound(var VAR_13, int 0, int 61, int 0)
+	}
+	if(gamevar script_time > var VAR_17)
+	 {
+			var VAR_17 = gamevar script_time + int 420 + call randomize_int(int 0, int 200)
 
-		 /* play the sound 'hwave1' */ 
-		call play_loaded_sound(int 5, int 0, int 61, int 0)
-}
-if(gamevar script_time > var VAR_16)
- {
-		var VAR_16 = gamevar script_time + int 40 + call randomize_int(int 0, int 20)
-		var VAR_13 = int 1 + call randomize_int(int 0, int 4)
-		var is_GULL_exist = call is_char_handle_in_level(int 1966080)
-		if(var is_GULL_exist)
-		 {
-				var VAR_19 = call get_char_movement_ptr(var is_GULL_exist)
-				call play_loaded_sound(var VAR_13, int 0, int 61, var VAR_19)
-		}
-		else
-		 {
-				call play_loaded_sound(var VAR_13, int 0, int 61, int 0)
-		}
-}
+			 /* play the sound 'hwave1' */ 
+			call play_loaded_sound(int 5, int 0, int 61, int 0)
+	}
+	if(gamevar script_time > var VAR_16)
+	 {
+			var VAR_16 = gamevar script_time + int 40 + call randomize_int(int 0, int 20)
+			var VAR_13 = int 1 + call randomize_int(int 0, int 4)
+			var is_GULL_exist = call is_char_handle_in_level(int 1966080)
+			if(var is_GULL_exist)
+			 {
+					var VAR_19 = call get_char_movement_ptr(var is_GULL_exist)
+					call play_loaded_sound(var VAR_13, int 0, int 61, var VAR_19)
+			}
+			else
+			 {
+					call play_loaded_sound(var VAR_13, int 0, int 61, int 0)
+			}
+	}
 
 ._SCRIPT_4
 
 ._SCRIPT_5
-var NGULL1 = call create_char(var &init_position, "NGULL1", int 325, int 16)
-var NGULL2 = call create_char(var &init_position1, "NGULL2", int 144, int 16)
-call set_char_init_state(var NGULL1, int 13)
-call play_char_ai_script(var NGULL1, var &ai_script)
-gamevar script_object = var NGULL1
-gamevar *character_stats_p+14 = int 91750
-call set_char_init_state(var NGULL2, int 13)
-call play_char_ai_script(var NGULL2, var &ai_script1)
+	var NGULL1 = call create_char(var &init_position, "NGULL1", int 325, int 16)
+	var NGULL2 = call create_char(var &init_position1, "NGULL2", int 144, int 16)
+	call set_char_init_state(var NGULL1, int 13)
+	call play_char_ai_script(var NGULL1, var &ai_script)
+	gamevar script_object = var NGULL1
+	gamevar *character_stats_p+14 = int 91750
+	call set_char_init_state(var NGULL2, int 13)
+	call play_char_ai_script(var NGULL2, var &ai_script1)
 
 ._SCRIPT_6
-call load_sound_set(int 61)
+	call load_sound_set(int 61)
 
- /* play the sound 'sent1rev' */ 
-call play_loaded_sound(int 12, int -1, int 61, int 0)
+	 /* play the sound 'sent1rev' */ 
+	call play_loaded_sound(int 12, int -1, int 61, int 0)
 
- /* play the sound 'lforstlp' */ 
-call play_loaded_sound(int 14, int -1, int 61, int 0)
-execute SCRIPT_5
+	 /* play the sound 'lforstlp' */ 
+	call play_loaded_sound(int 14, int -1, int 61, int 0)
+	execute SCRIPT_5
 
 ._SCRIPT_7
 
 ._SCRIPT_8
-call set_scene_overwrite_act("haven", "h_cavext", int 0)
+	call set_scene_overwrite_act("haven", "h_cavext", int 0)
 
 ._SCRIPT_9
 

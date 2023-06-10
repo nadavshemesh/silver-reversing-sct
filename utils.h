@@ -54,6 +54,7 @@ void print_err(char* err, int err_code);
 void print_err_and_exit(char* err, int err_code);
 node* init_node(void* item);
 node* create_node(void* item);
+node** insert_node_create_head_if_needed(node** head, node* new);
 int count_node_list(node** head);
 node* get_node(node** head, int pos);
 void insert_node(node** head, node* new);

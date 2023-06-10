@@ -10,175 +10,175 @@
 
 
 ._DATA
-VAR_0	0	
-VAR_17	0	
-VAR_18	0	
-init_position	{ 2240, -445, 722 }	
-VAR_21	0	
-ai_script	{ 15, 5, 100, 12, 1, 0, 1164, -445, 638, 3, VAR_23, 0, 16, VAR_17, 1, 0, 129, -445, 695, 16, VAR_18, 1, 4, VAR_21, 0, 1164, -445, 638, 1, VAR_0, 3, VAR_24, 0, 0, 129, -445, 695, 8 }	
-VAR_23	{ 1869773172, 1852667251, -1431655936 }	
-VAR_24	{ 1869773172, 1852667251, -1431655936 }	
-enemy_gen_script	{ 0, 0, 1, 0, -1, 8, 1, 4, 0, 9, 2, 1, 2, 75, 75, -1, 5, 0, 50, 6, 1, 7, 1, 1, -1 }	
-VAR_29	{ 0, 0 }	
-VAR_31	2	
-VAR_33	10	
+	VAR_0	0	
+	VAR_17	0	
+	VAR_18	0	
+	init_position	{ 2240, -445, 722 }	
+	VAR_21	0	
+	ai_script	{ 15, 5, 100, 12, 1, 0, 1164, -445, 638, 3, VAR_23, 0, 16, VAR_17, 1, 0, 129, -445, 695, 16, VAR_18, 1, 4, VAR_21, 0, 1164, -445, 638, 1, VAR_0, 3, VAR_24, 0, 0, 129, -445, 695, 8 }	
+	VAR_23	"tyrosumn"	
+	VAR_24	"tyrosumn"	
+	enemy_gen_script	{ 0, 0, 1, 0, -1, 8, 1, 4, 0, 9, 2, 1, 2, 75, 75, -1, 5, 0, 50, 6, 1, 7, 1, 1, -1 }	
+	VAR_29	{ 0, 0 }	
+	VAR_31	2	
+	VAR_33	10	
 
 ._on_load
-call func_58(int 1)
-call load_sound_set(int 33)
+	call func_58(int 1)
+	call load_sound_set(int 33)
 
- /* play the sound 'dwavesLp' */ 
-call play_loaded_sound(int 1, int -1, int 33, int 0)
-call load_sound_set(int 65)
+	 /* play the sound 'dwavesLp' */ 
+	call play_loaded_sound(int 1, int -1, int 33, int 0)
+	call load_sound_set(int 65)
 
- /* play the sound 'dog1' */ 
-call play_loaded_sound(int 7, int -1, int 65, int 0)
-call load_sound_set(int 68)
-execute SCRIPT_3
-gamevar SMACKER_X = int 316
-gamevar SMACKER_Y = int 132
-call play_2d_anim("monleft", int 1, int 1, int 0)
-if(gamevar is_room_cleared)
- {
-		execute SCRIPT_8
-}
-else
- {
-		switch(gamevar room_state)
-		 {
-				case 1
-					execute SCRIPT_5
-					break 
-				case 2
-					execute SCRIPT_7
-					break 
-				case 0
-					break 
-		}
-}
+	 /* play the sound 'dog1' */ 
+	call play_loaded_sound(int 7, int -1, int 65, int 0)
+	call load_sound_set(int 68)
+	execute SCRIPT_3
+	gamevar SMACKER_X = int 316
+	gamevar SMACKER_Y = int 132
+	call play_2d_anim("monleft", int 1, int 1, int 0)
+	if(gamevar is_room_cleared)
+	 {
+			execute SCRIPT_8
+	}
+	else
+	 {
+			switch(gamevar room_state)
+			 {
+					case 1
+						execute SCRIPT_5
+						break 
+					case 2
+						execute SCRIPT_7
+						break 
+					case 0
+						break 
+			}
+	}
 
 ._infinite_loop
-execute SCRIPT_9
-if(gamevar !is_room_cleared)
- {
-		switch(gamevar room_state)
-		 {
-				case 1
-					execute SCRIPT_4
-					break 
-				case 2
-					execute SCRIPT_6
-					break 
-				case 0
-					break 
-		}
-}
+	execute SCRIPT_9
+	if(gamevar !is_room_cleared)
+	 {
+			switch(gamevar room_state)
+			 {
+					case 1
+						execute SCRIPT_4
+						break 
+					case 2
+						execute SCRIPT_6
+						break 
+					case 0
+						break 
+			}
+	}
 
 ._on_exit
-if(gamevar !is_room_cleared)
- {
-		switch(gamevar room_state)
-		 {
-				case 1
-					gamevar room_state ++ 
-					gamevar is_room_cleared = int 1
-					break 
-				case 2
-					gamevar room_state ++ 
-					gamevar is_room_cleared = int 1
-					break 
-				case 0
-					break 
-				default 
-					gamevar room_state = int 0
-					break 
-		}
-}
+	if(gamevar !is_room_cleared)
+	 {
+			switch(gamevar room_state)
+			 {
+					case 1
+						gamevar room_state ++ 
+						gamevar is_room_cleared = int 1
+						break 
+					case 2
+						gamevar room_state ++ 
+						gamevar is_room_cleared = int 1
+						break 
+					case 0
+						break 
+					default 
+						gamevar room_state = int 0
+						break 
+			}
+	}
 
 ._SCRIPT_3
-var david = call get_david_char()
-while(var david)
- {
-		var VAR_8 = call get_char_handle_id(var david)
-		switch(var VAR_8)
-		 {
-				case 65536
-					call log("david")
-					var VAR_0 = var david
-					break 
-				case 786432
-					call log("sekune")
-					var VAR_2 = var david
-					break 
-				case 327680
-					call log("jug")
-					var VAR_1 = var david
-					break 
-				case 196608
-					call log("vivienne")
-					var VAR_3 = var david
-					break 
-				case 131072
-					call log("chiaro")
-					var VAR_4 = var david
-					break 
-				case 262144
-					call log("cagen")
-					var VAR_5 = var david
-					break 
-				default 
-					call log("WARNING! Unknown hero while checking heroes")
-					call log("Get a goober -- QUICKLY!!")
-					break 
-		}
-		var david = call func_7e()
-}
+	var david = call get_david_char()
+	while(var david)
+	 {
+			var VAR_8 = call get_char_handle_id(var david)
+			switch(var VAR_8)
+			 {
+					case 65536
+						call log("david")
+						var VAR_0 = var david
+						break 
+					case 786432
+						call log("sekune")
+						var VAR_2 = var david
+						break 
+					case 327680
+						call log("jug")
+						var VAR_1 = var david
+						break 
+					case 196608
+						call log("vivienne")
+						var VAR_3 = var david
+						break 
+					case 131072
+						call log("chiaro")
+						var VAR_4 = var david
+						break 
+					case 262144
+						call log("cagen")
+						var VAR_5 = var david
+						break 
+					default 
+						call log("WARNING! Unknown hero while checking heroes")
+						call log("Get a goober -- QUICKLY!!")
+						break 
+			}
+			var david = call func_7e()
+	}
 
 ._SCRIPT_4
-switch(var VAR_27)
- {
-		case 0
-			if(var VAR_17)
-			 {
-					call set_input_system(int 1)
-					var VAR_27 ++ 
-					var VAR_28 = int 0
-			}
-			break 
-		case 1
-			if(var VAR_18)
-			 {
-					var VAR_29 = call run_enemy_generator(var &enemy_gen_script, int 10)
-					var VAR_27 ++ 
-					var VAR_28 = int 0
-			}
-			break 
-		case 2
-			if(call func_9(var VAR_29))
-			 {
-					var VAR_21 = int 1
-					var VAR_27 ++ 
-					var VAR_28 = int 0
-			}
-			break 
-		case 3
-			if(call func_a6(var nfastmonk))
-			 {
-					call remove_char(var nfastmonk)
-					var VAR_27 ++ 
-					var VAR_28 = int 0
-			}
-			break 
-}
-var VAR_28 ++ 
+	switch(var VAR_27)
+	 {
+			case 0
+				if(var VAR_17)
+				 {
+						call set_input_system(int 1)
+						var VAR_27 ++ 
+						var VAR_28 = int 0
+				}
+				break 
+			case 1
+				if(var VAR_18)
+				 {
+						var VAR_29 = call run_enemy_generator(var &enemy_gen_script, int 10)
+						var VAR_27 ++ 
+						var VAR_28 = int 0
+				}
+				break 
+			case 2
+				if(call func_9(var VAR_29))
+				 {
+						var VAR_21 = int 1
+						var VAR_27 ++ 
+						var VAR_28 = int 0
+				}
+				break 
+			case 3
+				if(call func_a6(var nfastmonk))
+				 {
+						call remove_char(var nfastmonk)
+						var VAR_27 ++ 
+						var VAR_28 = int 0
+				}
+				break 
+	}
+	var VAR_28 ++ 
 
 ._SCRIPT_5
-var nfastmonk = call create_char(var &init_position, "nfastmonk", int 105, int 13)
-gamevar script_object = var nfastmonk
-gamevar *character_movement_p+60 = int 1
-call func_50(var nfastmonk, int 8192)
-call play_char_ai_script(var nfastmonk, var &ai_script)
-call set_input_system(int 2)
+	var nfastmonk = call create_char(var &init_position, "nfastmonk", int 105, int 13)
+	gamevar script_object = var nfastmonk
+	gamevar *character_movement_p+60 = int 1
+	call func_50(var nfastmonk, int 8192)
+	call play_char_ai_script(var nfastmonk, var &ai_script)
+	call set_input_system(int 2)
 
 ._SCRIPT_6
 
@@ -187,31 +187,31 @@ call set_input_system(int 2)
 ._SCRIPT_8
 
 ._SCRIPT_9
-if(gamevar script_time > var VAR_30)
- {
-		var VAR_30 = gamevar script_time + int 90 + call randomize_int(int 0, int 60)
+	if(gamevar script_time > var VAR_30)
+	 {
+			var VAR_30 = gamevar script_time + int 90 + call randomize_int(int 0, int 60)
 
-		 /* play the sound 'inwindlp' */ 
-		call play_loaded_sound(int 2, int 0, int 65, int 0)
-}
-if(var VAR_32 > var VAR_33)
- {
-		var VAR_34 = var VAR_31
-		var VAR_31 = int 2 + call randomize_int(int 0, int 5)
-		if(var VAR_31 == var VAR_34)
-		 {
-				var VAR_31 ++ 
-				if(var VAR_31 > int 6)
-				 {
-						var VAR_31 = int 2
-				}
-		}
-		var VAR_35 = call play_loaded_sound(var VAR_31, int 0, int 68, int 0)
-		if(var VAR_35)
-		 {
-				call set_sound_volume(var VAR_35, int 7)
-		}
-		var VAR_33 = call randomize_int(int 0, int 301) + int 600
-		var VAR_32 = int 0
-}
-var VAR_32 ++ 
+			 /* play the sound 'inwindlp' */ 
+			call play_loaded_sound(int 2, int 0, int 65, int 0)
+	}
+	if(var VAR_32 > var VAR_33)
+	 {
+			var VAR_34 = var VAR_31
+			var VAR_31 = int 2 + call randomize_int(int 0, int 5)
+			if(var VAR_31 == var VAR_34)
+			 {
+					var VAR_31 ++ 
+					if(var VAR_31 > int 6)
+					 {
+							var VAR_31 = int 2
+					}
+			}
+			var VAR_35 = call play_loaded_sound(var VAR_31, int 0, int 68, int 0)
+			if(var VAR_35)
+			 {
+					call set_sound_volume(var VAR_35, int 7)
+			}
+			var VAR_33 = call randomize_int(int 0, int 301) + int 600
+			var VAR_32 = int 0
+	}
+	var VAR_32 ++ 

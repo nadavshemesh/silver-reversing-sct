@@ -47,13 +47,13 @@ Further information can be found [here](./docs/index.md).
 Usage: ./sct.exe [operation] [full_path_to_sct/tsct file]
 ```
 for instance:
-In order to translate veranda.sct file, We can use the command:
+In order to decompile veranda.sct file, We can use the command:
 ```
 .\sct.exe decompile "D:\SteamLibrary\steamapps\common\Silver\silver\levels\gno\veranda\veranda.sct"
 ```
 The above command will generate a veranda.tsct file in the same directory as the path.
 
-In order to translate veranda.tsct back to veranda.sct we use:
+In order to compile veranda.tsct back to veranda.sct we use:
 ```
 .\sct.exe compile "D:\SteamLibrary\steamapps\common\Silver\silver\levels\gno\veranda\veranda.tsct"
 ```

@@ -2,6 +2,11 @@
 
 # Zones & Rooms
 
+### Description
+level number ids and string ids are used in functions to indicate the type of room and zone.
+
+*You can find functions that use them [in the functions catalog.](./functions.md)*
+
 ## 0. ATRO
 | Room number | Name |
 | ----------- | ---- |

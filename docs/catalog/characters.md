@@ -2,6 +2,9 @@
 # Characters Catalog [^1]
 ### Description
 Characters string ids are often used in functions and in dialog files (.eng files) to indicate the type of character.
+
+*You can find functions that use them [in the functions catalog.](./functions.md)*
+
 [^1]: this table is based on charstat.sct.
 # 
 

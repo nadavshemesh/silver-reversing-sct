@@ -2,6 +2,9 @@
 # Enemies Catalog [^1]
 ### Description
 Enemies number ids and string ids are often used in functions to indicate the type of enemy character.
+
+*You can find functions that use them [in the functions catalog.](./functions.md)*
+
 [^1]: This table is based on chartemp.sct.
  
 #

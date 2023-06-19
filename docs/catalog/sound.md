@@ -5,6 +5,8 @@
 These are normally being used as background noises inside levels, typically with a loop that randomly shuffles various effects of a selected set.
 please note that you should first call a function to load the set before playing any of its sounds.
 
+*You can find functions that use them [in the functions catalog.](./functions.md)*
+
 #
 
 ## Catalog

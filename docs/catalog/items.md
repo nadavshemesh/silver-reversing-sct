@@ -2,6 +2,9 @@
 # Items Catalog [^1]
 ### Description
 Item number ids are often used in functions to indicate the type of item to use or equip.
+
+*You can find functions that use them [in the functions catalog.](./functions.md)*
+
 [^1]: This table is based on weapons.sct.
 
  #

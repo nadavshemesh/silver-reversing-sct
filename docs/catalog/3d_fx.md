@@ -1,9 +1,11 @@
 
-## FX Catalog
+## 3D Effects Catalog
 
 ### Description
 
 Some functions use 3d effects. These are all the effects listed in the game's memory, However, some of them doesnt seem to work anymore (maybe they were cut from the game)
+
+*You can find functions that use them [in the functions catalog.](./functions.md)*
 
 ### Catalog
 

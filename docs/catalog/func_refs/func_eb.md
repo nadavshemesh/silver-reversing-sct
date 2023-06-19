@@ -1,7 +1,0 @@
-# Function: func_eb 
-### References in the original script files
-
-#
-
-| File | Line Number | Reference code |
-| --- | --- | --- |

@@ -1,8 +1,0 @@
-# Function: func_7b 
-### References in the original script files
-
-#
-
-| File | Line Number | Reference code |
-| --- | --- | --- |
-| [tavern01.tsct](../../../out/tavern01.tsct#L1233) | 1233 | if(call func_7b(var njug) == int 0) |

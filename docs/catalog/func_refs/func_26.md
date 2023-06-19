@@ -1,8 +1,0 @@
-# Function: func_26 
-### References in the original script files
-
-#
-
-| File | Line Number | Reference code |
-| --- | --- | --- |
-| [e_onship.tsct](../../../out/e_onship.tsct#L205) | 205 | call func_26() |

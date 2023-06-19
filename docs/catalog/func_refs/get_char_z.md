@@ -1,8 +1,0 @@
-# Function: get_char_z 
-### References in the original script files
-
-#
-
-| File | Line Number | Reference code |
-| --- | --- | --- |
-| [veranda.tsct](../../../out/veranda.tsct#L274) | 274 | call save_pos_to_room_memory(int 0, call get_char_x(var TYRONIS), call get_char_y(var TYRONIS), call get_char_z(var TYRONIS)) |

@@ -1,8 +1,0 @@
-# Function: func_a3 
-### References in the original script files
-
-#
-
-| File | Line Number | Reference code |
-| --- | --- | --- |
-| [chain.tsct](../../../out/chain.tsct#L387) | 387 | call func_a3(var DAVID) |

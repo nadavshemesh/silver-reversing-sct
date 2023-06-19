@@ -1,8 +1,0 @@
-# Function: func_128 
-### References in the original script files
-
-#
-
-| File | Line Number | Reference code |
-| --- | --- | --- |
-| [bloodfal.tsct](../../../out/bloodfal.tsct#L125) | 125 | call func_128(int 84, int 6) |

@@ -1,8 +1,0 @@
-# Function: func_9e 
-### References in the original script files
-
-#
-
-| File | Line Number | Reference code |
-| --- | --- | --- |
-| [h_oracle.tsct](../../../out/h_oracle.tsct#L284) | 284 | call func_9e(var &VAR_11) |

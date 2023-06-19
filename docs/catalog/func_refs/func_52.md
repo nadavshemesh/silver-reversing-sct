@@ -1,7 +1,0 @@
-# Function: func_52 
-### References in the original script files
-
-#
-
-| File | Line Number | Reference code |
-| --- | --- | --- |

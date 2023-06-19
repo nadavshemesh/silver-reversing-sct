@@ -1,8 +1,0 @@
-# Function: func_c3 
-### References in the original script files
-
-#
-
-| File | Line Number | Reference code |
-| --- | --- | --- |
-| [davhouse.tsct](../../../out/davhouse.tsct#L1955) | 1955 | call func_c3() |

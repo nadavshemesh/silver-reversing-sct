@@ -1,8 +1,0 @@
-# Function: func_101 
-### References in the original script files
-
-#
-
-| File | Line Number | Reference code |
-| --- | --- | --- |
-| [tavern01.tsct](../../../out/tavern01.tsct#L444) | 444 | call func_101(var DAVID1) |

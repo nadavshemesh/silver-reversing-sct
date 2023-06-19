@@ -168,11 +168,12 @@ sct_f* asm_file(char* filepath) {
     return sct_file;
 }
 
-void write_game_functions_ref_file(char* gf_name) {
+void write_game_functions_ref_file(char* gf_name, int gf_id) {
     char* dir = "./docs/catalog/func_refs/";
-    char* filename = gf_name;
+    char filename[256];
     char ext[] = ".md";
 
+    sprintf(filename, "%d", gf_id);
     int str_path_size = strlen(dir)+strlen(filename)+strlen(ext)+1;
     char fullpath[str_path_size];
     snprintf(fullpath, str_path_size, "%s%s%s", dir, filename, ext);
@@ -186,7 +187,7 @@ void write_game_functions_ref_file(char* gf_name) {
     if(f == NULL) print_err_and_exit(err, -4);
     if(gf_f == NULL) print_err_and_exit(err2, -4);
 
-    fprintf(f, "# Function: %s \n", gf_name);
+    fprintf(f, "# Function: %s\n", gf_name);
     fprintf(f, "### References in the original script files\n");
     fprintf(f, "\n#\n\n");
     fprintf(f, "| File | Line Number | Reference code |\n");
@@ -281,10 +282,10 @@ void write_game_functions_file() {
 
             int ref_path_size = strlen(ref_dir)+strlen(gf->name)+strlen(ext)+1;
             char refpath[ref_path_size];
-            snprintf(refpath, ref_path_size, "%s%s%s", ref_dir, gf->name, ext);
+            snprintf(refpath, ref_path_size, "%s%d%s", ref_dir, gf->id, ext);
 
             fprintf(f, "| %d | [%s](%s) | %d | %s | %d |\n", gf->id, gf->name, refpath, gf->params, gf->desc, lines);
-            write_game_functions_ref_file(gf->name);
+            write_game_functions_ref_file(gf->name, gf->id);
         }
     }
 
@@ -307,10 +308,10 @@ void write_game_functions_file() {
 
             int ref_path_size = strlen(ref_dir)+strlen(gf->name)+strlen(ext)+1;
             char refpath[ref_path_size];
-            snprintf(refpath, ref_path_size, "%s%s%s", ref_dir, gf->name, ext);
+            snprintf(refpath, ref_path_size, "%s%d%s", ref_dir, gf->id, ext);
 
             fprintf(f, "| %d | [%s](%s) | - | - | %d |\n", gf->id, gf->name, refpath, lines);
-            write_game_functions_ref_file(gf->name);
+            write_game_functions_ref_file(gf->name, gf->id);
         }
     }
 

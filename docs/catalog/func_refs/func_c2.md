@@ -1,9 +1,0 @@
-# Function: func_c2 
-### References in the original script files
-
-#
-
-| File | Line Number | Reference code |
-| --- | --- | --- |
-| [adesew02.tsct](../../../out/adesew02.tsct#L190) | 190 | call func_c2(var selected_hero1, int 45056) |
-| [davhouse.tsct](../../../out/davhouse.tsct#L214) | 214 | call func_c2(var HDAVID, int 65536) |

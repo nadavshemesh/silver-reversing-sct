@@ -1,4 +1,4 @@
-[<- Go Back](./readme.md)
+[<- Go Back](../index.md)
 
 # Zones & Rooms
 

@@ -1,3 +1,5 @@
+[<- Go Back](../index.md)
+
 # Game Functions (Incomplete, 91/313)
 ### Description
 The game function calls are the main ingredient in the scripts, thats how we actually use the game's inner logic.

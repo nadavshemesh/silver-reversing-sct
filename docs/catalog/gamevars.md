@@ -1,3 +1,5 @@
+[<- Go Back](../index.md)
+
 # Game Variables Catalog
 
 ## Description

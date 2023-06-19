@@ -27,6 +27,7 @@ Some functions use 3d effects. These are all the effects listed in the game's me
 | FIREHOLE | yes |
 | FIREHOLEUP | yes |
 | ORACLE | yes |
+| ROCKFALL | yes, requires position pointer |
 | FHOLE | yes, requires position pointer |
 | RAIN | yes, requires 2 position pointers |
 | SNOW | yes, requires 2 position pointers |

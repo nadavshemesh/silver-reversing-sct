@@ -47,7 +47,7 @@
 	init_position5	{ 1101, -528, 2488 }	
 
 ._on_load
-	call func_58(int 1)
+	call stop_bgm(int 1)
 	execute SCRIPT_3
 	execute SCRIPT_5
 	call load_sound_set(int 45)
@@ -177,7 +177,7 @@
 						call log("Get a goober -- QUICKLY!!")
 						break 
 			}
-			var david = call func_7e()
+			var david = call get_next_char_from_list()
 	}
 
 ._SCRIPT_6
@@ -198,7 +198,7 @@
 								call char_stop(var david)
 								call char_teleport_to_pos(var david, @arr[var VAR_78], int 0)
 								var index ++ 
-								var david = call func_7e()
+								var david = call get_next_char_from_list()
 						}
 						var VAR_75 ++ 
 						var VAR_76 = int 0
@@ -211,7 +211,7 @@
 						while(var david)
 						 {
 								call func_e1(var david, var nraft)
-								var david = call func_7e()
+								var david = call get_next_char_from_list()
 						}
 						var VAR_75 ++ 
 						var VAR_76 = int 0
@@ -345,7 +345,7 @@
 						while(var david)
 						 {
 								call func_fc(var david)
-								var david = call func_7e()
+								var david = call get_next_char_from_list()
 						}
 				}
 				if(var VAR_76 == int 150)
@@ -381,7 +381,7 @@
 						 {
 								call func_fc(var david)
 								call char_turn_to_pos(var david, var position)
-								var david = call func_7e()
+								var david = call get_next_char_from_list()
 						}
 						var VAR_75 ++ 
 						var VAR_76 = int 0
@@ -394,7 +394,7 @@
 						while(var david)
 						 {
 								call func_e1(var david, var nraft)
-								var david = call func_7e()
+								var david = call get_next_char_from_list()
 						}
 						call func_e1(var nboatman, var nraft)
 						call func_94(var nraft, var position, int 10737418)
@@ -524,7 +524,7 @@
 						 {
 								call char_stop(var david)
 								var index_1 ++ 
-								var david = call func_7e()
+								var david = call get_next_char_from_list()
 						}
 				}
 				if(var VAR_117 == int 10)
@@ -535,7 +535,7 @@
 						 {
 								call char_teleport_to_pos(var david, @arr_1[var VAR_118], int 0)
 								var index_1 ++ 
-								var david = call func_7e()
+								var david = call get_next_char_from_list()
 						}
 						var VAR_116 ++ 
 						var VAR_117 = int 0
@@ -550,7 +550,7 @@
 						 {
 								call func_e1(var david, var nraft)
 								var index_1 ++ 
-								var david = call func_7e()
+								var david = call get_next_char_from_list()
 						}
 						call set_input_system(int 1)
 						gamevar no_user_input = int 1
@@ -572,7 +572,7 @@
 								call char_stop(var david)
 								call char_teleport_to_pos(var david, @arr[var index], int 0)
 								var index ++ 
-								var david = call func_7e()
+								var david = call get_next_char_from_list()
 						}
 						var VAR_116 ++ 
 						var VAR_117 = int 0
@@ -585,7 +585,7 @@
 						while(var david)
 						 {
 								call func_e1(var david, var nraft)
-								var david = call func_7e()
+								var david = call get_next_char_from_list()
 						}
 						var VAR_116 ++ 
 						var VAR_117 = int 0
@@ -635,7 +635,7 @@
 						 {
 								call func_fc(var david)
 								call char_turn_to_pos(var david, var position)
-								var david = call func_7e()
+								var david = call get_next_char_from_list()
 						}
 						var VAR_116 ++ 
 						var VAR_117 = int 0
@@ -648,7 +648,7 @@
 						while(var david)
 						 {
 								call func_e1(var david, var nraft)
-								var david = call func_7e()
+								var david = call get_next_char_from_list()
 						}
 						call func_e1(var nboatman, var nraft)
 						call func_94(var nraft, var position, int 10737418)

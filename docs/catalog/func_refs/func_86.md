@@ -1,0 +1,18 @@
+# Function: func_86 
+### References in the original script files
+
+#
+
+| File | Line Number | Reference code |
+| --- | --- | --- |
+| [dockside.tsct](../../../out/dockside.tsct#L830) | 830 | var VAR_150 = call func_86() |
+| [h_orout.tsct](../../../out/h_orout.tsct#L346) | 346 | var VAR_102 = call func_86() |
+| [h_orout.tsct](../../../out/h_orout.tsct#L564) | 564 | var VAR_102 = call func_86() |
+| [rayalley.tsct](../../../out/rayalley.tsct#L141) | 141 | var VAR_34 = call func_86() |
+| [rayalley.tsct](../../../out/rayalley.tsct#L235) | 235 | var VAR_57 = call func_86() |
+| [tavern01.tsct](../../../out/tavern01.tsct#L542) | 542 | if(call func_86() < int 30) |
+| [tavern01.tsct](../../../out/tavern01.tsct#L576) | 576 | call func_110(call func_86() - int 30) |
+| [tavern01.tsct](../../../out/tavern01.tsct#L669) | 669 | if(call func_86() < int 100) |
+| [tavern01.tsct](../../../out/tavern01.tsct#L706) | 706 | call func_110(call func_86() - int 100) |
+| [tavern01.tsct](../../../out/tavern01.tsct#L1008) | 1008 | if(call func_86() < int 30) |
+| [tavern01.tsct](../../../out/tavern01.tsct#L1024) | 1024 | call func_110(call func_86() - int 30) |

@@ -36,7 +36,7 @@
 	init_position	{ 508, -400, 5770 }	
 
 ._on_load
-	call func_58(int 1)
+	call stop_bgm(int 1)
 	execute SCRIPT_15
 	execute SCRIPT_3
 	execute SCRIPT_12
@@ -485,7 +485,7 @@
 						call log("Get a goober -- QUICKLY!!")
 						break 
 			}
-			var david = call func_7e()
+			var david = call get_next_char_from_list()
 	}
 
 ._SCRIPT_15

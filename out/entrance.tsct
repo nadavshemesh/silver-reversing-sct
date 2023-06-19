@@ -42,7 +42,7 @@
 	wandering_gen_script	{ 0, 0, 2, -1, 8, 1, 12, 51, 51, 148, -1, 13, 0, 14, 0, 1, 3, 5, 0, 60, 18, 55, 11, -1 }	
 
 ._on_load
-	call func_58(int 1)
+	call stop_bgm(int 1)
 	execute SCRIPT_3
 	call load_sound_set(int 64)
 	var cavelp_sound_ref = call play_loaded_sound(int 1, int -1, int 64, int 0)
@@ -131,7 +131,7 @@
 						while(var david)
 						 {
 								call char_stop(var david)
-								var david = call func_7e()
+								var david = call get_next_char_from_list()
 						}
 						var VAR_66 ++ 
 						var VAR_67 = int 0
@@ -145,12 +145,12 @@
 						if(var david)
 						 {
 								call char_teleport_to_pos(var david, var &tele_position, int 50)
-								var david = call func_7e()
+								var david = call get_next_char_from_list()
 						}
 						if(var david)
 						 {
 								call char_teleport_to_pos(var david, var &tele_position1, int 50)
-								var david = call func_7e()
+								var david = call get_next_char_from_list()
 						}
 						if(var david)
 						 {
@@ -187,13 +187,13 @@
 						 {
 								call set_char_running(var david)
 								call char_walk_to_pos(var david, var &walk_position)
-								var david = call func_7e()
+								var david = call get_next_char_from_list()
 						}
 						if(var david)
 						 {
 								call set_char_running(var david)
 								call char_walk_to_pos(var david, var &walk_position1)
-								var david = call func_7e()
+								var david = call get_next_char_from_list()
 						}
 						if(var david)
 						 {

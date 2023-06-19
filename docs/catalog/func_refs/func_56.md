@@ -1,0 +1,9 @@
+# Function: func_56 
+### References in the original script files
+
+#
+
+| File | Line Number | Reference code |
+| --- | --- | --- |
+| [h_camptp.tsct](../../../out/h_camptp.tsct#L316) | 316 | call func_56(var GRANDAD, int 16) |
+| [tavern01.tsct](../../../out/tavern01.tsct#L1238) | 1238 | call func_56(var njug, int 18) |

@@ -1,0 +1,16 @@
+# Function: func_d2 
+### References in the original script files
+
+#
+
+| File | Line Number | Reference code |
+| --- | --- | --- |
+| [davhouse.tsct](../../../out/davhouse.tsct#L634) | 634 | call func_d2() |
+| [davhouse.tsct](../../../out/davhouse.tsct#L763) | 763 | call func_d2() |
+| [davhouse.tsct](../../../out/davhouse.tsct#L892) | 892 | call func_d2() |
+| [davhouse.tsct](../../../out/davhouse.tsct#L1021) | 1021 | call func_d2() |
+| [davhouse.tsct](../../../out/davhouse.tsct#L1159) | 1159 | call func_d2() |
+| [davhouse.tsct](../../../out/davhouse.tsct#L1311) | 1311 | call func_d2() |
+| [davhouse.tsct](../../../out/davhouse.tsct#L1444) | 1444 | call func_d2() |
+| [davhouse.tsct](../../../out/davhouse.tsct#L2087) | 2087 | call func_d2() |
+| [s_throne.tsct](../../../out/s_throne.tsct#L650) | 650 | call func_d2() |

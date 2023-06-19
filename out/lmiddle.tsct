@@ -118,7 +118,7 @@
 						 {
 								call char_turn_to_pos(var VAR_2, call get_char_pos(var teleport_mini_maim))
 						}
-						call func_11f(var &VAR_12, int 61440)
+						call set_input_sys_2_if_pos_occupied(var &VAR_12, int 61440)
 						call char_walk_to(var teleport_mini_maim, int -1416, int -111, int 2218)
 						var VAR_6 ++ 
 				}
@@ -164,8 +164,8 @@
 
 ._SCRIPT_8
 	var david = call get_david_char()
-	var VAR_1 = call func_7e()
-	var VAR_2 = call func_7e()
+	var VAR_1 = call get_next_char_from_list()
+	var VAR_2 = call get_next_char_from_list()
 	gamevar SMACKER_X = int 160
 	gamevar SMACKER_Y = int 488
 	call play_2d_anim("leftshrk", int 1, int 1, int 0)

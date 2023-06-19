@@ -107,7 +107,7 @@
 	call log("nem_dave")
 	call func_8f("nemdave")
 	var david = call get_david_char()
-	call func_61(var david)
+	call char_remove_magic_and_weapons(var david)
 	call func_8d(var david, int 12845056)
 	call char_stop(var david)
 	call add_item_to_char(var david, int 113 /* nemshld */ , int 0, int 1)
@@ -145,7 +145,7 @@
 				if(call is_local_timer_greater_than(int 50))
 				 {
 						var VAR_3 = int 1
-						call func_11f(var &tele_position, int 32768)
+						call set_input_sys_2_if_pos_occupied(var &tele_position, int 32768)
 						var VAR_0 = int 2
 				}
 				break 
@@ -168,7 +168,7 @@
 				 {
 						call apply_effect_on_char(gamevar char_gen_fx_scripts, int 10, int 0, var david)
 						call reset_local_timer()
-						var VAR_36 = call func_e8(var &tele_position, int 0)
+						var VAR_36 = call play_tele_effect_at_pos(var &tele_position, int 0)
 						var VAR_0 = int 5
 				}
 				break 
@@ -186,7 +186,7 @@
 				 {
 						call set_char_walking(var david)
 						call char_walk_to_pos(var david, var &walk_position)
-						call func_11f(var &VAR_39, int 32768)
+						call set_input_sys_2_if_pos_occupied(var &VAR_39, int 32768)
 						call reset_local_timer()
 						var VAR_0 = int 7
 				}
@@ -196,7 +196,7 @@
 				 {
 						if(call is_local_timer_greater_than(int 10))
 						 {
-								call func_11e(var VAR_36)
+								call remove_effect(var VAR_36)
 								var VAR_36 = int 0
 						}
 				}
@@ -254,7 +254,7 @@
 							 {
 									call set_char_walking(var david)
 									call char_walk_to_pos(var david, var &walk_position)
-									call func_11f(var &VAR_39, int 32768)
+									call set_input_sys_2_if_pos_occupied(var &VAR_39, int 32768)
 									var VAR_1 ++ 
 							}
 							break 
@@ -296,7 +296,7 @@
 				switch(var VAR_1)
 				 {
 						case 0
-							call func_11f(var &tele_position, int 32768)
+							call set_input_sys_2_if_pos_occupied(var &tele_position, int 32768)
 							call reset_local_timer()
 							var VAR_1 ++ 
 							break 
@@ -304,7 +304,7 @@
 							if(call is_local_timer_greater_than(int 30))
 							 {
 									call set_char_running(var david)
-									var VAR_36 = call func_e8(var &tele_position, int 0)
+									var VAR_36 = call play_tele_effect_at_pos(var &tele_position, int 0)
 									call char_turn_to_pos(var david, var &tele_position)
 									call reset_local_timer()
 									var VAR_1 ++ 
@@ -343,7 +343,7 @@
 						case 6
 							if(call is_local_timer_greater_than(int 20))
 							 {
-									call func_11e(var VAR_36)
+									call remove_effect(var VAR_36)
 									call reset_local_timer()
 									var VAR_1 ++ 
 							}
@@ -355,7 +355,7 @@
 							}
 							break 
 						default 
-							call func_61(var david)
+							call char_remove_magic_and_weapons(var david)
 							call func_8d(var david, int 65536)
 							gamevar outro_active = int 1
 							call func_e6("OUTRO", "E_THRONE", var &VAR_49, int 1)

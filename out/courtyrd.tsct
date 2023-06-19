@@ -46,7 +46,7 @@
 	execute SCRIPT_4
 	execute SCRIPT_27
 	var VAR_0 = int 1
-	call func_58(int 1)
+	call stop_bgm(int 1)
 	if(gamevar is_room_cleared)
 	 {
 			execute SCRIPT_26
@@ -170,7 +170,7 @@
 	call add_item_to_char(var FIMP3, int 8 /* catapult */ , int 0, int 1)
 	var TYRONIS = call get_char_handle(int 2031616)
 	var DAVID = call get_char_handle(int 65536)
-	call char_unfollow(var TYRONIS)
+	call char_unfollow_char(var TYRONIS)
 	var enemies_num1 = call get_num_of_enemies()
 	execute SCRIPT_14
 	call set_input_system(int 2)
@@ -436,7 +436,7 @@
 			if(var VAR_117 > var VAR_118)
 			 {
 					var VAR_119 = call get_char_pos(var FWINGIMP)
-					call func_1d(var FIMP3, var VAR_119)
+					call char_shoot_bow(var FIMP3, var VAR_119)
 					var VAR_116 = int 0
 					var VAR_117 = int 0
 			}

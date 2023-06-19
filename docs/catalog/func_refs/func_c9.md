@@ -1,0 +1,11 @@
+# Function: func_c9 
+### References in the original script files
+
+#
+
+| File | Line Number | Reference code |
+| --- | --- | --- |
+| [havenadd.tsct](../../../out/havenadd.tsct#L142) | 142 | call func_c9() |
+| [havenadd.tsct](../../../out/havenadd.tsct#L359) | 359 | call func_c9() |
+| [havenadd.tsct](../../../out/havenadd.tsct#L369) | 369 | call func_c9() |
+| [havenadd.tsct](../../../out/havenadd.tsct#L397) | 397 | call func_c9() |

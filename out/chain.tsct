@@ -172,7 +172,7 @@
 				 {
 						call set_char_walking(var battle_fuge)
 						call char_walk_to_pos(var battle_fuge, var &walk_position1)
-						call func_11f(var &walk_position1, int 32768)
+						call set_input_sys_2_if_pos_occupied(var &walk_position1, int 32768)
 						var VAR_72 = int 0
 						var VAR_71 ++ 
 				}
@@ -191,7 +191,7 @@
 				 {
 						if(call is_not_force_scrolling())
 						 {
-								call func_58(int 1)
+								call stop_bgm(int 1)
 								call start_dialog("S_FUGDVD", "NULL")
 								var VAR_72 = int 0
 								var VAR_71 ++ 
@@ -224,7 +224,7 @@
 				if(var VAR_72 > int 10)
 				 {
 						call set_input_system(int 2)
-						call func_58(int 1)
+						call stop_bgm(int 1)
 						if(var VAR_54)
 						 {
 								gamevar script_object = var VAR_54
@@ -413,7 +413,7 @@
 					@VAR_54[var VAR_52]= var david
 					var VAR_52 ++ 
 			}
-			var david = call func_7e()
+			var david = call get_next_char_from_list()
 	}
 	var VAR_56 = var VAR_52
 
@@ -422,7 +422,7 @@
 	while(var david1)
 	 {
 			call set_char_lvl(var david1, var VAR_0)
-			var david1 = call func_7e()
+			var david1 = call get_next_char_from_list()
 	}
 
 ._SCRIPT_12

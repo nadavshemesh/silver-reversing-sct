@@ -1,0 +1,8 @@
+# Function: func_b3 
+### References in the original script files
+
+#
+
+| File | Line Number | Reference code |
+| --- | --- | --- |
+| [gallery2.tsct](../../../out/gallery2.tsct#L98) | 98 | call func_b3(var nreuben, "") |

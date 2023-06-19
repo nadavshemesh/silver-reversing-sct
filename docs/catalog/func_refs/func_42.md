@@ -1,0 +1,79 @@
+# Function: func_42 
+### References in the original script files
+
+#
+
+| File | Line Number | Reference code |
+| --- | --- | --- |
+| [atro10.tsct](../../../out/atro10.tsct#L302) | 302 | var VAR_3 += call func_42(var david2, int 0) |
+| [atro10.tsct](../../../out/atro10.tsct#L303) | 303 | var VAR_3 += call func_42(var david2, int 1) |
+| [atro10.tsct](../../../out/atro10.tsct#L304) | 304 | var VAR_3 += call func_42(var david2, int 2) |
+| [atro10.tsct](../../../out/atro10.tsct#L305) | 305 | var VAR_3 += call func_42(var david2, int 3) |
+| [atro10.tsct](../../../out/atro10.tsct#L306) | 306 | var VAR_3 += call func_42(var david2, int 4) |
+| [atro10.tsct](../../../out/atro10.tsct#L307) | 307 | var VAR_3 += call func_42(var david2, int 5) |
+| [atro10.tsct](../../../out/atro10.tsct#L308) | 308 | var VAR_3 += call func_42(var david2, int 6) |
+| [atro10.tsct](../../../out/atro10.tsct#L309) | 309 | var VAR_3 += call func_42(var david2, int 7) |
+| [dig.tsct](../../../out/dig.tsct#L227) | 227 | var VAR_1 += call func_42(var david1, int 0) |
+| [dig.tsct](../../../out/dig.tsct#L228) | 228 | var VAR_1 += call func_42(var david1, int 1) |
+| [dig.tsct](../../../out/dig.tsct#L229) | 229 | var VAR_1 += call func_42(var david1, int 2) |
+| [dig.tsct](../../../out/dig.tsct#L230) | 230 | var VAR_1 += call func_42(var david1, int 3) |
+| [dig.tsct](../../../out/dig.tsct#L231) | 231 | var VAR_1 += call func_42(var david1, int 4) |
+| [dig.tsct](../../../out/dig.tsct#L232) | 232 | var VAR_1 += call func_42(var david1, int 5) |
+| [dig.tsct](../../../out/dig.tsct#L233) | 233 | var VAR_1 += call func_42(var david1, int 6) |
+| [dig.tsct](../../../out/dig.tsct#L234) | 234 | var VAR_1 += call func_42(var david1, int 7) |
+| [ice_tomb.tsct](../../../out/ice_tomb.tsct#L606) | 606 | var VAR_40 += call func_42(var david1, int 0) |
+| [ice_tomb.tsct](../../../out/ice_tomb.tsct#L607) | 607 | var VAR_40 += call func_42(var david1, int 1) |
+| [ice_tomb.tsct](../../../out/ice_tomb.tsct#L608) | 608 | var VAR_40 += call func_42(var david1, int 2) |
+| [ice_tomb.tsct](../../../out/ice_tomb.tsct#L609) | 609 | var VAR_40 += call func_42(var david1, int 3) |
+| [ice_tomb.tsct](../../../out/ice_tomb.tsct#L610) | 610 | var VAR_40 += call func_42(var david1, int 4) |
+| [ice_tomb.tsct](../../../out/ice_tomb.tsct#L611) | 611 | var VAR_40 += call func_42(var david1, int 5) |
+| [ice_tomb.tsct](../../../out/ice_tomb.tsct#L612) | 612 | var VAR_40 += call func_42(var david1, int 6) |
+| [ice_tomb.tsct](../../../out/ice_tomb.tsct#L613) | 613 | var VAR_40 += call func_42(var david1, int 7) |
+| [inwiztow.tsct](../../../out/inwiztow.tsct#L429) | 429 | var VAR_1 += call func_42(var david4, int 0) |
+| [inwiztow.tsct](../../../out/inwiztow.tsct#L430) | 430 | var VAR_1 += call func_42(var david4, int 1) |
+| [inwiztow.tsct](../../../out/inwiztow.tsct#L431) | 431 | var VAR_1 += call func_42(var david4, int 2) |
+| [inwiztow.tsct](../../../out/inwiztow.tsct#L432) | 432 | var VAR_1 += call func_42(var david4, int 3) |
+| [inwiztow.tsct](../../../out/inwiztow.tsct#L433) | 433 | var VAR_1 += call func_42(var david4, int 4) |
+| [inwiztow.tsct](../../../out/inwiztow.tsct#L434) | 434 | var VAR_1 += call func_42(var david4, int 5) |
+| [inwiztow.tsct](../../../out/inwiztow.tsct#L435) | 435 | var VAR_1 += call func_42(var david4, int 6) |
+| [inwiztow.tsct](../../../out/inwiztow.tsct#L436) | 436 | var VAR_1 += call func_42(var david4, int 7) |
+| [mill1.tsct](../../../out/mill1.tsct#L212) | 212 | var VAR_44 += call func_42(var VAR_19, int 0) |
+| [mill1.tsct](../../../out/mill1.tsct#L213) | 213 | var VAR_44 += call func_42(var VAR_19, int 1) |
+| [mill1.tsct](../../../out/mill1.tsct#L214) | 214 | var VAR_44 += call func_42(var VAR_19, int 2) |
+| [mill1.tsct](../../../out/mill1.tsct#L215) | 215 | var VAR_44 += call func_42(var VAR_19, int 3) |
+| [mill1.tsct](../../../out/mill1.tsct#L216) | 216 | var VAR_44 += call func_42(var VAR_19, int 4) |
+| [mill1.tsct](../../../out/mill1.tsct#L217) | 217 | var VAR_44 += call func_42(var VAR_19, int 5) |
+| [mill1.tsct](../../../out/mill1.tsct#L218) | 218 | var VAR_44 += call func_42(var VAR_19, int 6) |
+| [mill1.tsct](../../../out/mill1.tsct#L219) | 219 | var VAR_44 += call func_42(var VAR_19, int 7) |
+| [mill1.tsct](../../../out/mill1.tsct#L348) | 348 | var VAR_1 += call func_42(var david1, int 0) |
+| [mill1.tsct](../../../out/mill1.tsct#L349) | 349 | var VAR_1 += call func_42(var david1, int 1) |
+| [mill1.tsct](../../../out/mill1.tsct#L350) | 350 | var VAR_1 += call func_42(var david1, int 2) |
+| [mill1.tsct](../../../out/mill1.tsct#L351) | 351 | var VAR_1 += call func_42(var david1, int 3) |
+| [mill1.tsct](../../../out/mill1.tsct#L352) | 352 | var VAR_1 += call func_42(var david1, int 4) |
+| [mill1.tsct](../../../out/mill1.tsct#L353) | 353 | var VAR_1 += call func_42(var david1, int 5) |
+| [mill1.tsct](../../../out/mill1.tsct#L354) | 354 | var VAR_1 += call func_42(var david1, int 6) |
+| [mill1.tsct](../../../out/mill1.tsct#L355) | 355 | var VAR_1 += call func_42(var david1, int 7) |
+| [palace34.tsct](../../../out/palace34.tsct#L393) | 393 | var VAR_40 += call func_42(var david1, int 0) |
+| [palace34.tsct](../../../out/palace34.tsct#L394) | 394 | var VAR_40 += call func_42(var david1, int 1) |
+| [palace34.tsct](../../../out/palace34.tsct#L395) | 395 | var VAR_40 += call func_42(var david1, int 2) |
+| [palace34.tsct](../../../out/palace34.tsct#L396) | 396 | var VAR_40 += call func_42(var david1, int 3) |
+| [palace34.tsct](../../../out/palace34.tsct#L397) | 397 | var VAR_40 += call func_42(var david1, int 4) |
+| [palace34.tsct](../../../out/palace34.tsct#L398) | 398 | var VAR_40 += call func_42(var david1, int 5) |
+| [palace34.tsct](../../../out/palace34.tsct#L399) | 399 | var VAR_40 += call func_42(var david1, int 6) |
+| [palace34.tsct](../../../out/palace34.tsct#L400) | 400 | var VAR_40 += call func_42(var david1, int 7) |
+| [ratunder.tsct](../../../out/ratunder.tsct#L561) | 561 | var VAR_42 += call func_42(var david3, int 0) |
+| [ratunder.tsct](../../../out/ratunder.tsct#L562) | 562 | var VAR_42 += call func_42(var david3, int 1) |
+| [ratunder.tsct](../../../out/ratunder.tsct#L563) | 563 | var VAR_42 += call func_42(var david3, int 2) |
+| [ratunder.tsct](../../../out/ratunder.tsct#L564) | 564 | var VAR_42 += call func_42(var david3, int 3) |
+| [ratunder.tsct](../../../out/ratunder.tsct#L565) | 565 | var VAR_42 += call func_42(var david3, int 4) |
+| [ratunder.tsct](../../../out/ratunder.tsct#L566) | 566 | var VAR_42 += call func_42(var david3, int 5) |
+| [ratunder.tsct](../../../out/ratunder.tsct#L567) | 567 | var VAR_42 += call func_42(var david3, int 6) |
+| [ratunder.tsct](../../../out/ratunder.tsct#L568) | 568 | var VAR_42 += call func_42(var david3, int 7) |
+| [window.tsct](../../../out/window.tsct#L551) | 551 | var VAR_42 += call func_42(var david3, int 0) |
+| [window.tsct](../../../out/window.tsct#L552) | 552 | var VAR_42 += call func_42(var david3, int 1) |
+| [window.tsct](../../../out/window.tsct#L553) | 553 | var VAR_42 += call func_42(var david3, int 2) |
+| [window.tsct](../../../out/window.tsct#L554) | 554 | var VAR_42 += call func_42(var david3, int 3) |
+| [window.tsct](../../../out/window.tsct#L555) | 555 | var VAR_42 += call func_42(var david3, int 4) |
+| [window.tsct](../../../out/window.tsct#L556) | 556 | var VAR_42 += call func_42(var david3, int 5) |
+| [window.tsct](../../../out/window.tsct#L557) | 557 | var VAR_42 += call func_42(var david3, int 6) |
+| [window.tsct](../../../out/window.tsct#L558) | 558 | var VAR_42 += call func_42(var david3, int 7) |

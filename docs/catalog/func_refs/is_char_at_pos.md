@@ -1,0 +1,61 @@
+# Function: is_char_at_pos 
+### References in the original script files
+
+#
+
+| File | Line Number | Reference code |
+| --- | --- | --- |
+| [arches.tsct](../../../out/arches.tsct#L190) | 190 | if(call is_char_at_pos(gamevar control_char_p, var &position, int 500)) |
+| [arches.tsct](../../../out/arches.tsct#L261) | 261 | if(call is_char_at_pos(gamevar control_char_p, var &position, int 500)) |
+| [black_3.tsct](../../../out/black_3.tsct#L143) | 143 | if(call is_char_at_pos(var david, var &position, int 320)) |
+| [black_3.tsct](../../../out/black_3.tsct#L194) | 194 | if(call is_char_at_pos(var david, var &position, int 240)) |
+| [black_in.tsct](../../../out/black_in.tsct#L237) | 237 | if(call is_char_at_pos(var selected_hero, var &scroll_position1, int 240)) |
+| [black_in.tsct](../../../out/black_in.tsct#L286) | 286 | if(call is_char_at_pos(var selected_hero, var &scroll_position1, int 320)) |
+| [black_in.tsct](../../../out/black_in.tsct#L337) | 337 | if(call is_char_at_pos(var selected_hero, var &scroll_position1, int 240)) |
+| [black_in.tsct](../../../out/black_in.tsct#L474) | 474 | if(call is_char_at_pos(var selected_hero, var &scroll_position1, int 240)) |
+| [black_in.tsct](../../../out/black_in.tsct#L653) | 653 | if(call is_char_at_pos(var selected_hero, var &scroll_position1, int 240)) |
+| [black_in.tsct](../../../out/black_in.tsct#L716) | 716 | if(call is_char_at_pos(var selected_hero, var &scroll_position1, int 320)) |
+| [black_in.tsct](../../../out/black_in.tsct#L767) | 767 | if(call is_char_at_pos(var selected_hero, var &scroll_position1, int 240)) |
+| [black_in.tsct](../../../out/black_in.tsct#L912) | 912 | if(call is_char_at_pos(var selected_hero, var &scroll_position1, int 240)) |
+| [boneyrd2.tsct](../../../out/boneyrd2.tsct#L196) | 196 | if(call is_char_at_pos(var david, var &position, int 400)) |
+| [courtyrd.tsct](../../../out/courtyrd.tsct#L449) | 449 | if(call is_char_at_pos(var DAVID, var &position, int 1400)) |
+| [courtyrd.tsct](../../../out/courtyrd.tsct#L459) | 459 | if(call is_char_at_pos(var DAVID, var &position, int 1400)) |
+| [courtyrd.tsct](../../../out/courtyrd.tsct#L469) | 469 | if(call is_char_at_pos(var DAVID, var &position1, int 500)) |
+| [courtyrd.tsct](../../../out/courtyrd.tsct#L480) | 480 | if(call is_char_at_pos(var DAVID, var &position1, int 500)) |
+| [courtyrd.tsct](../../../out/courtyrd.tsct#L491) | 491 | if(call is_char_at_pos(var DAVID, var &init_position3, int 500)) |
+| [davhouse.tsct](../../../out/davhouse.tsct#L1540) | 1540 | if(call is_char_at_pos(var grandad, var &init_position2, int 1000) == int 0) |
+| [davhouse.tsct](../../../out/davhouse.tsct#L1580) | 1580 | if(call is_char_at_pos(var HDAVID, var &init_position2, int 1000) == int 0) |
+| [davhouse.tsct](../../../out/davhouse.tsct#L1602) | 1602 | if(call is_char_at_pos(var HDAVID, var &init_position2, int 1000) == int 1) |
+| [davhouse.tsct](../../../out/davhouse.tsct#L1617) | 1617 | if(call is_char_at_pos(var HDAVID, var &init_position2, int 1000) == int 1) |
+| [davhouse.tsct](../../../out/davhouse.tsct#L1648) | 1648 | if(call is_char_at_pos(var grandad, var &init_position2, int 1000) == int 0) |
+| [davhouse.tsct](../../../out/davhouse.tsct#L1661) | 1661 | if(call is_char_at_pos(var HDAVID, var &init_position2, int 1000) == int 0) |
+| [davhouse.tsct](../../../out/davhouse.tsct#L1684) | 1684 | if(call is_char_at_pos(var HDAVID, var &init_position2, int 1000) == int 1) |
+| [davhouse.tsct](../../../out/davhouse.tsct#L1700) | 1700 | if(call is_char_at_pos(var HDAVID, var &init_position2, int 1000) == int 1) |
+| [davhouse.tsct](../../../out/davhouse.tsct#L1745) | 1745 | if(call is_char_at_pos(var HDAVID, var &init_position2, int 300) == int 1) |
+| [davhouse.tsct](../../../out/davhouse.tsct#L2078) | 2078 | if(call is_char_at_pos(var HDAVID, var &init_position2, int 2000) == int 0) |
+| [gnolast.tsct](../../../out/gnolast.tsct#L384) | 384 | if(call is_char_at_pos(var DAVID, var &position, int 400) == int 1) |
+| [gnosnake.tsct](../../../out/gnosnake.tsct#L313) | 313 | if(call is_char_at_pos(var DAVID, "`N", int 800)\|\|call func_d1(var &VAR_76)) |
+| [h_camptp.tsct](../../../out/h_camptp.tsct#L649) | 649 | if(call is_char_at_pos(var nrichard, var &init_position4, int 310) == int 0) |
+| [h_camptp.tsct](../../../out/h_camptp.tsct#L1080) | 1080 | if(call is_char_at_pos(var njohn, var &position1, int 600) == int 0) |
+| [kinghd_3.tsct](../../../out/kinghd_3.tsct#L199) | 199 | if(call is_char_at_pos(var VAR_69, var &walk_position, int 100)) |
+| [libarea2.tsct](../../../out/libarea2.tsct#L159) | 159 | if(call is_char_at_pos(var DAVID, var &init_position, int 500)) |
+| [oneskull.tsct](../../../out/oneskull.tsct#L263) | 263 | if(call is_char_at_pos(var npc_skel, var &tele_position, int 320)) |
+| [oneskull.tsct](../../../out/oneskull.tsct#L268) | 268 | if(call is_char_at_pos(var david, var &tele_position, int 320)) |
+| [outertav.tsct](../../../out/outertav.tsct#L154) | 154 | var VAR_11 = call is_char_at_pos(var DAVID1, var &init_position, int 400) |
+| [outertav.tsct](../../../out/outertav.tsct#L158) | 158 | var VAR_11 = call is_char_at_pos(var SEKUNE1, var &init_position, int 400) |
+| [outertav.tsct](../../../out/outertav.tsct#L162) | 162 | var VAR_11 = call is_char_at_pos(var VIVIENNE1, var &init_position, int 400) |
+| [s_throne.tsct](../../../out/s_throne.tsct#L648) | 648 | if(call is_char_at_pos(var nwilliam, var &walk_position6, int 150)) |
+| [s_throne.tsct](../../../out/s_throne.tsct#L1118) | 1118 | if(call is_char_at_pos(var nemesis, call get_char_pos(var david), int 300)) |
+| [s_throne.tsct](../../../out/s_throne.tsct#L1280) | 1280 | if(call is_char_at_pos(var f_in_jennifer, call get_char_pos(var david), int 150)) |
+| [s_throne.tsct](../../../out/s_throne.tsct#L1323) | 1323 | if(call is_char_at_pos(var nemesis, call get_char_pos(var david), int 300)) |
+| [s_throne.tsct](../../../out/s_throne.tsct#L1374) | 1374 | if(call is_char_at_pos(var nemesis, call get_char_pos(var david), int 950)) |
+| [s_throne.tsct](../../../out/s_throne.tsct#L1380) | 1380 | if(call is_char_at_pos(var nemesis, call get_char_pos(var david), int 150)) |
+| [s_throne.tsct](../../../out/s_throne.tsct#L1463) | 1463 | if(call is_char_at_pos(var f_in_jennifer, call get_char_pos(var david), int 150)) |
+| [sroad.tsct](../../../out/sroad.tsct#L93) | 93 | if(call is_char_at_pos(var selected_hero, var &position, int 800)) |
+| [teleroom.tsct](../../../out/teleroom.tsct#L553) | 553 | if(call is_char_at_pos(var DAVID, var &position, int 1100)) |
+| [towngate.tsct](../../../out/towngate.tsct#L172) | 172 | if(call is_char_at_pos(var selected_hero, var &position, int 160)) |
+| [towngate.tsct](../../../out/towngate.tsct#L193) | 193 | if(call is_char_at_pos(var selected_hero, var &position, int 160)) |
+| [towngate.tsct](../../../out/towngate.tsct#L364) | 364 | if(call is_char_at_pos(var selected_hero, var &position, int 160)) |
+| [towngate.tsct](../../../out/towngate.tsct#L381) | 381 | if(call is_char_at_pos(var selected_hero, var &position, int 160)) |
+| [veranda.tsct](../../../out/veranda.tsct#L173) | 173 | if(call is_char_at_pos(var DAVID, var &position, int 400)) |
+| [veranda.tsct](../../../out/veranda.tsct#L302) | 302 | if(call is_char_at_pos(var DAVID, var &position, int 400)) |

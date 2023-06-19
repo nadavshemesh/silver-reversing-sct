@@ -1,0 +1,8 @@
+# Function: func_44 
+### References in the original script files
+
+#
+
+| File | Line Number | Reference code |
+| --- | --- | --- |
+| [s_throne.tsct](../../../out/s_throne.tsct#L1564) | 1564 | call func_44() |

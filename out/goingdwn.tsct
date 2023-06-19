@@ -31,7 +31,7 @@
 
 ._on_load
 	execute SCRIPT_3
-	call func_58(int 1)
+	call stop_bgm(int 1)
 	if(gamevar is_room_cleared)
 	 {
 	}
@@ -121,7 +121,7 @@
 	var VAR_17 = call func_9d("lift", var &VAR_16, int 0, var liftdwna_anim)
 	var DAVID = call get_char_handle(int 65536)
 	var TYRONIS = call get_char_handle(int 2031616)
-	call char_unfollow(var TYRONIS)
+	call char_unfollow_char(var TYRONIS)
 
 ._SCRIPT_7
 	if(var VAR_23 == int 0)

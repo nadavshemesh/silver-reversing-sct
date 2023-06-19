@@ -14,6 +14,7 @@
 #define ANSI_COLOR_MAGENTA "\x1b[35m"
 #define ANSI_COLOR_CYAN    "\x1b[36m"
 #define ANSI_COLOR_RESET   "\x1b[0m"
+#define BUF_SIZE 65536
 
 // #define ANSI_COLOR_RED     ""
 // #define ANSI_COLOR_GREEN   ""
@@ -68,5 +69,6 @@ bool is_letter(char ch);
 bool is_string(byte* str, int len);
 bool strs_identical(char* str1, char* str2);
 char* string_remove_special_chars(char* str);
+int count_lines(FILE* file);
 
 #endif

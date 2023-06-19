@@ -1,0 +1,14 @@
+# Function: func_c 
+### References in the original script files
+
+#
+
+| File | Line Number | Reference code |
+| --- | --- | --- |
+| [libarea5.tsct](../../../out/libarea5.tsct#L919) | 919 | call func_c(var GRANDAD, int 28, call get_char_movement_ptr(var bezerk_imp2), var bezerk_imp2) |
+| [libarea5.tsct](../../../out/libarea5.tsct#L930) | 930 | call func_c(var GRANDAD, int 28, call get_char_movement_ptr(var bezerk_imp2), var bezerk_imp2) |
+| [s_throne.tsct](../../../out/s_throne.tsct#L1187) | 1187 | call func_c(var nemesis, int 20, var VAR_193, int 0) |
+| [screen3.tsct](../../../out/screen3.tsct#L220) | 220 | call func_c(var DAVID, int 30, var VAR_28, int 0) |
+| [screen3.tsct](../../../out/screen3.tsct#L239) | 239 | call func_c(var DAVID, int 30, var VAR_28, int 0) |
+| [screen3.tsct](../../../out/screen3.tsct#L249) | 249 | call func_c(var DAVID, int 17, var VAR_28, int 0) |
+| [screen3.tsct](../../../out/screen3.tsct#L259) | 259 | call func_c(var DAVID, int 16, var VAR_28, int 0) |

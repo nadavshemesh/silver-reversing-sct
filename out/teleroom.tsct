@@ -170,7 +170,7 @@
 			if(call is_char_standing(var DAVID))
 			 {
 					call func_68(var DAVID)
-					call func_61(var DAVID)
+					call char_remove_magic_and_weapons(var DAVID)
 					var VAR_86 ++ 
 					var VAR_87 = int 0
 			}
@@ -300,7 +300,7 @@
 	gamevar script_object = var ntyronis
 	gamevar *character_movement_p+60 = int 1
 	call set_char_running(var ntyronis)
-	call char_unfollow(var ntyronis)
+	call char_unfollow_char(var ntyronis)
 	var lightning = call add_item_to_char(var ntyronis, int 3, int 0, int 0)
 	var neutral_imp = call create_enemy(int 102, int 1, var &init_position1, int -90)
 	call set_char_running(var neutral_imp)
@@ -744,7 +744,7 @@
 	execute SCRIPT_5
 	var VAR_60 = call func_92(int 1, "nduke", int 182, int 13)
 	var VAR_61 = call func_92(int 1, "ntyronis", int 44, int 13)
-	call char_unfollow(var VAR_61)
+	call char_unfollow_char(var VAR_61)
 	var gstqustn_anim = call load_anim("gstqustn")
 	var no_anim = call load_anim("no")
 	var yes_anim = call load_anim("yes")

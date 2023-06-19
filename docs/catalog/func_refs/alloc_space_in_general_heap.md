@@ -1,0 +1,12 @@
+# Function: alloc_space_in_general_heap 
+### References in the original script files
+
+#
+
+| File | Line Number | Reference code |
+| --- | --- | --- |
+| [boilarea.tsct](../../../out/boilarea.tsct#L229) | 229 | var VAR_53 = call alloc_space_in_general_heap() |
+| [h_campbt.tsct](../../../out/h_campbt.tsct#L208) | 208 | var VAR_69 = call alloc_space_in_general_heap() |
+| [h_cavext.tsct](../../../out/h_cavext.tsct#L151) | 151 | var VAR_16 = call alloc_space_in_general_heap() |
+| [h_cavext.tsct](../../../out/h_cavext.tsct#L300) | 300 | var VAR_28 = call alloc_space_in_general_heap() |
+| [river.tsct](../../../out/river.tsct#L242) | 242 | var VAR_54 = call alloc_space_in_general_heap() |

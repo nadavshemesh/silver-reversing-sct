@@ -191,7 +191,7 @@
 						if(var VAR_49 == int 100)
 						 {
 								call func_68(var selected_hero)
-								call func_61(var selected_hero)
+								call char_remove_magic_and_weapons(var selected_hero)
 								var VAR_48 ++ 
 								var VAR_49 = int 0
 						}
@@ -224,7 +224,7 @@
 						}
 						if(var VAR_49 > int 300)
 						 {
-								var VAR_5 = call func_e8(var &scroll_position1, int 0)
+								var VAR_5 = call play_tele_effect_at_pos(var &scroll_position1, int 0)
 								var VAR_49 = int 0
 								var VAR_48 ++ 
 								call set_input_system(int 1)
@@ -244,7 +244,7 @@
 										call char_walk_to_pos(var selected_hero, @arr[var VAR_25])
 										var index ++ 
 										var VAR_26 = var index
-										var selected_hero = call func_7e()
+										var selected_hero = call get_next_char_from_list()
 								}
 								var index = int 0
 								var VAR_48 ++ 
@@ -264,7 +264,7 @@
 										call func_fa(var selected_hero)
 								}
 								var index ++ 
-								var selected_hero = call func_7e()
+								var selected_hero = call get_next_char_from_list()
 						}
 						var index = int 0
 						if(var VAR_23 == var VAR_26)
@@ -279,7 +279,7 @@
 				}
 				execute SCRIPT_5
 				gamevar pnc_look_use_mask = int 2
-				var VAR_5 = call func_e8(var &scroll_position1, int 0)
+				var VAR_5 = call play_tele_effect_at_pos(var &scroll_position1, int 0)
 				if(var VAR_52 == int 0)
 				 {
 						var selected_hero = call get_david_char()
@@ -290,7 +290,7 @@
 								while(var selected_hero)
 								 {
 										call apply_effect_on_char(gamevar char_gen_fx_scripts, int 18, int 0, var selected_hero)
-										var selected_hero = call func_7e()
+										var selected_hero = call get_next_char_from_list()
 								}
 						}
 						else
@@ -315,7 +315,7 @@
 								call set_char_running(var selected_hero)
 								call char_walk_to_pos(var selected_hero, @arr_2[var index])
 								var index ++ 
-								var selected_hero = call func_7e()
+								var selected_hero = call get_next_char_from_list()
 						}
 						var VAR_52 ++ 
 						var index = int 0
@@ -344,7 +344,7 @@
 										call char_walk_to_pos(var selected_hero, @arr[var index])
 										var index ++ 
 										var VAR_26 = var index
-										var selected_hero = call func_7e()
+										var selected_hero = call get_next_char_from_list()
 								}
 								var index = int 0
 								var VAR_52 ++ 
@@ -364,7 +364,7 @@
 										call func_fa(var selected_hero)
 								}
 								var index ++ 
-								var selected_hero = call func_7e()
+								var selected_hero = call get_next_char_from_list()
 						}
 						var index = int 0
 						if(var VAR_23 == var VAR_26)
@@ -420,7 +420,7 @@
 						var VAR_59 ++ 
 						if(var VAR_59 == int 100)
 						 {
-								call func_61(var selected_hero)
+								call char_remove_magic_and_weapons(var selected_hero)
 								var VAR_58 ++ 
 								var VAR_59 = int 0
 						}
@@ -461,7 +461,7 @@
 						}
 						if(var VAR_59 > int 300)
 						 {
-								var VAR_5 = call func_e8(var &scroll_position1, int 0)
+								var VAR_5 = call play_tele_effect_at_pos(var &scroll_position1, int 0)
 								var VAR_59 = int 0
 								var VAR_58 ++ 
 								call set_input_system(int 1)
@@ -481,7 +481,7 @@
 										call char_walk_to_pos(var selected_hero, @arr[var index])
 										var index ++ 
 										var VAR_26 = var index
-										var selected_hero = call func_7e()
+										var selected_hero = call get_next_char_from_list()
 								}
 								call log("TELEPORT")
 								var index = int 0
@@ -502,7 +502,7 @@
 										call func_fa(var selected_hero)
 								}
 								var index ++ 
-								var selected_hero = call func_7e()
+								var selected_hero = call get_next_char_from_list()
 						}
 						var index = int 0
 						if(var VAR_23 == var VAR_26)
@@ -607,7 +607,7 @@
 			if(var VAR_49 == int 100)
 			 {
 					call func_68(var selected_hero)
-					call func_61(var selected_hero)
+					call char_remove_magic_and_weapons(var selected_hero)
 					var VAR_48 ++ 
 					var VAR_49 = int 0
 			}
@@ -640,7 +640,7 @@
 			}
 			if(var VAR_49 > int 300)
 			 {
-					var VAR_5 = call func_e8(var &scroll_position1, int 0)
+					var VAR_5 = call play_tele_effect_at_pos(var &scroll_position1, int 0)
 					var VAR_49 = int 0
 					var VAR_48 ++ 
 					call set_input_system(int 1)
@@ -660,7 +660,7 @@
 							call char_walk_to_pos(var selected_hero, @arr[var index])
 							var index ++ 
 							var VAR_26 = var index
-							var selected_hero = call func_7e()
+							var selected_hero = call get_next_char_from_list()
 					}
 					var index = int 0
 					var VAR_48 ++ 
@@ -680,7 +680,7 @@
 							call func_fa(var selected_hero)
 					}
 					var index ++ 
-					var selected_hero = call func_7e()
+					var selected_hero = call get_next_char_from_list()
 			}
 			var index = int 0
 			if(var VAR_23 == var VAR_26)
@@ -720,7 +720,7 @@
 					while(var selected_hero)
 					 {
 							call apply_effect_on_char(gamevar char_gen_fx_scripts, int 18, int 0, var selected_hero)
-							var selected_hero = call func_7e()
+							var selected_hero = call get_next_char_from_list()
 					}
 			}
 			else
@@ -745,7 +745,7 @@
 					call set_char_running(var selected_hero)
 					call char_walk_to_pos(var selected_hero, @arr_2[var index])
 					var index ++ 
-					var selected_hero = call func_7e()
+					var selected_hero = call get_next_char_from_list()
 			}
 			var VAR_52 ++ 
 			var index = int 0
@@ -774,7 +774,7 @@
 							call char_walk_to_pos(var selected_hero, @arr[var index])
 							var index ++ 
 							var VAR_26 = var index
-							var selected_hero = call func_7e()
+							var selected_hero = call get_next_char_from_list()
 					}
 					var index = int 0
 					var VAR_52 ++ 
@@ -794,7 +794,7 @@
 							call func_fa(var selected_hero)
 					}
 					var index ++ 
-					var selected_hero = call func_7e()
+					var selected_hero = call get_next_char_from_list()
 			}
 			var index = int 0
 			if(var VAR_23 == var VAR_26)
@@ -811,7 +811,7 @@
 
 ._SCRIPT_9
 	gamevar pnc_look_use_mask = int 2
-	var VAR_5 = call func_e8(var &scroll_position1, int 0)
+	var VAR_5 = call play_tele_effect_at_pos(var &scroll_position1, int 0)
 
 ._SCRIPT_10
 	execute SCRIPT_4
@@ -858,7 +858,7 @@
 			var VAR_59 ++ 
 			if(var VAR_59 == int 100)
 			 {
-					call func_61(var selected_hero)
+					call char_remove_magic_and_weapons(var selected_hero)
 					var VAR_58 ++ 
 					var VAR_59 = int 0
 			}
@@ -899,7 +899,7 @@
 			}
 			if(var VAR_59 > int 300)
 			 {
-					var VAR_5 = call func_e8(var &scroll_position1, int 0)
+					var VAR_5 = call play_tele_effect_at_pos(var &scroll_position1, int 0)
 					var VAR_59 = int 0
 					var VAR_58 ++ 
 					call set_input_system(int 1)
@@ -919,7 +919,7 @@
 							call char_walk_to_pos(var selected_hero, @arr[var index])
 							var index ++ 
 							var VAR_26 = var index
-							var selected_hero = call func_7e()
+							var selected_hero = call get_next_char_from_list()
 					}
 					call log(var &VAR_60)
 					var index = int 0
@@ -940,7 +940,7 @@
 							call func_fa(var selected_hero)
 					}
 					var index ++ 
-					var selected_hero = call func_7e()
+					var selected_hero = call get_next_char_from_list()
 			}
 			var index = int 0
 			if(var VAR_23 == var VAR_26)

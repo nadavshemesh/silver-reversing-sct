@@ -1,0 +1,37 @@
+# Function: set_char_lvl 
+### References in the original script files
+
+#
+
+| File | Line Number | Reference code |
+| --- | --- | --- |
+| [arena.tsct](../../../out/arena.tsct#L188) | 188 | call set_char_lvl(var david1, var VAR_11) |
+| [atro8.tsct](../../../out/atro8.tsct#L237) | 237 | call set_char_lvl(var david1, var VAR_0) |
+| [blacjohn.tsct](../../../out/blacjohn.tsct#L161) | 161 | call set_char_lvl(var david1, var VAR_0) |
+| [chain.tsct](../../../out/chain.tsct#L424) | 424 | call set_char_lvl(var david1, var VAR_0) |
+| [davhouse.tsct](../../../out/davhouse.tsct#L1638) | 1638 | call set_char_lvl(var grandad, int 5) |
+| [icecave4.tsct](../../../out/icecave4.tsct#L453) | 453 | call set_char_lvl(var david1, var VAR_0) |
+| [libarea5.tsct](../../../out/libarea5.tsct#L858) | 858 | call set_char_lvl(var GRANDAD, int 5) |
+| [libarea5.tsct](../../../out/libarea5.tsct#L979) | 979 | call set_char_lvl(var GRANDAD, int 1) |
+| [location.tsct](../../../out/location.tsct#L242) | 242 | call set_char_lvl(var ncagen, var VAR_24) |
+| [met_maz2.tsct](../../../out/met_maz2.tsct#L226) | 226 | call set_char_lvl(var ndavid, int 15) |
+| [met_maz2.tsct](../../../out/met_maz2.tsct#L237) | 237 | call set_char_lvl(var njug, int 15) |
+| [met_maz2.tsct](../../../out/met_maz2.tsct#L248) | 248 | call set_char_lvl(var nvivienne, int 15) |
+| [nether.tsct](../../../out/nether.tsct#L121) | 121 | call set_char_lvl(var david, int 14) |
+| [palace33.tsct](../../../out/palace33.tsct#L638) | 638 | call set_char_lvl(var david3, var VAR_39) |
+| [pathend.tsct](../../../out/pathend.tsct#L340) | 340 | call set_char_lvl(var david1, var VAR_0) |
+| [rain_loc.tsct](../../../out/rain_loc.tsct#L229) | 229 | call set_char_lvl(var hsekune, var VAR_37) |
+| [ratunder.tsct](../../../out/ratunder.tsct#L554) | 554 | call set_char_lvl(var david2, var VAR_39) |
+| [room2.tsct](../../../out/room2.tsct#L660) | 660 | call set_char_lvl(var VAR_140, int 3) |
+| [room2.tsct](../../../out/room2.tsct#L731) | 731 | call set_char_lvl(var ndavid, int 15) |
+| [room2.tsct](../../../out/room2.tsct#L742) | 742 | call set_char_lvl(var njug, int 15) |
+| [room2.tsct](../../../out/room2.tsct#L753) | 753 | call set_char_lvl(var nvivienne, int 15) |
+| [s_throne.tsct](../../../out/s_throne.tsct#L1592) | 1592 | call set_char_lvl(var silv_orb, int 12) |
+| [s_throne.tsct](../../../out/s_throne.tsct#L1874) | 1874 | call set_char_lvl(var david2, var VAR_99) |
+| [screen6.tsct](../../../out/screen6.tsct#L553) | 553 | call set_char_lvl(var david, var VAR_0) |
+| [swamp3.tsct](../../../out/swamp3.tsct#L389) | 389 | call set_char_lvl(var david1, var VAR_39) |
+| [tavern01.tsct](../../../out/tavern01.tsct#L166) | 166 | call set_char_lvl(var njug, var VAR_85) |
+| [teleroom.tsct](../../../out/teleroom.tsct#L299) | 299 | call set_char_lvl(var ntyronis, int 15) |
+| [undermil.tsct](../../../out/undermil.tsct#L116) | 116 | call set_char_lvl(var nchiaro, var VAR_15) |
+| [vivhouse.tsct](../../../out/vivhouse.tsct#L326) | 326 | call set_char_lvl(var is_VIVIENNE_exist, var VAR_46) |
+| [window.tsct](../../../out/window.tsct#L544) | 544 | call set_char_lvl(var david2, var VAR_39) |

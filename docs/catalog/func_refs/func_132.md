@@ -1,0 +1,13 @@
+# Function: func_132 
+### References in the original script files
+
+#
+
+| File | Line Number | Reference code |
+| --- | --- | --- |
+| [adesew02.tsct](../../../out/adesew02.tsct#L198) | 198 | call func_132(var selected_hero1, int 98) |
+| [barroom.tsct](../../../out/barroom.tsct#L193) | 193 | call func_132(var nrebel, int 16) |
+| [libarea3.tsct](../../../out/libarea3.tsct#L327) | 327 | call func_132(var horn_impefs, int 87) |
+| [lighttow.tsct](../../../out/lighttow.tsct#L380) | 380 | call func_132(var gonchfx, int 3) |
+| [s_throne.tsct](../../../out/s_throne.tsct#L456) | 456 | call func_132(var nglass, int 1) |
+| [tavern01.tsct](../../../out/tavern01.tsct#L705) | 705 | call func_132(var ndrunkwiz, int 74) |

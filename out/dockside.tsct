@@ -122,7 +122,7 @@
 			switch(gamevar room_state)
 			 {
 					case 1
-						call func_58(int 1)
+						call stop_bgm(int 1)
 						gamevar room_state = int 2
 						gamevar *scene_info_p+1 = int 1
 						break 
@@ -883,7 +883,7 @@
 								call set_char_walking(var david)
 								call char_walk_to_pos(var david, @arr_1[var VAR_157])
 								var index_1 ++ 
-								var david = call func_7e()
+								var david = call get_next_char_from_list()
 						}
 						var VAR_3 = int 1
 						var VAR_147 ++ 

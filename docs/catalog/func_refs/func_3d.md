@@ -1,0 +1,10 @@
+# Function: func_3d 
+### References in the original script files
+
+#
+
+| File | Line Number | Reference code |
+| --- | --- | --- |
+| [davinner.tsct](../../../out/davinner.tsct#L63) | 63 | call func_3d() |
+| [room3.tsct](../../../out/room3.tsct#L69) | 69 | call func_3d() |
+| [undermil.tsct](../../../out/undermil.tsct#L69) | 69 | call func_3d() |

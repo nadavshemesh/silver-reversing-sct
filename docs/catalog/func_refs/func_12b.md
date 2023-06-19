@@ -1,0 +1,29 @@
+# Function: func_12b 
+### References in the original script files
+
+#
+
+| File | Line Number | Reference code |
+| --- | --- | --- |
+| [basdome.tsct](../../../out/basdome.tsct#L208) | 208 | if(call ! func_12b(var VAR_9, var &VAR_12)) |
+| [basdome.tsct](../../../out/basdome.tsct#L213) | 213 | if(call ! func_12b(var VAR_9, var &VAR_13)) |
+| [e_cori_1.tsct](../../../out/e_cori_1.tsct#L150) | 150 | if(call func_12b(var VAR_3, var &VAR_19)) |
+| [e_room_2.tsct](../../../out/e_room_2.tsct#L143) | 143 | if(call func_12b(var VAR_3, var &VAR_18)) |
+| [e_throne.tsct](../../../out/e_throne.tsct#L219) | 219 | if(call func_12b(var nbonnie, var &VAR_37)&&call func_12b(var nbeth, var &VAR_37)&&call func_12b(var njennifer, var &VAR_37)) |
+| [ledgea.tsct](../../../out/ledgea.tsct#L262) | 262 | if(call ! func_12b(var VAR_14, var &VAR_17)) |
+| [ledgea.tsct](../../../out/ledgea.tsct#L267) | 267 | if(call ! func_12b(var VAR_14, var &VAR_18)) |
+| [orchard1.tsct](../../../out/orchard1.tsct#L249) | 249 | if(call ! func_12b(var VAR_16, var &VAR_19)) |
+| [orchard1.tsct](../../../out/orchard1.tsct#L254) | 254 | if(call ! func_12b(var VAR_16, var &VAR_20)) |
+| [s_cori_1.tsct](../../../out/s_cori_1.tsct#L249) | 249 | if(call ! func_12b(var VAR_12, var &VAR_15)) |
+| [s_cori_1.tsct](../../../out/s_cori_1.tsct#L254) | 254 | if(call ! func_12b(var VAR_12, var &VAR_16)) |
+| [s_cori_1.tsct](../../../out/s_cori_1.tsct#L259) | 259 | if(call ! func_12b(var VAR_12, var &VAR_17)) |
+| [s_cori_2.tsct](../../../out/s_cori_2.tsct#L269) | 269 | if(call ! func_12b(var VAR_9, var &VAR_12)) |
+| [s_cori_2.tsct](../../../out/s_cori_2.tsct#L274) | 274 | if(call ! func_12b(var VAR_9, var &VAR_13)) |
+| [s_cori_2.tsct](../../../out/s_cori_2.tsct#L279) | 279 | if(call ! func_12b(var VAR_9, var &VAR_14)) |
+| [s_cori_2.tsct](../../../out/s_cori_2.tsct#L284) | 284 | if(call ! func_12b(var VAR_9, var &VAR_15)) |
+| [stairs1.tsct](../../../out/stairs1.tsct#L192) | 192 | if(call ! func_12b(var VAR_12, var &VAR_15)) |
+| [stairs1.tsct](../../../out/stairs1.tsct#L197) | 197 | if(call ! func_12b(var VAR_12, var &VAR_16)) |
+| [swamp2.tsct](../../../out/swamp2.tsct#L241) | 241 | if(call ! func_12b(var VAR_33, var &VAR_36)) |
+| [swamp2.tsct](../../../out/swamp2.tsct#L246) | 246 | if(call ! func_12b(var VAR_33, var &VAR_37)) |
+| [swamp2.tsct](../../../out/swamp2.tsct#L251) | 251 | if(call ! func_12b(var VAR_33, var &VAR_38)) |
+| [wiztower.tsct](../../../out/wiztower.tsct#L347) | 347 | if(call func_12b(var VAR_124, var &VAR_131)) |

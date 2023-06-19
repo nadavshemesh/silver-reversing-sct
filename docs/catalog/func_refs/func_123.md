@@ -1,0 +1,12 @@
+# Function: func_123 
+### References in the original script files
+
+#
+
+| File | Line Number | Reference code |
+| --- | --- | --- |
+| [bigroom1.tsct](../../../out/bigroom1.tsct#L122) | 122 | if(call func_123(var VAR_9) == int 0) |
+| [bigroom4.tsct](../../../out/bigroom4.tsct#L112) | 112 | if(call func_123(var VAR_18) == int 0) |
+| [bigroom5.tsct](../../../out/bigroom5.tsct#L126) | 126 | if(call func_123(var VAR_45) == int 0) |
+| [room2.tsct](../../../out/room2.tsct#L242) | 242 | if(call func_123(var VAR_62) == int 0) |
+| [steproom.tsct](../../../out/steproom.tsct#L190) | 190 | if(call func_123(var VAR_15) == int 0) |

@@ -1,0 +1,8 @@
+# Function: func_cf 
+### References in the original script files
+
+#
+
+| File | Line Number | Reference code |
+| --- | --- | --- |
+| [havenadd.tsct](../../../out/havenadd.tsct#L424) | 424 | call func_cf(func func_a9, func func_b3, int 50, var &VAR_17) |

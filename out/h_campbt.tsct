@@ -89,15 +89,15 @@
 	switch(gamevar room_state)
 	 {
 			case 1
-				call func_58(int 1)
+				call stop_bgm(int 1)
 				execute SCRIPT_5
 				break 
 			case 2
-				call func_58(int 1)
+				call stop_bgm(int 1)
 				execute SCRIPT_11
 				break 
 			case 3
-				call func_58(int 1)
+				call stop_bgm(int 1)
 				execute SCRIPT_13
 				break 
 			case 4
@@ -671,7 +671,7 @@
 						call char_walk_to_pos(var nben, var &walk_position18)
 						call char_walk_to_pos(var nrichard, var &walk_position19)
 						call char_walk_to_pos(var nclay, var &walk_position20)
-						call func_11f(var &walk_position21, int 49152)
+						call set_input_sys_2_if_pos_occupied(var &walk_position21, int 49152)
 						var VAR_168 ++ 
 						var VAR_169 = int 0
 				}

@@ -1,0 +1,17 @@
+# Function: func_63 
+### References in the original script files
+
+#
+
+| File | Line Number | Reference code |
+| --- | --- | --- |
+| [boilarea.tsct](../../../out/boilarea.tsct#L234) | 234 | call func_63(var VAR_53, var &VAR_52) |
+| [h_campbt.tsct](../../../out/h_campbt.tsct#L237) | 237 | call func_63(var VAR_69, var &VAR_85) |
+| [h_campbt.tsct](../../../out/h_campbt.tsct#L264) | 264 | call func_63(var VAR_69, var &scroll_position) |
+| [h_campbt.tsct](../../../out/h_campbt.tsct#L305) | 305 | call func_63(var VAR_69, var &scroll_position1) |
+| [h_campbt.tsct](../../../out/h_campbt.tsct#L567) | 567 | call func_63(var VAR_69, var &walk_position12) |
+| [h_cavext.tsct](../../../out/h_cavext.tsct#L163) | 163 | call func_63(var VAR_16, var &VAR_11) |
+| [h_cavext.tsct](../../../out/h_cavext.tsct#L191) | 191 | call func_63(var VAR_16, var &VAR_12) |
+| [h_cavext.tsct](../../../out/h_cavext.tsct#L311) | 311 | call func_63(var VAR_28, var &VAR_26) |
+| [h_cavext.tsct](../../../out/h_cavext.tsct#L339) | 339 | call func_63(var VAR_28, var &VAR_27) |
+| [river.tsct](../../../out/river.tsct#L249) | 249 | call func_63(var VAR_54, var &VAR_53) |

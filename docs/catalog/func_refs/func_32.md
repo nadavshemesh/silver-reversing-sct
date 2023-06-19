@@ -1,0 +1,10 @@
+# Function: func_32 
+### References in the original script files
+
+#
+
+| File | Line Number | Reference code |
+| --- | --- | --- |
+| [pass1.tsct](../../../out/pass1.tsct#L193) | 193 | call func_32(var bstump) |
+| [screen6.tsct](../../../out/screen6.tsct#L520) | 520 | call func_32(var fimp1) |
+| [screen6.tsct](../../../out/screen6.tsct#L521) | 521 | call func_32(var fimp2) |

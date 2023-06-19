@@ -1,0 +1,24 @@
+# Function: func_92 
+### References in the original script files
+
+#
+
+| File | Line Number | Reference code |
+| --- | --- | --- |
+| [firetree.tsct](../../../out/firetree.tsct#L116) | 116 | var VAR_16 = call func_92(int 0, "nfrink", int 0, int 13) |
+| [lmiddle.tsct](../../../out/lmiddle.tsct#L156) | 156 | var VAR_9 = call func_92(int 1, "fsguard", int 295, int 13) |
+| [palace33.tsct](../../../out/palace33.tsct#L343) | 343 | var VAR_97 = call func_92(int 1, "nfrink", int 0, int 13) |
+| [room2.tsct](../../../out/room2.tsct#L343) | 343 | var VAR_92 = call func_92(var VAR_97, @arr[var VAR_98], int 0, int 13) |
+| [room2.tsct](../../../out/room2.tsct#L368) | 368 | var VAR_93 = call func_92(var VAR_97, @arr[var index], int 0, int 13) |
+| [room2.tsct](../../../out/room2.tsct#L388) | 388 | var VAR_94 = call func_92(var VAR_97, @arr[var index], int 0, int 13) |
+| [room2.tsct](../../../out/room2.tsct#L415) | 415 | var VAR_95 = call func_92(var VAR_97, @arr[var index], int 0, int 13) |
+| [room2.tsct](../../../out/room2.tsct#L435) | 435 | var VAR_96 = call func_92(var VAR_97, @arr[var index], int 0, int 13) |
+| [room2.tsct](../../../out/room2.tsct#L467) | 467 | var VAR_92 = call func_92(var VAR_97, @arr[var index], int 0, int 13) |
+| [room2.tsct](../../../out/room2.tsct#L491) | 491 | var VAR_93 = call func_92(var VAR_97, @arr[var index], int 0, int 13) |
+| [room2.tsct](../../../out/room2.tsct#L511) | 511 | var VAR_94 = call func_92(var VAR_97, @arr[var index], int 0, int 13) |
+| [room2.tsct](../../../out/room2.tsct#L531) | 531 | var VAR_95 = call func_92(var VAR_97, @arr[var index], int 0, int 13) |
+| [room2.tsct](../../../out/room2.tsct#L551) | 551 | var VAR_96 = call func_92(var VAR_97, @arr[var index], int 0, int 13) |
+| [room2.tsct](../../../out/room2.tsct#L634) | 634 | var VAR_140 = call func_92(int 1, "FSGRUNT", int 0, int 13) |
+| [room2.tsct](../../../out/room2.tsct#L653) | 653 | var VAR_140 = call func_92(int 1, "FVIKING", int 0, int 13) |
+| [teleroom.tsct](../../../out/teleroom.tsct#L745) | 745 | var VAR_60 = call func_92(int 1, "nduke", int 182, int 13) |
+| [teleroom.tsct](../../../out/teleroom.tsct#L746) | 746 | var VAR_61 = call func_92(int 1, "ntyronis", int 44, int 13) |

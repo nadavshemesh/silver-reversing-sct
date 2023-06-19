@@ -1,0 +1,11 @@
+# Function: func_7c 
+### References in the original script files
+
+#
+
+| File | Line Number | Reference code |
+| --- | --- | --- |
+| [libarea4.tsct](../../../out/libarea4.tsct#L148) | 148 | call func_7c(int 0, var &VAR_14, "gno", "libarea2") |
+| [swamp2.tsct](../../../out/swamp2.tsct#L173) | 173 | call func_7c(int 0, var &VAR_50, "verdante", "swamp2") |
+| [tavern01.tsct](../../../out/tavern01.tsct#L1044) | 1044 | call func_7c(int 0, var &VAR_1, "rain", "tavern01") |
+| [tavern01.tsct](../../../out/tavern01.tsct#L1048) | 1048 | call func_7c(int 1, var &VAR_5, "rain", "tavern01") |

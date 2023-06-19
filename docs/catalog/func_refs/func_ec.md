@@ -1,0 +1,63 @@
+# Function: func_ec 
+### References in the original script files
+
+#
+
+| File | Line Number | Reference code |
+| --- | --- | --- |
+| [arena.tsct](../../../out/arena.tsct#L93) | 93 | call func_ec(int 1, int 0, int 23, var &init_position + int 36) |
+| [arena.tsct](../../../out/arena.tsct#L178) | 178 | var VAR_66 = call func_ec(int 7, int -1, int 23, int 0) |
+| [atro8.tsct](../../../out/atro8.tsct#L201) | 201 | call func_ec(int 1, int 0, int 74, int 0) |
+| [bigroom8.tsct](../../../out/bigroom8.tsct#L182) | 182 | call func_ec(int 198, int -1, int 0, var &fx_position) |
+| [black_in.tsct](../../../out/black_in.tsct#L207) | 207 | call func_ec(int 226, int 0, int 0, int 0) |
+| [black_in.tsct](../../../out/black_in.tsct#L444) | 444 | call func_ec(int 226, int 0, int 0, int 0) |
+| [black_in.tsct](../../../out/black_in.tsct#L623) | 623 | call func_ec(int 226, int 0, int 0, int 0) |
+| [black_in.tsct](../../../out/black_in.tsct#L882) | 882 | call func_ec(int 226, int 0, int 0, int 0) |
+| [bloodfal.tsct](../../../out/bloodfal.tsct#L174) | 174 | call func_ec(int 226, int 0, int 0, int 0) |
+| [boilarea.tsct](../../../out/boilarea.tsct#L187) | 187 | var VAR_58 = call func_ec(int 90, int 0, int 0, var &position) |
+| [boilarea.tsct](../../../out/boilarea.tsct#L205) | 205 | var VAR_58 = call func_ec(int 108, int 0, int 0, var &position) |
+| [boneyard.tsct](../../../out/boneyard.tsct#L90) | 90 | call func_ec(int 1, int 0, int 24, var &VAR_46) |
+| [boneyard.tsct](../../../out/boneyard.tsct#L102) | 102 | call func_ec(int 1, int 0, int 24, var &VAR_46) |
+| [boneyard.tsct](../../../out/boneyard.tsct#L105) | 105 | call func_ec(int 2, int 0, int 24, var &VAR_46) |
+| [boneyard.tsct](../../../out/boneyard.tsct#L170) | 170 | call func_ec(int 228, int -1, int 0, var &VAR_46) |
+| [boneyrd3.tsct](../../../out/boneyrd3.tsct#L29) | 29 | call func_ec(int 228, int -1, int 0, var &VAR_7) |
+| [burntedg.tsct](../../../out/burntedg.tsct#L660) | 660 | call func_ec(int 198, int -1, int 0, var &fx_position) |
+| [burntedg.tsct](../../../out/burntedg.tsct#L735) | 735 | call func_ec(int 197, int 0, int 0, var &fx_position) |
+| [courtyrd.tsct](../../../out/courtyrd.tsct#L44) | 44 | call func_ec(int 1, int -1, int 11, int 0) |
+| [courtyrd.tsct](../../../out/courtyrd.tsct#L45) | 45 | call func_ec(int 7, int -1, int 11, var &VAR_43) |
+| [davhouse.tsct](../../../out/davhouse.tsct#L2119) | 2119 | var VAR_183 = call func_ec(int 10, int -1, int 2, int 0) |
+| [davhouse.tsct](../../../out/davhouse.tsct#L2162) | 2162 | var VAR_185 = call func_ec(int 8, int 0, int 2, int 0) |
+| [davhouse.tsct](../../../out/davhouse.tsct#L2169) | 2169 | var VAR_185 = call func_ec(int 8, int 0, int 2, int 0) |
+| [davhouse.tsct](../../../out/davhouse.tsct#L2174) | 2174 | var VAR_185 = call func_ec(int 9, int 0, int 2, int 0) |
+| [firetree.tsct](../../../out/firetree.tsct#L192) | 192 | var VAR_33 = call func_ec(int 5, int 0, int 22, @arr[var VAR_35]) |
+| [firetree.tsct](../../../out/firetree.tsct#L203) | 203 | var VAR_39 = call func_ec(var VAR_38, int 0, int 22, @arr_1[var VAR_37]) |
+| [fountain.tsct](../../../out/fountain.tsct#L37) | 37 | call func_ec(int 1, int -1, int 37, var &VAR_40) |
+| [gallery2.tsct](../../../out/gallery2.tsct#L100) | 100 | call func_ec(int 1, int -1, int 71, var &fx_position) |
+| [glade.tsct](../../../out/glade.tsct#L26) | 26 | call func_ec(int 2, int -1, int 37, "") |
+| [gnostair.tsct](../../../out/gnostair.tsct#L37) | 37 | call func_ec(int 228, int -1, int 0, var &VAR_0) |
+| [inwiztow.tsct](../../../out/inwiztow.tsct#L361) | 361 | call func_ec(int 1, int -1, int 47, int 0) |
+| [jetty.tsct](../../../out/jetty.tsct#L27) | 27 | call func_ec(int 228, int -1, int 0, var &VAR_1) |
+| [moss.tsct](../../../out/moss.tsct#L150) | 150 | var VAR_16 = call func_ec(int 106, int 0, int 0, var &VAR_15) |
+| [nether.tsct](../../../out/nether.tsct#L130) | 130 | call func_ec(int 1, int 0, int 79, int 0) |
+| [orchard1.tsct](../../../out/orchard1.tsct#L45) | 45 | call func_ec(int 2, int -1, int 37, var &VAR_0) |
+| [pathend.tsct](../../../out/pathend.tsct#L318) | 318 | call func_ec(int 1, int 0, int 24, "Y") |
+| [seaview.tsct](../../../out/seaview.tsct#L137) | 137 | call func_ec(int 1, int 0, int 24, var &VAR_8) |
+| [stairs1.tsct](../../../out/stairs1.tsct#L35) | 35 | call func_ec(int 2, int -1, int 37, var &VAR_0) |
+| [swamp1.tsct](../../../out/swamp1.tsct#L67) | 67 | call func_ec(int 5, int 0, int 22, @arr[var VAR_8]) |
+| [swamp1.tsct](../../../out/swamp1.tsct#L77) | 77 | call func_ec(var VAR_11, int 0, int 22, @arr_1[var VAR_10]) |
+| [swamp2.tsct](../../../out/swamp2.tsct#L95) | 95 | call func_ec(var VAR_24, int 0, int 22, @arr[var VAR_23]) |
+| [swamp3.tsct](../../../out/swamp3.tsct#L174) | 174 | call func_ec(var VAR_68, int 0, int 22, @arr[var VAR_67]) |
+| [swamp6.tsct](../../../out/swamp6.tsct#L92) | 92 | call func_ec(var VAR_62, int 0, int 22, @arr[var VAR_61]) |
+| [swamp7.tsct](../../../out/swamp7.tsct#L85) | 85 | call func_ec(var VAR_21, int 0, int 22, @arr[var VAR_20]) |
+| [t_square.tsct](../../../out/t_square.tsct#L433) | 433 | call func_ec(int 1, int 0, int 67, var &VAR_44) |
+| [t_square.tsct](../../../out/t_square.tsct#L437) | 437 | call func_ec(int 2, int 0, int 67, var &VAR_44) |
+| [t_square.tsct](../../../out/t_square.tsct#L455) | 455 | call func_ec(int 3, int 0, int 67, var &VAR_44) |
+| [telecave.tsct](../../../out/telecave.tsct#L32) | 32 | call func_ec(int 228, int -1, int 0, int 0) |
+| [teleroom.tsct](../../../out/teleroom.tsct#L135) | 135 | var VAR_26 = call func_ec(int 1, int -1, int 43, var &VAR_29) |
+| [teleroom.tsct](../../../out/teleroom.tsct#L136) | 136 | var VAR_27 = call func_ec(int 2, int -1, int 43, var &VAR_29) |
+| [teleroom.tsct](../../../out/teleroom.tsct#L137) | 137 | var VAR_28 = call func_ec(int 3, int -1, int 43, var &VAR_29) |
+| [tosecret.tsct](../../../out/tosecret.tsct#L48) | 48 | call func_ec(int 228, int -1, int 0, var &VAR_6) |
+| [undermil.tsct](../../../out/undermil.tsct#L109) | 109 | call func_ec(int 23, int -1, int 0, var &VAR_11) |
+| [wizard.tsct](../../../out/wizard.tsct#L278) | 278 | call func_ec(int 229, int 0, int 0, int 0) |
+| [wizard.tsct](../../../out/wizard.tsct#L310) | 310 | call func_ec(int 230, int 0, int 0, int 0) |
+| [wiztower.tsct](../../../out/wiztower.tsct#L387) | 387 | call func_ec(int 227, int 0, int 0, int 0) |

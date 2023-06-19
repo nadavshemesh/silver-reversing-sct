@@ -1,0 +1,9 @@
+# Function: func_cc 
+### References in the original script files
+
+#
+
+| File | Line Number | Reference code |
+| --- | --- | --- |
+| [e_onship.tsct](../../../out/e_onship.tsct#L112) | 112 | call func_cc("OUT2.AVI") |
+| [e_onship.tsct](../../../out/e_onship.tsct#L195) | 195 | call func_cc("OUTCOMP.AVI") |

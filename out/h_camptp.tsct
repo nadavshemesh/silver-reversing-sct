@@ -191,7 +191,7 @@
 
 	 /* play the sound 'sent1' */ 
 	call play_loaded_sound(int 8, int -1, int 12, int 0)
-	call func_58(int 1)
+	call stop_bgm(int 1)
 	switch(gamevar room_state)
 	 {
 			case 1
@@ -427,7 +427,7 @@
 					@arr_6[var VAR_23]= var david
 					var VAR_23 ++ 
 			}
-			var david = call func_7e()
+			var david = call get_next_char_from_list()
 	}
 
 ._SCRIPT_6
@@ -786,7 +786,7 @@
 						var VAR_133 = var position
 						var VAR_134 = var VAR_131 + int 50 - var VAR_136
 						var VAR_135 = var VAR_132 + int 50 - var VAR_137
-						call func_1d(var nsekune, var &VAR_133)
+						call char_shoot_bow(var nsekune, var &VAR_133)
 						var VAR_139 ++ 
 						var VAR_127 ++ 
 						var VAR_128 = int 0
@@ -966,7 +966,7 @@
 						if(var VAR_149 == int 0)
 						 {
 								call log("fire at bird")
-								call func_1d(var nsekune, var &fly_position9)
+								call char_shoot_bow(var nsekune, var &fly_position9)
 								var VAR_149 = int 1
 						}
 						var VAR_127 ++ 
@@ -1346,7 +1346,7 @@
 	 {
 			if(var VAR_107 > int 100)
 			 {
-					call func_61(var DAVID)
+					call char_remove_magic_and_weapons(var DAVID)
 					var VAR_106 ++ 
 					var VAR_107 = int 0
 			}
@@ -1377,7 +1377,7 @@
 	 {
 			if(var VAR_109 > int 100)
 			 {
-					call func_61(var GRANDAD)
+					call char_remove_magic_and_weapons(var GRANDAD)
 					var VAR_108 ++ 
 					var VAR_109 = int 0
 			}
@@ -1532,7 +1532,7 @@
 	call char_teleport_to_pos(var DAVID, var &tele_position, int 94)
 	if(call ! create_item(int 24 /* scroll */ ))
 	 {
-			call func_9a(var &VAR_204, int 24, int 0, int 0)
+			call put_item_in_position(var &VAR_204, int 24, int 0, int 0)
 	}
 	call set_input_system(int 2)
 
@@ -1550,7 +1550,7 @@
 			case 1
 				if(call get_input_sys() != int 4)
 				 {
-						call func_11f(var &VAR_217, int 65536)
+						call set_input_sys_2_if_pos_occupied(var &VAR_217, int 65536)
 						var VAR_214 ++ 
 						var VAR_215 = int 0
 				}
@@ -2062,7 +2062,7 @@
 											@arr_3[var VAR_355]= var david
 											call set_char_walking(var david)
 											call char_walk_to_pos(var david, @arr[var VAR_355])
-											var david = call func_7e()
+											var david = call get_next_char_from_list()
 											var index ++ 
 									}
 									call char_walk_to_pos(var nduke, var walk_position11)
@@ -2077,7 +2077,7 @@
 											@arr_3[var index]= var david
 											call set_char_walking(var david)
 											call char_walk_to_pos(var david, @arr_1[var index])
-											var david = call func_7e()
+											var david = call get_next_char_from_list()
 											var index ++ 
 									}
 									call char_walk_to_pos(var nduke, var walk_position13)
@@ -2238,7 +2238,7 @@
 				if(call func_6d() == int 3)
 				 {
 						call set_char_walking(var nben)
-						call func_61(var nben)
+						call char_remove_magic_and_weapons(var nben)
 						call char_walk_to_pos(var nben, var &walk_position17)
 						var VAR_352 ++ 
 						var VAR_353 = int 0
@@ -2464,7 +2464,7 @@
 										call char_walk_to_pos(var david, @arr_5[var VAR_429])
 										var index_1 ++ 
 								}
-								var david = call func_7e()
+								var david = call get_next_char_from_list()
 						}
 						var VAR_418 ++ 
 						var VAR_419 = int 0
@@ -2625,7 +2625,7 @@
 				if(var VAR_419 > int 75)
 				 {
 						call func_60(var npc_glass7, var lightning)
-						var VAR_420 = call func_e8(var &position4, int 0)
+						var VAR_420 = call play_tele_effect_at_pos(var &position4, int 0)
 						var VAR_418 ++ 
 						var VAR_419 = int 0
 				}
@@ -2671,7 +2671,7 @@
 										call char_walk_to_pos(var david, var &position4)
 										var index_1 ++ 
 								}
-								var david = call func_7e()
+								var david = call get_next_char_from_list()
 						}
 						var VAR_418 ++ 
 						var VAR_419 = int 0

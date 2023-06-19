@@ -1,0 +1,56 @@
+# Function: create_enemy_through_door 
+### References in the original script files
+
+#
+
+| File | Line Number | Reference code |
+| --- | --- | --- |
+| [adesew10.tsct](../../../out/adesew10.tsct#L128) | 128 | var lesser_gimp = call create_enemy_through_door(int 45, int 0, int 2, int 0) |
+| [adesew10.tsct](../../../out/adesew10.tsct#L129) | 129 | var lesser_gimp1 = call create_enemy_through_door(int 45, int 1, int 2, int 0) |
+| [adesew10.tsct](../../../out/adesew10.tsct#L144) | 144 | var lesser_gimp = call create_enemy_through_door(int 45, int 0, int 0, int 0) |
+| [adesew10.tsct](../../../out/adesew10.tsct#L145) | 145 | var lesser_gimp1 = call create_enemy_through_door(int 45, int 1, int 0, int 0) |
+| [aft2arch.tsct](../../../out/aft2arch.tsct#L168) | 168 | var archer = call create_enemy_through_door(int 17, int 0, int 0, int 23) |
+| [aft2arch.tsct](../../../out/aft2arch.tsct#L170) | 170 | var archer1 = call create_enemy_through_door(int 17, int 1, int 0, int 135) |
+| [aftsroad.tsct](../../../out/aftsroad.tsct#L95) | 95 | var hound1 = call create_enemy_through_door(int 18, int 2, int 2, int 45) |
+| [centre02.tsct](../../../out/centre02.tsct#L211) | 211 | var finnegan = call create_enemy_through_door(int 32, int 0, int 1, int 0) |
+| [centre02.tsct](../../../out/centre02.tsct#L212) | 212 | var muscles1 = call create_enemy_through_door(int 30, int 1, int 1, int 0) |
+| [firetree.tsct](../../../out/firetree.tsct#L106) | 106 | call create_enemy_through_door(int 1 /* fire_sprite */ , int 0, int 0, int 0) |
+| [gotolift.tsct](../../../out/gotolift.tsct#L218) | 218 | var imp_boss = call create_enemy_through_door(int 129, int 1, int 1, int 285) |
+| [gotolift.tsct](../../../out/gotolift.tsct#L219) | 219 | var imp_boss1 = call create_enemy_through_door(int 129, int 2, int 1, int 325) |
+| [gotolift2.tsct](../../../out/gotolift2.tsct#L218) | 218 | var imp_boss = call create_enemy_through_door(int 129, int 1, int 1, int 285) |
+| [gotolift2.tsct](../../../out/gotolift2.tsct#L219) | 219 | var imp_boss1 = call create_enemy_through_door(int 129, int 2, int 1, int 325) |
+| [libarea5.tsct](../../../out/libarea5.tsct#L887) | 887 | var bezerk_imp2 = call create_enemy_through_door(int 103, int 0, int 1, int 0) |
+| [oneskull.tsct](../../../out/oneskull.tsct#L208) | 208 | var skel = call create_enemy_through_door(int 58, int 3, int 1, int 90) |
+| [outertav.tsct](../../../out/outertav.tsct#L338) | 338 | var longjohn = call create_enemy_through_door(int 28, int 0, int 0, int 0) |
+| [outertav.tsct](../../../out/outertav.tsct#L339) | 339 | var muscles = call create_enemy_through_door(int 30, int 0, int 0, int 0) |
+| [outertav.tsct](../../../out/outertav.tsct#L379) | 379 | var longjohn = call create_enemy_through_door(int 28, int 0, int 1, int 0) |
+| [outertav.tsct](../../../out/outertav.tsct#L385) | 385 | var muscles = call create_enemy_through_door(int 30, int 0, int 1, int 0) |
+| [outertav.tsct](../../../out/outertav.tsct#L391) | 391 | var finnegan = call create_enemy_through_door(int 32, int 0, int 1, int 0) |
+| [outertav.tsct](../../../out/outertav.tsct#L397) | 397 | var dick1 = call create_enemy_through_door(int 31, int 0, int 1, int 0) |
+| [outertav.tsct](../../../out/outertav.tsct#L412) | 412 | var longjohn = call create_enemy_through_door(int 28, int 0, int 2, int 0) |
+| [outertav.tsct](../../../out/outertav.tsct#L418) | 418 | var muscles = call create_enemy_through_door(int 30, int 0, int 2, int 0) |
+| [outertav.tsct](../../../out/outertav.tsct#L424) | 424 | var finnegan = call create_enemy_through_door(int 32, int 0, int 2, int 0) |
+| [outertav.tsct](../../../out/outertav.tsct#L430) | 430 | var dick1 = call create_enemy_through_door(int 31, int 0, int 2, int 0) |
+| [palace13.tsct](../../../out/palace13.tsct#L180) | 180 | var viking = call create_enemy_through_door(int 145, int 0, int 0, int 0) |
+| [palace18.tsct](../../../out/palace18.tsct#L120) | 120 | var vikingc = call create_enemy_through_door(int 66, int 0, int 1, int 0) |
+| [palace27.tsct](../../../out/palace27.tsct#L145) | 145 | var vikingb = call create_enemy_through_door(int 65, int 0, int 1, int 0) |
+| [palace6.tsct](../../../out/palace6.tsct#L104) | 104 | var vikingb = call create_enemy_through_door(int 65, int 1, int 0, int 0) |
+| [rayfive.tsct](../../../out/rayfive.tsct#L84) | 84 | var rat_raptor_max3 = call create_enemy_through_door(int 86, int 0, int 0, int 0) |
+| [rayfive.tsct](../../../out/rayfive.tsct#L85) | 85 | var rat_raptor_max31 = call create_enemy_through_door(int 86, int 1, int 0, int 0) |
+| [raythird.tsct](../../../out/raythird.tsct#L192) | 192 | var greater_gimpv1 = call create_enemy_through_door(int 46, int 1, int 0, int 0) |
+| [raythird.tsct](../../../out/raythird.tsct#L193) | 193 | var rat_raptor4 = call create_enemy_through_door(int 55, int 4, int 0, int 0) |
+| [raythird.tsct](../../../out/raythird.tsct#L194) | 194 | var rat_raptor5 = call create_enemy_through_door(int 55, int 5, int 0, int 0) |
+| [ritearch.tsct](../../../out/ritearch.tsct#L184) | 184 | var captain = call create_enemy_through_door(int 14, int 0, int 0, int 350) |
+| [ritearch.tsct](../../../out/ritearch.tsct#L188) | 188 | var captain = call create_enemy_through_door(int 14, int 0, int 1, int 350) |
+| [s_cori_2.tsct](../../../out/s_cori_2.tsct#L173) | 173 | var acid_flayer = call create_enemy_through_door(int 171, int 0, int 1, int 320) |
+| [s_cori_2.tsct](../../../out/s_cori_2.tsct#L188) | 188 | var earth_flayer = call create_enemy_through_door(int 170, int 0, int 1, int 320) |
+| [s_cori_2.tsct](../../../out/s_cori_2.tsct#L197) | 197 | var acid_flayer1 = call create_enemy_through_door(int 171, int 0, int 1, int 320) |
+| [s_cori_2.tsct](../../../out/s_cori_2.tsct#L211) | 211 | var earth_flayer1 = call create_enemy_through_door(int 170, int 0, int 1, int 320) |
+| [s_stway.tsct](../../../out/s_stway.tsct#L194) | 194 | var earth_flayer = call create_enemy_through_door(int 171, int 0, int 2, int 2) |
+| [scene29.tsct](../../../out/scene29.tsct#L156) | 156 | var muscles = call create_enemy_through_door(int 30, int 0, int 1, int 0) |
+| [scene29.tsct](../../../out/scene29.tsct#L162) | 162 | var dick = call create_enemy_through_door(int 31, int 0, int 1, int 0) |
+| [scene29.tsct](../../../out/scene29.tsct#L169) | 169 | var finnegan = call create_enemy_through_door(int 32, int 0, int 1, int 0) |
+| [spires02.tsct](../../../out/spires02.tsct#L158) | 158 | var fire_fishman = call create_enemy_through_door(int 148, int 0, int 0, int 0) |
+| [tavpass.tsct](../../../out/tavpass.tsct#L170) | 170 | var longjohn = call create_enemy_through_door(int 28, int 0, int 1, int 0) |
+| [wozroom.tsct](../../../out/wozroom.tsct#L402) | 402 | var groad = call create_enemy_through_door(int 39, int 0, int 0, int 0) |
+| [wozroom.tsct](../../../out/wozroom.tsct#L415) | 415 | var lizard_boss = call create_enemy_through_door(int 120, int 0, int 1, int 180) |

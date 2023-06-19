@@ -1,0 +1,9 @@
+# Function: func_a1 
+### References in the original script files
+
+#
+
+| File | Line Number | Reference code |
+| --- | --- | --- |
+| [gnolast.tsct](../../../out/gnolast.tsct#L122) | 122 | call func_a1("ntyronis") |
+| [gnolast.tsct](../../../out/gnolast.tsct#L132) | 132 | call func_a1("btreasure") |

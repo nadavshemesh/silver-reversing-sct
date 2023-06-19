@@ -1,0 +1,9 @@
+# Function: is_local_timer_between 
+### References in the original script files
+
+#
+
+| File | Line Number | Reference code |
+| --- | --- | --- |
+| [towngate.tsct](../../../out/towngate.tsct#L270) | 270 | if(call is_local_timer_between(int 10, int 18)) |
+| [towngate.tsct](../../../out/towngate.tsct#L278) | 278 | if(call is_local_timer_between(int 10, int 18)) |

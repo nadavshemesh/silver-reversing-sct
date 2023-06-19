@@ -1,0 +1,16 @@
+# Function: func_c5 
+### References in the original script files
+
+#
+
+| File | Line Number | Reference code |
+| --- | --- | --- |
+| [courtyrd.tsct](../../../out/courtyrd.tsct#L415) | 415 | call func_c5(var FWINGIMP) |
+| [h_campbt.tsct](../../../out/h_campbt.tsct#L582) | 582 | call func_c5(var nlark1) |
+| [h_campbt.tsct](../../../out/h_campbt.tsct#L583) | 583 | call func_c5(var nlark2) |
+| [h_camptp.tsct](../../../out/h_camptp.tsct#L1301) | 1301 | call func_c5(var NLARK) |
+| [h_camptp.tsct](../../../out/h_camptp.tsct#L1309) | 1309 | call func_c5(var NLARK) |
+| [veranda.tsct](../../../out/veranda.tsct#L247) | 247 | call func_c5(var flying_imps) |
+| [veranda.tsct](../../../out/veranda.tsct#L249) | 249 | call func_c5(var flying_imps1) |
+| [veranda.tsct](../../../out/veranda.tsct#L251) | 251 | call func_c5(var flying_imps2) |
+| [veranda.tsct](../../../out/veranda.tsct#L253) | 253 | call func_c5(var flying_imps3) |

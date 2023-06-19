@@ -1,0 +1,28 @@
+# Function: func_4e 
+### References in the original script files
+
+#
+
+| File | Line Number | Reference code |
+| --- | --- | --- |
+| [adesew10.tsct](../../../out/adesew10.tsct#L48) | 48 | call func_4e(int 0) |
+| [adesew10.tsct](../../../out/adesew10.tsct#L233) | 233 | call func_4e(int 0) |
+| [cliffsa.tsct](../../../out/cliffsa.tsct#L348) | 348 | call func_4e(int 0) |
+| [courtyrd.tsct](../../../out/courtyrd.tsct#L91) | 91 | call func_4e(var VAR_41 - int 1) |
+| [entouter.tsct](../../../out/entouter.tsct#L233) | 233 | call func_4e(int 0) |
+| [firetree.tsct](../../../out/firetree.tsct#L97) | 97 | call func_4e(int 0) |
+| [firetree.tsct](../../../out/firetree.tsct#L181) | 181 | call func_4e(int 0) |
+| [icecave4.tsct](../../../out/icecave4.tsct#L198) | 198 | call func_4e(int 0) |
+| [s_circle.tsct](../../../out/s_circle.tsct#L79) | 79 | call func_4e(var VAR_3 / int 2) |
+| [s_gates.tsct](../../../out/s_gates.tsct#L232) | 232 | call func_4e(int 0) |
+| [s_room_2.tsct](../../../out/s_room_2.tsct#L686) | 686 | call func_4e(int 0) |
+| [scaledwn.tsct](../../../out/scaledwn.tsct#L236) | 236 | call func_4e(int 0) |
+| [scaledwn.tsct](../../../out/scaledwn.tsct#L237) | 237 | call func_4e(int 1) |
+| [scaledwn.tsct](../../../out/scaledwn.tsct#L238) | 238 | call func_4e(int 2) |
+| [tunlpas.tsct](../../../out/tunlpas.tsct#L214) | 214 | call func_4e(int 0) |
+| [wozroom.tsct](../../../out/wozroom.tsct#L38) | 38 | call func_4e(int 0) |
+| [wozroom.tsct](../../../out/wozroom.tsct#L55) | 55 | call func_4e(int 0) |
+| [wozroom.tsct](../../../out/wozroom.tsct#L59) | 59 | call func_4e(int 0) |
+| [wozroom.tsct](../../../out/wozroom.tsct#L268) | 268 | call func_4e(int 0) |
+| [wozroom.tsct](../../../out/wozroom.tsct#L340) | 340 | call func_4e(int 0) |
+| [wozroom.tsct](../../../out/wozroom.tsct#L379) | 379 | call func_4e(int 0) |

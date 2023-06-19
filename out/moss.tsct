@@ -28,7 +28,7 @@
 	VAR_43	""
 
 ._on_load
-	call func_58(int 1)
+	call stop_bgm(int 1)
 	execute SCRIPT_12
 	call load_sound_set(int 58)
 	if(gamevar is_room_cleared)
@@ -257,7 +257,7 @@
 	 {
 			@arr[var VAR_2]= var david
 			var VAR_2 ++ 
-			var david = call func_7e()
+			var david = call get_next_char_from_list()
 	}
 
 ._SCRIPT_13

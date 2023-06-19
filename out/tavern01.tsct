@@ -58,7 +58,7 @@
 	VAR_122	-1	
 
 ._on_load
-	call func_58(int 1)
+	call stop_bgm(int 1)
 	execute SCRIPT_11
 	execute SCRIPT_13
 	execute SCRIPT_14
@@ -1055,8 +1055,8 @@
 ._SCRIPT_13
 	var DAVID1 = call get_char_handle(int 65536)
 	var david = call get_david_char()
-	var VAR_14 = call func_7e()
-	var VAR_15 = call func_7e()
+	var VAR_14 = call get_next_char_from_list()
+	var VAR_15 = call get_next_char_from_list()
 
 ._SCRIPT_14
 	if(var VAR_14 == call get_selected_hero()&&var VAR_14)
@@ -1149,19 +1149,19 @@
 	 {
 			call func_68(var VAR_15)
 	}
-	call func_61(var david)
-	call func_61(var VAR_14)
+	call char_remove_magic_and_weapons(var david)
+	call char_remove_magic_and_weapons(var VAR_14)
 	if(var VAR_15)
 	 {
-			call func_61(var VAR_15)
+			call char_remove_magic_and_weapons(var VAR_15)
 	}
 
 ._SCRIPT_19
-	call func_61(var david)
-	call func_61(var VAR_14)
+	call char_remove_magic_and_weapons(var david)
+	call char_remove_magic_and_weapons(var VAR_14)
 	if(var VAR_15)
 	 {
-			call func_61(var VAR_15)
+			call char_remove_magic_and_weapons(var VAR_15)
 	}
 
 ._SCRIPT_20

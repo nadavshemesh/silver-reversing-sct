@@ -1,0 +1,64 @@
+# Function: force_scroll_to_pos 
+### References in the original script files
+
+#
+
+| File | Line Number | Reference code |
+| --- | --- | --- |
+| [adesew02.tsct](../../../out/adesew02.tsct#L225) | 225 | call force_scroll_to_pos(var &walk_position) |
+| [atro4.tsct](../../../out/atro4.tsct#L256) | 256 | call force_scroll_to_pos(var &scroll_position) |
+| [atro8.tsct](../../../out/atro8.tsct#L139) | 139 | call force_scroll_to_pos(var &scroll_position) |
+| [atro8.tsct](../../../out/atro8.tsct#L194) | 194 | call force_scroll_to_pos(var &scroll_position1) |
+| [black_in.tsct](../../../out/black_in.tsct#L171) | 171 | call force_scroll_to_pos(var &scroll_position) |
+| [black_in.tsct](../../../out/black_in.tsct#L222) | 222 | call force_scroll_to_pos(var &scroll_position1) |
+| [black_in.tsct](../../../out/black_in.tsct#L399) | 399 | call force_scroll_to_pos(var &scroll_position) |
+| [black_in.tsct](../../../out/black_in.tsct#L459) | 459 | call force_scroll_to_pos(var &scroll_position1) |
+| [black_in.tsct](../../../out/black_in.tsct#L587) | 587 | call force_scroll_to_pos(var &scroll_position) |
+| [black_in.tsct](../../../out/black_in.tsct#L638) | 638 | call force_scroll_to_pos(var &scroll_position1) |
+| [black_in.tsct](../../../out/black_in.tsct#L837) | 837 | call force_scroll_to_pos(var &scroll_position) |
+| [black_in.tsct](../../../out/black_in.tsct#L897) | 897 | call force_scroll_to_pos(var &scroll_position1) |
+| [cells.tsct](../../../out/cells.tsct#L179) | 179 | call force_scroll_to_pos(var &walk_position) |
+| [cld_rd_3.tsct](../../../out/cld_rd_3.tsct#L618) | 618 | call force_scroll_to_pos(var &init_position) |
+| [cliffsa.tsct](../../../out/cliffsa.tsct#L224) | 224 | call force_scroll_to_pos(call get_char_pos(var VAR_39)) |
+| [courtyrd.tsct](../../../out/courtyrd.tsct#L276) | 276 | call force_scroll_to_pos(call get_char_pos(var DAVID)) |
+| [davhouse.tsct](../../../out/davhouse.tsct#L2116) | 2116 | call force_scroll_to_pos(var &scroll_position) |
+| [entouter.tsct](../../../out/entouter.tsct#L285) | 285 | call force_scroll_to_pos(var &scroll_position) |
+| [goingdwn.tsct](../../../out/goingdwn.tsct#L155) | 155 | call force_scroll_to_pos(call get_char_pos(var DAVID)) |
+| [gotolift.tsct](../../../out/gotolift.tsct#L142) | 142 | call force_scroll_to_pos(var &init_position) |
+| [gotolift.tsct](../../../out/gotolift.tsct#L156) | 156 | call force_scroll_to_pos(call get_char_pos(var DAVID)) |
+| [gotolift2.tsct](../../../out/gotolift2.tsct#L142) | 142 | call force_scroll_to_pos(var &init_position) |
+| [gotolift2.tsct](../../../out/gotolift2.tsct#L156) | 156 | call force_scroll_to_pos(call get_char_pos(var DAVID)) |
+| [h_campbt.tsct](../../../out/h_campbt.tsct#L273) | 273 | call force_scroll_to_pos(var &scroll_position) |
+| [h_campbt.tsct](../../../out/h_campbt.tsct#L314) | 314 | call force_scroll_to_pos(var &scroll_position1) |
+| [h_campbt.tsct](../../../out/h_campbt.tsct#L460) | 460 | call force_scroll_to_pos(var &scroll_position2) |
+| [h_campbt.tsct](../../../out/h_campbt.tsct#L479) | 479 | call force_scroll_to_pos(var &walk_position4) |
+| [h_campbt.tsct](../../../out/h_campbt.tsct#L764) | 764 | call force_scroll_to_pos(var &scroll_position3) |
+| [h_camptp.tsct](../../../out/h_camptp.tsct#L516) | 516 | call force_scroll_to_pos(var &scroll_position) |
+| [h_camptp.tsct](../../../out/h_camptp.tsct#L1112) | 1112 | call force_scroll_to_pos(var &scroll_position1) |
+| [h_camptp.tsct](../../../out/h_camptp.tsct#L2070) | 2070 | call force_scroll_to_pos(var walk_position11) |
+| [h_camptp.tsct](../../../out/h_camptp.tsct#L2085) | 2085 | call force_scroll_to_pos(var walk_position13) |
+| [h_camptp.tsct](../../../out/h_camptp.tsct#L2258) | 2258 | call force_scroll_to_pos(var &scroll_position) |
+| [icecave4.tsct](../../../out/icecave4.tsct#L121) | 121 | call force_scroll_to_pos(var &scroll_position) |
+| [libarea4.tsct](../../../out/libarea4.tsct#L167) | 167 | call force_scroll_to_pos(call get_char_pos(var shaman_imp)) |
+| [libarea4.tsct](../../../out/libarea4.tsct#L211) | 211 | call force_scroll_to_pos(call get_char_pos(var DAVID)) |
+| [libarea4.tsct](../../../out/libarea4.tsct#L258) | 258 | call force_scroll_to_pos(var &scroll_position) |
+| [libarea4.tsct](../../../out/libarea4.tsct#L284) | 284 | call force_scroll_to_pos(call get_char_pos(var DAVID)) |
+| [lighttow.tsct](../../../out/lighttow.tsct#L130) | 130 | call force_scroll_to_pos(var &scroll_position) |
+| [lmiddle.tsct](../../../out/lmiddle.tsct#L159) | 159 | call force_scroll_to_pos(var &init_position) |
+| [moninner.tsct](../../../out/moninner.tsct#L199) | 199 | call force_scroll_to_pos(var &scroll_position) |
+| [moninner.tsct](../../../out/moninner.tsct#L216) | 216 | call force_scroll_to_pos(call get_char_pos(var selected_hero)) |
+| [palace2.tsct](../../../out/palace2.tsct#L124) | 124 | call force_scroll_to_pos(call get_char_pos(var vikingc)) |
+| [palace2.tsct](../../../out/palace2.tsct#L177) | 177 | call force_scroll_to_pos(call get_char_pos(var david)) |
+| [pitprop.tsct](../../../out/pitprop.tsct#L139) | 139 | call force_scroll_to_pos(var &scroll_position) |
+| [screen6.tsct](../../../out/screen6.tsct#L259) | 259 | call force_scroll_to_pos(var &walk_position3) |
+| [shipdock.tsct](../../../out/shipdock.tsct#L140) | 140 | call force_scroll_to_pos(var &scroll_position) |
+| [t_square.tsct](../../../out/t_square.tsct#L102) | 102 | call force_scroll_to_pos(var &scroll_position) |
+| [t_square.tsct](../../../out/t_square.tsct#L117) | 117 | call force_scroll_to_pos(call get_char_pos(var DAVID1)) |
+| [t_square.tsct](../../../out/t_square.tsct#L260) | 260 | call force_scroll_to_pos(var &scroll_position1) |
+| [tavern01.tsct](../../../out/tavern01.tsct#L908) | 908 | call force_scroll_to_pos(var &scroll_position) |
+| [teleroom.tsct](../../../out/teleroom.tsct#L164) | 164 | call force_scroll_to_pos(var &scroll_position) |
+| [teleroom.tsct](../../../out/teleroom.tsct#L243) | 243 | call force_scroll_to_pos(call get_char_pos(var VAR_61)) |
+| [wozroom.tsct](../../../out/wozroom.tsct#L151) | 151 | call force_scroll_to_pos(var &scroll_position) |
+| [wozroom.tsct](../../../out/wozroom.tsct#L203) | 203 | call force_scroll_to_pos(var &scroll_position1) |
+| [wozroom.tsct](../../../out/wozroom.tsct#L219) | 219 | call force_scroll_to_pos(var &scroll_position) |
+| [wozroom.tsct](../../../out/wozroom.tsct#L433) | 433 | call force_scroll_to_pos(var &scroll_position) |

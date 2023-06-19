@@ -147,7 +147,7 @@
 					while(var david)
 					 {
 							call apply_effect_on_char(gamevar char_gen_fx_scripts, int 18, int 0, var david)
-							var david = call func_7e()
+							var david = call get_next_char_from_list()
 					}
 			}
 			else
@@ -172,7 +172,7 @@
 					call set_char_running(var david)
 					call char_walk_to_pos(var david, @arr[var VAR_26])
 					var index ++ 
-					var david = call func_7e()
+					var david = call get_next_char_from_list()
 			}
 			var VAR_15 ++ 
 			var index = int 0
@@ -201,7 +201,7 @@
 							call char_walk_to_pos(var david, @arr_1[var index])
 							var index ++ 
 							var VAR_27 = var index
-							var david = call func_7e()
+							var david = call get_next_char_from_list()
 					}
 					var index = int 0
 					var VAR_15 ++ 
@@ -221,7 +221,7 @@
 							call func_fa(var david)
 					}
 					var index ++ 
-					var david = call func_7e()
+					var david = call get_next_char_from_list()
 			}
 			var index = int 0
 			if(var VAR_28 == var VAR_27)

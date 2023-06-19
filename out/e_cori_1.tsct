@@ -69,7 +69,7 @@
 	}
 
 ._on_exit
-	call func_58(int 1)
+	call stop_bgm(int 1)
 	if(gamevar room_state == int 0)
 	 {
 			exit_script 
@@ -197,7 +197,7 @@
 			if(var VAR_7 == int 65536)
 			 {
 					var VAR_3 = var david
-					var david = call func_7e()
+					var david = call get_next_char_from_list()
 			}
 			else
 			 {
@@ -212,7 +212,7 @@
 									var VAR_5 = var david
 							}
 					}
-					var david = call func_7e()
+					var david = call get_next_char_from_list()
 			}
 	}
 

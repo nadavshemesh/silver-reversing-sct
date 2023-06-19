@@ -1,0 +1,18 @@
+# Function: func_a6 
+### References in the original script files
+
+#
+
+| File | Line Number | Reference code |
+| --- | --- | --- |
+| [gotolift.tsct](../../../out/gotolift.tsct#L237) | 237 | if(call func_a6(var VAR_21)) |
+| [gotolift2.tsct](../../../out/gotolift2.tsct#L237) | 237 | if(call func_a6(var VAR_21)) |
+| [loctomon.tsct](../../../out/loctomon.tsct#L146) | 146 | if(call func_a6(var nfastmonk)) |
+| [met_beam.tsct](../../../out/met_beam.tsct#L172) | 172 | if(call func_a6(var sguard)&&var VAR_76 == int 0) |
+| [met_beam.tsct](../../../out/met_beam.tsct#L183) | 183 | if(call func_a6(var sguard1)&&var VAR_77 == int 0) |
+| [met_beam.tsct](../../../out/met_beam.tsct#L194) | 194 | if(call func_a6(var sguard2)&&var VAR_78 == int 0) |
+| [met_beam.tsct](../../../out/met_beam.tsct#L205) | 205 | if(call func_a6(var sguard3)&&var VAR_79 == int 0) |
+| [monleft.tsct](../../../out/monleft.tsct#L165) | 165 | if(call func_a6(var nfastmonk)) |
+| [ratunder.tsct](../../../out/ratunder.tsct#L140) | 140 | if(call func_a6(var rat_raptor)) |
+| [ratunder.tsct](../../../out/ratunder.tsct#L154) | 154 | if(call func_a6(var rat_raptor1)) |
+| [undermil.tsct](../../../out/undermil.tsct#L130) | 130 | if(call func_a6(var nchiaro)) |

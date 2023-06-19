@@ -1,0 +1,18 @@
+# Function: char_play_attack_anim 
+### References in the original script files
+
+#
+
+| File | Line Number | Reference code |
+| --- | --- | --- |
+| [davhouse.tsct](../../../out/davhouse.tsct#L255) | 255 | call char_play_attack_anim(var grandad, int 28, var &att_position, int 0) |
+| [davhouse.tsct](../../../out/davhouse.tsct#L266) | 266 | call char_play_attack_anim(var grandad, int 31, var &att_position, int 0) |
+| [davhouse.tsct](../../../out/davhouse.tsct#L290) | 290 | call char_play_attack_anim(var grandad, int 30, var &att_position, int 0) |
+| [davhouse.tsct](../../../out/davhouse.tsct#L314) | 314 | call char_play_attack_anim(var grandad, int 31, var &att_position, int 0) |
+| [davhouse.tsct](../../../out/davhouse.tsct#L338) | 338 | call char_play_attack_anim(var grandad, int 30, var &att_position, int 0) |
+| [davhouse.tsct](../../../out/davhouse.tsct#L586) | 586 | call char_play_attack_anim(var grandad, int 28, call get_char_pos(var HDAVID), int 0) |
+| [davhouse.tsct](../../../out/davhouse.tsct#L723) | 723 | call char_play_attack_anim(var grandad, int 29, var &att_position, int 0) |
+| [davhouse.tsct](../../../out/davhouse.tsct#L852) | 852 | call char_play_attack_anim(var grandad, int 31, var &att_position, int 0) |
+| [davhouse.tsct](../../../out/davhouse.tsct#L981) | 981 | call char_play_attack_anim(var grandad, int 30, var &att_position, int 0) |
+| [davhouse.tsct](../../../out/davhouse.tsct#L1110) | 1110 | call char_play_attack_anim(var grandad, int 16, var &att_position, int 0) |
+| [vivinsid.tsct](../../../out/vivinsid.tsct#L119) | 119 | call char_play_attack_anim(var NVIVIENNE, int 16, call get_char_pos(var DAVID), int 0) |

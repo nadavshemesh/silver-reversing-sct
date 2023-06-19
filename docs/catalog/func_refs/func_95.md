@@ -1,0 +1,18 @@
+# Function: func_95 
+### References in the original script files
+
+#
+
+| File | Line Number | Reference code |
+| --- | --- | --- |
+| [eastower.tsct](../../../out/eastower.tsct#L113) | 113 | call func_95(var nyelimp, int 5, int 0) |
+| [gnosnake.tsct](../../../out/gnosnake.tsct#L150) | 150 | call func_95(var nyelimp, int 5, int 0) |
+| [gnosnake.tsct](../../../out/gnosnake.tsct#L262) | 262 | call func_95(var nlloyd, int 6, int 0) |
+| [libarea3.tsct](../../../out/libarea3.tsct#L185) | 185 | call func_95(var nyelimp, int 5, int 0) |
+| [libarea5.tsct](../../../out/libarea5.tsct#L225) | 225 | call func_95(var nyelimp, int 3, int 0) |
+| [libarea5.tsct](../../../out/libarea5.tsct#L397) | 397 | call func_95(var shaman_imp, int 6, int 0) |
+| [screen6.tsct](../../../out/screen6.tsct#L492) | 492 | call func_95(var fimp1, int 2, int 0) |
+| [screen6.tsct](../../../out/screen6.tsct#L504) | 504 | call func_95(var fimp2, int 3, int 0) |
+| [screen6.tsct](../../../out/screen6.tsct#L513) | 513 | call func_95(var fimp1, int 4, int 0) |
+| [screen6.tsct](../../../out/screen6.tsct#L525) | 525 | call func_95(var fimp1, int 2, int 0) |
+| [screen6.tsct](../../../out/screen6.tsct#L526) | 526 | call func_95(var fimp2, int 4, int 0) |

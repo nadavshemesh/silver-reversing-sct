@@ -36,7 +36,7 @@
 	init_position6	{ 887, 624, 7316 }	
 
 ._on_load
-	call func_58(int 1)
+	call stop_bgm(int 1)
 	call load_sound_set(int 64)
 
 	 /* play the sound 'cavelp' */ 
@@ -70,7 +70,7 @@
 	call set_scene_overwrite_act("GNO", "teleroom", int 0)
 	gamevar room_state = int 0
 	gamevar *scene_info_p+1 = int 1
-	call func_58(int 1)
+	call stop_bgm(int 1)
 	call func_108("FIN")
 
 ._SCRIPT_3
@@ -243,7 +243,7 @@
 				if(gamevar scene_counter == int 240)
 				 {
 						var nrebela = call create_char(var &init_position4, "nrebela", int 282, int 13)
-						call char_unfollow(var ntyronis)
+						call char_unfollow_char(var ntyronis)
 						call set_char_running(var nprofess)
 						call set_char_running(var nduke)
 						call set_char_running(var ntyronis)
@@ -551,5 +551,5 @@
 	while(var david)
 	 {
 			call set_char_lvl(var david, var VAR_0)
-			var david = call func_7e()
+			var david = call get_next_char_from_list()
 	}

@@ -61,8 +61,8 @@
 	call load_char("vikingc")
 	call play_bgm("WPALPT1")
 	var david = call get_david_char()
-	var VAR_3 = call func_7e()
-	var VAR_4 = call func_7e()
+	var VAR_3 = call get_next_char_from_list()
+	var VAR_4 = call get_next_char_from_list()
 	if(gamevar room_state == int 1)
 	 {
 			execute SCRIPT_5
@@ -155,7 +155,7 @@
 	 {
 			case 0
 				call set_input_system(int 2)
-				call func_11f(var &init_position2, int 32768)
+				call set_input_sys_2_if_pos_occupied(var &init_position2, int 32768)
 				var VAR_0 ++ 
 				break 
 			case 1

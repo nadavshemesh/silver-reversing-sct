@@ -1,0 +1,14 @@
+# Function: func_87 
+### References in the original script files
+
+#
+
+| File | Line Number | Reference code |
+| --- | --- | --- |
+| [aft2arch.tsct](../../../out/aft2arch.tsct#L197) | 197 | if(call func_87(var lieutenant)) |
+| [aft2arch.tsct](../../../out/aft2arch.tsct#L214) | 214 | if(call func_87(var lieutenant1)) |
+| [aft2arch.tsct](../../../out/aft2arch.tsct#L231) | 231 | if(call func_87(var lieutenant2)) |
+| [pass2.tsct](../../../out/pass2.tsct#L147) | 147 | if(call func_87(var leopard)) |
+| [pass2.tsct](../../../out/pass2.tsct#L165) | 165 | if(call func_87(var leopard1)) |
+| [pass2.tsct](../../../out/pass2.tsct#L183) | 183 | if(call func_87(var leopard2)) |
+| [wiztower.tsct](../../../out/wiztower.tsct#L307) | 307 | if(call func_87(var nrebel)) |

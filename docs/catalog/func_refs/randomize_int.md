@@ -1,0 +1,861 @@
+# Function: randomize_int 
+### References in the original script files
+
+#
+
+| File | Line Number | Reference code |
+| --- | --- | --- |
+| [adesew01.tsct](../../../out/adesew01.tsct#L73) | 73 | var VAR_35 = gamevar script_time + int 50 + call randomize_int(int 0, int 70) |
+| [adesew02.tsct](../../../out/adesew02.tsct#L297) | 297 | switch(call randomize_int(int 0, int 3)) |
+| [adesew02.tsct](../../../out/adesew02.tsct#L318) | 318 | var VAR_19 = call randomize_int(int 250, int 401) |
+| [adesew02.tsct](../../../out/adesew02.tsct#L370) | 370 | var VAR_65 = gamevar script_time + int 50 + call randomize_int(int 0, int 70) |
+| [adesew04.tsct](../../../out/adesew04.tsct#L116) | 116 | var VAR_20 = gamevar script_time + int 50 + call randomize_int(int 0, int 70) |
+| [adesew05.tsct](../../../out/adesew05.tsct#L89) | 89 | var VAR_14 = gamevar script_time + int 50 + call randomize_int(int 0, int 70) |
+| [adesew06.tsct](../../../out/adesew06.tsct#L247) | 247 | var VAR_49 = gamevar script_time + int 50 + call randomize_int(int 0, int 70) |
+| [adesew07.tsct](../../../out/adesew07.tsct#L57) | 57 | var VAR_17 = gamevar script_time + int 50 + call randomize_int(int 0, int 70) |
+| [adesew08.tsct](../../../out/adesew08.tsct#L112) | 112 | var VAR_22 = gamevar script_time + int 50 + call randomize_int(int 0, int 70) |
+| [adesew12.tsct](../../../out/adesew12.tsct#L107) | 107 | var VAR_15 = gamevar script_time + int 60 + call randomize_int(int 0, int 60) |
+| [aft2arch.tsct](../../../out/aft2arch.tsct#L387) | 387 | var VAR_11 = call randomize_int(int 1200, int 1801) |
+| [aft2arch.tsct](../../../out/aft2arch.tsct#L394) | 394 | call set_sound_volume(var thunstrk_sound_ref, call randomize_int(int 100, int 201)) |
+| [aft2arch.tsct](../../../out/aft2arch.tsct#L395) | 395 | call func_11a(var thunstrk_sound_ref, call randomize_int(int 0, int 128)) |
+| [aft2arch.tsct](../../../out/aft2arch.tsct#L426) | 426 | var VAR_16 = call randomize_int(int 400, int 601) |
+| [aft2arch.tsct](../../../out/aft2arch.tsct#L435) | 435 | var VAR_16 = call randomize_int(int 1, int 31) |
+| [aftastep.tsct](../../../out/aftastep.tsct#L386) | 386 | var VAR_11 = call randomize_int(int 1200, int 1801) |
+| [aftastep.tsct](../../../out/aftastep.tsct#L393) | 393 | call set_sound_volume(var thunstrk_sound_ref, call randomize_int(int 100, int 201)) |
+| [aftastep.tsct](../../../out/aftastep.tsct#L394) | 394 | call func_11a(var thunstrk_sound_ref, call randomize_int(int 0, int 128)) |
+| [aftastep.tsct](../../../out/aftastep.tsct#L425) | 425 | var VAR_16 = call randomize_int(int 400, int 601) |
+| [aftastep.tsct](../../../out/aftastep.tsct#L434) | 434 | var VAR_16 = call randomize_int(int 1, int 31) |
+| [aftatav.tsct](../../../out/aftatav.tsct#L322) | 322 | var VAR_38 = call randomize_int(int 1200, int 1801) |
+| [aftatav.tsct](../../../out/aftatav.tsct#L329) | 329 | call set_sound_volume(var thunstrk_sound_ref, call randomize_int(int 100, int 201)) |
+| [aftatav.tsct](../../../out/aftatav.tsct#L330) | 330 | call func_11a(var thunstrk_sound_ref, call randomize_int(int 0, int 128)) |
+| [aftatav.tsct](../../../out/aftatav.tsct#L361) | 361 | var VAR_43 = call randomize_int(int 400, int 601) |
+| [aftatav.tsct](../../../out/aftatav.tsct#L370) | 370 | var VAR_43 = call randomize_int(int 1, int 31) |
+| [aftsquar.tsct](../../../out/aftsquar.tsct#L222) | 222 | var VAR_22 = call randomize_int(int 1200, int 1801) |
+| [aftsquar.tsct](../../../out/aftsquar.tsct#L229) | 229 | call set_sound_volume(var thunstrk_sound_ref, call randomize_int(int 100, int 201)) |
+| [aftsquar.tsct](../../../out/aftsquar.tsct#L230) | 230 | call func_11a(var thunstrk_sound_ref, call randomize_int(int 0, int 128)) |
+| [aftsquar.tsct](../../../out/aftsquar.tsct#L261) | 261 | var VAR_27 = call randomize_int(int 400, int 601) |
+| [aftsquar.tsct](../../../out/aftsquar.tsct#L270) | 270 | var VAR_27 = call randomize_int(int 1, int 31) |
+| [aftsroad.tsct](../../../out/aftsroad.tsct#L330) | 330 | var VAR_11 = call randomize_int(int 1200, int 1801) |
+| [aftsroad.tsct](../../../out/aftsroad.tsct#L337) | 337 | call set_sound_volume(var thunstrk_sound_ref, call randomize_int(int 100, int 201)) |
+| [aftsroad.tsct](../../../out/aftsroad.tsct#L338) | 338 | call func_11a(var thunstrk_sound_ref, call randomize_int(int 0, int 128)) |
+| [aftsroad.tsct](../../../out/aftsroad.tsct#L369) | 369 | var VAR_16 = call randomize_int(int 400, int 601) |
+| [aftsroad.tsct](../../../out/aftsroad.tsct#L378) | 378 | var VAR_16 = call randomize_int(int 1, int 31) |
+| [arena.tsct](../../../out/arena.tsct#L125) | 125 | call play_char_anim(var david, var victory_anim, call randomize_int(int 0, int 6)) |
+| [atro1.tsct](../../../out/atro1.tsct#L150) | 150 | var VAR_6 = gamevar script_time + int 100 + call randomize_int(int 0, int 150) |
+| [atro1.tsct](../../../out/atro1.tsct#L151) | 151 | var index = call randomize_int(int 0, int 3) |
+| [atro1.tsct](../../../out/atro1.tsct#L158) | 158 | var VAR_7 = gamevar script_time + int 200 + call randomize_int(int 0, int 150) |
+| [atro1.tsct](../../../out/atro1.tsct#L159) | 159 | var index = call randomize_int(int 0, int 3) |
+| [atro10.tsct](../../../out/atro10.tsct#L276) | 276 | var VAR_89 = gamevar script_time + int 100 + call randomize_int(int 0, int 150) |
+| [atro10.tsct](../../../out/atro10.tsct#L277) | 277 | var index = call randomize_int(int 0, int 8) |
+| [atro10.tsct](../../../out/atro10.tsct#L284) | 284 | var VAR_90 = gamevar script_time + int 200 + call randomize_int(int 0, int 150) |
+| [atro10.tsct](../../../out/atro10.tsct#L285) | 285 | var index = call randomize_int(int 0, int 8) |
+| [atro4.tsct](../../../out/atro4.tsct#L315) | 315 | var VAR_51 = gamevar script_time + int 100 + call randomize_int(int 0, int 150) |
+| [atro4.tsct](../../../out/atro4.tsct#L316) | 316 | var index_1 = call randomize_int(int 0, int 3) |
+| [atro4.tsct](../../../out/atro4.tsct#L323) | 323 | var VAR_52 = gamevar script_time + int 200 + call randomize_int(int 0, int 150) |
+| [atro4.tsct](../../../out/atro4.tsct#L324) | 324 | var index_1 = call randomize_int(int 0, int 3) |
+| [atro8.tsct](../../../out/atro8.tsct#L218) | 218 | var VAR_21 = gamevar script_time + int 100 + call randomize_int(int 0, int 150) |
+| [atro8.tsct](../../../out/atro8.tsct#L219) | 219 | var index = call randomize_int(int 0, int 7) |
+| [atro8.tsct](../../../out/atro8.tsct#L226) | 226 | var VAR_22 = gamevar script_time + int 200 + call randomize_int(int 0, int 150) |
+| [atro8.tsct](../../../out/atro8.tsct#L227) | 227 | var index = call randomize_int(int 0, int 7) |
+| [atro9.tsct](../../../out/atro9.tsct#L187) | 187 | var VAR_19 = gamevar script_time + int 100 + call randomize_int(int 0, int 150) |
+| [atro9.tsct](../../../out/atro9.tsct#L188) | 188 | var index = call randomize_int(int 0, int 8) |
+| [atro9.tsct](../../../out/atro9.tsct#L195) | 195 | var VAR_20 = gamevar script_time + int 200 + call randomize_int(int 0, int 150) |
+| [atro9.tsct](../../../out/atro9.tsct#L196) | 196 | var index = call randomize_int(int 0, int 8) |
+| [bak2gate.tsct](../../../out/bak2gate.tsct#L212) | 212 | var VAR_11 = call randomize_int(int 1200, int 1801) |
+| [bak2gate.tsct](../../../out/bak2gate.tsct#L219) | 219 | call set_sound_volume(var thunstrk_sound_ref, call randomize_int(int 100, int 201)) |
+| [bak2gate.tsct](../../../out/bak2gate.tsct#L220) | 220 | call func_11a(var thunstrk_sound_ref, call randomize_int(int 0, int 128)) |
+| [bak2gate.tsct](../../../out/bak2gate.tsct#L251) | 251 | var VAR_16 = call randomize_int(int 400, int 601) |
+| [bak2gate.tsct](../../../out/bak2gate.tsct#L260) | 260 | var VAR_16 = call randomize_int(int 1, int 31) |
+| [barabott.tsct](../../../out/barabott.tsct#L351) | 351 | var VAR_52 = gamevar script_time + int 80 + call randomize_int(int 0, int 40) |
+| [barabott.tsct](../../../out/barabott.tsct#L352) | 352 | var VAR_50 = int 1 + call randomize_int(int 0, int 5) |
+| [barabott.tsct](../../../out/barabott.tsct#L357) | 357 | var VAR_51 = gamevar script_time + int 10 + call randomize_int(int 0, int 20) |
+| [barabott.tsct](../../../out/barabott.tsct#L358) | 358 | var VAR_50 = int 6 + call randomize_int(int 0, int 6) |
+| [barrlink.tsct](../../../out/barrlink.tsct#L94) | 94 | var VAR_53 = gamevar script_time + int 60 + call randomize_int(int 0, int 40) |
+| [barrlink.tsct](../../../out/barrlink.tsct#L95) | 95 | var VAR_52 = int 8 + call randomize_int(int 0, int 3) |
+| [barrlink.tsct](../../../out/barrlink.tsct#L100) | 100 | var VAR_54 = gamevar script_time + int 60 + call randomize_int(int 0, int 40) |
+| [barrlink.tsct](../../../out/barrlink.tsct#L101) | 101 | var VAR_52 = int 3 + call randomize_int(int 0, int 5) |
+| [barroom.tsct](../../../out/barroom.tsct#L226) | 226 | var VAR_57 = gamevar script_time + int 50 + call randomize_int(int 0, int 70) |
+| [basdome.tsct](../../../out/basdome.tsct#L118) | 118 | var VAR_33 = gamevar script_time + int 80 + call randomize_int(int 0, int 60) |
+| [basdome.tsct](../../../out/basdome.tsct#L119) | 119 | var VAR_32 = int 2 + call randomize_int(int 0, int 6) |
+| [bigroom8.tsct](../../../out/bigroom8.tsct#L188) | 188 | if(call ! randomize_int(int 0, int 5)) |
+| [blacjohn.tsct](../../../out/blacjohn.tsct#L81) | 81 | var VAR_56 = gamevar script_time + int 70 + call randomize_int(int 0, int 110) |
+| [blacjohn.tsct](../../../out/blacjohn.tsct#L88) | 88 | var VAR_57 = gamevar script_time + int 100 + call randomize_int(int 0, int 50) |
+| [black_1.tsct](../../../out/black_1.tsct#L85) | 85 | var VAR_32 = gamevar script_time + int 70 + call randomize_int(int 0, int 110) |
+| [black_1.tsct](../../../out/black_1.tsct#L92) | 92 | var VAR_33 = gamevar script_time + int 60 + call randomize_int(int 0, int 60) |
+| [black_2.tsct](../../../out/black_2.tsct#L104) | 104 | var VAR_19 = gamevar script_time + int 70 + call randomize_int(int 0, int 110) |
+| [black_2.tsct](../../../out/black_2.tsct#L111) | 111 | var VAR_20 = gamevar script_time + int 70 + call randomize_int(int 0, int 110) |
+| [black_2.tsct](../../../out/black_2.tsct#L118) | 118 | var VAR_21 = gamevar script_time + int 100 + call randomize_int(int 0, int 50) |
+| [black_3.tsct](../../../out/black_3.tsct#L100) | 100 | var VAR_38 = gamevar script_time + int 70 + call randomize_int(int 0, int 110) |
+| [black_3.tsct](../../../out/black_3.tsct#L107) | 107 | var VAR_39 = gamevar script_time + int 70 + call randomize_int(int 0, int 110) |
+| [black_3.tsct](../../../out/black_3.tsct#L114) | 114 | var VAR_40 = gamevar script_time + int 100 + call randomize_int(int 0, int 50) |
+| [black_in.tsct](../../../out/black_in.tsct#L524) | 524 | var VAR_65 = gamevar script_time + int 70 + call randomize_int(int 0, int 110) |
+| [black_in.tsct](../../../out/black_in.tsct#L531) | 531 | var VAR_66 = gamevar script_time + int 70 + call randomize_int(int 0, int 110) |
+| [black_in.tsct](../../../out/black_in.tsct#L538) | 538 | var VAR_67 = gamevar script_time + int 100 + call randomize_int(int 0, int 50) |
+| [bloodfal.tsct](../../../out/bloodfal.tsct#L103) | 103 | var VAR_80 = gamevar script_time + int 70 + call randomize_int(int 0, int 110) |
+| [bloodfal.tsct](../../../out/bloodfal.tsct#L110) | 110 | var VAR_82 = gamevar script_time + int 70 + call randomize_int(int 0, int 110) |
+| [bloodfal.tsct](../../../out/bloodfal.tsct#L117) | 117 | var VAR_81 = gamevar script_time + int 60 + call randomize_int(int 0, int 60) |
+| [boar.tsct](../../../out/boar.tsct#L82) | 82 | var VAR_21 = gamevar script_time + int 70 + call randomize_int(int 0, int 110) |
+| [boar.tsct](../../../out/boar.tsct#L89) | 89 | var VAR_22 = gamevar script_time + int 70 + call randomize_int(int 0, int 110) |
+| [boar.tsct](../../../out/boar.tsct#L96) | 96 | var VAR_23 = gamevar script_time + int 100 + call randomize_int(int 0, int 50) |
+| [boar_two.tsct](../../../out/boar_two.tsct#L83) | 83 | var VAR_23 = gamevar script_time + int 70 + call randomize_int(int 0, int 110) |
+| [boar_two.tsct](../../../out/boar_two.tsct#L90) | 90 | var VAR_24 = gamevar script_time + int 70 + call randomize_int(int 0, int 110) |
+| [boar_two.tsct](../../../out/boar_two.tsct#L97) | 97 | var VAR_25 = gamevar script_time + int 100 + call randomize_int(int 0, int 50) |
+| [boarbody.tsct](../../../out/boarbody.tsct#L77) | 77 | var VAR_31 = gamevar script_time + int 70 + call randomize_int(int 0, int 110) |
+| [boarbody.tsct](../../../out/boarbody.tsct#L84) | 84 | var VAR_32 = gamevar script_time + int 100 + call randomize_int(int 0, int 50) |
+| [boarbody.tsct](../../../out/boarbody.tsct#L95) | 95 | var VAR_2 = gamevar script_time + int 70 + call randomize_int(int 0, int 110) |
+| [boilarea.tsct](../../../out/boilarea.tsct#L150) | 150 | var VAR_98 = gamevar script_time + int 100 + call randomize_int(int 0, int 100) |
+| [boilarea.tsct](../../../out/boilarea.tsct#L157) | 157 | var VAR_99 = gamevar script_time + int 20 + call randomize_int(int 0, int 20) |
+| [boilarea.tsct](../../../out/boilarea.tsct#L287) | 287 | var VAR_48 = call randomize_int(int 10, int 60) |
+| [boilarea.tsct](../../../out/boilarea.tsct#L288) | 288 | var index = call randomize_int(int 0, int 5) |
+| [boilarea.tsct](../../../out/boilarea.tsct#L293) | 293 | var VAR_47 = call randomize_int(int 30, int 150) |
+| [boilintr.tsct](../../../out/boilintr.tsct#L89) | 89 | var VAR_20 = gamevar script_time + int 100 + call randomize_int(int 0, int 100) |
+| [boneyrd2.tsct](../../../out/boneyrd2.tsct#L170) | 170 | var VAR_37 = call randomize_int(int 0, int 4) |
+| [boneyrd2.tsct](../../../out/boneyrd2.tsct#L173) | 173 | var VAR_38 = call randomize_int(int 0, int 4) |
+| [bridge.tsct](../../../out/bridge.tsct#L331) | 331 | var VAR_11 = call randomize_int(int 1200, int 1801) |
+| [bridge.tsct](../../../out/bridge.tsct#L338) | 338 | call set_sound_volume(var thunstrk_sound_ref, call randomize_int(int 100, int 201)) |
+| [bridge.tsct](../../../out/bridge.tsct#L339) | 339 | call func_11a(var thunstrk_sound_ref, call randomize_int(int 0, int 128)) |
+| [bridge.tsct](../../../out/bridge.tsct#L370) | 370 | var VAR_16 = call randomize_int(int 400, int 601) |
+| [bridge.tsct](../../../out/bridge.tsct#L379) | 379 | var VAR_16 = call randomize_int(int 1, int 31) |
+| [bridges.tsct](../../../out/bridges.tsct#L123) | 123 | var VAR_60 = gamevar script_time + int 300 + call randomize_int(int 0, int 300) |
+| [bridges.tsct](../../../out/bridges.tsct#L130) | 130 | var VAR_59 = gamevar script_time + int 60 + call randomize_int(int 0, int 60) |
+| [btmstair.tsct](../../../out/btmstair.tsct#L159) | 159 | var VAR_12 = call randomize_int(int 1200, int 1801) |
+| [btmstair.tsct](../../../out/btmstair.tsct#L166) | 166 | call set_sound_volume(var thunstrk_sound_ref, call randomize_int(int 100, int 201)) |
+| [btmstair.tsct](../../../out/btmstair.tsct#L167) | 167 | call func_11a(var thunstrk_sound_ref, call randomize_int(int 0, int 128)) |
+| [btmstair.tsct](../../../out/btmstair.tsct#L198) | 198 | var VAR_17 = call randomize_int(int 400, int 601) |
+| [btmstair.tsct](../../../out/btmstair.tsct#L207) | 207 | var VAR_17 = call randomize_int(int 1, int 31) |
+| [bunks.tsct](../../../out/bunks.tsct#L90) | 90 | var VAR_16 = gamevar script_time + int 100 + call randomize_int(int 0, int 50) |
+| [burntedg.tsct](../../../out/burntedg.tsct#L679) | 679 | var VAR_60 = int 2 + call randomize_int(int 0, int 5) |
+| [burntedg.tsct](../../../out/burntedg.tsct#L689) | 689 | var VAR_59 = call randomize_int(int 0, int 151) + int 350 |
+| [burntedg.tsct](../../../out/burntedg.tsct#L733) | 733 | if(call ! randomize_int(int 0, int 5)) |
+| [canyon2.tsct](../../../out/canyon2.tsct#L164) | 164 | var VAR_5 = gamevar script_time + int 80 + call randomize_int(int 0, int 60) |
+| [canyon2.tsct](../../../out/canyon2.tsct#L165) | 165 | var VAR_4 = int 2 + call randomize_int(int 0, int 6) |
+| [cave.tsct](../../../out/cave.tsct#L123) | 123 | var VAR_29 = call randomize_int(int 0, int 3) |
+| [cave.tsct](../../../out/cave.tsct#L126) | 126 | var VAR_30 = call randomize_int(int 0, int 3) |
+| [cells.tsct](../../../out/cells.tsct#L369) | 369 | var VAR_56 = call randomize_int(int 700, int 901) |
+| [centre01.tsct](../../../out/centre01.tsct#L149) | 149 | var VAR_17 = call randomize_int(int 1200, int 1801) |
+| [centre01.tsct](../../../out/centre01.tsct#L156) | 156 | call set_sound_volume(var thunstrk_sound_ref, call randomize_int(int 100, int 201)) |
+| [centre01.tsct](../../../out/centre01.tsct#L157) | 157 | call func_11a(var thunstrk_sound_ref, call randomize_int(int 0, int 128)) |
+| [centre01.tsct](../../../out/centre01.tsct#L188) | 188 | var VAR_22 = call randomize_int(int 400, int 601) |
+| [centre01.tsct](../../../out/centre01.tsct#L197) | 197 | var VAR_22 = call randomize_int(int 1, int 31) |
+| [centre02.tsct](../../../out/centre02.tsct#L350) | 350 | var VAR_23 = call randomize_int(int 1200, int 1801) |
+| [centre02.tsct](../../../out/centre02.tsct#L357) | 357 | call set_sound_volume(var thunstrk_sound_ref, call randomize_int(int 100, int 201)) |
+| [centre02.tsct](../../../out/centre02.tsct#L358) | 358 | call func_11a(var thunstrk_sound_ref, call randomize_int(int 0, int 128)) |
+| [centre02.tsct](../../../out/centre02.tsct#L389) | 389 | var VAR_28 = call randomize_int(int 400, int 601) |
+| [centre02.tsct](../../../out/centre02.tsct#L398) | 398 | var VAR_28 = call randomize_int(int 1, int 31) |
+| [cld_rd_3.tsct](../../../out/cld_rd_3.tsct#L724) | 724 | var VAR_86 = call randomize_int(int 100, int 201) |
+| [cld_rd_3.tsct](../../../out/cld_rd_3.tsct#L738) | 738 | var VAR_89 = int 2 + call randomize_int(int 0, int 4) |
+| [cld_rd_3.tsct](../../../out/cld_rd_3.tsct#L750) | 750 | var VAR_86 = call randomize_int(int 300, int 401) |
+| [cld_rd_3.tsct](../../../out/cld_rd_3.tsct#L846) | 846 | var VAR_11 = call randomize_int(int 1200, int 1801) |
+| [cld_rd_3.tsct](../../../out/cld_rd_3.tsct#L853) | 853 | call set_sound_volume(var thunstrk_sound_ref, call randomize_int(int 100, int 201)) |
+| [cld_rd_3.tsct](../../../out/cld_rd_3.tsct#L854) | 854 | call func_11a(var thunstrk_sound_ref, call randomize_int(int 0, int 128)) |
+| [cld_rd_3.tsct](../../../out/cld_rd_3.tsct#L885) | 885 | var VAR_16 = call randomize_int(int 400, int 601) |
+| [cld_rd_3.tsct](../../../out/cld_rd_3.tsct#L894) | 894 | var VAR_16 = call randomize_int(int 1, int 31) |
+| [cliffsa.tsct](../../../out/cliffsa.tsct#L126) | 126 | var VAR_115 = gamevar script_time + int 300 + call randomize_int(int 0, int 300) |
+| [cliffsa.tsct](../../../out/cliffsa.tsct#L133) | 133 | var VAR_114 = gamevar script_time + int 60 + call randomize_int(int 0, int 60) |
+| [courtyrd.tsct](../../../out/courtyrd.tsct#L123) | 123 | var VAR_122 = gamevar script_time + int 60 + call randomize_int(int 0, int 40) |
+| [courtyrd.tsct](../../../out/courtyrd.tsct#L124) | 124 | var VAR_121 = int 2 + call randomize_int(int 0, int 5) |
+| [courtyrd.tsct](../../../out/courtyrd.tsct#L129) | 129 | var VAR_123 = gamevar script_time + int 100 + call randomize_int(int 0, int 100) |
+| [courtyrd.tsct](../../../out/courtyrd.tsct#L430) | 430 | var VAR_118 = call randomize_int(int 200, int 401) |
+| [davhouse.tsct](../../../out/davhouse.tsct#L2208) | 2208 | var VAR_163 = int 2 + call randomize_int(int 0, int 5) |
+| [davhouse.tsct](../../../out/davhouse.tsct#L2218) | 2218 | var VAR_166 = call randomize_int(int 0, int 64) |
+| [davhouse.tsct](../../../out/davhouse.tsct#L2220) | 2220 | var VAR_162 = call randomize_int(int 0, int 151) + int 250 |
+| [davinner.tsct](../../../out/davinner.tsct#L172) | 172 | var VAR_23 = int 2 + call randomize_int(int 0, int 5) |
+| [davinner.tsct](../../../out/davinner.tsct#L183) | 183 | var VAR_22 = call randomize_int(int 0, int 151) + int 250 |
+| [dig.tsct](../../../out/dig.tsct#L216) | 216 | if(call ! randomize_int(int 0, int 5)) |
+| [dockside.tsct](../../../out/dockside.tsct#L909) | 909 | var VAR_171 = gamevar script_time + int 60 + call randomize_int(int 0, int 40) |
+| [dockside.tsct](../../../out/dockside.tsct#L910) | 910 | var VAR_170 = int 5 + call randomize_int(int 0, int 6) |
+| [dockside.tsct](../../../out/dockside.tsct#L915) | 915 | var VAR_173 = gamevar script_time + int 80 + call randomize_int(int 0, int 40) |
+| [dockside.tsct](../../../out/dockside.tsct#L916) | 916 | var VAR_170 = int 1 + call randomize_int(int 0, int 2) |
+| [dockside.tsct](../../../out/dockside.tsct#L921) | 921 | var VAR_174 = gamevar script_time + int 400 + call randomize_int(int 0, int 500) |
+| [dockside.tsct](../../../out/dockside.tsct#L928) | 928 | var VAR_172 = gamevar script_time + int 100 + call randomize_int(int 0, int 50) |
+| [dockside.tsct](../../../out/dockside.tsct#L929) | 929 | var VAR_170 = int 18 + call randomize_int(int 0, int 3) |
+| [dockside.tsct](../../../out/dockside.tsct#L953) | 953 | var VAR_176 = int 800 + call randomize_int(int 0, int 101) |
+| [e_circl2.tsct](../../../out/e_circl2.tsct#L245) | 245 | var VAR_32 = call randomize_int(int 0, var VAR_33 + int 1) |
+| [e_circl2.tsct](../../../out/e_circl2.tsct#L246) | 246 | var VAR_34 = call randomize_int(int 1, var VAR_35 + int 1) |
+| [e_circl2.tsct](../../../out/e_circl2.tsct#L291) | 291 | var VAR_38 = gamevar script_time + int 10 + call randomize_int(int 0, int 15) |
+| [e_circl2.tsct](../../../out/e_circl2.tsct#L292) | 292 | var VAR_37 = int 3 + call randomize_int(int 0, int 25) |
+| [e_circl2.tsct](../../../out/e_circl2.tsct#L294) | 294 | call set_sound_volume(var VAR_36, int 100 + call randomize_int(int 0, int 40)) |
+| [e_cori_1.tsct](../../../out/e_cori_1.tsct#L185) | 185 | var VAR_40 = call randomize_int(int 0, var VAR_41 + int 1) |
+| [e_cori_1.tsct](../../../out/e_cori_1.tsct#L186) | 186 | var VAR_42 = call randomize_int(int 1, var VAR_43 + int 1) |
+| [e_cori_1.tsct](../../../out/e_cori_1.tsct#L222) | 222 | var VAR_46 = gamevar script_time + int 10 + call randomize_int(int 0, int 15) |
+| [e_cori_1.tsct](../../../out/e_cori_1.tsct#L223) | 223 | var VAR_45 = int 3 + call randomize_int(int 0, int 25) |
+| [e_cori_1.tsct](../../../out/e_cori_1.tsct#L225) | 225 | call set_sound_volume(var VAR_44, int 100 + call randomize_int(int 0, int 40)) |
+| [e_cori_2.tsct](../../../out/e_cori_2.tsct#L176) | 176 | var VAR_51 = call randomize_int(int 1, var VAR_52 + int 1) |
+| [e_cori_2.tsct](../../../out/e_cori_2.tsct#L177) | 177 | var VAR_53 = call randomize_int(int 1, var VAR_54 + int 1) |
+| [e_cori_2.tsct](../../../out/e_cori_2.tsct#L217) | 217 | var VAR_57 = gamevar script_time + int 10 + call randomize_int(int 0, int 15) |
+| [e_cori_2.tsct](../../../out/e_cori_2.tsct#L218) | 218 | var VAR_56 = int 3 + call randomize_int(int 0, int 25) |
+| [e_cori_2.tsct](../../../out/e_cori_2.tsct#L220) | 220 | call set_sound_volume(var VAR_55, int 100 + call randomize_int(int 0, int 40)) |
+| [e_gates.tsct](../../../out/e_gates.tsct#L230) | 230 | var VAR_41 = call randomize_int(int 0, var VAR_42 + int 1) |
+| [e_gates.tsct](../../../out/e_gates.tsct#L231) | 231 | var VAR_43 = call randomize_int(int 1, var VAR_44 + int 1) |
+| [e_gates.tsct](../../../out/e_gates.tsct#L266) | 266 | var VAR_47 = gamevar script_time + int 10 + call randomize_int(int 0, int 15) |
+| [e_gates.tsct](../../../out/e_gates.tsct#L267) | 267 | var VAR_46 = int 3 + call randomize_int(int 0, int 25) |
+| [e_gates.tsct](../../../out/e_gates.tsct#L269) | 269 | call set_sound_volume(var VAR_45, int 50 + call randomize_int(int 0, int 20)) |
+| [e_link.tsct](../../../out/e_link.tsct#L168) | 168 | var VAR_12 = call randomize_int(int 0, var VAR_13 + int 1) |
+| [e_link.tsct](../../../out/e_link.tsct#L169) | 169 | var VAR_14 = call randomize_int(int 1, var VAR_15 + int 1) |
+| [e_link.tsct](../../../out/e_link.tsct#L177) | 177 | var VAR_18 = gamevar script_time + int 10 + call randomize_int(int 0, int 15) |
+| [e_link.tsct](../../../out/e_link.tsct#L178) | 178 | var VAR_17 = int 3 + call randomize_int(int 0, int 25) |
+| [e_link.tsct](../../../out/e_link.tsct#L180) | 180 | call set_sound_volume(var VAR_16, int 100 + call randomize_int(int 0, int 40)) |
+| [e_onship.tsct](../../../out/e_onship.tsct#L245) | 245 | var VAR_49 = gamevar script_time + int 60 + call randomize_int(int 0, int 40) |
+| [e_onship.tsct](../../../out/e_onship.tsct#L246) | 246 | var VAR_48 = int 5 + call randomize_int(int 0, int 6) |
+| [e_onship.tsct](../../../out/e_onship.tsct#L251) | 251 | var VAR_51 = gamevar script_time + int 80 + call randomize_int(int 0, int 40) |
+| [e_onship.tsct](../../../out/e_onship.tsct#L252) | 252 | var VAR_48 = int 1 + call randomize_int(int 0, int 2) |
+| [e_onship.tsct](../../../out/e_onship.tsct#L257) | 257 | var VAR_52 = gamevar script_time + int 400 + call randomize_int(int 0, int 500) |
+| [e_onship.tsct](../../../out/e_onship.tsct#L264) | 264 | var VAR_50 = gamevar script_time + int 100 + call randomize_int(int 0, int 50) |
+| [e_onship.tsct](../../../out/e_onship.tsct#L265) | 265 | var VAR_48 = int 18 + call randomize_int(int 0, int 3) |
+| [e_onship.tsct](../../../out/e_onship.tsct#L280) | 280 | var VAR_46 = int 800 + call randomize_int(int 0, int 101) |
+| [e_room_2.tsct](../../../out/e_room_2.tsct#L183) | 183 | var VAR_35 = call randomize_int(int 0, var VAR_36 + int 1) |
+| [e_room_2.tsct](../../../out/e_room_2.tsct#L184) | 184 | var VAR_37 = call randomize_int(int 1, var VAR_38 + int 1) |
+| [e_room_2.tsct](../../../out/e_room_2.tsct#L224) | 224 | var VAR_41 = gamevar script_time + int 10 + call randomize_int(int 0, int 15) |
+| [e_room_2.tsct](../../../out/e_room_2.tsct#L225) | 225 | var VAR_40 = int 3 + call randomize_int(int 0, int 25) |
+| [e_room_2.tsct](../../../out/e_room_2.tsct#L227) | 227 | call set_sound_volume(var VAR_39, int 100 + call randomize_int(int 0, int 40)) |
+| [e_stway.tsct](../../../out/e_stway.tsct#L129) | 129 | var VAR_4 = call randomize_int(int 0, var VAR_5 + int 1) |
+| [e_stway.tsct](../../../out/e_stway.tsct#L130) | 130 | var VAR_6 = call randomize_int(int 1, var VAR_7 + int 1) |
+| [e_stway.tsct](../../../out/e_stway.tsct#L138) | 138 | var VAR_20 = gamevar script_time + int 10 + call randomize_int(int 0, int 15) |
+| [e_stway.tsct](../../../out/e_stway.tsct#L139) | 139 | var VAR_19 = int 3 + call randomize_int(int 0, int 25) |
+| [e_stway.tsct](../../../out/e_stway.tsct#L141) | 141 | call set_sound_volume(var VAR_18, int 100 + call randomize_int(int 0, int 40)) |
+| [e_throne.tsct](../../../out/e_throne.tsct#L269) | 269 | var VAR_60 = call randomize_int(int 0, var VAR_61 + int 1) |
+| [e_throne.tsct](../../../out/e_throne.tsct#L270) | 270 | var VAR_62 = call randomize_int(int 1, var VAR_63 + int 1) |
+| [eastower.tsct](../../../out/eastower.tsct#L81) | 81 | var VAR_67 = gamevar script_time + int 300 + call randomize_int(int 0, int 200) |
+| [eastower.tsct](../../../out/eastower.tsct#L82) | 82 | var VAR_66 = int 2 + call randomize_int(int 0, int 3) |
+| [entouter.tsct](../../../out/entouter.tsct#L104) | 104 | var VAR_60 = gamevar script_time + int 60 + call randomize_int(int 0, int 40) |
+| [entouter.tsct](../../../out/entouter.tsct#L105) | 105 | var VAR_59 = int 1 + call randomize_int(int 0, int 3) |
+| [entouter.tsct](../../../out/entouter.tsct#L110) | 110 | var VAR_61 = gamevar script_time + int 60 + call randomize_int(int 0, int 40) |
+| [entouter.tsct](../../../out/entouter.tsct#L111) | 111 | var VAR_59 = int 4 + call randomize_int(int 0, int 4) |
+| [entrance.tsct](../../../out/entrance.tsct#L361) | 361 | var VAR_96 = gamevar script_time + int 20 + call randomize_int(int 0, int 100) |
+| [entrance.tsct](../../../out/entrance.tsct#L368) | 368 | var VAR_97 = gamevar script_time + int 100 + call randomize_int(int 0, int 50) |
+| [exbarrac.tsct](../../../out/exbarrac.tsct#L119) | 119 | if(call ! randomize_int(int 0, int 10)) |
+| [exbarrac.tsct](../../../out/exbarrac.tsct#L127) | 127 | var VAR_116 = gamevar script_time + int 60 + call randomize_int(int 0, int 40) |
+| [exbarrac.tsct](../../../out/exbarrac.tsct#L128) | 128 | var VAR_115 = int 1 + call randomize_int(int 0, int 5) |
+| [exbarrac.tsct](../../../out/exbarrac.tsct#L135) | 135 | var VAR_117 = gamevar script_time + int 80 + call randomize_int(int 0, int 40) |
+| [exbarrac.tsct](../../../out/exbarrac.tsct#L136) | 136 | var VAR_115 = int 6 + call randomize_int(int 0, int 6) |
+| [firetree.tsct](../../../out/firetree.tsct#L191) | 191 | var index = call randomize_int(int 0, int 4) |
+| [firetree.tsct](../../../out/firetree.tsct#L194) | 194 | var VAR_34 = call randomize_int(int 200, int 401) |
+| [firetree.tsct](../../../out/firetree.tsct#L201) | 201 | var index_1 = call randomize_int(int 0, int 6) |
+| [firetree.tsct](../../../out/firetree.tsct#L202) | 202 | var VAR_38 = int 2 + call randomize_int(int 0, int 3) |
+| [firetree.tsct](../../../out/firetree.tsct#L205) | 205 | var VAR_36 = call randomize_int(int 500, int 701) |
+| [fld_kngt.tsct](../../../out/fld_kngt.tsct#L167) | 167 | var VAR_11 = call randomize_int(int 1200, int 1801) |
+| [fld_kngt.tsct](../../../out/fld_kngt.tsct#L174) | 174 | call set_sound_volume(var thunstrk_sound_ref, call randomize_int(int 100, int 201)) |
+| [fld_kngt.tsct](../../../out/fld_kngt.tsct#L175) | 175 | call func_11a(var thunstrk_sound_ref, call randomize_int(int 0, int 128)) |
+| [fld_kngt.tsct](../../../out/fld_kngt.tsct#L206) | 206 | var VAR_16 = call randomize_int(int 400, int 601) |
+| [fld_kngt.tsct](../../../out/fld_kngt.tsct#L215) | 215 | var VAR_16 = call randomize_int(int 1, int 31) |
+| [fountain.tsct](../../../out/fountain.tsct#L238) | 238 | var VAR_43 = gamevar script_time + int 80 + call randomize_int(int 0, int 60) |
+| [fountain.tsct](../../../out/fountain.tsct#L239) | 239 | var VAR_42 = int 2 + call randomize_int(int 0, int 6) |
+| [gallery1.tsct](../../../out/gallery1.tsct#L201) | 201 | var VAR_11 = call randomize_int(int 1200, int 1801) |
+| [gallery1.tsct](../../../out/gallery1.tsct#L208) | 208 | call set_sound_volume(var thunstrk_sound_ref, call randomize_int(int 100, int 201)) |
+| [gallery1.tsct](../../../out/gallery1.tsct#L209) | 209 | call func_11a(var thunstrk_sound_ref, int 10000 - call randomize_int(int 0, int 20001)) |
+| [gallery1.tsct](../../../out/gallery1.tsct#L240) | 240 | var VAR_16 = call randomize_int(int 400, int 601) |
+| [gallery1.tsct](../../../out/gallery1.tsct#L249) | 249 | var VAR_16 = call randomize_int(int 1, int 31) |
+| [gardensa.tsct](../../../out/gardensa.tsct#L251) | 251 | var VAR_52 = int 1 + call randomize_int(int 0, int 3) |
+| [gardensa.tsct](../../../out/gardensa.tsct#L260) | 260 | var VAR_54 = call randomize_int(int 0, int 2) |
+| [gardensa.tsct](../../../out/gardensa.tsct#L270) | 270 | var VAR_51 = call randomize_int(int 0, int 401) + int 250 |
+| [gardensa.tsct](../../../out/gardensa.tsct#L275) | 275 | var VAR_56 = gamevar script_time + int 300 + call randomize_int(int 0, int 300) |
+| [gardensa.tsct](../../../out/gardensa.tsct#L282) | 282 | var VAR_55 = gamevar script_time + int 60 + call randomize_int(int 0, int 60) |
+| [gardensa.tsct](../../../out/gardensa.tsct#L290) | 290 | var VAR_57 = call randomize_int(int 0, int 3) |
+| [glade.tsct](../../../out/glade.tsct#L77) | 77 | var VAR_13 = gamevar script_time + int 80 + call randomize_int(int 0, int 60) |
+| [glade.tsct](../../../out/glade.tsct#L78) | 78 | var VAR_12 = int 2 + call randomize_int(int 0, int 6) |
+| [gnolast.tsct](../../../out/gnolast.tsct#L479) | 479 | var VAR_58 = gamevar script_time + int 600 + call randomize_int(int 0, int 400) |
+| [gnolast.tsct](../../../out/gnolast.tsct#L480) | 480 | var VAR_56 = int 5 + call randomize_int(int 0, int 4) |
+| [gnolast.tsct](../../../out/gnolast.tsct#L485) | 485 | var VAR_59 = gamevar script_time + int 250 + call randomize_int(int 0, int 150) |
+| [gnolast.tsct](../../../out/gnolast.tsct#L486) | 486 | var VAR_56 = int 9 + call randomize_int(int 0, int 4) |
+| [gnolast.tsct](../../../out/gnolast.tsct#L491) | 491 | var VAR_57 = gamevar script_time + int 300 + call randomize_int(int 0, int 200) |
+| [gnolast.tsct](../../../out/gnolast.tsct#L492) | 492 | var VAR_56 = int 2 + call randomize_int(int 0, int 3) |
+| [gnolib1.tsct](../../../out/gnolib1.tsct#L108) | 108 | var VAR_58 = gamevar script_time + int 600 + call randomize_int(int 0, int 400) |
+| [gnolib1.tsct](../../../out/gnolib1.tsct#L109) | 109 | var VAR_56 = int 5 + call randomize_int(int 0, int 4) |
+| [gnolib1.tsct](../../../out/gnolib1.tsct#L114) | 114 | var VAR_59 = gamevar script_time + int 250 + call randomize_int(int 0, int 150) |
+| [gnolib1.tsct](../../../out/gnolib1.tsct#L115) | 115 | var VAR_56 = int 9 + call randomize_int(int 0, int 4) |
+| [gnolib1.tsct](../../../out/gnolib1.tsct#L120) | 120 | var VAR_57 = gamevar script_time + int 300 + call randomize_int(int 0, int 200) |
+| [gnolib1.tsct](../../../out/gnolib1.tsct#L121) | 121 | var VAR_56 = int 2 + call randomize_int(int 0, int 3) |
+| [gnolib2.tsct](../../../out/gnolib2.tsct#L90) | 90 | var VAR_13 = gamevar script_time + int 600 + call randomize_int(int 0, int 400) |
+| [gnolib2.tsct](../../../out/gnolib2.tsct#L91) | 91 | var VAR_11 = int 5 + call randomize_int(int 0, int 4) |
+| [gnolib2.tsct](../../../out/gnolib2.tsct#L96) | 96 | var VAR_14 = gamevar script_time + int 250 + call randomize_int(int 0, int 150) |
+| [gnolib2.tsct](../../../out/gnolib2.tsct#L97) | 97 | var VAR_11 = int 9 + call randomize_int(int 0, int 4) |
+| [gnolib2.tsct](../../../out/gnolib2.tsct#L102) | 102 | var VAR_12 = gamevar script_time + int 300 + call randomize_int(int 0, int 200) |
+| [gnolib2.tsct](../../../out/gnolib2.tsct#L103) | 103 | var VAR_11 = int 2 + call randomize_int(int 0, int 3) |
+| [gnosnake.tsct](../../../out/gnosnake.tsct#L80) | 80 | var VAR_80 = gamevar script_time + int 60 + call randomize_int(int 0, int 40) |
+| [gnosnake.tsct](../../../out/gnosnake.tsct#L81) | 81 | var VAR_78 = int 2 + call randomize_int(int 0, int 5) |
+| [gnosnake.tsct](../../../out/gnosnake.tsct#L86) | 86 | var VAR_79 = gamevar script_time + int 300 + call randomize_int(int 0, int 200) |
+| [gnosnake.tsct](../../../out/gnosnake.tsct#L87) | 87 | var VAR_78 = int 2 + call randomize_int(int 0, int 3) |
+| [gnostair.tsct](../../../out/gnostair.tsct#L119) | 119 | var VAR_30 = gamevar script_time + int 300 + call randomize_int(int 0, int 200) |
+| [gnostair.tsct](../../../out/gnostair.tsct#L120) | 120 | var VAR_28 = int 2 + call randomize_int(int 0, int 3) |
+| [gnostair.tsct](../../../out/gnostair.tsct#L125) | 125 | var VAR_29 = gamevar script_time + int 60 + call randomize_int(int 0, int 40) |
+| [gnostair.tsct](../../../out/gnostair.tsct#L126) | 126 | var VAR_28 = int 2 + call randomize_int(int 0, int 5) |
+| [goingdwn.tsct](../../../out/goingdwn.tsct#L100) | 100 | var VAR_38 = gamevar script_time + int 300 + call randomize_int(int 0, int 200) |
+| [goingdwn.tsct](../../../out/goingdwn.tsct#L101) | 101 | var VAR_37 = int 2 + call randomize_int(int 0, int 3) |
+| [gorgback.tsct](../../../out/gorgback.tsct#L123) | 123 | var VAR_15 = int 3 + call randomize_int(int 0, int 5) |
+| [gorgback.tsct](../../../out/gorgback.tsct#L133) | 133 | var index = call randomize_int(int 0, int 16) |
+| [gorgback.tsct](../../../out/gorgback.tsct#L134) | 134 | var VAR_14 = call randomize_int(int 0, int 201) + int 250 |
+| [gorge.tsct](../../../out/gorge.tsct#L219) | 219 | var VAR_56 = int 3 + call randomize_int(int 0, int 5) |
+| [gorge.tsct](../../../out/gorge.tsct#L229) | 229 | var VAR_55 = call randomize_int(int 0, int 251) + int 250 |
+| [gorge.tsct](../../../out/gorge.tsct#L230) | 230 | var index = call randomize_int(int 0, int 11) |
+| [gotolift.tsct](../../../out/gotolift.tsct#L104) | 104 | var VAR_34 = gamevar script_time + int 300 + call randomize_int(int 0, int 200) |
+| [gotolift.tsct](../../../out/gotolift.tsct#L105) | 105 | var VAR_32 = int 2 + call randomize_int(int 0, int 3) |
+| [gotolift.tsct](../../../out/gotolift.tsct#L110) | 110 | var VAR_33 = gamevar script_time + int 60 + call randomize_int(int 0, int 40) |
+| [gotolift.tsct](../../../out/gotolift.tsct#L111) | 111 | var VAR_32 = int 2 + call randomize_int(int 0, int 5) |
+| [gotolift2.tsct](../../../out/gotolift2.tsct#L104) | 104 | var VAR_34 = gamevar script_time + int 300 + call randomize_int(int 0, int 200) |
+| [gotolift2.tsct](../../../out/gotolift2.tsct#L105) | 105 | var VAR_32 = int 2 + call randomize_int(int 0, int 3) |
+| [gotolift2.tsct](../../../out/gotolift2.tsct#L110) | 110 | var VAR_33 = gamevar script_time + int 60 + call randomize_int(int 0, int 40) |
+| [gotolift2.tsct](../../../out/gotolift2.tsct#L111) | 111 | var VAR_32 = int 2 + call randomize_int(int 0, int 5) |
+| [h_campbt.tsct](../../../out/h_campbt.tsct#L850) | 850 | var VAR_209 = gamevar script_time + int 60 + call randomize_int(int 0, int 40) |
+| [h_campbt.tsct](../../../out/h_campbt.tsct#L851) | 851 | var VAR_208 = int 2 + call randomize_int(int 0, int 4) |
+| [h_camptp.tsct](../../../out/h_camptp.tsct#L588) | 588 | var VAR_116 = call randomize_int(int 100, int 200) |
+| [h_camptp.tsct](../../../out/h_camptp.tsct#L630) | 630 | var VAR_122 = call randomize_int(int 1000, int 2000) |
+| [h_camptp.tsct](../../../out/h_camptp.tsct#L632) | 632 | var VAR_121 = call randomize_int(int 20, int 100) |
+| [h_camptp.tsct](../../../out/h_camptp.tsct#L777) | 777 | var VAR_129 = call randomize_int(int 300, int 600) |
+| [h_camptp.tsct](../../../out/h_camptp.tsct#L784) | 784 | var VAR_136 = call randomize_int(int 0, int 101) / int 2 |
+| [h_camptp.tsct](../../../out/h_camptp.tsct#L785) | 785 | var VAR_137 = call randomize_int(int 0, int 101) / int 2 |
+| [h_camptp.tsct](../../../out/h_camptp.tsct#L809) | 809 | var VAR_140 = call randomize_int(int 2, int 6) |
+| [h_camptp.tsct](../../../out/h_camptp.tsct#L843) | 843 | var VAR_129 = call randomize_int(int 500, int 800) |
+| [h_camptp.tsct](../../../out/h_camptp.tsct#L894) | 894 | var VAR_140 = call randomize_int(int 2, int 6) |
+| [h_camptp.tsct](../../../out/h_camptp.tsct#L1330) | 1330 | var VAR_469 = gamevar script_time + int 60 + call randomize_int(int 0, int 40) |
+| [h_camptp.tsct](../../../out/h_camptp.tsct#L1331) | 1331 | var VAR_468 = int 2 + call randomize_int(int 0, int 6) |
+| [h_camptp.tsct](../../../out/h_camptp.tsct#L2960) | 2960 | if(call ! randomize_int(int 0, int 5)) |
+| [h_cavext.tsct](../../../out/h_cavext.tsct#L115) | 115 | var VAR_41 = gamevar script_time + int 80 + call randomize_int(int 0, int 60) |
+| [h_cavext.tsct](../../../out/h_cavext.tsct#L116) | 116 | var VAR_40 = int 2 + call randomize_int(int 0, int 6) |
+| [h_cavext.tsct](../../../out/h_cavext.tsct#L121) | 121 | var VAR_42 = gamevar script_time + int 30 + call randomize_int(int 0, int 30) |
+| [h_intomb.tsct](../../../out/h_intomb.tsct#L104) | 104 | var VAR_73 = gamevar script_time + int 60 + call randomize_int(int 0, int 40) |
+| [h_intomb.tsct](../../../out/h_intomb.tsct#L105) | 105 | var VAR_72 = int 4 + call randomize_int(int 0, int 3) |
+| [h_oracle.tsct](../../../out/h_oracle.tsct#L312) | 312 | var VAR_61 = gamevar script_time + int 60 + call randomize_int(int 0, int 40) |
+| [h_oracle.tsct](../../../out/h_oracle.tsct#L313) | 313 | var VAR_60 = int 4 + call randomize_int(int 0, int 3) |
+| [h_orout.tsct](../../../out/h_orout.tsct#L697) | 697 | var VAR_172 = gamevar script_time + int 80 + call randomize_int(int 0, int 60) |
+| [h_orout.tsct](../../../out/h_orout.tsct#L698) | 698 | var VAR_171 = int 2 + call randomize_int(int 0, int 6) |
+| [h_orout.tsct](../../../out/h_orout.tsct#L703) | 703 | var VAR_173 = gamevar script_time + int 30 + call randomize_int(int 0, int 30) |
+| [h_sentl.tsct](../../../out/h_sentl.tsct#L166) | 166 | var VAR_12 = gamevar script_time + int 80 + call randomize_int(int 0, int 60) |
+| [h_sentl.tsct](../../../out/h_sentl.tsct#L167) | 167 | var VAR_11 = int 2 + call randomize_int(int 0, int 6) |
+| [h_setbak.tsct](../../../out/h_setbak.tsct#L173) | 173 | var VAR_6 = gamevar script_time + int 80 + call randomize_int(int 0, int 60) |
+| [h_setbak.tsct](../../../out/h_setbak.tsct#L174) | 174 | var VAR_5 = int 2 + call randomize_int(int 0, int 6) |
+| [h_to_gno.tsct](../../../out/h_to_gno.tsct#L99) | 99 | var VAR_15 = gamevar script_time + int 60 + call randomize_int(int 0, int 40) |
+| [h_to_gno.tsct](../../../out/h_to_gno.tsct#L106) | 106 | var VAR_14 = gamevar script_time + int 60 + call randomize_int(int 0, int 40) |
+| [h_to_gno.tsct](../../../out/h_to_gno.tsct#L107) | 107 | var VAR_13 = int 6 + call randomize_int(int 0, int 6) |
+| [h_to_gno.tsct](../../../out/h_to_gno.tsct#L112) | 112 | var VAR_17 = gamevar script_time + int 420 + call randomize_int(int 0, int 200) |
+| [h_to_gno.tsct](../../../out/h_to_gno.tsct#L119) | 119 | var VAR_16 = gamevar script_time + int 40 + call randomize_int(int 0, int 20) |
+| [h_to_gno.tsct](../../../out/h_to_gno.tsct#L120) | 120 | var VAR_13 = int 1 + call randomize_int(int 0, int 4) |
+| [h_torain.tsct](../../../out/h_torain.tsct#L90) | 90 | var VAR_55 = gamevar script_time + int 60 + call randomize_int(int 0, int 40) |
+| [h_torain.tsct](../../../out/h_torain.tsct#L91) | 91 | var VAR_54 = int 10 + call randomize_int(int 0, int 3) |
+| [h_torain.tsct](../../../out/h_torain.tsct#L96) | 96 | var VAR_56 = gamevar script_time + int 60 + call randomize_int(int 0, int 40) |
+| [h_torain.tsct](../../../out/h_torain.tsct#L97) | 97 | var VAR_54 = int 4 + call randomize_int(int 0, int 6) |
+| [h_toverd.tsct](../../../out/h_toverd.tsct#L168) | 168 | var VAR_13 = gamevar script_time + int 80 + call randomize_int(int 0, int 60) |
+| [h_toverd.tsct](../../../out/h_toverd.tsct#L169) | 169 | var VAR_12 = int 2 + call randomize_int(int 0, int 6) |
+| [hall.tsct](../../../out/hall.tsct#L410) | 410 | var VAR_16 = call randomize_int(int 1200, int 1801) |
+| [hall.tsct](../../../out/hall.tsct#L417) | 417 | call set_sound_volume(var thunstrk_sound_ref, call randomize_int(int 30, int 101)) |
+| [hall.tsct](../../../out/hall.tsct#L418) | 418 | call func_11a(var thunstrk_sound_ref, int 10000 - call randomize_int(int 0, int 20001)) |
+| [hall.tsct](../../../out/hall.tsct#L449) | 449 | var VAR_21 = call randomize_int(int 400, int 601) |
+| [hall.tsct](../../../out/hall.tsct#L458) | 458 | var VAR_21 = call randomize_int(int 1, int 31) |
+| [havenadd.tsct](../../../out/havenadd.tsct#L460) | 460 | var VAR_59 = gamevar script_time + int 60 + call randomize_int(int 0, int 40) |
+| [havenadd.tsct](../../../out/havenadd.tsct#L461) | 461 | var VAR_58 = int 8 + call randomize_int(int 0, int 3) |
+| [havenadd.tsct](../../../out/havenadd.tsct#L466) | 466 | var VAR_60 = gamevar script_time + int 60 + call randomize_int(int 0, int 40) |
+| [havenadd.tsct](../../../out/havenadd.tsct#L467) | 467 | var VAR_58 = int 2 + call randomize_int(int 0, int 5) |
+| [icecave1.tsct](../../../out/icecave1.tsct#L93) | 93 | var VAR_40 = gamevar script_time + int 60 + call randomize_int(int 0, int 60) |
+| [icecave1.tsct](../../../out/icecave1.tsct#L178) | 178 | var VAR_38 = call randomize_int(int 0, int 6) |
+| [icecave2.tsct](../../../out/icecave2.tsct#L115) | 115 | var VAR_63 = gamevar script_time + int 100 + call randomize_int(int 0, int 50) |
+| [icecave2.tsct](../../../out/icecave2.tsct#L264) | 264 | var index = call randomize_int(int 0, int 4) |
+| [icecave2.tsct](../../../out/icecave2.tsct#L273) | 273 | var index = call randomize_int(int 0, int 4) |
+| [icecave2.tsct](../../../out/icecave2.tsct#L286) | 286 | var VAR_44 = call randomize_int(int 0, int 3) |
+| [icecave4.tsct](../../../out/icecave4.tsct#L72) | 72 | var VAR_60 = gamevar script_time + int 100 + call randomize_int(int 0, int 50) |
+| [jack2.tsct](../../../out/jack2.tsct#L99) | 99 | var VAR_28 = gamevar script_time + int 100 + call randomize_int(int 0, int 50) |
+| [jack3.tsct](../../../out/jack3.tsct#L244) | 244 | var VAR_11 = call randomize_int(int 1200, int 1801) |
+| [jack3.tsct](../../../out/jack3.tsct#L251) | 251 | call set_sound_volume(var thunstrk_sound_ref, call randomize_int(int 100, int 201)) |
+| [jack3.tsct](../../../out/jack3.tsct#L252) | 252 | call func_11a(var thunstrk_sound_ref, call randomize_int(int 0, int 128)) |
+| [jack3.tsct](../../../out/jack3.tsct#L283) | 283 | var VAR_16 = call randomize_int(int 400, int 601) |
+| [jack3.tsct](../../../out/jack3.tsct#L292) | 292 | var VAR_16 = call randomize_int(int 1, int 31) |
+| [jackjoin.tsct](../../../out/jackjoin.tsct#L88) | 88 | var VAR_18 = gamevar script_time + int 100 + call randomize_int(int 0, int 50) |
+| [kinghd_3.tsct](../../../out/kinghd_3.tsct#L75) | 75 | var VAR_77 = gamevar script_time + int 70 + call randomize_int(int 0, int 110) |
+| [kinghd_3.tsct](../../../out/kinghd_3.tsct#L82) | 82 | var VAR_78 = gamevar script_time + int 100 + call randomize_int(int 0, int 50) |
+| [la_conec.tsct](../../../out/la_conec.tsct#L211) | 211 | var VAR_36 = gamevar script_time + int 20 + call randomize_int(int 0, int 100) |
+| [la_conec.tsct](../../../out/la_conec.tsct#L218) | 218 | var VAR_37 = gamevar script_time + int 100 + call randomize_int(int 0, int 50) |
+| [la_corri.tsct](../../../out/la_corri.tsct#L132) | 132 | var VAR_23 = gamevar script_time + int 100 + call randomize_int(int 0, int 50) |
+| [la_derel.tsct](../../../out/la_derel.tsct#L226) | 226 | var VAR_44 = gamevar script_time + int 20 + call randomize_int(int 0, int 80) |
+| [la_derel.tsct](../../../out/la_derel.tsct#L233) | 233 | var VAR_45 = gamevar script_time + int 80 + call randomize_int(int 0, int 50) |
+| [la_madel.tsct](../../../out/la_madel.tsct#L205) | 205 | var VAR_71 = gamevar script_time + int 120 + call randomize_int(int 0, int 100) |
+| [la_madel.tsct](../../../out/la_madel.tsct#L212) | 212 | var VAR_72 = gamevar script_time + int 100 + call randomize_int(int 0, int 50) |
+| [ledgea.tsct](../../../out/ledgea.tsct#L130) | 130 | var VAR_45 = gamevar script_time + int 300 + call randomize_int(int 0, int 300) |
+| [ledgea.tsct](../../../out/ledgea.tsct#L137) | 137 | var VAR_44 = gamevar script_time + int 60 + call randomize_int(int 0, int 60) |
+| [libarea1.tsct](../../../out/libarea1.tsct#L108) | 108 | var VAR_49 = gamevar script_time + int 600 + call randomize_int(int 0, int 400) |
+| [libarea1.tsct](../../../out/libarea1.tsct#L109) | 109 | var VAR_47 = int 5 + call randomize_int(int 0, int 4) |
+| [libarea1.tsct](../../../out/libarea1.tsct#L114) | 114 | var VAR_50 = gamevar script_time + int 250 + call randomize_int(int 0, int 150) |
+| [libarea1.tsct](../../../out/libarea1.tsct#L115) | 115 | var VAR_47 = int 9 + call randomize_int(int 0, int 4) |
+| [libarea1.tsct](../../../out/libarea1.tsct#L120) | 120 | var VAR_48 = gamevar script_time + int 300 + call randomize_int(int 0, int 200) |
+| [libarea1.tsct](../../../out/libarea1.tsct#L121) | 121 | var VAR_47 = int 2 + call randomize_int(int 0, int 3) |
+| [libarea1.tsct](../../../out/libarea1.tsct#L126) | 126 | var VAR_51 = gamevar script_time + int 100 + call randomize_int(int 0, int 200) |
+| [libarea2.tsct](../../../out/libarea2.tsct#L106) | 106 | var VAR_41 = gamevar script_time + int 600 + call randomize_int(int 0, int 400) |
+| [libarea2.tsct](../../../out/libarea2.tsct#L107) | 107 | var VAR_39 = int 5 + call randomize_int(int 0, int 4) |
+| [libarea2.tsct](../../../out/libarea2.tsct#L112) | 112 | var VAR_42 = gamevar script_time + int 250 + call randomize_int(int 0, int 150) |
+| [libarea2.tsct](../../../out/libarea2.tsct#L113) | 113 | var VAR_39 = int 9 + call randomize_int(int 0, int 4) |
+| [libarea2.tsct](../../../out/libarea2.tsct#L118) | 118 | var VAR_40 = gamevar script_time + int 300 + call randomize_int(int 0, int 200) |
+| [libarea2.tsct](../../../out/libarea2.tsct#L119) | 119 | var VAR_39 = int 2 + call randomize_int(int 0, int 3) |
+| [libarea2.tsct](../../../out/libarea2.tsct#L124) | 124 | var VAR_43 = gamevar script_time + int 100 + call randomize_int(int 0, int 200) |
+| [libarea3.tsct](../../../out/libarea3.tsct#L90) | 90 | var VAR_35 = gamevar script_time + int 600 + call randomize_int(int 0, int 400) |
+| [libarea3.tsct](../../../out/libarea3.tsct#L91) | 91 | var VAR_33 = int 5 + call randomize_int(int 0, int 4) |
+| [libarea3.tsct](../../../out/libarea3.tsct#L96) | 96 | var VAR_36 = gamevar script_time + int 250 + call randomize_int(int 0, int 150) |
+| [libarea3.tsct](../../../out/libarea3.tsct#L97) | 97 | var VAR_33 = int 9 + call randomize_int(int 0, int 4) |
+| [libarea3.tsct](../../../out/libarea3.tsct#L102) | 102 | var VAR_34 = gamevar script_time + int 300 + call randomize_int(int 0, int 200) |
+| [libarea3.tsct](../../../out/libarea3.tsct#L103) | 103 | var VAR_33 = int 2 + call randomize_int(int 0, int 3) |
+| [libarea4.tsct](../../../out/libarea4.tsct#L96) | 96 | var VAR_44 = gamevar script_time + int 600 + call randomize_int(int 0, int 400) |
+| [libarea4.tsct](../../../out/libarea4.tsct#L97) | 97 | var VAR_42 = int 5 + call randomize_int(int 0, int 4) |
+| [libarea4.tsct](../../../out/libarea4.tsct#L102) | 102 | var VAR_45 = gamevar script_time + int 250 + call randomize_int(int 0, int 150) |
+| [libarea4.tsct](../../../out/libarea4.tsct#L103) | 103 | var VAR_42 = int 9 + call randomize_int(int 0, int 4) |
+| [libarea4.tsct](../../../out/libarea4.tsct#L108) | 108 | var VAR_43 = gamevar script_time + int 300 + call randomize_int(int 0, int 200) |
+| [libarea4.tsct](../../../out/libarea4.tsct#L109) | 109 | var VAR_42 = int 2 + call randomize_int(int 0, int 3) |
+| [libarea5.tsct](../../../out/libarea5.tsct#L651) | 651 | var VAR_125 = gamevar script_time + int 600 + call randomize_int(int 0, int 400) |
+| [libarea5.tsct](../../../out/libarea5.tsct#L652) | 652 | var VAR_123 = int 5 + call randomize_int(int 0, int 4) |
+| [libarea5.tsct](../../../out/libarea5.tsct#L657) | 657 | var VAR_126 = gamevar script_time + int 250 + call randomize_int(int 0, int 150) |
+| [libarea5.tsct](../../../out/libarea5.tsct#L658) | 658 | var VAR_123 = int 9 + call randomize_int(int 0, int 4) |
+| [libarea5.tsct](../../../out/libarea5.tsct#L663) | 663 | var VAR_124 = gamevar script_time + int 300 + call randomize_int(int 0, int 200) |
+| [libarea5.tsct](../../../out/libarea5.tsct#L664) | 664 | var VAR_123 = int 2 + call randomize_int(int 0, int 3) |
+| [libarea5.tsct](../../../out/libarea5.tsct#L934) | 934 | var index = call randomize_int(int 0, int 2) |
+| [liblink.tsct](../../../out/liblink.tsct#L110) | 110 | var VAR_58 = gamevar script_time + int 600 + call randomize_int(int 0, int 400) |
+| [liblink.tsct](../../../out/liblink.tsct#L111) | 111 | var VAR_56 = int 5 + call randomize_int(int 0, int 4) |
+| [liblink.tsct](../../../out/liblink.tsct#L116) | 116 | var VAR_59 = gamevar script_time + int 250 + call randomize_int(int 0, int 150) |
+| [liblink.tsct](../../../out/liblink.tsct#L117) | 117 | var VAR_56 = int 9 + call randomize_int(int 0, int 4) |
+| [liblink.tsct](../../../out/liblink.tsct#L122) | 122 | var VAR_57 = gamevar script_time + int 300 + call randomize_int(int 0, int 200) |
+| [liblink.tsct](../../../out/liblink.tsct#L123) | 123 | var VAR_56 = int 2 + call randomize_int(int 0, int 3) |
+| [lighttow.tsct](../../../out/lighttow.tsct#L552) | 552 | var VAR_102 = call randomize_int(int 0, int 3) |
+| [lighttow.tsct](../../../out/lighttow.tsct#L553) | 553 | var VAR_103 = call randomize_int(int 0, int 3) |
+| [lighttow.tsct](../../../out/lighttow.tsct#L649) | 649 | var VAR_11 = call randomize_int(int 1200, int 1801) |
+| [lighttow.tsct](../../../out/lighttow.tsct#L656) | 656 | call set_sound_volume(var thunstrk_sound_ref, call randomize_int(int 100, int 201)) |
+| [lighttow.tsct](../../../out/lighttow.tsct#L657) | 657 | call func_11a(var thunstrk_sound_ref, call randomize_int(int 0, int 128)) |
+| [lighttow.tsct](../../../out/lighttow.tsct#L688) | 688 | var VAR_16 = call randomize_int(int 400, int 601) |
+| [lighttow.tsct](../../../out/lighttow.tsct#L697) | 697 | var VAR_16 = call randomize_int(int 1, int 31) |
+| [lmiddle.tsct](../../../out/lmiddle.tsct#L77) | 77 | var VAR_17 = gamevar script_time + int 70 + call randomize_int(int 0, int 110) |
+| [lmiddle.tsct](../../../out/lmiddle.tsct#L84) | 84 | var VAR_18 = gamevar script_time + int 70 + call randomize_int(int 0, int 110) |
+| [lmiddle.tsct](../../../out/lmiddle.tsct#L91) | 91 | var VAR_19 = gamevar script_time + int 100 + call randomize_int(int 0, int 50) |
+| [location.tsct](../../../out/location.tsct#L254) | 254 | var VAR_48 = gamevar script_time + int 120 + call randomize_int(int 0, int 60) |
+| [loctomon.tsct](../../../out/loctomon.tsct#L173) | 173 | var VAR_28 = gamevar script_time + int 60 + call randomize_int(int 0, int 40) |
+| [loctomon.tsct](../../../out/loctomon.tsct#L174) | 174 | var VAR_26 = int 8 + call randomize_int(int 0, int 3) |
+| [loctomon.tsct](../../../out/loctomon.tsct#L179) | 179 | var VAR_27 = gamevar script_time + int 120 + call randomize_int(int 0, int 60) |
+| [met_beam.tsct](../../../out/met_beam.tsct#L122) | 122 | var VAR_85 = gamevar script_time + int 70 + call randomize_int(int 0, int 110) |
+| [met_beam.tsct](../../../out/met_beam.tsct#L129) | 129 | var VAR_86 = gamevar script_time + int 100 + call randomize_int(int 0, int 50) |
+| [met_maz2.tsct](../../../out/met_maz2.tsct#L116) | 116 | var VAR_69 = gamevar script_time + int 70 + call randomize_int(int 0, int 110) |
+| [met_maz2.tsct](../../../out/met_maz2.tsct#L123) | 123 | var VAR_70 = gamevar script_time + int 70 + call randomize_int(int 0, int 110) |
+| [met_maz2.tsct](../../../out/met_maz2.tsct#L130) | 130 | var VAR_71 = gamevar script_time + int 100 + call randomize_int(int 0, int 50) |
+| [met_maz2.tsct](../../../out/met_maz2.tsct#L220) | 220 | var ndavid = call create_char(var VAR_20, "ndavid", call randomize_int(int 0, int 360), int 13) |
+| [met_maz2.tsct](../../../out/met_maz2.tsct#L231) | 231 | var njug = call create_char(var VAR_21, "njug", call randomize_int(int 0, int 360), int 13) |
+| [met_maz2.tsct](../../../out/met_maz2.tsct#L242) | 242 | var nvivienne = call create_char(var VAR_22, "nvivienne", call randomize_int(int 0, int 360), int 13) |
+| [met_maz2.tsct](../../../out/met_maz2.tsct#L253) | 253 | var VAR_16 = call randomize_int(int 0, int 6) |
+| [met_maz3.tsct](../../../out/met_maz3.tsct#L89) | 89 | var VAR_28 = gamevar script_time + int 70 + call randomize_int(int 0, int 110) |
+| [met_maz3.tsct](../../../out/met_maz3.tsct#L96) | 96 | var VAR_29 = gamevar script_time + int 70 + call randomize_int(int 0, int 110) |
+| [met_maz3.tsct](../../../out/met_maz3.tsct#L103) | 103 | var VAR_30 = gamevar script_time + int 100 + call randomize_int(int 0, int 50) |
+| [met_maze.tsct](../../../out/met_maze.tsct#L99) | 99 | var VAR_16 = gamevar script_time + int 70 + call randomize_int(int 0, int 110) |
+| [met_maze.tsct](../../../out/met_maze.tsct#L106) | 106 | var VAR_17 = gamevar script_time + int 70 + call randomize_int(int 0, int 110) |
+| [met_maze.tsct](../../../out/met_maze.tsct#L113) | 113 | var VAR_18 = gamevar script_time + int 100 + call randomize_int(int 0, int 50) |
+| [metleft.tsct](../../../out/metleft.tsct#L94) | 94 | var VAR_30 = gamevar script_time + int 70 + call randomize_int(int 0, int 110) |
+| [metleft.tsct](../../../out/metleft.tsct#L101) | 101 | var VAR_31 = gamevar script_time + int 100 + call randomize_int(int 0, int 50) |
+| [middle.tsct](../../../out/middle.tsct#L101) | 101 | var VAR_33 = gamevar script_time + int 300 + call randomize_int(int 0, int 200) |
+| [middle.tsct](../../../out/middle.tsct#L102) | 102 | var VAR_32 = int 2 + call randomize_int(int 0, int 3) |
+| [mill1.tsct](../../../out/mill1.tsct#L330) | 330 | var VAR_64 = int 2 + call randomize_int(int 0, int 5) |
+| [mill1.tsct](../../../out/mill1.tsct#L340) | 340 | var VAR_63 = call randomize_int(int 0, int 151) + int 250 |
+| [minleft.tsct](../../../out/minleft.tsct#L156) | 156 | var VAR_20 = gamevar script_time + int 150 + call randomize_int(int 0, int 80) |
+| [monastry.tsct](../../../out/monastry.tsct#L198) | 198 | var VAR_32 = gamevar script_time + int 10 + call randomize_int(int 0, int 80) |
+| [monastry.tsct](../../../out/monastry.tsct#L206) | 206 | var VAR_33 = int 2 + call randomize_int(int 0, int 5) |
+| [monastry.tsct](../../../out/monastry.tsct#L220) | 220 | var VAR_35 = call randomize_int(int 0, int 301) + int 500 |
+| [moninner.tsct](../../../out/moninner.tsct#L375) | 375 | if(call ! randomize_int(int 0, int 10)) |
+| [moninner.tsct](../../../out/moninner.tsct#L385) | 385 | if(call ! randomize_int(int 0, int 10)) |
+| [moninner.tsct](../../../out/moninner.tsct#L396) | 396 | var VAR_85 = gamevar script_time + int 100 + call randomize_int(int 0, int 50) |
+| [monkcave.tsct](../../../out/monkcave.tsct#L684) | 684 | var VAR_157 = gamevar script_time + int 60 + call randomize_int(int 0, int 40) |
+| [monkcave.tsct](../../../out/monkcave.tsct#L685) | 685 | var VAR_155 = int 8 + call randomize_int(int 0, int 3) |
+| [monkcave.tsct](../../../out/monkcave.tsct#L694) | 694 | var VAR_156 = gamevar script_time + int 120 + call randomize_int(int 0, int 60) |
+| [monleft.tsct](../../../out/monleft.tsct#L192) | 192 | var VAR_30 = gamevar script_time + int 90 + call randomize_int(int 0, int 60) |
+| [monleft.tsct](../../../out/monleft.tsct#L200) | 200 | var VAR_31 = int 2 + call randomize_int(int 0, int 5) |
+| [monleft.tsct](../../../out/monleft.tsct#L214) | 214 | var VAR_33 = call randomize_int(int 0, int 301) + int 600 |
+| [monsties.tsct](../../../out/monsties.tsct#L112) | 112 | var VAR_11 = gamevar script_time + int 100 + call randomize_int(int 0, int 80) |
+| [monsties.tsct](../../../out/monsties.tsct#L120) | 120 | var VAR_12 = int 2 + call randomize_int(int 0, int 5) |
+| [monsties.tsct](../../../out/monsties.tsct#L134) | 134 | var VAR_14 = call randomize_int(int 0, int 301) + int 600 |
+| [moss.tsct](../../../out/moss.tsct#L379) | 379 | var VAR_40 = call randomize_int(int 800, int 1001) |
+| [mushlink.tsct](../../../out/mushlink.tsct#L79) | 79 | var VAR_17 = int 2 + call randomize_int(int 0, int 5) |
+| [mushlink.tsct](../../../out/mushlink.tsct#L88) | 88 | var index = call randomize_int(int 0, int 15) |
+| [mushlink.tsct](../../../out/mushlink.tsct#L90) | 90 | var VAR_16 = call randomize_int(int 0, int 151) + int 250 |
+| [mushpath.tsct](../../../out/mushpath.tsct#L117) | 117 | var VAR_31 = int 2 + call randomize_int(int 0, int 5) |
+| [mushpath.tsct](../../../out/mushpath.tsct#L126) | 126 | var index = call randomize_int(int 0, int 15) |
+| [mushpath.tsct](../../../out/mushpath.tsct#L128) | 128 | var VAR_30 = call randomize_int(int 0, int 151) + int 250 |
+| [mushring.tsct](../../../out/mushring.tsct#L92) | 92 | var VAR_46 = int 2 + call randomize_int(int 0, int 5) |
+| [mushring.tsct](../../../out/mushring.tsct#L101) | 101 | var index = call randomize_int(int 0, int 6) |
+| [mushring.tsct](../../../out/mushring.tsct#L103) | 103 | var VAR_45 = call randomize_int(int 0, int 301) + int 250 |
+| [mushring.tsct](../../../out/mushring.tsct#L109) | 109 | var VAR_49 = gamevar script_time + int 120 + call randomize_int(int 0, int 60) |
+| [nether.tsct](../../../out/nether.tsct#L405) | 405 | var index = call randomize_int(int 0, int 24) |
+| [nether.tsct](../../../out/nether.tsct#L411) | 411 | call set_sound_volume(var fireexp_sound_ref, call randomize_int(int 140, int 181)) |
+| [nether.tsct](../../../out/nether.tsct#L415) | 415 | call set_sound_volume(var fireexp_sound_ref, call randomize_int(int 80, int 101)) |
+| [nether.tsct](../../../out/nether.tsct#L419) | 419 | if(call randomize_int(int 0, int 3) == int 2) |
+| [nether.tsct](../../../out/nether.tsct#L421) | 421 | var VAR_2 = call randomize_int(int 15, int 46) |
+| [nether.tsct](../../../out/nether.tsct#L426) | 426 | var VAR_2 = call randomize_int(int 70, int 141) |
+| [nether.tsct](../../../out/nether.tsct#L432) | 432 | if(call randomize_int(int 0, int 4) == int 3) |
+| [nether.tsct](../../../out/nether.tsct#L434) | 434 | var VAR_2 = call randomize_int(int 15, int 56) |
+| [nether.tsct](../../../out/nether.tsct#L439) | 439 | var VAR_2 = call randomize_int(int 450, int 751) |
+| [nether.tsct](../../../out/nether.tsct#L449) | 449 | var VAR_60 = call randomize_int(int 160, int 301) |
+| [newleft0.tsct](../../../out/newleft0.tsct#L755) | 755 | var VAR_11 = call randomize_int(int 1200, int 1801) |
+| [newleft0.tsct](../../../out/newleft0.tsct#L762) | 762 | call set_sound_volume(var thunstrk_sound_ref, call randomize_int(int 100, int 201)) |
+| [newleft0.tsct](../../../out/newleft0.tsct#L763) | 763 | call func_11a(var thunstrk_sound_ref, call randomize_int(int 0, int 128)) |
+| [newleft0.tsct](../../../out/newleft0.tsct#L794) | 794 | var VAR_16 = call randomize_int(int 400, int 601) |
+| [newleft0.tsct](../../../out/newleft0.tsct#L803) | 803 | var VAR_16 = call randomize_int(int 1, int 31) |
+| [oneskull.tsct](../../../out/oneskull.tsct#L243) | 243 | var index = call randomize_int(int 0, int 6) |
+| [oneskull.tsct](../../../out/oneskull.tsct#L375) | 375 | var VAR_76 = call randomize_int(int 0, int 2) |
+| [oneskull.tsct](../../../out/oneskull.tsct#L388) | 388 | var VAR_86 = int 1 + call randomize_int(int 0, int 2) |
+| [oneskull.tsct](../../../out/oneskull.tsct#L390) | 390 | var VAR_86 = int 150 + call randomize_int(int 50, int 101) |
+| [oneskull.tsct](../../../out/oneskull.tsct#L395) | 395 | var VAR_84 = int 1 + call randomize_int(int 0, int 2) |
+| [oneskull.tsct](../../../out/oneskull.tsct#L405) | 405 | var VAR_83 = call randomize_int(int 100, int 201) + int 150 |
+| [oneskull.tsct](../../../out/oneskull.tsct#L452) | 452 | var VAR_12 = call randomize_int(int 0, int 2) |
+| [opparch.tsct](../../../out/opparch.tsct#L254) | 254 | var VAR_11 = call randomize_int(int 1200, int 1801) |
+| [opparch.tsct](../../../out/opparch.tsct#L261) | 261 | call set_sound_volume(var thunstrk_sound_ref, call randomize_int(int 100, int 201)) |
+| [opparch.tsct](../../../out/opparch.tsct#L262) | 262 | call func_11a(var thunstrk_sound_ref, call randomize_int(int 0, int 128)) |
+| [opparch.tsct](../../../out/opparch.tsct#L293) | 293 | var VAR_16 = call randomize_int(int 400, int 601) |
+| [opparch.tsct](../../../out/opparch.tsct#L302) | 302 | var VAR_16 = call randomize_int(int 1, int 31) |
+| [orchard1.tsct](../../../out/orchard1.tsct#L298) | 298 | var VAR_3 = gamevar script_time + int 80 + call randomize_int(int 0, int 60) |
+| [orchard1.tsct](../../../out/orchard1.tsct#L299) | 299 | var VAR_2 = int 2 + call randomize_int(int 0, int 6) |
+| [outermil.tsct](../../../out/outermil.tsct#L120) | 120 | var VAR_16 = int 3 + call randomize_int(int 0, int 5) |
+| [outermil.tsct](../../../out/outermil.tsct#L130) | 130 | var VAR_15 = call randomize_int(int 0, int 151) + int 250 |
+| [outertav.tsct](../../../out/outertav.tsct#L523) | 523 | var VAR_30 = call randomize_int(int 1200, int 1801) |
+| [outertav.tsct](../../../out/outertav.tsct#L530) | 530 | call set_sound_volume(var thunstrk_sound_ref, call randomize_int(int 100, int 201)) |
+| [outertav.tsct](../../../out/outertav.tsct#L531) | 531 | call func_11a(var thunstrk_sound_ref, call randomize_int(int 0, int 128)) |
+| [outertav.tsct](../../../out/outertav.tsct#L562) | 562 | var VAR_35 = call randomize_int(int 400, int 601) |
+| [outertav.tsct](../../../out/outertav.tsct#L571) | 571 | var VAR_35 = call randomize_int(int 1, int 31) |
+| [overarch.tsct](../../../out/overarch.tsct#L195) | 195 | var VAR_11 = call randomize_int(int 1200, int 1801) |
+| [overarch.tsct](../../../out/overarch.tsct#L202) | 202 | call set_sound_volume(var thunstrk_sound_ref, call randomize_int(int 100, int 201)) |
+| [overarch.tsct](../../../out/overarch.tsct#L203) | 203 | call func_11a(var thunstrk_sound_ref, call randomize_int(int 0, int 128)) |
+| [overarch.tsct](../../../out/overarch.tsct#L234) | 234 | var VAR_16 = call randomize_int(int 400, int 601) |
+| [overarch.tsct](../../../out/overarch.tsct#L243) | 243 | var VAR_16 = call randomize_int(int 1, int 31) |
+| [palace13.tsct](../../../out/palace13.tsct#L72) | 72 | var VAR_22 = gamevar script_time + int 100 + call randomize_int(int 0, int 50) |
+| [palace15.tsct](../../../out/palace15.tsct#L70) | 70 | var VAR_19 = gamevar script_time + int 100 + call randomize_int(int 0, int 50) |
+| [palace15.tsct](../../../out/palace15.tsct#L77) | 77 | var VAR_18 = gamevar script_time + int 80 + call randomize_int(int 0, int 40) |
+| [palace17.tsct](../../../out/palace17.tsct#L92) | 92 | var VAR_38 = gamevar script_time + int 100 + call randomize_int(int 0, int 50) |
+| [palace17.tsct](../../../out/palace17.tsct#L99) | 99 | var VAR_37 = gamevar script_time + int 80 + call randomize_int(int 0, int 40) |
+| [palace18.tsct](../../../out/palace18.tsct#L68) | 68 | var VAR_14 = gamevar script_time + int 100 + call randomize_int(int 0, int 50) |
+| [palace18.tsct](../../../out/palace18.tsct#L75) | 75 | var VAR_13 = gamevar script_time + int 80 + call randomize_int(int 0, int 40) |
+| [palace2.tsct](../../../out/palace2.tsct#L97) | 97 | var VAR_31 = gamevar script_time + int 100 + call randomize_int(int 0, int 50) |
+| [palace22.tsct](../../../out/palace22.tsct#L71) | 71 | var VAR_26 = gamevar script_time + int 100 + call randomize_int(int 0, int 50) |
+| [palace22.tsct](../../../out/palace22.tsct#L78) | 78 | var VAR_25 = gamevar script_time + int 80 + call randomize_int(int 0, int 40) |
+| [palace23.tsct](../../../out/palace23.tsct#L98) | 98 | var VAR_47 = gamevar script_time + int 100 + call randomize_int(int 0, int 50) |
+| [palace23.tsct](../../../out/palace23.tsct#L105) | 105 | var VAR_46 = gamevar script_time + int 80 + call randomize_int(int 0, int 40) |
+| [palace23.tsct](../../../out/palace23.tsct#L145) | 145 | var VAR_28 = call randomize_int(int 0, int 3) |
+| [palace23.tsct](../../../out/palace23.tsct#L146) | 146 | var VAR_29 = call randomize_int(int 0, int 4) |
+| [palace23.tsct](../../../out/palace23.tsct#L147) | 147 | var index = call randomize_int(int 0, int 8) |
+| [palace23.tsct](../../../out/palace23.tsct#L166) | 166 | var VAR_31 = call randomize_int(int 0, int 6) |
+| [palace25.tsct](../../../out/palace25.tsct#L128) | 128 | var VAR_77 = gamevar script_time + int 100 + call randomize_int(int 0, int 50) |
+| [palace25.tsct](../../../out/palace25.tsct#L134) | 134 | var VAR_77 = gamevar script_time + int 60 + call randomize_int(int 0, int 60) |
+| [palace26.tsct](../../../out/palace26.tsct#L68) | 68 | var VAR_12 = gamevar script_time + int 100 + call randomize_int(int 0, int 50) |
+| [palace26.tsct](../../../out/palace26.tsct#L75) | 75 | var VAR_11 = gamevar script_time + int 80 + call randomize_int(int 0, int 40) |
+| [palace27.tsct](../../../out/palace27.tsct#L69) | 69 | var VAR_17 = gamevar script_time + int 100 + call randomize_int(int 0, int 50) |
+| [palace27.tsct](../../../out/palace27.tsct#L76) | 76 | var VAR_16 = gamevar script_time + int 80 + call randomize_int(int 0, int 40) |
+| [palace32.tsct](../../../out/palace32.tsct#L123) | 123 | var VAR_88 = gamevar script_time + int 100 + call randomize_int(int 0, int 50) |
+| [palace32.tsct](../../../out/palace32.tsct#L129) | 129 | var VAR_88 = gamevar script_time + int 60 + call randomize_int(int 0, int 60) |
+| [palace32.tsct](../../../out/palace32.tsct#L211) | 211 | var VAR_84 = call randomize_int(int 0, int 4) |
+| [palace34.tsct](../../../out/palace34.tsct#L109) | 109 | var VAR_79 = gamevar script_time + int 60 + call randomize_int(int 0, int 120) |
+| [palace6.tsct](../../../out/palace6.tsct#L176) | 176 | var VAR_22 = gamevar script_time + int 100 + call randomize_int(int 0, int 50) |
+| [palace9.tsct](../../../out/palace9.tsct#L66) | 66 | var VAR_13 = gamevar script_time + int 100 + call randomize_int(int 0, int 50) |
+| [pass.tsct](../../../out/pass.tsct#L99) | 99 | var VAR_35 = gamevar script_time + int 300 + call randomize_int(int 0, int 300) |
+| [pass.tsct](../../../out/pass.tsct#L106) | 106 | var VAR_34 = gamevar script_time + int 60 + call randomize_int(int 0, int 60) |
+| [pass.tsct](../../../out/pass.tsct#L190) | 190 | var VAR_28 = call randomize_int(int 0, int 3) |
+| [pass1.tsct](../../../out/pass1.tsct#L104) | 104 | var VAR_28 = gamevar script_time + int 300 + call randomize_int(int 0, int 300) |
+| [pass1.tsct](../../../out/pass1.tsct#L111) | 111 | var VAR_27 = gamevar script_time + int 60 + call randomize_int(int 0, int 60) |
+| [pass1.tsct](../../../out/pass1.tsct#L169) | 169 | var VAR_20 = call randomize_int(int 0, int 3) |
+| [pass1.tsct](../../../out/pass1.tsct#L172) | 172 | var VAR_19 = call randomize_int(int 0, int 6) |
+| [pass1.tsct](../../../out/pass1.tsct#L197) | 197 | var VAR_17 = call randomize_int(int 0, int 4) |
+| [pass1.tsct](../../../out/pass1.tsct#L198) | 198 | var VAR_18 = call randomize_int(int 0, int 2) |
+| [pass2.tsct](../../../out/pass2.tsct#L97) | 97 | var VAR_40 = gamevar script_time + int 300 + call randomize_int(int 0, int 300) |
+| [pass2.tsct](../../../out/pass2.tsct#L104) | 104 | var VAR_39 = gamevar script_time + int 60 + call randomize_int(int 0, int 60) |
+| [pass2.tsct](../../../out/pass2.tsct#L251) | 251 | var VAR_27 = call randomize_int(int 0, int 5) |
+| [pass2.tsct](../../../out/pass2.tsct#L252) | 252 | var VAR_28 = call randomize_int(int 0, int 2) |
+| [pass2.tsct](../../../out/pass2.tsct#L253) | 253 | var VAR_29 = call randomize_int(int 1, int 4) |
+| [path.tsct](../../../out/path.tsct#L194) | 194 | var VAR_2 = gamevar script_time + int 80 + call randomize_int(int 0, int 60) |
+| [path.tsct](../../../out/path.tsct#L195) | 195 | var VAR_1 = int 2 + call randomize_int(int 0, int 6) |
+| [pathend.tsct](../../../out/pathend.tsct#L173) | 173 | if(call randomize_int(int 0, int 10) < int 4) |
+| [pathend.tsct](../../../out/pathend.tsct#L281) | 281 | var VAR_125 = gamevar script_time + int 80 + call randomize_int(int 0, int 60) |
+| [pathend.tsct](../../../out/pathend.tsct#L282) | 282 | var VAR_124 = int 2 + call randomize_int(int 0, int 6) |
+| [pit.tsct](../../../out/pit.tsct#L181) | 181 | var VAR_25 = call randomize_int(int 0, int 3) |
+| [pitprop.tsct](../../../out/pitprop.tsct#L268) | 268 | var VAR_60 = call randomize_int(int 0, int 5) |
+| [pondend.tsct](../../../out/pondend.tsct#L224) | 224 | var VAR_36 = gamevar script_time + int 80 + call randomize_int(int 0, int 60) |
+| [pondend.tsct](../../../out/pondend.tsct#L225) | 225 | var VAR_35 = int 2 + call randomize_int(int 0, int 6) |
+| [r_bridge.tsct](../../../out/r_bridge.tsct#L218) | 218 | var VAR_11 = call randomize_int(int 1200, int 1801) |
+| [r_bridge.tsct](../../../out/r_bridge.tsct#L225) | 225 | call set_sound_volume(var thunstrk_sound_ref, call randomize_int(int 100, int 201)) |
+| [r_bridge.tsct](../../../out/r_bridge.tsct#L226) | 226 | call func_11a(var thunstrk_sound_ref, call randomize_int(int 0, int 128)) |
+| [r_bridge.tsct](../../../out/r_bridge.tsct#L257) | 257 | var VAR_16 = call randomize_int(int 400, int 601) |
+| [r_bridge.tsct](../../../out/r_bridge.tsct#L266) | 266 | var VAR_16 = call randomize_int(int 1, int 31) |
+| [rain_loc.tsct](../../../out/rain_loc.tsct#L335) | 335 | var VAR_11 = call randomize_int(int 1200, int 1801) |
+| [rain_loc.tsct](../../../out/rain_loc.tsct#L342) | 342 | call set_sound_volume(var thunstrk_sound_ref, call randomize_int(int 100, int 201)) |
+| [rain_loc.tsct](../../../out/rain_loc.tsct#L343) | 343 | call func_11a(var thunstrk_sound_ref, call randomize_int(int 0, int 128)) |
+| [rain_loc.tsct](../../../out/rain_loc.tsct#L374) | 374 | var VAR_16 = call randomize_int(int 400, int 601) |
+| [rain_loc.tsct](../../../out/rain_loc.tsct#L383) | 383 | var VAR_16 = call randomize_int(int 1, int 31) |
+| [rain_w.tsct](../../../out/rain_w.tsct#L189) | 189 | var VAR_11 = call randomize_int(int 1200, int 1801) |
+| [rain_w.tsct](../../../out/rain_w.tsct#L196) | 196 | call set_sound_volume(var thunstrk_sound_ref, call randomize_int(int 100, int 201)) |
+| [rain_w.tsct](../../../out/rain_w.tsct#L197) | 197 | call func_11a(var thunstrk_sound_ref, call randomize_int(int 0, int 128)) |
+| [rain_w.tsct](../../../out/rain_w.tsct#L228) | 228 | var VAR_16 = call randomize_int(int 400, int 601) |
+| [rain_w.tsct](../../../out/rain_w.tsct#L237) | 237 | var VAR_16 = call randomize_int(int 1, int 31) |
+| [rainarch.tsct](../../../out/rainarch.tsct#L244) | 244 | var VAR_11 = call randomize_int(int 1200, int 1801) |
+| [rainarch.tsct](../../../out/rainarch.tsct#L251) | 251 | call set_sound_volume(var thunstrk_sound_ref, call randomize_int(int 100, int 201)) |
+| [rainarch.tsct](../../../out/rainarch.tsct#L252) | 252 | call func_11a(var thunstrk_sound_ref, call randomize_int(int 0, int 128)) |
+| [rainarch.tsct](../../../out/rainarch.tsct#L283) | 283 | var VAR_16 = call randomize_int(int 400, int 601) |
+| [rainarch.tsct](../../../out/rainarch.tsct#L292) | 292 | var VAR_16 = call randomize_int(int 1, int 31) |
+| [raingate.tsct](../../../out/raingate.tsct#L287) | 287 | var VAR_11 = call randomize_int(int 1200, int 1801) |
+| [raingate.tsct](../../../out/raingate.tsct#L294) | 294 | call set_sound_volume(var thunstrk_sound_ref, call randomize_int(int 100, int 201)) |
+| [raingate.tsct](../../../out/raingate.tsct#L295) | 295 | call func_11a(var thunstrk_sound_ref, call randomize_int(int 0, int 128)) |
+| [raingate.tsct](../../../out/raingate.tsct#L326) | 326 | var VAR_16 = call randomize_int(int 400, int 601) |
+| [raingate.tsct](../../../out/raingate.tsct#L335) | 335 | var VAR_16 = call randomize_int(int 1, int 31) |
+| [rainpt03.tsct](../../../out/rainpt03.tsct#L187) | 187 | var VAR_11 = call randomize_int(int 1200, int 1801) |
+| [rainpt03.tsct](../../../out/rainpt03.tsct#L194) | 194 | call set_sound_volume(var thunstrk_sound_ref, call randomize_int(int 100, int 201)) |
+| [rainpt03.tsct](../../../out/rainpt03.tsct#L195) | 195 | call func_11a(var thunstrk_sound_ref, call randomize_int(int 0, int 128)) |
+| [rainpt03.tsct](../../../out/rainpt03.tsct#L226) | 226 | var VAR_16 = call randomize_int(int 400, int 601) |
+| [rainpt03.tsct](../../../out/rainpt03.tsct#L235) | 235 | var VAR_16 = call randomize_int(int 1, int 31) |
+| [ray_sec.tsct](../../../out/ray_sec.tsct#L139) | 139 | var VAR_27 = gamevar script_time + int 50 + call randomize_int(int 0, int 70) |
+| [rayalley.tsct](../../../out/rayalley.tsct#L402) | 402 | var VAR_11 = call randomize_int(int 1200, int 1801) |
+| [rayalley.tsct](../../../out/rayalley.tsct#L409) | 409 | call set_sound_volume(var thunstrk_sound_ref, call randomize_int(int 100, int 201)) |
+| [rayalley.tsct](../../../out/rayalley.tsct#L410) | 410 | call func_11a(var thunstrk_sound_ref, call randomize_int(int 0, int 128)) |
+| [rayalley.tsct](../../../out/rayalley.tsct#L441) | 441 | var VAR_16 = call randomize_int(int 400, int 601) |
+| [rayalley.tsct](../../../out/rayalley.tsct#L450) | 450 | var VAR_16 = call randomize_int(int 1, int 31) |
+| [rayfive.tsct](../../../out/rayfive.tsct#L116) | 116 | var VAR_19 = call randomize_int(int 80, int 241) |
+| [rayfive.tsct](../../../out/rayfive.tsct#L122) | 122 | var VAR_20 = gamevar script_time + int 50 + call randomize_int(int 0, int 70) |
+| [rayjoin.tsct](../../../out/rayjoin.tsct#L93) | 93 | var VAR_23 = gamevar script_time + int 100 + call randomize_int(int 0, int 50) |
+| [rayround.tsct](../../../out/rayround.tsct#L92) | 92 | var VAR_18 = gamevar script_time + int 100 + call randomize_int(int 0, int 50) |
+| [raystair.tsct](../../../out/raystair.tsct#L107) | 107 | var VAR_66 = gamevar script_time + int 100 + call randomize_int(int 0, int 50) |
+| [raystair.tsct](../../../out/raystair.tsct#L311) | 311 | var VAR_11 = call randomize_int(int 1200, int 1801) |
+| [raystair.tsct](../../../out/raystair.tsct#L318) | 318 | call set_sound_volume(var thunstrk_sound_ref, call randomize_int(int 100, int 201)) |
+| [raystair.tsct](../../../out/raystair.tsct#L319) | 319 | call func_11a(var thunstrk_sound_ref, call randomize_int(int 0, int 128)) |
+| [raystair.tsct](../../../out/raystair.tsct#L350) | 350 | var VAR_16 = call randomize_int(int 400, int 601) |
+| [raystair.tsct](../../../out/raystair.tsct#L359) | 359 | var VAR_16 = call randomize_int(int 1, int 31) |
+| [raythird.tsct](../../../out/raythird.tsct#L223) | 223 | var VAR_44 = gamevar script_time + int 50 + call randomize_int(int 0, int 70) |
+| [ritearch.tsct](../../../out/ritearch.tsct#L291) | 291 | var VAR_11 = call randomize_int(int 1200, int 1801) |
+| [ritearch.tsct](../../../out/ritearch.tsct#L298) | 298 | call set_sound_volume(var thunstrk_sound_ref, call randomize_int(int 100, int 201)) |
+| [ritearch.tsct](../../../out/ritearch.tsct#L299) | 299 | call func_11a(var thunstrk_sound_ref, call randomize_int(int 0, int 128)) |
+| [ritearch.tsct](../../../out/ritearch.tsct#L330) | 330 | var VAR_16 = call randomize_int(int 400, int 601) |
+| [ritearch.tsct](../../../out/ritearch.tsct#L339) | 339 | var VAR_16 = call randomize_int(int 1, int 31) |
+| [river.tsct](../../../out/river.tsct#L357) | 357 | var VAR_11 = call randomize_int(int 1200, int 1801) |
+| [river.tsct](../../../out/river.tsct#L364) | 364 | call set_sound_volume(var thunstrk_sound_ref, call randomize_int(int 100, int 201)) |
+| [river.tsct](../../../out/river.tsct#L365) | 365 | call func_11a(var thunstrk_sound_ref, call randomize_int(int 0, int 128)) |
+| [river.tsct](../../../out/river.tsct#L396) | 396 | var VAR_16 = call randomize_int(int 400, int 601) |
+| [river.tsct](../../../out/river.tsct#L405) | 405 | var VAR_16 = call randomize_int(int 1, int 31) |
+| [room2.tsct](../../../out/room2.tsct#L340) | 340 | var index = call randomize_int(int 0, int 5) |
+| [room2.tsct](../../../out/room2.tsct#L341) | 341 | var VAR_97 = call randomize_int(int 0, int 5) |
+| [room2.tsct](../../../out/room2.tsct#L366) | 366 | var VAR_97 = call randomize_int(int 0, int 5) |
+| [room2.tsct](../../../out/room2.tsct#L386) | 386 | var VAR_97 = call randomize_int(int 0, int 5) |
+| [room2.tsct](../../../out/room2.tsct#L413) | 413 | var VAR_97 = call randomize_int(int 0, int 5) |
+| [room2.tsct](../../../out/room2.tsct#L433) | 433 | var VAR_97 = call randomize_int(int 0, int 5) |
+| [room2.tsct](../../../out/room2.tsct#L465) | 465 | var VAR_97 = call randomize_int(int 0, int 5) |
+| [room2.tsct](../../../out/room2.tsct#L489) | 489 | var VAR_97 = call randomize_int(int 0, int 5) |
+| [room2.tsct](../../../out/room2.tsct#L509) | 509 | var VAR_97 = call randomize_int(int 0, int 5) |
+| [room2.tsct](../../../out/room2.tsct#L529) | 529 | var VAR_97 = call randomize_int(int 0, int 5) |
+| [room2.tsct](../../../out/room2.tsct#L549) | 549 | var VAR_97 = call randomize_int(int 0, int 5) |
+| [room2.tsct](../../../out/room2.tsct#L615) | 615 | if(call ! randomize_int(int 0, int 5)) |
+| [room2.tsct](../../../out/room2.tsct#L725) | 725 | var ndavid = call create_char(var VAR_20, "ndavid", call randomize_int(int 0, int 360), int 13) |
+| [room2.tsct](../../../out/room2.tsct#L736) | 736 | var njug = call create_char(var VAR_21, "njug", call randomize_int(int 0, int 360), int 13) |
+| [room2.tsct](../../../out/room2.tsct#L747) | 747 | var nvivienne = call create_char(var VAR_22, "nvivienne", call randomize_int(int 0, int 360), int 13) |
+| [room2.tsct](../../../out/room2.tsct#L758) | 758 | var VAR_16 = call randomize_int(int 0, int 6) |
+| [room3.tsct](../../../out/room3.tsct#L118) | 118 | if(call ! randomize_int(int 0, int 5)) |
+| [s_boxrlo.tsct](../../../out/s_boxrlo.tsct#L90) | 90 | var VAR_11 = gamevar script_time + int 70 + call randomize_int(int 0, int 110) |
+| [s_boxrlo.tsct](../../../out/s_boxrlo.tsct#L91) | 91 | var index = call randomize_int(int 0, int 3) |
+| [s_boxrlo.tsct](../../../out/s_boxrlo.tsct#L98) | 98 | var VAR_12 = gamevar script_time + int 100 + call randomize_int(int 0, int 200) |
+| [s_boxrlo.tsct](../../../out/s_boxrlo.tsct#L99) | 99 | var index = call randomize_int(int 0, int 3) |
+| [s_boxrup.tsct](../../../out/s_boxrup.tsct#L108) | 108 | var VAR_17 = gamevar script_time + int 70 + call randomize_int(int 0, int 110) |
+| [s_boxrup.tsct](../../../out/s_boxrup.tsct#L109) | 109 | var index = call randomize_int(int 0, int 3) |
+| [s_boxrup.tsct](../../../out/s_boxrup.tsct#L116) | 116 | var VAR_18 = gamevar script_time + int 100 + call randomize_int(int 0, int 200) |
+| [s_boxrup.tsct](../../../out/s_boxrup.tsct#L117) | 117 | var index = call randomize_int(int 0, int 3) |
+| [s_circle.tsct](../../../out/s_circle.tsct#L111) | 111 | var VAR_13 = gamevar script_time + int 70 + call randomize_int(int 0, int 110) |
+| [s_circle.tsct](../../../out/s_circle.tsct#L112) | 112 | var index = call randomize_int(int 0, int 3) |
+| [s_circle.tsct](../../../out/s_circle.tsct#L119) | 119 | var VAR_14 = gamevar script_time + int 100 + call randomize_int(int 0, int 200) |
+| [s_circle.tsct](../../../out/s_circle.tsct#L120) | 120 | var index = call randomize_int(int 0, int 3) |
+| [s_cori_1.tsct](../../../out/s_cori_1.tsct#L126) | 126 | var VAR_36 = gamevar script_time + int 70 + call randomize_int(int 0, int 110) |
+| [s_cori_1.tsct](../../../out/s_cori_1.tsct#L127) | 127 | var index = call randomize_int(int 0, int 3) |
+| [s_cori_1.tsct](../../../out/s_cori_1.tsct#L134) | 134 | var VAR_37 = gamevar script_time + int 100 + call randomize_int(int 0, int 200) |
+| [s_cori_1.tsct](../../../out/s_cori_1.tsct#L135) | 135 | var index = call randomize_int(int 0, int 3) |
+| [s_cori_2.tsct](../../../out/s_cori_2.tsct#L124) | 124 | var VAR_50 = gamevar script_time + int 70 + call randomize_int(int 0, int 110) |
+| [s_cori_2.tsct](../../../out/s_cori_2.tsct#L125) | 125 | var index = call randomize_int(int 0, int 3) |
+| [s_cori_2.tsct](../../../out/s_cori_2.tsct#L132) | 132 | var VAR_51 = gamevar script_time + int 100 + call randomize_int(int 0, int 200) |
+| [s_cori_2.tsct](../../../out/s_cori_2.tsct#L133) | 133 | var index = call randomize_int(int 0, int 3) |
+| [s_gates.tsct](../../../out/s_gates.tsct#L109) | 109 | var VAR_34 = gamevar script_time + int 60 + call randomize_int(int 0, int 40) |
+| [s_link.tsct](../../../out/s_link.tsct#L122) | 122 | var VAR_87 = gamevar script_time + int 70 + call randomize_int(int 0, int 110) |
+| [s_link.tsct](../../../out/s_link.tsct#L123) | 123 | var index = call randomize_int(int 0, int 3) |
+| [s_link.tsct](../../../out/s_link.tsct#L130) | 130 | var VAR_88 = gamevar script_time + int 100 + call randomize_int(int 0, int 200) |
+| [s_link.tsct](../../../out/s_link.tsct#L131) | 131 | var index = call randomize_int(int 0, int 3) |
+| [s_room_1.tsct](../../../out/s_room_1.tsct#L104) | 104 | var VAR_15 = gamevar script_time + int 70 + call randomize_int(int 0, int 110) |
+| [s_room_1.tsct](../../../out/s_room_1.tsct#L105) | 105 | var index = call randomize_int(int 0, int 3) |
+| [s_room_1.tsct](../../../out/s_room_1.tsct#L112) | 112 | var VAR_16 = gamevar script_time + int 100 + call randomize_int(int 0, int 200) |
+| [s_room_1.tsct](../../../out/s_room_1.tsct#L113) | 113 | var index = call randomize_int(int 0, int 3) |
+| [s_room_2.tsct](../../../out/s_room_2.tsct#L264) | 264 | var VAR_112 = gamevar script_time + int 70 + call randomize_int(int 0, int 110) |
+| [s_room_2.tsct](../../../out/s_room_2.tsct#L265) | 265 | var index = call randomize_int(int 0, int 3) |
+| [s_room_2.tsct](../../../out/s_room_2.tsct#L272) | 272 | var VAR_113 = gamevar script_time + int 100 + call randomize_int(int 0, int 200) |
+| [s_room_2.tsct](../../../out/s_room_2.tsct#L273) | 273 | var index = call randomize_int(int 0, int 3) |
+| [s_room_3.tsct](../../../out/s_room_3.tsct#L121) | 121 | var VAR_48 = gamevar script_time + int 70 + call randomize_int(int 0, int 110) |
+| [s_room_3.tsct](../../../out/s_room_3.tsct#L122) | 122 | var index = call randomize_int(int 0, int 3) |
+| [s_room_3.tsct](../../../out/s_room_3.tsct#L129) | 129 | var VAR_49 = gamevar script_time + int 100 + call randomize_int(int 0, int 200) |
+| [s_room_3.tsct](../../../out/s_room_3.tsct#L130) | 130 | var index = call randomize_int(int 0, int 3) |
+| [s_stway.tsct](../../../out/s_stway.tsct#L158) | 158 | var VAR_25 = gamevar script_time + int 70 + call randomize_int(int 0, int 110) |
+| [s_stway.tsct](../../../out/s_stway.tsct#L159) | 159 | var index = call randomize_int(int 0, int 3) |
+| [s_stway.tsct](../../../out/s_stway.tsct#L166) | 166 | var VAR_26 = gamevar script_time + int 100 + call randomize_int(int 0, int 200) |
+| [s_stway.tsct](../../../out/s_stway.tsct#L167) | 167 | var index = call randomize_int(int 0, int 3) |
+| [s_throne.tsct](../../../out/s_throne.tsct#L180) | 180 | var VAR_248 = gamevar script_time + int 70 + call randomize_int(int 0, int 110) |
+| [s_throne.tsct](../../../out/s_throne.tsct#L181) | 181 | var index = call randomize_int(int 0, int 3) |
+| [s_throne.tsct](../../../out/s_throne.tsct#L188) | 188 | var VAR_249 = gamevar script_time + int 100 + call randomize_int(int 0, int 200) |
+| [s_throne.tsct](../../../out/s_throne.tsct#L189) | 189 | var index = call randomize_int(int 0, int 3) |
+| [s_throne.tsct](../../../out/s_throne.tsct#L1628) | 1628 | var VAR_201 = call randomize_int(int 20, int 46) |
+| [scaledwn.tsct](../../../out/scaledwn.tsct#L396) | 396 | var VAR_11 = call randomize_int(int 1200, int 1801) |
+| [scaledwn.tsct](../../../out/scaledwn.tsct#L403) | 403 | call set_sound_volume(var thunstrk_sound_ref, call randomize_int(int 100, int 201)) |
+| [scaledwn.tsct](../../../out/scaledwn.tsct#L404) | 404 | call func_11a(var thunstrk_sound_ref, call randomize_int(int 0, int 128)) |
+| [scaledwn.tsct](../../../out/scaledwn.tsct#L435) | 435 | var VAR_16 = call randomize_int(int 400, int 601) |
+| [scaledwn.tsct](../../../out/scaledwn.tsct#L444) | 444 | var VAR_16 = call randomize_int(int 1, int 31) |
+| [scene29.tsct](../../../out/scene29.tsct#L269) | 269 | var VAR_20 = call randomize_int(int 1200, int 1801) |
+| [scene29.tsct](../../../out/scene29.tsct#L276) | 276 | call set_sound_volume(var thunstrk_sound_ref, call randomize_int(int 100, int 201)) |
+| [scene29.tsct](../../../out/scene29.tsct#L277) | 277 | call func_11a(var thunstrk_sound_ref, call randomize_int(int 0, int 128)) |
+| [scene29.tsct](../../../out/scene29.tsct#L308) | 308 | var VAR_25 = call randomize_int(int 400, int 601) |
+| [scene29.tsct](../../../out/scene29.tsct#L317) | 317 | var VAR_25 = call randomize_int(int 1, int 31) |
+| [scene30.tsct](../../../out/scene30.tsct#L361) | 361 | var VAR_11 = call randomize_int(int 1200, int 1801) |
+| [scene30.tsct](../../../out/scene30.tsct#L368) | 368 | call set_sound_volume(var thunstrk_sound_ref, call randomize_int(int 100, int 201)) |
+| [scene30.tsct](../../../out/scene30.tsct#L369) | 369 | call func_11a(var thunstrk_sound_ref, call randomize_int(int 0, int 128)) |
+| [scene30.tsct](../../../out/scene30.tsct#L400) | 400 | var VAR_16 = call randomize_int(int 400, int 601) |
+| [scene30.tsct](../../../out/scene30.tsct#L409) | 409 | var VAR_16 = call randomize_int(int 1, int 31) |
+| [screen1.tsct](../../../out/screen1.tsct#L70) | 70 | var VAR_52 = gamevar script_time + int 200 + call randomize_int(int 0, int 200) |
+| [screen1.tsct](../../../out/screen1.tsct#L79) | 79 | var VAR_51 = gamevar script_time + int 100 + call randomize_int(int 0, int 100) |
+| [screen2.tsct](../../../out/screen2.tsct#L86) | 86 | var VAR_14 = gamevar script_time + int 200 + call randomize_int(int 0, int 200) |
+| [screen3.tsct](../../../out/screen3.tsct#L127) | 127 | var VAR_55 = gamevar script_time + int 300 + call randomize_int(int 0, int 200) |
+| [screen3.tsct](../../../out/screen3.tsct#L128) | 128 | var VAR_54 = int 2 + call randomize_int(int 0, int 3) |
+| [screen3.tsct](../../../out/screen3.tsct#L143) | 143 | if(call ! randomize_int(int 0, int 5)) |
+| [screen4.tsct](../../../out/screen4.tsct#L87) | 87 | var VAR_16 = gamevar script_time + int 200 + call randomize_int(int 0, int 200) |
+| [screen4.tsct](../../../out/screen4.tsct#L96) | 96 | var VAR_15 = gamevar script_time + int 100 + call randomize_int(int 0, int 100) |
+| [screen5.tsct](../../../out/screen5.tsct#L113) | 113 | var VAR_70 = gamevar script_time + int 200 + call randomize_int(int 0, int 200) |
+| [screen5.tsct](../../../out/screen5.tsct#L122) | 122 | var VAR_69 = gamevar script_time + int 100 + call randomize_int(int 0, int 100) |
+| [screen6.tsct](../../../out/screen6.tsct#L499) | 499 | call play_char_anim(var fimp1, @temper_anim[call randomize_int(int 0, int 2)], call randomize_int(int 0, int 3)) |
+| [screen6.tsct](../../../out/screen6.tsct#L509) | 509 | call play_char_anim(var fimp2, @temper_anim[call randomize_int(int 0, int 2)], call randomize_int(int 0, int 3)) |
+| [screen6.tsct](../../../out/screen6.tsct#L534) | 534 | var VAR_117 = gamevar script_time + int 200 + call randomize_int(int 0, int 200) |
+| [screen6.tsct](../../../out/screen6.tsct#L543) | 543 | var VAR_116 = gamevar script_time + int 100 + call randomize_int(int 0, int 100) |
+| [seaview.tsct](../../../out/seaview.tsct#L186) | 186 | var VAR_24 = gamevar script_time + int 80 + call randomize_int(int 0, int 60) |
+| [seaview.tsct](../../../out/seaview.tsct#L187) | 187 | var VAR_23 = int 2 + call randomize_int(int 0, int 6) |
+| [secret.tsct](../../../out/secret.tsct#L122) | 122 | var VAR_90 = gamevar script_time + int 300 + call randomize_int(int 0, int 200) |
+| [secret.tsct](../../../out/secret.tsct#L123) | 123 | var VAR_89 = int 2 + call randomize_int(int 0, int 3) |
+| [secret.tsct](../../../out/secret.tsct#L129) | 129 | if(call ! randomize_int(int 0, int 5)) |
+| [shipdock.tsct](../../../out/shipdock.tsct#L185) | 185 | var VAR_60 = call randomize_int(int 0, int 3) |
+| [shipdock.tsct](../../../out/shipdock.tsct#L188) | 188 | var VAR_61 = call randomize_int(int 0, int 3) |
+| [shipdock.tsct](../../../out/shipdock.tsct#L211) | 211 | var VAR_64 = int 5 + call randomize_int(int 0, int 2) |
+| [shipdock.tsct](../../../out/shipdock.tsct#L213) | 213 | var VAR_64 = int 100 + call randomize_int(int 0, int 101) |
+| [snow.tsct](../../../out/snow.tsct#L108) | 108 | var VAR_70 = gamevar script_time + int 30 + call randomize_int(int 0, int 30) |
+| [snow.tsct](../../../out/snow.tsct#L115) | 115 | var VAR_69 = gamevar script_time + int 300 + call randomize_int(int 0, int 300) |
+| [snow.tsct](../../../out/snow.tsct#L122) | 122 | var VAR_68 = gamevar script_time + int 60 + call randomize_int(int 0, int 60) |
+| [spires02.tsct](../../../out/spires02.tsct#L199) | 199 | var VAR_30 = gamevar script_time + int 100 + call randomize_int(int 0, int 50) |
+| [sroad.tsct](../../../out/sroad.tsct#L230) | 230 | var VAR_11 = call randomize_int(int 1200, int 1801) |
+| [sroad.tsct](../../../out/sroad.tsct#L237) | 237 | call set_sound_volume(var thunstrk_sound_ref, call randomize_int(int 100, int 201)) |
+| [sroad.tsct](../../../out/sroad.tsct#L238) | 238 | call func_11a(var thunstrk_sound_ref, call randomize_int(int 0, int 128)) |
+| [sroad.tsct](../../../out/sroad.tsct#L269) | 269 | var VAR_16 = call randomize_int(int 400, int 601) |
+| [sroad.tsct](../../../out/sroad.tsct#L278) | 278 | var VAR_16 = call randomize_int(int 1, int 31) |
+| [stairs1.tsct](../../../out/stairs1.tsct#L238) | 238 | var VAR_3 = gamevar script_time + int 80 + call randomize_int(int 0, int 60) |
+| [stairs1.tsct](../../../out/stairs1.tsct#L239) | 239 | var VAR_2 = int 2 + call randomize_int(int 0, int 6) |
+| [statues.tsct](../../../out/statues.tsct#L112) | 112 | var VAR_53 = gamevar script_time + int 30 + call randomize_int(int 0, int 30) |
+| [statues.tsct](../../../out/statues.tsct#L119) | 119 | var VAR_52 = gamevar script_time + int 300 + call randomize_int(int 0, int 300) |
+| [statues.tsct](../../../out/statues.tsct#L126) | 126 | var VAR_51 = gamevar script_time + int 60 + call randomize_int(int 0, int 60) |
+| [statues.tsct](../../../out/statues.tsct#L257) | 257 | var VAR_41 = call randomize_int(int 0, int 4) |
+| [statues.tsct](../../../out/statues.tsct#L260) | 260 | var index = call randomize_int(int 0, int 2) |
+| [steproom.tsct](../../../out/steproom.tsct#L267) | 267 | var VAR_47 = gamevar script_time + int 20 + call randomize_int(int 0, int 100) |
+| [steproom.tsct](../../../out/steproom.tsct#L274) | 274 | var VAR_48 = gamevar script_time + int 100 + call randomize_int(int 0, int 50) |
+| [street.tsct](../../../out/street.tsct#L167) | 167 | var VAR_15 = call randomize_int(int 1200, int 1801) |
+| [street.tsct](../../../out/street.tsct#L174) | 174 | call set_sound_volume(var thunstrk_sound_ref, call randomize_int(int 100, int 201)) |
+| [street.tsct](../../../out/street.tsct#L175) | 175 | call func_11a(var thunstrk_sound_ref, call randomize_int(int 0, int 128)) |
+| [street.tsct](../../../out/street.tsct#L206) | 206 | var VAR_20 = call randomize_int(int 400, int 601) |
+| [street.tsct](../../../out/street.tsct#L215) | 215 | var VAR_20 = call randomize_int(int 1, int 31) |
+| [subarch.tsct](../../../out/subarch.tsct#L362) | 362 | var VAR_108 = gamevar script_time + int 60 + call randomize_int(int 0, int 40) |
+| [subarch.tsct](../../../out/subarch.tsct#L363) | 363 | var VAR_107 = int 5 + call randomize_int(int 0, int 6) |
+| [subarch.tsct](../../../out/subarch.tsct#L368) | 368 | var VAR_109 = gamevar script_time + int 80 + call randomize_int(int 0, int 40) |
+| [subarch.tsct](../../../out/subarch.tsct#L369) | 369 | var VAR_107 = int 1 + call randomize_int(int 0, int 2) |
+| [subarch.tsct](../../../out/subarch.tsct#L374) | 374 | var VAR_110 = gamevar script_time + int 80 + call randomize_int(int 0, int 40) |
+| [subarch.tsct](../../../out/subarch.tsct#L375) | 375 | var VAR_107 = int 16 + call randomize_int(int 0, int 2) |
+| [swamp1.tsct](../../../out/swamp1.tsct#L66) | 66 | var index = call randomize_int(int 0, int 4) |
+| [swamp1.tsct](../../../out/swamp1.tsct#L68) | 68 | var VAR_7 = call randomize_int(int 200, int 401) |
+| [swamp1.tsct](../../../out/swamp1.tsct#L75) | 75 | var index_1 = call randomize_int(int 0, int 6) |
+| [swamp1.tsct](../../../out/swamp1.tsct#L76) | 76 | var VAR_11 = int 2 + call randomize_int(int 0, int 3) |
+| [swamp1.tsct](../../../out/swamp1.tsct#L78) | 78 | var VAR_9 = call randomize_int(int 500, int 701) |
+| [swamp2.tsct](../../../out/swamp2.tsct#L84) | 84 | var index = call randomize_int(int 0, int 15) |
+| [swamp2.tsct](../../../out/swamp2.tsct#L86) | 86 | var VAR_20 = call randomize_int(int 200, int 401) |
+| [swamp2.tsct](../../../out/swamp2.tsct#L93) | 93 | var index_1 = call randomize_int(int 0, int 15) |
+| [swamp2.tsct](../../../out/swamp2.tsct#L94) | 94 | var VAR_24 = int 2 + call randomize_int(int 0, int 3) |
+| [swamp2.tsct](../../../out/swamp2.tsct#L96) | 96 | var VAR_22 = call randomize_int(int 500, int 701) |
+| [swamp3.tsct](../../../out/swamp3.tsct#L172) | 172 | var index = call randomize_int(int 0, int 5) |
+| [swamp3.tsct](../../../out/swamp3.tsct#L173) | 173 | var VAR_68 = int 2 + call randomize_int(int 0, int 3) |
+| [swamp3.tsct](../../../out/swamp3.tsct#L175) | 175 | var VAR_66 = call randomize_int(int 500, int 701) |
+| [swamp6.tsct](../../../out/swamp6.tsct#L81) | 81 | var index = call randomize_int(int 0, int 16) |
+| [swamp6.tsct](../../../out/swamp6.tsct#L83) | 83 | var VAR_58 = call randomize_int(int 200, int 401) |
+| [swamp6.tsct](../../../out/swamp6.tsct#L90) | 90 | var index_1 = call randomize_int(int 0, int 16) |
+| [swamp6.tsct](../../../out/swamp6.tsct#L91) | 91 | var VAR_62 = int 2 + call randomize_int(int 0, int 3) |
+| [swamp6.tsct](../../../out/swamp6.tsct#L93) | 93 | var VAR_60 = call randomize_int(int 500, int 701) |
+| [swamp7.tsct](../../../out/swamp7.tsct#L83) | 83 | var index = call randomize_int(int 0, int 9) |
+| [swamp7.tsct](../../../out/swamp7.tsct#L84) | 84 | var VAR_21 = int 2 + call randomize_int(int 0, int 3) |
+| [swamp7.tsct](../../../out/swamp7.tsct#L86) | 86 | var VAR_19 = call randomize_int(int 500, int 701) |
+| [t_square.tsct](../../../out/t_square.tsct#L456) | 456 | var VAR_64 = call randomize_int(int 200, int 501) |
+| [t_square.tsct](../../../out/t_square.tsct#L458) | 458 | var VAR_66 = call randomize_int(int 1, int 4) |
+| [t_square.tsct](../../../out/t_square.tsct#L608) | 608 | var VAR_11 = call randomize_int(int 1200, int 1801) |
+| [t_square.tsct](../../../out/t_square.tsct#L615) | 615 | call set_sound_volume(var thunstrk_sound_ref, call randomize_int(int 100, int 201)) |
+| [t_square.tsct](../../../out/t_square.tsct#L616) | 616 | call func_11a(var thunstrk_sound_ref, call randomize_int(int 0, int 128)) |
+| [t_square.tsct](../../../out/t_square.tsct#L647) | 647 | var VAR_16 = call randomize_int(int 400, int 601) |
+| [t_square.tsct](../../../out/t_square.tsct#L656) | 656 | var VAR_16 = call randomize_int(int 1, int 31) |
+| [tavern01.tsct](../../../out/tavern01.tsct#L821) | 821 | var VAR_46 = call randomize_int(int 500, int 801) |
+| [tavpass.tsct](../../../out/tavpass.tsct#L310) | 310 | var VAR_42 = call randomize_int(int 1200, int 1801) |
+| [tavpass.tsct](../../../out/tavpass.tsct#L317) | 317 | call set_sound_volume(var thunstrk_sound_ref, call randomize_int(int 100, int 201)) |
+| [tavpass.tsct](../../../out/tavpass.tsct#L318) | 318 | call func_11a(var thunstrk_sound_ref, call randomize_int(int 0, int 128)) |
+| [tavpass.tsct](../../../out/tavpass.tsct#L349) | 349 | var VAR_47 = call randomize_int(int 400, int 601) |
+| [tavpass.tsct](../../../out/tavpass.tsct#L358) | 358 | var VAR_47 = call randomize_int(int 1, int 31) |
+| [teleroom.tsct](../../../out/teleroom.tsct#L123) | 123 | var VAR_102 = gamevar script_time + int 300 + call randomize_int(int 0, int 200) |
+| [teleroom.tsct](../../../out/teleroom.tsct#L124) | 124 | var VAR_101 = int 2 + call randomize_int(int 0, int 3) |
+| [teleroom.tsct](../../../out/teleroom.tsct#L453) | 453 | var VAR_38 = call randomize_int(int 100, int 150) |
+| [teleroom.tsct](../../../out/teleroom.tsct#L466) | 466 | var VAR_38 = call randomize_int(int 360, int 721) |
+| [temple.tsct](../../../out/temple.tsct#L276) | 276 | var VAR_114 = gamevar script_time + int 50 + call randomize_int(int 0, int 70) |
+| [to_centr.tsct](../../../out/to_centr.tsct#L219) | 219 | var VAR_11 = call randomize_int(int 1200, int 1801) |
+| [to_centr.tsct](../../../out/to_centr.tsct#L226) | 226 | call set_sound_volume(var thunstrk_sound_ref, call randomize_int(int 100, int 201)) |
+| [to_centr.tsct](../../../out/to_centr.tsct#L227) | 227 | call func_11a(var thunstrk_sound_ref, call randomize_int(int 0, int 128)) |
+| [to_centr.tsct](../../../out/to_centr.tsct#L258) | 258 | var VAR_16 = call randomize_int(int 400, int 601) |
+| [to_centr.tsct](../../../out/to_centr.tsct#L267) | 267 | var VAR_16 = call randomize_int(int 1, int 31) |
+| [to_dock.tsct](../../../out/to_dock.tsct#L434) | 434 | var VAR_50 = call randomize_int(int 1200, int 1801) |
+| [to_dock.tsct](../../../out/to_dock.tsct#L441) | 441 | call set_sound_volume(var thunstrk_sound_ref, call randomize_int(int 100, int 201)) |
+| [to_dock.tsct](../../../out/to_dock.tsct#L442) | 442 | call func_11a(var thunstrk_sound_ref, call randomize_int(int 0, int 128)) |
+| [to_dock.tsct](../../../out/to_dock.tsct#L473) | 473 | var VAR_55 = call randomize_int(int 400, int 601) |
+| [to_dock.tsct](../../../out/to_dock.tsct#L482) | 482 | var VAR_55 = call randomize_int(int 1, int 31) |
+| [to_gate.tsct](../../../out/to_gate.tsct#L200) | 200 | var VAR_11 = call randomize_int(int 1200, int 1801) |
+| [to_gate.tsct](../../../out/to_gate.tsct#L207) | 207 | call set_sound_volume(var thunstrk_sound_ref, call randomize_int(int 100, int 201)) |
+| [to_gate.tsct](../../../out/to_gate.tsct#L208) | 208 | call func_11a(var thunstrk_sound_ref, call randomize_int(int 0, int 128)) |
+| [to_gate.tsct](../../../out/to_gate.tsct#L239) | 239 | var VAR_16 = call randomize_int(int 400, int 601) |
+| [to_gate.tsct](../../../out/to_gate.tsct#L248) | 248 | var VAR_16 = call randomize_int(int 1, int 31) |
+| [tosecret.tsct](../../../out/tosecret.tsct#L118) | 118 | var VAR_43 = gamevar script_time + int 300 + call randomize_int(int 0, int 200) |
+| [tosecret.tsct](../../../out/tosecret.tsct#L119) | 119 | var VAR_42 = int 2 + call randomize_int(int 0, int 3) |
+| [tosecret.tsct](../../../out/tosecret.tsct#L218) | 218 | if(call ! randomize_int(int 0, int 5)) |
+| [towngate.tsct](../../../out/towngate.tsct#L701) | 701 | var VAR_50 = call randomize_int(int 1200, int 1801) |
+| [towngate.tsct](../../../out/towngate.tsct#L708) | 708 | call set_sound_volume(var thunstrk_sound_ref, call randomize_int(int 100, int 201)) |
+| [towngate.tsct](../../../out/towngate.tsct#L709) | 709 | call func_11a(var thunstrk_sound_ref, call randomize_int(int 0, int 128)) |
+| [towngate.tsct](../../../out/towngate.tsct#L740) | 740 | var VAR_55 = call randomize_int(int 400, int 601) |
+| [towngate.tsct](../../../out/towngate.tsct#L749) | 749 | var VAR_55 = call randomize_int(int 1, int 31) |
+| [tree_sqr.tsct](../../../out/tree_sqr.tsct#L272) | 272 | var VAR_11 = call randomize_int(int 1200, int 1801) |
+| [tree_sqr.tsct](../../../out/tree_sqr.tsct#L279) | 279 | call set_sound_volume(var thunstrk_sound_ref, call randomize_int(int 100, int 201)) |
+| [tree_sqr.tsct](../../../out/tree_sqr.tsct#L280) | 280 | call func_11a(var thunstrk_sound_ref, call randomize_int(int 0, int 128)) |
+| [tree_sqr.tsct](../../../out/tree_sqr.tsct#L311) | 311 | var VAR_16 = call randomize_int(int 400, int 601) |
+| [tree_sqr.tsct](../../../out/tree_sqr.tsct#L320) | 320 | var VAR_16 = call randomize_int(int 1, int 31) |
+| [tunlpas.tsct](../../../out/tunlpas.tsct#L304) | 304 | var VAR_11 = call randomize_int(int 1200, int 1801) |
+| [tunlpas.tsct](../../../out/tunlpas.tsct#L311) | 311 | call set_sound_volume(var thunstrk_sound_ref, call randomize_int(int 100, int 201)) |
+| [tunlpas.tsct](../../../out/tunlpas.tsct#L312) | 312 | call func_11a(var thunstrk_sound_ref, call randomize_int(int 0, int 128)) |
+| [tunlpas.tsct](../../../out/tunlpas.tsct#L343) | 343 | var VAR_16 = call randomize_int(int 400, int 601) |
+| [tunlpas.tsct](../../../out/tunlpas.tsct#L352) | 352 | var VAR_16 = call randomize_int(int 1, int 31) |
+| [turt.tsct](../../../out/turt.tsct#L139) | 139 | var VAR_52 = gamevar script_time + int 100 + call randomize_int(int 0, int 100) |
+| [turt.tsct](../../../out/turt.tsct#L146) | 146 | var VAR_51 = gamevar script_time + int 300 + call randomize_int(int 0, int 300) |
+| [turt.tsct](../../../out/turt.tsct#L153) | 153 | var VAR_50 = gamevar script_time + int 60 + call randomize_int(int 0, int 60) |
+| [undermil.tsct](../../../out/undermil.tsct#L318) | 318 | var VAR_68 = int 2 + call randomize_int(int 0, int 5) |
+| [undermil.tsct](../../../out/undermil.tsct#L328) | 328 | var VAR_67 = call randomize_int(int 0, int 151) + int 250 |
+| [veranda.tsct](../../../out/veranda.tsct#L127) | 127 | var VAR_54 = gamevar script_time + int 300 + call randomize_int(int 0, int 200) |
+| [veranda.tsct](../../../out/veranda.tsct#L128) | 128 | var VAR_52 = int 2 + call randomize_int(int 0, int 3) |
+| [veranda.tsct](../../../out/veranda.tsct#L133) | 133 | var VAR_53 = gamevar script_time + int 60 + call randomize_int(int 0, int 40) |
+| [veranda.tsct](../../../out/veranda.tsct#L134) | 134 | var VAR_52 = int 2 + call randomize_int(int 0, int 5) |
+| [vivhouse.tsct](../../../out/vivhouse.tsct#L481) | 481 | var VAR_72 = gamevar script_time + int 60 + call randomize_int(int 0, int 40) |
+| [vivhouse.tsct](../../../out/vivhouse.tsct#L482) | 482 | var VAR_71 = int 8 + call randomize_int(int 0, int 3) |
+| [vivhouse.tsct](../../../out/vivhouse.tsct#L487) | 487 | var VAR_73 = gamevar script_time + int 60 + call randomize_int(int 0, int 40) |
+| [vivhouse.tsct](../../../out/vivhouse.tsct#L488) | 488 | var VAR_71 = int 3 + call randomize_int(int 0, int 5) |
+| [vivinsid.tsct](../../../out/vivinsid.tsct#L165) | 165 | var VAR_25 = int 2 + call randomize_int(int 0, int 5) |
+| [vivinsid.tsct](../../../out/vivinsid.tsct#L175) | 175 | var VAR_24 = call randomize_int(int 0, int 151) + int 250 |
+| [window.tsct](../../../out/window.tsct#L328) | 328 | var VAR_100 = gamevar script_time + int 120 + call randomize_int(int 0, int 100) |
+| [window.tsct](../../../out/window.tsct#L335) | 335 | var VAR_101 = gamevar script_time + int 100 + call randomize_int(int 0, int 50) |
+| [window.tsct](../../../out/window.tsct#L342) | 342 | var VAR_102 = gamevar script_time + int 200 + call randomize_int(int 0, int 200) |
+| [wizard.tsct](../../../out/wizard.tsct#L801) | 801 | var VAR_66 = call randomize_int(int 100, int 201) |
+| [wizard.tsct](../../../out/wizard.tsct#L903) | 903 | var VAR_11 = call randomize_int(int 1200, int 1801) |
+| [wizard.tsct](../../../out/wizard.tsct#L910) | 910 | call set_sound_volume(var thunstrk_sound_ref, call randomize_int(int 100, int 201)) |
+| [wizard.tsct](../../../out/wizard.tsct#L911) | 911 | call func_11a(var thunstrk_sound_ref, call randomize_int(int 0, int 128)) |
+| [wizard.tsct](../../../out/wizard.tsct#L942) | 942 | var VAR_16 = call randomize_int(int 400, int 601) |
+| [wizard.tsct](../../../out/wizard.tsct#L951) | 951 | var VAR_16 = call randomize_int(int 1, int 31) |
+| [wizenter.tsct](../../../out/wizenter.tsct#L108) | 108 | var VAR_43 = call randomize_int(int 2, int 4) |
+| [wizenter.tsct](../../../out/wizenter.tsct#L112) | 112 | var index = call randomize_int(int 0, int 5) |
+| [wizenter.tsct](../../../out/wizenter.tsct#L229) | 229 | var VAR_11 = call randomize_int(int 1200, int 1801) |
+| [wizenter.tsct](../../../out/wizenter.tsct#L236) | 236 | call set_sound_volume(var thunstrk_sound_ref, call randomize_int(int 100, int 201)) |
+| [wizenter.tsct](../../../out/wizenter.tsct#L237) | 237 | call func_11a(var thunstrk_sound_ref, call randomize_int(int 0, int 128)) |
+| [wizenter.tsct](../../../out/wizenter.tsct#L268) | 268 | var VAR_16 = call randomize_int(int 400, int 601) |
+| [wizenter.tsct](../../../out/wizenter.tsct#L277) | 277 | var VAR_16 = call randomize_int(int 1, int 31) |
+| [wiztower.tsct](../../../out/wiztower.tsct#L495) | 495 | var VAR_11 = call randomize_int(int 1200, int 1801) |
+| [wiztower.tsct](../../../out/wiztower.tsct#L502) | 502 | call set_sound_volume(var thunstrk_sound_ref, call randomize_int(int 100, int 201)) |
+| [wiztower.tsct](../../../out/wiztower.tsct#L503) | 503 | call func_11a(var thunstrk_sound_ref, call randomize_int(int 0, int 128)) |
+| [wiztower.tsct](../../../out/wiztower.tsct#L534) | 534 | var VAR_16 = call randomize_int(int 400, int 601) |
+| [wiztower.tsct](../../../out/wiztower.tsct#L543) | 543 | var VAR_16 = call randomize_int(int 1, int 31) |
+| [wozroom.tsct](../../../out/wozroom.tsct#L280) | 280 | var VAR_8 = call randomize_int(int 700, int 901) |
+| [wozroom.tsct](../../../out/wozroom.tsct#L310) | 310 | var VAR_15 = call randomize_int(int 200, int 301) |

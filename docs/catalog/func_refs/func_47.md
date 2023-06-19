@@ -1,0 +1,48 @@
+# Function: func_47 
+### References in the original script files
+
+#
+
+| File | Line Number | Reference code |
+| --- | --- | --- |
+| [boneyrd2.tsct](../../../out/boneyrd2.tsct#L107) | 107 | call func_47(var grow_boney_dont_drop_bombs, int 641) |
+| [centre02.tsct](../../../out/centre02.tsct#L81) | 81 | call func_47(var longjohn, int 528) |
+| [cld_rd_3.tsct](../../../out/cld_rd_3.tsct#L351) | 351 | call func_47(var nboatman, int 8192) |
+| [cld_rd_3.tsct](../../../out/cld_rd_3.tsct#L370) | 370 | call func_47(var nboatman, int 8192) |
+| [e_circl2.tsct](../../../out/e_circl2.tsct#L138) | 138 | call func_47(var VAR_4, int 8192) |
+| [e_circl2.tsct](../../../out/e_circl2.tsct#L139) | 139 | call func_47(var VAR_3, int 8192) |
+| [e_circl2.tsct](../../../out/e_circl2.tsct#L142) | 142 | call func_47(var VAR_5, int 8192) |
+| [e_cori_1.tsct](../../../out/e_cori_1.tsct#L153) | 153 | call func_47(var VAR_4, int 8192) |
+| [e_cori_1.tsct](../../../out/e_cori_1.tsct#L154) | 154 | call func_47(var VAR_3, int 8192) |
+| [e_cori_1.tsct](../../../out/e_cori_1.tsct#L157) | 157 | call func_47(var VAR_5, int 8192) |
+| [e_cori_2.tsct](../../../out/e_cori_2.tsct#L144) | 144 | call func_47(var VAR_12, int 8192) |
+| [e_cori_2.tsct](../../../out/e_cori_2.tsct#L145) | 145 | call func_47(var VAR_11, int 8192) |
+| [e_cori_2.tsct](../../../out/e_cori_2.tsct#L148) | 148 | call func_47(var VAR_13, int 8192) |
+| [e_gates.tsct](../../../out/e_gates.tsct#L140) | 140 | call func_47(var VAR_5, int 8192) |
+| [e_gates.tsct](../../../out/e_gates.tsct#L168) | 168 | call func_47(var VAR_6, int 8192) |
+| [e_gates.tsct](../../../out/e_gates.tsct#L189) | 189 | call func_47(var VAR_2, int 8192) |
+| [e_room_2.tsct](../../../out/e_room_2.tsct#L146) | 146 | call func_47(var VAR_4, int 8192) |
+| [e_room_2.tsct](../../../out/e_room_2.tsct#L147) | 147 | call func_47(var VAR_3, int 8192) |
+| [e_room_2.tsct](../../../out/e_room_2.tsct#L150) | 150 | call func_47(var VAR_5, int 8192) |
+| [icecave1.tsct](../../../out/icecave1.tsct#L134) | 134 | call func_47(var fwyvern, int 257) |
+| [icecave2.tsct](../../../out/icecave2.tsct#L198) | 198 | call func_47(var sentryg, int 131) |
+| [icecave2.tsct](../../../out/icecave2.tsct#L204) | 204 | call func_47(var sentryg1, int 131) |
+| [libarea5.tsct](../../../out/libarea5.tsct#L278) | 278 | call func_47(var nyelimp, int 8192) |
+| [libarea5.tsct](../../../out/libarea5.tsct#L489) | 489 | call func_47(var neutral_imp, int -1) |
+| [libarea5.tsct](../../../out/libarea5.tsct#L530) | 530 | call func_47(var neutral_imp1, int -1) |
+| [libarea5.tsct](../../../out/libarea5.tsct#L571) | 571 | call func_47(var neutral_imp2, int -1) |
+| [libarea5.tsct](../../../out/libarea5.tsct#L612) | 612 | call func_47(var neutral_imp3, int -1) |
+| [lighttow.tsct](../../../out/lighttow.tsct#L507) | 507 | call func_47(var gonchfx, int 8192) |
+| [palace22.tsct](../../../out/palace22.tsct#L183) | 183 | call func_47(var vikingb, int 656) |
+| [palace22.tsct](../../../out/palace22.tsct#L184) | 184 | call func_47(var vikingb1, int 656) |
+| [rainarch.tsct](../../../out/rainarch.tsct#L120) | 120 | call func_47(var lieutenant, int 8192) |
+| [rainarch.tsct](../../../out/rainarch.tsct#L133) | 133 | call func_47(var lieutenant1, int 8192) |
+| [s_gates.tsct](../../../out/s_gates.tsct#L243) | 243 | call func_47(var sguard, int 129) |
+| [s_gates.tsct](../../../out/s_gates.tsct#L244) | 244 | call func_47(var sguard1, int 129) |
+| [s_room_2.tsct](../../../out/s_room_2.tsct#L656) | 656 | call func_47(var drop_flayer, int 8192) |
+| [s_room_2.tsct](../../../out/s_room_2.tsct#L661) | 661 | call func_47(var drop_iwarrior_med, int 8192) |
+| [s_throne.tsct](../../../out/s_throne.tsct#L850) | 850 | call func_47(var silver, int -1) |
+| [statues.tsct](../../../out/statues.tsct#L154) | 154 | call func_47(var Fsentry4, int 131) |
+| [tree_sqr.tsct](../../../out/tree_sqr.tsct#L106) | 106 | call func_47(var lieutenant, int 8192) |
+| [tree_sqr.tsct](../../../out/tree_sqr.tsct#L111) | 111 | call func_47(var lieutenant1, int 8192) |
+| [tree_sqr.tsct](../../../out/tree_sqr.tsct#L131) | 131 | call func_47(var handler, int 8192) |

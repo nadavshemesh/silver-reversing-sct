@@ -59,7 +59,7 @@
 	call load_sound_set(int 12)
 	if(gamevar room_state == int 1)
 	 {
-			call func_58(int 1)
+			call stop_bgm(int 1)
 	}
 	else
 	 {
@@ -296,7 +296,7 @@
 					@VAR_5[var VAR_4]= var david
 					var VAR_4 ++ 
 			}
-			var david = call func_7e()
+			var david = call get_next_char_from_list()
 	}
 
 ._SCRIPT_11
@@ -338,7 +338,7 @@
 	while(var david1)
 	 {
 			call set_char_lvl(var david1, var VAR_0)
-			var david1 = call func_7e()
+			var david1 = call get_next_char_from_list()
 	}
 
 ._SCRIPT_13

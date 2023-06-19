@@ -83,7 +83,7 @@
 	}
 	else
 	 {
-			call func_58(int 1)
+			call stop_bgm(int 1)
 	}
 	switch(gamevar room_state)
 	 {
@@ -160,7 +160,7 @@
 				if(call is_char_standing(var nduke))
 				 {
 						call play_char_anim(var nbuzuki, var tyrosumn_anim, int 0)
-						call func_11f(var &init_position, int 49152)
+						call set_input_sys_2_if_pos_occupied(var &init_position, int 49152)
 						var VAR_70 ++ 
 						var VAR_71 = int 0
 				}

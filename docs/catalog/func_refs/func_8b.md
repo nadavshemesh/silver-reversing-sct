@@ -1,0 +1,18 @@
+# Function: func_8b 
+### References in the original script files
+
+#
+
+| File | Line Number | Reference code |
+| --- | --- | --- |
+| [blasted.tsct](../../../out/blasted.tsct#L68) | 68 | if(call func_8b()) |
+| [boneyrd3.tsct](../../../out/boneyrd3.tsct#L154) | 154 | if(call func_8b()) |
+| [outermil.tsct](../../../out/outermil.tsct#L143) | 143 | if(call func_8b()) |
+| [palace13.tsct](../../../out/palace13.tsct#L88) | 88 | if(call ! func_8b()) |
+| [palace18.tsct](../../../out/palace18.tsct#L100) | 100 | if(call ! func_8b()) |
+| [palace2.tsct](../../../out/palace2.tsct#L113) | 113 | if(call ! func_8b()) |
+| [raystair.tsct](../../../out/raystair.tsct#L117) | 117 | if(call func_8b()) |
+| [raystair.tsct](../../../out/raystair.tsct#L130) | 130 | if(call func_8b()) |
+| [s_room_2.tsct](../../../out/s_room_2.tsct#L684) | 684 | if(call func_8b()) |
+| [s_room_2.tsct](../../../out/s_room_2.tsct#L751) | 751 | if(call func_8b()) |
+| [s_throne.tsct](../../../out/s_throne.tsct#L591) | 591 | if(call func_8b()&&call is_not_force_scrolling()) |

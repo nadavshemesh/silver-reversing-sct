@@ -1,0 +1,56 @@
+# Function: open_save_screen 
+### References in the original script files
+
+#
+
+| File | Line Number | Reference code |
+| --- | --- | --- |
+| [aft2arch.tsct](../../../out/aft2arch.tsct#L540) | 540 | call open_save_screen(var VAR_18) |
+| [aftsquar.tsct](../../../out/aftsquar.tsct#L375) | 375 | call open_save_screen(var VAR_29) |
+| [arena.tsct](../../../out/arena.tsct#L258) | 258 | call open_save_screen(var VAR_13) |
+| [atro10.tsct](../../../out/atro10.tsct#L389) | 389 | call open_save_screen(var VAR_13) |
+| [barrlink.tsct](../../../out/barrlink.tsct#L205) | 205 | call open_save_screen(var VAR_7) |
+| [barroom.tsct](../../../out/barroom.tsct#L298) | 298 | call open_save_screen(var VAR_0) |
+| [bigroom5.tsct](../../../out/bigroom5.tsct#L224) | 224 | call open_save_screen(var VAR_0) |
+| [blacjohn.tsct](../../../out/blacjohn.tsct#L231) | 231 | call open_save_screen(var VAR_2) |
+| [bloodfal.tsct](../../../out/bloodfal.tsct#L374) | 374 | call open_save_screen(var VAR_0) |
+| [boneyard.tsct](../../../out/boneyard.tsct#L315) | 315 | call open_save_screen(var VAR_6) |
+| [burntedg.tsct](../../../out/burntedg.tsct#L805) | 805 | call open_save_screen(var VAR_0) |
+| [chain.tsct](../../../out/chain.tsct#L494) | 494 | call open_save_screen(var VAR_2) |
+| [cliffsa.tsct](../../../out/cliffsa.tsct#L557) | 557 | call open_save_screen(var VAR_0) |
+| [courtyrd.tsct](../../../out/courtyrd.tsct#L578) | 578 | call open_save_screen(var VAR_2) |
+| [eastower.tsct](../../../out/eastower.tsct#L242) | 242 | call open_save_screen(var VAR_2) |
+| [entrance.tsct](../../../out/entrance.tsct#L440) | 440 | call open_save_screen(var VAR_0) |
+| [fountain.tsct](../../../out/fountain.tsct#L309) | 309 | call open_save_screen(var VAR_0) |
+| [gnosnake.tsct](../../../out/gnosnake.tsct#L412) | 412 | call open_save_screen(var VAR_0) |
+| [h_campbt.tsct](../../../out/h_campbt.tsct#L910) | 910 | call open_save_screen(var VAR_0) |
+| [h_campbt.tsct](../../../out/h_campbt.tsct#L1035) | 1035 | call open_save_screen(var VAR_0) |
+| [h_intomb.tsct](../../../out/h_intomb.tsct#L365) | 365 | call open_save_screen(var VAR_0) |
+| [h_orout.tsct](../../../out/h_orout.tsct#L775) | 775 | call open_save_screen(var VAR_0) |
+| [ice_tomb.tsct](../../../out/ice_tomb.tsct#L479) | 479 | call open_save_screen(var VAR_0) |
+| [jack3.tsct](../../../out/jack3.tsct#L397) | 397 | call open_save_screen(var VAR_18) |
+| [kinghd_3.tsct](../../../out/kinghd_3.tsct#L476) | 476 | call open_save_screen(var VAR_0) |
+| [la_madel.tsct](../../../out/la_madel.tsct#L284) | 284 | call open_save_screen(var VAR_0) |
+| [liblink.tsct](../../../out/liblink.tsct#L249) | 249 | call open_save_screen(var VAR_0) |
+| [met_beam.tsct](../../../out/met_beam.tsct#L349) | 349 | call open_save_screen(var VAR_0) |
+| [monkcave.tsct](../../../out/monkcave.tsct#L768) | 768 | call open_save_screen(var VAR_0) |
+| [nether.tsct](../../../out/nether.tsct#L104) | 104 | call open_save_screen(int 2) |
+| [opparch.tsct](../../../out/opparch.tsct#L407) | 407 | call open_save_screen(var VAR_18) |
+| [palace32.tsct](../../../out/palace32.tsct#L290) | 290 | call open_save_screen(var VAR_0) |
+| [palace33.tsct](../../../out/palace33.tsct#L510) | 510 | call open_save_screen(var VAR_0) |
+| [palace34.tsct](../../../out/palace34.tsct#L266) | 266 | call open_save_screen(var VAR_0) |
+| [pathend.tsct](../../../out/pathend.tsct#L410) | 410 | call open_save_screen(var VAR_8) |
+| [ratunder.tsct](../../../out/ratunder.tsct#L426) | 426 | call open_save_screen(var VAR_0) |
+| [s_link.tsct](../../../out/s_link.tsct#L339) | 339 | call open_save_screen(var VAR_0) |
+| [screen1.tsct](../../../out/screen1.tsct#L175) | 175 | call open_save_screen(var VAR_0) |
+| [screen5.tsct](../../../out/screen5.tsct#L319) | 319 | call open_save_screen(var VAR_0) |
+| [secret.tsct](../../../out/secret.tsct#L406) | 406 | call open_save_screen(var VAR_0) |
+| [snow.tsct](../../../out/snow.tsct#L259) | 259 | call open_save_screen(var VAR_0) |
+| [subarch.tsct](../../../out/subarch.tsct#L450) | 450 | call open_save_screen(var VAR_0) |
+| [swamp3.tsct](../../../out/swamp3.tsct#L261) | 261 | call open_save_screen(var VAR_0) |
+| [swamp6.tsct](../../../out/swamp6.tsct#L221) | 221 | call open_save_screen(var VAR_0) |
+| [temple.tsct](../../../out/temple.tsct#L348) | 348 | call open_save_screen(var VAR_0) |
+| [to_dock.tsct](../../../out/to_dock.tsct#L234) | 234 | call open_save_screen(var VAR_0) |
+| [towngate.tsct](../../../out/towngate.tsct#L501) | 501 | call open_save_screen(var VAR_0) |
+| [tree_sqr.tsct](../../../out/tree_sqr.tsct#L425) | 425 | call open_save_screen(var VAR_18) |
+| [window.tsct](../../../out/window.tsct#L416) | 416 | call open_save_screen(var VAR_0) |

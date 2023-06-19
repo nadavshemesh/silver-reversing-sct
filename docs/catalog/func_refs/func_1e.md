@@ -1,0 +1,16 @@
+# Function: func_1e 
+### References in the original script files
+
+#
+
+| File | Line Number | Reference code |
+| --- | --- | --- |
+| [chain.tsct](../../../out/chain.tsct#L142) | 142 | call func_1e(var battle_fuge, var VAR_54) |
+| [chain.tsct](../../../out/chain.tsct#L156) | 156 | call func_1e(var battle_fuge, var VAR_55) |
+| [lighttow.tsct](../../../out/lighttow.tsct#L336) | 336 | call func_1e(var gonchfx, var DAVID) |
+| [s_throne.tsct](../../../out/s_throne.tsct#L432) | 432 | call func_1e(var nsilver, var nglass) |
+| [s_throne.tsct](../../../out/s_throne.tsct#L497) | 497 | call func_1e(var nsilver, var nkaleb) |
+| [s_throne.tsct](../../../out/s_throne.tsct#L687) | 687 | call func_1e(var silver, var nwilliam) |
+| [teleroom.tsct](../../../out/teleroom.tsct#L395) | 395 | call func_1e(var ntyronis, var neutral_imp) |
+| [teleroom.tsct](../../../out/teleroom.tsct#L407) | 407 | call func_1e(var ntyronis, var neutral_imp2) |
+| [teleroom.tsct](../../../out/teleroom.tsct#L419) | 419 | call func_1e(var ntyronis, var neutral_imp1) |

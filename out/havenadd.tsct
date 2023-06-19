@@ -40,7 +40,7 @@
 	call play_2d_anim("havenadd", int 1, int 1, int 0)
 	call load_sound_set(int 56)
 	call load_sound_set(int 60)
-	call func_58(int 1)
+	call stop_bgm(int 1)
 
 	 /* play the sound 'sent1' */ 
 	call play_loaded_sound(int 1, int -1, int 56, int 0)
@@ -114,7 +114,7 @@
 	call set_char_running(var start_grunt4)
 	var DAVID = call get_char_handle(int 65536)
 	var GRANDAD = call get_char_handle(int 393216)
-	call char_unfollow(var GRANDAD)
+	call char_unfollow_char(var GRANDAD)
 	execute SCRIPT_3
 	gamevar script_object = var DAVID
 	var VAR_14 = gamevar HP

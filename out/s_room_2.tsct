@@ -367,7 +367,7 @@
 										var selected_hero = call get_david_char()
 										if(var selected_hero == var VAR_65)
 										 {
-												var selected_hero = call func_7e()
+												var selected_hero = call get_next_char_from_list()
 										}
 										if(var selected_hero)
 										 {
@@ -375,7 +375,7 @@
 												call char_walk_to_pos(var selected_hero, var walk_position1)
 												var VAR_62 = var selected_hero
 										}
-										var selected_hero = call func_7e()
+										var selected_hero = call get_next_char_from_list()
 										while(var selected_hero)
 										 {
 												if(var selected_hero != var VAR_65)
@@ -384,7 +384,7 @@
 														call char_walk_to_pos(var selected_hero, var walk_position2)
 														var VAR_63 = var selected_hero
 												}
-												var selected_hero = call func_7e()
+												var selected_hero = call get_next_char_from_list()
 										}
 								}
 						}
@@ -400,7 +400,7 @@
 										var selected_hero = call get_david_char()
 										if(var selected_hero == var VAR_65)
 										 {
-												var selected_hero = call func_7e()
+												var selected_hero = call get_next_char_from_list()
 										}
 										if(var selected_hero)
 										 {
@@ -408,7 +408,7 @@
 												call char_walk_to_pos(var selected_hero, var walk_position)
 												var VAR_62 = var selected_hero
 										}
-										var selected_hero = call func_7e()
+										var selected_hero = call get_next_char_from_list()
 										while(var selected_hero)
 										 {
 												if(var selected_hero != var VAR_65)
@@ -417,7 +417,7 @@
 														call char_walk_to_pos(var selected_hero, var walk_position2)
 														var VAR_63 = var selected_hero
 												}
-												var selected_hero = call func_7e()
+												var selected_hero = call get_next_char_from_list()
 										}
 								}
 						}
@@ -437,7 +437,7 @@
 										var selected_hero = call get_david_char()
 										if(var selected_hero == var VAR_65)
 										 {
-												var selected_hero = call func_7e()
+												var selected_hero = call get_next_char_from_list()
 										}
 										if(var selected_hero)
 										 {
@@ -445,7 +445,7 @@
 												call char_walk_to_pos(var selected_hero, var walk_position4)
 												var VAR_62 = var selected_hero
 										}
-										var selected_hero = call func_7e()
+										var selected_hero = call get_next_char_from_list()
 										while(var selected_hero)
 										 {
 												if(var selected_hero != var VAR_65)
@@ -454,7 +454,7 @@
 														call char_walk_to_pos(var selected_hero, var walk_position5)
 														var VAR_63 = var selected_hero
 												}
-												var selected_hero = call func_7e()
+												var selected_hero = call get_next_char_from_list()
 										}
 								}
 						}
@@ -470,7 +470,7 @@
 										var selected_hero = call get_david_char()
 										if(var selected_hero == var VAR_65)
 										 {
-												var selected_hero = call func_7e()
+												var selected_hero = call get_next_char_from_list()
 										}
 										if(var selected_hero)
 										 {
@@ -478,7 +478,7 @@
 												call char_walk_to_pos(var selected_hero, var walk_position3)
 												var VAR_62 = var selected_hero
 										}
-										var selected_hero = call func_7e()
+										var selected_hero = call get_next_char_from_list()
 										while(var selected_hero)
 										 {
 												if(var selected_hero != var VAR_65)
@@ -487,7 +487,7 @@
 														call char_walk_to_pos(var selected_hero, var walk_position5)
 														var VAR_63 = var selected_hero
 												}
-												var selected_hero = call func_7e()
+												var selected_hero = call get_next_char_from_list()
 										}
 								}
 						}
@@ -808,8 +808,8 @@
 	}
 
 ._SCRIPT_7
-	var VAR_0 = call func_9a(var &position, int 39, int 0, int 0)
-	var VAR_1 = call func_9a(var &position1, int 35, int 200, int 0)
+	var VAR_0 = call put_item_in_position(var &position, int 39, int 0, int 0)
+	var VAR_1 = call put_item_in_position(var &position1, int 35, int 200, int 0)
 	var selected_hero = call get_david_char()
 	while(var selected_hero)
 	 {
@@ -845,7 +845,7 @@
 						call log("Get a goober -- QUICKLY!!")
 						break 
 			}
-			var selected_hero = call func_7e()
+			var selected_hero = call get_next_char_from_list()
 	}
 	var cagkixr_anim = call load_anim("cagkixr")
 	var jab_anim = call load_anim("jab")

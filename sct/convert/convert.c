@@ -1,5 +1,8 @@
 #include "sct\convert\convert.h"
+#include <unistd.h>
 
+const char* TEMP_GF_FILE = "./gf.txt";
+const char* TEMP_GF_NAME = "gf.txt";
 game_var** game_vars;
 game_fun** game_functions;
 code_pattern** code_patterns;
@@ -165,6 +168,162 @@ sct_f* asm_file(char* filepath) {
     return sct_file;
 }
 
+void write_game_functions_ref_file(char* gf_name) {
+    char* dir = "./docs/catalog/func_refs/";
+    char* filename = gf_name;
+    char ext[] = ".md";
+
+    int str_path_size = strlen(dir)+strlen(filename)+strlen(ext)+1;
+    char fullpath[str_path_size];
+    snprintf(fullpath, str_path_size, "%s%s%s", dir, filename, ext);
+
+    FILE* f = fopen(fullpath, "wb");
+    FILE* gf_f = fopen(TEMP_GF_FILE, "rb");
+
+    char err[256], err2[256];
+    sprintf(err, "Error, file %s, could not be opened.", fullpath);
+    sprintf(err2, "Error, file %s, could not be opened.", TEMP_GF_FILE);
+    if(f == NULL) print_err_and_exit(err, -4);
+    if(gf_f == NULL) print_err_and_exit(err2, -4);
+
+    fprintf(f, "# Function: %s \n", gf_name);
+    fprintf(f, "### References in the original script files\n");
+    fprintf(f, "\n#\n\n");
+    fprintf(f, "| File | Line Number | Reference code |\n");
+    fprintf(f, "| --- | --- | --- |\n");
+
+    while(!feof(gf_f)) {
+        char filepath[4096];
+        char filename[1024];
+        char line_num[1024];
+        char code[2048];
+
+        // get file name
+        bool stop = false;
+        for(int i=0, j=0; !stop && i<1024; ++i) {
+            char c = getc(gf_f);
+            if(c == 0) c = getc(gf_f);
+            if(c == ':' || c == '\t') stop = true;
+            if(!stop && is_printable_ascii(c) && c !='\n') {filename[j] = c; j++;} else {filename[j] = 0;}
+        }
+        if(!stop) break;
+
+        // get line number
+        stop = false;
+        for(int i=0, j=0; !stop && i<1024; ++i) {
+            char c = getc(gf_f);
+            if(c == 0) c = getc(gf_f);
+            if(c == ':' || c == '\t') stop = true;
+            if(!stop && is_printable_ascii(c) && c !='\n') {line_num[j] = c; j++;} else {line_num[j] = 0;}
+        }
+        if(!stop) break;
+
+        // get line of code
+        stop = false;
+        bool start = false;
+        for(int i=0, j=0; !stop && i<2048; ++i) {
+            char c = getc(gf_f);
+            if(c == '|') {code[j]='\\';j++;}
+            if(c == '\n') {stop = true; code[j] = 0;}
+            else if(c == '\t') start = true;
+            else if(start && is_printable_ascii(c)) {code[j] = c;j++;}
+        }
+        sprintf(filepath, "../../../out/%s#L%s", filename, line_num);
+        fprintf(f, "| [%s](%s) | %s | %s |\n", filename, filepath, line_num, code);
+    }
+
+    fclose(gf_f);
+    fclose(f);
+}
+void write_game_functions_file() {
+    char* dir = "./docs/catalog/";
+    char* filename = "functions";
+    char ext[] = ".md";
+
+    int str_path_size = strlen(dir)+strlen(filename)+strlen(ext)+1;
+    char fullpath[str_path_size];
+    snprintf(fullpath, str_path_size, "%s%s%s", dir, filename, ext);
+
+    FILE* f = fopen(fullpath, "wb");
+
+    char err[256];
+    sprintf(err, "Error, file %s, could not be opened.", fullpath);
+    if(f == NULL) print_err_and_exit(err, -4);
+
+    int counter = 0;
+    for(int i=0; i<GAME_FUNCTIONS_NUM; ++i) {
+        game_fun* gf = game_functions[i];
+        if(gf->desc != NULL) counter++;
+    }
+
+    fprintf(f, "# Game Functions (Incomplete, %d/%d)\n", counter, GAME_FUNCTIONS_NUM);
+    fprintf(f, "### Description\n");
+    fprintf(f, "The game function calls are the main ingredient in the scripts, thats how we actually use the game's inner logic.\n \
+        The important thing to remember is that these functions take arguments that are essential for the function to work properly.\n \
+        If one of the arguments is wrong the game will produce an unexpected result or most likely will just crash.\n");
+    fprintf(f, "\n#\n\n");
+    fprintf(f, "*Note: the information provided here can be very inaccurate or even wrong, \
+        these are based on experiments and guesswork. If you notice a mistake, please contact me to correct it.*\n");
+    fprintf(f, "| #ID | String ID | N.o Arguments | Arguments | References |\n");
+    fprintf(f, "| --- | --- | --- | --- | --- |\n");
+    for(int i=0; i<GAME_FUNCTIONS_NUM; ++i) {
+        game_fun* gf = game_functions[i];
+        if(gf->desc != NULL) {
+            char win_cmd[256];
+            chdir("./out");
+            sprintf(win_cmd, "findstr /n '%s(' * > %s", gf->name, "../gf.txt");
+            system(win_cmd);
+            chdir("..");
+            FILE* gf_f = fopen(TEMP_GF_FILE, "rb");
+            int lines = count_lines(gf_f);
+
+            char* ref_dir = "./func_refs/";
+
+            int ref_path_size = strlen(ref_dir)+strlen(gf->name)+strlen(ext)+1;
+            char refpath[ref_path_size];
+            snprintf(refpath, ref_path_size, "%s%s%s", ref_dir, gf->name, ext);
+
+            fprintf(f, "| %d | [%s](%s) | %d | %s | %d |\n", gf->id, gf->name, refpath, gf->params, gf->desc, lines);
+            write_game_functions_ref_file(gf->name);
+        }
+    }
+
+    fprintf(f, "\n#\n\n");
+    fprintf(f, "# Unnamed functions (yet to be identified and cataloged)\n");
+    fprintf(f, "| #ID | String ID | N.o Arguments | Arguments | References |\n");
+    fprintf(f, "| --- | --- | --- | --- | --- |\n");
+    for(int i=0; i<GAME_FUNCTIONS_NUM; ++i) {
+        game_fun* gf = game_functions[i];
+        if(gf->desc == NULL) {
+            char win_cmd[256];
+            chdir("./out");
+            sprintf(win_cmd, "findstr /n '%s(' * > %s", gf->name, "../gf.txt");
+            system(win_cmd);
+            chdir("..");
+            FILE* gf_f = fopen(TEMP_GF_FILE, "rb");
+            int lines = count_lines(gf_f);
+
+            char* ref_dir = "./func_refs/";
+
+            int ref_path_size = strlen(ref_dir)+strlen(gf->name)+strlen(ext)+1;
+            char refpath[ref_path_size];
+            snprintf(refpath, ref_path_size, "%s%s%s", ref_dir, gf->name, ext);
+
+            fprintf(f, "| %d | [%s](%s) | - | - | %d |\n", gf->id, gf->name, refpath, lines);
+            write_game_functions_ref_file(gf->name);
+        }
+    }
+
+    // remove gf.txt
+    remove(TEMP_GF_FILE);
+
+    char msg[256];
+    sprintf(msg, "successfully written to %s.", fullpath);
+    print_success(msg);
+
+    fclose(f);
+}
+
 void write_tsct_asm_file(char* filepath, bool write_to_out_dir, sct_f* sf) {
     char* dir = (write_to_out_dir) ? aapts("./out/") : getDir(filepath);
     char* filename = getFilenameNoExt(filepath);
@@ -226,6 +385,27 @@ void write_sct_bin_file(char* filepath, sct_f* sf) {
 }
 
 int main(int argc, char* argv[]) {
+    game_vars = w_malloc(GAME_VARS_NUM*sizeof(game_var*));
+    game_functions = w_malloc(GAME_FUNCTIONS_NUM*sizeof(game_fun*));
+    code_patterns = w_malloc(CODE_PATTERNS_NUM*sizeof(code_pattern*));
+    expr_patterns = w_malloc(EXPR_PATTERNS_NUM*sizeof(code_pattern*));
+    init_game_vars(game_vars);
+    init_game_functions(game_functions);
+    init_code_patterns(code_patterns);
+    init_expr_patterns(expr_patterns);
+
+    bool save_to_out = false;
+    for(int i=0; i < argc; i++) {
+        char* arg = argv[i];
+        if(strs_identical(arg, "-s")) {
+            save_to_out = true;
+        }
+        if(strs_identical(arg, "-g")) {
+            write_game_functions_file();
+            exit(0);
+        }
+    }
+
     if(argc < 3) {
         printf(ANSI_COLOR_YELLOW "Usage: [operation (compile/ decompile)] [file path]\n" ANSI_COLOR_RESET);
         return 1;
@@ -237,15 +417,6 @@ int main(int argc, char* argv[]) {
         return 1;
     }
 
-    game_vars = w_malloc(GAME_VARS_NUM*sizeof(game_var*));
-    game_functions = w_malloc(GAME_FUNCTIONS_NUM*sizeof(game_fun*));
-    code_patterns = w_malloc(CODE_PATTERNS_NUM*sizeof(code_pattern*));
-    expr_patterns = w_malloc(EXPR_PATTERNS_NUM*sizeof(code_pattern*));
-    init_game_vars(game_vars);
-    init_game_functions(game_functions);
-    init_code_patterns(code_patterns);
-    init_expr_patterns(expr_patterns);
-
     // catalogs
     enemy_cat = w_malloc(sizeof(catalog*));
     handle_cat = w_malloc(sizeof(catalog*));
@@ -255,14 +426,6 @@ int main(int argc, char* argv[]) {
     init_char_handle_cat(handle_cat);
     init_item_cat(item_cat);
     init_sound_cat(sound_cat);
-
-    bool save_to_out = false;
-    for(int i=0; i < argc; i++) {
-        char* arg = argv[i];
-        if(strs_identical(arg, "-s")) {
-            save_to_out = true;
-        }
-    }
 
     int op = 0;
     char* arg1 = argv[1];

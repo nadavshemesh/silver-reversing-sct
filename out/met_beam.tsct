@@ -140,7 +140,7 @@
 			while(var david)
 			 {
 					call apply_effect_on_char(gamevar char_gen_fx_scripts, int 18, int 0, var david)
-					var david = call func_7e()
+					var david = call get_next_char_from_list()
 			}
 	}
 	if(var VAR_55 == int 1)
@@ -148,7 +148,7 @@
 			var VAR_56 ++ 
 			if(var VAR_56 > int 400)
 			 {
-					call func_11e(var VAR_57)
+					call remove_effect(var VAR_57)
 					call set_input_system(int 1)
 					var VAR_55 ++ 
 					var VAR_56 = int 0
@@ -249,7 +249,7 @@
 	gamevar *character_stats_p+15 = int 1200
 	call func_106(var sguard3, int 1, int 0, int 2)
 	call add_item_to_char(var sguard3, int 22 /* bastswrd */ , int 0, int 0)
-	var VAR_57 = call func_e8(var &VAR_58, int 0)
+	var VAR_57 = call play_tele_effect_at_pos(var &VAR_58, int 0)
 	call set_input_system(int 2)
 	call load_char("chronicl")
 	call func_90()

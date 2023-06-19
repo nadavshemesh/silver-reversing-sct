@@ -1,0 +1,17 @@
+# Function: func_f1 
+### References in the original script files
+
+#
+
+| File | Line Number | Reference code |
+| --- | --- | --- |
+| [gallery1.tsct](../../../out/gallery1.tsct#L104) | 104 | call func_f1(var selected_hero, var VAR_19) |
+| [gallery1.tsct](../../../out/gallery1.tsct#L116) | 116 | call func_f1(var VAR_39, var VAR_19) |
+| [gallery2.tsct](../../../out/gallery2.tsct#L139) | 139 | call func_f1(var david, int 5) |
+| [monkcave.tsct](../../../out/monkcave.tsct#L670) | 670 | call func_f1(var VAR_48, var VAR_40) |
+| [oneskull.tsct](../../../out/oneskull.tsct#L358) | 358 | call func_f1(var VAR_37, var VAR_8) |
+| [pitprop.tsct](../../../out/pitprop.tsct#L243) | 243 | call func_f1(var ndeadjohn, int 4) |
+| [wizard.tsct](../../../out/wizard.tsct#L277) | 277 | call func_f1(var nthaddeus, int 7) |
+| [wizard.tsct](../../../out/wizard.tsct#L320) | 320 | call func_f1(var nthaddeus, var VAR_82) |
+| [wizard.tsct](../../../out/wizard.tsct#L449) | 449 | call func_f1(var nthaddeus, var VAR_111) |
+| [wizard.tsct](../../../out/wizard.tsct#L471) | 471 | call func_f1(var nthaddeus, var VAR_111) |

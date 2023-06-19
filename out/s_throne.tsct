@@ -159,11 +159,11 @@
 			case 0
 				break 
 			case 1
-				call func_58(int 1)
+				call stop_bgm(int 1)
 				gamevar room_state ++ 
 				break 
 			case 2
-				call func_58(int 1)
+				call stop_bgm(int 1)
 				gamevar room_state ++ 
 				break 
 			case 3
@@ -874,15 +874,15 @@
 						var VAR_104 = int 26
 						if(var f_in_sekune)
 						 {
-								call func_61(var f_in_sekune)
+								call char_remove_magic_and_weapons(var f_in_sekune)
 						}
 						if(var f_in_sekune1)
 						 {
-								call func_61(var f_in_sekune1)
+								call char_remove_magic_and_weapons(var f_in_sekune1)
 						}
 						if(call func_80(var david) != int 1)
 						 {
-								call func_61(var david)
+								call char_remove_magic_and_weapons(var david)
 								var VAR_189 = call func_e0(var david, int 22)
 								call toggle_or_use_char_item(var david, var VAR_189)
 						}
@@ -970,7 +970,7 @@
 						switch(var VAR_149)
 						 {
 								case 0
-									var VAR_146 = call func_e8(var &init_position8, int 0)
+									var VAR_146 = call play_tele_effect_at_pos(var &init_position8, int 0)
 									break 
 								case 1
 									if(var ! f_in_sekune)
@@ -993,7 +993,7 @@
 									break 
 								default 
 									var VAR_152 = int 0
-									call func_11e(var VAR_146)
+									call remove_effect(var VAR_146)
 									var VAR_104 = int 29
 									break 
 						}
@@ -1075,7 +1075,7 @@
 			case 31
 				if(call func_6d() == int 1)
 				 {
-						var VAR_146 = call func_e8(var &init_position8, int 0)
+						var VAR_146 = call play_tele_effect_at_pos(var &init_position8, int 0)
 						call char_turn_to_pos(var david, call get_char_pos(var silver))
 						if(var f_in_sekune)
 						 {
@@ -1092,7 +1092,7 @@
 			case 33
 				if(call is_local_timer_greater_than(int 20))
 				 {
-						call func_61(var david)
+						call char_remove_magic_and_weapons(var david)
 						var nemesis = call create_enemy(int 201, int 0, var &init_position8, int 0)
 						call reset_local_timer()
 						var VAR_104 = int 34
@@ -1110,7 +1110,7 @@
 			case 35
 				if(call is_local_timer_greater_than(int 10))
 				 {
-						call func_11e(var VAR_146)
+						call remove_effect(var VAR_146)
 						var VAR_104 = int 36
 				}
 				break 
@@ -1241,7 +1241,7 @@
 						switch(var VAR_149)
 						 {
 								case 0
-									var VAR_146 = call func_e8(var &init_position8, int 0)
+									var VAR_146 = call play_tele_effect_at_pos(var &init_position8, int 0)
 									break 
 								case 1
 									var f_in_jennifer = call create_enemy(int 202, int 0, var &init_position8, int 0)
@@ -1268,7 +1268,7 @@
 									gamevar *object_p+7 |= int -2147483
 									break 
 								default 
-									call func_11e(var VAR_146)
+									call remove_effect(var VAR_146)
 									var VAR_104 = int 50
 									break 
 						}
@@ -1382,8 +1382,8 @@
 									execute SCRIPT_17
 									call char_stop(var nemesis)
 									call char_teleport_to_pos(var nemesis, var &tele_position, int 0)
-									call func_61(var nemesis)
-									call func_61(var david)
+									call char_remove_magic_and_weapons(var nemesis)
+									call char_remove_magic_and_weapons(var david)
 									call func_8d(var david, int 12845056)
 									call char_walk_to_pos(var david, var &walk_position18)
 									gamevar script_object = var david
@@ -1545,8 +1545,8 @@
 	gamevar *object_p+6 |= int 67108864
 	gamevar HP = int 1
 	var david = call get_david_char()
-	var f_in_sekune = call func_7e()
-	var f_in_sekune1 = call func_7e()
+	var f_in_sekune = call get_next_char_from_list()
+	var f_in_sekune1 = call get_next_char_from_list()
 	gamevar SMACKER_X = int 236
 	gamevar SMACKER_Y = int 188
 	var VAR_2 = call play_2d_anim("blood_a", int 1, int 1, var &VAR_3)
@@ -1563,21 +1563,21 @@
 ._SCRIPT_11
 	call func_44()
 	var david = call get_david_char()
-	var f_in_sekune = call func_7e()
-	var f_in_sekune1 = call func_7e()
+	var f_in_sekune = call get_next_char_from_list()
+	var f_in_sekune1 = call get_next_char_from_list()
 	if(var f_in_sekune)
 	 {
-			call func_61(var f_in_sekune)
+			call char_remove_magic_and_weapons(var f_in_sekune)
 			call create_char_game_history_link(var f_in_sekune)
 			call remove_char(var f_in_sekune)
 	}
 	if(var f_in_sekune1)
 	 {
-			call func_61(var f_in_sekune1)
+			call char_remove_magic_and_weapons(var f_in_sekune1)
 			call create_char_game_history_link(var f_in_sekune1)
 			call remove_char(var f_in_sekune1)
 	}
-	call func_61(var david)
+	call char_remove_magic_and_weapons(var david)
 	call func_8e()
 	call add_item_to_char(var david, int 113 /* nemshld */ , int 0, int 1)
 	call add_item_to_char(var david, int 114 /* nemshld */ , int 0, int 1)
@@ -1872,5 +1872,5 @@
 	while(var david2)
 	 {
 			call set_char_lvl(var david2, var VAR_99)
-			var david2 = call func_7e()
+			var david2 = call get_next_char_from_list()
 	}

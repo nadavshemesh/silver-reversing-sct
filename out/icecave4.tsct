@@ -320,7 +320,7 @@
 			case 13
 				if(var VAR_24 == int 0)
 				 {
-						call func_58(int 1)
+						call stop_bgm(int 1)
 
 						 /* play the sound 'concrete' */ 
 						call play_loaded_sound(int 2, int 0, int 1, var &VAR_7)
@@ -443,7 +443,7 @@
 					@VAR_5[var VAR_4]= var david
 					var VAR_4 ++ 
 			}
-			var david = call func_7e()
+			var david = call get_next_char_from_list()
 	}
 
 ._SCRIPT_11
@@ -451,5 +451,5 @@
 	while(var david1)
 	 {
 			call set_char_lvl(var david1, var VAR_0)
-			var david1 = call func_7e()
+			var david1 = call get_next_char_from_list()
 	}

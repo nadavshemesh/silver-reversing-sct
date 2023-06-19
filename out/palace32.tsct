@@ -51,8 +51,8 @@
 	call play_loaded_sound(int 1, int -1, int 66, int 0)
 	execute SCRIPT_9
 	var david = call get_david_char()
-	var VAR_40 = call func_7e()
-	var VAR_41 = call func_7e()
+	var VAR_40 = call get_next_char_from_list()
+	var VAR_41 = call get_next_char_from_list()
 	call play_bgm("WPALPT1")
 	if(gamevar is_room_cleared)
 	 {
@@ -135,7 +135,7 @@
 	switch(var VAR_47)
 	 {
 			case 0
-				call func_11f(var &VAR_76, int 36864)
+				call set_input_sys_2_if_pos_occupied(var &VAR_76, int 36864)
 				var VAR_47 ++ 
 				break 
 			case 1

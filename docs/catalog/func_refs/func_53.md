@@ -1,0 +1,25 @@
+# Function: func_53 
+### References in the original script files
+
+#
+
+| File | Line Number | Reference code |
+| --- | --- | --- |
+| [aftsroad.tsct](../../../out/aftsroad.tsct#L133) | 133 | call func_53(var hound, int 5) |
+| [aftsroad.tsct](../../../out/aftsroad.tsct#L174) | 174 | call func_53(var hound, int 5) |
+| [aftsroad.tsct](../../../out/aftsroad.tsct#L225) | 225 | call func_53(var hound1, int 5) |
+| [gardensa.tsct](../../../out/gardensa.tsct#L155) | 155 | call func_53(var leopard, int 5) |
+| [glade.tsct](../../../out/glade.tsct#L90) | 90 | call func_53(var fbear, int 5) |
+| [gnostair.tsct](../../../out/gnostair.tsct#L181) | 181 | call func_53(var htyronis, int 15) |
+| [h_camptp.tsct](../../../out/h_camptp.tsct#L563) | 563 | call func_53(var GRANDAD, int 4) |
+| [havenadd.tsct](../../../out/havenadd.tsct#L407) | 407 | call func_53(var GRANDAD, int 4) |
+| [icecave4.tsct](../../../out/icecave4.tsct#L223) | 223 | call func_53(var fangus, int 6) |
+| [libarea5.tsct](../../../out/libarea5.tsct#L757) | 757 | call func_53(var GRANDAD, int 4) |
+| [palace33.tsct](../../../out/palace33.tsct#L212) | 212 | call func_53(var fbludraco, int 11) |
+| [pass2.tsct](../../../out/pass2.tsct#L156) | 156 | call func_53(var leopard, int 5) |
+| [pass2.tsct](../../../out/pass2.tsct#L174) | 174 | call func_53(var leopard1, int 5) |
+| [pass2.tsct](../../../out/pass2.tsct#L191) | 191 | call func_53(var leopard2, int 5) |
+| [screen6.tsct](../../../out/screen6.tsct#L86) | 86 | call func_53(var fdemonb, int 2) |
+| [tree_sqr.tsct](../../../out/tree_sqr.tsct#L138) | 138 | call func_53(var hound, int 5) |
+| [tree_sqr.tsct](../../../out/tree_sqr.tsct#L143) | 143 | call func_53(var hound1, int 5) |
+| [veranda.tsct](../../../out/veranda.tsct#L284) | 284 | call func_53(var TYRONIS, int 15) |

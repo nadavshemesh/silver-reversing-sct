@@ -105,28 +105,28 @@
 						var VAR_59 = int 1
 						call func_113(int 320, int 380)
 						var david = call get_david_char()
-						var VAR_64 = call func_7e()
-						var VAR_65 = call func_7e()
+						var VAR_64 = call get_next_char_from_list()
+						var VAR_65 = call get_next_char_from_list()
 						var DAVID = call get_char_handle(int 65536)
 						if(var david)
 						 {
 								if(var david != var DAVID)
 								 {
-										call func_61(var david)
+										call char_remove_magic_and_weapons(var david)
 								}
 						}
 						if(var VAR_64)
 						 {
 								if(var VAR_64 != var DAVID)
 								 {
-										call func_61(var VAR_64)
+										call char_remove_magic_and_weapons(var VAR_64)
 								}
 						}
 						if(var VAR_65)
 						 {
 								if(var VAR_65 != var DAVID)
 								 {
-										call func_61(var VAR_65)
+										call char_remove_magic_and_weapons(var VAR_65)
 								}
 						}
 						call char_walk_to_pos(var david, var &walk_position)
@@ -168,7 +168,7 @@
 				if(call is_local_timer_greater_than(int 10))
 				 {
 						call reset_local_timer()
-						call func_58(int 1)
+						call stop_bgm(int 1)
 						var VAR_59 = int 4
 				}
 				break 
@@ -312,7 +312,7 @@
 			case 5
 				if(call get_input_sys() != int 4)
 				 {
-						var VAR_96 = call func_e8(var &walk_position8, int 0)
+						var VAR_96 = call play_tele_effect_at_pos(var &walk_position8, int 0)
 						call char_walk_to_pos(var nglass, var &walk_position8)
 						var VAR_92 = int 0
 						var VAR_93 ++ 
@@ -338,7 +338,7 @@
 			case 8
 				if(var VAR_92 > int 100)
 				 {
-						call func_11e(var VAR_96)
+						call remove_effect(var VAR_96)
 						gamevar compile_init_character = int 0
 						var VAR_97 = call func_92(int 1, "nfrink", int 0, int 13)
 						gamevar compile_init_character = int 1
@@ -414,7 +414,7 @@
 							var VAR_76 = var david1
 					}
 			}
-			var david1 = call func_7e()
+			var david1 = call get_next_char_from_list()
 	}
 	call char_stop(var DAVID)
 	if(var VAR_76 != int 0)
@@ -636,5 +636,5 @@
 	while(var david3)
 	 {
 			call set_char_lvl(var david3, var VAR_39)
-			var david3 = call func_7e()
+			var david3 = call get_next_char_from_list()
 	}

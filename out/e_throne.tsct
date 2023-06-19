@@ -56,7 +56,7 @@
 	gamevar room_state = int 0
 
 ._SCRIPT_3
-	var VAR_12 = call func_e8(var &VAR_11, int 0)
+	var VAR_12 = call play_tele_effect_at_pos(var &VAR_11, int 0)
 	call set_input_system(int 2)
 	execute SCRIPT_5
 	var njennifer = call create_char(var &init_position, "njennifer", int 60, int 13)
@@ -102,7 +102,7 @@
 				}
 				if(var VAR_15 > int 200)
 				 {
-						call func_11e(var VAR_12)
+						call remove_effect(var VAR_12)
 						var VAR_15 = int 0
 						var VAR_14 ++ 
 				}

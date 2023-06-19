@@ -106,7 +106,7 @@
 			case 3
 				if(call is_local_timer_greater_than(int 60))
 				 {
-						call func_58(int 1)
+						call stop_bgm(int 1)
 						call play_char_anim(var DAVID, var victory_anim, int 0)
 						gamevar script_object = var DAVID
 						var VAR_56 = gamevar LEVEL
@@ -189,7 +189,7 @@
 					@VAR_43[var VAR_42]= var david
 					var VAR_42 ++ 
 			}
-			var david = call func_7e()
+			var david = call get_next_char_from_list()
 	}
 
 ._SCRIPT_9
@@ -387,5 +387,5 @@
 	while(var david1)
 	 {
 			call set_char_lvl(var david1, var VAR_39)
-			var david1 = call func_7e()
+			var david1 = call get_next_char_from_list()
 	}

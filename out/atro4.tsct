@@ -124,7 +124,7 @@
 						 {
 								call char_stop(var david)
 								call apply_effect_on_char(gamevar char_gen_fx_scripts, int 18, int 0, var david)
-								var david = call func_7e()
+								var david = call get_next_char_from_list()
 						}
 						call func_113(int 940, int 150)
 						var VAR_21 ++ 
@@ -137,7 +137,7 @@
 						while(var david)
 						 {
 								call char_teleport_to_pos(var david, @arr[var VAR_11], @arr_1[var index])
-								var david = call func_7e()
+								var david = call get_next_char_from_list()
 								var index ++ 
 						}
 						var VAR_22 = int 0
@@ -149,7 +149,7 @@
 			case 2
 				if(call is_local_timer_greater_than(int 80))
 				 {
-						call func_11e(var VAR_9)
+						call remove_effect(var VAR_9)
 						var VAR_22 = int 0
 						var VAR_21 ++ 
 				}
@@ -210,7 +210,7 @@
 			case 6
 				if(var VAR_22 > int 20)
 				 {
-						var VAR_9 = call func_e8(var &scroll_position, int 0)
+						var VAR_9 = call play_tele_effect_at_pos(var &scroll_position, int 0)
 						gamevar room_state = int 2
 						var VAR_30 = int 10
 						var VAR_21 ++ 
@@ -224,7 +224,7 @@
 	var DAVID = call get_char_handle(int 65536)
 	call load_char("behold")
 	call load_char("beholdp")
-	var VAR_9 = call func_e8(var &scroll_position, int 0)
+	var VAR_9 = call play_tele_effect_at_pos(var &scroll_position, int 0)
 
 ._SCRIPT_5
 	switch(var VAR_30)
@@ -236,7 +236,7 @@
 				}
 				else
 				 {
-						var VAR_9 = call func_e8(var &scroll_position, int 0)
+						var VAR_9 = call play_tele_effect_at_pos(var &scroll_position, int 0)
 						var VAR_30 = int 10
 				}
 				break 
@@ -269,7 +269,7 @@
 										call set_char_walking(var VAR_40)
 										call char_walk_to_pos(var david, var &scroll_position)
 								}
-								var david = call func_7e()
+								var david = call get_next_char_from_list()
 						}
 				}
 				break 
@@ -347,7 +347,7 @@
 				if(var VAR_33 > int 1)
 				 {
 						call set_input_system(int 2)
-						var VAR_9 = call func_e8(var &scroll_position, int 0)
+						var VAR_9 = call play_tele_effect_at_pos(var &scroll_position, int 0)
 						var VAR_32 ++ 
 						var VAR_33 = int 0
 				}
@@ -360,7 +360,7 @@
 						 {
 								call char_stop(var david)
 								call apply_effect_on_char(gamevar char_gen_fx_scripts, int 18, int 0, var david)
-								var david = call func_7e()
+								var david = call get_next_char_from_list()
 						}
 						call func_113(int 940, int 150)
 						var VAR_32 ++ 
@@ -375,7 +375,7 @@
 						while(var david)
 						 {
 								call char_teleport_to_pos(var david, @arr[var index], @arr_1[var index])
-								var david = call func_7e()
+								var david = call get_next_char_from_list()
 								var index ++ 
 						}
 						var VAR_33 = int 0
@@ -393,7 +393,7 @@
 								@arr_4[var index]= var david
 								call set_char_running(var david)
 								call char_walk_to_pos(var david, @arr_3[var index])
-								var david = call func_7e()
+								var david = call get_next_char_from_list()
 								var index ++ 
 						}
 						var VAR_33 = int 0

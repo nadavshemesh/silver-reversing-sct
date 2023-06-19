@@ -25,7 +25,7 @@
 	BTREASURE	{ 0, 0 }	
 
 ._on_load
-	call func_58(int 1)
+	call stop_bgm(int 1)
 	execute SCRIPT_10
 	if(gamevar is_room_cleared)
 	 {
@@ -115,7 +115,7 @@
 										call char_walk_to_pos(var david, @arr[var VAR_38])
 										var index ++ 
 								}
-								var david = call func_7e()
+								var david = call get_next_char_from_list()
 						}
 				}
 				if(var VAR_34 > int 280)
@@ -136,7 +136,7 @@
 										call char_turn_to_pos(var david, call get_char_pos(var DAVID))
 										var index ++ 
 								}
-								var david = call func_7e()
+								var david = call get_next_char_from_list()
 						}
 						call char_turn_to_pos(var DAVID, call get_char_pos(var nothias))
 						var VAR_33 ++ 
@@ -181,7 +181,7 @@
 				 {
 						call set_char_walking(var DAVID)
 						call char_walk_to_pos(var DAVID, var &walk_position)
-						call func_61(var nothias)
+						call char_remove_magic_and_weapons(var nothias)
 						call resume_conversation()
 						var VAR_33 ++ 
 						var VAR_34 = int 0
@@ -222,7 +222,7 @@
 			case 11
 				if(call get_input_sys() != int 4)
 				 {
-						call func_61(var nothias)
+						call char_remove_magic_and_weapons(var nothias)
 						call func_19(var nothias, var DAVID)
 						var VAR_33 ++ 
 						var VAR_34 = int 0
@@ -287,7 +287,7 @@
 										call char_walk_to_pos(var david, @arr[var index])
 										var index ++ 
 								}
-								var david = call func_7e()
+								var david = call get_next_char_from_list()
 						}
 				}
 				if(var VAR_53 > int 280)
@@ -413,7 +413,7 @@
 						while(var david)
 						 {
 								call char_exit_door(var david, int 0)
-								var david = call func_7e()
+								var david = call get_next_char_from_list()
 						}
 						call set_input_system(int 1)
 						var VAR_44 ++ 

@@ -71,7 +71,7 @@
 			switch(gamevar room_state)
 			 {
 					case 1
-						call func_58(int 1)
+						call stop_bgm(int 1)
 						gamevar room_state ++ 
 						break 
 					case 2
@@ -121,7 +121,7 @@
 	gamevar unknown_04_02_00 = int 13
 	call func_a1("ntyronis")
 	var TYRONIS = call get_char_handle(int 2031616)
-	call char_unfollow(var TYRONIS)
+	call char_unfollow_char(var TYRONIS)
 	var lstaff = call add_item_to_char(var TYRONIS, int 75, int 0, int 0)
 	gamevar unknown_04_02_10 = int 92471296
 	gamevar unknown_04_02_14 = int 1376256
@@ -255,7 +255,7 @@
 			case 16
 				if(call func_5c(var TYRONIS))
 				 {
-						var VAR_13 = call func_e8(var &position, int 0)
+						var VAR_13 = call play_tele_effect_at_pos(var &position, int 0)
 						call func_fd(var TYRONIS, var lstaff)
 						var VAR_15 ++ 
 						var VAR_27 = int 0
@@ -436,7 +436,7 @@
 	 {
 			if(var VAR_41 > int 150)
 			 {
-					call func_11e(var VAR_13)
+					call remove_effect(var VAR_13)
 					var VAR_40 ++ 
 					var VAR_41 = int 0
 			}

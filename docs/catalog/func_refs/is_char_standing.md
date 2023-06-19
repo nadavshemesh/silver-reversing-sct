@@ -1,0 +1,359 @@
+# Function: is_char_standing 
+### References in the original script files
+
+#
+
+| File | Line Number | Reference code |
+| --- | --- | --- |
+| [adesew02.tsct](../../../out/adesew02.tsct#L167) | 167 | if(call is_char_standing(var selected_hero1)) |
+| [adesew10.tsct](../../../out/adesew10.tsct#L169) | 169 | if(call is_char_standing(var lesser_gimp)) |
+| [adesew10.tsct](../../../out/adesew10.tsct#L181) | 181 | if(call is_char_standing(var lesser_gimp1)) |
+| [aft2arch.tsct](../../../out/aft2arch.tsct#L102) | 102 | if(call is_char_standing(var archer)) |
+| [aft2arch.tsct](../../../out/aft2arch.tsct#L116) | 116 | if(call is_char_standing(var archer1)) |
+| [aftastep.tsct](../../../out/aftastep.tsct#L195) | 195 | if(call is_char_standing(var nflatnose)) |
+| [aftastep.tsct](../../../out/aftastep.tsct#L220) | 220 | if(call is_char_standing(var nrebel)) |
+| [arches.tsct](../../../out/arches.tsct#L259) | 259 | if(call is_char_standing(gamevar control_char_p)) |
+| [atro4.tsct](../../../out/atro4.tsct#L411) | 411 | if(call is_char_standing(@arr_4[var index])) |
+| [barabott.tsct](../../../out/barabott.tsct#L192) | 192 | if(call is_char_standing(var fuge)) |
+| [barabott.tsct](../../../out/barabott.tsct#L216) | 216 | if(call is_char_standing(var grunt_wooden_shield)) |
+| [barabott.tsct](../../../out/barabott.tsct#L248) | 248 | if(call is_char_standing(var start_grunt2)) |
+| [barabott.tsct](../../../out/barabott.tsct#L325) | 325 | if(call is_char_standing(var start_grunt1)) |
+| [barroom.tsct](../../../out/barroom.tsct#L213) | 213 | if(call is_char_standing(var nrebel)) |
+| [black_3.tsct](../../../out/black_3.tsct#L216) | 216 | if(call is_char_standing(var david)&&@arr_2[var index] == int 0) |
+| [black_in.tsct](../../../out/black_in.tsct#L182) | 182 | if(call is_char_standing(var selected_hero)) |
+| [black_in.tsct](../../../out/black_in.tsct#L259) | 259 | if(call is_char_standing(var selected_hero)&&@arr_1[var index] == int 0) |
+| [black_in.tsct](../../../out/black_in.tsct#L359) | 359 | if(call is_char_standing(var selected_hero)&&@arr_1[var index] == int 0) |
+| [black_in.tsct](../../../out/black_in.tsct#L404) | 404 | if(call is_char_standing(var selected_hero)) |
+| [black_in.tsct](../../../out/black_in.tsct#L497) | 497 | if(call is_char_standing(var selected_hero)&&@arr_1[var index] == int 0) |
+| [black_in.tsct](../../../out/black_in.tsct#L598) | 598 | if(call is_char_standing(var selected_hero)) |
+| [black_in.tsct](../../../out/black_in.tsct#L675) | 675 | if(call is_char_standing(var selected_hero)&&@arr_1[var index] == int 0) |
+| [black_in.tsct](../../../out/black_in.tsct#L789) | 789 | if(call is_char_standing(var selected_hero)&&@arr_1[var index] == int 0) |
+| [black_in.tsct](../../../out/black_in.tsct#L842) | 842 | if(call is_char_standing(var selected_hero)) |
+| [black_in.tsct](../../../out/black_in.tsct#L935) | 935 | if(call is_char_standing(var selected_hero)&&@arr_1[var index] == int 0) |
+| [blasted.tsct](../../../out/blasted.tsct#L136) | 136 | if(call is_char_standing(var VAR_12)) |
+| [bloodfal.tsct](../../../out/bloodfal.tsct#L149) | 149 | if(call is_char_standing(var selected_hero)) |
+| [boarbody.tsct](../../../out/boarbody.tsct#L140) | 140 | if(call is_char_standing(@arr_1[var index])) |
+| [boarbody.tsct](../../../out/boarbody.tsct#L155) | 155 | if(call is_char_standing(gamevar control_char_p)) |
+| [boilarea.tsct](../../../out/boilarea.tsct#L242) | 242 | if(call is_char_standing(var nimp)) |
+| [boilarea.tsct](../../../out/boilarea.tsct#L250) | 250 | if(call is_char_standing(var nimp)) |
+| [boilarea.tsct](../../../out/boilarea.tsct#L402) | 402 | if(call is_char_standing(var njanbook)) |
+| [boneyrd2.tsct](../../../out/boneyrd2.tsct#L116) | 116 | if(call is_char_standing(var grow_boney_dont_drop_bombs)) |
+| [boneyrd3.tsct](../../../out/boneyrd3.tsct#L112) | 112 | if(call is_char_standing(var ganitos)) |
+| [boneyrd3.tsct](../../../out/boneyrd3.tsct#L260) | 260 | if(call is_char_standing(var ganitos)) |
+| [boneyrd3.tsct](../../../out/boneyrd3.tsct#L434) | 434 | if(call is_char_standing(var ganitos)) |
+| [burntedg.tsct](../../../out/burntedg.tsct#L377) | 377 | if(call is_char_standing(var flatnose)) |
+| [burntedg.tsct](../../../out/burntedg.tsct#L385) | 385 | if(call is_char_standing(var flatnose1)) |
+| [burntedg.tsct](../../../out/burntedg.tsct#L393) | 393 | if(call is_char_standing(var flatnosr)) |
+| [burntedg.tsct](../../../out/burntedg.tsct#L401) | 401 | if(call is_char_standing(var flatnosr1)) |
+| [burntedg.tsct](../../../out/burntedg.tsct#L425) | 425 | if(call is_char_standing(var NMAYOR)) |
+| [cells.tsct](../../../out/cells.tsct#L202) | 202 | if(call is_char_standing(@arr[var index])) |
+| [cells.tsct](../../../out/cells.tsct#L443) | 443 | if(call is_char_standing(var DAVID)) |
+| [cells.tsct](../../../out/cells.tsct#L526) | 526 | if(call is_char_standing(@arr[var index_1])) |
+| [centre02.tsct](../../../out/centre02.tsct#L201) | 201 | if(call is_char_standing(var Nvillager)) |
+| [chain.tsct](../../../out/chain.tsct#L292) | 292 | if(call is_char_standing(var VAR_54)) |
+| [chain.tsct](../../../out/chain.tsct#L307) | 307 | if(call is_char_standing(var VAR_55)) |
+| [cld_rd_3.tsct](../../../out/cld_rd_3.tsct#L453) | 453 | if(call is_char_standing(var nboatman)) |
+| [cld_rd_3.tsct](../../../out/cld_rd_3.tsct#L484) | 484 | if(call is_char_standing(var david)) |
+| [cld_rd_3.tsct](../../../out/cld_rd_3.tsct#L645) | 645 | if(call is_char_standing(var david)) |
+| [cliffsa.tsct](../../../out/cliffsa.tsct#L237) | 237 | if(call is_char_standing(var VAR_86)) |
+| [cliffsa.tsct](../../../out/cliffsa.tsct#L409) | 409 | if(call is_char_standing(var VAR_102)) |
+| [courtyrd.tsct](../../../out/courtyrd.tsct#L283) | 283 | if(call is_char_standing(var TYRONIS)) |
+| [courtyrd.tsct](../../../out/courtyrd.tsct#L335) | 335 | if(call is_char_standing(var FIMP5)) |
+| [courtyrd.tsct](../../../out/courtyrd.tsct#L372) | 372 | if(call is_char_standing(var FIMP5)) |
+| [davhouse.tsct](../../../out/davhouse.tsct#L203) | 203 | if(call is_char_standing(var HDAVID)) |
+| [davhouse.tsct](../../../out/davhouse.tsct#L487) | 487 | if(call is_char_standing(var grandad)) |
+| [davhouse.tsct](../../../out/davhouse.tsct#L528) | 528 | if(call is_char_standing(var HDAVID)) |
+| [davhouse.tsct](../../../out/davhouse.tsct#L546) | 546 | if(call is_char_standing(var grandad)) |
+| [davhouse.tsct](../../../out/davhouse.tsct#L548) | 548 | if(call is_char_standing(var HDAVID)) |
+| [davhouse.tsct](../../../out/davhouse.tsct#L575) | 575 | if(call is_char_standing(var grandad)) |
+| [davhouse.tsct](../../../out/davhouse.tsct#L662) | 662 | if(call is_char_standing(var grandad)) |
+| [davhouse.tsct](../../../out/davhouse.tsct#L664) | 664 | if(call is_char_standing(var HDAVID)) |
+| [davhouse.tsct](../../../out/davhouse.tsct#L686) | 686 | if(call is_char_standing(var HDAVID)) |
+| [davhouse.tsct](../../../out/davhouse.tsct#L712) | 712 | if(call is_char_standing(var grandad)) |
+| [davhouse.tsct](../../../out/davhouse.tsct#L791) | 791 | if(call is_char_standing(var grandad)) |
+| [davhouse.tsct](../../../out/davhouse.tsct#L793) | 793 | if(call is_char_standing(var HDAVID)) |
+| [davhouse.tsct](../../../out/davhouse.tsct#L815) | 815 | if(call is_char_standing(var HDAVID)) |
+| [davhouse.tsct](../../../out/davhouse.tsct#L841) | 841 | if(call is_char_standing(var grandad)) |
+| [davhouse.tsct](../../../out/davhouse.tsct#L920) | 920 | if(call is_char_standing(var grandad)) |
+| [davhouse.tsct](../../../out/davhouse.tsct#L922) | 922 | if(call is_char_standing(var HDAVID)) |
+| [davhouse.tsct](../../../out/davhouse.tsct#L944) | 944 | if(call is_char_standing(var HDAVID)) |
+| [davhouse.tsct](../../../out/davhouse.tsct#L970) | 970 | if(call is_char_standing(var grandad)) |
+| [davhouse.tsct](../../../out/davhouse.tsct#L1049) | 1049 | if(call is_char_standing(var grandad)) |
+| [davhouse.tsct](../../../out/davhouse.tsct#L1051) | 1051 | if(call is_char_standing(var HDAVID)) |
+| [davhouse.tsct](../../../out/davhouse.tsct#L1073) | 1073 | if(call is_char_standing(var HDAVID)) |
+| [davhouse.tsct](../../../out/davhouse.tsct#L1099) | 1099 | if(call is_char_standing(var grandad)) |
+| [davhouse.tsct](../../../out/davhouse.tsct#L1187) | 1187 | if(call is_char_standing(var grandad)) |
+| [davhouse.tsct](../../../out/davhouse.tsct#L1189) | 1189 | if(call is_char_standing(var HDAVID)) |
+| [davhouse.tsct](../../../out/davhouse.tsct#L1227) | 1227 | if(call is_char_standing(var HDAVID)) |
+| [davhouse.tsct](../../../out/davhouse.tsct#L1253) | 1253 | if(call is_char_standing(var grandad)) |
+| [davhouse.tsct](../../../out/davhouse.tsct#L1337) | 1337 | if(call is_char_standing(var grandad)) |
+| [davhouse.tsct](../../../out/davhouse.tsct#L1339) | 1339 | if(call is_char_standing(var HDAVID)) |
+| [davhouse.tsct](../../../out/davhouse.tsct#L1359) | 1359 | if(call is_char_standing(var HDAVID)) |
+| [davhouse.tsct](../../../out/davhouse.tsct#L1386) | 1386 | if(call is_char_standing(var grandad)) |
+| [davhouse.tsct](../../../out/davhouse.tsct#L1471) | 1471 | if(call is_char_standing(var grandad)) |
+| [davhouse.tsct](../../../out/davhouse.tsct#L1473) | 1473 | if(call is_char_standing(var HDAVID)) |
+| [davhouse.tsct](../../../out/davhouse.tsct#L1578) | 1578 | if(call is_char_standing(var grandad)) |
+| [davhouse.tsct](../../../out/davhouse.tsct#L1659) | 1659 | if(call is_char_standing(var grandad)) |
+| [davhouse.tsct](../../../out/davhouse.tsct#L1718) | 1718 | if(call is_char_standing(var grandad)) |
+| [davhouse.tsct](../../../out/davhouse.tsct#L1757) | 1757 | if(call is_char_standing(var fuge)) |
+| [davhouse.tsct](../../../out/davhouse.tsct#L1766) | 1766 | if(call is_char_standing(var grandad)) |
+| [davhouse.tsct](../../../out/davhouse.tsct#L1841) | 1841 | if(var VAR_4 == int 256&&call is_char_standing(var grandad)&&call is_char_standing(var HDAVID)) |
+| [davhouse.tsct](../../../out/davhouse.tsct#L1884) | 1884 | if(call is_char_standing(var jennifer)) |
+| [davhouse.tsct](../../../out/davhouse.tsct#L1939) | 1939 | if(call is_char_standing(var fuge)) |
+| [davhouse.tsct](../../../out/davhouse.tsct#L1972) | 1972 | if(call is_char_standing(var jennifer)) |
+| [dig.tsct](../../../out/dig.tsct#L178) | 178 | if(call is_char_standing(var DAVID)) |
+| [dockside.tsct](../../../out/dockside.tsct#L356) | 356 | if(call is_char_standing(var FFUGE)) |
+| [dockside.tsct](../../../out/dockside.tsct#L366) | 366 | if(call is_char_standing(var FFUGE)) |
+| [dockside.tsct](../../../out/dockside.tsct#L409) | 409 | if(call is_char_standing(var NDUKE)) |
+| [dockside.tsct](../../../out/dockside.tsct#L458) | 458 | if(call is_char_standing(var FSGRUNT)) |
+| [dockside.tsct](../../../out/dockside.tsct#L512) | 512 | if(call is_char_standing(var FSGRUNT2)) |
+| [dockside.tsct](../../../out/dockside.tsct#L627) | 627 | if(call is_char_standing(var FFUGE)) |
+| [dockside.tsct](../../../out/dockside.tsct#L711) | 711 | if(call is_char_standing(var DAVID)) |
+| [dockside.tsct](../../../out/dockside.tsct#L736) | 736 | if(call is_char_standing(var nalbert)) |
+| [dockside.tsct](../../../out/dockside.tsct#L756) | 756 | if(call is_char_standing(var nalbert)) |
+| [dockside.tsct](../../../out/dockside.tsct#L765) | 765 | if(call is_char_standing(var noldwoman)) |
+| [e_gates.tsct](../../../out/e_gates.tsct#L147) | 147 | if(call is_char_standing(var VAR_2)) |
+| [e_link.tsct](../../../out/e_link.tsct#L104) | 104 | if(call is_char_standing(var david)) |
+| [e_throne.tsct](../../../out/e_throne.tsct#L140) | 140 | if(call is_char_standing(var njennifer)) |
+| [e_throne.tsct](../../../out/e_throne.tsct#L189) | 189 | if(call is_char_standing(var VAR_9)) |
+| [e_throne.tsct](../../../out/e_throne.tsct#L229) | 229 | if(call is_char_standing(var VAR_9)) |
+| [eastower.tsct](../../../out/eastower.tsct#L131) | 131 | if(call is_char_standing(var nyelimp)) |
+| [entouter.tsct](../../../out/entouter.tsct#L180) | 180 | if(call is_char_standing(var DAVID)) |
+| [entouter.tsct](../../../out/entouter.tsct#L182) | 182 | if(call is_char_standing(var GRANDAD)) |
+| [entouter.tsct](../../../out/entouter.tsct#L216) | 216 | if(call is_char_standing(var nimp1)) |
+| [entouter.tsct](../../../out/entouter.tsct#L218) | 218 | if(call is_char_standing(var nimp2)) |
+| [entouter.tsct](../../../out/entouter.tsct#L333) | 333 | if(call is_char_standing(var DAVID)) |
+| [entouter.tsct](../../../out/entouter.tsct#L363) | 363 | if(call is_char_standing(var DAVID)) |
+| [entouter.tsct](../../../out/entouter.tsct#L365) | 365 | if(call is_char_standing(var GRANDAD)) |
+| [firetree.tsct](../../../out/firetree.tsct#L126) | 126 | if(call is_char_standing(var VAR_16)) |
+| [firetree.tsct](../../../out/firetree.tsct#L157) | 157 | if(call is_char_standing(var VAR_16)) |
+| [gallery2.tsct](../../../out/gallery2.tsct#L118) | 118 | if(call is_char_standing(var nsilver)) |
+| [gardensa.tsct](../../../out/gardensa.tsct#L197) | 197 | if(call is_char_standing(var sentryg)) |
+| [gnolast.tsct](../../../out/gnolast.tsct#L177) | 177 | if(call is_char_standing(var DAVID)) |
+| [gnolast.tsct](../../../out/gnolast.tsct#L232) | 232 | if(call is_char_standing(var TYRONIS)) |
+| [gnolast.tsct](../../../out/gnolast.tsct#L273) | 273 | if(call is_char_standing(var TYRONIS)) |
+| [gnolast.tsct](../../../out/gnolast.tsct#L420) | 420 | if(call is_char_standing(var DAVID)) |
+| [gnolib1.tsct](../../../out/gnolib1.tsct#L223) | 223 | if(call is_char_standing(var nyelimp)) |
+| [gnolib1.tsct](../../../out/gnolib1.tsct#L249) | 249 | if(call is_char_standing(var nyelimp)) |
+| [gnolib1.tsct](../../../out/gnolib1.tsct#L321) | 321 | if(call is_char_standing(var catapult_imp)) |
+| [gnosnake.tsct](../../../out/gnosnake.tsct#L181) | 181 | if(call is_char_standing(var nyelimp)) |
+| [gnosnake.tsct](../../../out/gnosnake.tsct#L284) | 284 | if(call is_char_standing(var nlloyd)) |
+| [goingdwn.tsct](../../../out/goingdwn.tsct#L172) | 172 | if(call is_char_standing(var DAVID)) |
+| [h_campbt.tsct](../../../out/h_campbt.tsct#L371) | 371 | if(call is_char_standing(var nrebel)&&var VAR_104 == int 0) |
+| [h_campbt.tsct](../../../out/h_campbt.tsct#L376) | 376 | if(call is_char_standing(var nrebela)&&var VAR_105 == int 0) |
+| [h_campbt.tsct](../../../out/h_campbt.tsct#L381) | 381 | if(call is_char_standing(var nrebel)&&var VAR_106 == int 0) |
+| [h_campbt.tsct](../../../out/h_campbt.tsct#L386) | 386 | if(call is_char_standing(var nrebela)&&var VAR_107 == int 0) |
+| [h_campbt.tsct](../../../out/h_campbt.tsct#L491) | 491 | if(call is_not_force_scrolling()&&call is_char_standing(var nduke)) |
+| [h_campbt.tsct](../../../out/h_campbt.tsct#L524) | 524 | if(call is_char_standing(var nrebela)&&call is_char_standing(var nrebel)&&var VAR_105 == int 0) |
+| [h_campbt.tsct](../../../out/h_campbt.tsct#L530) | 530 | if(call is_char_standing(var nrebela)&&call is_char_standing(var nrebel)&&var VAR_107 == int 0) |
+| [h_campbt.tsct](../../../out/h_campbt.tsct#L546) | 546 | if(call is_char_standing(var nwilliam)) |
+| [h_campbt.tsct](../../../out/h_campbt.tsct#L595) | 595 | if(call is_char_standing(var nlark1)) |
+| [h_campbt.tsct](../../../out/h_campbt.tsct#L599) | 599 | if(call is_char_standing(var nlark2)) |
+| [h_campbt.tsct](../../../out/h_campbt.tsct#L688) | 688 | if(call is_char_standing(var nfrink)) |
+| [h_camptp.tsct](../../../out/h_camptp.tsct#L673) | 673 | if(call is_char_standing(var nrichard)) |
+| [h_camptp.tsct](../../../out/h_camptp.tsct#L729) | 729 | if(call is_char_standing(var nrichard)) |
+| [h_camptp.tsct](../../../out/h_camptp.tsct#L758) | 758 | if(call is_char_standing(var nrichard)) |
+| [h_camptp.tsct](../../../out/h_camptp.tsct#L823) | 823 | if(call is_char_standing(var nsekune)) |
+| [h_camptp.tsct](../../../out/h_camptp.tsct#L866) | 866 | if(call is_char_standing(var nsekune)) |
+| [h_camptp.tsct](../../../out/h_camptp.tsct#L1061) | 1061 | if(call is_char_standing(var nwilliam)) |
+| [h_camptp.tsct](../../../out/h_camptp.tsct#L1090) | 1090 | if(call is_char_standing(var njohn)) |
+| [h_camptp.tsct](../../../out/h_camptp.tsct#L1125) | 1125 | if(call is_char_standing(var njohn)&&call is_char_standing(var GRANDAD)&&call is_char_standing(var DAVID)&&call is_char_standing(var nben)) |
+| [h_camptp.tsct](../../../out/h_camptp.tsct#L1281) | 1281 | if(call is_char_standing(var NLARK)) |
+| [h_camptp.tsct](../../../out/h_camptp.tsct#L1307) | 1307 | if(call is_char_standing(var NLARK)) |
+| [h_camptp.tsct](../../../out/h_camptp.tsct#L1338) | 1338 | if(call is_char_standing(var DAVID)) |
+| [h_camptp.tsct](../../../out/h_camptp.tsct#L1369) | 1369 | if(call is_char_standing(var GRANDAD)) |
+| [h_camptp.tsct](../../../out/h_camptp.tsct#L1400) | 1400 | if(call is_char_standing(var nduke)) |
+| [h_camptp.tsct](../../../out/h_camptp.tsct#L1422) | 1422 | if(call is_char_standing(var nwilliam)) |
+| [h_camptp.tsct](../../../out/h_camptp.tsct#L1809) | 1809 | if(call is_char_standing(var nben)) |
+| [h_camptp.tsct](../../../out/h_camptp.tsct#L1844) | 1844 | if(call is_char_standing(var nben)) |
+| [h_camptp.tsct](../../../out/h_camptp.tsct#L2103) | 2103 | if(call is_char_standing(@arr_3[var index])) |
+| [h_camptp.tsct](../../../out/h_camptp.tsct#L2133) | 2133 | if(call is_char_standing(var nduke)) |
+| [h_camptp.tsct](../../../out/h_camptp.tsct#L2149) | 2149 | if(call is_char_standing(var nben)) |
+| [h_camptp.tsct](../../../out/h_camptp.tsct#L2266) | 2266 | if(call is_char_standing(var nduke)) |
+| [h_camptp.tsct](../../../out/h_camptp.tsct#L2479) | 2479 | if(call is_char_standing(@arr_6[var index_1])) |
+| [h_camptp.tsct](../../../out/h_camptp.tsct#L2498) | 2498 | if(call is_char_standing(var DAVID)) |
+| [h_cavext.tsct](../../../out/h_cavext.tsct#L172) | 172 | if(call is_char_standing(var DAVID)) |
+| [h_cavext.tsct](../../../out/h_cavext.tsct#L197) | 197 | if(call is_char_standing(var DAVID)) |
+| [h_cavext.tsct](../../../out/h_cavext.tsct#L321) | 321 | if(call is_char_standing(var DAVID)) |
+| [h_cavext.tsct](../../../out/h_cavext.tsct#L345) | 345 | if(call is_char_standing(var DAVID)) |
+| [h_intomb.tsct](../../../out/h_intomb.tsct#L226) | 226 | if(call is_char_standing(var GRANDAD)) |
+| [h_intomb.tsct](../../../out/h_intomb.tsct#L264) | 264 | if(call is_char_standing(var NVILLBOY)) |
+| [h_orout.tsct](../../../out/h_orout.tsct#L160) | 160 | if(call is_char_standing(var nduke)) |
+| [h_orout.tsct](../../../out/h_orout.tsct#L406) | 406 | if(call is_char_standing(var nbuzuki)) |
+| [h_orout.tsct](../../../out/h_orout.tsct#L451) | 451 | if(call is_char_standing(var nduke)) |
+| [h_torain.tsct](../../../out/h_torain.tsct#L249) | 249 | if(call is_char_standing(var FSGRUNT)) |
+| [h_torain.tsct](../../../out/h_torain.tsct#L277) | 277 | if(call is_char_standing(var FSGRUNT)) |
+| [h_torain.tsct](../../../out/h_torain.tsct#L321) | 321 | if(call is_char_standing(var FSGRUNT)) |
+| [h_torain.tsct](../../../out/h_torain.tsct#L329) | 329 | if(call is_char_standing(var FSGRUNT2)) |
+| [h_torain.tsct](../../../out/h_torain.tsct#L337) | 337 | if(call is_char_standing(var FSGRUNT3)) |
+| [havenadd.tsct](../../../out/havenadd.tsct#L165) | 165 | if(call is_char_standing(var GRANDAD)) |
+| [havenadd.tsct](../../../out/havenadd.tsct#L195) | 195 | if(call is_char_standing(var GRANDAD)) |
+| [havenadd.tsct](../../../out/havenadd.tsct#L253) | 253 | if(call is_char_standing(var start_grunt)) |
+| [havenadd.tsct](../../../out/havenadd.tsct#L268) | 268 | if(call is_char_standing(var start_grunt1)) |
+| [havenadd.tsct](../../../out/havenadd.tsct#L283) | 283 | if(call is_char_standing(var start_grunt2)) |
+| [havenadd.tsct](../../../out/havenadd.tsct#L299) | 299 | if(call is_char_standing(var start_grunt3)) |
+| [havenadd.tsct](../../../out/havenadd.tsct#L314) | 314 | if(call is_char_standing(var start_grunt4)) |
+| [havenadd.tsct](../../../out/havenadd.tsct#L403) | 403 | if(call is_char_standing(var GRANDAD)) |
+| [ice_tomb.tsct](../../../out/ice_tomb.tsct#L232) | 232 | if(call is_char_standing(@arr_1[var index])) |
+| [ice_tomb.tsct](../../../out/ice_tomb.tsct#L247) | 247 | if(call is_char_standing(gamevar control_char_p)) |
+| [ice_tomb.tsct](../../../out/ice_tomb.tsct#L369) | 369 | if(call is_char_standing(var nstipe)) |
+| [ice_tomb.tsct](../../../out/ice_tomb.tsct#L396) | 396 | if(call is_char_standing(var nstipe)) |
+| [icecave1.tsct](../../../out/icecave1.tsct#L141) | 141 | if(call is_char_standing(var fwyvern)) |
+| [icecave1.tsct](../../../out/icecave1.tsct#L150) | 150 | if(call is_char_standing(var fwyvern)) |
+| [icecave2.tsct](../../../out/icecave2.tsct#L133) | 133 | if(call is_char_standing(var sentryg)) |
+| [icecave2.tsct](../../../out/icecave2.tsct#L144) | 144 | if(call is_char_standing(var sentryg1)) |
+| [icecave4.tsct](../../../out/icecave4.tsct#L154) | 154 | if(call is_char_standing(var DAVID)&&var ! VAR_13) |
+| [icecave4.tsct](../../../out/icecave4.tsct#L161) | 161 | if(call is_char_standing(var VAR_5)&&var ! VAR_14) |
+| [icecave4.tsct](../../../out/icecave4.tsct#L169) | 169 | if(call is_char_standing(var VAR_6)&&var ! VAR_15) |
+| [inwiztow.tsct](../../../out/inwiztow.tsct#L128) | 128 | if(call is_char_standing(var DAVID)) |
+| [inwiztow.tsct](../../../out/inwiztow.tsct#L232) | 232 | if(call is_char_standing(var nothias)) |
+| [inwiztow.tsct](../../../out/inwiztow.tsct#L249) | 249 | if(call is_char_standing(var nothias)) |
+| [inwiztow.tsct](../../../out/inwiztow.tsct#L300) | 300 | if(call is_char_standing(var DAVID)) |
+| [kinghd_3.tsct](../../../out/kinghd_3.tsct#L197) | 197 | if(call is_char_standing(var VAR_69)) |
+| [libarea1.tsct](../../../out/libarea1.tsct#L197) | 197 | if(call is_char_standing(var neutral_imp)) |
+| [libarea1.tsct](../../../out/libarea1.tsct#L258) | 258 | if(call is_char_standing(var neutral_imp)) |
+| [libarea3.tsct](../../../out/libarea3.tsct#L204) | 204 | if(call is_char_standing(var nyelimp)) |
+| [libarea3.tsct](../../../out/libarea3.tsct#L222) | 222 | if(call is_char_standing(var nyelimp)) |
+| [libarea3.tsct](../../../out/libarea3.tsct#L324) | 324 | if(call is_char_standing(var horn_impefs)) |
+| [libarea4.tsct](../../../out/libarea4.tsct#L172) | 172 | if(call is_char_standing(var nyelimp)) |
+| [libarea4.tsct](../../../out/libarea4.tsct#L290) | 290 | if(call is_char_standing(var nyelimp)) |
+| [libarea5.tsct](../../../out/libarea5.tsct#L220) | 220 | if(call is_char_standing(var nyelimp)) |
+| [libarea5.tsct](../../../out/libarea5.tsct#L300) | 300 | if(call is_char_standing(var nyelimp)) |
+| [libarea5.tsct](../../../out/libarea5.tsct#L328) | 328 | if(call is_char_standing(var nyelimp)) |
+| [libarea5.tsct](../../../out/libarea5.tsct#L344) | 344 | if(call is_char_standing(var nyelimp)) |
+| [libarea5.tsct](../../../out/libarea5.tsct#L394) | 394 | if(call is_char_standing(var shaman_imp)) |
+| [libarea5.tsct](../../../out/libarea5.tsct#L497) | 497 | if(call is_char_standing(var neutral_imp)) |
+| [libarea5.tsct](../../../out/libarea5.tsct#L538) | 538 | if(call is_char_standing(var neutral_imp1)) |
+| [libarea5.tsct](../../../out/libarea5.tsct#L579) | 579 | if(call is_char_standing(var neutral_imp2)) |
+| [libarea5.tsct](../../../out/libarea5.tsct#L620) | 620 | if(call is_char_standing(var neutral_imp3)) |
+| [libarea5.tsct](../../../out/libarea5.tsct#L797) | 797 | if(call is_char_standing(var nyelimp)) |
+| [libarea5.tsct](../../../out/libarea5.tsct#L900) | 900 | if(call is_char_standing(var bezerk_imp2)) |
+| [libarea5.tsct](../../../out/libarea5.tsct#L915) | 915 | if(call is_char_standing(var GRANDAD)) |
+| [libarea5.tsct](../../../out/libarea5.tsct#L942) | 942 | if(call is_char_standing(var GRANDAD)) |
+| [liblink.tsct](../../../out/liblink.tsct#L148) | 148 | if(call is_char_standing(var nyelimp)) |
+| [lighttow.tsct](../../../out/lighttow.tsct#L136) | 136 | if(call is_char_standing(var DAVID)) |
+| [lighttow.tsct](../../../out/lighttow.tsct#L528) | 528 | if(call is_char_standing(var gonchfx)) |
+| [lmiddle.tsct](../../../out/lmiddle.tsct#L127) | 127 | if(call is_char_standing(var teleport_mini_maim)) |
+| [location.tsct](../../../out/location.tsct#L144) | 144 | if(call is_char_standing(var ncagen)) |
+| [middle.tsct](../../../out/middle.tsct#L190) | 190 | if(call is_char_standing(var nyelimp)) |
+| [monkcave.tsct](../../../out/monkcave.tsct#L549) | 549 | if(call is_char_standing(var VAR_112)) |
+| [monkcave.tsct](../../../out/monkcave.tsct#L564) | 564 | if(call is_char_standing(var VAR_113)) |
+| [moss.tsct](../../../out/moss.tsct#L189) | 189 | if(call is_char_standing(@arr[var index])) |
+| [moss.tsct](../../../out/moss.tsct#L309) | 309 | if(call is_char_standing(var nmoss)) |
+| [mushring.tsct](../../../out/mushring.tsct#L203) | 203 | if(call is_char_standing(var VAR_9)) |
+| [nether.tsct](../../../out/nether.tsct#L203) | 203 | if(call is_char_standing(var david)) |
+| [nether.tsct](../../../out/nether.tsct#L262) | 262 | if(call is_char_standing(var david)) |
+| [nether.tsct](../../../out/nether.tsct#L321) | 321 | if(call is_char_standing(var david)) |
+| [newleft0.tsct](../../../out/newleft0.tsct#L172) | 172 | if(call is_char_standing(gamevar control_char_p)&&call is_char_standing(var VAR_53)) |
+| [newleft0.tsct](../../../out/newleft0.tsct#L193) | 193 | if(call is_char_standing(var nvillboy)) |
+| [newleft0.tsct](../../../out/newleft0.tsct#L211) | 211 | if(call is_char_standing(var nvillboy)) |
+| [newleft0.tsct](../../../out/newleft0.tsct#L282) | 282 | if(call is_char_standing(var captain)) |
+| [newleft0.tsct](../../../out/newleft0.tsct#L296) | 296 | if(call is_char_standing(var lieutenant)) |
+| [newleft0.tsct](../../../out/newleft0.tsct#L310) | 310 | if(call is_char_standing(var lieutenant1)) |
+| [newleft0.tsct](../../../out/newleft0.tsct#L324) | 324 | if(call is_char_standing(var lieutenant2)) |
+| [newleft0.tsct](../../../out/newleft0.tsct#L338) | 338 | if(call is_char_standing(var lieutenant3)) |
+| [newleft0.tsct](../../../out/newleft0.tsct#L352) | 352 | if(call is_char_standing(var lieutenant4)) |
+| [newleft0.tsct](../../../out/newleft0.tsct#L413) | 413 | if(call is_char_standing(var captain)) |
+| [newleft0.tsct](../../../out/newleft0.tsct#L428) | 428 | if(call is_char_standing(var lieutenant)) |
+| [newleft0.tsct](../../../out/newleft0.tsct#L443) | 443 | if(call is_char_standing(var lieutenant1)) |
+| [newleft0.tsct](../../../out/newleft0.tsct#L458) | 458 | if(call is_char_standing(var lieutenant2)) |
+| [newleft0.tsct](../../../out/newleft0.tsct#L473) | 473 | if(call is_char_standing(var lieutenant3)) |
+| [newleft0.tsct](../../../out/newleft0.tsct#L488) | 488 | if(call is_char_standing(var lieutenant4)) |
+| [oneskull.tsct](../../../out/oneskull.tsct#L145) | 145 | if(call is_char_standing(var npc_skel)) |
+| [oneskull.tsct](../../../out/oneskull.tsct#L279) | 279 | if(call is_char_standing(var npc_skel)) |
+| [outertav.tsct](../../../out/outertav.tsct#L327) | 327 | if(call is_char_standing(var selected_hero)&&call is_char_standing(var VAR_9)) |
+| [palace18.tsct](../../../out/palace18.tsct#L131) | 131 | if(call ! is_char_standing(var vikingc)) |
+| [palace22.tsct](../../../out/palace22.tsct#L121) | 121 | if(call is_char_standing(var vikingb)) |
+| [palace22.tsct](../../../out/palace22.tsct#L134) | 134 | if(call is_char_standing(var vikingb1)) |
+| [palace25.tsct](../../../out/palace25.tsct#L178) | 178 | if(call is_char_standing(var vikingc1)) |
+| [palace27.tsct](../../../out/palace27.tsct#L156) | 156 | if(call ! is_char_standing(var vikingb)) |
+| [palace32.tsct](../../../out/palace32.tsct#L173) | 173 | if(call is_char_standing(var nviking)) |
+| [palace33.tsct](../../../out/palace33.tsct#L274) | 274 | if(call is_char_standing(var nduke)) |
+| [palace33.tsct](../../../out/palace33.tsct#L282) | 282 | if(call is_char_standing(var nglass)) |
+| [palace33.tsct](../../../out/palace33.tsct#L322) | 322 | if(call is_char_standing(var nglass)) |
+| [palace33.tsct](../../../out/palace33.tsct#L354) | 354 | if(call is_char_standing(var VAR_97)) |
+| [palace33.tsct](../../../out/palace33.tsct#L389) | 389 | if(call is_char_standing(var VAR_97)) |
+| [palace6.tsct](../../../out/palace6.tsct#L114) | 114 | if(call is_char_standing(var vikingb)) |
+| [pit.tsct](../../../out/pit.tsct#L125) | 125 | if(call is_char_standing(var boneyfx)) |
+| [pitprop.tsct](../../../out/pitprop.tsct#L151) | 151 | if(call is_char_standing(var VAR_0)) |
+| [pitprop.tsct](../../../out/pitprop.tsct#L186) | 186 | if(call is_char_standing(var ndeadjohn)) |
+| [pondend.tsct](../../../out/pondend.tsct#L149) | 149 | if(call is_char_standing(var VAR_15)) |
+| [raingate.tsct](../../../out/raingate.tsct#L159) | 159 | if(call is_char_standing(var dick)) |
+| [ritearch.tsct](../../../out/ritearch.tsct#L108) | 108 | if(call is_char_standing(var captain)) |
+| [river.tsct](../../../out/river.tsct#L134) | 134 | if(call is_char_standing(var DAVID)) |
+| [s_gates.tsct](../../../out/s_gates.tsct#L184) | 184 | if(call is_char_standing(var david)) |
+| [s_room_2.tsct](../../../out/s_room_2.tsct#L567) | 567 | if(call is_char_standing(var VAR_61)&&call is_char_standing(var VAR_62)) |
+| [s_room_2.tsct](../../../out/s_room_2.tsct#L615) | 615 | if(call is_char_standing(var VAR_61)&&call is_char_standing(var VAR_62)) |
+| [s_throne.tsct](../../../out/s_throne.tsct#L237) | 237 | if(call is_char_standing(var njag)) |
+| [s_throne.tsct](../../../out/s_throne.tsct#L390) | 390 | if(call is_char_standing(var nkhan)) |
+| [s_throne.tsct](../../../out/s_throne.tsct#L786) | 786 | if(call is_char_standing(var david)) |
+| [s_throne.tsct](../../../out/s_throne.tsct#L796) | 796 | if(call is_char_standing(var f_in_sekune)) |
+| [s_throne.tsct](../../../out/s_throne.tsct#L811) | 811 | if(call is_char_standing(var f_in_sekune1)) |
+| [s_throne.tsct](../../../out/s_throne.tsct#L1033) | 1033 | if(call is_char_standing(var david)) |
+| [s_throne.tsct](../../../out/s_throne.tsct#L1043) | 1043 | if(call is_char_standing(var f_in_sekune)) |
+| [s_throne.tsct](../../../out/s_throne.tsct#L1054) | 1054 | if(call is_char_standing(var f_in_sekune1)) |
+| [s_throne.tsct](../../../out/s_throne.tsct#L1160) | 1160 | if(call is_char_standing(var nemesis)) |
+| [s_throne.tsct](../../../out/s_throne.tsct#L1342) | 1342 | if(call is_char_standing(var nemesis)&&call is_char_standing(var david)) |
+| [s_throne.tsct](../../../out/s_throne.tsct#L1738) | 1738 | if(call is_char_standing(var f_in_bethts)) |
+| [s_throne.tsct](../../../out/s_throne.tsct#L1745) | 1745 | if(call is_char_standing(var f_in_bonnie)) |
+| [s_throne.tsct](../../../out/s_throne.tsct#L1775) | 1775 | if(call is_char_standing(var f_in_jennifer)) |
+| [scene30.tsct](../../../out/scene30.tsct#L272) | 272 | if(call is_char_standing(var nflatnose)) |
+| [screen3.tsct](../../../out/screen3.tsct#L194) | 194 | if(call is_char_standing(var DAVID)) |
+| [screen3.tsct](../../../out/screen3.tsct#L209) | 209 | if(call is_char_standing(var DAVID)) |
+| [screen3.tsct](../../../out/screen3.tsct#L284) | 284 | if(call is_char_standing(var nbuzuki)) |
+| [screen5.tsct](../../../out/screen5.tsct#L216) | 216 | if(call is_char_standing(var VAR_64)) |
+| [screen5.tsct](../../../out/screen5.tsct#L224) | 224 | if(call is_char_standing(var VAR_65)) |
+| [screen6.tsct](../../../out/screen6.tsct#L267) | 267 | if(call is_char_standing(var DAVID)&&gamevar scene_counter > int 300) |
+| [screen6.tsct](../../../out/screen6.tsct#L276) | 276 | if(call is_char_standing(var nprofess)) |
+| [screen6.tsct](../../../out/screen6.tsct#L284) | 284 | if(call is_char_standing(var ntyronis)) |
+| [screen6.tsct](../../../out/screen6.tsct#L292) | 292 | if(call is_char_standing(var nduke)) |
+| [screen6.tsct](../../../out/screen6.tsct#L300) | 300 | if(call is_char_standing(var nrebel)) |
+| [screen6.tsct](../../../out/screen6.tsct#L308) | 308 | if(call is_char_standing(var nrebela)) |
+| [screen6.tsct](../../../out/screen6.tsct#L360) | 360 | if(call is_char_standing(var nduke)) |
+| [screen6.tsct](../../../out/screen6.tsct#L371) | 371 | if(call is_char_standing(var ntyronis)) |
+| [screen6.tsct](../../../out/screen6.tsct#L382) | 382 | if(call is_char_standing(var DAVID)) |
+| [screen6.tsct](../../../out/screen6.tsct#L393) | 393 | if(call is_char_standing(var nprofess)) |
+| [screen6.tsct](../../../out/screen6.tsct#L404) | 404 | if(call is_char_standing(var nrebel)) |
+| [screen6.tsct](../../../out/screen6.tsct#L415) | 415 | if(call is_char_standing(var nrebela)) |
+| [screen6.tsct](../../../out/screen6.tsct#L421) | 421 | if(call is_char_standing(var nrebela)) |
+| [secret.tsct](../../../out/secret.tsct#L181) | 181 | if(call is_char_standing(var nyelimp)) |
+| [secret.tsct](../../../out/secret.tsct#L214) | 214 | if(call is_char_standing(var nyelimp)) |
+| [statues.tsct](../../../out/statues.tsct#L187) | 187 | if(call is_char_standing(var Fsentry4)) |
+| [subarch.tsct](../../../out/subarch.tsct#L173) | 173 | if(call is_char_standing(var DAVID)) |
+| [subarch.tsct](../../../out/subarch.tsct#L257) | 257 | if(call is_char_standing(var fuge)) |
+| [subarch.tsct](../../../out/subarch.tsct#L270) | 270 | if(call is_char_standing(var jennifer)) |
+| [subarch.tsct](../../../out/subarch.tsct#L312) | 312 | if(call is_char_standing(var start_grunt3)) |
+| [subarch.tsct](../../../out/subarch.tsct#L327) | 327 | if(call is_char_standing(var start_grunt2)) |
+| [t_square.tsct](../../../out/t_square.tsct#L278) | 278 | if(call is_not_force_scrolling()&&call is_char_standing(var DAVID)) |
+| [t_square.tsct](../../../out/t_square.tsct#L287) | 287 | if(call is_not_force_scrolling()&&call is_char_standing(var SEKUNE3)&&call is_char_standing(var DAVID)) |
+| [tavern01.tsct](../../../out/tavern01.tsct#L397) | 397 | if(call is_char_standing(var DAVID1)) |
+| [tavern01.tsct](../../../out/tavern01.tsct#L451) | 451 | if(call is_char_standing(var nlongjohn)) |
+| [tavern01.tsct](../../../out/tavern01.tsct#L463) | 463 | if(call is_char_standing(var nmuscles)) |
+| [tavern01.tsct](../../../out/tavern01.tsct#L477) | 477 | if(call is_char_standing(var nstipe)) |
+| [tavern01.tsct](../../../out/tavern01.tsct#L781) | 781 | if(call is_char_standing(var ndrunkwiz)) |
+| [tavern01.tsct](../../../out/tavern01.tsct#L914) | 914 | if(call is_char_standing(var ntavman)) |
+| [tavern02.tsct](../../../out/tavern02.tsct#L95) | 95 | if(call is_char_standing(var DAVID)) |
+| [tavern02.tsct](../../../out/tavern02.tsct#L161) | 161 | if(call is_char_standing(var NTAVMAN)) |
+| [tavern02.tsct](../../../out/tavern02.tsct#L173) | 173 | if(call is_char_standing(var NSTIPE)) |
+| [tavern02.tsct](../../../out/tavern02.tsct#L205) | 205 | if(call is_char_standing(var NWILLIAM)) |
+| [teleroom.tsct](../../../out/teleroom.tsct#L170) | 170 | if(call is_char_standing(var DAVID)) |
+| [teleroom.tsct](../../../out/teleroom.tsct#L233) | 233 | if(call is_char_standing(var DAVID)) |
+| [teleroom.tsct](../../../out/teleroom.tsct#L255) | 255 | if(call is_char_standing(var DAVID)) |
+| [teleroom.tsct](../../../out/teleroom.tsct#L359) | 359 | if(call is_char_standing(var neutral_imp)) |
+| [teleroom.tsct](../../../out/teleroom.tsct#L484) | 484 | if(call is_char_standing(var ntyronis)) |
+| [teleroom.tsct](../../../out/teleroom.tsct#L512) | 512 | if(call is_char_standing(var ntyronis)) |
+| [teleroom.tsct](../../../out/teleroom.tsct#L520) | 520 | if(call is_char_standing(var ntyronis)) |
+| [teleroom.tsct](../../../out/teleroom.tsct#L545) | 545 | if(call is_char_standing(var ntyronis)) |
+| [towngate.tsct](../../../out/towngate.tsct#L191) | 191 | if(call is_char_standing(var selected_hero)) |
+| [towngate.tsct](../../../out/towngate.tsct#L379) | 379 | if(call is_char_standing(var selected_hero)) |
+| [veranda.tsct](../../../out/veranda.tsct#L212) | 212 | if(call is_char_standing(var NIMP3)) |
+| [veranda.tsct](../../../out/veranda.tsct#L235) | 235 | if(call is_char_standing(var NIMP3)) |
+| [vivhouse.tsct](../../../out/vivhouse.tsct#L383) | 383 | if(call is_char_standing(var DAVID)) |
+| [vivhouse.tsct](../../../out/vivhouse.tsct#L395) | 395 | if(call is_char_standing(@arr[var index])) |
+| [vivinsid.tsct](../../../out/vivinsid.tsct#L76) | 76 | if(call is_char_standing(var DAVID)) |
+| [window.tsct](../../../out/window.tsct#L270) | 270 | if(call is_char_standing(var DAVID)) |
+| [wiztower.tsct](../../../out/wiztower.tsct#L155) | 155 | if(call is_char_standing(var DAVID)) |
+| [wiztower.tsct](../../../out/wiztower.tsct#L157) | 157 | if(call is_char_standing(var SEKUNE)) |
+| [wiztower.tsct](../../../out/wiztower.tsct#L199) | 199 | if(call is_char_standing(var nwilliam)) |
+| [wiztower.tsct](../../../out/wiztower.tsct#L345) | 345 | if(call is_char_standing(var VAR_124)) |
+| [wozroom.tsct](../../../out/wozroom.tsct#L142) | 142 | if(call is_char_standing(gamevar control_char_p)) |

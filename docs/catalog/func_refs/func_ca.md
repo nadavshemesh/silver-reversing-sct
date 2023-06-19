@@ -1,0 +1,10 @@
+# Function: func_ca 
+### References in the original script files
+
+#
+
+| File | Line Number | Reference code |
+| --- | --- | --- |
+| [h_oracle.tsct](../../../out/h_oracle.tsct#L236) | 236 | call func_ca(var DAVID, var i1horn, int 0) |
+| [ice_tomb.tsct](../../../out/ice_tomb.tsct#L263) | 263 | call func_ca(gamevar control_char_p, var VAR_67, int 0) |
+| [secret.tsct](../../../out/secret.tsct#L200) | 200 | call func_ca(var nyelimp, var ipotblue, int 0) |

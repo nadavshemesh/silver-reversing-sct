@@ -1929,7 +1929,7 @@
 			if(gamevar scene_counter > int 140)
 			 {
 					call char_walk_to(var fuge, int -953, int 785, int -8097)
-					call func_58(int 1)
+					call stop_bgm(int 1)
 					gamevar scene_counter = int 0
 					var VAR_4 = int 135
 			}
@@ -2005,7 +2005,7 @@
 					call func_f(var grandad, int 6422532)
 					call func_2(var grandad)
 					call func_f(var HDAVID, int 4)
-					call func_11f(var &VAR_154, int 32768)
+					call set_input_sys_2_if_pos_occupied(var &VAR_154, int 32768)
 					gamevar accel_window_width = int 16
 					var VAR_4 = int 108
 					var VAR_53 = int 107
@@ -2115,7 +2115,7 @@
 	call set_input_system(int 2)
 	call force_scroll_to_pos(var &scroll_position)
 	call load_char("treesprt")
-	call func_58(int 1)
+	call stop_bgm(int 1)
 	var VAR_183 = call func_ec(int 10, int -1, int 2, int 0)
 
 ._SCRIPT_16

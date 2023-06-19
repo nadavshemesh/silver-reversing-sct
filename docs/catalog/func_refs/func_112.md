@@ -1,0 +1,14 @@
+# Function: func_112 
+### References in the original script files
+
+#
+
+| File | Line Number | Reference code |
+| --- | --- | --- |
+| [h_intomb.tsct](../../../out/h_intomb.tsct#L229) | 229 | call func_112(var VAR_57, int 2) |
+| [steproom.tsct](../../../out/steproom.tsct#L153) | 153 | call func_112(var VAR_24, int 2) |
+| [steproom.tsct](../../../out/steproom.tsct#L155) | 155 | call func_112(var VAR_25, int 2) |
+| [steproom.tsct](../../../out/steproom.tsct#L157) | 157 | call func_112(var VAR_26, int 2) |
+| [steproom.tsct](../../../out/steproom.tsct#L168) | 168 | call func_112(var VAR_24, int 2) |
+| [steproom.tsct](../../../out/steproom.tsct#L170) | 170 | call func_112(var VAR_25, int 2) |
+| [steproom.tsct](../../../out/steproom.tsct#L172) | 172 | call func_112(var VAR_26, int 2) |

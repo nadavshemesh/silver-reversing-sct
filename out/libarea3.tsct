@@ -250,7 +250,7 @@
 								gamevar script_object = var DAVID
 								if(gamevar *object_p+5 == int 6)
 								 {
-										call log("drop imp jump down - david is dead")
+										call log_string("drop imp jump down - david is dead")
 										var VAR_27 ++ 
 										var VAR_28 = int 0
 								}
@@ -304,7 +304,7 @@
 						gamevar script_object = var DAVID
 						if(gamevar *object_p+5 == int 6)
 						 {
-								call log("horn imp jump down - david is dead")
+								call log_string("horn imp jump down - david is dead")
 								var VAR_13 = int 20
 								var VAR_14 = int 0
 						}
@@ -314,7 +314,7 @@
 				if(var VAR_14 > int 180)
 				 {
 						call freeze_enemy(var horn_impefs)
-						call log("Findpath to edge...")
+						call log_string("Findpath to edge...")
 						call char_walk_to_pos(var horn_impefs, var &walk_position)
 						var VAR_13 ++ 
 						var VAR_14 = int 0
@@ -323,7 +323,7 @@
 			case 21
 				if(call is_char_standing(var horn_impefs))
 				 {
-						call log("Put horn away...")
+						call log_string("Put horn away...")
 						call func_132(var horn_impefs, int 87)
 						var VAR_13 ++ 
 						var VAR_14 = int 0
@@ -332,7 +332,7 @@
 			case 22
 				if(var VAR_14 > int 120)
 				 {
-						call log("Turn imp...")
+						call log_string("Turn imp...")
 						call func_36(var horn_impefs, int -8770, int 1201, int -16052)
 						var VAR_13 ++ 
 						var VAR_14 = int 0
@@ -341,7 +341,7 @@
 			case 23
 				if(var VAR_14 > int 120)
 				 {
-						call log("Jump little imp...")
+						call log_string("Jump little imp...")
 						call func_29(var horn_impefs)
 						var VAR_13 ++ 
 						var VAR_14 = int 0
@@ -350,7 +350,7 @@
 			case 24
 				if(var VAR_14 > int 180)
 				 {
-						call log("Start hand_to_hand ai...")
+						call log_string("Start hand_to_hand ai...")
 						call func_50(var horn_impefs, int 129)
 						var VAR_13 ++ 
 						var VAR_14 = int 0

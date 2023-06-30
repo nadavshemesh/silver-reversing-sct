@@ -86,7 +86,7 @@
 	}
 
 ._SCRIPT_3
-	call log("it's_raining")
+	call log_string("it's_raining")
 	call play_3d_fx("RAIN", var &fx_position, var &VAR_20, int 0)
 	execute SCRIPT_10
 
@@ -94,7 +94,7 @@
 	if(var VAR_54 != var VAR_24)
 	 {
 			var VAR_54 = var VAR_24
-			call log_obj(var VAR_24)
+			call log_var(var VAR_24)
 	}
 	if(var VAR_24 == int 0)
 	 {
@@ -112,7 +112,7 @@
 			 {
 					if(call func_6d() == int 1)
 					 {
-							call log("break1")
+							call log_string("break1")
 							call char_walk_to(var nwilliam, int -5511, int -1115, int 1957)
 							call func_2b(var nclay, int 0)
 							call func_2b(var nrichard, int 0)
@@ -128,7 +128,7 @@
 			 {
 					if(call func_6d() == int 2)
 					 {
-							call log("break2")
+							call log_string("break2")
 							call func_2b(var njohn, int 0)
 							call func_2b(var nben, int 0)
 							call resume_conversation()
@@ -143,7 +143,7 @@
 			 {
 					if(call func_6d() == int 3)
 					 {
-							call log("break3")
+							call log_string("break3")
 							call func_2b(var nfatbob, int 0)
 							call resume_conversation()
 							var VAR_24 ++ 
@@ -157,7 +157,7 @@
 			 {
 					if(call func_6d() == int 4)
 					 {
-							call log("break4")
+							call log_string("break4")
 							call set_char_running(var nwilliam)
 							call func_2b(var nwilliam, int 0)
 							call func_2b(var nduke, int 0)
@@ -201,7 +201,7 @@
 	 {
 			if(call func_6d() == int 1)
 			 {
-					call log("break1_conv2")
+					call log_string("break1_conv2")
 					call resume_conversation()
 					var VAR_24 ++ 
 					var VAR_25 = int 0
@@ -211,7 +211,7 @@
 	 {
 			if(call func_6d() == int 1)
 			 {
-					call log("break1_otherconv2")
+					call log_string("break1_otherconv2")
 					call resume_conversation()
 					var VAR_24 ++ 
 					var VAR_25 = int 0
@@ -269,7 +269,7 @@
 ._SCRIPT_11
 	if(var ! VAR_0)
 	 {
-			call log("random_rain_fx: Rain SFX not initialised! See Marc")
+			call log_string("random_rain_fx: Rain SFX not initialised! See Marc")
 			exit_script 
 	}
 	switch(var VAR_4)

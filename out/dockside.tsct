@@ -813,7 +813,7 @@
 	if(var VAR_158 != var VAR_147)
 	 {
 			var VAR_158 = var VAR_147
-			call log_obj(var VAR_147)
+			call log_var(var VAR_147)
 	}
 	switch(var VAR_147)
 	 {
@@ -833,21 +833,21 @@
 						case 1
 							if(var VAR_150 < int 300)
 							 {
-									call log("heroes have no money")
+									call log_string("heroes have no money")
 									call start_dialog("C_HERNOM", var VAR_143)
 									var VAR_147 ++ 
 									var VAR_148 = int 0
 							}
 							else
 							 {
-									call log("go to deadgate")
+									call log_string("go to deadgate")
 									call start_dialog("C_HERYES", "ACT_3")
 									var VAR_147 = int 3
 									var VAR_148 = int 0
 							}
 							break 
 						case 0
-							call log("heroes decline")
+							call log_string("heroes decline")
 							call start_dialog("C_HERNO", var VAR_143)
 							var VAR_147 ++ 
 							var VAR_148 = int 0

@@ -95,7 +95,7 @@
 	}
 
 ._SCRIPT_3
-	call log("it's_raining")
+	call log_string("it's_raining")
 	call play_3d_fx("RAIN", var &fx_position, var &VAR_29, int 0)
 	execute SCRIPT_11
 
@@ -103,7 +103,7 @@
 	if(var VAR_66 != var VAR_48)
 	 {
 			var VAR_66 = var VAR_48
-			call log_obj(var VAR_48)
+			call log_var(var VAR_48)
 	}
 	switch(var VAR_48)
 	 {
@@ -121,7 +121,7 @@
 									call start_dialog("S_SEKVBY", "NULL")
 									break 
 								default 
-									call log("arse! david or sekune aren't the control character!!!")
+									call log_string("arse! david or sekune aren't the control character!!!")
 									break 
 						}
 						var is_DAVID_exist = call is_char_handle_in_level(int 65536)
@@ -399,7 +399,7 @@
 				execute SCRIPT_6
 				if(var VAR_65)
 				 {
-						call log("*** sensed heroes ***")
+						call log_string("*** sensed heroes ***")
 						execute SCRIPT_7
 						var VAR_48 ++ 
 						var VAR_49 = int 0
@@ -689,7 +689,7 @@
 ._SCRIPT_12
 	if(var ! VAR_0)
 	 {
-			call log("random_rain_fx: Rain SFX not initialised! See Marc")
+			call log_string("random_rain_fx: Rain SFX not initialised! See Marc")
 			exit_script 
 	}
 	switch(var VAR_4)

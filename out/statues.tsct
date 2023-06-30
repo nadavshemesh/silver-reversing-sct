@@ -138,7 +138,7 @@
 	if(var VAR_33 != var VAR_7)
 	 {
 			var VAR_33 = var VAR_7
-			call log_obj(var VAR_7)
+			call log_var(var VAR_7)
 	}
 	execute SCRIPT_4
 	if(var VAR_7 == int 0)
@@ -187,7 +187,7 @@
 					if(call is_char_standing(var Fsentry4))
 					 {
 							call remove_char(var Fsentry4)
-							call log("sentry4_dead")
+							call log_string("sentry4_dead")
 							var VAR_7 ++ 
 							var VAR_8 = int 0
 					}
@@ -200,7 +200,7 @@
 	}
 	if(var VAR_7 == int 2)
 	 {
-			call log("regen_sentrys")
+			call log_string("regen_sentrys")
 			call run_enemy_generator(var &enemy_gen_script, int 1)
 			var VAR_7 ++ 
 			var VAR_8 = int 0

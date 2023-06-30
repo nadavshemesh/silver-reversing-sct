@@ -80,7 +80,7 @@
 	}
 
 ._SCRIPT_3
-	call log("it's_raining")
+	call log_string("it's_raining")
 	call play_3d_fx("RAIN", var &fx_position, var &VAR_60, int 0)
 	execute SCRIPT_8
 
@@ -206,7 +206,7 @@
 ._SCRIPT_9
 	if(var ! VAR_0)
 	 {
-			call log("random_rain_fx: Rain SFX not initialised! See Marc")
+			call log_string("random_rain_fx: Rain SFX not initialised! See Marc")
 			exit_script 
 	}
 	switch(var VAR_4)
@@ -384,7 +384,7 @@
 	if(var VAR_41 != var VAR_35)
 	 {
 			var VAR_41 = var VAR_35
-			call log_obj(var VAR_35)
+			call log_var(var VAR_35)
 	}
 	switch(var VAR_35)
 	 {
@@ -440,14 +440,14 @@
 			case 5
 				if(var VAR_37 != gamevar saved_games_count)
 				 {
-						call log("game saved")
+						call log_string("game saved")
 						call func_11d()
 						var VAR_35 = int 7
 						var VAR_36 = int 0
 				}
 				else
 				 {
-						call log("game not saved")
+						call log_string("game not saved")
 						call func_2a(var fade_chronicler, var &VAR_38)
 						execute SCRIPT_16
 						gamevar chronicler_variation = var VAR_20

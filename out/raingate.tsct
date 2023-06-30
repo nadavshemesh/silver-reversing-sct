@@ -85,7 +85,7 @@
 	}
 
 ._SCRIPT_3
-	call log("it's_raining")
+	call log_string("it's_raining")
 	call play_3d_fx("RAIN", var &fx_position, var &VAR_20, int 0)
 	execute SCRIPT_9
 
@@ -160,7 +160,7 @@
 					 {
 							var VAR_31 = call run_enemy_generator(var &enemy_gen_script, int 10)
 							call remove_char(var dick)
-							call log("dick's gone")
+							call log_string("dick's gone")
 							var VAR_35 = int 4
 							var VAR_36 = int 0
 					}
@@ -168,14 +168,14 @@
 			else
 			 {
 					var VAR_31 = call run_enemy_generator(var &enemy_gen_script, int 10)
-					call log("Spaz handle")
+					call log_string("Spaz handle")
 					var VAR_35 = int 4
 					var VAR_36 = int 0
 			}
 	}
 	if(var VAR_35 == int 3)
 	 {
-			call log("dick's still here")
+			call log_string("dick's still here")
 			var VAR_31 = call run_enemy_generator(var &enemy_gen_script, int 10)
 			var VAR_35 ++ 
 			var VAR_36 = int 0
@@ -221,7 +221,7 @@
 ._SCRIPT_10
 	if(var ! VAR_0)
 	 {
-			call log("random_rain_fx: Rain SFX not initialised! See Marc")
+			call log_string("random_rain_fx: Rain SFX not initialised! See Marc")
 			exit_script 
 	}
 	switch(var VAR_4)

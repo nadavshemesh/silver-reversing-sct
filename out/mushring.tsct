@@ -121,12 +121,12 @@
 				if(gamevar room_state == int 1)
 				 {
 						var VAR_12 = int 1
-						call log("Act1 of Mushring")
+						call log_string("Act1 of Mushring")
 				}
 				else
 				 {
 						var VAR_12 = int 0
-						call log("Act2+ of mushring")
+						call log_string("Act2+ of mushring")
 				}
 				var VAR_11 ++ 
 				var VAR_10 = int 0
@@ -135,11 +135,11 @@
 				call load_pos_from_room_memory(int 0, var &VAR_13)
 				call save_pos_to_room_memory(int 0, var VAR_14, var VAR_15, var VAR_16)
 				var VAR_17 = var VAR_14
-				call log(var &VAR_22)
-				call log("Last time mushring was used:")
-				call log_obj(var VAR_17)
-				call log(var &VAR_24)
-				call log(var &VAR_25)
+				call log_string(var &VAR_22)
+				call log_string("Last time mushring was used:")
+				call log_var(var VAR_17)
+				call log_string(var &VAR_24)
+				call log_string(var &VAR_25)
 				var VAR_11 ++ 
 				var VAR_10 = int 0
 				break 
@@ -147,7 +147,7 @@
 				var VAR_18 = gamevar script_time - var VAR_17
 				if(var VAR_18 >= int 7200)
 				 {
-						call log("Mushring has now become useable")
+						call log_string("Mushring has now become useable")
 						var VAR_1 = call play_3d_fx("MUSHACT", var &fx_position, var &fx_position, int 0)
 						var VAR_11 ++ 
 						var VAR_10 = int 0
@@ -159,7 +159,7 @@
 						var VAR_11 ++ 
 						var VAR_10 = int 0
 						var VAR_1 = call play_3d_fx("MUSHACT", var &fx_position, var &fx_position, int 0)
-						call log("Mushring available due to act1")
+						call log_string("Mushring available due to act1")
 				}
 				break 
 			case 3
@@ -173,11 +173,11 @@
 						}
 						if(gamevar HP < gamevar *character_stats_p+9)
 						 {
-								call log(var &VAR_30)
-								call log("Elapsed time(HP):")
-								call log_obj(var VAR_18)
-								call log(var &VAR_32)
-								call log(var &VAR_33)
+								call log_string(var &VAR_30)
+								call log_string("Elapsed time(HP):")
+								call log_var(var VAR_18)
+								call log_string(var &VAR_32)
+								call log_string(var &VAR_33)
 								call set_input_system(int 2)
 								call char_walk_to_pos(var VAR_9, var &fx_position)
 								var VAR_11 ++ 
@@ -186,11 +186,11 @@
 						}
 						if(gamevar MAGIC < gamevar *character_stats_p+10)
 						 {
-								call log(var &VAR_34)
-								call log("Elapsed time(MP):")
-								call log_obj(var VAR_18)
-								call log(var &VAR_36)
-								call log(var &VAR_37)
+								call log_string(var &VAR_34)
+								call log_string("Elapsed time(MP):")
+								call log_var(var VAR_18)
+								call log_string(var &VAR_36)
+								call log_string(var &VAR_37)
 								call set_input_system(int 2)
 								call char_walk_to_pos(var VAR_9, var &fx_position)
 								var VAR_11 ++ 
@@ -212,11 +212,11 @@
 				 {
 						call play_bgm("mushpt1")
 						call save_pos_to_room_memory(int 0, gamevar script_time, int 0, int 0)
-						call log(var &VAR_39)
-						call log("New time:")
-						call log_obj(gamevar script_time)
-						call log(var &VAR_41)
-						call log(" ")
+						call log_string(var &VAR_39)
+						call log_string("New time:")
+						call log_var(gamevar script_time)
+						call log_string(var &VAR_41)
+						call log_string(" ")
 						call play_char_anim(var VAR_9, var DREAM_anim, int 0)
 						call play_3d_fx("MUSH", var &fx_position, var &fx_position, var VAR_9)
 						call func_12f(var VAR_1)

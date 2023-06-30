@@ -111,7 +111,7 @@
 	if(var VAR_16 != var VAR_5)
 	 {
 			var VAR_16 = var VAR_5
-			call log_obj(var VAR_5)
+			call log_var(var VAR_5)
 	}
 	if(var VAR_5 == int 0)
 	 {
@@ -130,7 +130,7 @@
 			var VAR_6 ++ 
 			if(var VAR_6 > int 100)
 			 {
-					call log("fight time")
+					call log_string("fight time")
 					call char_attack(var leopard, var grow_wamper)
 					call char_attack(var leopard1, var grow_wamper)
 					call char_attack(var leopard2, var grow_wamper)
@@ -146,7 +146,7 @@
 					 {
 							if(call func_87(var leopard))
 							 {
-									call log("fight1: finished")
+									call log_string("fight1: finished")
 									call func_36(var leopard, int -1233, int -1825, int 347)
 									gamevar script_object = var leopard
 									gamevar *character_stats_p+15 = int 3000
@@ -164,7 +164,7 @@
 					 {
 							if(call func_87(var leopard1))
 							 {
-									call log("fight1: finished")
+									call log_string("fight1: finished")
 									call func_36(var leopard1, int -1233, int -1825, int 347)
 									gamevar script_object = var leopard1
 									gamevar *character_stats_p+15 = int 3000
@@ -182,7 +182,7 @@
 					 {
 							if(call func_87(var leopard2))
 							 {
-									call log("fight1: finished")
+									call log_string("fight1: finished")
 									call func_36(var leopard2, int -1233, int -1825, int 347)
 									gamevar script_object = var leopard2
 									gamevar *character_stats_p+15 = int 3000
@@ -205,7 +205,7 @@
 			 {
 					if(call is_char_handle_in_level(int 2752512))
 					 {
-							call log("you killed my leopards")
+							call log_string("you killed my leopards")
 							gamevar script_object = var sentryg
 							gamevar *character_stats_p+15 = int 3000
 							call func_106(var sentryg, int 1, int 0, int 1)
@@ -216,7 +216,7 @@
 	}
 	if(call is_char_handle_in_level(int 10420224))
 	 {
-			call log("dead but not dead")
+			call log_string("dead but not dead")
 			gamevar script_object = var grow_wamper
 			if(gamevar *object_p+5 == int 6)
 			 {

@@ -84,7 +84,7 @@
 			}
 			else
 			 {
-					call log("open door")
+					call log_string("open door")
 					var VAR_0 = int 1
 					var VAR_5 = int 1
 					call func_ec(int 1, int 0, int 24, var &VAR_46)
@@ -126,13 +126,13 @@
 	if(var VAR_75 != var VAR_61)
 	 {
 			var VAR_75 = var VAR_61
-			call log_obj(var VAR_61)
+			call log_var(var VAR_61)
 	}
 	if(var VAR_61 == int 0)
 	 {
 			if(call func_8a(var &VAR_71))
 			 {
-					call log("crossed tipe wire")
+					call log_string("crossed tipe wire")
 					var VAR_61 ++ 
 			}
 	}
@@ -192,7 +192,7 @@
 	 {
 			if(call func_6d() == int 1)
 			 {
-					call log("break1_conv1")
+					call log_string("break1_conv1")
 					call set_char_running(var scruttoc)
 					call char_walk_to(var scruttoc, int -2297, int -1560, int 1302)
 					call resume_conversation()
@@ -205,7 +205,7 @@
 			var VAR_84 ++ 
 			if(var VAR_84 > int 80)
 			 {
-					call log("SCROLL_OF_COPPERFIELD")
+					call log_string("SCROLL_OF_COPPERFIELD")
 					call func_14(var scruttoc, int 102)
 					call func_fa(var scruttoc)
 					var VAR_50 = int 1
@@ -217,7 +217,7 @@
 			var VAR_84 ++ 
 			if(var VAR_84 > int 30)
 			 {
-					call log("time to save")
+					call log_string("time to save")
 					if(var VAR_50 == int 1)
 					 {
 							gamevar room_state = int 3
@@ -239,7 +239,7 @@
 	 {
 			if(call create_item(int 102 /* scroll */ ))
 			 {
-					call log("set haven pondend to act3")
+					call log_string("set haven pondend to act3")
 					call func_116("haven", "pondend", int 3)
 					call func_118("haven", "pondend", int 1)
 					call save_pos_to_room_memory(int 12345, int 1, int 0, int 0)
@@ -274,7 +274,7 @@
 	if(var VAR_29 != var VAR_23)
 	 {
 			var VAR_29 = var VAR_23
-			call log_obj(var VAR_23)
+			call log_var(var VAR_23)
 	}
 	switch(var VAR_23)
 	 {
@@ -330,14 +330,14 @@
 			case 5
 				if(var VAR_25 != gamevar saved_games_count)
 				 {
-						call log("game saved")
+						call log_string("game saved")
 						call func_11d()
 						var VAR_23 = int 7
 						var VAR_24 = int 0
 				}
 				else
 				 {
-						call log("game not saved")
+						call log_string("game not saved")
 						call func_2a(var fade_chronicler, var &VAR_26)
 						execute SCRIPT_15
 						gamevar chronicler_variation = var VAR_8

@@ -123,7 +123,7 @@
 	}
 
 ._SCRIPT_3
-	call log("it's_raining")
+	call log_string("it's_raining")
 	call play_3d_fx("RAIN", var &fx_position, var &VAR_38, int 0)
 	execute SCRIPT_17
 
@@ -149,32 +149,32 @@
 			switch(var VAR_27)
 			 {
 					case 65536
-						call log("david")
+						call log_string("david")
 						var VAR_18 = var david
 						break 
 					case 786432
-						call log("sekune")
+						call log_string("sekune")
 						var VAR_20 = var david
 						break 
 					case 327680
-						call log("jug")
+						call log_string("jug")
 						var VAR_19 = var david
 						break 
 					case 196608
-						call log("vivienne")
+						call log_string("vivienne")
 						var VAR_21 = var david
 						break 
 					case 131072
-						call log("chiaro")
+						call log_string("chiaro")
 						var VAR_22 = var david
 						break 
 					case 262144
-						call log("cagen")
+						call log_string("cagen")
 						var VAR_23 = var david
 						break 
 					default 
-						call log("WARNING! Unknown hero while checking heroes")
-						call log("Get a goober -- QUICKLY!!")
+						call log_string("WARNING! Unknown hero while checking heroes")
+						call log_string("Get a goober -- QUICKLY!!")
 						break 
 			}
 			var david = call get_next_char_from_list()
@@ -184,7 +184,7 @@
 	if(var VAR_91 != var VAR_75)
 	 {
 			var VAR_91 = var VAR_75
-			call log_obj(var VAR_75)
+			call log_var(var VAR_75)
 	}
 	switch(var VAR_75)
 	 {
@@ -248,7 +248,7 @@
 										}
 										else
 										 {
-												call log("OOps! Fuck up! Sekune, Vivienne and Jug not here!")
+												call log_string("OOps! Fuck up! Sekune, Vivienne and Jug not here!")
 										}
 								}
 						}
@@ -408,13 +408,13 @@
 				 {
 						if(var VAR_89)
 						 {
-								call log("palace")
+								call log_string("palace")
 								call func_e6("palace", "s_throne", var &VAR_88, int 1)
 								call save_pos_to_room_memory(int 123456, int 0, int 1, int 0)
 						}
 						else
 						 {
-								call log("cld_rd_3")
+								call log_string("cld_rd_3")
 								call func_e6("rain", "cld_rd_3", var &VAR_87, int 3)
 								call save_pos_to_room_memory(int 123456, int 1, int 0, int 0)
 						}
@@ -499,7 +499,7 @@
 	if(var VAR_121 != var VAR_116)
 	 {
 			var VAR_121 = var VAR_116
-			call log_obj(var VAR_116)
+			call log_var(var VAR_116)
 	}
 	switch(var VAR_116)
 	 {
@@ -664,21 +664,21 @@
 						 {
 								if(var VAR_25)
 								 {
-										call log("spires")
+										call log_string("spires")
 										call func_e6("spires", "entrance", var &VAR_120, int 2)
 										call save_pos_to_room_memory(int 123456, int 0, var VAR_25, int 0)
 								}
 								else
 								 {
 										var VAR_25 = int 1
-										call log("palace")
+										call log_string("palace")
 										call func_e6("palace", "s_throne", var &VAR_88, int 1)
 								}
 								call save_pos_to_room_memory(int 123456, int 0, var VAR_25, int 0)
 						}
 						else
 						 {
-								call log("cld_rd_3")
+								call log_string("cld_rd_3")
 								call func_e6("rain", "cld_rd_3", var &VAR_87, int 3)
 								call save_pos_to_room_memory(int 123456, int 1, var VAR_25, int 0)
 						}
@@ -778,7 +778,7 @@
 			case 1
 				if(var VAR_58 == int -1)
 				 {
-						call log("finished smacker")
+						call log_string("finished smacker")
 						var VAR_59 = int 1
 						gamevar script_object = var VAR_60
 						gamevar *smack_object_p+2 -= int 10737418
@@ -837,7 +837,7 @@
 ._SCRIPT_18
 	if(var ! VAR_0)
 	 {
-			call log("random_rain_fx: Rain SFX not initialised! See Marc")
+			call log_string("random_rain_fx: Rain SFX not initialised! See Marc")
 			exit_script 
 	}
 	switch(var VAR_4)

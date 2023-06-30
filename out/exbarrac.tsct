@@ -346,7 +346,7 @@
 	call add_item_to_char(var NVILOWFAT, int 43 /* cheese */ , int 0, int 0)
 	if(call func_bf(int 333, gamevar CURRENT_LEVEL, gamevar CURRENT_SCENE))
 	 {
-			call log("old food topic from history")
+			call log_string("old food topic from history")
 			call load_pos_from_room_memory(int 333, var &VAR_59)
 			var index = var VAR_60
 	}
@@ -423,12 +423,12 @@
 						 {
 								if(call func_6c(var NVILOWFAT))
 								 {
-										call log("didn't want anything")
+										call log_string("didn't want anything")
 										call start_dialog("V_VFTNO", var VAR_47)
 								}
 								else
 								 {
-										call log("couldn't afford anything")
+										call log_string("couldn't afford anything")
 										call start_dialog("V_VFTNOM", var VAR_47)
 								}
 						}
@@ -470,12 +470,12 @@
 	}
 	if(call ! func_bf(int 111, gamevar CURRENT_LEVEL, gamevar CURRENT_SCENE))
 	 {
-			call log("no weapons")
+			call log_string("no weapons")
 			var VAR_78 = int 0
 	}
 	else
 	 {
-			call log("has weapons")
+			call log_string("has weapons")
 			var VAR_78 = int 1
 			call load_pos_from_room_memory(int 111, var &VAR_59)
 			if(var VAR_90 == int -1)
@@ -560,7 +560,7 @@
 						 {
 								if(var VAR_79 == var VAR_83)
 								 {
-										call log("!!!!! SPECIAL CASE !!!!!")
+										call log_string("!!!!! SPECIAL CASE !!!!!")
 										var VAR_97 = call get_char_handle_id(gamevar control_char_p)
 										switch(var VAR_97)
 										 {
@@ -593,12 +593,12 @@
 						 {
 								if(call func_6c(var NVILLOW))
 								 {
-										call log("didn't want anything")
+										call log_string("didn't want anything")
 										call start_dialog("V_VOWNO", var VAR_79)
 								}
 								else
 								 {
-										call log("couldn't afford anything")
+										call log_string("couldn't afford anything")
 										call start_dialog("V_VOWNOM", var VAR_79)
 								}
 						}

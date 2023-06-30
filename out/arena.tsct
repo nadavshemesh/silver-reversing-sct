@@ -93,7 +93,7 @@
 						call func_ec(int 1, int 0, int 23, var &init_position + int 36)
 						call play_bgm("IEVLBAT1")
 						var VAR_0 = int 1
-						call log("FIREBOSS GENERATE")
+						call log_string("FIREBOSS GENERATE")
 				}
 				break 
 			case 1
@@ -104,7 +104,7 @@
 				}
 				break 
 			case 2
-				call log("FIREBOSS AI INIT")
+				call log_string("FIREBOSS AI INIT")
 				call func_106(var fireboss, int 2, int 0, var &init_position)
 				call func_106(var fireboss, int 2, int 1, int 5)
 				call func_106(var fireboss, int 2, int 2, int 3)
@@ -118,7 +118,7 @@
 				if(call ! is_char_handle_in_level(int 7798784))
 				 {
 						call set_input_system(int 2)
-						call log("level_up_heros")
+						call log_string("level_up_heros")
 						var david = call get_david_char()
 						while(var david)
 						 {
@@ -217,7 +217,7 @@
 	if(var VAR_36 != var VAR_30)
 	 {
 			var VAR_36 = var VAR_30
-			call log_obj(var VAR_30)
+			call log_var(var VAR_30)
 	}
 	switch(var VAR_30)
 	 {
@@ -273,14 +273,14 @@
 			case 5
 				if(var VAR_32 != gamevar saved_games_count)
 				 {
-						call log("game saved")
+						call log_string("game saved")
 						call func_11d()
 						var VAR_30 = int 7
 						var VAR_31 = int 0
 				}
 				else
 				 {
-						call log("game not saved")
+						call log_string("game not saved")
 						call func_2a(var fade_chronicler, var &VAR_33)
 						execute SCRIPT_13
 						gamevar chronicler_variation = var VAR_15

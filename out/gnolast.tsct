@@ -151,14 +151,14 @@
 ._SCRIPT_6
 	execute SCRIPT_4
 	execute SCRIPT_8
-	call log("override door 0")
+	call log_string("override door 0")
 	gamevar *scene_info_p+3 = int 16
 
 ._SCRIPT_7
 	if(var VAR_33 != var VAR_15)
 	 {
 			var VAR_33 = var VAR_15
-			call log_obj(var VAR_15)
+			call log_var(var VAR_15)
 	}
 	switch(var VAR_15)
 	 {
@@ -320,7 +320,7 @@
 			case 0
 				if(call func_af(int 73) != int 0)
 				 {
-						call log("Chest opened")
+						call log_string("Chest opened")
 						call func_10c(var TYRONIS, "MARC")
 						var VAR_50 ++ 
 				}
@@ -328,7 +328,7 @@
 			case 1
 				if(call func_af(int 73) == int 0)
 				 {
-						call log("icewand picked up")
+						call log_string("icewand picked up")
 						call func_10c(var GRANDAD, "MARC")
 						call freeze_enemy(var TYRONIS)
 						var VAR_15 = int 10

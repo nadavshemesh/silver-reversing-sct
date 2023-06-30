@@ -332,7 +332,7 @@
 	if(var VAR_113 != var VAR_110)
 	 {
 			var VAR_113 = var VAR_110
-			call log_obj(var VAR_110)
+			call log_var(var VAR_110)
 	}
 	if(var VAR_110 == int 0)
 	 {
@@ -682,25 +682,25 @@
 	call load_char("lizman")
 	call load_char("bat")
 	call load_char("litl_liz")
-	call log("wandering baddies")
+	call log_string("wandering baddies")
 	var VAR_151 = call func_6f()
 	if(var VAR_151 == int 0)
 	 {
 			var VAR_62 = call run_wandering_generator(var &wandering_gen_script2, int 10)
-			call log("three groads")
+			call log_string("three groads")
 	}
 	else
 	 {
 			if(var VAR_151 == int 1)
 			 {
-					call log("wave 1 big baddies")
+					call log_string("wave 1 big baddies")
 			}
 			else
 			 {
 					if(var VAR_151 == int 2)
 					 {
 							var VAR_62 = call run_wandering_generator(var &wandering_gen_script3, int 10)
-							call log("wave 1 little baddies")
+							call log_string("wave 1 little baddies")
 					}
 					else
 					 {
@@ -708,13 +708,13 @@
 							 {
 									var VAR_62 = call run_wandering_generator(var &wandering_gen_script4, int 1)
 									var VAR_62 = call run_wandering_generator(var &wandering_gen_script5, int 10)
-									call log("wave 1 little baddies")
+									call log_string("wave 1 little baddies")
 							}
 							else
 							 {
 									if(var VAR_151 == int 4)
 									 {
-											call log("wave 1 big baddies")
+											call log_string("wave 1 big baddies")
 									}
 							}
 					}

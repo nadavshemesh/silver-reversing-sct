@@ -233,7 +233,7 @@
 	}
 	if(var VAR_66 == int 7)
 	 {
-			call log("rend scream glass smash")
+			call log_string("rend scream glass smash")
 			var VAR_67 = int 0
 			var VAR_66 ++ 
 	}
@@ -249,7 +249,7 @@
 	if(var VAR_76 != var VAR_66)
 	 {
 			var VAR_76 = var VAR_66
-			call log_obj(var VAR_66)
+			call log_var(var VAR_66)
 	}
 	execute SCRIPT_6
 
@@ -333,7 +333,7 @@
 	if(var VAR_23 != var VAR_17)
 	 {
 			var VAR_23 = var VAR_17
-			call log_obj(var VAR_17)
+			call log_var(var VAR_17)
 	}
 	switch(var VAR_17)
 	 {
@@ -389,14 +389,14 @@
 			case 5
 				if(var VAR_19 != gamevar saved_games_count)
 				 {
-						call log("game saved")
+						call log_string("game saved")
 						call func_11d()
 						var VAR_17 = int 7
 						var VAR_18 = int 0
 				}
 				else
 				 {
-						call log("game not saved")
+						call log_string("game not saved")
 						call func_2a(var fade_chronicler, var &VAR_20)
 						execute SCRIPT_15
 						gamevar chronicler_variation = var VAR_2

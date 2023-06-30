@@ -122,7 +122,7 @@
 	if(var VAR_27 != var VAR_17)
 	 {
 			var VAR_27 = var VAR_17
-			call log_obj(var VAR_17)
+			call log_var(var VAR_17)
 	}
 	switch(var VAR_17)
 	 {
@@ -156,23 +156,23 @@
 										switch(var VAR_20)
 										 {
 												case 786432
-													call log("sekune")
+													call log_string("sekune")
 													call start_dialog("C_CHISEK", "NULL")
 													break 
 												case 196608
-													call log("vivienne")
+													call log_string("vivienne")
 													call start_dialog("C_CHIVIV", "NULL")
 													break 
 												case 262144
-													call log("cagen")
+													call log_string("cagen")
 													call start_dialog("C_CHICAG", "NULL")
 													break 
 												case 327680
-													call log("jug")
+													call log_string("jug")
 													call start_dialog("C_CHIJUG", "NULL")
 													break 
 												default 
-													call log("unknown hero in list")
+													call log_string("unknown hero in list")
 													break 
 										}
 										var david1 = int 0
@@ -227,7 +227,7 @@
 																}
 																else
 																 {
-																		call log("NO DIALOG TRIGGERED")
+																		call log_string("NO DIALOG TRIGGERED")
 																}
 														}
 												}
@@ -256,8 +256,8 @@
 	if(gamevar global_exit_door != var VAR_7)
 	 {
 			var VAR_7 = gamevar global_exit_door
-			call log("Clicked global_exit_door")
-			call log_obj(gamevar global_exit_door)
+			call log_string("Clicked global_exit_door")
+			call log_var(gamevar global_exit_door)
 	}
 
 ._SCRIPT_7
@@ -266,8 +266,8 @@
 	if(gamevar global_exit_door != var VAR_7)
 	 {
 			var VAR_7 = gamevar global_exit_door
-			call log("Clicked global_exit_door")
-			call log_obj(gamevar global_exit_door)
+			call log_string("Clicked global_exit_door")
+			call log_var(gamevar global_exit_door)
 	}
 
 ._SCRIPT_9
@@ -280,32 +280,32 @@
 			switch(var VAR_57)
 			 {
 					case 65536
-						call log("david")
+						call log_string("david")
 						var VAR_1 = var david2
 						break 
 					case 786432
-						call log("sekune")
+						call log_string("sekune")
 						var VAR_3 = var david2
 						break 
 					case 327680
-						call log("jug")
+						call log_string("jug")
 						var VAR_2 = var david2
 						break 
 					case 196608
-						call log("vivienne")
+						call log_string("vivienne")
 						var VAR_4 = var david2
 						break 
 					case 131072
-						call log("chiaro")
+						call log_string("chiaro")
 						var nchiaro = var david2
 						break 
 					case 262144
-						call log("cagen")
+						call log_string("cagen")
 						var VAR_6 = var david2
 						break 
 					default 
-						call log("WARNING! Unknown hero while checking heroes")
-						call log("Get a goober -- QUICKLY!!")
+						call log_string("WARNING! Unknown hero while checking heroes")
+						call log_string("Get a goober -- QUICKLY!!")
 						break 
 			}
 			var david2 = call get_next_char_from_list()

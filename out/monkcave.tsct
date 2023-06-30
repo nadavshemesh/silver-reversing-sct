@@ -170,32 +170,32 @@
 			switch(var VAR_61)
 			 {
 					case 65536
-						call log("david")
+						call log_string("david")
 						var VAR_42 = var david1
 						break 
 					case 786432
-						call log("sekune")
+						call log_string("sekune")
 						var VAR_44 = var david1
 						break 
 					case 327680
-						call log("jug")
+						call log_string("jug")
 						var VAR_43 = var david1
 						break 
 					case 196608
-						call log("vivienne")
+						call log_string("vivienne")
 						var VAR_45 = var david1
 						break 
 					case 131072
-						call log("chiaro")
+						call log_string("chiaro")
 						var VAR_46 = var david1
 						break 
 					case 262144
-						call log("cagen")
+						call log_string("cagen")
 						var VAR_47 = var david1
 						break 
 					default 
-						call log("WARNING! Unknown hero while checking heroes")
-						call log("Get a goober -- QUICKLY!!")
+						call log_string("WARNING! Unknown hero while checking heroes")
+						call log_string("Get a goober -- QUICKLY!!")
 						break 
 			}
 			var VAR_62 ++ 
@@ -260,7 +260,7 @@
 	if(var VAR_103 != var VAR_98)
 	 {
 			var VAR_103 = var VAR_98
-			call log_obj(var VAR_98)
+			call log_var(var VAR_98)
 	}
 	switch(var VAR_98)
 	 {
@@ -372,7 +372,7 @@
 				}
 				break 
 	}
-	call log_obj(var VAR_98)
+	call log_var(var VAR_98)
 	var VAR_99 ++ 
 	if(var VAR_39)
 	 {
@@ -393,7 +393,7 @@
 	if(var VAR_119 != var VAR_108)
 	 {
 			var VAR_119 = var VAR_108
-			call log_obj(var VAR_108)
+			call log_var(var VAR_108)
 	}
 	switch(var VAR_108)
 	 {
@@ -431,7 +431,7 @@
 													}
 													else
 													 {
-															call log("SOMETHING IS WRONG!")
+															call log_string("SOMETHING IS WRONG!")
 													}
 											}
 											break 
@@ -448,7 +448,7 @@
 													}
 													else
 													 {
-															call log("SOMETHING IS WRONG!")
+															call log_string("SOMETHING IS WRONG!")
 													}
 											}
 											break 
@@ -465,7 +465,7 @@
 													}
 													else
 													 {
-															call log("SOMETHING IS WRONG!")
+															call log_string("SOMETHING IS WRONG!")
 													}
 											}
 											break 
@@ -482,7 +482,7 @@
 													}
 													else
 													 {
-															call log("SOMETHING IS WRONG!")
+															call log_string("SOMETHING IS WRONG!")
 													}
 											}
 											break 
@@ -499,7 +499,7 @@
 													}
 													else
 													 {
-															call log("SOMETHING IS WRONG!")
+															call log_string("SOMETHING IS WRONG!")
 													}
 											}
 											break 
@@ -516,12 +516,12 @@
 													}
 													else
 													 {
-															call log("SOMETHING IS WRONG!")
+															call log_string("SOMETHING IS WRONG!")
 													}
 											}
 											break 
 										default 
-											call log("SOMETHING IS WRONG!")
+											call log_string("SOMETHING IS WRONG!")
 											break 
 								}
 						}
@@ -609,13 +609,13 @@
 												call start_dialog("C_DVDPOT", "NULL")
 												break 
 											case 131072
-												call log("no chiaro dialog!")
+												call log_string("no chiaro dialog!")
 												break 
 									}
 							}
 							else
 							 {
-									call log("Ooops! Only 1 hero!!")
+									call log_string("Ooops! Only 1 hero!!")
 							}
 							break 
 						case 196608
@@ -631,7 +631,7 @@
 							call start_dialog("S_SEKPOT", "NULL")
 							break 
 						case 131072
-							call log("no chiaro dialog!")
+							call log_string("no chiaro dialog!")
 							break 
 				}
 				var VAR_108 ++ 
@@ -655,7 +655,7 @@
 ._SCRIPT_12
 	var nmedmonk = call create_char(var &init_position, "nmedmonk", int 25, int 13)
 	call func_108("DOGWANK")
-	call log("init_act20")
+	call log_string("init_act20")
 
 ._SCRIPT_13
 	switch(var VAR_150)
@@ -727,7 +727,7 @@
 	if(var VAR_23 != var VAR_17)
 	 {
 			var VAR_23 = var VAR_17
-			call log_obj(var VAR_17)
+			call log_var(var VAR_17)
 	}
 	switch(var VAR_17)
 	 {
@@ -783,14 +783,14 @@
 			case 5
 				if(var VAR_19 != gamevar saved_games_count)
 				 {
-						call log("game saved")
+						call log_string("game saved")
 						call func_11d()
 						var VAR_17 = int 7
 						var VAR_18 = int 0
 				}
 				else
 				 {
-						call log("game not saved")
+						call log_string("game not saved")
 						call func_2a(var fade_chronicler, var &VAR_20)
 						execute SCRIPT_21
 						gamevar chronicler_variation = var VAR_2

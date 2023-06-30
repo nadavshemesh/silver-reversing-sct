@@ -570,7 +570,7 @@
 													call start_dialog("O_JugYes", "Null")
 													break 
 												default 
-													call log("Cheating scum. You're not getting any dialog.")
+													call log_string("Cheating scum. You're not getting any dialog.")
 													break 
 										}
 										call func_110(call func_86() - int 30)
@@ -611,7 +611,7 @@
 	if(var VAR_122 != var VAR_45)
 	 {
 			var VAR_122 = var VAR_45
-			call log_obj(var VAR_45)
+			call log_var(var VAR_45)
 	}
 	switch(var VAR_45)
 	 {
@@ -887,7 +887,7 @@
 			case 100
 				if(call func_65(var ntavman, int 13) == int 17)
 				 {
-						call log("TALKING TO MILDEW, HEROS HAVE THE PASSWORD")
+						call log_string("TALKING TO MILDEW, HEROS HAVE THE PASSWORD")
 						call func_46(var ntavman, int 13)
 						if(call is_char_handle_in_level(int 6946816 /* STIPE */ ))
 						 {
@@ -1234,7 +1234,7 @@
 					 {
 							if(call func_80(var njug) == int 0)
 							 {
-									call log("jug equips battleaxe")
+									call log_string("jug equips battleaxe")
 									call func_56(var njug, int 18)
 							}
 					}
@@ -1292,7 +1292,7 @@
 											}
 											else
 											 {
-													call log("SHIT! Strange character left behind!")
+													call log_string("SHIT! Strange character left behind!")
 											}
 									}
 							}

@@ -142,7 +142,7 @@
 	}
 
 ._SCRIPT_3
-	call log("act1")
+	call log_string("act1")
 	gamevar door_restriction_p = var &VAR_2
 	var HDAVID = call create_char(var &init_position, "HDAVID", int 75, int 13)
 	var grandad = call create_enemy(int 98, int 0, var &init_position1, int 125)
@@ -366,7 +366,7 @@
 	}
 
 ._SCRIPT_6
-	call log("act2")
+	call log_string("act2")
 	gamevar door_restriction_p = var &VAR_2
 	var HDAVID = call get_char_handle(int 65536)
 	var grandad = call create_enemy(int 98, int 0, var &init_position2, int 300)
@@ -1636,7 +1636,7 @@
 					call char_walk_to(var jennifer, int 463, int 785, int -6855)
 					var VAR_53 = int 103
 					call set_char_lvl(var grandad, int 5)
-					call log("Set Grandad to Level 5")
+					call log_string("Set Grandad to Level 5")
 					call set_char_walking(var grandad)
 					call char_attack(var grandad, var HDAVID)
 					var VAR_4 = int 97
@@ -1644,7 +1644,7 @@
 	}
 	if(var VAR_4 == int 97)
 	 {
-			call log("ACT2_REAL_FIGHT7")
+			call log_string("ACT2_REAL_FIGHT7")
 			if(call is_char_at_pos(var grandad, var &init_position2, int 1000) == int 0)
 			 {
 					call func_d6(var grandad)
@@ -1655,7 +1655,7 @@
 	}
 	if(var VAR_4 == int 98)
 	 {
-			call log("ACT2_REAL_FIGHT8")
+			call log_string("ACT2_REAL_FIGHT8")
 			if(call is_char_standing(var grandad))
 			 {
 					if(call is_char_at_pos(var HDAVID, var &init_position2, int 1000) == int 0)
@@ -1674,7 +1674,7 @@
 	}
 	if(var VAR_4 == int 99)
 	 {
-			call log("ACT2_REAL_FIGHT9")
+			call log_string("ACT2_REAL_FIGHT9")
 			if(call is_local_timer_greater_than(int 10))
 			 {
 					call play_char_anim(var grandad, var tyrosumn_anim, int 0)
@@ -1690,7 +1690,7 @@
 	}
 	if(var VAR_4 == int 100)
 	 {
-			call log("ACT2_REAL_FIGHT10")
+			call log_string("ACT2_REAL_FIGHT10")
 			if(call is_local_timer_greater_than(int 40))
 			 {
 					call char_turn_to_pos(var grandad, call get_char_pos(var HDAVID))
@@ -2099,18 +2099,18 @@
 	}
 
 ._SCRIPT_11
-	call log("act3")
+	call log_string("act3")
 	gamevar door_restriction_p = var &VAR_3
 
 ._SCRIPT_12
 
 ._SCRIPT_13
-	call log("act4")
+	call log_string("act4")
 
 ._SCRIPT_14
 
 ._SCRIPT_15
-	call log("act5")
+	call log_string("act5")
 	var SEKUNE = call get_char_handle(int 786432)
 	call set_input_system(int 2)
 	call force_scroll_to_pos(var &scroll_position)
@@ -2122,7 +2122,7 @@
 	if(var VAR_186 != var VAR_170)
 	 {
 			var VAR_186 = var VAR_170
-			call log_obj(var VAR_170)
+			call log_var(var VAR_170)
 	}
 	switch(var VAR_170)
 	 {
@@ -2140,7 +2140,7 @@
 				 {
 						if(call func_6d() == int 13)
 						 {
-								call log("sekune talks to david")
+								call log_string("sekune talks to david")
 								call resume_conversation()
 								var VAR_170 = int 8
 								var VAR_171 = int 0
@@ -2197,7 +2197,7 @@
 	}
 
 ._SCRIPT_17
-	call log("act6")
+	call log_string("act6")
 
 ._SCRIPT_18
 

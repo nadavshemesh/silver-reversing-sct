@@ -67,7 +67,7 @@
 	}
 
 ._SCRIPT_3
-	call log("it's_raining")
+	call log_string("it's_raining")
 	call play_3d_fx("RAIN", "l", var &VAR_60, int 0)
 	execute SCRIPT_9
 
@@ -75,7 +75,7 @@
 	if(var VAR_96 != var VAR_62)
 	 {
 			var VAR_96 = var VAR_62
-			call log_obj(var VAR_62)
+			call log_var(var VAR_62)
 	}
 	execute SCRIPT_6
 	if(var VAR_62 == int 0)
@@ -196,7 +196,7 @@
 					 {
 							if(call func_87(var lieutenant))
 							 {
-									call log("fight1: finished")
+									call log_string("fight1: finished")
 									gamevar script_object = var lieutenant
 									gamevar *character_stats_p+15 = int 3000
 									call func_17(var lieutenant, var DAVID)
@@ -213,7 +213,7 @@
 					 {
 							if(call func_87(var lieutenant1))
 							 {
-									call log("fight2: finished")
+									call log_string("fight2: finished")
 									gamevar script_object = var lieutenant1
 									gamevar *character_stats_p+15 = int 3000
 									call func_17(var lieutenant1, var DAVID)
@@ -230,7 +230,7 @@
 					 {
 							if(call func_87(var lieutenant2))
 							 {
-									call log("fight3: finished")
+									call log_string("fight3: finished")
 									gamevar script_object = var lieutenant2
 									gamevar *character_stats_p+15 = int 3000
 									call func_17(var lieutenant2, var DAVID)
@@ -321,7 +321,7 @@
 ._SCRIPT_10
 	if(var ! VAR_0)
 	 {
-			call log("random_rain_fx: Rain SFX not initialised! See Marc")
+			call log_string("random_rain_fx: Rain SFX not initialised! See Marc")
 			exit_script 
 	}
 	switch(var VAR_4)
@@ -499,7 +499,7 @@
 	if(var VAR_41 != var VAR_35)
 	 {
 			var VAR_41 = var VAR_35
-			call log_obj(var VAR_35)
+			call log_var(var VAR_35)
 	}
 	switch(var VAR_35)
 	 {
@@ -555,14 +555,14 @@
 			case 5
 				if(var VAR_37 != gamevar saved_games_count)
 				 {
-						call log("game saved")
+						call log_string("game saved")
 						call func_11d()
 						var VAR_35 = int 7
 						var VAR_36 = int 0
 				}
 				else
 				 {
-						call log("game not saved")
+						call log_string("game not saved")
 						call func_2a(var fade_chronicler, var &VAR_38)
 						execute SCRIPT_17
 						gamevar chronicler_variation = var VAR_20

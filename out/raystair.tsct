@@ -129,7 +129,7 @@
 			case 1
 				if(call func_8b())
 				 {
-						call log("start_dialog")
+						call log_string("start_dialog")
 						call start_dialog("S_Khan", "NULL")
 						var david = call get_david_char()
 						while(var david)
@@ -206,7 +206,7 @@
 ._SCRIPT_7
 
 ._SCRIPT_8
-	call log("wandering baddies")
+	call log_string("wandering baddies")
 	call load_char("orc")
 	call load_char("ronnie")
 	var VAR_60 = call run_wandering_generator(var &wandering_gen_script, int 100)
@@ -245,7 +245,7 @@
 ._SCRIPT_12
 	if(var ! VAR_0)
 	 {
-			call log("random_rain_fx: Rain SFX not initialised! See Marc")
+			call log_string("random_rain_fx: Rain SFX not initialised! See Marc")
 			exit_script 
 	}
 	switch(var VAR_4)

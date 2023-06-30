@@ -79,8 +79,8 @@
 	VAR_216	-1	
 
 ._on_load
-	call log("init_script")
-	call log_obj(gamevar room_state)
+	call log_string("init_script")
+	call log_var(gamevar room_state)
 	call load_sound_set(int 7)
 
 	 /* play the sound 'rustle1' */ 
@@ -114,8 +114,8 @@
 ._infinite_loop
 	if(var VAR_45 == int 0)
 	 {
-			call log("run_script")
-			call log_obj(gamevar room_state)
+			call log_string("run_script")
+			call log_var(gamevar room_state)
 			var VAR_45 ++ 
 	}
 	if(gamevar room_state != int 1)
@@ -144,8 +144,8 @@
 
 ._on_exit
 	execute SCRIPT_23
-	call log("end_script")
-	call log_obj(gamevar room_state)
+	call log_string("end_script")
+	call log_var(gamevar room_state)
 	switch(gamevar room_state)
 	 {
 			case 1
@@ -277,7 +277,7 @@
 	}
 	if(var VAR_83 == int 5)
 	 {
-			call log("Larks fly from bush")
+			call log_string("Larks fly from bush")
 			var VAR_76 = int 1
 
 			 /* play the sound 'flybird' */ 
@@ -394,7 +394,7 @@
 					var VAR_105 = int 0
 					var VAR_106 = int 0
 					var VAR_107 = int 0
-					call log("All turned to face David")
+					call log_string("All turned to face David")
 					var VAR_83 ++ 
 					var VAR_84 = int 0
 			}
@@ -431,7 +431,7 @@
 			}
 			if(var VAR_84 == int 100)
 			 {
-					call log("All swords are drawn")
+					call log_string("All swords are drawn")
 					var VAR_83 ++ 
 					var VAR_84 = int 0
 			}
@@ -466,7 +466,7 @@
 	 {
 			if(call is_not_force_scrolling())
 			 {
-					call log("finished scroll to Duke")
+					call log_string("finished scroll to Duke")
 					var VAR_83 ++ 
 					var VAR_84 = int 0
 			}
@@ -490,7 +490,7 @@
 	 {
 			if(call is_not_force_scrolling()&&call is_char_standing(var nduke))
 			 {
-					call log("finished scroll to David")
+					call log_string("finished scroll to David")
 					var position = call get_char_pos(var nduke)
 					call char_turn_to_pos(var nrebela, var position)
 					call char_turn_to_pos(var nrebela, var position)
@@ -643,7 +643,7 @@
 	if(var VAR_170 != var VAR_168)
 	 {
 			var VAR_170 = var VAR_168
-			call log_obj(var VAR_168)
+			call log_var(var VAR_168)
 	}
 	switch(var VAR_168)
 	 {
@@ -868,7 +868,7 @@
 	if(var VAR_216 != var VAR_210)
 	 {
 			var VAR_216 = var VAR_210
-			call log_obj(var VAR_210)
+			call log_var(var VAR_210)
 	}
 	switch(var VAR_210)
 	 {
@@ -913,20 +913,20 @@
 				}
 				break 
 			case 4
-				call log("here1")
+				call log_string("here1")
 				if(var VAR_211 > int 10)
 				 {
-						call log("here2")
+						call log_string("here2")
 						if(gamevar !current_menu_level_p)
 						 {
-								call log("here3")
+								call log_string("here3")
 								var VAR_210 ++ 
 								var VAR_211 = int 0
 						}
 				}
 				break 
 			case 5
-				call log("game not saved")
+				call log_string("game not saved")
 				call func_2a(var fade_chronicler, var &VAR_213)
 				execute SCRIPT_25
 				gamevar chronicler_variation = var VAR_2
@@ -994,7 +994,7 @@
 	if(var VAR_23 != var VAR_17)
 	 {
 			var VAR_23 = var VAR_17
-			call log_obj(var VAR_17)
+			call log_var(var VAR_17)
 	}
 	switch(var VAR_17)
 	 {
@@ -1050,14 +1050,14 @@
 			case 5
 				if(var VAR_19 != gamevar saved_games_count)
 				 {
-						call log("game saved")
+						call log_string("game saved")
 						call func_11d()
 						var VAR_17 = int 7
 						var VAR_18 = int 0
 				}
 				else
 				 {
-						call log("game not saved")
+						call log_string("game not saved")
 						call func_2a(var fade_chronicler, var &VAR_20)
 						execute SCRIPT_25
 						gamevar chronicler_variation = var VAR_2

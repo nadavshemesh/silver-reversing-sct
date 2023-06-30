@@ -160,7 +160,7 @@
 			 {
 					var VAR_0 = call get_char_movement_ptr(var is_IMP_exist)
 					call func_75(int 7, int 0, int 64, var VAR_0)
-					call log("init imp sound")
+					call log_string("init imp sound")
 			}
 	}
 
@@ -174,7 +174,7 @@
 	if(var VAR_59 != var VAR_51)
 	 {
 			var VAR_59 = var VAR_51
-			call log_obj(var VAR_51)
+			call log_var(var VAR_51)
 	}
 	switch(var VAR_51)
 	 {
@@ -401,7 +401,7 @@
 	 {
 			if(call is_char_standing(var njanbook))
 			 {
-					call log("turn to face")
+					call log_string("turn to face")
 					call char_turn_to_pos(var njanbook, var &position1)
 					var VAR_68 = int 0
 					var VAR_67 ++ 
@@ -409,7 +409,7 @@
 	}
 	if(var VAR_67 == int 7)
 	 {
-			call log("fade")
+			call log_string("fade")
 			call func_116("gno", "teleroom", int 2)
 			call set_scene_overwrite_act("gno", "teleroom", int 0)
 			call func_e6("gno", "teleroom", var &VAR_72, int 2)
@@ -420,7 +420,7 @@
 			var VAR_68 ++ 
 			if(var VAR_68 == int 30)
 			 {
-					call log("place book")
+					call log_string("place book")
 					call play_char_anim(var njanbook, var jbukdrop_anim, int 0)
 					var VAR_67 ++ 
 			}

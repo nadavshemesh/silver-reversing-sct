@@ -164,7 +164,7 @@
 	if(var VAR_30 != var VAR_24)
 	 {
 			var VAR_30 = var VAR_24
-			call log_obj(var VAR_24)
+			call log_var(var VAR_24)
 	}
 	switch(var VAR_24)
 	 {
@@ -220,14 +220,14 @@
 			case 5
 				if(var VAR_26 != gamevar saved_games_count)
 				 {
-						call log("game saved")
+						call log_string("game saved")
 						call func_11d()
 						var VAR_24 = int 7
 						var VAR_25 = int 0
 				}
 				else
 				 {
-						call log("game not saved")
+						call log_string("game not saved")
 						call func_2a(var fade_chronicler, var &VAR_27)
 						execute SCRIPT_15
 						gamevar chronicler_variation = var VAR_9

@@ -140,7 +140,7 @@
 			case 1
 				if(var VAR_67 > int 10)
 				 {
-						call log("wait!")
+						call log_string("wait!")
 						var david = call get_david_char()
 						if(var david)
 						 {
@@ -215,7 +215,7 @@
 			case 6
 				if(call func_8a(var &VAR_70))
 				 {
-						call log("act1_generator2")
+						call log_string("act1_generator2")
 						var VAR_68 = call run_enemy_generator(var &enemy_gen_script, int 10)
 						var VAR_66 ++ 
 						var VAR_67 = int 0
@@ -322,7 +322,7 @@
 ._SCRIPT_7
 
 ._SCRIPT_8
-	call log("wandering_baddies")
+	call log_string("wandering_baddies")
 	call load_char("lobster")
 	call load_char("fishman")
 	call run_wandering_generator(var &wandering_gen_script, int 1)
@@ -399,7 +399,7 @@
 	if(var VAR_23 != var VAR_17)
 	 {
 			var VAR_23 = var VAR_17
-			call log_obj(var VAR_17)
+			call log_var(var VAR_17)
 	}
 	switch(var VAR_17)
 	 {
@@ -455,14 +455,14 @@
 			case 5
 				if(var VAR_19 != gamevar saved_games_count)
 				 {
-						call log("game saved")
+						call log_string("game saved")
 						call func_11d()
 						var VAR_17 = int 7
 						var VAR_18 = int 0
 				}
 				else
 				 {
-						call log("game not saved")
+						call log_string("game not saved")
 						call func_2a(var fade_chronicler, var &VAR_20)
 						execute SCRIPT_16
 						gamevar chronicler_variation = var VAR_2

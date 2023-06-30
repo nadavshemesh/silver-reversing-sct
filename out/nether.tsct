@@ -47,8 +47,8 @@
 
 ._on_load
 	call load_sound_set(int 79)
-	call log("init_script")
-	call log_obj(gamevar room_state)
+	call log_string("init_script")
+	call log_var(gamevar room_state)
 	switch(gamevar room_state)
 	 {
 			case 1
@@ -83,8 +83,8 @@
 	}
 
 ._on_exit
-	call log("end_script")
-	call log_obj(gamevar room_state)
+	call log_string("end_script")
+	call log_var(gamevar room_state)
 	switch(gamevar room_state)
 	 {
 			case 1
@@ -104,7 +104,7 @@
 	call open_save_screen(int 2)
 
 ._SCRIPT_4
-	call log("nem_dave")
+	call log_string("nem_dave")
 	call func_8f("nemdave")
 	var david = call get_david_char()
 	call char_remove_magic_and_weapons(var david)
@@ -128,7 +128,7 @@
 	gamevar SMACKER_Y = int 328
 	call play_2d_anim("nether2", int 1, int 1, int 0)
 	call func_ec(int 1, int 0, int 79, int 0)
-	call log("init_act1")
+	call log_string("init_act1")
 	var VAR_0 = int 0
 
 ._SCRIPT_6

@@ -119,7 +119,7 @@
 	if(var VAR_84 != var VAR_71)
 	 {
 			var VAR_84 = var VAR_71
-			call log_obj(var VAR_71)
+			call log_var(var VAR_71)
 	}
 	switch(var VAR_71)
 	 {
@@ -344,7 +344,7 @@
 						}
 						else
 						 {
-								call log("Oops! No 2nd hero. No dialog triggered!")
+								call log_string("Oops! No 2nd hero. No dialog triggered!")
 								var VAR_72 = int 0
 								var VAR_71 = int -1
 						}
@@ -453,7 +453,7 @@
 	if(var VAR_25 != var VAR_19)
 	 {
 			var VAR_25 = var VAR_19
-			call log_obj(var VAR_19)
+			call log_var(var VAR_19)
 	}
 	switch(var VAR_19)
 	 {
@@ -509,14 +509,14 @@
 			case 5
 				if(var VAR_21 != gamevar saved_games_count)
 				 {
-						call log("game saved")
+						call log_string("game saved")
 						call func_11d()
 						var VAR_19 = int 7
 						var VAR_20 = int 0
 				}
 				else
 				 {
-						call log("game not saved")
+						call log_string("game not saved")
 						call func_2a(var fade_chronicler, var &VAR_22)
 						execute SCRIPT_16
 						gamevar chronicler_variation = var VAR_4

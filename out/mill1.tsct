@@ -122,7 +122,7 @@
 	if(var VAR_43 != var VAR_41)
 	 {
 			var VAR_43 = var VAR_41
-			call log_obj(var VAR_41)
+			call log_var(var VAR_41)
 	}
 	switch(var VAR_41)
 	 {
@@ -150,32 +150,32 @@
 			switch(var VAR_30)
 			 {
 					case 65536
-						call log("david")
+						call log_string("david")
 						var VAR_19 = var david
 						break 
 					case 786432
-						call log("sekune")
+						call log_string("sekune")
 						var VAR_21 = var david
 						break 
 					case 327680
-						call log("jug")
+						call log_string("jug")
 						var VAR_20 = var david
 						break 
 					case 196608
-						call log("vivienne")
+						call log_string("vivienne")
 						var VAR_22 = var david
 						break 
 					case 131072
-						call log("chiaro")
+						call log_string("chiaro")
 						var VAR_23 = var david
 						break 
 					case 262144
-						call log("cagen")
+						call log_string("cagen")
 						var VAR_24 = var david
 						break 
 					default 
-						call log("WARNING! Unknown hero while checking heroes")
-						call log("Get a goober -- QUICKLY!!")
+						call log_string("WARNING! Unknown hero while checking heroes")
+						call log_string("Get a goober -- QUICKLY!!")
 						break 
 			}
 			var david = call get_next_char_from_list()
@@ -217,8 +217,8 @@
 						var VAR_44 += call func_42(var VAR_19, int 5)
 						var VAR_44 += call func_42(var VAR_19, int 6)
 						var VAR_44 += call func_42(var VAR_19, int 7)
-						call log("orbs")
-						call log_obj(var VAR_44)
+						call log_string("orbs")
+						call log_var(var VAR_44)
 						if(var VAR_21)
 						 {
 								var VAR_45 = var VAR_21
@@ -259,7 +259,7 @@
 						else
 						 {
 								call set_input_system(int 1)
-								call log("ERROR!!!!!!!!!!!!!!!!!!!")
+								call log_string("ERROR!!!!!!!!!!!!!!!!!!!")
 								var VAR_46 = int -1
 								var VAR_47 = int 0
 						}
@@ -359,11 +359,11 @@
 			call set_scene_overwrite_act("haven", "h_camptp", int 0)
 			call func_118("haven", "h_camptp", int 1)
 			var VAR_0 = int 1
-			call log("all 8 orbs taken!")
+			call log_string("all 8 orbs taken!")
 	}
 	else
 	 {
-			call log("not got all orbs yet!")
+			call log_string("not got all orbs yet!")
 	}
 
 ._SCRIPT_15

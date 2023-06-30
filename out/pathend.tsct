@@ -82,7 +82,7 @@
 			switch(gamevar room_state)
 			 {
 					case 1
-						call log("init act1")
+						call log_string("init act1")
 						execute SCRIPT_4
 						break 
 					case 2
@@ -256,7 +256,7 @@
 	call add_item_to_char(var bmimic, int 79 /* scroll */ , int 1, int 0)
 	call add_item_to_char(var bmimic, int 18 /* bipennis */ , int 0, int 0)
 	call add_item_to_char(var bmimic, int 50 /* ironrim */ , int 0, int 0)
-	call log("end of init act1")
+	call log_string("end of init act1")
 	var VAR_57 = int 0
 
 ._SCRIPT_5
@@ -303,7 +303,7 @@
 	if(var VAR_123 != var VAR_121)
 	 {
 			var VAR_123 = var VAR_121
-			call log_obj(var VAR_121)
+			call log_var(var VAR_121)
 	}
 	switch(var VAR_121)
 	 {
@@ -369,7 +369,7 @@
 	if(var VAR_31 != var VAR_25)
 	 {
 			var VAR_31 = var VAR_25
-			call log_obj(var VAR_25)
+			call log_var(var VAR_25)
 	}
 	switch(var VAR_25)
 	 {
@@ -425,14 +425,14 @@
 			case 5
 				if(var VAR_27 != gamevar saved_games_count)
 				 {
-						call log("game saved")
+						call log_string("game saved")
 						call func_11d()
 						var VAR_25 = int 7
 						var VAR_26 = int 0
 				}
 				else
 				 {
-						call log("game not saved")
+						call log_string("game not saved")
 						call func_2a(var fade_chronicler, var &VAR_28)
 						execute SCRIPT_17
 						gamevar chronicler_variation = var VAR_10

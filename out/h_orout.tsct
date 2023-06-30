@@ -141,7 +141,7 @@
 	if(var VAR_76 != var VAR_70)
 	 {
 			var VAR_76 = var VAR_70
-			call log_obj(var VAR_70)
+			call log_var(var VAR_70)
 	}
 	switch(var VAR_70)
 	 {
@@ -245,7 +245,7 @@
 	if(var VAR_106 != var VAR_96)
 	 {
 			var VAR_106 = var VAR_96
-			call log_obj(var VAR_96)
+			call log_var(var VAR_96)
 	}
 	switch(var VAR_96)
 	 {
@@ -450,7 +450,7 @@
 			case 1
 				if(call is_char_standing(var nduke))
 				 {
-						call log("Duke has left")
+						call log_string("Duke has left")
 						call remove_char(var nduke)
 						var VAR_99 ++ 
 				}
@@ -495,7 +495,7 @@
 	var VAR_134 = int 0
 	if(call func_bf(int 448, gamevar CURRENT_LEVEL, gamevar CURRENT_SCENE))
 	 {
-			call log("yes! talked to buzuki before")
+			call log_string("yes! talked to buzuki before")
 			var VAR_135 = int 1
 	}
 
@@ -503,7 +503,7 @@
 	if(var VAR_152 != var VAR_133)
 	 {
 			var VAR_152 = var VAR_133
-			call log_obj(var VAR_133)
+			call log_var(var VAR_133)
 	}
 	switch(var VAR_133)
 	 {
@@ -522,7 +522,7 @@
 								}
 								else
 								 {
-										call log("cheesy peas!")
+										call log_string("cheesy peas!")
 										if(var VAR_135)
 										 {
 												var VAR_140 = var arr
@@ -565,14 +565,14 @@
 				switch(call func_4a())
 				 {
 						case 1
-							call log("Look at goods")
+							call log_string("Look at goods")
 							call start_dialog("B_SELECT", "ALL")
 							var VAR_133 ++ 
 							var VAR_134 = int 0
 							call func_db()
 							break 
 						case 0
-							call log("Decline goods")
+							call log_string("Decline goods")
 							call start_dialog("B_HERNO", var VAR_140)
 							call func_db()
 							var VAR_133 = int 4
@@ -585,7 +585,7 @@
 				 {
 						if(gamevar items_bought)
 						 {
-								call log("bought items")
+								call log_string("bought items")
 								call start_dialog("B_HERYES", var VAR_140)
 								var VAR_133 ++ 
 						}
@@ -593,13 +593,13 @@
 						 {
 								if(call func_6c(var nbuzuki))
 								 {
-										call log("Have money but no items bought")
+										call log_string("Have money but no items bought")
 										call start_dialog("B_HERNO", var VAR_140)
 										var VAR_133 ++ 
 								}
 								else
 								 {
-										call log("couldn't afford items")
+										call log_string("couldn't afford items")
 										if(var VAR_140 == var VAR_149||var VAR_140 == var arr)
 										 {
 												var VAR_151 = call get_char_handle_id(gamevar control_char_p)
@@ -734,7 +734,7 @@
 	if(var VAR_23 != var VAR_17)
 	 {
 			var VAR_23 = var VAR_17
-			call log_obj(var VAR_17)
+			call log_var(var VAR_17)
 	}
 	switch(var VAR_17)
 	 {
@@ -790,14 +790,14 @@
 			case 5
 				if(var VAR_19 != gamevar saved_games_count)
 				 {
-						call log("game saved")
+						call log_string("game saved")
 						call func_11d()
 						var VAR_17 = int 7
 						var VAR_18 = int 0
 				}
 				else
 				 {
-						call log("game not saved")
+						call log_string("game not saved")
 						call func_2a(var fade_chronicler, var &VAR_20)
 						execute SCRIPT_21
 						gamevar chronicler_variation = var VAR_2

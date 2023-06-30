@@ -340,7 +340,7 @@
 				 {
 						if(call ! func_bf(int 0, gamevar CURRENT_LEVEL, gamevar CURRENT_SCENE))
 						 {
-								call log("seen moss' mum")
+								call log_string("seen moss' mum")
 								call save_pos_to_room_memory(int 0, int 1, int 0, int 0)
 						}
 				}
@@ -391,35 +391,35 @@
 			switch(var VAR_21)
 			 {
 					case 65536
-						call log("david")
+						call log_string("david")
 						var DAVID = var david
 						break 
 					case 786432
-						call log("sekune")
+						call log_string("sekune")
 						var nsekune = var david
 						break 
 					case 327680
-						call log("jug")
+						call log_string("jug")
 						var JUG2 = var david
 						break 
 					case 196608
-						call log("vivienne")
+						call log_string("vivienne")
 						var VIVIENNE2 = var david
 						break 
 					case 131072
-						call log("chiaro")
+						call log_string("chiaro")
 						var CHIARO2 = var david
 						break 
 					case 262144
-						call log("cagen")
+						call log_string("cagen")
 						var CAGEN2 = var david
 						break 
 					case 393216
-						call log("Grandad we love you, Grandad we do!")
+						call log_string("Grandad we love you, Grandad we do!")
 						break 
 					default 
-						call log("WARNING! Unknown hero while checking heroes")
-						call log("Get a goober -- QUICKLY!!")
+						call log_string("WARNING! Unknown hero while checking heroes")
+						call log_string("Get a goober -- QUICKLY!!")
 						break 
 			}
 			if(var david != var DAVID)
@@ -768,7 +768,7 @@
 	if(var VAR_150 != var VAR_127)
 	 {
 			var VAR_150 = var VAR_127
-			call log_obj(var VAR_127)
+			call log_var(var VAR_127)
 	}
 	switch(var VAR_127)
 	 {
@@ -940,7 +940,7 @@
 			case 21
 				if(var VAR_128 > int 5)
 				 {
-						call log("sekune_act1: 21")
+						call log_string("sekune_act1: 21")
 						var VAR_127 ++ 
 						var VAR_128 = int 0
 				}
@@ -965,7 +965,7 @@
 				 {
 						if(var VAR_149 == int 0)
 						 {
-								call log("fire at bird")
+								call log_string("fire at bird")
 								call char_shoot_bow(var nsekune, var &fly_position9)
 								var VAR_149 = int 1
 						}
@@ -976,7 +976,7 @@
 			case 24
 				if(var VAR_128 > int 200)
 				 {
-						call log("Resume: Sekune")
+						call log_string("Resume: Sekune")
 						call resume_conversation()
 						var VAR_127 ++ 
 						var VAR_128 = int 0
@@ -1012,7 +1012,7 @@
 	 {
 			if(var VAR_127 >= int 4&&var VAR_127 <= int 7)
 			 {
-					call log("By fire...")
+					call log_string("By fire...")
 					var VAR_127 = int 30
 					var VAR_128 = int 0
 			}
@@ -1226,7 +1226,7 @@
 					}
 					else
 					 {
-							call log("already got WEB OF DEATH")
+							call log_string("already got WEB OF DEATH")
 					}
 					call set_input_system(int 1)
 					var VAR_155 = int 0
@@ -1933,7 +1933,7 @@
 	}
 	if(call func_bf(int 0, gamevar CURRENT_LEVEL, gamevar CURRENT_SCENE))
 	 {
-			call log("already talked to moss' mum")
+			call log_string("already talked to moss' mum")
 			var VAR_16 = int 1
 	}
 
@@ -2015,7 +2015,7 @@
 	if(var VAR_389 != var VAR_352)
 	 {
 			var VAR_389 = var VAR_352
-			call log_obj(var VAR_352)
+			call log_var(var VAR_352)
 	}
 	switch(var VAR_352)
 	 {
@@ -2084,7 +2084,7 @@
 									call char_walk_to_pos(var nben, var walk_position14)
 									call force_scroll_to_pos(var walk_position13)
 									break 
-									call log("no valid door num")
+									call log_string("no valid door num")
 						}
 						var VAR_352 ++ 
 						var VAR_353 = int 0
@@ -2204,12 +2204,12 @@
 								var VAR_388 = call func_e0(var DAVID, int 22)
 								if(var VAR_388)
 								 {
-										call log("sword")
+										call log_string("sword")
 										call toggle_or_use_char_item(var DAVID, var VAR_388)
 								}
 								else
 								 {
-										call log("why is there no sword?")
+										call log_string("why is there no sword?")
 								}
 						}
 						var VAR_352 ++ 
@@ -2443,7 +2443,7 @@
 	if(var VAR_432 != var VAR_418)
 	 {
 			var VAR_432 = var VAR_418
-			call log_obj(var VAR_418)
+			call log_var(var VAR_418)
 	}
 	switch(var VAR_418)
 	 {

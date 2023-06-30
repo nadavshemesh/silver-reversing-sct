@@ -138,7 +138,7 @@
 	if(var VAR_122 != var VAR_76)
 	 {
 			var VAR_122 = var VAR_76
-			call log_obj(var VAR_76)
+			call log_var(var VAR_76)
 	}
 	switch(var VAR_76)
 	 {
@@ -168,7 +168,7 @@
 						 {
 								var VAR_53 = int 1
 								gamevar clicked_character = int 0
-								call log("clicked on char")
+								call log_string("clicked on char")
 								var selected_hero = call get_selected_hero()
 								if(var selected_hero == var VAR_41)
 								 {
@@ -186,7 +186,7 @@
 				}
 				break 
 			case 2
-				call log("in radius")
+				call log_string("in radius")
 				var selected_hero = call get_selected_hero()
 				var VAR_53 = int 1
 				if(var selected_hero == var VAR_41)
@@ -203,7 +203,7 @@
 				}
 				break 
 			case 4
-				call log("david's talking")
+				call log_string("david's talking")
 				call char_turn_to_pos(var VAR_41, var &position)
 				if(call is_char_handle_in_level(int 786432 /* SEKUNE */ ))
 				 {
@@ -218,7 +218,7 @@
 				var VAR_77 = int 0
 				break 
 			case 5
-				call log("sekune's talking")
+				call log_string("sekune's talking")
 				call char_turn_to_pos(var VAR_43, var &position)
 				if(call is_char_handle_in_level(int 65536 /* DAVID */ ))
 				 {
@@ -233,7 +233,7 @@
 				var VAR_77 = int 0
 				break 
 			case 6
-				call log("vivienne's talking")
+				call log_string("vivienne's talking")
 				call char_turn_to_pos(var VAR_44, var &position)
 				if(call is_char_handle_in_level(int 786432 /* SEKUNE */ ))
 				 {
@@ -248,7 +248,7 @@
 				var VAR_77 = int 0
 				break 
 			case 7
-				call log("david's talking clicked")
+				call log_string("david's talking clicked")
 				var VAR_115 = int 1
 				var VAR_116 = int 1
 				if(call is_char_handle_in_level(int 786432 /* SEKUNE */ ))
@@ -263,7 +263,7 @@
 				var VAR_77 = int 0
 				break 
 			case 8
-				call log("sekune's talking clicked")
+				call log_string("sekune's talking clicked")
 				var VAR_115 = int 1
 				var VAR_117 = int 1
 				if(call is_char_handle_in_level(int 65536 /* DAVID */ ))
@@ -278,7 +278,7 @@
 				var VAR_77 = int 0
 				break 
 			case 9
-				call log("vivienne's talking clicked")
+				call log_string("vivienne's talking clicked")
 				var VAR_115 = int 1
 				var VAR_118 = int 1
 				if(call is_char_handle_in_level(int 786432 /* SEKUNE */ ))
@@ -306,7 +306,7 @@
 								call func_46(var flatnosr, int 13)
 								call func_46(var flatnosr1, int 13)
 								call resume_conversation()
-								call log("the fight starts here")
+								call log_string("the fight starts here")
 								call func_10c(var NMAYOR, "act2")
 								var VAR_76 ++ 
 								var VAR_77 = int 0
@@ -333,7 +333,7 @@
 				var VAR_120 = var VAR_39 - var VAR_40
 				if(var VAR_120 > int 40)
 				 {
-						call log("hit points above given level")
+						call log_string("hit points above given level")
 						call func_b1()
 						if(call is_char_handle_in_level(int 9502720))
 						 {
@@ -376,7 +376,7 @@
 				 {
 						if(call is_char_standing(var flatnose))
 						 {
-								call log("dead 1")
+								call log_string("dead 1")
 								call remove_char(var flatnose)
 						}
 				}
@@ -384,7 +384,7 @@
 				 {
 						if(call is_char_standing(var flatnose1))
 						 {
-								call log("dead 2")
+								call log_string("dead 2")
 								call remove_char(var flatnose1)
 						}
 				}
@@ -392,7 +392,7 @@
 				 {
 						if(call is_char_standing(var flatnosr))
 						 {
-								call log("dead 3")
+								call log_string("dead 3")
 								call remove_char(var flatnosr)
 						}
 				}
@@ -400,7 +400,7 @@
 				 {
 						if(call is_char_standing(var flatnosr1))
 						 {
-								call log("dead 4")
+								call log_string("dead 4")
 								call remove_char(var flatnosr1)
 						}
 				}
@@ -424,7 +424,7 @@
 				 {
 						if(call is_char_standing(var NMAYOR))
 						 {
-								call log("dead 5")
+								call log_string("dead 5")
 								call remove_char(var NMAYOR)
 								var VAR_77 = int 0
 								var VAR_76 ++ 
@@ -450,7 +450,7 @@
 				 {
 						if(var VAR_77 > int 240)
 						 {
-								call log("time above 240")
+								call log_string("time above 240")
 								var selected_hero = call get_selected_hero()
 								if(var selected_hero == int 0)
 								 {
@@ -491,12 +491,12 @@
 				 {
 						if(call is_char_handle_in_level(int 786432 /* SEKUNE */ ))
 						 {
-								call log("david & Sekune talking")
+								call log_string("david & Sekune talking")
 								call start_dialog("S_DvdKey", "NULL")
 						}
 						else
 						 {
-								call log("no dialogue")
+								call log_string("no dialogue")
 								call set_input_system(int 1)
 						}
 						var VAR_76 = int 25
@@ -506,7 +506,7 @@
 			case 22
 				if(call get_input_sys() == int 1&&var ! VAR_3)
 				 {
-						call log("sekune's talking")
+						call log_string("sekune's talking")
 						call start_dialog("S_SekKey", "NULL")
 						var VAR_76 = int 25
 						var VAR_77 = int 0
@@ -515,7 +515,7 @@
 			case 23
 				if(call get_input_sys() == int 1&&var ! VAR_3)
 				 {
-						call log("vivienne's talking")
+						call log_string("vivienne's talking")
 						call start_dialog("S_VivKey", "NULL")
 						var VAR_76 = int 25
 						var VAR_77 = int 0
@@ -538,7 +538,7 @@
 										 {
 												if(call is_char_handle_in_level(int 196608 /* VIVIENNE */ ))
 												 {
-														call log("david")
+														call log_string("david")
 														call start_dialog("S_DvdCom", "NULL")
 														var VAR_76 = int 27
 												}
@@ -549,7 +549,7 @@
 												 {
 														if(call is_char_handle_in_level(int 196608 /* VIVIENNE */ ))
 														 {
-																call log("sekune")
+																call log_string("sekune")
 																call start_dialog("S_SekCom", "NULL")
 																var VAR_76 = int 27
 														}
@@ -560,7 +560,7 @@
 														 {
 																if(call is_char_handle_in_level(int 786432 /* SEKUNE */ ))
 																 {
-																		call log("vivienne")
+																		call log_string("vivienne")
 																		call start_dialog("S_VivCom", "NULL")
 																		var VAR_76 = int 27
 																}
@@ -573,7 +573,7 @@
 						 {
 								if(call is_char_handle_in_level(int 786432 /* SEKUNE */ ))
 								 {
-										call log("sekbew")
+										call log_string("sekbew")
 										call start_dialog("S_SekBew", "NULL")
 										var VAR_76 = int 27
 								}
@@ -594,32 +594,32 @@
 			switch(var VAR_67)
 			 {
 					case 65536
-						call log("david")
+						call log_string("david")
 						var VAR_41 = var david1
 						break 
 					case 786432
-						call log("sekune")
+						call log_string("sekune")
 						var VAR_43 = var david1
 						break 
 					case 327680
-						call log("jug")
+						call log_string("jug")
 						var VAR_42 = var david1
 						break 
 					case 196608
-						call log("vivienne")
+						call log_string("vivienne")
 						var VAR_44 = var david1
 						break 
 					case 131072
-						call log("chiaro")
+						call log_string("chiaro")
 						var VAR_45 = var david1
 						break 
 					case 262144
-						call log("cagen")
+						call log_string("cagen")
 						var VAR_46 = var david1
 						break 
 					default 
-						call log("WARNING! Unknown hero while checking heroes")
-						call log("Get a goober -- QUICKLY!!")
+						call log_string("WARNING! Unknown hero while checking heroes")
+						call log_string("Get a goober -- QUICKLY!!")
 						break 
 			}
 			var david1 = call get_next_char_from_list()
@@ -658,7 +658,7 @@
 ._SCRIPT_5
 	var VAR_63 = call play_3d_fx("FIRE", var &fx_position, int 0, int 0)
 	call func_ec(int 198, int -1, int 0, var &fx_position)
-	call log("FIRE!!!!!")
+	call log_string("FIRE!!!!!")
 
 ._SCRIPT_6
 
@@ -764,7 +764,7 @@
 	if(var VAR_23 != var VAR_17)
 	 {
 			var VAR_23 = var VAR_17
-			call log_obj(var VAR_17)
+			call log_var(var VAR_17)
 	}
 	switch(var VAR_17)
 	 {
@@ -820,14 +820,14 @@
 			case 5
 				if(var VAR_19 != gamevar saved_games_count)
 				 {
-						call log("game saved")
+						call log_string("game saved")
 						call func_11d()
 						var VAR_17 = int 7
 						var VAR_18 = int 0
 				}
 				else
 				 {
-						call log("game not saved")
+						call log_string("game not saved")
 						call func_2a(var fade_chronicler, var &VAR_20)
 						execute SCRIPT_18
 						gamevar chronicler_variation = var VAR_2

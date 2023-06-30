@@ -87,7 +87,7 @@
 								if(var bmimic)
 								 {
 										call remove_char(var bmimic)
-										call log("Killed the mimic")
+										call log_string("Killed the mimic")
 								}
 						}
 						break 
@@ -115,7 +115,7 @@
 				var VAR_8 = gamevar *object_p+5
 				if(var VAR_8 != var VAR_9)
 				 {
-						call log("Init some baddies")
+						call log_string("Init some baddies")
 						var VAR_1 = int 1
 						var VAR_7 = call run_enemy_generator(var &enemy_gen_script, int 1)
 						var VAR_16 ++ 
@@ -155,7 +155,7 @@
 ._SCRIPT_8
 
 ._SCRIPT_9
-	call log("WANDERING BADDIES")
+	call log_string("WANDERING BADDIES")
 	call run_wandering_generator(var &wandering_gen_script, int 70)
 
 ._SCRIPT_10

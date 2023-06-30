@@ -111,7 +111,7 @@
 	}
 
 ._SCRIPT_3
-	call log("it's_raining")
+	call log_string("it's_raining")
 	call play_3d_fx("RAIN", var &fx_position, var &VAR_42, int 0)
 	execute SCRIPT_12
 
@@ -124,7 +124,7 @@
 	if(var VAR_65 != var VAR_44)
 	 {
 			var VAR_65 = var VAR_44
-			call log_obj(var VAR_44)
+			call log_var(var VAR_44)
 	}
 	if(var VAR_44 == int 0)
 	 {
@@ -210,7 +210,7 @@
 			}
 			else
 			 {
-					call log("open door")
+					call log_string("open door")
 					call func_4e(int 0)
 					var VAR_66 = int 1
 
@@ -238,7 +238,7 @@
 ._SCRIPT_13
 	if(var ! VAR_0)
 	 {
-			call log("random_rain_fx: Rain SFX not initialised! See Marc")
+			call log_string("random_rain_fx: Rain SFX not initialised! See Marc")
 			exit_script 
 	}
 	switch(var VAR_4)

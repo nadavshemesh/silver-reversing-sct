@@ -97,7 +97,7 @@
 	}
 
 ._SCRIPT_3
-	call log("it's_raining")
+	call log_string("it's_raining")
 	call play_3d_fx("RAIN", var &fx_position, var &VAR_20, int 0)
 	execute SCRIPT_10
 
@@ -105,7 +105,7 @@
 	if(var VAR_76 != var VAR_22)
 	 {
 			var VAR_76 = var VAR_22
-			call log_obj(var VAR_22)
+			call log_var(var VAR_22)
 	}
 	switch(var VAR_22)
 	 {
@@ -196,30 +196,30 @@
 												case 786432
 													call start_dialog("S_Sekgon", "NULL")
 													var VAR_32 = var VAR_38
-													call log("S_Sekgon started")
+													call log_string("S_Sekgon started")
 													break 
 												case 327680
 													call start_dialog("S_Juggon", "NULL")
 													var VAR_32 = var VAR_39
-													call log("S_Juggon started")
+													call log_string("S_Juggon started")
 													break 
 												case 196608
 													call start_dialog("S_Vivgonc", "NULL")
 													var VAR_32 = var VAR_40
-													call log("S_Vivgonc started")
+													call log_string("S_Vivgonc started")
 													break 
 												case 131072
 													call start_dialog("S_Chigonc", "NULL")
 													var VAR_32 = var VAR_41
-													call log("S_Chigonc started")
+													call log_string("S_Chigonc started")
 													break 
 												case 262144
 													call start_dialog("S_Caggon", "NULL")
 													var VAR_32 = var VAR_42
-													call log("S_Caggonc started")
+													call log_string("S_Caggonc started")
 													break 
 												default 
-													call log("no char!!!")
+													call log_string("no char!!!")
 													break 
 										}
 										var david = call get_next_char_from_list()
@@ -444,32 +444,32 @@
 			switch(var VAR_35)
 			 {
 					case 65536
-						call log("david")
+						call log_string("david")
 						var VAR_37 = var david
 						break 
 					case 786432
-						call log("sekune")
+						call log_string("sekune")
 						var VAR_38 = var david
 						break 
 					case 327680
-						call log("jug")
+						call log_string("jug")
 						var VAR_39 = var david
 						break 
 					case 196608
-						call log("vivienne")
+						call log_string("vivienne")
 						var VAR_40 = var david
 						break 
 					case 131072
-						call log("chiaro")
+						call log_string("chiaro")
 						var VAR_41 = var david
 						break 
 					case 262144
-						call log("cagen")
+						call log_string("cagen")
 						var VAR_42 = var david
 						break 
 					default 
-						call log("WARNING! Unknown hero while checking heroes")
-						call log("Get a goober -- QUICKLY!!")
+						call log_string("WARNING! Unknown hero while checking heroes")
+						call log_string("Get a goober -- QUICKLY!!")
 						break 
 			}
 			var david = call get_next_char_from_list()
@@ -492,12 +492,12 @@
 			if(var VAR_111 != gamevar *character_combat_p+15)
 			 {
 					var VAR_111 = gamevar *character_combat_p+15
-					call log_obj(gamevar *character_combat_p+15)
+					call log_var(gamevar *character_combat_p+15)
 			}
 			if(gamevar *character_combat_p+15)
 			 {
 					var VAR_107 ++ 
-					call log("We hit gonch")
+					call log_string("We hit gonch")
 					gamevar script_object = var gonchfx
 					gamevar *character_combat_p+15 = int 0
 			}
@@ -551,7 +551,7 @@
 	call set_input_system(int 2)
 	var VAR_102 = call randomize_int(int 0, int 3)
 	var VAR_103 = call randomize_int(int 0, int 3)
-	call log("shall I do baddies?")
+	call log_string("shall I do baddies?")
 	if(var VAR_103 == int 0)
 	 {
 			if(var ! VAR_102)
@@ -583,7 +583,7 @@
 ._SCRIPT_11
 	if(var ! VAR_0)
 	 {
-			call log("random_rain_fx: Rain SFX not initialised! See Marc")
+			call log_string("random_rain_fx: Rain SFX not initialised! See Marc")
 			exit_script 
 	}
 	switch(var VAR_4)

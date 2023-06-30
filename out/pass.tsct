@@ -113,13 +113,13 @@
 	if(var VAR_23 != var VAR_3)
 	 {
 			var VAR_23 = var VAR_3
-			call log_obj(var VAR_3)
+			call log_var(var VAR_3)
 	}
 	if(var VAR_3 == int 0)
 	 {
 			if(call get_num_of_enemies() < int 2)
 			 {
-					call log(" the doggs ")
+					call log_string(" the doggs ")
 					var VAR_5 = call run_enemy_generator(var &enemy_gen_script, int 10)
 					var VAR_3 ++ 
 					var VAR_4 = int 0
@@ -129,7 +129,7 @@
 	 {
 			if(call func_122(var VAR_5) == int 0)
 			 {
-					call log("snowsprt")
+					call log_string("snowsprt")
 					var VAR_5 = call run_enemy_generator(var &enemy_gen_script1, int 100)
 					var VAR_3 ++ 
 					var VAR_4 = int 0
@@ -143,7 +143,7 @@
 					 {
 							if(call is_char_handle_in_level(int 2752512))
 							 {
-									call log("sentry1")
+									call log_string("sentry1")
 									call func_50(var sentryg, int 129)
 							}
 							var VAR_3 ++ 
@@ -160,7 +160,7 @@
 							if(call func_8a(var &VAR_6)||call func_8a(var &VAR_7))
 							 {
 									var VAR_5 = call run_enemy_generator(var &enemy_gen_script2, int 10)
-									call log("Trip Wire Crossed")
+									call log_string("Trip Wire Crossed")
 									var VAR_3 ++ 
 									var VAR_4 = int 0
 							}

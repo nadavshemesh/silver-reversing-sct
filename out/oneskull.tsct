@@ -127,13 +127,13 @@
 				if(call func_d1(var &VAR_56))
 				 {
 						call char_walk_to(var npc_skel, int 502, int -2075, int 7102)
-						call log("projectile sensed")
+						call log_string("projectile sensed")
 						var VAR_71 = int 1
 				}
 				if(call func_8a(var &VAR_55))
 				 {
 						call char_walk_to(var npc_skel, int 502, int -2075, int 7102)
-						call log("heros crossed tripwire")
+						call log_string("heros crossed tripwire")
 						var VAR_71 = int 1
 				}
 				if(var VAR_71)
@@ -241,7 +241,7 @@
 				if(call get_num_of_enemies() < int 2&&call func_122(var VAR_26) == int 0)
 				 {
 						var index = call randomize_int(int 0, int 6)
-						call log_obj(var VAR_60)
+						call log_var(var VAR_60)
 						var npc_skel = call create_enemy(int 71, int 0, @arr[var VAR_60], int 0)
 						gamevar script_object = var npc_skel
 						gamevar *object_p+6 |= int 8388608
@@ -371,7 +371,7 @@
 ._SCRIPT_7
 
 ._SCRIPT_8
-	call log("wandering baddies")
+	call log_string("wandering baddies")
 	var VAR_76 = call randomize_int(int 0, int 2)
 	if(var ! VAR_76)
 	 {
@@ -436,7 +436,7 @@
 			if(var VAR_13 == int 1)
 			 {
 					var VAR_0 = int 0
-					call log("Gong finished")
+					call log_string("Gong finished")
 					var VAR_14 = int 0
 			}
 	}
@@ -445,7 +445,7 @@
 	if(gamevar global_collision_type == int 18)
 	 {
 			gamevar global_collision_type = int 0
-			call log("HIT THE GONG")
+			call log_string("HIT THE GONG")
 
 			 /* play the sound 'teleport' */ 
 			call play_loaded_sound(int 3, int 0, int 20, int 0)

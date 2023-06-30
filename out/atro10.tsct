@@ -192,7 +192,7 @@
 													call start_dialog("L_CAGORB", "NULL")
 													break 
 												default 
-													call log("shitty, shitty, poo poo!")
+													call log_string("shitty, shitty, poo poo!")
 													break 
 										}
 										if(var VAR_66 != int 65536)
@@ -313,11 +313,11 @@
 			call set_scene_overwrite_act("haven", "h_camptp", int 0)
 			call func_118("haven", "h_camptp", int 1)
 			var VAR_2 = int 1
-			call log("all 8 orbs taken!")
+			call log_string("all 8 orbs taken!")
 	}
 	else
 	 {
-			call log("not got all orbs yet!")
+			call log_string("not got all orbs yet!")
 	}
 
 ._SCRIPT_15
@@ -348,7 +348,7 @@
 	if(var VAR_36 != var VAR_30)
 	 {
 			var VAR_36 = var VAR_30
-			call log_obj(var VAR_30)
+			call log_var(var VAR_30)
 	}
 	switch(var VAR_30)
 	 {
@@ -404,14 +404,14 @@
 			case 5
 				if(var VAR_32 != gamevar saved_games_count)
 				 {
-						call log("game saved")
+						call log_string("game saved")
 						call func_11d()
 						var VAR_30 = int 7
 						var VAR_31 = int 0
 				}
 				else
 				 {
-						call log("game not saved")
+						call log_string("game not saved")
 						call func_2a(var fade_chronicler, var &VAR_33)
 						execute SCRIPT_19
 						gamevar chronicler_variation = var VAR_15

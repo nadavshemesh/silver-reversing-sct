@@ -325,7 +325,7 @@
 ._SCRIPT_13
 	if(var VAR_80 == int 0)
 	 {
-			call log("Hornblow...")
+			call log_string("Hornblow...")
 			call set_char_running(var FIMP5)
 			call char_walk_to_pos(var FIMP5, var &walk_position)
 			var VAR_80 ++ 
@@ -334,7 +334,7 @@
 	 {
 			if(call is_char_standing(var FIMP5))
 			 {
-					call log("Sound horn...")
+					call log_string("Sound horn...")
 					call play_char_anim(var FIMP5, var imphorn_anim, int 0)
 
 					 /* play the sound 'dwavesLp' */ 
@@ -537,7 +537,7 @@
 	if(var VAR_25 != var VAR_19)
 	 {
 			var VAR_25 = var VAR_19
-			call log_obj(var VAR_19)
+			call log_var(var VAR_19)
 	}
 	switch(var VAR_19)
 	 {
@@ -593,14 +593,14 @@
 			case 5
 				if(var VAR_21 != gamevar saved_games_count)
 				 {
-						call log("game saved")
+						call log_string("game saved")
 						call func_11d()
 						var VAR_19 = int 7
 						var VAR_20 = int 0
 				}
 				else
 				 {
-						call log("game not saved")
+						call log_string("game not saved")
 						call func_2a(var fade_chronicler, var &VAR_22)
 						execute SCRIPT_31
 						gamevar chronicler_variation = var VAR_4

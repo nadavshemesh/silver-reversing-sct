@@ -78,7 +78,7 @@
 						execute SCRIPT_4
 						break 
 					case 2
-						call log("init_act2")
+						call log_string("init_act2")
 						execute SCRIPT_18
 						break 
 					case 3
@@ -115,7 +115,7 @@
 			switch(gamevar room_state)
 			 {
 					case 1
-						call log("libarea5: act3")
+						call log_string("libarea5: act3")
 						gamevar room_state = int 3
 						break 
 					case 2
@@ -199,7 +199,7 @@
 	 {
 			if(var ! VAR_13)
 			 {
-					call log("secret not revealed - imp dead")
+					call log_string("secret not revealed - imp dead")
 					var VAR_12 = int 1
 			}
 			else
@@ -282,7 +282,7 @@
 				}
 				break 
 			case 14
-				call log("all chars killed")
+				call log_string("all chars killed")
 				call func_10c(var nyelimp, int 0)
 				call set_input_system(int 2)
 				var VAR_70 = int 0
@@ -514,7 +514,7 @@
 	 {
 			if(call func_5c(var neutral_imp))
 			 {
-					call log("start AI!!!")
+					call log_string("start AI!!!")
 					call set_char_template(var neutral_imp, int 103)
 					var VAR_16 ++ 
 					var VAR_17 = int 0
@@ -555,7 +555,7 @@
 	 {
 			if(call func_5c(var neutral_imp1))
 			 {
-					call log("start AI!!!")
+					call log_string("start AI!!!")
 					call set_char_template(var neutral_imp1, int 103)
 					var VAR_18 ++ 
 					var VAR_19 = int 0
@@ -596,7 +596,7 @@
 	 {
 			if(call func_5c(var neutral_imp2))
 			 {
-					call log("start AI!!!")
+					call log_string("start AI!!!")
 					call set_char_template(var neutral_imp2, int 103)
 					var VAR_20 ++ 
 					var VAR_21 = int 0
@@ -637,7 +637,7 @@
 	 {
 			if(call func_5c(var neutral_imp3))
 			 {
-					call log("start AI!!!")
+					call log_string("start AI!!!")
 					call set_char_template(var neutral_imp3, int 103)
 					var VAR_22 ++ 
 					var VAR_23 = int 0
@@ -789,7 +789,7 @@
 	if(var VAR_106 != var VAR_104)
 	 {
 			var VAR_106 = var VAR_104
-			call log_obj(var VAR_104)
+			call log_var(var VAR_104)
 	}
 	switch(var VAR_104)
 	 {
@@ -837,7 +837,7 @@
 	if(var VAR_120 != var VAR_117)
 	 {
 			var VAR_120 = var VAR_117
-			call log_obj(var VAR_117)
+			call log_var(var VAR_117)
 	}
 	switch(var VAR_117)
 	 {

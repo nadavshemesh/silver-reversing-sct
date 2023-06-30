@@ -196,7 +196,7 @@
 	if(var VAR_73 != var VAR_68)
 	 {
 			var VAR_73 = var VAR_68
-			call log_obj(var VAR_68)
+			call log_var(var VAR_68)
 	}
 	switch(var VAR_68)
 	 {
@@ -349,7 +349,7 @@
 	if(var VAR_94 != var VAR_90)
 	 {
 			var VAR_94 = var VAR_90
-			call log_obj(var VAR_90)
+			call log_var(var VAR_90)
 	}
 	switch(var VAR_90)
 	 {
@@ -843,7 +843,7 @@
 				 {
 						if(var ! VAR_101)
 						 {
-								call log("finished teleporting")
+								call log_string("finished teleporting")
 								if(call func_37(var silver, int 13))
 								 {
 										gamevar script_object = var silver
@@ -1788,7 +1788,7 @@
 	if(var VAR_244 != var VAR_234)
 	 {
 			var VAR_244 = var VAR_234
-			call log_obj(var VAR_234)
+			call log_var(var VAR_234)
 	}
 	switch(var VAR_234)
 	 {
@@ -1798,7 +1798,7 @@
 						case 0
 							if(call func_d1(var &VAR_237))
 							 {
-									call log("silver: projectile left")
+									call log_string("silver: projectile left")
 									call apply_effect_on_char(gamevar char_gen_fx_scripts, int 11, call get_char_pos(var silver), int 0)
 									call apply_effect_on_char(gamevar char_gen_fx_scripts, int 17, int 0, var silver)
 									var VAR_101 = int 1
@@ -1809,7 +1809,7 @@
 						case 1
 							if(call func_d1(var &VAR_238))
 							 {
-									call log("silver: projectile right")
+									call log_string("silver: projectile right")
 									call apply_effect_on_char(gamevar char_gen_fx_scripts, int 11, call get_char_pos(var silver), int 0)
 									call apply_effect_on_char(gamevar char_gen_fx_scripts, int 17, int 0, var silver)
 									var VAR_101 = int 1
@@ -1818,7 +1818,7 @@
 							}
 							break 
 						default 
-							call log("silver not in valid position")
+							call log_string("silver not in valid position")
 							break 
 				}
 				break 

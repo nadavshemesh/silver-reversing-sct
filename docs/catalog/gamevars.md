@@ -1,125 +1,137 @@
-[<- Go Back](../index.md)
+# Game Variables
+### Description
+The game variables are used throughout the scripts and they are a way to directly manipulate and change variables inside the game. Many of the variables are pointers to important objects in the game's memory such as the selceted character, scene, script etc..
 
-# Game Variables Catalog
+Its important to remember that these variables are essential for the game to function properly.
 
-## Description
+ If one of the values is not something the game allows, it might produce an unexpected result or might even crash.
 
-These variables are used everywhere in the game .sct files to read and manipulate the game's data.
+#
 
-## Catalog
-| Var Name | Length In Bytes|
-| -------- | -------------- |
-| script_trigger | 0x1C |
-| CURRENT_LEVEL | 0x04 |
-| CURRENT_SCENE | 0x04 |
-| CURSOR_X | 0x04 |
-| CURSOR_Y | 0x04 |
-| MOUSE_X | 0x04 |
-| MOUSE_Y | 0x04 |
-| GLOBAL_ABILITY | 0x04 |
-| RENDER_CHARS | 0x04 |
-| RENDER_SPEED | 0x04 |
-| RENDER_FORCE | 0x04 |
-| RENDER_PATH | 0x04 |
-| RENDER_CLICKFACE | 0x04 |
-| ENEMY_FOLLOW_TARGETS | 0x04 |
-| LEFT_HANDED_MOUSE | 0x04 |
-| SOUND_EVENT_LIST | 0x04 |
-| general_movement_anims_table_p | 0x04 |
-| override_attack_anims_table | 0x04 |
-| override_movement_anims_table | 0x04 |
-| global_inventory_p | 0x04 |
-| COMMAND_COMPLETION | 0x04 |
-| PRE_CACHE | 0x04 |
-| alpha_map_data | 0x04 |
-| SMACKER_X | 0x04 |
-| SMACKER_Y | 0x04 |
-| global_selected_weapon | 0x04 |
-| global_behavior | 0x04 |
-| level_scene_names_pp | 0x04 |
-| STATE_OVERRIDE | 0x04 |
-| texture_line_data | 0x04 |
-| scene_counter | 0x04 |
-| INPUT_CONTROL_SYSTEM | 0x04 |
-| CLICKED_DOOR | 0x04 |
-| clicked_character | 0x04 |
-| handle_names_p | 0x04 |
-| item_table | 0x04 |
-| number_of_items_in_item_table | 0x04 |
-| horn_blow_enemy_min | 0x04 |
-| script_object | 0x04 |
-| tricode_names_pp | 0x04 |
-| global_zone_type | 0x04 |
-| room_monster_percent | 0x04 |
-| door_key_table_p | 0x04 |
-| door_restriction_p | 0x04 |
-| global_selected_shield | 0x04 |
-| DISABLE_AI | 0x04 |
-| RENDER_SENSE | 0x04 |
-| compile_init_character | 0x04 |
-| scroll_x_shake | 0x04 |
-| no_inventory | 0x04 |
-| universal_inventory_p | 0x04 |
-| ammo_list_p | 0x04 |
-| play_sting | 0x04 |
-| play_battle_music | 0x04 |
-| pnc_look_use_mask | 0x04 |
-| time | 0x04 |
-| disable_scroll | 0x04 |
-| area_fire_fx_scripts | 0x04 |
-| area_lightning_fx_scripts | 0x04 |
-| area_earth_fx_scripts | 0x04 |
-| area_acid_fx_scripts | 0x04 |
-| area_ice_fx_scripts | 0x04 |
-| area_light_fx_scripts | 0x04 |
-| extra_templates | 0x04 |
-| magic_upgrade_data | 0x04 |
-| char_gen_fx_scripts | 0x04 |
-| max_general_char_sound_events | 0x04 |
-| override_sound_event_list | 0x04 |
-| global_collision_type | 0x04 |
-| control_char_p | 0x04 |
-| attack_anims_table_pp | 0x04 |
-| character_templates_pp | 0x04 |
-| misc_fx_scripts | 0x04 |
-| damage_table_pp | 0x04 |
-| gib_override_table_pp | 0x04 |
-| global_exit_door | 0x04 |
-| map_locations_p | 0x04 |
-| collected_map_p | 0x04 |
-| open_all_doors | 0x04 |
-| char_override_names_pp | 0x04 |
-| items_bought | 0x04 |
-| potion_upgrade_data | 0x04 |
-| saved_games_count | 0x04 |
-| scroll_y_shake | 0x04 |
-| chronicler_variation | 0x04 |
-| MovieActive | 0x04 |
-| current_menu_level_p | 0x04 |
-| gPlayOutro | 0x04 |
-| valid_hero_list_p | 0x04 |
-| zone_under_mouse_type | 0x04 |
-| outro_active | 0x04 |
-| magic_orb_experience_p | 0x04 |
-| script_time | 0x04 |
-| accel_window_width | 0x04 |
-| no_user_input | 0x04 |
-| collected_arrows_p | 0x04 |
-| collected_fire_arrows_p | 0x04 |
-| left_handed | 0x04 |
-| use_mouse_override_sprite | 0x04 |
-| items_in_drag_box | 0x04 |
-| master | 0x04 |
-| changed_scene_via_map | 0x04 |
-| allocated_slot_adjustment | 0x04 |
-| character_stats_p | 0xDC |
-| character_combat_p | 0x3C |
-| character_movement_p | 0xFC |
-| character_misc_p | 0x04 |
-| object_p | 0x20 |
-| level_info_p | 0x08 |
-| scene_info_p | 0x3C |
-| character_ai_data_p | 0x00 |
-| smack_object_p | 0x20 |
-| psys_p | 0x04 |
-
+| Var Name | Length in bytes | References |
+| --- | --- | --- |
+| [script_trigger](./gamevar_refs/0.md) | 28 | 0 |
+| [CURRENT_LEVEL](./gamevar_refs/1.md) | 4 | 46 |
+| [CURRENT_SCENE](./gamevar_refs/2.md) | 4 | 46 |
+| [CURSOR_X](./gamevar_refs/3.md) | 4 | 0 |
+| [CURSOR_Y](./gamevar_refs/4.md) | 4 | 0 |
+| [MOUSE_X](./gamevar_refs/5.md) | 4 | 0 |
+| [MOUSE_Y](./gamevar_refs/6.md) | 4 | 0 |
+| [GLOBAL_ABILITY](./gamevar_refs/7.md) | 4 | 0 |
+| [RENDER_CHARS](./gamevar_refs/8.md) | 4 | 0 |
+| [RENDER_SPEED](./gamevar_refs/9.md) | 4 | 0 |
+| [RENDER_FORCE](./gamevar_refs/10.md) | 4 | 0 |
+| [RENDER_PATH](./gamevar_refs/11.md) | 4 | 0 |
+| [RENDER_CLICKFACE](./gamevar_refs/12.md) | 4 | 0 |
+| [ENEMY_FOLLOW_TARGETS](./gamevar_refs/13.md) | 4 | 0 |
+| [LEFT_HANDED_MOUSE](./gamevar_refs/14.md) | 4 | 0 |
+| [SOUND_EVENT_LIST](./gamevar_refs/15.md) | 4 | 1 |
+| [general_movement_anims_table_p](./gamevar_refs/16.md) | 4 | 1 |
+| [override_attack_anims_table](./gamevar_refs/17.md) | 4 | 59 |
+| [override_movement_anims_table](./gamevar_refs/18.md) | 4 | 126 |
+| [global_inventory_p](./gamevar_refs/19.md) | 4 | 164 |
+| [COMMAND_COMPLETION](./gamevar_refs/20.md) | 4 | 0 |
+| [PRE_CACHE](./gamevar_refs/21.md) | 4 | 0 |
+| [alpha_map_data](./gamevar_refs/22.md) | 4 | 1 |
+| [SMACKER_X](./gamevar_refs/23.md) | 4 | 318 |
+| [SMACKER_Y](./gamevar_refs/24.md) | 4 | 318 |
+| [global_selected_weapon](./gamevar_refs/25.md) | 4 | 92 |
+| [global_behavior](./gamevar_refs/26.md) | 4 | 0 |
+| [level_scene_names_pp](./gamevar_refs/27.md) | 4 | 1 |
+| [STATE_OVERRIDE](./gamevar_refs/28.md) | 4 | 0 |
+| [texture_line_data](./gamevar_refs/29.md) | 4 | 1 |
+| [scene_counter](./gamevar_refs/30.md) | 4 | 207 |
+| [INPUT_CONTROL_SYSTEM](./gamevar_refs/31.md) | 4 | 0 |
+| [CLICKED_DOOR](./gamevar_refs/32.md) | 4 | 40 |
+| [clicked_character](./gamevar_refs/33.md) | 4 | 58 |
+| [handle_names_p](./gamevar_refs/34.md) | 4 | 1 |
+| [item_table](./gamevar_refs/35.md) | 4 | 1 |
+| [number_of_items_in_item_table](./gamevar_refs/36.md) | 4 | 0 |
+| [horn_blow_enemy_min](./gamevar_refs/37.md) | 4 | 0 |
+| [script_object](./gamevar_refs/38.md) | 4 | 770 |
+| [tricode_names_pp](./gamevar_refs/39.md) | 4 | 1 |
+| [global_zone_type](./gamevar_refs/40.md) | 4 | 50 |
+| [room_monster_percent](./gamevar_refs/41.md) | 4 | 1 |
+| [door_key_table_p](./gamevar_refs/42.md) | 4 | 1 |
+| [door_restriction_p](./gamevar_refs/43.md) | 4 | 17 |
+| [global_selected_shield](./gamevar_refs/44.md) | 4 | 0 |
+| [DISABLE_AI](./gamevar_refs/45.md) | 4 | 0 |
+| [RENDER_SENSE](./gamevar_refs/46.md) | 4 | 0 |
+| [compile_init_character](./gamevar_refs/47.md) | 4 | 88 |
+| [scroll_x_shake](./gamevar_refs/48.md) | 4 | 12 |
+| [no_inventory](./gamevar_refs/49.md) | 4 | 0 |
+| [universal_inventory_p](./gamevar_refs/50.md) | 4 | 1 |
+| [ammo_list_p](./gamevar_refs/51.md) | 4 | 1 |
+| [play_sting](./gamevar_refs/52.md) | 4 | 3 |
+| [play_battle_music](./gamevar_refs/53.md) | 4 | 1 |
+| [pnc_look_use_mask](./gamevar_refs/54.md) | 4 | 15 |
+| [time](./gamevar_refs/55.md) | 4 | 1194 |
+| [disable_scroll](./gamevar_refs/56.md) | 4 | 4 |
+| [area_fire_fx_scripts](./gamevar_refs/57.md) | 4 | 1 |
+| [area_lightning_fx_scripts](./gamevar_refs/58.md) | 4 | 1 |
+| [area_earth_fx_scripts](./gamevar_refs/59.md) | 4 | 1 |
+| [area_acid_fx_scripts](./gamevar_refs/60.md) | 4 | 1 |
+| [area_ice_fx_scripts](./gamevar_refs/61.md) | 4 | 1 |
+| [area_light_fx_scripts](./gamevar_refs/62.md) | 4 | 1 |
+| [extra_templates](./gamevar_refs/63.md) | 4 | 1 |
+| [magic_upgrade_data](./gamevar_refs/64.md) | 4 | 1 |
+| [char_gen_fx_scripts](./gamevar_refs/65.md) | 4 | 81 |
+| [max_general_char_sound_events](./gamevar_refs/66.md) | 4 | 1 |
+| [override_sound_event_list](./gamevar_refs/67.md) | 4 | 1 |
+| [global_collision_type](./gamevar_refs/68.md) | 4 | 15 |
+| [control_char_p](./gamevar_refs/69.md) | 4 | 207 |
+| [attack_anims_table_pp](./gamevar_refs/70.md) | 4 | 1 |
+| [character_templates_pp](./gamevar_refs/71.md) | 4 | 1 |
+| [misc_fx_scripts](./gamevar_refs/72.md) | 4 | 59 |
+| [damage_table_pp](./gamevar_refs/73.md) | 4 | 1 |
+| [gib_override_table_pp](./gamevar_refs/74.md) | 4 | 1 |
+| [global_exit_door](./gamevar_refs/75.md) | 4 | 9 |
+| [map_locations_p](./gamevar_refs/76.md) | 4 | 1 |
+| [collected_map_p](./gamevar_refs/77.md) | 4 | 1 |
+| [open_all_doors](./gamevar_refs/78.md) | 4 | 1 |
+| [char_override_names_pp](./gamevar_refs/79.md) | 4 | 1 |
+| [items_bought](./gamevar_refs/80.md) | 4 | 3 |
+| [potion_upgrade_data](./gamevar_refs/81.md) | 4 | 1 |
+| [saved_games_count](./gamevar_refs/82.md) | 4 | 95 |
+| [scroll_y_shake](./gamevar_refs/83.md) | 4 | 2 |
+| [chronicler_variation](./gamevar_refs/84.md) | 4 | 426 |
+| [MovieActive](./gamevar_refs/85.md) | 4 | 3 |
+| [current_menu_level_p](./gamevar_refs/86.md) | 4 | 48 |
+| [gPlayOutro](./gamevar_refs/87.md) | 4 | 2 |
+| [valid_hero_list_p](./gamevar_refs/88.md) | 4 | 1 |
+| [zone_under_mouse_type](./gamevar_refs/89.md) | 4 | 5 |
+| [outro_active](./gamevar_refs/90.md) | 4 | 3 |
+| [magic_orb_experience_p](./gamevar_refs/91.md) | 4 | 1 |
+| [script_time](./gamevar_refs/92.md) | 4 | 581 |
+| [accel_window_width](./gamevar_refs/93.md) | 4 | 1 |
+| [no_user_input](./gamevar_refs/94.md) | 4 | 6 |
+| [collected_arrows_p](./gamevar_refs/95.md) | 4 | 1 |
+| [collected_fire_arrows_p](./gamevar_refs/96.md) | 4 | 1 |
+| [left_handed](./gamevar_refs/97.md) | 4 | 7 |
+| [use_mouse_override_sprite](./gamevar_refs/98.md) | 4 | 10 |
+| [items_in_drag_box](./gamevar_refs/99.md) | 4 | 3 |
+| [master](./gamevar_refs/100.md) | 4 | 455 |
+| [changed_scene_via_map](./gamevar_refs/101.md) | 4 | 2 |
+| [allocated_slot_adjustment](./gamevar_refs/102.md) | 4 | 0 |
+| [character_stats_p](./gamevar_refs/103.md) | 220 | 1175 |
+| [character_combat_p](./gamevar_refs/104.md) | 60 | 22 |
+| [character_movement_p](./gamevar_refs/105.md) | 252 | 489 |
+| [character_misc_p](./gamevar_refs/106.md) | 4 | 1 |
+| [object_p](./gamevar_refs/107.md) | 32 | 331 |
+| [level_info_p](./gamevar_refs/108.md) | 8 | 0 |
+| [scene_info_p](./gamevar_refs/109.md) | 60 | 183 |
+| [character_ai_data_p](./gamevar_refs/110.md) | 4 | 0 |
+| [smack_object_p](./gamevar_refs/111.md) | 32 | 30 |
+| [psys_p](./gamevar_refs/112.md) | 4 | 12 |
+| [chr_body_p](./gamevar_refs/113.md) | 24 | 0 |
+| [STRENGTH](./gamevar_refs/114.md) | 4 | 183 |
+| [DEXTERITY](./gamevar_refs/115.md) | 4 | 197 |
+| [RANGED](./gamevar_refs/116.md) | 4 | 179 |
+| [WISDOM](./gamevar_refs/117.md) | 4 | 179 |
+| [CONSTITUTION](./gamevar_refs/118.md) | 4 | 179 |
+| [HP](./gamevar_refs/119.m) | 4 | 242 |
+| [MAGIC](./gamevar_refs/120.md) | 4 | 190 |
+| [ARMOUR_CLASS](./gamevar_refs/121.md) | 4 | 183 |
+| [LEVEL](./gamevar_refs/122.md) | 4 | 240 |
+| [room_state](./gamevar_refs/1.md) | 4 | 1670 |
+| [is_room_cleared](./gamevar_refs/0.md) | 4 | 774 |

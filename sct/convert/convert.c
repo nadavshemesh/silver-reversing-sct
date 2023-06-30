@@ -3,6 +3,8 @@
 
 const char* TEMP_GF_FILE = "./gf.txt";
 const char* TEMP_GF_NAME = "gf.txt";
+const char* TEMP_GV_FILE = "./gv.txt";
+const char* TEMP_GV_NAME = "gv.txt";
 game_var** game_vars;
 game_fun** game_functions;
 code_pattern** code_patterns;
@@ -325,6 +327,129 @@ void write_game_functions_file() {
     fclose(f);
 }
 
+void write_game_var_ref_file(char* gv_name, int gv_id) {
+    char* dir = "./docs/catalog/gamevar_refs/";
+    char filename[256];
+    char ext[] = ".md";
+
+    sprintf(filename, "%d", gv_id);
+    int str_path_size = strlen(dir)+strlen(filename)+strlen(ext)+1;
+    char fullpath[str_path_size];
+    snprintf(fullpath, str_path_size, "%s%s%s", dir, filename, ext);
+
+    FILE* f = fopen(fullpath, "wb");
+    FILE* gv_f = fopen(TEMP_GV_FILE, "rb");
+
+    char err[256], err2[256];
+    sprintf(err, "Error, file %s, could not be opened.", fullpath);
+    sprintf(err2, "Error, file %s, could not be opened.", TEMP_GV_FILE);
+    if(f == NULL) print_err_and_exit(err, -4);
+    if(gv_f == NULL) print_err_and_exit(err2, -4);
+
+    fprintf(f, "# Game Variable: %s\n", gv_name);
+    fprintf(f, "### References in the original script files\n");
+    fprintf(f, "\n#\n\n");
+    fprintf(f, "| File | Line Number | Reference code |\n");
+    fprintf(f, "| --- | --- | --- |\n");
+
+    while(!feof(gv_f)) {
+        char filepath[4096];
+        char filename[1024];
+        char line_num[1024];
+        char code[2048];
+
+        // get file name
+        bool stop = false;
+        for(int i=0, j=0; !stop && i<1024; ++i) {
+            char c = getc(gv_f);
+            if(c == 0) c = getc(gv_f);
+            if(c == ':' || c == '\t') stop = true;
+            if(!stop && is_printable_ascii(c) && c !='\n') {filename[j] = c; j++;} else {filename[j] = 0;}
+        }
+        if(!stop) break;
+
+        // get line number
+        stop = false;
+        for(int i=0, j=0; !stop && i<1024; ++i) {
+            char c = getc(gv_f);
+            if(c == 0) c = getc(gv_f);
+            if(c == ':' || c == '\t') stop = true;
+            if(!stop && is_printable_ascii(c) && c !='\n') {line_num[j] = c; j++;} else {line_num[j] = 0;}
+        }
+        if(!stop) break;
+
+        // get line of code
+        stop = false;
+        bool start = false;
+        for(int i=0, j=0; !stop && i<2048; ++i) {
+            char c = getc(gv_f);
+            if(c == '|') {code[j]='\\';j++;}
+            if(c == '\n') {stop = true; code[j] = 0;}
+            else if(c == '\t') start = true;
+            else if(start && is_printable_ascii(c)) {code[j] = c;j++;}
+        }
+        sprintf(filepath, "../../../out/%s#L%s", filename, line_num);
+        fprintf(f, "| [%s](%s) | %s | %s |\n", filename, filepath, line_num, code);
+    }
+
+    fclose(gv_f);
+    fclose(f);
+}
+void write_gamevars_file() {
+    char* dir = "./docs/catalog/";
+    char* filename = "gamevars";
+    char ext[] = ".md";
+
+    int str_path_size = strlen(dir)+strlen(filename)+strlen(ext)+1;
+    char fullpath[str_path_size];
+    snprintf(fullpath, str_path_size, "%s%s%s", dir, filename, ext);
+
+    FILE* f = fopen(fullpath, "wb");
+
+    char err[256];
+    sprintf(err, "Error, file %s, could not be opened.", fullpath);
+    if(f == NULL) print_err_and_exit(err, -4);
+
+    for(int i=0; i<GAME_VARS_NUM; ++i) {
+        game_var* gv = game_vars[i];
+    }
+
+    fprintf(f, "# Game Variables\n", GAME_VARS_NUM);
+    fprintf(f, "### Description\n");
+    fprintf(f, "The game variables are used throughout the scripts and they are a way to directly manipulate and change variables inside the game. Many of the variables are pointers to important objects in the game's memory such as the selceted character, scene, script etc..\n\nIts important to remember that these variables are essential for the game to function properly.\n\n If one of the values is not something the game allows, it might produce an unexpected result or might even crash.\n");
+    fprintf(f, "\n#\n\n");
+    fprintf(f, "| Var Name | Length in bytes | References |\n");
+    fprintf(f, "| --- | --- | --- |\n");
+    for(int i=0; i<GAME_VARS_NUM; ++i) {
+        game_var* gv = game_vars[i];
+        char win_cmd[256];
+        chdir("./out");
+        sprintf(win_cmd, "findstr /n '%s' * > %s", gv->name, "../gv.txt");
+        system(win_cmd);
+        chdir("..");
+        FILE* gv_f = fopen(TEMP_GV_FILE, "rb");
+        int lines = count_lines(gv_f);
+
+        char* ref_dir = "./gamevar_refs/";
+
+        int ref_path_size = strlen(ref_dir)+strlen(gv->name)+strlen(ext)+1;
+        char refpath[ref_path_size];
+        snprintf(refpath, ref_path_size, "%s%d%s", ref_dir, gv->id, ext);
+
+        fprintf(f, "| [%s](%s) | %d | %d |\n", gv->name, refpath, gv->len, lines);
+        write_game_var_ref_file(gv->name, gv->id);
+    }
+
+    // remove gv.txt
+    remove(TEMP_GV_FILE);
+
+    char msg[256];
+    sprintf(msg, "successfully written to %s.", fullpath);
+    print_success(msg);
+
+    fclose(f);
+}
+
 void write_tsct_asm_file(char* filepath, bool write_to_out_dir, sct_f* sf) {
     char* dir = (write_to_out_dir) ? aapts("./out/") : getDir(filepath);
     char* filename = getFilenameNoExt(filepath);
@@ -403,6 +528,7 @@ int main(int argc, char* argv[]) {
         }
         if(strs_identical(arg, "-g")) {
             write_game_functions_file();
+            write_gamevars_file();
             exit(0);
         }
     }

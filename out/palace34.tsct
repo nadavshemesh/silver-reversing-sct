@@ -225,7 +225,7 @@
 	if(var VAR_23 != var VAR_17)
 	 {
 			var VAR_23 = var VAR_17
-			call log_obj(var VAR_17)
+			call log_var(var VAR_17)
 	}
 	switch(var VAR_17)
 	 {
@@ -281,14 +281,14 @@
 			case 5
 				if(var VAR_19 != gamevar saved_games_count)
 				 {
-						call log("game saved")
+						call log_string("game saved")
 						call func_11d()
 						var VAR_17 = int 7
 						var VAR_18 = int 0
 				}
 				else
 				 {
-						call log("game not saved")
+						call log_string("game not saved")
 						call func_2a(var fade_chronicler, var &VAR_20)
 						execute SCRIPT_14
 						gamevar chronicler_variation = var VAR_2
@@ -404,9 +404,9 @@
 			call set_scene_overwrite_act("haven", "h_camptp", int 0)
 			call func_118("haven", "h_camptp", int 1)
 			var VAR_39 = int 1
-			call log("all 8 orbs taken!")
+			call log_string("all 8 orbs taken!")
 	}
 	else
 	 {
-			call log("not got all orbs yet!")
+			call log_string("not got all orbs yet!")
 	}

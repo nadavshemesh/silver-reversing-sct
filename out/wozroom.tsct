@@ -101,7 +101,7 @@
 						 {
 								if(gamevar *scene_info_p+5 & int 4)
 								 {
-										call log("Bridge triggered")
+										call log_string("Bridge triggered")
 										gamevar *scene_info_p+5 &= int -5
 										gamevar *scene_info_p+6 &= int -5
 								}
@@ -117,7 +117,7 @@
 						 {
 								if(gamevar *scene_info_p+5 & int 4)
 								 {
-										call log("Bridge triggered")
+										call log_string("Bridge triggered")
 										gamevar *scene_info_p+5 &= int -5
 										gamevar *scene_info_p+6 &= int -5
 								}
@@ -344,7 +344,7 @@
 	if(var VAR_64 != var VAR_52)
 	 {
 			var VAR_64 = var VAR_52
-			call log_obj(var VAR_52)
+			call log_var(var VAR_52)
 	}
 	switch(var VAR_52)
 	 {

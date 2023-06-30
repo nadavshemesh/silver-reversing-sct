@@ -118,7 +118,7 @@
 	if(var VAR_16 != var VAR_12)
 	 {
 			var VAR_16 = var VAR_12
-			call log_obj(var VAR_12)
+			call log_var(var VAR_12)
 	}
 	switch(var VAR_12)
 	 {
@@ -287,7 +287,7 @@
 										}
 										else
 										 {
-												call log("no second dialogue triggered")
+												call log_string("no second dialogue triggered")
 												var VAR_48 = int 6
 												var VAR_49 = int 0
 										}
@@ -330,7 +330,7 @@
 	if(var VAR_70 != var VAR_68)
 	 {
 			var VAR_70 = var VAR_68
-			call log_obj(var VAR_68)
+			call log_var(var VAR_68)
 	}
 	switch(var VAR_68)
 	 {
@@ -382,7 +382,7 @@
 				var VAR_31 = int 0
 				if(call is_char_standing(var DAVID))
 				 {
-						call log("david hit path target")
+						call log_string("david hit path target")
 						var VAR_31 = int 1
 				}
 				else
@@ -394,7 +394,7 @@
 								 {
 										if(call is_char_standing(@arr[var index]))
 										 {
-												call log("other char hit path target")
+												call log_string("other char hit path target")
 												var VAR_31 = int 1
 										}
 								}

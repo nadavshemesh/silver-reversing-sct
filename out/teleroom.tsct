@@ -185,7 +185,7 @@
 					 /* play the sound 'lift' */ 
 					call play_loaded_sound(int 1, int 0, int 44, int 0)
 					var VAR_8 = int 1
-					call log("play lever sfx")
+					call log_string("play lever sfx")
 					var VAR_86 ++ 
 					var VAR_87 = int 0
 			}
@@ -198,7 +198,7 @@
 			 {
 					var VAR_9 = int 1
 					var VAR_89 = call play_loaded_sound(int 1, int -1, int 84, int 0)
-					call log("play looping sfx")
+					call log_string("play looping sfx")
 					var VAR_86 ++ 
 					var VAR_87 = int 0
 			}
@@ -210,7 +210,7 @@
 			 {
 					call func_9f(var VAR_89, int 10)
 					var VAR_90 = call play_loaded_sound(int 2, int 0, int 84, int 0)
-					call log("stop sfx")
+					call log_string("stop sfx")
 					var VAR_86 ++ 
 					var VAR_87 = int 0
 			}
@@ -343,7 +343,7 @@
 	if(var VAR_45 != var VAR_36)
 	 {
 			var VAR_45 = var VAR_36
-			call log_obj(var VAR_36)
+			call log_var(var VAR_36)
 	}
 	switch(var VAR_36)
 	 {
@@ -391,7 +391,7 @@
 						call func_f7(var lightning, int 2)
 						if(call is_char_handle_in_level(int 917505 /* IMP */ ))
 						 {
-								call log("fire at imp1")
+								call log_string("fire at imp1")
 								call func_1e(var ntyronis, var neutral_imp)
 						}
 						var VAR_36 ++ 
@@ -403,7 +403,7 @@
 				 {
 						if(call is_char_handle_in_level(int 917507 /* IMP */ ))
 						 {
-								call log("fire at imp3")
+								call log_string("fire at imp3")
 								call func_1e(var ntyronis, var neutral_imp2)
 						}
 						var VAR_36 ++ 
@@ -415,7 +415,7 @@
 				 {
 						if(call is_char_handle_in_level(int 917506 /* IMP */ ))
 						 {
-								call log("fire at imp2")
+								call log_string("fire at imp2")
 								call func_1e(var ntyronis, var neutral_imp1)
 						}
 						var VAR_36 ++ 
@@ -569,7 +569,7 @@
 	if(var VAR_76 != var VAR_58)
 	 {
 			var VAR_76 = var VAR_58
-			call log_obj(var VAR_58)
+			call log_var(var VAR_58)
 	}
 	execute SCRIPT_6
 	if(var VAR_58 == int 0)
@@ -579,7 +579,7 @@
 			 {
 					call func_113(int 0, int 200)
 					call set_input_system(int 2)
-					call log("duke walks on")
+					call log_string("duke walks on")
 					call func_108("act2")
 					call char_teleport_to_pos(var VAR_60, var &tele_position, int 182)
 					call char_teleport_to_pos(var VAR_61, var &tele_position1, int 44)
@@ -607,7 +607,7 @@
 					var VAR_59 ++ 
 					if(var VAR_59 > int 30)
 					 {
-							call log("telescope ready")
+							call log_string("telescope ready")
 							call set_input_system(int 1)
 							call chars_face_opposite(var VAR_60, var VAR_61)
 							var VAR_58 ++ 
@@ -645,7 +645,7 @@
 	 {
 			if(call func_5c(var VAR_61))
 			 {
-					call log("talking state 6")
+					call log_string("talking state 6")
 					call play_char_anim(var VAR_61, var gstqustn_anim, int 0)
 					var VAR_58 ++ 
 			}

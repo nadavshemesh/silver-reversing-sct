@@ -90,7 +90,7 @@
 	}
 
 ._SCRIPT_3
-	call log("it's_raining")
+	call log_string("it's_raining")
 	call play_3d_fx("RAIN", var &fx_position, var &VAR_23, int 0)
 	execute SCRIPT_10
 
@@ -129,7 +129,7 @@
 			case 4
 				if(call func_ab(int 2500, var &VAR_42))
 				 {
-						call log("next_step")
+						call log_string("next_step")
 						if(call is_char_handle_in_level(int 6881280 /* RCAPTAIN */ ))
 						 {
 								gamevar script_object = var captain_knives
@@ -331,7 +331,7 @@
 	if(var VAR_63 != var VAR_27)
 	 {
 			var VAR_63 = var VAR_27
-			call log_obj(var VAR_27)
+			call log_var(var VAR_27)
 	}
 	switch(var VAR_27)
 	 {
@@ -542,7 +542,7 @@
 ._SCRIPT_11
 	if(var ! VAR_0)
 	 {
-			call log("random_rain_fx: Rain SFX not initialised! See Marc")
+			call log_string("random_rain_fx: Rain SFX not initialised! See Marc")
 			exit_script 
 	}
 	switch(var VAR_4)

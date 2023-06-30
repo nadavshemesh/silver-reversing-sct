@@ -106,7 +106,7 @@
 	var VAR_10 = call get_next_char_from_list()
 	var VAR_11 = call get_next_char_from_list()
 	execute SCRIPT_8
-	call log("Init trigger zones")
+	call log_string("Init trigger zones")
 
 ._SCRIPT_4
 	execute SCRIPT_9
@@ -256,7 +256,7 @@
 			var VAR_15 = int 1
 			exit_script 
 	}
-	call log_obj(var VAR_15)
+	call log_var(var VAR_15)
 	var VAR_15 = int 2
 
 ._SCRIPT_11
@@ -288,7 +288,7 @@
 ._SCRIPT_14
 
 ._SCRIPT_15
-	call log("WANDERING BADDIES")
+	call log_string("WANDERING BADDIES")
 	call load_char("plguemen")
 	call run_wandering_generator(var &wandering_gen_script, int 70)
 

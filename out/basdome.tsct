@@ -110,7 +110,7 @@
 	var VAR_3 = call get_next_char_from_list()
 	var VAR_4 = call get_next_char_from_list()
 	execute SCRIPT_7
-	call log("Init trigger zones")
+	call log_string("Init trigger zones")
 
 ._SCRIPT_4
 	if(gamevar script_time > var VAR_33)
@@ -215,7 +215,7 @@
 			var VAR_8 = int 1
 			exit_script 
 	}
-	call log_obj(var VAR_8)
+	call log_var(var VAR_8)
 	var VAR_8 = int 2
 
 ._SCRIPT_10
@@ -251,6 +251,6 @@
 ._SCRIPT_15
 
 ._SCRIPT_16
-	call log("WANDERING BADDIES")
+	call log_string("WANDERING BADDIES")
 	call load_char("plguemen")
 	call run_wandering_generator(var &wandering_gen_script, int 70)

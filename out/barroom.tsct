@@ -128,12 +128,12 @@
 								var VAR_53 = call func_e0(var selected_hero, int 22)
 								if(var VAR_53)
 								 {
-										call log("Got a sword")
+										call log_string("Got a sword")
 										call toggle_or_use_char_item(var selected_hero, var VAR_53)
 								}
 								else
 								 {
-										call log("No sword. WHY???")
+										call log_string("No sword. WHY???")
 								}
 						}
 						call resume_conversation()
@@ -257,7 +257,7 @@
 	if(var VAR_23 != var VAR_17)
 	 {
 			var VAR_23 = var VAR_17
-			call log_obj(var VAR_17)
+			call log_var(var VAR_17)
 	}
 	switch(var VAR_17)
 	 {
@@ -313,14 +313,14 @@
 			case 5
 				if(var VAR_19 != gamevar saved_games_count)
 				 {
-						call log("game saved")
+						call log_string("game saved")
 						call func_11d()
 						var VAR_17 = int 7
 						var VAR_18 = int 0
 				}
 				else
 				 {
-						call log("game not saved")
+						call log_string("game not saved")
 						call func_2a(var fade_chronicler, var &VAR_20)
 						execute SCRIPT_10
 						gamevar chronicler_variation = var VAR_2

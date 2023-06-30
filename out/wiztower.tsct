@@ -131,7 +131,7 @@
 	}
 
 ._SCRIPT_3
-	call log("it's_raining")
+	call log_string("it's_raining")
 	call play_3d_fx("RAIN", var &fx_position, var &VAR_67, int 0)
 	execute SCRIPT_10
 
@@ -140,7 +140,7 @@
 	if(var VAR_112 != var VAR_69)
 	 {
 			var VAR_112 = var VAR_69
-			call log_obj(var VAR_69)
+			call log_var(var VAR_69)
 	}
 	if(var VAR_69 == int 0)
 	 {
@@ -172,7 +172,7 @@
 			 {
 					if(call func_6d() == int 9)
 					 {
-							call log("break9")
+							call log_string("break9")
 							call char_walk_to(var nwilliam, int -1137, int -1016, int 612)
 							var VAR_69 ++ 
 							var VAR_70 = int 0
@@ -327,7 +327,7 @@
 	if(var VAR_133 != var VAR_120)
 	 {
 			var VAR_133 = var VAR_120
-			call log_obj(var VAR_120)
+			call log_var(var VAR_120)
 	}
 	switch(var VAR_120)
 	 {
@@ -429,7 +429,7 @@
 ._SCRIPT_11
 	if(var ! VAR_0)
 	 {
-			call log("random_rain_fx: Rain SFX not initialised! See Marc")
+			call log_string("random_rain_fx: Rain SFX not initialised! See Marc")
 			exit_script 
 	}
 	switch(var VAR_4)

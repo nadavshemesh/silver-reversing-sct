@@ -91,7 +91,7 @@
 	}
 
 ._SCRIPT_3
-	call log("it's_raining")
+	call log_string("it's_raining")
 	call play_3d_fx("RAIN", var &fx_position, var &VAR_22, int 0)
 	execute SCRIPT_12
 
@@ -99,7 +99,7 @@
 	if(var VAR_40 != var VAR_34)
 	 {
 			var VAR_40 = var VAR_34
-			call log_obj(var VAR_34)
+			call log_var(var VAR_34)
 	}
 	switch(var VAR_34)
 	 {
@@ -108,12 +108,12 @@
 				 {
 						if(call func_82("rain", "rayalley") > int 1)
 						 {
-								call log("rain rayalley: talked to old man")
+								call log_string("rain rayalley: talked to old man")
 								call start_dialog("S_HERMAN", "NULL")
 						}
 						else
 						 {
-								call log("rain rayalley: not talked to old man")
+								call log_string("rain rayalley: not talked to old man")
 								call start_dialog("S_HERVIL", "NULL")
 						}
 						var VAR_34 ++ 
@@ -204,7 +204,7 @@
 	 {
 			gamevar script_object = var fvillhat
 			gamevar *character_stats_p+29 |= int 2097152
-			call log("got the siver off Albert")
+			call log_string("got the siver off Albert")
 			var VAR_29 = int 1
 	}
 
@@ -212,7 +212,7 @@
 	if(var VAR_56 != var VAR_51)
 	 {
 			var VAR_56 = var VAR_51
-			call log_obj(var VAR_51)
+			call log_var(var VAR_51)
 	}
 	switch(var VAR_51)
 	 {
@@ -291,7 +291,7 @@
 ._SCRIPT_13
 	if(var ! VAR_0)
 	 {
-			call log("random_rain_fx: Rain SFX not initialised! See Marc")
+			call log_string("random_rain_fx: Rain SFX not initialised! See Marc")
 			exit_script 
 	}
 	switch(var VAR_4)

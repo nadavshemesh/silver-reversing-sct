@@ -82,7 +82,7 @@
 			 {
 					var VAR_62 = int 0
 					call stop_playing_sound(var DoorCls3_sound_ref)
-					call log("stop playing the portcullis sound")
+					call log_string("stop playing the portcullis sound")
 					var bigfire_sound_ref = call play_loaded_sound(int 3, int 0, int 51, int 0)
 					call set_sound_volume(var bigfire_sound_ref, int 40)
 			}
@@ -114,7 +114,7 @@
 	}
 
 ._SCRIPT_3
-	call log("it's_raining")
+	call log_string("it's_raining")
 	call play_3d_fx("RAIN", var &fx_position, var &VAR_69, int 0)
 	execute SCRIPT_20
 
@@ -150,19 +150,19 @@
 	call load_char("chronicl")
 	if(call func_c0(int 999, "rain", "tavern01"))
 	 {
-			call log("given bell code")
+			call log_string("given bell code")
 			var VAR_79 = int 1
 	}
 	else
 	 {
-			call log("no bell code")
+			call log_string("no bell code")
 	}
 
 ._SCRIPT_7
 	if(var VAR_95 != var VAR_87)
 	 {
 			var VAR_95 = var VAR_87
-			call log_obj(var VAR_87)
+			call log_var(var VAR_87)
 	}
 	if(var VAR_87 == int 0)
 	 {
@@ -192,7 +192,7 @@
 			 {
 					if(call is_char_at_pos(var selected_hero, var &position, int 160))
 					 {
-							call log("walked to bell")
+							call log_string("walked to bell")
 							var VAR_88 = int 1
 							var index = int 0
 							var VAR_90 = int 0
@@ -212,7 +212,7 @@
 			 {
 					if(var VAR_72 == int 0)
 					 {
-							call log(var &VAR_97)
+							call log_string(var &VAR_97)
 							if(var VAR_88 == @arr[var VAR_89])
 							 {
 									var index ++ 
@@ -237,14 +237,14 @@
 							 {
 									if(var VAR_72 == int 1&&var VAR_73 == int 15)
 									 {
-											call log("code timeout")
+											call log_string("code timeout")
 											var VAR_87 = int 0
 											call reset_local_timer()
 											var VAR_72 = int 0
 									}
 									if(var VAR_72 == int 0)
 									 {
-											call log("code timeout")
+											call log_string("code timeout")
 											var VAR_87 = int 0
 											call reset_local_timer()
 									}
@@ -269,7 +269,7 @@
 			 {
 					if(call is_local_timer_between(int 10, int 18))
 					 {
-							call log(var &VAR_100)
+							call log_string(var &VAR_100)
 					}
 					if(gamevar global_zone_type == int 18)
 					 {
@@ -277,7 +277,7 @@
 							var VAR_72 = int 1
 							if(call is_local_timer_between(int 10, int 18))
 							 {
-									call log("right...")
+									call log_string("right...")
 									var VAR_88 = int 1
 									call reset_local_timer()
 									var VAR_90 = int 0
@@ -291,14 +291,14 @@
 					 {
 							if(var VAR_72 == int 0)
 							 {
-									call log("pause timeout 1")
+									call log_string("pause timeout 1")
 									var VAR_87 = int 0
 									call reset_local_timer()
 									var VAR_72 = int 0
 							}
 							if(var VAR_72 == int 1&&var VAR_73 == int 1)
 							 {
-									call log("pause timeout 2")
+									call log_string("pause timeout 2")
 									var VAR_87 = int 0
 									call reset_local_timer()
 									var VAR_72 = int 0
@@ -310,7 +310,7 @@
 	 {
 			if(var VAR_72 == int 1&&var VAR_73 == int 15)
 			 {
-					call log("wrong pause...")
+					call log_string("wrong pause...")
 					var VAR_87 ++ 
 					call reset_local_timer()
 			}
@@ -326,7 +326,7 @@
 	}
 	if(var VAR_87 == int 5)
 	 {
-			call log("cracked the code!!")
+			call log_string("cracked the code!!")
 			var VAR_66 = int 1
 			gamevar *scene_info_p+1 = int 1
 			var fade_chronicler = call create_enemy(int 178, int 0, var &init_position, int 140)
@@ -380,7 +380,7 @@
 			 {
 					if(call is_char_at_pos(var selected_hero, var &position, int 160))
 					 {
-							call log("walked to bell")
+							call log_string("walked to bell")
 							var VAR_72 = int 1
 							var VAR_106 ++ 
 					}
@@ -460,7 +460,7 @@
 	if(var VAR_23 != var VAR_17)
 	 {
 			var VAR_23 = var VAR_17
-			call log_obj(var VAR_17)
+			call log_var(var VAR_17)
 	}
 	switch(var VAR_17)
 	 {
@@ -516,14 +516,14 @@
 			case 5
 				if(var VAR_19 != gamevar saved_games_count)
 				 {
-						call log("game saved")
+						call log_string("game saved")
 						call func_11d()
 						var VAR_17 = int 7
 						var VAR_18 = int 0
 				}
 				else
 				 {
-						call log("game not saved")
+						call log_string("game not saved")
 						call func_2a(var fade_chronicler, var &VAR_20)
 						execute SCRIPT_19
 						gamevar chronicler_variation = var VAR_2
@@ -635,7 +635,7 @@
 ._SCRIPT_21
 	if(var ! VAR_39)
 	 {
-			call log("random_rain_fx: Rain SFX not initialised! See Marc")
+			call log_string("random_rain_fx: Rain SFX not initialised! See Marc")
 			exit_script 
 	}
 	switch(var VAR_43)

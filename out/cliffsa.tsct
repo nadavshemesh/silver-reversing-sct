@@ -227,7 +227,7 @@
 						}
 						else
 						 {
-								call log("Oops! No second_char_p!!!!")
+								call log_string("Oops! No second_char_p!!!!")
 								call set_input_system(int 1)
 								var VAR_82 = int -1
 						}
@@ -401,7 +401,7 @@
 				else
 				 {
 						var VAR_47 = int 1
-						call log("ERROR: no second_char_p when opening door")
+						call log_string("ERROR: no second_char_p when opening door")
 						var VAR_100 = int -1
 				}
 				break 
@@ -457,32 +457,32 @@
 			switch(var VAR_49)
 			 {
 					case 65536
-						call log("david")
+						call log_string("david")
 						var VAR_39 = var david
 						break 
 					case 786432
-						call log("sekune")
+						call log_string("sekune")
 						var VAR_41 = var david
 						break 
 					case 327680
-						call log("jug")
+						call log_string("jug")
 						var VAR_40 = var david
 						break 
 					case 196608
-						call log("vivienne")
+						call log_string("vivienne")
 						var VAR_42 = var david
 						break 
 					case 131072
-						call log("chiaro")
+						call log_string("chiaro")
 						var VAR_43 = var david
 						break 
 					case 262144
-						call log("cagen")
+						call log_string("cagen")
 						var VAR_44 = var david
 						break 
 					default 
-						call log("WARNING! Unknown hero while checking heroes")
-						call log("Get a goober -- QUICKLY!!")
+						call log_string("WARNING! Unknown hero while checking heroes")
+						call log_string("Get a goober -- QUICKLY!!")
 						break 
 			}
 			var david = call get_next_char_from_list()
@@ -516,7 +516,7 @@
 	if(var VAR_23 != var VAR_17)
 	 {
 			var VAR_23 = var VAR_17
-			call log_obj(var VAR_17)
+			call log_var(var VAR_17)
 	}
 	switch(var VAR_17)
 	 {
@@ -572,14 +572,14 @@
 			case 5
 				if(var VAR_19 != gamevar saved_games_count)
 				 {
-						call log("game saved")
+						call log_string("game saved")
 						call func_11d()
 						var VAR_17 = int 7
 						var VAR_18 = int 0
 				}
 				else
 				 {
-						call log("game not saved")
+						call log_string("game not saved")
 						call func_2a(var fade_chronicler, var &VAR_20)
 						execute SCRIPT_19
 						gamevar chronicler_variation = var VAR_2

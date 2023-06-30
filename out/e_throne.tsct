@@ -76,14 +76,14 @@
 						call apply_effect_on_char(gamevar char_gen_fx_scripts, int 18, int 0, var VAR_0)
 						if(var VAR_9)
 						 {
-								call log("force hero1 to stand")
+								call log_string("force hero1 to stand")
 								call char_teleport_to_pos(var VAR_9, var &tele_position1, int 300)
 								call char_stop(var VAR_9)
 								call set_char_running(var VAR_9)
 						}
 						if(var VAR_10)
 						 {
-								call log("force hero2 to stand")
+								call log_string("force hero2 to stand")
 								call char_teleport_to_pos(var VAR_10, var &tele_position2, int 40)
 								call char_stop(var VAR_10)
 								call set_char_running(var VAR_10)
@@ -110,7 +110,7 @@
 			case 1
 				if(var VAR_15 > int 100)
 				 {
-						call log("now it's time for a cut scene")
+						call log_string("now it's time for a cut scene")
 						var VAR_15 = int 0
 						var VAR_14 ++ 
 				}
@@ -151,33 +151,33 @@
 				switch(var VAR_3)
 				 {
 						case 1
-							call log("we'll never get here")
+							call log_string("we'll never get here")
 							break 
 						case 4
-							call log("Not started dialog")
+							call log_string("Not started dialog")
 							break 
 						case 5
-							call log("Sekune dialog")
+							call log_string("Sekune dialog")
 							call start_dialog("S_JENDVD", "ACT_1")
 							var VAR_14 ++ 
 							break 
 						case 6
-							call log("Jug dialog")
+							call log_string("Jug dialog")
 							call start_dialog("J_JENDVD", "ACT_1")
 							var VAR_14 ++ 
 							break 
 						case 7
-							call log("Vivienne dialog")
+							call log_string("Vivienne dialog")
 							call start_dialog("V_JENDVD", "ACT_1")
 							var VAR_14 ++ 
 							break 
 						case 8
-							call log("Chiaro dialog")
+							call log_string("Chiaro dialog")
 							call start_dialog("H_JENDVD", "ACT_1")
 							var VAR_14 ++ 
 							break 
 						case 9
-							call log("Cagen dialog")
+							call log_string("Cagen dialog")
 							call start_dialog("C_JENDVD", "ACT_1")
 							var VAR_14 ++ 
 							break 

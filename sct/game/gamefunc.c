@@ -108,7 +108,7 @@ void init_game_functions(game_fun** functions_arr) {
     add_forced_type(functions_arr[0x97], ARRAY, 2, "init_position");
     functions_arr[0x93]->name = aapts("create_char");
     functions_arr[0x93]->params = 4;
-    functions_arr[0x93]->desc = aapts("(var pos_ptr, var char_name_ptr, int face_direction_radius_counter_clockwise, int init_state)");
+    functions_arr[0x93]->desc = aapts("(var pos_ptr, string char_string_id, int face_direction_radius_counter_clockwise, int init_state)");
     functions_arr[0x93]->cat_ref =  create_cat_ref(NO_CAT_USE_PARAM_STRING, 1, NULL, NULL);
     add_forced_type(functions_arr[0x93], ARRAY, 0, "init_position");
     functions_arr[0x25]->name = aapts("is_char_standing");
@@ -322,13 +322,13 @@ void init_game_functions(game_fun** functions_arr) {
     functions_arr[0xc7]->name = aapts("char_attack");
     functions_arr[0xc7]->params = 2;
     functions_arr[0xc7]->desc = aapts("(var src_char, var dest_char)");
-    functions_arr[0xcd]->name = aapts("log");
+    functions_arr[0xcd]->name = aapts("log_string");
     functions_arr[0xcd]->params = 1;
-    functions_arr[0xcd]->desc = aapts("(var string_ptr)");
+    functions_arr[0xcd]->desc = aapts("(string some_string)");
     add_forced_type(functions_arr[0xcd], STRING, 0, NULL);
-    functions_arr[0xce]->name = aapts("log_obj");
+    functions_arr[0xce]->name = aapts("log_var");
     functions_arr[0xce]->params = 1;
-    functions_arr[0xce]->desc = aapts("(var obj_ptr)");
+    functions_arr[0xce]->desc = aapts("(var some_var)");
     functions_arr[0xf4]->name = aapts("play_3d_fx");
     functions_arr[0xf4]->params = 4;
     functions_arr[0xf4]->desc = aapts("(var fx_name, var pos_ptr1, var pos_ptr2 or int 0, int duration)");

@@ -305,7 +305,7 @@
 				 {
 						if(gamevar global_zone_type == int 18)
 						 {
-								call log("USE1")
+								call log_string("USE1")
 								var VAR_85 = int 1
 								gamevar pnc_look_use_mask |= int 6
 								gamevar global_zone_type = int 0
@@ -314,7 +314,7 @@
 						}
 						if(gamevar global_zone_type == int 19)
 						 {
-								call log("USE2")
+								call log_string("USE2")
 								var VAR_85 = int 1
 								gamevar pnc_look_use_mask |= int 6
 								gamevar global_zone_type = int 0
@@ -326,7 +326,7 @@
 				 {
 						if(gamevar global_zone_type == int 20)
 						 {
-								call log("USE3")
+								call log_string("USE3")
 								var VAR_86 = int 1
 								gamevar pnc_look_use_mask |= int 24
 								gamevar global_zone_type = int 0
@@ -335,7 +335,7 @@
 						}
 						if(gamevar global_zone_type == int 21)
 						 {
-								call log("USE4")
+								call log_string("USE4")
 								var VAR_86 = int 1
 								gamevar pnc_look_use_mask |= int 24
 								gamevar global_zone_type = int 0
@@ -500,7 +500,7 @@
 						if(call get_char_handle_id(var VAR_61) != int 327680)
 						 {
 								call play_char_anim(var VAR_61, var cagkixr_anim, int 0)
-								call log("roundhouse")
+								call log_string("roundhouse")
 						}
 						else
 						 {
@@ -509,7 +509,7 @@
 						if(call get_char_handle_id(var VAR_62) != int 327680)
 						 {
 								call play_char_anim(var VAR_62, var cagkixr_anim, int 0)
-								call log("roundhouse")
+								call log_string("roundhouse")
 						}
 						else
 						 {
@@ -817,32 +817,32 @@
 			switch(var VAR_37)
 			 {
 					case 65536
-						call log("david")
+						call log_string("david")
 						var VAR_14 = var selected_hero
 						break 
 					case 786432
-						call log("sekune")
+						call log_string("sekune")
 						var VAR_15 = var selected_hero
 						break 
 					case 327680
-						call log("jug")
+						call log_string("jug")
 						var VAR_16 = var selected_hero
 						break 
 					case 196608
-						call log("vivienne")
+						call log_string("vivienne")
 						var VAR_17 = var selected_hero
 						break 
 					case 131072
-						call log("chiaro")
+						call log_string("chiaro")
 						var VAR_18 = var selected_hero
 						break 
 					case 262144
-						call log("cagen")
+						call log_string("cagen")
 						var VAR_19 = var selected_hero
 						break 
 					default 
-						call log("WARNING! Unknown hero while checking heroes")
-						call log("Get a goober -- QUICKLY!!")
+						call log_string("WARNING! Unknown hero while checking heroes")
+						call log_string("Get a goober -- QUICKLY!!")
 						break 
 			}
 			var selected_hero = call get_next_char_from_list()

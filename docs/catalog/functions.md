@@ -1,5 +1,3 @@
-[<- Go Back](../index.md)
-
 # Game Functions (Incomplete, 91/313)
 ### Description
 The game function calls are the main ingredient in the scripts, thats how we actually use the game's inner logic.
@@ -53,7 +51,7 @@ The game function calls are the main ingredient in the scripts, thats how we act
 | 121 | [get_char_z](./func_refs/121.md) | 1 | (var char_ptr) | 1 |
 | 126 | [get_next_char_from_list](./func_refs/126.md) | 0 | () | 240 |
 | 129 | [get_num_of_enemies](./func_refs/129.md) | 0 | () | 170 |
-| 147 | [create_char](./func_refs/147.md) | 4 | (var pos_ptr, var char_name_ptr, int face_direction_radius_counter_clockwise, int init_state) | 436 |
+| 147 | [create_char](./func_refs/147.md) | 4 | (var pos_ptr, string char_string_id, int face_direction_radius_counter_clockwise, int init_state) | 436 |
 | 150 | [create_enemy_through_door](./func_refs/150.md) | 4 | (int enemy_type, int id, int door, int face_direction_radius_counter_clockwise) | 49 |
 | 151 | [create_enemy](./func_refs/151.md) | 4 | (int enemy_type, int id, var position_ptr, int face_direction_radius_counter_clockwise) | 664 |
 | 154 | [put_item_in_position](./func_refs/154.md) | 4 | (var position_ptr, int item_id, int flag1, int flag2) | 27 |
@@ -74,8 +72,8 @@ The game function calls are the main ingredient in the scripts, thats how we act
 | 198 | [fly_to_pos](./func_refs/198.md) | 3 | (var char_ptr, int is_run, var pos_ptr) | 26 |
 | 199 | [char_attack](./func_refs/199.md) | 2 | (var src_char, var dest_char) | 76 |
 | 200 | [play_bgm](./func_refs/200.md) | 1 | (var name_ptr) | 180 |
-| 205 | [log](./func_refs/205.md) | 1 | (var string_ptr) | 1461 |
-| 206 | [log_obj](./func_refs/206.md) | 1 | (var obj_ptr) | 171 |
+| 205 | [log_string](./func_refs/205.md) | 1 | (string some_string) | 780 |
+| 206 | [log_var](./func_refs/206.md) | 1 | (var some_var) | 171 |
 | 211 | [randomize_int](./func_refs/211.md) | 2 | (int from, int to) | 854 |
 | 213 | [reset_local_timer](./func_refs/213.md) | 0 | () | 303 |
 | 216 | [load_pos_from_room_memory](./func_refs/216.md) | 2 | (int id, var unpack_memory_location | 24 |

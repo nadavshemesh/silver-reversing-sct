@@ -116,7 +116,7 @@
 	}
 
 ._SCRIPT_3
-	call log("it's_raining")
+	call log_string("it's_raining")
 	call play_3d_fx("RAIN", var &fx_position, var &VAR_23, int 0)
 	execute SCRIPT_14
 
@@ -124,14 +124,14 @@
 	if(var VAR_36 != var VAR_32)
 	 {
 			var VAR_36 = var VAR_32
-			call log_obj(var VAR_32)
+			call log_var(var VAR_32)
 	}
 	switch(var VAR_32)
 	 {
 			case 0
 				if(call func_65(var noldvill, int 13) == int 17)
 				 {
-						call log("talking to villager")
+						call log_string("talking to villager")
 						var VAR_19 = int 1
 						var VAR_32 ++ 
 						var VAR_33 = int 0
@@ -144,7 +144,7 @@
 						case 1
 							if(var VAR_34 > int 50)
 							 {
-									call log("yes! with money")
+									call log_string("yes! with money")
 									var selected_hero = call get_selected_hero()
 									switch(call get_char_handle_id(var selected_hero))
 									 {
@@ -161,7 +161,7 @@
 												call start_dialog("O_JUGYES", "NULL")
 												break 
 											default 
-												call log("shouldn't have that hero here!")
+												call log_string("shouldn't have that hero here!")
 												break 
 									}
 									var VAR_20 = int 1
@@ -174,7 +174,7 @@
 							}
 							else
 							 {
-									call log("yes! with no money")
+									call log_string("yes! with no money")
 									call start_dialog("O_HERMON", "NULL")
 									call func_db()
 									var VAR_32 ++ 
@@ -225,7 +225,7 @@
 			case 1
 				if(call func_65(var noldvill, int 13) == int 17)
 				 {
-						call log("talking to villager")
+						call log_string("talking to villager")
 						var VAR_19 = int 1
 						var VAR_55 ++ 
 						var VAR_56 = int 0
@@ -238,7 +238,7 @@
 						case 1
 							if(var VAR_57)
 							 {
-									call log("yes! with money")
+									call log_string("yes! with money")
 									var selected_hero1 = call get_selected_hero()
 									switch(call get_char_handle_id(var selected_hero1))
 									 {
@@ -255,7 +255,7 @@
 												call start_dialog("O_JUGYES", "NULL")
 												break 
 											default 
-												call log("shouldn't have that hero here!")
+												call log_string("shouldn't have that hero here!")
 												break 
 									}
 									var VAR_20 = int 1
@@ -268,7 +268,7 @@
 							}
 							else
 							 {
-									call log("yes! with no money")
+									call log_string("yes! with no money")
 									call start_dialog("O_HERMON", "NULL")
 									call func_db()
 									var VAR_55 ++ 
@@ -336,7 +336,7 @@
 ._SCRIPT_15
 	if(var ! VAR_0)
 	 {
-			call log("random_rain_fx: Rain SFX not initialised! See Marc")
+			call log_string("random_rain_fx: Rain SFX not initialised! See Marc")
 			exit_script 
 	}
 	switch(var VAR_4)

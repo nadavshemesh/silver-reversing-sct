@@ -88,7 +88,7 @@
 	}
 
 ._SCRIPT_3
-	call log("it's_raining")
+	call log_string("it's_raining")
 	call play_3d_fx("RAIN", var &fx_position, var &VAR_29, int 0)
 	execute SCRIPT_12
 
@@ -150,7 +150,7 @@
 			 {
 					if(var VAR_19 > int 20)
 					 {
-							call log("kill_door_sound")
+							call log_string("kill_door_sound")
 							call stop_playing_sound(var lforest3_sound_ref)
 							var VAR_21 = int 1
 					}
@@ -215,11 +215,11 @@
 	if(var VAR_69 != var VAR_35)
 	 {
 			var VAR_69 = var VAR_35
-			call log_obj(var VAR_35)
+			call log_var(var VAR_35)
 	}
 	if(var VAR_35 == int 1)
 	 {
-			call log("Trigger smacker")
+			call log_string("Trigger smacker")
 			var VAR_23 = int 1
 			var VAR_24 = int 1
 			var VAR_25 = int 1
@@ -232,7 +232,7 @@
 			var VAR_36 ++ 
 			if(var VAR_36 > int 10)
 			 {
-					call log("Dump z-buffers")
+					call log_string("Dump z-buffers")
 					call func_4e(int 0)
 					call func_4e(int 1)
 					call func_4e(int 2)
@@ -253,7 +253,7 @@
 	if(var VAR_35 == int 3)
 	 {
 			call func_108("act2")
-			call log("Start grunts")
+			call log_string("Start grunts")
 			var VAR_52 = call run_enemy_generator(var &enemy_gen_script, int 40)
 			var VAR_35 ++ 
 			var VAR_36 = int 0
@@ -330,7 +330,7 @@
 ._SCRIPT_13
 	if(var ! VAR_0)
 	 {
-			call log("random_rain_fx: Rain SFX not initialised! See Marc")
+			call log_string("random_rain_fx: Rain SFX not initialised! See Marc")
 			exit_script 
 	}
 	switch(var VAR_4)

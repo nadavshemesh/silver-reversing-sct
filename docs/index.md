@@ -11,6 +11,9 @@ If you dont know what this project is about, check out the [Readme file](../read
 ### The .tsct format
  _in the writing._
 
+### Debug info
+[Activating the game's console](./console/console.md)
+
 ### Catalogs
 These catalogs are essential if you wish to understand what some numbers or string represent when they are passed as arguments to a game's function. as well as if you wish to write your own scripts.
 

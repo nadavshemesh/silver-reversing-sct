@@ -18,7 +18,7 @@ game_var* init_gv(int id, char* name, char* desc, int first_off, int second_off,
 }
 
 game_var* init_gv_room_cleared() {
-    int id = 0;
+    int id = 123;
     char name[] = "is_room_cleared";
     char desc[] = "used to mark if the room is already finished. saved after leaving room.";
     int fo = 0x04;
@@ -30,7 +30,7 @@ game_var* init_gv_room_cleared() {
 }
 
 game_var* init_gv_room_state() {
-    int id = 1;
+    int id = 124;
     char name[] = "room_state";
     char desc[] = "used to determine state. saved after leaving room.";
     int fo = 0x04;
@@ -42,7 +42,7 @@ game_var* init_gv_room_state() {
 }
 
 game_var* init_gv_room_timer() {
-    int id = 2;
+    int id = 125;
     char name[] = "room_timer";
     char desc[] = "used to get the time elapsed since entrance. reset when leaving room.";
     int fo = 0x02;

@@ -133,5 +133,5 @@ Its important to remember that these variables are essential for the game to fun
 | [MAGIC](./gamevar_refs/120.md) | 4 | 190 |
 | [ARMOUR_CLASS](./gamevar_refs/121.md) | 4 | 183 |
 | [LEVEL](./gamevar_refs/122.md) | 4 | 240 |
-| [room_state](./gamevar_refs/1.md) | 4 | 1670 |
-| [is_room_cleared](./gamevar_refs/0.md) | 4 | 774 |
+| [room_state](./gamevar_refs/124.md) | 4 | 1670 |
+| [is_room_cleared](./gamevar_refs/123.md) | 4 | 774 |

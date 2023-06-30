@@ -424,7 +424,7 @@ void write_gamevars_file() {
         game_var* gv = game_vars[i];
         char win_cmd[256];
         chdir("./out");
-        sprintf(win_cmd, "findstr /n '%s' * > %s", gv->name, "../gv.txt");
+        sprintf(win_cmd, "findstr /n /c:'gamevar %s' * > %s", gv->name, "../gv.txt");
         system(win_cmd);
         chdir("..");
         FILE* gv_f = fopen(TEMP_GV_FILE, "rb");

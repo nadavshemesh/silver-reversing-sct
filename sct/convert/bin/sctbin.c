@@ -465,8 +465,10 @@ void add_hint_by_var_name_or_comment(game_fun* gf, node** exp_nodes, void* func_
             // print_data_obj(gen_script_var);
             enemy_gen_script* egs = create_enemy_gen_script_from_data_obj(gen_script_var);
             egs->enemy_gen_script_var_name = gen_script_var->name;
-            gen_script_var->has_hint_comment = true;
-            gen_script_var->hint_comment = create_enemy_gen_hint_comment(egs, sf);
+            if(egs->structs_recognized > 1) {
+                gen_script_var->has_hint_comment = true;
+                gen_script_var->hint_comment = create_enemy_gen_hint_comment(egs, sf);
+            }
             // printf(gen_script_var->hint_comment);
         }
     }

@@ -120,6 +120,7 @@ cp_cmp_result enemy_gen_identify_cp(int** token_pos_ptr) {
 enemy_gen_script* create_and_init_enemy_gen_script() {
     enemy_gen_script* egs = w_malloc(sizeof(enemy_gen_script));
     egs->enemy_gen_script_var_name = NULL;
+    egs->structs_recognized = 0;
     egs->door = -1;
     egs->num_of_positions = 0;
     egs->pos_var_id = -1;
@@ -443,6 +444,7 @@ void identify_enemy_gen_structure(data_obj* gen_script, enemy_gen_script* egs, i
     cp_cmp_result res =  enemy_gen_identify_cp(token_ptr);
 
     if(res.is_identified) {
+        egs->structs_recognized++;
         code_pattern* match = res.match;
         // printf("identified %s\n", res.match->name);
         switch (match->type) {

@@ -28,6 +28,7 @@ typedef struct enemy_gen_script {
     int delay_for_first_enemy;
     int pos_var_id;
     int dest_var_id;
+    int structs_recognized;
     char* enemy_gen_script_var_name;
     char* pos_var_name;
     char* dest_var_name;

@@ -382,7 +382,7 @@ char* create_enemy_gen_hint_comment(enemy_gen_script* egs, sct_f* sf) {
     bool has_num_of_enemies_in_wave = (egs->num_of_enemies_in_each_wave > 0);
     bool has_enemies = (egs->num_of_enemies_in_list > 0);
     bool has_items = (egs->num_of_items_in_list > 0);
-    char hint[1024*5], script_name[256], door[64], pos[1024], dest[256], waves[256], enemies[2048], items[2048], trigger[256], order[64], delay[256];
+    char hint[1024*12], script_name[1024], door[1024], pos[1024], dest[1024], waves[1024], enemies[4096], items[2048], trigger[1024], order[1024], delay[1024];
     sprintf(script_name, "\t\tInterpretation of: %s\n\n", egs->enemy_gen_script_var_name);
     sprintf(delay, "\t\tDelay for first enemy: %d; delay between each enemy: %d\n", egs->delay_for_first_enemy, egs->delay_between_enemies);
     if(has_door) {
@@ -449,7 +449,7 @@ char* create_enemy_gen_hint_comment(enemy_gen_script* egs, sct_f* sf) {
         }
     }
 
-    sprintf(hint, "\t/* \n%s%s%s%s%s%s%s%s%s%s \t*/", script_name, door, pos, dest, order, waves, trigger, delay, enemies, items);
+    sprintf(hint, "\t/* \n%s%s%s%s%s%s%s%s%s%s \t*/\0", script_name, door, pos, dest, order, waves, trigger, delay, enemies, items);
 
     return aapts(hint);
 }

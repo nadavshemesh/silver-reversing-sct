@@ -36,6 +36,25 @@
 	VAR_179	{ 1785752937, 7368053, 1500, 785, -5985, 2032, 785, -5916 }	
 	wandering_gen_script	{ 0, 1, 1, VAR_176, 8, 0, 12, 2, -1, 13, 0, 15, VAR_178, -1, 16, 0, 18, 100, 17, 0, 1500, 2, 680, 785, -7294, 932, 785, -7635, 3, -1, 11, -1 }	
 	VAR_181	{ 1500, 785, -5985, 2032, 785, -5916, 3587, 1435, -3812, 3351, 1435, -3532, 3039, 1435, -3263 }	
+	/* 
+		Interpretation of: enemy_gen_script
+
+		Generate at 5 positions from: VAR_181
+		Order of positions: Random
+		Total waves: 1; 5 enemies generated in each wave.
+		Trigger wave when there are less than 2 enemies left.
+		Delay for first enemy: 25; delay between each enemy: 0
+		Enemies:
+			grow_tree_sprite
+			grow_tree_sprite
+			grow_tree_sprite
+			grow_tree_sprite
+			grow_tree_sprite
+		Item drops:
+			apple
+			apple
+			apple
+ 	*/
 	enemy_gen_script	{ 0, 1, 5, VAR_181, 8, 2, 4, 0, 9, 1, 1, 1, 4, 4, 4, 4, 4, -1, 5, 0, 25, 6, 2, 7, 1, 2, 10, 40, 40, 40, -1, 11, -1, -2, 2, 680, 785, -7294, 932, 785, -7635, 3, -1, -1 }	
 	VAR_186	-1	
 
@@ -1529,8 +1548,8 @@
 					gamevar script_object = var start_grunt1
 					gamevar *character_movement_p+60 = int 1
 					gamevar disable_scroll = int 0
-					call func_f(var grandad, int 67108872)
-					call func_f(var HDAVID, int 67108868)
+					call set_char_type(var grandad, int 67108872)
+					call set_char_type(var HDAVID, int 67108868)
 					call char_attack(var grandad, var HDAVID)
 					var VAR_4 = int 91
 			}
@@ -2002,9 +2021,9 @@
 					call func_d6(var grandad)
 					call set_input_system(int 2)
 					call reset_local_timer()
-					call func_f(var grandad, int 6422532)
+					call set_char_type(var grandad, int 6422532)
 					call func_2(var grandad)
-					call func_f(var HDAVID, int 4)
+					call set_char_type(var HDAVID, int 4)
 					call set_input_sys_2_if_pos_occupied(var &VAR_154, int 32768)
 					gamevar accel_window_width = int 16
 					var VAR_4 = int 108

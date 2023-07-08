@@ -21,16 +21,80 @@
 	VAR_20	{ 32, 0, -1717, -13, 0, -1973, -127, 0, -1458, -530, 0, -1473, -533, 0, -1672, -301, 0, -1971 }	
 	VAR_21	{ -30, 0, -2371, -552, 0, -2188, -508, 0, -2653, -42, 0, -3049, 0, 0, -2795, -229, 0, -2284 }	
 	VAR_22	{ -223, 0, -1391, 37, 0, -1740, -424, 0, -1723, -64, 0, -2214, -422, 0, -2296, -236, 0, -2617 }	
+	/* 
+		Interpretation of: enemy_gen_script
+
+		Generate at 6 positions from: VAR_22
+		Order of positions: Random
+		Total waves: 1; 3 enemies generated in each wave.
+		Trigger wave when there are less than 3 enemies left.
+		Delay for first enemy: 30; delay between each enemy: 100
+		Enemies:
+			iwarrior_low
+			iwarrior_low
+			iwarrior_low
+ 	*/
 	enemy_gen_script	{ 0, 1, 6, VAR_22, 8, 2, 4, 0, 9, 2, 1, 1, 163, 163, 163, -1, 5, 1, 30, 100, 7, 1, 3, 6, 1, -1 }	
+	/* 
+		Interpretation of: enemy_gen_script1
+
+		Generate at 6 positions from: VAR_18
+		Order of positions: Random
+		Total waves: 1; 2 enemies generated in each wave.
+		Trigger wave when there are less than 2 enemies left.
+		Delay for first enemy: 10; delay between each enemy: 60
+		Enemies:
+			iwarrior_low
+			iwarrior_low
+ 	*/
 	enemy_gen_script1	{ 0, 1, 6, VAR_18, 8, 2, 4, 0, 9, 2, 1, 1, 163, 163, -1, 5, 1, 10, 60, 7, 1, 2, 6, 1, -1 }	
+	/* 
+		Interpretation of: enemy_gen_script2
+
+		Generate at 6 positions from: VAR_19
+		Order of positions: Random
+		Total waves: 1; 3 enemies generated in each wave.
+		Trigger wave when there are less than 2 enemies left.
+		Delay for first enemy: 50; delay between each enemy: 0
+		Enemies:
+			iwarrior_low
+			iwarrior_low
+			iwarrior_low
+ 	*/
 	enemy_gen_script2	{ 0, 1, 6, VAR_19, 8, 2, 4, 0, 9, 2, 1, 1, 163, 163, 163, -1, 5, 0, 50, 7, 1, 2, 6, 1, -1 }	
+	/* 
+		Interpretation of: enemy_gen_script3
+
+		Generate at 6 positions from: VAR_20
+		Order of positions: Random
+		Total waves: 1; 2 enemies generated in each wave.
+		Trigger wave when there are less than 2 enemies left.
+		Delay for first enemy: 0; delay between each enemy: 0
+		Enemies:
+			iwarrior_low
+			iwarrior_low
+			iwarrior_low
+ 	*/
 	enemy_gen_script3	{ 0, 1, 6, VAR_20, 8, 2, 4, 0, 9, 2, 1, 1, 163, 163, -1, 5, 0, 0, 7, 1, 2, 6, 1, -1 }	
+	/* 
+		Interpretation of: enemy_gen_script4
+
+		Generate at 6 positions from: VAR_21
+		Order of positions: Random
+		Total waves: 1; 3 enemies generated in each wave.
+		Trigger wave when there are less than 2 enemies left.
+		Delay for first enemy: 20; delay between each enemy: 120
+		Enemies:
+			iwarrior_low
+			iwarrior_low
+			iwarrior_low
+ 	*/
 	enemy_gen_script4	{ 0, 1, 6, VAR_21, 8, 2, 4, 0, 9, 2, 1, 1, 163, 163, 163, -1, 5, 1, 20, 120, 7, 1, 2, 6, 1, -1 }	
 	VAR_29	{ 162, 0, -847, -649, 0, -768 }	
 	VAR_30	4	
-	VAR_39	{ 1131413504, 1143767040, -1022754816 }	
+	VAR_39	"pC,D"	
 	VAR_40	"pCD`"	
-	VAR_41	"pC DPS"	
+	VAR_41	{ 1131413504, 1142980608, -984395776 }	
 	arr	{ VAR_39, VAR_40, VAR_41 }
 
 ._on_load

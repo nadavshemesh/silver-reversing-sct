@@ -12,7 +12,38 @@
 ._DATA
 	init_position	{ 241, -388, 2848 }	
 	init_position1	{ 2045, -388, 2847 }	
+	/* 
+		Interpretation of: enemy_gen_script
+
+		Generate at 1 positions from: VAR_0
+		Order of positions: Sequential
+		Total waves: 2; 3 enemies generated in each wave.
+		Trigger wave when there are less than 4 enemies left.
+		Delay for first enemy: 50; delay between each enemy: 150
+		Enemies:
+			spider
+			rat_raptor
+			spider
+ 	*/
 	enemy_gen_script	{ 0, 0, 1, 1, 0, 1, 0, 1, -1, 8, 1, 1, 2, 70, 55, 70, -1, 4, 0, 9, 1, 5, 1, 50, 150, 7, 1, 4, -1 }	
+	/* 
+		Interpretation of: enemy_gen_script1
+
+		Enter from door: 0
+		Generate at 1 positions from: VAR_0
+		Order of positions: Sequential
+		Total waves: 1; 4 enemies generated in each wave.
+		Trigger wave when there are less than 2 enemies left.
+		Delay for first enemy: 25; delay between each enemy: 50
+		Enemies:
+			rat_raptor_max5
+			rat_raptor_max5
+			rat_raptor_max5
+			rat_raptor_max5
+		Item drops:
+			cheese
+			deadmous
+ 	*/
 	enemy_gen_script1	{ 0, 0, 0, -1, 8, 1, 1, 1, 87, 87, 87, 87, -1, 4, 0, 9, 1, 5, 1, 25, 50, 7, 1, 2, 10, 43, 45, -1, -1 }	
 	VAR_6	{ 1, 0, 0 }	
 	VAR_9	{ 435, -388, 2812, 55, -388, 2820, -453, -388, 2825, -888, -388, 2821 }	

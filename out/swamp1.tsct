@@ -26,7 +26,40 @@
 	arr_1	{ VAR_12, VAR_13, VAR_14, VAR_15, VAR_16, VAR_17 }	
 	VAR_19	{ -3568, -40, 9753 }	
 	VAR_20	{ -3810, 1150, 9774, -3523, 1150, 9505, -3303, 1150, 9653, -3533, 1150, 10000, -3095, -40, 10156, -2584, -40, 9373 }	
+	/* 
+		Interpretation of: enemy_gen_script
+
+		Generate at 4 positions from: VAR_20
+		Order of positions: Sequential
+		Total waves: 1; 4 enemies generated in each wave.
+		Trigger wave when there are less than 2 enemies left.
+		Delay for first enemy: 5; delay between each enemy: 0
+		Enemies:
+			drop_swampy
+			drop_swampy
+			drop_swampy
+			drop_swampy
+		Item drops:
+			deadmous
+ 	*/
 	enemy_gen_script	{ 0, 1, 4, VAR_20, 8, 1, 4, 0, 9, 0, 1, 1, 110, 110, 110, 110, -1, 5, 0, 5, 7, 1, 2, 6, 1, 10, 45, -1, -1 }	
+	/* 
+		Interpretation of: enemy_gen_script1
+
+		Enter from door: 1
+		Generate at 4 positions from: VAR_20
+		Order of positions: Sequential
+		Total waves: 2; 3 enemies generated in each wave.
+		Trigger wave when there are less than 1 enemies left.
+		Delay for first enemy: 40; delay between each enemy: 0
+		Enemies:
+			grow_big_swampy
+			grow_big_swampy
+			grow_big_swampy
+py
+		Item drops:
+			deadmous
+ 	*/
 	enemy_gen_script1	{ 0, 0, 1, -1, 8, 1, 4, 0, 9, 1, 1, 2, 112, 112, 112, -1, 5, 0, 40, 7, 1, 1, 6, 1, 10, 45, -1, -1 }	
 
 ._on_load

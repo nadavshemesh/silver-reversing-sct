@@ -40,6 +40,18 @@
 	VAR_38	{ -1737, -1150, 2583, -2832, -1350, 3443 }	
 	ai_script1	{ 3, VAR_40, 0, 0, -1396, -343, 1897, 15, 16, VAR_35, 1, 0, -1890, -343, 2037, 2, -2832, -1350, 3443, 27, 5, 100, 30, 58, 8 }	
 	VAR_40	"lookout"	
+	/* 
+		Interpretation of: enemy_gen_script
+
+		Enter from door: 0
+		Total waves: 1; 3 enemies generated in each wave.
+		Trigger wave when there are less than 2 enemies left.
+		Delay for first enemy: 15; delay between each enemy: 30
+		Enemies:
+			skel
+			skel
+			skel
+ 	*/
 	enemy_gen_script	{ 0, 0, 0, -1, 8, 1, 1, 1, 58, 58, 58, -1, 4, 0, 9, 1, 5, 1, 15, 30, 6, 3, 7, 1, 2, -1 }	
 	VAR_46	{ -1766, -1150, 2489 }	
 	VAR_47	{ -1618, -1150, 2627 }	
@@ -48,8 +60,35 @@
 	VAR_54	{ -3803, -1575, 2496, -4273, -1575, 2959, -3803, -1575, 2496, -4273, -1575, 2959 }	
 	wandering_gen_script	{ 0, 1, 4, VAR_54, 8, 1, 19, -2721, -1350, 3321, 12, 58, 58, 59, 61, -1, 13, 0, 14, 0, 1, 4, 5, 0, 100, 17, 0, 200, -1, 18, 50, -1 }	
 	VAR_56	{ -2976, -1350, 4586, -1828, -1350, 3626, -225, -923, 2627, -154, -1073, 3526, -1230, -1090, 2780, -2268, -1150, 2146, -2313, -1350, 2655, 224, -923, 2967 }	
+	/* 
+		Interpretation of: enemy_gen_script1
+
+		Generate at 7 positions from: VAR_56
+		Order of positions: Random
+		Total waves: 1; 3 enemies generated in each wave.
+		Trigger wave when there are less than 2 enemies left.
+		Delay for first enemy: 30; delay between each enemy: 100
+		Enemies:
+			grow_skel
+			grow_skel
+			grow_skel
+ 	*/
 	enemy_gen_script1	{ 0, 1, 7, VAR_56, 8, 2, 4, 0, 9, 0, 1, 1, 68, 68, 68, -1, 5, 1, 30, 100, 6, 1, 7, 1, 2, -1 }	
 	VAR_58	{ -2976, -1350, 4586, -1828, -1350, 3626, -225, -923, 2627, -154, -1073, 3526, -1230, -1090, 2780, -2268, -1150, 2146, -2313, -1350, 2655, 224, -923, 2967 }	
+	/* 
+		Interpretation of: enemy_gen_script2
+
+		Generate at 7 positions from: VAR_58
+		Order of positions: Random
+		Total waves: 1; 4 enemies generated in each wave.
+		Trigger wave when there are less than 2 enemies left.
+		Delay for first enemy: 15; delay between each enemy: 30
+		Enemies:
+			grow_skel
+			grow_boney
+			grow_skel
+			grow_skel
+ 	*/
 	enemy_gen_script2	{ 0, 1, 7, VAR_58, 8, 2, 4, 0, 9, 0, 1, 1, 68, 69, 68, 68, -1, 5, 1, 15, 30, 6, 1, 7, 1, 2, -1 }	
 
 ._on_load

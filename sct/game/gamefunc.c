@@ -7,6 +7,7 @@
 
 bool game_functions_initialized = false;
 node* var_hint_names = NULL;
+code_pattern* enemy_gen_code_patterns[ENEMY_GEN_CP_NUM];
 
 void print_game_function(game_fun* gf) {
     printf("func_name: %s\n", gf->name);
@@ -22,6 +23,515 @@ catalog_ref* create_cat_ref(cat_type type, int var_index, char* prefix, char* po
     cref->postfix = (postfix != NULL) ? aapts(postfix) : NULL;
 
     return cref;
+}
+
+bool gf_bin_cmp_token(int* a_token_ptr, int* b_token_ptr) {
+    if(*a_token_ptr == *b_token_ptr) {
+        // printf("%08x == %08x\n", *a_token_ptr, *b_token_ptr);
+        return true;
+    }
+    // printf("%08x != %08x\n", *a_token, *b_token_ptr);
+    return false;
+}
+
+bool gf_bin_is_var_pos_expr(void* pattern, int index) {
+    expr_pattern* p = (expr_pattern*) pattern;        
+
+    int var_num = p->bin_var_num;
+    int* var_pos = p->bin_var_pos;
+
+    // printf("vpos: %d\n", *var_pos);
+    for(int k=0; k < var_num; k++) {
+        // printf("var_pos: %d, index: %d\n", var_pos[k], index);
+        if(var_pos[k] == index) {
+            return true;
+        }
+    }
+    return false;
+}
+bool gf_bin_is_var_pos(void* pattern, p_type pattern_type, int index) {
+    code_pattern* p = (code_pattern*) pattern;        
+
+    if(pattern_type == EXPRESSION_TYPE) {
+        return gf_bin_is_var_pos_expr(pattern,index);
+    }
+
+    int var_num = p->bin_var_num;
+    int* var_pos = p->bin_var_pos;
+
+    // printf("vpos: %d\n", *var_pos);
+    for(int k=0; k < var_num; k++) {
+        // printf("var_pos: %d, index: %d\n", var_pos[k], index);
+        if(var_pos[k] == index) {
+            return true;
+        }
+    }
+    return false;
+}
+cp_cmp_result enemy_gen_identify_cp(int** token_pos_ptr) {
+    cp_cmp_result res = { .is_identified = false, .match = NULL};
+    int* token;
+
+    // compare each pattern with tokens
+    for(int i=0; i < ENEMY_GEN_CP_NUM; i++) {
+        code_pattern* cp = enemy_gen_code_patterns[i];
+        token = *token_pos_ptr;
+
+        if(cp != NULL) {
+           int token_num = cp->bin_token_num;
+           int var_num = cp->bin_var_num;
+           int* tokens = cp->bin_tokens;
+           int vars[var_num];
+           int var_i = 0;
+           int eq_goal = token_num - var_num;
+           int eq_tokens = 0;
+           // compare const tokens
+           for(int j=0; j < token_num; j++) {
+               if(!gf_bin_is_var_pos(cp, CODE_TYPE, j)) {
+                   if(!gf_bin_cmp_token(tokens, token))  {
+                       break; // not a match
+                   }
+                    eq_tokens++;
+                } else {
+                    // printf("var found: %d\n", *((int*)token));
+                    vars[var_i] = *token;
+                    var_i++;
+                }
+                tokens++;
+                token++;
+           }
+           if(eq_tokens == eq_goal) {
+                res.is_identified = true;
+                res.match = cp;
+                res.tokens_pos = token;
+                *token_pos_ptr = token;
+                res.vars = w_malloc(var_num*sizeof(int));
+                memcpy(res.vars, vars, var_num*sizeof(int));
+                return res;
+           }
+       }
+    }
+    print_warn("Error, enemy generator code pattern not recognized.", 2);
+    *token_pos_ptr += 1;
+
+    return res;
+}
+enemy_gen_script* create_and_init_enemy_gen_script() {
+    enemy_gen_script* egs = w_malloc(sizeof(enemy_gen_script));
+    egs->enemy_gen_script_var_name = NULL;
+    egs->door = -1;
+    egs->num_of_positions = 0;
+    egs->pos_var_id = -1;
+    egs->pos_var_name = NULL;
+    egs->order = 0;
+    egs->num_of_waves = 0;
+    egs->num_of_enemies_in_list = 0;
+    egs->enemies_id_list = NULL;
+    egs->num_of_enemies_in_each_wave = 0;
+    egs->delay_for_first_enemy = 0;
+    egs->delay_between_enemies = 0;
+    egs->num_of_enemies_to_trigger_next_wave = 0;
+    egs->num_of_items_in_list = 0;
+    egs->items_drop_id_list = NULL;
+
+    return egs;
+}
+
+code_pattern* create_door_cp() {
+    code_pattern* cp = create_and_init_code_pattern();
+
+    cp->name = aapts("enemy_gen_door");
+    cp->bin_token_num = 4;
+    cp->bin_var_num = 1;
+    cp->type = DOOR;
+
+    int tokens[] = { 0, 0, -9, -1 };
+    int var_pos[] = { 2 };
+
+    cp->bin_tokens = w_malloc(sizeof(int)*cp->bin_token_num);
+    cp->bin_var_pos = w_malloc(sizeof(int)*cp->bin_var_num);
+    memcpy(cp->bin_tokens, tokens, sizeof(int)*cp->bin_token_num);
+    memcpy(cp->bin_var_pos, var_pos, sizeof(int)*cp->bin_var_num);
+
+    return cp;
+}
+code_pattern* create_item_drops_cp() {
+    code_pattern* cp = create_and_init_code_pattern();
+
+    cp->name = aapts("enemy_gen_item_drops");
+    cp->bin_token_num = 2;
+    cp->bin_var_num = 1;
+    cp->type = DROPS;
+
+    int tokens[] = { 10, -9 };
+    int var_pos[] = { 1 };
+
+    cp->bin_tokens = w_malloc(sizeof(int)*cp->bin_token_num);
+    cp->bin_var_pos = w_malloc(sizeof(int)*cp->bin_var_num);
+    memcpy(cp->bin_tokens, tokens, sizeof(int)*cp->bin_token_num);
+    memcpy(cp->bin_var_pos, var_pos, sizeof(int)*cp->bin_var_num);
+
+    return cp;
+}
+
+code_pattern* create_wave_threshold_cp() {
+    code_pattern* cp = create_and_init_code_pattern();
+
+    cp->name = aapts("enemy_gen_wave_threshold");
+    cp->bin_token_num = 3;
+    cp->bin_var_num = 1;
+    cp->type = WAVE_TRIGGER_THRESHOLD;
+
+    int tokens[] = { 7, 1, -9 };
+    int var_pos[] = { 2 };
+
+    cp->bin_tokens = w_malloc(sizeof(int)*cp->bin_token_num);
+    cp->bin_var_pos = w_malloc(sizeof(int)*cp->bin_var_num);
+    memcpy(cp->bin_tokens, tokens, sizeof(int)*cp->bin_token_num);
+    memcpy(cp->bin_var_pos, var_pos, sizeof(int)*cp->bin_var_num);
+
+    return cp;
+}
+
+code_pattern* create_pos_cp() {
+    code_pattern* cp = create_and_init_code_pattern();
+
+    cp->name = aapts("enemy_gen_pos");
+    cp->bin_token_num = 4;
+    cp->bin_var_num = 2;
+    cp->type = POS;
+
+    int tokens[] = { 0, 1, -9, -9 };
+    int var_pos[] = { 2, 3 };
+
+    cp->bin_tokens = w_malloc(sizeof(int)*cp->bin_token_num);
+    cp->bin_var_pos = w_malloc(sizeof(int)*cp->bin_var_num);
+    memcpy(cp->bin_tokens, tokens, sizeof(int)*cp->bin_token_num);
+    memcpy(cp->bin_var_pos, var_pos, sizeof(int)*cp->bin_var_num);
+
+    return cp;
+}
+code_pattern* create_delay_1_cp() {
+    code_pattern* cp = create_and_init_code_pattern();
+
+    cp->name = aapts("enemy_gen_delay_1");
+    cp->bin_token_num = 3;
+    cp->bin_var_num = 1;
+    cp->type = DELAY_ONE;
+
+    int tokens[] = { 5, 0, -9 };
+    int var_pos[] = { 2 };
+
+    cp->bin_tokens = w_malloc(sizeof(int)*cp->bin_token_num);
+    cp->bin_var_pos = w_malloc(sizeof(int)*cp->bin_var_num);
+    memcpy(cp->bin_tokens, tokens, sizeof(int)*cp->bin_token_num);
+    memcpy(cp->bin_var_pos, var_pos, sizeof(int)*cp->bin_var_num);
+
+    return cp;
+}
+code_pattern* create_delay_2_cp() {
+    code_pattern* cp = create_and_init_code_pattern();
+
+    cp->name = aapts("enemy_gen_delay_2");
+    cp->bin_token_num = 4;
+    cp->bin_var_num = 2;
+    cp->type = DELAY_TWO;
+
+    int tokens[] = { 5, 1, -9, -9 };
+    int var_pos[] = { 2, 3 };
+
+    cp->bin_tokens = w_malloc(sizeof(int)*cp->bin_token_num);
+    cp->bin_var_pos = w_malloc(sizeof(int)*cp->bin_var_num);
+    memcpy(cp->bin_tokens, tokens, sizeof(int)*cp->bin_token_num);
+    memcpy(cp->bin_var_pos, var_pos, sizeof(int)*cp->bin_var_num);
+
+    return cp;
+}
+code_pattern* create_pos_order_cp() {
+    code_pattern* cp = create_and_init_code_pattern();
+
+    cp->name = aapts("enemy_gen_order");
+    cp->bin_token_num = 2;
+    cp->bin_var_num = 1;
+    cp->type = POS_ORDER;
+
+    int tokens[] = { 8, -9 };
+    int var_pos[] = { 1 };
+
+    cp->bin_tokens = w_malloc(sizeof(int)*cp->bin_token_num);
+    cp->bin_var_pos = w_malloc(sizeof(int)*cp->bin_var_num);
+    memcpy(cp->bin_tokens, tokens, sizeof(int)*cp->bin_token_num);
+    memcpy(cp->bin_var_pos, var_pos, sizeof(int)*cp->bin_var_num);
+
+    return cp;
+}
+code_pattern* create_num_of_enemies_in_wave_cp() {
+    code_pattern* cp = create_and_init_code_pattern();
+
+    cp->name = aapts("enemy_gen_num_of_enemies_in_wave");
+    cp->bin_token_num = 2;
+    cp->bin_var_num = 1;
+    cp->type = ENEMIES_NUM;
+
+    int tokens[] = { 2, -9 };
+    int var_pos[] = { 1 };
+
+    cp->bin_tokens = w_malloc(sizeof(int)*cp->bin_token_num);
+    cp->bin_var_pos = w_malloc(sizeof(int)*cp->bin_var_num);
+    memcpy(cp->bin_tokens, tokens, sizeof(int)*cp->bin_token_num);
+    memcpy(cp->bin_var_pos, var_pos, sizeof(int)*cp->bin_var_num);
+
+    return cp;
+}
+
+code_pattern* create_num_of_waves_cp() {
+    code_pattern* cp = create_and_init_code_pattern();
+
+    cp->name = aapts("enemy_gen_num_of_waves");
+    cp->bin_token_num = 2;
+    cp->bin_var_num = 1;
+    cp->type = WAVES;
+
+    int tokens[] = { 1, -9 };
+    int var_pos[] = { 1 };
+
+    cp->bin_tokens = w_malloc(sizeof(int)*cp->bin_token_num);
+    cp->bin_var_pos = w_malloc(sizeof(int)*cp->bin_var_num);
+    memcpy(cp->bin_tokens, tokens, sizeof(int)*cp->bin_token_num);
+    memcpy(cp->bin_var_pos, var_pos, sizeof(int)*cp->bin_var_num);
+
+    return cp;
+}
+
+code_pattern* create_3_cp() {
+    code_pattern* cp = create_and_init_code_pattern();
+
+    cp->name = aapts("enemy_gen_3");
+    cp->bin_token_num = 2;
+    cp->bin_var_num = 1;
+    cp->type = UNKNOWN_ENEMY_GEN_TYPE;
+
+    int tokens[] = { 3, -9 };
+    int var_pos[] = { 1 };
+
+    cp->bin_tokens = w_malloc(sizeof(int)*cp->bin_token_num);
+    cp->bin_var_pos = w_malloc(sizeof(int)*cp->bin_var_num);
+    memcpy(cp->bin_tokens, tokens, sizeof(int)*cp->bin_token_num);
+    memcpy(cp->bin_var_pos, var_pos, sizeof(int)*cp->bin_var_num);
+
+    return cp;
+}
+
+code_pattern* create_6_cp() {
+    code_pattern* cp = create_and_init_code_pattern();
+
+    cp->name = aapts("enemy_gen_6");
+    cp->bin_token_num = 2;
+    cp->bin_var_num = 1;
+    cp->type = UNKNOWN_ENEMY_GEN_TYPE;
+
+    int tokens[] = { 6, -9 };
+    int var_pos[] = { 1 };
+
+    cp->bin_tokens = w_malloc(sizeof(int)*cp->bin_token_num);
+    cp->bin_var_pos = w_malloc(sizeof(int)*cp->bin_var_num);
+    memcpy(cp->bin_tokens, tokens, sizeof(int)*cp->bin_token_num);
+    memcpy(cp->bin_var_pos, var_pos, sizeof(int)*cp->bin_var_num);
+
+    return cp;
+}
+
+code_pattern* create_4_cp() {
+    code_pattern* cp = create_and_init_code_pattern();
+
+    cp->name = aapts("enemy_gen_4");
+    cp->bin_token_num = 2;
+    cp->bin_var_num = 1;
+    cp->type = UNKNOWN_ENEMY_GEN_TYPE;
+
+    int tokens[] = { 4, -9 };
+    int var_pos[] = { 1 };
+
+    cp->bin_tokens = w_malloc(sizeof(int)*cp->bin_token_num);
+    cp->bin_var_pos = w_malloc(sizeof(int)*cp->bin_var_num);
+    memcpy(cp->bin_tokens, tokens, sizeof(int)*cp->bin_token_num);
+    memcpy(cp->bin_var_pos, var_pos, sizeof(int)*cp->bin_var_num);
+
+    return cp;
+}
+
+code_pattern* create_9_cp() {
+    code_pattern* cp = create_and_init_code_pattern();
+
+    cp->name = aapts("enemy_gen_9");
+    cp->bin_token_num = 2;
+    cp->bin_var_num = 1;
+    cp->type = UNKNOWN_ENEMY_GEN_TYPE;
+
+    int tokens[] = { 9, -9 };
+    int var_pos[] = { 1 };
+
+    cp->bin_tokens = w_malloc(sizeof(int)*cp->bin_token_num);
+    cp->bin_var_pos = w_malloc(sizeof(int)*cp->bin_var_num);
+    memcpy(cp->bin_tokens, tokens, sizeof(int)*cp->bin_token_num);
+    memcpy(cp->bin_var_pos, var_pos, sizeof(int)*cp->bin_var_num);
+
+    return cp;
+}
+
+code_pattern* create_11_cp() {
+    code_pattern* cp = create_and_init_code_pattern();
+
+    cp->name = aapts("enemy_gen_11");
+    cp->bin_token_num = 3;
+    cp->bin_var_num = 2;
+    cp->type = UNKNOWN_ENEMY_GEN_TYPE;
+
+    int tokens[] = { 11, -9, -9 };
+    int var_pos[] = { 1, 2 };
+
+    cp->bin_tokens = w_malloc(sizeof(int)*cp->bin_token_num);
+    cp->bin_var_pos = w_malloc(sizeof(int)*cp->bin_var_num);
+    memcpy(cp->bin_tokens, tokens, sizeof(int)*cp->bin_token_num);
+    memcpy(cp->bin_var_pos, var_pos, sizeof(int)*cp->bin_var_num);
+
+    return cp;
+}
+
+void init_enemy_gen_code_patterns() {
+    enemy_gen_code_patterns[0] = create_door_cp();
+    enemy_gen_code_patterns[1] = create_pos_cp();
+    enemy_gen_code_patterns[2] = create_pos_order_cp();
+    enemy_gen_code_patterns[3] = create_num_of_waves_cp();
+    enemy_gen_code_patterns[4] = create_num_of_enemies_in_wave_cp();
+    enemy_gen_code_patterns[5] = create_delay_1_cp();
+    enemy_gen_code_patterns[6] = create_delay_2_cp();
+    enemy_gen_code_patterns[7] = create_wave_threshold_cp();
+    enemy_gen_code_patterns[8] = create_item_drops_cp();
+    enemy_gen_code_patterns[9] = create_3_cp();
+    enemy_gen_code_patterns[10] = create_6_cp();
+    enemy_gen_code_patterns[11] = create_4_cp();
+    enemy_gen_code_patterns[12] = create_9_cp();
+    enemy_gen_code_patterns[13] = create_11_cp();
+}
+
+
+void identify_enemy_gen_structure(data_obj* gen_script, enemy_gen_script* egs, int** token_ptr) {
+    cp_cmp_result res =  enemy_gen_identify_cp(token_ptr);
+
+    if(res.is_identified) {
+        code_pattern* match = res.match;
+        // printf("identified %s\n", res.match->name);
+        switch (match->type) {
+            case DOOR:{
+                egs->door = *((int*) res.vars);
+                break;
+            }
+            case WAVE_TRIGGER_THRESHOLD:{
+                egs->num_of_enemies_to_trigger_next_wave = *((int*) res.vars);
+                break;
+            }
+            case POS:{
+                int num_of_pos = *((int*) res.vars);
+                int pos_id = *((int*) res.vars+1);
+                egs->num_of_positions = num_of_pos;
+                egs->pos_var_id = pos_id;
+                break;
+            }
+            case POS_ORDER:{
+                egs->order = *((int*) res.vars);
+                break;
+            }
+            case WAVES:{
+                egs->num_of_waves = *((int*) res.vars);
+                // gather enemies
+                int enemies[100];
+                int counter = 0, enemy_counter = 0;
+                while(**token_ptr != -1 && counter < 100) {
+                    if(**token_ptr >= 0 && **token_ptr < 300) enemy_counter++;
+                    enemies[enemy_counter-1] = **token_ptr;
+                    counter++;
+                    *token_ptr += 1;
+                }
+                *token_ptr += 1;
+                egs->num_of_enemies_in_list = enemy_counter;
+                egs->enemies_id_list = w_malloc(enemy_counter*sizeof(int));
+                memcpy(egs->enemies_id_list, enemies, enemy_counter*sizeof(int));
+                break;
+            }
+            case ENEMIES_NUM:{
+                int num = *((int*) res.vars);
+                if(num < 11)
+                    egs->num_of_enemies_in_each_wave = num;
+                break;
+            }
+            case DELAY_TWO:{
+                egs->delay_for_first_enemy = *((int*) res.vars);
+                egs->delay_between_enemies = *((int*) (res.vars)+1);
+                break;
+            }
+            case DELAY_ONE:{
+                egs->delay_for_first_enemy = *((int*) res.vars);
+                egs->delay_between_enemies = 0;
+                break;
+            }
+            case DROPS: {
+                // gather item ids
+                int item_ids[100];
+                item_ids[0] = *((int*)res.vars);
+                int counter = 1, item_counter = 1;
+                while(**token_ptr != -1 && counter < 100) {
+                    if(**token_ptr >= 0 && **token_ptr < 300) item_counter++;
+                    item_ids[item_counter-1] = **token_ptr;
+                    counter++;
+                    *token_ptr += 1;
+                }
+                *token_ptr += 1;
+                egs->num_of_items_in_list = item_counter;
+                egs->items_drop_id_list = w_malloc(item_counter*sizeof(int));
+                memcpy(egs->items_drop_id_list, item_ids, item_counter*sizeof(int));
+                break;
+            }
+        }
+    }
+}
+
+void print_enemy_gen_script(enemy_gen_script* egs) {
+    printf("Door: %d\n", egs->door);
+    printf("N.o pos: %d\n", egs->num_of_positions);
+    printf("Pos_id: %d\n", egs->pos_var_id);
+    printf("Order: %d\n", egs->order);
+    printf("N.o waves: %d\n", egs->num_of_waves);
+    printf("N.o enemies in each wave: %d\n", egs->num_of_enemies_in_each_wave);
+    printf("Enemies:\n[");
+    for(int i=0; i<egs->num_of_enemies_in_list; ++i) {
+        printf("%d", egs->enemies_id_list[i]);
+        if(i+1 < egs->num_of_enemies_in_list) printf(", ");
+    }
+    printf("]\n");
+    printf("Trigger threshold: %d\n", egs->num_of_enemies_to_trigger_next_wave);
+    printf("Delay: %d, %d\n", egs->delay_for_first_enemy, egs->delay_between_enemies);
+    printf("Items:\n[");
+    for(int i=0; i<egs->num_of_items_in_list; ++i) {
+        printf("%d", egs->items_drop_id_list[i]);
+        if(i+1 < egs->num_of_items_in_list) printf(", ");
+    }
+    printf("]\n");
+}
+
+enemy_gen_script* create_enemy_gen_script_from_data_obj(data_obj* gen_script) {
+    enemy_gen_script* egs = create_and_init_enemy_gen_script();
+    int* t_ptr = ((int*)gen_script->data);
+    int** token_ptr = &t_ptr;
+    int counter = 0;
+    while(*(t_ptr) != -1 && counter < (gen_script->byte_size/4)) {
+        // printf("first token: %d\n", *t_ptr);
+        identify_enemy_gen_structure(gen_script, egs, token_ptr);
+        counter++;
+    }
+    // print_enemy_gen_script(egs);
+    
+    return egs;
 }
 
 var_hint_name* init_vhn(char* name) {
@@ -97,6 +607,15 @@ void init_game_functions(game_fun** functions_arr) {
     functions_arr[0xd8]->name = aapts("load_pos_from_room_memory");
     functions_arr[0xd8]->params = 2;
     functions_arr[0xd8]->desc = aapts("(int id, var unpack_memory_location");
+    functions_arr[0xd8]->name = aapts("set_door_particle_effect");
+    functions_arr[0xd8]->params = 4;
+    functions_arr[0xd8]->desc = aapts("(int door_num, int intensity, int type [0, 1, 2 or 3], int time_length[-1 for inf]");
+    functions_arr[0x1c]->name = aapts("char_shoot_char");
+    functions_arr[0x1c]->params = 2;
+    functions_arr[0x1c]->desc = aapts("(var char1_ptr, var char2_ptr)");
+    functions_arr[0xf]->name = aapts("set_char_type");
+    functions_arr[0xf]->params = 2;
+    functions_arr[0xf]->desc = aapts("(var char_ptr, int char_type [hero, foe, neutral etc..])");
     functions_arr[0x96]->name = aapts("create_enemy_through_door");
     functions_arr[0x96]->params = 4;
     functions_arr[0x96]->desc = aapts("(int enemy_type, int id, int door, int face_direction_radius_counter_clockwise)");
@@ -138,8 +657,8 @@ void init_game_functions(game_fun** functions_arr) {
     functions_arr[0xa8]->desc = aapts("(var char_ptr, var pos_ptr, int radius)");
     add_forced_type(functions_arr[0xa8], ARRAY, 1, "position");
     functions_arr[0x130]->name = aapts("char_unfollow_char");
-    functions_arr[0x130]->params = 1;
-    functions_arr[0x130]->desc = aapts("(var char1_ptr, var char2_ptr)");
+    functions_arr[0x130]->params = 2;
+    functions_arr[0x130]->desc = aapts("(var char_ptr) - to unfollow david or (var char1_ptr, var char2_ptr)");
     functions_arr[0x131]->name = aapts("char_follow_char");
     functions_arr[0x131]->params = 2;
     functions_arr[0x131]->desc = aapts("(var char1_ptr, var char2_ptr)");

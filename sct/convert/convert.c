@@ -519,6 +519,7 @@ int main(int argc, char* argv[]) {
     init_game_functions(game_functions);
     init_code_patterns(code_patterns);
     init_expr_patterns(expr_patterns);
+    init_enemy_gen_code_patterns();
 
     bool save_to_out = false;
     for(int i=0; i < argc; i++) {

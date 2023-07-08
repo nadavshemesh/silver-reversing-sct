@@ -30,8 +30,33 @@
 	ai_script	{ 0, -1507, -825, -1074, 0, 900, -1124, 804, 7, 8 }	
 	ai_script1	{ 0, 900, -1124, 804, 0, -1507, -825, -1074, 7, 8 }	
 	VAR_30	{ 1090, -1124, 753, 7, -1119, 836, 299, -1119, 834, 563, -1115, 1015, -93, -1107, 145, -579, -1057, -157, 569, -1106, 28, 812, -1125, 367, 1185, -1126, 374, 1295, -1125, 653, 878, -1101, 1156, 488, -1101, 1171, 706, -1119, 858, 527, -1109, 185, 465, -1115, 450, -325, -1105, 590, -29, -1101, 1121, 395, -1120, 762, 96, -1120, 771, 238, -1101, 1064, 658, -1117, 259, 1106, -1125, 463, 1152, -1125, 638, 563, -1101, 1147, 267, -1101, 1204 }	
+	/* 
+		Interpretation of: enemy_gen_script
+
+		Generate at 25 positions from: VAR_30
+		Order of positions: Random
+		Total waves: 2; 2 enemies generated in each wave.
+		Trigger wave when there are less than 1 enemies left.
+		Delay for first enemy: 15; delay between each enemy: 100
+		Enemies:
+			ice4_grow_wamper_sc
+			ice4_grow_wamper_sc
+		Item drops:
+			deadmous
+ 	*/
 	enemy_gen_script	{ 0, 1, 25, VAR_30, 8, 2, 1, 2, 180, 180, -1, 4, 0, 9, 1, 5, 1, 15, 100, 6, 2, 7, 1, 1, 10, 45, -1, -1 }	
 	VAR_32	{ 876, -1110, 1129, 191, -1107, 1130, -470, -1105, -52 }	
+	/* 
+		Interpretation of: enemy_gen_script1
+
+		Generate at 3 positions from: VAR_32
+		Order of positions: Random
+		Total waves: 2; 1 enemies generated in each wave.
+		Trigger wave when there are less than 1 enemies left.
+		Delay for first enemy: 15; delay between each enemy: 30
+		Enemies:
+			grow_snow_sprite
+à„ÿÿ 	*/
 	enemy_gen_script1	{ 0, 1, 3, VAR_32, 8, 2, 1, 2, 24, -1, 4, 0, 9, 1, 5, 1, 15, 30, 6, 3, 7, 1, 1, -1 }	
 	VAR_34	10	
 	VAR_35	10	
@@ -42,11 +67,23 @@
 	VAR_51	{ 0, 0, 0, 2, -1, 8, 2, 1, 1, 6, 6, 63, -1, 4, 0, 9, 1, 5, 1, 50, 100, 6, 1, 7, 1, 1, -1 }	
 	VAR_52	{ 0, 1, 17, VAR_48, 8, 2, 1, 1, 24, 180, -1, 4, 0, 9, 1, 5, 1, 50, 120, 6, 2, 7, 1, 1, -1 }	
 	VAR_53	{ 0, 0, 0, 2, -1, 8, 2, 1, 1, 63, 72, -1, 4, 0, 9, 1, 5, 1, 50, 100, 6, 1, 7, 1, 1, -1 }	
+	/* 
+		Interpretation of: arr_1
+
+		Trigger wave when there are less than 0 enemies left.
+		Delay for first enemy: 0; delay between each enemy: 0
+ 	*/
 	arr_1	{ VAR_50, VAR_51, VAR_52, VAR_53 }	
 	VAR_55	{ 0, 1, 20, VAR_47, 8, 2, 1, 1, 24, -1, 4, 0, 9, 1, 5, 1, 50, 120, 6, 2, 7, 1, 1, -1 }	
 	VAR_56	{ 0, 0, 0, -1, 8, 0, 1, 1, 63, 63, -1, 4, 0, 9, 1, 5, 1, 50, 200, 6, 1, 7, 1, 1, -1 }	
 	VAR_57	{ 0, 1, 21, VAR_49, 8, 2, 1, 1, 180, -1, 4, 0, 9, 1, 5, 1, 50, 120, 6, 2, 7, 1, 1, -1 }	
 	VAR_58	{ 0, 0, 2, -1, 8, 0, 1, 1, 63, 6, -1, 4, 0, 9, 1, 5, 1, 50, 100, 6, 1, 7, 1, 1, -1 }	
+	/* 
+		Interpretation of: arr
+
+		Trigger wave when there are less than 0 enemies left.
+		Delay for first enemy: 0; delay between each enemy: 0
+ 	*/
 	arr	"4Me"	
 	VAR_60	{ 1268, -1125, -289, 1357, -1125, 633 }	
 	VAR_61	{ -1294, -922, -292, -982, -942, -468 }	

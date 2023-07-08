@@ -11,7 +11,39 @@
 
 ._DATA
 	VAR_6	{ -1604, 1420, 3669, -1242, 1420, 3775, -1028, 1420, 3552, -643, 1420, 3279, -539, 1420, 3673, -182, 1420, 3926, -498, 1420, 4186, -153, 1420, 4723, -573, 1420, 4701, -864, 1420, 5182, -1546, 1420, 4991, -1497, 1420, 4392 }	
+	/* 
+		Interpretation of: enemy_gen_script
+
+		Generate at 12 positions from: VAR_6
+		Order of positions: Random
+		Total waves: 1; 3 enemies generated in each wave.
+		Trigger wave when there are less than 1 enemies left.
+		Delay for first enemy: 15; delay between each enemy: 25
+		Enemies:
+			fire_sprite
+			fire_sprite
+			fire_sprite
+		Item drops:
+			borb
+			borb
+ 	*/
 	enemy_gen_script	{ 0, 1, 12, VAR_6, 8, 2, 4, 0, 9, 1, 1, 1, 1, 1, 1, -1, 5, 1, 15, 25, 6, 1, 7, 1, 1, 10, 83, 83, -1, -1 }	
+	/* 
+		Interpretation of: enemy_gen_script1
+
+		Generate at 12 positions from: VAR_6
+		Order of positions: Random
+		Total waves: 3; 2 enemies generated in each wave.
+		Trigger wave when there are less than 2 enemies left.
+		Delay for first enemy: 5; delay between each enemy: 55
+		Enemies:
+			fire_sprite
+			fire_sprite
+			fire_sprite
+		Item drops:
+			borb
+			borb
+ 	*/
 	enemy_gen_script1	{ 0, 1, 12, VAR_6, 8, 2, 4, 0, 9, 1, 1, 3, 1, 1, -1, 5, 1, 5, 55, 6, 1, 7, 1, 2, 10, 83, 83, -1, -1 }	
 	position	{ -867, 1420, 4400 }	
 

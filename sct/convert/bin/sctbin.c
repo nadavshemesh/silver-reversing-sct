@@ -375,7 +375,95 @@ expression* bin_read_expression(void** tokens_pos_ptr, bool with_prologue, sct_f
     return exp;
 }
 
-void add_hint_by_var_name_or_comment(game_fun* gf, node** exp_nodes, void* func_obj, p_type type) {
+char* create_enemy_gen_hint_comment(enemy_gen_script* egs, sct_f* sf) {
+    bool has_door = (egs->door != -1);
+    bool has_pos = (egs->pos_var_id != -1);
+    bool has_num_of_enemies_in_wave = (egs->num_of_enemies_in_each_wave > 0);
+    bool has_enemies = (egs->num_of_enemies_in_list > 0);
+    bool has_items = (egs->num_of_items_in_list > 0);
+    char hint[1024*5], script_name[256], door[64], pos[1024], waves[256], enemies[2048], items[2048], trigger[256], order[64], delay[256];
+    sprintf(script_name, "\t\tInterpretation of: %s\n\n", egs->enemy_gen_script_var_name);
+    sprintf(delay, "\t\tDelay for first enemy: %d; delay between each enemy: %d\n", egs->delay_for_first_enemy, egs->delay_between_enemies);
+    if(has_door) {
+        sprintf(door, "\t\tEnter from door: %d\n", egs->door);
+    }
+    if(has_pos) {
+        int id = egs->pos_var_id & 0x00FFFFFF;
+        data_obj* dao = get_data_obj_by_id(id, sf);
+        egs->pos_var_name = dao->name;
+        sprintf(pos, "\t\tGenerate at %d positions from: %s\n", egs->num_of_positions, egs->pos_var_name);
+        char* order_str;
+        switch(egs->order) {
+            case SINGLE:
+                order_str = "Single position";
+                break;
+            case SEQUENTIAL:
+                order_str = "Sequential";
+                break;
+            case RANDOM:
+                order_str = "Random";
+                break;
+        }
+        sprintf(order, "\t\tOrder of positions: %s\n", order_str);
+    }
+    if(has_num_of_enemies_in_wave)
+        sprintf(waves, "\t\tTotal waves: %d; %d enemies generated in each wave.\n", egs->num_of_waves, egs->num_of_enemies_in_each_wave);
+    sprintf(trigger, "\t\tTrigger wave when there are less than %d enemies left.\n", egs->num_of_enemies_to_trigger_next_wave);
+    if(has_enemies) {
+        char* enem_title = "\t\tEnemies:\n";
+        strncpy(enemies, enem_title, strlen(enem_title));
+        int enemies_i = strlen(enem_title);
+        for(int i=0; i<egs->num_of_enemies_in_list; i++) {
+            int enemy_id = egs->enemies_id_list[i];
+            if(enemy_id >= 0 && enemy_id <= 215) {
+                char* enemy_name = aapts(enemy_cat->items[enemy_id]);
+                char enemy_str[256];
+                sprintf(enemy_str, "\t\t\t%s\n", enemy_name);
+                strncpy(enemies+enemies_i, enemy_str, strlen(enemy_str));
+                enemies_i += strlen(enemy_str);
+            }
+        }
+        if(!has_num_of_enemies_in_wave)
+            sprintf(waves, "\t\tTotal waves: %d; %d enemies generated in each wave.\n", egs->num_of_waves, egs->num_of_enemies_in_list);
+    }
+    if(has_items) {
+        char* item_drops_title = "\t\tItem drops:\n";
+        strncpy(items, item_drops_title, strlen(item_drops_title));
+        int items_i = strlen(item_drops_title);
+        for(int i=0; i<egs->num_of_items_in_list; i++) {
+            int item_id = egs->items_drop_id_list[i];
+            if(item_id >= 0 && item_id <= 114) {
+                char* item_name = aapts(item_cat->items[item_id]);
+                char item_str[256];
+                sprintf(item_str, "\t\t\t%s\n", item_name);
+                strncpy(items+items_i, item_str, strlen(item_str));
+                items_i += strlen(item_str);
+            }
+        }
+    }
+
+    sprintf(hint, "\t/* \n%s%s%s%s%s%s%s%s%s \t*/", script_name, door, pos, order, waves, trigger, delay, enemies, items);
+
+    return aapts(hint);
+}
+
+void add_hint_by_var_name_or_comment(game_fun* gf, node** exp_nodes, void* func_obj, p_type type, sct_f* sf) {
+    // Check to see if game function is enemy generator to read enemy gen script info
+    if(gf->id == 164) {
+        node* exp_node = (exp_nodes != NULL) ? *exp_nodes : NULL;
+        if(exp_node != NULL && exp_node->item != NULL) {
+            expression* exp = (expression*) exp_node->item;
+            expr_obj* eo = exp->expr_objs;
+            data_obj* gen_script_var = eo->data;
+            // print_data_obj(gen_script_var);
+            enemy_gen_script* egs = create_enemy_gen_script_from_data_obj(gen_script_var);
+            egs->enemy_gen_script_var_name = gen_script_var->name;
+            gen_script_var->has_hint_comment = true;
+            gen_script_var->hint_comment = create_enemy_gen_hint_comment(egs, sf);
+            // printf(gen_script_var->hint_comment);
+        }
+    }
+
     int param_cat_ref = -1;
     if(gf->cat_ref == NULL) {
         return;
@@ -649,7 +737,7 @@ expr_obj* bin_read_function_call_expr(expr_pattern* expr_p, int* vars, void** to
     e_obj->expression_nodes = exp_nodes;
     // print_expression((*exp_nodes)->item);
 
-    add_hint_by_var_name_or_comment(gf, exp_nodes, e_obj, EXPRESSION_TYPE);
+    add_hint_by_var_name_or_comment(gf, exp_nodes, e_obj, EXPRESSION_TYPE, sf);
 
     char* asm_vars = { gf->name };
     e_obj->expr_p = expr_p;
@@ -1045,7 +1133,7 @@ code_obj* bin_read_function_call(code_pattern* cp, int* vars, void** tokens_pos_
     c_obj->expression_nodes = exp_nodes;
     // print_expression((*exp_nodes)->item);
 
-    add_hint_by_var_name_or_comment(gf, exp_nodes, c_obj, CODE_TYPE);
+    add_hint_by_var_name_or_comment(gf, exp_nodes, c_obj, CODE_TYPE, sf);
 
     char* asm_vars = { gf->name };
     c_obj->cp = cp;

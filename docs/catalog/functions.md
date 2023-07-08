@@ -1,4 +1,4 @@
-# Game Functions (Incomplete, 91/313)
+# Game Functions (Incomplete, 93/313)
 ### Description
 The game function calls are the main ingredient in the scripts, thats how we actually use the game's inner logic.
          The important thing to remember is that these functions take arguments that are essential for the function to work properly.
@@ -14,10 +14,12 @@ The game function calls are the main ingredient in the scripts, thats how we act
 | 8 | [create_waypoint](./func_refs/8.md) | 3 | (int x, int y, int z) | 31 |
 | 13 | [char_play_attack_anim](./func_refs/13.md) | 4 | (var char_ptr, int attack, var pos_ptr, int unknown) | 11 |
 | 14 | [remove_face](./func_refs/14.md) | 1 | (var pos_ptr) | 25 |
+| 15 | [set_char_type](./func_refs/15.md) | 2 | (var char_ptr, int char_type [hero, foe, neutral etc..]) | 38 |
 | 16 | [add_waypoint_to_char](./func_refs/16.md) | 2 | (var char_ptr, int waypoint) | 35 |
 | 22 | [is_char_handle_in_level](./func_refs/22.md) | 1 | (int char_handle_id) | 767 |
 | 24 | [char_walk_to](./func_refs/24.md) | 4 | (var char_ptr, int x, int y, int z) | 243 |
 | 26 | [char_walk_to_pos](./func_refs/26.md) | 2 | (var char_ptr, var position_ptr) | 318 |
+| 28 | [char_shoot_char](./func_refs/28.md) | 2 | (var char1_ptr, var char2_ptr) | 2 |
 | 29 | [char_shoot_bow](./func_refs/29.md) | 2 | (var char_ptr, var position_ptr) | 3 |
 | 32 | [set_char_running](./func_refs/32.md) | 1 | (var char_ptr) | 377 |
 | 34 | [set_char_walking](./func_refs/34.md) | 1 | (var char_ptr) | 83 |
@@ -76,7 +78,7 @@ The game function calls are the main ingredient in the scripts, thats how we act
 | 206 | [log_var](./func_refs/206.md) | 1 | (var some_var) | 171 |
 | 211 | [randomize_int](./func_refs/211.md) | 2 | (int from, int to) | 854 |
 | 213 | [reset_local_timer](./func_refs/213.md) | 0 | () | 303 |
-| 216 | [load_pos_from_room_memory](./func_refs/216.md) | 2 | (int id, var unpack_memory_location | 24 |
+| 216 | [set_door_particle_effect](./func_refs/216.md) | 4 | (int door_num, int intensity, int type [0, 1, 2 or 3], int time_length[-1 for inf] | 24 |
 | 223 | [resume_conversation](./func_refs/223.md) | 0 | () | 100 |
 | 227 | [chars_face_opposite](./func_refs/227.md) | 2 | (var char1_ptr, var char2_ptr) | 18 |
 | 229 | [toggle_or_use_char_item](./func_refs/229.md) | 2 | (var char_ptr , var item_ptr) | 14 |
@@ -98,7 +100,7 @@ The game function calls are the main ingredient in the scripts, thats how we act
 | 298 | [is_local_timer_between](./func_refs/298.md) | 2 | (int min_time, int max_time) | 2 |
 | 300 | [play_char_anim](./func_refs/300.md) | 3 | (var char_ptr, var anim_name_ptr, int unknown) | 301 |
 | 302 | [open_save_screen](./func_refs/302.md) | 1 | (var unknown_int_ptr) | 49 |
-| 304 | [char_unfollow_char](./func_refs/304.md) | 1 | (var char1_ptr, var char2_ptr) | 11 |
+| 304 | [char_unfollow_char](./func_refs/304.md) | 2 | (var char_ptr) - to unfollow david or (var char1_ptr, var char2_ptr) | 11 |
 | 305 | [char_follow_char](./func_refs/305.md) | 2 | (var char1_ptr, var char2_ptr) | 8 |
 
 #
@@ -116,7 +118,6 @@ The game function calls are the main ingredient in the scripts, thats how we act
 | 10 | [func_a](./func_refs/10.md) | - | - | 1 |
 | 11 | [func_b](./func_refs/11.md) | - | - | 1 |
 | 12 | [func_c](./func_refs/12.md) | - | - | 7 |
-| 15 | [func_f](./func_refs/15.md) | - | - | 38 |
 | 17 | [func_11](./func_refs/17.md) | - | - | 0 |
 | 18 | [func_12](./func_refs/18.md) | - | - | 1 |
 | 19 | [func_13](./func_refs/19.md) | - | - | 5 |
@@ -125,7 +126,6 @@ The game function calls are the main ingredient in the scripts, thats how we act
 | 23 | [func_17](./func_refs/23.md) | - | - | 63 |
 | 25 | [func_19](./func_refs/25.md) | - | - | 56 |
 | 27 | [func_1b](./func_refs/27.md) | - | - | 0 |
-| 28 | [func_1c](./func_refs/28.md) | - | - | 2 |
 | 30 | [func_1e](./func_refs/30.md) | - | - | 9 |
 | 31 | [func_1f](./func_refs/31.md) | - | - | 1 |
 | 33 | [func_21](./func_refs/33.md) | - | - | 2 |

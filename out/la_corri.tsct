@@ -16,6 +16,18 @@
 	init_position1	{ -10653, -349, 812 }	
 	init_position2	{ -10667, -349, 2500 }	
 	VAR_16	{ -11651, 1849, 402, -11660, 1849, 2907 }	
+	/* 
+		Interpretation of: enemy_gen_script
+
+		Generate at 2 positions from: VAR_16
+		Order of positions: Sequential
+		Total waves: 1; 2 enemies generated in each wave.
+		Trigger wave when there are less than 2 enemies left.
+		Delay for first enemy: 60; delay between each enemy: 0
+		Enemies:
+			drop_fire_fishman
+			drop_fire_fishman
+ 	*/
 	enemy_gen_script	{ 0, 1, 2, VAR_16, 8, 1, 1, 1, 150, 150, -1, 4, 0, 9, 0, 5, 0, 60, 6, 3, 7, 1, 2, -1 }	
 	VAR_20	{ -10189, 1852, 971, -10177, 1852, 2410 }	
 	wandering_gen_script	{ 0, 1, 2, VAR_20, 8, 1, 12, 147, 147, 150, 147, -1, 13, 1, 14, 0, 2, 2, 5, 0, 10, 18, 50, -1 }	

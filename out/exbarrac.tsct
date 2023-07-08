@@ -36,12 +36,12 @@
 	VAR_48	VAR_49	
 	VAR_49	"ACT_2"	
 	arr	{ VAR_51, VAR_52, VAR_53, VAR_54, VAR_55, VAR_56, VAR_57 }	
-	VAR_51	{ 1162757447, 826493266, -1431655936 }	
-	VAR_52	{ 1162757447, 910379346, -1431655936 }	
-	VAR_53	{ 1599357761, -1431699402 }	
+	VAR_51	"GENERIC1"	
+	VAR_52	"GENERIC6"	
+	VAR_53	"ACT_6"	
 	VAR_54	"ACT_8"	
 	VAR_55	"GENERIC3"	
-	VAR_56	"ACT_8"	
+	VAR_56	{ 1599357761, -1431699400 }	
 	VAR_57	"GENERIC2"	
 	index	-1	
 	VAR_66	{ 0, 0 }	
@@ -347,7 +347,7 @@
 	if(call func_bf(int 333, gamevar CURRENT_LEVEL, gamevar CURRENT_SCENE))
 	 {
 			call log_string("old food topic from history")
-			call load_pos_from_room_memory(int 333, var &VAR_59)
+			call set_door_particle_effect(int 333, var &VAR_59)
 			var index = var VAR_60
 	}
 	if(var VAR_58 == int -1)
@@ -361,7 +361,7 @@
 	call func_10c(var NVILOWFAT, var VAR_47)
 	if(call func_bf(int 448, gamevar CURRENT_LEVEL, gamevar CURRENT_SCENE))
 	 {
-			call load_pos_from_room_memory(int 448, var &VAR_59)
+			call set_door_particle_effect(int 448, var &VAR_59)
 			switch(var VAR_60)
 			 {
 					case 2
@@ -465,7 +465,7 @@
 	var NVILLOW = call create_char(var &init_position10, "NVILLOW", int 40, int 13)
 	if(call func_bf(int 222, gamevar CURRENT_LEVEL, gamevar CURRENT_SCENE))
 	 {
-			call load_pos_from_room_memory(int 222, var &VAR_59)
+			call set_door_particle_effect(int 222, var &VAR_59)
 			var index_1 = var VAR_60
 	}
 	if(call ! func_bf(int 111, gamevar CURRENT_LEVEL, gamevar CURRENT_SCENE))
@@ -477,7 +477,7 @@
 	 {
 			call log_string("has weapons")
 			var VAR_78 = int 1
-			call load_pos_from_room_memory(int 111, var &VAR_59)
+			call set_door_particle_effect(int 111, var &VAR_59)
 			if(var VAR_90 == int -1)
 			 {
 					var VAR_79 = var VAR_80

@@ -19,6 +19,20 @@
 	init_position6	{ -6877, 2200, -3439 }	
 	VAR_20	{ -5933, 2000, -3650, -5493, 2200, -3457, -6307, 2000, -3877, -6877, 2200, -3439 }	
 	VAR_21	{ -5933, 400, -3650, -5493, 400, -3457, -6307, 400, -3877, -6877, 400, -3439 }	
+	/* 
+		Interpretation of: enemy_gen_script
+
+		Generate at 5 positions from: VAR_20
+		Order of positions: Sequential
+		Total waves: 1; 4 enemies generated in each wave.
+		Trigger wave when there are less than 1 enemies left.
+		Delay for first enemy: 50; delay between each enemy: 0
+		Enemies:
+			flying_imps
+			flying_imps
+			flying_imps
+			flying_imps
+ 	*/
 	enemy_gen_script	{ 0, 1, 5, VAR_20, 8, 1, 4, 2, 5, VAR_21, 9, 0, 1, 1, 105, 105, 105, 105, -1, 5, 0, 50, 6, 1, 7, 1, 1, -1 }	
 	position	{ -3950, 0, -2604 }	
 	VAR_30	-1	
@@ -275,7 +289,7 @@
 	call remove_char(var TYRONIS)
 
 ._SCRIPT_11
-	call load_pos_from_room_memory(int 0, var &VAR_40)
+	call set_door_particle_effect(int 0, var &VAR_40)
 	var VAR_44 = var VAR_41
 	var VAR_45 = var VAR_42
 	var VAR_46 = var VAR_43

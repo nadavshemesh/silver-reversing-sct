@@ -36,6 +36,7 @@ void init_data_obj(data_obj* d_obj) {
     d_obj->id = -1;
     d_obj->type = UNDEFINED_TYPE;
     d_obj->ignore = false;
+    d_obj->has_hint_comment = false;
     d_obj->was_renamed = false;
     d_obj->references = 0;
     d_obj->byte_size = 0;
@@ -44,6 +45,7 @@ void init_data_obj(data_obj* d_obj) {
     d_obj->c_referees = NULL;
     d_obj->e_referees = NULL;
     d_obj->d_references = NULL;
+    d_obj->hint_comment = NULL;
 }
 
 void init_data_ref(data_ref* dr) { 

@@ -15,6 +15,23 @@
 	ai_script1	{ 0, 1296, 1635, 5497, 5, 30, 0, 1433, 1635, 5513, 5, 70, 0, 1156, 1635, 5099, 5, 80, 0, 1034, 1635, 3381, 5, 50, 0, 1571, 1635, 3274, 5, 60, 0, 1703, 1635, 4476, 7, 8 }	
 	VAR_15	{ 352, 200, 6100 }	
 	VAR_16	{ 362, 1080, 5833 }	
+	/* 
+		Interpretation of: enemy_gen_script
+
+		Generate at 1 positions from: VAR_15
+		Order of positions: Random
+		Total waves: -1073741738; 7 enemies generated in each wave.
+		Trigger wave when there are less than 5 enemies left.
+		Delay for first enemy: 25; delay between each enemy: 50
+		Enemies:
+			devious_grunts
+			fire_sprite
+			fire_sprite
+			fire_sprite
+			bee
+			bee
+			bee
+ 	*/
 	enemy_gen_script	{ 0, 1, 1, VAR_15, 8, 2, 4, 2, 1, VAR_16, 9, 1, 1, 1, 27, 27, 27, -1, 5, 1, 25, 50, 7, 1, 5, -1 }	
 	init_position	{ -70, 780, 5765 }	
 	init_position1	{ 1273, 1617, 5583 }	
@@ -35,11 +52,11 @@
 	VAR_62	"JDE"	
 	VAR_63	"D,E"	
 	VAR_64	"DD(E"	
-	VAR_65	"~DDE"	
+	VAR_65	{ 1149157376, 1154908160, 1159720960 }	
 	VAR_66	"`DD ;E"	
-	VAR_67	{ 1151336448, 1154244608, 1167493120 }	
+	VAR_67	"D`DE"	
 	VAR_68	"D`DxE"	
-	VAR_69	" D`DE"	
+	VAR_69	{ 1154490368, 1154244608, 1167577088 }	
 	arr	{ VAR_59, VAR_60, VAR_61, VAR_62, VAR_63, VAR_64, VAR_65, VAR_66, VAR_67, VAR_68, VAR_69 }
 
 ._on_load

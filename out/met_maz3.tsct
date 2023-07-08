@@ -20,8 +20,36 @@
 	ai_script3	{ 0, -3737, 54, -1761, 0, -1166, 54, -1765, 7, 8, -979, 55, -1019 }	
 	VAR_20	{ -3769, 55, -1882, -3785, 55, -477 }	
 	VAR_22	{ -3520, 55, -776, -3493, 54, -1686, -818, 54, -1602, -827, 55, -747, -2441, 54, -1665, -2444, 55, -830 }	
+	/* 
+		Interpretation of: enemy_gen_script
+
+		Generate at 5 positions from: VAR_22
+		Order of positions: Random
+		Total waves: 3; 2 enemies generated in each wave.
+		Trigger wave when there are less than 2 enemies left.
+		Delay for first enemy: 15; delay between each enemy: 60
+		Enemies:
+			grow_sguard
+			grow_sguard
+ 	*/
 	enemy_gen_script	{ 0, 1, 5, VAR_22, 8, 2, 4, 0, 9, 1, 1, 3, 33, 33, -1, 5, 1, 15, 60, 6, 1, 7, 1, 2, -1 }	
 	VAR_24	{ -1508, 55, -600, -1502, 55, -994, -1479, 55, -1666 }	
+	/* 
+		Interpretation of: enemy_gen_script1
+
+		Generate at 3 positions from: VAR_24
+		Order of positions: Sequential
+		Total waves: 1; 3 enemies generated in each wave.
+		Trigger wave when there are less than 2 enemies left.
+		Delay for first enemy: 15; delay between each enemy: 60
+		Enemies:
+			grow_sarcher
+			grow_sarcher
+			grow_sarcher
+		Item drops:
+			deadmous
+			drumstik
+ 	*/
 	enemy_gen_script1	{ 0, 1, 3, VAR_24, 8, 1, 4, 0, 9, 1, 1, 1, 35, 35, 35, -1, 5, 1, 15, 60, 6, 1, 7, 1, 2, 10, 45, 47, -1, -1 }	
 
 ._on_load

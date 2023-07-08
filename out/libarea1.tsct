@@ -319,7 +319,7 @@
 	gamevar script_object = var neutral_imp
 	gamevar *character_movement_p+60 = int 1
 	call freeze_enemy(var neutral_imp)
-	call func_f(var neutral_imp, int 131072)
+	call set_char_type(var neutral_imp, int 131072)
 	gamevar script_object = var neutral_imp
 	gamevar *object_p+6 |= int 8388608
 
@@ -327,19 +327,19 @@
 	var neutral_imp1 = call create_enemy(int 102, int 1, var &init_position2, int 0)
 	gamevar script_object = var neutral_imp1
 	gamevar *character_movement_p+60 = int 1
-	call func_f(var neutral_imp1, int 131072)
+	call set_char_type(var neutral_imp1, int 131072)
 	gamevar script_object = var neutral_imp1
 	gamevar *object_p+6 |= int 8388608
 	var neutral_imp2 = call create_enemy(int 102, int 2, var &init_position3, int 0)
 	gamevar script_object = var neutral_imp2
 	gamevar *character_movement_p+60 = int 1
-	call func_f(var neutral_imp2, int 131072)
+	call set_char_type(var neutral_imp2, int 131072)
 	gamevar script_object = var neutral_imp2
 	gamevar *object_p+6 |= int 8388608
 	var neutral_imp3 = call create_enemy(int 102, int 3, var &init_position4, int 0)
 	gamevar script_object = var neutral_imp3
 	gamevar *character_movement_p+60 = int 1
-	call func_f(var neutral_imp3, int 131072)
+	call set_char_type(var neutral_imp3, int 131072)
 	gamevar script_object = var neutral_imp3
 	gamevar *object_p+6 |= int 8388608
 	call freeze_enemy(var neutral_imp1)

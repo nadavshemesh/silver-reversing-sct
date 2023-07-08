@@ -16,6 +16,18 @@
 	ai_script	{ 0, -2980, -1750, 2660, 0, -2670, -1750, 2170, 7, 8 }	
 	ai_script1	{ 0, -1292, -1450, 3030, 0, -2230, -1450, 2580, 0, -1270, -1450, 3100, 0, -2426, -1450, 5565, 7, 8 }	
 	VAR_14	{ -1900, 1000, 3800, -1800, 1200, 3900 }	
+	/* 
+		Interpretation of: enemy_gen_script
+
+		Generate at 2 positions from: VAR_14
+		Order of positions: Random
+		Total waves: 1; 2 enemies generated in each wave.
+		Trigger wave when there are less than 1 enemies left.
+		Delay for first enemy: 5; delay between each enemy: 50
+		Enemies:
+			bat
+			bat
+ 	*/
 	enemy_gen_script	{ 0, 1, 2, VAR_14, 8, 2, 4, 0, 9, 1, 1, 1, 47, 47, -1, 5, 1, 5, 50, 6, 1, 7, 1, 1, -1 }	
 	VAR_26	{ 0, -2230, -1450, 5128, 2, -3918, -2375, 4169, 8 }	
 	VAR_27	{ 0, -2611, -1746, 4411, 2, -3918, -2375, 4169, 8 }	
@@ -30,6 +42,17 @@
 	VAR_36	{ -4386, -2375, 4928, -4386, -2375, 4928, -4386, -2375, 4928, -4386, -2375, 4928 }	
 	wandering_gen_script	{ 0, 1, 4, VAR_36, 8, 1, 19, -1965, -1450, 4741, 12, 60, 60, 61, -1, 13, 0, 14, 0, 1, 3, 15, VAR_32, VAR_33, VAR_34, -1, 16, 0, 5, 0, 60, 17, 1, -2821, -1750, 2383, 400, -1, 18, 25, 11, -1 }	
 	VAR_38	{ -2821, -1750, 2377, -2126, -1450, 2658, -3572, -2100, 2294, -2913, -1750, 2704 }	
+	/* 
+		Interpretation of: enemy_gen_script1
+
+		Generate at 4 positions from: VAR_38
+		Order of positions: Random
+		Total waves: 3; 1 enemies generated in each wave.
+		Trigger wave when there are less than 2 enemies left.
+		Delay for first enemy: 30; delay between each enemy: 100
+		Enemies:
+			grow_skel
+ 	*/
 	enemy_gen_script1	{ 0, 1, 4, VAR_38, 8, 2, 4, 0, 9, 0, 1, 3, 68, -1, 5, 1, 30, 100, 6, 1, 7, 1, 2, -1 }
 
 ._on_load

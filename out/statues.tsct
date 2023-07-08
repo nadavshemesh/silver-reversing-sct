@@ -12,6 +12,20 @@
 ._DATA
 	fx_position	{ -5570, 1370, 692 }	
 	VAR_4	{ 2036, 1370, -6603 }	
+	/* 
+		Interpretation of: enemy_gen_script
+
+		Enter from door: 1
+		Total waves: 1; 2 enemies generated in each wave.
+		Trigger wave when there are less than 2 enemies left.
+		Delay for first enemy: 50; delay between each enemy: 100
+		Enemies:
+			sentryg
+			sentryg
+		Item drops:
+			cheese
+			bread
+ 	*/
 	enemy_gen_script	{ 0, 0, 1, -1, 8, 0, 1, 1, 56, 56, -1, 4, 0, 9, 0, 5, 1, 50, 100, 6, 1, 7, 1, 2, 10, 43, 42, -1, -1 }	
 	init_position	{ 1556, -1199, 3269 }	
 	init_position1	{ 927, -1199, 2982 }	
@@ -31,7 +45,19 @@
 	VAR_46	{ 0, 0, 1, -1, 8, 0, 1, 1, 56, -1, 4, 0, 9, 0, 5, 1, 50, 200, 6, 1, 7, 1, 1, 10, 40, -1, -1 }	
 	VAR_47	{ 0, 1, 14, VAR_44, 8, 2, 1, 1, 5, -1, 4, 0, 9, 0, 5, 1, 50, 200, 6, 1, 7, 1, 1, 10, 43, -1, -1 }	
 	VAR_48	{ 0, 0, 0, -1, 8, 0, 1, 1, 56, 72, -1, 4, 0, 9, 0, 5, 1, 50, 200, 6, 1, 7, 1, 1, 10, 42, -1, -1 }	
+	/* 
+		Interpretation of: arr
+
+		Trigger wave when there are less than 0 enemies left.
+		Delay for first enemy: 0; delay between each enemy: 0
+ 	*/
 	arr	{ VAR_45, VAR_46 }	
+	/* 
+		Interpretation of: arr_1
+
+		Trigger wave when there are less than 0 enemies left.
+		Delay for first enemy: 0; delay between each enemy: 0
+ 	*/
 	arr_1	{ VAR_47, VAR_48, 0 }	
 
 ._on_load

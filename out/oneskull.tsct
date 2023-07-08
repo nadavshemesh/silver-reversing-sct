@@ -29,6 +29,17 @@
 	VAR_55	{ 2502, -2074, 5413, 3016, -2075, 5961 }	
 	VAR_56	{ 1035, -2275, 6269, 1867, -2275, 6933 }	
 	VAR_57	{ 1019, -800, 8182, 1067, -800, 6376, 1601, -800, 6926 }	
+	/* 
+		Interpretation of: enemy_gen_script
+
+		Generate at 3 positions from: VAR_57
+		Order of positions: Sequential
+		Total waves: 3; 1 enemies generated in each wave.
+		Trigger wave when there are less than 3 enemies left.
+		Delay for first enemy: 15; delay between each enemy: 100
+		Enemies:
+			drop_wraith
+ 	*/
 	enemy_gen_script	{ 0, 1, 3, VAR_57, 8, 1, 4, 0, 9, 1, 1, 3, 90, -1, 5, 1, 15, 100, 6, 1, 7, 1, 3, -1 }	
 	tele_position	{ 503, -2075, 7100 }	
 	VAR_61	{ 1601, -2275, 6934 }	
@@ -40,6 +51,20 @@
 	VAR_67	{ 433, -2275, 7609 }	
 	arr	{ VAR_61, VAR_62, VAR_63, VAR_64, VAR_65, VAR_66, VAR_67 }	
 	VAR_69	{ -622, -1675, 5973, 941, -2275, 6576, 993, -2275, 8095, 1061, -2275, 7176 }	
+	/* 
+		Interpretation of: enemy_gen_script1
+
+		Generate at 4 positions from: VAR_69
+		Order of positions: Sequential
+		Total waves: 1; 4 enemies generated in each wave.
+		Trigger wave when there are less than 2 enemies left.
+		Delay for first enemy: 100; delay between each enemy: 0
+		Enemies:
+			grow_boney
+			wraithp
+			wraithp
+			grow_skel
+ 	*/
 	enemy_gen_script1	{ 0, 1, 4, VAR_69, 8, 1, 4, 0, 9, 1, 1, 1, 69, 60, 60, 68, -1, 5, 0, 100, 6, 1, 7, 1, 2, -1 }	
 	VAR_78	{ 1019, -800, 8182, 1067, -800, 6376, 1601, -800, 6926, -622, -800, 5973, 941, -800, 6576, 993, -800, 8095, 1061, -800, 7176 }	
 	VAR_79	{ -622, -1675, 5973, 941, -2275, 6576, 993, -2275, 8095, 1061, -2275, 7176 }	

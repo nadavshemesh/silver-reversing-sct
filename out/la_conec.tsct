@@ -20,11 +20,67 @@
 	init_position9	{ -10817, -348, 4314 }	
 	init_position2	{ -11638, 1300, 3049 }	
 	init_position3	{ -10732, 1300, 3182 }	
+	/* 
+		Interpretation of: enemy_gen_script
+
+		Enter from door: 0
+		Total waves: 1; 3 enemies generated in each wave.
+		Trigger wave when there are less than 3 enemies left.
+		Delay for first enemy: 250; delay between each enemy: 400
+		Enemies:
+			fishman
+			fishman
+			fire_fishman
+		Item drops:
+			cheese
+ 	*/
 	enemy_gen_script	{ 0, 0, 0, -1, 8, 1, 4, 0, 9, 1, 1, 1, 51, 51, 148, -1, 5, 1, 250, 400, 6, 2, 7, 1, 3, 10, 43, -1, -1 }	
+	/* 
+		Interpretation of: enemy_gen_script1
+
+		Enter from door: 1
+		Total waves: 1; 3 enemies generated in each wave.
+		Trigger wave when there are less than 3 enemies left.
+		Delay for first enemy: 200; delay between each enemy: 400
+		Enemies:
+			fishman
+			fishman
+			fire_fishman
+		Item drops:
+			bread
+			cheese
+ 	*/
 	enemy_gen_script1	{ 0, 0, 1, -1, 8, 1, 4, 0, 9, 1, 1, 1, 51, 51, 148, -1, 5, 1, 200, 400, 6, 2, 7, 1, 3, 10, 42, 43, -1, -1 }	
 	VAR_22	{ -11239, 1348, 3220, -11690, 1348, 3053, -11026, 1348, 2744, -10776, 1348, 2535, -11556, 1348, 2439, -11482, 1348, 2158, -10938, 1348, 2123, -10804, 1348, 2707, -10866, 1348, 3862, -11419, 1348, 3907, -11289, 1348, 3635, -11004, 1348, 3567, -11332, 1348, 4291, -11519, 1348, 1725, -11199, 1348, 1556, -10866, 1348, 1532, -11150, 1348, 1337, -10632, 1348, 1900, -11095, 1348, 2307, -11080, 1348, 2866 }	
+	/* 
+		Interpretation of: enemy_gen_script2
+
+		Generate at 20 positions from: VAR_22
+		Order of positions: Random
+		Total waves: 5; 1 enemies generated in each wave.
+		Trigger wave when there are less than 2 enemies left.
+		Delay for first enemy: 10; delay between each enemy: 40
+		Enemies:
+			drop_fishman
+		Item drops:
+			cheese
+ 	*/
 	enemy_gen_script2	{ 0, 1, 20, VAR_22, 8, 2, 4, 0, 9, 0, 1, 5, 147, -1, 5, 1, 10, 40, 6, 3, 7, 1, 2, 10, 43, -1, -1 }	
 	VAR_24	"DoDA"	
+	/* 
+		Interpretation of: enemy_gen_script3
+
+		Generate at 2 positions from: VAR_24
+		Order of positions: Sequential
+		Total waves: 1; 2 enemies generated in each wave.
+		Trigger wave when there are less than 3 enemies left.
+		Delay for first enemy: 40; delay between each enemy: 120
+		Enemies:
+			drop_fire_fishman
+			drop_fire_fishman
+		Item drops:
+			cheese
+ 	*/
 	enemy_gen_script3	{ 0, 1, 2, VAR_24, 8, 1, 4, 0, 9, 1, 1, 1, 150, 150, -1, 5, 1, 40, 120, 6, 4, 7, 1, 3, -1 }	
 	VAR_31	{ -11239, 1348, 3220, -11690, 1348, 3053, -11026, 1348, 2744, -10776, 1348, 2535 }	
 	wandering_gen_script2	{ 0, 1, 2, VAR_31, 8, 1, 12, 147, 147, 150, 147, -1, 13, 1, 14, 0, 2, 2, 5, 0, 10, 18, 33, -1 }	

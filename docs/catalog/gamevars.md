@@ -10,11 +10,11 @@ Its important to remember that these variables are essential for the game to fun
 
 | Var Name | Length in bytes | References |
 | --- | --- | --- |
-| [script_trigger](./gamevar_refs/0.md) | 28 | 0 |
+| [script_triggern; ](./gamevar_refs/0.md) | 28 | 0 |
 | [CURRENT_LEVEL](./gamevar_refs/1.md) | 4 | 46 |
 | [CURRENT_SCENE](./gamevar_refs/2.md) | 4 | 46 |
-| [CURSOR_X](./gamevar_refs/3.md) | 4 | 0 |
-| [CURSOR_Y](./gamevar_refs/4.md) | 4 | 0 |
+| [CURSOR_XH2€](./gamevar_refs/3.md) | 4 | 0 |
+| [CURSOR_Y|˜](./gamevar_refs/4.md) | 4 | 0 |
 | [MOUSE_X](./gamevar_refs/5.md) | 4 | 0 |
 | [MOUSE_Y](./gamevar_refs/6.md) | 4 | 0 |
 | [GLOBAL_ABILITY](./gamevar_refs/7.md) | 4 | 0 |

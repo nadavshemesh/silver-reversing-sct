@@ -20,6 +20,18 @@
 	VAR_59	{ 0, 0, 0, 0 }	
 	VAR_60	-1	
 	VAR_81	{ 936, -1913, -626, 979, -1913, -842, 1238, -1913, -1038, 965, -1913, -1111, 1128, -1913, -1337, 665, -1888, -1296, 585, -1887, -224, 529, -1887, -114 }	
+	/* 
+		Interpretation of: enemy_gen_script
+
+		Generate at 8 positions from: VAR_81
+		Order of positions: Random
+		Total waves: 1; 2 enemies generated in each wave.
+		Trigger wave when there are less than 2 enemies left.
+		Delay for first enemy: 120; delay between each enemy: 300
+		Enemies:
+			grow_skel
+			grow_boney
+ 	*/
 	enemy_gen_script	{ 0, 1, 8, VAR_81, 8, 2, 4, 0, 9, 0, 1, 1, 68, 69, -1, 5, 1, 120, 300, 6, 1, 7, 1, 2, -1 }
 
 ._on_load

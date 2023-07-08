@@ -33,7 +33,36 @@
 	ai_script4	{ 5, 60, 25, 0, 3, VAR_72, 0, 1, viking, 3, VAR_73, 0, 15, 0, -2400, 4025, -7400, 5, 10, 24, 0, 2, -1339, 4025, -5731, 8 }	
 	VAR_72	"lookout"	
 	VAR_73	"yes"	
+	/* 
+		Interpretation of: enemy_gen_script
+
+		Enter from door: 0
+		Total waves: 3; 1 enemies generated in each wave.
+		Trigger wave when there are less than 3 enemies left.
+		Delay for first enemy: 40; delay between each enemy: 80
+		Enemies:
+			bstump
+		Item drops:
+			bread
+			pie
+ 	*/
 	enemy_gen_script	{ 0, 0, 0, -1, 8, 0, 1, 3, 63, -1, 4, 0, 9, 1, 5, 1, 40, 80, 6, 3, 7, 1, 3, 10, 42, 46, -1, -1 }	
+	/* 
+		Interpretation of: enemy_gen_script1
+
+		Enter from door: 0
+		Total waves: 1; 3 enemies generated in each wave.
+		Trigger wave when there are less than 1 enemies left.
+		Delay for first enemy: 30; delay between each enemy: 80
+		Enemies:
+			vikingb
+			bstump
+			vikingc
+		Item drops:
+			thaxe
+			bread
+			apple
+ 	*/
 	enemy_gen_script1	{ 0, 0, 0, -1, 8, 0, 1, 1, 65, 63, 66, -1, 4, 0, 9, 0, 5, 1, 30, 80, 6, 2, 7, 1, 1, 10, 12, 42, 40, -1, -1 }	
 	VAR_76	{ -3866, 4025, -5490 }	
 	init_position	{ -1758, 4025, -6140 }	

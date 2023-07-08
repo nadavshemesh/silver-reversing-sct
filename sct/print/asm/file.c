@@ -221,6 +221,9 @@ void write_asm_file(sct_f* sf) {
 }
 
 void write_asm_data_object(data_obj* data_o, sct_f* sf) {
+    if(data_o->has_hint_comment && data_o->hint_comment != NULL) {
+        fprintf(sf->out_file, "%s\n", data_o->hint_comment);
+    }
     fprintf(sf->out_file, "\t%s\t", data_o->name);
     if(data_o->type == STRING || (data_o->type == UNDEFINED_TYPE && is_string((byte*)data_o->data, data_o->byte_size))) {    
         fprintf(sf->out_file, "\"");

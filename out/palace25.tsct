@@ -13,7 +13,39 @@
 	VAR_7	{ 0, 0 }	
 	VAR_10	{ 5032, 3425, -4651, 5342, 3425, -6084, 5350, 3425, -6463, 5283, 3425, -6286 }	
 	VAR_11	{ 5032, 3425, -4651, 5342, 3425, -6084, 5350, 3425, -6463, 5283, 3425, -6286 }	
+	/* 
+		Interpretation of: enemy_gen_script3
+
+		Generate at 4 positions from: VAR_11
+		Order of positions: Sequential
+		Total waves: 2; 2 enemies generated in each wave.
+		Trigger wave when there are less than 2 enemies left.
+		Delay for first enemy: 30; delay between each enemy: 60
+		Enemies:
+			bstump
+			bstump
+		Item drops:
+			apple
+			drumstik
+ 	*/
 	enemy_gen_script3	{ 0, 1, 4, VAR_11, 8, 1, 1, 2, 63, 63, -1, 4, 0, 9, 0, 5, 1, 30, 60, 7, 1, 2, 10, 40, 47, -1, -1 }	
+	/* 
+		Interpretation of: enemy_gen_script2
+
+		Enter from door: 0
+		Generate at 4 positions from: VAR_10
+		Order of positions: Sequential
+		Total waves: 2; 2 enemies generated in each wave.
+		Trigger wave when there are less than 2 enemies left.
+		Delay for first enemy: 30; delay between each enemy: 60
+		Enemies:
+			bstump
+			bstump
+b
+		Item drops:
+			apple
+			drumstik
+ 	*/
 	enemy_gen_script2	{ 0, 1, 4, VAR_10, 8, 1, 1, 2, 63, 63, -1, 4, 0, 9, 0, 5, 1, 30, 60, 7, 1, 2, 10, 40, 47, -1, -1 }	
 	init_position2	{ 1490, 3425, -4070 }	
 	init_position3	{ 1115, 3425, -4442 }	
@@ -33,7 +65,36 @@
 	VAR_46	"lookout"	
 	ai_script5	{ 3, VAR_48, 0, 5, 20, 2, 1490, 3435, -4070, 5, 30, 2, 1480, 3435, -6810, 8 }	
 	VAR_48	"yes"	
+	/* 
+		Interpretation of: enemy_gen_script
+
+		Enter from door: 0
+		Total waves: 1; 2 enemies generated in each wave.
+		Trigger wave when there are less than 6 enemies left.
+		Delay for first enemy: 10; delay between each enemy: 20
+		Enemies:
+			vikingb
+			vikingb
+		Item drops:
+			thaxe
+			cheese
+ 	*/
 	enemy_gen_script	{ 0, 0, 0, -1, 8, 0, 1, 1, 65, 65, -1, 4, 0, 9, 1, 5, 1, 10, 20, 6, 4, 7, 1, 6, 10, 12, 43, -1, -1 }	
+	/* 
+		Interpretation of: enemy_gen_script1
+
+		Enter from door: 0
+		Total waves: 4; 1 enemies generated in each wave.
+		Trigger wave when there are less than 6 enemies left.
+		Delay for first enemy: 10; delay between each enemy: 100
+		Enemies:
+			bstump
+
+			vikingb
+		Item drops:
+			bread
+			deadmous
+ 	*/
 	enemy_gen_script1	{ 0, 0, 0, -1, 8, 0, 1, 4, 63, -1, 4, 0, 9, 1, 5, 1, 10, 100, 6, 5, 7, 1, 6, 10, 42, 45, -1, -1 }	
 	init_position	{ 4646, 3435, -5136 }	
 	init_position1	{ 4362, 3435, -5103 }	
@@ -204,9 +265,9 @@
 				 {
 						var VAR_5 = call run_enemy_generator(var &enemy_gen_script2, int 50)
 						var vikingc = call create_enemy(int 66, int 0, var &init_position, int 90)
-						call func_f(var vikingc, int 131072)
+						call set_char_type(var vikingc, int 131072)
 						var bstump = call create_enemy(int 63, int 0, var &init_position1, int 0)
-						call func_f(var bstump, int 131072)
+						call set_char_type(var bstump, int 131072)
 						call func_46(var vikingc, int 0)
 						call func_46(var bstump, int 0)
 						call set_char_init_state(var vikingc, int 13)
@@ -239,7 +300,7 @@
 	call set_char_init_state(var bstump3, int 1)
 	call func_106(var bstump4, int 1, int 0, int 2)
 	call set_char_init_state(var bstump4, int 1)
-	call func_f(var vikingc1, int 131072)
+	call set_char_type(var vikingc1, int 131072)
 	call func_46(var vikingc1, int 0)
 	call set_char_init_state(var bstump1, int 13)
 	call play_char_ai_script(var bstump1, var &ai_script2)
@@ -286,9 +347,9 @@
 				 {
 						var VAR_5 = call run_enemy_generator(var &enemy_gen_script3, int 50)
 						var vikingc2 = call create_enemy(int 66, int 0, var &init_position7, int 90)
-						call func_f(var vikingc2, int 131072)
+						call set_char_type(var vikingc2, int 131072)
 						var bstump5 = call create_enemy(int 63, int 0, var &init_position8, int 0)
-						call func_f(var bstump5, int 131072)
+						call set_char_type(var bstump5, int 131072)
 						call func_46(var vikingc2, int 0)
 						call func_46(var bstump5, int 0)
 						call set_char_init_state(var vikingc2, int 13)

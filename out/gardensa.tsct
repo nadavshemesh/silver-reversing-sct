@@ -42,6 +42,18 @@
 	VAR_45	0	
 	VAR_46	0	
 	VAR_47	{ 15, 0, 728, -656, -2895, 2, -657, -1506, -1086, 4, VAR_45, 5, 30, 2, -564, -656, -3264, 5, 10, 16, VAR_46, 1, 8 }	
+	/* 
+		Interpretation of: enemy_gen_script
+
+		Total waves: 1; 2 enemies generated in each wave.
+		Trigger wave when there are less than 7 enemies left.
+		Delay for first enemy: 35; delay between each enemy: 100
+		Enemies:
+			wamper
+			wamper
+		Item drops:
+			deadmous
+ 	*/
 	enemy_gen_script	{ 0, 0, 1, 2, -1, 8, 1, 1, 1, 6, 6, -1, 4, 0, 9, 0, 5, 1, 35, 100, 6, 3, 7, 1, 7, 10, 45, -1, -1 }	
 	VAR_51	10	
 	VAR_52	1	
@@ -184,7 +196,7 @@
 				 {
 						if(call is_char_handle_in_level(int 2752516))
 						 {
-								call func_f(var sentryg, int 131072)
+								call set_char_type(var sentryg, int 131072)
 								call func_46(var sentryg, int 13)
 								call func_2b(var sentryg, int 3)
 						}

@@ -54,7 +54,18 @@
 	VAR_75	{ 22, 0, 48, 0, 46, 1, -1 }	
 	init_position	{ -911, 600, -1513 }	
 	init_position1	{ 580, 600, 532 }	
-	VAR_82	-1	
+	VAR_82	""	
+	/* 
+		Interpretation of: enemy_gen_script
+
+		Enter from door: 1
+		Total waves: 5; 2 enemies generated in each wave.
+		Trigger wave when there are less than 6 enemies left.
+		Delay for first enemy: 100; delay between each enemy: 0
+		Enemies:
+			neutral_little_lizman
+			neutral_little_lizman
+ 	*/
 	enemy_gen_script	{ 0, 0, 1, -1, 8, 2, 4, 0, 9, 0, 1, 5, 192, 192, -1, 2, 2, 3, 2, 5, 0, 100, 7, 1, 6, 6, 1, -1 }	
 
 ._on_load
@@ -308,14 +319,14 @@
 ._SCRIPT_17
 	if(call func_bf(int 0, gamevar CURRENT_LEVEL, gamevar CURRENT_SCENE))
 	 {
-			call load_pos_from_room_memory(int 0, var &VAR_69)
+			call set_door_particle_effect(int 0, var &VAR_69)
 			var arr = var VAR_70
 			var VAR_58 = var VAR_71
 			var VAR_59 = var VAR_72
 	}
 	if(call func_bf(int 1, gamevar CURRENT_LEVEL, gamevar CURRENT_SCENE))
 	 {
-			call load_pos_from_room_memory(int 1, var &VAR_69)
+			call set_door_particle_effect(int 1, var &VAR_69)
 			var VAR_60 = var VAR_70
 			var VAR_61 = var VAR_71
 			var VAR_62 = var VAR_72

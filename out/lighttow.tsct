@@ -33,8 +33,49 @@
 	VAR_96	{ -6880, 1286, -2151, -7018, 796, -1436, -3033, 796, -2397, -2552, 796, 1396 }	
 	VAR_97	{ -6880, 1286, -2151, -7018, 796, -1436, -3033, 796, -2397, -2552, 796, 1396 }	
 	VAR_98	{ -6880, 1286, -2151, -7018, 796, -1436, -3033, 796, -2397, -2552, 796, 1396 }	
+	/* 
+		Interpretation of: enemy_gen_script
+
+		Generate at 4 positions from: VAR_96
+		Order of positions: Random
+		Total waves: 1; 1 enemies generated in each wave.
+		Trigger wave when there are less than 1 enemies left.
+		Delay for first enemy: 1; delay between each enemy: 50
+		Enemies:
+			orc
+		Item drops:
+			cheese
+ 	*/
 	enemy_gen_script	{ 0, 1, 4, VAR_96, 8, 2, 4, 0, 9, 1, 1, 1, 78, -1, 5, 1, 1, 50, 6, 1, 7, 1, 1, 10, 43, -1, -1 }	
+	/* 
+		Interpretation of: enemy_gen_script1
+
+		Generate at 4 positions from: VAR_97
+		Order of positions: Random
+		Total waves: 1; 1 enemies generated in each wave.
+		Trigger wave when there are less than 1 enemies left.
+		Delay for first enemy: 5; delay between each enemy: 50
+		Enemies:
+			ogre
+		Item drops:
+			apple
+
+ 	*/
 	enemy_gen_script1	{ 0, 1, 4, VAR_97, 8, 2, 4, 0, 9, 1, 1, 1, 76, -1, 5, 1, 5, 50, 6, 1, 7, 1, 1, 10, 40, -1, -1 }	
+	/* 
+		Interpretation of: enemy_gen_script2
+
+		Generate at 4 positions from: VAR_98
+		Order of positions: Random
+		Total waves: 1; 1 enemies generated in each wave.
+		Trigger wave when there are less than 1 enemies left.
+		Delay for first enemy: 5; delay between each enemy: 50
+		Enemies:
+			ronnie
+		Item drops:
+			bread
+
+ 	*/
 	enemy_gen_script2	{ 0, 1, 4, VAR_98, 8, 2, 4, 0, 9, 1, 1, 1, 77, -1, 5, 1, 5, 50, 6, 1, 7, 1, 1, 10, 42, -1, -1 }	
 	VAR_109	0	
 	VAR_110	{ 5, 10, 20, 16, VAR_109, 1, 8 }	
@@ -314,7 +355,7 @@
 				}
 				if(var VAR_23 > int 180)
 				 {
-						call func_f(var gonchfx, int 8)
+						call set_char_type(var gonchfx, int 8)
 						gamevar script_object = var gonchfx
 						gamevar *object_p+8 |= int 4194304
 						gamevar script_object = var DAVID
@@ -422,7 +463,7 @@
 
 ._SCRIPT_5
 	var gonchfx = call create_enemy(int 73, int 0, var &scroll_position, int 80)
-	call func_f(var gonchfx, int 131072)
+	call set_char_type(var gonchfx, int 131072)
 	gamevar script_object = var gonchfx
 	gamevar *object_p+8 |= int 4194304
 	call add_item_to_char(var gonchfx, int 76 /* goldring */ , int 1, int 0)
@@ -510,7 +551,7 @@
 					call func_28(var gonchfx)
 					gamevar script_object = var gonchfx
 					gamevar *object_p+6 |= int 1
-					call func_f(var gonchfx, int 131072)
+					call set_char_type(var gonchfx, int 131072)
 					gamevar script_object = var gonchfx
 					gamevar *object_p+8 |= int 4194304
 			}

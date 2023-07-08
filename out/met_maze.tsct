@@ -12,6 +12,19 @@
 ._DATA
 	VAR_8	{ -1338, 54, -1158, -1404, 54, -875, -687, 54, -870, -1721, 54, -955, -1836, 54, -1379, -1939, 54, -706 }	
 	VAR_9	{ -3163, 54, -590, -3345, 54, -1460 }	
+	/* 
+		Interpretation of: enemy_gen_script
+
+		Generate at 6 positions from: VAR_8
+		Order of positions: Random
+		Total waves: 2; 2 enemies generated in each wave.
+		Trigger wave when there are less than 2 enemies left.
+		Delay for first enemy: 15; delay between each enemy: 100
+		Enemies:
+			grow_sguard
+			grow_sguard
+			grow_sguard
+ 	*/
 	enemy_gen_script	{ 0, 1, 6, VAR_8, 8, 2, 1, 2, 33, 33, -1, 4, 0, 9, 1, 5, 1, 15, 100, 6, 2, 7, 1, 2, -1 }	
 	init_position	{ -438, 54, -994 }	
 	pie	{ 0, 0 }	

@@ -15,6 +15,20 @@
 	init_position1	{ -647, -1417, -281 }	
 	ai_script	{ 9, dick, 7, 8 }	
 	ai_script1	{ 7, 8 }	
+	/* 
+		Interpretation of: enemy_gen_script
+
+		Enter from door: 0
+		Total waves: 2; 2 enemies generated in each wave.
+		Trigger wave when there are less than 3 enemies left.
+		Delay for first enemy: 100; delay between each enemy: 150
+		Enemies:
+			muscles
+			finnegan
+		Item drops:
+			bread
+			cheese
+ 	*/
 	enemy_gen_script	{ 0, 0, 0, -1, 1, 2, 30, 32, -1, 7, 1, 3, 5, 1, 100, 150, 8, 1, 4, 0, 9, 1, 10, 42, 43, -1, -1 }	
 	VAR_36	{ 0, 0 }	
 	fx_position	{ -1700, 1000, 550 }	
@@ -91,8 +105,8 @@
 	call func_46(var dick, int 0)
 	call func_fe(var pirate_captain)
 	call func_fe(var dick)
-	call func_f(var pirate_captain, int 131072)
-	call func_f(var dick, int 131072)
+	call set_char_type(var pirate_captain, int 131072)
+	call set_char_type(var dick, int 131072)
 	if(call is_char_handle_in_level(int 65536 /* DAVID */ ))
 	 {
 			var DAVID1 = call get_char_handle(int 65536)
@@ -253,11 +267,11 @@
 				 {
 						if(var pirate_captain)
 						 {
-								call func_f(var pirate_captain, int 8)
+								call set_char_type(var pirate_captain, int 8)
 						}
 						if(var dick)
 						 {
-								call func_f(var dick, int 8)
+								call set_char_type(var dick, int 8)
 						}
 						if(var pirate_captain)
 						 {

@@ -14,7 +14,9 @@ typedef struct data_object {
     data_type type;
     bool ignore;
     bool was_renamed;
+    bool has_hint_comment;
     char* name;
+    char* hint_comment;
     byte* data;
     node** e_referees;
     node** c_referees;

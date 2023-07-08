@@ -9,6 +9,7 @@ bool game_functions_initialized = false;
 node* var_hint_names = NULL;
 code_pattern* enemy_gen_code_patterns[ENEMY_GEN_CP_NUM];
 
+
 void print_game_function(game_fun* gf) {
     printf("func_name: %s\n", gf->name);
     printf("func_params: %d\n", gf->params);

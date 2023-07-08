@@ -2,17 +2,14 @@
 
 game_var* init_gv(int id, char* name, char* desc, int first_off, int second_off, int third_off, int len) {
     game_var* gv = w_malloc(sizeof(game_var));
-    gv->name = w_malloc(strlen(name)*sizeof(char)+1);
-    gv->desc = w_malloc(strlen(desc)*sizeof(char));
+    gv->name = aapts(name);
+    gv->desc = aapts(desc);
 
     gv->id = id;
     gv->first_offset = first_off;
     gv->second_offset = second_off;
     gv->third_offset = third_off;
     gv->len = len;
-
-    memcpy(gv->name, name, strlen(name)*sizeof(char));
-    memcpy(gv->desc, desc, strlen(desc)*sizeof(char));
 
     return gv;
 }

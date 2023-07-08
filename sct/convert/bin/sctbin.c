@@ -449,7 +449,7 @@ char* create_enemy_gen_hint_comment(enemy_gen_script* egs, sct_f* sf) {
         }
     }
 
-    sprintf(hint, "\t/* \n%s%s%s%s%s%s%s%s%s%s \t*/\0", script_name, door, pos, dest, order, waves, trigger, delay, enemies, items);
+    sprintf(hint, "\t/* \n%s%s%s%s%s%s%s%s%s%s \t*/", script_name, door, pos, dest, order, waves, trigger, delay, enemies, items);
 
     return aapts(hint);
 }

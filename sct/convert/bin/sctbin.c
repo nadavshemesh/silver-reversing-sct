@@ -378,10 +378,11 @@ expression* bin_read_expression(void** tokens_pos_ptr, bool with_prologue, sct_f
 char* create_enemy_gen_hint_comment(enemy_gen_script* egs, sct_f* sf) {
     bool has_door = (egs->door != -1);
     bool has_pos = (egs->pos_var_id != -1);
+    bool has_dest = (egs->dest_var_id != -1);
     bool has_num_of_enemies_in_wave = (egs->num_of_enemies_in_each_wave > 0);
     bool has_enemies = (egs->num_of_enemies_in_list > 0);
     bool has_items = (egs->num_of_items_in_list > 0);
-    char hint[1024*5], script_name[256], door[64], pos[1024], waves[256], enemies[2048], items[2048], trigger[256], order[64], delay[256];
+    char hint[1024*5], script_name[256], door[64], pos[1024], dest[256], waves[256], enemies[2048], items[2048], trigger[256], order[64], delay[256];
     sprintf(script_name, "\t\tInterpretation of: %s\n\n", egs->enemy_gen_script_var_name);
     sprintf(delay, "\t\tDelay for first enemy: %d; delay between each enemy: %d\n", egs->delay_for_first_enemy, egs->delay_between_enemies);
     if(has_door) {
@@ -405,6 +406,12 @@ char* create_enemy_gen_hint_comment(enemy_gen_script* egs, sct_f* sf) {
                 break;
         }
         sprintf(order, "\t\tOrder of positions: %s\n", order_str);
+    }
+    if(has_dest) {
+        int id = egs->dest_var_id & 0x00FFFFFF;
+        data_obj* dao = get_data_obj_by_id(id, sf);
+        egs->dest_var_name = dao->name;
+        sprintf(dest, "\t\tDestination pos: %s\n", egs->dest_var_name);
     }
     if(has_num_of_enemies_in_wave)
         sprintf(waves, "\t\tTotal waves: %d; %d enemies generated in each wave.\n", egs->num_of_waves, egs->num_of_enemies_in_each_wave);
@@ -442,7 +449,7 @@ char* create_enemy_gen_hint_comment(enemy_gen_script* egs, sct_f* sf) {
         }
     }
 
-    sprintf(hint, "\t/* \n%s%s%s%s%s%s%s%s%s \t*/", script_name, door, pos, order, waves, trigger, delay, enemies, items);
+    sprintf(hint, "\t/* \n%s%s%s%s%s%s%s%s%s%s \t*/", script_name, door, pos, dest, order, waves, trigger, delay, enemies, items);
 
     return aapts(hint);
 }

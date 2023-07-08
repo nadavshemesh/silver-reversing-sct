@@ -122,7 +122,9 @@ enemy_gen_script* create_and_init_enemy_gen_script() {
     egs->door = -1;
     egs->num_of_positions = 0;
     egs->pos_var_id = -1;
+    egs->dest_var_id = -1;
     egs->pos_var_name = NULL;
+    egs->dest_var_name = NULL;
     egs->order = 0;
     egs->num_of_waves = 0;
     egs->num_of_enemies_in_list = 0;
@@ -341,6 +343,25 @@ code_pattern* create_6_cp() {
     return cp;
 }
 
+code_pattern* create_dest_cp() {
+    code_pattern* cp = create_and_init_code_pattern();
+
+    cp->name = aapts("enemy_gen_dest");
+    cp->bin_token_num = 4;
+    cp->bin_var_num = 1;
+    cp->type = DEST;
+
+    int tokens[] = { 4, 2, 1, -9 };
+    int var_pos[] = { 3 };
+
+    cp->bin_tokens = w_malloc(sizeof(int)*cp->bin_token_num);
+    cp->bin_var_pos = w_malloc(sizeof(int)*cp->bin_var_num);
+    memcpy(cp->bin_tokens, tokens, sizeof(int)*cp->bin_token_num);
+    memcpy(cp->bin_var_pos, var_pos, sizeof(int)*cp->bin_var_num);
+
+    return cp;
+}
+
 code_pattern* create_4_cp() {
     code_pattern* cp = create_and_init_code_pattern();
 
@@ -410,9 +431,10 @@ void init_enemy_gen_code_patterns() {
     enemy_gen_code_patterns[8] = create_item_drops_cp();
     enemy_gen_code_patterns[9] = create_3_cp();
     enemy_gen_code_patterns[10] = create_6_cp();
-    enemy_gen_code_patterns[11] = create_4_cp();
-    enemy_gen_code_patterns[12] = create_9_cp();
-    enemy_gen_code_patterns[13] = create_11_cp();
+    enemy_gen_code_patterns[11] = create_dest_cp();
+    enemy_gen_code_patterns[12] = create_4_cp();
+    enemy_gen_code_patterns[13] = create_9_cp();
+    enemy_gen_code_patterns[14] = create_11_cp();
 }
 
 
@@ -436,6 +458,11 @@ void identify_enemy_gen_structure(data_obj* gen_script, enemy_gen_script* egs, i
                 int pos_id = *((int*) res.vars+1);
                 egs->num_of_positions = num_of_pos;
                 egs->pos_var_id = pos_id;
+                break;
+            }
+            case DEST:{
+                int pos_id = *((int*) res.vars);
+                egs->dest_var_id = pos_id;
                 break;
             }
             case POS_ORDER:{

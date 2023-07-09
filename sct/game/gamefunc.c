@@ -637,9 +637,9 @@ void init_game_functions(game_fun** functions_arr) {
     functions_arr[0xd8]->name = aapts("load_pos_from_room_memory");
     functions_arr[0xd8]->params = 2;
     functions_arr[0xd8]->desc = aapts("(int id, var unpack_memory_location");
-    functions_arr[0xd8]->name = aapts("set_door_particle_effect");
-    functions_arr[0xd8]->params = 4;
-    functions_arr[0xd8]->desc = aapts("(int door_num, int intensity, int type [0, 1, 2 or 3], int time_length[-1 for inf]");
+    functions_arr[0x40]->name = aapts("set_door_particle_effect");
+    functions_arr[0x40]->params = 4;
+    functions_arr[0x40]->desc = aapts("(int door_num, int intensity, int type [0, 1, 2 or 3], int time_length[-1 for inf]");
     functions_arr[0x1c]->name = aapts("char_shoot_char");
     functions_arr[0x1c]->params = 2;
     functions_arr[0x1c]->desc = aapts("(var char1_ptr, var char2_ptr)");

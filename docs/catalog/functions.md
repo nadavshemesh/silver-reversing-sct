@@ -1,4 +1,4 @@
-# Game Functions (Incomplete, 93/313)
+# Game Functions (Incomplete, 94/313)
 ### Description
 The game function calls are the main ingredient in the scripts, thats how we actually use the game's inner logic.
          The important thing to remember is that these functions take arguments that are essential for the function to work properly.
@@ -30,6 +30,7 @@ The game function calls are the main ingredient in the scripts, thats how we act
 | 51 | [create_char_game_history_link](./func_refs/51.md) | 1 | (var char_ptr) | 3 |
 | 53 | [char_turn_to_pos](./func_refs/53.md) | 2 | (var char_ptr, var pos_ptr) | 416 |
 | 63 | [clear_char_waypoints](./func_refs/63.md) | 0 | () | 7 |
+| 64 | [set_door_particle_effect](./func_refs/64.md) | 4 | (int door_num, int intensity, int type [0, 1, 2 or 3], int time_length[-1 for inf] | 15 |
 | 67 | [kill_char](./func_refs/67.md) | 1 | (var char_ptr) | 9 |
 | 72 | [freeze_enemy](./func_refs/72.md) | 1 | (var char_ptr) | 158 |
 | 75 | [start_dialog](./func_refs/75.md) | 2 | (var start_dialog, var end_dialog) | 398 |
@@ -78,7 +79,7 @@ The game function calls are the main ingredient in the scripts, thats how we act
 | 206 | [log_var](./func_refs/206.md) | 1 | (var some_var) | 171 |
 | 211 | [randomize_int](./func_refs/211.md) | 2 | (int from, int to) | 854 |
 | 213 | [reset_local_timer](./func_refs/213.md) | 0 | () | 303 |
-| 216 | [set_door_particle_effect](./func_refs/216.md) | 4 | (int door_num, int intensity, int type [0, 1, 2 or 3], int time_length[-1 for inf] | 24 |
+| 216 | [load_pos_from_room_memory](./func_refs/216.md) | 2 | (int id, var unpack_memory_location | 24 |
 | 223 | [resume_conversation](./func_refs/223.md) | 0 | () | 100 |
 | 227 | [chars_face_opposite](./func_refs/227.md) | 2 | (var char1_ptr, var char2_ptr) | 18 |
 | 229 | [toggle_or_use_char_item](./func_refs/229.md) | 2 | (var char_ptr , var item_ptr) | 14 |
@@ -151,7 +152,6 @@ The game function calls are the main ingredient in the scripts, thats how we act
 | 60 | [func_3c](./func_refs/60.md) | - | - | 20 |
 | 61 | [func_3d](./func_refs/61.md) | - | - | 3 |
 | 62 | [func_3e](./func_refs/62.md) | - | - | 1 |
-| 64 | [func_40](./func_refs/64.md) | - | - | 15 |
 | 65 | [func_41](./func_refs/65.md) | - | - | 22 |
 | 66 | [func_42](./func_refs/66.md) | - | - | 72 |
 | 68 | [func_44](./func_refs/68.md) | - | - | 1 |

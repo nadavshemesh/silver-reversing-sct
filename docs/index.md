@@ -1,5 +1,5 @@
 # Docs
-Welcome to the docs, here i'll attempt to record all the nessicary information to let you understand this project.
+Welcome to the docs, here i'll attempt to record all the necessary information to let you understand this project.
 
 If you dont know what this project is about, check out the [Readme file](../readme.md)
 
